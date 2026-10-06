@@ -13,6 +13,6 @@ export function render(spec,p,colors){
   return `${edges}
     <circle cx="${cx}" cy="${cy}" r="92" fill="url(#dark)" stroke="${p.green}" stroke-width="3" filter="url(#shadow)"/>
     <text x="${cx}" y="${cy-8}" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">FEEDBACK</text>
-    ${textBlock(cx,cy+14,spec.flow_label,{size:10,fill:'#c4d4e2',weight:700,max:22,lines:2,lineHeight:12,anchor:'middle'})}
+    ${textBlock(cx,cy+12,spec.flow_label,{size:9.2,fill:'#c4d4e2',weight:700,max:22,lines:3,lineHeight:11,anchor:'middle'})}
     ${nodes}`;
 }
