@@ -19,7 +19,12 @@ if (final.accepted_image_identities_unchanged !== true) throw new Error('accepte
 if (final.image_verification.length !== 6 || !final.image_verification.every(x => x.verified)) {
   throw new Error('six exact images were not verified');
 }
-if (final.published_render.verified !== true) throw new Error('published rendered artifact was not verified');
+if (final.published_render.semantic_identity_verified !== true) {
+  throw new Error('published reader semantic identity was not verified');
+}
+if (final.published_render.reader_story_order.length !== 6) {
+  throw new Error('published reader does not preserve all six story identities');
+}
 
 for (const [name, value] of Object.entries(final.counters)) {
   if (value !== 0) throw new Error(`${name} must equal zero`);
