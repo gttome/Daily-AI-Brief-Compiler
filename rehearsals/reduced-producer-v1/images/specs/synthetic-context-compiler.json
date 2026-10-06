@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "synthetic-context-compiler",
+  "grammar": "pipeline",
+  "title": "Context Compiler",
+  "subtitle": "Validated evidence becomes a bounded generation packet",
+  "nodes": [
+    {
+      "id": "n1",
+      "label": "Candidate evidence",
+      "detail": "Collect claims and source metadata from fixture inputs"
+    },
+    {
+      "id": "n2",
+      "label": "Provenance gate",
+      "detail": "Check origin, date, and traceability before use"
+    },
+    {
+      "id": "n3",
+      "label": "Claim filter",
+      "detail": "Reject unsupported or redundant evidence fragments"
+    },
+    {
+      "id": "n4",
+      "label": "Normalize facts",
+      "detail": "Convert accepted claims into consistent evidence units"
+    },
+    {
+      "id": "n5",
+      "label": "Budget context",
+      "detail": "Prioritize useful evidence within a bounded packet"
+    },
+    {
+      "id": "n6",
+      "label": "Emit context",
+      "detail": "Hand a validated packet to the generation stage",
+      "emphasis": true
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Boundary",
+      "detail": "Generation never sees evidence that failed validation"
+    },
+    {
+      "label": "Traceability",
+      "detail": "Each accepted unit retains source and date metadata"
+    },
+    {
+      "label": "Determinism",
+      "detail": "The same accepted inputs yield the same context packet"
+    }
+  ],
+  "flow_label": "Evidence intake to bounded context",
+  "footer": "Synthetic fixture — mechanism rehearsal only"
+}
