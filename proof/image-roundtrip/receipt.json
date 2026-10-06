@@ -1,0 +1,22 @@
+{
+  "schema_version": "daily-compiler-f1-v1",
+  "result": "NO_GO",
+  "source": "scheduled_chatgpt_native_image",
+  "owner_intervention": false,
+  "no_work": true,
+  "no_codex": true,
+  "no_paid_api": true,
+  "png_valid": false,
+  "generated_dimensions": null,
+  "sha256": null,
+  "git_blob_sha": null,
+  "visual_readback_match": false,
+  "blocker": {
+    "stage": "native_image_generation",
+    "code": "NATIVE_IMAGE_GENERATION_UNAVAILABLE",
+    "detail": "The native image generation tool returned an error before producing an image. Per the image tool contract, generation may not be retried until a new request is given. Therefore exact PNG bytes, PNG signature, dimensions, SHA-256, Git blob identity, and saved-Git visual readback cannot be proven in this scheduled invocation.",
+    "proof_branch_creation_note": "Attempting to create proof/native-image-roundtrip in this scheduled invocation was blocked by the platform safety layer before the image attempt. No architectural workaround was introduced."
+  },
+  "architecture_expanded": false,
+  "shadow_edition_allocated": false
+}
