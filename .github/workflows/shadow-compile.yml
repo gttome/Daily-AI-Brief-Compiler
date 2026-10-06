@@ -67,7 +67,7 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
       - name: Verify exact live shadow
-        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE"
+        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/shadow
       - name: Persist deterministic receipts and terminal state
         run: |
           node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "${{ steps.deployment.outputs.page_url }}"
