@@ -10,6 +10,32 @@ function fail(message) { throw new Error(message); }
 function esc(s='') {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
 }
+function wrapLines(value, maxChars=28, maxLines=2) {
+  const words=String(value).trim().split(/\s+/);
+  const lines=[];
+  let line='';
+  for (const word of words) {
+    const candidate=line ? line+' '+word : word;
+    if (candidate.length <= maxChars) {
+      line=candidate;
+    } else {
+      if (line) lines.push(line);
+      line=word;
+      if (lines.length === maxLines-1) break;
+    }
+  }
+  if (line && lines.length < maxLines) lines.push(line);
+  const consumed=lines.join(' ').length;
+  if (String(value).trim().length > consumed && lines.length) {
+    lines[lines.length-1]=lines[lines.length-1].replace(/[.…]*$/,'')+'…';
+  }
+  return lines;
+}
+function textBlock(x,y,value,{size=10.5,fill='#566d83',weight=400,maxChars=28,maxLines=2,lineHeight=12,anchor='start'}={}) {
+  const lines=wrapLines(value,maxChars,maxLines);
+  return `<text x="${x}" y="${y}" font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="${anchor}">${lines.map((line,i)=>`<tspan x="${x}" dy="${i===0?0:lineHeight}">${esc(line)}</tspan>`).join('')}</text>`;
+}
+
 function requireText(name, value, max=120) {
   if (typeof value !== 'string' || !value.trim()) fail(`${name} must be non-empty text`);
   if (value.length > max) fail(`${name} exceeds ${max} chars`);
@@ -110,7 +136,7 @@ function producerItems() {
         <circle cx="105" cy="${y+29}" r="15" fill="${c}" opacity=".15"/>
         <circle cx="105" cy="${y+29}" r="7" fill="${c}"/>
         <text x="130" y="${y+24}" font-size="15" font-weight="700" fill="${palette.ink}">${esc(item.label)}</text>
-        <text x="130" y="${y+43}" font-size="11.5" fill="#49647e">${esc(item.detail)}</text>
+        ${textBlock(130,y+39,item.detail,{size:9.8,fill:'#49647e',maxChars:30,maxLines:2,lineHeight:11})}
       </g>`;
   }).join('');
 }
@@ -139,7 +165,7 @@ function compilerStages() {
         <rect x="894" y="${y+13}" width="34" height="32" rx="8" fill="${c}" opacity=".93"/>
         <text x="911" y="${y+35}" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">${i+1}</text>
         <text x="941" y="${y+24}" font-size="15" font-weight="700" fill="#fff">${esc(item.label)}</text>
-        <text x="941" y="${y+43}" font-size="11.5" fill="#bdd0df">${esc(item.detail)}</text>
+        ${textBlock(941,y+39,item.detail,{size:9.7,fill:'#bdd0df',maxChars:28,maxLines:2,lineHeight:11})}
       </g>`;
   }).join('');
 }
@@ -154,7 +180,7 @@ function evidenceItems() {
         <circle cx="${x+22}" cy="546" r="8" fill="${c}"/>
         <path d="M${x+18},546 l3,3 l6,-7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         <text x="${x+38}" y="548" font-size="12.5" font-weight="700" fill="${palette.ink}">${esc(item.label)}</text>
-        <text x="${x+16}" y="570" font-size="9.6" fill="#566d83">${esc(item.detail)}</text>
+        ${textBlock(x+16,563,item.detail,{size:8.5,fill:'#566d83',maxChars:24,maxLines:2,lineHeight:10})}
       </g>`;
   }).join('');
 }
@@ -172,7 +198,7 @@ ${defs}
 <g font-family="DejaVu Sans, Arial, sans-serif">
   <rect x="42" y="112" width="306" height="382" rx="28" fill="url(#bluePanel)" stroke="#77b4e6" stroke-width="2" filter="url(#shadow)"/>
   <rect x="58" y="126" width="274" height="42" rx="13" fill="${palette.navy}"/>
-  <text x="195" y="153" text-anchor="middle" font-size="19" font-weight="800" fill="#fff">${esc(spec.producer.title)}</text>
+  <text x="195" y="153" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">${esc(spec.producer.title)}</text>
   ${producerItems()}
   <path d="M320 199 C365 199, 375 215, 408 235" fill="none" stroke="${palette.blue}" stroke-width="5" opacity=".22"/>
   <path d="M320 271 C370 271, 378 270, 415 280" fill="none" stroke="${palette.green}" stroke-width="5" opacity=".22"/>
@@ -200,7 +226,7 @@ ${defs}
 <g font-family="DejaVu Sans, Arial, sans-serif">
   <rect x="852" y="112" width="306" height="382" rx="28" fill="#eaf0f6" stroke="#9fb5c9" stroke-width="2" filter="url(#shadow)"/>
   <rect x="868" y="126" width="274" height="42" rx="13" fill="${palette.navy}"/>
-  <text x="1005" y="153" text-anchor="middle" font-size="19" font-weight="800" fill="#fff">${esc(spec.compiler.title)}</text>
+  <text x="1005" y="153" text-anchor="middle" font-size="16.5" font-weight="800" fill="#fff">${esc(spec.compiler.title)}</text>
   ${compilerStages()}
 </g>
 
