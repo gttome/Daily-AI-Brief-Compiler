@@ -1,0 +1,62 @@
+name: shadow-compile
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  select:
+    runs-on: ubuntu-latest
+    outputs:
+      branch: ${{ steps.ready.outputs.branch }}
+      ref: ${{ steps.ready.outputs.ref }}
+      date: ${{ steps.ready.outputs.date }}
+      bundle_digest: ${{ steps.ready.outputs.bundle_digest }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: git fetch origin '+refs/heads/shadow/*:refs/remotes/origin/shadow/*' || true
+      - id: ready
+        run: node scripts/find-ready-shadow-run.mjs >> "$GITHUB_OUTPUT"
+
+  compile-deploy:
+    needs: select
+    if: needs.select.outputs.branch != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check out semantic branch as worktree
+        run: |
+          git fetch origin "${{ needs.select.outputs.branch }}:${{ needs.select.outputs.branch }}"
+          git worktree add run "${{ needs.select.outputs.branch }}"
+      - name: Compile exact BUNDLE_READY state
+        run: |
+          node compiler/compile.mjs             --state "run/shadow-runs/${{ needs.select.outputs.date }}/compiler-state.json"             --bundle "run/shadow-runs/${{ needs.select.outputs.date }}/edition-bundle.json"             --out build/shadow             --repo-root run
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/shadow
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify exact live shadow
+        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "${{ needs.select.outputs.date }}"
+      - name: Persist deterministic receipts and terminal state
+        run: |
+          node scripts/finalize-shadow-state.mjs run "${{ needs.select.outputs.date }}" "${{ steps.deployment.outputs.page_url }}"
+          git -C run config user.name "Daily Compiler"
+          git -C run config user.email "actions@users.noreply.github.com"
+          git -C run add "shadow-runs/${{ needs.select.outputs.date }}"
+          git -C run commit -m "Verify shadow edition ${{ needs.select.outputs.date }}"
+          git -C run push origin HEAD:"${{ needs.select.outputs.branch }}"

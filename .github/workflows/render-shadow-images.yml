@@ -1,0 +1,41 @@
+name: render-shadow-images
+
+on:
+  push:
+    branches:
+      - 'shadow/**'
+      - 'rehearsal/**'
+    paths:
+      - 'shadow-runs/**/images/specs/**'
+      - 'rehearsals/**/images/specs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-images-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save sharp@0.34.4
+      - run: node scripts/render-pending-images.mjs
+      - name: Persist exact rendered assets
+        run: |
+          git config user.name "Daily Compiler Diagram Renderer"
+          git config user.email "actions@users.noreply.github.com"
+          git add rehearsals 2>/dev/null || true\n          git add shadow-runs 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No new deterministic render outputs"
+            exit 0
+          fi
+          git commit -m "Render deterministic story diagrams"
+          git push origin HEAD:"${GITHUB_REF_NAME}"
