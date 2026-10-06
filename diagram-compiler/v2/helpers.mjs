@@ -61,7 +61,7 @@ export function card(p,colors,x,y,w,h,node,i,dark=false){
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="15" fill="${fill}" stroke="${c}" stroke-width="2"/>
     <rect x="${x}" y="${y}" width="10" height="${h}" rx="5" fill="${c}"/>
     <text x="${x+24}" y="${y+27}" font-size="14.5" font-weight="800" fill="${title}">${esc(node.label)}</text>
-    ${textBlock(x+24,y+45,node.detail,{size:9.5,fill:detail,max:Math.floor(w/7),lines:2,lineHeight:11})}
+    ${textBlock(x+24,y+43,node.detail,{size:8.9,fill:detail,max:Math.floor(w/6.7),lines:3,lineHeight:10})}
   </g>`;
 }
 
