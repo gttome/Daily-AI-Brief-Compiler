@@ -1,33 +1,63 @@
 {
-  "schema_version": "daily-compiler-feasibility-gates-v1",
-  "recorded_at": "2026-10-06T17:01:15Z",
+  "schema_version": "daily-compiler-feasibility-gates-v2",
+  "recorded_at": "2026-10-06T18:30:00Z",
   "repository": "gttome/Daily-AI-Brief-Compiler",
   "mode": "BOOTSTRAP",
   "F0_scheduled_repo_write": {
     "result": "PASS",
     "proof_branch": "proof/scheduled-producer-write",
     "proof_path": "proof/scheduled-write.json",
-    "semantic_payload": {
-      "result": "PASS",
-      "source": "scheduled_chatgpt",
-      "owner_intervention": false
-    }
+    "owner_intervention": false
   },
-  "F1_native_image_roundtrip": {
-    "result": "NO_GO",
-    "proof_path": "proof/image-roundtrip/receipt.json",
-    "proof_commit": "61d3a977dcf7b2eb8ca4feeb78e7449e43657681",
-    "blocker_code": "NATIVE_IMAGE_GENERATION_UNAVAILABLE",
-    "blocker_stage": "native_image_generation",
+  "F1_original_native_image_path": {
+    "result": "FAIL_REPLACED",
+    "historical_combined_probe": {
+      "result": "NO_GO",
+      "proof_path": "proof/image-roundtrip/receipt.json",
+      "blocker_code": "NATIVE_IMAGE_GENERATION_UNAVAILABLE"
+    },
+    "decomposed_exact_byte_probe": {
+      "result": "FAIL",
+      "proof_branch": "experiment/f1-decomposed-native-image",
+      "proof_path": "proof/f1b/result.json",
+      "blocker_code": "PRIOR_GENERATED_IMAGE_EXACT_BYTES_NOT_ACCESSIBLE"
+    },
+    "disposition": "Replaced only the native-image byte-transfer boundary; did not add legacy image orchestration."
+  },
+  "F1R_proposal1r_image_path": {
+    "result": "PASS",
+    "architecture": "Scheduled semantic diagram spec -> deterministic GitHub professional renderer -> scheduled exact-persisted-PNG visual review",
+    "F1D_scheduled_diagram_spec": "PASS",
+    "F1R_deterministic_png_render": "PASS",
+    "F1V_exact_persisted_png_visual_review": "PASS",
+    "proof_branch": "experiment/proposal1r-deterministic-diagram",
+    "png_sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+    "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
     "owner_intervention": false,
-    "architecture_expanded": false
+    "low_quality_fallback_used": false
   },
   "F2_deterministic_compiler_trigger": {
-    "result": "NOT_RUN",
-    "reason": "F1 is a mandatory hard-stop feasibility gate; F2 is not authorized after F1 NO_GO."
+    "result": "PASS",
+    "proof_branch": "experiment/f2-bundle-ready-autocompile",
+    "workflow_run_id": 37511575112,
+    "fixture_head_sha": "9e5f5631adaa25151409ecde0160580521459c8e",
+    "result_commit_sha": "68497123992999d15cca5d2a26636b31761ad499",
+    "receipt_path": "proof/f2/result/receipt.json",
+    "chatgpt_involved_after_fixture_commit": false,
+    "owner_intervention": false
   },
-  "daily_compiler_development_authorized": false,
+  "constraints": {
+    "work_required": false,
+    "codex_required": false,
+    "paid_api_required": false,
+    "owner_upload_required": false,
+    "supervisor_required": false,
+    "watchdog_required": false,
+    "lease_system_required": false
+  },
+  "daily_compiler_development_authorized": true,
   "shadow_edition_allocation_authorized": false,
-  "required_next_action": "Stop the Daily Compiler architecture experiment unless the native scheduled image-generation capability becomes available under the original zero-owner-intervention and zero-paid-API constraints.",
+  "authorized_architecture": "Proposal 1R — Daily Compiler with deterministic professional diagram compiler",
+  "required_next_action": "Continue full Daily Compiler development from the post-feasibility implementation sequence. Keep production isolated. Do not allocate the first real shadow edition until development, rehearsal, recovery, isolation, cost, and complexity gates pass.",
   "production_repository_mutated": false
 }
