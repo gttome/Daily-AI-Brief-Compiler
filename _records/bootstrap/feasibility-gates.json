@@ -1,0 +1,33 @@
+{
+  "schema_version": "daily-compiler-feasibility-gates-v1",
+  "recorded_at": "2026-10-06T17:01:15Z",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "mode": "BOOTSTRAP",
+  "F0_scheduled_repo_write": {
+    "result": "PASS",
+    "proof_branch": "proof/scheduled-producer-write",
+    "proof_path": "proof/scheduled-write.json",
+    "semantic_payload": {
+      "result": "PASS",
+      "source": "scheduled_chatgpt",
+      "owner_intervention": false
+    }
+  },
+  "F1_native_image_roundtrip": {
+    "result": "NO_GO",
+    "proof_path": "proof/image-roundtrip/receipt.json",
+    "proof_commit": "61d3a977dcf7b2eb8ca4feeb78e7449e43657681",
+    "blocker_code": "NATIVE_IMAGE_GENERATION_UNAVAILABLE",
+    "blocker_stage": "native_image_generation",
+    "owner_intervention": false,
+    "architecture_expanded": false
+  },
+  "F2_deterministic_compiler_trigger": {
+    "result": "NOT_RUN",
+    "reason": "F1 is a mandatory hard-stop feasibility gate; F2 is not authorized after F1 NO_GO."
+  },
+  "daily_compiler_development_authorized": false,
+  "shadow_edition_allocation_authorized": false,
+  "required_next_action": "Stop the Daily Compiler architecture experiment unless the native scheduled image-generation capability becomes available under the original zero-owner-intervention and zero-paid-API constraints.",
+  "production_repository_mutated": false
+}
