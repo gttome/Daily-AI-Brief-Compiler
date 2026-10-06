@@ -36,6 +36,7 @@ for(const root of roots){
     if(fs.existsSync(receiptPath)){
       const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
       if(receipt.result==='PASS' &&
+         receipt.renderer==='proposal1r-grammar-set-v2.2' &&
          receipt.source_spec_sha256===sha256(specText) &&
          fs.existsSync(path.join(outDir,'proof.png'))){
         skipped++;

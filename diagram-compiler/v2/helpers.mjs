@@ -3,20 +3,27 @@ import crypto from 'node:crypto';
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
 
 export function wrap(value,max=28,lines=2){
-  const words=String(value??'').trim().split(/\s+/);
-  const out=[]; let line='';
-  for(const word of words){
-    const next=line?line+' '+word:word;
-    if(next.length<=max) line=next;
-    else {
-      if(line) out.push(line);
-      line=word;
-      if(out.length===lines-1) break;
+  const words=String(value??'').trim().split(/\s+/).filter(Boolean);
+  const out=[];
+  let index=0;
+  while(index<words.length && out.length<lines){
+    let line='';
+    while(index<words.length){
+      const next=line?line+' '+words[index]:words[index];
+      if(next.length<=max){
+        line=next;
+        index++;
+        continue;
+      }
+      break;
     }
+    if(!line && index<words.length){
+      line=words[index].slice(0,Math.max(1,max-1))+'…';
+      index++;
+    }
+    if(line) out.push(line);
   }
-  if(line&&out.length<lines) out.push(line);
-  const consumed=out.join(' ').length;
-  if(String(value??'').trim().length>consumed&&out.length){
+  if(index<words.length && out.length){
     out[out.length-1]=out[out.length-1].replace(/[…\.]*$/,'')+'…';
   }
   return out;
@@ -61,7 +68,7 @@ export function card(p,colors,x,y,w,h,node,i,dark=false){
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="15" fill="${fill}" stroke="${c}" stroke-width="2"/>
     <rect x="${x}" y="${y}" width="10" height="${h}" rx="5" fill="${c}"/>
     <text x="${x+24}" y="${y+27}" font-size="14.5" font-weight="800" fill="${title}">${esc(node.label)}</text>
-    ${textBlock(x+24,y+45,node.detail,{size:9.5,fill:detail,max:Math.floor(w/7),lines:2,lineHeight:11})}
+    ${textBlock(x+24,y+43,node.detail,{size:8.9,fill:detail,max:Math.floor(w/6.7),lines:3,lineHeight:10})}
   </g>`;
 }
 
