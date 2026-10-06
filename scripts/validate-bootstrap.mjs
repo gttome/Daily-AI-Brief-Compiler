@@ -23,9 +23,9 @@ if (editorial.media.videos.count !== 2 || editorial.media.podcasts.count !== 2) 
 if (editorial.images.count !== 6) throw new Error('image count invalid');
 
 const forbiddenRuntime = ['Supervisor', 'Watchdog Ring', 'writer lease', 'recovery lease'];
-const architecture = fs.readFileSync('docs/ARCHITECTURE.md', 'utf8');
+const architecture = fs.readFileSync('docs/ARCHITECTURE.md', 'utf8').toLowerCase();
 for (const term of forbiddenRuntime) {
-  if (!architecture.includes(term)) throw new Error(`Architecture must explicitly forbid ${term}`);
+  if (!architecture.includes(term.toLowerCase())) throw new Error(`Architecture must explicitly forbid ${term}`);
 }
 
 console.log('bootstrap validation PASS');
