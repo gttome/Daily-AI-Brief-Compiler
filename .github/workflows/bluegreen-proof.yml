@@ -1,0 +1,44 @@
+name: blue-green-state-portability-proof
+
+on:
+  push:
+    branches:
+      - 'experiment/blue-green-state-portability'
+    paths:
+      - 'bluegreen-proof/**'
+      - '.github/workflows/bluegreen-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Engine BLUE to durable midway checkpoint
+        run: node bluegreen-proof/engine-blue.mjs
+
+      - name: Prove BLUE checkpoint exists before failover
+        run: |
+          test -s bluegreen-proof/proof-output/checkpoint.json
+          cat bluegreen-proof/proof-output/checkpoint.json
+
+      - name: Resume same state using Engine GREEN
+        run: node bluegreen-proof/engine-green.mjs
+
+      - name: Verify exact state portability
+        run: node bluegreen-proof/verify-proof.mjs
+
+      - name: Upload proof receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: blue-green-state-portability-proof
+          path: bluegreen-proof/proof-output/
+          if-no-files-found: error
