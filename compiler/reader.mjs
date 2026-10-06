@@ -11,6 +11,12 @@ const routeSlug=story=>{
   return bits.length ? bits[bits.length-1] : story.id;
 };
 
+const assetFilename=image=>{
+  const ext=path.extname(image.path)||'.png';
+  const safe=String(image.story_id||'story').replace(/[^a-zA-Z0-9._-]+/g,'-');
+  return safe+ext;
+};
+
 const ratingMarkup=storyId=>`
 <div class="engagement" data-story-engagement="${esc(storyId)}">
   <div class="rating" aria-label="Rate usefulness for this story">
@@ -35,7 +41,7 @@ const sourceDate=story=>story.source?.published_at ? ` · ${esc(String(story.sou
 const storyCard=(bundle,story,prefix)=>{
   const image=bundle.images.find(i=>i.story_id===story.id);
   const slug=routeSlug(story);
-  const img=image ? `${prefix}assets/${bundle.edition_date}/${path.basename(image.path)}` : '';
+  const img=image ? `${prefix}assets/${bundle.edition_date}/${assetFilename(image)}` : '';
   const href=`${prefix}stories/${bundle.edition_date}/${slug}/`;
   return `
 <article class="story-card">
@@ -184,7 +190,7 @@ section#media,section#watchlist{padding:22px;margin-top:24px}section h2{margin-t
 
 const storyPage=(bundle,story)=>{
   const image=bundle.images.find(i=>i.story_id===story.id);
-  const img=`../../../assets/${bundle.edition_date}/${path.basename(image.path)}`;
+  const img=`../../../assets/${bundle.edition_date}/${assetFilename(image)}`;
   const books=bundle.book_mappings.filter(b=>b.story_id===story.id);
   const learning=books.map(b=>`
   <section class="learning">
@@ -223,7 +229,7 @@ export function buildReaderSite({validation,outDir,repoRoot='.'}){
   for(const dir of [editionDir,latestDir,storyRoot,assetDir,archiveDir]) fs.mkdirSync(dir,{recursive:true});
 
   for(const image of bundle.images){
-    fs.copyFileSync(path.resolve(repoRoot,image.path),path.join(assetDir,path.basename(image.path)));
+    fs.copyFileSync(path.resolve(repoRoot,image.path),path.join(assetDir,assetFilename(image)));
   }
 
   fs.writeFileSync(path.join(editionDir,'index.html'),shell('Daily AI Brief '+bundle.edition_date,editionBody(bundle,'../../')));
@@ -274,7 +280,7 @@ export function buildReaderSite({validation,outDir,repoRoot='.'}){
     routes,
     images:validation.imageEvidence.map(e=>({
       story_id:e.story_id,
-      asset:`assets/${bundle.edition_date}/${path.basename(e.path)}`,
+      asset:`assets/${bundle.edition_date}/${assetFilename(e)}`,
       sha256:e.sha256,
       git_blob_sha:e.git_blob_sha
     })),
