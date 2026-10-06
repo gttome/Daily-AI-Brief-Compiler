@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "Daily Compiler Diagram Renderer"
           git config user.email "actions@users.noreply.github.com"
-          git add shadow-runs rehearsals 2>/dev/null || true
+          git add rehearsals 2>/dev/null || true\n          git add shadow-runs 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No new deterministic render outputs"
             exit 0
