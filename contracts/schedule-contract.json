@@ -1,0 +1,22 @@
+{
+  "schema_version": "daily-compiler-schedule-contract-v1",
+  "timezone": "America/Chicago",
+  "activation_gate": "ITEM_32_AUTHORIZED",
+  "schedules": [
+    {"title":"Daily Compiler Primary","role":"primary","time":"19:15","may_allocate":true},
+    {"title":"Daily Compiler Recovery 1","role":"recovery","time":"21:15","may_allocate":false},
+    {"title":"Daily Compiler Recovery 2","role":"recovery","time":"01:15","may_allocate":false},
+    {"title":"Daily Compiler Recovery 3","role":"recovery","time":"05:15","may_allocate":false}
+  ],
+  "rules": {
+    "primary_count": 1,
+    "recovery_count": 3,
+    "continuous_monitoring": false,
+    "supervisor": false,
+    "watchdog_ring": false,
+    "owner_liveness_prompt": false,
+    "work": false,
+    "codex": false,
+    "paid_model_api": false
+  }
+}
