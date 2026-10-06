@@ -50,7 +50,7 @@ test('fixture compiles to complete verified reader site without ChatGPT after BU
   assert.match(edition,/Emerging AI Watchlist/);
   assert.match(edition,/Updated — what changed today/);
   assert.equal((edition.match(/Related coverage:/g)||[]).length,6);
-  assert.equal((edition.match(/data-share-count=/g)||[]).length,6);
+  assert.equal((edition.match(/<span class="share-count" data-share-count=/g)||[]).length,6);
   assert.doesNotMatch(edition,/<img[^>]+alt=""/);
   assert.doesNotMatch(edition,/Original Commentary|What do stars mean/);
 
