@@ -1,0 +1,24 @@
+{
+  "schema_version": "daily-compiler-development-blocker-v1",
+  "phase": "C",
+  "recorded_from_workflow_run": 37513273522,
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "result": "BLOCKED_EXTERNAL_CONFIGURATION",
+  "completed_before_blocker": [
+    "fixture_contract_validation",
+    "fixture_reader_build",
+    "local_deterministic_verification"
+  ],
+  "blocker": {
+    "code": "GITHUB_PAGES_NOT_ENABLED_AND_APP_CANNOT_ENABLE",
+    "step": "actions/configure-pages@v5",
+    "detail": "Pages site was not found; enablement=true then failed with Resource not accessible by integration."
+  },
+  "required_one_time_repository_setup": [
+    "Settings -> Pages -> Build and deployment -> Source: GitHub Actions",
+    "Protect main: require pull requests, require compiler-validation, prohibit force pushes, prohibit branch deletion"
+  ],
+  "normal_execution_owner_intervention_required": false,
+  "production_repository_mutated": false,
+  "shadow_edition_allocation_authorized": false
+}

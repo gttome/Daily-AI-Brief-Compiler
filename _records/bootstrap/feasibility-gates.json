@@ -1,0 +1,45 @@
+{
+  "schema_version": "daily-compiler-feasibility-gates-v2",
+  "recorded_at": "2026-10-06T18:30:00Z",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "mode": "BOOTSTRAP_PROPOSAL_1R",
+  "F0_scheduled_repo_write": {
+    "result": "PASS",
+    "proof_branch": "proof/scheduled-producer-write",
+    "proof_path": "proof/scheduled-write.json",
+    "owner_intervention": false
+  },
+  "F1_original_native_image_roundtrip": {
+    "result": "NO_GO",
+    "proof_path": "proof/image-roundtrip/receipt.json",
+    "blocker_code": "NATIVE_IMAGE_GENERATION_UNAVAILABLE",
+    "disposition": "Retired for Proposal 1R; no workaround or legacy image transport was introduced."
+  },
+  "F1R_proposal1r_image_path": {
+    "result": "PASS",
+    "F1D_semantic_diagram_spec": "PASS",
+    "F1R_deterministic_png_render": "PASS",
+    "F1V_exact_persisted_png_visual_review": "PASS",
+    "proof_paths": [
+      "proof/f1d/diagram-spec.json",
+      "proof/f1r/receipt.json",
+      "proof/f1v/result.json"
+    ],
+    "png_sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+    "owner_intervention": false
+  },
+  "F2_deterministic_compiler_trigger": {
+    "result": "PASS",
+    "workflow_run_id": 37511575112,
+    "proof_branch": "experiment/f2-bundle-ready-autocompile",
+    "proof_path": "proof/f2/result/receipt.json",
+    "autonomous_result_commit": "68497123992999d15cca5d2a26636b31761ad499",
+    "chatgpt_involved_after_fixture_commit": false,
+    "owner_intervention": false
+  },
+  "daily_compiler_development_authorized": true,
+  "authorized_architecture": "Proposal 1R",
+  "shadow_edition_allocation_authorized": false,
+  "production_repository_mutated": false,
+  "next_phase": "Implement and qualify state/bundle contracts plus the minimal deterministic compiler before any live shadow edition."
+}
