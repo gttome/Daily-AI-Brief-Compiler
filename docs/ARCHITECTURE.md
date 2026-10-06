@@ -19,10 +19,10 @@ Stages 1–4 are semantic producer work. Stages 5–6 are GitHub-only.
 
 - Primary semantic producer: 1
 - Scheduled recovery invocations: max 3
-- Supervisors: 0
-- Watchdogs: 0
-- Writer leases: 0
-- Recovery leases: 0
+- Supervisor: 0
+- Watchdog Ring: 0
+- Writer lease: 0
+- Recovery lease: 0
 - Worker pools: 0
 - Runtime repair workflows: 0
 - AI health polling: 0
