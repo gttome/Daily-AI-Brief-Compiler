@@ -3,20 +3,27 @@ import crypto from 'node:crypto';
 export const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
 
 export function wrap(value,max=28,lines=2){
-  const words=String(value??'').trim().split(/\s+/);
-  const out=[]; let line='';
-  for(const word of words){
-    const next=line?line+' '+word:word;
-    if(next.length<=max) line=next;
-    else {
-      if(line) out.push(line);
-      line=word;
-      if(out.length===lines-1) break;
+  const words=String(value??'').trim().split(/\s+/).filter(Boolean);
+  const out=[];
+  let index=0;
+  while(index<words.length && out.length<lines){
+    let line='';
+    while(index<words.length){
+      const next=line?line+' '+words[index]:words[index];
+      if(next.length<=max){
+        line=next;
+        index++;
+        continue;
+      }
+      break;
     }
+    if(!line && index<words.length){
+      line=words[index].slice(0,Math.max(1,max-1))+'…';
+      index++;
+    }
+    if(line) out.push(line);
   }
-  if(line&&out.length<lines) out.push(line);
-  const consumed=out.join(' ').length;
-  if(String(value??'').trim().length>consumed&&out.length){
+  if(index<words.length && out.length){
     out[out.length-1]=out[out.length-1].replace(/[…\.]*$/,'')+'…';
   }
   return out;
