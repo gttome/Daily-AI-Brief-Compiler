@@ -20,7 +20,9 @@ IMAGES uses Proposal 1R. For each story, persist one semantic diagram specificat
 
 Accepted images are immutable. Never regenerate or replace an accepted image during recovery.
 
-BUNDLE assembles `shadow-runs/YYYY-MM-DD/edition-bundle.json`. Set state to `BUNDLE_READY` only after the exact bundle digest is calculated and persisted. After `BUNDLE_READY`, ChatGPT performs no deterministic compilation or publication work.
+BUNDLE assembles `shadow-runs/YYYY-MM-DD/edition-bundle.json`. The bundle is a lossless projection of the already persisted semantic outputs, not a summary of them. Preserve every reader-required story field (source dates, topics, coverage labels, related coverage, image alt intent, permanent route), every media field (source, date, focus where applicable, duration, summary, Why it matters, verification, podcast written reading time), Watchlist evidence and dropped-topic rationale, all book mapping fields (concept/chapter, connection, what to study next), and the exact six accepted image identities and review hashes. Do not omit fields merely because the deterministic compiler could infer them from another file.
+
+Set state to `BUNDLE_READY` only after the complete bundle has been checked against the current editorial/product contract, the exact bundle digest is calculated, and that digest is persisted. After `BUNDLE_READY`, ChatGPT performs no deterministic compilation or publication work.
 
 ## Diagram specification v2
 

@@ -1,0 +1,48 @@
+name: real-rehearsal-reader-contract-proof
+
+on:
+  push:
+    branches:
+      - implementation/final-audits-25-31
+    paths:
+      - 'proof/reader-contract/verify.mjs'
+      - 'compiler/**'
+      - 'fixtures/complete-edition/**'
+      - '.github/workflows/reader-contract-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: real-rehearsal-reader-contract-proof
+  cancel-in-progress: true
+
+jobs:
+  prove:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch completed full rehearsal without modifying it
+        run: |
+          git fetch origin '+refs/heads/rehearsal/full-six-story-v1:refs/remotes/origin/rehearsal/full-six-story-v1'
+          git worktree add --detach full-rehearsal refs/remotes/origin/rehearsal/full-six-story-v1
+      - name: Compile complete reader contract from existing persisted semantic outputs
+        run: node proof/reader-contract/verify.mjs full-rehearsal
+      - name: Persist proof receipt only
+        run: |
+          git config user.name "Daily Compiler Proof"
+          git config user.email "actions@users.noreply.github.com"
+          git add proof/reader-contract/result.json
+          if git diff --cached --quiet; then
+            echo "Reader contract receipt already current"
+            exit 0
+          fi
+          git commit -m "Record real rehearsal reader contract proof"
+          git push origin HEAD:"${GITHUB_REF_NAME}"

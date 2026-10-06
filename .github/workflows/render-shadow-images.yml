@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: render-images-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   render:
@@ -32,10 +32,20 @@ jobs:
         run: |
           git config user.name "Daily Compiler Diagram Renderer"
           git config user.email "actions@users.noreply.github.com"
-          git add rehearsals 2>/dev/null || true\n          git add shadow-runs 2>/dev/null || true
+          git add rehearsals 2>/dev/null || true
+          git add shadow-runs 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No new deterministic render outputs"
             exit 0
           fi
           git commit -m "Render deterministic story diagrams"
-          git push origin HEAD:"${GITHUB_REF_NAME}"
+          for attempt in 1 2 3; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            if git push origin HEAD:"${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            sleep $((attempt * 2))
+          done
+          echo "Unable to persist rendered assets after bounded Git rebase retries"
+          exit 1

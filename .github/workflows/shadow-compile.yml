@@ -1,62 +1,113 @@
 name: shadow-compile
 
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  repository_dispatch:
+    types:
+      - daily-compiler-bundle-ready
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Existing shadow/YYYY-MM-DD branch to compile'
+        required: true
+        type: string
 
 permissions:
   contents: write
   pages: write
   id-token: write
 
-jobs:
-  select:
-    runs-on: ubuntu-latest
-    outputs:
-      branch: ${{ steps.ready.outputs.branch }}
-      ref: ${{ steps.ready.outputs.ref }}
-      date: ${{ steps.ready.outputs.date }}
-      bundle_digest: ${{ steps.ready.outputs.bundle_digest }}
-    steps:
-      - uses: actions/checkout@v4
-      - run: git fetch origin '+refs/heads/shadow/*:refs/remotes/origin/shadow/*' || true
-      - id: ready
-        run: node scripts/find-ready-shadow-run.mjs >> "$GITHUB_OUTPUT"
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
 
+jobs:
   compile-deploy:
-    needs: select
-    if: needs.select.outputs.branch != ''
     runs-on: ubuntu-latest
     timeout-minutes: 12
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TARGET_BRANCH: ${{ github.event.client_payload.branch || inputs.branch }}
+      EXPECTED_DIGEST: ${{ github.event.client_payload.bundle_digest || '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Check out semantic branch as worktree
+      - name: Validate target identity
         run: |
-          git fetch origin "${{ needs.select.outputs.branch }}:${{ needs.select.outputs.branch }}"
-          git worktree add run "${{ needs.select.outputs.branch }}"
-      - name: Compile exact BUNDLE_READY state
+          case "$TARGET_BRANCH" in
+            shadow/????-??-??) ;;
+            *) echo "Invalid shadow branch: $TARGET_BRANCH"; exit 1 ;;
+          esac
+          echo "TARGET_DATE=${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
+      - name: Check out exact semantic branch as worktree
         run: |
-          node compiler/compile.mjs             --state "run/shadow-runs/${{ needs.select.outputs.date }}/compiler-state.json"             --bundle "run/shadow-runs/${{ needs.select.outputs.date }}/edition-bundle.json"             --out build/shadow             --repo-root run
+          git fetch origin "$TARGET_BRANCH:$TARGET_BRANCH"
+          git worktree add run "$TARGET_BRANCH"
+      - name: Require exact BUNDLE_READY state
+        run: |
+          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" > ready.txt
+          cat ready.txt
+          grep -q '^ready=true$' ready.txt
+          if [ -n "$EXPECTED_DIGEST" ]; then
+            grep -q "^bundle_digest=$EXPECTED_DIGEST$" ready.txt
+          fi
+      - name: Compile exact current edition
+        run: |
+          node compiler/compile.mjs             --state "run/shadow-runs/$TARGET_DATE/compiler-state.json"             --bundle "run/shadow-runs/$TARGET_DATE/edition-bundle.json"             --out build/current             --repo-root run
+      - name: Restore previously verified permanent pages
+        run: |
+          if git ls-remote --exit-code --heads origin shadow-pages-history >/dev/null 2>&1; then
+            git fetch origin shadow-pages-history:shadow-pages-history
+            git worktree add history shadow-pages-history
+            echo "HISTORY_EXISTS=true" >> "$GITHUB_ENV"
+            echo "HISTORY_DIR=history/site" >> "$GITHUB_ENV"
+          else
+            echo "HISTORY_EXISTS=false" >> "$GITHUB_ENV"
+            echo "HISTORY_DIR=-" >> "$GITHUB_ENV"
+          fi
+      - name: Build cumulative reader site
+        run: node scripts/merge-shadow-history.mjs "$HISTORY_DIR" build/current build/shadow
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/shadow
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Verify exact live shadow
-        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "${{ needs.select.outputs.date }}"
-      - name: Persist deterministic receipts and terminal state
+      - name: Verify exact live current edition
+        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/shadow
+      - name: Persist terminal receipts on the same shadow execution
         run: |
-          node scripts/finalize-shadow-state.mjs run "${{ needs.select.outputs.date }}" "${{ steps.deployment.outputs.page_url }}"
+          node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "${{ steps.deployment.outputs.page_url }}"
           git -C run config user.name "Daily Compiler"
           git -C run config user.email "actions@users.noreply.github.com"
-          git -C run add "shadow-runs/${{ needs.select.outputs.date }}"
-          git -C run commit -m "Verify shadow edition ${{ needs.select.outputs.date }}"
-          git -C run push origin HEAD:"${{ needs.select.outputs.branch }}"
+          git -C run add "shadow-runs/$TARGET_DATE"
+          git -C run commit -m "Verify shadow edition $TARGET_DATE"
+          git -C run push origin HEAD:"$TARGET_BRANCH"
+      - name: Persist cumulative verified reader history
+        run: |
+          if [ "$HISTORY_EXISTS" = "true" ]; then
+            rm -rf history/site
+            mkdir -p history/site
+            cp -a build/shadow/. history/site/
+          else
+            git worktree add --detach history main
+            git -C history switch --orphan shadow-pages-history
+            git -C history rm -rf . >/dev/null 2>&1 || true
+            mkdir -p history/site
+            cp -a build/shadow/. history/site/
+          fi
+          git -C history config user.name "Daily Compiler"
+          git -C history config user.email "actions@users.noreply.github.com"
+          git -C history add site
+          if git -C history diff --cached --quiet; then
+            echo "Permanent reader history already current"
+            exit 0
+          fi
+          git -C history commit -m "Preserve verified shadow reader through $TARGET_DATE"
+          git -C history push origin HEAD:shadow-pages-history

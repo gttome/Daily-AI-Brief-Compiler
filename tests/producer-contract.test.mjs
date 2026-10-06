@@ -62,8 +62,21 @@ test('semantic producer contract forbids control-plane replacement',()=>{
 test('runtime workflow count remains bounded',()=>{
   const runtime=[
     '.github/workflows/render-shadow-images.yml',
+    '.github/workflows/bundle-ready-signal.yml',
     '.github/workflows/shadow-compile.yml'
   ];
   for(const p of runtime) assert.ok(fs.existsSync(p));
   assert.ok(runtime.length<=3);
+});
+
+
+test('runtime trigger path is event-driven and bounded',()=>{
+  const render=fs.readFileSync('.github/workflows/render-shadow-images.yml','utf8');
+  const signal=fs.readFileSync('.github/workflows/bundle-ready-signal.yml','utf8');
+  const compile=fs.readFileSync('.github/workflows/shadow-compile.yml','utf8');
+  assert.match(render,/cancel-in-progress: true/);
+  assert.match(signal,/daily-compiler-bundle-ready/);
+  assert.match(compile,/repository_dispatch:/);
+  assert.doesNotMatch(compile,/cron:/);
+  assert.doesNotMatch(compile,/\*\/5 \* \* \* \*/);
 });

@@ -3,9 +3,10 @@ import crypto from 'node:crypto';
 
 const baseUrl=process.argv[2];
 const editionDate=process.argv[3];
-if(!baseUrl || !editionDate) throw new Error('usage: node scripts/verify-live.mjs <base-url> <edition-date>');
+const buildDir=process.argv[4] || 'build/fixture';
+if(!baseUrl || !editionDate) throw new Error('usage: node scripts/verify-live.mjs <base-url> <edition-date> [build-dir]');
 
-const manifest=JSON.parse(fs.readFileSync('build/fixture/build-manifest.json','utf8'));
+const manifest=JSON.parse(fs.readFileSync(buildDir+'/build-manifest.json','utf8'));
 if(manifest.edition_date!==editionDate) throw new Error('edition mismatch');
 
 const sha256=data=>crypto.createHash('sha256').update(data).digest('hex');
@@ -53,7 +54,7 @@ for(let attempt=1;attempt<=18;attempt++){
       checked_routes:checked.length,
       owner_intervention:false
     };
-    fs.writeFileSync('build/fixture/live-verification.json',JSON.stringify(receipt,null,2)+'\n');
+    fs.writeFileSync(buildDir+'/live-verification.json',JSON.stringify(receipt,null,2)+'\n');
     console.log(JSON.stringify(receipt));
     process.exit(0);
   }catch(error){
