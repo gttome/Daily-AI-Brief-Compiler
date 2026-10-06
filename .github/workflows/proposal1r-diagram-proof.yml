@@ -1,0 +1,41 @@
+name: proposal1r-diagram-proof
+
+on:
+  push:
+    branches:
+      - experiment/proposal1r-deterministic-diagram
+    paths:
+      - proof/f1d/diagram-spec.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    if: github.ref == 'refs/heads/experiment/proposal1r-deterministic-diagram'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install pinned renderer
+        run: npm install --no-save --ignore-scripts=false sharp@0.34.4
+      - name: Render exact professional diagram
+        run: node diagram-compiler/render.mjs proof/f1d/diagram-spec.json proof/f1r
+      - name: Verify structural output
+        run: |
+          test -s proof/f1r/proof.svg
+          test -s proof/f1r/proof.png
+          test -s proof/f1r/receipt.json
+          node -e "const r=require('./proof/f1r/receipt.json'); if(r.result!=='PASS'||r.dimensions.width!==1200||r.dimensions.height!==630||r.png_bytes<100000) process.exit(1)"
+      - name: Persist exact rendered bytes and receipt
+        run: |
+          git config user.name "Daily Compiler Diagram Renderer"
+          git config user.email "actions@users.noreply.github.com"
+          git add proof/f1r/proof.svg proof/f1r/proof.png proof/f1r/receipt.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Persist F1R deterministic diagram proof"
+          git push origin HEAD:experiment/proposal1r-deterministic-diagram
