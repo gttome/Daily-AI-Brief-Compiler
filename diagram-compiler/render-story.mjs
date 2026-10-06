@@ -52,7 +52,7 @@ if(png.length<60000) throw new Error('rendered PNG suspiciously small');
 const receipt={
   schema_version:'daily-compiler-diagram-render-v2',
   result:'PASS',
-  renderer:'proposal1r-grammar-set-v2',
+  renderer:'proposal1r-grammar-set-v2.1',
   grammar:spec.grammar,
   story_id:spec.story_id,
   source_spec:specPath,
