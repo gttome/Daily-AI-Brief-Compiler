@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/diagram-spec.schema.json",
+  "title":"Daily Compiler Diagram Spec v2",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","story_id","grammar","title","subtitle","nodes","callouts","flow_label","footer"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-diagram-spec-v2"},
+    "story_id":{"type":"string","minLength":1,"maxLength":80},
+    "grammar":{"enum":["pipeline","layered_system","control_loop","hub_spoke","comparison","state_machine"]},
+    "title":{"type":"string","minLength":1,"maxLength":60},
+    "subtitle":{"type":"string","minLength":1,"maxLength":110},
+    "nodes":{"type":"array","minItems":6,"maxItems":6,"items":{"type":"object","additionalProperties":false,"required":["id","label","detail"],"properties":{"id":{"type":"string","minLength":1,"maxLength":24},"label":{"type":"string","minLength":1,"maxLength":28},"detail":{"type":"string","minLength":1,"maxLength":64},"emphasis":{"type":"boolean"}}}},
+    "callouts":{"type":"array","minItems":3,"maxItems":3,"items":{"type":"object","additionalProperties":false,"required":["label","detail"],"properties":{"label":{"type":"string","minLength":1,"maxLength":26},"detail":{"type":"string","minLength":1,"maxLength":68}}}},
+    "flow_label":{"type":"string","minLength":1,"maxLength":44},
+    "footer":{"type":"string","minLength":1,"maxLength":90},
+    "group_labels":{"type":"array","minItems":2,"maxItems":2,"items":{"type":"string","minLength":1,"maxLength":26}},
+    "palette":{"type":"object","additionalProperties":false,"properties":{"accent1":{"type":"string","pattern":"^#[0-9A-Fa-f]{6}$"},"accent2":{"type":"string","pattern":"^#[0-9A-Fa-f]{6}$"},"accent3":{"type":"string","pattern":"^#[0-9A-Fa-f]{6}$"}}}
+  }
+}
