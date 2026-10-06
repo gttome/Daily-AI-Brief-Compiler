@@ -77,7 +77,7 @@ if(schedule.schedules.filter(x=>x.role==='recovery').length!==3) fail('recovery 
 if(schedule.rules.continuous_monitoring!==false||schedule.rules.supervisor!==false||schedule.rules.watchdog_ring!==false) fail('schedule complexity contract invalid');
 for(const key of ['work','codex','paid_model_api']) if(schedule.rules[key]!==false) fail('paid-production boundary invalid: '+key);
 
-returnValue = {
+const returnValue = {
   schema_version:'daily-compiler-final-static-audit-v1',
   result:'PASS',
   isolation:{result:'PASS',production_mutation_paths:0,negative_guard_present:true},
@@ -88,6 +88,6 @@ returnValue = {
 
 export function runFinalStaticAudits(){ return returnValue; }
 
-if(process.argv[1] && import.meta.url===new URL('file://'+process.argv[1]).href){
+if(process.argv[1] && process.argv[1].endsWith('final-audits.mjs')){
   console.log(JSON.stringify(returnValue,null,2));
 }
