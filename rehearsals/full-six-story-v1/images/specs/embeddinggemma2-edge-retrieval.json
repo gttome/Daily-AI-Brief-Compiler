@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "embeddinggemma2-edge-retrieval",
+  "grammar": "comparison",
+  "title": "Remote retrieval versus edge embeddings",
+  "subtitle": "A unified multimodal embedding path can reduce intermediate transformations and keep semantic search close to the device.",
+  "nodes": [
+    {
+      "id": "remote",
+      "label": "Remote chain",
+      "detail": "Multiple services add network hops and processing stages"
+    },
+    {
+      "id": "transform",
+      "label": "Intermediate steps",
+      "detail": "Modality conversion adds work before retrieval begins"
+    },
+    {
+      "id": "unified",
+      "label": "Unified embeddings",
+      "detail": "One model represents text, images, video, and audio",
+      "emphasis": true
+    },
+    {
+      "id": "index",
+      "label": "Local index",
+      "detail": "On-device vectors support semantic similarity search"
+    },
+    {
+      "id": "route",
+      "label": "Local routing",
+      "detail": "Semantic labels can support fast local decisions"
+    },
+    {
+      "id": "memory",
+      "label": "Modular memory",
+      "detail": "Load only the components needed for the device workload"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Compact model",
+      "detail": "The design targets practical multimodal embedding on devices"
+    },
+    {
+      "label": "Modular",
+      "detail": "Text, vision, and audio components can be loaded as needed"
+    },
+    {
+      "label": "Locality",
+      "detail": "More of the retrieval path can remain near the source data"
+    }
+  ],
+  "flow_label": "Fewer transformations and shorter retrieval paths",
+  "footer": "Edge retrieval changes latency, locality, and the architecture of semantic search."
+}
