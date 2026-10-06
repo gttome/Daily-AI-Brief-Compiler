@@ -1,0 +1,51 @@
+name: fixture-shadow-pages-proof
+
+on:
+  push:
+    branches:
+      - implementation/proposal1r-minimal-compiler
+    paths:
+      - 'compiler/**'
+      - 'fixtures/complete-edition/**'
+      - 'scripts/verify-live.mjs'
+      - 'package.json'
+      - '.github/workflows/fixture-pages-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: fixture-shadow-pages-proof
+  cancel-in-progress: false
+
+jobs:
+  build-deploy-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm test
+      - run: npm run fixture:e2e
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/fixture
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify exact live fixture
+        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "2026-10-06"
+      - name: Upload verification receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixture-live-verification
+          path: build/fixture/live-verification.json
+          if-no-files-found: error

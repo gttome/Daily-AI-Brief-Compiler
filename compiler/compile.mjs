@@ -154,7 +154,7 @@ export function buildSite({validation, outDir, repoRoot='.'}) {
   fs.writeFileSync(path.join(outDir,'index.html'),shell('Daily AI Brief Compiler','<h1>Daily AI Brief Compiler</h1><p><a href="briefs/'+bundle.edition_date+'/">Open fixture edition '+bundle.edition_date+'</a></p>'));
 
   const routes=['index.html','archive/index.html','briefs/'+bundle.edition_date+'/index.html',...bundle.stories.map(s=>'stories/'+bundle.edition_date+'/'+s.id+'/index.html')];
-  const manifest={schema_version:'daily-compiler-build-manifest-v1',edition_date:bundle.edition_date,bundle_sha256:validation.bundleDigest,routes,images:validation.imageEvidence.map(e=>({story_id:e.story_id,sha256:e.sha256,git_blob_sha:e.git_blob_sha}))};
+  const manifest={schema_version:'daily-compiler-build-manifest-v1',edition_date:bundle.edition_date,bundle_sha256:validation.bundleDigest,routes,images:validation.imageEvidence.map(e=>({story_id:e.story_id,asset:'assets/'+bundle.edition_date+'/'+path.basename(e.path),sha256:e.sha256,git_blob_sha:e.git_blob_sha}))};
   fs.writeFileSync(path.join(outDir,'build-manifest.json'),JSON.stringify(manifest,null,2)+'\n');
   return manifest;
 }
