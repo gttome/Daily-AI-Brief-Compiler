@@ -1,37 +1,109 @@
 {
-  "schema_version": "daily-compiler-reduced-rehearsal-receipt-v1",
+  "schema_version": "daily-compiler-reduced-rehearsal-v1",
   "rehearsal_id": "reduced-producer-v1",
   "fixture_only": true,
   "result": "PASS",
+  "primary_invocation_output_reused": true,
+  "recovery_invocations": 1,
+  "no_semantic_rework": true,
+  "accepted_image_regenerations": 0,
   "completed_semantic_outputs": {
-    "editorial": "complete",
-    "stories": "2/2",
-    "media": "1 video + 1 podcast",
-    "watchlist": "1 New + 1 Updated",
-    "book_mappings": "2/2",
-    "image_specs": "2/2",
-    "image_reviews": "2/2"
-  },
-  "renderer": {
-    "workflow_run_id": 37537972838,
-    "renderer": "proposal1r-grammar-set-v2.2",
-    "assets": [
+    "editorial": {
+      "status": "complete",
+      "blob_sha": "9c9cead8ece302f8df5b747a9608b79c69582c51"
+    },
+    "stories": [
       {
         "story_id": "synthetic-context-compiler",
-        "png_sha256": "ddd57f5104b9a537520cc990e2445279e671a846bf69402f4bf981bc05cbbd70",
-        "git_blob_sha": "d97d20c4782653e0aebf9718d1bc708a32e62ae2",
-        "review": "PASS"
+        "blob_sha": "5ce33e92af1d21304b55bdea311d4aea39f66a88"
       },
       {
         "story_id": "synthetic-agent-workbench",
-        "png_sha256": "acfd65b77ff47809f0b311a6cfe55b831b3f44819e95740f60f2691907871289",
-        "git_blob_sha": "2591e13ee072c88f9fd641f9111b7b91e11bd2a2",
-        "review": "PASS"
+        "blob_sha": "a1be810b90aeaf3d320d0be9226ca45a1aa2eb69"
+      }
+    ],
+    "media": {
+      "status": "complete",
+      "blob_sha": "69660ac8a2e9ca4877e9c0ff5c83426d144814bb"
+    },
+    "watchlist": {
+      "status": "complete",
+      "blob_sha": "f7d3757eb2fc3830e6e39eafd85efa71b0130264"
+    },
+    "book_mappings": {
+      "status": "complete",
+      "blob_sha": "b8e34338184eb1d9683026e99020aabf1f029a1e"
+    },
+    "image_specs": [
+      {
+        "story_id": "synthetic-context-compiler",
+        "status": "reused_unchanged",
+        "blob_sha": "632e0de099464c5d5aecf8df467d295e7606d3bb"
+      },
+      {
+        "story_id": "synthetic-agent-workbench",
+        "status": "reused_unchanged",
+        "blob_sha": "f3c03179923aa2c75c49b4bbd221a7d7293098f3"
       }
     ]
+  },
+  "renderer": {
+    "renderer": "proposal1r-grammar-set-v2.2",
+    "renders": [
+      {
+        "story_id": "synthetic-context-compiler",
+        "result": "PASS",
+        "deterministic": true,
+        "dimensions": {
+          "width": 1200,
+          "height": 630
+        },
+        "owner_intervention": false,
+        "png_sha256": "ddd57f5104b9a537520cc990e2445279e671a846bf69402f4bf981bc05cbbd70",
+        "git_blob_sha": "d97d20c4782653e0aebf9718d1bc708a32e62ae2"
+      },
+      {
+        "story_id": "synthetic-agent-workbench",
+        "result": "PASS",
+        "deterministic": true,
+        "dimensions": {
+          "width": 1200,
+          "height": 630
+        },
+        "owner_intervention": false,
+        "png_sha256": "acfd65b77ff47809f0b311a6cfe55b831b3f44819e95740f60f2691907871289",
+        "git_blob_sha": "2591e13ee072c88f9fd641f9111b7b91e11bd2a2"
+      }
+    ]
+  },
+  "exact_persisted_png_reviews": [
+    {
+      "story_id": "synthetic-context-compiler",
+      "result": "PASS",
+      "review_blob_sha": "7e94a1602b187565f4c72abe509c1adf2d583446",
+      "exact_persisted_asset_reviewed": true
+    },
+    {
+      "story_id": "synthetic-agent-workbench",
+      "result": "PASS",
+      "review_blob_sha": "b31a4531a4a59fe3767c12c26bf96ca26a16b409",
+      "exact_persisted_asset_reviewed": true
+    }
+  ],
+  "prohibitions_preserved": {
+    "supervisor_added": false,
+    "watchdog_added": false,
+    "lease_added": false,
+    "worker_added": false,
+    "wake_pr_added": false,
+    "continuous_polling_added": false,
+    "runtime_code_repair": false
   },
   "owner_intervention": false,
   "work_used": false,
   "codex_used": false,
-  "paid_api_used": false
+  "paid_api_used": false,
+  "external_image_apps_used": false,
+  "owner_upload_used": false,
+  "alternate_accounts_used": false
 }
