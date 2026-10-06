@@ -326,7 +326,7 @@ export function verifyReaderSite({outDir,validation,manifest}){
   const editionHtml=fs.readFileSync(path.join(outDir,'briefs',validation.bundle.edition_date,'index.html'),'utf8');
   if((editionHtml.match(/data-rating=/g)||[]).length!==30) fail('rating controls missing');
   if((editionHtml.match(/data-share=/g)||[]).length!==6) fail('share controls missing');
-  if((editionHtml.match(/data-share-count=/g)||[]).length!==6) fail('share counts missing');
+  if((editionHtml.match(/<span class="share-count" data-share-count=/g)||[]).length!==6) fail('share counts missing');
   if((editionHtml.match(/Related coverage:/g)||[]).length!==6) fail('related coverage missing');
   if(!/Emerging AI Watchlist/.test(editionHtml)||!/Updated — what changed today/.test(editionHtml)||!/Carried forward/.test(editionHtml)||!/Dropped/.test(editionHtml)) fail('Watchlist states missing');
   if((editionHtml.match(/target="_blank"/g)||[]).length<10) fail('external media/source links not opening in new tab');
