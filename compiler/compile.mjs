@@ -143,7 +143,7 @@ export function buildSite({validation, outDir, repoRoot='.'}) {
 
   for (const story of bundle.stories) {
     const image = bundle.images.find(i=>i.story_id===story.id);
-    const img = '../../../../assets/'+bundle.edition_date+'/'+path.basename(image.path);
+    const img = '../../../assets/'+bundle.edition_date+'/'+path.basename(image.path);
     const books = bundle.book_mappings.filter(b=>b.story_id===story.id);
     const body='<p><a href="../../../briefs/'+bundle.edition_date+'/">← Edition</a></p><article><h1>'+esc(story.headline)+'</h1><p class="meta">'+esc(story.focus)+' · '+story.reading_time_minutes+' min read</p><img src="'+esc(img)+'" alt=""><p>'+esc(story.summary)+'</p><p><strong>Why it matters:</strong> '+esc(story.why_it_matters)+'</p><p><a target="_blank" rel="noopener" href="'+esc(story.source.url)+'">Authoritative source — '+esc(story.source.publisher)+'</a></p>'+books.map(b=>'<section><h2>Continue Learning</h2><p><strong>'+esc(b.book)+'</strong>: '+esc(b.connection)+'</p></section>').join('')+ratingsMarkup()+'<button class="share" type="button" data-share="'+esc(story.id)+'">Share</button></article>';
     const dir=path.join(storyRoot,story.id); fs.mkdirSync(dir,{recursive:true}); fs.writeFileSync(path.join(dir,'index.html'),shell(story.headline,body));
