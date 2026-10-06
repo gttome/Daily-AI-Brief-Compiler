@@ -1,0 +1,24 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "smoke-comparison",
+  "grammar": "comparison",
+  "title": "From Runtime Repair to Compile-Time Certainty",
+  "subtitle": "Move engineering risk out of the live edition and into qualified deterministic code.",
+  "nodes": [
+    {"id":"n1","label":"Live Patch","detail":"Change runtime logic mid-edition"},
+    {"id":"n2","label":"Replay Risk","detail":"Invalidate completed semantic work"},
+    {"id":"n3","label":"State Drift","detail":"Many moving control-plane records"},
+    {"id":"n4","label":"Frozen Code","detail":"Use a qualified compiler release"},
+    {"id":"n5","label":"Durable State","detail":"Resume exact semantic outputs"},
+    {"id":"n6","label":"Deterministic Build","detail":"Validate and project without AI"}
+  ],
+  "callouts": [
+    {"label":"Safety","detail":"Program defects never rewrite accepted work"},
+    {"label":"Speed","detail":"Recovery resumes the smallest boundary"},
+    {"label":"Simplicity","detail":"Fewer runtime components can fail"}
+  ],
+  "flow_label": "Move defects out of the release path",
+  "footer": "Comparison grammar smoke test • side-by-side architecture",
+  "group_labels": ["RUNTIME REPAIR","IMMUTABLE COMPILER"],
+  "palette": {"accent1":"#d75a5f","accent2":"#14956e","accent3":"#7656d8"}
+}
