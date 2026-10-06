@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "synthetic-agent-workbench",
+  "grammar": "control_loop",
+  "title": "Agent Skill Workbench",
+  "subtitle": "Reviewed task outcomes become versioned reusable skills",
+  "nodes": [
+    {
+      "id": "n1",
+      "label": "Run task",
+      "detail": "Execute a bounded task with the current agent procedure"
+    },
+    {
+      "id": "n2",
+      "label": "Capture review",
+      "detail": "Record human feedback and observable task outcomes"
+    },
+    {
+      "id": "n3",
+      "label": "Extract pattern",
+      "detail": "Identify the repeatable procedure behind the result"
+    },
+    {
+      "id": "n4",
+      "label": "Draft skill",
+      "detail": "Package the procedure with inputs and acceptance checks"
+    },
+    {
+      "id": "n5",
+      "label": "Validate skill",
+      "detail": "Test the draft against explicit success criteria"
+    },
+    {
+      "id": "n6",
+      "label": "Version and reuse",
+      "detail": "Persist the accepted skill for future tasks",
+      "emphasis": true
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Human gate",
+      "detail": "Reviewer feedback determines whether the skill advances"
+    },
+    {
+      "label": "Reuse",
+      "detail": "Accepted procedures become portable across similar tasks"
+    },
+    {
+      "label": "Versioning",
+      "detail": "Corrections create a new skill version instead of drift"
+    }
+  ],
+  "flow_label": "Task outcome to validated reusable skill",
+  "footer": "Synthetic fixture — mechanism rehearsal only"
+}
