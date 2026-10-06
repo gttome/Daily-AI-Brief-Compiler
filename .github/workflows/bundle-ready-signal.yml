@@ -1,0 +1,39 @@
+name: bundle-ready-signal
+
+on:
+  push:
+    branches:
+      - 'shadow/**'
+    paths:
+      - 'shadow-runs/**/compiler-state.json'
+      - 'shadow-runs/**/edition-bundle.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bundle-ready-signal-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - id: ready
+        run: node scripts/check-current-shadow-ready.mjs >> "$GITHUB_OUTPUT"
+      - name: Signal protected-main compiler
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_BRANCH: ${{ steps.ready.outputs.branch }}
+          TARGET_DATE: ${{ steps.ready.outputs.date }}
+          BUNDLE_DIGEST: ${{ steps.ready.outputs.bundle_digest }}
+        run: |
+          printf '{"event_type":"daily-compiler-bundle-ready","client_payload":{"branch":"%s","date":"%s","bundle_digest":"%s"}}'             "$TARGET_BRANCH" "$TARGET_DATE" "$BUNDLE_DIGEST" |
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/dispatches" --input -
