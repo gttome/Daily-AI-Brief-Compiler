@@ -12,17 +12,53 @@
       "priority": 24,
       "normal_fallback": 72,
       "extended_fallback": 168
-    }
+    },
+    "required_reader_fields": [
+      "headline",
+      "source.published_at",
+      "source.url",
+      "summary",
+      "why_it_matters",
+      "reading_time_minutes",
+      "focus",
+      "topics",
+      "coverage_labels",
+      "related_coverage",
+      "image_alt",
+      "permanent_route"
+    ]
   },
   "media": {
     "videos": {
       "count": 2,
       "target_max_minutes": 10,
-      "fallback_max_minutes": 20
+      "fallback_max_minutes": 20,
+      "required_fields": [
+        "title",
+        "source",
+        "url",
+        "published_at",
+        "duration_minutes",
+        "focus",
+        "summary",
+        "why_it_matters",
+        "verified"
+      ]
     },
     "podcasts": {
       "count": 2,
-      "source_diverse": true
+      "source_diverse": true,
+      "required_fields": [
+        "title",
+        "source",
+        "url",
+        "published_at",
+        "duration_minutes",
+        "written_reading_time_minutes",
+        "summary",
+        "why_it_matters",
+        "verified"
+      ]
     }
   },
   "watchlist": {
@@ -32,11 +68,18 @@
       "Updated",
       "Carried forward"
     ],
-    "dropped_topic_reason_required_when_applicable": true
+    "dropped_topic_reason_required_when_applicable": true,
+    "meaningful_refresh_required": true
   },
   "books": {
     "reader_value": true,
-    "series_coverage_required": true,
+    "every_story_mapped": true,
+    "required_titles": [
+      "Reliable Generative AI",
+      "Reliable Generative AI Context Engineering",
+      "Generative AI Professional Prompt Engineering Guide",
+      "Generative AI Prompt Engineering Learning Ecosystem"
+    ],
     "operational_language_forbidden": true
   },
   "images": {
@@ -50,11 +93,36 @@
     "review_exact_persisted_asset": true,
     "accepted_regeneration_forbidden": true
   },
+  "reader_site": {
+    "homepage_latest": true,
+    "dated_edition": true,
+    "permanent_story_pages": 6,
+    "dated_watchlist": true,
+    "dated_videos": true,
+    "dated_podcasts": true,
+    "archive": true,
+    "earlier_brief_links": true,
+    "reading_time": true,
+    "source_date": true,
+    "topics": true,
+    "coverage_labels": true,
+    "related_coverage": true,
+    "five_star_rating": true,
+    "share": true,
+    "share_count_where_supported": true,
+    "accessible_alt": true,
+    "mobile_readable": true,
+    "external_links_new_tab": true,
+    "json_feed": true,
+    "rss_feed": true,
+    "permanent_history": true
+  },
   "orchestration_exclusions": [
     "Supervisor",
     "Watchdog Ring",
     "writer lease",
     "recovery lease",
+    "worker pool",
     "30-task orchestration",
     "continuous AI polling",
     "wake PR",
