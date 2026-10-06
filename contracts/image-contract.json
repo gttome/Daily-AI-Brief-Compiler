@@ -1,10 +1,13 @@
 {
-  "schema_version": "daily-compiler-image-contract-v1",
+  "schema_version": "daily-compiler-image-contract-v2",
+  "strategy": "proposal1r_deterministic_diagram_compiler",
   "required_count": 6,
   "dimensions": {
     "width": 1200,
     "height": 630
   },
+  "semantic_input": "rich_diagram_spec_json",
+  "rendering": "deterministic_github_renderer",
   "background": "white_or_light_professional",
   "style": "professional_textbook_consulting_report",
   "high_detail": true,
@@ -17,10 +20,20 @@
   "exact_persisted_asset_review_required": true,
   "accepted_image_regeneration_forbidden": true,
   "acceptance_record_requires": [
+    "story_id",
     "path",
     "sha256",
     "git_blob_sha",
     "visual_review",
     "accepted_at"
+  ],
+  "forbidden_runtime_workarounds": [
+    "owner_upload",
+    "screenshot_transport",
+    "image_reconstruction",
+    "external_paid_image_api",
+    "supervisor",
+    "watchdog",
+    "lease"
   ]
 }

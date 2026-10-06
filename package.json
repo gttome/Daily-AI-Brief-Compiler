@@ -1,11 +1,13 @@
 {
   "name": "daily-ai-brief-compiler",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "validate:bootstrap": "node scripts/validate-bootstrap.mjs"
+    "validate:bootstrap": "node scripts/validate-bootstrap.mjs",
+    "fixture:compile": "node scripts/compile-fixture.mjs",
+    "fixture:e2e": "npm run fixture:compile && test -s build/fixture/compile-receipt.json && test -s build/fixture/verification-receipt.json"
   },
   "engines": {
     "node": ">=20"
