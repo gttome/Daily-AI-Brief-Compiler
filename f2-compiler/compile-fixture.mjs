@@ -45,7 +45,12 @@ if(!Array.isArray(bundle.podcasts)||bundle.podcasts.length!==2) fail('exactly tw
 if(!bundle.watchlist||typeof bundle.watchlist!=='object') fail('watchlist missing');
 if(!Array.isArray(bundle.book_mappings)||bundle.book_mappings.length<1) fail('book mappings missing');
 if(!Array.isArray(bundle.images)||bundle.images.length!==6) fail('exactly six image records required');
-if(!bundle.images.every(x=>x.accepted===true&&typeof x.sha256==='string'&&/^[a-f0-9]{64}$/.test(x.sha256))) fail('image identity record invalid');
+if(!bundle.images.every(x=>x.accepted===true&&typeof x.sha256==='string'&&/^[a-f0-9]{64}$/.test(x.sha256)&&typeof x.asset_path==='string')) fail('image identity record invalid');
+for(const image of bundle.images){
+  if(!fs.existsSync(image.asset_path)) fail(`fixture image asset missing: ${image.asset_path}`);
+  const actual=sha256(fs.readFileSync(image.asset_path));
+  if(actual!==image.sha256) fail(`fixture image hash mismatch for ${image.story_id}`);
+}
 
 const buildModel={
   schema_version:'daily-compiler-f2-build-model-v1',
