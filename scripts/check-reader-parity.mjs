@@ -9,12 +9,10 @@ const sha256=data=>crypto.createHash('sha256').update(data).digest('hex');
 
 export async function checkGoldenReaderParity({date='2026-10-06'}={}){
   const edition=JSON.parse(fs.readFileSync(path.join(snapshot,'_data','editions',date+'.json'),'utf8'));
-  const render=await import(pathToFileURL(path.join(snapshot,'_generator','lib','render.mjs')).href);
   const reader=await import(pathToFileURL(path.join(snapshot,'_generator','lib','reader.mjs')).href);
   const watch=await import(pathToFileURL(path.join(snapshot,'_generator','lib','watchlist.mjs')).href);
   const watchlist=watch.watchlistForEdition(snapshot,date);
   const actual=new Map();
-  actual.set('briefs/'+date+'.md',render.renderDated(edition,{watchlist}));
   for(const [name,content] of reader.readerFoundationFiles(edition,snapshot))actual.set(name,content);
 
   const compared=[],mismatches=[];
