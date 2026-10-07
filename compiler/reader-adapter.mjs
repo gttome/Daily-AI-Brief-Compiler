@@ -138,7 +138,7 @@ function adaptWatchTopic(item,{date,kind,index}){
   const evidenceDate=evidence.date||date;
   const archived=kind==='dropped';
   return {
-    topic_id:`dab-topic-compiler-${slugify(item.topic)}`,
+    topic_id:`dab-topic-compiler-${slugify(item.topic).slice(0,70)}`,
     name:item.topic,
     summary:reason,
     why_now:reason,
