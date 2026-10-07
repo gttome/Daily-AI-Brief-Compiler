@@ -4,10 +4,10 @@
 **Coverage period:** September 29–October 6, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-07-dots-always-on-agents">OpenAI dots brings persistent assistants into everyday work</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-sagemaker-agent-skill">AWS packages SageMaker inference expertise as a reusable agent skill</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-ironclad-computer-use">Contracting workflows become measurable AI tasks</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-atlassian-openai-enterprise-context">Atlassian and OpenAI connect frontier intelligence to enterprise context</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-embeddinggemma2-edge-retrieval">EmbeddingGemma 2 brings semantic retrieval onto the device</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-astra-ultrafast-blackwell">Blackwell and inference optimization push Astra into faster agent loops</a><span>Article · about 5 min source read</span></li><li><a href="#general">Am I paying for a giant model I don&#39;t need?</a><span>Video · 4:10</span></li><li><a href="#agents-for-non-technical-people">How to protect your repo in 2 minutes with gh-secure</a><span>Video · 2:00</span></li><li><a href="#podcast-dab-podcast-2026-10-07-1">Kevin Roose Didn’t Use AI to Write His Book About AI</a><span>Podcast · 40:00</span></li><li><a href="#podcast-dab-podcast-2026-10-07-2">AI runs hot</a><span>Podcast · 9:28</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-07-m12">OpenAI dots brings persistent assistants into everyday work</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-m14">AWS packages SageMaker inference expertise as a reusable agent skill</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-m10">Contracting workflows become measurable AI tasks</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-m11">Atlassian and OpenAI connect frontier intelligence to enterprise context</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-m01">EmbeddingGemma 2 brings semantic retrieval onto the device</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-07-m02">Blackwell and inference optimization push Astra into faster agent loops</a><span>Article · about 5 min source read</span></li><li><a href="#general">Am I paying for a giant model I don&#39;t need?</a><span>Video · 4:10</span></li><li><a href="#agents-for-non-technical-people">How to protect your repo in 2 minutes with gh-secure</a><span>Video · 2:00</span></li><li><a href="#podcast-dab-podcast-2026-10-07-1">Kevin Roose Didn’t Use AI to Write His Book About AI</a><span>Podcast · 40:00</span></li><li><a href="#podcast-dab-podcast-2026-10-07-2">AI runs hot</a><span>Podcast · 9:28</span></li></ol></section>
 <!-- reader-release:end -->
 
-<span id="reading-dab-story-2026-10-07-dots-always-on-agents"></span>
+<span id="reading-dab-story-2026-10-07-m12"></span>
 
 ## 1. OpenAI dots brings persistent assistants into everyday work
 
@@ -21,14 +21,14 @@
 
 **Topics:** persistent assistants, delegation, connected apps
 
-<span class="story-data" data-story-id="dab-story-2026-10-07-dots-always-on-agents" data-story-url="/stories/2026-10-07/dots-always-on-agents/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-07-m12" data-story-url="/stories/2026-10-07/dots-always-on-agents/" hidden></span>
 
-<a href="{{ '/stories/2026-10-07/dots-always-on-agents/' | relative_url }}" data-item-id="dab-story-2026-10-07-dots-always-on-agents" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-07/dots-always-on-agents/' | relative_url }}" data-item-id="dab-story-2026-10-07-m12" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Independent Reporting  
 **Availability:** Available
 
-![Mechanism diagram showing goals, context, connected apps, review points, and ongoing task state around one persistent assistant.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-dots-always-on-agents.png?v=6a6c5cdde04b)
+![Mechanism diagram showing goals, context, connected apps, review points, and ongoing task state around one persistent assistant.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m12.png?v=6a6c5cdde04b)
 
 **Summary:** OpenAI introduced dots at its September 29 Developer Day. The product is designed as a persistent assistant that can maintain continuity across tasks and connected applications instead of starting from a blank conversational state each time.
 
@@ -38,16 +38,16 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Feedback loops and learning from repeated real work — How to design feedback loops that improve a recurring AI workflow without silently broadening authority.</p><p>A persistent assistant creates a continuous learning surface: goals, outcomes, corrections, and recurring routines become material for improving how people delegate work.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/" data-item-id="dab-story-2026-10-07-dots-always-on-agents" data-edition-date="2026-10-07" data-action="source_clicks">OpenAI takes on Meta with dots agent in autonomous AI push</a>
+**Source:** <a href="https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/" data-item-id="dab-story-2026-10-07-m12" data-edition-date="2026-10-07" data-action="source_clicks">OpenAI takes on Meta with dots agent in autonomous AI push</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-dots-always-on-agents">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-m12">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-07-sagemaker-agent-skill"></span>
+<span id="reading-dab-story-2026-10-07-m14"></span>
 
 ## 2. AWS packages SageMaker inference expertise as a reusable agent skill
 
@@ -61,14 +61,14 @@
 
 **Topics:** Agent Skills, MCP, SageMaker, inference optimization
 
-<span class="story-data" data-story-id="dab-story-2026-10-07-sagemaker-agent-skill" data-story-url="/stories/2026-10-07/sagemaker-agent-skill/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-07-m14" data-story-url="/stories/2026-10-07/sagemaker-agent-skill/" hidden></span>
 
-<a href="{{ '/stories/2026-10-07/sagemaker-agent-skill/' | relative_url }}" data-item-id="dab-story-2026-10-07-sagemaker-agent-skill" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-07/sagemaker-agent-skill/' | relative_url }}" data-item-id="dab-story-2026-10-07-m14" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Pipeline diagram showing skill loading, intent capture, benchmark evidence, comparison, recommendation, and inspectable code.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-sagemaker-agent-skill.png?v=8f801453952a)
+![Pipeline diagram showing skill loading, intent capture, benchmark evidence, comparison, recommendation, and inspectable code.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m14.png?v=8f801453952a)
 
 **Summary:** AWS introduced the `aws-ai-ml` skill through the Agent Toolkit for AWS. It gives compatible coding assistants reusable expertise for benchmarking SageMaker endpoints, comparing performance, recommending configurations, and producing inspectable SageMaker Python SDK v3 code.
 
@@ -78,16 +78,16 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Reusable instructions, tool contracts, and bounded specialist behavior — How to separate durable skill instructions from task-specific prompts and require explicit confirmation before consequential actions.</p><p>The AWS skill turns domain instructions and operating constraints into a reusable capability package that a compatible assistant can load rather than rebuilding expertise in every prompt.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/" data-item-id="dab-story-2026-10-07-sagemaker-agent-skill" data-edition-date="2026-10-07" data-action="source_clicks">New agent skill: Amazon SageMaker optimized generative AI inference for your coding agent</a>
+**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/" data-item-id="dab-story-2026-10-07-m14" data-edition-date="2026-10-07" data-action="source_clicks">New agent skill: Amazon SageMaker optimized generative AI inference for your coding agent</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-sagemaker-agent-skill">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-m14">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-07-ironclad-computer-use"></span>
+<span id="reading-dab-story-2026-10-07-m10"></span>
 
 ## 3. Contracting workflows become measurable AI tasks
 
@@ -101,14 +101,14 @@
 
 **Topics:** workflow evaluation, legal operations, computer use
 
-<span class="story-data" data-story-id="dab-story-2026-10-07-ironclad-computer-use" data-story-url="/stories/2026-10-07/ironclad-computer-use/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-07-m10" data-story-url="/stories/2026-10-07/ironclad-computer-use/" hidden></span>
 
-<a href="{{ '/stories/2026-10-07/ironclad-computer-use/' | relative_url }}" data-item-id="dab-story-2026-10-07-ironclad-computer-use" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-07/ironclad-computer-use/' | relative_url }}" data-item-id="dab-story-2026-10-07-m10" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![State-machine diagram showing intake, rules, approvals, exceptions, agreement assembly, and verification.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-ironclad-computer-use.png?v=b16d14c096dc)
+![State-machine diagram showing intake, rules, approvals, exceptions, agreement assembly, and verification.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m10.png?v=b16d14c096dc)
 
 **Summary:** A collaboration with Ironclad translated representative contracting work into structured training and evaluation tasks. OpenAI reported that GPT-6 Astra achieved a higher average score and lower estimated time per attempt than GPT-5.6 Sol on the research task set.
 
@@ -118,16 +118,16 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Acceptance criteria, evaluation, and human oversight — How to write task-level acceptance criteria that measure whether an AI system preserved business rules, not just whether it produced an output.</p><p>The Ironclad work converts complex professional work into measurable tasks with explicit requirements, making reliability visible at the workflow level.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://openai.com/index/advancing-computer-use-with-ironclad/" data-item-id="dab-story-2026-10-07-ironclad-computer-use" data-edition-date="2026-10-07" data-action="source_clicks">Advancing computer use with Ironclad</a>
+**Source:** <a href="https://openai.com/index/advancing-computer-use-with-ironclad/" data-item-id="dab-story-2026-10-07-m10" data-edition-date="2026-10-07" data-action="source_clicks">Advancing computer use with Ironclad</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-ironclad-computer-use">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-m10">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-07-atlassian-openai-enterprise-context"></span>
+<span id="reading-dab-story-2026-10-07-m11"></span>
 
 ## 4. Atlassian and OpenAI connect frontier intelligence to enterprise context
 
@@ -141,14 +141,14 @@
 
 **Topics:** enterprise context, Teamwork Graph, knowledge work, human-agent collaboration
 
-<span class="story-data" data-story-id="dab-story-2026-10-07-atlassian-openai-enterprise-context" data-story-url="/stories/2026-10-07/atlassian-openai-enterprise-context/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-07-m11" data-story-url="/stories/2026-10-07/atlassian-openai-enterprise-context/" hidden></span>
 
-<a href="{{ '/stories/2026-10-07/atlassian-openai-enterprise-context/' | relative_url }}" data-item-id="dab-story-2026-10-07-atlassian-openai-enterprise-context" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-07/atlassian-openai-enterprise-context/' | relative_url }}" data-item-id="dab-story-2026-10-07-m11" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Layered-system diagram showing model reasoning grounded through identity, permissions, organizational context, systems of record, workflow actions, and review.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-atlassian-openai-enterprise-context.png?v=0615c20aeca9)
+![Layered-system diagram showing model reasoning grounded through identity, permissions, organizational context, systems of record, workflow actions, and review.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m11.png?v=0615c20aeca9)
 
 **Summary:** Atlassian and OpenAI are deepening their partnership around the idea that frontier intelligence needs access to the goals, knowledge, people, and processes that shape enterprise work. Atlassian positions its Teamwork Graph and systems of record as a context layer for reasoning about live organizational state.
 
@@ -158,16 +158,16 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Permission-aware organizational context and source-of-truth grounding — How to construct context layers that preserve identity, permissions, provenance, and recency across enterprise systems.</p><p>Enterprise AI becomes more reliable when it can resolve the right project, owner, decision, permission, and source of truth instead of reasoning over a flat pile of documents.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://www.atlassian.com/blog/company-news/atlassian-openai-strategic-partnership" data-item-id="dab-story-2026-10-07-atlassian-openai-enterprise-context" data-edition-date="2026-10-07" data-action="source_clicks">Grounding Frontier Intelligence in Enterprise Context</a>
+**Source:** <a href="https://www.atlassian.com/blog/company-news/atlassian-openai-strategic-partnership" data-item-id="dab-story-2026-10-07-m11" data-edition-date="2026-10-07" data-action="source_clicks">Grounding Frontier Intelligence in Enterprise Context</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-atlassian-openai-enterprise-context">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-m11">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-07-embeddinggemma2-edge-retrieval"></span>
+<span id="reading-dab-story-2026-10-07-m01"></span>
 
 ## 5. EmbeddingGemma 2 brings semantic retrieval onto the device
 
@@ -181,14 +181,14 @@
 
 **Topics:** multimodal embeddings, edge AI
 
-<span class="story-data" data-story-id="dab-story-2026-10-07-embeddinggemma2-edge-retrieval" data-story-url="/stories/2026-10-07/embeddinggemma2-edge-retrieval/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-07-m01" data-story-url="/stories/2026-10-07/embeddinggemma2-edge-retrieval/" hidden></span>
 
-<a href="{{ '/stories/2026-10-07/embeddinggemma2-edge-retrieval/' | relative_url }}" data-item-id="dab-story-2026-10-07-embeddinggemma2-edge-retrieval" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-07/embeddinggemma2-edge-retrieval/' | relative_url }}" data-item-id="dab-story-2026-10-07-m01" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Comparison diagram showing remote and on-device semantic search architectures.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-embeddinggemma2-edge-retrieval.png?v=51dba1ea8955)
+![Comparison diagram showing remote and on-device semantic search architectures.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m01.png?v=51dba1ea8955)
 
 **Summary:** Google introduced EmbeddingGemma 2 for compact multimodal embedding workloads on edge devices.
 
@@ -198,16 +198,16 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Retrieval architecture, embedding design, and context locality — How modality choice, local indexes, and retrieval thresholds affect the context delivered to downstream AI systems.</p><p>A unified local embedding space changes where retrieval happens and can reduce intermediate transformations that otherwise add latency and context loss.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://developers.googleblog.com/en/google-ai-edge-with-embeddinggemma-2/" data-item-id="dab-story-2026-10-07-embeddinggemma2-edge-retrieval" data-edition-date="2026-10-07" data-action="source_clicks">Bring multimodal semantic search to the edge with EmbeddingGemma 2</a>
+**Source:** <a href="https://developers.googleblog.com/en/google-ai-edge-with-embeddinggemma-2/" data-item-id="dab-story-2026-10-07-m01" data-edition-date="2026-10-07" data-action="source_clicks">Bring multimodal semantic search to the edge with EmbeddingGemma 2</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-embeddinggemma2-edge-retrieval">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-m01">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-07-astra-ultrafast-blackwell"></span>
+<span id="reading-dab-story-2026-10-07-m02"></span>
 
 ## 6. Blackwell and inference optimization push Astra into faster agent loops
 
@@ -221,14 +221,14 @@
 
 **Topics:** inference optimization, Blackwell, latency
 
-<span class="story-data" data-story-id="dab-story-2026-10-07-astra-ultrafast-blackwell" data-story-url="/stories/2026-10-07/astra-ultrafast-blackwell/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-07-m02" data-story-url="/stories/2026-10-07/astra-ultrafast-blackwell/" hidden></span>
 
-<a href="{{ '/stories/2026-10-07/astra-ultrafast-blackwell/' | relative_url }}" data-item-id="dab-story-2026-10-07-astra-ultrafast-blackwell" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-07/astra-ultrafast-blackwell/' | relative_url }}" data-item-id="dab-story-2026-10-07-m02" data-edition-date="2026-10-07" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Control-loop diagram showing reasoning, generation, tool use, result checking, next-step decisions, and runtime optimization.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-astra-ultrafast-blackwell.png?v=fe74e0b439b7)
+![Control-loop diagram showing reasoning, generation, tool use, result checking, next-step decisions, and runtime optimization.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m02.png?v=fe74e0b439b7)
 
 **Summary:** NVIDIA says GPT-6 Astra Ultrafast on Blackwell GPUs delivers up to 8x faster token generation than Astra Standard through ongoing inference optimization.
 
@@ -238,9 +238,9 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">System-level reliability, latency budgets, and operational performance — How to define end-to-end latency budgets across reasoning, generation, tool execution, verification, and retries.</p><p>A capable AI workflow can still fail the user experience if repeated inference cycles exceed the latency budget. Reliability includes predictable wall time as well as output quality.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/" data-item-id="dab-story-2026-10-07-astra-ultrafast-blackwell" data-edition-date="2026-10-07" data-action="source_clicks">How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast</a>
+**Source:** <a href="https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/" data-item-id="dab-story-2026-10-07-m02" data-edition-date="2026-10-07" data-action="source_clicks">How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-astra-ultrafast-blackwell">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-07" data-feedback-story-id="dab-story-2026-10-07-m02">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -382,7 +382,7 @@
 <!-- reader-release:start -->
 
 
-<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="2 New today · 2 Updated today · 2 Carried forward · 1 Archived / dropped recently"><strong>2 new today · 2 updated · 2 carried forward. 1 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Enterprise context becomes the agent battleground</li><li>Multimodal retrieval moves on-device</li></ul><p><strong>Updated today:</strong> </p><ul class="watchlist-daily-items"><li>Persistent personal agents</li><li>Reusable Agent Skills</li></ul><p><strong>Carried forward:</strong> 2</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Single-model leaderboard movement as a standalone adoption signal — Current evidence is more actionable around workflow context, reusable skills, edge retrieval, and end-to-end latency. A benchmark change without a clear workflow mechanism is not strong enough to remain a watch item by itself.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
+<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="2 New today · 2 Updated today · 23 Carried forward · 1 Archived / dropped recently"><strong>2 new today · 2 updated · 23 carried forward. 1 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Enterprise context becomes the agent battleground</li><li>Multimodal retrieval moves on-device</li></ul><p><strong>Updated today:</strong> </p><ul class="watchlist-daily-items"><li>Persistent personal agents</li><li>Reusable Agent Skills</li></ul><p><strong>Carried forward:</strong> 23</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Single-model leaderboard movement as a standalone adoption signal — Current evidence is more actionable around workflow context, reusable skills, edge retrieval, and end-to-end latency. A benchmark change without a clear workflow mechanism is not strong enough to remain a watch item by itself.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
 
 
 <!-- reader-release:end -->
