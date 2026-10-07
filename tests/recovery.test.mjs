@@ -75,3 +75,26 @@ test('D0 recovery uses durable attempt history instead of ordinal allocation',()
   const d=recoveryDecision([d0]);
   assert.equal(d.image_recovery_mode,'D0_DURABLE_ATTEMPT_HISTORY');
 });
+
+
+test('D1 v5 recovery uses bound Work-browser history instead of ordinal allocation',()=>{
+  const d1=clone(base); d1.stage='IMAGES'; d1.editorial_bundle.status='complete';
+  d1.images.strategy='d1_work_browser_fresh_chat';
+  d1.images.strategy_contract_version='daily-compiler-image-contract-v5';
+  d1.images.strategy_bound_at='2026-10-06T19:15:00Z';
+  assert.equal(nextImageOrdinal(d1),null);
+  assert.equal(imageRecoveryMode(d1),'D1_WORK_BROWSER_HISTORY');
+  const d=recoveryDecision([d1]);
+  assert.equal(d.image_recovery_mode,'D1_WORK_BROWSER_HISTORY');
+});
+
+test('edition-bound image strategy cannot change after allocation',()=>{
+  const before=clone(base); before.stage='CONTENT';
+  before.images.strategy='proposal1r_legacy';
+  before.images.strategy_contract_version='proposal1r-preactivation';
+  before.images.strategy_bound_at='2026-10-06T19:15:00Z';
+  const changed=clone(before);
+  changed.images.strategy='d1_work_browser_fresh_chat';
+  changed.images.strategy_contract_version='daily-compiler-image-contract-v5';
+  assert.throws(()=>assertProgressPreserved(before,changed),/image strategy changed after edition binding/);
+});
