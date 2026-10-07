@@ -58,7 +58,7 @@ function sage(spec,p,c){
  ${hArrow(485,217,545,p.blue)}
  ${card({label:'Option set',detail:'Candidate endpoint shapes and instance configurations'},545,176,185,82,c[3])}
  ${hArrow(730,217,790,p.blue)}
- ${card({label:'Recommendation request',detail:'Choose the configuration that best fits measured needs'},790,176,290,82,c[4])}
+ ${card(n[4],790,176,290,82,c[4])}
  ${card(n[0],70,350,168,82,c[2],{dark:true})}
  <path d="M154 350 V258" fill="none" stroke="${p.purple}" stroke-width="3"/><polygon points="147,270 154,258 161,270" fill="${p.purple}"/>
  ${rr(300,346,255,90,'#fff',p.purple,2,14,true)}
@@ -68,11 +68,11 @@ function sage(spec,p,c){
  <text x="330" y="422" font-size="8" fill="#60758a">cfg A</text><text x="389" y="422" font-size="8" fill="#60758a">42 ms</text><text x="444" y="422" font-size="8" fill="#60758a">188 t/s</text><text x="497" y="422" font-size="8" fill="#60758a">$1.0</text>
  ${hArrow(555,392,610,p.purple)}
  ${card(n[3],610,346,175,90,c[3],{titleSize:13,detailSize:8.6})}
- ${hArrow(785,392,835,p.purple)}
  ${card(n[5],835,346,245,90,c[5],{dark:true,titleSize:13.5,detailSize:8.6})}
- <path d="M920 258 V306 H700 V346" fill="none" stroke="${p.cyan}" stroke-width="2.8"/><polygon points="693,334 700,346 707,334" fill="${p.cyan}"/>
- <path d="M392 346 V258" fill="none" stroke="${p.purple}" stroke-width="2.5"/><polygon points="385,270 392,258 399,270" fill="${p.purple}"/>
- <path d="M650 346 V258" fill="none" stroke="${p.purple}" stroke-width="2.5"/><polygon points="643,270 650,258 657,270" fill="${p.purple}"/>
+ <path d="M700 346 V306 H920 V258" fill="none" stroke="${p.cyan}" stroke-width="2.8"/><polygon points="913,270 920,258 927,270" fill="${p.cyan}"/>
+ <path d="M392 258 V346" fill="none" stroke="${p.purple}" stroke-width="2.5"/><polygon points="385,334 392,346 399,334" fill="${p.purple}"/>
+ <path d="M650 258 V346" fill="none" stroke="${p.purple}" stroke-width="2.5"/><polygon points="643,334 650,346 657,334" fill="${p.purple}"/>
+ <path d="M1000 258 V325 H955 V346" fill="none" stroke="${p.cyan}" stroke-width="2.8"/><polygon points="948,334 955,346 962,334" fill="${p.cyan}"/>
  `;
 }
 
