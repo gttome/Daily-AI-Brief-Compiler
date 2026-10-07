@@ -41,3 +41,18 @@ test('paid or owner-dependent route never reopens P0-A',()=>{
   assert.ok(r.prohibited_dependencies.includes('owner_intervention'));
   assert.ok(r.prohibited_dependencies.includes('paid_model_api'));
 });
+
+
+test('route matrix contains no paid, Work, Codex, alternate-account, or overage option',()=>{
+  assert.equal(matrix.no_paid_capacity_branch,true);
+  assert.deepEqual(matrix.excluded_non_options.sort(),[
+    'alternate_account','billable_overage','codex','new_paid_infrastructure',
+    'paid_ai_service','paid_image_api','paid_model_api','work'
+  ]);
+  const ids=matrix.routes.map(r=>r.route_id);
+  assert.equal(ids.includes('paid_model_or_image_api'),false);
+  assert.equal(ids.includes('work_or_computer_use'),false);
+  for(const route of matrix.routes){
+    assert.notEqual(route.status,'PROHIBITED');
+  }
+});
