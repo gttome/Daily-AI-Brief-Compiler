@@ -1,0 +1,43 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/resource-registry.schema.json",
+  "title":"Daily Compiler Resource Registry v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","updated_at","resources"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-resource-registry-v1"},
+    "updated_at":{"type":"string","format":"date-time"},
+    "resources":{
+      "type":"array",
+      "items":{
+        "type":"object","additionalProperties":false,
+        "required":["resource_id","name","url","enabled","content_types","priority","search_mode","health"],
+        "properties":{
+          "resource_id":{"type":"string"},
+          "name":{"type":"string"},
+          "url":{"type":"string"},
+          "enabled":{"type":"boolean"},
+          "content_types":{"type":"array","items":{"enum":["article","video","podcast","watchlist","research"]},"uniqueItems":true},
+          "priority":{"enum":["primary","secondary","fallback","experimental"]},
+          "search_mode":{"enum":["targeted","site_search","feed","page","manual_endpoint"]},
+          "endpoint":{"type":["string","null"]},
+          "publisher":{"type":["string","null"]},
+          "notes":{"type":["string","null"]},
+          "health":{
+            "type":"object","additionalProperties":false,
+            "required":["status","last_checked_at","last_success_at","consecutive_failures","observed_yield_rate","freshness_hit_rate"],
+            "properties":{
+              "status":{"enum":["healthy","degraded","failing","unknown"]},
+              "last_checked_at":{"type":["string","null"],"format":"date-time"},
+              "last_success_at":{"type":["string","null"],"format":"date-time"},
+              "consecutive_failures":{"type":"integer","minimum":0},
+              "observed_yield_rate":{"type":["number","null"],"minimum":0,"maximum":1},
+              "freshness_hit_rate":{"type":["number","null"],"minimum":0,"maximum":1}
+            }
+          }
+        }
+      }
+    }
+  }
+}
