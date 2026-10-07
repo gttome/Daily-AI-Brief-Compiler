@@ -1,0 +1,44 @@
+{
+  "schema_version": "daily-compiler-d0-p0-a-capability-blocker-v1",
+  "status": "BLOCKED_RETRYABLE",
+  "proof_stage": "P0-A",
+  "code": "STANDALONE_TASK_RESULT_IMAGE_NOT_PROGRAMMATICALLY_RETRIEVABLE",
+  "detail": "Two standalone pure-prompt tasks completed using the sealed Run A image prompt as the entire saved task prompt, but the available Compiler automation, Gmail-notification, personal-context, Files/Library, and web-access surfaces do not expose the generated task-result image bytes or pixels for automated inspection. The notification exposes only the run-conversation link. No owner retrieval or manual transfer is permitted.",
+  "completed_pure_prompt_runs": [
+    {
+      "task_title": "D0 P0A Pure A",
+      "last_run_time_utc": "2026-10-07T13:49:40.663846Z"
+    },
+    {
+      "task_title": "D0 P0A Pure A2",
+      "last_run_time_utc": "2026-10-07T13:50:41.678504Z"
+    }
+  ],
+  "sealed_prompt_sha256": "2b1bc2495d854873e6de413eb64d3bb9616beed3ce8dfc6f9200856f56169a71",
+  "sealed_story_id": "d0-proof-a",
+  "evidence_preserved": true,
+  "additional_native_generation_authorized": false,
+  "visual_quality_attempt_consumed": false,
+  "formal_p0_a_pass": false,
+  "formal_p0_b_pass": true,
+  "p0_b_receipt_path": "proof/d0-native-image-capsules/formal/p0-b.json",
+  "next_retry_condition": "A supported zero-cost native mechanism must first prove both programmatic retrieval/inspection of a pure standalone generated image and clean-story-only compatibility with same-invocation exact-byte persistence.",
+  "no_rework": {
+    "rerun_p0_b": false,
+    "rerun_transport_preflight": false,
+    "rerun_control_heavy_run_a": false,
+    "reopen_october_7_semantics": false,
+    "repeat_identical_pure_task": false
+  },
+  "cost_boundary": {
+    "work_used": false,
+    "codex_used": false,
+    "paid_model_api_used": false,
+    "paid_image_service_used": false,
+    "billable_overage_used": false,
+    "new_paid_infrastructure_used": false,
+    "alternate_account_used": false,
+    "owner_image_transfer_used": false,
+    "owner_liveness_used": false
+  }
+}
