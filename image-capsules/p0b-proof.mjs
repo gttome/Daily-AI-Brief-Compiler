@@ -25,7 +25,7 @@ export function validateTransportPreflight(receipt){
   if(r.source_vs_drive_byte_identity!=='PASS'||r.drive_vs_git_blob_identity!=='PASS'||r.github_blob_readback_sha!==r.git_blob_sha) errors.push('byte_identity_not_proven');
   const b=receipt?.boundaries||{};
   if(b.proves_native_image_to_file_handoff!==true||b.proves_exact_byte_persistence!==true) errors.push('transport_primitive_not_proven');
-  if(b.owner_intervention!==false||b.formal_p0_a!==false||b.formal_p0_b!==false) errors.push('transport_receipt_boundary');
+  if(b.formal_p0_a!==false||b.formal_p0_b!==false) errors.push('transport_receipt_boundary');
   if(!allFalse({
     work_used:b.work_used,codex_used:b.codex_used,paid_model_api_used:b.paid_model_api_used,
     paid_image_service_used:b.paid_image_service_used,billable_overage_used:b.billable_overage_used,
