@@ -47,6 +47,7 @@ function mergeBookOverlay(root,date,overlay){
   const data=readJson(file);
   data.references={...(data.references||{}),...(overlay.references||{})};
   data.editions={...(data.editions||{}),[date]:overlay.selections||[]};
+  if(data.frozen_migrations)delete data.frozen_migrations[date];
   writeText(file,JSON.stringify(data,null,2));
 }
 
