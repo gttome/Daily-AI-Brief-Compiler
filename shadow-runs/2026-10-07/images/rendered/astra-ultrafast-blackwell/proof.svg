@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef6fb"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#edf5fb"/></linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#193b5d"/><stop offset="1" stop-color="#0b2037"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#334f6a" flood-opacity=".18"/></filter>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1477e6"/></marker>
+  <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#14a673"/></marker>
+  </defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="600" cy="300" r="250" fill="#1477e6" opacity=".035"/>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<text x="600" y="44" text-anchor="middle" font-size="27" font-weight="800" fill="#12233d">Why inference speed compounds across AI loops</text>
+<text x="600" y="70" text-anchor="middle" font-size="12.5" fill="#587089">Generation, external steps, checks, and next-step decisions repeat many times inside one workflow.</text>
+<path d="M600 155 Q600 300 911.7691453623979 227.5" fill="none" stroke="#1477e6" stroke-width="3.2" opacity=".78" marker-end="url(#arrow)"/><path d="M911.7691453623979 227.5 Q600 300 911.7691453623979 372.5" fill="none" stroke="#14a673" stroke-width="3.2" opacity=".78" marker-end="url(#arrow)"/><path d="M911.7691453623979 372.5 Q600 300 600 445" fill="none" stroke="#7656d8" stroke-width="3.2" opacity=".78" marker-end="url(#arrow)"/><path d="M600 445 Q600 300 288.23085463760214 372.50000000000006" fill="none" stroke="#f18a2b" stroke-width="3.2" opacity=".78" marker-end="url(#arrow)"/><path d="M288.23085463760214 372.50000000000006 Q600 300 288.2308546376021 227.5" fill="none" stroke="#25b5e9" stroke-width="3.2" opacity=".78" marker-end="url(#arrow)"/><path d="M288.2308546376021 227.5 Q600 300 600 155" fill="none" stroke="#df5e62" stroke-width="3.2" opacity=".78" marker-end="url(#arrow)"/>
+    <circle cx="600" cy="300" r="92" fill="url(#dark)" stroke="#14a673" stroke-width="3" filter="url(#shadow)"/>
+    <text x="600" y="292" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">FEEDBACK</text>
+    <text x="600" y="312" font-size="9.2" font-weight="700" fill="#c4d4e2" text-anchor="middle"><tspan x="600" dy="0">Lower latency shortens</tspan><tspan x="600" dy="11">each loop</tspan></text>
+    <g filter="url(#shadow)">
+    <rect x="512.5" y="118" width="175" height="74" rx="15" fill="#fff" stroke="#1477e6" stroke-width="2"/>
+    <rect x="512.5" y="118" width="10" height="74" rx="5" fill="#1477e6"/>
+    <text x="536.5" y="145" font-size="14.5" font-weight="800" fill="#12233d">Reason</text>
+    <text x="536.5" y="161" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="536.5" dy="0">Choose the next step from</tspan><tspan x="536.5" dy="10">the goal and current state</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="824.2691453623979" y="190.5" width="175" height="74" rx="15" fill="#fff" stroke="#14a673" stroke-width="2"/>
+    <rect x="824.2691453623979" y="190.5" width="10" height="74" rx="5" fill="#14a673"/>
+    <text x="848.2691453623979" y="217.5" font-size="14.5" font-weight="800" fill="#12233d">Generate</text>
+    <text x="848.2691453623979" y="233.5" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="848.2691453623979" dy="0">Produce code,</tspan><tspan x="848.2691453623979" dy="10">instructions, or</tspan><tspan x="848.2691453623979" dy="10">structured output</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="824.2691453623979" y="335.5" width="175" height="74" rx="15" fill="#fff" stroke="#7656d8" stroke-width="2"/>
+    <rect x="824.2691453623979" y="335.5" width="10" height="74" rx="5" fill="#7656d8"/>
+    <text x="848.2691453623979" y="362.5" font-size="14.5" font-weight="800" fill="#12233d">External step</text>
+    <text x="848.2691453623979" y="378.5" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="848.2691453623979" dy="0">A connected system turns</tspan><tspan x="848.2691453623979" dy="10">the planned step into</tspan><tspan x="848.2691453623979" dy="10">observable work</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="512.5" y="408" width="175" height="74" rx="15" fill="url(#dark)" stroke="#f18a2b" stroke-width="2"/>
+    <rect x="512.5" y="408" width="10" height="74" rx="5" fill="#f18a2b"/>
+    <text x="536.5" y="435" font-size="14.5" font-weight="800" fill="#fff">Check result</text>
+    <text x="536.5" y="451" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="536.5" dy="0">Read evidence and</tspan><tspan x="536.5" dy="10">determine whether the step</tspan><tspan x="536.5" dy="10">succeeded</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="200.73085463760214" y="335.50000000000006" width="175" height="74" rx="15" fill="#fff" stroke="#25b5e9" stroke-width="2"/>
+    <rect x="200.73085463760214" y="335.50000000000006" width="10" height="74" rx="5" fill="#25b5e9"/>
+    <text x="224.73085463760214" y="362.50000000000006" font-size="14.5" font-weight="800" fill="#12233d">Decide next</text>
+    <text x="224.73085463760214" y="378.50000000000006" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="224.73085463760214" dy="0">Update the plan or close</tspan><tspan x="224.73085463760214" dy="10">the workflow</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="200.73085463760208" y="190.5" width="175" height="74" rx="15" fill="#fff" stroke="#df5e62" stroke-width="2"/>
+    <rect x="200.73085463760208" y="190.5" width="10" height="74" rx="5" fill="#df5e62"/>
+    <text x="224.73085463760208" y="217.5" font-size="14.5" font-weight="800" fill="#12233d">Optimize runtime</text>
+    <text x="224.73085463760208" y="233.5" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="224.73085463760208" dy="0">Inference improvements</tspan><tspan x="224.73085463760208" dy="10">shorten future model turns</tspan></text>
+  </g>
+<g filter="url(#shadow)">
+      <rect x="82" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#14a673" stroke-width="1.7"/>
+      <circle cx="107" cy="535" r="10" fill="#14a673"/>
+      <path d="M102,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="126" y="538" font-size="13" font-weight="800" fill="#12233d">Up to 8x</text>
+      <text x="102" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="102" dy="0">NVIDIA reports faster token generation</tspan><tspan x="102" dy="11">than Astra Standard</tspan></text>
+    </g><g filter="url(#shadow)">
+      <rect x="420" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#7656d8" stroke-width="1.7"/>
+      <circle cx="445" cy="535" r="10" fill="#7656d8"/>
+      <path d="M440,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="464" y="538" font-size="13" font-weight="800" fill="#12233d">Compounding</text>
+      <text x="440" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="440" dy="0">Latency savings repeat at every generation</tspan><tspan x="440" dy="11">boundary</tspan></text>
+    </g><g filter="url(#shadow)">
+      <rect x="758" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#f18a2b" stroke-width="1.7"/>
+      <circle cx="783" cy="535" r="10" fill="#f18a2b"/>
+      <path d="M778,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="802" y="538" font-size="13" font-weight="800" fill="#12233d">System effect</text>
+      <text x="778" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="778" dy="0">Infrastructure performance shapes</tspan><tspan x="778" dy="11">perceived responsiveness</tspan></text>
+    </g>
+<text x="600" y="616" text-anchor="middle" font-size="9.5" fill="#7b91a4">End-to-end wall time is the sum of repeated model and external-system cycles.</text>
+</g></svg>

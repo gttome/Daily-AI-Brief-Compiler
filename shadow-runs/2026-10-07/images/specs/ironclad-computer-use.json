@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "ironclad-computer-use",
+  "grammar": "state_machine",
+  "title": "Contract rules become a measurable workflow",
+  "subtitle": "Each workflow state must preserve business requirements from intake through final verification.",
+  "nodes": [
+    {
+      "id": "intake",
+      "label": "Intake",
+      "detail": "Capture request details, thresholds, terms, and reviewers",
+      "emphasis": true
+    },
+    {
+      "id": "rules",
+      "label": "Interpret rules",
+      "detail": "Translate policy into forms, templates, and conditions"
+    },
+    {
+      "id": "approve",
+      "label": "Route approvals",
+      "detail": "Send required reviews according to business policy"
+    },
+    {
+      "id": "except",
+      "label": "Handle exception",
+      "detail": "Identify nonstandard cases and surface them for review"
+    },
+    {
+      "id": "build",
+      "label": "Build agreement",
+      "detail": "Assemble the contract using approved terms and rules"
+    },
+    {
+      "id": "verify",
+      "label": "Verify result",
+      "detail": "Check criteria and confirm the finished process works"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Explicit criteria",
+      "detail": "Tasks are scored against detailed workflow requirements"
+    },
+    {
+      "label": "Whole process",
+      "detail": "Correct individual actions are not enough if rules are lost later"
+    },
+    {
+      "label": "Human review",
+      "detail": "Exceptions still need professional judgment and oversight"
+    }
+  ],
+  "flow_label": "Rules persist across workflow states",
+  "footer": "The useful metric is correct end-to-end workflow execution, not plausible output."
+}
