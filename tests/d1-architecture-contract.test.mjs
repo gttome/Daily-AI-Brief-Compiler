@@ -36,6 +36,11 @@ test('Work contract preserves clean story chats and exact-byte recovery',()=>{
   assert.equal(w.work_subagent_image_generation_allowed,false);
   assert.equal(w.may_visually_accept_images,false);
   assert.equal(w.binary_readback_method,'direct_raw_github_download_pinned_to_immutable_commit');
+  assert.equal(w.execution_boundary.outer_executor,'chatgpt_work_task');
+  assert.equal(w.execution_boundary.inner_generation_target,'ordinary_chatgpt_regular_chat');
+  assert.equal(w.execution_boundary.inner_target_chat_selected,true);
+  assert.equal(w.execution_boundary.inner_target_work_selected,false);
+  assert.equal(w.execution_boundary.inner_chat_mode_is_required_not_violation,true);
 });
 
 test('Dot is optional and not the reader-image path owner',()=>{
