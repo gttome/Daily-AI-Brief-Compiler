@@ -4,7 +4,7 @@
   "parent_proof_id": "d1-cloud-proof-r1",
   "branch": "rehearsal/d1-cloud-proof-r1",
   "purpose": "Prove the smallest missing D1 path without rework: a browser operator creates one genuinely fresh ordinary ChatGPT image conversation, generates one native image from only the sealed story specification, recovers the exact generated asset, and persists the same bytes to a disposable Compiler proof path.",
-  "status": "WAITING_FOR_BROWSER_OPERATOR_CONNECTION",
+  "status": "BLOCKED",
   "source_studio_request": "rehearsals/d1-cloud-proof-r1/studio-request.json",
   "story_id": "stress-terminal-evidence",
   "story_ordinal": 1,
@@ -58,5 +58,19 @@
   "owner_intervention": false,
   "local_computer_used": false,
   "notes": "Do not run all six images. This proof intentionally consumes at most one native image generation and stops immediately after PASS or the first irreducible platform blocker.",
-  "prepared_at": "2026-10-07T19:15:00Z"
+  "prepared_at": "2026-10-07T19:15:00Z",
+  "last_error": {
+    "code": "D1_BROWSER_CHAT_AUTHENTICATION_REQUIRED",
+    "stage": "ACCESS_AUTHENTICATED_ORDINARY_CHAT",
+    "classification": "missing_authenticated_cloud_browser_session",
+    "detail": "Work Cloud Browser successfully opened https://chatgpt.com/ but the page was signed out. The page explicitly says login is required to create images. Clicking Log in opened a Log in or sign up dialog with Google, Apple, phone and email sign-in methods. The supported browserAuth flow requires owner sign-in method selection and/or credentials. This attempt forbids owner intervention, so it stopped before requesting credentials or submitting the sealed prompt.",
+    "site_bot_detection_observed": false,
+    "site_access_denial_observed": false,
+    "cloud_browser_navigation_succeeded": true,
+    "authentication_attempt_submitted": false,
+    "no_owner_intervention_route_available_in_observed_state": true
+  },
+  "updated_at": "2026-10-07T20:07:07Z",
+  "stop_reason": "First capability blocker: authenticated ordinary ChatGPT image creation cannot be reached under the no-owner-intervention requirement.",
+  "browser_operator": "Work Cloud Browser"
 }

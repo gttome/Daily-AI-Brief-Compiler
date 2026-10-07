@@ -1,0 +1,84 @@
+{
+  "schema_version": "daily-compiler-d1-browser-chat-capability-receipt-v1",
+  "proof_id": "d1-browser-chat-one-image-r1",
+  "parent_proof_id": "d1-cloud-proof-r1",
+  "branch": "rehearsal/d1-cloud-proof-r1",
+  "resumed_from_commit": "ac248284b00c59863b905a46ec9ee6a92a2a7b39",
+  "status": "BLOCKED",
+  "observed_at": "2026-10-07T20:07:07Z",
+  "operator": "Work Cloud Browser",
+  "browser_type": "cdp",
+  "target_origin": "https://chatgpt.com",
+  "observed_url": "https://chatgpt.com/",
+  "sealed_prompt": {
+    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/isolated-story1-prompt.txt",
+    "git_blob_sha": "3bbeddef7b347b2be7a7862526a9a8d2af055b66",
+    "submitted": false,
+    "modified": false
+  },
+  "requested_conversation": {
+    "ordinary_chat": true,
+    "brand_new": true,
+    "temporary": true,
+    "unpersonalized": true,
+    "created": false
+  },
+  "blocker": {
+    "code": "D1_BROWSER_CHAT_AUTHENTICATION_REQUIRED",
+    "stage": "ACCESS_AUTHENTICATED_ORDINARY_CHAT",
+    "classification": "missing_authenticated_cloud_browser_session",
+    "detail": "Work Cloud Browser successfully opened https://chatgpt.com/ but the page was signed out. The page explicitly says login is required to create images. Clicking Log in opened a Log in or sign up dialog with Google, Apple, phone and email sign-in methods. The supported browserAuth flow requires owner sign-in method selection and/or credentials. This attempt forbids owner intervention, so it stopped before requesting credentials or submitting the sealed prompt.",
+    "site_bot_detection_observed": false,
+    "site_access_denial_observed": false,
+    "cloud_browser_navigation_succeeded": true,
+    "authentication_attempt_submitted": false,
+    "no_owner_intervention_route_available_in_observed_state": true
+  },
+  "evidence": [
+    {
+      "source": "Work Cloud Browser initial accessibility state",
+      "url": "https://chatgpt.com/",
+      "observed_text": "Log in to get answers based on saved chats, plus create images and upload files."
+    },
+    {
+      "source": "Work Cloud Browser accessibility state after Log in",
+      "url": "https://chatgpt.com/",
+      "dialog": "Log in or sign up",
+      "visible_methods": [
+        "Continue with Google",
+        "Continue with Apple",
+        "Continue with phone",
+        "Email address"
+      ],
+      "visible_submit": "Continue"
+    },
+    {
+      "source": "advertised browserAuth capability documentation",
+      "finding": "Sign-in method choices and credentials are collected from the user through a secure handoff; no autonomous saved-credential method was advertised."
+    }
+  ],
+  "native_generations": 0,
+  "max_native_generations": 1,
+  "accepted_assets": [],
+  "work_image_generation_used": false,
+  "work_subagent_used": false,
+  "owner_intervention": false,
+  "local_computer_used": false,
+  "external_paid_service_used": false,
+  "alternate_route_attempted": false,
+  "retry_performed": false,
+  "transfer": {
+    "status": "NOT_REACHED",
+    "exact_generated_asset_recovered": false
+  },
+  "git_asset": {
+    "target_path": "rehearsals/d1-cloud-proof-r1/browser-proof/d1-proof-01-stress-terminal-evidence.png",
+    "written": false,
+    "recovered_sha256": null,
+    "readback_sha256": null,
+    "sha256_match": null
+  },
+  "stop_reason": "First capability blocker: authenticated ordinary ChatGPT image creation cannot be reached under the no-owner-intervention requirement.",
+  "stopped": true,
+  "scope": "Evidence only on the existing disposable proof branch. Existing sealed prompt, prior proof evidence, implementation, protected main and production are unchanged."
+}
