@@ -3,6 +3,7 @@ import path from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {adaptCompilerBundle} from './reader-adapter.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
+import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 
 const compilerRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshotRoot=path.join(compilerRoot,'vendor','production-reader','snapshot');
@@ -29,6 +30,42 @@ function patchWatchlistImmediateSelection(root){
   const after="article.querySelectorAll('[data-choice]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.choice===choice));b.disabled=true;});status.textContent='Saving…';";
   if(!source.includes(before))throw new Error('canonical watchlist vote hook changed; immediate-selection patch must be reviewed');
   fs.writeFileSync(file,source.replace(before,after),'utf8');
+}
+
+function patchFeedbackRuntime(root,environment){
+  const replacements=[
+    ['assets/js/feedback.js','https://daily-ai-brief-ratings.gtome.chatgpt.site/api/ratings',environment.feedbackBase+'/api/ratings'],
+    ['assets/js/comments.js','https://daily-ai-brief-ratings.gtome.chatgpt.site/api/comments',environment.feedbackBase+'/api/comments'],
+    ['assets/js/watchlist.js','https://daily-ai-brief-ratings.gtome.chatgpt.site/api/watchlist',environment.feedbackBase+'/api/watchlist'],
+    ['assets/js/share.js','https://daily-ai-brief-ratings.gtome.chatgpt.site/api/events',environment.feedbackBase+'/api/events']
+  ];
+  for(const [relative,before,after] of replacements){
+    const file=path.join(root,relative);
+    const source=fs.readFileSync(file,'utf8');
+    if(!source.includes(before))throw new Error('reader feedback endpoint changed: '+relative);
+    fs.writeFileSync(file,source.replaceAll(before,after),'utf8');
+  }
+  const commentsPath=path.join(root,'assets','js','comments.js');
+  let comments=fs.readFileSync(commentsPath,'utf8');
+  comments=comments
+    .replace('Sent privately to the brief’s editor. Please avoid personal or confidential information. Comments are retained for 90 days.','Saved anonymously in the public Daily AI Brief Compiler feedback store. Do not include personal or confidential information.')
+    .replace('Comment sent privately. Thank you.','Comment saved. Thank you.');
+  fs.writeFileSync(commentsPath,comments,'utf8');
+
+  const feedbackPage=path.join(root,'feedback','index.md');
+  let page=fs.readFileSync(feedbackPage,'utf8');
+  page=page
+    .replace('submissions are sent for private aggregation','submissions are stored by the independent Daily AI Brief Compiler feedback service')
+    .replace('Optional comments are sent privately to the editor and retained for 90 days; please avoid personal or confidential information.','Optional comments are stored anonymously in the Compiler feedback store and may be readable through its public data endpoint; do not include personal or confidential information.');
+  fs.writeFileSync(feedbackPage,page,'utf8');
+}
+
+function applyFeedbackIdentities(content,registry){
+  let next=String(content);
+  for(const item of registry.items){
+    next=next.replaceAll(`data-feedback-story-id="${item.canonical_reader_id}"`,`data-feedback-story-id="${item.feedback_id}"`);
+  }
+  return next;
 }
 
 function rewriteReaderEnvironment(root,environment){
@@ -181,10 +218,12 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
   rewriteReaderEnvironment(outDir,environment);
   patchWatchlistImmediateSelection(outDir);
+  patchFeedbackRuntime(outDir,environment);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
   const priorWatchlist=readJson(path.join(outDir,'_data','watchlist.json'));
   const adapted=adaptCompilerBundle(bundle,{environment,priorWatchlist});
+  const feedbackRegistry=compilerFeedbackRegistry(bundle,adapted.edition,adapted.watchlist);
   mergeBookOverlay(outDir,bundle.edition_date,adapted.bookOverlay);
   mergeReadingSupport(outDir,bundle,adapted.edition,environment);
   writeWatchlistData(outDir,adapted.watchlist);
@@ -197,8 +236,9 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
 
   const render=await import(pathToFileURL(path.join(outDir,'_generator','lib','render.mjs')).href);
   const generated=render.generatedFiles(adapted.edition,outDir,{watchlist:adapted.watchlist});
-  for(const [name,content] of generated)writeText(path.join(outDir,name),content);
+  for(const [name,content] of generated)writeText(path.join(outDir,name),applyFeedbackIdentities(content,feedbackRegistry));
   await writeWatchlistResearch(outDir,adapted.watchlist);
+  writeText(path.join(outDir,'data','compiler-feedback-registry.json'),JSON.stringify(feedbackRegistry,null,2));
 
   const manifest={
     schema_version:'daily-compiler-canonical-reader-source-v1',
@@ -206,7 +246,14 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
     renderer:'vendored-production-reader',
     production_reader_source_sha:'912248e5add14b2ec08d7a5eefed43cbf3af485f',
     environment:{public_base:environment.publicBase,baseurl:environment.baseurl},
-    required_routes:requiredRoutes(adapted),
+    feedback:{
+      store:environment.feedbackStore,
+      base_url:environment.feedbackBase,
+      registry_route:'data/compiler-feedback-registry.json',
+      public_comments:true,
+      item_namespace:'dab-*-compiler-YYYY-MM-DD-*'
+    },
+    required_routes:[...requiredRoutes(adapted),'data/compiler-feedback-registry.json'],
     current_images:adapted.imageBindings.map(x=>({
       story_id:x.story_id,
       route:'briefs/images/'+bundle.edition_date+'/'+x.reader_filename,
@@ -216,7 +263,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
     semantic_rework:0,
     accepted_image_regenerations:0,
     production_runtime_dependency:false,
-    reader_behavior_fixes:['watchlist-interest-selection-immediate-visual-state']
+    reader_behavior_fixes:['watchlist-interest-selection-immediate-visual-state','compiler-owned-feedback-store','compiler-feedback-item-namespace']
   };
   writeText(path.join(outDir,'build-manifest.json'),JSON.stringify(manifest,null,2));
   return {manifest,adapted};

@@ -4,6 +4,8 @@ export const readerEnvironment=Object.freeze({
   repository:'gttome/Daily-AI-Brief-Compiler',
   timezone:'America/Chicago',
   analyticsNamespace:'daily-compiler-shadow',
+  feedbackBase:'https://dab-compiler-feedback.gtome.chatgpt.site',
+  feedbackStore:'compiler-owned-public-v1',
   productionReferenceBase:'https://gttome.github.io/Daily-AI-Brief',
   productionReferenceBaseurl:'/Daily-AI-Brief'
 });
