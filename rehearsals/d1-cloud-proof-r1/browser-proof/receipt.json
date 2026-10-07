@@ -3,9 +3,9 @@
   "proof_id": "d1-browser-chat-one-image-r1",
   "parent_proof_id": "d1-cloud-proof-r1",
   "branch": "rehearsal/d1-cloud-proof-r1",
-  "resumed_from_commit": "93313b4c55c8fefe533c791ccf3d614864c5061f",
-  "status": "BLOCKED",
-  "observed_at": "2026-10-07T20:41:01.126Z",
+  "resumed_from_commit": "51292c5245159f680a95bf8f669365af35a5e847",
+  "status": "PASS",
+  "observed_at": "2026-10-07T20:49:35.751566+00:00",
   "operator": "Work Cloud Browser",
   "browser_type": "cdp",
   "authentication": {
@@ -42,7 +42,7 @@
   "generation_result": "SUCCESS",
   "cloud_asset_recovery_result": "SUCCESS",
   "git_persistence_result": "SUCCESS",
-  "git_sha256_readback_result": "BLOCKED",
+  "git_sha256_readback_result": "SUCCESS",
   "asset_recovery": {
     "method": "Image preview → Download",
     "cloud_browser_path": "/home/oai/share/3c77e75c-be3c-434e-9cd8-90c18a60e583/01f76452-c1ba-4cce-bd2b-4851409cec13",
@@ -63,36 +63,19 @@
     "persisted": true,
     "committed_path_blob_sha_matches_local": true,
     "recovered_sha256": "66f01ee6363a7d63b02320ec0a57f10f67b71287d7378d06e042ec76de8faa04",
-    "readback_sha256": null,
-    "readback_bytes_available": false,
-    "sha256_match": null
+    "readback_sha256": "66f01ee6363a7d63b02320ec0a57f10f67b71287d7378d06e042ec76de8faa04",
+    "readback_bytes_available": true,
+    "sha256_match": true,
+    "readback_byte_count": 1360444,
+    "byte_count_match": true,
+    "readback_git_blob_sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+    "git_blob_match": true,
+    "readback_method": "Direct HTTPS raw GitHub asset download pinned to immutable commit; Python urllib in Work cloud environment; binary file saved and verified with git hash-object and sha256sum",
+    "readback_source_url": "https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/88fda64122658c20f04639189fd3f93970389ae3/rehearsals/d1-cloud-proof-r1/browser-proof/d1-proof-01-stress-terminal-evidence.png",
+    "readback_verified_at": "2026-10-07T20:49:35.751566+00:00",
+    "readback_evidence_path": "rehearsals/d1-cloud-proof-r1/browser-proof/binary-readback-verification.json"
   },
-  "blocker": {
-    "code": "D1_GIT_BINARY_ASSET_READBACK_UNAVAILABLE",
-    "stage": "READ_GIT_ASSET_AND_VERIFY_SHA256",
-    "classification": "github_connector_binary_readback_limitation",
-    "detail": "Regular ordinary ChatGPT generated exactly one native image. Its Image preview Download action transferred the exact PNG into the Work cloud environment. The unmodified PNG was hashed locally and committed to the disposable proof target. Reading the committed path with encoding=base64 returned the expected Git blob SHA but an empty content string. The dedicated blob reader raised a UTF-8 decode error on the PNG signature, and the approved Git blob URL reader rejected non-UTF-8 content. Therefore no Git readback bytes were available to calculate the required independent SHA-256. Generation, cloud recovery and Git persistence succeeded; SHA-256 readback verification remains incomplete.",
-    "observations": [
-      {
-        "tool": "github_fetch_file",
-        "ref": "88fda64122658c20f04639189fd3f93970389ae3",
-        "encoding": "base64",
-        "sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
-        "content_characters": 0
-      },
-      {
-        "tool": "github_fetch_blob",
-        "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte"
-      },
-      {
-        "tool": "github_fetch",
-        "error": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)"
-      }
-    ],
-    "scope": "Observed connector behavior for this 1,360,444-byte PNG; not an image-generation or cloud-download failure.",
-    "regeneration_performed": false,
-    "alternate_image_route_attempted": false
-  },
+  "blocker": null,
   "quality_acceptance": "NOT_EVALUATED; this is a capability and exact-byte persistence proof, not production publication or quality acceptance.",
   "work_image_generation_used": false,
   "work_subagent_used": false,
@@ -119,8 +102,54 @@
       "commit": "93313b4c55c8fefe533c791ccf3d614864c5061f",
       "path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json",
       "result": "Temporary / Unpersonalized response reported native image generation unavailable"
+    },
+    {
+      "commit": "51292c5245159f680a95bf8f669365af35a5e847",
+      "path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json",
+      "result": "Git connector binary-readback blocker; resolved by direct exact-commit raw binary download"
     }
   ],
   "stopped": true,
-  "scope": "Disposable existing browser proof only. Image bytes remain unchanged; no protected-main, production, architecture, publication or sealed-prompt changes."
+  "scope": "Disposable existing browser proof only. Image bytes remain unchanged; no protected-main, production, architecture, publication or sealed-prompt changes.",
+  "resolved_blockers": [
+    {
+      "code": "D1_GIT_BINARY_ASSET_READBACK_UNAVAILABLE",
+      "stage": "READ_GIT_ASSET_AND_VERIFY_SHA256",
+      "classification": "github_connector_binary_readback_limitation",
+      "detail": "Regular ordinary ChatGPT generated exactly one native image. Its Image preview Download action transferred the exact PNG into the Work cloud environment. The unmodified PNG was hashed locally and committed to the disposable proof target. Reading the committed path with encoding=base64 returned the expected Git blob SHA but an empty content string. The dedicated blob reader raised a UTF-8 decode error on the PNG signature, and the approved Git blob URL reader rejected non-UTF-8 content. Therefore no Git readback bytes were available to calculate the required independent SHA-256. Generation, cloud recovery and Git persistence succeeded; SHA-256 readback verification remains incomplete.",
+      "observations": [
+        {
+          "tool": "github_fetch_file",
+          "ref": "88fda64122658c20f04639189fd3f93970389ae3",
+          "encoding": "base64",
+          "sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+          "content_characters": 0
+        },
+        {
+          "tool": "github_fetch_blob",
+          "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte"
+        },
+        {
+          "tool": "github_fetch",
+          "error": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)"
+        }
+      ],
+      "scope": "Observed connector behavior for this 1,360,444-byte PNG; not an image-generation or cloud-download failure.",
+      "regeneration_performed": false,
+      "alternate_image_route_attempted": false,
+      "resolution": {
+        "code": "D1_GIT_BINARY_ASSET_READBACK_UNAVAILABLE",
+        "resolved_at": "2026-10-07T20:49:35.751566+00:00",
+        "method": "Direct HTTPS raw GitHub asset download pinned to immutable commit; Python urllib in Work cloud environment; binary file saved and verified with git hash-object and sha256sum",
+        "evidence_path": "rehearsals/d1-cloud-proof-r1/browser-proof/binary-readback-verification.json",
+        "historical_receipt_commit": "51292c5245159f680a95bf8f669365af35a5e847"
+      }
+    }
+  ],
+  "completed_at": "2026-10-07T20:49:35.751566+00:00",
+  "binary_readback_evidence_path": "rehearsals/d1-cloud-proof-r1/browser-proof/binary-readback-verification.json",
+  "binary_readback_method": "Direct HTTPS raw GitHub asset download pinned to immutable commit; Python urllib in Work cloud environment; binary file saved and verified with git hash-object and sha256sum",
+  "additional_image_generations": 0,
+  "completed": true,
+  "completion_reason": "Exact-commit binary readback matched byte count, native Git blob identity and original SHA-256."
 }
