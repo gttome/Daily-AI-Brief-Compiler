@@ -6,7 +6,7 @@ const runtimeFiles=[
   'image-capsules/packet.mjs','image-capsules/prompt.mjs','image-capsules/set-plan.mjs',
   'image-capsules/admission.mjs','image-capsules/persistence.mjs','image-capsules/chunk-bridge.mjs',
   'image-capsules/normalize.mjs','image-capsules/structural-gate.mjs','image-capsules/review-contract.mjs',
-  'image-capsules/set-review.mjs','image-capsules/state.mjs','image-capsules/bundle-gate.mjs',
+  'image-capsules/set-review.mjs','image-capsules/state.mjs','image-capsules/bundle-gate.mjs','image-capsules/routing.mjs',
   'scripts/process-native-image.mjs','scripts/verify-image-candidate.mjs',
   'scripts/verify-image-set.mjs','scripts/verify-bundle-images.mjs'
 ];

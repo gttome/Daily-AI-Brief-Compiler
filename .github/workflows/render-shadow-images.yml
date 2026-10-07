@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --no-save sharp@0.34.4
-      - name: Preserve pre-activation Proposal 1R rendering
+      - name: Activation-aware Proposal 1R rendering
         run: node scripts/render-pending-images.mjs
       - name: Process immutable D0 raw candidates deterministically
         run: node scripts/process-native-image.mjs
