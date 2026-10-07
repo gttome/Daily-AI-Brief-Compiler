@@ -3,7 +3,7 @@ import path from 'node:path';
 import {validateD0Activation} from './activation-gate.mjs';
 import {validateD0BundleImages} from './bundle-gate.mjs';
 import {buildMigratedState,semanticFingerprint} from './migration.mjs';
-import {sha256} from './util.mjs';
+import {canonicalSha,sha256} from './util.mjs';
 
 export function applyImageOnlyMigration({
   repoRoot='.',
@@ -48,7 +48,7 @@ export function applyImageOnlyMigration({
     replacement_bundle_sha256:sha256(replacementText),
     state_bundle_digest:built.state.bundle.digest,
     d0_bundle_gate:'PASS',
-    activation_receipt_sha256:activation.receipt?activation.receipt.proofs?sha256(JSON.stringify(activation.receipt)):null:null,
+    activation_receipt_sha256:activation.receipt?canonicalSha(activation.receipt):null,
     reader_update_authorized:true,
     new_execution_created:false,
     owner_intervention:false
