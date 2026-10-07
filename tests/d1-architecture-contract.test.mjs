@@ -13,6 +13,11 @@ test('D1 v5 contract uses Work Cloud Browser with a fresh regular chat per story
   assert.equal(c.image_creation.temporary_chat_forbidden,true);
   assert.equal(c.image_creation.prior_conversation_reuse_forbidden,true);
   assert.equal(c.quality.gate_location,'fresh_regular_chat_per_story');
+  assert.equal(c.quality.minimum_meaningful_components,12);
+  assert.equal(c.quality.benchmark_profile_path,'docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md');
+  assert.equal(c.quality.dimensional_mechanism_plate_required,true);
+  assert.equal(c.quality.generic_infographic_aesthetic_forbidden,true);
+  assert.equal(c.quality.decorative_geometry_forbidden,true);
   assert.equal(c.transfer.archive_required,false);
   assert.equal(c.transfer.git_binary_readback_method,'exact_commit_raw_github_download');
   assert.deepEqual(c.allowed_work_scope,['IMAGE_BROWSER_ORCHESTRATION_AND_INGEST']);
