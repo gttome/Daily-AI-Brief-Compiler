@@ -28,7 +28,7 @@
 **Evidence:** Independent Reporting  
 **Availability:** Available
 
-![Mechanism diagram showing goals, context, connected apps, review points, and ongoing task state around one persistent assistant.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m12.png?v=6a6c5cdde04b)
+![Mechanism diagram showing goals, context, connected apps, review points, and ongoing task state around one persistent assistant.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m12.png?v=dadc9bccbab5)
 
 **Summary:** OpenAI introduced dots at its September 29 Developer Day. The product is designed as a persistent assistant that can maintain continuity across tasks and connected applications instead of starting from a blank conversational state each time.
 
@@ -68,7 +68,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Pipeline diagram showing skill loading, intent capture, benchmark evidence, comparison, recommendation, and inspectable code.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m14.png?v=8f801453952a)
+![Pipeline diagram showing skill loading, intent capture, benchmark evidence, comparison, recommendation, and inspectable code.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m14.png?v=cda3569e4635)
 
 **Summary:** AWS introduced the `aws-ai-ml` skill through the Agent Toolkit for AWS. It gives compatible coding assistants reusable expertise for benchmarking SageMaker endpoints, comparing performance, recommending configurations, and producing inspectable SageMaker Python SDK v3 code.
 
@@ -108,7 +108,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![State-machine diagram showing intake, rules, approvals, exceptions, agreement assembly, and verification.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m10.png?v=b16d14c096dc)
+![State-machine diagram showing intake, rules, approvals, exceptions, agreement assembly, and verification.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m10.png?v=bd5872c5d78f)
 
 **Summary:** A collaboration with Ironclad translated representative contracting work into structured training and evaluation tasks. OpenAI reported that GPT-6 Astra achieved a higher average score and lower estimated time per attempt than GPT-5.6 Sol on the research task set.
 
@@ -148,7 +148,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Layered-system diagram showing model reasoning grounded through identity, permissions, organizational context, systems of record, workflow actions, and review.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m11.png?v=0615c20aeca9)
+![Layered-system diagram showing model reasoning grounded through identity, permissions, organizational context, systems of record, workflow actions, and review.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m11.png?v=62bcab78ea8d)
 
 **Summary:** Atlassian and OpenAI are deepening their partnership around the idea that frontier intelligence needs access to the goals, knowledge, people, and processes that shape enterprise work. Atlassian positions its Teamwork Graph and systems of record as a context layer for reasoning about live organizational state.
 
@@ -188,7 +188,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Comparison diagram showing remote and on-device semantic search architectures.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m01.png?v=51dba1ea8955)
+![Comparison diagram showing remote and on-device semantic search architectures.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m01.png?v=8ac0a90ace72)
 
 **Summary:** Google introduced EmbeddingGemma 2 for compact multimodal embedding workloads on edge devices.
 
@@ -228,7 +228,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Control-loop diagram showing reasoning, generation, tool use, result checking, next-step decisions, and runtime optimization.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m02.png?v=fe74e0b439b7)
+![Control-loop diagram showing reasoning, generation, tool use, result checking, next-step decisions, and runtime optimization.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-07/dab-edition-2026-10-07-m02.png?v=1e9178fac1e4)
 
 **Summary:** NVIDIA says GPT-6 Astra Ultrafast on Blackwell GPUs delivers up to 8x faster token generation than Astra Standard through ongoing inference optimization.
 
