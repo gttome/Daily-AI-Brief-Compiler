@@ -1,29 +1,17 @@
-D1 IMAGE STUDIO — FRESH CLOUD TASK
+D1 LEGACY IMAGE STUDIO PROMPT — SUPERSEDED BY V5
 
-This task is the sole subjective visual-quality gate for six Daily AI Brief reader images.
+This file is retained only so historical references do not disappear.
 
-INPUTS
-- six locked story image specifications;
-- the canonical Perfect Image standard;
-- exact visible-text allowlists;
-- six-image differentiation assignments.
+D1 v5 no longer uses one separate Image Studio task for all six images.
 
-CONTEXT ISOLATION
-Use only those inputs. Do not inspect GitHub, repository state, CI, publication state, run history, Dot history, Work instructions, prior Brief images, or unrelated orchestration material.
+The active proof-gated design requires:
+- one brand-new ordinary regular ChatGPT conversation per story;
+- no Temporary Chat;
+- no Work-native image generation or Work subagent generation;
+- only that story's sealed specification, Perfect Image rules, text allowlist and preassigned composition in the story chat;
+- subjective visual review inside that same clean story chat;
+- exact canonical 1200x630 bytes bound before accepted_locked;
+- no conversation reuse across stories.
 
-CREATE
-Generate six distinct native ChatGPT images, one story at a time. Default target is 1200x630 or a lossless normalization-compatible landscape native asset.
-
-QUALITY
-For every candidate enforce premium textbook/editorial publishing quality, high information density, mechanism-rich explanation, 8+ meaningful visual components, strong hierarchy, visual depth, story specificity, exact allowlisted visible text only, no logos/brands, no photos, no people/humanoids/avatars, no pseudo-text, no sparse/basic boxes-only fallback, and no unsupported details.
-
-If a candidate is weak, visually generic, sparse, text-contaminated or structurally wrong, reject it here and generate a new candidate. Maximum four genuine visual-quality attempts per story.
-
-SET REVIEW
-Before final acceptance require six unique compositions and byte streams with strong cross-set differentiation. Do not accept six minor template variants.
-
-OUTPUT
-Return six individual accepted cloud image assets, not a ZIP, plus daily-compiler-d1-image-acceptance-manifest-v1. The manifest must bind story ID, cloud asset ID, filename, width, height, format, bytes, SHA-256, composition signature, visible-text allowlist, accepted attempt, PASS and accepted_locked. Do not include repository names, branches, Git target paths, CI, publication or transport instructions in the Studio output.
-
-Once the manifest is emitted, those exact asset bytes are immutable. Do not perform GitHub work.
-
+The executable Work/browser instructions are in:
+contracts/d1-work-browser-prompt.txt
