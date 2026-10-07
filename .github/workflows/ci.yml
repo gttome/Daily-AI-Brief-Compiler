@@ -20,6 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - run: npm install --no-save sharp@0.34.4
       - run: npm test
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e

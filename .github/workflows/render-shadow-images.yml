@@ -8,6 +8,10 @@ on:
     paths:
       - 'shadow-runs/**/images/specs/**'
       - 'rehearsals/**/images/specs/**'
+      - 'shadow-runs/**/images/attempts/**/raw.png'
+      - 'shadow-runs/**/images/attempts/**/raw-receipt.json'
+      - 'rehearsals/**/images/attempts/**/raw.png'
+      - 'rehearsals/**/images/attempts/**/raw-receipt.json'
   workflow_dispatch:
 
 permissions:
@@ -27,18 +31,21 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --no-save sharp@0.34.4
-      - run: node scripts/render-pending-images.mjs
-      - name: Persist exact rendered assets
+      - name: Preserve pre-activation Proposal 1R rendering
+        run: node scripts/render-pending-images.mjs
+      - name: Process immutable D0 raw candidates deterministically
+        run: node scripts/process-native-image.mjs
+      - name: Persist exact deterministic image outputs
         run: |
-          git config user.name "Daily Compiler Diagram Renderer"
+          git config user.name "Daily Compiler Image Processor"
           git config user.email "actions@users.noreply.github.com"
           git add rehearsals 2>/dev/null || true
           git add shadow-runs 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "No new deterministic render outputs"
+            echo "No new deterministic image outputs"
             exit 0
           fi
-          git commit -m "Render deterministic story diagrams"
+          git commit -m "Process deterministic image outputs"
           for attempt in 1 2 3; do
             git fetch origin "${GITHUB_REF_NAME}"
             git rebase "origin/${GITHUB_REF_NAME}"
@@ -47,5 +54,5 @@ jobs:
             fi
             sleep $((attempt * 2))
           done
-          echo "Unable to persist rendered assets after bounded Git rebase retries"
+          echo "Unable to persist deterministic image outputs after bounded Git rebase retries"
           exit 1
