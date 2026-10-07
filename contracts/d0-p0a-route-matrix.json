@@ -131,6 +131,86 @@
       "post_generation_persistence_available": "POSSIBLE",
       "autonomous_invocation": true,
       "blocker": "Work is prohibited as a production/runtime dependency by contract."
+    },
+    {
+      "route_id": "scheduled_task_shared_link",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+        "https://help.openai.com/en/articles/7925741-sharing-conversations-and-scheduled-tasks-in-chatgpt"
+      ],
+      "native_chatgpt_images": "UNPROVEN_IN_SHARED_TASK_RESULT_ACCESS",
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": true,
+      "generated_asset_programmatically_retrievable": false,
+      "exact_bytes_available_before_context_end": false,
+      "post_generation_persistence_available": false,
+      "autonomous_invocation": true,
+      "blocker": "A shared task link contains the task title, instructions, schedule and time zone, but explicitly excludes previous task results. Completed tasks also cannot be newly shared. This cannot expose an existing scheduled-run image."
+    },
+    {
+      "route_id": "team_task_previous_runs_ui",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/20001540-creating-and-managing-team-tasks-in-chatgpt"
+      ],
+      "native_chatgpt_images": "UNASSESSED",
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": true,
+      "generated_asset_programmatically_retrievable": false,
+      "exact_bytes_available_before_context_end": false,
+      "post_generation_persistence_available": false,
+      "autonomous_invocation": true,
+      "blocker": "Team-task Previous runs can be opened in the ChatGPT UI, but no supported task-run result action is exposed to the Compiler runtime. UI review is not autonomous exact-byte retrieval."
+    },
+    {
+      "route_id": "plugin_file_library_bridge",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://developers.openai.com/plugins/reference",
+        "https://developers.openai.com/plugins/build/chatgpt-ui"
+      ],
+      "native_chatgpt_images": true,
+      "fresh_context": "POSSIBLE",
+      "story_prompt_exactly_bindable": false,
+      "generated_asset_programmatically_retrievable": false,
+      "exact_bytes_available_before_context_end": "POSSIBLE_AFTER_FILE_ID_EXISTS",
+      "post_generation_persistence_available": true,
+      "autonomous_invocation": "POSSIBLE",
+      "blocker": "Plugin file APIs can download file IDs that were uploaded, selected, passed through fileParams, or returned by tool file references. The documented APIs do not automatically grant a plugin the file ID of a native ChatGPT Images result from a separate pure scheduled generation. File-library selection is user-driven."
+    },
+    {
+      "route_id": "plugin_skill_post_generation_instruction",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://developers.openai.com/plugins/concepts/plugins",
+        "https://developers.openai.com/plugins/changelog",
+        "https://developers.openai.com/plugins/build/plugins"
+      ],
+      "native_chatgpt_images": true,
+      "fresh_context": "POSSIBLE",
+      "story_prompt_exactly_bindable": false,
+      "generated_asset_programmatically_retrievable": "UNPROVEN",
+      "exact_bytes_available_before_context_end": "UNPROVEN",
+      "post_generation_persistence_available": true,
+      "autonomous_invocation": true,
+      "blocker": "ChatGPT reads MCP server instructions and skill guidance alongside tool metadata. That guidance would be part of the model context used to orchestrate native image generation, so it cannot currently prove the sealed story prompt is the complete generator-visible context. Plugin lifecycle hooks are documented only for manually installed Codex desktop plugins, which are prohibited."
+    },
+    {
+      "route_id": "personal_data_export_or_compliance_api",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+        "https://help.openai.com/en/articles/7925741-sharing-conversations-and-scheduled-tasks-in-chatgpt"
+      ],
+      "native_chatgpt_images": "IRRELEVANT",
+      "fresh_context": "IRRELEVANT",
+      "story_prompt_exactly_bindable": "IRRELEVANT",
+      "generated_asset_programmatically_retrievable": false,
+      "exact_bytes_available_before_context_end": false,
+      "post_generation_persistence_available": false,
+      "autonomous_invocation": false,
+      "blocker": "Personal data exports do not include Scheduled tasks. Scheduled tasks are covered by the Enterprise Compliance API, but that is not an in-run generated-image handoff and is not an available zero-cost Compiler runtime primitive."
     }
   ]
 }
