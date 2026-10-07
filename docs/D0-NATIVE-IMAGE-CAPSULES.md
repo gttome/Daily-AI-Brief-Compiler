@@ -30,7 +30,7 @@ Native ChatGPT image generation already included in the existing subscription is
 
 Before formal P0-A/P0-B, run the executable pre-proof in `docs/D0-ZERO-COST-PREPROOF.md`. It uses two disposable native images total across two independent standalone scheduled runs. Those runs jointly establish fresh-chat isolation, canary non-leakage, same-run generated-file handoff, exact raw persistence, read-back identity, and repeatability.
 
-Once the pre-proof receipt validates PASS, formal P0-A/P0-B promote the same immutable evidence instead of regenerating the two images. This is deliberate: capability discovery occurs before the formal proof, while evidence reuse reduces native-capacity exposure without weakening the proof.
+Once the v2 pre-proof receipt validates PASS, formal P0-A/P0-B promote the same immutable evidence instead of regenerating the two images. Same-run exact-byte capture uses the proven connected Google Drive ephemeral shuttle described in `docs/D0-NATIVE-BYTE-BRIDGE.md`; GitHub remains the durable system of record and the temporary Drive object is deleted after verified persistence. This is deliberate: capability discovery occurs before the formal proof, while evidence reuse reduces native-capacity exposure without weakening the proof.
 
 ## Clean capsule boundary
 
