@@ -35,5 +35,6 @@ export function proposal1rRenderingAllowed({activationStatus,activeReaderStrateg
   const active=activeReaderStrategy||((activationStatus===D0_ACTIVE)?'d0_native_image_capsules':'proposal1r_legacy');
   if(active==='proposal1r_legacy') return {allowed:true,reason:'pre_activation_legacy_reader_path'};
   if(isInternalProposal1RFixture({specPath,runRoot})) return {allowed:true,reason:'explicit_internal_fixture'};
+  if(active==='d0_native_image_capsules') return {allowed:false,reason:'d0_active_reader_story_proposal1r_forbidden'};
   return {allowed:false,reason:active+'_reader_story_proposal1r_forbidden'};
 }
