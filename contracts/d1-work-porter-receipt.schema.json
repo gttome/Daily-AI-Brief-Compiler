@@ -1,33 +1,90 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-work-porter-receipt.schema.json",
-  "title":"Daily Compiler D1 Work Porter Receipt v1",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["schema_version","result","scope","manifest_sha256","images","visual_quality_review_performed","image_generation_performed","owner_intervention"],
-  "properties":{
-    "schema_version":{"const":"daily-compiler-d1-work-porter-receipt-v1"},
-    "result":{"const":"PASS"},
-    "scope":{"const":"IMAGE_PACKAGE_INGEST"},
-    "manifest_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
-    "images":{
-      "type":"array","minItems":6,"maxItems":6,
-      "items":{
-        "type":"object","additionalProperties":false,
-        "required":["story_id","source_sha256","target_path","git_blob_sha","readback_sha256","dimensions","integrity_result"],
-        "properties":{
-          "story_id":{"type":"string"},
-          "source_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
-          "target_path":{"type":"string"},
-          "git_blob_sha":{"type":"string","pattern":"^[a-f0-9]{40}$"},
-          "readback_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
-          "dimensions":{"const":"1200x630"},
-          "integrity_result":{"const":"PASS"}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-work-porter-receipt.schema.json",
+  "title": "Daily Compiler D1 Work Porter Receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result",
+    "scope",
+    "manifest_sha256",
+    "handoff_sha256",
+    "images",
+    "visual_quality_review_performed",
+    "image_generation_performed",
+    "owner_intervention"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "daily-compiler-d1-work-porter-receipt-v1"
+    },
+    "result": {
+      "const": "PASS"
+    },
+    "scope": {
+      "const": "IMAGE_PACKAGE_INGEST"
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "images": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "story_id",
+          "source_sha256",
+          "target_path",
+          "git_blob_sha",
+          "readback_sha256",
+          "dimensions",
+          "integrity_result"
+        ],
+        "properties": {
+          "story_id": {
+            "type": "string"
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "target_path": {
+            "type": "string"
+          },
+          "git_blob_sha": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{40}$"
+          },
+          "readback_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "dimensions": {
+            "const": "1200x630"
+          },
+          "integrity_result": {
+            "const": "PASS"
+          }
         }
       }
     },
-    "visual_quality_review_performed":{"const":false},
-    "image_generation_performed":{"const":false},
-    "owner_intervention":{"const":false}
+    "visual_quality_review_performed": {
+      "const": false
+    },
+    "image_generation_performed": {
+      "const": false
+    },
+    "owner_intervention": {
+      "const": false
+    },
+    "handoff_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
   }
 }
