@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {canonicalSha,nonempty} from './util.mjs';
+import {validateFormalD0Proof} from './proof-validators.mjs';
 
 export const D0_PROOF_MANIFEST_SCHEMA='daily-compiler-d0-proof-manifest-v1';
 export const D0_PROOF_KEYS=Object.freeze(['p0_a','p0_b','p0_c','p0_d','p0_e','p0_f']);
@@ -35,11 +36,13 @@ export function evaluateD0ProofSet({repoRoot='.',manifestPath='contracts/d0-proo
       continue;
     }
     const schemaOK=receipt?.schema_version===spec.schema_version;
-    const pass=receipt?.result==='PASS';
+    const validatorErrors=validateFormalD0Proof(key,receipt);
+    const pass=receipt?.result==='PASS'&&schemaOK&&validatorErrors.length===0;
     const sha=canonicalSha(receipt);
-    proofs[key]={result:pass&&schemaOK?'PASS':'BLOCKED',path:spec.path,schema_version:receipt?.schema_version??null,evidence_sha256:sha};
+    proofs[key]={result:pass?'PASS':'BLOCKED',path:spec.path,schema_version:receipt?.schema_version??null,evidence_sha256:sha,validator_errors:validatorErrors};
     if(!schemaOK) errors.push(key+':schema');
-    if(!pass) errors.push(key+':not_pass');
+    if(receipt?.result!=='PASS') errors.push(key+':not_pass');
+    if(validatorErrors.length) errors.push(...validatorErrors.map(x=>key+':'+x));
   }
   return {
     schema_version:'daily-compiler-d0-proof-readiness-v1',
