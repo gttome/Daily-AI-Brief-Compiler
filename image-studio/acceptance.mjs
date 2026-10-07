@@ -1,9 +1,6 @@
-import path from 'node:path';
 import {nonempty,hex,canonicalSha} from '../image-capsules/util.mjs';
 
 export const D1_ACCEPTANCE_SCHEMA='daily-compiler-d1-image-acceptance-manifest-v1';
-
-const safeRel=p=>typeof p==='string'&&p.length>0&&!path.isAbsolute(p)&&!p.includes('\\')&&!p.split('/').some(x=>x==='..'||x==='.'||x==='');
 
 export function validateD1AcceptanceManifest(manifest={}){
   const errors=[];
@@ -20,7 +17,7 @@ export function validateD1AcceptanceManifest(manifest={}){
 
   const images=Array.isArray(manifest?.images)?manifest.images:[];
   if(images.length!==6) errors.push('d1_exactly_six_images');
-  const stories=new Set(),assets=new Set(),files=new Set(),paths=new Set(),hashes=new Set(),comps=new Set();
+  const stories=new Set(),assets=new Set(),files=new Set(),hashes=new Set(),comps=new Set();
   for(const image of images){
     if(!nonempty(image?.story_id)||stories.has(image.story_id)) errors.push('d1_story_identity');
     stories.add(image?.story_id);
@@ -28,8 +25,6 @@ export function validateD1AcceptanceManifest(manifest={}){
     assets.add(image?.cloud_asset_id);
     if(!nonempty(image?.filename)||!image.filename.endsWith('.png')||image.filename.includes('/')||files.has(image.filename)) errors.push('d1_filename');
     files.add(image?.filename);
-    if(!safeRel(image?.target_path)||paths.has(image.target_path)) errors.push('d1_target_path');
-    paths.add(image?.target_path);
     if(image?.width!==1200||image?.height!==630||image?.format!=='png') errors.push('d1_dimensions_format');
     if(!Number.isInteger(image?.bytes)||image.bytes<1) errors.push('d1_bytes');
     if(!hex(image?.sha256,64)||hashes.has(image.sha256)) errors.push('d1_sha256');
@@ -52,18 +47,34 @@ export function assertD1AcceptanceManifest(manifest={}){
   return {manifest_sha256:canonicalSha(manifest),images:manifest.images};
 }
 
-export function buildD1IngestPlan(manifest={}){
+export function buildD1IngestPlan(manifest={},handoff={}){
   const verified=assertD1AcceptanceManifest(manifest);
+  if(handoff?.schema_version!=='daily-compiler-d1-image-ingest-handoff-v1') throw new Error('D1 ingest handoff invalid: schema');
+  if(handoff?.edition_date!==manifest.edition_date) throw new Error('D1 ingest handoff invalid: edition_date');
+  if(handoff?.visual_quality_review_required!==false||handoff?.image_generation_allowed!==false||handoff?.owner_intervention!==false) throw new Error('D1 ingest handoff invalid: scope');
+  if(!Array.isArray(handoff?.items)||handoff.items.length!==6) throw new Error('D1 ingest handoff invalid: items');
+  const byStory=new Map(handoff.items.map(x=>[x.story_id,x]));
+  if(byStory.size!==6) throw new Error('D1 ingest handoff invalid: unique stories');
+  const targetPaths=new Set();
+  const items=manifest.images.map(x=>{
+    const h=byStory.get(x.story_id);
+    if(!h||h.filename!==x.filename||typeof h.target_path!=='string'||!h.target_path||h.target_path.startsWith('/')||h.target_path.includes('..')||h.target_path.includes('\\')) throw new Error('D1 ingest handoff invalid: '+x.story_id);
+    if(targetPaths.has(h.target_path)) throw new Error('D1 ingest handoff invalid: duplicate target');
+    targetPaths.add(h.target_path);
+    return {
+      story_id:x.story_id,cloud_asset_id:x.cloud_asset_id,filename:x.filename,target_path:h.target_path,
+      expected_sha256:x.sha256,expected_bytes:x.bytes,width:x.width,height:x.height,supersedes:h.supersedes??null
+    };
+  });
   return {
     schema_version:'daily-compiler-d1-ingest-plan-v1',
     edition_date:manifest.edition_date,
     studio_session_id:manifest.studio_session_id,
+    repository:handoff.repository,
+    branch_mode:handoff.branch_mode,
     manifest_sha256:verified.manifest_sha256,
     visual_quality_review_required:false,
     image_generation_allowed:false,
-    items:manifest.images.map(x=>({
-      story_id:x.story_id,cloud_asset_id:x.cloud_asset_id,filename:x.filename,target_path:x.target_path,
-      expected_sha256:x.sha256,expected_bytes:x.bytes,width:x.width,height:x.height
-    }))
+    items
   };
 }
