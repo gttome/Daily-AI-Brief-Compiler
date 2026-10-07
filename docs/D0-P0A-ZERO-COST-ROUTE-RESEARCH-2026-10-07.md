@@ -124,6 +124,25 @@ Sources:
 - https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt
 - https://help.openai.com/en/articles/7925741-sharing-conversations-and-scheduled-tasks-in-chatgpt
 
+
+## Current OpenAI docs recheck — plugin handoff
+
+A fresh documentation recheck narrows the plugin route further.
+
+OpenAI's plugin reference says a plugin may obtain a temporary download URL only for a file ID that is already authorized by one of four paths: widget upload, interactive file-library selection, a tool file parameter, or a tool-result file reference. The documented API does not say that a native ChatGPT Images result from a separate pure Scheduled run is automatically placed into that authorization set.
+
+OpenAI's May 2026 plugin changelog also confirms that ChatGPT reads MCP server instructions and uses them alongside tool metadata. That makes server-wide "after image generation, persist the image" instructions unsuitable as isolation proof by themselves: they are model context, not a demonstrably separate post-generation hook. The current custom-MCP quickstart tests personal MCP plugins through ChatGPT Work, and Work is explicitly outside the Compiler runtime boundary.
+
+Sources:
+
+- https://developers.openai.com/plugins/reference
+- https://developers.openai.com/plugins/build/chatgpt-ui
+- https://developers.openai.com/plugins/changelog
+- https://developers.openai.com/plugins/concepts/mcp-server
+- https://developers.openai.com/plugins/quickstart
+
+This does not invalidate the existing P0-B byte bridge. It confirms that the unresolved problem remains the **native result handoff from an isolated pure image-generation context**, not Git persistence or pixel review.
+
 ## Research closure
 
 The expanded route matrix now covers the additional plausible native routes above. None currently satisfies all seven P0-A capabilities at the same time. This materially narrows the blocker: **the missing primitive is a supported autonomous boundary that both isolates the native image generator and exposes that exact result file to post-generation persistence without inserting the persistence workflow into generator-visible context.**
