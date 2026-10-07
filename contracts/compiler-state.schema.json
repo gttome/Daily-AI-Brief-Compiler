@@ -109,7 +109,8 @@
           "enum": [
             "proposal1r_legacy",
             "d0_native_image_capsules",
-            "d1_cloud_image_studio"
+            "d1_cloud_image_studio",
+            "d1_work_browser_fresh_chat"
           ]
         },
         "phase": {
@@ -124,7 +125,9 @@
             "WORK_INGEST",
             "GITHUB_VERIFIED",
             "SPEC_READY",
-            "STUDIO_REQUESTED"
+            "STUDIO_REQUESTED",
+            "BROWSER_RUNNING",
+            "GIT_INGEST"
           ]
         },
         "set_plan_path": {
@@ -194,6 +197,19 @@
           ]
         },
         "ingest_handoff_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "strategy_bound_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "strategy_contract_version": {
           "type": [
             "string",
             "null"
