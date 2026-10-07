@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "profile_id": "sep09-sep10-premium3-v1",
+  "status": "required",
+  "source_repository": "gttome/Daily-AI-Brief",
+  "source_sha": "081d9f635b361ac164aa46feb31dda58794a6480",
+  "comparison_dimensions": [
+    "professional_finish",
+    "meaningful_detail",
+    "explanatory_mechanism",
+    "annotation_richness",
+    "visual_depth",
+    "hierarchy",
+    "composition",
+    "story_specificity",
+    "differentiation"
+  ],
+  "minimum_evidence": {
+    "meaningful_components_per_image": 8,
+    "unique_composition_signatures": 6,
+    "minimum_distinct_layout_signatures": 4,
+    "minimum_distinct_diagram_grammars": 4,
+    "minimum_distinct_hierarchy_signatures": 4,
+    "minimum_distinct_annotation_patterns": 3,
+    "opaque_single_score_is_sufficient": false
+  },
+  "acceptance_principle": "Candidate must sit beside the locked benchmark without noticeable downgrade in visual quality, explanatory depth, professional finish, or instructional richness.",
+  "sets": [
+    {
+      "name": "sep09",
+      "edition_date": "2026-09-09",
+      "assets": [
+        "vendor/image-benchmark/sep09/01-enterprise-managed-sandbox.png",
+        "vendor/image-benchmark/sep09/02-portable-agent-skills-v2.png",
+        "vendor/image-benchmark/sep09/03-chatgpt-images-25-v2.png",
+        "vendor/image-benchmark/sep09/04-quantum-agent-loop-v2.png",
+        "vendor/image-benchmark/sep09/05-personal-agent-architecture.png",
+        "vendor/image-benchmark/sep09/06-copilot-support-search.png"
+      ]
+    },
+    {
+      "name": "sep10-premium3",
+      "edition_date": "2026-09-10",
+      "assets": [
+        "vendor/image-benchmark/sep10/01-anthropic-containment-premium3.png",
+        "vendor/image-benchmark/sep10/02-github-agent-permissions-premium3.png",
+        "vendor/image-benchmark/sep10/03-adobe-document-agent-premium3.png",
+        "vendor/image-benchmark/sep10/04-microsoft-work-value-premium3.png",
+        "vendor/image-benchmark/sep10/05-google-opal-web-errands-premium3.png",
+        "vendor/image-benchmark/sep10/06-skillmd-portability-premium3.png"
+      ]
+    }
+  ],
+  "fail_closed": [
+    "technical validity never substitutes for editorial benchmark PASS",
+    "missing benchmark review blocks acceptance",
+    "sparse generic or decorative-only output fails",
+    "set differentiation thresholds are mandatory"
+  ]
+}
