@@ -1,5 +1,6 @@
 import {nonempty} from './util.mjs';
 import {nextD0ImageOperation,validateAttemptHistory} from './state.mjs';
+import {evaluateP0ARouteMatrix} from './p0a-route-evaluator.mjs';
 
 export const FUSED_PROOF_EXECUTION_SCHEMA='daily-compiler-d0-fused-proof-execution-v1';
 export const FUSED_PROOF_STATUSES=Object.freeze(['PLANNED','IN_PROGRESS','SET_REVIEW_READY','COMPLETE','BLOCKED']);
@@ -37,7 +38,7 @@ export function validateFusedProofExecution(state,{manifest=null}={}){
   return [...new Set(errors)];
 }
 
-export function nextFusedProofOperation(state,{manifest=null}={}){
+export function nextFusedProofOperation(state,{manifest=null,routeMatrix=null}={}){
   const errors=validateFusedProofExecution(state,{manifest});
   if(errors.length) throw new Error(errors.join(';'));
   if(state.status==='COMPLETE') return {action:'EXIT_COMPLETE'};
@@ -46,6 +47,12 @@ export function nextFusedProofOperation(state,{manifest=null}={}){
     const op=nextD0ImageOperation(c.attempts);
     if(op.action==='REUSE_ACCEPTED_LOCKED') continue;
     if(op.action==='FAIL_ATTEMPT_LIMIT') return {action:'FAIL_ATTEMPT_LIMIT',story_id:c.story_id,attempt:null};
+    if(op.action==='ALLOCATE_FRESH_CAPSULE'){
+      if(!routeMatrix) return {action:'WAIT_FOR_P0A_ROUTE',story_id:c.story_id,attempt:op.attempt,stress_case:c.stress_case,reason:'route_matrix_required'};
+      const route=evaluateP0ARouteMatrix(routeMatrix);
+      if(!route.retry_allowed) return {action:'WAIT_FOR_P0A_ROUTE',story_id:c.story_id,attempt:op.attempt,stress_case:c.stress_case,reason:route.result,ready_routes:route.ready_routes};
+      return {...op,story_id:c.story_id,stress_case:c.stress_case,ready_routes:route.ready_routes};
+    }
     return {...op,story_id:c.story_id,stress_case:c.stress_case};
   }
   if(state.status==='SET_REVIEW_READY') return {action:'RUN_SET_REVIEW'};
