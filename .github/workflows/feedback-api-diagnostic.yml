@@ -1,0 +1,26 @@
+name: feedback-api-diagnostic
+on:
+  push:
+    branches: ['implementation/feedback-api-diagnostic']
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Probe public feedback service without recording data
+        shell: bash
+        run: |
+          set -u
+          API=https://daily-ai-brief-ratings.gtome.chatgpt.site/api
+          for route in watchlist comments ratings; do
+            echo "=== OPTIONS $route ==="
+            curl -sS -i -X OPTIONS "$API/$route"               -H 'Origin: https://gttome.github.io'               -H 'Access-Control-Request-Method: POST'               -H 'Access-Control-Request-Headers: content-type,x-operation-id' | sed -n '1,30p'
+          done
+          echo "=== GET watchlist ==="
+          curl -sS -i "$API/watchlist" -H 'Origin: https://gttome.github.io' | sed -n '1,40p'
+          echo "=== invalid watchlist POST (must not record) ==="
+          curl -sS -i -X POST "$API/watchlist"             -H 'Origin: https://gttome.github.io' -H 'Referer: https://gttome.github.io/Daily-AI-Brief-Compiler/watchlist/'             -H 'content-type: application/json' -H 'x-operation-id: compiler-diagnostic-invalid-watchlist'             --data '{"topic_id":"dab-topic-compiler-diagnostic","ballot":"00000000-0000-4000-8000-000000000000","choice":"INVALID","revision":0}' | sed -n '1,40p'
+          echo "=== invalid comment POST (must not record) ==="
+          curl -sS -i -X POST "$API/comments"             -H 'Origin: https://gttome.github.io' -H 'Referer: https://gttome.github.io/Daily-AI-Brief-Compiler/'             -H 'content-type: application/json' -H 'x-operation-id: compiler-diagnostic-invalid-comment'             --data '{"brief_date":"2026-10-07","item_id":"dab-story-2026-10-07-diagnostic","body":""}' | sed -n '1,40p'
