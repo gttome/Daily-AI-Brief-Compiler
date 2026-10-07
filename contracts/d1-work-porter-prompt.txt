@@ -5,7 +5,7 @@ Operate only on the repository and edition named in the ingest handoff.
 INPUTS
 - six individually accepted cloud image assets;
 - one daily-compiler-d1-image-acceptance-manifest-v1;
-- repository/edition target information.
+- one daily-compiler-d1-ingest-handoff-v1 containing repository, execution, branch, filenames and Git target paths.
 
 DO NOT
 - generate images;
@@ -19,8 +19,9 @@ The Image Studio acceptance manifest is authoritative for visual quality. Your j
 
 VERIFY BEFORE GIT
 - exactly six expected assets;
-- story mapping;
-- filename and target path;
+- story mapping between acceptance manifest and ingest handoff;
+- accepted filename matches the handoff filename;
+- repository target path comes only from the ingest handoff;
 - valid PNG signature;
 - 1200x630 dimensions;
 - byte count;
