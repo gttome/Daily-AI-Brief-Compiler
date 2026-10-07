@@ -23,7 +23,7 @@ if(!missing.length){
   if(contract.strategy!==inv.strategy) errors.push('contract_strategy');
   if(contract.activation_status!==inv.activation_status&&contract.activation_status!=='active') errors.push('contract_activation_status');
   if(contract.transfer?.archive_required!==inv.archive_required) errors.push('archive_required');
-  if(contract.transfer?.work_exception!==inv.work_scope) errors.push('work_scope');
+  if(!Array.isArray(contract.allowed_work_scope)||!contract.allowed_work_scope.includes(inv.work_scope)) errors.push('work_scope');
   if(contract.quality?.github_visual_rereview_required!==inv.github_visual_rereview_required) errors.push('github_visual_rereview');
   if(dot.local_computer_dependency!==inv.local_computer_dependency) errors.push('local_computer_dependency');
   if(dot.owner_presence_required!==inv.owner_presence_required) errors.push('owner_presence_required');
