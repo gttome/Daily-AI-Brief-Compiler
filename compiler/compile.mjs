@@ -129,6 +129,8 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   if (bundle.producer_receipt?.result !== 'PASS') fail('producer receipt missing PASS');
   if (bundle.producer_receipt.owner_intervention !== false) fail('owner intervention must be false');
   for (const key of ['work_used','codex_used','paid_model_api_used']) if (bundle.producer_receipt[key] !== false) fail(key+' must be false');
+  const acceptedImageRegenerations=bundle.producer_receipt.accepted_image_regenerations ?? 0;
+  if (!Number.isInteger(acceptedImageRegenerations) || acceptedImageRegenerations < 0) fail('accepted_image_regenerations invalid');
 
   scanStrings(bundle, value => {
     for (const pattern of PROD_MUTATION_PATTERNS) if (pattern.test(value)) fail('production repository mutation target forbidden');
@@ -166,7 +168,7 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
     },
     reader_parity_gate:parity.result,
     semantic_rework:0,
-    accepted_image_regenerations:0
+    accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0
   };
   const receipt={
     schema_version:'daily-compiler-compile-receipt-v2',
@@ -179,6 +181,7 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
     owner_intervention:false,
     production_reader_source_sha:parity.production_reader_source_sha,
     reader_parity_gate:parity,
+    accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,
     source_manifest:built.manifest,
     verification
   };
