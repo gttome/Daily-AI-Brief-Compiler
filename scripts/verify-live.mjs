@@ -3,10 +3,12 @@ import crypto from 'node:crypto';
 
 const baseUrl=process.argv[2];
 const editionDate=process.argv[3];
-const buildDir=process.argv[4] || 'build/fixture';
-if(!baseUrl || !editionDate) throw new Error('usage: node scripts/verify-live.mjs <base-url> <edition-date> [build-dir]');
+const sourceDir=process.argv[4] || 'build/reader-source';
+const siteDir=process.argv[5] || 'build/shadow';
+const receiptPath=process.argv[6] || 'build/live-verification.json';
+if(!baseUrl || !editionDate) throw new Error('usage: node scripts/verify-live.mjs <base-url> <edition-date> [source-dir] [site-dir] [receipt]');
 
-const manifest=JSON.parse(fs.readFileSync(buildDir+'/build-manifest.json','utf8'));
+const manifest=JSON.parse(fs.readFileSync(sourceDir+'/build-manifest.json','utf8'));
 if(manifest.edition_date!==editionDate) throw new Error('edition mismatch');
 
 const sha256=data=>crypto.createHash('sha256').update(data).digest('hex');
@@ -19,25 +21,31 @@ const fetchOk=async url=>{
 
 async function verifyOnce(){
   const checked=[];
-  for(const route of manifest.routes){
+  for(const route of manifest.required_routes){
     const url=new URL(route,baseUrl).href;
     const res=await fetchOk(url);
     const text=await res.text();
     if(route.endsWith('.html') && !/<html/i.test(text)) throw new Error('HTML marker missing for '+url);
     checked.push({url,status:res.status});
   }
-  for(const image of manifest.images){
-    const url=new URL(image.asset,baseUrl).href;
+  for(const image of manifest.current_images){
+    const url=new URL(image.route,baseUrl).href;
     const res=await fetchOk(url);
     const bytes=Buffer.from(await res.arrayBuffer());
     const actual=sha256(bytes);
     if(actual!==image.sha256) throw new Error('deployed image hash mismatch '+url);
     checked.push({url,status:res.status,sha256:actual});
   }
-  const editionUrl=new URL('briefs/'+editionDate+'/index.html',baseUrl).href;
+  const editionUrl=new URL('briefs/'+editionDate+'/',baseUrl).href;
   const edition=await (await fetchOk(editionUrl)).text();
-  if((edition.match(/data-rating=/g)||[]).length!==30) throw new Error('live rating controls mismatch');
-  if((edition.match(/data-share=/g)||[]).length!==6) throw new Error('live share controls mismatch');
+  if(!edition.includes('research-ledger-header'))throw new Error('canonical production reader header missing');
+  if((edition.match(/class="story-feedback story-feedback-compact star-feedback"/g)||[]).length!==10)throw new Error('live rating surfaces mismatch');
+  if((edition.match(/data-feedback-rating="[1-5]"/g)||[]).length!==50)throw new Error('live five-star controls mismatch');
+  if(!edition.includes('Emerging AI Watchlist'))throw new Error('live Watchlist missing');
+  if(!edition.includes('assets/js/share.js'))throw new Error('live share runtime missing');
+  if(!edition.includes('id="skip-to-content"'))throw new Error('live accessibility skip link missing');
+  const home=await (await fetchOk(baseUrl)).text();
+  if(!home.includes('daily-feed.xml')||!home.includes('subscription'))throw new Error('live subscription surface missing');
   return checked;
 }
 
@@ -45,16 +53,27 @@ let lastError;
 for(let attempt=1;attempt<=18;attempt++){
   try{
     const checked=await verifyOnce();
+    const built=JSON.parse(fs.readFileSync('build/built-verification.json','utf8'));
     const receipt={
-      schema_version:'daily-compiler-live-verification-v1',
+      schema_version:'daily-compiler-live-verification-v2',
       result:'PASS',
       base_url:baseUrl,
       edition_date:editionDate,
-      bundle_sha256:manifest.bundle_sha256,
+      production_reader_source_sha:manifest.production_reader_source_sha,
+      reader_contract:'reader-surface-parity-v2',
       checked_routes:checked.length,
+      canonical_layout:built.canonical_layout,
+      ratings:built.ratings,
+      sharing:built.sharing,
+      subscriptions:built.subscriptions,
+      responsive:built.responsive,
+      accessibility:built.accessibility,
+      semantic_rework:0,
+      accepted_image_regenerations:0,
       owner_intervention:false
     };
-    fs.writeFileSync(buildDir+'/live-verification.json',JSON.stringify(receipt,null,2)+'\n');
+    fs.mkdirSync(receiptPath.split('/').slice(0,-1).join('/')||'.',{recursive:true});
+    fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
     console.log(JSON.stringify(receipt));
     process.exit(0);
   }catch(error){

@@ -1,6 +1,6 @@
 import { compileShadow } from '../compiler/compile.mjs';
 
-const receipt=compileShadow({
+const receipt=await compileShadow({
   statePath:'fixtures/complete-edition/compiler-state.json',
   bundlePath:'fixtures/complete-edition/edition-bundle.json',
   outDir:'build/fixture',

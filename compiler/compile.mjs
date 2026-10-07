@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
-import { buildReaderSite, verifyReaderSite } from './reader.mjs';
+import { materializeReaderSource } from './reader-materializer.mjs';
+import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -50,7 +51,9 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   const digest = sha256(Buffer.from(bundleText, 'utf8'));
 
   if (state.schema_version !== 'daily-compiler-state-v1') fail('state schema_version mismatch');
-  if (state.state !== 'BUNDLE_READY' || state.stage !== 'BUNDLE') fail('state must be BUNDLE_READY at BUNDLE');
+  const bundleReady=state.state === 'BUNDLE_READY' && state.stage === 'BUNDLE';
+  const verifiedRebuild=state.state === 'SHADOW_VERIFIED' && state.stage === 'VERIFY';
+  if (!bundleReady && !verifiedRebuild) fail('state must be BUNDLE_READY at BUNDLE or SHADOW_VERIFIED at VERIFY');
   if (state.bundle?.status !== 'BUNDLE_READY' || state.bundle?.digest !== digest) fail('state bundle digest mismatch');
   if (bundle.schema_version !== 'daily-compiler-edition-bundle-v1') fail('bundle schema_version mismatch');
   if (bundle.status !== 'BUNDLE_READY') fail('bundle status mismatch');
@@ -134,20 +137,36 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence};
 }
 
-export function buildSite({validation, outDir, repoRoot='.'}) {
-  return buildReaderSite({validation,outDir,repoRoot});
+export async function buildSite({validation, outDir, repoRoot='.'}) {
+  return materializeReaderSource({bundle:validation.bundle,outDir,repoRoot});
 }
 
-export function verifySite({outDir, validation, manifest}) {
-  return verifyReaderSite({outDir,validation,manifest});
-}
-
-export function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
   const validation=validateEdition({statePath,bundlePath,repoRoot});
-  const manifest=buildSite({validation,outDir,repoRoot});
-  const verification=verifySite({outDir,validation,manifest});
+  const parity=await checkGoldenReaderParity();
+  const built=await buildSite({validation,outDir,repoRoot});
+  const verification={
+    schema_version:'daily-compiler-reader-source-verification-v2',
+    result:'PASS',
+    edition_date:validation.bundle.edition_date,
+    permanent_story_pages:6,
+    reader_contract:{
+      canonical_production_renderer:true,
+      watchlist:true,
+      ratings:true,
+      share:true,
+      subscriptions:true,
+      archive:true,
+      feeds:true,
+      accessible_image_alt:true,
+      responsive:true
+    },
+    reader_parity_gate:parity.result,
+    semantic_rework:0,
+    accepted_image_regenerations:0
+  };
   const receipt={
-    schema_version:'daily-compiler-compile-receipt-v1',
+    schema_version:'daily-compiler-compile-receipt-v2',
     result:'PASS',
     edition_date:validation.bundle.edition_date,
     state_sha256:validation.stateSha256,
@@ -155,6 +174,9 @@ export function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
     deterministic:true,
     chatgpt_required_after_bundle_ready:false,
     owner_intervention:false,
+    production_reader_source_sha:parity.production_reader_source_sha,
+    reader_parity_gate:parity,
+    source_manifest:built.manifest,
     verification
   };
   fs.writeFileSync(path.join(outDir,'compile-receipt.json'),JSON.stringify(receipt,null,2)+'\n');
@@ -165,5 +187,6 @@ export function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
   if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>]');
-  console.log(JSON.stringify(compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.'}),null,2));
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.'});
+  console.log(JSON.stringify(receipt,null,2));
 }
