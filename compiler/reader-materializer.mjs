@@ -183,7 +183,8 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   patchWatchlistImmediateSelection(outDir);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
-  const adapted=adaptCompilerBundle(bundle,{environment});
+  const priorWatchlist=readJson(path.join(outDir,'_data','watchlist.json'));
+  const adapted=adaptCompilerBundle(bundle,{environment,priorWatchlist});
   mergeBookOverlay(outDir,bundle.edition_date,adapted.bookOverlay);
   mergeReadingSupport(outDir,bundle,adapted.edition,environment);
   writeWatchlistData(outDir,adapted.watchlist);

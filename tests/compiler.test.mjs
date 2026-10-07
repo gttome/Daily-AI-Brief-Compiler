@@ -54,6 +54,28 @@ test('fixture compiles to canonical reader source without ChatGPT after BUNDLE_R
   assert.match(edition,/How useful was this/);
   assert.match(edition,/Open the permanent story page/);
   assert.doesNotMatch(edition,/Original Commentary|What do stars mean/);
+
+  const editionData=JSON.parse(fs.readFileSync(path.join(out,'_data','editions','2026-10-06.json'),'utf8'));
+  assert.deepEqual(editionData.stories.map(story=>story.story_id),[
+    'dab-story-2026-10-06-m01',
+    'dab-story-2026-10-06-m02',
+    'dab-story-2026-10-06-m10',
+    'dab-story-2026-10-06-m11',
+    'dab-story-2026-10-06-m12',
+    'dab-story-2026-10-06-m14'
+  ]);
+  assert.deepEqual(editionData.stories.map(story=>path.basename(story.image.path)),[
+    'dab-edition-2026-10-06-m01.png',
+    'dab-edition-2026-10-06-m02.png',
+    'dab-edition-2026-10-06-m10.png',
+    'dab-edition-2026-10-06-m11.png',
+    'dab-edition-2026-10-06-m12.png',
+    'dab-edition-2026-10-06-m14.png'
+  ]);
+  const watchlist=JSON.parse(fs.readFileSync(path.join(out,'data','watchlist.json'),'utf8'));
+  assert.ok(watchlist.topics.length>=20);
+  assert.ok(watchlist.topics.every(topic=>!topic.topic_id.startsWith('dab-topic-compiler-')));
+  assert.ok(watchlist.topics.every(topic=>topic.topic_id.length<=64));
 });
 
 test('production repository mutation target is rejected', () => {
