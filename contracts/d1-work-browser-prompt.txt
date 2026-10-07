@@ -3,7 +3,7 @@ D1 WORK CLOUD BROWSER — FRESH REGULAR CHAT PER STORY
 Operate only on gttome/Daily-AI-Brief-Compiler.
 
 PURPOSE
-Own the D1 reader-image lane after six sealed story image specifications exist. Work is the cloud-browser coordinator and exact-byte porter. Native image generation occurs only inside six separate ordinary ChatGPT regular conversations opened through Work Cloud Browser.
+Own the D1 reader-image lane after six sealed story image specifications exist. The OUTER executor remains a ChatGPT Work task with Work Cloud Browser and exact-byte transport. The BROWSER TARGET for native generation is intentionally a separate ordinary ChatGPT regular conversation where the Chat UI is selected and Work is not selected. This is the approved isolation boundary, not a violation of Work orchestration. Native reader-image generation occurs only inside six separate ordinary ChatGPT regular conversations opened and controlled by the outer Work task.
 
 QUALITY CALIBRATION
 Before opening any story chat, read docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md. Treat it as the story-neutral quality grammar. Do not pass prior Brief images into a story chat and do not pass any prior story content. For each story, convert the sealed story specification into a concrete mechanism build recipe that satisfies the benchmark profile, then pass only that story's sealed material plus the story-neutral benchmark rules into the fresh story chat.
@@ -19,8 +19,9 @@ HARD BOUNDARIES
 - Never regenerate accepted_locked bytes because of transport, Git, CI, deploy, or verification failures.
 
 PER STORY
-1. Open a brand-new ordinary regular ChatGPT conversation.
-2. Verify the conversation is new and not Work mode.
+1. From the OUTER Work task, use Work Cloud Browser to open a brand-new ordinary regular ChatGPT conversation.
+2. Verify the browser target is new and ordinary Chat mode: Chat selected, Work unselected. This is REQUIRED. The outer task remains Work even though the browser target is ordinary Chat. Do not interpret this browser-target mode switch as leaving or bypassing Work.
+2a. The approved control boundary is: outer Work task -> Work Cloud Browser -> ordinary Chat target. Never require the inner target itself to show Work mode; doing so would defeat the clean-context architecture and would turn generation into Work-native generation, which is forbidden.
 3. Submit only the sealed story image prompt, the story-neutral production benchmark profile, Perfect Image rules, exact visible-text allowlist, and that story's preassigned composition/build recipe.
 4. The prompt must demand a dimensional technical mechanism plate, not a flat infographic: 3–5 major regions, 12+ meaningful causal components, two or more internal substages in the dominant mechanism, a primary flow plus at least two secondary evidence/constraint/feedback relationships, and 80–90% useful canvas utilization.
 5. Generate one native ChatGPT image.
@@ -46,5 +47,11 @@ Persist after every accepted_locked story. A later Work invocation resumes at th
 ONE-TIME AUTHENTICATION
 A one-time owner authentication bootstrap in Work Cloud Browser is allowed. It is environment setup, not normal-run owner intervention. Normal daily image execution must require zero owner presence. If the stored session expires, record AUTH_REFRESH_REQUIRED without consuming an image attempt.
 
+APPROVAL / MODE INTERPRETATION
+- Owner approval for the architecture explicitly authorizes the outer Work task to type and submit the sealed image prompt into the inner ordinary ChatGPT regular conversation.
+- "Use Work mode" applies to the outer coordinator/task. It does NOT require the browser target to remain in Work mode.
+- Seeing Chat selected and Work unselected inside chatgpt.com is positive evidence that the required clean browser target has been reached.
+- Do not block prompt submission merely because the inner target is ordinary Chat; block only if the OUTER execution itself is no longer Work/Cloud Browser or if another hard boundary is violated.
+
 STOP CONDITIONS
-If authenticated Work Cloud Browser cannot open a new regular ChatGPT conversation, submit the sealed prompt, recover the generated asset, or preserve exact bytes, record the smallest exact blocker and stop. Do not invent another control plane.
+If authenticated Work Cloud Browser cannot open a new regular ChatGPT conversation, submit the sealed prompt into that ordinary Chat target, recover the generated asset, or preserve exact bytes, record the smallest exact blocker and stop. Do not invent another control plane.
