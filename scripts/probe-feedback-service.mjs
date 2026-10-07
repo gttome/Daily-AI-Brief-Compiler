@@ -1,14 +1,13 @@
 import crypto from 'node:crypto';
 
-const site='https://gttome.github.io/Daily-AI-Brief-Compiler';
 const api='https://daily-ai-brief-ratings.gtome.chatgpt.site/api';
-const origin='https://gttome.github.io';
-const headers={'origin':origin,'referer':site+'/'};
-const candidates=[
-  {label:'oct7-canonical',brief_date:'2026-10-07',item_id:'dab-story-2026-10-07-m01'},
-  {label:'oct7-semantic-slug',brief_date:'2026-10-07',item_id:'dab-story-2026-10-07-dots-always-on-agents'},
-  {label:'oct6-control',brief_date:'2026-10-06',item_id:'dab-story-2026-10-06-m01'}
-];
+const headers={
+  'origin':'https://gttome.github.io',
+  'referer':'https://gttome.github.io/Daily-AI-Brief-Compiler/',
+  'content-type':'application/json'
+};
+const brief_date='2026-10-07';
+const item_id='dab-story-2026-10-06-m01';
 
 async function request(url,options={}){
   const response=await fetch(url,options);
@@ -16,40 +15,23 @@ async function request(url,options={}){
   let body; try{body=JSON.parse(text);}catch{body=text;}
   return {status:response.status,ok:response.ok,body};
 }
-
-const commentAttempts=[];
-let commentSuccess=null;
-for(const c of candidates){
-  const operation=crypto.randomUUID();
-  const r=await request(api+'/comments',{
-    method:'POST',
-    headers:{...headers,'content-type':'application/json','x-operation-id':operation},
-    body:JSON.stringify({brief_date:c.brief_date,item_id:c.item_id,body:'Automated Compiler reader verification. No action needed.'})
-  });
-  commentAttempts.push({...c,status:r.status,body:r.body});
-  if(r.ok&&r.body?.recorded===true){commentSuccess={...c,status:r.status};break;}
-}
-
-const ratingAttempts=[];
-let ratingSuccess=null;
-for(const c of candidates){
-  const operation=crypto.randomUUID();
-  const r=await request(api+'/ratings',{
-    method:'POST',
-    headers:{...headers,'content-type':'application/json','x-operation-id':operation},
-    body:JSON.stringify({brief_date:c.brief_date,item_id:c.item_id,rating:5})
-  });
-  ratingAttempts.push({...c,status:r.status,body:r.body});
-  if(r.ok&&r.body?.recorded===true){ratingSuccess={...c,status:r.status};break;}
-}
-
+const comment=await request(api+'/comments',{
+  method:'POST',
+  headers:{...headers,'x-operation-id':crypto.randomUUID()},
+  body:JSON.stringify({brief_date,item_id,body:'Automated Compiler cross-date registry probe. No action needed.'})
+});
+const rating=await request(api+'/ratings',{
+  method:'POST',
+  headers:{...headers,'x-operation-id':crypto.randomUUID()},
+  body:JSON.stringify({brief_date,item_id,rating:4})
+});
 console.log(JSON.stringify({
-  schema_version:'daily-compiler-feedback-valid-post-probe-v1',
+  schema_version:'daily-compiler-feedback-cross-date-probe-v1',
   result:'OBSERVED',
-  commentAttempts,
-  commentSuccess,
-  ratingAttempts,
-  ratingSuccess,
+  brief_date,
+  backend_item_id:item_id,
+  comment:{status:comment.status,body:comment.body},
+  rating:{status:rating.status,body:rating.body},
   semantic_rework:0,
   accepted_image_regenerations:0,
   production_repo_mutations:0
