@@ -5,35 +5,48 @@
   "branch": "rehearsal/d1-cloud-proof-r1",
   "resume_from_commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
   "classification": "one_time_cloud_browser_environment_bootstrap",
-  "status": "WAITING_FOR_OWNER_AUTHENTICATION_SETUP",
-  "updated_at": "2026-10-07T20:13:55Z",
+  "status": "AUTHENTICATED",
+  "updated_at": "2026-10-07T20:29:16Z",
   "browser": "Work Cloud Browser",
   "browser_type": "cdp",
   "target_origin": "https://chatgpt.com",
   "sign_in_method": "Google",
   "secure_browser_auth_used": true,
-  "authentication_verified": false,
+  "authentication_verified": true,
   "last_observation": {
-    "origin": "https://accounts.google.com",
-    "stage": "password",
-    "site_message": "Wrong password. Try again or click \"Try another way\" for more options."
+    "origin": "https://chatgpt.com",
+    "stage": "authenticated_ordinary_chat",
+    "signals": [
+      "Account profile menu and existing chat history visible",
+      "New ordinary Chat created",
+      "Temporary / Unpersonalized mode selected",
+      "Sealed prompt submitted and completed response received"
+    ]
   },
   "setup_owner_participation": true,
   "normal_run_owner_intervention": false,
   "daily_production_owner_presence_required": 0,
   "production_autonomy_requirement_unchanged": true,
   "native_generations": 0,
-  "prompt_submitted": false,
+  "prompt_submitted": true,
   "work_image_generation_used": false,
   "work_subagent_used": false,
   "local_computer_used": false,
   "new_execution_created": false,
   "session_preservation": {
     "requested": true,
-    "signed_in_session_verified": false,
-    "persistence_across_future_runs": "NOT_YET_VERIFIED"
+    "signed_in_session_verified": true,
+    "persistence_across_future_runs": "NOT_YET_VERIFIED",
+    "existing_session_reused": true,
+    "authenticated_tab_preserved": true
   },
-  "next_action": "Owner completes sign-in directly in the same Work Cloud Browser through manual handoff. Verify signed-in ChatGPT state before resuming the existing one-image proof.",
+  "next_action": "One-image proof resumed; see receipt.json for the post-authentication generation capability blocker.",
   "historical_receipt_preserved": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json",
-  "notes": "Authentication setup is accounted separately from normal-run owner intervention. No credentials, cookies, authentication tokens or full authentication URLs are recorded. Classification does not prove future session longevity or production autonomy."
+  "notes": "Authentication setup is accounted separately from normal-run owner intervention. No credentials, cookies, authentication tokens or full authentication URLs are recorded. Classification does not prove future session longevity or production autonomy.",
+  "authenticated_state_observed_at": "2026-10-07T20:29:16Z",
+  "previous_observation": {
+    "origin": "https://accounts.google.com",
+    "stage": "password",
+    "site_message": "Wrong password. Try again or click \"Try another way\" for more options."
+  }
 }

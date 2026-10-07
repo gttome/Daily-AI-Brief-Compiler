@@ -3,72 +3,70 @@
   "proof_id": "d1-browser-chat-one-image-r1",
   "parent_proof_id": "d1-cloud-proof-r1",
   "branch": "rehearsal/d1-cloud-proof-r1",
-  "resumed_from_commit": "ac248284b00c59863b905a46ec9ee6a92a2a7b39",
+  "resumed_from_commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
+  "preserved_bootstrap_commit": "d7c8ccdf854016c4a23fbb306bf2fbc6b96614f1",
   "status": "BLOCKED",
-  "observed_at": "2026-10-07T20:07:07Z",
+  "observed_at": "2026-10-07T20:29:16Z",
   "operator": "Work Cloud Browser",
   "browser_type": "cdp",
-  "target_origin": "https://chatgpt.com",
-  "observed_url": "https://chatgpt.com/",
+  "authentication": {
+    "verified": true,
+    "existing_session_reused": true,
+    "setup_record": "rehearsals/d1-cloud-proof-r1/browser-proof/authentication-bootstrap.json",
+    "one_time_setup_owner_participation": true,
+    "normal_run_owner_intervention": false
+  },
   "sealed_prompt": {
     "path": "rehearsals/d1-cloud-proof-r1/browser-proof/isolated-story1-prompt.txt",
     "git_blob_sha": "3bbeddef7b347b2be7a7862526a9a8d2af055b66",
-    "submitted": false,
-    "modified": false
+    "source_commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
+    "modified": false,
+    "submitted": true,
+    "submissions": 1,
+    "additional_context_submitted": false
   },
-  "requested_conversation": {
+  "conversation": {
+    "url": "https://chatgpt.com/c/6ac6ab64-dcf8-83e9-9564-80ebcef0c4fe?temporary-chat=true",
     "ordinary_chat": true,
     "brand_new": true,
     "temporary": true,
     "unpersonalized": true,
-    "created": false
+    "work_mode": false,
+    "isolation_verified_before_submission": true,
+    "isolation_ui_text": "This chat will ignore memory, plugins, and custom instructions, and it won’t appear in your history",
+    "response_complete": true,
+    "output": "text_only",
+    "tab_preserved": true
   },
   "blocker": {
-    "code": "D1_BROWSER_CHAT_AUTHENTICATION_REQUIRED",
-    "stage": "ACCESS_AUTHENTICATED_ORDINARY_CHAT",
-    "classification": "missing_authenticated_cloud_browser_session",
-    "detail": "Work Cloud Browser successfully opened https://chatgpt.com/ but the page was signed out. The page explicitly says login is required to create images. Clicking Log in opened a Log in or sign up dialog with Google, Apple, phone and email sign-in methods. The supported browserAuth flow requires owner sign-in method selection and/or credentials. This attempt forbids owner intervention, so it stopped before requesting credentials or submitting the sealed prompt.",
-    "site_bot_detection_observed": false,
-    "site_access_denial_observed": false,
-    "cloud_browser_navigation_succeeded": true,
-    "authentication_attempt_submitted": false,
-    "no_owner_intervention_route_available_in_observed_state": true
+    "code": "D1_TEMPORARY_UNPERSONALIZED_IMAGE_GENERATION_UNAVAILABLE",
+    "stage": "GENERATE_ONE_NATIVE_IMAGE",
+    "classification": "chat_response_reports_image_generation_unavailable",
+    "detail": "The existing authenticated Work Cloud Browser session was reused. A brand-new ordinary Chat was created, Temporary Chat enabled, and Unpersonalized selected. Only the sealed story-1 prompt was pasted and submitted once. The completed ChatGPT response was text only and stated image generation was not available in this temporary chat. No image asset was returned. No alternate mode, regeneration or second submission was attempted.",
+    "exact_response": "I can’t generate the image in this chat because image generation isn’t available in this temporary chat. Switch to a regular ChatGPT chat with image generation enabled, then paste the same prompt there and I’ll be able to create the single native image asset.",
+    "evidence_scope": "Observed response in this specific authenticated Temporary / Unpersonalized conversation. Not an independently established platform-wide restriction.",
+    "retry_performed": false
   },
-  "evidence": [
-    {
-      "source": "Work Cloud Browser initial accessibility state",
-      "url": "https://chatgpt.com/",
-      "observed_text": "Log in to get answers based on saved chats, plus create images and upload files."
-    },
-    {
-      "source": "Work Cloud Browser accessibility state after Log in",
-      "url": "https://chatgpt.com/",
-      "dialog": "Log in or sign up",
-      "visible_methods": [
-        "Continue with Google",
-        "Continue with Apple",
-        "Continue with phone",
-        "Email address"
-      ],
-      "visible_submit": "Continue"
-    },
-    {
-      "source": "advertised browserAuth capability documentation",
-      "finding": "Sign-in method choices and credentials are collected from the user through a secure handoff; no autonomous saved-credential method was advertised."
-    }
-  ],
+  "native_generation_requests": 1,
   "native_generations": 0,
+  "native_images_returned": 0,
   "max_native_generations": 1,
+  "single_request_attempt_consumed": true,
+  "automatic_retry_allowed": false,
   "accepted_assets": [],
   "work_image_generation_used": false,
   "work_subagent_used": false,
   "owner_intervention": false,
+  "normal_run_owner_intervention": false,
+  "one_time_authentication_setup_owner_participation": true,
+  "daily_production_owner_presence_required": 0,
+  "production_autonomy_requirement_unchanged": true,
   "local_computer_used": false,
-  "external_paid_service_used": false,
+  "owner_file_transfer_used": false,
   "alternate_route_attempted": false,
-  "retry_performed": false,
+  "new_execution_created": false,
   "transfer": {
-    "status": "NOT_REACHED",
+    "status": "NOT_REACHED_NO_GENERATED_ASSET",
     "exact_generated_asset_recovered": false
   },
   "git_asset": {
@@ -78,7 +76,16 @@
     "readback_sha256": null,
     "sha256_match": null
   },
-  "stop_reason": "First capability blocker: authenticated ordinary ChatGPT image creation cannot be reached under the no-owner-intervention requirement.",
+  "evidence_screenshot": {
+    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/evidence/temporary-unpersonalized-generation-blocker.jpg",
+    "sha256": "8b48a22beb7f99d045402592282554f0f14269ba421bb9e90ca898de12ea755d",
+    "bytes": 50261,
+    "role": "Browser screenshot documenting the text response; not a generated image and not an accepted proof asset."
+  },
+  "previous_receipt": {
+    "commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
+    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json"
+  },
   "stopped": true,
-  "scope": "Evidence only on the existing disposable proof branch. Existing sealed prompt, prior proof evidence, implementation, protected main and production are unchanged."
+  "scope": "Evidence only on existing disposable proof branch. No protected-main, production, implementation, sealed-prompt or accepted-image changes."
 }

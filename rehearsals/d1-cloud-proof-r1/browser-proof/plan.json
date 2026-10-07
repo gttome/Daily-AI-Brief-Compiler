@@ -60,17 +60,20 @@
   "notes": "Do not run all six images. This proof intentionally consumes at most one native image generation and stops immediately after PASS or the first irreducible platform blocker.",
   "prepared_at": "2026-10-07T19:15:00Z",
   "last_error": {
-    "code": "D1_BROWSER_CHAT_AUTHENTICATION_REQUIRED",
-    "stage": "ACCESS_AUTHENTICATED_ORDINARY_CHAT",
-    "classification": "missing_authenticated_cloud_browser_session",
-    "detail": "Work Cloud Browser successfully opened https://chatgpt.com/ but the page was signed out. The page explicitly says login is required to create images. Clicking Log in opened a Log in or sign up dialog with Google, Apple, phone and email sign-in methods. The supported browserAuth flow requires owner sign-in method selection and/or credentials. This attempt forbids owner intervention, so it stopped before requesting credentials or submitting the sealed prompt.",
-    "site_bot_detection_observed": false,
-    "site_access_denial_observed": false,
-    "cloud_browser_navigation_succeeded": true,
-    "authentication_attempt_submitted": false,
-    "no_owner_intervention_route_available_in_observed_state": true
+    "code": "D1_TEMPORARY_UNPERSONALIZED_IMAGE_GENERATION_UNAVAILABLE",
+    "stage": "GENERATE_ONE_NATIVE_IMAGE",
+    "classification": "chat_response_reports_image_generation_unavailable",
+    "detail": "The existing authenticated Work Cloud Browser session was reused. A brand-new ordinary Chat was created, Temporary Chat enabled, and Unpersonalized selected. Only the sealed story-1 prompt was pasted and submitted once. The completed ChatGPT response was text only and stated image generation was not available in this temporary chat. No image asset was returned. No alternate mode, regeneration or second submission was attempted.",
+    "exact_response": "I can’t generate the image in this chat because image generation isn’t available in this temporary chat. Switch to a regular ChatGPT chat with image generation enabled, then paste the same prompt there and I’ll be able to create the single native image asset.",
+    "evidence_scope": "Observed response in this specific authenticated Temporary / Unpersonalized conversation. Not an independently established platform-wide restriction.",
+    "retry_performed": false
   },
-  "updated_at": "2026-10-07T20:07:07Z",
-  "stop_reason": "First capability blocker: authenticated ordinary ChatGPT image creation cannot be reached under the no-owner-intervention requirement.",
-  "browser_operator": "Work Cloud Browser"
+  "updated_at": "2026-10-07T20:29:16Z",
+  "stop_reason": "Single prompt submission completed with a text-only response reporting image generation unavailable in Temporary / Unpersonalized Chat; no image asset exists to recover.",
+  "browser_operator": "Work Cloud Browser",
+  "native_generation_requests": 1,
+  "single_request_attempt_consumed": true,
+  "authentication_verified": true,
+  "authentication_bootstrap_path": "rehearsals/d1-cloud-proof-r1/browser-proof/authentication-bootstrap.json",
+  "normal_run_owner_intervention": false
 }
