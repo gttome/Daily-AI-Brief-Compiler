@@ -21,6 +21,7 @@ test('D0 contract is fail-closed and proof-gated',()=>{
   assert.equal(c.two_phase_acceptance,true);
   assert.equal(c.bundle_ready_fail_closed,true);
   assert.equal(c.proposal1r_reader_story_fallback,false);
+  assert.equal(c.paid_capacity_branch_exists,false);
   assert.equal(c.set_gate.unique_compositions,6);
   assert.ok(c.benchmark_dimensions_required.length===9);
 });
