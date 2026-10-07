@@ -1,11 +1,22 @@
 const base='https://daily-ai-brief-ratings.gtome.chatgpt.site';
-const paths=['/','/api/health','/api/items','/api/register','/api/ratings','/api/comments','/api/watchlist'];
-async function get(path){
-  const r=await fetch(base+path,{headers:{'origin':'https://gttome.github.io','referer':'https://gttome.github.io/Daily-AI-Brief-Compiler/'}});
+const html=await (await fetch(base+'/')).text();
+const refs=[...html.matchAll(/(?:src|href)="([^"]+\.js[^"]*)"/g)].map(m=>m[1]);
+const unique=[...new Set(refs)];
+const findings=[];
+for(const ref of unique){
+  const url=new URL(ref,base).href;
+  const r=await fetch(url);
   const text=await r.text();
-  return {path,status:r.status,content_type:r.headers.get('content-type'),body:text.slice(0,600)};
+  const needles=['/api/','unknown_item','comments','ratings','watchlist','item_id','brief_date','register'];
+  const hits={};
+  for(const needle of needles){
+    const i=text.indexOf(needle);
+    if(i>=0)hits[needle]=text.slice(Math.max(0,i-240),Math.min(text.length,i+520));
+  }
+  if(Object.keys(hits).length)findings.push({ref,status:r.status,bytes:text.length,hits});
 }
-const results=[];
-for(const p of paths)results.push(await get(p));
-const root=results[0].body;
-console.log(JSON.stringify({schema_version:'feedback-service-surface-probe-v1',results},null,2));
+console.log(JSON.stringify({
+  schema_version:'feedback-service-client-bundle-probe-v1',
+  script_refs:unique,
+  findings
+},null,2));
