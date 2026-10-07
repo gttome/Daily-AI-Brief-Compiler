@@ -10,7 +10,9 @@
     "fixture:e2e": "npm run fixture:compile && test -s build/fixture/compile-receipt.json && test -s build/fixture/verification-receipt.json && test -s build/fixture/index.md && test -s build/fixture/archive.md",
     "reader:parity": "node scripts/check-reader-parity.mjs build/parity/reader-parity-receipt.json",
     "d0:proof-status": "node scripts/check-d0-completion.mjs",
-    "d0:prepare-activation": "node scripts/prepare-d0-activation.mjs"
+    "d0:prepare-activation": "node scripts/prepare-d0-activation.mjs",
+    "d0:verify-p0e": "node scripts/verify-d0-p0e.mjs",
+    "d0:verify-p0f": "node scripts/verify-d0-p0f.mjs"
   },
   "engines": {
     "node": ">=20"
