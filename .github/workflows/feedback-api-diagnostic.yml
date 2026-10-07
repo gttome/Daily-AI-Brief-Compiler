@@ -20,7 +20,11 @@ jobs:
           done
           echo "=== GET watchlist ==="
           curl -sS -i "$API/watchlist" -H 'Origin: https://gttome.github.io' | sed -n '1,40p'
-          echo "=== invalid watchlist POST (must not record) ==="
-          curl -sS -i -X POST "$API/watchlist"             -H 'Origin: https://gttome.github.io' -H 'Referer: https://gttome.github.io/Daily-AI-Brief-Compiler/watchlist/'             -H 'content-type: application/json' -H 'x-operation-id: compiler-diagnostic-invalid-watchlist'             --data '{"topic_id":"dab-topic-compiler-diagnostic","ballot":"00000000-0000-4000-8000-000000000000","choice":"INVALID","revision":0}' | sed -n '1,40p'
-          echo "=== invalid comment POST (must not record) ==="
-          curl -sS -i -X POST "$API/comments"             -H 'Origin: https://gttome.github.io' -H 'Referer: https://gttome.github.io/Daily-AI-Brief-Compiler/'             -H 'content-type: application/json' -H 'x-operation-id: compiler-diagnostic-invalid-comment'             --data '{"brief_date":"2026-10-07","item_id":"dab-story-2026-10-07-diagnostic","body":""}' | sed -n '1,40p'
+          echo "=== ratings GET known production item ==="
+          curl -sS -i "$API/ratings?brief_date=2026-10-06&item_id=dab-story-2026-10-06-m01" -H 'Origin: https://gttome.github.io' | sed -n '1,40p'
+          echo "=== ratings GET compiler item ==="
+          curl -sS -i "$API/ratings?brief_date=2026-10-07&item_id=dab-story-2026-10-07-dots-always-on-agents" -H 'Origin: https://gttome.github.io' | sed -n '1,40p'
+          echo "=== watchlist GET compiler topic query ==="
+          curl -sS -i "$API/watchlist?topic_id=dab-topic-compiler-enterprise-context-becomes-the-agent-battleground" -H 'Origin: https://gttome.github.io' | sed -n '1,50p'
+          echo "=== comments GET compiler item ==="
+          curl -sS -i "$API/comments?brief_date=2026-10-07&item_id=dab-story-2026-10-07-dots-always-on-agents" -H 'Origin: https://gttome.github.io' | sed -n '1,40p'
