@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import sharp from 'sharp';
+import fs from 'node:fs';
 import {validateD1AcceptanceManifest,buildD1IngestPlan} from '../image-studio/acceptance.mjs';
 import {validateD1CloudAssets,buildD1WorkPorterReceipt,sha256,gitBlobSha} from '../work-porter/integrity.mjs';
 
@@ -70,7 +71,7 @@ test('Work Porter fails closed on changed bytes',async()=>{
 });
 
 test('D1 contract has no ZIP requirement and only narrow Work scope',()=>{
-  const c=JSON.parse(require('node:fs').readFileSync('contracts/d1-image-contract.json','utf8'));
+  const c=JSON.parse(fs.readFileSync('contracts/d1-image-contract.json','utf8'));
   assert.equal(c.transfer.archive_required,false);
   assert.deepEqual(c.allowed_work_scope,['IMAGE_PACKAGE_INGEST']);
   assert.equal(c.transfer.work_may_generate_or_edit_images,false);
