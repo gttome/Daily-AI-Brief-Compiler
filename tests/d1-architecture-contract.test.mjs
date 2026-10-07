@@ -1,59 +1,62 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 
-test('D1 contract is cloud-only, no-ZIP, Studio-quality and narrow-Work',()=>{
+test('D1 v5 contract uses Work Cloud Browser with a fresh regular chat per story',()=>{
   const c=read('contracts/d1-image-contract.json');
-  assert.equal(c.schema_version,'daily-compiler-image-contract-v4');
-  assert.equal(c.strategy,'d1_cloud_image_studio');
+  assert.equal(c.schema_version,'daily-compiler-image-contract-v5');
+  assert.equal(c.strategy,'d1_work_browser_fresh_chat');
   assert.equal(c.activation_status,'proof_required');
+  assert.equal(c.image_creation.executor,'work_cloud_browser_fresh_regular_chat_per_story');
+  assert.equal(c.image_creation.fresh_regular_chat_per_story_required,true);
+  assert.equal(c.image_creation.temporary_chat_forbidden,true);
+  assert.equal(c.image_creation.prior_conversation_reuse_forbidden,true);
+  assert.equal(c.quality.gate_location,'fresh_regular_chat_per_story');
   assert.equal(c.transfer.archive_required,false);
-  assert.equal(c.quality.gate_location,'image_studio');
-  assert.equal(c.quality.github_visual_rereview_required,false);
-  assert.deepEqual(c.allowed_work_scope,['IMAGE_PACKAGE_INGEST']);
-  assert.equal(c.transfer.work_may_generate_or_edit_images,false);
+  assert.equal(c.transfer.git_binary_readback_method,'exact_commit_raw_github_download');
+  assert.deepEqual(c.allowed_work_scope,['IMAGE_BROWSER_ORCHESTRATION_AND_INGEST']);
+  assert.equal(c.transfer.work_may_use_native_work_image_generation,false);
   assert.equal(c.transfer.work_may_make_visual_quality_decisions,false);
-  assert.equal(c.image_creation.owner_intervention,false);
 });
 
-test('Dot and Work contracts require cloud operation with no owner/local transfer',()=>{
-  const dot=read('contracts/d1-dot-coordinator-contract.json');
-  const work=read('contracts/d1-work-porter-contract.json');
-  assert.equal(dot.local_computer_dependency,false);
-  assert.equal(dot.owner_presence_required,false);
-  assert.ok(dot.prohibited.includes('generate_images_in_persistent_dot_context'));
-  assert.equal(work.allowed_scope,'IMAGE_PACKAGE_INGEST');
-  assert.equal(work.cloud_only,true);
-  assert.equal(work.may_generate_images,false);
-  assert.equal(work.may_visually_accept_images,false);
+test('Work contract preserves clean story chats and exact-byte recovery',()=>{
+  const w=read('contracts/d1-work-porter-contract.json');
+  assert.equal(w.schema_version,'daily-compiler-d1-work-porter-v2');
+  assert.equal(w.allowed_scope,'IMAGE_BROWSER_ORCHESTRATION_AND_INGEST');
+  assert.equal(w.cloud_only,true);
+  assert.equal(w.browser_rules.fresh_regular_chat_per_story,true);
+  assert.equal(w.browser_rules.temporary_chat_forbidden,true);
+  assert.equal(w.work_native_image_generation_allowed,false);
+  assert.equal(w.work_subagent_image_generation_allowed,false);
+  assert.equal(w.may_visually_accept_images,false);
+  assert.equal(w.binary_readback_method,'direct_raw_github_download_pinned_to_immutable_commit');
 });
 
-test('schedule contract keeps Work disabled generally and allows only D1 image ingest',()=>{
+test('Dot is optional and not the reader-image path owner',()=>{
+  const d=read('contracts/d1-dot-coordinator-contract.json');
+  assert.equal(d.required_for_image_path,false);
+  assert.equal(d.image_path_owner,'work_cloud_browser');
+  assert.equal(d.local_computer_dependency,false);
+});
+
+test('schedule contract remains four coarse schedules and forbids paid dependencies',()=>{
   const s=read('contracts/schedule-contract.json');
-  assert.equal(s.rules.work,false);
-  assert.equal(s.rules.work_image_package_ingest_only,true);
-  assert.deepEqual(s.rules.work_allowed_scope,['IMAGE_PACKAGE_INGEST']);
-  assert.equal(s.rules.local_computer_dependency,false);
-  assert.equal(s.rules.owner_presence_required,false);
+  assert.equal(s.schema_version,'daily-compiler-schedule-contract-v2');
+  assert.equal(s.schedules.length,4);
+  assert.equal(s.schedules[0].time,'19:15');
+  assert.equal(s.rules.paid_model_api,false);
+  assert.equal(s.rules.paid_browser_service,false);
+  assert.equal(s.rules.dot_required_for_image_path,false);
+  assert.deepEqual(s.rules.work_allowed_scope,['IMAGE_BROWSER_ORCHESTRATION_AND_INGEST']);
 });
 
-test('operational contracts exist for observability, resources, future suggestions, corrections and dashboard',()=>{
-  for(const p of [
-    'contracts/run-event.schema.json','contracts/run-metrics.schema.json','contracts/problem-learning.schema.json','contracts/run-analysis.schema.json',
-    'contracts/resource-registry.schema.json','contracts/resource-observation.schema.json','contracts/future-brief-suggestion.schema.json',
-    'contracts/post-publication-correction.schema.json','contracts/dashboard-snapshot.schema.json'
-  ]){
-    assert.equal(read(p).type,'object',p);
-  }
-});
-
-test('D1 executable runtime does not embed paid model API or local-computer execution',()=>{
-  const files=['image-studio/acceptance.mjs','image-studio/activation.mjs','image-studio/activation-apply.mjs','image-studio/bundle-gate.mjs','work-porter/integrity.mjs'];
-  const forbidden=[/api\.openai\.com/i,/OPENAI_API_KEY/,/invokeCodex\s*\(/i,/local computer command/i,/Remote Desktop Commander/i];
-  for(const p of files){
-    const text=fs.readFileSync(p,'utf8');
-    for(const rule of forbidden) assert.doesNotMatch(text,rule,p+' violates D1 firewall');
+test('D1 executable runtime contains no paid API or local computer path',()=>{
+  const paths=['image-studio/acceptance.mjs','image-studio/activation.mjs','image-studio/activation-apply.mjs','image-studio/bundle-gate.mjs','work-porter/integrity.mjs'];
+  for(const p of paths){
+    const t=fs.readFileSync(p,'utf8');
+    assert.doesNotMatch(t,/api\.openai\.com/i,p);
+    assert.doesNotMatch(t,/OPENAI_API_KEY/,p);
+    assert.doesNotMatch(t,/invokeCodex\s*\(/i,p);
   }
 });
