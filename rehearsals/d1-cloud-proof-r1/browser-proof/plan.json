@@ -13,7 +13,7 @@
   "requirements": {
     "ordinary_chatgpt_chat": true,
     "fresh_conversation": true,
-    "temporary_or_unpersonalized_chat_preferred": true,
+    "temporary_or_unpersonalized_chat_preferred": false,
     "repository_context_forbidden": true,
     "work_image_generation_forbidden": true,
     "owner_file_transfer_forbidden": true,
@@ -21,7 +21,9 @@
     "zip_forbidden": true,
     "exact_asset_byte_recovery_required": true,
     "github_readback_hash_match_required": true,
-    "max_native_generations": 1
+    "max_native_generations": 1,
+    "regular_ordinary_chat_required": true,
+    "temporary_chat_forbidden": true
   },
   "isolated_input_policy": {
     "allowed": [
@@ -54,26 +56,55 @@
     "generated image asset cannot be programmatically recovered from the browser session",
     "continuation would require owner download/upload or local-computer transfer"
   ],
-  "native_generations": 0,
+  "native_generations": 1,
   "owner_intervention": false,
   "local_computer_used": false,
   "notes": "Do not run all six images. This proof intentionally consumes at most one native image generation and stops immediately after PASS or the first irreducible platform blocker.",
   "prepared_at": "2026-10-07T19:15:00Z",
   "last_error": {
-    "code": "D1_TEMPORARY_UNPERSONALIZED_IMAGE_GENERATION_UNAVAILABLE",
-    "stage": "GENERATE_ONE_NATIVE_IMAGE",
-    "classification": "chat_response_reports_image_generation_unavailable",
-    "detail": "The existing authenticated Work Cloud Browser session was reused. A brand-new ordinary Chat was created, Temporary Chat enabled, and Unpersonalized selected. Only the sealed story-1 prompt was pasted and submitted once. The completed ChatGPT response was text only and stated image generation was not available in this temporary chat. No image asset was returned. No alternate mode, regeneration or second submission was attempted.",
-    "exact_response": "I can’t generate the image in this chat because image generation isn’t available in this temporary chat. Switch to a regular ChatGPT chat with image generation enabled, then paste the same prompt there and I’ll be able to create the single native image asset.",
-    "evidence_scope": "Observed response in this specific authenticated Temporary / Unpersonalized conversation. Not an independently established platform-wide restriction.",
-    "retry_performed": false
+    "code": "D1_GIT_BINARY_ASSET_READBACK_UNAVAILABLE",
+    "stage": "READ_GIT_ASSET_AND_VERIFY_SHA256",
+    "classification": "github_connector_binary_readback_limitation",
+    "detail": "Regular ordinary ChatGPT generated exactly one native image. Its Image preview Download action transferred the exact PNG into the Work cloud environment. The unmodified PNG was hashed locally and committed to the disposable proof target. Reading the committed path with encoding=base64 returned the expected Git blob SHA but an empty content string. The dedicated blob reader raised a UTF-8 decode error on the PNG signature, and the approved Git blob URL reader rejected non-UTF-8 content. Therefore no Git readback bytes were available to calculate the required independent SHA-256. Generation, cloud recovery and Git persistence succeeded; SHA-256 readback verification remains incomplete.",
+    "observations": [
+      {
+        "tool": "github_fetch_file",
+        "ref": "88fda64122658c20f04639189fd3f93970389ae3",
+        "encoding": "base64",
+        "sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+        "content_characters": 0
+      },
+      {
+        "tool": "github_fetch_blob",
+        "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte"
+      },
+      {
+        "tool": "github_fetch",
+        "error": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)"
+      }
+    ],
+    "scope": "Observed connector behavior for this 1,360,444-byte PNG; not an image-generation or cloud-download failure.",
+    "regeneration_performed": false,
+    "alternate_image_route_attempted": false
   },
-  "updated_at": "2026-10-07T20:29:16Z",
-  "stop_reason": "Single prompt submission completed with a text-only response reporting image generation unavailable in Temporary / Unpersonalized Chat; no image asset exists to recover.",
+  "updated_at": "2026-10-07T20:41:01.126Z",
+  "stop_reason": "Exact image generated, recovered and persisted; connector cannot return the PNG bytes for independent SHA-256 readback verification.",
   "browser_operator": "Work Cloud Browser",
-  "native_generation_requests": 1,
+  "native_generation_requests": 2,
   "single_request_attempt_consumed": true,
   "authentication_verified": true,
   "authentication_bootstrap_path": "rehearsals/d1-cloud-proof-r1/browser-proof/authentication-bootstrap.json",
-  "normal_run_owner_intervention": false
+  "normal_run_owner_intervention": false,
+  "regular_chat_prompt_submissions": 1,
+  "temporary_chat_prompt_submissions": 1,
+  "regular_chat_attempt_path": "rehearsals/d1-cloud-proof-r1/browser-proof/regular-chat-attempt.json",
+  "authorized_route": {
+    "route": "new_regular_ordinary_chatgpt_conversation",
+    "authorization": "Owner instruction on 2026-10-07 after commit 93313b4",
+    "temporary_route_must_not_be_retried": true,
+    "max_native_generations": 1,
+    "work_image_generation_forbidden": true,
+    "work_subagent_forbidden": true,
+    "transport_failure_regeneration_forbidden": true
+  }
 }

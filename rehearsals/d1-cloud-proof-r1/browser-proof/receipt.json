@@ -3,10 +3,9 @@
   "proof_id": "d1-browser-chat-one-image-r1",
   "parent_proof_id": "d1-cloud-proof-r1",
   "branch": "rehearsal/d1-cloud-proof-r1",
-  "resumed_from_commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
-  "preserved_bootstrap_commit": "d7c8ccdf854016c4a23fbb306bf2fbc6b96614f1",
+  "resumed_from_commit": "93313b4c55c8fefe533c791ccf3d614864c5061f",
   "status": "BLOCKED",
-  "observed_at": "2026-10-07T20:29:16Z",
+  "observed_at": "2026-10-07T20:41:01.126Z",
   "operator": "Work Cloud Browser",
   "browser_type": "cdp",
   "authentication": {
@@ -16,44 +15,85 @@
     "one_time_setup_owner_participation": true,
     "normal_run_owner_intervention": false
   },
+  "conversation": {
+    "url": "https://chatgpt.com/c/6ac6ad19-279c-83e9-aba3-8065b072ba9d",
+    "brand_new": true,
+    "ordinary_chat": true,
+    "regular": true,
+    "temporary": false,
+    "work_mode": false,
+    "prior_conversation_reused": false,
+    "tab_preserved": true,
+    "response_complete": true
+  },
   "sealed_prompt": {
     "path": "rehearsals/d1-cloud-proof-r1/browser-proof/isolated-story1-prompt.txt",
+    "source_commit": "93313b4c55c8fefe533c791ccf3d614864c5061f",
     "git_blob_sha": "3bbeddef7b347b2be7a7862526a9a8d2af055b66",
-    "source_commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
+    "prompt_bytes_matched_git_blob": true,
     "modified": false,
-    "submitted": true,
-    "submissions": 1,
+    "submissions_in_regular_chat": 1,
     "additional_context_submitted": false
   },
-  "conversation": {
-    "url": "https://chatgpt.com/c/6ac6ab64-dcf8-83e9-9564-80ebcef0c4fe?temporary-chat=true",
-    "ordinary_chat": true,
-    "brand_new": true,
-    "temporary": true,
-    "unpersonalized": true,
-    "work_mode": false,
-    "isolation_verified_before_submission": true,
-    "isolation_ui_text": "This chat will ignore memory, plugins, and custom instructions, and it won’t appear in your history",
-    "response_complete": true,
-    "output": "text_only",
-    "tab_preserved": true
+  "native_generations": 1,
+  "native_images_returned": 1,
+  "max_native_generations": 1,
+  "regenerations": 0,
+  "generation_result": "SUCCESS",
+  "cloud_asset_recovery_result": "SUCCESS",
+  "git_persistence_result": "SUCCESS",
+  "git_sha256_readback_result": "BLOCKED",
+  "asset_recovery": {
+    "method": "Image preview → Download",
+    "cloud_browser_path": "/home/oai/share/3c77e75c-be3c-434e-9cd8-90c18a60e583/01f76452-c1ba-4cce-bd2b-4851409cec13",
+    "shared_cloud_path": "/workspace/scratch/3c77e75c-be3c-434e-9cd8-90c18a60e583/01f76452-c1ba-4cce-bd2b-4851409cec13",
+    "bytes": 1360444,
+    "format": "PNG",
+    "width": 1731,
+    "height": 909,
+    "sha256": "66f01ee6363a7d63b02320ec0a57f10f67b71287d7378d06e042ec76de8faa04",
+    "git_blob_sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+    "byte_transformations": false,
+    "regenerated": false
+  },
+  "git_asset": {
+    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/d1-proof-01-stress-terminal-evidence.png",
+    "commit": "88fda64122658c20f04639189fd3f93970389ae3",
+    "git_blob_sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+    "persisted": true,
+    "committed_path_blob_sha_matches_local": true,
+    "recovered_sha256": "66f01ee6363a7d63b02320ec0a57f10f67b71287d7378d06e042ec76de8faa04",
+    "readback_sha256": null,
+    "readback_bytes_available": false,
+    "sha256_match": null
   },
   "blocker": {
-    "code": "D1_TEMPORARY_UNPERSONALIZED_IMAGE_GENERATION_UNAVAILABLE",
-    "stage": "GENERATE_ONE_NATIVE_IMAGE",
-    "classification": "chat_response_reports_image_generation_unavailable",
-    "detail": "The existing authenticated Work Cloud Browser session was reused. A brand-new ordinary Chat was created, Temporary Chat enabled, and Unpersonalized selected. Only the sealed story-1 prompt was pasted and submitted once. The completed ChatGPT response was text only and stated image generation was not available in this temporary chat. No image asset was returned. No alternate mode, regeneration or second submission was attempted.",
-    "exact_response": "I can’t generate the image in this chat because image generation isn’t available in this temporary chat. Switch to a regular ChatGPT chat with image generation enabled, then paste the same prompt there and I’ll be able to create the single native image asset.",
-    "evidence_scope": "Observed response in this specific authenticated Temporary / Unpersonalized conversation. Not an independently established platform-wide restriction.",
-    "retry_performed": false
+    "code": "D1_GIT_BINARY_ASSET_READBACK_UNAVAILABLE",
+    "stage": "READ_GIT_ASSET_AND_VERIFY_SHA256",
+    "classification": "github_connector_binary_readback_limitation",
+    "detail": "Regular ordinary ChatGPT generated exactly one native image. Its Image preview Download action transferred the exact PNG into the Work cloud environment. The unmodified PNG was hashed locally and committed to the disposable proof target. Reading the committed path with encoding=base64 returned the expected Git blob SHA but an empty content string. The dedicated blob reader raised a UTF-8 decode error on the PNG signature, and the approved Git blob URL reader rejected non-UTF-8 content. Therefore no Git readback bytes were available to calculate the required independent SHA-256. Generation, cloud recovery and Git persistence succeeded; SHA-256 readback verification remains incomplete.",
+    "observations": [
+      {
+        "tool": "github_fetch_file",
+        "ref": "88fda64122658c20f04639189fd3f93970389ae3",
+        "encoding": "base64",
+        "sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+        "content_characters": 0
+      },
+      {
+        "tool": "github_fetch_blob",
+        "error": "UnicodeDecodeError: 'utf-8' codec can't decode byte 0x89 in position 0: invalid start byte"
+      },
+      {
+        "tool": "github_fetch",
+        "error": "HTTPError: 400: GitHub Fetch only accepts UTF-8 text. (Response: None)"
+      }
+    ],
+    "scope": "Observed connector behavior for this 1,360,444-byte PNG; not an image-generation or cloud-download failure.",
+    "regeneration_performed": false,
+    "alternate_image_route_attempted": false
   },
-  "native_generation_requests": 1,
-  "native_generations": 0,
-  "native_images_returned": 0,
-  "max_native_generations": 1,
-  "single_request_attempt_consumed": true,
-  "automatic_retry_allowed": false,
-  "accepted_assets": [],
+  "quality_acceptance": "NOT_EVALUATED; this is a capability and exact-byte persistence proof, not production publication or quality acceptance.",
   "work_image_generation_used": false,
   "work_subagent_used": false,
   "owner_intervention": false,
@@ -63,29 +103,24 @@
   "production_autonomy_requirement_unchanged": true,
   "local_computer_used": false,
   "owner_file_transfer_used": false,
-  "alternate_route_attempted": false,
+  "temporary_route_retried": false,
   "new_execution_created": false,
-  "transfer": {
-    "status": "NOT_REACHED_NO_GENERATED_ASSET",
-    "exact_generated_asset_recovered": false
-  },
-  "git_asset": {
-    "target_path": "rehearsals/d1-cloud-proof-r1/browser-proof/d1-proof-01-stress-terminal-evidence.png",
-    "written": false,
-    "recovered_sha256": null,
-    "readback_sha256": null,
-    "sha256_match": null
-  },
   "evidence_screenshot": {
-    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/evidence/temporary-unpersonalized-generation-blocker.jpg",
-    "sha256": "8b48a22beb7f99d045402592282554f0f14269ba421bb9e90ca898de12ea755d",
-    "bytes": 50261,
-    "role": "Browser screenshot documenting the text response; not a generated image and not an accepted proof asset."
+    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/evidence/regular-chat-native-image-generated.jpg",
+    "sha256": "1d0dea560ca6adff75722491ea431d154f9c22256cbb52d98f24976547359d27"
   },
-  "previous_receipt": {
-    "commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
-    "path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json"
-  },
+  "historical_receipts": [
+    {
+      "commit": "5b55af7f06abbc77bb87acb3c8c856ea3057df95",
+      "path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json",
+      "result": "Initial unauthenticated-session blocker"
+    },
+    {
+      "commit": "93313b4c55c8fefe533c791ccf3d614864c5061f",
+      "path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json",
+      "result": "Temporary / Unpersonalized response reported native image generation unavailable"
+    }
+  ],
   "stopped": true,
-  "scope": "Evidence only on existing disposable proof branch. No protected-main, production, implementation, sealed-prompt or accepted-image changes."
+  "scope": "Disposable existing browser proof only. Image bytes remain unchanged; no protected-main, production, architecture, publication or sealed-prompt changes."
 }
