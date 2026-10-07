@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/future-brief-inbox.schema.json",
+  "title":"Daily Compiler Future Brief Inbox v1",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","updated_at","suggestions"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-future-brief-inbox-v1"},
+    "updated_at":{"type":"string","format":"date-time"},
+    "suggestions":{"type":"array","items":{"$ref":"future-brief-suggestion.schema.json"}}
+  }
+}

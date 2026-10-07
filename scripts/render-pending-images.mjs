@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
-import {readImageActivationStatus,proposal1rRenderingAllowed} from '../image-capsules/routing.mjs';
+import {readImageActivationStatus,readReaderImageStrategy,proposal1rRenderingAllowed} from '../image-capsules/routing.mjs';
 
 const roots=['shadow-runs','rehearsals'];
 const sha256=text=>crypto.createHash('sha256').update(text).digest('hex');
@@ -19,6 +19,7 @@ function walk(dir){
 }
 
 const activationStatus=readImageActivationStatus('.');
+const activeReaderStrategy=readReaderImageStrategy('.');
 let rendered=0,skipped=0,blockedReaderSpecs=0;
 for(const root of roots){
   const files=walk(root).filter(p=>{
@@ -32,7 +33,7 @@ for(const root of roots){
 
     const normalized=file.replaceAll('\\','/');
     const runRoot=normalized.slice(0,normalized.lastIndexOf('/images/specs/'));
-    const routing=proposal1rRenderingAllowed({activationStatus,specPath:normalized,runRoot});
+    const routing=proposal1rRenderingAllowed({activationStatus,activeReaderStrategy,specPath:normalized,runRoot});
     if(!routing.allowed){
       blockedReaderSpecs++;
       console.log(JSON.stringify({event:'proposal1r_reader_render_skipped',story_id:spec.story_id,spec:normalized,activation_status:activationStatus,reason:routing.reason}));
@@ -57,4 +58,4 @@ for(const root of roots){
   }
 }
 
-console.log(JSON.stringify({result:'PASS',activation_status:activationStatus,rendered,skipped,blocked_reader_specs:blockedReaderSpecs}));
+console.log(JSON.stringify({result:'PASS',activation_status:activationStatus,active_reader_strategy:activeReaderStrategy,rendered,skipped,blocked_reader_specs:blockedReaderSpecs}));

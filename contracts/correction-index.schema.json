@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/correction-index.schema.json",
+  "title":"Daily Compiler Correction Index v1",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","updated_at","corrections"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-correction-index-v1"},
+    "updated_at":{"type":"string","format":"date-time"},
+    "corrections":{"type":"array","items":{"$ref":"post-publication-correction.schema.json"}}
+  }
+}

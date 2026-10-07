@@ -22,3 +22,12 @@ test('D0 activation preserves explicitly internal Proposal 1R fixtures',()=>{
   fs.writeFileSync(path.join(root,'.proposal1r-internal-fixture'),'internal only\n');
   assert.equal(proposal1rRenderingAllowed({activationStatus:'active',specPath:path.join(root,'images/specs/x.json'),runRoot:root}).allowed,true);
 });
+
+
+test('D1 activation forbids Proposal 1R reader-story rendering while preserving internal fixtures',()=>{
+  const reader=proposal1rRenderingAllowed({activationStatus:'proof_required',activeReaderStrategy:'d1_cloud_image_studio',specPath:'shadow-runs/2026-10-08/images/specs/s1.json',runRoot:'shadow-runs/2026-10-08'});
+  assert.equal(reader.allowed,false);
+  assert.equal(reader.reason,'d1_cloud_image_studio_reader_story_proposal1r_forbidden');
+  const internal=proposal1rRenderingAllowed({activationStatus:'proof_required',activeReaderStrategy:'d1_cloud_image_studio',specPath:'rehearsals/renderer-smoke/images/specs/x.json',runRoot:'rehearsals/renderer-smoke'});
+  assert.equal(internal.allowed,true);
+});

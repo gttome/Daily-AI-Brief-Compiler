@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/usage-rate-card.schema.json",
+  "title":"Daily Compiler Usage Rate Card v1",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","updated_at","dot_cost_per_active_second","work_cost_per_active_second","currency","notes"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-usage-rate-card-v1"},
+    "updated_at":{"type":"string","format":"date-time"},
+    "dot_cost_per_active_second":{"type":["number","null"],"minimum":0},
+    "work_cost_per_active_second":{"type":["number","null"],"minimum":0},
+    "currency":{"type":["string","null"]},
+    "notes":{"type":"string"}
+  }
+}

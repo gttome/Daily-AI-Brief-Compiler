@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/run-metrics.schema.json",
+  "title":"Daily Compiler Run Metrics v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","edition_date","execution_id","started_at","ended_at","wall_seconds","stage_seconds","usage","problems","resources"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-run-metrics-v1"},
+    "edition_date":{"type":"string"},
+    "execution_id":{"type":"string"},
+    "started_at":{"type":"string","format":"date-time"},
+    "ended_at":{"type":"string","format":"date-time"},
+    "wall_seconds":{"type":"number","minimum":0},
+    "stage_seconds":{"type":"object","additionalProperties":{"type":"number","minimum":0}},
+    "critical_path":{"type":"array","items":{"type":"string"}},
+    "wait_seconds":{"type":"number","minimum":0},
+    "retry_count":{"type":"integer","minimum":0},
+    "usage":{"type":"object"},
+    "problems":{"type":"object"},
+    "resources":{"type":"object"},
+    "image_metrics":{"type":"object"},
+    "publication_metrics":{"type":"object"}
+  }
+}

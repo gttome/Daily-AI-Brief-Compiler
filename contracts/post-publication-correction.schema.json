@@ -1,0 +1,28 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/post-publication-correction.schema.json",
+  "title":"Daily Compiler Post-Publication Correction v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","correction_id","edition_date","requested_at","requested_by","correction_type","target","replacement","reason","status","preserve_original","new_execution_allowed","protected_pr_required","live_verification_required"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-post-publication-correction-v1"},
+    "correction_id":{"type":"string"},
+    "edition_date":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
+    "requested_at":{"type":"string","format":"date-time"},
+    "requested_by":{"enum":["owner","system"]},
+    "correction_type":{"enum":["replace_article","replace_image","replace_video","replace_podcast","replace_watchlist_item","add_watchlist_item","remove_watchlist_item"]},
+    "target":{"type":"object"},
+    "replacement":{"type":"object"},
+    "reason":{"type":"string"},
+    "status":{"enum":["REQUESTED","VALIDATED","PR_OPEN","MERGED","DEPLOYED","VERIFIED","BLOCKED","CANCELLED"]},
+    "preserve_original":{"const":true},
+    "new_execution_allowed":{"const":false},
+    "protected_pr_required":{"const":true},
+    "live_verification_required":{"const":true},
+    "semantic_scope":{"enum":["content_only","image_only","media_only","watchlist_only"]},
+    "correction_revision":{"type":"integer","minimum":1},
+    "supersedes":{"type":["object","null"]},
+    "verification_receipt_path":{"type":["string","null"]}
+  }
+}

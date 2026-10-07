@@ -3,10 +3,30 @@
   "timezone": "America/Chicago",
   "activation_gate": "ITEM_32_AUTHORIZED",
   "schedules": [
-    {"title":"Daily Compiler Primary","role":"primary","time":"19:15","may_allocate":true},
-    {"title":"Daily Compiler Recovery 1","role":"recovery","time":"21:15","may_allocate":false},
-    {"title":"Daily Compiler Recovery 2","role":"recovery","time":"01:15","may_allocate":false},
-    {"title":"Daily Compiler Recovery 3","role":"recovery","time":"05:15","may_allocate":false}
+    {
+      "title": "Daily Compiler Primary",
+      "role": "primary",
+      "time": "19:15",
+      "may_allocate": true
+    },
+    {
+      "title": "Daily Compiler Recovery 1",
+      "role": "recovery",
+      "time": "21:15",
+      "may_allocate": false
+    },
+    {
+      "title": "Daily Compiler Recovery 2",
+      "role": "recovery",
+      "time": "01:15",
+      "may_allocate": false
+    },
+    {
+      "title": "Daily Compiler Recovery 3",
+      "role": "recovery",
+      "time": "05:15",
+      "may_allocate": false
+    }
   ],
   "rules": {
     "primary_count": 1,
@@ -17,6 +37,13 @@
     "owner_liveness_prompt": false,
     "work": false,
     "codex": false,
-    "paid_model_api": false
+    "paid_model_api": false,
+    "work_image_package_ingest_only": true,
+    "work_allowed_scope": [
+      "IMAGE_PACKAGE_INGEST"
+    ],
+    "dot_coordinator_target": true,
+    "local_computer_dependency": false,
+    "owner_presence_required": false
   }
 }

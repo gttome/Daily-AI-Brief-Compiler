@@ -8,16 +8,38 @@ The Daily Compiler uses one semantic producer for editorial/content/image decisi
 
 1. EDITORIAL — research, evidence, selection
 2. CONTENT — stories, media, Watchlist, book mappings
-3. IMAGES — D0 Native Image Capsules after activation
+3. IMAGES — D1 Cloud Image Studio after activation; pre-activation legacy renderer remains fail-safe
 4. BUNDLE — immutable complete edition package
 5. COMPILE — deterministic GitHub validation/build/deploy
 6. VERIFY — deterministic preview/live verification
 
 Stages 1–4 are semantic producer work. Stages 5–6 are GitHub-only.
 
-## D0 Native Image Capsules
+## D1 Cloud Image Studio
 
-D0 is the permanent reader-story image architecture, but remains proof-gated until immutable P0-A through P0-F capability receipts pass.
+D1 is the permanent reader-story target. It separates subjective image creation/acceptance from exact-byte repository transport. The Image Studio runs in a fresh cloud task, accepts and locks six native ChatGPT images, and emits six individual cloud assets plus one acceptance manifest. A narrow Work Cloud Porter then performs `IMAGE_PACKAGE_INGEST` only. GitHub verifies exact identity and publication; it does not repeat visual quality review.
+
+See `docs/D1-CLOUD-IMAGE-STUDIO-AND-OPERATIONS.md`.
+
+D1 remains proof-gated until `daily-compiler-d1-cloud-proof-v1` proves the complete cloud handoff without owner/local transfer.
+
+```text
+locked semantic edition
+  -> Dot cloud coordinator
+  -> fresh Image Studio task
+  -> six accepted native images
+  -> acceptance manifest
+  -> Work Cloud Porter: IMAGE_PACKAGE_INGEST
+  -> exact Git identities
+  -> deterministic CI/deploy/live-byte verification
+  -> BUNDLE_READY
+```
+
+No ZIP is required. No visual re-review occurs during Git ingest. Transport, CI, or deploy failures reuse the same accepted image bytes.
+
+## D0 Native Image Capsules — preserved development history
+
+D0 was the prior permanent-reader target. Its proof work is preserved as development evidence, but D1 supersedes it as the recommended architecture because D1 no longer requires clean image generation and Git persistence to coexist inside one isolated invocation.
 
 ```text
 locked six-story edition
@@ -60,7 +82,11 @@ Once state is `BUNDLE_READY`, ChatGPT is no longer required. For a D0 bundle the
 - AI health polling: 0
 - Wake PRs: 0
 - Owner-liveness prompts: 0
-- Work/Codex/paid model API dependencies: 0
+- Dot coordinator: 1 cloud coordinator role
+- Work: allowed only for `IMAGE_PACKAGE_INGEST`; target one batch invocation per six-image package
+- Codex/paid model API dependencies: 0
+- Local-computer dependencies: 0
+- Owner-presence dependencies: 0
 
 If a required capability needs prohibited machinery or paid capacity, preserve completed outputs and fail closed.
 
@@ -79,3 +105,9 @@ No micro-task orchestration state is permitted.
 ## Runtime repair policy
 
 Active shadow executions do not repair program code. A software/platform defect produces a concise durable blocker/failure receipt and stops. Development fixes occur outside the active execution.
+
+## Operational intelligence
+
+Every run emits structured timing/usage events, resource observations, problem-learning records, run metrics, a post-run analysis, and a dashboard snapshot. Source health/yield, Dot active time, Work active time, image attempts, research queries, CI/deploy timing, retries and wait time are first-class metrics. Charges are not inferred unless an explicit rate card exists.
+
+Future Brief suggestions live in a durable inbox and can target articles, story topics, images, videos, podcasts, Watchlist items or new research resources. Post-publication corrections are additive protected revisions for articles, images, videos, podcasts and Watchlist items; original historical artifacts remain preserved and the original edition execution is not reopened.

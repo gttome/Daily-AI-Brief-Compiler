@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/problem-learning.schema.json",
+  "title":"Daily Compiler Problem Learning Record v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","problem_id","edition_date","execution_id","detected_at","classification","problem","root_cause","impact","attempted_fixes","actual_fix","outcome","timing_impact_seconds","permanent_action","regression_test","recurrence","status"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-problem-learning-v1"},
+    "problem_id":{"type":"string"},
+    "edition_date":{"type":"string"},
+    "execution_id":{"type":"string"},
+    "detected_at":{"type":"string","format":"date-time"},
+    "classification":{"enum":["research","source","editorial","content","image_generation","image_transfer","work","dot","github","ci","deploy","verification","correction","orchestration","external_platform","other"]},
+    "problem":{"type":"string"},
+    "root_cause":{"type":"string"},
+    "impact":{"type":"string"},
+    "attempted_fixes":{"type":"array","items":{"type":"string"}},
+    "actual_fix":{"type":"string"},
+    "outcome":{"type":"string"},
+    "timing_impact_seconds":{"type":["number","null"],"minimum":0},
+    "work_time_impact_seconds":{"type":["number","null"],"minimum":0},
+    "dot_time_impact_seconds":{"type":["number","null"],"minimum":0},
+    "permanent_action":{"type":"string"},
+    "regression_test":{"type":"string"},
+    "recurrence":{"enum":["new","repeat","unknown"]},
+    "status":{"enum":["open","fixed","external_blocker","accepted_risk"]}
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "daily-compiler-image-contract-v4",
+  "strategy": "d1_cloud_image_studio",
+  "activation_status": "proof_required",
+  "required_count": 6,
+  "dimensions": {
+    "width": 1200,
+    "height": 630
+  },
+  "image_creation": {
+    "executor": "fresh_cloud_image_studio_task",
+    "coordinator": "dot",
+    "generation": "chatgpt_native_images",
+    "context": "image_only_no_repository_or_orchestration_context",
+    "all_six_in_one_clean_studio_default": true,
+    "per_story_fresh_task_fallback_allowed": true,
+    "owner_intervention": false
+  },
+  "quality": {
+    "gate_location": "image_studio",
+    "premium_textbook_editorial": true,
+    "minimum_meaningful_components": 8,
+    "visible_text_policy": "exact_allowlist_only",
+    "people_humanoids_faces_avatars_forbidden": true,
+    "branding_forbidden": true,
+    "photorealism_forbidden": true,
+    "low_quality_fallback_forbidden": true,
+    "set_differentiation_required": true,
+    "github_visual_rereview_required": false
+  },
+  "transfer": {
+    "archive_required": false,
+    "accepted_assets": "six_individual_cloud_image_assets",
+    "manifest": "daily-compiler-d1-image-acceptance-manifest-v1",
+    "work_exception": "IMAGE_PACKAGE_INGEST_ONLY",
+    "work_may_generate_or_edit_images": false,
+    "work_may_make_visual_quality_decisions": false,
+    "integrity_checks": [
+      "expected_file_count",
+      "story_mapping",
+      "filename",
+      "png_signature",
+      "dimensions",
+      "sha256",
+      "unique_hashes",
+      "git_blob_sha",
+      "target_path"
+    ],
+    "live_exact_byte_verification_required": true
+  },
+  "forbidden_runtime_dependencies": [
+    "owner_upload",
+    "owner_manual_transfer",
+    "owner_liveness",
+    "alternate_account",
+    "paid_model_api",
+    "paid_image_api",
+    "paid_ai_service",
+    "billable_overage",
+    "new_paid_infrastructure",
+    "codex",
+    "supervisor",
+    "watchdog_ring",
+    "writer_lease",
+    "recovery_lease",
+    "persistent_worker_pool",
+    "wake_pr",
+    "continuous_ai_polling",
+    "runtime_software_repair"
+  ],
+  "allowed_work_scope": [
+    "IMAGE_PACKAGE_INGEST"
+  ],
+  "accepted_image_regeneration_forbidden": true,
+  "bundle_ready_fail_closed": true,
+  "post_publication_corrections_supported": true,
+  "future_brief_suggestions_supported": true,
+  "observability_required": true,
+  "learning_required": true,
+  "dashboard_ready_artifacts_required": true,
+  "activation_receipt_path": null,
+  "activation_receipt_sha256": null,
+  "activation_required_proof": "daily-compiler-d1-cloud-proof-v1"
+}

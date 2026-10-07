@@ -1,0 +1,37 @@
+{
+  "schema_version": "daily-compiler-d1-work-porter-v1",
+  "allowed_scope": "IMAGE_PACKAGE_INGEST",
+  "cloud_only": true,
+  "may_generate_images": false,
+  "may_edit_images": false,
+  "may_regenerate_images": false,
+  "may_visually_accept_images": false,
+  "may_change_editorial_content": false,
+  "must_verify": [
+    "manifest_identity",
+    "six_expected_assets",
+    "filenames",
+    "png_signature",
+    "1200x630",
+    "sha256_matches_manifest",
+    "six_unique_hashes",
+    "target_paths",
+    "git_blob_readback",
+    "protected_pr",
+    "exact_head_ci",
+    "deployment",
+    "live_exact_bytes"
+  ],
+  "may_perform": [
+    "cloud_asset_download",
+    "github_binary_upload",
+    "manifest_reference_updates",
+    "protected_pr",
+    "correction_related_ci_repair",
+    "merge_through_protection",
+    "deployment_verification",
+    "live_byte_verification"
+  ],
+  "retry_policy": "reuse_exact_accepted_assets_and_manifest_never_regenerate",
+  "owner_intervention": false
+}

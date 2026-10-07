@@ -48,7 +48,12 @@
     "people_or_humanoids_forbidden": true,
     "low_quality_fallback_forbidden": true,
     "review_exact_persisted_asset": true,
-    "accepted_regeneration_forbidden": true
+    "accepted_regeneration_forbidden": true,
+    "target_strategy": "d1_cloud_image_studio",
+    "d1_quality_gate_location": "image_studio",
+    "d1_github_visual_rereview_required": false,
+    "d1_zip_required": false,
+    "d1_work_scope": "IMAGE_PACKAGE_INGEST"
   },
   "orchestration_exclusions": [
     "Supervisor",
@@ -59,5 +64,51 @@
     "continuous AI polling",
     "wake PR",
     "runtime software repair"
-  ]
+  ],
+  "research": {
+    "resource_registry_path": "config/resource-registry.json",
+    "resource_observation_required": true,
+    "source_health_monitoring": true,
+    "source_yield_monitoring": true,
+    "large_registry_supported": true
+  },
+  "future_brief": {
+    "inbox_path": "config/future-brief-inbox.json",
+    "eligible_content_types": [
+      "article",
+      "story_topic",
+      "image",
+      "video",
+      "podcast",
+      "watchlist",
+      "resource_source"
+    ],
+    "resolution_required": true,
+    "editorial_validity_still_required": true
+  },
+  "post_publication_corrections": {
+    "index_path": "config/post-publication-corrections.json",
+    "supported": [
+      "replace_article",
+      "replace_image",
+      "replace_video",
+      "replace_podcast",
+      "replace_watchlist_item",
+      "add_watchlist_item",
+      "remove_watchlist_item"
+    ],
+    "preserve_original": true,
+    "new_execution_allowed": false,
+    "protected_pr_required": true,
+    "live_verification_required": true
+  },
+  "observability": {
+    "run_events_required": true,
+    "run_metrics_required": true,
+    "problem_learning_required": true,
+    "post_run_analysis_required": true,
+    "dashboard_snapshot_required": true,
+    "dot_work_time_tracking": true,
+    "monetary_charge_inference_forbidden_without_rate_card": true
+  }
 }

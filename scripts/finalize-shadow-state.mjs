@@ -1,5 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {readRunEvents} from '../observability/events.mjs';
+import {aggregateRunMetrics,buildRunAnalysis} from '../observability/run-analysis.mjs';
+import {buildDashboardSnapshot} from '../dashboard/snapshot.mjs';
 
 const root=process.argv[2];
 const date=process.argv[3];
@@ -45,5 +48,49 @@ state.reader_parity={
   semantic_rework:0,
   accepted_image_regenerations:compile.verification?.accepted_image_regenerations ?? 0
 };
+
+
+const obsDir=path.join(run,'observability');
+const eventsPath=path.join(obsDir,'events.jsonl');
+if(fs.existsSync(eventsPath)){
+  const readJsonDir=dir=>{
+    if(!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir).filter(x=>x.endsWith('.json')).sort().map(x=>JSON.parse(fs.readFileSync(path.join(dir,x),'utf8')));
+  };
+  const events=readRunEvents(eventsPath);
+  if(events.length){
+    const problems=readJsonDir(path.join(obsDir,'problems'));
+    const resourceObservations=readJsonDir(path.join(obsDir,'resources'));
+    const rateCardPath='config/usage-rate-card.json';
+    const rateCard=fs.existsSync(rateCardPath)?JSON.parse(fs.readFileSync(rateCardPath,'utf8')):null;
+    const metrics=aggregateRunMetrics({events,problems,resourceObservations,rateCard});
+    const analysis=buildRunAnalysis({metrics,problems,resourceObservations});
+    const dashboard=buildDashboardSnapshot({
+      system:{status:analysis.result==='FAIL'?'degraded':'healthy',source:'shadow-finalization'},
+      currentRun:{edition_date:metrics.edition_date,execution_id:metrics.execution_id,result:analysis.result},
+      recentRuns:[{edition_date:metrics.edition_date,execution_id:metrics.execution_id,wall_seconds:metrics.wall_seconds}],
+      resourceHealth:resourceObservations,
+      futureBriefQueue:[],
+      corrections:[],
+      usage:metrics.usage,
+      risks:problems.filter(x=>x.status==='open'||x.status==='external_blocker').map(x=>({problem_id:x.problem_id,problem:x.problem,status:x.status})),
+      nextActions:analysis.improvements.filter(x=>x.priority==='P0'||x.priority==='P1')
+    });
+    fs.mkdirSync(obsDir,{recursive:true});
+    fs.writeFileSync(path.join(obsDir,'run-metrics.json'),JSON.stringify(metrics,null,2)+'\n');
+    fs.writeFileSync(path.join(obsDir,'run-analysis.json'),JSON.stringify(analysis,null,2)+'\n');
+    fs.writeFileSync(path.join(obsDir,'dashboard-snapshot.json'),JSON.stringify(dashboard,null,2)+'\n');
+    state.observability={
+      events_path:'shadow-runs/'+date+'/observability/events.jsonl',
+      metrics_path:'shadow-runs/'+date+'/observability/run-metrics.json',
+      analysis_path:'shadow-runs/'+date+'/observability/run-analysis.json',
+      dashboard_snapshot_path:'shadow-runs/'+date+'/observability/dashboard-snapshot.json'
+    };
+    state.learning={
+      problems_dir:'shadow-runs/'+date+'/observability/problems',
+      ledger_path:null
+    };
+  }
+}
 
 fs.writeFileSync(statePath,JSON.stringify(state,null,2)+'\n');

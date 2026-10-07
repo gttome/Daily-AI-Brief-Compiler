@@ -24,14 +24,16 @@ export function firstIncompleteSemanticStage(state) {
 
 export function nextImageOrdinal(state) {
   if (firstIncompleteSemanticStage(state) !== 'IMAGES') return null;
-  if (state.images?.strategy === 'd0_native_image_capsules') return null;
+  if (state.images?.strategy === 'd0_native_image_capsules' || state.images?.strategy === 'd1_cloud_image_studio') return null;
   const accepted = state.images?.accepted || [];
   return accepted.length + 1;
 }
 
 export function imageRecoveryMode(state){
   if(firstIncompleteSemanticStage(state)!=='IMAGES') return null;
-  return state.images?.strategy==='d0_native_image_capsules'?'D0_DURABLE_ATTEMPT_HISTORY':'LEGACY_NEXT_ORDINAL';
+  if(state.images?.strategy==='d0_native_image_capsules') return 'D0_DURABLE_ATTEMPT_HISTORY';
+  if(state.images?.strategy==='d1_cloud_image_studio') return 'D1_STUDIO_PACKAGE_HISTORY';
+  return 'LEGACY_NEXT_ORDINAL';
 }
 
 export function assertProgressPreserved(previous, next) {
