@@ -4,11 +4,11 @@ import {assertSubmittedPrompt,compileGeneratorPrompt} from './prompt.mjs';
 export const ADMISSION_SCHEMA='daily-compiler-image-capsule-admission-v1';
 
 function validProof(proof,projectionSha){
-  return proof&&proof.method==='platform_fresh_capsule_boundary'&&
+  return Boolean(proof&&proof.method==='platform_fresh_capsule_boundary'&&
     hex(proof.generator_visible_context_sha256,64)&&proof.generator_visible_context_sha256===projectionSha&&
     nonempty(proof.outer_context_probe_id)&&proof.outer_context_visible_to_generator===false&&
     proof.other_story_material_visible===false&&proof.prior_image_material_visible===false&&
-    nonempty(proof.evidence_ref);
+    nonempty(proof.evidence_ref));
 }
 
 export function buildAdmission({
