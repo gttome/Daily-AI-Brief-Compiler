@@ -39,6 +39,10 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   if(!edition.includes('assets/js/share.js'))fail('share runtime missing');
   if(!edition.includes('assets/js/feedback.js'))fail('rating runtime missing');
   if(!home.includes('subscription')||!home.includes('daily-feed.xml'))fail('subscription surface missing');
+  const watchlistRuntime=fs.readFileSync(path.join(siteDir,'assets','js','watchlist.js'),'utf8');
+  const watchlistCss=fs.readFileSync(path.join(siteDir,'assets','css','watchlist.css'),'utf8');
+  if(!watchlistRuntime.includes("b.setAttribute('aria-pressed',String(b.dataset.choice===choice))"))fail('watchlist interest selection is not visually immediate');
+  if(!watchlistCss.includes('.wl-votes button[aria-pressed=true]'))fail('watchlist selected-interest styling missing');
   if(!edition.includes('id="skip-to-content"')||!edition.includes('aria-label="Primary navigation"'))fail('accessibility navigation missing');
   if(/<img[^>]+alt=""/i.test(edition))fail('empty image alt text');
   if(!/<meta name="viewport"/i.test(edition))fail('responsive viewport missing');
@@ -72,6 +76,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     ratings:true,
     sharing:true,
     subscriptions:true,
+    watchlist_immediate_selection:true,
     responsive:true,
     accessibility:true,
     internal_links_valid:true,
