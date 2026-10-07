@@ -6,6 +6,18 @@ const FOCUS=Object.freeze({
   'Applied Generative AI for Knowledge Workers':'applied_genai_knowledge_workers',
   'Agents for Everyone':'agents_non_technical_people'
 });
+const STORY_SLOTS=Object.freeze({
+  technical_ai_engineering:['m01','m02'],
+  applied_genai_knowledge_workers:['m10','m11'],
+  agents_non_technical_people:['m12','m14']
+});
+const WATCHLIST_TOPIC_ALIASES=Object.freeze({
+  'enterprise context becomes the agent battleground':'dab-topic-trusted-enterprise-context',
+  'persistent personal agents':'dab-topic-long-horizon-agents',
+  'reusable agent skills':'dab-topic-agent-skills-observability',
+  'agent governance and review points':'dab-topic-adaptive-agent-safeguards',
+  'inference latency as agent ux':'dab-topic-agentic-edge-inference'
+});
 const BOOK_URL=Object.freeze({
   'Reliable Generative AI':'https://leanpub.com/reliablegenerativeai',
   'Reliable Generative AI Context Engineering':'https://leanpub.com/reliable-context-engineering',
@@ -32,14 +44,27 @@ const freshness=(edition,published)=>{
   };
 };
 const durationSeconds=minutes=>Math.max(1,Math.round(Number(minutes)*60));
-const imageName=(date,storyId)=>`dab-edition-${date}-${slugify(storyId)}.png`;
+const imageName=(date,slot)=>`dab-edition-${date}-${slot}.png`;
+function storySlot(bundle,story){
+  const mapped=focus(story.focus);
+  const peers=bundle.stories.filter(candidate=>focus(candidate.focus)===mapped);
+  const index=peers.findIndex(candidate=>candidate.id===story.id);
+  const slot=STORY_SLOTS[mapped]?.[index];
+  if(!slot)throw new Error('canonical reader story slot unavailable for '+story.id);
+  return slot;
+}
+const canonicalWatchTopicId=item=>{
+  const key=slugify(item.topic).slice(0,90);
+  return WATCHLIST_TOPIC_ALIASES[key]||`dab-topic-${key.slice(0,54)}`;
+};
 
 function adaptStory(bundle,story,environment){
   const image=bundle.images.find(x=>x.story_id===story.id);
   if(!image)throw new Error('accepted image missing for '+story.id);
-  const filename=imageName(bundle.edition_date,story.id);
+  const slot=storySlot(bundle,story);
+  const filename=imageName(bundle.edition_date,slot);
   return {
-    story_id:`dab-story-${bundle.edition_date}-${slugify(story.id)}`,
+    story_id:`dab-story-${bundle.edition_date}-${slot}`,
     compiler_story_id:story.id,
     ordinal:bundle.stories.indexOf(story)+1,
     slug:slugify(story.permanent_route.split('/').filter(Boolean).at(-1)||story.id),
@@ -132,13 +157,13 @@ function rubric(reason){
   const row={score:3,reason};
   return {novelty:{...row},evidence:{...row},independence:{...row},momentum:{...row},relevance:{...row},durability:{...row}};
 }
-function adaptWatchTopic(item,{date,kind,index,fallbackEvidence}){
+function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
   const reason=item.why||item.what_changed||item.reason||'Evidence preserved for continued monitoring.';
   const evidence=item.evidence||fallbackEvidence||{};
   const evidenceDate=evidence.date||date;
   const archived=kind==='dropped';
-  return {
-    topic_id:`dab-topic-compiler-${slugify(item.topic).slice(0,70)}`,
+  const current={
+    topic_id:topicId,
     name:item.topic,
     summary:reason,
     why_now:reason,
@@ -165,13 +190,35 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence}){
     momentum:{classification:'baseline',score:null,reason:'Current edition evidence is preserved without inferring additional momentum.'},
     next_action:'Continue monitoring primary evidence and independent developments.'
   };
+  if(!prior)return current;
+  return {
+    ...prior,
+    topic_id:prior.topic_id,
+    name:prior.name||item.topic,
+    summary:reason,
+    why_now:reason,
+    practical_value:reason,
+    updated_at:current.updated_at,
+    status:archived?'archived':(prior.status==='archived'?'under_research':prior.status),
+    archive_reason:archived?reason:undefined,
+    evidence:current.evidence,
+    limitations:prior.limitations||current.limitations,
+    next_action:prior.next_action||current.next_action
+  };
 }
-function adaptWatchlist(bundle){
+function adaptWatchlist(bundle,priorWatchlist=null){
   const date=bundle.edition_date;
-  const topics=[];
+  const topics=(priorWatchlist?.topics||[]).map(topic=>structuredClone(topic));
   const fallbackEvidence=bundle.stories?.[0]?.source?{url:bundle.stories[0].source.url,date:bundle.stories[0].source.published_at}:null;
   for(const kind of ['new','updated','carried_forward','dropped']){
-    (bundle.watchlist?.[kind]||[]).forEach((item,index)=>topics.push(adaptWatchTopic(item,{date,kind,index,fallbackEvidence})));
+    (bundle.watchlist?.[kind]||[]).forEach((item,index)=>{
+      const topicId=canonicalWatchTopicId(item);
+      const existingIndex=topics.findIndex(topic=>topic.topic_id===topicId);
+      const prior=existingIndex>=0?topics[existingIndex]:null;
+      const adapted=adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior});
+      if(existingIndex>=0)topics[existingIndex]=adapted;
+      else topics.push(adapted);
+    });
   }
   return {
     schema_version:'1.0.0',
@@ -209,7 +256,7 @@ function adaptBookOverlay(bundle,adaptedStories){
   return {references,selections};
 }
 
-export function adaptCompilerBundle(bundle,{environment=readerEnvironment}={}){
+export function adaptCompilerBundle(bundle,{environment=readerEnvironment,priorWatchlist=null}={}){
   if(bundle?.schema_version!=='daily-compiler-edition-bundle-v1')throw new Error('unsupported Compiler bundle');
   const stories=bundle.stories.map(story=>adaptStory(bundle,story,environment));
   const videos=bundle.videos.map(video=>adaptVideo(bundle,video));
@@ -234,14 +281,18 @@ export function adaptCompilerBundle(bundle,{environment=readerEnvironment}={}){
   };
   return {
     edition,
-    watchlist:adaptWatchlist(bundle),
+    watchlist:adaptWatchlist(bundle,priorWatchlist),
     bookOverlay:adaptBookOverlay(bundle,stories),
-    imageBindings:bundle.images.map(image=>({
-      story_id:image.story_id,
-      source_path:image.path,
-      reader_filename:imageName(bundle.edition_date,image.story_id),
-      sha256:image.sha256,
-      git_blob_sha:image.git_blob_sha
-    }))
+    imageBindings:bundle.images.map(image=>{
+      const story=bundle.stories.find(candidate=>candidate.id===image.story_id);
+      if(!story)throw new Error('image binding story missing: '+image.story_id);
+      return {
+        story_id:image.story_id,
+        source_path:image.path,
+        reader_filename:imageName(bundle.edition_date,storySlot(bundle,story)),
+        sha256:image.sha256,
+        git_blob_sha:image.git_blob_sha
+      };
+    })
   };
 }
