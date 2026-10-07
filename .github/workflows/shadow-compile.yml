@@ -51,7 +51,7 @@ jobs:
           git worktree add run "$TARGET_BRANCH"
       - name: Require exact BUNDLE_READY state
         run: |
-          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" > ready.txt
+          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" run > ready.txt
           cat ready.txt
           grep -q '^ready=true$' ready.txt
           if [ -n "$EXPECTED_DIGEST" ]; then
