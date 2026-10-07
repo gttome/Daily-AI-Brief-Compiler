@@ -10,6 +10,11 @@ on:
         description: 'Existing shadow/YYYY-MM-DD branch to compile'
         required: true
         type: string
+      reader_rebuild:
+        description: 'Allow deterministic reader-only rebuild of an already verified sealed edition'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -23,13 +28,14 @@ concurrency:
 jobs:
   compile-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 25
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: \${{ steps.deployment.outputs.page_url }}
     env:
-      TARGET_BRANCH: ${{ github.event.client_payload.branch || inputs.branch }}
-      EXPECTED_DIGEST: ${{ github.event.client_payload.bundle_digest || '' }}
+      TARGET_BRANCH: \${{ github.event.client_payload.branch || inputs.branch }}
+      EXPECTED_DIGEST: \${{ github.event.client_payload.bundle_digest || '' }}
+      READER_REBUILD: \${{ inputs.reader_rebuild || false }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -44,22 +50,39 @@ jobs:
             shadow/????-??-??) ;;
             *) echo "Invalid shadow branch: $TARGET_BRANCH"; exit 1 ;;
           esac
-          echo "TARGET_DATE=${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
+          echo "TARGET_DATE=\${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
       - name: Check out exact semantic branch as worktree
         run: |
           git fetch origin "$TARGET_BRANCH:$TARGET_BRANCH"
           git worktree add run "$TARGET_BRANCH"
-      - name: Require exact BUNDLE_READY state
+      - name: Require sealed semantic bundle without rework
         run: |
-          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" run > ready.txt
+          EXTRA=""
+          if [ "$READER_REBUILD" = "true" ]; then EXTRA="--allow-verified"; fi
+          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" run $EXTRA > ready.txt
           cat ready.txt
           grep -q '^ready=true$' ready.txt
           if [ -n "$EXPECTED_DIGEST" ]; then
             grep -q "^bundle_digest=$EXPECTED_DIGEST$" ready.txt
           fi
-      - name: Compile exact current edition
+      - name: Materialize canonical production reader from sealed bundle
         run: |
-          node compiler/compile.mjs             --state "run/shadow-runs/$TARGET_DATE/compiler-state.json"             --bundle "run/shadow-runs/$TARGET_DATE/edition-bundle.json"             --out build/current             --repo-root run
+          rm -rf build
+          mkdir -p build
+          node compiler/compile.mjs \
+            --state "run/shadow-runs/$TARGET_DATE/compiler-state.json" \
+            --bundle "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
+            --out build/reader-source \
+            --repo-root run
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build canonical reader with GitHub Pages Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/reader-source
+          destination: ./build/current
+      - name: Verify built reader parity surfaces
+        run: node scripts/verify-built-reader.mjs build/current build/reader-source build/built-verification.json
       - name: Restore previously verified permanent pages
         run: |
           if git ls-remote --exit-code --heads origin shadow-pages-history >/dev/null 2>&1; then
@@ -71,24 +94,27 @@ jobs:
             echo "HISTORY_EXISTS=false" >> "$GITHUB_ENV"
             echo "HISTORY_DIR=-" >> "$GITHUB_ENV"
           fi
-      - name: Build cumulative reader site
-        run: node scripts/merge-shadow-history.mjs "$HISTORY_DIR" build/current build/shadow
-      - uses: actions/configure-pages@v5
+      - name: Preserve missing prior permanent pages without rewriting canonical reader
+        run: node scripts/merge-shadow-history.mjs "$HISTORY_DIR" build/current build/shadow "$TARGET_DATE" build/history-merge-receipt.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/shadow
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Verify exact live current edition
-        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/shadow
-      - name: Persist terminal receipts on the same shadow execution
+      - name: Verify exact live canonical reader
+        run: node scripts/verify-live.mjs "\${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/reader-source build/shadow build/live-verification.json
+      - name: Persist parity receipts on the same semantic execution
         run: |
-          node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "${{ steps.deployment.outputs.page_url }}"
+          node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "\${{ steps.deployment.outputs.page_url }}"
           git -C run config user.name "Daily Compiler"
           git -C run config user.email "actions@users.noreply.github.com"
           git -C run add "shadow-runs/$TARGET_DATE"
-          git -C run commit -m "Verify shadow edition $TARGET_DATE"
-          git -C run push origin HEAD:"$TARGET_BRANCH"
+          if git -C run diff --cached --quiet; then
+            echo "Shadow receipts already current"
+          else
+            git -C run commit -m "Verify canonical reader parity for shadow edition $TARGET_DATE"
+            git -C run push origin HEAD:"$TARGET_BRANCH"
+          fi
       - name: Persist cumulative verified reader history
         run: |
           if [ "$HISTORY_EXISTS" = "true" ]; then
@@ -109,5 +135,5 @@ jobs:
             echo "Permanent reader history already current"
             exit 0
           fi
-          git -C history commit -m "Preserve verified shadow reader through $TARGET_DATE"
+          git -C history commit -m "Preserve canonical shadow reader through $TARGET_DATE"
           git -C history push origin HEAD:shadow-pages-history
