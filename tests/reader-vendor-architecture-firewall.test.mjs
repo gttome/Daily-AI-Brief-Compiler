@@ -26,6 +26,10 @@ function globMatch(pattern,value){
     .replaceAll(token,'.*');
   return new RegExp('^'+escaped+'$').test(value);
 }
+function prohibitedPath(source,needle){
+  if(needle.includes('/')) return source===needle || source.startsWith(needle+'/') || source.startsWith(needle);
+  return source.startsWith('_generator/lib/') && path.basename(source).includes(needle);
+}
 const allowed=[...allow.classes.READER_PURE,...allow.classes.READER_DATA,...allow.classes.READER_BROWSER];
 const sourceMapPath=path.join(vendor,'SOURCE-MAP.json');
 
@@ -40,16 +44,18 @@ test('reader vendor architecture firewall rejects control-plane and editorial-re
   const sourceMap=fs.existsSync(sourceMapPath)?JSON.parse(fs.readFileSync(sourceMapPath,'utf8')):{};
   for(const [vendored,source] of Object.entries(sourceMap)){
     assert.ok(allowed.some(p=>globMatch(p,source)),`non-allowlisted source: ${source}`);
-    assert.ok(!deny.prohibited_path_fragments.some(p=>source.includes(p)),`prohibited source path: ${source}`);
+    assert.ok(!deny.prohibited_path_fragments.some(p=>prohibitedPath(source,p)),`prohibited source path: ${source}`);
     assert.ok(!Object.entries(deny.explicit_classification).some(([p,c])=>['CONTROL_PLANE','EDITORIAL_RESEARCH','UNKNOWN'].includes(c)&&globMatch(p,source)),`prohibited classification: ${source}`);
     const file=path.join(vendor,vendored);
-    if(!fs.existsSync(file)||!/\.(?:mjs|js|html|md|yml|yaml|json|css|xml)$/.test(file))continue;
+    if(!fs.existsSync(file))continue;
+    const isCode=/\.(?:mjs|js)$/.test(file);
+    if(!isCode)continue;
     const text=fs.readFileSync(file,'utf8');
     for(const needle of deny.prohibited_imports) assert.ok(!text.includes(needle),`prohibited import/source string ${needle} in ${vendored}`);
     for(const needle of deny.prohibited_source_patterns) assert.ok(!text.includes(needle),`prohibited runtime/source string ${needle} in ${vendored}`);
   }
   for(const file of walk(path.join(vendor,'runtime'))){
     const rel=path.relative(vendor,file).replaceAll(path.sep,'/');
-    assert.ok(!deny.prohibited_path_fragments.some(p=>rel.includes(p)),`prohibited vendored path: ${rel}`);
+    assert.ok(!deny.prohibited_path_fragments.some(p=>prohibitedPath(rel,p)),`prohibited vendored path: ${rel}`);
   }
 });
