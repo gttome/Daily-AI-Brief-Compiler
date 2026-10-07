@@ -31,11 +31,11 @@ jobs:
     timeout-minutes: 25
     environment:
       name: github-pages
-      url: \${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     env:
-      TARGET_BRANCH: \${{ github.event.client_payload.branch || inputs.branch }}
-      EXPECTED_DIGEST: \${{ github.event.client_payload.bundle_digest || '' }}
-      READER_REBUILD: \${{ inputs.reader_rebuild || false }}
+      TARGET_BRANCH: ${{ github.event.client_payload.branch || inputs.branch }}
+      EXPECTED_DIGEST: ${{ github.event.client_payload.bundle_digest || '' }}
+      READER_REBUILD: ${{ github.event.client_payload.reader_rebuild || inputs.reader_rebuild || false }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -50,7 +50,7 @@ jobs:
             shadow/????-??-??) ;;
             *) echo "Invalid shadow branch: $TARGET_BRANCH"; exit 1 ;;
           esac
-          echo "TARGET_DATE=\${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
+          echo "TARGET_DATE=${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
       - name: Check out exact semantic branch as worktree
         run: |
           git fetch origin "$TARGET_BRANCH:$TARGET_BRANCH"
@@ -102,10 +102,10 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
       - name: Verify exact live canonical reader
-        run: node scripts/verify-live.mjs "\${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/reader-source build/shadow build/live-verification.json
+        run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/reader-source build/shadow build/live-verification.json
       - name: Persist parity receipts on the same semantic execution
         run: |
-          node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "\${{ steps.deployment.outputs.page_url }}"
+          node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "${{ steps.deployment.outputs.page_url }}"
           git -C run config user.name "Daily Compiler"
           git -C run config user.email "actions@users.noreply.github.com"
           git -C run add "shadow-runs/$TARGET_DATE"
