@@ -22,6 +22,15 @@ function writeText(file,content){
 }
 function readJson(file){return JSON.parse(fs.readFileSync(file,'utf8'));}
 
+function patchWatchlistImmediateSelection(root){
+  const file=path.join(root,'assets','js','watchlist.js');
+  const source=fs.readFileSync(file,'utf8');
+  const before="article.querySelectorAll('[data-choice]').forEach(b=>b.disabled=true);status.textContent='Saving…';";
+  const after="article.querySelectorAll('[data-choice]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.choice===choice));b.disabled=true;});status.textContent='Saving…';";
+  if(!source.includes(before))throw new Error('canonical watchlist vote hook changed; immediate-selection patch must be reviewed');
+  fs.writeFileSync(file,source.replace(before,after),'utf8');
+}
+
 function rewriteReaderEnvironment(root,environment){
   const absoluteToken='__DAILY_COMPILER_PUBLIC_BASE__';
   for(const file of walk(root)){
@@ -171,6 +180,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
   rewriteReaderEnvironment(outDir,environment);
+  patchWatchlistImmediateSelection(outDir);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
   const adapted=adaptCompilerBundle(bundle,{environment});
@@ -204,7 +214,8 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
     })),
     semantic_rework:0,
     accepted_image_regenerations:0,
-    production_runtime_dependency:false
+    production_runtime_dependency:false,
+    reader_behavior_fixes:['watchlist-interest-selection-immediate-visual-state']
   };
   writeText(path.join(outDir,'build-manifest.json'),JSON.stringify(manifest,null,2));
   return {manifest,adapted};
