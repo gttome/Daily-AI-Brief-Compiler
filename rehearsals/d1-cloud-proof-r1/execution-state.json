@@ -2,7 +2,7 @@
   "schema_version": "daily-compiler-d1-cloud-proof-execution-v1",
   "proof_id": "d1-cloud-proof-r1",
   "branch": "rehearsal/d1-cloud-proof-r1",
-  "status": "PLANNED",
+  "status": "BLOCKED",
   "studio_request_path": "rehearsals/d1-cloud-proof-r1/studio-request.json",
   "acceptance_manifest_path": null,
   "ingest_mapping_path": "rehearsals/d1-cloud-proof-r1/ingest-mapping.json",
@@ -13,6 +13,12 @@
   "accepted_assets": [],
   "owner_intervention": false,
   "local_computer_used": false,
-  "last_error": null,
-  "updated_at": "2026-10-07T18:31:00Z"
+  "last_error": {
+    "code": "D1_FRESH_IMAGE_STUDIO_LAUNCH_UNAVAILABLE",
+    "stage": "LAUNCH_FRESH_IMAGE_STUDIO",
+    "detail": "This connected chat has no supported capability to launch and bind a separate fresh ChatGPT Image Studio cloud task plus return its six individual accepted cloud assets to the coordinator. Generating inside this repository-context chat would violate fresh_separate_cloud_task and repository_context_forbidden.",
+    "retryable": true,
+    "preserved_work": "PR #64 and all D1 phase-2 artifacts are preserved; no semantic work or image generation was repeated."
+  },
+  "updated_at": "2026-10-07T18:58:30Z"
 }
