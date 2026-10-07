@@ -1,22 +1,40 @@
 {
   "schema_version": "daily-compiler-d1-rehearsal-blocker-v1",
   "rehearsal_id": "d1-six-image-browser-r1",
-  "result": "BLOCKED_RETRYABLE",
-  "code": "WORK_CLOUD_BROWSER_UNAVAILABLE_IN_SCHEDULED_RUNTIME",
-  "detail": "This invocation exposes connected GitHub actions but no Work Cloud Browser/Computer Use action to open and operate six isolated ordinary ChatGPT conversations. A connected third-party browser would violate the approved D1 execution path.",
-  "scope": "this_invocation_only",
-  "prior_execution_state": "BROWSER_RUNNING",
-  "prior_native_generations": 4,
-  "prior_accepted_assets": 0,
-  "invocation_image_generations": 0,
-  "invocation_visual_quality_attempts_consumed": 0,
-  "accepted_assets_regenerated": 0,
+  "result": "BLOCKED",
+  "code": "STORY_QUALITY_ATTEMPTS_EXHAUSTED",
+  "scope": "existing_rehearsal_story_1_quality_gate",
+  "detail": {
+    "code": "STORY_QUALITY_ATTEMPTS_EXHAUSTED",
+    "category": "quality_gate",
+    "story_id": "stress-terminal-evidence",
+    "ordinal": 1,
+    "allowed_attempts": 4,
+    "native_generation_attempts": 4,
+    "failed_criterion": "premium_textbook_editorial_quality",
+    "review_location": "same_fresh_regular_story_chat",
+    "conversation_url": "https://chatgpt.com/c/6ac6c3ab-d904-83e9-b228-904e748f1ead",
+    "final_review_path": "rehearsals/d1-six-image-browser-r1/evidence/story-1-attempt-4-review.json",
+    "defects": [
+      "The image satisfies the text, blank-surface, and neutral evidence constraints, but the visual mechanism depth is still below the sealed premium high-density textbook/editorial benchmark.",
+      "Several evidence components are visually generic stacked sheets and floating panels rather than detailed causal evidence assembly structures with clearly differentiated fragments and linked traces.",
+      "The processing engine and review gate communicate the stages, but some internal geometry functions primarily as decoration rather than explaining transformation mechanics."
+    ],
+    "generation_further_allowed": false,
+    "transport_failure": false,
+    "authentication_failure": false,
+    "detected_at": "2026-10-07T22:19:25.796258Z"
+  },
+  "native_generations": 4,
+  "accepted_assets": 0,
   "owner_intervention": false,
   "local_computer_used": false,
-  "tinyfish_used": false,
-  "paid_api_used": false,
-  "repository_mutations": [
-    "this_blocker_only"
-  ],
-  "resume_instruction": "Resume the same rehearsal in a Work-mode invocation with authenticated Work Cloud Browser; reuse all accepted_locked assets and existing checkpoints; do not start a new rehearsal or redo semantic work."
+  "superseded_invocation_only_record": {
+    "commit": "5265f604b6cd643999f1be004177835aca3b5b5f",
+    "preserved_path": "rehearsals/d1-six-image-browser-r1/evidence/scheduled-runtime-blocker-5265f60.json",
+    "scope": "scheduled invocation only",
+    "native_image_attempts": 0,
+    "effect_on_current_quality_attempt_count": "none"
+  },
+  "resume_instruction": "Do not regenerate story 1 under the unchanged four-attempt budget. Preserve the existing conversation and review evidence. No accepted asset exists; downstream gates were not reached."
 }
