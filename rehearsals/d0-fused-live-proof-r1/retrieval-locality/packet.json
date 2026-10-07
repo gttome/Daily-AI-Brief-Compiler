@@ -1,0 +1,134 @@
+{
+  "schema_version": "daily-compiler-image-packet-v3",
+  "envelope": {
+    "edition_date": "2026-10-07",
+    "story_id": "retrieval-locality",
+    "candidate_id": "retrieval-locality-candidate-01",
+    "story_content_sha256": "71cfa98a5b634beb0c99f0be3e769dcf3643c35fcc9fbb20782afc31828add52",
+    "set_plan_sha256": "8e5b42d41b49bbafdc2126f49bbd7ba105169f3ae08222ba809341a8142762c5",
+    "packet_sha256": "bcdd10b5750e3356327b30c5e14bb293bc0e56980d4f4346f9779a1e0d24e964"
+  },
+  "generation": {
+    "subject": "Comparison of remote and local semantic retrieval paths",
+    "core_mechanism": "One query can travel through a remote retrieval path with network transfer or through a local retrieval path where matching happens close to the data before results return.",
+    "verified_visual_facts": [
+      "Both paths begin with the same query.",
+      "The remote path includes transfer to a remote retrieval stage.",
+      "The local path performs retrieval near the local data store.",
+      "Both paths return a result to the same consumer."
+    ],
+    "conceptual_elements": [
+      "Use two clearly separated lanes.",
+      "Represent embeddings and matches as unlabeled vector-like tokens.",
+      "Show locality through spatial grouping rather than device branding."
+    ],
+    "meaningful_components_plan": [
+      {
+        "component_id": "r1",
+        "description": "shared query source feeding two lanes",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r2",
+        "description": "remote transfer connector",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r3",
+        "description": "remote retrieval index",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r4",
+        "description": "remote match result path",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r5",
+        "description": "local data store",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r6",
+        "description": "local retrieval index adjacent to local data",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r7",
+        "description": "local match result path",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r8",
+        "description": "shared consumer receiving either result",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "r9",
+        "description": "latency-distance cue expressed geometrically without numbers",
+        "support": "approved_concept",
+        "required": true
+      }
+    ],
+    "composition_assignment": {
+      "composition_signature": "remote-local-architecture-compare",
+      "layout_signature": "split-lane",
+      "diagram_grammar": "architecture-comparison",
+      "hierarchy_signature": "balanced-dual-column",
+      "annotation_pattern_signature": "paired-labels",
+      "reading_path": "left-right-compare",
+      "prohibited_patterns": [
+        "single-center-hub"
+      ]
+    },
+    "visible_text_allowlist": [
+      "Query",
+      "Remote",
+      "Local",
+      "Result"
+    ],
+    "prohibited_specifics": [
+      "cloud provider logos",
+      "device brands",
+      "network metrics",
+      "latency numbers",
+      "timestamps",
+      "file names",
+      "hash strings"
+    ],
+    "prohibited_composition_patterns": [
+      "single-center-hub"
+    ],
+    "reference_policy": "Use neutral architecture geometry only; no real cloud, device, or vendor identity.",
+    "wrong_subject_action": "discard_and_generate_fresh",
+    "render_contract": {
+      "canvas_target": "1200x630",
+      "background": "white_or_near_white",
+      "style": "professional_high_detail_textbook_editorial_mechanism",
+      "minimum_meaningful_components": 8,
+      "people": "prohibited",
+      "humanoids": "prohibited",
+      "branding": "prohibited",
+      "photorealism": "prohibited",
+      "generic_ai_imagery": "prohibited",
+      "decorative_filler": "prohibited",
+      "unsupported_specifics": "prohibited",
+      "visible_text_policy": "exact_allowlist_only",
+      "low_quality_fallback": false
+    }
+  },
+  "review": {
+    "benchmark_profile": "sep09-sep10-premium3-v1",
+    "minimum_meaningful_components": 8,
+    "generic_or_sparse_must_be": false,
+    "decorative_only_must_be": false
+  }
+}

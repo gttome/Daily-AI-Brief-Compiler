@@ -1,0 +1,134 @@
+{
+  "schema_version": "daily-compiler-image-packet-v3",
+  "envelope": {
+    "edition_date": "2026-10-07",
+    "story_id": "agent-continuity",
+    "candidate_id": "agent-continuity-candidate-01",
+    "story_content_sha256": "b60d4765cbbe25ebb47a88d3a4eaf182a34da3b29d759e5d2151a0ae80d60b33",
+    "set_plan_sha256": "8e5b42d41b49bbafdc2126f49bbd7ba105169f3ae08222ba809341a8142762c5",
+    "packet_sha256": "c19629ec5c885e349f795809e8638c7cce9d755c117502cdfdd371166d125d35"
+  },
+  "generation": {
+    "subject": "Persistent assistant continuity built from goal, context, action state, and review",
+    "core_mechanism": "A persistent assistant maintains a goal and working context across repeated actions while review updates the state used for the next cycle.",
+    "verified_visual_facts": [
+      "The goal persists across more than one action cycle.",
+      "Context is carried into each action.",
+      "Action results update working state.",
+      "Review can change what is carried into the next cycle."
+    ],
+    "conceptual_elements": [
+      "Use layered persistent state rather than a human or avatar.",
+      "Show continuity with linked state layers and a feedback loop.",
+      "Keep actions abstract and unbranded."
+    ],
+    "meaningful_components_plan": [
+      {
+        "component_id": "p1",
+        "description": "persistent goal layer at the top of the stack",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p2",
+        "description": "working context layer below the goal",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p3",
+        "description": "current task-state layer",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p4",
+        "description": "bounded action module",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p5",
+        "description": "result capture layer",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p6",
+        "description": "review layer assessing the result",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p7",
+        "description": "feedback path updating context",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "p8",
+        "description": "continuity connector carrying state forward",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "p9",
+        "description": "next-cycle action slot showing recurrence",
+        "support": "approved_concept",
+        "required": true
+      }
+    ],
+    "composition_assignment": {
+      "composition_signature": "persistent-state-layer-stack",
+      "layout_signature": "vertical-stack",
+      "diagram_grammar": "layered-system",
+      "hierarchy_signature": "top-down-stack",
+      "annotation_pattern_signature": "layer-tabs",
+      "reading_path": "top-to-bottom",
+      "prohibited_patterns": [
+        "split-lane"
+      ]
+    },
+    "visible_text_allowlist": [
+      "Goal",
+      "Context",
+      "Action",
+      "Review"
+    ],
+    "prohibited_specifics": [
+      "assistant avatars",
+      "people",
+      "provider logos",
+      "application logos",
+      "calendar dates",
+      "timestamps",
+      "status badges"
+    ],
+    "prohibited_composition_patterns": [
+      "split-lane"
+    ],
+    "reference_policy": "Represent the assistant as layered state and mechanism only; no humanoid, avatar, product or provider.",
+    "wrong_subject_action": "discard_and_generate_fresh",
+    "render_contract": {
+      "canvas_target": "1200x630",
+      "background": "white_or_near_white",
+      "style": "professional_high_detail_textbook_editorial_mechanism",
+      "minimum_meaningful_components": 8,
+      "people": "prohibited",
+      "humanoids": "prohibited",
+      "branding": "prohibited",
+      "photorealism": "prohibited",
+      "generic_ai_imagery": "prohibited",
+      "decorative_filler": "prohibited",
+      "unsupported_specifics": "prohibited",
+      "visible_text_policy": "exact_allowlist_only",
+      "low_quality_fallback": false
+    }
+  },
+  "review": {
+    "benchmark_profile": "sep09-sep10-premium3-v1",
+    "minimum_meaningful_components": 8,
+    "generic_or_sparse_must_be": false,
+    "decorative_only_must_be": false
+  }
+}

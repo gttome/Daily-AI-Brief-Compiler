@@ -1,0 +1,134 @@
+{
+  "schema_version": "daily-compiler-image-packet-v3",
+  "envelope": {
+    "edition_date": "2026-10-07",
+    "story_id": "latency-control-loop",
+    "candidate_id": "latency-control-loop-candidate-01",
+    "story_content_sha256": "a79903e84044d6c37f69517b73c40b4138cfb76f888336b1253eef22b7b4c928",
+    "set_plan_sha256": "8e5b42d41b49bbafdc2126f49bbd7ba105169f3ae08222ba809341a8142762c5",
+    "packet_sha256": "fcb0f481fe81f0e8d49263398e669d92c51fe2f9ff04b6e0ffff650a0af75b96"
+  },
+  "generation": {
+    "subject": "Repeated reasoning and tool-use loop where runtime optimization reduces cycle delay",
+    "core_mechanism": "A reasoning cycle generates an action, invokes a tool, checks the result, and loops to the next decision while runtime optimization acts across the repeated path.",
+    "verified_visual_facts": [
+      "Reasoning precedes generation.",
+      "Generation can lead to tool use.",
+      "Tool results are checked before the next cycle.",
+      "The sequence repeats as a loop."
+    ],
+    "conceptual_elements": [
+      "Show optimization as a parallel control layer spanning the repeated stages.",
+      "Use arrows and state transitions rather than performance numbers.",
+      "Make the loop visibly cyclical."
+    ],
+    "meaningful_components_plan": [
+      {
+        "component_id": "l1",
+        "description": "reasoning state at the start of the loop",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "l2",
+        "description": "generation state following reasoning",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "l3",
+        "description": "tool invocation state",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "l4",
+        "description": "tool result artifact",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "l5",
+        "description": "result-check state",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "l6",
+        "description": "next-decision transition returning to reasoning",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "l7",
+        "description": "runtime optimization layer spanning generation and tool stages",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "l8",
+        "description": "cycle boundary marker",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "l9",
+        "description": "feedback connector showing repeated iteration",
+        "support": "verified_fact",
+        "required": true
+      }
+    ],
+    "composition_assignment": {
+      "composition_signature": "runtime-state-loop-cascade",
+      "layout_signature": "loop-cascade",
+      "diagram_grammar": "state-transition",
+      "hierarchy_signature": "cascading-states",
+      "annotation_pattern_signature": "transition-callouts",
+      "reading_path": "clockwise-loop",
+      "prohibited_patterns": [
+        "radial-input-funnel"
+      ]
+    },
+    "visible_text_allowlist": [
+      "Reason",
+      "Generate",
+      "Tool",
+      "Check"
+    ],
+    "prohibited_specifics": [
+      "GPU logos",
+      "provider logos",
+      "token rates",
+      "latency numbers",
+      "timestamps",
+      "benchmark badges",
+      "hardware product marks"
+    ],
+    "prohibited_composition_patterns": [
+      "radial-input-funnel"
+    ],
+    "reference_policy": "Use neutral runtime and state-transition forms only; no hardware/provider identity or performance numbers.",
+    "wrong_subject_action": "discard_and_generate_fresh",
+    "render_contract": {
+      "canvas_target": "1200x630",
+      "background": "white_or_near_white",
+      "style": "professional_high_detail_textbook_editorial_mechanism",
+      "minimum_meaningful_components": 8,
+      "people": "prohibited",
+      "humanoids": "prohibited",
+      "branding": "prohibited",
+      "photorealism": "prohibited",
+      "generic_ai_imagery": "prohibited",
+      "decorative_filler": "prohibited",
+      "unsupported_specifics": "prohibited",
+      "visible_text_policy": "exact_allowlist_only",
+      "low_quality_fallback": false
+    }
+  },
+  "review": {
+    "benchmark_profile": "sep09-sep10-premium3-v1",
+    "minimum_meaningful_components": 8,
+    "generic_or_sparse_must_be": false,
+    "decorative_only_must_be": false
+  }
+}

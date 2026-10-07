@@ -1,0 +1,138 @@
+{
+  "schema_version": "daily-compiler-image-packet-v3",
+  "envelope": {
+    "edition_date": "2026-10-07",
+    "story_id": "stress-app-workflow",
+    "candidate_id": "stress-app-workflow-candidate-01",
+    "story_content_sha256": "1c7d6020d8c721251678fee16d05dc45e50478ee705b6a3665ccd39e9523187c",
+    "set_plan_sha256": "8e5b42d41b49bbafdc2126f49bbd7ba105169f3ae08222ba809341a8142762c5",
+    "packet_sha256": "d97248aa8f2bb9e6163819312ca08676bf07b5f52cf0c144e9b4954ae8ad88ff"
+  },
+  "generation": {
+    "subject": "Application workflow that turns context and policy into an auditable action",
+    "core_mechanism": "Neutral application context flows through policy checks into a bounded action, while evidence is captured for review and audit.",
+    "verified_visual_facts": [
+      "Context enters before policy evaluation.",
+      "Policy evaluation occurs before action execution.",
+      "Evidence is captured from the action path.",
+      "Review and audit occur after evidence capture."
+    ],
+    "conceptual_elements": [
+      "Represent application screens with blank unbranded frames.",
+      "Represent policy as neutral constraint layers.",
+      "Use an evidence sidecar linked to the action path."
+    ],
+    "meaningful_components_plan": [
+      {
+        "component_id": "a1",
+        "description": "blank application-like context frame without UI text",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "a2",
+        "description": "context extraction layer",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "a3",
+        "description": "policy constraint stack",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "a4",
+        "description": "policy decision junction",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "a5",
+        "description": "bounded action executor",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "a6",
+        "description": "evidence sidecar collecting action traces",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "a7",
+        "description": "review gate inspecting evidence",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "a8",
+        "description": "audit packet produced after review",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "a9",
+        "description": "exception return path back to policy evaluation",
+        "support": "approved_concept",
+        "required": true
+      }
+    ],
+    "composition_assignment": {
+      "composition_signature": "screen-artifact-validation-funnel",
+      "layout_signature": "radial-to-funnel",
+      "diagram_grammar": "evidence-convergence",
+      "hierarchy_signature": "outer-inputs-to-central-gate",
+      "annotation_pattern_signature": "node-label-plus-gate-callouts",
+      "reading_path": "outside-in-then-down",
+      "prohibited_patterns": [
+        "horizontal-pipeline",
+        "dashboard-grid"
+      ]
+    },
+    "visible_text_allowlist": [
+      "Context",
+      "Policy",
+      "Action",
+      "Audit"
+    ],
+    "prohibited_specifics": [
+      "provider marks",
+      "application logos",
+      "screen chrome",
+      "menu labels",
+      "button text",
+      "timestamps",
+      "file names",
+      "hash strings",
+      "status badges"
+    ],
+    "prohibited_composition_patterns": [
+      "horizontal-pipeline",
+      "dashboard-grid"
+    ],
+    "reference_policy": "Use blank neutral workflow and screen-like forms only; no identifiable application, provider, or branded UI.",
+    "wrong_subject_action": "discard_and_generate_fresh",
+    "render_contract": {
+      "canvas_target": "1200x630",
+      "background": "white_or_near_white",
+      "style": "professional_high_detail_textbook_editorial_mechanism",
+      "minimum_meaningful_components": 8,
+      "people": "prohibited",
+      "humanoids": "prohibited",
+      "branding": "prohibited",
+      "photorealism": "prohibited",
+      "generic_ai_imagery": "prohibited",
+      "decorative_filler": "prohibited",
+      "unsupported_specifics": "prohibited",
+      "visible_text_policy": "exact_allowlist_only",
+      "low_quality_fallback": false
+    }
+  },
+  "review": {
+    "benchmark_profile": "sep09-sep10-premium3-v1",
+    "minimum_meaningful_components": 8,
+    "generic_or_sparse_must_be": false,
+    "decorative_only_must_be": false
+  }
+}

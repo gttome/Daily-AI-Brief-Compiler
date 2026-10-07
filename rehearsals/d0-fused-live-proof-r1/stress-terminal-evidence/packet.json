@@ -1,0 +1,138 @@
+{
+  "schema_version": "daily-compiler-image-packet-v3",
+  "envelope": {
+    "edition_date": "2026-10-07",
+    "story_id": "stress-terminal-evidence",
+    "candidate_id": "stress-terminal-evidence-candidate-01",
+    "story_content_sha256": "71d96f613923db6e906cee37c2f65d56adc9e00f866c1c3d8b7d004b2316dcd4",
+    "set_plan_sha256": "8e5b42d41b49bbafdc2126f49bbd7ba105169f3ae08222ba809341a8142762c5",
+    "packet_sha256": "1d2888d305cce4992bfab1e5e5a0cd7839bbd6af425d06e7ae8c1bafb18c231e"
+  },
+  "generation": {
+    "subject": "Command-driven evidence workflow with verification before release",
+    "core_mechanism": "A neutral command request enters a bounded processing path, produces evidence artifacts, passes review, and only then releases a verified result.",
+    "verified_visual_facts": [
+      "A request enters through a bounded intake.",
+      "Processing produces an evidence artifact before review.",
+      "Review occurs before the result can be released.",
+      "A failed review returns the artifact for correction."
+    ],
+    "conceptual_elements": [
+      "Represent command activity with blank terminal-like geometry containing no text.",
+      "Show evidence as neutral document fragments and linked traces.",
+      "Use a clearly visible return path from review to processing."
+    ],
+    "meaningful_components_plan": [
+      {
+        "component_id": "t1",
+        "description": "request token entering a bounded intake",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "t2",
+        "description": "blank terminal-like processing surface with no characters",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "t3",
+        "description": "processing engine converting request into evidence units",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "t4",
+        "description": "evidence artifact assembled from multiple neutral fragments",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "t5",
+        "description": "supporting trace orbit around the evidence artifact",
+        "support": "approved_concept",
+        "required": true
+      },
+      {
+        "component_id": "t6",
+        "description": "review gate with pass and return paths",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "t7",
+        "description": "correction loop returning failed material to processing",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "t8",
+        "description": "verified result packet leaving the gate",
+        "support": "verified_fact",
+        "required": true
+      },
+      {
+        "component_id": "t9",
+        "description": "boundary marker separating generation from release",
+        "support": "approved_concept",
+        "required": true
+      }
+    ],
+    "composition_assignment": {
+      "composition_signature": "terminal-path-with-evidence-orbit",
+      "layout_signature": "horizontal-pipeline",
+      "diagram_grammar": "transformation-pipeline",
+      "hierarchy_signature": "dominant-centerline-with-side-evidence",
+      "annotation_pattern_signature": "stage-label-plus-side-callouts",
+      "reading_path": "left-to-right",
+      "prohibited_patterns": [
+        "dashboard-grid",
+        "device-hero"
+      ]
+    },
+    "visible_text_allowlist": [
+      "Request",
+      "Process",
+      "Evidence",
+      "Review"
+    ],
+    "prohibited_specifics": [
+      "provider marks",
+      "terminal commands",
+      "CLI syntax",
+      "code fragments",
+      "application logos",
+      "timestamps",
+      "file names",
+      "hash strings",
+      "status badges"
+    ],
+    "prohibited_composition_patterns": [
+      "dashboard-grid",
+      "device-hero"
+    ],
+    "reference_policy": "Use neutral command and evidence abstractions only; no real terminal, product, provider, or branded interface.",
+    "wrong_subject_action": "discard_and_generate_fresh",
+    "render_contract": {
+      "canvas_target": "1200x630",
+      "background": "white_or_near_white",
+      "style": "professional_high_detail_textbook_editorial_mechanism",
+      "minimum_meaningful_components": 8,
+      "people": "prohibited",
+      "humanoids": "prohibited",
+      "branding": "prohibited",
+      "photorealism": "prohibited",
+      "generic_ai_imagery": "prohibited",
+      "decorative_filler": "prohibited",
+      "unsupported_specifics": "prohibited",
+      "visible_text_policy": "exact_allowlist_only",
+      "low_quality_fallback": false
+    }
+  },
+  "review": {
+    "benchmark_profile": "sep09-sep10-premium3-v1",
+    "minimum_meaningful_components": 8,
+    "generic_or_sparse_must_be": false,
+    "decorative_only_must_be": false
+  }
+}
