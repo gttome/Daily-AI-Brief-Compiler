@@ -1,0 +1,49 @@
+{
+  "schema_version": "daily-compiler-d0-implementation-readiness-v1",
+  "required_files": [
+    "contracts/image-contract.json",
+    "contracts/d0-p0a-route-matrix.json",
+    "contracts/d0-proof-manifest.json",
+    "contracts/d0-transition-schedule-prompts.json",
+    "contracts/d0-transition-schedule-sync.json",
+    "image-capsules/admission.mjs",
+    "image-capsules/persistence.mjs",
+    "image-capsules/normalize.mjs",
+    "image-capsules/review-contract.mjs",
+    "image-capsules/set-review.mjs",
+    "image-capsules/bundle-gate.mjs",
+    "image-capsules/activation-gate.mjs",
+    "image-capsules/activation-apply.mjs",
+    "image-capsules/fused-proof.mjs",
+    "image-capsules/fused-proof-state.mjs",
+    "image-capsules/migration.mjs",
+    "image-capsules/migration-apply.mjs",
+    "image-capsules/routing.mjs",
+    "scripts/check-d0-completion.mjs",
+    "scripts/apply-d0-activation.mjs",
+    "scripts/verify-d0-preactivation-set.mjs",
+    "scripts/promote-d0-fused-proof.mjs",
+    "scripts/next-d0-fused-proof-operation.mjs",
+    "scripts/apply-image-only-migration.mjs",
+    "docs/D0-COMPLETION-RUNBOOK.md",
+    "docs/D0-PROOF-STATUS.md",
+    "docs/D0-SCHEDULE-TRANSITION.md"
+  ],
+  "implementation_invariants": {
+    "image_contract_schema": "daily-compiler-image-contract-v3",
+    "strategy": "d0_native_image_capsules",
+    "paid_capacity_branch_exists": false,
+    "transition_schedule_count": 4,
+    "no_new_schedule_created": true,
+    "proof_keys": [
+      "p0_a",
+      "p0_b",
+      "p0_c",
+      "p0_d",
+      "p0_e",
+      "p0_f"
+    ],
+    "activation_requires_all_six_proofs": true,
+    "october7_same_execution_only": true
+  }
+}
