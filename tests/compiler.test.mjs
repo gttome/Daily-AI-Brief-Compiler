@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { validateEdition, compileShadow, gitBlobSha, sha256 } from '../compiler/compile.mjs';
-import {canonicalWatchTopicId} from '../compiler/reader-adapter.mjs';
+import {adaptCompilerBundle, canonicalWatchTopicId} from '../compiler/reader-adapter.mjs';
 
 test('complete fixture validates exact editorial and image identities', () => {
   const result=validateEdition({
@@ -126,4 +126,26 @@ test('Watchlist concept aliases preserve canonical topic identities',()=>{
   assert.equal(canonicalWatchTopicId({topic:'Reusable Agent Skills'}),'dab-topic-agent-skills-observability');
   assert.equal(canonicalWatchTopicId({topic:'Agent governance and review points'}),'dab-topic-adaptive-agent-safeguards');
   assert.equal(canonicalWatchTopicId({topic:'Inference latency as agent UX'}),'dab-topic-agentic-edge-inference');
+});
+
+test('stable Watchlist identities preserve prior independent evidence',()=>{
+  const bundle=JSON.parse(fs.readFileSync('fixtures/complete-edition/edition-bundle.json','utf8'));
+  bundle.watchlist={
+    refreshed_at:'2026-10-06T12:00:00Z',
+    new:[],
+    updated:[{
+      topic:'Persistent personal agents',
+      what_changed:'New persistent-agent evidence.',
+      evidence:{url:'https://example.com/persistent-agent-update',date:'2026-10-06'}
+    }],
+    carried_forward:[],
+    dropped:[]
+  };
+  const priorWatchlist=JSON.parse(fs.readFileSync('vendor/production-reader/snapshot/_data/watchlist.json','utf8'));
+  const adapted=adaptCompilerBundle(bundle,{priorWatchlist}).watchlist;
+  const topic=adapted.topics.find(row=>row.topic_id==='dab-topic-long-horizon-agents');
+  assert.ok(topic);
+  assert.equal(topic.status,'gaining_evidence');
+  assert.ok(new Set(topic.evidence.map(row=>row.development_id)).size>=2);
+  assert.ok(topic.evidence.some(row=>row.url==='https://example.com/persistent-agent-update'));
 });
