@@ -1,6 +1,6 @@
 # D0 Native Image Capsules
 
-Status: implementation candidate; activation requires live P0-A through P0-F PASS.
+Status: implementation candidate; activation requires zero-cost pre-proof plus live P0-A through P0-F PASS.
 
 D0 preserves the Daily Compiler simplicity boundary while replacing Proposal 1R for future reader-story images only after a live capability proof. The intended path is:
 
@@ -22,9 +22,15 @@ locked six-story edition
 
 ## Hard boundaries
 
-D0 adds no Supervisor, Watchdog Ring, writer/recovery lease, worker pool, wake PR, continuous AI polling, or runtime software-repair loop. Runtime D0 executable code must not depend on Work, Codex, OpenAI/model APIs, paid image services, new paid infrastructure, owner image upload, alternate accounts, or owner liveness.
+D0 adds no Supervisor, Watchdog Ring, writer/recovery lease, worker pool, wake PR, continuous AI polling, or runtime software-repair loop. Runtime D0 executable code must not depend on Work, Codex, OpenAI/model APIs, paid image services, billable overage, new paid infrastructure, owner image upload/manual transfer, alternate accounts, or owner liveness.
 
-Native ChatGPT image generation already included in the existing subscription is the intended executor. A temporary native-capacity failure is infrastructure, consumes zero quality attempts, preserves state, and resumes only in a later ordinary Compiler invocation.
+Native ChatGPT image generation already included in the existing subscription is the intended executor. A temporary native-capacity failure is infrastructure, consumes zero quality attempts, preserves state, and resumes only in a later ordinary Compiler invocation. There is no paid-capacity escalation path.
+
+## Zero-cost pre-proof
+
+Before formal P0-A/P0-B, run the executable pre-proof in `docs/D0-ZERO-COST-PREPROOF.md`. It uses two disposable native images total across two independent standalone scheduled runs. Those runs jointly establish fresh-chat isolation, canary non-leakage, same-run generated-file handoff, exact raw persistence, read-back identity, and repeatability.
+
+Once the pre-proof receipt validates PASS, formal P0-A/P0-B promote the same immutable evidence instead of regenerating the two images. This is deliberate: capability discovery occurs before the formal proof, while evidence reuse reduces native-capacity exposure without weakening the proof.
 
 ## Clean capsule boundary
 
@@ -52,4 +58,4 @@ After set acceptance, exact bytes are immutable. A legitimate replacement requir
 
 ## Activation firewall
 
-D0 remains inactive for reader-story generation until a non-production proof demonstrates both a genuine clean generator context and same-invocation raw byte persistence, followed by normalization, exact saved-asset review, strict first-attempt text/brand behavior, and a full six-image rehearsal. Proposal 1R must never become an emergency reader-story fallback after D0 activation.
+D0 remains inactive for reader-story generation until a zero-cost pre-proof PASS and a non-production proof demonstrate both a genuine clean generator context and same-invocation raw byte persistence, followed by normalization, exact saved-asset review, strict first-attempt text/brand behavior, and a full six-image rehearsal. Proposal 1R must never become an emergency reader-story fallback after D0 activation.
