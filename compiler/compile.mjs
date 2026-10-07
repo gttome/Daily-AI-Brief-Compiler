@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { materializeReaderSource } from './reader-materializer.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
+import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -110,20 +111,26 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   if (requiredBooks.size) fail('required book series coverage missing: '+[...requiredBooks].join(', '));
 
   ensureArray(bundle.images, 'images', 6);
-  const imageEvidence = [];
-  for (const image of bundle.images) {
-    if (!image.story_id || !image.path || image.accepted !== true) fail('image acceptance record invalid');
-    if (!/^[a-f0-9]{64}$/.test(image.sha256 || '')) fail('image sha256 invalid');
-    if (!/^[a-f0-9]{40}$/.test(image.git_blob_sha || '')) fail('image git blob sha invalid');
-    if (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256) fail('image visual review mismatch');
-    const asset = path.resolve(repoRoot, image.path);
-    if (!fs.existsSync(asset)) fail('image missing: '+image.path);
-    const bytes = fs.readFileSync(asset);
-    const dims = pngDimensions(bytes);
-    if (dims.width !== 1200 || dims.height !== 630) fail('image dimensions invalid: '+image.path);
-    if (sha256(bytes) !== image.sha256) fail('image SHA mismatch: '+image.path);
-    if (gitBlobSha(bytes) !== image.git_blob_sha) fail('image Git blob mismatch: '+image.path);
-    imageEvidence.push({story_id:image.story_id,path:image.path,sha256:image.sha256,git_blob_sha:image.git_blob_sha,width:dims.width,height:dims.height});
+  let imageEvidence = [];
+  if(bundle.image_strategy === 'd0_native_image_capsules'){
+    const d0=validateD0BundleImages({state,bundle,repoRoot});
+    if(d0.errors.length) fail('D0 image bundle gate failed: '+d0.errors.join(','));
+    imageEvidence=d0.imageEvidence;
+  } else {
+    for (const image of bundle.images) {
+      if (!image.story_id || !image.path || image.accepted !== true) fail('image acceptance record invalid');
+      if (!/^[a-f0-9]{64}$/.test(image.sha256 || '')) fail('image sha256 invalid');
+      if (!/^[a-f0-9]{40}$/.test(image.git_blob_sha || '')) fail('image git blob sha invalid');
+      if (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256) fail('image visual review mismatch');
+      const asset = path.resolve(repoRoot, image.path);
+      if (!fs.existsSync(asset)) fail('image missing: '+image.path);
+      const bytes = fs.readFileSync(asset);
+      const dims = pngDimensions(bytes);
+      if (dims.width !== 1200 || dims.height !== 630) fail('image dimensions invalid: '+image.path);
+      if (sha256(bytes) !== image.sha256) fail('image SHA mismatch: '+image.path);
+      if (gitBlobSha(bytes) !== image.git_blob_sha) fail('image Git blob mismatch: '+image.path);
+      imageEvidence.push({story_id:image.story_id,path:image.path,sha256:image.sha256,git_blob_sha:image.git_blob_sha,width:dims.width,height:dims.height});
+    }
   }
 
   if (bundle.producer_receipt?.result !== 'PASS') fail('producer receipt missing PASS');
