@@ -149,3 +149,9 @@ test('stable Watchlist identities preserve prior independent evidence',()=>{
   assert.ok(new Set(topic.evidence.map(row=>row.development_id)).size>=2);
   assert.ok(topic.evidence.some(row=>row.url==='https://example.com/persistent-agent-update'));
 });
+
+
+test('legacy sealed bundles remain valid until explicit D0 migration',()=>{
+  const result=validateEdition({statePath:'fixtures/complete-edition/compiler-state.json',bundlePath:'fixtures/complete-edition/edition-bundle.json',repoRoot:'.'});
+  assert.equal(result.d0ImageGate,null);
+});
