@@ -103,36 +103,6 @@
       "blocker": "A manually opened new chat can combine native image generation and connected actions, but the Compiler has no supported unattended create-new-chat primitive and owner liveness is prohibited."
     },
     {
-      "route_id": "paid_model_or_image_api",
-      "status": "PROHIBITED",
-      "evidence": [
-        "https://developers.openai.com/api/docs/guides/tools-image-generation"
-      ],
-      "native_chatgpt_images": false,
-      "fresh_context": true,
-      "story_prompt_exactly_bindable": true,
-      "generated_asset_programmatically_retrievable": true,
-      "exact_bytes_available_before_context_end": true,
-      "post_generation_persistence_available": true,
-      "autonomous_invocation": true,
-      "blocker": "Technically capable but permanently prohibited by the zero-added-cost product contract."
-    },
-    {
-      "route_id": "work_or_computer_use",
-      "status": "PROHIBITED",
-      "evidence": [
-        "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
-      ],
-      "native_chatgpt_images": "UNASSESSED",
-      "fresh_context": "POSSIBLE",
-      "story_prompt_exactly_bindable": "UNASSESSED",
-      "generated_asset_programmatically_retrievable": "POSSIBLE",
-      "exact_bytes_available_before_context_end": "UNASSESSED",
-      "post_generation_persistence_available": "POSSIBLE",
-      "autonomous_invocation": true,
-      "blocker": "Work is prohibited as a production/runtime dependency by contract."
-    },
-    {
       "route_id": "scheduled_task_shared_link",
       "status": "BLOCKED",
       "evidence": [
@@ -212,5 +182,16 @@
       "autonomous_invocation": false,
       "blocker": "Personal data exports do not include Scheduled tasks. Scheduled tasks are covered by the Enterprise Compliance API, but that is not an in-run generated-image handoff and is not an available zero-cost Compiler runtime primitive."
     }
+  ],
+  "no_paid_capacity_branch": true,
+  "excluded_non_options": [
+    "paid_model_api",
+    "paid_image_api",
+    "paid_ai_service",
+    "billable_overage",
+    "new_paid_infrastructure",
+    "work",
+    "codex",
+    "alternate_account"
   ]
 }
