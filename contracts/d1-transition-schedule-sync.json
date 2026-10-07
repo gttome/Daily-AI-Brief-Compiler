@@ -1,0 +1,43 @@
+{
+  "schema_version": "daily-compiler-d1-transition-schedule-sync-v1",
+  "result": "PASS",
+  "synchronized_at": "2026-10-07T18:20:42Z",
+  "new_schedule_created": false,
+  "owner_intervention": false,
+  "d1_activation_changed": false,
+  "schedules": [
+    {
+      "title": "Daily Compiler Primary",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=19;BYMINUTE=15;BYSECOND=0",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v1"
+    },
+    {
+      "title": "Daily Compiler Recovery 1",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=21;BYMINUTE=15;BYSECOND=0",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v1"
+    },
+    {
+      "title": "Daily Compiler Recovery 2",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=1;BYMINUTE=15;BYSECOND=0",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v1"
+    },
+    {
+      "title": "Daily Compiler Recovery 3",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=5;BYMINUTE=15;BYSECOND=0",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v1"
+    }
+  ],
+  "note": "Existing Compiler schedules were updated in place. They preserve Proposal 1R before D1 activation and hand D1 image coordination to Dot/Image Studio/Work Porter after activation. No additional schedule or control plane was created."
+}
