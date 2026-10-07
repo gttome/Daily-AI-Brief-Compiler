@@ -106,7 +106,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     accessibility:true,
     internal_links_valid:true,
     semantic_rework:0,
-    accepted_image_regenerations:0
+    accepted_image_regenerations:manifest.accepted_image_regenerations ?? 0
   };
 }
 

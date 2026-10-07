@@ -110,7 +110,7 @@ for(let attempt=1;attempt<=18;attempt++){
       responsive:built.responsive,
       accessibility:built.accessibility,
       semantic_rework:0,
-      accepted_image_regenerations:0,
+      accepted_image_regenerations:built.accepted_image_regenerations ?? manifest.accepted_image_regenerations ?? 0,
       owner_intervention:false
     };
     fs.mkdirSync(receiptPath.split('/').slice(0,-1).join('/')||'.',{recursive:true});
