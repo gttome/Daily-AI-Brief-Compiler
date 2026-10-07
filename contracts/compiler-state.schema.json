@@ -4,139 +4,50 @@
   "title": "Daily Compiler State v1",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "schema_version",
-    "edition_date",
-    "execution_id",
-    "branch",
-    "state",
-    "stage",
-    "started_at",
-    "updated_at",
-    "editorial_bundle",
-    "images",
-    "bundle",
-    "last_error",
-    "retryable"
-  ],
+  "required": ["schema_version","edition_date","execution_id","branch","state","stage","started_at","updated_at","editorial_bundle","images","bundle","last_error","retryable"],
   "properties": {
-    "schema_version": {
-      "const": "daily-compiler-state-v1"
-    },
-    "edition_date": {
-      "type": "string",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
-    },
-    "execution_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "branch": {
-      "type": "string",
-      "pattern": "^shadow/\\d{4}-\\d{2}-\\d{2}$"
-    },
-    "state": {
-      "enum": [
-        "ALLOCATED",
-        "PRODUCING",
-        "BUNDLE_READY",
-        "COMPILING",
-        "PREVIEW_READY",
-        "SHADOW_VERIFIED",
-        "SHADOW_FAILED"
-      ]
-    },
-    "stage": {
-      "enum": [
-        "EDITORIAL",
-        "CONTENT",
-        "IMAGES",
-        "BUNDLE",
-        "COMPILE",
-        "VERIFY"
-      ]
-    },
-    "started_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "updated_at": {
-      "type": "string",
-      "format": "date-time"
-    },
+    "schema_version": {"const": "daily-compiler-state-v1"},
+    "edition_date": {"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
+    "execution_id": {"type":"string","minLength":1},
+    "branch": {"type":"string","pattern":"^shadow/\\d{4}-\\d{2}-\\d{2}$"},
+    "state": {"enum":["ALLOCATED","PRODUCING","BUNDLE_READY","COMPILING","PREVIEW_READY","SHADOW_VERIFIED","SHADOW_FAILED"]},
+    "stage": {"enum":["EDITORIAL","CONTENT","IMAGES","BUNDLE","COMPILE","VERIFY"]},
+    "started_at": {"type":"string","format":"date-time"},
+    "updated_at": {"type":"string","format":"date-time"},
     "editorial_bundle": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "status",
-        "digest"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "pending",
-            "complete"
-          ]
-        },
-        "digest": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      }
+      "type":"object","additionalProperties":false,"required":["status","digest"],
+      "properties":{"status":{"enum":["pending","complete"]},"digest":{"type":["string","null"]}}
     },
     "images": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "required",
-        "accepted"
-      ],
-      "properties": {
-        "required": {
-          "const": 6
+      "type":"object","additionalProperties":false,"required":["required","accepted"],
+      "properties":{
+        "required":{"const":6},
+        "strategy":{"enum":["proposal1r_deterministic_diagram_compiler","d0_native_image_capsules"]},
+        "stage_state":{"enum":["PLANNED","IN_PROGRESS","SET_REVIEW_READY","SET_PASS","ACCEPTED","BLOCKED_INFRASTRUCTURE"]},
+        "set_plan_sha256":{"type":["string","null"]},
+        "individual_passed":{"type":"array","maxItems":6,"uniqueItems":true,"items":{"type":"string"}},
+        "accepted":{"type":"array","maxItems":6,"uniqueItems":true,"items":{"type":"string"}},
+        "set_review":{
+          "type":"object","additionalProperties":false,"required":["status","path","digest"],
+          "properties":{"status":{"enum":["pending","PASS"]},"path":{"type":["string","null"]},"digest":{"type":["string","null"]}}
         },
-        "accepted": {
-          "type": "array",
-          "maxItems": 6,
-          "items": {
-            "type": "string"
-          }
+        "acceptance":{
+          "type":"object","additionalProperties":false,"required":["status","path","digest"],
+          "properties":{"status":{"enum":["pending","ACCEPTED_LOCKED"]},"path":{"type":["string","null"]},"digest":{"type":["string","null"]}}
         }
       }
     },
-    "bundle": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "status",
-        "digest"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "pending",
-            "BUNDLE_READY"
-          ]
-        },
-        "digest": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      }
+    "bundle":{
+      "type":"object","additionalProperties":false,"required":["status","digest"],
+      "properties":{"status":{"enum":["pending","BUNDLE_READY"]},"digest":{"type":["string","null"]}}
     },
-    "last_error": {
-      "type": [
-        "object",
-        "string",
-        "null"
-      ]
-    },
-    "retryable": {
-      "type": "boolean"
-    }
-  }
+    "last_error":{"type":["object","string","null"]},
+    "retryable":{"type":"boolean"},
+    "preview":{"type":"object"},
+    "reader_parity":{"type":"object"}
+  },
+  "allOf":[{
+    "if":{"properties":{"images":{"properties":{"strategy":{"const":"d0_native_image_capsules"}},"required":["strategy"]}}},
+    "then":{"properties":{"images":{"required":["stage_state","set_plan_sha256","individual_passed","set_review","acceptance"]}}}
+  }]
 }
