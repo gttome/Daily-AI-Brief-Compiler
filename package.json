@@ -7,7 +7,8 @@
     "test": "node --test tests/*.test.mjs",
     "validate:bootstrap": "node scripts/validate-bootstrap.mjs",
     "fixture:compile": "node scripts/compile-fixture.mjs",
-    "fixture:e2e": "npm run fixture:compile && test -s build/fixture/compile-receipt.json && test -s build/fixture/verification-receipt.json"
+    "fixture:e2e": "npm run fixture:compile && test -s build/fixture/compile-receipt.json && test -s build/fixture/verification-receipt.json && test -s build/fixture/index.md && test -s build/fixture/archive.md",
+    "reader:parity": "node scripts/check-reader-parity.mjs build/parity/reader-parity-receipt.json"
   },
   "engines": {
     "node": ">=20"
