@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {canonicalSha} from '../image-capsules/util.mjs';
-import {assertD1AcceptanceManifest} from './acceptance.mjs';
-import {validateD1Activation} from './activation.mjs';
+import {assertD1AcceptanceManifest,D1_WORK_SCOPE} from './acceptance.mjs';
+import {validateD1Activation,D1_STRATEGY,D1_CONTRACT} from './activation.mjs';
 import {sha256,gitBlobSha,pngDimensions} from '../work-porter/integrity.mjs';
 
 const safeRel=p=>typeof p==='string'&&p.length>0&&!path.isAbsolute(p)&&!p.includes('\\')&&!p.split('/').some(x=>x==='..'||x==='.'||x==='');
@@ -11,12 +11,10 @@ const readJson=(root,p)=>JSON.parse(fs.readFileSync(path.resolve(root,p),'utf8')
 export function validateD1BundleImages({bundle,repoRoot='.'}={}){
   const errors=[],evidence=[];
   const sys=bundle?.image_system||{};
-  if(sys.strategy!=='d1_cloud_image_studio') return {result:'NOT_D1',errors:[],evidence:[]};
-
+  if(sys.strategy!==D1_STRATEGY) return {result:'NOT_D1',errors:[],evidence:[]};
   const activation=validateD1Activation({repoRoot});
   if(activation.result!=='PASS') errors.push(...activation.errors.map(x=>'activation:'+x));
-
-  if(sys.contract_version!=='daily-compiler-image-contract-v4') errors.push('d1_contract_version');
+  if(sys.contract_version!==D1_CONTRACT) errors.push('d1_contract_version');
   for(const f of ['acceptance_manifest_path','acceptance_manifest_sha256','ingest_handoff_path','ingest_handoff_sha256','work_porter_receipt_path','work_porter_receipt_sha256']){
     if(!safeRel(sys[f])) errors.push('d1_image_system_'+f);
   }
@@ -24,46 +22,39 @@ export function validateD1BundleImages({bundle,repoRoot='.'}={}){
   if(errors.length) return {result:'FAIL',errors:[...new Set(errors)],evidence};
 
   let manifest,handoff,porter;
-  try{
-    manifest=readJson(repoRoot,sys.acceptance_manifest_path);
-    assertD1AcceptanceManifest(manifest);
-    if(canonicalSha(manifest)!==sys.acceptance_manifest_sha256) errors.push('d1_manifest_digest_mismatch');
-  }catch(err){errors.push('d1_manifest_invalid:'+err.message);}
+  try{manifest=readJson(repoRoot,sys.acceptance_manifest_path);assertD1AcceptanceManifest(manifest);if(canonicalSha(manifest)!==sys.acceptance_manifest_sha256) errors.push('d1_manifest_digest_mismatch');}
+  catch(err){errors.push('d1_manifest_invalid:'+err.message);}
   try{
     handoff=readJson(repoRoot,sys.ingest_handoff_path);
-    if(handoff?.schema_version!=='daily-compiler-d1-ingest-handoff-v1'||handoff?.scope!=='IMAGE_PACKAGE_INGEST'||handoff?.visual_rereview_required!==false||handoff?.image_generation_allowed!==false) errors.push('d1_ingest_handoff_identity');
+    if(handoff?.schema_version!=='daily-compiler-d1-ingest-handoff-v2'||handoff?.scope!==D1_WORK_SCOPE||handoff?.visual_rereview_required!==false||handoff?.image_generation_allowed!==false) errors.push('d1_ingest_handoff_identity');
     if(canonicalSha(handoff)!==sys.ingest_handoff_sha256) errors.push('d1_ingest_handoff_digest_mismatch');
     if(handoff?.manifest_sha256!==sys.acceptance_manifest_sha256) errors.push('d1_ingest_manifest_binding');
   }catch(err){errors.push('d1_ingest_handoff_invalid:'+err.message);}
   try{
     porter=readJson(repoRoot,sys.work_porter_receipt_path);
-    if(porter?.schema_version!=='daily-compiler-d1-work-porter-receipt-v1'||porter?.result!=='PASS'||porter?.scope!=='IMAGE_PACKAGE_INGEST') errors.push('d1_porter_receipt_identity');
-    if(porter?.visual_quality_review_performed!==false||porter?.image_generation_performed!==false||porter?.owner_intervention!==false) errors.push('d1_porter_scope_violation');
+    if(porter?.schema_version!=='daily-compiler-d1-work-porter-receipt-v2'||porter?.result!=='PASS'||porter?.scope!==D1_WORK_SCOPE) errors.push('d1_porter_receipt_identity');
+    if(porter?.visual_quality_review_performed!==false||porter?.work_native_image_generation_performed!==false||porter?.owner_intervention!==false||porter?.browser_orchestration_performed!==true) errors.push('d1_porter_scope_violation');
     if(canonicalSha(porter)!==sys.work_porter_receipt_sha256) errors.push('d1_porter_receipt_digest_mismatch');
     if(porter?.manifest_sha256!==sys.acceptance_manifest_sha256) errors.push('d1_porter_manifest_binding');
     if(porter?.ingest_handoff_sha256!==sys.ingest_handoff_sha256) errors.push('d1_porter_handoff_binding');
   }catch(err){errors.push('d1_porter_receipt_invalid:'+err.message);}
 
-  const storyIds=new Set(),hashes=new Set();
+  const storyIds=new Set(),hashes=new Set(),chats=new Set();
   for(const image of bundle.images||[]){
     const story=image?.story_id;
-    if(!story||storyIds.has(story)){errors.push('d1_story_identity');continue;}
-    storyIds.add(story);
-    if(image.image_system!=='d1_cloud_image_studio'||image.accepted!==true||image.accepted_locked!==true) errors.push('d1_image_not_locked:'+story);
+    if(!story||storyIds.has(story)){errors.push('d1_story_identity');continue;} storyIds.add(story);
+    if(image.image_system!==D1_STRATEGY||image.accepted!==true||image.accepted_locked!==true) errors.push('d1_image_not_locked:'+story);
     if(!safeRel(image.path)||!image.sha256||!image.git_blob_sha||!image.asset_version||!image.cache_key) errors.push('d1_image_fields:'+story);
     hashes.add(image.sha256);
-
     const accepted=manifest?.images?.find(x=>x.story_id===story);
     if(!accepted||accepted.sha256!==image.sha256||accepted.accepted_locked!==true||accepted.visual_acceptance!=='PASS') errors.push('d1_manifest_binding:'+story);
+    if(accepted?.chat_session_id) chats.add(accepted.chat_session_id);
     const mapped=handoff?.items?.find(x=>x.story_id===story);
     if(!mapped||mapped.filename!==accepted?.filename||mapped.target_path!==image.path) errors.push('d1_ingest_binding:'+story);
-
     const ported=porter?.images?.find(x=>x.story_id===story);
     if(!ported||ported.target_path!==image.path||ported.source_sha256!==image.sha256||ported.readback_sha256!==image.sha256||ported.git_blob_sha!==image.git_blob_sha||ported.integrity_result!=='PASS') errors.push('d1_porter_binding:'+story);
-
     try{
-      const bytes=fs.readFileSync(path.resolve(repoRoot,image.path));
-      const dims=pngDimensions(bytes);
+      const bytes=fs.readFileSync(path.resolve(repoRoot,image.path)); const dims=pngDimensions(bytes);
       if(dims.width!==1200||dims.height!==630) errors.push('d1_dimensions:'+story);
       if(sha256(bytes)!==image.sha256) errors.push('d1_sha256:'+story);
       if(gitBlobSha(bytes)!==image.git_blob_sha) errors.push('d1_git_blob:'+story);
@@ -72,5 +63,6 @@ export function validateD1BundleImages({bundle,repoRoot='.'}={}){
   }
   if(storyIds.size!==6) errors.push('d1_unique_story_count');
   if(hashes.size!==6) errors.push('d1_unique_byte_streams');
+  if(chats.size!==6) errors.push('d1_unique_story_chats');
   return {result:errors.length?'FAIL':'PASS',errors:[...new Set(errors)],evidence};
 }

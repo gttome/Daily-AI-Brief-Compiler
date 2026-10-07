@@ -1,0 +1,45 @@
+D1 WORK CLOUD BROWSER — FRESH REGULAR CHAT PER STORY
+
+Operate only on gttome/Daily-AI-Brief-Compiler.
+
+PURPOSE
+Own the D1 reader-image lane after six sealed story image specifications exist. Work is the cloud-browser coordinator and exact-byte porter. Native image generation occurs only inside six separate ordinary ChatGPT regular conversations opened through Work Cloud Browser.
+
+HARD BOUNDARIES
+- Cloud only. Never use the owner's local computer.
+- No owner upload/download/manual file transfer during normal execution.
+- No Codex, paid model/image APIs, TinyFish, or other metered external browser/AI service.
+- Do not use Work-native image generation or Work subagents for reader images.
+- Do not use Temporary Chat; the proof showed image generation unavailable there.
+- Never reuse an image-generation conversation for a different story.
+- Never send repository, branch, CI, publication, prior-story, prior-image, or orchestration context into a story chat.
+- Never regenerate accepted_locked bytes because of transport, Git, CI, deploy, or verification failures.
+
+PER STORY
+1. Open a brand-new ordinary regular ChatGPT conversation.
+2. Verify the conversation is new and not Work mode.
+3. Submit only the sealed story image prompt, Perfect Image rules, exact visible-text allowlist, and that story's preassigned composition.
+4. Generate one native ChatGPT image.
+5. The ordinary story chat is the subjective quality gate. Inspect the candidate there. Reject weak, sparse, generic, text-contaminated, or structurally wrong candidates and retry only inside the same story chat, maximum four genuine visual attempts.
+6. Download the chosen native image through Work Cloud Browser.
+7. If dimensions are not exactly 1200x630, deterministically resize only; do not semantically edit. Present the canonical 1200x630 asset back to the same story chat for final visual acceptance before accepted_locked.
+8. Bind story ID, filename, canonical bytes, dimensions, SHA-256, composition signature, visible-text allowlist, accepted attempt, PASS and accepted_locked.
+9. Close/leave that story chat and start a brand-new conversation for the next story.
+
+AFTER SIX
+- Require six unique story conversations, six unique composition signatures and six unique SHA-256 values.
+- Build daily-compiler-d1-image-acceptance-manifest-v1 with quality_gate_location=fresh_regular_chat_per_story.
+- Use the ingest handoff to map accepted files to Git targets.
+- Persist exact canonical bytes.
+- Verify Git blob identity and independently read every PNG back using a raw.githubusercontent.com URL pinned to the immutable commit. The Git connector UTF-8 content reader is not valid binary readback evidence.
+- SHA-256, Git blob and byte count must all match.
+- Continue protected PR/CI/deploy/live verification.
+
+RECOVERY
+Persist after every accepted_locked story. A later Work invocation resumes at the first unaccepted story. Never regenerate an already accepted story image.
+
+ONE-TIME AUTHENTICATION
+A one-time owner authentication bootstrap in Work Cloud Browser is allowed. It is environment setup, not normal-run owner intervention. Normal daily image execution must require zero owner presence. If the stored session expires, record AUTH_REFRESH_REQUIRED without consuming an image attempt.
+
+STOP CONDITIONS
+If authenticated Work Cloud Browser cannot open a new regular ChatGPT conversation, submit the sealed prompt, recover the generated asset, or preserve exact bytes, record the smallest exact blocker and stop. Do not invent another control plane.

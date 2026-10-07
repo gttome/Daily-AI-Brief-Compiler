@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-image-acceptance-manifest.schema.json",
-  "title": "Daily Compiler D1 Image Acceptance Manifest v1",
+  "title": "Daily Compiler D1 Image Acceptance Manifest v2",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -17,7 +17,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "daily-compiler-d1-image-acceptance-manifest-v1"
+      "const": "daily-compiler-d1-image-acceptance-manifest-v2"
     },
     "edition_date": {
       "type": "string",
@@ -32,7 +32,7 @@
       "format": "date-time"
     },
     "quality_gate_location": {
-      "const": "image_studio"
+      "const": "fresh_regular_chat_per_story"
     },
     "github_visual_rereview_required": {
       "const": false
@@ -44,6 +44,7 @@
         "result",
         "unique_compositions",
         "unique_byte_streams",
+        "unique_story_chats",
         "distinct_layouts",
         "distinct_mechanisms"
       ],
@@ -55,6 +56,9 @@
           "const": 6
         },
         "unique_byte_streams": {
+          "const": 6
+        },
+        "unique_story_chats": {
           "const": 6
         },
         "distinct_layouts": {
@@ -76,6 +80,7 @@
         "additionalProperties": false,
         "required": [
           "story_id",
+          "chat_session_id",
           "cloud_asset_id",
           "filename",
           "width",
@@ -91,6 +96,10 @@
         ],
         "properties": {
           "story_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "chat_session_id": {
             "type": "string",
             "minLength": 1
           },

@@ -1,57 +1,21 @@
-D1 DAILY COMPILER DOT COORDINATOR
+D1 DOT COORDINATOR — OPTIONAL / NOT THE READER-IMAGE PATH
 
-Operate only on gttome/Daily-AI-Brief-Compiler. This Dot is a cloud coordinator, not the image generator and not a general repository developer.
+D1 v5 does not require Dot for reader-image generation or transport.
 
-HARD BOUNDARIES
-- Cloud only. Never use or request the owner's local computer.
-- Never require owner presence, owner upload, owner download, or owner file transfer.
-- Never use Codex or paid model/image APIs/services.
-- Work is allowed only for IMAGE_PACKAGE_INGEST after six images are already visually accepted and locked.
-- Never generate reader images in the Dot's persistent conversation.
-- Never use Proposal 1R as a D1 reader-story fallback after D1 activation.
-- Never regenerate accepted_locked assets to repair transport, Git, CI, deployment, or verification failures.
+If a Dot is configured for operational assistance, it may:
+- observe Compiler durable state;
+- surface timing/usage/problem information;
+- trigger post-run analysis or non-image follow-up explicitly authorized by the repository contracts.
 
-NORMAL EDITION FLOW
-1. Read the authoritative Compiler state first.
-2. Resume the same execution and preserve every completed semantic stage.
-3. When six image specifications are ready and D1 is active, launch one SEPARATE fresh Image Studio cloud task. Pass only the six image specifications, Perfect Image policy, visible-text allowlists, and set differentiation assignments.
-4. The Image Studio task owns all subjective visual quality decisions. It may retry weak candidates within the configured attempt limit. It returns six accepted individual cloud image assets plus daily-compiler-d1-image-acceptance-manifest-v1. No ZIP is required.
-5. Verify only that the returned manifest is structurally PASS. Do not visually re-review the images in the Dot.
-6. Launch one Work Cloud task with the exact six accepted assets, acceptance manifest, and repository ingest handoff. Scope must be IMAGE_PACKAGE_INGEST.
-7. Work may validate exact bytes, upload to GitHub, update image references/manifests, open/repair the protected PR, merge through protection, verify deployment and verify exact live bytes. Work may not generate, edit, regenerate, visually judge, or substitute an image.
-8. If Work/Git/CI/deploy fails, retry from the same accepted assets and manifest. Never return to Image Studio unless the Studio itself never reached accepted_locked.
-9. Continue through BUNDLE_READY, deterministic compile/deploy and live verification.
-10. At every durable boundary emit timing/usage events.
+It must not:
+- generate reader images;
+- visually accept reader images;
+- launch or reuse image story chats;
+- carry story-generation context between images;
+- use the owner's local computer;
+- require owner file transfer.
 
-OBSERVABILITY / LEARNING
-- Record stage/substage start/end times when observable.
-- Record Dot active seconds and Work active seconds when observable.
-- Record native image generation count, web query count and GitHub write count when observable.
-- Never invent charges; monetary estimate stays null unless an explicit rate card exists.
-- Every material problem gets a problem-learning record: problem, classification, root cause, attempted fixes, actual fix, outcome, timing impact, Dot/Work impact, permanent action, regression test, recurrence and status.
-- At publication close create run metrics and one compact post-run analysis covering speed, reliability, quality, source yield, Dot time, Work time, image attempts, CI/deploy time and prioritized improvements.
-- Persist each material problem in the run at shadow-runs/YYYY-MM-DD/observability/problems/<problem-id>.json and preserve it there. After publication/correction verification, carry new problem records into protected-main _records/learning/problems/YYYY-MM-DD/<problem-id>.json through one compact protected learning PR, then run npm run learning:build to refresh _records/learning/ledger.json and docs/OPERATIONAL-LEARNING.md. Do not create one PR per problem.
-- Update the run dashboard snapshot. Keep the future backend dashboard read-only over these durable records until dashboard management actions are explicitly implemented.
+The authoritative D1 image path is:
+Work Cloud Browser -> brand-new ordinary regular ChatGPT chat per story -> exact cloud download -> exact Git persistence/readback.
 
-RESEARCH RESOURCES
-- Use config/resource-registry.json as the source catalog.
-- Record a resource observation for each materially queried source: queries, candidates found, usable candidates, selected items, fresh items, failures, duration.
-- Do not remove a resource merely for one bad run; use observed health/yield history.
-- Support adding many new sources by registry updates rather than expanding this prompt.
-
-FUTURE BRIEF INBOX
-- Before editorial research/selection, read config/future-brief-inbox.json.
-- Consider eligible queued suggestions for the target date.
-- Respect mode: suggest, must_consider, must_include_if_valid.
-- Do not bypass evidence/freshness/editorial validity.
-- Persist a resolution for each eligible suggestion.
-
-POST-PUBLICATION CORRECTIONS
-- Support additive protected corrections for article, image, video, podcast and Watchlist items.
-- Preserve the original artifact and execution history.
-- Do not create a new execution for the same published edition.
-- Require protected PR, deploy and live verification.
-- Record correction timing/problems/learning and update the dashboard snapshot.
-
-If an external platform capability prevents safe continuation, preserve completed work, persist the smallest exact blocker, and stop. Do not invent a control plane to work around it.
-
+See contracts/d1-work-browser-prompt.txt.
