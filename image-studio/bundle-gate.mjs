@@ -17,24 +17,30 @@ export function validateD1BundleImages({bundle,repoRoot='.'}={}){
   if(activation.result!=='PASS') errors.push(...activation.errors.map(x=>'activation:'+x));
 
   if(sys.contract_version!=='daily-compiler-image-contract-v4') errors.push('d1_contract_version');
-  for(const f of ['acceptance_manifest_path','acceptance_manifest_sha256','work_porter_receipt_path','work_porter_receipt_sha256']){
+  for(const f of ['acceptance_manifest_path','acceptance_manifest_sha256','ingest_handoff_path','ingest_handoff_sha256','work_porter_receipt_path','work_porter_receipt_sha256']){
     if(!safeRel(sys[f])) errors.push('d1_image_system_'+f);
   }
   if(!Array.isArray(bundle?.images)||bundle.images.length!==6) errors.push('d1_exactly_six_images');
   if(errors.length) return {result:'FAIL',errors:[...new Set(errors)],evidence};
 
-  let manifest,porter;
+  let manifest,handoff,porter;
   try{
     manifest=readJson(repoRoot,sys.acceptance_manifest_path);
     assertD1AcceptanceManifest(manifest);
     if(canonicalSha(manifest)!==sys.acceptance_manifest_sha256) errors.push('d1_manifest_digest_mismatch');
   }catch(err){errors.push('d1_manifest_invalid:'+err.message);}
   try{
+    handoff=readJson(repoRoot,sys.ingest_handoff_path);
+    if(handoff?.schema_version!=='daily-compiler-d1-image-ingest-handoff-v1'||handoff?.visual_quality_review_required!==false||handoff?.image_generation_allowed!==false||handoff?.owner_intervention!==false) errors.push('d1_handoff_identity');
+    if(canonicalSha(handoff)!==sys.ingest_handoff_sha256) errors.push('d1_handoff_digest_mismatch');
+  }catch(err){errors.push('d1_handoff_invalid:'+err.message);}
+  try{
     porter=readJson(repoRoot,sys.work_porter_receipt_path);
     if(porter?.schema_version!=='daily-compiler-d1-work-porter-receipt-v1'||porter?.result!=='PASS'||porter?.scope!=='IMAGE_PACKAGE_INGEST') errors.push('d1_porter_receipt_identity');
     if(porter?.visual_quality_review_performed!==false||porter?.image_generation_performed!==false||porter?.owner_intervention!==false) errors.push('d1_porter_scope_violation');
     if(canonicalSha(porter)!==sys.work_porter_receipt_sha256) errors.push('d1_porter_receipt_digest_mismatch');
     if(porter?.manifest_sha256!==sys.acceptance_manifest_sha256) errors.push('d1_porter_manifest_binding');
+    if(porter?.handoff_sha256!==sys.ingest_handoff_sha256) errors.push('d1_porter_handoff_binding');
   }catch(err){errors.push('d1_porter_receipt_invalid:'+err.message);}
 
   const storyIds=new Set(),hashes=new Set();
@@ -47,7 +53,9 @@ export function validateD1BundleImages({bundle,repoRoot='.'}={}){
     hashes.add(image.sha256);
 
     const accepted=manifest?.images?.find(x=>x.story_id===story);
-    if(!accepted||accepted.target_path!==image.path||accepted.sha256!==image.sha256||accepted.accepted_locked!==true||accepted.visual_acceptance!=='PASS') errors.push('d1_manifest_binding:'+story);
+    if(!accepted||accepted.sha256!==image.sha256||accepted.accepted_locked!==true||accepted.visual_acceptance!=='PASS') errors.push('d1_manifest_binding:'+story);
+    const target=handoff?.items?.find(x=>x.story_id===story);
+    if(!target||target.filename!==accepted?.filename||target.target_path!==image.path) errors.push('d1_handoff_binding:'+story);
 
     const ported=porter?.images?.find(x=>x.story_id===story);
     if(!ported||ported.target_path!==image.path||ported.source_sha256!==image.sha256||ported.readback_sha256!==image.sha256||ported.git_blob_sha!==image.git_blob_sha||ported.integrity_result!=='PASS') errors.push('d1_porter_binding:'+story);
