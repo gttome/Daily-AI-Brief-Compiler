@@ -1,42 +1,148 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-cloud-proof.schema.json",
-  "title":"Daily Compiler D1 Cloud Pipeline Proof v1",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["schema_version","result","proof_id","dot_coordinator","image_studio","handoff","work_porter","cloud_only","owner_intervention","local_computer_used","prohibited_dependencies_used"],
-  "properties":{
-    "schema_version":{"const":"daily-compiler-d1-cloud-proof-v1"},
-    "result":{"const":"PASS"},
-    "proof_id":{"type":"string","minLength":1},
-    "dot_coordinator":{"type":"object","required":["cloud_task","separate_image_task","persistent_context_used_for_generation"],"properties":{
-      "cloud_task":{"const":true},
-      "separate_image_task":{"const":true},
-      "persistent_context_used_for_generation":{"const":false}
-    }},
-    "image_studio":{"type":"object","required":["fresh_conversation","native_chatgpt_images","six_assets","acceptance_manifest_pass"],"properties":{
-      "fresh_conversation":{"const":true},
-      "native_chatgpt_images":{"const":true},
-      "six_assets":{"const":true},
-      "acceptance_manifest_pass":{"const":true}
-    }},
-    "handoff":{"type":"object","required":["owner_transfer","local_file_transfer","archive_required","programmatic_cloud_transfer","exact_assets_preserved"],"properties":{
-      "owner_transfer":{"const":false},
-      "local_file_transfer":{"const":false},
-      "archive_required":{"const":false},
-      "programmatic_cloud_transfer":{"const":true},
-      "exact_assets_preserved":{"const":true}
-    }},
-    "work_porter":{"type":"object","required":["scope","cloud_work","visual_rereview","generation","porter_receipt_pass"],"properties":{
-      "scope":{"const":"IMAGE_PACKAGE_INGEST"},
-      "cloud_work":{"const":true},
-      "visual_rereview":{"const":false},
-      "generation":{"const":false},
-      "porter_receipt_pass":{"const":true}
-    }},
-    "cloud_only":{"const":true},
-    "owner_intervention":{"const":false},
-    "local_computer_used":{"const":false},
-    "prohibited_dependencies_used":{"const":false}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-cloud-proof.schema.json",
+  "title": "Daily Compiler D1 Work Browser Cloud Pipeline Proof v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result",
+    "proof_id",
+    "browser_orchestrator",
+    "story_chats",
+    "handoff",
+    "git_readback",
+    "cloud_only",
+    "owner_intervention",
+    "local_computer_used",
+    "prohibited_dependencies_used"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "daily-compiler-d1-cloud-proof-v2"
+    },
+    "result": {
+      "const": "PASS"
+    },
+    "proof_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "browser_orchestrator": {
+      "type": "object",
+      "required": [
+        "work_cloud_browser",
+        "authenticated_session",
+        "work_native_image_generation",
+        "work_subagent_image_generation"
+      ],
+      "properties": {
+        "work_cloud_browser": {
+          "const": true
+        },
+        "authenticated_session": {
+          "const": true
+        },
+        "work_native_image_generation": {
+          "const": false
+        },
+        "work_subagent_image_generation": {
+          "const": false
+        }
+      }
+    },
+    "story_chats": {
+      "type": "object",
+      "required": [
+        "fresh_regular_conversations",
+        "conversation_count",
+        "native_chatgpt_images",
+        "six_assets",
+        "acceptance_manifest_pass",
+        "prior_conversation_reuse"
+      ],
+      "properties": {
+        "fresh_regular_conversations": {
+          "const": true
+        },
+        "conversation_count": {
+          "const": 6
+        },
+        "native_chatgpt_images": {
+          "const": true
+        },
+        "six_assets": {
+          "const": true
+        },
+        "acceptance_manifest_pass": {
+          "const": true
+        },
+        "prior_conversation_reuse": {
+          "const": false
+        }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "required": [
+        "owner_transfer",
+        "local_file_transfer",
+        "archive_required",
+        "programmatic_cloud_download",
+        "exact_assets_preserved"
+      ],
+      "properties": {
+        "owner_transfer": {
+          "const": false
+        },
+        "local_file_transfer": {
+          "const": false
+        },
+        "archive_required": {
+          "const": false
+        },
+        "programmatic_cloud_download": {
+          "const": true
+        },
+        "exact_assets_preserved": {
+          "const": true
+        }
+      }
+    },
+    "git_readback": {
+      "type": "object",
+      "required": [
+        "exact_commit_binary_download",
+        "all_sha256_match",
+        "all_git_blob_match",
+        "all_byte_counts_match"
+      ],
+      "properties": {
+        "exact_commit_binary_download": {
+          "const": true
+        },
+        "all_sha256_match": {
+          "const": true
+        },
+        "all_git_blob_match": {
+          "const": true
+        },
+        "all_byte_counts_match": {
+          "const": true
+        }
+      }
+    },
+    "cloud_only": {
+      "const": true
+    },
+    "owner_intervention": {
+      "const": false
+    },
+    "local_computer_used": {
+      "const": false
+    },
+    "prohibited_dependencies_used": {
+      "const": false
+    }
   }
 }

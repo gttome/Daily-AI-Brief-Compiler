@@ -1,19 +1,50 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-activation.schema.json",
-  "title":"Daily Compiler D1 Activation Receipt v1",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["schema_version","result","strategy","contract_version","activated_at","cloud_proof_path","cloud_proof_sha256","work_exception_scope","owner_intervention"],
-  "properties":{
-    "schema_version":{"const":"daily-compiler-d1-activation-v1"},
-    "result":{"const":"PASS"},
-    "strategy":{"const":"d1_cloud_image_studio"},
-    "contract_version":{"const":"daily-compiler-image-contract-v4"},
-    "activated_at":{"type":"string","format":"date-time"},
-    "cloud_proof_path":{"type":"string","minLength":1},
-    "cloud_proof_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
-    "work_exception_scope":{"const":"IMAGE_PACKAGE_INGEST"},
-    "owner_intervention":{"const":false}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-activation.schema.json",
+  "title": "Daily Compiler D1 Activation Receipt v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "result",
+    "strategy",
+    "contract_version",
+    "activated_at",
+    "cloud_proof_path",
+    "cloud_proof_sha256",
+    "work_scope",
+    "owner_intervention"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "daily-compiler-d1-activation-v2"
+    },
+    "result": {
+      "const": "PASS"
+    },
+    "strategy": {
+      "const": "d1_work_browser_fresh_chat"
+    },
+    "contract_version": {
+      "const": "daily-compiler-image-contract-v5"
+    },
+    "activated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "cloud_proof_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cloud_proof_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "work_scope": {
+      "const": "IMAGE_BROWSER_ORCHESTRATION_AND_INGEST"
+    },
+    "owner_intervention": {
+      "const": false
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
-  "schema_version": "daily-compiler-image-contract-v4",
-  "strategy": "d1_cloud_image_studio",
+  "schema_version": "daily-compiler-image-contract-v5",
+  "strategy": "d1_work_browser_fresh_chat",
   "activation_status": "proof_required",
   "required_count": 6,
   "dimensions": {
@@ -8,16 +8,21 @@
     "height": 630
   },
   "image_creation": {
-    "executor": "fresh_cloud_image_studio_task",
-    "coordinator": "dot",
-    "generation": "chatgpt_native_images",
-    "context": "image_only_no_repository_or_orchestration_context",
-    "all_six_in_one_clean_studio_default": true,
-    "per_story_fresh_task_fallback_allowed": true,
-    "owner_intervention": false
+    "executor": "work_cloud_browser_fresh_regular_chat_per_story",
+    "coordinator": "work_cloud_browser",
+    "generation": "chatgpt_native_images_in_ordinary_regular_chat",
+    "context": "one_story_only_no_repository_or_orchestration_context",
+    "fresh_regular_chat_per_story_required": true,
+    "temporary_chat_forbidden": true,
+    "prior_conversation_reuse_forbidden": true,
+    "all_six_in_one_chat_forbidden": true,
+    "owner_intervention": false,
+    "one_time_cloud_browser_authentication_bootstrap_allowed": true,
+    "normal_run_owner_presence_required": false
   },
   "quality": {
-    "gate_location": "image_studio",
+    "gate_location": "fresh_regular_chat_per_story",
+    "gate_actor": "ordinary_chatgpt_story_chat",
     "premium_textbook_editorial": true,
     "minimum_meaningful_components": 8,
     "visible_text_policy": "exact_allowlist_only",
@@ -25,15 +30,28 @@
     "branding_forbidden": true,
     "photorealism_forbidden": true,
     "low_quality_fallback_forbidden": true,
+    "story_specificity_required": true,
     "set_differentiation_required": true,
+    "composition_assignments_presealed": true,
+    "work_visual_rereview_required": false,
     "github_visual_rereview_required": false
+  },
+  "normalization": {
+    "canonical_dimensions": "1200x630",
+    "permitted": true,
+    "method": "deterministic_resize_only",
+    "final_acceptance_must_bind_canonical_bytes": true,
+    "final_canonical_asset_must_be_reviewed_in_same_story_chat": true,
+    "semantic_editing_during_normalization_forbidden": true
   },
   "transfer": {
     "archive_required": false,
-    "accepted_assets": "six_individual_cloud_image_assets",
+    "accepted_assets": "six_individual_cloud_downloaded_png_assets",
     "manifest": "daily-compiler-d1-image-acceptance-manifest-v1",
-    "work_exception": "IMAGE_PACKAGE_INGEST_ONLY",
-    "work_may_generate_or_edit_images": false,
+    "work_scope": "IMAGE_BROWSER_ORCHESTRATION_AND_INGEST",
+    "work_may_operate_chatgpt_browser": true,
+    "work_may_use_native_work_image_generation": false,
+    "work_may_edit_or_regenerate_images": false,
     "work_may_make_visual_quality_decisions": false,
     "integrity_checks": [
       "expected_file_count",
@@ -44,9 +62,17 @@
       "sha256",
       "unique_hashes",
       "git_blob_sha",
-      "target_path"
+      "target_path",
+      "exact_commit_raw_binary_readback"
     ],
+    "git_binary_readback_method": "exact_commit_raw_github_download",
     "live_exact_byte_verification_required": true
+  },
+  "recovery": {
+    "accepted_image_regeneration_forbidden": true,
+    "transport_failure_resumes_from_same_accepted_bytes": true,
+    "git_ci_deploy_failure_never_returns_to_generation": true,
+    "completed_story_chat_never_reopened_for_unrelated_failure": true
   },
   "forbidden_runtime_dependencies": [
     "owner_upload",
@@ -59,6 +85,7 @@
     "billable_overage",
     "new_paid_infrastructure",
     "codex",
+    "tinyfish_or_other_metered_browser",
     "supervisor",
     "watchdog_ring",
     "writer_lease",
@@ -66,12 +93,12 @@
     "persistent_worker_pool",
     "wake_pr",
     "continuous_ai_polling",
-    "runtime_software_repair"
+    "runtime_software_repair",
+    "local_computer"
   ],
   "allowed_work_scope": [
-    "IMAGE_PACKAGE_INGEST"
+    "IMAGE_BROWSER_ORCHESTRATION_AND_INGEST"
   ],
-  "accepted_image_regeneration_forbidden": true,
   "bundle_ready_fail_closed": true,
   "post_publication_corrections_supported": true,
   "future_brief_suggestions_supported": true,
@@ -80,5 +107,5 @@
   "dashboard_ready_artifacts_required": true,
   "activation_receipt_path": null,
   "activation_receipt_sha256": null,
-  "activation_required_proof": "daily-compiler-d1-cloud-proof-v1"
+  "activation_required_proof": "daily-compiler-d1-cloud-proof-v2"
 }

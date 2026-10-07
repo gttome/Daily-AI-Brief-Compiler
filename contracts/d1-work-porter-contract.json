@@ -1,12 +1,30 @@
 {
-  "schema_version": "daily-compiler-d1-work-porter-v1",
-  "allowed_scope": "IMAGE_PACKAGE_INGEST",
+  "schema_version": "daily-compiler-d1-work-porter-v2",
+  "allowed_scope": "IMAGE_BROWSER_ORCHESTRATION_AND_INGEST",
   "cloud_only": true,
-  "may_generate_images": false,
+  "image_generation_surface": "ordinary_chatgpt_regular_chat_via_work_cloud_browser",
+  "work_native_image_generation_allowed": false,
+  "work_subagent_image_generation_allowed": false,
   "may_edit_images": false,
-  "may_regenerate_images": false,
+  "may_regenerate_accepted_images": false,
   "may_visually_accept_images": false,
   "may_change_editorial_content": false,
+  "browser_rules": {
+    "authenticated_cloud_browser_session_required": true,
+    "fresh_regular_chat_per_story": true,
+    "temporary_chat_forbidden": true,
+    "prior_conversation_reuse_forbidden": true,
+    "only_sealed_story_prompt_and_image_policy_allowed": true,
+    "repository_context_in_story_chat_forbidden": true,
+    "maximum_visual_attempts_per_story": 4
+  },
+  "acceptance_rules": {
+    "subjective_quality_gate": "ordinary_story_chat",
+    "canonical_1200x630_asset_must_be_bound_before_accepted_locked": true,
+    "accepted_locked_assets_immutable": true,
+    "six_unique_story_chats_required": true,
+    "six_unique_composition_signatures_required": true
+  },
   "must_verify": [
     "manifest_identity",
     "six_expected_assets",
@@ -16,22 +34,30 @@
     "sha256_matches_manifest",
     "six_unique_hashes",
     "target_paths",
-    "git_blob_readback",
+    "git_blob_identity",
+    "exact_commit_raw_binary_readback",
     "protected_pr",
     "exact_head_ci",
     "deployment",
     "live_exact_bytes"
   ],
   "may_perform": [
-    "cloud_asset_download",
+    "cloud_browser_chat_navigation",
+    "sealed_prompt_submission",
+    "generated_asset_download",
+    "deterministic_1200x630_normalization",
+    "canonical_asset_reupload_to_same_story_chat_for_final_acceptance",
     "github_binary_upload",
     "manifest_reference_updates",
     "protected_pr",
-    "correction_related_ci_repair",
+    "ingest_related_ci_repair",
     "merge_through_protection",
     "deployment_verification",
     "live_byte_verification"
   ],
-  "retry_policy": "reuse_exact_accepted_assets_and_manifest_never_regenerate",
-  "owner_intervention": false
+  "retry_policy": "reuse_exact_accepted_assets_and_manifest_never_regenerate_for_transport_git_ci_or_deploy_failure",
+  "binary_readback_method": "direct_raw_github_download_pinned_to_immutable_commit",
+  "owner_intervention": false,
+  "one_time_authentication_bootstrap_owner_participation_allowed": true,
+  "normal_run_owner_presence_required": false
 }

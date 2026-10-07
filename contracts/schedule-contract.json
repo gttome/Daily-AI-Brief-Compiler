@@ -1,7 +1,7 @@
 {
-  "schema_version": "daily-compiler-schedule-contract-v1",
+  "schema_version": "daily-compiler-schedule-contract-v2",
   "timezone": "America/Chicago",
-  "activation_gate": "ITEM_32_AUTHORIZED",
+  "activation_gate": "D1_V5_FULL_SIX_IMAGE_CLOUD_PROOF_PASS",
   "schedules": [
     {
       "title": "Daily Compiler Primary",
@@ -35,15 +35,18 @@
     "supervisor": false,
     "watchdog_ring": false,
     "owner_liveness_prompt": false,
-    "work": false,
     "codex": false,
     "paid_model_api": false,
-    "work_image_package_ingest_only": true,
+    "paid_browser_service": false,
+    "work_in_semantic_schedules": false,
+    "work_image_browser_scope_only": true,
     "work_allowed_scope": [
-      "IMAGE_PACKAGE_INGEST"
+      "IMAGE_BROWSER_ORCHESTRATION_AND_INGEST"
     ],
-    "dot_coordinator_target": true,
+    "image_path_owner": "work_cloud_browser",
+    "dot_required_for_image_path": false,
     "local_computer_dependency": false,
-    "owner_presence_required": false
+    "owner_presence_required": false,
+    "one_time_authentication_bootstrap_allowed": true
   }
 }

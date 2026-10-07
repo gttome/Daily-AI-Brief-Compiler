@@ -1,27 +1,22 @@
 {
-  "schema_version": "daily-compiler-d1-dot-coordinator-v1",
-  "role": "cloud_coordinator_only",
+  "schema_version": "daily-compiler-d1-dot-coordinator-v2",
+  "role": "optional_non_image_coordinator",
+  "required_for_image_path": false,
   "local_computer_dependency": false,
   "owner_presence_required": false,
-  "responsibilities": [
+  "permitted_responsibilities": [
     "observe_compiler_state",
-    "launch_fresh_image_studio_task_when_image_specs_ready",
-    "receive_six_accepted_cloud_assets_and_acceptance_manifest",
-    "launch_work_cloud_porter_with_only_manifest_assets_and_repository_handoff",
-    "resume_failed_porter_without_regenerating_accepted_images",
     "record_timing_usage_problem_and_outcome_events",
-    "trigger_post_run_analysis"
+    "trigger_post_run_analysis",
+    "coordinate_non_image_followup_when_explicitly_configured"
   ],
+  "image_path_owner": "work_cloud_browser",
   "prohibited": [
-    "generate_images_in_persistent_dot_context",
-    "make_visual_quality_decisions",
-    "modify_story_semantics_during_image_transfer",
+    "generate_reader_images",
+    "make_reader_image_visual_quality_decisions",
+    "carry_story_generation_context_between_images",
     "use_local_computer",
     "require_owner_file_transfer"
   ],
-  "cloud_handoff_preference": [
-    "direct_task_file_reference",
-    "connected_cloud_storage"
-  ],
-  "zip_required": false
+  "notes": "D1 v5 no longer depends on Dot for reader-image generation or transport. The proven path is Work Cloud Browser -> fresh ordinary ChatGPT chat per story -> exact cloud download -> Git."
 }
