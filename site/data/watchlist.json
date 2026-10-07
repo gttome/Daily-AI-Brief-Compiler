@@ -249,27 +249,17 @@
       "topic_id": "dab-topic-adaptive-agent-safeguards",
       "name": "Agent safeguards tailored to the task",
       "audience": "Agent builders and consultants",
-      "summary": "Generate and evaluate protective rules and executable checks for a particular agent deployment.",
-      "why_now": "NVIDIA Open Agent Safety Platform adds a layered software-and-hardware enforcement pattern: sandboxed OpenShell execution, verifiable policy, out-of-band enforcement and contextual monitoring on BlueField.",
-      "practical_value": "Could improve how training materials explain agent permissions, checks and deployment-specific evaluation.",
+      "summary": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems.",
+      "why_now": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems.",
+      "practical_value": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems.",
       "limitations": "First-party architecture evidence does not establish complete containment or independent assurance across every agent, runtime and hardware platform.",
       "next_action": "Compare software-only and hardware-assisted enforcement, policy verification, audit coverage and independent bypass testing.",
       "first_detected": "2026-09-12T02:08:04.109758Z",
-      "updated_at": "2026-10-05T02:33:36.000Z",
+      "updated_at": "2026-10-06T12:00:00Z",
       "verification_observed_at": "2026-10-05T02:33:36.000Z",
       "status": "gaining_evidence",
       "confidence": "moderate",
       "evidence": [
-        {
-          "title": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses",
-          "url": "https://arxiv.org/abs/2609.05903",
-          "publisher": "EvoSafeHarness authors",
-          "kind": "primary",
-          "publication_date": "2026-09-05",
-          "checked_at": "2026-09-12T02:08:04.109758Z",
-          "development_id": "2609.05903",
-          "review_depth": "original abstract and source metadata"
-        },
         {
           "title": "Community discussion of EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses",
           "url": "https://huggingface.co/papers/2609.05903",
@@ -349,6 +339,16 @@
           "checked_at": "2026-10-05T02:27:25.000Z",
           "development_id": "nvidia-open-agent-safety-platform-2026-09-28",
           "review_depth": "full first-party technical article"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.atlassian.com/blog/company-news/atlassian-openai-strategic-partnership",
+          "title": "Agent governance and review points",
+          "publisher": "atlassian.com",
+          "publication_date": "2026-10-06",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-07",
+          "development_id": "compiler-carried_forward-1"
         }
       ],
       "external_attention": [
@@ -781,13 +781,13 @@
       "topic_id": "dab-topic-agent-skills-observability",
       "name": "Reusable agent skills become observable",
       "audience": "AI leaders, admins, and agent builders",
-      "summary": "Treat skills, custom agents, MCP servers, commands, and plugins as reusable components whose maintained domain knowledge and actual use can be governed and measured.",
-      "why_now": "AWS released the aws-ai-ml reusable agent skill for MCP-compatible coding agents, with endpoint benchmarking, deployment recommendations, comparison of performance runs, and executable SageMaker SDK code.",
-      "practical_value": "Makes reusable agent know-how easier to govern while traces and spans make tool/model behavior easier to inspect.",
+      "summary": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization.",
+      "why_now": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization.",
+      "practical_value": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization.",
       "limitations": "The published evaluation is vendor-run on DOCA tasks; independent replication and cross-platform portability remain unverified.",
       "next_action": "Compare SKILL.md portability, versioning, evaluation, permission boundaries and independent performance across platforms.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-06T01:17:05.017Z",
+      "updated_at": "2026-10-07T12:00:00Z",
       "verification_observed_at": "2026-10-06T01:17:05.017Z",
       "status": "gaining_evidence",
       "confidence": "strong",
@@ -911,6 +911,16 @@
           "checked_at": "2026-10-06T01:17:05.017Z",
           "development_id": "aws-sagemaker-agent-skill-2026-10-05",
           "review_depth": "bounded first-party source verification recorded by Task 08"
+        },
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/",
+          "title": "Reusable Agent Skills",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-05",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-07",
+          "development_id": "compiler-updated-2"
         }
       ],
       "external_attention": [],
@@ -968,13 +978,13 @@
       "topic_id": "dab-topic-long-horizon-agents",
       "name": "Agents that persist across sessions",
       "audience": "Knowledge workers, consultants, and agent designers",
-      "summary": "Design agents around goals that continue over time instead of treating every interaction as a one-shot task.",
-      "why_now": "Amazon Bedrock Managed Agents packages a stateful harness, memory, skills, specialized-agent coordination and AWS-governed execution into a managed preview.",
-      "practical_value": "Provides a practical model for recurring work: persistent goals, checkpoints, saved context, adaptation, and human review.",
+      "summary": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface.",
+      "why_now": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface.",
+      "practical_value": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface.",
       "limitations": "The source is a first-party implementation pattern; independent reliability, cost and failure-recovery evidence across deployments remains limited.",
       "next_action": "Test event-trigger accuracy, duplicate suppression, approval boundaries, resumability and audit trails under real interruptions.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-06T01:17:05.017Z",
+      "updated_at": "2026-10-07T12:00:00Z",
       "verification_observed_at": "2026-10-06T01:17:05.017Z",
       "status": "gaining_evidence",
       "confidence": "moderate",
@@ -1028,6 +1038,16 @@
           "checked_at": "2026-10-06T01:17:05.017Z",
           "development_id": "aws-bedrock-managed-agents-2026-09-29",
           "review_depth": "bounded first-party source verification recorded by Task 08"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/",
+          "title": "Persistent personal agents",
+          "publisher": "reuters.com",
+          "publication_date": "2026-09-29",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-07",
+          "development_id": "compiler-updated-1"
         }
       ],
       "external_attention": [],
@@ -1378,13 +1398,13 @@
       "topic_id": "dab-topic-agentic-edge-inference",
       "name": "Agentic workloads move toward measured edge inference",
       "audience": "AI engineers and technical leaders",
-      "summary": "Benchmark model and agent workloads with workload-specific measurements, including deployment on constrained edge hardware.",
-      "why_now": "The 64GB DGX Spark and Sync Cluster Assistant add a local-to-two-node scaling path for private local AI workloads.",
-      "practical_value": "Encourages teams to measure latency, throughput, and agent workload behavior rather than relying on generic model-speed claims.",
+      "summary": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable.",
+      "why_now": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable.",
+      "practical_value": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable.",
       "limitations": "Vendor benchmarks do not establish equivalent performance across other hardware, models, or production workloads.",
       "next_action": "Define a representative workload and benchmark it on the actual deployment target before making infrastructure decisions.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-04T03:38:35.000Z",
+      "updated_at": "2026-10-01T12:00:00Z",
       "status": "gaining_evidence",
       "confidence": "moderate",
       "evidence": [
@@ -1407,6 +1427,16 @@
           "checked_at": "2026-09-19T17:09:07.447Z",
           "development_id": "nvidia-edge-agentic-benchmark-2026-09-16",
           "review_depth": "publisher benchmark article"
+        },
+        {
+          "kind": "primary",
+          "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
+          "title": "Inference latency as agent UX",
+          "publisher": "blogs.nvidia.com",
+          "publication_date": "2026-10-01",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-07",
+          "development_id": "compiler-carried_forward-2"
         }
       ],
       "external_attention": [],
@@ -1831,13 +1861,13 @@
       "topic_id": "dab-topic-trusted-enterprise-context",
       "name": "Trusted enterprise context becomes machine-readable for agents",
       "audience": "Knowledge leaders, AI platform owners, and enterprise agent teams",
-      "summary": "Enterprise knowledge systems are exposing provenance, recency, corroboration, expert validation and conflict signals in forms that AI agents can use.",
-      "why_now": "Stack Internal now combines provenance, recency, corroboration, expert validation and conflict handling so agents can reason about whether internal knowledge is trustworthy.",
-      "practical_value": "Lets teams make knowledge quality and escalation rules part of the agent context instead of relying on retrieval alone.",
+      "summary": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises.",
+      "why_now": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises.",
+      "practical_value": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises.",
       "limitations": "The current evidence comes from one enterprise knowledge platform; portability and measurable outcome gains remain to be established.",
       "next_action": "Test how provenance, recency and expert-review signals alter agent answer quality, abstention and escalation on internal knowledge tasks.",
       "first_detected": "2026-10-02T13:29:44Z",
-      "updated_at": "2026-10-02T13:29:44Z",
+      "updated_at": "2026-10-07T12:00:00Z",
       "verification_observed_at": "2026-10-02T13:29:44Z",
       "status": "early_signal",
       "confidence": "limited",
@@ -1851,6 +1881,16 @@
           "checked_at": "2026-10-02T13:29:44Z",
           "development_id": "stackoverflow-trusted-enterprise-context-2026-09-30",
           "review_depth": "full first-party announcement"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.atlassian.com/blog/company-news/atlassian-openai-strategic-partnership",
+          "title": "Enterprise context becomes the agent battleground",
+          "publisher": "atlassian.com",
+          "publication_date": "2026-10-06",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-07",
+          "development_id": "compiler-new-1"
         }
       ],
       "external_attention": [],
@@ -2072,64 +2112,6 @@
       "trial_story_ids": []
     },
     {
-      "topic_id": "dab-topic-enterprise-context-becomes-the-agent-battleground",
-      "name": "Enterprise context becomes the agent battleground",
-      "summary": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises.",
-      "why_now": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises.",
-      "practical_value": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises.",
-      "first_detected": "2026-10-07",
-      "updated_at": "2026-10-07T12:00:00Z",
-      "status": "early_signal",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://www.atlassian.com/blog/company-news/atlassian-openai-strategic-partnership",
-          "title": "Enterprise context becomes the agent battleground",
-          "publisher": "atlassian.com",
-          "publication_date": "2026-10-06",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-07",
-          "development_id": "compiler-new-1"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "Atlassian and OpenAI are explicitly centering goals, knowledge, people, processes, and permission-aware organizational context as the layer that makes frontier intelligence useful inside enterprises."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
       "topic_id": "dab-topic-multimodal-retrieval-moves-on-device",
       "name": "Multimodal retrieval moves on-device",
       "summary": "EmbeddingGemma 2 combines text, image, video, and audio representations in a compact local model, making privacy-first semantic search and routing practical without a cloud-only retrieval chain.",
@@ -2178,238 +2160,6 @@
         "durability": {
           "score": 3,
           "reason": "EmbeddingGemma 2 combines text, image, video, and audio representations in a compact local model, making privacy-first semantic search and routing practical without a cloud-only retrieval chain."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-persistent-personal-agents",
-      "name": "Persistent personal agents",
-      "summary": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface.",
-      "why_now": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface.",
-      "practical_value": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface.",
-      "first_detected": "2026-09-29",
-      "updated_at": "2026-10-07T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://www.reuters.com/business/openai-takes-meta-with-always-on-dots-agent-enterprise-ai-push-2026-09-29/",
-          "title": "Persistent personal agents",
-          "publisher": "reuters.com",
-          "publication_date": "2026-09-29",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-07",
-          "development_id": "compiler-updated-1"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "Dots packages continuous delegated work and cross-application continuity into a mainstream assistant product, moving persistence from an experimental pattern into a consumer and business surface."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-reusable-agent-skills",
-      "name": "Reusable Agent Skills",
-      "summary": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization.",
-      "why_now": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization.",
-      "practical_value": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization.",
-      "first_detected": "2026-10-05",
-      "updated_at": "2026-10-07T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/",
-          "title": "Reusable Agent Skills",
-          "publisher": "aws.amazon.com",
-          "publication_date": "2026-10-05",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-07",
-          "development_id": "compiler-updated-2"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "AWS now ships a SageMaker inference-optimization skill that can be loaded by compatible coding agents, strengthening the case for portable specialist capability packages rather than prompt-only customization."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-agent-governance-and-review-points",
-      "name": "Agent governance and review points",
-      "summary": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems.",
-      "why_now": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems.",
-      "practical_value": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems.",
-      "first_detected": "2026-10-06",
-      "updated_at": "2026-10-06T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://www.atlassian.com/blog/company-news/atlassian-openai-strategic-partnership",
-          "title": "Agent governance and review points",
-          "publisher": "atlassian.com",
-          "publication_date": "2026-10-06",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-07",
-          "development_id": "compiler-carried_forward-1"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "Persistent and enterprise-grounded assistants increase the importance of approvals, visible actions, business-rule preservation, and human review when work crosses systems."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-inference-latency-as-agent-ux",
-      "name": "Inference latency as agent UX",
-      "summary": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable.",
-      "why_now": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable.",
-      "practical_value": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable.",
-      "first_detected": "2026-10-01",
-      "updated_at": "2026-10-01T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
-          "title": "Inference latency as agent UX",
-          "publisher": "blogs.nvidia.com",
-          "publication_date": "2026-10-01",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-07",
-          "development_id": "compiler-carried_forward-2"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "NVIDIA’s Astra Ultrafast results reinforce that latency compounds across repeated generation, tool-use, and result-check cycles, making infrastructure performance a direct product-quality variable."
         }
       },
       "momentum": {
