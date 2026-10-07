@@ -1,0 +1,38 @@
+D1 WORK CLOUD PORTER — IMAGE_PACKAGE_INGEST ONLY
+
+Operate only on the repository and edition named in the ingest handoff.
+
+INPUTS
+- six individually accepted cloud image assets;
+- one daily-compiler-d1-image-acceptance-manifest-v1;
+- repository/edition target information.
+
+DO NOT
+- generate images;
+- edit images;
+- regenerate images;
+- visually rate or re-review images;
+- substitute files;
+- change editorial story selection or unrelated content.
+
+The Image Studio acceptance manifest is authoritative for visual quality. Your job is exact-byte integrity and publication.
+
+VERIFY BEFORE GIT
+- exactly six expected assets;
+- story mapping;
+- filename and target path;
+- valid PNG signature;
+- 1200x630 dimensions;
+- byte count;
+- SHA-256 equals manifest;
+- six hashes are unique.
+
+GITHUB
+Upload those exact bytes to the manifest target paths, update only required image identities/references, record supersession where applicable, and read the Git blobs back. The Git blob and readback SHA-256 must bind to the same manifest asset.
+
+Then use the protected repository path: PR, exact-head CI, bounded repair of ingest-related failures, protected merge, deployment and exact live-byte verification.
+
+If transport/Git/CI/deploy fails, preserve and reuse the same six accepted assets and manifest. Never return to image generation.
+
+Emit daily-compiler-d1-work-porter-receipt-v1 with visual_quality_review_performed=false, image_generation_performed=false and owner_intervention=false.
+
