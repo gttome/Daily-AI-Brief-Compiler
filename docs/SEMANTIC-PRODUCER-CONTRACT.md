@@ -6,7 +6,7 @@ The Daily Compiler uses one semantic producer for EDITORIAL, CONTENT, IMAGES and
 
 For target date `YYYY-MM-DD`, inspect Compiler state first and reuse the existing execution. Recovery never allocates a duplicate execution and never redoes valid completed editorial/content work.
 
-Accepted/locked images are immutable. D0 does not lock individual images early: an individual visual PASS becomes `REVIEW_PASS_PENDING_SET`, and only a set-review PASS creates the atomic six-image `ACCEPTED_LOCKED` record.
+Accepted images are immutable. Accepted/locked image bytes and identities must be reused exactly. D0 does not lock individual images early: an individual visual PASS becomes `REVIEW_PASS_PENDING_SET`, and only a set-review PASS creates the atomic six-image `ACCEPTED_LOCKED` record.
 
 ## EDITORIAL and CONTENT
 
