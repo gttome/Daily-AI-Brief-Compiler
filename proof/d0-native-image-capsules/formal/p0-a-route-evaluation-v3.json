@@ -1,0 +1,43 @@
+{
+  "schema_version": "daily-compiler-d0-p0a-route-evaluation-v3",
+  "evaluated_at": "2026-10-07T15:05:53Z",
+  "protected_main_sha": "8cc516c75f3cb780e154ed38953f3f1352708804",
+  "protected_main_ci_run_id": 37642142870,
+  "protected_main_ci": "PASS",
+  "route_matrix_path": "contracts/d0-p0a-route-matrix.json",
+  "no_paid_capacity_branch": true,
+  "excluded_non_options": [
+    "paid_model_api",
+    "paid_image_api",
+    "paid_ai_service",
+    "billable_overage",
+    "new_paid_infrastructure",
+    "work",
+    "codex",
+    "alternate_account"
+  ],
+  "result": "BLOCKED_NO_ZERO_COST_NATIVE_ROUTE",
+  "retry_allowed": false,
+  "ready_routes": [],
+  "zero_cost_routes_evaluated": [
+    "standalone_scheduled_task",
+    "temporary_chat_unpersonalized",
+    "temporary_chat_personalized",
+    "custom_gpt_fresh_conversation",
+    "ordinary_new_chat",
+    "scheduled_task_shared_link",
+    "team_task_previous_runs_ui",
+    "plugin_file_library_bridge",
+    "plugin_skill_post_generation_instruction",
+    "personal_data_export_or_compliance_api"
+  ],
+  "completed_proofs_reused": {
+    "p0_b": "PASS",
+    "p0_c": "PASS",
+    "p0_d_exact_pixel_review_capability": "PASS"
+  },
+  "missing_primitive": "A supported autonomous ChatGPT-native boundary that keeps the generator-visible context story-only while exposing that exact generated file to post-generation persistence and exact-pixel review before the capsule ends.",
+  "native_generations_added": 0,
+  "visual_quality_attempts_consumed": 0,
+  "no_rework_rule": "Do not spend another native P0-A generation until one zero-cost route evaluates READY."
+}
