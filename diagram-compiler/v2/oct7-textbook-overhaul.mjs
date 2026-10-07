@@ -17,9 +17,11 @@ function dots(spec,p,c){
  ${rr(44,112,1112,365,'#f3f8fc','#c6d7e6',1.5,26,false)}
  ${chip(64,126,160,'DELEGATED INPUTS',p.navy)}
  ${chip(830,126,220,'ACTION + CONTROL',p.navy)}
- ${card(n[0],64,169,205,72,c[0])}
- ${card(n[1],64,263,205,72,c[1])}
- ${card(n[2],64,357,205,72,c[2])}
+ ${rr(64,159,205,28,'#fff',p.orange,1.6,10,true)}
+ <circle cx="82" cy="173" r="6" fill="${p.orange}"/><text x="96" y="177" font-size="10.5" font-weight="800" fill="${p.ink}">Events + triggers</text>
+ ${card(n[0],64,203,205,72,c[0])}
+ ${card(n[1],64,292,205,72,c[1])}
+ ${card(n[2],64,381,205,72,c[2])}
  ${rr(330,139,420,318,'#edf5fb','#afc4d8',1.6,24,false)}
  ${chip(354,151,170,'PERSISTENT CORE',p.navy)}
  ${card({label:'Task state',detail:'Done, pending, blocked, and next action stay durable'},360,199,196,68,c[1],{dark:true,titleSize:13.5,detailSize:8.7})}
@@ -37,9 +39,10 @@ function dots(spec,p,c){
  ${card(n[5],803,363,317,72,c[1])}
  ${hArrow(728,232,803,c[3])}${hArrow(728,302,803,c[5])}
  <path d="M803 399 C770 399 750 399 728 399" fill="none" stroke="${c[1]}" stroke-width="3"/><polygon points="740,392 728,399 740,406" fill="${c[1]}"/>
- <path d="M269 205 H305 V215 H330" fill="none" stroke="${c[0]}" stroke-width="3"/><polygon points="318,208 330,215 318,222" fill="${c[0]}"/>
- <path d="M269 299 H303 V238 H330" fill="none" stroke="${c[1]}" stroke-width="3"/><polygon points="318,231 330,238 318,245" fill="${c[1]}"/>
- <path d="M269 393 H304 V330 H330" fill="none" stroke="${c[2]}" stroke-width="3"/><polygon points="318,323 330,330 318,337" fill="${c[2]}"/>
+ <path d="M269 173 H307 V190 H330" fill="none" stroke="${p.orange}" stroke-width="2.6"/><polygon points="318,183 330,190 318,197" fill="${p.orange}"/>
+ <path d="M269 239 H305 V215 H330" fill="none" stroke="${c[0]}" stroke-width="3"/><polygon points="318,208 330,215 318,222" fill="${c[0]}"/>
+ <path d="M269 328 H303 V260 H330" fill="none" stroke="${c[1]}" stroke-width="3"/><polygon points="318,253 330,260 318,267" fill="${c[1]}"/>
+ <path d="M269 417 H304 V350 H330" fill="none" stroke="${c[2]}" stroke-width="3"/><polygon points="318,343 330,350 318,357" fill="${c[2]}"/>
  `;
 }
 
@@ -91,6 +94,8 @@ function ironclad(spec,p,c){
  ${hArrow(750,410,790,c[5])}
  <path d="M875 450 V480 H550 V287" fill="none" stroke="${p.purple}" stroke-width="3"/>
  <polygon points="543,299 550,287 557,299" fill="${p.purple}"/>
+ <path d="M960 287 V320 H1040" fill="none" stroke="${p.green}" stroke-width="2.6"/>
+ <line x1="1040" y1="320" x2="1040" y2="323" stroke="${p.green}" stroke-width="2.6"/><polygon points="1033,323 1040,335 1047,323" fill="${p.green}"/>
  ${rr(995,335,145,135,'#f1f5fa','#b8c8d8',1.2,14,false)}
  <text x="1015" y="357" font-size="10" font-weight="800" fill="${p.navy}">FINAL GATE</text>
  ${['Rules preserved','Approvals complete','Exceptions closed'].map((t,i)=>`<circle cx="1022" cy="${386+i*28}" r="5" fill="${p.green}"/><text x="1036" y="${389+i*28}" font-size="8.8" font-weight="600" fill="${p.ink}">${t}</text>`).join('')}
@@ -123,8 +128,8 @@ function embedding(spec,p,c){
  ${card({label:'Local data',detail:'Text, images, audio, and video begin on the device'},75,195,142,72,c[0],{titleSize:12.8,detailSize:8.3})}
  ${hArrow(217,231,250,p.blue)}
  ${card({label:'Network',detail:'Upload plus round-trip latency'},250,195,135,72,c[3],{titleSize:12.8,detailSize:8.3})}
- ${hArrow(385,231,420,p.blue)}
- ${card({label:'Cloud embedding',detail:'Remote model creates semantic representation'},420,195,115,72,c[2],{titleSize:11.5,detailSize:8.0})}
+ ${hArrow(385,231,408,p.blue)}
+ ${card({label:'Cloud embedding',detail:'Remote model creates semantic representation'},408,195,127,72,c[2],{titleSize:10.4,detailSize:8.0})}
  ${vArrow(478,267,305,p.blue)}
  ${card(n[0],350,310,185,75,c[4],{titleSize:12.5,detailSize:8.3})}
  <path d="M350 348 H305" fill="none" stroke="${p.blue}" stroke-width="3"/><polygon points="317,341 305,348 317,355" fill="${p.blue}"/>
@@ -159,7 +164,7 @@ function astra(spec,p,c){
  ${chip(70,165,152,'INFRASTRUCTURE',p.navy)}
  <text x="70" y="232" font-size="13" font-weight="800" fill="${p.ink}">Blackwell + inference</text><text x="70" y="249" font-size="13" font-weight="800" fill="${p.ink}">optimization</text>
  <rect x="72" y="292" width="135" height="13" rx="6" fill="${p.red}"/><rect x="72" y="324" width="105" height="13" rx="6" fill="${p.orange}"/><rect x="72" y="356" width="75" height="13" rx="6" fill="${p.green}"/>
- ${textBlock(70,397,'Up to 8x faster token generation reported for Astra Ultrafast vs Standard.',{size:9,fill:'#5b7186',max:24,lines:3,lineHeight:11})}
+ ${textBlock(70,397,'NVIDIA reports up to 8x faster token generation vs Astra Standard.',{size:9,fill:'#5b7186',max:23,lines:4,lineHeight:11})}
  ${arrows}${cardSvg}
  ${rr(485,235,200,130,'url(#dark)',p.green,3,65,true)}
  <text x="585" y="270" text-anchor="middle" font-size="10" font-weight="800" fill="#8fe0cf">LOWER</text><text x="585" y="302" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">MODEL LATENCY</text><text x="585" y="330" text-anchor="middle" font-size="9.5" fill="#d7e4ef">repeats at every model turn</text>
