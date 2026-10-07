@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blackwell and inference optimization push Astra into faster agent loops</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;background:#f4f7fb}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#172033}main{max-width:1180px;margin:0 auto;padding:28px 20px 56px}
+a{color:#1457b8;text-decoration-thickness:1px;text-underline-offset:3px}a:hover{text-decoration-thickness:2px}
+.hero{background:linear-gradient(135deg,#fff,#eef5ff);border:1px solid #dbe5f2;border-radius:24px;padding:28px;margin-bottom:22px}
+.hero h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.02;margin:.2rem 0 1rem}.lede{font-size:1.05rem;max-width:760px;color:#4a5c72}
+.story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.story-card,.media-card,.watch-item,section#media,section#watchlist,.story-page,.archive-card{background:#fff;border:1px solid #dbe4ee;border-radius:18px;box-shadow:0 8px 24px rgba(28,52,84,.06)}
+.story-card{padding:20px}.story-card img,.story-page img{width:100%;height:auto;border-radius:12px;border:1px solid #e2e8f0;margin:12px 0 8px}
+.story-card h2{margin:.35rem 0 .4rem;font-size:1.35rem;line-height:1.18}.eyebrow{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#315a8a}.meta{color:#66788d;font-size:.9rem}.labels{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.labels span{background:#eef5ff;border:1px solid #d6e6fb;border-radius:999px;padding:4px 8px;font-size:.78rem}
+.related{border-left:3px solid #2b7ad8;padding-left:10px;color:#43566d}.engagement{border-top:1px solid #edf1f5;margin-top:16px;padding-top:12px}.rating{display:flex;align-items:center;gap:2px}.engagement-label{font-size:.85rem;margin-right:8px;color:#56697f}.rating button{border:0;background:transparent;font-size:1.45rem;color:#aab5c2;cursor:pointer;padding:2px}.rating button.is-on{color:#e0a21b}.share-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}.share{border:1px solid #b9cbe0;background:#fff;border-radius:9px;padding:7px 11px;cursor:pointer}.share-count,.share-status{font-size:.78rem;color:#66788d}
+section#media,section#watchlist{padding:22px;margin-top:24px}section h2{margin-top:0}.section-kicker{margin:18px 0 8px;color:#43566d}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.media-card{padding:16px}.media-card h3{margin:.25rem 0}
+.watch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.watch-grid>div{background:#f8fbff;border:1px solid #e1eaf4;border-radius:14px;padding:14px}.watch-item{padding:12px;margin:10px 0;box-shadow:none}.watch-item h3{font-size:1rem;margin:.15rem 0 .4rem}.section-intro{color:#5b6f85}
+.story-page{padding:26px;max-width:900px;margin:0 auto}.story-page h1{font-size:clamp(2rem,4vw,3rem);line-height:1.06}.learning{background:#f8fbff;border:1px solid #dfe9f4;border-radius:14px;padding:16px;margin:16px 0}.learning h3{margin-top:0}.source-box{background:#f7f9fc;border-radius:12px;padding:14px;margin:16px 0}.archive-card{padding:20px;max-width:760px}footer{margin:30px 0 10px;color:#66788d}
+@media(max-width:760px){main{padding:16px 12px 40px}.story-grid,.media-grid,.watch-grid{grid-template-columns:1fr}.hero{padding:20px}.story-card,.story-page{padding:16px}}
+</style>
+</head><body><main>
+  <p><a href="../../../briefs/2026-10-07/">← Edition</a> · <a href="../../../archive/">Earlier Briefs</a></p>
+  <article class="story-page">
+    <p class="eyebrow">Technical AI Engineering</p>
+    <h1>Blackwell and inference optimization push Astra into faster agent loops</h1>
+    <p class="meta">NVIDIA · 2026-10-01 · 5 min read</p>
+    <div class="labels"><span>7-day fallback</span><span>inference engineering</span><span>inference optimization</span><span>Blackwell</span><span>latency</span></div>
+    <img src="../../../assets/2026-10-07/astra-ultrafast-blackwell.png" alt="Control-loop diagram showing reasoning, generation, tool use, result checking, next-step decisions, and runtime optimization.">
+    <p>NVIDIA says GPT-6 Astra Ultrafast on Blackwell GPUs delivers up to 8x faster token generation than Astra Standard through ongoing inference optimization.</p>
+    <p><strong>Why it matters:</strong> Latency savings can compound across repeated model turns in interactive workflows, making infrastructure performance part of the user experience rather than a back-end detail.</p>
+    <p class="related"><strong>Related coverage:</strong> The SageMaker Agent Skill story shows how teams can benchmark and reason about deployment choices that influence the same performance envelope.</p>
+    <div class="source-box"><a target="_blank" rel="noopener noreferrer" href="https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/">Read the authoritative source — NVIDIA ↗</a></div>
+    
+  <section class="learning">
+    <h3>Reliable Generative AI</h3>
+    <p><strong>Concept:</strong> System-level reliability, latency budgets, and operational performance</p>
+    <p>A capable AI workflow can still fail the user experience if repeated inference cycles exceed the latency budget. Reliability includes predictable wall time as well as output quality.</p>
+    <p><strong>Study next:</strong> How to define end-to-end latency budgets across reasoning, generation, tool execution, verification, and retries.</p>
+  </section>
+    
+<div class="engagement" data-story-engagement="astra-ultrafast-blackwell">
+  <div class="rating" aria-label="Rate usefulness for this story">
+    <span class="engagement-label">Useful?</span>
+    <button type="button" data-rating="1" data-story-id="astra-ultrafast-blackwell" aria-label="Rate 1 of 5 stars" aria-pressed="false">★</button><button type="button" data-rating="2" data-story-id="astra-ultrafast-blackwell" aria-label="Rate 2 of 5 stars" aria-pressed="false">★</button><button type="button" data-rating="3" data-story-id="astra-ultrafast-blackwell" aria-label="Rate 3 of 5 stars" aria-pressed="false">★</button><button type="button" data-rating="4" data-story-id="astra-ultrafast-blackwell" aria-label="Rate 4 of 5 stars" aria-pressed="false">★</button><button type="button" data-rating="5" data-story-id="astra-ultrafast-blackwell" aria-label="Rate 5 of 5 stars" aria-pressed="false">★</button>
+  </div>
+  <div class="share-row">
+    <button class="share" type="button" data-share="astra-ultrafast-blackwell">Share</button>
+    <span class="share-count" data-share-count="astra-ultrafast-blackwell">0 shares on this device</span>
+    <span class="share-status" data-share-status="astra-ultrafast-blackwell" aria-live="polite"></span>
+  </div>
+</div>
+  </article></main>
+<script>
+(() => {
+  const ratingKey=id => 'daily-ai-brief:rating:' + id;
+  const shareKey=id => 'daily-ai-brief:shares:' + id;
+  const refreshRating=id => {
+    const value=Number(localStorage.getItem(ratingKey(id))||0);
+    document.querySelectorAll('[data-rating][data-story-id="'+CSS.escape(id)+'"]').forEach(btn=>{
+      const n=Number(btn.dataset.rating);
+      btn.classList.toggle('is-on',n<=value);
+      btn.setAttribute('aria-pressed',n===value?'true':'false');
+    });
+  };
+  const refreshShares=id => {
+    const n=Number(localStorage.getItem(shareKey(id))||0);
+    document.querySelectorAll('[data-share-count="'+CSS.escape(id)+'"]').forEach(el=>{
+      el.textContent=n+' share'+(n===1?'':'s')+' on this device';
+    });
+  };
+  document.querySelectorAll('[data-rating]').forEach(btn=>{
+    const id=btn.dataset.storyId;
+    refreshRating(id);
+    btn.addEventListener('click',()=>{
+      localStorage.setItem(ratingKey(id),btn.dataset.rating);
+      refreshRating(id);
+    });
+  });
+  document.querySelectorAll('[data-share]').forEach(btn=>{
+    const id=btn.dataset.share;
+    refreshShares(id);
+    btn.addEventListener('click',async()=>{
+      const url=btn.closest('article')?.querySelector('h1 a,h2 a')?.href || location.href;
+      const title=btn.closest('article')?.querySelector('h1,h2')?.textContent?.trim() || document.title;
+      let shared=false;
+      try {
+        if(navigator.share){ await navigator.share({title,url}); shared=true; }
+        else if(navigator.clipboard){ await navigator.clipboard.writeText(url); shared=true; }
+      } catch (e) {
+        if(e && e.name==='AbortError') return;
+      }
+      if(!shared){ window.prompt('Copy this link',url); shared=true; }
+      if(shared){
+        const n=Number(localStorage.getItem(shareKey(id))||0)+1;
+        localStorage.setItem(shareKey(id),String(n));
+        refreshShares(id);
+        document.querySelectorAll('[data-share-status="'+CSS.escape(id)+'"]').forEach(el=>el.textContent='Link ready to share');
+      }
+    });
+  });
+})();
+</script></body></html>
