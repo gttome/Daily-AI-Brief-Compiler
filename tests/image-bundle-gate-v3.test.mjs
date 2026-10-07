@@ -19,6 +19,10 @@ const write=(root,p,obj)=>{const f=path.join(root,p);fs.mkdirSync(path.dirname(f
 
 async function fixture(){
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'d0-bundle-')),date='2026-10-08';
+  const activationProof=()=>({result:'PASS',evidence_path:'proof/evidence.json',evidence_sha256:'a'.repeat(64)});
+  const activation={schema_version:'daily-compiler-d0-activation-v1',result:'PASS',strategy:'d0_native_image_capsules',contract_version:'daily-compiler-image-contract-v3',activated_at:'2026-10-08T00:00:00Z',proofs:{p0_a:activationProof(),p0_b:activationProof(),p0_c:activationProof(),p0_d:activationProof(),p0_e:activationProof(),p0_f:activationProof()},cost_boundary:{work_used:false,codex_used:false,paid_model_api_used:false,paid_image_service_used:false,billable_overage_used:false,new_paid_infrastructure_used:false,alternate_account_used:false,owner_image_transfer_used:false,owner_liveness_used:false},proposal1r_reader_story_fallback_used:false,owner_intervention:false};
+  write(root,'proof/activation.json',activation);
+  write(root,'contracts/image-contract.json',{schema_version:'daily-compiler-image-contract-v3',strategy:'d0_native_image_capsules',activation_status:'active',activation_receipt_path:'proof/activation.json',activation_receipt_sha256:canonicalSha(activation)});
   const setPlan={schema_version:'daily-compiler-image-set-plan-v3',edition_date:date,stories:Array.from({length:6},(_,i)=>({story_id:'s'+i,composition_signature:'c'+i,layout_signature:'l'+(i%4),diagram_grammar:'g'+(i%4),hierarchy_signature:'h'+(i%4),annotation_pattern_signature:'a'+(i%3),reading_path:'r'+i,prohibited_patterns:[]})),planned_set_gate:{unique_composition_signatures:6,distinct_layout_signatures_min:4,distinct_diagram_grammars_min:4,distinct_hierarchy_signatures_min:4,distinct_annotation_patterns_min:3}};
   const setPlanSha=canonicalSha(setPlan),setPlanPath='shadow-runs/'+date+'/images/set-plan.json'; write(root,setPlanPath,setPlan);
   const items=[],bundleImages=[],setCandidates=[];
@@ -60,4 +64,15 @@ test('D0 BUNDLE_READY image gate fails closed on incomplete or mismatched eviden
   const unlocked=structuredClone(bundle); unlocked.images[0].accepted_locked=false; assert.equal(validateD0BundleImages({bundle:unlocked,repoRoot:root}).result,'FAIL');
   const mismatch=structuredClone(bundle); mismatch.images[0].visual_review_sha256='f'.repeat(64); assert.equal(validateD0BundleImages({bundle:mismatch,repoRoot:root}).result,'FAIL');
   const setFail=structuredClone(bundle); setFail.image_system.set_review_sha256='e'.repeat(64); assert.equal(validateD0BundleImages({bundle:setFail,repoRoot:root}).result,'FAIL');
+});
+
+test('D0 BUNDLE_READY image gate fails closed before activation',async()=>{
+  const {root,bundle}=await fixture();
+  const contractPath=path.join(root,'contracts/image-contract.json');
+  const contract=JSON.parse(fs.readFileSync(contractPath,'utf8'));
+  contract.activation_status='proof_required'; contract.activation_receipt_path=null; contract.activation_receipt_sha256=null;
+  fs.writeFileSync(contractPath,JSON.stringify(contract));
+  const r=validateD0BundleImages({bundle,repoRoot:root});
+  assert.equal(r.result,'FAIL');
+  assert.ok(r.errors.includes('activation:d0_activation_not_active'));
 });
