@@ -17,10 +17,12 @@ const readJsonDir=dir=>{
   return fs.readdirSync(dir).filter(x=>x.endsWith('.json')).sort().map(x=>JSON.parse(fs.readFileSync(path.join(dir,x),'utf8')));
 };
 
+const rateCardPath='config/usage-rate-card.json';
+const rateCard=fs.existsSync(rateCardPath)?JSON.parse(fs.readFileSync(rateCardPath,'utf8')):null;
 const events=readRunEvents(eventPath);
 const problems=readJsonDir(problemDir);
 const resourceObservations=readJsonDir(resourceDir);
-const metrics=aggregateRunMetrics({events,problems,resourceObservations});
+const metrics=aggregateRunMetrics({events,problems,resourceObservations,rateCard});
 const analysis=buildRunAnalysis({metrics,problems,resourceObservations});
 const dashboard=buildDashboardSnapshot({
   system:{status:analysis.result==='FAIL'?'degraded':'healthy',source:'finalize-run-intelligence'},
