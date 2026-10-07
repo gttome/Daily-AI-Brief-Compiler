@@ -110,7 +110,9 @@
             "acceptance_manifest_path",
             "acceptance_manifest_sha256",
             "work_porter_receipt_path",
-            "work_porter_receipt_sha256"
+            "work_porter_receipt_sha256",
+            "ingest_handoff_path",
+            "ingest_handoff_sha256"
           ],
           "properties": {
             "strategy": {
@@ -132,6 +134,14 @@
               "minLength": 1
             },
             "work_porter_receipt_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "ingest_handoff_path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ingest_handoff_sha256": {
               "type": "string",
               "pattern": "^[a-f0-9]{64}$"
             }
