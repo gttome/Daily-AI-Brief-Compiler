@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Google moves agent security from syntax checks to runtime intent controls | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Google moves agent security from syntax checks to runtime intent controls" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Google’s reference architecture layers payload screening, semantic authorization and multi-turn anomaly detection around agent tool use." />
+<meta property="og:description" content="Google’s reference architecture layers payload screening, semantic authorization and multi-turn anomaly detection around agent tool use." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-09-16/google-moves-agent-security-to-runtime-intent-controls/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-09-16/google-moves-agent-security-to-runtime-intent-controls/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-16/01-zero-trust-agent-runtime.png?v=20260916textbook" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-16/01-zero-trust-agent-runtime.png?v=20260916textbook" />
+<meta property="twitter:title" content="Google moves agent security from syntax checks to runtime intent controls" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Google’s reference architecture layers payload screening, semantic authorization and multi-turn anomaly detection around agent tool use.","headline":"Google moves agent security from syntax checks to runtime intent controls","image":"https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-16/01-zero-trust-agent-runtime.png?v=20260916textbook","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-09-16/google-moves-agent-security-to-runtime-intent-controls/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/reader-release.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+</head>
+  <body class="reader-release" data-brief-date="2026-09-16" data-story-id="dab-story-2026-09-16-9f13a2c7" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">Google moves agent security from syntax checks to runtime intent controls</h1>
+          <p class="project-tagline">Google’s reference architecture layers payload screening, semantic authorization and multi-turn anomaly detection around agent tool use.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>September 16</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-09-16/">← Daily Brief for September 16, 2026</a></p>
+<h1 id="google-moves-agent-security-from-syntax-checks-to-runtime-intent-controls">Google moves agent security from syntax checks to runtime intent controls</h1>
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable source-text estimate has not been verified.">Source article · about 15 min read</span></div><p><strong>Runtime governance:</strong> Runtime governance places screening, intent authorization and session monitoring outside the agent’s own reasoning loop.</p><div class="learning-outcome"><strong>What you’ll learn</strong><p>How layered controls stop different classes of agent failure.</p></div></aside>
+<!-- reader-release:end -->
+<p><span class="story-data" data-story-id="dab-story-2026-09-16-9f13a2c7" hidden></span></p>
+<p><strong>Focus:</strong> Technical AI Engineering<br />
+<strong>Date:</strong> September 15, 2026<br />
+<strong>Topics:</strong> agent security, runtime governance, semantic policy, anomaly detection<br />
+<strong>Evidence:</strong> Official Documentation<br />
+<strong>Availability:</strong> General Availability</p>
+<p><img src="https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-16/01-zero-trust-agent-runtime.png?v=20260916textbook" alt="White-background layered security diagram showing input passing through Model Armor, an agent, semantic intent policy, allow or deny gates and tools, with session telemetry feeding anomaly detection and human remediation." /></p>
+<p><strong>Summary:</strong> Google published a reference architecture for moving agent safeguards outside application code and into the Gemini Enterprise Agent Platform. Agent Gateway combines Model Armor at ingress and egress, natural-language Semantic Governance Policies before tool execution, and Agent Anomaly Detection across sessions; the companion repository includes local simulators and deterministic tests.</p>
+<p><strong>Why it matters:</strong> The design separates payload screening, intent authorization and multi-turn behavior monitoring instead of treating prompt injection as the only failure mode. Google’s examples and detector confidence values are explicitly illustrative, so teams still need their own threat models, policy tests, false-positive review and human escalation paths before production use.</p>
+<p><span class="story-editorial-note" data-george-implication="" hidden></span><!-- reader-release:start --></p>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Chapter 3, section 3.3.3 — Verification as the Final Gate</p><p>Use the verification gate to translate runtime security signals into an explicit stop, escalate or proceed decision.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+<h2 id="what-to-do-now">What to do now</h2>
+<p><strong>Threat-model one tool action:</strong> Choose one irreversible tool call, then specify ingress screening, intent policy, session anomaly signals and a human escalation before testing the reference pattern.</p>
+<p><strong>Source:</strong> <a href="https://developers.googleblog.com/build-zero-trust-ai-agents-that-judge-intent-not-just-syntax/" data-item-id="dab-story-2026-09-16-9f13a2c7" data-edition-date="2026-09-16" data-action="source_clicks">Build zero-trust AI agents that judge intent, not just syntax</a></p>
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-09-16" data-feedback-story-id="dab-story-2026-09-16-9f13a2c7">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-09-16/">← Daily Brief for September 16, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+</body>
+</html>

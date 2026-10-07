@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Phantom Gains finds that self-improvement can be a measurement illusion | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Phantom Gains finds that self-improvement can be a measurement illusion" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B by sending an unchanged control model through the identical training-and-evaluation pipeline. The authors identify seven measurement failures that can reverse a conclusion when the control is absent. A single greedy decode, for example, appeared to create per-problem capability changes in the frozen model because of inference batching. Their replacement uses per-problem exact tests against a pooled baseline with false-discovery-rate control. Under that audit, external distillation improved problems the base model rarely solved, while three self-training variants did not; self-training also damaged some problems solved at baseline." />
+<meta property="og:description" content="Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B by sending an unchanged control model through the identical training-and-evaluation pipeline. The authors identify seven measurement failures that can reverse a conclusion when the control is absent. A single greedy decode, for example, appeared to create per-problem capability changes in the frozen model because of inference batching. Their replacement uses per-problem exact tests against a pooled baseline with false-discovery-rate control. Under that audit, external distillation improved problems the base model rarely solved, while three self-training variants did not; self-training also damaged some problems solved at baseline." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-21/phantom-gains-finds-that-self-improvement-can-be-a-measurement-illusion/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-21/phantom-gains-finds-that-self-improvement-can-be-a-measurement-illusion/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" />
+<meta property="twitter:title" content="Phantom Gains finds that self-improvement can be a measurement illusion" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B by sending an unchanged control model through the identical training-and-evaluation pipeline. The authors identify seven measurement failures that can reverse a conclusion when the control is absent. A single greedy decode, for example, appeared to create per-problem capability changes in the frozen model because of inference batching. Their replacement uses per-problem exact tests against a pooled baseline with false-discovery-rate control. Under that audit, external distillation improved problems the base model rarely solved, while three self-training variants did not; self-training also damaged some problems solved at baseline.","headline":"Phantom Gains finds that self-improvement can be a measurement illusion","image":"https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-21/phantom-gains-finds-that-self-improvement-can-be-a-measurement-illusion/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+</head>
+  <body class="" data-brief-date="2026-08-21" data-story-id="dab-story-2026-08-21-2e9487fe" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">Phantom Gains finds that self-improvement can be a measurement illusion</h1>
+          <p class="project-tagline">*Phantom Gains* audits three rounds of rank-32 LoRA self-training on Qwen3-8B by sending an unchanged control model through the identical training-and-evaluation pipeline. The authors identify seven measurement failures that can reverse a conclusion when the control is absent. A single greedy decode, for example, appeared to create per-problem capability changes in the frozen model because of inference batching. Their replacement uses per-problem exact tests against a pooled baseline with false-discovery-rate control. Under that audit, external distillation improved problems the base model rarely solved, while three self-training variants did not; self-training also damaged some problems solved at baseline.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>August 21</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-08-21/">← Daily Brief for August 21, 2026</a></p>
+<h1 id="phantom-gains-finds-that-self-improvement-can-be-a-measurement-illusion">Phantom Gains finds that self-improvement can be a measurement illusion</h1>
+<p><span class="story-data" data-story-id="dab-story-2026-08-21-2e9487fe" hidden></span></p>
+<p><strong>Focus:</strong> Earlier edition<br />
+<strong>Date:</strong> August 20, 2026<br />
+<strong>Topics:</strong> Loop engineering, evaluation, model self-improvement, statistical reliability<br />
+<strong>Evidence:</strong> Unspecified<br />
+<strong>Availability:</strong> Unspecified</p>
+<p><img src="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" alt="Phantom Gains research" /></p>
+<p><strong>Summary:</strong> <em>Phantom Gains</em> audits three rounds of rank-32 LoRA self-training on Qwen3-8B by sending an unchanged control model through the identical training-and-evaluation pipeline. The authors identify seven measurement failures that can reverse a conclusion when the control is absent. A single greedy decode, for example, appeared to create per-problem capability changes in the frozen model because of inference batching. Their replacement uses per-problem exact tests against a pooled baseline with false-discovery-rate control. Under that audit, external distillation improved problems the base model rarely solved, while three self-training variants did not; self-training also damaged some problems solved at baseline.</p>
+<p><strong>Why it matters:</strong> Iterative agents and self-improving systems are especially vulnerable to mistaking stochastic variation for learning. A trustworthy loop needs a measured null, repeated baselines, held-out evaluation, and controls that experience the same pipeline—not just a higher average score after another round.</p>
+<p><span class="story-editorial-note" data-george-implication="This supports a powerful workshop exercise: run an unchanged baseline through the same generation, batching, scoring, and reporting loop as the “improved” system. If the control also appears to learn, the evaluation is measuring the harness—not the improvement." hidden></span></p>
+<p><strong>Source:</strong> <a href="https://arxiv.org/abs/2608.20290" data-item-id="dab-story-2026-08-21-2e9487fe" data-edition-date="2026-08-21" data-action="source_clicks">arXiv</a></p>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-08-21/">← Daily Brief for August 21, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vero benchmark shows repository-scale formal verification remains hard for coding agents | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Vero benchmark shows repository-scale formal verification remains hard for coding agents" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The new Vero benchmark evaluates whether AI agents can build multi-module software repositories while also producing machine-checked proofs that the implementation satisfies formal specifications. Vero contains 43 repository-level tasks spanning Python, Dafny, Verus, Coq, and Lean-based verification workflows. In the authors’ evaluation, the strongest tested agent fully solved 27 of 43 instances and failed to close specifications on the hardest repositories." />
+<meta property="og:description" content="The new Vero benchmark evaluates whether AI agents can build multi-module software repositories while also producing machine-checked proofs that the implementation satisfies formal specifications. Vero contains 43 repository-level tasks spanning Python, Dafny, Verus, Coq, and Lean-based verification workflows. In the authors’ evaluation, the strongest tested agent fully solved 27 of 43 instances and failed to close specifications on the hardest repositories." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-18/vero-benchmark-shows-repository-scale-formal-verification-remains-hard-for-codin/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-18/vero-benchmark-shows-repository-scale-formal-verification-remains-hard-for-codin/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" />
+<meta property="twitter:title" content="Vero benchmark shows repository-scale formal verification remains hard for coding agents" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"The new Vero benchmark evaluates whether AI agents can build multi-module software repositories while also producing machine-checked proofs that the implementation satisfies formal specifications. Vero contains 43 repository-level tasks spanning Python, Dafny, Verus, Coq, and Lean-based verification workflows. In the authors’ evaluation, the strongest tested agent fully solved 27 of 43 instances and failed to close specifications on the hardest repositories.","headline":"Vero benchmark shows repository-scale formal verification remains hard for coding agents","image":"https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-18/vero-benchmark-shows-repository-scale-formal-verification-remains-hard-for-codin/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+</head>
+  <body class="" data-brief-date="2026-08-18" data-story-id="dab-story-2026-08-18-9acc47c5" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">Vero benchmark shows repository-scale formal verification remains hard for coding agents</h1>
+          <p class="project-tagline">The new Vero benchmark evaluates whether AI agents can build multi-module software repositories while also producing machine-checked proofs that the implementation satisfies formal specifications. Vero contains 43 repository-level tasks spanning Python, Dafny, Verus, Coq, and Lean-based verification workflows. In the authors’ evaluation, the strongest tested agent fully solved 27 of 43 instances and failed to close specifications on the hardest repositories.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>August 18</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-08-18/">← Daily Brief for August 18, 2026</a></p>
+<h1 id="vero-benchmark-shows-repository-scale-formal-verification-remains-hard-for-coding-agents">Vero benchmark shows repository-scale formal verification remains hard for coding agents</h1>
+<p><span class="story-data" data-story-id="dab-story-2026-08-18-9acc47c5" hidden></span></p>
+<p><strong>Focus:</strong> Earlier edition<br />
+<strong>Date:</strong> August 13, 2026<br />
+<strong>Topics:</strong> Coding agents, evaluation, verification, reliable software generation, human review<br />
+<strong>Evidence:</strong> Unspecified<br />
+<strong>Availability:</strong> Unspecified</p>
+<p><img src="https://arxiv.org/static/browse/0.3.4/images/icons/apple-touch-icon.png" alt="arXiv" /></p>
+<p><strong>Summary:</strong> The new Vero benchmark evaluates whether AI agents can build multi-module software repositories while also producing machine-checked proofs that the implementation satisfies formal specifications. Vero contains 43 repository-level tasks spanning Python, Dafny, Verus, Coq, and Lean-based verification workflows. In the authors’ evaluation, the strongest tested agent fully solved 27 of 43 instances and failed to close specifications on the hardest repositories.</p>
+<p><strong>Why it matters:</strong> Passing unit tests is not the same as proving correctness. Vero pushes coding-agent evaluation toward stronger evidence by requiring implementation and formal proof to agree across an entire repository. The results also show that frontier agents still have substantial difficulty when correctness must be demonstrated rather than inferred from plausible output.</p>
+<p><span class="story-editorial-note" data-george-implication="This is a useful example for teaching **evaluation ladders**: syntax checks → tests → integration tests → adversarial evaluation → formal verification. Not every application needs formal methods, but the benchmark clearly illustrates why the rigor of the verification method should rise with the consequence of failure." hidden></span></p>
+<p><strong>Source:</strong> <a href="https://arxiv.org/abs/2608.13522" data-item-id="dab-story-2026-08-18-9acc47c5" data-edition-date="2026-08-18" data-action="source_clicks">arXiv</a></p>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-08-18/">← Daily Brief for August 18, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+</body>
+</html>

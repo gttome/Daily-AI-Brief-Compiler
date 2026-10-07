@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>StateMem shows that agent memory must track what is current—not merely what was said | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="StateMem shows that agent memory must track what is current—not merely what was said" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Can Agent Memory Systems Track Evolving State? introduces StateMemBench, 234 multi-session scenarios in which facts, constraints, and decisions change over time. Its grading distinguishes answers based on the current state from answers that repeat a superseded state. The authors report that conventional memory, retrieval, and long-context baselines struggle with this distinction. Their StateMem method explicitly records supersession and relational dependencies. The paper reports current-state accuracy increasing from 0.205 to 0.363 on DeepSeek-V4-Flash and from 0.149 to 0.233 over the strongest comparison memory system on Qwen-3.5-9B. A single-call wrapper produced much larger gains across six backends, while matched controls attributed a substantial part of the improvement to the state structure rather than merely adding more context." />
+<meta property="og:description" content="Can Agent Memory Systems Track Evolving State? introduces StateMemBench, 234 multi-session scenarios in which facts, constraints, and decisions change over time. Its grading distinguishes answers based on the current state from answers that repeat a superseded state. The authors report that conventional memory, retrieval, and long-context baselines struggle with this distinction. Their StateMem method explicitly records supersession and relational dependencies. The paper reports current-state accuracy increasing from 0.205 to 0.363 on DeepSeek-V4-Flash and from 0.149 to 0.233 over the strongest comparison memory system on Qwen-3.5-9B. A single-call wrapper produced much larger gains across six backends, while matched controls attributed a substantial part of the improvement to the state structure rather than merely adding more context." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-22/statemem-shows-that-agent-memory-must-track-what-is-current-not-merely-what-was-/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-22/statemem-shows-that-agent-memory-must-track-what-is-current-not-merely-what-was-/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://arxiv.org/html/2608.19652v1/state_drift_teaser1.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://arxiv.org/html/2608.19652v1/state_drift_teaser1.png" />
+<meta property="twitter:title" content="StateMem shows that agent memory must track what is current—not merely what was said" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Can Agent Memory Systems Track Evolving State? introduces StateMemBench, 234 multi-session scenarios in which facts, constraints, and decisions change over time. Its grading distinguishes answers based on the current state from answers that repeat a superseded state. The authors report that conventional memory, retrieval, and long-context baselines struggle with this distinction. Their StateMem method explicitly records supersession and relational dependencies. The paper reports current-state accuracy increasing from 0.205 to 0.363 on DeepSeek-V4-Flash and from 0.149 to 0.233 over the strongest comparison memory system on Qwen-3.5-9B. A single-call wrapper produced much larger gains across six backends, while matched controls attributed a substantial part of the improvement to the state structure rather than merely adding more context.","headline":"StateMem shows that agent memory must track what is current—not merely what was said","image":"https://arxiv.org/html/2608.19652v1/state_drift_teaser1.png","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-08-22/statemem-shows-that-agent-memory-must-track-what-is-current-not-merely-what-was-/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+</head>
+  <body class="" data-brief-date="2026-08-22" data-story-id="dab-story-2026-08-22-0a66eadf" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">StateMem shows that agent memory must track what is current—not merely what was said</h1>
+          <p class="project-tagline">*Can Agent Memory Systems Track Evolving State?* introduces StateMemBench, 234 multi-session scenarios in which facts, constraints, and decisions change over time. Its grading distinguishes answers based on the current state from answers that repeat a superseded state. The authors report that conventional memory, retrieval, and long-context baselines struggle with this distinction. Their StateMem method explicitly records supersession and relational dependencies. The paper reports current-state accuracy increasing from 0.205 to 0.363 on DeepSeek-V4-Flash and from 0.149 to 0.233 over the strongest comparison memory system on Qwen-3.5-9B. A single-call wrapper produced much larger gains across six backends, while matched controls attributed a substantial part of the improvement to the state structure rather than merely adding more context.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>August 22</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-08-22/">← Daily Brief for August 22, 2026</a></p>
+<h1 id="statemem-shows-that-agent-memory-must-track-what-is-currentnot-merely-what-was-said">StateMem shows that agent memory must track what is current—not merely what was said</h1>
+<p><span class="story-data" data-story-id="dab-story-2026-08-22-0a66eadf" hidden></span></p>
+<p><strong>Focus:</strong> Earlier edition<br />
+<strong>Date:</strong> August 20, 2026<br />
+<strong>Topics:</strong> Context engineering, agent memory, evolving state, RAG, long-running workflows<br />
+<strong>Evidence:</strong> Unspecified<br />
+<strong>Availability:</strong> Unspecified</p>
+<p><img src="https://arxiv.org/html/2608.19652v1/state_drift_teaser1.png" alt="StateMemBench illustration of evolving state and stale-memory failures" /></p>
+<p><strong>Summary:</strong> <em>Can Agent Memory Systems Track Evolving State?</em> introduces StateMemBench, 234 multi-session scenarios in which facts, constraints, and decisions change over time. Its grading distinguishes answers based on the current state from answers that repeat a superseded state. The authors report that conventional memory, retrieval, and long-context baselines struggle with this distinction. Their StateMem method explicitly records supersession and relational dependencies. The paper reports current-state accuracy increasing from 0.205 to 0.363 on DeepSeek-V4-Flash and from 0.149 to 0.233 over the strongest comparison memory system on Qwen-3.5-9B. A single-call wrapper produced much larger gains across six backends, while matched controls attributed a substantial part of the improvement to the state structure rather than merely adding more context.</p>
+<p><strong>Why it matters:</strong> Retrieval systems often optimize for finding a relevant past statement even when that statement is no longer valid. Reliable long-running agents need memory that can represent relationships such as <strong>replaced by</strong>, <strong>depends on</strong>, and <strong>currently active</strong>.</p>
+<p><span class="story-editorial-note" data-george-implication="This directly strengthens the distinction among session, project, and memory context. A practical rule is: do not merely append a changed decision—mark the prior decision as superseded, record the active replacement, and verify which state the AI used before it acts." hidden></span></p>
+<p><strong>Source:</strong> <a href="https://arxiv.org/abs/2608.19652" data-item-id="dab-story-2026-08-22-0a66eadf" data-edition-date="2026-08-22" data-action="source_clicks">arXiv</a></p>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-08-22/">← Daily Brief for August 22, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+</body>
+</html>

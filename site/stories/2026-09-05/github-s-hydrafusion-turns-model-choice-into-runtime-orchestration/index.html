@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>GitHub’s HydraFusion turns model choice into runtime orchestration | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="GitHub’s HydraFusion turns model choice into runtime orchestration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="GitHub introduced Project HydraFusion as a research preview in GitHub Copilot CLI. Instead of sending every coding task to one fixed model, HydraFusion builds an execution plan and chooses among three patterns: a single model, a cascade that escalates after a quality gate, or a draft-and-critique workflow using a separate read-only critic. GitHub says the runtime validates workflow definitions and fallbacks before execution and applies no patch when a workflow is cancelled or fails validation. In controlled offline evaluations, GitHub reported that its strongest HydraFusion configurations approached or exceeded Claude Opus 5 quality on several coding benchmarks while reducing estimated workflow cost." />
+<meta property="og:description" content="GitHub introduced Project HydraFusion as a research preview in GitHub Copilot CLI. Instead of sending every coding task to one fixed model, HydraFusion builds an execution plan and chooses among three patterns: a single model, a cascade that escalates after a quality gate, or a draft-and-critique workflow using a separate read-only critic. GitHub says the runtime validates workflow definitions and fallbacks before execution and applies no patch when a workflow is cancelled or fails validation. In controlled offline evaluations, GitHub reported that its strongest HydraFusion configurations approached or exceeded Claude Opus 5 quality on several coding benchmarks while reducing estimated workflow cost." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-09-05/github-s-hydrafusion-turns-model-choice-into-runtime-orchestration/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-09-05/github-s-hydrafusion-turns-model-choice-into-runtime-orchestration/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-05/01-hydrafusion.svg?v=20260905-2" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-05/01-hydrafusion.svg?v=20260905-2" />
+<meta property="twitter:title" content="GitHub’s HydraFusion turns model choice into runtime orchestration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"GitHub introduced Project HydraFusion as a research preview in GitHub Copilot CLI. Instead of sending every coding task to one fixed model, HydraFusion builds an execution plan and chooses among three patterns: a single model, a cascade that escalates after a quality gate, or a draft-and-critique workflow using a separate read-only critic. GitHub says the runtime validates workflow definitions and fallbacks before execution and applies no patch when a workflow is cancelled or fails validation. In controlled offline evaluations, GitHub reported that its strongest HydraFusion configurations approached or exceeded Claude Opus 5 quality on several coding benchmarks while reducing estimated workflow cost.","headline":"GitHub’s HydraFusion turns model choice into runtime orchestration","image":"https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-05/01-hydrafusion.svg?v=20260905-2","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-09-05/github-s-hydrafusion-turns-model-choice-into-runtime-orchestration/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f">
+</head>
+  <body class="" data-brief-date="2026-09-05" data-story-id="dab-story-2026-09-05-a956fc27" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">GitHub’s HydraFusion turns model choice into runtime orchestration</h1>
+          <p class="project-tagline">GitHub introduced Project HydraFusion as a research preview in GitHub Copilot CLI. Instead of sending every coding task to one fixed model, HydraFusion builds an execution plan and chooses among three patterns: a single model, a cascade that escalates after a quality gate, or a draft-and-critique workflow using a separate read-only critic. GitHub says the runtime validates workflow definitions and fallbacks before execution and applies no patch when a workflow is cancelled or fails validation. In controlled offline evaluations, GitHub reported that its strongest HydraFusion configurations approached or exceeded Claude Opus 5 quality on several coding benchmarks while reducing estimated workflow cost.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>September 5</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-09-05/">← Daily Brief for September 5, 2026</a></p>
+<h1 id="githubs-hydrafusion-turns-model-choice-into-runtime-orchestration">GitHub’s HydraFusion turns model choice into runtime orchestration</h1>
+<p><span class="story-data" data-story-id="dab-story-2026-09-05-a956fc27" hidden></span></p>
+<p><strong>Focus:</strong> Technical AI Engineering<br />
+<strong>Date:</strong> September 4, 2026<br />
+<strong>Topics:</strong> multi-model orchestration, GitHub Copilot, coding agents, routing, critique, evaluation, cost-quality tradeoffs<br />
+<strong>Evidence:</strong> Unspecified<br />
+<strong>Availability:</strong> Unspecified</p>
+<p><img src="https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/main/briefs/images/2026-09-05/01-hydrafusion.svg?v=20260905-2" alt="HydraFusion runtime model orchestration across single, cascade, and critique execution patterns" /></p>
+<p><strong>Summary:</strong> GitHub introduced Project HydraFusion as a research preview in GitHub Copilot CLI. Instead of sending every coding task to one fixed model, HydraFusion builds an execution plan and chooses among three patterns: a single model, a cascade that escalates after a quality gate, or a draft-and-critique workflow using a separate read-only critic. GitHub says the runtime validates workflow definitions and fallbacks before execution and applies no patch when a workflow is cancelled or fails validation. In controlled offline evaluations, GitHub reported that its strongest HydraFusion configurations approached or exceeded Claude Opus 5 quality on several coding benchmarks while reducing estimated workflow cost.</p>
+<p><strong>Why it matters:</strong> This is a meaningful step from model selection toward compound AI systems that dynamically construct the execution strategy for each task. It makes routing, independent review, escalation, failure handling, and cost-aware orchestration first-class engineering concerns. The reported benchmark gains are vendor-run, configuration-specific, and from a research preview, so production reliability, latency, and generalization still need independent evidence.</p>
+<p><span class="story-editorial-note" data-george-implication="This is a strong current example for graph, loop, and harness engineering. Use it to show how an AI system can choose among direct execution, escalation, and independent critique while preserving a permission-aware outer loop and an auditable result." hidden></span></p>
+<p><strong>Source:</strong> <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/" data-item-id="dab-story-2026-09-05-a956fc27" data-edition-date="2026-09-05" data-action="source_clicks">GitHub — Project HydraFusion: Frontier quality via multi-model orchestration</a></p>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-09-05/">← Daily Brief for September 5, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=ed887df238dc6c4246b7f9d286bd1d752aa27d1f"></script>
+</body>
+</html>
