@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import {assertD1AcceptanceManifest} from '../image-studio/acceptance.mjs';
+import {assertD1AcceptanceManifest,buildD1IngestPlan} from '../image-studio/acceptance.mjs';
 import {canonicalSha} from '../image-capsules/util.mjs';
 
 export function sha256(bytes){return crypto.createHash('sha256').update(bytes).digest('hex');}
@@ -28,27 +28,35 @@ export function validateD1CloudAssets(manifest,assetsById){
     if(b.length!==image.bytes) errors.push('asset_bytes:'+image.story_id);
     if(actual!==image.sha256) errors.push('asset_sha256:'+image.story_id);
     if(dims.width!==1200||dims.height!==630) errors.push('asset_dimensions:'+image.story_id);
-    evidence.push({story_id:image.story_id,cloud_asset_id:image.cloud_asset_id,target_path:image.target_path,sha256:actual,git_blob_sha:gitBlobSha(b),bytes:b.length,width:dims.width,height:dims.height});
+    evidence.push({
+      story_id:image.story_id,cloud_asset_id:image.cloud_asset_id,filename:image.filename,
+      sha256:actual,git_blob_sha:gitBlobSha(b),bytes:b.length,width:dims.width,height:dims.height
+    });
   }
   if(evidence.length!==6) errors.push('asset_evidence_count');
   return {result:errors.length?'FAIL':'PASS',errors:[...new Set(errors)],manifest_sha256:m.manifest_sha256,evidence};
 }
 
-export function buildD1WorkPorterReceipt({manifest,assetsById,gitReadbackByStory,recordedAt=new Date().toISOString()}={}){
+export function buildD1WorkPorterReceipt({manifest,handoff,assetsById,gitReadbackByStory,recordedAt=new Date().toISOString()}={}){
   const validation=validateD1CloudAssets(manifest,assetsById);
   if(validation.result!=='PASS') throw new Error('D1 asset integrity failed: '+validation.errors.join(';'));
+  const plan=buildD1IngestPlan(manifest,handoff);
+  const targetByStory=new Map(plan.items.map(x=>[x.story_id,x.target_path]));
   const rows=[];
   for(const evidence of validation.evidence){
+    const targetPath=targetByStory.get(evidence.story_id);
     const rb=gitReadbackByStory?.[evidence.story_id];
-    if(!rb||rb.sha256!==evidence.sha256||rb.git_blob_sha!==evidence.git_blob_sha||rb.target_path!==evidence.target_path) throw new Error('D1 Git readback mismatch: '+evidence.story_id);
+    if(!targetPath||!rb||rb.sha256!==evidence.sha256||rb.git_blob_sha!==evidence.git_blob_sha||rb.target_path!==targetPath){
+      throw new Error('D1 Git readback mismatch: '+evidence.story_id);
+    }
     rows.push({
-      story_id:evidence.story_id,source_sha256:evidence.sha256,target_path:evidence.target_path,
+      story_id:evidence.story_id,source_sha256:evidence.sha256,target_path:targetPath,
       git_blob_sha:evidence.git_blob_sha,readback_sha256:rb.sha256,dimensions:'1200x630',integrity_result:'PASS'
     });
   }
   return {
     schema_version:'daily-compiler-d1-work-porter-receipt-v1',result:'PASS',scope:'IMAGE_PACKAGE_INGEST',
-    recorded_at:recordedAt,manifest_sha256:canonicalSha(manifest),images:rows,
+    recorded_at:recordedAt,manifest_sha256:canonicalSha(manifest),handoff_sha256:canonicalSha(handoff),images:rows,
     visual_quality_review_performed:false,image_generation_performed:false,owner_intervention:false
   };
 }
