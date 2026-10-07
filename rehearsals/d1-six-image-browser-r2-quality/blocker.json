@@ -1,8 +1,38 @@
 {
-  "result": "RESOLVED",
-  "code": "WORK_CLOUD_BROWSER_UNAVAILABLE",
-  "scope": "prior_invocation_only",
-  "evidence": "Current invocation opened a fresh regular chat through authenticated Work Cloud Browser and submitted the sealed Story 1 input.",
-  "prior_blocker_path": "rehearsals/d1-six-image-browser-r2-quality/evidence/prior-capability-blocker-cefc574.json",
-  "observed_at": "2026-10-07T22:55:46.628264Z"
+  "schema_version": "daily-compiler-d1-rehearsal-blocker-v1",
+  "rehearsal_id": "d1-six-image-browser-r2-quality",
+  "result": "BLOCKED",
+  "code": "STORY_QUALITY_ATTEMPTS_EXHAUSTED",
+  "detail": {
+    "code": "STORY_QUALITY_ATTEMPTS_EXHAUSTED",
+    "category": "quality_gate",
+    "story_id": "stress-terminal-evidence",
+    "ordinal": 1,
+    "allowed_attempts": 4,
+    "native_generation_attempts": 4,
+    "failed_criteria": [
+      "premium_textbook_editorial_quality",
+      "no_decorative_internal_geometry"
+    ],
+    "review_location": "same_fresh_regular_story_chat",
+    "conversation_url": "https://chatgpt.com/c/6ac6cdcf-aed0-83ea-bc60-c501f1987370",
+    "final_review_path": "rehearsals/d1-six-image-browser-r2-quality/evidence/story-1-attempt-4-review.json",
+    "defects": [
+      "The image is structurally strong and closer to the target, but it still has a polished infographic/diagram aesthetic rather than the required premium textbook editorial mechanism depth.",
+      "Some internal process elements remain symbolic (colored geometric tokens and simplified machine-like parts) rather than fully exposed causal mechanisms.",
+      "The evidence fragments are differentiated and connected, but the mappings to specific review constraints remain partially abstract rather than explicit validation relationships.",
+      "The review gate has multiple validation rows and distinct pass/return paths, but the constraint mechanism is still represented more as inspection slots than as a rigorous comparison system.",
+      "Some connector paths and repeated geometric elements appear included for visual organization rather than necessary causal explanation."
+    ],
+    "generation_further_allowed": false,
+    "transport_failure": false,
+    "authentication_failure": false,
+    "detected_at": "2026-10-07T23:06:51.357349Z"
+  },
+  "accepted_assets": 0,
+  "owner_intervention": false,
+  "local_computer_used": false,
+  "prior_capability_blocker_resolved": true,
+  "prior_capability_blocker_preserved_at": "rehearsals/d1-six-image-browser-r2-quality/evidence/prior-capability-blocker-cefc574.json",
+  "resume_instruction": "Preserve all four native candidates in their story conversation and all review evidence. Do not consume a fifth attempt under the unchanged sealed four-attempt budget. Downstream gates were not reached."
 }
