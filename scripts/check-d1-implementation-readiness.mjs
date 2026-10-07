@@ -20,6 +20,8 @@ if(!missing.length){
   if(contract.transfer?.archive_required!==inv.archive_required) errors.push('archive_required');
   if(!Array.isArray(contract.allowed_work_scope)||!contract.allowed_work_scope.includes(inv.work_scope)) errors.push('work_scope');
   if(contract.quality?.github_visual_rereview_required!==inv.github_visual_rereview_required) errors.push('github_visual_rereview');
+  if(contract.quality?.minimum_meaningful_components!==inv.minimum_meaningful_components) errors.push('image_component_density');
+  if(inv.benchmark_profile_required===true && !fs.existsSync(path.resolve(repoRoot,contract.quality?.benchmark_profile_path||''))) errors.push('benchmark_profile_missing');
   if(contract.image_creation?.normal_run_owner_presence_required!==inv.owner_presence_required) errors.push('owner_presence_required');
   if(contract.forbidden_runtime_dependencies?.includes('local_computer')!==true) errors.push('local_computer_dependency');
   if(!Array.isArray(prompts.schedules)||prompts.schedules.length!==inv.transition_schedule_count) errors.push('transition_schedule_count');
