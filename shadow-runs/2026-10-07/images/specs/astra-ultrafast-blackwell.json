@@ -2,8 +2,8 @@
   "schema_version": "daily-compiler-diagram-spec-v2",
   "story_id": "astra-ultrafast-blackwell",
   "grammar": "control_loop",
-  "title": "Why inference speed compounds across AI loops",
-  "subtitle": "Generation, external steps, checks, and next-step decisions repeat many times inside one workflow.",
+  "title": "Inference speed compounds across every agent loop",
+  "subtitle": "Reasoning, generation, tools, observation, verification, and next-step choice repeat throughout one workflow.",
   "nodes": [
     {
       "id": "reason",
@@ -39,18 +39,19 @@
   ],
   "callouts": [
     {
-      "label": "Up to 8x",
-      "detail": "NVIDIA reports faster token generation than Astra Standard"
+      "label": "Per-pass gain",
+      "detail": "Faster generation trims time every time the loop reaches the model."
     },
     {
       "label": "Compounding",
-      "detail": "Latency savings repeat at every generation boundary"
+      "detail": "A multi-step agent feels the same inference gain repeatedly."
     },
     {
-      "label": "System effect",
-      "detail": "Infrastructure performance shapes perceived responsiveness"
+      "label": "Agent UX",
+      "detail": "Infrastructure speed becomes responsiveness and perceived reliability."
     }
   ],
-  "flow_label": "Lower latency shortens each loop",
-  "footer": "End-to-end wall time is the sum of repeated model and external-system cycles."
+  "flow_label": "Lower model latency shortens every pass",
+  "footer": "Token throughput matters because users experience the accumulated wall time of the entire agent loop.",
+  "visual_profile": "oct7-textbook-overhaul-v1"
 }
