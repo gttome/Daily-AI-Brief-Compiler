@@ -1,0 +1,24 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/image-acceptance-v3.schema.json",
+  "title":"Daily Compiler Image Acceptance v3",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","edition_date","accepted_at","accepted_locked","set_review_sha256","images"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-image-acceptance-v3"},
+    "edition_date":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
+    "accepted_at":{"type":"string","format":"date-time"},
+    "accepted_locked":{"const":true},
+    "set_review_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "images":{"type":"array","minItems":6,"maxItems":6,"items":{
+      "type":"object","additionalProperties":false,
+      "required":["story_id","final_path","sha256","git_blob_sha","asset_version","cache_key","supersedes","review_sha256"],
+      "properties":{
+        "story_id":{"type":"string","minLength":1},"final_path":{"type":"string","minLength":1},
+        "sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"git_blob_sha":{"type":"string","pattern":"^[a-f0-9]{40}$"},
+        "asset_version":{"type":"string","minLength":1},"cache_key":{"type":"string","minLength":1},
+        "supersedes":{"type":["object","null"]},"review_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+      }
+    }}
+  }
+}
