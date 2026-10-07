@@ -1,5 +1,5 @@
 import crypto from 'node:crypto';
-import {assertD1AcceptanceManifest} from '../image-studio/acceptance.mjs';
+import {assertD1AcceptanceManifest,D1_WORK_SCOPE} from '../image-studio/acceptance.mjs';
 import {canonicalSha} from '../image-capsules/util.mjs';
 
 export function sha256(bytes){return crypto.createHash('sha256').update(bytes).digest('hex');}
@@ -17,7 +17,7 @@ export function pngDimensions(bytes){
 export function validateD1CloudAssets(manifest,assetsById,handoff){
   const errors=[],evidence=[];
   const m=assertD1AcceptanceManifest(manifest);
-  if(handoff?.schema_version!=='daily-compiler-d1-ingest-handoff-v1'||handoff?.manifest_sha256!==m.manifest_sha256||handoff?.scope!=='IMAGE_PACKAGE_INGEST'||handoff?.visual_rereview_required!==false||handoff?.image_generation_allowed!==false||!Array.isArray(handoff?.items)||handoff.items.length!==6){
+  if(handoff?.schema_version!=='daily-compiler-d1-ingest-handoff-v2'||handoff?.manifest_sha256!==m.manifest_sha256||handoff?.scope!==D1_WORK_SCOPE||handoff?.visual_rereview_required!==false||handoff?.image_generation_allowed!==false||!Array.isArray(handoff?.items)||handoff.items.length!==6){
     return {result:'FAIL',errors:['ingest_handoff_invalid'],manifest_sha256:m.manifest_sha256,evidence:[]};
   }
   const handoffMap=new Map(handoff.items.map(x=>[x.story_id,x]));
@@ -35,7 +35,7 @@ export function validateD1CloudAssets(manifest,assetsById,handoff){
     if(b.length!==image.bytes) errors.push('asset_bytes:'+image.story_id);
     if(actual!==image.sha256) errors.push('asset_sha256:'+image.story_id);
     if(dims.width!==1200||dims.height!==630) errors.push('asset_dimensions:'+image.story_id);
-    evidence.push({story_id:image.story_id,cloud_asset_id:image.cloud_asset_id,target_path:h.target_path,sha256:actual,git_blob_sha:gitBlobSha(b),bytes:b.length,width:dims.width,height:dims.height});
+    evidence.push({story_id:image.story_id,chat_session_id:image.chat_session_id,cloud_asset_id:image.cloud_asset_id,target_path:h.target_path,sha256:actual,git_blob_sha:gitBlobSha(b),bytes:b.length,width:dims.width,height:dims.height});
   }
   if(evidence.length!==6) errors.push('asset_evidence_count');
   return {result:errors.length?'FAIL':'PASS',errors:[...new Set(errors)],manifest_sha256:m.manifest_sha256,evidence};
@@ -47,15 +47,12 @@ export function buildD1WorkPorterReceipt({manifest,handoff,assetsById,gitReadbac
   const rows=[];
   for(const evidence of validation.evidence){
     const rb=gitReadbackByStory?.[evidence.story_id];
-    if(!rb||rb.sha256!==evidence.sha256||rb.git_blob_sha!==evidence.git_blob_sha||rb.target_path!==evidence.target_path) throw new Error('D1 Git readback mismatch: '+evidence.story_id);
-    rows.push({
-      story_id:evidence.story_id,source_sha256:evidence.sha256,target_path:evidence.target_path,
-      git_blob_sha:evidence.git_blob_sha,readback_sha256:rb.sha256,dimensions:'1200x630',integrity_result:'PASS'
-    });
+    if(!rb||rb.sha256!==evidence.sha256||rb.git_blob_sha!==evidence.git_blob_sha||rb.target_path!==evidence.target_path||rb.bytes!==evidence.bytes) throw new Error('D1 Git readback mismatch: '+evidence.story_id);
+    rows.push({story_id:evidence.story_id,source_sha256:evidence.sha256,target_path:evidence.target_path,git_blob_sha:evidence.git_blob_sha,readback_sha256:rb.sha256,dimensions:'1200x630',integrity_result:'PASS'});
   }
   return {
-    schema_version:'daily-compiler-d1-work-porter-receipt-v1',result:'PASS',scope:'IMAGE_PACKAGE_INGEST',
-    recorded_at:recordedAt,manifest_sha256:canonicalSha(manifest),ingest_handoff_sha256:canonicalSha(handoff),images:rows,
-    visual_quality_review_performed:false,image_generation_performed:false,owner_intervention:false
+    schema_version:'daily-compiler-d1-work-porter-receipt-v2',result:'PASS',scope:D1_WORK_SCOPE,recorded_at:recordedAt,
+    manifest_sha256:canonicalSha(manifest),ingest_handoff_sha256:canonicalSha(handoff),images:rows,
+    browser_orchestration_performed:true,visual_quality_review_performed:false,work_native_image_generation_performed:false,owner_intervention:false
   };
 }

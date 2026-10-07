@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-work-porter-receipt.schema.json",
-  "title": "Daily Compiler D1 Work Porter Receipt v1",
+  "title": "Daily Compiler D1 Work Browser Porter Receipt v2",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -11,21 +11,26 @@
     "manifest_sha256",
     "ingest_handoff_sha256",
     "images",
+    "browser_orchestration_performed",
     "visual_quality_review_performed",
-    "image_generation_performed",
+    "work_native_image_generation_performed",
     "owner_intervention"
   ],
   "properties": {
     "schema_version": {
-      "const": "daily-compiler-d1-work-porter-receipt-v1"
+      "const": "daily-compiler-d1-work-porter-receipt-v2"
     },
     "result": {
       "const": "PASS"
     },
     "scope": {
-      "const": "IMAGE_PACKAGE_INGEST"
+      "const": "IMAGE_BROWSER_ORCHESTRATION_AND_INGEST"
     },
     "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "ingest_handoff_sha256": {
       "type": "string",
       "pattern": "^[a-f0-9]{64}$"
     },
@@ -73,18 +78,17 @@
         }
       }
     },
+    "browser_orchestration_performed": {
+      "const": true
+    },
     "visual_quality_review_performed": {
       "const": false
     },
-    "image_generation_performed": {
+    "work_native_image_generation_performed": {
       "const": false
     },
     "owner_intervention": {
       "const": false
-    },
-    "ingest_handoff_sha256": {
-      "type": "string",
-      "pattern": "^[a-f0-9]{64}$"
     }
   }
 }

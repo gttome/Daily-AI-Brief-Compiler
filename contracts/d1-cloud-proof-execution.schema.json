@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-cloud-proof-execution.schema.json",
-  "title": "Daily Compiler D1 Cloud Proof Execution v1",
+  "title": "Daily Compiler D1 Browser Proof Execution v2",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,7 +9,7 @@
     "proof_id",
     "branch",
     "status",
-    "studio_request_path",
+    "request_path",
     "ingest_mapping_path",
     "native_generations",
     "owner_intervention",
@@ -18,7 +18,7 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "daily-compiler-d1-cloud-proof-execution-v1"
+      "const": "daily-compiler-d1-cloud-proof-execution-v2"
     },
     "proof_id": {
       "type": "string",
@@ -31,16 +31,15 @@
     "status": {
       "enum": [
         "PLANNED",
-        "STUDIO_REQUESTED",
-        "STUDIO_RUNNING",
+        "BROWSER_RUNNING",
         "PACKAGE_ACCEPTED",
-        "WORK_INGEST",
+        "GIT_INGEST",
         "GITHUB_VERIFIED",
         "COMPLETE",
         "BLOCKED"
       ]
     },
-    "studio_request_path": {
+    "request_path": {
       "type": "string",
       "minLength": 1
     },
@@ -77,6 +76,14 @@
       "minimum": 0
     },
     "accepted_assets": {
+      "type": "array",
+      "maxItems": 6,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "accepted_story_chats": {
       "type": "array",
       "maxItems": 6,
       "uniqueItems": true,
