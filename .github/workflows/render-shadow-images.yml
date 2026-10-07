@@ -35,15 +35,12 @@ jobs:
         run: node scripts/render-pending-images.mjs
       - name: Process immutable D0 raw candidates deterministically
         run: node scripts/process-native-image.mjs
-      - name: Build locked D0 benchmark vendor and reviewer atlases
-        run: node scripts/build-image-benchmark-atlas.mjs
       - name: Persist exact deterministic image outputs
         run: |
           git config user.name "Daily Compiler Image Processor"
           git config user.email "actions@users.noreply.github.com"
           git add rehearsals 2>/dev/null || true
           git add shadow-runs 2>/dev/null || true
-          git add vendor/image-benchmark 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No new deterministic image outputs"
             exit 0
