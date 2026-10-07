@@ -241,6 +241,38 @@
     },
     "producer_receipt": {
       "type": "object"
+    },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "correction_id",
+          "correction_type",
+          "correction_revision",
+          "reason",
+          "preserve_original"
+        ],
+        "properties": {
+          "correction_id": {
+            "type": "string"
+          },
+          "correction_type": {
+            "type": "string"
+          },
+          "correction_revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "reason": {
+            "type": "string"
+          },
+          "preserve_original": {
+            "const": true
+          }
+        }
+      }
     }
   },
   "allOf": [
