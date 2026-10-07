@@ -56,3 +56,13 @@ Stop rather than weaken the contract if:
 - a second October 7 execution would be required.
 
 A stop preserves every completed proof and accepted immutable asset. It never opens a paid, owner-transfer, same-chat, or Proposal 1R reader-image fallback.
+
+## Deterministic apply commands
+
+After all formal proofs pass, run `npm run d0:apply-activation -- .` on a protected-PR branch. The command refuses to write anything while the six-proof completion gate is blocked, writes the exact activation receipt plus active image contract, and verifies the resulting activation binding before the branch is eligible to merge.
+
+For the October 7 same-execution migration, first stage a full replacement D0 edition bundle that differs only in the image system and six accepted image records. Then run:
+
+`node scripts/apply-image-only-migration.mjs --state shadow-runs/2026-10-07/compiler-state.json --bundle shadow-runs/2026-10-07/edition-bundle.json --replacement <staged-d0-bundle.json> --receipt shadow-runs/2026-10-07/d0-image-migration-apply-receipt.json --repo-root .`
+
+The applicator requires active D0, the complete D0 bundle gate, identical semantic fingerprint, the same execution ID, six actual image replacements, and `semantic_rework=0`. It transitions only the existing execution back to `BUNDLE_READY/BUNDLE` for deterministic recompilation, removes stale preview/parity claims, and writes the new bundle digest from the exact replacement-bundle bytes. No editorial/content stage is reopened and no second execution is created.
