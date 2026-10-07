@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { materializeReaderSource } from './reader-materializer.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
+import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -110,12 +111,14 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   if (requiredBooks.size) fail('required book series coverage missing: '+[...requiredBooks].join(', '));
 
   ensureArray(bundle.images, 'images', 6);
+  const d0Requested=bundle.image_system?.strategy==='d0_native_image_capsules'||bundle.images.some(x=>x?.image_system==='d0_native_image_capsules');
+  if(d0Requested&&bundle.image_system?.strategy!=='d0_native_image_capsules') fail('D0 image system metadata missing');
   const imageEvidence = [];
   for (const image of bundle.images) {
     if (!image.story_id || !image.path || image.accepted !== true) fail('image acceptance record invalid');
     if (!/^[a-f0-9]{64}$/.test(image.sha256 || '')) fail('image sha256 invalid');
     if (!/^[a-f0-9]{40}$/.test(image.git_blob_sha || '')) fail('image git blob sha invalid');
-    if (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256) fail('image visual review mismatch');
+    if (!d0Requested && (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256)) fail('image visual review mismatch');
     const asset = path.resolve(repoRoot, image.path);
     if (!fs.existsSync(asset)) fail('image missing: '+image.path);
     const bytes = fs.readFileSync(asset);
@@ -124,6 +127,12 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     if (sha256(bytes) !== image.sha256) fail('image SHA mismatch: '+image.path);
     if (gitBlobSha(bytes) !== image.git_blob_sha) fail('image Git blob mismatch: '+image.path);
     imageEvidence.push({story_id:image.story_id,path:image.path,sha256:image.sha256,git_blob_sha:image.git_blob_sha,width:dims.width,height:dims.height});
+  }
+
+  let d0ImageGate=null;
+  if(d0Requested){
+    d0ImageGate=validateD0BundleImages({bundle,repoRoot});
+    if(d0ImageGate.result!=='PASS') fail('D0 image bundle gate failed: '+d0ImageGate.errors.join(';'));
   }
 
   if (bundle.producer_receipt?.result !== 'PASS') fail('producer receipt missing PASS');
@@ -136,7 +145,7 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     for (const pattern of PROD_MUTATION_PATTERNS) if (pattern.test(value)) fail('production repository mutation target forbidden');
   });
 
-  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence};
+  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate};
 }
 
 export async function buildSite({validation, outDir, repoRoot='.'}) {
