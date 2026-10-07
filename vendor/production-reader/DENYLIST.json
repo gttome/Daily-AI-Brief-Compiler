@@ -1,0 +1,63 @@
+{
+  "schema_version": "daily-compiler-reader-vendor-denylist-v1",
+  "prohibited_categories": [
+    "CONTROL_PLANE",
+    "EDITORIAL_RESEARCH",
+    "UNKNOWN"
+  ],
+  "prohibited_path_fragments": [
+    "run-supervisor",
+    "chatgpt-watchdog-ring",
+    "watchdog-health",
+    "edition-execution",
+    "durable-operation",
+    "transition-dispatcher",
+    "startup-sentinel",
+    "draft-recovery",
+    "atomic-closeout",
+    "branch-separation",
+    "attempt-index",
+    "checkpoints",
+    "command-center-access",
+    "command-center-delta",
+    "protected-repair",
+    "repository-task-consumer",
+    "repository-repair-consumer",
+    "production-run",
+    "publication-lifecycle",
+    "_records/edition-execution",
+    "docs/operations",
+    "docs/daily-ai-brief-command-center"
+  ],
+  "prohibited_imports": [
+    "./book-selection.mjs",
+    "run-supervisor.mjs",
+    "chatgpt-watchdog-ring.mjs",
+    "watchdog-health.mjs",
+    "edition-execution.mjs",
+    "durable-operation.mjs",
+    "transition-dispatcher.mjs",
+    "startup-sentinel.mjs",
+    "draft-recovery.mjs",
+    "atomic-closeout.mjs",
+    "branch-separation.mjs",
+    "attempt-index.mjs",
+    "checkpoints.mjs",
+    "command-center-access.mjs",
+    "command-center-delta.mjs"
+  ],
+  "prohibited_source_patterns": [
+    "gttome/Daily-AI-Brief.git",
+    "api.github.com/repos/gttome/Daily-AI-Brief",
+    "github.com/gttome/Daily-AI-Brief/actions",
+    "_records/edition-execution"
+  ],
+  "explicit_classification": {
+    "_generator/lib/book-selection.mjs": "EDITORIAL_RESEARCH",
+    ".github/**": "CONTROL_PLANE",
+    "_architecture/**": "CONTROL_PLANE",
+    "_records/edition-execution/**": "CONTROL_PLANE",
+    "docs/operations/**": "CONTROL_PLANE",
+    "docs/daily-ai-brief-command-center/**": "CONTROL_PLANE"
+  }
+}
