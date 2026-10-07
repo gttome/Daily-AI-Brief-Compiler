@@ -9,6 +9,7 @@ import {validateRawReceipt} from './persistence.mjs';
 import {structuralGate} from './structural-gate.mjs';
 import {validateVisualReview} from './review-contract.mjs';
 import {validateSetReview} from './set-review.mjs';
+import {validateD0Activation} from './activation-gate.mjs';
 
 const D0='d0_native_image_capsules';
 const safeRel=p=>typeof p==='string'&&p.length>0&&!path.isAbsolute(p)&&!p.includes('\\')&&!p.split('/').some(x=>x==='..'||x==='.'||x==='');
@@ -21,6 +22,8 @@ export function validateD0BundleImages({bundle,repoRoot='.'}){
   const errors=[],evidence=[];
   const sys=bundle?.image_system||{};
   if(sys.strategy!==D0) return {result:'NOT_D0',errors:[],evidence:[]};
+  const activation=validateD0Activation({repoRoot});
+  if(activation.result!=='PASS') errors.push(...activation.errors.map(x=>'activation:'+x));
   if(sys.contract_version!=='daily-compiler-image-contract-v3') errors.push('d0_contract_version');
   for(const f of ['set_plan_path','set_plan_sha256','set_review_path','set_review_sha256','acceptance_path','acceptance_sha256']){
     if(typeof sys[f]!=='string'||!sys[f]) errors.push('image_system_'+f);
