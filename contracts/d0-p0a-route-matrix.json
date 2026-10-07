@@ -1,0 +1,136 @@
+{
+  "schema_version": "daily-compiler-d0-p0a-route-matrix-v1",
+  "observed_at": "2026-10-07",
+  "activation_rule": "At least one route must satisfy every required capability with no prohibited dependency before another P0-A generation is authorized.",
+  "required_capabilities": [
+    "native_chatgpt_images",
+    "fresh_context",
+    "story_prompt_exactly_bindable",
+    "generated_asset_programmatically_retrievable",
+    "exact_bytes_available_before_context_end",
+    "post_generation_persistence_available",
+    "autonomous_invocation"
+  ],
+  "prohibited_dependencies": [
+    "owner_intervention",
+    "work",
+    "codex",
+    "paid_model_api",
+    "paid_image_service",
+    "billable_overage",
+    "new_paid_infrastructure",
+    "alternate_account",
+    "proposal1r_reader_fallback"
+  ],
+  "routes": [
+    {
+      "route_id": "standalone_scheduled_task",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://learn.chatgpt.com/docs/automations",
+        "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+        "https://help.openai.com/en/articles/11084440-images-in-chatgpt"
+      ],
+      "native_chatgpt_images": "UNPROVEN_IN_SCHEDULED_RUN",
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": true,
+      "generated_asset_programmatically_retrievable": false,
+      "exact_bytes_available_before_context_end": false,
+      "post_generation_persistence_available": false,
+      "autonomous_invocation": true,
+      "blocker": "Scheduled exposes run review in Scheduled, but the Compiler runtime has no supported task-run result action returning the generated image/file reference. Two pure story-only task runs produced no programmatically retrievable image asset through available task, Gmail, or Files/Library tools."
+    },
+    {
+      "route_id": "temporary_chat_unpersonalized",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/8914046"
+      ],
+      "native_chatgpt_images": true,
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": true,
+      "generated_asset_programmatically_retrievable": true,
+      "exact_bytes_available_before_context_end": true,
+      "post_generation_persistence_available": false,
+      "autonomous_invocation": false,
+      "blocker": "Unpersonalized Temporary Chat disables plugins, and the Compiler has no supported unattended primitive to create and drive a new Temporary Chat."
+    },
+    {
+      "route_id": "temporary_chat_personalized",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/8914046"
+      ],
+      "native_chatgpt_images": true,
+      "fresh_context": false,
+      "story_prompt_exactly_bindable": false,
+      "generated_asset_programmatically_retrievable": true,
+      "exact_bytes_available_before_context_end": true,
+      "post_generation_persistence_available": true,
+      "autonomous_invocation": false,
+      "blocker": "Personalized Temporary Chat may use memory, custom instructions, and plugins; it therefore is not a proven story-only boundary, and no unattended creation primitive is available."
+    },
+    {
+      "route_id": "custom_gpt_fresh_conversation",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/8554407-gpts-in-chatgpt",
+        "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt"
+      ],
+      "native_chatgpt_images": true,
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": "POSSIBLE_WITH_EXISTING_GPT_CONFIGURATION",
+      "generated_asset_programmatically_retrievable": "POSSIBLE_WITH_ACTION_FILE_PARAM",
+      "exact_bytes_available_before_context_end": "POSSIBLE_WITH_ACTION_FILE_PARAM",
+      "post_generation_persistence_available": "POSSIBLE_WITH_ACTION",
+      "autonomous_invocation": false,
+      "blocker": "GPT conversations start fresh, but Scheduled tasks do not support GPTs; the Compiler has no zero-owner autonomous GPT invocation primitive."
+    },
+    {
+      "route_id": "ordinary_new_chat",
+      "status": "BLOCKED",
+      "evidence": [
+        "https://help.openai.com/en/articles/12677804-what-is-chatgpt-faq",
+        "https://developers.openai.com/plugins/reference"
+      ],
+      "native_chatgpt_images": true,
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": true,
+      "generated_asset_programmatically_retrievable": true,
+      "exact_bytes_available_before_context_end": true,
+      "post_generation_persistence_available": true,
+      "autonomous_invocation": false,
+      "blocker": "A manually opened new chat can combine native image generation and connected actions, but the Compiler has no supported unattended create-new-chat primitive and owner liveness is prohibited."
+    },
+    {
+      "route_id": "paid_model_or_image_api",
+      "status": "PROHIBITED",
+      "evidence": [
+        "https://developers.openai.com/api/docs/guides/tools-image-generation"
+      ],
+      "native_chatgpt_images": false,
+      "fresh_context": true,
+      "story_prompt_exactly_bindable": true,
+      "generated_asset_programmatically_retrievable": true,
+      "exact_bytes_available_before_context_end": true,
+      "post_generation_persistence_available": true,
+      "autonomous_invocation": true,
+      "blocker": "Technically capable but permanently prohibited by the zero-added-cost product contract."
+    },
+    {
+      "route_id": "work_or_computer_use",
+      "status": "PROHIBITED",
+      "evidence": [
+        "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
+      ],
+      "native_chatgpt_images": "UNASSESSED",
+      "fresh_context": "POSSIBLE",
+      "story_prompt_exactly_bindable": "UNASSESSED",
+      "generated_asset_programmatically_retrievable": "POSSIBLE",
+      "exact_bytes_available_before_context_end": "UNASSESSED",
+      "post_generation_persistence_available": "POSSIBLE",
+      "autonomous_invocation": true,
+      "blocker": "Work is prohibited as a production/runtime dependency by contract."
+    }
+  ]
+}
