@@ -1,7 +1,7 @@
 const n=v=>Number.isFinite(v)?v:0;
 const sum=(arr,f)=>arr.reduce((a,x)=>a+n(f(x)),0);
 
-export function aggregateRunMetrics({events=[],problems=[],resourceObservations=[]}={}){
+export function aggregateRunMetrics({events=[],problems=[],resourceObservations=[],rateCard=null}={}){
   if(!events.length) throw new Error('events_required');
   const sorted=[...events].sort((a,b)=>Date.parse(a.timestamp)-Date.parse(b.timestamp));
   const started=sorted[0].timestamp,ended=sorted.at(-1).timestamp;
@@ -17,8 +17,13 @@ export function aggregateRunMetrics({events=[],problems=[],resourceObservations=
     web_queries:sum(sorted,e=>e.usage?.web_queries),
     github_writes:sum(sorted,e=>e.usage?.github_writes),
     estimated_charge:null,
-    estimate_basis:'not_inferred_without_configured_rate_card'
+    estimate_basis:'not_inferred_without_configured_rate_card',
+    currency:rateCard?.currency??null
   };
+  if(Number.isFinite(rateCard?.dot_cost_per_active_second)&&Number.isFinite(rateCard?.work_cost_per_active_second)){
+    usage.estimated_charge=usage.dot_active_seconds*rateCard.dot_cost_per_active_second+usage.work_active_seconds*rateCard.work_cost_per_active_second;
+    usage.estimate_basis='configured_usage_rate_card';
+  }
   const knownStage=sum(Object.values(stageSeconds),x=>x);
   const waits=Math.max(0,wall-knownStage);
   const byClass={};
@@ -126,8 +131,9 @@ export function buildRunAnalysis({metrics,problems=[],resourceObservations=[]}={
     cost_efficiency:{
       dot_active_seconds:metrics.usage?.dot_active_seconds??0,
       work_active_seconds:metrics.usage?.work_active_seconds??0,
-      estimated_charge:null,
-      estimate_basis:'not_inferred_without_configured_rate_card'
+      estimated_charge:metrics.usage?.estimated_charge??null,
+      estimate_basis:metrics.usage?.estimate_basis??'not_inferred_without_configured_rate_card',
+      currency:metrics.usage?.currency??null
     },
     problems,
     improvements
