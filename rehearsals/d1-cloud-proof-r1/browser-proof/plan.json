@@ -1,0 +1,62 @@
+{
+  "schema_version": "daily-compiler-d1-browser-chat-capability-proof-v1",
+  "proof_id": "d1-browser-chat-one-image-r1",
+  "parent_proof_id": "d1-cloud-proof-r1",
+  "branch": "rehearsal/d1-cloud-proof-r1",
+  "purpose": "Prove the smallest missing D1 path without rework: a browser operator creates one genuinely fresh ordinary ChatGPT image conversation, generates one native image from only the sealed story specification, recovers the exact generated asset, and persists the same bytes to a disposable Compiler proof path.",
+  "status": "WAITING_FOR_BROWSER_OPERATOR_CONNECTION",
+  "source_studio_request": "rehearsals/d1-cloud-proof-r1/studio-request.json",
+  "story_id": "stress-terminal-evidence",
+  "story_ordinal": 1,
+  "target_path": "rehearsals/d1-cloud-proof-r1/browser-proof/d1-proof-01-stress-terminal-evidence.png",
+  "receipt_path": "rehearsals/d1-cloud-proof-r1/browser-proof/receipt.json",
+  "requirements": {
+    "ordinary_chatgpt_chat": true,
+    "fresh_conversation": true,
+    "temporary_or_unpersonalized_chat_preferred": true,
+    "repository_context_forbidden": true,
+    "work_image_generation_forbidden": true,
+    "owner_file_transfer_forbidden": true,
+    "local_computer_forbidden": true,
+    "zip_forbidden": true,
+    "exact_asset_byte_recovery_required": true,
+    "github_readback_hash_match_required": true,
+    "max_native_generations": 1
+  },
+  "isolated_input_policy": {
+    "allowed": [
+      "story 1 specification from studio-request.json",
+      "canonical Perfect Image quality rules required for that story",
+      "story 1 visible-text allowlist"
+    ],
+    "forbidden": [
+      "GitHub repository history",
+      "branch names",
+      "Git target paths",
+      "PR or CI context",
+      "publication state",
+      "Work Porter instructions",
+      "prior Brief images",
+      "orchestration history"
+    ]
+  },
+  "pass_criteria": [
+    "browser operator opens a new ordinary ChatGPT conversation that is isolated from the Work/repository context",
+    "exactly one native ChatGPT image generation is performed from the isolated story-1 input",
+    "the generated individual image asset is programmatically accessible to the coordinator without owner download/upload",
+    "the exact asset bytes are persisted to the disposable Compiler proof target",
+    "SHA-256 of the recovered asset matches SHA-256 after Git readback",
+    "owner_intervention=false and local_computer_used=false"
+  ],
+  "stop_conditions": [
+    "browser operator cannot access an authenticated ordinary ChatGPT surface",
+    "browser operator cannot create a genuinely fresh/temporary/unpersonalized conversation",
+    "generated image asset cannot be programmatically recovered from the browser session",
+    "continuation would require owner download/upload or local-computer transfer"
+  ],
+  "native_generations": 0,
+  "owner_intervention": false,
+  "local_computer_used": false,
+  "notes": "Do not run all six images. This proof intentionally consumes at most one native image generation and stops immediately after PASS or the first irreducible platform blocker.",
+  "prepared_at": "2026-10-07T19:15:00Z"
+}
