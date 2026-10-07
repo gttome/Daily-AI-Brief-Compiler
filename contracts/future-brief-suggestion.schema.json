@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/future-brief-suggestion.schema.json",
+  "title":"Daily Compiler Future Brief Suggestion v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","suggestion_id","created_at","created_by","target_date","content_type","mode","status","priority","payload","dedupe_key"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-future-brief-suggestion-v1"},
+    "suggestion_id":{"type":"string"},
+    "created_at":{"type":"string","format":"date-time"},
+    "created_by":{"enum":["owner","system","dot","editorial_producer"]},
+    "target_date":{"type":["string","null"],"pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
+    "content_type":{"enum":["article","story_topic","image","video","podcast","watchlist","resource_source"]},
+    "mode":{"enum":["suggest","must_consider","must_include_if_valid"]},
+    "status":{"enum":["queued","considered","selected","rejected","expired","carried_forward"]},
+    "priority":{"enum":["urgent","high","normal","low"]},
+    "payload":{"type":"object"},
+    "reason":{"type":["string","null"]},
+    "source_url":{"type":["string","null"]},
+    "expires_at":{"type":["string","null"],"format":"date-time"},
+    "dedupe_key":{"type":"string","minLength":1},
+    "resolution":{"type":["object","null"]}
+  }
+}
