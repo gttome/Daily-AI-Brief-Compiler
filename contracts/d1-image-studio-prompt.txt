@@ -23,7 +23,7 @@ SET REVIEW
 Before final acceptance require six unique compositions and byte streams with strong cross-set differentiation. Do not accept six minor template variants.
 
 OUTPUT
-Return six individual accepted cloud image assets, not a ZIP, plus daily-compiler-d1-image-acceptance-manifest-v1. The manifest must bind story ID, cloud asset ID, filename, Git target path supplied in the input, width, height, format, bytes, SHA-256, composition signature, visible-text allowlist, accepted attempt, PASS and accepted_locked.
+Return six individual accepted cloud image assets, not a ZIP, plus daily-compiler-d1-image-acceptance-manifest-v1. The manifest must bind story ID, cloud asset ID, filename, width, height, format, bytes, SHA-256, composition signature, visible-text allowlist, accepted attempt, PASS and accepted_locked. Do not include repository names, branches, Git paths, CI instructions, publication state, or Work instructions in the Studio output manifest.
 
 Once the manifest is emitted, those exact asset bytes are immutable. Do not perform GitHub work.
 
