@@ -1,0 +1,21 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/dashboard-snapshot.schema.json",
+  "title":"Daily Compiler Dashboard Snapshot v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","generated_at","system","current_run","recent_runs","resource_health","future_brief_queue","corrections","usage","risks","next_actions"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-dashboard-snapshot-v1"},
+    "generated_at":{"type":"string","format":"date-time"},
+    "system":{"type":"object"},
+    "current_run":{"type":["object","null"]},
+    "recent_runs":{"type":"array"},
+    "resource_health":{"type":"array"},
+    "future_brief_queue":{"type":"array"},
+    "corrections":{"type":"array"},
+    "usage":{"type":"object"},
+    "risks":{"type":"array"},
+    "next_actions":{"type":"array"}
+  }
+}
