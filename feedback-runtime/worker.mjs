@@ -1,4 +1,4 @@
-import {isCompilerFeedbackItem,isCompilerWatchTopic} from '../compiler/feedback-identity.mjs';
+import {isCompilerFeedbackItem,isCompilerReaderEventItem,isCompilerWatchTopic} from '../compiler/feedback-identity.mjs';
 
 const choices=new Set(['very_interested','somewhat_interested','not_interested']);
 const eventMetrics=new Set(['share_initiations','source_clicks','permanent_page_clicks','worth_watching_clicks','views','retention_30s']);
@@ -80,7 +80,8 @@ export function createFeedbackWorker({allowedOrigins=['https://gttome.github.io'
       if(request.method==='GET'){
         if(url.pathname==='/api/watchlist')return json({totals:await store.watchlistTotals()},200,'*');
         const edition=url.searchParams.get('brief_date'),item=url.searchParams.get('item_id');
-        if(!date(edition)||!isCompilerFeedbackItem(edition,item))return bad('Invalid Compiler item',400,'*');
+        const validItem=url.pathname==='/api/events'?isCompilerReaderEventItem(edition,item):isCompilerFeedbackItem(edition,item);
+        if(!date(edition)||!validItem)return bad('Invalid Compiler item',400,'*');
         if(url.pathname==='/api/comments')return json({comments:await store.comments(edition,item)},200,'*');
         const kind=url.pathname==='/api/ratings'?'rating':'event';
         return json({totals:await store.aggregate(edition,item,kind)},200,'*');
@@ -98,7 +99,8 @@ export function createFeedbackWorker({allowedOrigins=['https://gttome.github.io'
         return json({recorded:true,choice:saved.choice,revision:Number(saved.revision)},200,origin);
       }
       const edition=body.brief_date,item=body.item_id,operation=request.headers.get('x-operation-id');
-      if(!date(edition)||!isCompilerFeedbackItem(edition,item))return bad('Invalid Compiler item',400,origin);
+      const validItem=url.pathname==='/api/events'?isCompilerReaderEventItem(edition,item):isCompilerFeedbackItem(edition,item);
+      if(!date(edition)||!validItem)return bad('Invalid Compiler item',400,origin);
       if(!uuid(operation))return bad('Operation ID required',400,origin);
       if(url.pathname==='/api/comments'){
         const comment=String(body.body||'').trim();
