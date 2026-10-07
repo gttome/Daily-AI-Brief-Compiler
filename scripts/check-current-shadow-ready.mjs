@@ -1,13 +1,15 @@
 import fs from 'node:fs';
+import path from 'node:path';
 
 const branch=process.argv[2] || process.env.GITHUB_REF_NAME || '';
+const root=process.argv[3] || '.';
 const match=/^shadow\/(\d{4}-\d{2}-\d{2})$/.exec(branch);
 if(!match){
   console.log('ready=false');
   process.exit(0);
 }
 const date=match[1];
-const statePath='shadow-runs/'+date+'/compiler-state.json';
+const statePath=path.join(root,'shadow-runs',date,'compiler-state.json');
 if(!fs.existsSync(statePath)){
   console.log('ready=false');
   process.exit(0);
