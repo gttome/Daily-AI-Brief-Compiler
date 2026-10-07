@@ -18,12 +18,10 @@ function readJson(root,p){return JSON.parse(fs.readFileSync(full(root,p),'utf8')
 function readBytes(root,p){return fs.readFileSync(full(root,p));}
 function same(a,b){return JSON.stringify(a??null)===JSON.stringify(b??null);}
 
-export function validateD0BundleImages({bundle,repoRoot='.'}){
+export function validateD0ImageEvidenceSet({bundle,repoRoot='.'}){
   const errors=[],evidence=[];
   const sys=bundle?.image_system||{};
   if(sys.strategy!==D0) return {result:'NOT_D0',errors:[],evidence:[]};
-  const activation=validateD0Activation({repoRoot});
-  if(activation.result!=='PASS') errors.push(...activation.errors.map(x=>'activation:'+x));
   if(sys.contract_version!=='daily-compiler-image-contract-v3') errors.push('d0_contract_version');
   for(const f of ['set_plan_path','set_plan_sha256','set_review_path','set_review_sha256','acceptance_path','acceptance_sha256']){
     if(typeof sys[f]!=='string'||!sys[f]) errors.push('image_system_'+f);
@@ -117,6 +115,15 @@ export function validateD0BundleImages({bundle,repoRoot='.'}){
   if(storyIds.size!==6) errors.push('d0_unique_story_count');
   if(hashes.size!==6) errors.push('d0_unique_byte_streams');
   return {result:errors.length?'FAIL':'PASS',errors:[...new Set(errors)],evidence};
+}
+
+export function validateD0BundleImages({bundle,repoRoot='.'}){
+  const evidence=validateD0ImageEvidenceSet({bundle,repoRoot});
+  if(evidence.result==='NOT_D0') return evidence;
+  const activation=validateD0Activation({repoRoot});
+  const errors=[...evidence.errors];
+  if(activation.result!=='PASS') errors.unshift(...activation.errors.map(x=>'activation:'+x));
+  return {result:errors.length?'FAIL':'PASS',errors:[...new Set(errors)],evidence:evidence.evidence};
 }
 
 export function assertD0BundleImages(opts){
