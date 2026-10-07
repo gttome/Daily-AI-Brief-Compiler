@@ -17,7 +17,7 @@ test('chunk bridge reconstructs exact payload and rejects changed chunk',()=>{
  assert.deepEqual(reconstructChunkBridge(m),png);
  const r=chunkBridgeRawReceipt(m);
  assert.deepEqual(validateRawReceipt(r,{bytes:png}),[]);
- const bad=structuredClone(m); bad.chunks[0].content=bad.chunks[0].content.replace(/A/,'B');
+ const bad=structuredClone(m); bad.chunks[0].content=(bad.chunks[0].content[0]==='A'?'B':'A')+bad.chunks[0].content.slice(1);
  assert.throws(()=>reconstructChunkBridge(bad),/chunk_invalid/);
 });
 test('attempt raw paths are immutable and bounded to four attempts',()=>{
