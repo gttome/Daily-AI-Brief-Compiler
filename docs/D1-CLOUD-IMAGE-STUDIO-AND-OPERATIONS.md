@@ -65,7 +65,7 @@ The Image Studio:
 3. rejects and regenerates weak candidates inside the Studio;
 4. performs the six-image differentiation review;
 5. locks the exact six accepted cloud assets;
-6. emits `daily-compiler-d1-image-acceptance-manifest-v1`.
+6. emits `daily-compiler-d1-image-acceptance-manifest-v1` containing only visual/asset identity. It does not contain repository names, branches or Git target paths.
 
 No accepted image is regenerated after manifest lock.
 
@@ -75,7 +75,7 @@ Work is permitted only under the explicit scope:
 
 `IMAGE_PACKAGE_INGEST`
 
-The Porter receives the six accepted image assets plus the acceptance manifest and repository handoff.
+The Porter receives the six accepted image assets plus the acceptance manifest and a separate `daily-compiler-d1-ingest-handoff-v1`. The ingest handoff is the only object that maps accepted story/filename identities to repository, branch and Git target paths.
 
 It may:
 
@@ -99,6 +99,10 @@ It may not:
 - change unrelated content.
 
 **GitHub proves identity, not aesthetics.**
+
+### Clean-context handoff rule
+
+The Image Studio never receives repository paths or publication/transport instructions. The Studio manifest proves which six cloud assets were accepted. After Studio acceptance, the Dot creates or retrieves a separate ingest handoff that binds those accepted filenames/story IDs to repository target paths. The Work Porter requires both objects and proves their hashes separately.
 
 A second visual-quality review during ingest is prohibited. If Git/readback SHA-256 equals the visually accepted manifest SHA-256, the repository contains the same accepted image.
 
