@@ -11,7 +11,34 @@ export function compilerPodcastFeedbackId(date,index){
 }
 export function isCompilerFeedbackItem(edition,item){
   if(!/^\d{4}-\d{2}-\d{2}$/.test(String(edition||'')))return false;
-  return new RegExp(`^dab-(?:story|video|podcast)-compiler-${edition}-[a-z0-9-]{1,100}$`).test(String(item||''));
+  return new RegExp(`^dab-(?:story|video|podcast)-compiler-${edition}-[a-z0-9-]{1,100}const slugify=value=>String(value||'item').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,90)||'item';
+
+export function compilerStoryFeedbackId(date,semanticId){
+  return `dab-story-compiler-${date}-${slugify(semanticId)}`;
+}
+export function compilerVideoFeedbackId(date,role){
+  return `dab-video-compiler-${date}-${slugify(role)}`;
+}
+export function compilerPodcastFeedbackId(date,index){
+  return `dab-podcast-compiler-${date}-${Number(index)+1}`;
+}
+).test(String(item||''));
+}
+export function isCompilerReaderEventItem(edition,item){
+  if(isCompilerFeedbackItem(edition,item))return true;
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(String(edition||'')))return false;
+  return new RegExp(`^dab-(?:story|video|podcast)-${edition}-[a-z0-9-]{1,100}const slugify=value=>String(value||'item').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,90)||'item';
+
+export function compilerStoryFeedbackId(date,semanticId){
+  return `dab-story-compiler-${date}-${slugify(semanticId)}`;
+}
+export function compilerVideoFeedbackId(date,role){
+  return `dab-video-compiler-${date}-${slugify(role)}`;
+}
+export function compilerPodcastFeedbackId(date,index){
+  return `dab-podcast-compiler-${date}-${Number(index)+1}`;
+}
+).test(String(item||''));
 }
 export function isCompilerWatchTopic(topic){
   return /^dab-topic-[a-z0-9-]{1,100}$/.test(String(topic||''));
