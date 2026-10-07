@@ -36,8 +36,12 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   }
   if((edition.match(/class="story-feedback story-feedback-compact star-feedback"/g)||[]).length!==10)fail('expected ratings on 6 articles, 2 videos, and 2 podcasts');
   if((edition.match(/data-feedback-rating="[1-5]"/g)||[]).length!==50)fail('five-star rating controls incomplete');
-  for(const slot of ['m01','m02','m10','m11','m12','m14']){
-    if(!edition.includes(`data-feedback-story-id="dab-story-${manifest.edition_date}-${slot}"`))fail('canonical feedback item identity missing: '+slot);
+  const feedbackRegistry=JSON.parse(fs.readFileSync(path.join(sourceDir,manifest.feedback.registry_route),'utf8'));
+  if(feedbackRegistry.items.length!==10)fail('Compiler feedback registry must contain 10 reader items');
+  for(const item of feedbackRegistry.items){
+    if(!item.feedback_id.includes('-compiler-'))fail('Compiler feedback item namespace missing: '+item.feedback_id);
+    if(!edition.includes(`data-feedback-story-id="${item.feedback_id}"`))fail('Compiler feedback identity missing from reader: '+item.feedback_id);
+    if(edition.includes(`data-feedback-story-id="${item.canonical_reader_id}"`))fail('production-style feedback identity leaked into current Compiler reader: '+item.canonical_reader_id);
   }
   const watchlistData=JSON.parse(fs.readFileSync(path.join(sourceDir,'data','watchlist.json'),'utf8'));
   if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').startsWith('dab-topic-compiler-')))fail('Compiler-only Watchlist topic identity leaked into reader');
@@ -47,6 +51,15 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   if(!edition.includes('assets/js/feedback.js'))fail('rating runtime missing');
   if(!home.includes('subscription')||!home.includes('daily-feed.xml'))fail('subscription surface missing');
   const watchlistRuntime=fs.readFileSync(path.join(siteDir,'assets','js','watchlist.js'),'utf8');
+  const ratingRuntime=fs.readFileSync(path.join(siteDir,'assets','js','feedback.js'),'utf8');
+  const commentRuntime=fs.readFileSync(path.join(siteDir,'assets','js','comments.js'),'utf8');
+  const shareRuntime=fs.readFileSync(path.join(siteDir,'assets','js','share.js'),'utf8');
+  for(const [name,source] of [['ratings',ratingRuntime],['comments',commentRuntime],['watchlist',watchlistRuntime],['share',shareRuntime]]){
+    if(!source.includes(manifest.feedback.base_url))fail(name+' runtime does not use Compiler feedback store');
+    if(source.includes('daily-ai-brief-ratings.gtome.chatgpt.site'))fail(name+' runtime still depends on legacy Ratings Site');
+  }
+  if(!commentRuntime.includes('Comment saved. Thank you.'))fail('Compiler public comment success message missing');
+  if(commentRuntime.includes('Sent privately'))fail('Compiler comment copy still claims private storage');
   const watchlistCss=fs.readFileSync(path.join(siteDir,'assets','css','watchlist.css'),'utf8');
   if(!watchlistRuntime.includes("b.setAttribute('aria-pressed',String(b.dataset.choice===choice))"))fail('watchlist interest selection is not visually immediate');
   if(!watchlistCss.includes('.wl-votes button[aria-pressed=true]'))fail('watchlist selected-interest styling missing');
@@ -84,6 +97,9 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     sharing:true,
     subscriptions:true,
     feedback_backend_identity:true,
+    feedback_store:manifest.feedback.store,
+    feedback_item_namespace:true,
+    public_comments:true,
     watchlist_stable_identity:true,
     watchlist_immediate_selection:true,
     responsive:true,
