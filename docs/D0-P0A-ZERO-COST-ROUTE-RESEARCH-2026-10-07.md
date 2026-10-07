@@ -27,7 +27,7 @@ Sources:
 - https://learn.chatgpt.com/docs/automations
 - https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt
 
-However, the available Compiler runtime exposes task metadata and notifications, not a task-run result API returning the generated image/file reference. The two pure story-only scheduled proof runs completed, yet no generated result asset became accessible through the available task, Gmail, or Files/Library tool surface. Repeating the same experiment is therefore prohibited by the P0-A no-rework gate.
+However, the available Compiler runtime exposes task metadata and notifications, not a task-run result API returning the generated image/file reference. The two pure story-only scheduled proof runs completed, yet no generated result asset became accessible through the available task, Gmail, or Files/Library tool surface. Repeating the same experiment is therefore prohibited by the P0-A no-rework gate. The notification was further inspected to its underlying ChatGPT run-conversation link; the current runtime still has no authenticated task-run fetch action for that conversation, public web retrieval cannot fetch it, and exact conversation-ID personal-context retrieval returns no image file ID, bytes, or pixels.
 
 ### ChatGPT Images / Images tab
 
