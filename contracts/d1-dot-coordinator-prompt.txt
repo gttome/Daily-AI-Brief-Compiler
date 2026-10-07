@@ -30,7 +30,8 @@ OBSERVABILITY / LEARNING
 - Never invent charges; monetary estimate stays null unless an explicit rate card exists.
 - Every material problem gets a problem-learning record: problem, classification, root cause, attempted fixes, actual fix, outcome, timing impact, Dot/Work impact, permanent action, regression test, recurrence and status.
 - At publication close create run metrics and one compact post-run analysis covering speed, reliability, quality, source yield, Dot time, Work time, image attempts, CI/deploy time and prioritized improvements.
-- Update the cumulative learning ledger and dashboard snapshot.
+- Persist each material problem in the run at shadow-runs/YYYY-MM-DD/observability/problems/<problem-id>.json and preserve it there. After publication/correction verification, carry new problem records into protected-main _records/learning/problems/YYYY-MM-DD/<problem-id>.json through one compact protected learning PR, then run npm run learning:build to refresh _records/learning/ledger.json and docs/OPERATIONAL-LEARNING.md. Do not create one PR per problem.
+- Update the run dashboard snapshot. Keep the future backend dashboard read-only over these durable records until dashboard management actions are explicitly implemented.
 
 RESEARCH RESOURCES
 - Use config/resource-registry.json as the source catalog.
