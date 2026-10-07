@@ -75,6 +75,12 @@ export function createFeedbackWorker({allowedOrigins=['https://gttome.github.io'
         const allowed=allowedOrigins.includes(origin)||origin===url.origin;
         return new Response(null,{status:204,headers:cors(allowed?origin:'null')});
       }
+      if(url.pathname==='/'&&request.method==='GET'){
+        return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><title>Daily AI Brief Compiler Feedback</title><main><h1>Daily AI Brief Compiler Feedback Store</h1><p>Public, anonymous storage for Compiler ratings, comments, Watchlist votes, and share counters.</p><p>No account or reader identity is collected.</p></main>',{status:200,headers:{'content-type':'text/html; charset=utf-8','cache-control':'no-store'}});
+      }
+      if(url.pathname==='/api/health'&&request.method==='GET'){
+        return json({status:'ok',store:'compiler-owned-public-v1',storage_bound:Boolean(env.STORE||env.DB)},env.STORE||env.DB?200:503,'*');
+      }
       if(!['/api/ratings','/api/comments','/api/watchlist','/api/events'].includes(url.pathname))return bad('Not found',404,'*');
       const store=env.STORE||createD1Storage(env.DB);
       if(request.method==='GET'){
