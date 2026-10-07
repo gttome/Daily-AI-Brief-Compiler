@@ -12,7 +12,7 @@ import {buildFinalReceipt} from '../image-capsules/normalize.mjs';
 import {structuralGate} from '../image-capsules/structural-gate.mjs';
 import {BASIC_GATES,BENCHMARK_DIMENSIONS} from '../image-capsules/review-contract.mjs';
 import {observedSetGate,buildAtomicAcceptance} from '../image-capsules/set-review.mjs';
-import {validateD0BundleImages} from '../image-capsules/bundle-gate.mjs';
+import {validateD0BundleImages,validateD0ImageEvidenceSet} from '../image-capsules/bundle-gate.mjs';
 
 const gate=()=>({verdict:'PASS',observation:'Concrete visible evidence is present.'});
 const write=(root,p,obj)=>{const f=path.join(root,p);fs.mkdirSync(path.dirname(f),{recursive:true});fs.writeFileSync(f,Buffer.isBuffer(obj)||typeof obj==='string'?obj:JSON.stringify(obj,null,2)+'\n');};
@@ -72,6 +72,8 @@ test('D0 BUNDLE_READY image gate fails closed before activation',async()=>{
   const contract=JSON.parse(fs.readFileSync(contractPath,'utf8'));
   contract.activation_status='proof_required'; contract.activation_receipt_path=null; contract.activation_receipt_sha256=null;
   fs.writeFileSync(contractPath,JSON.stringify(contract));
+  const proof=validateD0ImageEvidenceSet({bundle,repoRoot:root});
+  assert.equal(proof.result,'PASS',proof.errors.join('\n'));
   const r=validateD0BundleImages({bundle,repoRoot:root});
   assert.equal(r.result,'FAIL');
   assert.ok(r.errors.includes('activation:d0_activation_not_active'));
