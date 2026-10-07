@@ -1,36 +1,277 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/compiler-state.schema.json",
-  "title":"Daily Compiler State v1",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["schema_version","edition_date","execution_id","branch","state","stage","started_at","updated_at","editorial_bundle","images","bundle","last_error","retryable"],
-  "properties":{
-    "schema_version":{"const":"daily-compiler-state-v1"},
-    "edition_date":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
-    "execution_id":{"type":"string","minLength":1},
-    "branch":{"type":"string","pattern":"^shadow/\\d{4}-\\d{2}-\\d{2}$"},
-    "state":{"enum":["ALLOCATED","PRODUCING","BUNDLE_READY","COMPILING","PREVIEW_READY","SHADOW_VERIFIED","SHADOW_FAILED"]},
-    "stage":{"enum":["EDITORIAL","CONTENT","IMAGES","BUNDLE","COMPILE","VERIFY"]},
-    "started_at":{"type":"string","format":"date-time"},
-    "updated_at":{"type":"string","format":"date-time"},
-    "editorial_bundle":{"type":"object","additionalProperties":false,"required":["status","digest"],"properties":{"status":{"enum":["pending","complete"]},"digest":{"type":["string","null"]}}},
-    "images":{"type":"object","additionalProperties":false,"required":["required","accepted"],"properties":{
-      "required":{"const":6},
-      "accepted":{"type":"array","maxItems":6,"uniqueItems":true,"items":{"type":"string"}},
-      "strategy":{"enum":["proposal1r_legacy","d0_native_image_capsules"]},
-      "phase":{"enum":["PLANNED","IN_PROGRESS","SET_REVIEW_READY","SET_PASS","ACCEPTED"]},
-      "set_plan_path":{"type":["string","null"]},
-      "set_plan_sha256":{"type":["string","null"]},
-      "set_review_path":{"type":["string","null"]},
-      "set_review_sha256":{"type":["string","null"]},
-      "acceptance_path":{"type":["string","null"]},
-      "acceptance_sha256":{"type":["string","null"]}
-    }},
-    "bundle":{"type":"object","additionalProperties":false,"required":["status","digest"],"properties":{"status":{"enum":["pending","BUNDLE_READY"]},"digest":{"type":["string","null"]}}},
-    "last_error":{"type":["object","string","null"]},
-    "retryable":{"type":"boolean"},
-    "preview":{"type":"object"},
-    "reader_parity":{"type":"object"}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/compiler-state.schema.json",
+  "title": "Daily Compiler State v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "edition_date",
+    "execution_id",
+    "branch",
+    "state",
+    "stage",
+    "started_at",
+    "updated_at",
+    "editorial_bundle",
+    "images",
+    "bundle",
+    "last_error",
+    "retryable"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "daily-compiler-state-v1"
+    },
+    "edition_date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "execution_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "branch": {
+      "type": "string",
+      "pattern": "^shadow/\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "state": {
+      "enum": [
+        "ALLOCATED",
+        "PRODUCING",
+        "BUNDLE_READY",
+        "COMPILING",
+        "PREVIEW_READY",
+        "SHADOW_VERIFIED",
+        "SHADOW_FAILED"
+      ]
+    },
+    "stage": {
+      "enum": [
+        "EDITORIAL",
+        "CONTENT",
+        "IMAGES",
+        "BUNDLE",
+        "COMPILE",
+        "VERIFY"
+      ]
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "editorial_bundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "digest"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "complete"
+          ]
+        },
+        "digest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "images": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "accepted"
+      ],
+      "properties": {
+        "required": {
+          "const": 6
+        },
+        "accepted": {
+          "type": "array",
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "strategy": {
+          "enum": [
+            "proposal1r_legacy",
+            "d0_native_image_capsules",
+            "d1_cloud_image_studio"
+          ]
+        },
+        "phase": {
+          "enum": [
+            "PLANNED",
+            "IN_PROGRESS",
+            "SET_REVIEW_READY",
+            "SET_PASS",
+            "ACCEPTED",
+            "STUDIO_RUNNING",
+            "PACKAGE_ACCEPTED",
+            "WORK_INGEST",
+            "GITHUB_VERIFIED"
+          ]
+        },
+        "set_plan_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "set_plan_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "set_review_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "set_review_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "acceptance_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "acceptance_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "acceptance_manifest_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "acceptance_manifest_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "work_porter_receipt_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "work_porter_receipt_sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "bundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "digest"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pending",
+            "BUNDLE_READY"
+          ]
+        },
+        "digest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "last_error": {
+      "type": [
+        "object",
+        "string",
+        "null"
+      ]
+    },
+    "retryable": {
+      "type": "boolean"
+    },
+    "preview": {
+      "type": "object"
+    },
+    "reader_parity": {
+      "type": "object"
+    },
+    "observability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "events_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "metrics_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "analysis_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dashboard_snapshot_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "learning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "problems_dir": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ledger_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
   }
 }
