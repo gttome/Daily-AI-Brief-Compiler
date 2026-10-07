@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/image-capsule-admission.schema.json",
+  "title":"Daily Compiler Image Capsule Admission v1",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","edition_date","execution_id","story_id","attempt","invocation_id","context_id","context_origin","fresh_context","dedicated_story_only_context","orchestration_context_visible","includes_other_stories","conversation_images_visible","referenced_images","submitted_instruction_sha256","expected_instruction_sha256","submitted_instruction_equals_expected","same_invocation_capture_required","owner_intervention_required","work_used","codex_used","paid_model_api_used","generation_authorized"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-image-capsule-admission-v1"},
+    "edition_date":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},"execution_id":{"type":"string","minLength":1},"story_id":{"type":"string","minLength":1},
+    "attempt":{"type":"integer","minimum":1,"maximum":4},"invocation_id":{"type":"string","minLength":1},"context_id":{"type":"string","minLength":1},
+    "context_origin":{"const":"fresh_story_only_invocation"},"fresh_context":{"const":true},"dedicated_story_only_context":{"const":true},
+    "orchestration_context_visible":{"const":false},"includes_other_stories":{"const":false},"conversation_images_visible":{"const":false},
+    "referenced_images":{"type":"array","maxItems":0},
+    "submitted_instruction_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"expected_instruction_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "submitted_instruction_equals_expected":{"const":true},"same_invocation_capture_required":{"const":true},"owner_intervention_required":{"const":false},
+    "work_used":{"const":false},"codex_used":{"const":false},"paid_model_api_used":{"const":false},"generation_authorized":{"const":true}
+  }
+}

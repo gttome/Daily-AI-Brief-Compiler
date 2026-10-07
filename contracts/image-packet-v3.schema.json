@@ -1,0 +1,37 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/image-packet-v3.schema.json",
+  "title":"Daily Compiler Image Packet v3",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","envelope","generation","review"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-image-packet-v3"},
+    "envelope":{"type":"object","additionalProperties":false,"required":["edition_date","story_id","candidate_id","story_content_sha256","set_plan_sha256","packet_sha256"],"properties":{
+      "edition_date":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},
+      "story_id":{"type":"string","minLength":1},"candidate_id":{"type":"string","minLength":1},
+      "story_content_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+      "set_plan_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+      "packet_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}
+    }},
+    "generation":{"type":"object","additionalProperties":false,"required":["subject","core_mechanism","verified_visual_facts","conceptual_elements","meaningful_components_plan","composition_assignment","visible_text_allowlist","prohibited_specifics","prohibited_composition_patterns","reference_policy","wrong_subject_action","render_contract"],"properties":{
+      "subject":{"type":"string","minLength":1},"core_mechanism":{"type":"string","minLength":1},
+      "verified_visual_facts":{"type":"array","items":{"type":"string","minLength":1}},
+      "conceptual_elements":{"type":"array","items":{"type":"string","minLength":1}},
+      "meaningful_components_plan":{"type":"array","minItems":8,"items":{"type":"object","additionalProperties":false,"required":["component_id","description","support","required"],"properties":{"component_id":{"type":"string","minLength":1},"description":{"type":"string","minLength":1},"support":{"enum":["verified_fact","approved_concept"]},"required":{"const":true}}}},
+      "composition_assignment":{"$ref":"#/$defs/composition"},
+      "visible_text_allowlist":{"type":"array","uniqueItems":true,"items":{"type":"string","minLength":1,"maxLength":80}},
+      "prohibited_specifics":{"type":"array","items":{"type":"string","minLength":1}},
+      "prohibited_composition_patterns":{"type":"array","items":{"type":"string","minLength":1}},
+      "reference_policy":{"type":"string","minLength":1},
+      "wrong_subject_action":{"const":"discard_and_generate_fresh"},
+      "render_contract":{"type":"object","additionalProperties":false,"required":["canvas_target","background","style","minimum_meaningful_components","people","humanoids","branding","photorealism","generic_ai_imagery","decorative_filler","unsupported_specifics","visible_text_policy","low_quality_fallback"],"properties":{
+        "canvas_target":{"const":"1200x630"},"background":{"const":"white_or_near_white"},"style":{"const":"professional_high_detail_textbook_editorial_mechanism"},
+        "minimum_meaningful_components":{"const":8},"people":{"const":"prohibited"},"humanoids":{"const":"prohibited"},"branding":{"const":"prohibited"},"photorealism":{"const":"prohibited"},"generic_ai_imagery":{"const":"prohibited"},"decorative_filler":{"const":"prohibited"},"unsupported_specifics":{"const":"prohibited"},"visible_text_policy":{"const":"exact_allowlist_only"},"low_quality_fallback":{"const":false}
+      }}
+    }},
+    "review":{"type":"object","additionalProperties":false,"required":["benchmark_profile","minimum_meaningful_components","generic_or_sparse_must_be","decorative_only_must_be"],"properties":{"benchmark_profile":{"const":"sep09-sep10-premium3-v1"},"minimum_meaningful_components":{"const":8},"generic_or_sparse_must_be":{"const":false},"decorative_only_must_be":{"const":false}}}
+  },
+  "$defs":{"composition":{"type":"object","additionalProperties":false,"required":["composition_signature","layout_signature","diagram_grammar","hierarchy_signature","annotation_pattern_signature","reading_path","prohibited_patterns"],"properties":{
+    "composition_signature":{"type":"string","minLength":1},"layout_signature":{"type":"string","minLength":1},"diagram_grammar":{"type":"string","minLength":1},"hierarchy_signature":{"type":"string","minLength":1},"annotation_pattern_signature":{"type":"string","minLength":1},"reading_path":{"type":"string","minLength":1},"prohibited_patterns":{"type":"array","items":{"type":"string","minLength":1}}
+  }}}
+}
