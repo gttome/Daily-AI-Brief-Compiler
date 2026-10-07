@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { firstIncompleteSemanticStage, nextImageOrdinal, assertProgressPreserved, recoveryDecision, primaryDecision } from '../producer/recovery.mjs';
+import { firstIncompleteSemanticStage, nextImageOrdinal, imageRecoveryMode, assertProgressPreserved, recoveryDecision, primaryDecision } from '../producer/recovery.mjs';
 
 const base={
   schema_version:'daily-compiler-state-v1',
@@ -65,4 +65,13 @@ test('primary reuses same-edition execution and blocks duplicates',()=>{
   const sealed=clone(base); sealed.state='BUNDLE_READY'; sealed.stage='BUNDLE'; sealed.bundle={status:'BUNDLE_READY',digest:'abc'};
   assert.equal(primaryDecision([sealed],'2026-10-07').action,'EXIT_NO_MUTATION');
   assert.equal(primaryDecision([],'2026-10-08').action,'ALLOCATE');
+});
+
+
+test('D0 recovery uses durable attempt history instead of ordinal allocation',()=>{
+  const d0=clone(base); d0.stage='IMAGES'; d0.editorial_bundle.status='complete'; d0.images.strategy='d0_native_image_capsules';
+  assert.equal(nextImageOrdinal(d0),null);
+  assert.equal(imageRecoveryMode(d0),'D0_DURABLE_ATTEMPT_HISTORY');
+  const d=recoveryDecision([d0]);
+  assert.equal(d.image_recovery_mode,'D0_DURABLE_ATTEMPT_HISTORY');
 });
