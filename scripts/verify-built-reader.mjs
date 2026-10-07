@@ -36,6 +36,13 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   }
   if((edition.match(/class="story-feedback story-feedback-compact star-feedback"/g)||[]).length!==10)fail('expected ratings on 6 articles, 2 videos, and 2 podcasts');
   if((edition.match(/data-feedback-rating="[1-5]"/g)||[]).length!==50)fail('five-star rating controls incomplete');
+  for(const slot of ['m01','m02','m10','m11','m12','m14']){
+    if(!edition.includes(`data-feedback-story-id="dab-story-${manifest.edition_date}-${slot}"`))fail('canonical feedback item identity missing: '+slot);
+  }
+  const watchlistData=JSON.parse(fs.readFileSync(path.join(sourceDir,'data','watchlist.json'),'utf8'));
+  if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').startsWith('dab-topic-compiler-')))fail('Compiler-only Watchlist topic identity leaked into reader');
+  if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').length>64))fail('Watchlist topic identity exceeds feedback-service contract');
+  if((watchlistData.topics||[]).length<20)fail('rolling Watchlist history was not preserved');
   if(!edition.includes('assets/js/share.js'))fail('share runtime missing');
   if(!edition.includes('assets/js/feedback.js'))fail('rating runtime missing');
   if(!home.includes('subscription')||!home.includes('daily-feed.xml'))fail('subscription surface missing');
@@ -76,6 +83,8 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     ratings:true,
     sharing:true,
     subscriptions:true,
+    feedback_backend_identity:true,
+    watchlist_stable_identity:true,
     watchlist_immediate_selection:true,
     responsive:true,
     accessibility:true,
