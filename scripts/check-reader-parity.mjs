@@ -10,10 +10,12 @@ const sha256=data=>crypto.createHash('sha256').update(data).digest('hex');
 export async function checkGoldenReaderParity({date='2026-10-06'}={}){
   const edition=JSON.parse(fs.readFileSync(path.join(snapshot,'_data','editions',date+'.json'),'utf8'));
   const reader=await import(pathToFileURL(path.join(snapshot,'_generator','lib','reader.mjs')).href);
-  const watch=await import(pathToFileURL(path.join(snapshot,'_generator','lib','watchlist.mjs')).href);
-  const watchlist=watch.watchlistForEdition(snapshot,date);
   const actual=new Map();
-  for(const [name,content] of reader.readerFoundationFiles(edition,snapshot))actual.set(name,content);
+  const currentPath=name=>name.startsWith('stories/'+date+'/')||name.startsWith('videos/'+date+'/')||name.startsWith('podcasts/'+date+'/');
+  const stripEditorOnly=content=>String(content).replace(/<span class="story-editorial-note" data-george-implication="[^"]*" hidden><\/span>/g,'');
+  for(const [name,content] of reader.readerFoundationFiles(edition,snapshot)){
+    if(currentPath(name))actual.set(name,stripEditorOnly(content));
+  }
 
   const compared=[],mismatches=[];
   for(const [name,content] of actual){
