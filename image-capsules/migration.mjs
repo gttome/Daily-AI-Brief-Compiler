@@ -1,4 +1,4 @@
-import {canonicalSha} from './util.mjs';
+import {canonicalSha,sha256} from './util.mjs';
 
 function semanticProjection(bundle={}){
   return {
@@ -71,4 +71,37 @@ export function verifyImageOnlyMigration({beforeState,beforeBundle,afterState,af
     semantic_rework:semanticRework??null,
     errors:[...new Set(errors)]
   };
+}
+
+
+export function buildMigratedState({beforeState,beforeBundle,afterBundle,bundleText,updatedAt=new Date().toISOString()}={}){
+  if(typeof bundleText!=='string'||bundleText.length===0) throw new Error('migration_bundle_text_required');
+  const verification=verifyImageOnlyMigration({beforeState,beforeBundle,afterState:beforeState,afterBundle});
+  if(verification.result!=='PASS') throw new Error('image_only_migration_invalid:'+verification.errors.join(','));
+  const sys=afterBundle.image_system||{};
+  for(const key of ['set_plan_path','set_plan_sha256','set_review_path','set_review_sha256','acceptance_path','acceptance_sha256']){
+    if(typeof sys[key]!=='string'||!sys[key]) throw new Error('migration_image_system_'+key);
+  }
+  const next=structuredClone(beforeState);
+  next.state='BUNDLE_READY';
+  next.stage='BUNDLE';
+  next.updated_at=updatedAt;
+  next.images={
+    required:6,
+    accepted:afterBundle.images.map(x=>x.story_id),
+    strategy:'d0_native_image_capsules',
+    phase:'ACCEPTED',
+    set_plan_path:sys.set_plan_path,
+    set_plan_sha256:sys.set_plan_sha256,
+    set_review_path:sys.set_review_path,
+    set_review_sha256:sys.set_review_sha256,
+    acceptance_path:sys.acceptance_path,
+    acceptance_sha256:sys.acceptance_sha256
+  };
+  next.bundle={status:'BUNDLE_READY',digest:sha256(bundleText)};
+  next.last_error=null;
+  next.retryable=false;
+  delete next.preview;
+  delete next.reader_parity;
+  return {state:next,verification,bundle_digest:next.bundle.digest};
 }
