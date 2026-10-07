@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-d1-transition-schedule-sync-v2",
   "result": "PASS",
-  "synchronized_at": "2026-10-07T21:11:22Z",
+  "synchronized_at": "2026-10-07T23:43:42Z",
   "new_schedule_created": false,
   "owner_intervention": false,
   "d1_activation_changed": false,
@@ -12,7 +12,7 @@
       "timing_mode": "exact_schedule",
       "timezone": "America/Chicago",
       "cadence": "RRULE:FREQ=DAILY;BYHOUR=19;BYMINUTE=15;BYSECOND=0",
-      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v2",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v3",
       "automation_id": "6ac57b19b3508191944ce2e0dec1d57b"
     },
     {
@@ -21,7 +21,7 @@
       "timing_mode": "exact_schedule",
       "timezone": "America/Chicago",
       "cadence": "RRULE:FREQ=DAILY;BYHOUR=21;BYMINUTE=15;BYSECOND=0",
-      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v2",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v3",
       "automation_id": "6ac57b28e8b08191a35a634a556583fb"
     },
     {
@@ -30,7 +30,7 @@
       "timing_mode": "exact_schedule",
       "timezone": "America/Chicago",
       "cadence": "RRULE:FREQ=DAILY;BYHOUR=1;BYMINUTE=15;BYSECOND=0",
-      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v2",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v3",
       "automation_id": "6ac57b39c2108191b0502fa432e3a2fb"
     },
     {
@@ -39,9 +39,9 @@
       "timing_mode": "exact_schedule",
       "timezone": "America/Chicago",
       "cadence": "RRULE:FREQ=DAILY;BYHOUR=5;BYMINUTE=15;BYSECOND=0",
-      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v2",
+      "prompt_contract": "daily-compiler-d1-transition-schedule-prompts-v3",
       "automation_id": "6ac57b4a77988191a2986f11ac597140"
     }
   ],
-  "note": "Verified live ChatGPT Compiler schedules were updated in place to the D1 v5 state-driven prompt contract. Count/cadence unchanged. Before activation Proposal 1R remains the reader-image path; after activation semantic schedules stop at SPEC_READY and yield to the separate Work Cloud Browser image lane. No new schedule or control plane was created."
+  "note": "Existing four Compiler semantic schedules were updated in place to D1 prompt contract v3. They now bind image strategy exactly once per edition at allocation and never switch an existing edition because global D1 activation changes later. Schedule count/cadence is unchanged; no new semantic schedule was created."
 }
