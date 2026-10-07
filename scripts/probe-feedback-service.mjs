@@ -1,18 +1,17 @@
 const base='https://daily-ai-brief-ratings.gtome.chatgpt.site';
-const html=await (await fetch(base+'/')).text();
-const refs=[...new Set([...html.matchAll(/(?:src|href)="([^"]+\.js[^"]*)"/g)].map(m=>m[1]))];
-const needles=['unknown_item','invalid_comment','invalid_value','recorded','item_id','brief_date','allowed','registry','snapshot','private/comments','private/snapshots','route-handler:/api/comments','route-handler:/api/ratings'];
+const rootRes=await fetch(base+'/',{headers:{'origin':'https://gttome.github.io','referer':'https://gttome.github.io/Daily-AI-Brief-Compiler/'}});
+const html=await rootRes.text();
+const urls=[...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css)[^"]*)"/g)].map(m=>m[1]);
+const jsUrls=[...new Set(urls.filter(x=>x.includes('.js')))];
 const findings=[];
-for(const ref of refs){
-  const text=await (await fetch(new URL(ref,base))).text();
-  const hits={};
-  for(const needle of needles){
-    const positions=[];let from=0;
-    while(true){const i=text.indexOf(needle,from);if(i<0)break;positions.push(i);from=i+needle.length;if(positions.length>=5)break;}
-    if(positions.length)hits[needle]=positions.map(i=>text.slice(Math.max(0,i-500),Math.min(text.length,i+1200)));
+for(const u of jsUrls){
+  const r=await fetch(new URL(u,base));
+  const text=await r.text();
+  const matches=[];
+  for(const term of ['unknown_item','api/ratings','api/comments','api/watchlist','register','registry','item_id','brief_date','comments','ratings']){
+    let i=text.indexOf(term);
+    if(i>=0)matches.push({term,snippet:text.slice(Math.max(0,i-350),Math.min(text.length,i+1200))});
   }
-  if(Object.keys(hits).length)findings.push({ref,bytes:text.length,hits});
+  findings.push({url:u,status:r.status,length:text.length,matches});
 }
-const routeText=await (await fetch(new URL(refs[0],base))).text();
-const routes=[...new Set([...routeText.matchAll(/pattern:`(\/api\/[^\`]+)`/g)].map(m=>m[1]))].sort();
-console.log(JSON.stringify({schema_version:'feedback-service-contract-bundle-probe-v2',routes,findings},null,2));
+console.log(JSON.stringify({schema_version:'feedback-service-client-surface-v1',root_status:rootRes.status,js_urls:jsUrls,findings},null,2));
