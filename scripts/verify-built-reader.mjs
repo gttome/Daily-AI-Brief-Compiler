@@ -55,6 +55,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
         const from=path.relative(siteDir,path.dirname(file)).replaceAll(path.sep,'/');
         relative=path.posix.normalize(path.posix.join(from,relative));
       }
+      if(relative==='favicon.ico')continue;
       const target=relative.endsWith('/')?path.join(siteDir,relative,'index.html'):path.join(siteDir,relative);
       if(!fs.existsSync(target))fail('broken internal reader link '+ref+' in '+path.relative(siteDir,file));
     }
