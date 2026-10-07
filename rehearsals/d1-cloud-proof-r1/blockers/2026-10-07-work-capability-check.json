@@ -1,0 +1,89 @@
+{
+  "schema_version": "daily-compiler-d1-cloud-proof-execution-v1",
+  "proof_id": "d1-cloud-proof-r1",
+  "branch": "rehearsal/d1-cloud-proof-r1",
+  "status": "BLOCKED",
+  "studio_request_path": "rehearsals/d1-cloud-proof-r1/studio-request.json",
+  "acceptance_manifest_path": null,
+  "ingest_mapping_path": "rehearsals/d1-cloud-proof-r1/ingest-mapping.json",
+  "ingest_handoff_path": null,
+  "work_porter_receipt_path": null,
+  "cloud_proof_path": null,
+  "native_generations": 0,
+  "accepted_assets": [],
+  "owner_intervention": false,
+  "local_computer_used": false,
+  "last_error": {
+    "code": "D1_FRESH_IMAGE_STUDIO_LAUNCH_UNAVAILABLE",
+    "stage": "LAUNCH_FRESH_IMAGE_STUDIO",
+    "classification": "platform_capability_unavailable_in_current_session",
+    "detail": "The exposed tools do not provide a compliant launcher for a separate non-Work native ChatGPT Image Studio conversation with only the sealed image inputs and a programmatic accepted-asset return boundary. Native image generation is available inside this Work conversation; Work/Codex subagent delegation is also available, but neither establishes the required non-Work Image Studio under the existing IMAGE_PACKAGE_INGEST-only Work restriction. No generation was attempted.",
+    "retryable": true,
+    "retry_condition": "Resume the same proof only when a supported separate Image Studio launch/bind capability and accepted individual cloud-asset handoff are actually available. Repeating this unchanged session or using Work image generation is not a retry.",
+    "proof_result": "BLOCKED",
+    "evidence_scope": "Current connected Work session; this is not a claim that every ChatGPT surface lacks the capability.",
+    "refreshed_repository": "gttome/Daily-AI-Brief-Compiler",
+    "protected_main_sha": "04154903eebe6c8fdb963ddae929bae5a8907ca0",
+    "proof_branch_sha_before_check": "907192795f1b68e3c6dc3a030c9b4b0d06100073",
+    "previous_blocker": {
+      "commit": "907192795f1b68e3c6dc3a030c9b4b0d06100073",
+      "path": "rehearsals/d1-cloud-proof-r1/execution-state.json",
+      "blob_sha": "09267c1930568deaee1953247ce5e87d25b33462"
+    },
+    "newer_completed_work_found": false,
+    "capability_observations": [
+      {
+        "capability": "image_gen.imagegen",
+        "available": true,
+        "used": false,
+        "finding": "Generates within the active Work tool context; exposes prompt/image-reference inputs, not a separate ordinary ChatGPT conversation launcher."
+      },
+      {
+        "capability": "collaboration.spawn_agent",
+        "available": true,
+        "used": false,
+        "finding": "Can start a fresh subagent without parent turns, but remains a Work/Codex agent in the same shared workspace. It does not select or launch a non-Work ChatGPT Image Studio. Using it to generate/accept images would violate the Work-only-for-ingest restriction."
+      },
+      {
+        "capability": "connected plugin tools",
+        "available": true,
+        "used": true,
+        "finding": "GitHub read and write tools are available. No connected tool exposes a separate native ChatGPT Image Studio task launcher and accepted-asset return API."
+      },
+      {
+        "capability": "paid image/model APIs, third-party generation, owner transfer",
+        "used": false,
+        "finding": "Excluded by the existing handoff; no workaround invoked."
+      }
+    ],
+    "observations": {
+      "fresh_image_task_used": false,
+      "native_generation_attempts_this_check": 0,
+      "native_generation_attempts_total": 0,
+      "images_accepted": 0,
+      "owner_transfer_occurred": false,
+      "owner_computer_used": false,
+      "zip_used": false,
+      "exact_individual_cloud_assets_reached_work": false,
+      "work_image_generation_performed": false,
+      "work_visual_review_performed": false,
+      "image_bytes_persisted_to_github": false,
+      "git_image_readback": "NOT_REACHED",
+      "downstream_asset_transfer_capability": "NOT_TESTED_NO_ACCEPTED_ASSETS",
+      "repository_implementation_changes": 0
+    },
+    "repository_defect_assessment": "No repository implementation defect is evidenced as the cause of the launch blocker. GitHub transport and deterministic proof-state validation remain available; the six-image transfer/readback stages were not reached.",
+    "preserved_work": "PR #64, protected main, the original BLOCKED state, studio-request.json, ingest-mapping.json, and every existing artifact remain unchanged. This receipt is additive evidence in the same proof execution.",
+    "official_context": [
+      {
+        "url": "https://learn.chatgpt.com/docs/image-generation",
+        "finding": "Documents in-chat built-in generation and a separately billed programmatic API; does not establish a compliant Studio launch/return capability for this session."
+      },
+      {
+        "url": "https://learn.chatgpt.com/docs/use-chatgpt",
+        "finding": "Documents Work subagents, cloud execution and tool-dependent availability; does not establish a non-Work Studio launcher in this session."
+      }
+    ]
+  },
+  "updated_at": "2026-10-07T19:08:39.540Z"
+}
