@@ -1,35 +1,54 @@
 # Semantic Producer Contract
 
-The Daily Compiler uses one Scheduled ChatGPT semantic producer for EDITORIAL, CONTENT, IMAGES and BUNDLE. GitHub owns deterministic rendering and compilation. The producer operates only in `gttome/Daily-AI-Brief-Compiler`.
+The Daily Compiler uses one Scheduled ChatGPT semantic producer for EDITORIAL, CONTENT, IMAGES and BUNDLE. GitHub owns deterministic image processing and deterministic compilation. The producer operates only in `gttome/Daily-AI-Brief-Compiler`.
+
+D0 Native Image Capsules are implemented but remain proof-gated until the immutable P0-A through P0-F proof receipt authorizes activation.
 
 ## Primary mode
 
-For target date `YYYY-MM-DD`, inspect Compiler state only. If an execution already exists for the target date, resume it. Otherwise allocate exactly one branch `shadow/YYYY-MM-DD`, create `shadow-runs/YYYY-MM-DD/compiler-state.json`, and continue semantic stages as far as possible. Stop only at `BUNDLE_READY` or a genuine platform/software blocker.
+For target date `YYYY-MM-DD`, inspect Compiler state only. Reuse an existing same-date execution; otherwise allocate exactly one `shadow/YYYY-MM-DD` execution. Continue as far as possible. Stop only at `BUNDLE_READY` or a genuine platform/software blocker.
 
 ## Recovery mode
 
-Recovery never allocates. Find the newest nonterminal shadow edition, read its `compiler-state.json` first, resume the first incomplete semantic stage, preserve every valid completed output, preserve accepted image identities exactly, and continue toward `BUNDLE_READY`.
+Recovery never allocates. Read the newest nonterminal `compiler-state.json` first, preserve every valid completed output, preserve accepted image identities exactly, and resume the first incomplete semantic stage. D0 recovery reads immutable image attempt records; it never assumes `images.accepted.length + 1` identifies the next story because acceptance is atomic after set review.
 
-## Stage outputs
+## EDITORIAL and CONTENT
 
-EDITORIAL persists `editorial/editorial.json` containing candidate evidence and the locked six-story selection. Once complete, recovery must not redo research or selection unless the durable output is proven invalid.
+EDITORIAL persists `editorial/editorial.json` containing candidate evidence and the locked six-story selection. CONTENT persists stories, media, Watchlist and book mappings. Completed semantic work is not redone without proof that its durable output is invalid.
 
-CONTENT persists `stories/<story-id>.json`, `media/media.json`, `watchlist/watchlist.json`, and `books/book-mappings.json`.
+## IMAGES — D0 Native Image Capsules
 
-IMAGES uses Proposal 1R. For each story, persist one semantic diagram specification at `images/specs/<story-id>.json`. GitHub deterministically renders it. The producer then fetches the exact persisted PNG bytes from GitHub, passes those exact bytes into visual reasoning, and writes `images/reviews/<story-id>.json`. Only a visually reviewed PASS asset may be appended to `compiler-state.json -> images.accepted`.
+After D0 activation:
 
-Accepted images are immutable. Never regenerate or replace an accepted image during recovery.
+1. create and validate one six-image composition reservation plan;
+2. create one Image Packet v3 per locked story;
+3. find the first incomplete durable image operation;
+4. if no raw candidate exists, establish a proven fresh story-only capsule;
+5. submit exactly the compiled packet prompt, with no referenced/conversation images;
+6. generate exactly one native candidate;
+7. capture and persist exact raw bytes before the capsule ends;
+8. let deterministic GitHub normalization produce exact 1200x630 `final.png`;
+9. review the exact persisted final asset against its packet and locked benchmark;
+10. record `REVIEW_PASS_PENDING_SET` rather than locking it;
+11. repeat only through separate proven clean capsules;
+12. after six individual passes, perform Set Review v3;
+13. atomically write `images/acceptance.json` and then update `compiler-state.json -> images.accepted` with all six identities;
+14. only then advance to BUNDLE.
 
-BUNDLE assembles `shadow-runs/YYYY-MM-DD/edition-bundle.json`. The bundle is a lossless projection of the already persisted semantic outputs, not a summary of them. Preserve every reader-required story field (source dates, topics, coverage labels, related coverage, image alt intent, permanent route), every media field (source, date, focus where applicable, duration, summary, Why it matters, verification, podcast written reading time), Watchlist evidence and dropped-topic rationale, all book mapping fields (concept/chapter, connection, what to study next), and the exact six accepted image identities and review hashes. Do not omit fields merely because the deterministic compiler could infer them from another file.
+Each genuine retry gets a new context/invocation ID. No same-capsule retry. Infrastructure/capability failures consume zero visual attempts. Maximum genuine quality attempts per story is four. No owner fallback and no Proposal 1R reader-story fallback.
 
-Set state to `BUNDLE_READY` only after the complete bundle has been checked against the current editorial/product contract, the exact bundle digest is calculated, and that digest is persisted. After `BUNDLE_READY`, ChatGPT performs no deterministic compilation or publication work.
+## BUNDLE
 
-## Diagram specification v2
+The bundle is a lossless projection of already persisted semantic outputs. A D0 bundle must set `image_strategy=d0_native_image_capsules` and preserve the atomic acceptance path/digest, set-review path/digest, and for every image: path, SHA-256, Git blob, asset version, cache key, review path/digest, set-review digest and supersedes identity.
 
-Every story image uses exactly one qualified grammar: `pipeline`, `layered_system`, `control_loop`, `hub_spoke`, `comparison`, or `state_machine`. Diversify grammars across the six-story set; do not use the same grammar more than twice unless a documented semantic reason requires it. Each spec contains six mechanism nodes and three evidence/callout cards. The spec contains semantic content, not pixel coordinates.
+`BUNDLE_READY` is fail-closed. It is denied unless six images are atomically accepted locked and the deterministic D0 image bundle gate passes.
+
+After `BUNDLE_READY`, ChatGPT performs no compilation/publication work.
+
+## Proposal 1R scope
+
+Proposal 1R is retained for internal/developer diagrams and historical evidence. After D0 activation it is not an ordinary reader-story generator or emergency fallback.
 
 ## Runtime software rule
 
-No active shadow edition may modify compiler code, workflow code, schemas or renderer code. A genuine code/platform defect produces `SHADOW_FAILED` while preserving completed semantic output. Development fixes occur outside the active shadow execution.
-
-Forbidden: Supervisor, Watchdog Ring, writer/recovery leases, worker pools, wake PRs, continuous AI polling, runtime software repair, owner upload, Work, Codex, paid model API, alternate account, or owner liveness prompt.
+No active shadow edition may modify compiler code, workflows, schemas or image subsystem code. Development fixes occur outside the active edition. Forbidden runtime machinery: Supervisor, Watchdog Ring, writer/recovery leases, worker pools, wake PRs, continuous AI polling, runtime software repair, owner upload, Work, Codex, paid model API, alternate account, or owner liveness prompt.
