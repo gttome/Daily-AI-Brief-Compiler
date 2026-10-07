@@ -1,0 +1,42 @@
+{
+  "schema_version": "daily-compiler-d0-p0a-route-evaluation-v2",
+  "evaluated_at": "2026-10-07T14:43:12Z",
+  "protected_main_sha": "b8251239675dd63a73a243f98488595eb92144fe",
+  "protected_main_ci_run_id": 37639007219,
+  "protected_main_ci": "PASS",
+  "route_matrix_path": "contracts/d0-p0a-route-matrix.json",
+  "result": "BLOCKED_NO_ZERO_COST_NATIVE_ROUTE",
+  "retry_allowed": false,
+  "native_generations_added": 0,
+  "visual_quality_attempts_consumed": 0,
+  "completed_proofs_reused": {
+    "p0_b": "PASS",
+    "p0_c": "PASS",
+    "p0_d_exact_pixel_review_capability": "PASS"
+  },
+  "blocked_downstream": {
+    "p0_a": "BLOCKED",
+    "p0_d_formal_story_bound_review": "BLOCKED_BY_P0_A",
+    "p0_e": "BLOCKED_BY_P0_A",
+    "p0_f": "BLOCKED_BY_P0_A",
+    "d0_activation": "BLOCKED"
+  },
+  "routes_evaluated": [
+    "standalone_scheduled_task",
+    "temporary_chat_unpersonalized",
+    "temporary_chat_personalized",
+    "custom_gpt_fresh_conversation",
+    "ordinary_new_chat",
+    "scheduled_task_shared_link",
+    "team_task_previous_runs_ui",
+    "plugin_file_library_bridge",
+    "plugin_skill_post_generation_instruction",
+    "personal_data_export_or_compliance_api",
+    "paid_model_or_image_api",
+    "work_or_computer_use"
+  ],
+  "missing_primitive": "A supported autonomous ChatGPT-native boundary that keeps the generator-visible context story-only while exposing that exact generated file to post-generation persistence and exact-pixel review before the capsule ends.",
+  "no_rework_rule": "Do not spend another native P0-A generation until the executable route matrix has at least one READY route.",
+  "zero_cost_boundary_preserved": true,
+  "paid_capacity_branch_exists": false
+}
