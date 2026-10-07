@@ -59,3 +59,17 @@ test('learning record produces durable human-readable ledger text',()=>{
   assert.match(md,/Cloud asset handoff failed/);
   assert.match(md,/Keep accepted bytes immutable/);
 });
+
+
+test('configured rate card converts measured Dot/Work active seconds into an explicit estimate',()=>{
+  const u1=blankUsage();u1.dot_active_seconds=10;
+  const u2=blankUsage();u2.work_active_seconds=20;
+  const events=[
+    baseEvent('dot','2026-10-08T00:00:00Z','EDITORIAL','PASS',1000,'dot',u1),
+    baseEvent('work','2026-10-08T00:00:10Z','IMAGES','PASS',1000,'work_porter',u2)
+  ];
+  const metrics=aggregateRunMetrics({events,rateCard:{dot_cost_per_active_second:0.01,work_cost_per_active_second:0.02,currency:'USD'}});
+  assert.equal(metrics.usage.estimated_charge,0.5);
+  assert.equal(metrics.usage.estimate_basis,'configured_usage_rate_card');
+  assert.equal(metrics.usage.currency,'USD');
+});
