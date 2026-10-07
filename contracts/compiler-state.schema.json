@@ -272,6 +272,38 @@
           ]
         }
       }
+    },
+    "corrections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "active_correction_id",
+        "revision",
+        "type",
+        "status"
+      ],
+      "properties": {
+        "active_correction_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "type": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "VALIDATED",
+            "PR_OPEN",
+            "MERGED",
+            "DEPLOYED",
+            "VERIFIED",
+            "BLOCKED"
+          ]
+        }
+      }
     }
   }
 }
