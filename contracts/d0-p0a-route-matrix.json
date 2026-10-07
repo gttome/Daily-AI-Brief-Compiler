@@ -38,7 +38,7 @@
       "exact_bytes_available_before_context_end": false,
       "post_generation_persistence_available": false,
       "autonomous_invocation": true,
-      "blocker": "Scheduled exposes run review in Scheduled, but the Compiler runtime has no supported task-run result action returning the generated image/file reference. Two pure story-only task runs produced no programmatically retrievable image asset through available task, Gmail, or Files/Library tools."
+      "blocker": "Scheduled gives a strong new-chat boundary and the run notification exposes a ChatGPT conversation link, but the Compiler runtime has no supported authenticated task-run result action that returns the generated image/file reference or exact pixels. Direct public-web retrieval of the run conversation is unavailable, and exact-ID personal-context lookup returns no image bytes/file ID. Two pure story-only task runs therefore remain non-retrievable programmatically."
     },
     {
       "route_id": "temporary_chat_unpersonalized",
@@ -147,15 +147,16 @@
       "exact_bytes_available_before_context_end": "POSSIBLE_AFTER_FILE_ID_EXISTS",
       "post_generation_persistence_available": true,
       "autonomous_invocation": "POSSIBLE",
-      "blocker": "Plugin file APIs can download file IDs that were uploaded, selected, passed through fileParams, or returned by tool file references. The documented APIs do not automatically grant a plugin the file ID of a native ChatGPT Images result from a separate pure scheduled generation. File-library selection is user-driven."
+      "blocker": "Plugin file APIs can download only file IDs that are already authorized through widget upload, interactive library selection, tool file parameters, or tool-result file references. The current docs do not expose a native ChatGPT Images result from a separate pure Scheduled run as an automatically authorized plugin file. selectFiles() is interactive and would reintroduce owner action."
     },
     {
       "route_id": "plugin_skill_post_generation_instruction",
       "status": "BLOCKED",
       "evidence": [
-        "https://developers.openai.com/plugins/concepts/plugins",
         "https://developers.openai.com/plugins/changelog",
-        "https://developers.openai.com/plugins/build/plugins"
+        "https://developers.openai.com/plugins/concepts/mcp-server",
+        "https://developers.openai.com/plugins/quickstart",
+        "https://developers.openai.com/plugins/reference"
       ],
       "native_chatgpt_images": true,
       "fresh_context": "POSSIBLE",
@@ -164,7 +165,7 @@
       "exact_bytes_available_before_context_end": "UNPROVEN",
       "post_generation_persistence_available": true,
       "autonomous_invocation": true,
-      "blocker": "ChatGPT reads MCP server instructions and skill guidance alongside tool metadata. That guidance would be part of the model context used to orchestrate native image generation, so it cannot currently prove the sealed story prompt is the complete generator-visible context. Plugin lifecycle hooks are documented only for manually installed Codex desktop plugins, which are prohibited."
+      "blocker": "ChatGPT reads MCP server instructions alongside tool metadata, so a post-generation persistence directive supplied there is model context and does not prove the sealed story prompt is the complete generator-visible context. OpenAI's custom MCP quickstart tests personal plugins through ChatGPT Work, which is a prohibited runtime dependency here, and the docs do not provide a Scheduled-task custom-plugin result handoff that avoids that context problem."
     },
     {
       "route_id": "personal_data_export_or_compliance_api",
@@ -193,5 +194,7 @@
     "work",
     "codex",
     "alternate_account"
-  ]
+  ],
+  "product_docs_rechecked_at": "2026-10-07T16:34:00Z",
+  "recheck_conclusion": "No documented zero-cost native route currently closes the clean-context plus autonomous exact-result handoff gap."
 }
