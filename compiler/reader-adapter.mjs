@@ -191,6 +191,11 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     next_action:'Continue monitoring primary evidence and independent developments.'
   };
   if(!prior)return current;
+  const evidenceByDevelopment=new Map();
+  for(const row of [...(prior.evidence||[]),...current.evidence]){
+    const key=row.development_id||row.url;
+    evidenceByDevelopment.set(key,row);
+  }
   return {
     ...prior,
     topic_id:prior.topic_id,
@@ -201,7 +206,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     updated_at:current.updated_at,
     status:archived?'archived':(prior.status==='archived'?'under_research':prior.status),
     archive_reason:archived?reason:undefined,
-    evidence:current.evidence,
+    evidence:[...evidenceByDevelopment.values()],
     limitations:prior.limitations||current.limitations,
     next_action:prior.next_action||current.next_action
   };
