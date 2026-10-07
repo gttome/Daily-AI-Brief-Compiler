@@ -1,10 +1,10 @@
 (()=>{
- const endpoint='https://daily-ai-brief-ratings.gtome.chatgpt.site/api/comments';
+ const endpoint='https://dab-compiler-feedback.gtome.chatgpt.site/api/comments';
  document.querySelectorAll('.story-feedback').forEach(panel=>{
   const button=document.createElement('button');button.type='button';button.className='comment-open';button.textContent='Add a comment';panel.append(button);
   button.addEventListener('click',()=>{
    const dialog=document.createElement('dialog');dialog.className='comment-dialog';dialog.setAttribute('aria-labelledby','comment-title');
-   dialog.innerHTML='<form><h2 id="comment-title">Add a comment</h2><label for="comment-body">What helped, what was missing, or what should we cover next?</label><textarea id="comment-body" maxlength="1000" rows="5" required></textarea><p>Sent privately to the brief’s editor. Please avoid personal or confidential information. Comments are retained for 90 days.</p><p class="comment-status" role="status"></p><button type="submit">Submit</button> <button type="button" class="comment-cancel">Cancel</button></form>';
+   dialog.innerHTML='<form><h2 id="comment-title">Add a comment</h2><label for="comment-body">What helped, what was missing, or what should we cover next?</label><textarea id="comment-body" maxlength="1000" rows="5" required></textarea><p>Saved anonymously in the public Daily AI Brief Compiler feedback store. Do not include personal or confidential information.</p><p class="comment-status" role="status"></p><button type="submit">Submit</button> <button type="button" class="comment-cancel">Cancel</button></form>';
    document.body.append(dialog);dialog.showModal();dialog.querySelector('textarea').focus();
    let operation=crypto.randomUUID(),submittedBody=null;
    const metric=(event,result)=>window.dabTrack?.(event,{item:panel.dataset.feedbackStoryId,edition:panel.dataset.feedbackBriefDate,result});
@@ -14,7 +14,7 @@
     e.preventDefault();metric('comment_submit_attempt','requested');const body=dialog.querySelector('textarea').value.trim();if(!body)return;
     if(submittedBody!==null && submittedBody!==body)operation=crypto.randomUUID();submittedBody=body;
     const submit=dialog.querySelector('[type=submit]');submit.disabled=true;
-    try{const r=await fetch(endpoint,{method:'POST',credentials:'omit',headers:{'content-type':'application/json','x-operation-id':operation},body:JSON.stringify({brief_date:panel.dataset.feedbackBriefDate,item_id:panel.dataset.feedbackStoryId,body})});const data=await r.json();if(!r.ok||data.recorded!==true)throw Error();metric('comment_submit_result','success');close();panel.querySelector('.feedback-status').textContent='Comment sent privately. Thank you.';}
+    try{const r=await fetch(endpoint,{method:'POST',credentials:'omit',headers:{'content-type':'application/json','x-operation-id':operation},body:JSON.stringify({brief_date:panel.dataset.feedbackBriefDate,item_id:panel.dataset.feedbackStoryId,body})});const data=await r.json();if(!r.ok||data.recorded!==true)throw Error();metric('comment_submit_result','success');close();panel.querySelector('.feedback-status').textContent='Comment saved. Thank you.';}
     catch{metric('comment_submit_failed','failed');dialog.querySelector('.comment-status').textContent='Could not send. Your comment is still here; please try again.';submit.disabled=false;}
    };
   });

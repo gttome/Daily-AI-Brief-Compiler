@@ -1,6 +1,6 @@
 import {renderDailyTopicGroups} from './watchlist-daily.js';
 import {renderWatchlistEvidence} from './watchlist-evidence.js';
-const API='https://daily-ai-brief-ratings.gtome.chatgpt.site/api/watchlist';
+const API='https://dab-compiler-feedback.gtome.chatgpt.site/api/watchlist';
 const base=document.body.dataset.baseurl||'/Daily-AI-Brief-Compiler';
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const label=s=>String(s).replaceAll('_',' ');

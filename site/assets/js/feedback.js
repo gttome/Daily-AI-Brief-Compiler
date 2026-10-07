@@ -69,7 +69,7 @@
     .filter(group => group.querySelector('[data-feedback-rating]'));
   if (!groups.length) return;
 
-  const endpoint = 'https://daily-ai-brief-ratings.gtome.chatgpt.site/api/ratings';
+  const endpoint = 'https://dab-compiler-feedback.gtome.chatgpt.site/api/ratings';
   const storageKey = storyId => 'dab-feedback:' + storyId;
   const confirmedKey = storyId => 'dab-feedback-confirmed:' + storyId;
   const syncKey = storyId => 'dab-feedback-sync:' + storyId;

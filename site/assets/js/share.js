@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const EVENTS_ENDPOINT = 'https://daily-ai-brief-ratings.gtome.chatgpt.site/api/events';
+  const EVENTS_ENDPOINT = 'https://dab-compiler-feedback.gtome.chatgpt.site/api/events';
   const main = document.querySelector('main.main-content, main#content');
   if (!main) return;
 
