@@ -1,0 +1,33 @@
+{
+  "schema_version": "daily-compiler-d1-six-image-browser-rehearsal-v2",
+  "rehearsal_id": "d1-six-image-browser-r2-quality",
+  "status": "READY_FOR_WORK_EXECUTION",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "production_repository_access": false,
+  "strategy": "d1_work_browser_fresh_chat",
+  "source_learning": {
+    "prior_rehearsal": "d1-six-image-browser-r1",
+    "prior_terminal_commit": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507",
+    "accepted_assets_reused": 0,
+    "reason_for_new_rehearsal": "Prompt specificity repair after four genuine story-1 quality rejections; no accepted asset exists to preserve."
+  },
+  "execution_policy": {
+    "start_with_story_1_calibration": true,
+    "if_story_1_passes_continue_stories_2_through_6": true,
+    "fresh_regular_chat_per_story": true,
+    "temporary_chat": false,
+    "maximum_attempts_per_story": 4,
+    "forced_resume_checkpoint_after_story": 2,
+    "no_cross_story_chat_reuse": true
+  },
+  "required_dimensions": {
+    "width": 1200,
+    "height": 630
+  },
+  "accepted_image_regeneration_forbidden": true,
+  "owner_file_transfer": false,
+  "local_computer": false,
+  "paid_external_service": false,
+  "tinyfish": false,
+  "completion_proof": "daily-compiler-d1-cloud-proof-v2"
+}
