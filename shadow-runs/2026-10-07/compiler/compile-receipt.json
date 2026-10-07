@@ -2,7 +2,7 @@
   "schema_version": "daily-compiler-compile-receipt-v2",
   "result": "PASS",
   "edition_date": "2026-10-07",
-  "state_sha256": "1952ec1951e361dff8876b4539209c2bbc93daa72fcdb2dff3cc6b1825c37b97",
+  "state_sha256": "1194397b74ae1a9554e7ba0be5fcdf66fbd9eebb607e626e4ebbf9ad3d6c43bc",
   "bundle_sha256": "a158a3b465edebc5b0ef758c5f0c225a0709aed06d443cfeea95d8fdacf3df51",
   "deterministic": true,
   "chatgpt_required_after_bundle_ready": false,
@@ -35,6 +35,13 @@
       "public_base": "https://gttome.github.io/Daily-AI-Brief-Compiler",
       "baseurl": "/Daily-AI-Brief-Compiler"
     },
+    "feedback": {
+      "store": "compiler-owned-public-v1",
+      "base_url": "https://dab-compiler-feedback.gtome.chatgpt.site",
+      "registry_route": "data/compiler-feedback-registry.json",
+      "public_comments": true,
+      "item_namespace": "dab-*-compiler-YYYY-MM-DD-*"
+    },
     "required_routes": [
       "index.html",
       "briefs/2026-10-07/index.html",
@@ -58,7 +65,8 @@
       "videos/2026-10-07/general/index.html",
       "videos/2026-10-07/agent-skills/index.html",
       "podcasts/2026-10-07/kevin-roose-didn-t-use-ai-to-write-his-book-about-ai/index.html",
-      "podcasts/2026-10-07/ai-runs-hot/index.html"
+      "podcasts/2026-10-07/ai-runs-hot/index.html",
+      "data/compiler-feedback-registry.json"
     ],
     "current_images": [
       {
@@ -102,7 +110,9 @@
     "accepted_image_regenerations": 0,
     "production_runtime_dependency": false,
     "reader_behavior_fixes": [
-      "watchlist-interest-selection-immediate-visual-state"
+      "watchlist-interest-selection-immediate-visual-state",
+      "compiler-owned-feedback-store",
+      "compiler-feedback-item-namespace"
     ]
   },
   "verification": {
@@ -114,6 +124,9 @@
       "canonical_production_renderer": true,
       "watchlist": true,
       "ratings": true,
+      "comments": true,
+      "feedback_store": "compiler-owned-public-v1",
+      "feedback_item_namespace": true,
       "share": true,
       "subscriptions": true,
       "archive": true,
