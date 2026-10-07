@@ -35,7 +35,7 @@ When the route matrix first evaluates READY:
 4. Persist formal P0-D for one exact story-bound final candidate.
 5. Run `node scripts/check-d0-completion.mjs`. It must return PASS.
 6. Run `node scripts/prepare-d0-activation.mjs`. Review only deterministic receipt/path/hash binding, then merge the activation change through protected CI. No runtime fallback is introduced.
-7. Update the four Compiler schedule prompts so future image stages route only through active D0. Proposal 1R remains available only for internal diagrams/fixtures, never reader-story fallback.
+7. No separate schedule update is required: the four existing Compiler schedules are already synchronized to `contracts/d0-transition-schedule-prompts.json`. While proof-required they preserve the legacy Proposal 1R reader path; after the exact protected-main activation receipt is live they automatically switch reader-story images to D0 and forbid Proposal 1R fallback.
 8. Prepare the existing October 7 execution with `prepare-image-only-migration.mjs`. Do not allocate a new execution and do not reopen editorial/content stages.
 9. Generate and accept six October 7 D0 replacements against the already sealed story semantics.
 10. Replace the six image records atomically, rebuild deterministically, deploy, and verify exact live bytes.
@@ -66,3 +66,7 @@ For the October 7 same-execution migration, first stage a full replacement D0 ed
 `node scripts/apply-image-only-migration.mjs --state shadow-runs/2026-10-07/compiler-state.json --bundle shadow-runs/2026-10-07/edition-bundle.json --replacement <staged-d0-bundle.json> --receipt shadow-runs/2026-10-07/d0-image-migration-apply-receipt.json --repo-root .`
 
 The applicator requires active D0, the complete D0 bundle gate, identical semantic fingerprint, the same execution ID, six actual image replacements, and `semantic_rework=0`. It transitions only the existing execution back to `BUNDLE_READY/BUNDLE` for deterministic recompilation, removes stale preview/parity claims, and writes the new bundle digest from the exact replacement-bundle bytes. No editorial/content stage is reopened and no second execution is created.
+
+## Autonomous continuation lane
+
+`Daily Compiler Recovery 3` is the bounded continuation lane only when no nonterminal Compiler edition exists. It may recheck the external P0-A product capability without spending a native image merely to test infrastructure. A fresh fused-proof generation remains prohibited until the executable zero-cost route matrix reports READY. Once READY, Recovery 3 resumes the preserved `rehearsal/d0-fused-live-proof-r1` execution, promotes P0-A/P0-D/P0-E/P0-F from that one six-image proof, applies activation through protected CI, and later resumes the October 7 same-execution image-only migration. It does not create another schedule, execution, Supervisor, Watchdog, lease, worker pool or polling mechanism.

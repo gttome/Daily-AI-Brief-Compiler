@@ -1,0 +1,41 @@
+{
+  "schema_version": "daily-compiler-transition-schedule-sync-v1",
+  "observed_at": "2026-10-07T17:01:33Z",
+  "result": "PASS",
+  "schedules": [
+    {
+      "title": "Daily Compiler Primary",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=19;BYMINUTE=15;BYSECOND=0"
+    },
+    {
+      "title": "Daily Compiler Recovery 1",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=21;BYMINUTE=15;BYSECOND=0"
+    },
+    {
+      "title": "Daily Compiler Recovery 2",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=1;BYMINUTE=15;BYSECOND=0"
+    },
+    {
+      "title": "Daily Compiler Recovery 3",
+      "enabled": true,
+      "timing_mode": "exact_schedule",
+      "timezone": "America/Chicago",
+      "cadence": "RRULE:FREQ=DAILY;BYHOUR=5;BYMINUTE=15;BYSECOND=0"
+    }
+  ],
+  "state_driven_transition": true,
+  "preactivation_reader_path": "proposal1r",
+  "postactivation_reader_path": "d0_native_image_capsules",
+  "recovery3_bounded_completion_lane": true,
+  "new_schedule_created": false,
+  "owner_intervention": false
+}

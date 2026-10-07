@@ -13,7 +13,7 @@ Last reconciled: 2026-10-07 after protected main `67460d4149cc7f98d67d01087df55a
 | Fused live proof | **READY / ROUTE-GATED** | `rehearsal/d0-fused-live-proof-r1`; six sealed prompts/packets; resumable execution state; route-gate receipt | Zero-cost P0-A route becomes READY |
 | D0 activation | **IMPLEMENTED / BLOCKED BY LIVE PROOFS** | six-proof completion gate; activation receipt/applicator; production activation firewall | P0-A, formal P0-D, P0-E and P0-F PASS |
 | Post-activation routing | **IMPLEMENTED** | activation-aware Proposal 1R routing | Activation receipt PASS |
-| Four Compiler schedule prompts | **IMPLEMENTED / NOT APPLIED** | `contracts/d0-active-schedule-prompts.json` | Apply only after protected-main D0 activation PASS |
+| Four Compiler schedules | **LIVE / STATE-DRIVEN** | `contracts/d0-transition-schedule-prompts.json`; `contracts/d0-transition-schedule-sync.json` | Preserve Proposal 1R while proof-required; switch automatically to D0 after protected-main activation PASS |
 | October 7 image-only migration | **IMPLEMENTED / PREFLIGHTED** | same-execution migration plan on `shadow/2026-10-07`; migration verifier/applicator | D0 activation plus six accepted October 7 D0 replacements |
 | Live rebuild/deploy/exact-byte verification | **READY AFTER MIGRATION** | existing deterministic compiler, Pages deployment and live verifier | Atomic October 7 D0 bundle replacement |
 
@@ -41,6 +41,8 @@ The rehearsal branch is `rehearsal/d0-fused-live-proof-r1`. Its protected-CI-ver
 
 ## No-rework boundary
 
-Do not repeat P0-B, P0-C, transport preflights, PR1–PR5, October 7 semantics, or failed earlier P0-A experiments. Do not regenerate an accepted image. Do not create a second October 7 semantic execution. Do not apply the D0 schedule prompts or activate D0 while the six-proof gate is incomplete. Do not use Work, Codex, paid model/image APIs or services, billable overage, new paid infrastructure, alternate accounts, owner image transfer, owner-liveness, same-chat fallback, or Proposal 1R as a reader-story fallback.
+Do not repeat P0-B, P0-C, transport preflights, PR1–PR5, October 7 semantics, or failed earlier P0-A experiments. Do not regenerate an accepted image. Do not create a second October 7 semantic execution. Do not activate D0 while the six-proof gate is incomplete. The already-synchronized schedules remain safe because they preserve Proposal 1R while `proof_required` and switch only after protected-main activation PASS. Do not use Work, Codex, paid model/image APIs or services, billable overage, new paid infrastructure, alternate accounts, owner image transfer, owner-liveness, same-chat fallback, or Proposal 1R as a reader-story fallback.
+
+Recovery 3 is the bounded autonomous completion lane when no nonterminal Compiler edition exists. It may recheck the P0-A route without spending an image merely to discover infrastructure, resume the preserved fused rehearsal only after READY, promote the remaining proofs, apply activation through protected CI, and later resume the preserved October 7 same-execution image-only migration.
 
 When a zero-cost P0-A route first evaluates READY, resume the preserved fused rehearsal at its first incomplete candidate rather than starting a new proof execution.
