@@ -12,11 +12,11 @@ const STORY_SLOTS=Object.freeze({
   agents_non_technical_people:['m12','m14']
 });
 const WATCHLIST_TOPIC_ALIASES=Object.freeze({
-  'enterprise context becomes the agent battleground':'dab-topic-trusted-enterprise-context',
-  'persistent personal agents':'dab-topic-long-horizon-agents',
-  'reusable agent skills':'dab-topic-agent-skills-observability',
-  'agent governance and review points':'dab-topic-adaptive-agent-safeguards',
-  'inference latency as agent ux':'dab-topic-agentic-edge-inference'
+  'enterprise-context-becomes-the-agent-battleground':'dab-topic-trusted-enterprise-context',
+  'persistent-personal-agents':'dab-topic-long-horizon-agents',
+  'reusable-agent-skills':'dab-topic-agent-skills-observability',
+  'agent-governance-and-review-points':'dab-topic-adaptive-agent-safeguards',
+  'inference-latency-as-agent-ux':'dab-topic-agentic-edge-inference'
 });
 const BOOK_URL=Object.freeze({
   'Reliable Generative AI':'https://leanpub.com/reliablegenerativeai',
@@ -53,7 +53,7 @@ function storySlot(bundle,story){
   if(!slot)throw new Error('canonical reader story slot unavailable for '+story.id);
   return slot;
 }
-const canonicalWatchTopicId=item=>{
+export const canonicalWatchTopicId=item=>{
   const key=slugify(item.topic).slice(0,90);
   return WATCHLIST_TOPIC_ALIASES[key]||`dab-topic-${key.slice(0,54)}`;
 };
