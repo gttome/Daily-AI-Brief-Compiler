@@ -1,9 +1,6 @@
-import path from 'node:path';
 import {nonempty,hex,canonicalSha} from '../image-capsules/util.mjs';
 
 export const D1_ACCEPTANCE_SCHEMA='daily-compiler-d1-image-acceptance-manifest-v1';
-
-const safeRel=p=>typeof p==='string'&&p.length>0&&!path.isAbsolute(p)&&!p.includes('\\')&&!p.split('/').some(x=>x==='..'||x==='.'||x==='');
 
 export function validateD1AcceptanceManifest(manifest={}){
   const errors=[];
@@ -20,7 +17,7 @@ export function validateD1AcceptanceManifest(manifest={}){
 
   const images=Array.isArray(manifest?.images)?manifest.images:[];
   if(images.length!==6) errors.push('d1_exactly_six_images');
-  const stories=new Set(),assets=new Set(),files=new Set(),paths=new Set(),hashes=new Set(),comps=new Set();
+  const stories=new Set(),assets=new Set(),files=new Set(),hashes=new Set(),comps=new Set();
   for(const image of images){
     if(!nonempty(image?.story_id)||stories.has(image.story_id)) errors.push('d1_story_identity');
     stories.add(image?.story_id);
@@ -28,8 +25,6 @@ export function validateD1AcceptanceManifest(manifest={}){
     assets.add(image?.cloud_asset_id);
     if(!nonempty(image?.filename)||!image.filename.endsWith('.png')||image.filename.includes('/')||files.has(image.filename)) errors.push('d1_filename');
     files.add(image?.filename);
-    if(!safeRel(image?.target_path)||paths.has(image.target_path)) errors.push('d1_target_path');
-    paths.add(image?.target_path);
     if(image?.width!==1200||image?.height!==630||image?.format!=='png') errors.push('d1_dimensions_format');
     if(!Number.isInteger(image?.bytes)||image.bytes<1) errors.push('d1_bytes');
     if(!hex(image?.sha256,64)||hashes.has(image.sha256)) errors.push('d1_sha256');
@@ -52,18 +47,32 @@ export function assertD1AcceptanceManifest(manifest={}){
   return {manifest_sha256:canonicalSha(manifest),images:manifest.images};
 }
 
-export function buildD1IngestPlan(manifest={}){
+export function buildD1IngestPlan(manifest={},handoff={}){
   const verified=assertD1AcceptanceManifest(manifest);
+  if(handoff?.schema_version!=='daily-compiler-d1-ingest-handoff-v1') throw new Error('D1 ingest handoff schema invalid');
+  if(handoff?.manifest_sha256!==verified.manifest_sha256) throw new Error('D1 ingest handoff manifest mismatch');
+  if(handoff?.scope!=='IMAGE_PACKAGE_INGEST'||handoff?.visual_rereview_required!==false||handoff?.image_generation_allowed!==false) throw new Error('D1 ingest handoff scope invalid');
+  if(!Array.isArray(handoff?.items)||handoff.items.length!==6) throw new Error('D1 ingest handoff items invalid');
+  const map=new Map(handoff.items.map(x=>[x.story_id,x]));
+  if(map.size!==6) throw new Error('D1 ingest handoff story identity invalid');
   return {
     schema_version:'daily-compiler-d1-ingest-plan-v1',
     edition_date:manifest.edition_date,
     studio_session_id:manifest.studio_session_id,
     manifest_sha256:verified.manifest_sha256,
+    handoff_sha256:canonicalSha(handoff),
+    repository:handoff.repository,
+    branch:handoff.branch,
+    execution_id:handoff.execution_id,
     visual_quality_review_required:false,
     image_generation_allowed:false,
-    items:manifest.images.map(x=>({
-      story_id:x.story_id,cloud_asset_id:x.cloud_asset_id,filename:x.filename,target_path:x.target_path,
-      expected_sha256:x.sha256,expected_bytes:x.bytes,width:x.width,height:x.height
-    }))
+    items:manifest.images.map(x=>{
+      const h=map.get(x.story_id);
+      if(!h||h.filename!==x.filename||typeof h.target_path!=='string'||!h.target_path) throw new Error('D1 ingest handoff binding invalid: '+x.story_id);
+      return {
+        story_id:x.story_id,cloud_asset_id:x.cloud_asset_id,filename:x.filename,target_path:h.target_path,
+        expected_sha256:x.sha256,expected_bytes:x.bytes,width:x.width,height:x.height
+      };
+    })
   };
 }
