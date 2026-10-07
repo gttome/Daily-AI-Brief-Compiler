@@ -2,8 +2,8 @@
   "schema_version": "daily-compiler-diagram-spec-v2",
   "story_id": "embeddinggemma2-edge-retrieval",
   "grammar": "comparison",
-  "title": "Remote retrieval versus edge embeddings",
-  "subtitle": "Unified multimodal embeddings can reduce transformations and keep semantic search close to the device.",
+  "title": "On-device retrieval removes the cloud round trip",
+  "subtitle": "EmbeddingGemma 2 moves multimodal embedding, indexing, and routing closer to where data is created.",
   "nodes": [
     {
       "id": "remote",
@@ -39,18 +39,19 @@
   ],
   "callouts": [
     {
-      "label": "Compact model",
-      "detail": "The design targets practical multimodal embedding on devices"
+      "label": "Latency",
+      "detail": "Fewer network hops can shorten retrieval and interaction time."
     },
     {
-      "label": "Modular",
-      "detail": "Text, vision, and audio components can be loaded as needed"
+      "label": "Privacy",
+      "detail": "Source data can remain close to the device and local index."
     },
     {
-      "label": "Locality",
-      "detail": "More of the retrieval path can remain near the source data"
+      "label": "Offline + edge",
+      "detail": "Local embeddings support semantic retrieval with limited cloud access."
     }
   ],
-  "flow_label": "Fewer transformations, shorter retrieval",
-  "footer": "Edge retrieval changes latency, locality, and the architecture of semantic search."
+  "flow_label": "Move semantic representation and search on-device",
+  "footer": "The architectural change is where semantic representation, search, and routing happen.",
+  "visual_profile": "oct7-textbook-overhaul-v1"
 }
