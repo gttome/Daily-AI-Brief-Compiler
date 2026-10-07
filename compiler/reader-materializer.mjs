@@ -261,7 +261,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
       git_blob_sha:x.git_blob_sha
     })),
     semantic_rework:0,
-    accepted_image_regenerations:0,
+    accepted_image_regenerations:bundle.producer_receipt?.accepted_image_regenerations ?? 0,
     production_runtime_dependency:false,
     reader_behavior_fixes:['watchlist-interest-selection-immediate-visual-state','compiler-owned-feedback-store','compiler-feedback-item-namespace']
   };
