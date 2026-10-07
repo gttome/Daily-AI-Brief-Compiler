@@ -61,7 +61,9 @@ if(fs.existsSync(eventsPath)){
   if(events.length){
     const problems=readJsonDir(path.join(obsDir,'problems'));
     const resourceObservations=readJsonDir(path.join(obsDir,'resources'));
-    const metrics=aggregateRunMetrics({events,problems,resourceObservations});
+    const rateCardPath='config/usage-rate-card.json';
+    const rateCard=fs.existsSync(rateCardPath)?JSON.parse(fs.readFileSync(rateCardPath,'utf8')):null;
+    const metrics=aggregateRunMetrics({events,problems,resourceObservations,rateCard});
     const analysis=buildRunAnalysis({metrics,problems,resourceObservations});
     const dashboard=buildDashboardSnapshot({
       system:{status:analysis.result==='FAIL'?'degraded':'healthy',source:'shadow-finalization'},
