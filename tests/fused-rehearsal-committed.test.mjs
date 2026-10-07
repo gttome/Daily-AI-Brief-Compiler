@@ -5,6 +5,7 @@ import path from 'node:path';
 import {assertSetPlan} from '../image-capsules/set-plan.mjs';
 import {assertPacket} from '../image-capsules/packet.mjs';
 import {compileGeneratorPrompt} from '../image-capsules/prompt.mjs';
+import {nextFusedProofOperation,validateFusedProofExecution} from '../image-capsules/fused-proof-state.mjs';
 
 const root='rehearsals/d0-fused-live-proof-r1';
 
@@ -38,4 +39,18 @@ test('committed fused live-proof packets exactly match their sealed manifest',()
   assert.equal(packetHashes.size,6);
   assert.equal(promptHashes.size,6);
   assert.equal(contexts.size,6);
+});
+
+
+test('committed fused proof execution state is resumable and starts at the first sealed candidate',()=>{
+  const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json'),'utf8'));
+  const state=JSON.parse(fs.readFileSync(path.join(root,'execution-state.json'),'utf8'));
+  assert.deepEqual(validateFusedProofExecution(state,{manifest}),[]);
+  assert.deepEqual(nextFusedProofOperation(state,{manifest}),{
+    action:'ALLOCATE_FRESH_CAPSULE',
+    attempt:1,
+    story_id:'stress-terminal-evidence',
+    stress_case:true
+  });
+  assert.equal(state.native_generations,0);
 });
