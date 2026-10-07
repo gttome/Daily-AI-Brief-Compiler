@@ -14,3 +14,7 @@ Proposal 1R remains allowed for historical accepted Compiler editions, internal 
 Proposal 1R is not allowed as an automatic reader-story fallback after D0 activation, as rescue after native capacity/generation failure, as replacement for an exhausted four-attempt D0 story, or as a way around failed D0 isolation/byte-persistence proof.
 
 Existing October 7 Proposal 1R assets remain live and untouched until all six D0 replacements pass independently and as a set and the authorized atomic image-only migration is ready.
+
+## Executable routing
+
+`scripts/render-pending-images.mjs` reads the protected image-contract activation state. Before D0 activation it preserves the legacy reader-story renderer. After `activation_status=active`, it refuses Proposal 1R rendering for `shadow-runs/**/images/specs/**` and any ordinary rehearsal reader spec. Proposal 1R remains available only for explicit internal fixtures, including the renderer-smoke rehearsal or a rehearsal run root carrying `.proposal1r-internal-fixture`. D0 raw-candidate normalization remains independent and continues through `scripts/process-native-image.mjs`.
