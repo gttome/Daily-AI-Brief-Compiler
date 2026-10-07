@@ -10,66 +10,72 @@
 <rect width="1200" height="630" fill="url(#bg)"/>
 <circle cx="600" cy="300" r="250" fill="#1477e6" opacity=".035"/>
 <g font-family="DejaVu Sans, Arial, sans-serif">
-<text x="600" y="44" text-anchor="middle" font-size="27" font-weight="800" fill="#12233d">Remote retrieval versus edge embeddings</text>
-<text x="600" y="70" text-anchor="middle" font-size="12.5" fill="#587089">Unified multimodal embeddings can reduce transformations and keep semantic search close to the device.</text>
-<rect x="60" y="130" width="420" height="355" rx="28" fill="#eef6ff" stroke="#1477e6" stroke-width="2"/>
-    <rect x="720" y="130" width="420" height="355" rx="28" fill="#f1f7f5" stroke="#14a673" stroke-width="2"/>
-    <rect x="170" y="145" width="200" height="30" rx="15" fill="#1477e6"/>
-    <text x="270" y="165" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">MODEL A</text>
-    <rect x="830" y="145" width="200" height="30" rx="15" fill="#14a673"/>
-    <text x="930" y="165" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">MODEL B</text>
-    <g filter="url(#shadow)">
-    <rect x="95" y="180" width="350" height="75" rx="15" fill="#fff" stroke="#1477e6" stroke-width="2"/>
-    <rect x="95" y="180" width="10" height="75" rx="5" fill="#1477e6"/>
-    <text x="119" y="207" font-size="14.5" font-weight="800" fill="#12233d">Remote chain</text>
-    <text x="119" y="223" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="119" dy="0">Multiple services add network hops and processing</tspan><tspan x="119" dy="10">stages</tspan></text>
-  </g><g filter="url(#shadow)">
-    <rect x="95" y="272" width="350" height="75" rx="15" fill="#fff" stroke="#14a673" stroke-width="2"/>
-    <rect x="95" y="272" width="10" height="75" rx="5" fill="#14a673"/>
-    <text x="119" y="299" font-size="14.5" font-weight="800" fill="#12233d">Intermediate steps</text>
-    <text x="119" y="315" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="119" dy="0">Modality conversion adds work before retrieval</tspan><tspan x="119" dy="10">begins</tspan></text>
-  </g><g filter="url(#shadow)">
-    <rect x="95" y="364" width="350" height="75" rx="15" fill="#fff" stroke="#7656d8" stroke-width="2"/>
-    <rect x="95" y="364" width="10" height="75" rx="5" fill="#7656d8"/>
-    <text x="119" y="391" font-size="14.5" font-weight="800" fill="#12233d">Unified embeddings</text>
-    <text x="119" y="407" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="119" dy="0">One model represents text, images, video, and audio</tspan></text>
-  </g><g filter="url(#shadow)">
-    <rect x="755" y="180" width="350" height="75" rx="15" fill="url(#dark)" stroke="#f18a2b" stroke-width="2"/>
-    <rect x="755" y="180" width="10" height="75" rx="5" fill="#f18a2b"/>
-    <text x="779" y="207" font-size="14.5" font-weight="800" fill="#fff">Local index</text>
-    <text x="779" y="223" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="779" dy="0">On-device vectors support semantic similarity search</tspan></text>
-  </g><g filter="url(#shadow)">
-    <rect x="755" y="272" width="350" height="75" rx="15" fill="url(#dark)" stroke="#25b5e9" stroke-width="2"/>
-    <rect x="755" y="272" width="10" height="75" rx="5" fill="#25b5e9"/>
-    <text x="779" y="299" font-size="14.5" font-weight="800" fill="#fff">Local routing</text>
-    <text x="779" y="315" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="779" dy="0">Semantic labels can support fast local decisions</tspan></text>
-  </g><g filter="url(#shadow)">
-    <rect x="755" y="364" width="350" height="75" rx="15" fill="url(#dark)" stroke="#df5e62" stroke-width="2"/>
-    <rect x="755" y="364" width="10" height="75" rx="5" fill="#df5e62"/>
-    <text x="779" y="391" font-size="14.5" font-weight="800" fill="#fff">Modular memory</text>
-    <text x="779" y="407" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="779" dy="0">Load only the components needed for the device</tspan><tspan x="779" dy="10">workload</tspan></text>
-  </g>
-    <path d="M485 305 C550 305,650 305,715 305" fill="none" stroke="#f18a2b" stroke-width="7" marker-end="url(#arrow)"/>
-    <rect x="490" y="252" width="220" height="46" rx="18" fill="#fff" stroke="#f18a2b" stroke-width="2"/>
-    <text x="600" y="270" font-size="9.5" font-weight="800" fill="#f18a2b" text-anchor="middle"><tspan x="600" dy="0">Fewer transformations,</tspan><tspan x="600" dy="11">shorter retrieval</tspan></text>
+<text x="600" y="44" text-anchor="middle" font-size="27" font-weight="800" fill="#12233d">On-device retrieval removes the cloud round trip</text>
+<text x="600" y="70" text-anchor="middle" font-size="12.5" fill="#587089">EmbeddingGemma 2 moves multimodal embedding, indexing, and routing closer to where data is created.</text>
+
+ <rect x="44" y="120" width="521" height="360" rx="24" fill="#f5f8fc" stroke="#9bb8da" stroke-width="1.5"/>
+ <rect x="635" y="120" width="521" height="360" rx="24" fill="#f2fbf8" stroke="#8fd1ba" stroke-width="1.5"/>
+ <g><rect x="67" y="138" width="180" height="28" rx="14" fill="#1477e6"/><text x="157" y="157" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">CLOUD-CENTRIC</text></g>
+ <g><rect x="658" y="138" width="205" height="28" rx="14" fill="#14a673"/><text x="760.5" y="157" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">ON-DEVICE MULTIMODAL</text></g>
+ <g><rect x="75" y="195" width="142" height="72" rx="15" fill="#fff" stroke="#1477e6" stroke-width="2" filter="url(#shadow)"/><rect x="75" y="195" width="9" height="72" rx="5" fill="#1477e6"/>
+  <text x="97" y="221" font-size="12.8" font-weight="800" fill="#12233d">Local data</text>
+  <text x="97" y="238" font-size="8.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="97" dy="0">Text, images, audio,</tspan><tspan x="97" dy="10.5">and video begin on</tspan><tspan x="97" dy="10.5">the device</tspan></text></g>
+ <g><line x1="217" y1="231" x2="238" y2="231" stroke="#1477e6" stroke-width="3" stroke-linecap="round"/><polygon points="238,224 250,231 238,238" fill="#1477e6"/></g>
+ <g><rect x="250" y="195" width="135" height="72" rx="15" fill="#fff" stroke="#f18a2b" stroke-width="2" filter="url(#shadow)"/><rect x="250" y="195" width="9" height="72" rx="5" fill="#f18a2b"/>
+  <text x="272" y="221" font-size="12.8" font-weight="800" fill="#12233d">Network</text>
+  <text x="272" y="238" font-size="8.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="272" dy="0">Upload plus</tspan><tspan x="272" dy="10.5">round-trip latency</tspan></text></g>
+ <g><line x1="385" y1="231" x2="408" y2="231" stroke="#1477e6" stroke-width="3" stroke-linecap="round"/><polygon points="408,224 420,231 408,238" fill="#1477e6"/></g>
+ <g><rect x="420" y="195" width="115" height="72" rx="15" fill="#fff" stroke="#7656d8" stroke-width="2" filter="url(#shadow)"/><rect x="420" y="195" width="9" height="72" rx="5" fill="#7656d8"/>
+  <text x="442" y="221" font-size="11.5" font-weight="800" fill="#12233d">Cloud embedding</text>
+  <text x="442" y="238" font-size="8" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="442" dy="0">Remote model</tspan><tspan x="442" dy="10.5">creates semantic</tspan><tspan x="442" dy="10.5">representation</tspan></text></g>
+ <g><line x1="478" y1="267" x2="478" y2="293" stroke="#1477e6" stroke-width="3" stroke-linecap="round"/><polygon points="471,293 478,305 485,293" fill="#1477e6"/></g>
+ <g><rect x="350" y="310" width="185" height="75" rx="15" fill="#fff" stroke="#25b5e9" stroke-width="2" filter="url(#shadow)"/><rect x="350" y="310" width="9" height="75" rx="5" fill="#25b5e9"/>
+  <text x="372" y="336" font-size="12.5" font-weight="800" fill="#12233d">Remote chain</text>
+  <text x="372" y="353" font-size="8.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="372" dy="0">Multiple services add</tspan><tspan x="372" dy="10.5">network hops and processing</tspan><tspan x="372" dy="10.5">stages</tspan></text></g>
+ <path d="M350 348 H305" fill="none" stroke="#1477e6" stroke-width="3"/><polygon points="317,341 305,348 317,355" fill="#1477e6"/>
+ <g><rect x="80" y="310" width="225" height="75" rx="15" fill="#fff" stroke="#14a673" stroke-width="2" filter="url(#shadow)"/><rect x="80" y="310" width="9" height="75" rx="5" fill="#14a673"/>
+  <text x="102" y="336" font-size="12.5" font-weight="800" fill="#12233d">Return result</text>
+  <text x="102" y="353" font-size="8.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="102" dy="0">Response travels back across the</tspan><tspan x="102" dy="10.5">network to the device</tspan></text></g>
+ <g><rect x="110" y="420" width="390" height="28" rx="14" fill="#16375b"/><text x="305" y="439" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">network + remote inference + hosted search</text></g>
+ <text x="675" y="198" font-size="9.5" font-weight="800" fill="#14a673">INPUTS</text>
+ <rect x="675" y="215" width="62" height="34" rx="9" fill="#fff" stroke="#1477e6" stroke-width="1.5"/><text x="706" y="237" text-anchor="middle" font-size="9" font-weight="800" fill="#1477e6">TXT</text><rect x="755" y="215" width="62" height="34" rx="9" fill="#fff" stroke="#14a673" stroke-width="1.5"/><text x="786" y="237" text-anchor="middle" font-size="9" font-weight="800" fill="#14a673">IMG</text><rect x="835" y="215" width="62" height="34" rx="9" fill="#fff" stroke="#7656d8" stroke-width="1.5"/><text x="866" y="237" text-anchor="middle" font-size="9" font-weight="800" fill="#7656d8">AUD</text><rect x="915" y="215" width="62" height="34" rx="9" fill="#fff" stroke="#f18a2b" stroke-width="1.5"/><text x="946" y="237" text-anchor="middle" font-size="9" font-weight="800" fill="#f18a2b">VID</text>
+ <g><rect x="675" y="280" width="150" height="88" rx="15" fill="url(#dark)" stroke="#14a673" stroke-width="2" filter="url(#shadow)"/><rect x="675" y="280" width="9" height="88" rx="5" fill="#14a673"/>
+  <text x="697" y="306" font-size="12.5" font-weight="800" fill="#fff">Unified embeddings</text>
+  <text x="697" y="323" font-size="8.2" font-weight="400" fill="#c8d7e4" text-anchor="start"><tspan x="697" dy="0">One model represents</tspan><tspan x="697" dy="10.5">text, images, video,</tspan><tspan x="697" dy="10.5">and audio</tspan></text></g>
+ <g><line x1="750" y1="249" x2="750" y2="268" stroke="#14a673" stroke-width="3" stroke-linecap="round"/><polygon points="743,268 750,280 757,268" fill="#14a673"/></g>
+ <g><line x1="825" y1="324" x2="853" y2="324" stroke="#14a673" stroke-width="3" stroke-linecap="round"/><polygon points="853,317 865,324 853,331" fill="#14a673"/></g>
+ <g><rect x="865" y="280" width="250" height="68" rx="15" fill="#fff" stroke="#7656d8" stroke-width="2" filter="url(#shadow)"/><rect x="865" y="280" width="9" height="68" rx="5" fill="#7656d8"/>
+  <text x="887" y="306" font-size="12.5" font-weight="800" fill="#12233d">Local index</text>
+  <text x="887" y="323" font-size="8.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="887" dy="0">On-device vectors support semantic</tspan><tspan x="887" dy="10.5">similarity search</tspan></text></g>
+ <g><line x1="990" y1="348" x2="990" y2="376" stroke="#14a673" stroke-width="3" stroke-linecap="round"/><polygon points="983,376 990,388 997,376" fill="#14a673"/></g>
+ <g><rect x="865" y="388" width="250" height="68" rx="15" fill="#fff" stroke="#25b5e9" stroke-width="2" filter="url(#shadow)"/><rect x="865" y="388" width="9" height="68" rx="5" fill="#25b5e9"/>
+  <text x="887" y="414" font-size="12.5" font-weight="800" fill="#12233d">Local routing</text>
+  <text x="887" y="431" font-size="8.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="887" dy="0">Semantic labels can support fast local</tspan><tspan x="887" dy="10.5">decisions</tspan></text></g>
+ <g><rect x="675" y="388" width="150" height="68" rx="15" fill="#fff" stroke="#df5e62" stroke-width="2" filter="url(#shadow)"/><rect x="675" y="388" width="9" height="68" rx="5" fill="#df5e62"/>
+  <text x="697" y="414" font-size="12.2" font-weight="800" fill="#12233d">Modular memory</text>
+  <text x="697" y="431" font-size="7.8" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="697" dy="0">Load only the</tspan><tspan x="697" dy="10.5">components needed for</tspan><tspan x="697" dy="10.5">the device workload</tspan></text></g>
+ <g><rect x="535" y="212" width="130" height="28" rx="14" fill="#f18a2b"/><text x="600" y="231" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">REMOVES</text></g>
+ <g><line x1="565" y1="260" x2="623" y2="260" stroke="#f18a2b" stroke-width="3" stroke-linecap="round"/><polygon points="623,253 635,260 623,267" fill="#f18a2b"/></g>
+ <text x="600" y="286" text-anchor="middle" font-size="10" font-weight="800" fill="#f18a2b">round trip</text>
+ 
 <g filter="url(#shadow)">
       <rect x="82" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#14a673" stroke-width="1.7"/>
       <circle cx="107" cy="535" r="10" fill="#14a673"/>
       <path d="M102,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
-      <text x="126" y="538" font-size="13" font-weight="800" fill="#12233d">Compact model</text>
-      <text x="102" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="102" dy="0">The design targets practical multimodal</tspan><tspan x="102" dy="11">embedding on devices</tspan></text>
+      <text x="126" y="538" font-size="13" font-weight="800" fill="#12233d">Latency</text>
+      <text x="102" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="102" dy="0">Fewer network hops can shorten retrieval</tspan><tspan x="102" dy="11">and interaction time.</tspan></text>
     </g><g filter="url(#shadow)">
       <rect x="420" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#7656d8" stroke-width="1.7"/>
       <circle cx="445" cy="535" r="10" fill="#7656d8"/>
       <path d="M440,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
-      <text x="464" y="538" font-size="13" font-weight="800" fill="#12233d">Modular</text>
-      <text x="440" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="440" dy="0">Text, vision, and audio components can be</tspan><tspan x="440" dy="11">loaded as needed</tspan></text>
+      <text x="464" y="538" font-size="13" font-weight="800" fill="#12233d">Privacy</text>
+      <text x="440" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="440" dy="0">Source data can remain close to the device</tspan><tspan x="440" dy="11">and local index.</tspan></text>
     </g><g filter="url(#shadow)">
       <rect x="758" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#f18a2b" stroke-width="1.7"/>
       <circle cx="783" cy="535" r="10" fill="#f18a2b"/>
       <path d="M778,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
-      <text x="802" y="538" font-size="13" font-weight="800" fill="#12233d">Locality</text>
-      <text x="778" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="778" dy="0">More of the retrieval path can remain near</tspan><tspan x="778" dy="11">the source data</tspan></text>
+      <text x="802" y="538" font-size="13" font-weight="800" fill="#12233d">Offline + edge</text>
+      <text x="778" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="778" dy="0">Local embeddings support semantic</tspan><tspan x="778" dy="11">retrieval with limited cloud use.</tspan></text>
     </g>
-<text x="600" y="616" text-anchor="middle" font-size="9.5" fill="#7b91a4">Edge retrieval changes latency, locality, and the architecture of semantic search.</text>
+<text x="600" y="616" text-anchor="middle" font-size="9.5" fill="#7b91a4">The architectural change is where semantic representation, search, and routing happen.</text>
 </g></svg>
