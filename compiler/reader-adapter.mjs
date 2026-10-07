@@ -132,9 +132,9 @@ function rubric(reason){
   const row={score:3,reason};
   return {novelty:{...row},evidence:{...row},independence:{...row},momentum:{...row},relevance:{...row},durability:{...row}};
 }
-function adaptWatchTopic(item,{date,kind,index}){
+function adaptWatchTopic(item,{date,kind,index,fallbackEvidence}){
   const reason=item.why||item.what_changed||item.reason||'Evidence preserved for continued monitoring.';
-  const evidence=item.evidence||{};
+  const evidence=item.evidence||fallbackEvidence||{};
   const evidenceDate=evidence.date||date;
   const archived=kind==='dropped';
   return {
@@ -169,8 +169,9 @@ function adaptWatchTopic(item,{date,kind,index}){
 function adaptWatchlist(bundle){
   const date=bundle.edition_date;
   const topics=[];
+  const fallbackEvidence=bundle.stories?.[0]?.source?{url:bundle.stories[0].source.url,date:bundle.stories[0].source.published_at}:null;
   for(const kind of ['new','updated','carried_forward','dropped']){
-    (bundle.watchlist?.[kind]||[]).forEach((item,index)=>topics.push(adaptWatchTopic(item,{date,kind,index})));
+    (bundle.watchlist?.[kind]||[]).forEach((item,index)=>topics.push(adaptWatchTopic(item,{date,kind,index,fallbackEvidence})));
   }
   return {
     schema_version:'1.0.0',
