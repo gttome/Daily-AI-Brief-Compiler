@@ -7,6 +7,7 @@ import {render as controlLoop} from './v2/control-loop.mjs';
 import {render as hubSpoke} from './v2/hub-spoke.mjs';
 import {render as comparison} from './v2/comparison.mjs';
 import {render as stateMachine} from './v2/state-machine.mjs';
+import {render as oct7TextbookOverhaul} from './v2/oct7-textbook-overhaul.mjs';
 
 const specPath=process.argv[2],outDir=process.argv[3];
 if(!specPath||!outDir) throw new Error('usage: node diagram-compiler/render-story.mjs <spec.json> <outdir>');
@@ -26,7 +27,7 @@ const renderers={
   state_machine:stateMachine
 };
 
-const mechanism=renderers[spec.grammar](spec,p,colors);
+const mechanism=spec.visual_profile==='oct7-textbook-overhaul-v1' ? oct7TextbookOverhaul(spec,p,colors) : renderers[spec.grammar](spec,p,colors);
 const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
 ${defs(p)}
 <rect width="1200" height="630" fill="url(#bg)"/>

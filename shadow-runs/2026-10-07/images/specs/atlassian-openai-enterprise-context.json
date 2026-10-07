@@ -2,8 +2,8 @@
   "schema_version": "daily-compiler-diagram-spec-v2",
   "story_id": "atlassian-openai-enterprise-context",
   "grammar": "layered_system",
-  "title": "Grounding AI in enterprise context",
-  "subtitle": "Workplace AI layers reasoning over identity, permissions, context, and systems of record.",
+  "title": "Enterprise agents need a permission-aware context stack",
+  "subtitle": "Reasoning becomes useful when identity, organizational context, systems of record, actions, review, and evidence remain linked.",
   "nodes": [
     {
       "id": "model",
@@ -40,17 +40,18 @@
   "callouts": [
     {
       "label": "Context",
-      "detail": "The challenge is selecting the right organizational facts"
+      "detail": "Resolve the right project, owner, decision, and source of truth."
     },
     {
       "label": "Permissions",
-      "detail": "Grounding must respect the access rules of source systems"
+      "detail": "Identity and access policy determine legitimate context and actions."
     },
     {
-      "label": "Freshness",
-      "detail": "Current project state matters when owners and decisions change"
+      "label": "Traceability",
+      "detail": "Current systems of record and evidence keep actions grounded."
     }
   ],
-  "flow_label": "Identity and context ground each action",
-  "footer": "Enterprise grounding links general intelligence to the reality of organizational work."
+  "flow_label": "Context and permissions ground each action",
+  "footer": "Enterprise context converts generic intelligence into accountable work inside real organizational boundaries.",
+  "visual_profile": "oct7-textbook-overhaul-v1"
 }
