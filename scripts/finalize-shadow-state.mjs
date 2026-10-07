@@ -43,7 +43,7 @@ state.reader_parity={
   contract:'reader-surface-parity-v2',
   production_reader_source_sha:compile.production_reader_source_sha,
   semantic_rework:0,
-  accepted_image_regenerations:0
+  accepted_image_regenerations:compile.verification?.accepted_image_regenerations ?? 0
 };
 
 fs.writeFileSync(statePath,JSON.stringify(state,null,2)+'\n');
