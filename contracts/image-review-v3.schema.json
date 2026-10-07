@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/image-review-v3.schema.json",
+  "title":"Daily Compiler Image Visual Review v3",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","story_id","attempt","final_path","final_sha256","final_git_blob_sha","packet_sha256","prompt_sha256","reviewed_at","reviewer_identity","basic_gates","visible_text","meaningful_components","benchmark_dimensions","generic_or_sparse","decorative_only","result"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-image-review-v3"},"story_id":{"type":"string","minLength":1},"attempt":{"type":"integer","minimum":1,"maximum":4},
+    "final_path":{"type":"string","minLength":1},"final_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"final_git_blob_sha":{"type":"string","pattern":"^[a-f0-9]{40}$"},
+    "packet_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"prompt_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"reviewed_at":{"type":"string","format":"date-time"},"reviewer_identity":{"type":"string","minLength":1},
+    "basic_gates":{"type":"object","additionalProperties":false,"required":["subject_match","mechanism_detail","legible_labels","contrast","composition","no_people","no_humanoids","no_branding","no_photorealism","no_overlap","no_clipping","no_unapproved_text","no_unsupported_specifics","no_context_contamination","professional_textbook_editorial_quality"],"properties":{
+      "subject_match":{"$ref":"#/$defs/gate"},"mechanism_detail":{"$ref":"#/$defs/gate"},"legible_labels":{"$ref":"#/$defs/gate"},"contrast":{"$ref":"#/$defs/gate"},"composition":{"$ref":"#/$defs/gate"},"no_people":{"$ref":"#/$defs/gate"},"no_humanoids":{"$ref":"#/$defs/gate"},"no_branding":{"$ref":"#/$defs/gate"},"no_photorealism":{"$ref":"#/$defs/gate"},"no_overlap":{"$ref":"#/$defs/gate"},"no_clipping":{"$ref":"#/$defs/gate"},"no_unapproved_text":{"$ref":"#/$defs/gate"},"no_unsupported_specifics":{"$ref":"#/$defs/gate"},"no_context_contamination":{"$ref":"#/$defs/gate"},"professional_textbook_editorial_quality":{"$ref":"#/$defs/gate"}
+    }},
+    "visible_text":{"type":"object","additionalProperties":false,"required":["result","required_labels","observed_required_labels","missing_labels","extra_visible_text"],"properties":{"result":{"enum":["PASS","FAIL"]},"required_labels":{"type":"array","items":{"type":"string"}},"observed_required_labels":{"type":"array","items":{"type":"string"}},"missing_labels":{"type":"array","items":{"type":"string"}},"extra_visible_text":{"type":"array","items":{"type":"string"}}}},
+    "meaningful_components":{"type":"array","minItems":8,"items":{"type":"string","minLength":1}},
+    "benchmark_dimensions":{"type":"object","additionalProperties":false,"required":["professional_finish","meaningful_detail","explanatory_mechanism","annotation_richness","visual_depth","hierarchy","composition","story_specificity","differentiation"],"properties":{
+      "professional_finish":{"$ref":"#/$defs/gate"},"meaningful_detail":{"$ref":"#/$defs/gate"},"explanatory_mechanism":{"$ref":"#/$defs/gate"},"annotation_richness":{"$ref":"#/$defs/gate"},"visual_depth":{"$ref":"#/$defs/gate"},"hierarchy":{"$ref":"#/$defs/gate"},"composition":{"$ref":"#/$defs/gate"},"story_specificity":{"$ref":"#/$defs/gate"},"differentiation":{"$ref":"#/$defs/gate"}
+    }},
+    "generic_or_sparse":{"const":false},"decorative_only":{"const":false},"result":{"enum":["PASS","FAIL"]}
+  },
+  "$defs":{"gate":{"type":"object","additionalProperties":false,"required":["verdict","observation"],"properties":{"verdict":{"enum":["PASS","FAIL"]},"observation":{"type":"string","minLength":8}}}}
+}

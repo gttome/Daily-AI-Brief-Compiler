@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/image-attempt-v3.schema.json",
+  "title":"Daily Compiler Image Attempt v3",
+  "type":"object","additionalProperties":false,
+  "required":["schema_version","edition_date","story_id","candidate_id","attempt","state","quality_attempt_consumed","admission_path","raw","final","review_path","blocker"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-image-attempt-v3"},"edition_date":{"type":"string","pattern":"^\\d{4}-\\d{2}-\\d{2}$"},"story_id":{"type":"string","minLength":1},"candidate_id":{"type":"string","minLength":1},
+    "attempt":{"type":"integer","minimum":1,"maximum":4},
+    "state":{"enum":["PACKET_READY","CAPSULE_ADMITTED","RAW_PERSISTED","FINAL_NORMALIZED","REVIEW_PASS_PENDING_SET","REJECTED_QUALITY","ACCEPTED_LOCKED","BLOCKED_INFRASTRUCTURE"]},
+    "quality_attempt_consumed":{"type":"boolean"},"admission_path":{"type":["string","null"]},
+    "raw":{"type":["object","null"]},"final":{"type":["object","null"]},"review_path":{"type":["string","null"]},"blocker":{"type":["string","null"]}
+  }
+}
