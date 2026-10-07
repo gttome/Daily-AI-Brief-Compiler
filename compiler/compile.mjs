@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 import { materializeReaderSource } from './reader-materializer.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
+import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -112,13 +113,16 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
 
   ensureArray(bundle.images, 'images', 6);
   const d0Requested=bundle.image_system?.strategy==='d0_native_image_capsules'||bundle.images.some(x=>x?.image_system==='d0_native_image_capsules');
+  const d1Requested=bundle.image_system?.strategy==='d1_cloud_image_studio'||bundle.images.some(x=>x?.image_system==='d1_cloud_image_studio');
+  if(d0Requested&&d1Requested) fail('multiple image systems requested');
   if(d0Requested&&bundle.image_system?.strategy!=='d0_native_image_capsules') fail('D0 image system metadata missing');
+  if(d1Requested&&bundle.image_system?.strategy!=='d1_cloud_image_studio') fail('D1 image system metadata missing');
   const imageEvidence = [];
   for (const image of bundle.images) {
     if (!image.story_id || !image.path || image.accepted !== true) fail('image acceptance record invalid');
     if (!/^[a-f0-9]{64}$/.test(image.sha256 || '')) fail('image sha256 invalid');
     if (!/^[a-f0-9]{40}$/.test(image.git_blob_sha || '')) fail('image git blob sha invalid');
-    if (!d0Requested && (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256)) fail('image visual review mismatch');
+    if (!d0Requested && !d1Requested && (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256)) fail('image visual review mismatch');
     const asset = path.resolve(repoRoot, image.path);
     if (!fs.existsSync(asset)) fail('image missing: '+image.path);
     const bytes = fs.readFileSync(asset);
@@ -129,15 +133,23 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     imageEvidence.push({story_id:image.story_id,path:image.path,sha256:image.sha256,git_blob_sha:image.git_blob_sha,width:dims.width,height:dims.height});
   }
 
-  let d0ImageGate=null;
+  let d0ImageGate=null,d1ImageGate=null;
   if(d0Requested){
     d0ImageGate=validateD0BundleImages({bundle,repoRoot});
     if(d0ImageGate.result!=='PASS') fail('D0 image bundle gate failed: '+d0ImageGate.errors.join(';'));
   }
+  if(d1Requested){
+    d1ImageGate=validateD1BundleImages({bundle,repoRoot});
+    if(d1ImageGate.result!=='PASS') fail('D1 image bundle gate failed: '+d1ImageGate.errors.join(';'));
+  }
 
   if (bundle.producer_receipt?.result !== 'PASS') fail('producer receipt missing PASS');
   if (bundle.producer_receipt.owner_intervention !== false) fail('owner intervention must be false');
-  for (const key of ['work_used','codex_used','paid_model_api_used']) if (bundle.producer_receipt[key] !== false) fail(key+' must be false');
+  if (bundle.producer_receipt.codex_used !== false || bundle.producer_receipt.paid_model_api_used !== false) fail('codex/paid model API must be false');
+  if(d1Requested){
+    if(bundle.producer_receipt.work_used!==true||bundle.producer_receipt.work_scope!=='IMAGE_PACKAGE_INGEST'||bundle.producer_receipt.work_image_generation!==false) fail('D1 Work usage must be narrow IMAGE_PACKAGE_INGEST only');
+    if(bundle.producer_receipt.local_computer_used!==false) fail('D1 local computer use forbidden');
+  }else if(bundle.producer_receipt.work_used!==false) fail('work_used must be false');
   const acceptedImageRegenerations=bundle.producer_receipt.accepted_image_regenerations ?? 0;
   if (!Number.isInteger(acceptedImageRegenerations) || acceptedImageRegenerations < 0) fail('accepted_image_regenerations invalid');
 
@@ -145,7 +157,7 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     for (const pattern of PROD_MUTATION_PATTERNS) if (pattern.test(value)) fail('production repository mutation target forbidden');
   });
 
-  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate};
+  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate};
 }
 
 export async function buildSite({validation, outDir, repoRoot='.'}) {
