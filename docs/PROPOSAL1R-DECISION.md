@@ -1,51 +1,36 @@
-# Proposal 1R Decision — Preserve the Daily Compiler, Replace the Image Transport Boundary
+# Proposal 1R Decision — Historical and Internal Diagram Role
 
-Date: 2026-10-06
+Date: 2026-10-07
 
-## Evidence
+Proposal 1R successfully preserved the Daily Compiler simplicity experiment after the original cross-invocation native-image byte recovery proof failed. It remains valuable deterministic infrastructure, but D0 Native Image Capsules are the intended permanent reader-story path once the D0 live capability proof passes.
 
-F0 proved an ordinary Scheduled ChatGPT invocation can autonomously persist durable state to the Compiler repository.
+## Historical evidence retained
 
-The decomposed image test isolated the next boundary:
+F1B proved that ending one invocation after generation and trying to recover exact prior native-image bytes in a later invocation is not a valid unattended reader-image architecture.
 
-- F1A persisted its scheduled start receipt and proceeded into the native-image step without producing a durable failure receipt.
-- F1B then proved that the prior generated image was not exposed to the scheduled continuation as an exact-byte PNG asset.
-- Durable F1B code: `PRIOR_GENERATED_IMAGE_EXACT_BYTES_NOT_ACCESSIBLE`.
-- No owner upload, reconstruction, screenshot, re-render, paid API, or legacy image-control workaround was used.
+Proposal 1R then proved:
+- rich semantic diagram specifications can be persisted;
+- GitHub can deterministically render 1200x630 diagrams;
+- exact persisted images can be visually reviewed without owner transfer.
 
-This means the blocker is the unattended transfer of exact native-generated image bytes into Git, not the semantic ability to design an explanatory image.
+Do not delete this evidence.
 
-## Decision
+## Role after D0 activation
 
-Continue Proposal 1 as **Proposal 1R**:
+Allowed:
+- internal architecture diagrams;
+- developer documentation;
+- deterministic diagram fixtures;
+- proof/status graphics;
+- historical editions that already used Proposal 1R.
 
-```text
-Scheduled ChatGPT semantic producer
-        |
-        v
-rich diagram-spec.json
-        |
-        v
-deterministic professional diagram compiler
-        |
-        v
-exact 1200x630 PNG + hash receipt
-        |
-        v
-Scheduled ChatGPT exact-persisted-image review
-        |
-        v
-accepted immutable image
-```
+Not allowed:
+- automatic reader-story fallback;
+- rescue after native generation/capacity/isolation failure;
+- substitute after a D0 story exhausts its quality attempts.
 
-The architecture remains one semantic producer plus deterministic GitHub compilation. No Supervisor, Watchdog Ring, leases, worker pool, wake PR, owner upload, Work, Codex, or paid model API is introduced.
+A D0 reader-story blocker remains a blocker. It is never converted to a Proposal 1R story image merely to reach `BUNDLE_READY`.
 
-## Required proof
+## Pre-activation behavior
 
-Proposal 1R is viable only if all three gates pass:
-
-1. F1D — Scheduled ChatGPT can persist a sufficiently rich semantic diagram specification.
-2. F1R — GitHub can deterministically render and persist a professional 1200x630 PNG from that specification.
-3. F1V — Scheduled ChatGPT can visually review the exact persisted PNG before acceptance.
-
-Failure of F1V is a product-contract blocker unless an equally strong exact-persisted-asset review mechanism is proven without owner intervention.
+Until P0-A through P0-F are durably PASS and the D0 activation receipt is merged, existing published/shadow reader bindings remain untouched. This prevents a partial architecture migration.
