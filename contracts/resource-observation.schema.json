@@ -1,0 +1,23 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/resource-observation.schema.json",
+  "title":"Daily Compiler Resource Observation v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["schema_version","edition_date","execution_id","resource_id","checked_at","content_type","queries","candidates_found","usable_candidates","selected_items","fresh_items","failures","duration_ms"],
+  "properties":{
+    "schema_version":{"const":"daily-compiler-resource-observation-v1"},
+    "edition_date":{"type":"string"},
+    "execution_id":{"type":"string"},
+    "resource_id":{"type":"string"},
+    "checked_at":{"type":"string","format":"date-time"},
+    "content_type":{"enum":["article","video","podcast","watchlist","research"]},
+    "queries":{"type":"integer","minimum":0},
+    "candidates_found":{"type":"integer","minimum":0},
+    "usable_candidates":{"type":"integer","minimum":0},
+    "selected_items":{"type":"integer","minimum":0},
+    "fresh_items":{"type":"integer","minimum":0},
+    "failures":{"type":"array","items":{"type":"string"}},
+    "duration_ms":{"type":"integer","minimum":0}
+  }
+}
