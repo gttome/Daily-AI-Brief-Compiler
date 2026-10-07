@@ -46,11 +46,14 @@ test('committed fused proof execution state is resumable and starts at the first
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json'),'utf8'));
   const state=JSON.parse(fs.readFileSync(path.join(root,'execution-state.json'),'utf8'));
   assert.deepEqual(validateFusedProofExecution(state,{manifest}),[]);
-  assert.deepEqual(nextFusedProofOperation(state,{manifest}),{
-    action:'ALLOCATE_FRESH_CAPSULE',
-    attempt:1,
+  const routeMatrix=JSON.parse(fs.readFileSync('contracts/d0-p0a-route-matrix.json','utf8'));
+  assert.deepEqual(nextFusedProofOperation(state,{manifest,routeMatrix}),{
+    action:'WAIT_FOR_P0A_ROUTE',
     story_id:'stress-terminal-evidence',
-    stress_case:true
+    attempt:1,
+    stress_case:true,
+    reason:'BLOCKED_NO_ZERO_COST_NATIVE_ROUTE',
+    ready_routes:[]
   });
   assert.equal(state.native_generations,0);
 });
