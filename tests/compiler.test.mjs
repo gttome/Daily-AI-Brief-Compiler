@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { validateEdition, compileShadow, gitBlobSha, sha256 } from '../compiler/compile.mjs';
+import {canonicalWatchTopicId} from '../compiler/reader-adapter.mjs';
 
 test('complete fixture validates exact editorial and image identities', () => {
   const result=validateEdition({
@@ -117,4 +118,12 @@ test('verified semantic bundle may be deterministically rebuilt without semantic
   fs.writeFileSync(statePath,JSON.stringify(state,null,2)+'\n');
   const result=validateEdition({statePath,bundlePath,repoRoot:'.'});
   assert.equal(result.state.state,'SHADOW_VERIFIED');
+});
+
+test('Watchlist concept aliases preserve canonical topic identities',()=>{
+  assert.equal(canonicalWatchTopicId({topic:'Enterprise context becomes the agent battleground'}),'dab-topic-trusted-enterprise-context');
+  assert.equal(canonicalWatchTopicId({topic:'Persistent personal agents'}),'dab-topic-long-horizon-agents');
+  assert.equal(canonicalWatchTopicId({topic:'Reusable Agent Skills'}),'dab-topic-agent-skills-observability');
+  assert.equal(canonicalWatchTopicId({topic:'Agent governance and review points'}),'dab-topic-adaptive-agent-safeguards');
+  assert.equal(canonicalWatchTopicId({topic:'Inference latency as agent UX'}),'dab-topic-agentic-edge-inference');
 });
