@@ -17,6 +17,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -24,4 +26,11 @@ jobs:
       - run: npm test
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
+      - name: Build immutable fixture with the existing Pages renderer
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/fixture
+          destination: ./build/fixture-built
+      - name: Verify exact fixture reader routes, media, images and feedback
+        run: node scripts/verify-built-reader.mjs build/fixture-built build/fixture build/fixture-built-verification.json
       - run: npm run reader:parity

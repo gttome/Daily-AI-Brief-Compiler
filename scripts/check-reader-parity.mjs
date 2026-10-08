@@ -1,7 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import os from 'node:os';
 import {pathToFileURL,fileURLToPath} from 'node:url';
+import {includeCoreReaderPath,prepareCoreReaderRenderer} from '../compiler/reader-core-projection.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshot=path.join(root,'vendor','production-reader','snapshot');
@@ -9,12 +11,21 @@ const sha256=data=>crypto.createHash('sha256').update(data).digest('hex');
 
 export async function checkGoldenReaderParity({date='2026-10-06'}={}){
   const edition=JSON.parse(fs.readFileSync(path.join(snapshot,'_data','editions',date+'.json'),'utf8'));
-  const reader=await import(pathToFileURL(path.join(snapshot,'_generator','lib','reader.mjs')).href);
   const actual=new Map();
   const currentPath=name=>name.startsWith('stories/'+date+'/')||name.startsWith('videos/'+date+'/')||name.startsWith('podcasts/'+date+'/');
   const stripEditorOnly=content=>String(content).replace(/<span class="story-editorial-note" data-george-implication="[^"]*" hidden><\/span>/g,'');
-  for(const [name,content] of reader.readerFoundationFiles(edition,snapshot)){
-    if(currentPath(name))actual.set(name,stripEditorOnly(content));
+  // Compare the exact required reader pages against untouched baseline bytes,
+  // without running the baseline's optional analytics/editorial projections.
+  const productSnapshot=fs.mkdtempSync(path.join(os.tmpdir(),'daily-compiler-reader-parity-'));
+  try{
+    fs.cpSync(snapshot,productSnapshot,{recursive:true,filter:source=>includeCoreReaderPath(path.relative(snapshot,source))});
+    prepareCoreReaderRenderer(productSnapshot);
+    const reader=await import(pathToFileURL(path.join(productSnapshot,'_generator','lib','reader.mjs')).href);
+    for(const [name,content] of reader.readerFoundationFiles(edition,productSnapshot)){
+      if(currentPath(name))actual.set(name,stripEditorOnly(content));
+    }
+  }finally{
+    fs.rmSync(productSnapshot,{recursive:true,force:true});
   }
 
   const compared=[],mismatches=[];
@@ -43,6 +54,7 @@ export async function checkGoldenReaderParity({date='2026-10-06'}={}){
     source_files_compared:compared.length,
     exact_reader_assets:exactAssets.length,
     approved_source_patches:provenance.patches||[],
+    optional_observation_excluded:true,
     mismatches,
     allowed_environment_difference_only:true
   };
@@ -51,7 +63,7 @@ export async function checkGoldenReaderParity({date='2026-10-06'}={}){
   return receipt;
 }
 
-if(import.meta.url===pathToFileURL(process.argv[1]).href){
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   const receipt=await checkGoldenReaderParity();
   const out=process.argv[2];
   if(out){

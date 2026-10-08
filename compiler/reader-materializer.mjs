@@ -4,6 +4,7 @@ import {pathToFileURL,fileURLToPath} from 'node:url';
 import {adaptCompilerBundle,mediaDurationLabel,mediaDurationSeconds} from './reader-adapter.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
+import {includeCoreReaderPath,prepareCoreReaderRenderer} from './reader-core-projection.mjs';
 
 const compilerRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshotRoot=path.join(compilerRoot,'vendor','production-reader','snapshot');
@@ -220,7 +221,9 @@ function rewriteReaderEnvironment(root,environment){
     .replace(/^url:.*$/m,'')
     .replace(/^baseurl:.*$/m,'')
     .replace(/^repository:.*$/m,'');
-  writeText(configPath,config.trimEnd()+'\nurl: "https://gttome.github.io"\nbaseurl: "'+environment.baseurl+'"\nrepository: "'+environment.repository+'"\nexclude:\n  - build-manifest.json\n  - compile-receipt.json\n  - verification-receipt.json\n');
+  // The public-safe manifest binds the built/history artifact to its edition.
+  // Operational compile/verification receipts stay outside the published site.
+  writeText(configPath,config.trimEnd()+'\nurl: "https://gttome.github.io"\nbaseurl: "'+environment.baseurl+'"\nrepository: "'+environment.repository+'"\nexclude:\n  - compile-receipt.json\n  - verification-receipt.json\n');
 }
 
 function mergeBookOverlay(root,date,overlay){
@@ -328,6 +331,7 @@ function requiredRoutes(adapted){
   const podcasts=adapted.edition.podcasts.map(p=>p.permanent_url.replace(/^\//,'')+'index.html');
   return [
     'index.html',
+    'latest.md',
     'briefs/'+date+'/index.html',
     'briefs-archive/index.html',
     'watchlist/index.html',
@@ -340,6 +344,10 @@ function requiredRoutes(adapted){
     'daily-feed.xml',
     'feed.xml',
     'feed.json',
+    'assets/js/feedback.js',
+    'assets/js/share.js',
+    'assets/js/comments.js',
+    'assets/js/watchlist.js',
     ...stories,
     'videos/'+date+'/general/index.html',
     'videos/'+date+'/agent-skills/index.html',
@@ -347,10 +355,12 @@ function requiredRoutes(adapted){
   ];
 }
 
-export async function materializeReaderSource({bundle,repoRoot='.',outDir,environment=readerEnvironment}){
+export async function materializeReaderSource({bundle,bundleDigest,repoRoot='.',outDir,environment=readerEnvironment}){
   if(!outDir)throw new Error('outDir required');
+  if(!/^[a-f0-9]{64}$/.test(bundleDigest||''))throw new Error('sealed bundle digest required for reader source');
   fs.rmSync(outDir,{recursive:true,force:true});
-  fs.cpSync(snapshotRoot,outDir,{recursive:true});
+  fs.cpSync(snapshotRoot,outDir,{recursive:true,filter:source=>includeCoreReaderPath(path.relative(snapshotRoot,source))});
+  prepareCoreReaderRenderer(outDir);
   rewriteReaderEnvironment(outDir,environment);
   patchWatchlistImmediateSelection(outDir);
   patchFeedbackRuntime(outDir,environment);
@@ -381,6 +391,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   const manifest={
     schema_version:'daily-compiler-canonical-reader-source-v1',
     edition_date:bundle.edition_date,
+    bundle_sha256:bundleDigest,
     renderer:'vendored-production-reader',
     production_reader_source_sha:'912248e5add14b2ec08d7a5eefed43cbf3af485f',
     environment:{public_base:environment.publicBase,baseurl:environment.baseurl},
@@ -392,11 +403,33 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
       item_namespace:'dab-*-compiler-YYYY-MM-DD-*'
     },
     required_routes:[...requiredRoutes(adapted),'data/compiler-feedback-registry.json'],
-    current_images:adapted.imageBindings.map(x=>({
-      story_id:x.story_id,
-      route:'briefs/images/'+bundle.edition_date+'/'+x.reader_filename,
-      sha256:x.sha256,
-      git_blob_sha:x.git_blob_sha
+    current_images:adapted.imageBindings.map(x=>{
+      const story=adapted.edition.stories.find(row=>row.compiler_story_id===x.story_id);
+      const feedback=feedbackRegistry.items.find(row=>row.type==='story'&&row.semantic_id===x.story_id);
+      return {
+        story_id:x.story_id,
+        reader_story_id:story.story_id,
+        permanent_route:story.permanent_url.replace(/^\//,'')+'index.html',
+        route:'briefs/images/'+bundle.edition_date+'/'+x.reader_filename,
+        public_url:story.image.public_url,
+        alt:story.image.alt,
+        source_url:story.source.url,
+        feedback_id:feedback.feedback_id,
+        sha256:x.sha256,
+        git_blob_sha:x.git_blob_sha
+      };
+    }),
+    current_media:currentMediaRows(bundle,adapted.edition).map(row=>({
+      reader_id:row.id,
+      type:row.type.toLowerCase(),
+      permanent_route:row.route.replace(/\.md$/,'/index.html'),
+      selected_url:row.item.url,
+      summary:row.item.summary,
+      why_it_matters:row.item.why_it_matters,
+      connection_to_brief:row.item.connection_to_brief||null,
+      duration:mediaDurationLabel(row.seconds),
+      original_date:row.item.publication?.original_value||row.item.original_date,
+      written_reading_time_minutes:row.type==='Podcast'?row.item.written_reading_time_minutes:null
     })),
     semantic_rework:0,
     accepted_image_regenerations:bundle.producer_receipt?.accepted_image_regenerations ?? 0,
