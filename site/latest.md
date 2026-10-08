@@ -28,7 +28,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Mechanism diagram showing client signals entering a digest, proposed actions, explicit agent review, approved execution, and feedback returning to the next cycle.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m12.png?v=a6f0b0b54755)
+![Mechanism diagram showing client signals entering a digest, proposed actions, explicit agent review, approved execution, and feedback returning to the next cycle.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m12.png?v=0dad7a6a1592)
 
 **Summary:** Realtor.com+ introduced RealAssist as an AI workspace for real-estate agents. It combines client activity into a daily digest and can recommend or prepare follow-up actions such as refined searches and drafted messages, while keeping the agent in the approval loop before anything is sent or acted on.
 
@@ -68,7 +68,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Layered system diagram showing user intent, local context, policy and identity, local-versus-cloud routing, an execution container, and a bounded action result.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m14.png?v=780d204ea042)
+![Layered system diagram showing user intent, local context, policy and identity, local-versus-cloud routing, an execution container, and a bounded action result.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m14.png?v=28b12f2a682f)
 
 **Summary:** Microsoft is positioning Windows as a hybrid-intelligence layer that can route AI work between local and cloud resources. Microsoft Execution Containers are generally available on Windows 11 to isolate agent activity with file and network boundaries, while broader Copilot abilities to use local PC context and act on a user’s behalf are described as capabilities that will expand over time.
 
@@ -108,7 +108,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Hub-and-spoke mechanism showing shared team context connecting people, analytics and presentation agents, enterprise systems, governance controls, and reviewed actions.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m10.png?v=1b08e4e4085c)
+![Hub-and-spoke mechanism showing shared team context connecting people, analytics and presentation agents, enterprise systems, governance controls, and reviewed actions.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m10.png?v=f40573aa30dd)
 
 **Summary:** Cisco announced new Webex experiences built around digital teammates that can participate in spaces, meetings, and calls with shared team context. Examples include one agent gathering analytics while another updates a presentation, with identity, security, AI Defense guardrails, and Splunk telemetry around the workflow. Several capabilities are described as upcoming rather than universally available today.
 
@@ -148,7 +148,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![State-machine diagram showing research question, bounded environment, agent exploration, evidence evaluation, human acceptance, and controlled use of results with a return path for redirection.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m11.png?v=d02f4a720320)
+![State-machine diagram showing research question, bounded environment, agent exploration, evidence evaluation, human acceptance, and controlled use of results with a return path for redirection.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m11.png?v=d304fce97b1d)
 
 **Summary:** Jump Trading describes using GPT-6 Astra for longer, ambiguous research tasks by defining the problem, the working environment, and how output quality and significance will be evaluated. Agents can work for extended periods and be redirected, while consequential outputs such as trading signals remain subject to controlled human review.
 
@@ -188,7 +188,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Pipeline diagram showing developer intent entering a reusable skill, snippet search, relevance selection, fresh documentation retrieval, context assembly, and a grounded answer.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m01.png?v=d1dd8f1655e9)
+![Pipeline diagram showing developer intent entering a reusable skill, snippet search, relevance selection, fresh documentation retrieval, context assembly, and a grounded answer.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m01.png?v=dd1dca5333a5)
 
 **Summary:** Google introduced a Developer Knowledge API ecosystem that exposes current technical documentation as fresh Markdown and includes a reusable skill for compatible coding agents. The skill uses a multi-step retrieval pattern—searching for relevant snippets before pulling fuller documentation—and can connect through MCP across several agent environments.
 
@@ -228,7 +228,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Comparison diagram contrasting tightly coupled Git storage and compute with a decoupled architecture of authoritative blob storage, stateless workers, caches, refs, and CI fan-out.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m02.png?v=6a3cf866d058)
+![Comparison diagram contrasting tightly coupled Git storage and compute with a decoupled architecture of authoritative blob storage, stateless workers, caches, refs, and CI fan-out.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m02.png?v=ecf91db50db0)
 
 **Summary:** GitHub says agentic development is sharply increasing pushes, branch activity, merge-queue pressure, and CI read fan-out. Its evolving Git architecture separates durable authoritative repository data in blob storage from lightweight compute and cache workers so read and write capacity can scale more independently while preserving branch protections, auditability, and review controls.
 
