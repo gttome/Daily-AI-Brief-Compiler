@@ -1,0 +1,51 @@
+{
+  "schema_version": "daily-compiler-isolated-delivery-retained-preservation-v1",
+  "engine_sha": "5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+  "result": "PASS",
+  "method": "LOCAL_EXACT_BYTE_COMPARISON_OF_RETAINED_ACTUAL_HTTP_RESPONSES",
+  "before_record": "preservation/before.json",
+  "after_record": "preservation/after.json",
+  "before_observed_at": "2026-10-08T16:53:08.911Z",
+  "after_observed_at": "2026-10-08T17:10:31.446Z",
+  "rows": [
+    {
+      "role": "feedback-root",
+      "url": "https://dab-compiler-feedback.gtome.chatgpt.site/",
+      "before_observed_at": "2026-10-08T16:53:08.911Z",
+      "after_observed_at": "2026-10-08T17:10:31.416Z",
+      "before_status": 200,
+      "after_status": 200,
+      "bytes": 311,
+      "sha256": "f4cc4dd4b8f0d2b4ca32008370c83202799f328df7a097c214a5758ae439c7b1",
+      "body_path": "preservation/bodies/feedback-root.html",
+      "actual_before_after_body_equality": true
+    },
+    {
+      "role": "feedback-health",
+      "url": "https://dab-compiler-feedback.gtome.chatgpt.site/api/health",
+      "before_observed_at": "2026-10-08T16:53:08.852Z",
+      "after_observed_at": "2026-10-08T17:10:31.446Z",
+      "before_status": 200,
+      "after_status": 200,
+      "bytes": 71,
+      "sha256": "d3ed2cb7e6724506d71cf9e9a9cf11f03b9cda3d925564284b9dd9ff66783cbc",
+      "body_path": "preservation/bodies/feedback-health.json",
+      "actual_before_after_body_equality": true
+    },
+    {
+      "role": "compiler-reader-root",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/",
+      "before_observed_at": "2026-10-08T16:53:06.199Z",
+      "after_observed_at": "2026-10-08T17:10:30.645Z",
+      "before_status": 200,
+      "after_status": 200,
+      "bytes": 69043,
+      "sha256": "5a301dd308ae5fa3385ba04921210b78a8b37d9af11491e7303c3aa2e5137975",
+      "body_path": "preservation/bodies/compiler-reader-root.html",
+      "actual_before_after_body_equality": true
+    }
+  ],
+  "all_read_surfaces_unchanged": true,
+  "legacy_repository_accessed": false,
+  "scope": "These three public response bodies were identical before and after deployment. The finite feedback proof used reserved synthetic probe records; this is not a claim that the entire database was byte-identical."
+}

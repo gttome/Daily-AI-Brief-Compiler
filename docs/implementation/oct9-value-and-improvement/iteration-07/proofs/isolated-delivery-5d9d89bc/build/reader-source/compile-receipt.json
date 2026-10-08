@@ -1,0 +1,303 @@
+{
+  "schema_version": "daily-compiler-compile-receipt-v2",
+  "result": "PASS",
+  "edition_date": "2026-10-06",
+  "state_sha256": "d209c8c52c31ec449dd4508e989f7facf7a9202b4974c928b0abfdb5e0721e8e",
+  "bundle_sha256": "c5dfc5213236f8b1a66c6f34cc1a80a3e91e2d5d24505b710232fe267c00fb38",
+  "deterministic": true,
+  "chatgpt_required_after_bundle_ready": false,
+  "owner_intervention": false,
+  "production_reader_source_sha": "912248e5add14b2ec08d7a5eefed43cbf3af485f",
+  "reader_parity_gate": {
+    "schema_version": "daily-compiler-reader-parity-gate-v2",
+    "result": "PASS",
+    "fixture_date": "2026-10-06",
+    "production_reader_source_sha": "912248e5add14b2ec08d7a5eefed43cbf3af485f",
+    "source_files_compared": 10,
+    "exact_reader_assets": 24,
+    "approved_source_patches": [
+      {
+        "source_path": "_generator/lib/book-reading.mjs",
+        "reason": "Remove EDITORIAL_RESEARCH book-selection dependency while preserving reader rendering and frozen-reader validation.",
+        "source_sha256": "3ff2e3c022038bf5d1515fa15ec4995cd45466aa328aabd9b75852becaad6721",
+        "vendored_sha256": "1fa2c92289e893985a0341687b6ca47a875eb91bacba574de9c8b001b87e1e1a"
+      }
+    ],
+    "optional_observation_excluded": true,
+    "mismatches": [],
+    "allowed_environment_difference_only": true
+  },
+  "accepted_image_regenerations": 0,
+  "media_contract_gate": {
+    "result": "HISTORICAL_COMPATIBILITY",
+    "contract_version": "daily-compiler-editorial-contract-v1",
+    "bundle_sha256": "c5dfc5213236f8b1a66c6f34cc1a80a3e91e2d5d24505b710232fe267c00fb38",
+    "source_commit": "7f0a480ac673b0c36ed3279af0fd3a52af9425bf",
+    "current_media_qualification": false
+  },
+  "image_contract_gate": {
+    "result": "HISTORICAL_COMPATIBILITY",
+    "current_image_qualification": false,
+    "fixture_only": false
+  },
+  "image_evidence": [
+    {
+      "story_id": "fixture-story-01",
+      "path": "fixtures/complete-edition/images/story-01.png",
+      "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+      "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "story_id": "fixture-story-02",
+      "path": "fixtures/complete-edition/images/story-02.png",
+      "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+      "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "story_id": "fixture-story-03",
+      "path": "fixtures/complete-edition/images/story-03.png",
+      "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+      "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "story_id": "fixture-story-04",
+      "path": "fixtures/complete-edition/images/story-04.png",
+      "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+      "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "story_id": "fixture-story-05",
+      "path": "fixtures/complete-edition/images/story-05.png",
+      "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+      "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
+      "width": 1200,
+      "height": 630
+    },
+    {
+      "story_id": "fixture-story-06",
+      "path": "fixtures/complete-edition/images/story-06.png",
+      "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+      "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de",
+      "width": 1200,
+      "height": 630
+    }
+  ],
+  "source_manifest_sha256": "aab96f4d2da8f245b02254157ddbed7b61c900fd75d53641165200d57d36eb47",
+  "correction_revision": null,
+  "source_manifest": {
+    "schema_version": "daily-compiler-canonical-reader-source-v1",
+    "edition_date": "2026-10-06",
+    "bundle_sha256": "c5dfc5213236f8b1a66c6f34cc1a80a3e91e2d5d24505b710232fe267c00fb38",
+    "renderer": "vendored-production-reader",
+    "production_reader_source_sha": "912248e5add14b2ec08d7a5eefed43cbf3af485f",
+    "environment": {
+      "public_base": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+      "baseurl": "/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b"
+    },
+    "feedback": {
+      "store": "compiler-owned-public-v1",
+      "base_url": "https://dab-compiler-feedback.gtome.chatgpt.site",
+      "registry_route": "data/compiler-feedback-registry.json",
+      "public_comments": true,
+      "item_namespace": "dab-*-compiler-YYYY-MM-DD-*"
+    },
+    "required_routes": [
+      "index.html",
+      "latest.md",
+      "briefs/2026-10-06/index.html",
+      "briefs-archive/index.html",
+      "watchlist/index.html",
+      "watchlist/research/index.html",
+      "sources/index.html",
+      "about/index.html",
+      "subscribe/index.html",
+      "calendar/index.html",
+      "feedback/index.html",
+      "daily-feed.xml",
+      "feed.xml",
+      "feed.json",
+      "assets/js/feedback.js",
+      "assets/js/share.js",
+      "assets/js/comments.js",
+      "assets/js/watchlist.js",
+      "stories/2026-10-06/fixture-story-01/index.html",
+      "stories/2026-10-06/fixture-story-02/index.html",
+      "stories/2026-10-06/fixture-story-03/index.html",
+      "stories/2026-10-06/fixture-story-04/index.html",
+      "stories/2026-10-06/fixture-story-05/index.html",
+      "stories/2026-10-06/fixture-story-06/index.html",
+      "videos/2026-10-06/general/index.html",
+      "videos/2026-10-06/agent-skills/index.html",
+      "podcasts/2026-10-06/fixture-podcast-1/index.html",
+      "podcasts/2026-10-06/fixture-podcast-2/index.html",
+      "data/compiler-feedback-registry.json"
+    ],
+    "current_images": [
+      {
+        "story_id": "fixture-story-01",
+        "reader_story_id": "dab-story-2026-10-06-m01",
+        "permanent_route": "stories/2026-10-06/fixture-story-01/index.html",
+        "route": "briefs/images/2026-10-06/dab-edition-2026-10-06-m01.png",
+        "public_url": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/briefs/images/2026-10-06/dab-edition-2026-10-06-m01.png?v=9d6660976519",
+        "alt": "Professional explanatory diagram for fixture story 1.",
+        "source_url": "https://example.com/fixture/source-1",
+        "feedback_id": "dab-story-compiler-2026-10-06-fixture-story-01",
+        "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+        "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de"
+      },
+      {
+        "story_id": "fixture-story-02",
+        "reader_story_id": "dab-story-2026-10-06-m02",
+        "permanent_route": "stories/2026-10-06/fixture-story-02/index.html",
+        "route": "briefs/images/2026-10-06/dab-edition-2026-10-06-m02.png",
+        "public_url": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/briefs/images/2026-10-06/dab-edition-2026-10-06-m02.png?v=9d6660976519",
+        "alt": "Professional explanatory diagram for fixture story 2.",
+        "source_url": "https://example.com/fixture/source-2",
+        "feedback_id": "dab-story-compiler-2026-10-06-fixture-story-02",
+        "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+        "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de"
+      },
+      {
+        "story_id": "fixture-story-03",
+        "reader_story_id": "dab-story-2026-10-06-m10",
+        "permanent_route": "stories/2026-10-06/fixture-story-03/index.html",
+        "route": "briefs/images/2026-10-06/dab-edition-2026-10-06-m10.png",
+        "public_url": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/briefs/images/2026-10-06/dab-edition-2026-10-06-m10.png?v=9d6660976519",
+        "alt": "Professional explanatory diagram for fixture story 3.",
+        "source_url": "https://example.com/fixture/source-3",
+        "feedback_id": "dab-story-compiler-2026-10-06-fixture-story-03",
+        "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+        "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de"
+      },
+      {
+        "story_id": "fixture-story-04",
+        "reader_story_id": "dab-story-2026-10-06-m11",
+        "permanent_route": "stories/2026-10-06/fixture-story-04/index.html",
+        "route": "briefs/images/2026-10-06/dab-edition-2026-10-06-m11.png",
+        "public_url": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/briefs/images/2026-10-06/dab-edition-2026-10-06-m11.png?v=9d6660976519",
+        "alt": "Professional explanatory diagram for fixture story 4.",
+        "source_url": "https://example.com/fixture/source-4",
+        "feedback_id": "dab-story-compiler-2026-10-06-fixture-story-04",
+        "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+        "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de"
+      },
+      {
+        "story_id": "fixture-story-05",
+        "reader_story_id": "dab-story-2026-10-06-m12",
+        "permanent_route": "stories/2026-10-06/fixture-story-05/index.html",
+        "route": "briefs/images/2026-10-06/dab-edition-2026-10-06-m12.png",
+        "public_url": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/briefs/images/2026-10-06/dab-edition-2026-10-06-m12.png?v=9d6660976519",
+        "alt": "Professional explanatory diagram for fixture story 5.",
+        "source_url": "https://example.com/fixture/source-5",
+        "feedback_id": "dab-story-compiler-2026-10-06-fixture-story-05",
+        "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+        "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de"
+      },
+      {
+        "story_id": "fixture-story-06",
+        "reader_story_id": "dab-story-2026-10-06-m14",
+        "permanent_route": "stories/2026-10-06/fixture-story-06/index.html",
+        "route": "briefs/images/2026-10-06/dab-edition-2026-10-06-m14.png",
+        "public_url": "https://dab-compiler-feedback.gtome.chatgpt.site/qualification/value-5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/briefs/images/2026-10-06/dab-edition-2026-10-06-m14.png?v=9d6660976519",
+        "alt": "Professional explanatory diagram for fixture story 6.",
+        "source_url": "https://example.com/fixture/source-6",
+        "feedback_id": "dab-story-compiler-2026-10-06-fixture-story-06",
+        "sha256": "9d666097651900f7d59a18ed2c0d497e0953e3341908529e546deb552bba2af2",
+        "git_blob_sha": "15234acc5dcd0dec8757f08a309cfad56091e3de"
+      }
+    ],
+    "current_media": [
+      {
+        "reader_id": "dab-video-2026-10-06-general",
+        "type": "video",
+        "permanent_route": "videos/2026-10-06/general/index.html",
+        "selected_url": "https://example.com/video-1",
+        "summary": "Synthetic video summary 1 for reader-site validation.",
+        "why_it_matters": "Synthetic video why-it-matters 1.",
+        "connection_to_brief": null,
+        "duration": "8:00",
+        "original_date": "2026-10-06",
+        "written_reading_time_minutes": null
+      },
+      {
+        "reader_id": "dab-video-2026-10-06-agent-skills",
+        "type": "video",
+        "permanent_route": "videos/2026-10-06/agent-skills/index.html",
+        "selected_url": "https://example.com/video-2",
+        "summary": "Synthetic video summary 2 for reader-site validation.",
+        "why_it_matters": "Synthetic video why-it-matters 2.",
+        "connection_to_brief": null,
+        "duration": "10:00",
+        "original_date": "2026-10-06",
+        "written_reading_time_minutes": null
+      },
+      {
+        "reader_id": "dab-podcast-2026-10-06-1",
+        "type": "podcast",
+        "permanent_route": "podcasts/2026-10-06/fixture-podcast-1/index.html",
+        "selected_url": "https://example.com/podcast-1",
+        "summary": "Synthetic podcast summary 1 for reader-site validation.",
+        "why_it_matters": "Synthetic podcast why-it-matters 1.",
+        "connection_to_brief": null,
+        "duration": "28:00",
+        "original_date": "2026-10-06",
+        "written_reading_time_minutes": 5
+      },
+      {
+        "reader_id": "dab-podcast-2026-10-06-2",
+        "type": "podcast",
+        "permanent_route": "podcasts/2026-10-06/fixture-podcast-2/index.html",
+        "selected_url": "https://example.com/podcast-2",
+        "summary": "Synthetic podcast summary 2 for reader-site validation.",
+        "why_it_matters": "Synthetic podcast why-it-matters 2.",
+        "connection_to_brief": null,
+        "duration": "34:00",
+        "original_date": "2026-10-06",
+        "written_reading_time_minutes": 6
+      }
+    ],
+    "semantic_rework": 0,
+    "accepted_image_regenerations": 0,
+    "production_runtime_dependency": false,
+    "reader_behavior_fixes": [
+      "watchlist-interest-selection-immediate-visual-state",
+      "compiler-owned-feedback-store",
+      "compiler-feedback-item-namespace",
+      "distinct-media-reader-fields",
+      "exact-media-duration-and-publication",
+      "media-page-and-feed-parity"
+    ],
+    "media_contract_version": null
+  },
+  "verification": {
+    "schema_version": "daily-compiler-reader-source-verification-v2",
+    "result": "PASS",
+    "edition_date": "2026-10-06",
+    "permanent_story_pages": 6,
+    "reader_contract": {
+      "canonical_production_renderer": true,
+      "watchlist": true,
+      "ratings": true,
+      "comments": true,
+      "feedback_store": "compiler-owned-public-v1",
+      "feedback_item_namespace": true,
+      "share": true,
+      "subscriptions": true,
+      "archive": true,
+      "feeds": true,
+      "accessible_image_alt": true,
+      "responsive": true
+    },
+    "reader_parity_gate": "PASS",
+    "semantic_rework": 0,
+    "accepted_image_regenerations": 0
+  }
+}

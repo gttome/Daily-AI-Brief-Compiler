@@ -1,0 +1,100 @@
+{
+  "schema_version": "daily-compiler-isolated-delivery-ci-provenance-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "pr": {
+    "repository": "gttome/Daily-AI-Brief-Compiler",
+    "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/89",
+    "number": 89,
+    "state": "closed",
+    "merged": true,
+    "base": "main",
+    "base_sha": "73b41c7312c9b1ad98fc33f455dc62cdc686476b",
+    "head": "implementation/iteration-07-live-qualification",
+    "head_sha": "9847391ae9015039c8360cbd8af50ed8a21fa549",
+    "merge_commit_sha": "5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+    "created_at": "2026-10-08T16:52:15Z",
+    "updated_at": "2026-10-08T16:58:38Z",
+    "closed_at": "2026-10-08T16:58:38Z",
+    "merged_at": "2026-10-08T16:58:38Z",
+    "commits": 2,
+    "changed_files": 28,
+    "additions": 5099,
+    "deletions": 0,
+    "merge_operation_observed_at": "2026-10-08T16:58:37Z",
+    "timestamp_note": "The earlier merge operation/commit observation was 16:58:37Z; the actual PR metadata merged_at is 16:58:38Z. They are retained as distinct observations."
+  },
+  "final_candidate_tree": "3cddcc51235ee2b0aa8835b43a4a7f5d392d52ff",
+  "merged_engine_sha": "5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+  "candidate_checks": [
+    {
+      "head_sha": "9847391ae9015039c8360cbd8af50ed8a21fa549",
+      "run_id": 37812605820,
+      "job_id": 113433013806,
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37812605820/job/113433013806",
+      "result": "PASS",
+      "completed_at": "2026-10-08T16:57:34Z"
+    },
+    {
+      "head_sha": "9847391ae9015039c8360cbd8af50ed8a21fa549",
+      "run_id": 37812614191,
+      "job_id": 113433045513,
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37812614191/job/113433045513",
+      "result": "PASS",
+      "completed_at": "2026-10-08T16:57:56Z"
+    }
+  ],
+  "merged_engine_check": {
+    "head_sha": "5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+    "run_id": 37812978618,
+    "job_id": 113434294187,
+    "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37812978618/job/113434294187",
+    "result": "PASS",
+    "completed_at": "2026-10-08T17:00:18Z"
+  },
+  "commands": {
+    "value_tests": {
+      "command": "node --test tests/value-release.test.mjs",
+      "passed": 15
+    },
+    "full_tests": {
+      "command": "npm test",
+      "passed": 615
+    },
+    "focused_local": {
+      "command": "node --test tests/isolated-value-site.test.mjs tests/isolated-value-proof.test.mjs tests/value-release.test.mjs",
+      "passed": 31,
+      "failed": 0
+    },
+    "retained_image_request": {
+      "command": "node scripts/verify-value-image-request.mjs",
+      "result": "PASS",
+      "scope": "STATIC_RETAINED_REQUEST_ADMISSION_ONLY",
+      "image_generation": false
+    }
+  },
+  "counts_overlap": true,
+  "full_failed_count": null,
+  "full_skipped_count": null,
+  "repair_lineage": {
+    "superseded_candidate": "79bf59c12454edd59c4216a5fc2b88a96940aa26",
+    "superseded_tree": "717e36439bfceaef289f9028fa2e7f744d8715c7",
+    "normal_protected_pr_repair": true,
+    "repairs": [
+      "Receipt engine identity uses actual checkout HEAD; workflow event SHA is separate.",
+      "Later authorized PNG presence is informational; it is not permanently prohibited by static scaffold validation."
+    ],
+    "superseded_exact_check_urls": null
+  },
+  "code_preservation": {
+    "changed_paths": 28,
+    "workflow_updates": 1,
+    "new_paths": 27,
+    "other_baseline_blobs_unchanged": 1289,
+    "baseline_sha": "73b41c7312c9b1ad98fc33f455dc62cdc686476b"
+  },
+  "observation_provenance": {
+    "pr_metadata": "ACTUAL_READ_ONLY_GITHUB_PLUGIN_RESPONSE_SELECTION",
+    "candidate_and_merged_checks": "Contemporaneous root GitHub-plugin observations with exact run/job/head and timestamps; this record is a selected summary, not an invented raw API payload.",
+    "local_counts": "Retained actual local command result and existing PR89 description."
+  }
+}

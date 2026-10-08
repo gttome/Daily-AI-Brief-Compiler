@@ -1,0 +1,74 @@
+{
+  "schema_version": "daily-compiler-isolated-delivery-reconstruction-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "engine_sha": "5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+  "fixture": {
+    "scope": "REGISTERED_HISTORICAL_FIXTURE_DELIVERY_ONLY",
+    "edition_date": "2026-10-06",
+    "state_path": "fixtures/complete-edition/compiler-state.json",
+    "bundle_path": "fixtures/complete-edition/edition-bundle.json",
+    "state_sha256": "d209c8c52c31ec449dd4508e989f7facf7a9202b4974c928b0abfdb5e0721e8e",
+    "bundle_sha256": "c5dfc5213236f8b1a66c6f34cc1a80a3e91e2d5d24505b710232fe267c00fb38",
+    "compatibility_entry": {
+      "edition_date": "2026-10-06",
+      "execution_id": "fixture-2026-10-06",
+      "branch": "shadow/2026-10-06",
+      "purpose": "immutable_test_fixture",
+      "bundle_sha256": "c5dfc5213236f8b1a66c6f34cc1a80a3e91e2d5d24505b710232fe267c00fb38",
+      "source_commit": "7f0a480ac673b0c36ed3279af0fd3a52af9425bf",
+      "source_path": "fixtures/complete-edition/edition-bundle.json"
+    },
+    "image_slots": 6,
+    "unique_image_sha256_count": 1,
+    "current_premium_image_proof": false
+  },
+  "minimum_offline_evidence": {
+    "engine_source": "Exact protected GitHub engine commit or engine-source.tar from original verified artifact",
+    "engine_manifest": "engine-file-manifest.json",
+    "engine_manifest_canonical_sha256": "cdf1cedf97501905b1c5a2ab1039621cf879625b921ffdd986ea30157b090c4c",
+    "build_receipts": [
+      "build/reader-source/compile-receipt.json",
+      "build/reader-source/verification-receipt.json",
+      "build/reader-source/build-manifest.json",
+      "build/built-verification.json",
+      "build/history-merge-receipt.json",
+      "build/live-verification.json"
+    ],
+    "complete_provenance": "complete-build-provenance.json",
+    "fixture_inputs_already_in_engine": [
+      "fixtures/complete-edition/compiler-state.json",
+      "fixtures/complete-edition/edition-bundle.json",
+      "fixtures/complete-edition/images/story-01.png",
+      "fixtures/complete-edition/images/story-02.png",
+      "fixtures/complete-edition/images/story-03.png",
+      "fixtures/complete-edition/images/story-04.png",
+      "fixtures/complete-edition/images/story-05.png",
+      "fixtures/complete-edition/images/story-06.png"
+    ],
+    "offline_replay_receipt": "offline-replay.json"
+  },
+  "full_original_build_recovery": {
+    "artifact_ref": "artifact.json",
+    "zip_sha256": "00b45e7308f4687f82528c90c70f29e11222405238b4062d5aa74f3cf92b1134",
+    "zip_bytes": 341389309,
+    "original_packet_root": "ZIP root",
+    "source_archive_member": "engine-source.tar",
+    "source_archive_sha256": "30d2f30a2dd72828fbf8968269b1acd0fbaf184428e0e437d804f51b98a45925",
+    "source_archive_bytes": 137369600,
+    "rendered_public_members": "shadow/",
+    "public_manifest": "public-file-manifest.json",
+    "public_files_canonical_sha256": "92b9054c672d8269657ece7488c6f519eba51881ccfb804475ff0f5d83f3e256"
+  },
+  "extraction": "Extract the original verified ZIP into a new isolated directory. Extract engine-source.tar safely into a separate engine directory without creating artificial Git metadata. The original prepare-isolated-value-proof verify CLI convention places the packet at engine/build/isolated-value; do not execute verify merely to replay saved evidence because it performs real feedback probes.",
+  "seed_retention": {
+    "path_in_original_zip": "build-provenance.json",
+    "canonical_sha256": "2785dc9e376458870b67fabb497ec3ebf74f4f5410599ee444ceb4f0a857f168",
+    "retained_in_compact_payload": false,
+    "reason": "Original pending seed repeats the complete bounded source inventory, packet inventory and public-file inventory. The completed provenance binds its canonical digest; the full seed remains in the verified original artifact."
+  },
+  "rendering_scope": "Original rendered byte reconstruction requires the original artifact; a later Jekyll rebuild is not substituted for its original route hashes.",
+  "followup_head_rule": "This proof is bound only to engine 5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b. PR90 and any later candidate or merge require their own exact-head treatment; changed engine identity is never silently relabeled.",
+  "proof_branch_rule": "Store this evidence on a separate branch based at the engine SHA. Do not merge the proof branch into the engine. The proof commit is a storage identity, not a new release engine.",
+  "attestation_commit_rule": "Commit the phase-one payload, read its actual GitHub commit SHA, then fill phase-two isolated-live-evidence.json.evidence_ref with the actual immutable proof URL. No future commit or self-reference is fabricated.",
+  "image_qualification_scope": "Six registered historical fixture slots reuse one unique PNG byte identity. No current six-image premium proof, activation or October 9 edition output is established here."
+}
