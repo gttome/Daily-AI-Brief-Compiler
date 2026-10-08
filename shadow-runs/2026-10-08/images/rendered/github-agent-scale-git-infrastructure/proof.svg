@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#eef6fb"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#edf5fb"/></linearGradient>
+  <linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#193b5d"/><stop offset="1" stop-color="#0b2037"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#334f6a" flood-opacity=".18"/></filter>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1477e6"/></marker>
+  <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#14a673"/></marker>
+  </defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="600" cy="300" r="250" fill="#1477e6" opacity=".035"/>
+<g font-family="DejaVu Sans, Arial, sans-serif">
+<text x="600" y="44" text-anchor="middle" font-size="27" font-weight="800" fill="#12233d">Agent-scale Git separates authoritative storage from compute</text>
+<text x="600" y="70" text-anchor="middle" font-size="12.5" fill="#587089">Decoupled repository storage and elastic workers let write pressure and read fan-out scale independently.</text>
+<rect x="60" y="130" width="420" height="355" rx="28" fill="#eef6ff" stroke="#1477e6" stroke-width="2"/>
+    <rect x="720" y="130" width="420" height="355" rx="28" fill="#f1f7f5" stroke="#14a673" stroke-width="2"/>
+    <rect x="170" y="145" width="200" height="30" rx="15" fill="#1477e6"/>
+    <text x="270" y="165" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">MODEL A</text>
+    <rect x="830" y="145" width="200" height="30" rx="15" fill="#14a673"/>
+    <text x="930" y="165" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">MODEL B</text>
+    <g filter="url(#shadow)">
+    <rect x="95" y="180" width="350" height="75" rx="15" fill="#fff" stroke="#1477e6" stroke-width="2"/>
+    <rect x="95" y="180" width="10" height="75" rx="5" fill="#1477e6"/>
+    <text x="119" y="207" font-size="14.5" font-weight="800" fill="#12233d">Coupled Git node</text>
+    <text x="119" y="223" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="119" dy="0">Storage and compute scale together under human-paced</tspan><tspan x="119" dy="10">traffic</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="95" y="272" width="350" height="75" rx="15" fill="#fff" stroke="#14a673" stroke-width="2"/>
+    <rect x="95" y="272" width="10" height="75" rx="5" fill="#14a673"/>
+    <text x="119" y="299" font-size="14.5" font-weight="800" fill="#12233d">Agent write pressure</text>
+    <text x="119" y="315" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="119" dy="0">Concurrent pushes, branches, and refs stress the</tspan><tspan x="119" dy="10">write path</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="95" y="364" width="350" height="75" rx="15" fill="#fff" stroke="#7656d8" stroke-width="2"/>
+    <rect x="95" y="364" width="10" height="75" rx="5" fill="#7656d8"/>
+    <text x="119" y="391" font-size="14.5" font-weight="800" fill="#12233d">CI read fan-out</text>
+    <text x="119" y="407" font-size="8.9" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="119" dy="0">Automation multiplies repository reads after each</tspan><tspan x="119" dy="10">change</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="755" y="180" width="350" height="75" rx="15" fill="url(#dark)" stroke="#f18a2b" stroke-width="2"/>
+    <rect x="755" y="180" width="10" height="75" rx="5" fill="#f18a2b"/>
+    <text x="779" y="207" font-size="14.5" font-weight="800" fill="#fff">Authoritative storage</text>
+    <text x="779" y="223" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="779" dy="0">Durable repository data moves to independent blob</tspan><tspan x="779" dy="10">storage</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="755" y="272" width="350" height="75" rx="15" fill="url(#dark)" stroke="#25b5e9" stroke-width="2"/>
+    <rect x="755" y="272" width="10" height="75" rx="5" fill="#25b5e9"/>
+    <text x="779" y="299" font-size="14.5" font-weight="800" fill="#fff">Elastic workers</text>
+    <text x="779" y="315" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="779" dy="0">Lightweight compute and caches scale separately from</tspan><tspan x="779" dy="10">durability</tspan></text>
+  </g><g filter="url(#shadow)">
+    <rect x="755" y="364" width="350" height="75" rx="15" fill="url(#dark)" stroke="#df5e62" stroke-width="2"/>
+    <rect x="755" y="364" width="10" height="75" rx="5" fill="#df5e62"/>
+    <text x="779" y="391" font-size="14.5" font-weight="800" fill="#fff">Protected refs</text>
+    <text x="779" y="407" font-size="8.9" font-weight="400" fill="#c4d4e2" text-anchor="start"><tspan x="779" dy="0">Branch protection, review, and audit remain policy</tspan><tspan x="779" dy="10">boundaries</tspan></text>
+  </g>
+    <path d="M485 305 C550 305,650 305,715 305" fill="none" stroke="#f18a2b" stroke-width="7" marker-end="url(#arrow)"/>
+    <rect x="490" y="252" width="220" height="46" rx="18" fill="#fff" stroke="#f18a2b" stroke-width="2"/>
+    <text x="600" y="270" font-size="9.5" font-weight="800" fill="#f18a2b" text-anchor="middle"><tspan x="600" dy="0">Coupled node → storage +</tspan><tspan x="600" dy="11">elastic compute</tspan></text>
+<g filter="url(#shadow)">
+      <rect x="82" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#14a673" stroke-width="1.7"/>
+      <circle cx="107" cy="535" r="10" fill="#14a673"/>
+      <path d="M102,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="126" y="538" font-size="13" font-weight="800" fill="#12233d">Independent scaling</text>
+      <text x="102" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="102" dy="0">Read, write, and compute capacity no</tspan><tspan x="102" dy="11">longer move as one unit.</tspan></text>
+    </g><g filter="url(#shadow)">
+      <rect x="420" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#7656d8" stroke-width="1.7"/>
+      <circle cx="445" cy="535" r="10" fill="#7656d8"/>
+      <path d="M440,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="464" y="538" font-size="13" font-weight="800" fill="#12233d">Durable authority</text>
+      <text x="440" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="440" dy="0">Source-of-truth repository state is</tspan><tspan x="440" dy="11">separated from disposable cache.</tspan></text>
+    </g><g filter="url(#shadow)">
+      <rect x="758" y="510" width="300" height="74" rx="17" fill="#fff" stroke="#f18a2b" stroke-width="1.7"/>
+      <circle cx="783" cy="535" r="10" fill="#f18a2b"/>
+      <path d="M778,535 l4,4 l8,-10" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+      <text x="802" y="538" font-size="13" font-weight="800" fill="#12233d">Human control</text>
+      <text x="778" y="557" font-size="9.3" font-weight="400" fill="#526b80" text-anchor="start"><tspan x="778" dy="0">Higher machine throughput does not remove</tspan><tspan x="778" dy="11">review and protection.</tspan></text>
+    </g>
+<text x="600" y="616" text-anchor="middle" font-size="9.5" fill="#7b91a4">Agentic coding turns Git into a high-concurrency systems problem.</text>
+</g></svg>
