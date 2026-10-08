@@ -25,6 +25,8 @@ jobs:
       - run: npm install --no-save sharp@0.34.4
       - name: Test integrated Value release evidence before the full suite
         run: node --test tests/value-release.test.mjs
+      - name: Verify retained six-story image request admission without runtime execution
+        run: node scripts/verify-value-image-request.mjs
       - run: npm test
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
@@ -36,6 +38,32 @@ jobs:
       - name: Verify exact fixture reader routes, media, images and feedback
         run: node scripts/verify-built-reader.mjs build/fixture-built build/fixture build/fixture-built-verification.json
       - run: npm run reader:parity
+      - name: Prepare isolated fixture source and exact engine archive
+        env:
+          VALUE_ENGINE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          VALUE_CHECK_URL: https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/${{ github.run_id }}
+        run: node scripts/prepare-isolated-value-proof.mjs prepare --root . --engine-sha "$VALUE_ENGINE_SHA" --check-url "$VALUE_CHECK_URL"
+      - name: Build isolated fixture with the existing Pages renderer
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/isolated-value/reader-source
+          destination: ./build/isolated-value/current
+      - name: Verify and package isolated fixture without deployment or live claims
+        env:
+          VALUE_ENGINE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/prepare-isolated-value-proof.mjs package --root . --engine-sha "$VALUE_ENGINE_SHA"
+      - name: Preserve complete isolated artifact and exact engine source
+        uses: actions/upload-artifact@v4
+        with:
+          name: isolated-value-proof-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            build/isolated-value/reader-source/
+            build/isolated-value/shadow/
+            build/isolated-value/inputs/
+            build/isolated-value/*.json
+            build/isolated-value/engine-source.tar
+          include-hidden-files: true
+          if-no-files-found: error
       - name: Capture integrated Value versions without claiming live readiness
         env:
           VALUE_ENGINE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -46,6 +74,7 @@ jobs:
           name: value-release-evidence-${{ github.event.pull_request.head.sha || github.sha }}
           path: |
             build/value-release/qualification.json
+            build/value-image-qualification/receipt.json
             build/fixture/compile-receipt.json
             build/fixture/verification-receipt.json
             build/fixture-built-verification.json
