@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/edition-bundle.schema.json",
-  "title": "Daily Compiler Edition Bundle v1",
+  "title": "Daily Compiler Edition Bundle v2 with frozen v1 compatibility",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -19,7 +19,10 @@
   ],
   "properties": {
     "schema_version": {
-      "const": "daily-compiler-edition-bundle-v1"
+      "enum": [
+        "daily-compiler-edition-bundle-v1",
+        "daily-compiler-edition-bundle-v2"
+      ]
     },
     "edition_date": {
       "type": "string",
@@ -29,7 +32,10 @@
       "const": "BUNDLE_READY"
     },
     "editorial_contract_version": {
-      "const": "daily-compiler-editorial-contract-v1"
+      "enum": [
+        "daily-compiler-editorial-contract-v1",
+        "daily-compiler-editorial-contract-v2"
+      ]
     },
     "stories": {
       "type": "array",
@@ -283,6 +289,31 @@
           }
         }
       }
+    },
+    "media_contract_version": {
+      "const": "daily-compiler-media-contract-v1"
+    },
+    "research_cutoff_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "media_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
     }
   },
   "allOf": [
@@ -382,6 +413,88 @@
               }
             }
           }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "schema_version": {
+            "const": "daily-compiler-edition-bundle-v2"
+          }
+        },
+        "required": [
+          "schema_version"
+        ]
+      },
+      "then": {
+        "required": [
+          "media_contract_version",
+          "research_cutoff_at",
+          "media_evidence"
+        ],
+        "properties": {
+          "editorial_contract_version": {
+            "const": "daily-compiler-editorial-contract-v2"
+          },
+          "videos": {
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "media-record.schema.json"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "video"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "podcasts": {
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "media-record.schema.json"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "podcast"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "editorial_contract_version": {
+            "const": "daily-compiler-editorial-contract-v1"
+          }
+        },
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "media_contract_version"
+              ]
+            },
+            {
+              "required": [
+                "research_cutoff_at"
+              ]
+            },
+            {
+              "required": [
+                "media_evidence"
+              ]
+            }
+          ]
         }
       }
     }

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {mediaDurationLabel,mediaDurationSeconds} from './reader-adapter.mjs';
 
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({
   '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
@@ -63,16 +64,20 @@ const mediaMarkup=bundle=>{
   <article class="media-card">
     <p class="eyebrow">${esc(v.focus)}</p>
     <h3><a target="_blank" rel="noopener noreferrer" href="${esc(v.url)}">${esc(v.title)}</a></h3>
-    <p class="meta">${esc(v.source)} · ${esc(v.original_date)} · Duration ${esc(v.duration_minutes)} min</p>
-    <p>${esc(v.summary)}</p>
+    <p class="meta">${esc(v.source)} · ${esc(v.publication?.original_value||v.original_date)}</p>
+    <p><strong>Duration:</strong> ${esc(mediaDurationLabel(mediaDurationSeconds(v,bundle)))}</p>
+    <p><strong>Summary:</strong> ${esc(v.summary)}</p>
     <p><strong>Why it matters:</strong> ${esc(v.why_it_matters)}</p>
+    ${v.connection_to_brief?`<p><strong>Connection to the Brief:</strong> ${esc(v.connection_to_brief)}</p>`:''}
   </article>`).join('');
   const podcasts=bundle.podcasts.map(p=>`
   <article class="media-card">
     <h3><a target="_blank" rel="noopener noreferrer" href="${esc(p.url)}">${esc(p.title||p.episode_title)}</a></h3>
-    <p class="meta">${esc(p.source)} · ${esc(p.original_date)} · Duration ${esc(p.duration_minutes)} min · ${esc(p.written_reading_time_minutes)} min read</p>
-    <p>${esc(p.summary)}</p>
+    <p class="meta">${esc(p.source)} · ${esc(p.publication?.original_value||p.original_date)}</p>
+    <p><strong>Duration:</strong> ${esc(mediaDurationLabel(mediaDurationSeconds(p,bundle)))} · <strong>Written page:</strong> ${esc(p.written_reading_time_minutes)} min read</p>
+    <p><strong>Summary:</strong> ${esc(p.summary)}</p>
     <p><strong>Why it matters:</strong> ${esc(p.why_it_matters)}</p>
+    ${p.connection_to_brief?`<p><strong>Connection to the Brief:</strong> ${esc(p.connection_to_brief)}</p>`:''}
   </article>`).join('');
   return `
 <section id="media"><h2>Watch & listen</h2>

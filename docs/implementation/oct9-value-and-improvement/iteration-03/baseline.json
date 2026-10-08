@@ -1,0 +1,287 @@
+{
+  "schema_version": "iteration-03-baseline-v1",
+  "observed_at": "2026-10-08T06:03:52Z",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "protected_main": {
+    "sha": "7f0a480ac673b0c36ed3279af0fd3a52af9425bf",
+    "tree_sha": "f6bab09f53829d7976af07826d2b91c4c9715679",
+    "protected": true,
+    "check": [
+      {
+        "name": "validate",
+        "head_sha": "7f0a480ac673b0c36ed3279af0fd3a52af9425bf",
+        "conclusion": "success",
+        "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37733419072/job/113167487128",
+        "app_id": 15368
+      }
+    ]
+  },
+  "repository_protection": {
+    "id": 24610983,
+    "name": "Protect main",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "gttome/Daily-AI-Brief-Compiler",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": false,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": false,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "validate",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5T5eaFzgF3iKc",
+    "created_at": "2026-10-06T16:12:09.349-05:00",
+    "updated_at": "2026-10-06T16:12:09.481-05:00",
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/gttome/Daily-AI-Brief-Compiler/rulesets/24610983"
+      },
+      "html": {
+        "href": "https://github.com/gttome/Daily-AI-Brief-Compiler/rules/24610983"
+      }
+    }
+  },
+  "open_prs": [
+    {
+      "number": 2,
+      "title": "Proof Blue/Green state portability on immutable October 6 edition",
+      "head_sha": "9d39656ed132d151735e7a9dceaee7aa04bb18aa",
+      "branch": "experiment/blue-green-state-portability",
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/2",
+      "disposition": "UNRELATED_PRESERVED"
+    }
+  ],
+  "branches_enumerated": 103,
+  "relevant_branch_heads": [
+    {
+      "branch": "implementation/d1-cloud-pipeline-observability",
+      "head": "ffa5567fbb6d2f7c551a9830766bb831d30dfda0"
+    },
+    {
+      "branch": "implementation/iteration-01-completion-receipt",
+      "head": "e2c0798a9363b709091859ae35c2032b76266066"
+    },
+    {
+      "branch": "implementation/iteration-01-image-admission",
+      "head": "7e87ee0f985109c23cc0a3dd5dc516344eaead76"
+    },
+    {
+      "branch": "implementation/iteration-02-completion-receipt",
+      "head": "761bea3ffdfbb6e91ef3c2207f025943b248084e"
+    },
+    {
+      "branch": "implementation/iteration-02-premium-lane-proof",
+      "head": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e"
+    },
+    {
+      "branch": "operations/d1-image-lane-readiness-20261008T0319Z",
+      "head": "3b09ef21cfc39e41df915634de9265db16279416"
+    },
+    {
+      "branch": "proof/d1-cloud-pipeline-r1",
+      "head": "519cc0cfa86add9f5d0f39b29c3d661676917585"
+    },
+    {
+      "branch": "rehearsal/d1-cloud-proof-r1",
+      "head": "cfdbf828cf18f28e16ad65bdb924b17633646f1c"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r1",
+      "head": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r2-quality",
+      "head": "836f0a85b93255d856cfdd8948cb53dc703e1a49"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
+      "head": "e1efd7fa2b76df315671b442862edee9aab2bfbd"
+    },
+    {
+      "branch": "shadow/2026-10-07",
+      "head": "5b310db731228c471e03f05f553d5655f73e0a3a"
+    },
+    {
+      "branch": "shadow/2026-10-08",
+      "head": "e636d34c1a1a7894a75d398a221fec46ab05ba6d"
+    }
+  ],
+  "dependency": {
+    "iteration": 1,
+    "result": "ALREADY_SATISFIED",
+    "implementation_pr": 73,
+    "candidate_sha": "7e87ee0f985109c23cc0a3dd5dc516344eaead76",
+    "implementation_merge_sha": "db7858cbf9e169ba887ec453dc47a081c6554263",
+    "completion_merge_sha": "c0eba91ac27b0838f4eb64afddffc1106c2e8cc1",
+    "completion_path": "docs/implementation/oct9-value-and-improvement/iteration-01/completion.json",
+    "completion_blob": "b37e533829f3479043a4fdfd319af1d67dd5a7ff"
+  },
+  "prior_iteration_2": {
+    "result": "CODE_PASS_EXTERNAL_PENDING",
+    "implementation": "1c3f5d1c9a3371829ab3591ad8dc79ddd6ac7b27",
+    "completion_merge": "7f0a480ac673b0c36ed3279af0fd3a52af9425bf",
+    "live_exit_satisfied": false,
+    "disposition": "Reuse protected code; preserve separate live image blocker. Not a dependency of Iteration 3."
+  },
+  "current_media_findings": [
+    "Only counts, basic strings, minutes and verified Boolean enforced; no specific 72-hour media cutoff or retained source evidence gate.",
+    "Reader adapter duplicates Why into Connection; current video renderer uses an overloaded connection field.",
+    "Exact v1 historical compatibility needs an explicit immutable registry, not an open version downgrade."
+  ],
+  "preservation": {
+    "oct8_state": {
+      "state": "SHADOW_VERIFIED",
+      "stage": "VERIFY",
+      "execution_id": "daily-compiler-shadow-2026-10-08",
+      "bundle_digest": "8fd69ce4b96e191c6ae68f743dc12f1292840d49f8ec69af792e2d3400bb9cf7",
+      "branch_head": "e636d34c1a1a7894a75d398a221fec46ab05ba6d"
+    },
+    "oct8_current_assets": [
+      {
+        "story_id": "realtor-realassist-agent-actions",
+        "path": "shadow-runs/2026-10-08/images/corrections/owner-selected-v1/realtor-realassist-agent-actions.png",
+        "sha256": "0dad7a6a1592cb28bd4ff7c0c686f1a08a92de62557c2559a8387f1bbfcebeb4",
+        "git_blob_sha": "5fa14a5ce35847a6dd631ab980720cc254a22af8"
+      },
+      {
+        "story_id": "windows-hybrid-intelligence-copilot",
+        "path": "shadow-runs/2026-10-08/images/corrections/owner-selected-v1/windows-hybrid-intelligence-copilot.png",
+        "sha256": "28b12f2a682f071bdba33fdcb4719afb193e8e7da7e760371f9668c32b1ef768",
+        "git_blob_sha": "053e7bac8e5ec6df4a8e3803d71d7432c6b19a78"
+      },
+      {
+        "story_id": "cisco-webex-agentic-collaboration",
+        "path": "shadow-runs/2026-10-08/images/corrections/owner-selected-v1/cisco-webex-agentic-collaboration.png",
+        "sha256": "f40573aa30dd243bbe0a2a2ff87a1ecad5650abac75391dcb80ca95f973768d0",
+        "git_blob_sha": "55e4c1dce01fc3b62f336e39675b773f44586724"
+      },
+      {
+        "story_id": "jump-trading-agentic-quant-research",
+        "path": "shadow-runs/2026-10-08/images/corrections/owner-selected-v1/jump-trading-agentic-quant-research.png",
+        "sha256": "d304fce97b1d2f7d821a50edf5db2d2afb2d9411d08c0bd9a9ea5ecaa19354b1",
+        "git_blob_sha": "f653a0f634eeae2adce3dfbd78c0c516ef39d207"
+      },
+      {
+        "story_id": "google-developer-knowledge-agent-skill",
+        "path": "shadow-runs/2026-10-08/images/corrections/owner-selected-v1/google-developer-knowledge-agent-skill.png",
+        "sha256": "dd1dca5333a5e156880f1b575ddae3ec1c42f1656d0be5e879f253903fe1633f",
+        "git_blob_sha": "a71ae796ee2a72ba875f8742b7df255d1f3ea10f"
+      },
+      {
+        "story_id": "github-agent-scale-git-infrastructure",
+        "path": "shadow-runs/2026-10-08/images/corrections/owner-selected-v1/github-agent-scale-git-infrastructure.png",
+        "sha256": "ecf91db50db09f70fd085391494d169dfacf1209f541edd3c690d5d49f46636a",
+        "git_blob_sha": "88cb567af0773f6cd8c10874ac0b45fd5df6568b"
+      }
+    ],
+    "oct8_original_assets": [
+      {
+        "story_id": "realtor-realassist-agent-actions",
+        "path": "shadow-runs/2026-10-08/images/rendered/realtor-realassist-agent-actions/proof.png",
+        "sha256": "a6f0b0b54755df19b34cc26dedcfc976a69d884f75bec17f9cb96ef881ac8741",
+        "git_blob_sha": "f1dcf2654df601e3aeff611222297ada00db4598"
+      },
+      {
+        "story_id": "windows-hybrid-intelligence-copilot",
+        "path": "shadow-runs/2026-10-08/images/rendered/windows-hybrid-intelligence-copilot/proof.png",
+        "sha256": "780d204ea042a6c57f4afbbe37d49c882dc6cd318275bf2049f1eae012c54804",
+        "git_blob_sha": "7f742a82e99ba937606e8363230bf3f50f6f89fb"
+      },
+      {
+        "story_id": "cisco-webex-agentic-collaboration",
+        "path": "shadow-runs/2026-10-08/images/rendered/cisco-webex-agentic-collaboration/proof.png",
+        "sha256": "1b08e4e4085c69a151d701e561590e18caac1e282bff30b23d23c66671ce1e06",
+        "git_blob_sha": "92f48efd80714d999a241abcea9986f6f89d7152"
+      },
+      {
+        "story_id": "jump-trading-agentic-quant-research",
+        "path": "shadow-runs/2026-10-08/images/rendered/jump-trading-agentic-quant-research/proof.png",
+        "sha256": "d02f4a720320984bd6f3b9c79c90cfa491c18de836b14443851e6ece442969ce",
+        "git_blob_sha": "28deac81bbdc42a45316f3a0222452dc8c4cd2db"
+      },
+      {
+        "story_id": "google-developer-knowledge-agent-skill",
+        "path": "shadow-runs/2026-10-08/images/rendered/google-developer-knowledge-agent-skill/proof.png",
+        "sha256": "d1dd8f1655e980b51c89bf78a2466fa48e03e68fffa3e2ec2668af5aef2bb640",
+        "git_blob_sha": "68c0d53101dbb135a5866a73ce6477f3e9c8505a"
+      },
+      {
+        "story_id": "github-agent-scale-git-infrastructure",
+        "path": "shadow-runs/2026-10-08/images/rendered/github-agent-scale-git-infrastructure/proof.png",
+        "sha256": "6a3cf866d0581e877ba7bc2a6b3786e70a369485f1e97d56c2128b92768a794a",
+        "git_blob_sha": "2b77cedd68b645ce0cc049a900d1528a165903a5"
+      }
+    ],
+    "image_contract_blob": "7bfe2ecd94662bacd6a6b61ec0a51eed8beffeac",
+    "image_admission_blob": "a8f8a28dc7bef811872067fa8d1c8669659dd33c",
+    "proof_history": "R3 remains exhausted; no new attempt, proof, activation, arming, generation or transfer operation."
+  },
+  "package_integrity": {
+    "result": "PASS",
+    "files": 20,
+    "implementation_tests_claimed_by_package": false
+  },
+  "execution_scope": {
+    "github_repository_operations": "GitHub plugin only",
+    "local_tests": "Exposed local deterministic runtime; Node v24.19.0",
+    "authoritative_ci": "Existing Node 20 / sharp 0.34.4 validate workflow",
+    "legacy_repository_access": false,
+    "image_generation": false,
+    "schedule_mutation": false,
+    "edition_launch": false,
+    "paid_service_calls": false,
+    "new_runtime_mechanism": false,
+    "private_owner_inputs_published": false
+  },
+  "independent_release_states": {
+    "CODE_PASS": "PENDING_CANDIDATE_CI",
+    "LIVE_MEDIA_PROOF": "NOT_RUN; future selection-time evidence required",
+    "IMAGE_ACTIVATION": "UNCHANGED_PROOF_REQUIRED",
+    "CORE_RELEASE_READY": "NOT_ASSESSED",
+    "SOURCE_ROLLOUT": "NOT_RUN",
+    "OBSERVATION_RELEASE": "NOT_RUN",
+    "LEARNING_REPORT": "NOT_RUN"
+  }
+}

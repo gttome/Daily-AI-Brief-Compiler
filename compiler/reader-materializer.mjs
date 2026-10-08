@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
-import {adaptCompilerBundle} from './reader-adapter.mjs';
+import {adaptCompilerBundle,mediaDurationLabel,mediaDurationSeconds} from './reader-adapter.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 
@@ -22,6 +22,141 @@ function writeText(file,content){
   fs.writeFileSync(file,text.endsWith('\n')?text:text+'\n','utf8');
 }
 function readJson(file){return JSON.parse(fs.readFileSync(file,'utf8'));}
+
+// The imported renderer historically calls a video's Why field `connection`.
+// Supply that alias only to its transient input, keeping the saved canonical
+// media fields independent and the vendored renderer/golden fixture unchanged.
+export function mediaRendererEdition(edition){
+  const copy=structuredClone(edition);
+  for(const slot of Object.values(copy.worth_watching||{})){
+    if(slot?.status==='included'){
+      slot.connection=slot.why_it_matters;
+      slot.upload_date=slot.upload_date?.slice(0,10);
+    }
+  }
+  for(const slot of copy.podcasts||[])slot.publication_date=slot.publication_date?.slice(0,10);
+  return copy;
+}
+
+function currentMediaRows(bundle,edition){
+  const date=bundle.edition_date;
+  return [
+    ...bundle.videos.map((item,index)=>({
+      item,type:'Video',id:`dab-video-${date}-${index?'agent-skills':'general'}`,
+      route:`videos/${date}/${index?'agent-skills':'general'}.md`
+    })),
+    ...bundle.podcasts.map((item,index)=>({
+      item,type:'Podcast',id:edition.podcasts[index].item_id,
+      route:edition.podcasts[index].permanent_url.replace(/^\//,'').replace(/\/$/,'.md')
+    }))
+  ].map(row=>({...row,seconds:mediaDurationSeconds(row.item,bundle)}));
+}
+
+function mediaHtml(row){
+  const item=row.item;
+  const fields=[['Summary',item.summary],['Why it matters',item.why_it_matters]];
+  if(item.connection_to_brief)fields.push(['Connection to the Brief',item.connection_to_brief]);
+  fields.push(['Duration',mediaDurationLabel(row.seconds)]);
+  if(row.type==='Podcast')fields.push(['Written page',`${item.written_reading_time_minutes} min read`]);
+  return fields.map(([label,value])=>`<p><strong>${label}:</strong> ${esc(value)}</p>`).join('')+
+    `<p><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${row.type==='Video'?'Watch the selected video':'Listen to the selected episode'}</a></p>`;
+}
+
+function mediaPublicRecord(row){
+  const item=row.item;
+  return {
+    summary:item.summary,
+    why_it_matters:item.why_it_matters,
+    connection_to_brief:item.connection_to_brief||null,
+    related_story_ids:[...(item.related_story_ids||[])],
+    source_url:item.url,
+    selected_item_url:item.url,
+    canonical_source_url:item.source_url||null,
+    selected_item_id:item.item_id||null,
+    source_id:item.source_id||null,
+    publication:item.publication?structuredClone(item.publication):null,
+    research_cutoff_at:item.research_cutoff_at||null,
+    duration_seconds:row.seconds,
+    ...(row.type==='Podcast'?{written_reading_time_minutes:item.written_reading_time_minutes}:{})
+  };
+}
+
+function projectMediaMarkdown(content,rows,date,name){
+  let output=String(content);
+  for(const row of rows){
+    const marker=name===row.route&&row.type==='Video'
+      ?`data-story-id="${row.id}" hidden`
+      :`data-item-id="${row.id}" data-edition-date="${date}" data-action="permanent_page_clicks"`;
+    const start=output.indexOf(marker);
+    if(start<0)throw new Error('media reader identity hook missing: '+row.id+' in '+name);
+    const followingMarkers=rows.filter(candidate=>candidate.id!==row.id).map(candidate=>
+      output.indexOf(`data-item-id="${candidate.id}" data-edition-date="${date}" data-action="permanent_page_clicks"`,start)
+    ).filter(index=>index>start);
+    const end=followingMarkers.length?Math.min(...followingMarkers):output.length;
+    const pair=`**Summary:** ${row.item.summary}\n\n**Why it matters:** ${row.item.why_it_matters}`;
+    const before=pair+(row.type==='Podcast'?`\n\n**Connection to the brief:** ${row.item.connection_to_brief||''}`:'');
+    const index=output.indexOf(before,start);
+    if(index<0||index+before.length>end)throw new Error('media reader copy hook changed: '+row.id+' in '+name);
+    const after=pair+(row.item.connection_to_brief?`\n\n**Connection to the Brief:** ${row.item.connection_to_brief}`:'');
+    output=output.slice(0,index)+after+output.slice(index+before.length);
+
+    // Replace only this item's metadata. Original timestamp/date precision is
+    // retained, and canned renderer fallback claims are not new evidence.
+    const metadata=output.slice(start,index);
+    if(!/^\*\*Duration:\*\*[^\n]*$/m.test(metadata)||!/^\*\*Date:\*\*[^\n]*$/m.test(metadata))throw new Error('media reader metadata hook changed: '+row.id+' in '+name);
+    const updated=metadata
+      .replace(/^\*\*Date:\*\*[^\n]*$/m,`**Date:** ${row.item.publication?.original_value||row.item.original_date}  `)
+      .replace(/^\*\*Duration:\*\*[^\n]*$/m,`**Duration:** ${mediaDurationLabel(row.seconds)}  `+(row.type==='Podcast'?`\n**Written page:** ${row.item.written_reading_time_minutes} min read  `:''));
+    output=output.slice(0,start)+updated+output.slice(index);
+  }
+  return output;
+}
+
+// A bounded projection over existing renderer output, never historical pages.
+// Missing hooks fail explicitly so a renderer update cannot silently lose copy.
+export function projectMediaReaderFiles(generated,bundle,edition){
+  const files=new Map(generated),date=bundle.edition_date;
+  const rows=currentMediaRows(bundle,edition);
+  for(const name of ['index.md','latest.md',`briefs/${date}.md`]){
+    if(!files.has(name))throw new Error('media reader surface missing: '+name);
+    files.set(name,projectMediaMarkdown(files.get(name),rows,date,name));
+  }
+  for(const row of rows){
+    if(!files.has(row.route))throw new Error('permanent media reader surface missing: '+row.route);
+    files.set(row.route,projectMediaMarkdown(files.get(row.route),[row],date,row.route));
+  }
+  for(const [name,key] of [['feed.json','items'],['data/archive-index.json','stories']]){
+    if(!files.has(name))throw new Error('media reader feed missing: '+name);
+    const data=JSON.parse(files.get(name));
+    for(const row of rows){
+      const matches=data[key].filter(item=>(item.id||item.story_id)===row.id);
+      if(matches.length!==1)throw new Error('media reader feed identity missing/duplicate: '+row.id+' in '+name);
+      const target=matches[0],record=mediaPublicRecord(row);
+      if(name==='feed.json'){
+        // Custom JSON Feed extensions begin with an underscore. date_published
+        // continues to identify the Brief entry, not an invented source instant.
+        target.summary=record.summary;
+        target.content_html=mediaHtml(row);
+        target.external_url=row.item.url;
+        target._daily_compiler_media=record;
+      }else Object.assign(target,record);
+    }
+    files.set(name,JSON.stringify(data,null,2));
+  }
+  if(!files.has('feed.xml'))throw new Error('media reader feed missing: feed.xml');
+  let atom=files.get('feed.xml');
+  for(const row of rows){
+    let found=0;
+    atom=atom.replace(/<entry>[\s\S]*?<\/entry>/g,entry=>{
+      if(!entry.includes(`<id>${esc(row.id)}</id>`))return entry;
+      found++;
+      return entry.replace('</entry>',`  <content type="html">${esc(mediaHtml(row))}</content>\n  </entry>`);
+    });
+    if(found!==1)throw new Error('Atom media identity missing/duplicate: '+row.id);
+  }
+  files.set('feed.xml',atom);
+  return files;
+}
 
 function patchWatchlistImmediateSelection(root){
   const file=path.join(root,'assets','js','watchlist.js');
@@ -142,7 +277,7 @@ function mergeReadingSupport(root,bundle,edition,environment){
       item_id:'dab-video-'+edition.brief_date+'-'+suffix,
       coverage_label:'New development',
       label_reason:'Verified media selection preserved from the edition bundle.',
-      learning_outcome:slot.connection,
+      learning_outcome:slot.why_it_matters,
       context_term:'Video context',
       context:slot.why_useful
     });
@@ -235,7 +370,10 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   if(watchErrors.length)throw new Error('adapted Watchlist invalid: '+watchErrors.join('; '));
 
   const render=await import(pathToFileURL(path.join(outDir,'_generator','lib','render.mjs')).href);
-  const generated=render.generatedFiles(adapted.edition,outDir,{watchlist:adapted.watchlist});
+  const generated=projectMediaReaderFiles(
+    render.generatedFiles(mediaRendererEdition(adapted.edition),outDir,{watchlist:adapted.watchlist}),
+    bundle,adapted.edition
+  );
   for(const [name,content] of generated)writeText(path.join(outDir,name),applyFeedbackIdentities(content,feedbackRegistry));
   await writeWatchlistResearch(outDir,adapted.watchlist);
   writeText(path.join(outDir,'data','compiler-feedback-registry.json'),JSON.stringify(feedbackRegistry,null,2));
@@ -263,7 +401,8 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
     semantic_rework:0,
     accepted_image_regenerations:bundle.producer_receipt?.accepted_image_regenerations ?? 0,
     production_runtime_dependency:false,
-    reader_behavior_fixes:['watchlist-interest-selection-immediate-visual-state','compiler-owned-feedback-store','compiler-feedback-item-namespace']
+    reader_behavior_fixes:['watchlist-interest-selection-immediate-visual-state','compiler-owned-feedback-store','compiler-feedback-item-namespace','distinct-media-reader-fields','exact-media-duration-and-publication','media-page-and-feed-parity'],
+    media_contract_version:bundle.media_contract_version||null
   };
   writeText(path.join(outDir,'build-manifest.json'),JSON.stringify(manifest,null,2));
   return {manifest,adapted};

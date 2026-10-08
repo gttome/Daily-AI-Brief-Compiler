@@ -1,3 +1,5 @@
+import { parseMediaInstant } from '../compiler/media.mjs';
+
 const TERMINAL = new Set(['SHADOW_VERIFIED','SHADOW_FAILED']);
 const POST_SEMANTIC = new Set(['BUNDLE_READY','COMPILING','PREVIEW_READY','SHADOW_VERIFIED']);
 const STAGE_ORDER = new Map([['EDITORIAL',0],['CONTENT',1],['IMAGES',2],['BUNDLE',3],['COMPILE',4],['VERIFY',5]]);
@@ -41,6 +43,9 @@ export function assertProgressPreserved(previous, next) {
   if (previous.edition_date !== next.edition_date) throw new Error('edition identity changed');
   if (previous.execution_id !== next.execution_id) throw new Error('execution identity changed');
   if (previous.branch !== next.branch) throw new Error('branch identity changed');
+  if (previous.research_cutoff_at !== undefined && next.research_cutoff_at !== previous.research_cutoff_at) throw new Error('original research cutoff changed or removed');
+  if (previous.research_cutoff_at === undefined && next.research_cutoff_at !== undefined && (previous.stage !== 'EDITORIAL' || !['ALLOCATED','PRODUCING'].includes(previous.state) || previous.editorial_bundle?.status === 'complete')) throw new Error('research cutoff must be recorded during unfinished EDITORIAL');
+  if (next.research_cutoff_at !== undefined) parseMediaInstant(next.research_cutoff_at, 'research cutoff');
 
   const prevStage = STAGE_ORDER.get(previous.stage);
   const nextStage = STAGE_ORDER.get(next.stage);
