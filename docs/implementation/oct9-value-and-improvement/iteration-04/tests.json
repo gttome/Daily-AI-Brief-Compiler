@@ -1,0 +1,213 @@
+{
+  "schema_version": "iteration-04-local-tests-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "baseline_protected_sha": "32f4e962623d94db0a7b28594e828627ffb42600",
+  "source_commit": null,
+  "source_commit_note": "Pre-commit local execution. Exact tested file hashes below bind this evidence; immutable candidate and protected CI identities are recorded in completion.json after execution.",
+  "package_integrity": {
+    "command": "python verify_iteration_package.py",
+    "result": "PASS",
+    "verified_files": 25,
+    "scope": "SHA-256 verification of every file listed by the self-contained iteration package; this is separate from implementation acceptance."
+  },
+  "local_focused_suite": {
+    "command": "node --test tests/source-directory-migration.test.mjs tests/resource-registry-current.test.mjs tests/resources-suggestions-corrections.test.mjs",
+    "runtime": "Node.js v24.19.0",
+    "result": "PASS",
+    "tests": 26,
+    "pass": 26,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 1688.594649,
+    "new_migration_tests": 19,
+    "existing_regression_tests": 7,
+    "passed_test_names": [
+      "Compiler resource registry is seeded, extensible, and valid",
+      "resource registry includes the migrated podcast portfolio and official first-party sources",
+      "imported resource health begins unknown rather than pretending old production checks are current",
+      "resource monitoring records yield, freshness and recurring failures",
+      "future Brief inbox supports suggestions and must-include-if-valid directives",
+      "post-publication corrections preserve history and never require a new execution",
+      "dashboard snapshot combines operational surfaces for a later backend",
+      "I04-T01: all 204 original memberships are reconciled with exact provenance and layer totals",
+      "I04-T02: repeat and reordered migration preserve exact registry contents and stable identities",
+      "I04-T02: reapplication never resets real observations or accepts a changed source under the same migration",
+      "I04-T03: identical endpoints share memberships while arXiv, DeepMind and channel routes remain distinct",
+      "I04-T04: every baseline runtime field and all three Compiler-only sources are preserved",
+      "I04-T05: historical Active/Verified and assisted labels never qualify or activate imported routes",
+      "I04-T06: AI Daily Brief/AI Breakdown and Hard Fork retain explicit unresolved identities",
+      "I04-T07: all five exact rubrics and source-line references survive with no fabricated source scores",
+      "source migration rejects duplicate row identities and retains a verifiable reversible snapshot",
+      "source migration rejects ambiguous pre-existing exact endpoint matches instead of choosing one",
+      "I04-T03: conservative matching retains slash, query, fragment and raw hostname distinctions",
+      "qualification handoff covers every resource exactly once and binds the candidate digest without claiming due checks",
+      "persisted candidate registry and reconciliation artifacts exactly match the recorded first migration",
+      "v2 validation rejects missing/duplicate memberships and unqualified activation or guessed endpoints",
+      "replay rejects source loss even if retention lists are edited to hide a missing Compiler-only entry",
+      "v2 activation protection survives removing a resource from the self-reported creation list",
+      "CLI default dry-run produces a reviewable diff without writing registry or report files",
+      "CLI apply binds persisted reports to exact registry bytes and reapplication does not rewrite the registry",
+      "CLI refuses report/source collisions and existing proof replacement before any registry write"
+    ]
+  },
+  "acceptance": [
+    {
+      "test_id": "I04-T01",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T01: all 204 original memberships are reconciled with exact provenance and layer totals"
+      ]
+    },
+    {
+      "test_id": "I04-T02",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T02: repeat and reordered migration preserve exact registry contents and stable identities",
+        "I04-T02: reapplication never resets real observations or accepts a changed source under the same migration"
+      ]
+    },
+    {
+      "test_id": "I04-T03",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T03: identical endpoints share memberships while arXiv, DeepMind and channel routes remain distinct",
+        "I04-T03: conservative matching retains slash, query, fragment and raw hostname distinctions"
+      ]
+    },
+    {
+      "test_id": "I04-T04",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T04: every baseline runtime field and all three Compiler-only sources are preserved"
+      ]
+    },
+    {
+      "test_id": "I04-T05",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T05: historical Active/Verified and assisted labels never qualify or activate imported routes"
+      ]
+    },
+    {
+      "test_id": "I04-T06",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T06: AI Daily Brief/AI Breakdown and Hard Fork retain explicit unresolved identities"
+      ]
+    },
+    {
+      "test_id": "I04-T07",
+      "result": "PASS",
+      "command_ref": "local_focused_suite",
+      "test_names": [
+        "I04-T07: all five exact rubrics and source-line references survive with no fabricated source scores"
+      ]
+    }
+  ],
+  "manual_independent_review": {
+    "inventory": "Confirmed all original rows and rubric wording/weights, exact URL grouping and baseline-only sources.",
+    "contract": "Reviewed v1/v2 schema and source-preservation and disabled-import guards.",
+    "adversarial_findings_fixed": [
+      "Reject baseline source loss even if self-reported retention metadata is edited.",
+      "Reject an enabled import whose created-ID entry is omitted.",
+      "Require a complete, disjoint baseline/import partition of the actual registry.",
+      "Bind every pending identity question to the original source manifest."
+    ],
+    "scope": "Read-only independent review plus focused test regression; no external endpoint or image proof."
+  },
+  "not_run": [
+    {
+      "check": "Local full npm test / bootstrap / fixture:e2e / reader:parity",
+      "result": "NOT_RUN",
+      "reason": "The local scratch checkout contains the relevant source files, not the complete assets and pinned CI dependency. The unchanged protected workflow runs the complete repository on Node 20 with sharp@0.34.4; actual outcomes belong to completion.json."
+    },
+    {
+      "check": "Standalone third-party JSON Schema engine",
+      "result": "NOT_RUN",
+      "reason": "No such validator is part of the existing pinned toolchain. JSON syntax and actual repository semantic validators are checked; no dependency was added."
+    },
+    {
+      "check": "Live endpoint retrieval, publisher/show alias qualification, current media qualification, image generation/quality proof, scheduler readback, activation, edition launch, deployment",
+      "result": "NOT_RUN",
+      "reason": "Outside Iteration 4 catalogue reconciliation; no local test is treated as live proof or activation."
+    }
+  ],
+  "input_provenance": {
+    "inventory_sha256": "5a35c38f5058b29956a6493ecaaf9ef7668ab1fdcefe0cba2e348be935da2073",
+    "directory_sha256": "0cb76d7d4a5014b5476670dcc66ff2c9b4cd9d2d3c91adfc7f3a974a8a9db159",
+    "rubrics": "All five original rubric arrays and line ranges retained in directory.json and reconciliation/mapping.json."
+  },
+  "tested_files": {
+    "operations/resources.mjs": {
+      "sha256": "77ca6d5773e44cc6a6acd154c2832ba2d7576b6557178e4f82b555642d7d6a6b",
+      "git_blob_sha": "ed7f4f61dd7ab7623a328fc31a22d3d9884f345d",
+      "bytes": 30176
+    },
+    "contracts/resource-registry.schema.json": {
+      "sha256": "ce2fa070fd9e8dfb59ad88e3e1e3cbbc45ed720a4ad0e3587e9a5c3416adeba6",
+      "git_blob_sha": "be92cd3336ba73b0ebe9f80f596a54505c0e729d",
+      "bytes": 15811
+    },
+    "scripts/reconcile-source-directory.mjs": {
+      "sha256": "ece259e46d9d3b296a93b65e5709d792cb5440fbac96c95e7f2bf50e8bb92b6d",
+      "git_blob_sha": "24054f47e5b913419239728afa513c708e1bd04e",
+      "bytes": 4477
+    },
+    "tests/source-directory-migration.test.mjs": {
+      "sha256": "ff515fa598b28a0b69902cbeb59852d3960cd2564e8875923ca53cda432549f8",
+      "git_blob_sha": "2e6e9fadd372536860b37867efdf6ea3c3408177",
+      "bytes": 29663
+    },
+    "migrations/source-portfolio-v1/directory.json": {
+      "sha256": "2c94b547937f648e10844e2c013fc447046a9e7b351c79fb4537d91eefbf1275",
+      "git_blob_sha": "97d2bab9bb4ba4a1015f98da6bd14f44727d49d1",
+      "bytes": 195730
+    },
+    "migrations/source-portfolio-v1/registry.before.json": {
+      "sha256": "f26d874cdc1affa9417cbd0e87d99dfdb2508c7555b150915913db96bb616103",
+      "git_blob_sha": "4e307f9691357b9b54bfa0a8fb0a1c98be84cc45",
+      "bytes": 50275
+    },
+    "config/resource-registry.json": {
+      "sha256": "f3d755f0d5b1385cd0d0377f80a580046c4173925c0cb18c6a75557c058078b2",
+      "git_blob_sha": "5113f8b2fdb214997e55e0e31375b23ba407e37e",
+      "bytes": 356108
+    },
+    "docs/implementation/oct9-value-and-improvement/iteration-04/reconciliation/mapping.json": {
+      "sha256": "6e6f4fc12f1ef5bf5bca3831fa863b819329bf617dad0457e41136dcd3ac7280",
+      "git_blob_sha": "47c3c690b2487f5240bf20ce53832db09405a594",
+      "bytes": 422363
+    },
+    "docs/implementation/oct9-value-and-improvement/iteration-04/reconciliation/dry-run.json": {
+      "sha256": "57313c5bad4c6c629d1c314ddc14d29a662b8ea08eaa5c578a0b3b522b2604ff",
+      "git_blob_sha": "91c69252d4de77c6213227aadd38ee3b80d48104",
+      "bytes": 9902
+    },
+    "docs/implementation/oct9-value-and-improvement/iteration-04/reconciliation/qualification-worklist.json": {
+      "sha256": "94fcf81787b481234861f3851290bacafc794b0cd4fab4a0f7da976f75b71476",
+      "git_blob_sha": "2a213e9548825908545453933b8adc3bfa66d476",
+      "bytes": 274450
+    },
+    "package.json": {
+      "sha256": "af514b961e4533fe7f39c87579a564a33ca2e13b0b57260a3b3d48533dfd971a",
+      "git_blob_sha": "ee1effeca220f717b099ca28fdbc0cec2bdc4b01",
+      "bytes": 2392
+    }
+  },
+  "independent_states": {
+    "CODE_PASS": "PENDING_EXACT_HEAD_CI",
+    "SOURCE_CATALOGUE_RECONCILED": "CANDIDATE_204_OF_204",
+    "SOURCE_ROLLOUT": "SOURCE_ROLLOUT_PARTIAL",
+    "CORE_RELEASE_READY": "NOT_ASSESSED",
+    "OBSERVATION_RELEASE": "NOT_RUN",
+    "LEARNING_REPORT": "NOT_RUN"
+  }
+}
