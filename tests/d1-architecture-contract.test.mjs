@@ -1,13 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {validateD1Activation} from '../image-studio/activation.mjs';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 
 test('D1 v5 contract uses Work Cloud Browser with a fresh regular chat per story',()=>{
   const c=read('contracts/d1-image-contract.json');
   assert.equal(c.schema_version,'daily-compiler-image-contract-v5');
   assert.equal(c.strategy,'d1_work_browser_fresh_chat');
-  assert.equal(c.activation_status,'proof_required');
+  if(c.activation_status==='active'){
+    const activation=validateD1Activation();
+    assert.equal(activation.result,'PASS',activation.errors.join(','));
+  }else{
+    assert.equal(c.activation_status,'proof_required');
+    assert.equal(c.activation_receipt_path,null);
+    assert.equal(c.activation_receipt_sha256,null);
+  }
   assert.equal(c.image_creation.executor,'work_cloud_browser_fresh_regular_chat_per_story');
   assert.equal(c.image_creation.fresh_regular_chat_per_story_required,true);
   assert.equal(c.image_creation.temporary_chat_forbidden,true);
