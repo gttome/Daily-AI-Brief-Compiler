@@ -1,0 +1,95 @@
+{
+  "schema_version": "daily-compiler-iteration-07-source-qualification-delta-v1",
+  "recorded_at": "2026-10-08T15:58:54Z",
+  "purpose": "Three exact evidence-derived qualification records for root integration; not a replacement portfolio.",
+  "prior_portfolio_sha256": "c8b23e0bbd3f1a7af1494ec0451aa1c0e3d7877584631bb882621d290c1a079e",
+  "observations_path": "docs/implementation/oct9-value-and-improvement/iteration-07/unblock-source-observations.json",
+  "observations_sha256": "69c10f4bf52b4f4b14efecdaaa3d06059facf48b9e1d1249e028f5277ab57d8d",
+  "records": [
+    {
+      "resource_id": "youtube-openai",
+      "membership_ids": [],
+      "qualification_scope": "metadata_discovery_only",
+      "status": "pending",
+      "checked_at": "2026-10-08T15:52:19Z",
+      "endpoint": "https://www.youtube.com/@OpenAI",
+      "method": "chatgpt_web_open",
+      "parser_version": "daily-compiler-web-metadata-extract-v1",
+      "publisher_id": null,
+      "canonical_show_id": null,
+      "unattended_eligible": false,
+      "evidence_ref": "docs/implementation/oct9-value-and-improvement/iteration-07/unblock-source-observations.json#youtube-openai",
+      "evidence_sha256": "46df9d39e801cb85ce6e3cb3b56db69739b3a513d8abafd3b6ec3e96124ed2ff",
+      "sample_item_urls": [],
+      "limitations": [
+        "The tool did not expose an HTTP status, upload date, channel identifier, feed endpoint or permanent video sample.",
+        "Returned crawl age is not an upload/publication date and is not used as one.",
+        "No publisher-linked alternate was returned; the resource has no preapproved alternate. No route was guessed or probed.",
+        "This is a failed metadata extraction, not evidence of a healthy empty feed and not a selected-item media qualification.",
+        "Network transfer duration and upstream HTTP response bytes remain unknown.",
+        "The returned route contains only the channel title, an accounts iframe and generic YouTube footer. It exposes no extractable dated permanent video item or substantive sample; an empty channel is not established."
+      ],
+      "approved_alternates": [],
+      "source_score": null
+    },
+    {
+      "resource_id": "youtube-anthropic",
+      "membership_ids": [],
+      "qualification_scope": "metadata_discovery_only",
+      "status": "pending",
+      "checked_at": "2026-10-08T15:52:19Z",
+      "endpoint": "https://www.youtube.com/@anthropic-ai",
+      "method": "chatgpt_web_open",
+      "parser_version": "daily-compiler-web-metadata-extract-v1",
+      "publisher_id": null,
+      "canonical_show_id": null,
+      "unattended_eligible": false,
+      "evidence_ref": "docs/implementation/oct9-value-and-improvement/iteration-07/unblock-source-observations.json#youtube-anthropic",
+      "evidence_sha256": "a6885a6e6dcfed0be85c0a0f16744bb484fbab8a4a61a69e92adc83612b7cda7",
+      "sample_item_urls": [],
+      "limitations": [
+        "The tool did not expose an HTTP status, upload date, channel identifier, feed endpoint or permanent video sample.",
+        "Returned crawl age is not an upload/publication date and is not used as one.",
+        "No publisher-linked alternate was returned; the resource has no preapproved alternate. No route was guessed or probed.",
+        "This is a failed metadata extraction, not evidence of a healthy empty feed and not a selected-item media qualification.",
+        "Network transfer duration and upstream HTTP response bytes remain unknown.",
+        "The returned route contains only the channel title, an accounts iframe and generic YouTube footer. It exposes no extractable dated permanent video item or substantive sample; an empty channel is not established."
+      ],
+      "approved_alternates": [],
+      "source_score": null
+    },
+    {
+      "resource_id": "directory-b93e2368e85f0f95c066463e",
+      "membership_ids": [
+        "DIR-L3-115"
+      ],
+      "qualification_scope": "metadata_discovery_only",
+      "status": "qualified",
+      "checked_at": "2026-10-08T15:54:59Z",
+      "endpoint": "https://www.ibm.com/think/videos",
+      "method": "chatgpt_web_open",
+      "parser_version": "daily-compiler-web-metadata-extract-v1",
+      "publisher_id": "publisher:ibm.com",
+      "canonical_show_id": null,
+      "unattended_eligible": true,
+      "evidence_ref": "docs/implementation/oct9-value-and-improvement/iteration-07/unblock-source-observations.json#directory-b93e2368e85f0f95c066463e",
+      "evidence_sha256": "ec860e511d07a29ccb7be00c4a0fdd23b0d6231993a126964796a35bbe474974",
+      "sample_item_urls": [
+        "https://www.ibm.com/think/podcasts/mixture-of-experts/openai-gpt-6-astra-millenium-prize-weworm-ibm-us-open-app"
+      ],
+      "limitations": [
+        "Metadata-discovery qualification only. At observation time this source was disabled; these probes did not enable it, select media or launch edition research.",
+        "The successful sample is a publisher-advertised video podcast. No audio-only item was asserted to be a standalone video.",
+        "The standalone AI-engineering YouTube video returned a metadata-empty shell; its publication date and duration remain unknown.",
+        "The September 11 episode date is date precision only and is not a claimed YouTube upload timestamp.",
+        "No media playback, original claim fact-check, runtime, current selected-item freshness or editorial fit admission was performed.",
+        "HTTP status, upstream response size and actual network duration remain unknown. Tool crawl age is not a publication date.",
+        "All item inspection destinations were explicitly linked by the registered publisher route; no channel ID, feed URL or replacement discovery route was guessed."
+      ],
+      "approved_alternates": [],
+      "source_score": null
+    }
+  ],
+  "public_record_finalized_at": "2026-10-08T16:01:15Z",
+  "prior_portfolio_digest_basis": "Canonical JSON object SHA-256; raw file SHA-256 is recorded in the source baseline manifest."
+}

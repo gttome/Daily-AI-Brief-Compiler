@@ -377,10 +377,44 @@ export async function executeSourcePlan(plan,probe,{mode='live_plan_capture'}={}
 export function readSourceSnapshot(repoRoot='.'){
   const read=file=>JSON.parse(fs.readFileSync(path.join(repoRoot,file),'utf8'));
   const registry=read('config/resource-registry.json'),policy=read('config/source-discovery-policy.json'),qualifications=read('config/source-route-qualifications.json'),snapshot=read('config/source-snapshot.json');
-  const evidencePaths=unique(qualifications.records.map(q=>q.evidence_ref?.split('#')[0]).filter(Boolean));
-  assert(evidencePaths.length===1,'source_evidence_path');
-  assert(!path.isAbsolute(evidencePaths[0])&&!evidencePaths[0].split('/').includes('..'),'unsafe_evidence_path');
-  const observations=read(evidencePaths[0]).observations;
+  assert(Array.isArray(qualifications.records)&&Array.isArray(registry.resources),'source_evidence_inputs');
+  const root=fs.realpathSync(repoRoot),known=new Set(registry.resources.map(r=>r.resource_id)),selected=new Map(),documents=new Map();
+  for(const q of qualifications.records){
+    assert(text(q.resource_id)&&known.has(q.resource_id)&&!selected.has(q.resource_id),'duplicate_or_unknown_source_qualification');
+    selected.set(q.resource_id,null);
+    if(q.checked_at===null){
+      assert(q.evidence_ref===null&&q.evidence_sha256===null,'unobserved_source_evidence_binding');
+      continue;
+    }
+    const ref=typeof q.evidence_ref==='string'?q.evidence_ref.split('#'):[];
+    assert(ref.length===2&&ref[1]===q.resource_id,'source_evidence_reference:'+q.resource_id);
+    const relative=ref[0];
+    assert(relative.length>0&&!path.isAbsolute(relative)&&!/[\\\s?:]/.test(relative)&&!relative.split('/').some(part=>!part||part==='.'||part==='..'),'unsafe_evidence_path');
+    if(!documents.has(relative)){
+      const supplied=path.resolve(root,relative);
+      assert(fs.existsSync(supplied),'source_evidence_document_missing:'+relative);
+      const full=fs.realpathSync(supplied),within=path.relative(root,full);
+      assert(within!==''&&within!=='..'&&!within.startsWith('..'+path.sep)&&!path.isAbsolute(within)&&fs.statSync(full).isFile(),'unsafe_evidence_path');
+      const document=JSON.parse(fs.readFileSync(full,'utf8'));
+      assert(Array.isArray(document.observations),'source_evidence_document_shape:'+relative);
+      const byId=new Map();
+      for(const observation of document.observations){
+        assert(observation&&text(observation.resource_id)&&known.has(observation.resource_id),'source_evidence_document_resource:'+relative);
+        assert(!byId.has(observation.resource_id),'duplicate_source_document_evidence:'+relative);
+        byId.set(observation.resource_id,observation);
+      }
+      documents.set(relative,{rows:document.observations,byId});
+    }
+    const evidence=documents.get(relative).byId.get(q.resource_id);
+    assert(evidence,'source_evidence_record_missing:'+q.resource_id);
+    assert(sourceDigest(evidence)===q.evidence_sha256,'source_evidence_record_digest:'+q.resource_id);
+    selected.set(q.resource_id,relative);
+  }
+  // Preserve older evidence documents verbatim. A qualification names its exact
+  // document and resource; an older observation of that resource in another
+  // retained document cannot replace or conflict with that explicit selection.
+  // Single-document snapshots retain their original observation ordering.
+  const observations=[...documents].flatMap(([relative,document])=>document.rows.filter(row=>selected.get(row.resource_id)===relative));
   const errors=validateSourceSnapshot(registry,policy,qualifications,snapshot,observations);
   assert(!errors.length,errors.join(';'));
   return {registry,policy,qualifications,snapshot,observations};

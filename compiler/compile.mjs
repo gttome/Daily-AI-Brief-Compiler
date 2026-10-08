@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { materializeReaderSource } from './reader-materializer.mjs';
+import { resolveReaderEnvironment } from './reader-environment.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
@@ -202,14 +203,15 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
   return {state:inputState,baseState:state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate,legacyImageGate,mediaGate,correction:correction?{revision_id:inputState.revision_id,original_bundle_sha256:inputState.original_bundle_sha256,selected_story_ids:inputState.selected_story_ids}:null};
 }
 
-export async function buildSite({validation, outDir, repoRoot='.'}) {
-  return materializeReaderSource({bundle:validation.bundle,bundleDigest:validation.bundleDigest,outDir,repoRoot});
+export async function buildSite({validation, outDir, repoRoot='.',environment}) {
+  return materializeReaderSource({bundle:validation.bundle,bundleDigest:validation.bundleDigest,outDir,repoRoot,environment});
 }
 
-export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',environment}) {
+  environment=resolveReaderEnvironment(environment);
   const validation=validateEdition({statePath,bundlePath,repoRoot});
   const parity=await checkGoldenReaderParity();
-  const built=await buildSite({validation,outDir,repoRoot});
+  const built=await buildSite({validation,outDir,repoRoot,environment});
   const verification={
     schema_version:'daily-compiler-reader-source-verification-v2',
     result:'PASS',
@@ -260,7 +262,9 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
-  if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>]');
-  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.'});
+  if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>] [--reader-environment <json-file>]');
+  if(Object.hasOwn(args,'reader-environment')&&(!args['reader-environment']||args['reader-environment'].startsWith('--')))fail('reader environment JSON file required');
+  const environment=args['reader-environment']?readJson(args['reader-environment']):undefined;
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',environment});
   console.log(JSON.stringify(receipt,null,2));
 }

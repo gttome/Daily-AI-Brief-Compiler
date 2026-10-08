@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {canonicalSha,sha256} from '../image-capsules/util.mjs';
 import {readReleaseManifest,readerRoutePath,verifyReaderImageBindings,verifyReaderMediaBindings} from './verify-built-reader.mjs';
+import {readerDestination} from '../compiler/reader-environment.mjs';
 
 const readJson=file=>JSON.parse(fs.readFileSync(file,'utf8'));
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -12,7 +13,7 @@ const fail=message=>{throw new Error(message);};
 async function probeFeedbackStore({manifest,editionDate,fetchImpl}){
   const api=manifest.feedback?.base_url;
   if(!api)throw new Error('Compiler feedback store missing from manifest');
-  const origin='https://gttome.github.io';
+  const origin=readerDestination({publicBase:manifest.environment?.public_base,baseurl:manifest.environment?.baseurl}).origin;
   const probeItem='dab-story-compiler-'+editionDate+'-verification-probe';
   const probeTopic='dab-topic-compiler-verification-'+editionDate;
   const post=async(route,body,operation)=>{
@@ -48,7 +49,7 @@ export async function verifyLiveArtifacts({baseUrl,editionDate,sourceDir='build/
   if(!baseUrl||!editionDate||typeof fetchImpl!=='function')fail('live verification target required');
   const {manifest}=readReleaseManifest({sourceDir});
   if(manifest.edition_date!==editionDate)fail('edition mismatch');
-  if(new URL(baseUrl).href.replace(/\/$/,'')!==new URL(manifest.environment.public_base).href.replace(/\/$/,''))fail('live base URL differs from canonical reader destination');
+  if(typeof baseUrl!=='string'||baseUrl.replace(/\/$/,'')!==manifest.environment.public_base)fail('live base URL differs from canonical reader destination');
   const buildDir=path.dirname(sourceDir);
   const built=readJson(builtReceiptPath||path.join(buildDir,'built-verification.json'));
   if(built.schema_version!=='daily-compiler-built-reader-verification-v2'||built.result!=='PASS'||built.edition_date!==editionDate)fail('built reader PASS identity missing');

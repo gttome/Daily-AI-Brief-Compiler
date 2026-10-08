@@ -123,16 +123,23 @@ test('I07-T03 real capability may be idle before edition allocation; an armed wr
   assert.equal(idle.edition_launched,false);assert.equal(idle.schedules_changed,false);
 });
 
-test('I07-T04 full mapping remains PARTIAL; registered or enabled video rows without qualification do not establish supply',()=>{
+test('I07-T04 sufficient current role coverage remains PARTIAL and cannot grant selected media admission',()=>{
   const context=readSourceSnapshot(ROOT),summary=qualifiedDiscoverySummary(context);
-  assert.equal(summary.resource_count,169);assert.equal(summary.qualified_resources,15);assert.equal(summary.SOURCE_ROLLOUT,'PARTIAL');
-  assert.equal(summary.role_counts.video,0);assert.deepEqual(summary.missing_required_roles,['video']);assert.equal(summary.sufficient_discovery_routes,false);
-  const fixture=structuredClone(context);
-  // A synthetic role-summary fixture only: it is not written, approved or
-  // passed off as a validated source snapshot or newly qualified live route.
-  fixture.registry.resources.push({resource_id:'TEST_ONLY-video',enabled:true,content_types:['video'],discovery:{qualification_status:'qualified',unattended_eligible:true}});
-  const sufficient=qualifiedDiscoverySummary(fixture);
-  assert.equal(sufficient.sufficient_discovery_routes,true);assert.equal(sufficient.SOURCE_ROLLOUT,'PARTIAL');assert.equal(sufficient.selected_item_admission,'NOT_RUN');
+  assert.equal(summary.resource_count,169);assert.equal(summary.qualified_resources,16);assert.equal(summary.SOURCE_ROLLOUT,'PARTIAL');
+  assert.equal(summary.role_counts.video,1);assert.deepEqual(summary.missing_required_roles,[]);assert.equal(summary.sufficient_discovery_routes,true);
+  assert.equal(summary.selected_item_admission,'NOT_RUN');
+  // These negative role-summary mutants are never written or passed off as
+  // validated source snapshots. Catalogue membership alone cannot supply video.
+  for(const mutation of [resource=>resource.enabled=false,resource=>Object.assign(resource.discovery,{qualification_status:'pending',unattended_eligible:false})]){
+    const fixture=structuredClone(context);
+    for(const resource of fixture.registry.resources){
+      const roles=[...(resource.content_types||[]),...(resource.catalogue?.memberships||[]).map(row=>row.layer_role)];
+      if(roles.includes('video')&&resource.discovery?.qualification_status==='qualified')mutation(resource);
+    }
+    const insufficient=qualifiedDiscoverySummary(fixture);
+    assert.equal(insufficient.role_counts.video,0);assert.deepEqual(insufficient.missing_required_roles,['video']);
+    assert.equal(insufficient.sufficient_discovery_routes,false);assert.equal(insufficient.SOURCE_ROLLOUT,'PARTIAL');assert.equal(insufficient.selected_item_admission,'NOT_RUN');
+  }
 });
 
 test('I07-T05 fixed October 8 Central start crosses UTC date once; recurrence does not fill an unknown next run',()=>{
@@ -148,6 +155,24 @@ test('I07-T05 fixed October 8 Central start crosses UTC date once; recurrence do
     record=>record.tasks[0].schedule+='\nDTSTART;TZID=America/Chicago:20261006T191500',record=>record.tasks[0].schedule+='\nEXDATE:20261009T001500Z',
     record=>record.tasks.push(structuredClone(record.tasks[0])),record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('BYSECOND=0','BYSECOND=0;COUNT=1')]){
     const fixture=schedule();altered(fixture);assert.equal(compareValueSchedule(fixture,A).recurrence_result,'FAIL');
+  }
+});
+
+test('I07-T05 verified daily configuration accepts unknown next-run metadata without waiving release or capability gates',()=>{
+  const readback=schedule();
+  const result=auditValueRelease({repoRoot:ROOT,engineSha:A,recordedAt:WHEN,scheduleReadback:readback});
+  const configured=gate(result,'ACTUAL_TARGET_SCHEDULE');
+  assert.equal(configured.result,'PASS');assert.equal(configured.detail.next_run_time,null);assert.equal(configured.detail.next_occurrence_result,'UNKNOWN');
+  assert.equal(gate(result,'SCHEDULE_IMMUTABLE_ENGINE_BINDING').result,'PENDING_OR_FAIL');
+  assert.equal(gate(result,'EXPLICIT_PROTECTED_ACTIVATION_APPROVAL').result,'PENDING_OR_FAIL');
+  assert.equal(gate(result,'EXISTING_IMAGE_RUNTIME_READINESS_HANDOFF').result,'PENDING_OR_FAIL');
+  assert.equal(result.CORE_RELEASE_READY,'FAIL');assert.equal(result.schedules_changed,false);assert.equal(result.edition_launched,false);
+  for(const mutate of [record=>record.tasks[0].id='TEST_ONLY-wrong-task',record=>record.tasks[0].is_enabled=false,
+    record=>record.tasks[0].default_timezone='Etc/UTC',record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('BYHOUR=19','BYHOUR=20'),
+    record=>record.tasks[0].next_run_time='2026-10-10T00:15:00Z',record=>record.tasks[0].next_run_time='invalid']){
+    const wrong=schedule();mutate(wrong);
+    const rejected=auditValueRelease({repoRoot:ROOT,engineSha:A,recordedAt:WHEN,scheduleReadback:wrong});
+    assert.equal(gate(rejected,'ACTUAL_TARGET_SCHEDULE').result,'PENDING_OR_FAIL');
   }
 });
 
