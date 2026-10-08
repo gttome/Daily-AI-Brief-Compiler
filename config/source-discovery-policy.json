@@ -1,0 +1,36 @@
+{
+  "schema_version": "daily-compiler-source-discovery-policy-v1",
+  "cadence_version": "daily-compiler-source-cadence-v1",
+  "epoch_date": "2026-01-01",
+  "timezone": "America/Chicago",
+  "cadence": {
+    "tier_1_period_editions": 1,
+    "tier_2_period_editions": 3,
+    "tier_3_period_editions": 7,
+    "topic_acceleration_allowed": true,
+    "preserve_enabled_primary_as_tier_1": true
+  },
+  "acquisition": {
+    "method": "chatgpt_web_open",
+    "parser_version": "daily-compiler-web-metadata-extract-v1",
+    "primary_probes_per_due_endpoint": 1,
+    "approved_alternates_after_failure": 1,
+    "max_concurrency": 4,
+    "max_response_bytes": 131072,
+    "max_items_per_response": 50,
+    "response_limit_scope": "returned tool response and retained extraction; upstream HTTP transfer size is unknown",
+    "budget_rule": "unique due endpoint-identity-cutoff groups plus their explicit approved alternates",
+    "qualification_never_grants_selected_item_admission": true
+  },
+  "research_limits": {
+    "retained_articles": 20,
+    "article_deep_packets": 9,
+    "article_evidence_characters": 12000,
+    "media_retained_per_type": 12,
+    "media_evidence_packets_per_type": 6,
+    "media_evidence_characters_per_type": 6000
+  },
+  "source_scores": null,
+  "active_registry_mutation_from_observations": false,
+  "source_rollout_may_be_partial": true
+}

@@ -1,12 +1,14 @@
 import {createHash} from 'node:crypto';
 
 export const RESOURCE_REGISTRY_SCHEMA='daily-compiler-resource-registry-v2';
+export const QUALIFIED_RESOURCE_REGISTRY_SCHEMA='daily-compiler-resource-registry-v3';
 export const LEGACY_RESOURCE_REGISTRY_SCHEMA='daily-compiler-resource-registry-v1';
-export const RESOURCE_OBSERVATION_SCHEMA='daily-compiler-resource-observation-v1';
+export const RESOURCE_OBSERVATION_SCHEMA='daily-compiler-resource-observation-v2';
+export const LEGACY_RESOURCE_OBSERVATION_SCHEMA='daily-compiler-resource-observation-v1';
 
 export function validateResourceRegistry(registry={}){
   const errors=[];
-  if(![RESOURCE_REGISTRY_SCHEMA,LEGACY_RESOURCE_REGISTRY_SCHEMA].includes(registry.schema_version)) errors.push('resource_registry_schema');
+  if(![RESOURCE_REGISTRY_SCHEMA,LEGACY_RESOURCE_REGISTRY_SCHEMA,QUALIFIED_RESOURCE_REGISTRY_SCHEMA].includes(registry.schema_version)) errors.push('resource_registry_schema');
   if(!Array.isArray(registry.resources)) errors.push('resources_array');
   const ids=new Set();
   for(const r of Array.isArray(registry.resources)?registry.resources:[]){
@@ -17,20 +19,68 @@ export function validateResourceRegistry(registry={}){
     if(!['targeted','site_search','feed','page','manual_endpoint'].includes(r?.search_mode)) errors.push('resource_search_mode');
     if(!['healthy','degraded','failing','unknown'].includes(r?.health?.status)) errors.push('resource_health');
   }
-  if(registry.schema_version===RESOURCE_REGISTRY_SCHEMA) errors.push(...validateSourcePortfolioRegistry(registry));
+  if([RESOURCE_REGISTRY_SCHEMA,QUALIFIED_RESOURCE_REGISTRY_SCHEMA].includes(registry.schema_version)) errors.push(...validateSourcePortfolioRegistry(registry));
   else if(registry.source_portfolio||(registry.resources||[]).some?.(r=>r?.catalogue)) errors.push('resource_registry_catalogue_requires_v2');
+  if(registry.schema_version===QUALIFIED_RESOURCE_REGISTRY_SCHEMA){
+    const binding=registry.source_discovery;
+    if(binding?.schema_version!=='daily-compiler-qualified-source-snapshot-v1'||binding.policy_path!=='config/source-discovery-policy.json'||
+      binding.qualifications_path!=='config/source-route-qualifications.json'||binding.snapshot_path!=='config/source-snapshot.json'||
+      !/^[a-f0-9]{64}$/.test(binding.policy_sha256||'')||!/^[a-f0-9]{64}$/.test(binding.qualifications_sha256||''))errors.push('resource_discovery_binding');
+    for(const r of registry.resources||[]){
+      const d=r.discovery;
+      if(!d||!['qualified','pending','blocked'].includes(d.qualification_status)||!/^[a-f0-9]{64}$/.test(d.qualification_sha256||'')||
+         typeof d.unattended_eligible!=='boolean'||!Array.isArray(d.approved_alternates)||d.approved_alternates.length>1)errors.push('resource_discovery');
+      if(d?.qualification_status==='qualified'){
+        if(!d.unattended_eligible||!publicUrl(d.endpoint)||!nonempty(d.publisher_id)||!dateTime(d.checked_at)||!r.enabled||r.endpoint!==d.endpoint)errors.push('resource_discovery_qualification');
+      }else if(d?.unattended_eligible!==false||d?.endpoint!==null||d?.publisher_id!==null||d?.canonical_show_id!==null)errors.push('resource_discovery_unqualified');
+    }
+  }else if(registry.source_discovery||(registry.resources||[]).some?.(r=>r.discovery))errors.push('resource_discovery_requires_v3');
   return [...new Set(errors)];
 }
 
 export function validateResourceObservation(o={}){
   const errors=[];
-  if(o.schema_version!==RESOURCE_OBSERVATION_SCHEMA) errors.push('resource_observation_schema');
+  if(!o||typeof o!=='object'||Array.isArray(o)) return ['resource_observation_schema'];
+  const v2=o.schema_version===RESOURCE_OBSERVATION_SCHEMA;
+  const count=n=>Number.isInteger(n)&&n>=0;
+  const nullableCount=n=>n===null||count(n);
+  const nullableReason=s=>s===null||(typeof s==='string'&&s.trim().length>0);
+  const counters=['candidates_found','usable_candidates','selected_items','fresh_items'];
+  if(![RESOURCE_OBSERVATION_SCHEMA,LEGACY_RESOURCE_OBSERVATION_SCHEMA].includes(o.schema_version)) errors.push('resource_observation_schema');
   for(const k of ['edition_date','execution_id','resource_id','checked_at']) if(!o[k]) errors.push('resource_observation_'+k);
   if(!['article','video','podcast','watchlist','research'].includes(o.content_type)) errors.push('resource_observation_type');
-  for(const k of ['queries','candidates_found','usable_candidates','selected_items','fresh_items','duration_ms']){
-    if(!Number.isInteger(o[k])||o[k]<0) errors.push('resource_observation_'+k);
+  if(!count(o.queries)) errors.push('resource_observation_queries');
+  for(const k of counters){
+    if(!(v2?nullableCount(o[k]):count(o[k]))) errors.push('resource_observation_'+k);
   }
-  if(!Array.isArray(o.failures)) errors.push('resource_observation_failures');
+  if(!nullableCount(o.duration_ms)) errors.push('resource_observation_duration_ms');
+  if(!Array.isArray(o.failures)||!o.failures.every(s=>typeof s==='string'&&s.trim())) errors.push('resource_observation_failures');
+  if(v2){
+    for(const k of ['edition_date','execution_id','resource_id']) if(typeof o[k]!=='string'||!o[k].trim()) errors.push('resource_observation_'+k);
+    if(typeof o.checked_at!=='string'||!Number.isFinite(Date.parse(o.checked_at))||!/T/.test(o.checked_at)) errors.push('resource_observation_checked_at');
+    const retrieval=o.retrieval||{}, coverage=o.coverage||{}, yieldResult=o.editorial_yield||{};
+    if(!['healthy','access_blocked','parse_error','identity_unverified','unavailable','not_checked'].includes(retrieval.status)||
+       !(retrieval.http_status===null||(Number.isInteger(retrieval.http_status)&&retrieval.http_status>=100&&retrieval.http_status<=599))||
+       !nullableReason(retrieval.reason)) errors.push('resource_observation_retrieval');
+    if(!['checked','not_due','pending','budget_skipped'].includes(coverage.status)||typeof coverage.due!=='boolean'||
+       (coverage.status==='not_due'&&coverage.due)||(coverage.status==='pending'&&!coverage.due)||
+       (coverage.status==='budget_skipped'&&!coverage.due)) errors.push('resource_observation_coverage');
+    if(!['not_assessed','empty','no_fresh_items','candidates'].includes(yieldResult.status)||!nullableReason(yieldResult.reason)) errors.push('resource_observation_editorial_yield');
+    if((coverage.status==='checked')!==(retrieval.status!=='not_checked')) errors.push('resource_observation_check_consistency');
+    if(coverage.status!=='checked'&&(o.queries!==0||retrieval.http_status!==null)) errors.push('resource_observation_unchecked_probe');
+    if(retrieval.status==='healthy'){
+      if(retrieval.http_status!==null&&(retrieval.http_status<200||retrieval.http_status>=400)) errors.push('resource_observation_healthy_http');
+      if(yieldResult.status==='empty'&&!counters.every(k=>o[k]===0)) errors.push('resource_observation_empty_yield');
+      if(yieldResult.status==='candidates'&&!(o.candidates_found>0)) errors.push('resource_observation_candidate_yield');
+      if(yieldResult.status==='no_fresh_items'&&!(o.candidates_found>0&&o.fresh_items===0&&o.selected_items===0)) errors.push('resource_observation_no_fresh_yield');
+    }else{
+      if(yieldResult.status!=='not_assessed'||!counters.every(k=>o[k]===null)) errors.push('resource_observation_unknown_yield');
+      if(!retrieval.reason) errors.push('resource_observation_limitation_reason');
+    }
+    for(const [part,whole] of [['usable_candidates','candidates_found'],['selected_items','usable_candidates'],['fresh_items','candidates_found']]){
+      if(count(o[part])&&count(o[whole])&&o[part]>o[whole]) errors.push('resource_observation_counter_order');
+    }
+  }
   return [...new Set(errors)];
 }
 
@@ -40,19 +90,27 @@ export function applyResourceObservation(registry,observation){
   if(errors.length) throw new Error(errors.join(';'));
   const r=reg.resources.find(x=>x.resource_id===observation.resource_id);
   if(!r) throw new Error('resource_not_registered');
-  const hadFailure=observation.failures.length>0;
-  const usable=observation.usable_candidates>0;
+  const v2=observation.schema_version===RESOURCE_OBSERVATION_SCHEMA;
+  // Coverage is not access health. A plan entry that was not probed must not
+  // manufacture a source failure, success, elapsed time or freshness result.
+  if(v2&&observation.coverage.status!=='checked') return reg;
+  // Historical v1 records lack distinct retrieval fields. Preserve them as v1;
+  // their failure list, never a zero candidate count, is the failure evidence.
+  const succeeded=v2?observation.retrieval.status==='healthy':observation.failures.length===0;
   r.health.last_checked_at=observation.checked_at;
-  if(usable){
+  if(succeeded){
     r.health.last_success_at=observation.checked_at;
     r.health.consecutive_failures=0;
-    r.health.status=hadFailure?'degraded':'healthy';
+    r.health.status='healthy';
   }else{
     r.health.consecutive_failures=(r.health.consecutive_failures||0)+1;
     r.health.status=r.health.consecutive_failures>=3?'failing':'degraded';
   }
-  r.health.observed_yield_rate=observation.candidates_found?observation.usable_candidates/observation.candidates_found:0;
-  r.health.freshness_hit_rate=observation.usable_candidates?observation.fresh_items/observation.usable_candidates:0;
+  const rate=(n,d)=>Number.isInteger(n)&&Number.isInteger(d)&&d>0?n/d:null;
+  r.health.observed_yield_rate=succeeded?rate(observation.usable_candidates,observation.candidates_found):null;
+  // V2 records freshness against all discovered candidates, independently of
+  // semantic usefulness. V1 retains its historical usable-candidate denominator.
+  r.health.freshness_hit_rate=succeeded?rate(observation.fresh_items,v2?observation.candidates_found:observation.usable_candidates):null;
   reg.updated_at=observation.checked_at;
   return reg;
 }
@@ -185,7 +243,8 @@ function validateSourcePortfolioRegistry(registry){
        identity.canonical_show_id!==null||identity.verification_status!=='pending'||identity.evidence_ref!==null) errors.push('source_portfolio_identity');
     if(q?.status!=='pending'||q.verified_runtime_endpoint!==null||q.checked_at!==null||q.evidence_ref!==null||q.unattended_eligible!==false) errors.push('source_portfolio_qualification');
     if(!uniqueStrings(c.identity_question_ids)||!Array.isArray(c.memberships)||!c.memberships.length) errors.push('source_portfolio_memberships');
-    if((createdIds.has(r.resource_id)||(Array.isArray(c.memberships)&&c.memberships.some(m=>m?.resource_action==='add_resource')))&&
+    const currentQualified=registry.schema_version===QUALIFIED_RESOURCE_REGISTRY_SCHEMA&&r.discovery?.qualification_status==='qualified'&&r.discovery?.unattended_eligible===true;
+    if((createdIds.has(r.resource_id)||(Array.isArray(c.memberships)&&c.memberships.some(m=>m?.resource_action==='add_resource')))&&!currentQualified&&
        (r.enabled!==false||r.endpoint!==null||r.publisher!==null||r.search_mode!=='manual_endpoint')) errors.push('source_portfolio_unqualified_activation');
     for(const m of Array.isArray(c.memberships)?c.memberships:[]){
       const l=layerFor(m?.layer);

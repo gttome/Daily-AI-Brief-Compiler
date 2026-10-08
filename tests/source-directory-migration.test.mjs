@@ -8,6 +8,8 @@ import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {
   applyResourceObservation,
+  RESOURCE_REGISTRY_SCHEMA,
+  QUALIFIED_RESOURCE_REGISTRY_SCHEMA,
   reconcileSourceDirectory,
   resourceRegistryDigest,
   serializeResourceRegistry,
@@ -348,18 +350,22 @@ test('qualification handoff covers every resource exactly once and binds the can
   assert.deepEqual([...retainedGroup.resource_ids].sort(),[...compilerOnlyIds].sort());
 });
 
-test('persisted candidate registry and reconciliation artifacts exactly match the recorded first migration',()=>{
+test('historical migration artifacts remain exact while the current registry preserves their catalogue through qualified evolution',()=>{
   const registryBytes=fs.readFileSync(new URL('../config/resource-registry.json',import.meta.url));
   const current=JSON.parse(registryBytes);
-  const derived=migrate(baseline,source,current.source_portfolio.applied_at);
-  assert.deepEqual(current,derived.registry,'persisted candidate must preserve the approved migration result');
-  assert.deepEqual(registryBytes,Buffer.from(serializeResourceRegistry(derived.registry)));
-  const digest=sha256(registryBytes);
+  const historical=readJson('../docs/implementation/oct9-value-and-improvement/iteration-04/completion.json');
+  // Historical artifacts bind the original v2 migration, not a later approved
+  // qualification snapshot. Never rewrite their digest to match today's config.
+  const derived=migrate(baseline,source,historical.catalogue.applied_at);
+  const historicalBytes=Buffer.from(serializeResourceRegistry(derived.registry));
+  const digest=sha256(historicalBytes);
+  assert.equal(derived.registry.schema_version,RESOURCE_REGISTRY_SCHEMA);
+  assert.equal(digest,historical.catalogue.candidate_registry_sha256);
   const artifactRoot=new URL('../docs/implementation/oct9-value-and-improvement/iteration-04/reconciliation/',import.meta.url);
   for(const [filename,expected] of [['mapping.json',derived.mapping],['qualification-worklist.json',derived.qualification_worklist]]){
     const actual=fs.readFileSync(new URL(filename,artifactRoot));
     assert.deepEqual(actual,Buffer.from(JSON.stringify(expected,null,2)+'\n'),filename);
-    assert.equal(JSON.parse(actual).candidate_registry_sha256,digest,`${filename}: digest must identify actual registry bytes`);
+    assert.equal(JSON.parse(actual).candidate_registry_sha256,digest,`${filename}: digest must identify the original approved migration bytes`);
   }
   const recordedDiff=JSON.parse(fs.readFileSync(new URL('dry-run.json',artifactRoot)));
   assert.deepEqual(recordedDiff,{
@@ -368,6 +374,42 @@ test('persisted candidate registry and reconciliation artifacts exactly match th
   });
   assert.equal(recordedDiff.registry_changed,true);
   assert.equal(recordedDiff.after_registry_sha256,digest);
+
+  assert.deepEqual(validateResourceRegistry(current),[],'current configuration must satisfy its versioned registry contract');
+  assert.deepEqual(current.source_portfolio,derived.registry.source_portfolio,'all original membership and portfolio provenance remains immutable');
+  assert.deepEqual(current.resources.map(r=>r.resource_id),derived.registry.resources.map(r=>r.resource_id),'all 169 original resource identities and their stable order remain present');
+  if(current.schema_version===RESOURCE_REGISTRY_SCHEMA){
+    assert.deepEqual(current,derived.registry,'the unreleased v2 configuration still equals its approved migration');
+    assert.deepEqual(registryBytes,historicalBytes);
+  }else{
+    assert.equal(current.schema_version,QUALIFIED_RESOURCE_REGISTRY_SCHEMA,'only the separately versioned qualification extension may evolve this snapshot');
+    const currentResources=byId(current.resources);
+    for(const original of derived.registry.resources){
+      const evolved=currentResources.get(original.resource_id);
+      // Discovery grants and actual access observations may evolve these runtime
+      // fields. Their contracts validate the grant; migration identities,
+      // catalogue, memberships, priority and unrelated configuration stay exact.
+      const stable=resource=>Object.fromEntries(Object.entries(resource).filter(([key])=>
+        !['enabled','endpoint','search_mode','publisher','health','discovery'].includes(key)));
+      assert.deepEqual(stable(evolved),stable(original),`${original.resource_id}: historical identity and catalogue must be retained`);
+      if(evolved.discovery.qualification_status!=='qualified'){
+        for(const field of ['enabled','endpoint','search_mode','publisher']){
+          assert.deepEqual(evolved[field],original[field],`${original.resource_id}: unqualified imports cannot gain runtime authority`);
+        }
+      }else{
+        assert.equal(evolved.enabled,true,`${original.resource_id}: qualified route is enabled`);
+        assert.equal(evolved.endpoint,evolved.discovery.endpoint,`${original.resource_id}: current endpoint is bound to its separate qualification`);
+        assert.equal(evolved.publisher,original.publisher||evolved.discovery.publisher_id,`${original.resource_id}: publisher identity is preserved or supported by the new route grant`);
+      }
+    }
+  }
+  // Reapplying the old catalogue migration must retain newer observations and
+  // grants byte-for-byte, never reset them to the original pending v2 state.
+  const replay=migrate(current,source,'2026-10-08T20:00:00Z');
+  assert.deepEqual(replay.registry,current);
+  assert.equal(replay.diff.registry_changed,false);
+  assert.equal(replay.diff.before_registry_sha256,sha256(registryBytes));
+  assert.equal(replay.diff.after_registry_sha256,sha256(registryBytes));
 });
 
 test('v2 validation rejects missing/duplicate memberships and unqualified activation or guessed endpoints',()=>{

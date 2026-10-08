@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/resource-registry.schema.json",
-  "title": "Daily Compiler Resource Registry v1 and Source Portfolio v2",
-  "description": "Version 1 retains its original runtime fields. Version 2 adds catalogue provenance; pending imports do not authorize a new runtime route.",
+  "title": "Daily Compiler Resource Registry v1/v2/v3",
+  "description": "V2 catalogue provenance remains immutable. V3 binds current unattended discovery grants to the approved qualification and policy snapshot.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -14,7 +14,8 @@
     "schema_version": {
       "enum": [
         "daily-compiler-resource-registry-v1",
-        "daily-compiler-resource-registry-v2"
+        "daily-compiler-resource-registry-v2",
+        "daily-compiler-resource-registry-v3"
       ]
     },
     "updated_at": {
@@ -26,6 +27,40 @@
     },
     "source_portfolio": {
       "$ref": "#/$defs/sourcePortfolio"
+    },
+    "source_discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "policy_path",
+        "policy_sha256",
+        "qualifications_path",
+        "qualifications_sha256",
+        "snapshot_path"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "daily-compiler-qualified-source-snapshot-v1"
+        },
+        "policy_path": {
+          "const": "config/source-discovery-policy.json"
+        },
+        "policy_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "qualifications_path": {
+          "const": "config/source-route-qualifications.json"
+        },
+        "qualifications_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "snapshot_path": {
+          "const": "config/source-snapshot.json"
+        }
+      }
     }
   },
   "allOf": [
@@ -33,34 +68,65 @@
       "if": {
         "properties": {
           "schema_version": {
-            "const": "daily-compiler-resource-registry-v1"
+            "const": "daily-compiler-resource-registry-v3"
           }
         }
       },
       "then": {
-        "not": {
-          "required": [
-            "source_portfolio"
-          ]
-        },
+        "required": [
+          "source_portfolio",
+          "source_discovery"
+        ],
         "properties": {
           "resources": {
             "items": {
-              "$ref": "#/$defs/resourceV1"
+              "$ref": "#/$defs/resourceV3"
             }
           }
         }
       },
       "else": {
-        "required": [
-          "source_portfolio"
-        ],
-        "properties": {
-          "resources": {
-            "items": {
-              "$ref": "#/$defs/resourceV2"
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "schema_version": {
+                  "const": "daily-compiler-resource-registry-v1"
+                }
+              }
+            },
+            "then": {
+              "not": {
+                "required": [
+                  "source_portfolio"
+                ]
+              },
+              "properties": {
+                "resources": {
+                  "items": {
+                    "$ref": "#/$defs/resourceV1"
+                  }
+                }
+              }
+            },
+            "else": {
+              "required": [
+                "source_portfolio"
+              ],
+              "properties": {
+                "resources": {
+                  "items": {
+                    "$ref": "#/$defs/resourceV2"
+                  }
+                }
+              }
             }
           }
+        ],
+        "not": {
+          "required": [
+            "source_discovery"
+          ]
         }
       }
     }
@@ -706,6 +772,282 @@
             "properties": {
               "layer_role": {
                 "const": "watchlist"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "resourceV3": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resource_id",
+        "name",
+        "url",
+        "enabled",
+        "content_types",
+        "priority",
+        "search_mode",
+        "health",
+        "discovery"
+      ],
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "content_types": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "article",
+              "video",
+              "podcast",
+              "watchlist",
+              "research"
+            ]
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "priority": {
+          "enum": [
+            "primary",
+            "secondary",
+            "fallback",
+            "experimental"
+          ]
+        },
+        "search_mode": {
+          "enum": [
+            "targeted",
+            "site_search",
+            "feed",
+            "page",
+            "manual_endpoint"
+          ]
+        },
+        "endpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "health": {
+          "$ref": "#/$defs/health"
+        },
+        "catalogue": {
+          "$ref": "#/$defs/catalogue"
+        },
+        "discovery": {
+          "$ref": "#/$defs/discovery"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "catalogue",
+              "discovery"
+            ],
+            "properties": {
+              "catalogue": {
+                "required": [
+                  "memberships"
+                ],
+                "properties": {
+                  "memberships": {
+                    "contains": {
+                      "required": [
+                        "resource_action"
+                      ],
+                      "properties": {
+                        "resource_action": {
+                          "const": "add_resource"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "discovery": {
+                "required": [
+                  "qualification_status"
+                ],
+                "properties": {
+                  "qualification_status": {
+                    "enum": [
+                      "pending",
+                      "blocked"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "endpoint",
+              "publisher"
+            ],
+            "properties": {
+              "enabled": {
+                "const": false
+              },
+              "endpoint": {
+                "type": "null"
+              },
+              "publisher": {
+                "type": "null"
+              },
+              "search_mode": {
+                "const": "manual_endpoint"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "discovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "qualification_status",
+        "qualification_sha256",
+        "checked_at",
+        "endpoint",
+        "publisher_id",
+        "canonical_show_id",
+        "unattended_eligible",
+        "approved_alternates"
+      ],
+      "properties": {
+        "qualification_status": {
+          "enum": [
+            "qualified",
+            "pending",
+            "blocked"
+          ]
+        },
+        "qualification_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "checked_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "endpoint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonical_show_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unattended_eligible": {
+          "type": "boolean"
+        },
+        "approved_alternates": {
+          "type": "array",
+          "maxItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "endpoint",
+              "evidence_ref"
+            ],
+            "properties": {
+              "endpoint": {
+                "type": "string",
+                "format": "uri"
+              },
+              "evidence_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "qualification_status": {
+                "const": "qualified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "unattended_eligible": {
+                "const": true
+              },
+              "endpoint": {
+                "type": "string",
+                "format": "uri"
+              },
+              "publisher_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "checked_at": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "unattended_eligible": {
+                "const": false
+              },
+              "endpoint": {
+                "type": "null"
+              },
+              "publisher_id": {
+                "type": "null"
+              },
+              "canonical_show_id": {
+                "type": "null"
               }
             }
           }
