@@ -1,0 +1,155 @@
+{
+  "schema_version": "daily-compiler-iteration-07-baseline-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "reconciled_at": "2026-10-08T14:49:57Z",
+  "protected_main_sha": "819956876c8f520d8a5d8ddbdb89c6e7225c02dc",
+  "protected_main_tree": "aeb250aea7b8b887b062e456b5cc03d752ee18e2",
+  "protected": true,
+  "open_prs": [
+    {
+      "number": 2,
+      "branch": "experiment/blue-green-state-portability",
+      "head": "9d39656ed132d151735e7a9dceaee7aa04bb18aa",
+      "base": "main",
+      "title": "Proof Blue/Green state portability on immutable October 6 edition"
+    }
+  ],
+  "iteration_branch": "implementation/iteration-07-value-release-readiness",
+  "ruleset": {
+    "id": 24610983,
+    "name": "Protect main",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "gttome/Daily-AI-Brief-Compiler",
+    "enforcement": "active",
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": false,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": false,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "validate",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ],
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5T5eaFzgF3iKc",
+    "created_at": "2026-10-06T16:12:09.349-05:00",
+    "updated_at": "2026-10-06T16:12:09.481-05:00",
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/gttome/Daily-AI-Brief-Compiler/rulesets/24610983"
+      },
+      "html": {
+        "href": "https://github.com/gttome/Daily-AI-Brief-Compiler/rules/24610983"
+      }
+    }
+  },
+  "baseline_ci": [
+    {
+      "name": "validate",
+      "head_sha": "819956876c8f520d8a5d8ddbdb89c6e7225c02dc",
+      "conclusion": "success",
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37793266496/job/113365962540",
+      "app_id": 15368
+    }
+  ],
+  "preserved_refs": [
+    {
+      "branch": "correction/oct8-premium-images-and-handoff",
+      "sha": "555d7a1ffab596e1656246336380b3ee96a91bcf"
+    },
+    {
+      "branch": "operations/d1-image-lane-readiness-20261008T0319Z",
+      "sha": "3b09ef21cfc39e41df915634de9265db16279416"
+    },
+    {
+      "branch": "rehearsal/d1-cloud-proof-r1",
+      "sha": "cfdbf828cf18f28e16ad65bdb924b17633646f1c"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r1",
+      "sha": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r2-quality",
+      "sha": "836f0a85b93255d856cfdd8948cb53dc703e1a49"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
+      "sha": "e1efd7fa2b76df315671b442862edee9aab2bfbd"
+    },
+    {
+      "branch": "shadow/2026-10-07",
+      "sha": "5b310db731228c471e03f05f553d5655f73e0a3a"
+    },
+    {
+      "branch": "shadow/2026-10-08",
+      "sha": "e636d34c1a1a7894a75d398a221fec46ab05ba6d"
+    },
+    {
+      "branch": "shadow-pages-history",
+      "sha": "68f75996a8a5ad038303f5eadb21878b71e10fe1"
+    }
+  ],
+  "package_sha256": "c584562857203a7a735a30b420980f17b06e8a1410bc1025ef513af3a1ac839d",
+  "package_integrity": {
+    "result": "PASS",
+    "files": 20,
+    "command": "python verify_iteration_package.py",
+    "implementation_proof": false
+  },
+  "required_package_files_read": [
+    "SHARED_RULES.md",
+    "01_ITERATION_PLAN.md",
+    "02_IMPLEMENTATION_SPEC.md",
+    "03_ACCEPTANCE_TESTS.md",
+    "04_REPO_READ_MAP.md",
+    "SUPPORTING_DOCUMENTS/Relevant_Plan_Excerpts.md",
+    "06_COMPLETION_AND_HANDOFF_TEMPLATE.md"
+  ],
+  "authorizations": {
+    "bounded_iteration_07_code_tests_protected_pr_normal_merge": true,
+    "image_activation_grant_established": false,
+    "new_or_changed_schedule": false,
+    "edition_launch_now": false,
+    "legacy_repository_access": false
+  }
+}

@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --no-save sharp@0.34.4
+      - name: Test integrated Value release evidence before the full suite
+        run: node --test tests/value-release.test.mjs
       - run: npm test
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
@@ -34,3 +36,18 @@ jobs:
       - name: Verify exact fixture reader routes, media, images and feedback
         run: node scripts/verify-built-reader.mjs build/fixture-built build/fixture build/fixture-built-verification.json
       - run: npm run reader:parity
+      - name: Capture integrated Value versions without claiming live readiness
+        env:
+          VALUE_ENGINE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/audit-value-release.mjs --root . --engine-sha "$VALUE_ENGINE_SHA" --schedule docs/implementation/oct9-value-and-improvement/iteration-07/scheduler-readback.json --out build/value-release/qualification.json
+      - name: Preserve exact-candidate deterministic proof artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: value-release-evidence-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            build/value-release/qualification.json
+            build/fixture/compile-receipt.json
+            build/fixture/verification-receipt.json
+            build/fixture-built-verification.json
+            build/parity/reader-parity-receipt.json
+          if-no-files-found: error
