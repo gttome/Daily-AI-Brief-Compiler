@@ -1,0 +1,162 @@
+{
+  "schema_version": "iteration-07-final-preservation-readback-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "complete_ref_observation_at": "2026-10-08T20:04:16Z",
+  "branch_observations": [
+    {
+      "branch": "main",
+      "expected_sha": "96844b978b981421e188585dbd8309cc2e9d48c3",
+      "observed_sha": "96844b978b981421e188585dbd8309cc2e9d48c3",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "qualification/value-image-2026-10-08",
+      "expected_sha": "3bc8dde18d77c570f169ae70030e0c8e92866649",
+      "observed_sha": "3bc8dde18d77c570f169ae70030e0c8e92866649",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "shadow/2026-10-07",
+      "expected_sha": "5b310db731228c471e03f05f553d5655f73e0a3a",
+      "observed_sha": "5b310db731228c471e03f05f553d5655f73e0a3a",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "shadow/2026-10-08",
+      "expected_sha": "e636d34c1a1a7894a75d398a221fec46ab05ba6d",
+      "observed_sha": "e636d34c1a1a7894a75d398a221fec46ab05ba6d",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "correction/oct8-premium-images-and-handoff",
+      "expected_sha": "555d7a1ffab596e1656246336380b3ee96a91bcf",
+      "observed_sha": "555d7a1ffab596e1656246336380b3ee96a91bcf",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r1",
+      "expected_sha": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507",
+      "observed_sha": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r2-quality",
+      "expected_sha": "836f0a85b93255d856cfdd8948cb53dc703e1a49",
+      "observed_sha": "836f0a85b93255d856cfdd8948cb53dc703e1a49",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
+      "expected_sha": "e1efd7fa2b76df315671b442862edee9aab2bfbd",
+      "observed_sha": "e1efd7fa2b76df315671b442862edee9aab2bfbd",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "proof/iteration-07-isolated-delivery-5d9d89bc",
+      "expected_sha": "4bd888e17863496112d2179b88a4962869a39b76",
+      "observed_sha": "4bd888e17863496112d2179b88a4962869a39b76",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "proof/iteration-07-handoff-20261008T1930Z",
+      "expected_sha": "6f77e84112be4ee220b00f23fd5b170bea286a50",
+      "observed_sha": "6f77e84112be4ee220b00f23fd5b170bea286a50",
+      "result": "UNCHANGED"
+    },
+    {
+      "branch": "shadow/2026-10-09",
+      "expected_sha": null,
+      "observed_sha": null,
+      "result": "ABSENT_404"
+    }
+  ],
+  "protected_main_checks": [
+    {
+      "id": 113510321019,
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "96844b978b981421e188585dbd8309cc2e9d48c3",
+      "completed_at": "2026-10-08T19:54:20Z",
+      "html_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37835193412/job/113510321019"
+    }
+  ],
+  "protected_image_contract": {
+    "schema_version": "daily-compiler-image-contract-v5",
+    "strategy": "d1_work_browser_fresh_chat",
+    "status": "proof_required",
+    "receipt_path": null,
+    "receipt_sha256": null
+  },
+  "main_protection": {
+    "rule_id": 24610983,
+    "name": "Protect main",
+    "enforcement": "active",
+    "bypass_actors": [],
+    "current_user_can_bypass": "never",
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "type": "pull_request",
+        "parameters": {
+          "required_approving_review_count": 0,
+          "dismiss_stale_reviews_on_push": false,
+          "required_reviewers": [],
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_review_thread_resolution": false,
+          "require_extra_approval_for_unattributed_changes": true,
+          "allowed_merge_methods": [
+            "merge",
+            "squash",
+            "rebase"
+          ]
+        }
+      },
+      {
+        "type": "required_status_checks",
+        "parameters": {
+          "strict_required_status_checks_policy": false,
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "validate",
+              "integration_id": 15368
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "post_normalization_observation_at": "2026-10-08T20:08:41Z",
+  "post_normalization_main_sha": "96844b978b981421e188585dbd8309cc2e9d48c3",
+  "post_normalization_oct9_shadow_branch": "ABSENT_404",
+  "post_normalization_qualification_head": "24c9273a89a33cea58abe198068ca9a1a9af6ace",
+  "qualification_head_observed_at": "2026-10-08 20:08:03 UTC",
+  "qualification_update_scope": {
+    "base_head": "3bc8dde18d77c570f169ae70030e0c8e92866649",
+    "base_tree": "43e907d7c234c3ee3a2074155c4ee5c56b813077",
+    "candidate_tree": "254ce58e1768ba9d3d6897bd278f611a762141ec",
+    "base_blob_count": 1334,
+    "candidate_blob_count": 1349,
+    "unchanged_original_blobs": 1332,
+    "changed": [
+      "qualifications/value-image-2026-10-08/attempt-log.json",
+      "qualifications/value-image-2026-10-08/execution-state.json"
+    ],
+    "added_files": 15,
+    "deleted_files": 0,
+    "all_candidate_blobs_verified": true,
+    "raw_four_pngs_preserved": true,
+    "original_terminal_event_preserved": true
+  },
+  "task_readback_file": "task-readback.json",
+  "task_readback_observed_at": "2026-10-08T20:04:16Z",
+  "edition_allocated_or_launched_by_this_continuation": false,
+  "freeze_applied": false
+}
