@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {canonicalSha} from '../image-capsules/util.mjs';
+import {readerDestination} from '../compiler/reader-environment.mjs';
 
 const sha256=data=>crypto.createHash('sha256').update(data).digest('hex');
 function fail(message){throw new Error(message);}
@@ -31,6 +32,7 @@ export function readReleaseManifest({sourceDir}){
   if(!/^[a-f0-9]{64}$/.test(manifest.bundle_sha256||''))fail('reader source bundle digest missing');
   if(compile.schema_version!=='daily-compiler-compile-receipt-v2'||compile.result!=='PASS'||compile.reader_parity_gate?.result!=='PASS')fail('sealed compile receipt required for built reader');
   if(compile.edition_date!==manifest.edition_date||compile.bundle_sha256!==manifest.bundle_sha256||canonicalSha(compile.source_manifest)!==canonicalSha(manifest)||compile.production_reader_source_sha!==manifest.production_reader_source_sha)fail('built reader compile/manifest binding mismatch');
+  readerDestination({publicBase:manifest.environment?.public_base,baseurl:manifest.environment?.baseurl});
   if(!Array.isArray(manifest.required_routes)||new Set(manifest.required_routes).size!==manifest.required_routes.length||manifest.required_routes.some(route=>!safeRoute(route)))fail('reader required routes invalid');
   if(!Array.isArray(manifest.current_images)||manifest.current_images.length!==6)fail('six exact reader image bindings required');
   for(const field of ['story_id','reader_story_id','permanent_route','route','feedback_id'])if(new Set(manifest.current_images.map(image=>image[field])).size!==6)fail('duplicate reader image '+field);
@@ -172,8 +174,11 @@ export function verifyBuiltReader({siteDir,sourceDir}){
       const ref=match[1].split('#')[0].split('?')[0];
       if(!ref||/^(?:https?:|mailto:|javascript:|data:)/i.test(ref))continue;
       let relative=ref;
-      if(relative.startsWith('/Daily-AI-Brief-Compiler/'))relative=relative.slice('/Daily-AI-Brief-Compiler/'.length);
-      else if(relative.startsWith('/'))continue;
+      if(relative.startsWith('/')){
+        const baseurl=manifest.environment.baseurl;
+        if(baseurl&&relative!==baseurl&&!relative.startsWith(baseurl+'/'))continue;
+        relative=relative.slice(baseurl.length).replace(/^\//,'')||'index.html';
+      }
       else {
         const from=path.relative(siteDir,path.dirname(file)).replaceAll(path.sep,'/');
         relative=path.posix.normalize(path.posix.join(from,relative));

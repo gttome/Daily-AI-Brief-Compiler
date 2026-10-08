@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {adaptCompilerBundle,mediaDurationLabel,mediaDurationSeconds} from './reader-adapter.mjs';
-import {readerEnvironment} from './reader-environment.mjs';
+import {readerEnvironment,readerDestination,resolveReaderEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 import {includeCoreReaderPath,prepareCoreReaderRenderer} from './reader-core-projection.mjs';
 
@@ -204,16 +204,39 @@ function applyFeedbackIdentities(content,registry){
   return next;
 }
 
-function rewriteReaderEnvironment(root,environment){
+export function rewriteReaderEnvironmentText(content,environment=readerEnvironment){
+  environment=resolveReaderEnvironment(environment);
   const absoluteToken='__DAILY_COMPILER_PUBLIC_BASE__';
+  const rewrite=text=>text
+    .replaceAll(environment.productionReferenceBase,absoluteToken)
+    .replaceAll(environment.productionReferenceBaseurl,environment.baseurl)
+    .replaceAll('gttome.github.io\\/Daily-AI-Brief\\/','gttome.github.io\\/(?:Daily-AI-Brief|Daily-AI-Brief-Compiler)\\/')
+    .replaceAll(absoluteToken,environment.publicBase);
+  const source=String(content);
+  // Preserve the current production-derived runtime copy byte for byte. An
+  // explicit alternate destination must also bind the pinned URL/path regexes
+  // and retain the Compiler repository literal; a raw nested-path replacement
+  // would corrupt regex syntax or turn a repository name into a hosting path.
+  if(environment.publicBase===readerEnvironment.publicBase&&environment.baseurl===readerEnvironment.baseurl)return rewrite(source);
+  const regexBaseToken='__DAILY_COMPILER_REGEX_BASE__',regexPathToken='__DAILY_COMPILER_REGEX_PATH__',repositoryToken='__DAILY_COMPILER_REPOSITORY__';
+  if([absoluteToken,regexBaseToken,regexPathToken,repositoryToken].some(token=>source.includes(token)))throw new Error('reader environment rewrite token collision');
+  const regexLiteral=value=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replaceAll('/','\\/');
+  const repositoryReference=environment.repository.split('/')[0]+environment.productionReferenceBaseurl;
+  const prepared=source
+    .replaceAll(environment.productionReferenceBase.replaceAll('/','\\/'),regexBaseToken)
+    .replaceAll(environment.productionReferenceBaseurl.replaceAll('/','\\/'),regexPathToken)
+    .replaceAll(repositoryReference,repositoryToken);
+  return rewrite(prepared)
+    .replaceAll(regexBaseToken,regexLiteral(environment.publicBase))
+    .replaceAll(regexPathToken,regexLiteral(environment.baseurl))
+    .replaceAll(repositoryToken,environment.repository);
+}
+
+function rewriteReaderEnvironment(root,environment){
   for(const file of walk(root)){
     if(!TEXT_EXT.has(path.extname(file).toLowerCase()))continue;
     const text=fs.readFileSync(file,'utf8');
-    const next=text
-      .replaceAll(environment.productionReferenceBase,absoluteToken)
-      .replaceAll(environment.productionReferenceBaseurl,environment.baseurl)
-      .replaceAll('gttome.github.io\\/Daily-AI-Brief\\/','gttome.github.io\\/(?:Daily-AI-Brief|Daily-AI-Brief-Compiler)\\/')
-      .replaceAll(absoluteToken,environment.publicBase);
+    const next=rewriteReaderEnvironmentText(text,environment);
     if(next!==text)fs.writeFileSync(file,next,'utf8');
   }
   const configPath=path.join(root,'_config.yml');
@@ -223,7 +246,7 @@ function rewriteReaderEnvironment(root,environment){
     .replace(/^repository:.*$/m,'');
   // The public-safe manifest binds the built/history artifact to its edition.
   // Operational compile/verification receipts stay outside the published site.
-  writeText(configPath,config.trimEnd()+'\nurl: "https://gttome.github.io"\nbaseurl: "'+environment.baseurl+'"\nrepository: "'+environment.repository+'"\nexclude:\n  - compile-receipt.json\n  - verification-receipt.json\n');
+  writeText(configPath,config.trimEnd()+'\nurl: "'+readerDestination(environment).origin+'"\nbaseurl: "'+environment.baseurl+'"\nrepository: "'+environment.repository+'"\nexclude:\n  - compile-receipt.json\n  - verification-receipt.json\n');
 }
 
 function mergeBookOverlay(root,date,overlay){
@@ -358,6 +381,7 @@ function requiredRoutes(adapted){
 export async function materializeReaderSource({bundle,bundleDigest,repoRoot='.',outDir,environment=readerEnvironment}){
   if(!outDir)throw new Error('outDir required');
   if(!/^[a-f0-9]{64}$/.test(bundleDigest||''))throw new Error('sealed bundle digest required for reader source');
+  environment=resolveReaderEnvironment(environment);
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true,filter:source=>includeCoreReaderPath(path.relative(snapshotRoot,source))});
   prepareCoreReaderRenderer(outDir);

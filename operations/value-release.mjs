@@ -208,7 +208,10 @@ export function auditValueRelease({repoRoot='.',engineSha=null,engineBinding=nul
   gate('EXPLICIT_PROTECTED_ACTIVATION_APPROVAL',activation.result==='PASS'&&approval?.scope==='D1_IMAGE_ACTIVATION'&&approval.decision==='APPROVED'&&
     SHA.test(approval.protected_commit||'')&&repoRef(approval.evidence_ref)&&approval.proof_sha256===canonicalSha(activation.proof)&&approval.receipt_sha256===canonicalSha(activation.receipt),approval??null);
   const schedule=compareValueSchedule(scheduleReadback,engineSha);
-  gate('ACTUAL_TARGET_SCHEDULE',schedule.recurrence_result==='PASS'&&schedule.next_occurrence_result==='PASS',schedule);
+  // I07 requires actual configured-task readback, not a non-null future service
+  // timestamp. Preserve UNKNOWN next-run telemetry; a reported contradiction
+  // still fails. Immutable release binding is a separate mandatory gate below.
+  gate('ACTUAL_TARGET_SCHEDULE',schedule.recurrence_result==='PASS'&&['PASS','UNKNOWN'].includes(schedule.next_occurrence_result),schedule);
   gate('SCHEDULE_IMMUTABLE_ENGINE_BINDING',schedule.immutable_release_binding==='PASS',{status:schedule.immutable_release_binding});
   const runtime=evidence.image_runtime;
   const imageTask=schedule.image_task_readback[0];

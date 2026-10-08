@@ -1,0 +1,198 @@
+{
+  "schema_version": "daily-compiler-iteration-07-source-unblock-observations-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "recorded_at": "2026-10-08T15:58:54Z",
+  "qualification_scope": "metadata_discovery_only",
+  "bounded_scope": [
+    "youtube-openai",
+    "youtube-anthropic",
+    "directory-b93e2368e85f0f95c066463e"
+  ],
+  "probe_counts": {
+    "primary_metadata_probes": 3,
+    "item_verification_probes": 2,
+    "alternate_discovery_probes": 0
+  },
+  "selected_item_admission": "NOT_RUN",
+  "raw_page_text_published": false,
+  "observations": [
+    {
+      "schema_version": "daily-compiler-web-metadata-extract-v1",
+      "resource_id": "youtube-openai",
+      "endpoint": "https://www.youtube.com/@OpenAI",
+      "method": "chatgpt_web_open",
+      "checked_at": "2026-10-08T15:52:19Z",
+      "source_ref": "turn0view0",
+      "raw_response_sha256": "50ffb9d03071c103645fd2f73d5d9ffdcf110bab7009f35cae8ab8cf4ea9fa77",
+      "returned_response_bytes": 785,
+      "duration_ms": null,
+      "retrieval": {
+        "status": "parse_error",
+        "http_status": null,
+        "reason": "The returned route contains only the channel title, an accounts iframe and generic YouTube footer. It exposes no extractable dated permanent video item or substantive sample; an empty channel is not established."
+      },
+      "publisher_identity": {
+        "status": "unverified",
+        "canonical_id": null,
+        "evidence_basis": "Channel title is present, but returned content contains no publisher verification or identity-bearing channel metadata."
+      },
+      "items": [],
+      "approved_alternates": [],
+      "limitations": [
+        "The tool did not expose an HTTP status, upload date, channel identifier, feed endpoint or permanent video sample.",
+        "Returned crawl age is not an upload/publication date and is not used as one.",
+        "No publisher-linked alternate was returned; the resource has no preapproved alternate. No route was guessed or probed.",
+        "This is a failed metadata extraction, not evidence of a healthy empty feed and not a selected-item media qualification.",
+        "Network transfer duration and upstream HTTP response bytes remain unknown."
+      ],
+      "raw_response_retention": "Exact tool result is retained in task scratch; raw page text is not published. The digest is not a claim of a fresh origin HTTP response.",
+      "primary_metadata_probes": 1,
+      "item_verification_probes": 0,
+      "alternate_discovery_probes": 0,
+      "response_measurement_basis": "Exact retained JSON serialization of the complete returned tool result; not upstream HTTP bytes."
+    },
+    {
+      "schema_version": "daily-compiler-web-metadata-extract-v1",
+      "resource_id": "youtube-anthropic",
+      "endpoint": "https://www.youtube.com/@anthropic-ai",
+      "method": "chatgpt_web_open",
+      "checked_at": "2026-10-08T15:52:19Z",
+      "source_ref": "turn1view0",
+      "raw_response_sha256": "649c0601b554d4a400fd384472e11decb58703efb324079283ae53aca506d255",
+      "returned_response_bytes": 836,
+      "duration_ms": null,
+      "retrieval": {
+        "status": "parse_error",
+        "http_status": null,
+        "reason": "The returned route contains only the channel title, an accounts iframe and generic YouTube footer. It exposes no extractable dated permanent video item or substantive sample; an empty channel is not established."
+      },
+      "publisher_identity": {
+        "status": "unverified",
+        "canonical_id": null,
+        "evidence_basis": "Channel title is present, but returned content contains no publisher verification or identity-bearing channel metadata."
+      },
+      "items": [],
+      "approved_alternates": [],
+      "limitations": [
+        "The tool did not expose an HTTP status, upload date, channel identifier, feed endpoint or permanent video sample.",
+        "Returned crawl age is not an upload/publication date and is not used as one.",
+        "No publisher-linked alternate was returned; the resource has no preapproved alternate. No route was guessed or probed.",
+        "This is a failed metadata extraction, not evidence of a healthy empty feed and not a selected-item media qualification.",
+        "Network transfer duration and upstream HTTP response bytes remain unknown."
+      ],
+      "raw_response_retention": "Exact tool result is retained in task scratch; raw page text is not published. The digest is not a claim of a fresh origin HTTP response.",
+      "primary_metadata_probes": 1,
+      "item_verification_probes": 0,
+      "alternate_discovery_probes": 0,
+      "response_measurement_basis": "Exact retained JSON serialization of the complete returned tool result; not upstream HTTP bytes."
+    },
+    {
+      "schema_version": "daily-compiler-web-metadata-extract-v1",
+      "resource_id": "directory-b93e2368e85f0f95c066463e",
+      "endpoint": "https://www.ibm.com/think/videos",
+      "method": "chatgpt_web_open",
+      "checked_at": "2026-10-08T15:54:59Z",
+      "metadata_checked_at": "2026-10-08T15:53:43Z",
+      "duration_ms": null,
+      "source_ref": "turn2view0",
+      "raw_response_sha256": "94196cc04e37157983c83a06f3e93f2f3e98be29400a896e46311b0f57678937",
+      "returned_response_bytes": 31189,
+      "response_measurement_basis": "Exact retained JSON envelope of one registered-route tool response and two directly linked item inspections, including requests and observation times; not upstream HTTP bytes.",
+      "retrieval": {
+        "status": "healthy",
+        "http_status": null,
+        "reason": "The registered first-party IBM videos route exposes readable branded listings, substantive descriptions and a dated Watch episode link. Its directly linked permanent IBM episode page supplies exact identity and substantive topic support."
+      },
+      "publisher_identity": {
+        "status": "verified",
+        "canonical_id": "publisher:ibm.com",
+        "name": "IBM",
+        "evidence_basis": "First-party www.ibm.com/think/videos title and content identify IBM; its permanent IBM episode page names the IBM-hosted show, speakers, topics and chapter cues.",
+        "observed_route_host": "www.ibm.com",
+        "ownership_basis": "Observed IBM first-party domain and publisher branding; no channel identifier was inferred.",
+        "existing_qualified_identity_reused": false
+      },
+      "resource_route_kind": "catalogue",
+      "approved_alternates": [],
+      "primary_metadata_probes": 1,
+      "item_verification_probes": 2,
+      "alternate_discovery_probes": 0,
+      "items": [
+        {
+          "url": "https://www.youtube.com/watch?v=XN3xNJvWXsc",
+          "link_locator": "turn2view0:link:11",
+          "title": "IBM explainer on practical skills for AI engineering",
+          "publication": {
+            "original_value": null,
+            "precision": "unknown",
+            "timezone": null
+          },
+          "publication_basis": "Neither the IBM listing nor the directly linked YouTube tool response exposed its upload/publication date.",
+          "duration_seconds": null,
+          "duration_precision": "unknown",
+          "observed_duration_label": null,
+          "substantive_support": "The IBM listing describes Cedric Clyburn explaining AI engineering foundations including Python, APIs, RAG, embeddings, agents, observability and deployment.",
+          "evidence_refs": [
+            "turn2view0:L55-L63",
+            "turn3view0"
+          ],
+          "item_checked_at": "2026-10-08T15:53:58Z",
+          "support_source_ref": "turn2view0",
+          "source_supported": true,
+          "selected_item_admission": "NOT_RUN",
+          "qualification_limitation": "Date unknown; this item does not satisfy the permanent dated sample gate.",
+          "title_is_paraphrase": true
+        },
+        {
+          "url": "https://www.ibm.com/think/podcasts/mixture-of-experts/openai-gpt-6-astra-millenium-prize-weworm-ibm-us-open-app",
+          "link_locator": "turn2view0:link:49",
+          "title": "Mixture of Experts episode 124: model news, tennis analytics and a security demonstration",
+          "publication": {
+            "original_value": "2026-09-11",
+            "precision": "date",
+            "timezone": null
+          },
+          "observed_publication_label": "11 September 2026 | Episode 124",
+          "publication_basis": "The exact item is directly linked with this complete date and episode number from the registered IBM videos index; upload time and timezone are not displayed.",
+          "duration_seconds": null,
+          "duration_precision": "unknown",
+          "observed_duration_label": null,
+          "substantive_support": "The publisher describes discussion of AI model and mathematics announcements, tennis analytics, and an AI-assisted security demonstration. Named participants and three timestamped topic chapters support the episode identity and subject matter.",
+          "evidence_refs": [
+            "turn2view0:L157-L158",
+            "turn4view0:L0-L18",
+            "turn4view0:L23-L26"
+          ],
+          "item_checked_at": "2026-10-08T15:54:59Z",
+          "support_response_sha256": "9238ffd360f24e4ff06f45b1ff880d955e6f6a7ab767b25c8c81db6920f94074",
+          "support_source_ref": "turn4view0",
+          "source_supported": true,
+          "selected_item_admission": "NOT_RUN",
+          "media_type_evidence": {
+            "classification": "publisher_advertised_video_podcast",
+            "publisher_watch_label_observed": true,
+            "youtube_option_observed": true,
+            "audio_platform_options_observed": true,
+            "video_playback_inspected": false,
+            "standalone_video_admission": false,
+            "reason": "IBM lists this precise dated item as Watch episode on its Videos index. The exact episode page provides a YouTube option alongside Spotify and Apple Podcasts. This qualifies discovery metadata only; it does not certify a selected video, its runtime or its stream contents."
+          },
+          "title_is_paraphrase": true
+        }
+      ],
+      "limitations": [
+        "Metadata-discovery qualification only. At observation time this source was disabled; these probes did not enable it, select media or launch edition research.",
+        "The successful sample is a publisher-advertised video podcast. No audio-only item was asserted to be a standalone video.",
+        "The standalone AI-engineering YouTube video returned a metadata-empty shell; its publication date and duration remain unknown.",
+        "The September 11 episode date is date precision only and is not a claimed YouTube upload timestamp.",
+        "No media playback, original claim fact-check, runtime, current selected-item freshness or editorial fit admission was performed.",
+        "HTTP status, upstream response size and actual network duration remain unknown. Tool crawl age is not a publication date.",
+        "All item inspection destinations were explicitly linked by the registered publisher route; no channel ID, feed URL or replacement discovery route was guessed."
+      ],
+      "upstream_http_bytes": null,
+      "raw_response_retention": "Exact tool result is retained in task scratch; raw page text is not published. The digest is not a claim of a fresh origin HTTP response."
+    }
+  ],
+  "observations_completed_at": "2026-10-08T15:54:59Z",
+  "public_record_finalized_at": "2026-10-08T16:01:15Z"
+}
