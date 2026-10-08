@@ -90,6 +90,16 @@ The original published terminal receipt remains historical evidence. Store corre
 
 ## Completion evidence required before next-run readiness can be claimed
 
+For a full current D1 qualification, follow
+`docs/D1-QUALIFICATION-EVIDENCE.md`. The cloud-proof builder and activation gate
+both require its digest-bound companion records, including actual canonical
+pixel review, observed set variety, accepted-lock resume evidence and exact
+binary readback. Preserve immutable input snapshots when the active execution
+state advances. A one-image capability proof, local CI, or an owner-selected
+correction does not substitute for the full qualification. This requirement does
+not change the existing scope of authorized image-only corrections or their
+accepted-asset transport.
+
 - Primary and Recovery handoff prompts are saved and read back.
 - The same Work task is actually re-armed from a real semantic completion, with exact target and due time verified.
 - An unattended run has Work Cloud Browser and can resume its signed-in session.
@@ -100,3 +110,4 @@ The original published terminal receipt remains historical evidence. Store corre
 - D1 activation is still gated by its required proof; this hardening does not satisfy or bypass that proof.
 
 Code unit tests establish selection, preservation, stale-target, integrity-binding and schedule-payload behavior. They do not establish unattended browser availability or image quality. Report those remaining gates honestly.
+

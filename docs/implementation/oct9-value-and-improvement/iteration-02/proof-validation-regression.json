@@ -1,0 +1,21 @@
+{
+  "schema_version": "iteration-02-negative-regression-observation-v1",
+  "scope": "SYNTHETIC_NEGATIVE_TEST_ONLY_NO_LIVE_PROOF",
+  "baseline_commit": "c0eba91ac27b0838f4eb64afddffc1106c2e8cc1",
+  "baseline_script": "scripts/build-d1-cloud-proof.mjs",
+  "baseline_validator": "image-studio/activation.mjs:validateD1CloudProof",
+  "input_summary": {
+    "state": "Incomplete object asserting GITHUB_VERIFIED",
+    "manifest": "Six unique chat strings, individual visual_acceptance FAIL, set review FAIL",
+    "handoff": "Empty object",
+    "porter": "PASS/scope plus matching JSON digests, without six integrity rows",
+    "generated_or_accepted_assets": 0
+  },
+  "observed_baseline_exit_code": 0,
+  "observed_baseline_incorrect_pass": true,
+  "observed_baseline_validation_errors": [],
+  "fix": "Require durable, fully cross-bound qualification evidence through both proof construction and activation; validate accepted manifest and set types; never fill in unobserved claims.",
+  "regression_test_path": "tests/d1-qualification-evidence.test.mjs",
+  "temporary_false_proof_preserved_as_live_evidence": false,
+  "production_runtime_invocations": 0
+}
