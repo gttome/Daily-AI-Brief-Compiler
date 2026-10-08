@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "realtor-realassist-agent-actions",
+  "grammar": "control_loop",
+  "title": "Review-before-action turns signals into safe next steps",
+  "subtitle": "Client activity is condensed into proposals that remain inside a human approval loop before execution.",
+  "nodes": [
+    {
+      "id": "signals",
+      "label": "Client signals",
+      "detail": "Searches, chats, alerts, and listing changes enter the loop"
+    },
+    {
+      "id": "digest",
+      "label": "Daily digest",
+      "detail": "Activity is consolidated into a current client picture"
+    },
+    {
+      "id": "proposal",
+      "label": "Proposed next step",
+      "detail": "AI refines a search or prepares draft outreach",
+      "emphasis": true
+    },
+    {
+      "id": "review",
+      "label": "Agent review",
+      "detail": "A professional checks fit, tone, timing, and intent"
+    },
+    {
+      "id": "action",
+      "label": "Approved action",
+      "detail": "Only reviewed work crosses the execution boundary"
+    },
+    {
+      "id": "feedback",
+      "label": "Client response",
+      "detail": "New behavior and feedback inform the next cycle"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Signal compression",
+      "detail": "Scattered activity becomes one reviewable decision surface."
+    },
+    {
+      "label": "Authority boundary",
+      "detail": "Recommendation is automated; consequential approval remains human."
+    },
+    {
+      "label": "Learning loop",
+      "detail": "Results return as fresh context without bypassing review."
+    }
+  ],
+  "flow_label": "Signals → proposal → approval → feedback",
+  "footer": "The mechanism reduces coordination work without silently transferring professional authority."
+}
