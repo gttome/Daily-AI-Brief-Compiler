@@ -1,0 +1,35 @@
+{
+  "schema_version": "daily-compiler-iteration-05-local-validation-v1",
+  "recorded_at": "2026-10-08T07:49:46Z",
+  "result": "PASS",
+  "command": "node --test --test-reporter=tap tests/resource-observation-v2.test.mjs tests/resource-registry-current.test.mjs tests/resources-suggestions-corrections.test.mjs tests/source-directory-migration.test.mjs tests/source-discovery.test.mjs tests/source-research.test.mjs tests/source-research-integration.test.mjs tests/source-discovery-current.test.mjs",
+  "exit_code": 0,
+  "counts": {
+    "tests": 101,
+    "pass": 101,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "runtime": "Node.js v24.19.0",
+  "required_ci_runtime": "Node.js 20; existing sharp@0.34.4 CI installation unchanged",
+  "tap_sha256": "933ab368cf1a24bd81b26d9dfcbba5870fca3131ddcf13d96d7163090a4e07c5",
+  "test_ids": {
+    "I05-T01": "PASS",
+    "I05-T02": "PASS",
+    "I05-T03": "PASS",
+    "I05-T04": "PASS",
+    "I05-T05": "PASS",
+    "I05-T06": "PASS",
+    "I05-T07": "PASS",
+    "I05-T08": "PASS"
+  },
+  "limitations": [
+    "Targeted local validation on the connector-fetched implementation subset. The full repository suite, bootstrap, fixture end-to-end and reader parity remain required on the exact protected PR head.",
+    "Synthetic tests verify failure/boundary behaviors; current-source evidence and replay are recorded separately. No future edition or image was generated."
+  ],
+  "source_snapshot_sha256": "6f81cd37f20ed238529acb726710076dff660996e3757572913919724e58f560",
+  "candidate_sha": null,
+  "candidate_sha_note": "The immutable Git candidate containing this receipt is recorded with exact-head CI in the completion handoff."
+}
