@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "jump-trading-agentic-quant-research",
+  "grammar": "state_machine",
+  "title": "Long-horizon research stays bounded by an acceptance gate",
+  "subtitle": "The agent can explore for longer periods, but environment, evidence, evaluation, and human acceptance remain explicit.",
+  "nodes": [
+    {
+      "id": "question",
+      "label": "Research question",
+      "detail": "A meaningful problem starts the investigation"
+    },
+    {
+      "id": "environment",
+      "label": "Bounded environment",
+      "detail": "Tools, data, and operating constraints define the workspace"
+    },
+    {
+      "id": "explore",
+      "label": "Agent exploration",
+      "detail": "Long-running work tests paths and can be redirected",
+      "emphasis": true
+    },
+    {
+      "id": "evidence",
+      "label": "Evidence evaluation",
+      "detail": "Quality and significance are assessed before use"
+    },
+    {
+      "id": "acceptance",
+      "label": "Human acceptance",
+      "detail": "A responsible reviewer decides whether evidence is sufficient"
+    },
+    {
+      "id": "use",
+      "label": "Controlled use",
+      "detail": "Accepted findings inform work without becoming unquestioned truth"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Steerability",
+      "detail": "The research path can be redirected when evidence is weak."
+    },
+    {
+      "label": "Evaluation",
+      "detail": "Quality criteria are defined before plausible output is trusted."
+    },
+    {
+      "label": "Acceptance",
+      "detail": "Human judgment remains the final boundary for consequential use."
+    }
+  ],
+  "flow_label": "Explore → evaluate → accept or redirect",
+  "footer": "Autonomy scales research effort; explicit evaluation and acceptance preserve responsibility."
+}
