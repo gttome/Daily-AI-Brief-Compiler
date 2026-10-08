@@ -118,14 +118,16 @@
             "ingest_handoff_path",
             "ingest_handoff_sha256",
             "work_porter_receipt_path",
-            "work_porter_receipt_sha256"
+            "work_porter_receipt_sha256",
+            "canonical_reviews_path",
+            "canonical_reviews_sha256"
           ],
           "properties": {
             "strategy": {
-              "const": "d1_cloud_image_studio"
+              "const": "d1_work_browser_fresh_chat"
             },
             "contract_version": {
-              "const": "daily-compiler-image-contract-v4"
+              "const": "daily-compiler-image-contract-v5"
             },
             "acceptance_manifest_path": {
               "type": "string",
@@ -148,6 +150,14 @@
               "minLength": 1
             },
             "ingest_handoff_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "canonical_reviews_path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "canonical_reviews_sha256": {
               "type": "string",
               "pattern": "^[a-f0-9]{64}$"
             }
@@ -286,6 +296,18 @@
           },
           "preserve_original": {
             "const": true
+          },
+          "revision_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "expected_previous_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
           }
         }
       }
@@ -382,7 +404,7 @@
           "image_system": {
             "properties": {
               "strategy": {
-                "const": "d1_cloud_image_studio"
+                "const": "d1_work_browser_fresh_chat"
               }
             },
             "required": [
@@ -408,7 +430,7 @@
                   "const": true
                 },
                 "image_system": {
-                  "const": "d1_cloud_image_studio"
+                  "const": "d1_work_browser_fresh_chat"
                 }
               }
             }

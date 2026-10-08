@@ -1,0 +1,66 @@
+{
+  "schema_version": "daily-compiler-iteration-06-local-validation-v1",
+  "recorded_at": "2026-10-08T14:12:27Z",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "baseline_protected_sha": "2cc254cea3e5027535c5343c1ab6b1fa87614256",
+  "result": "LOCAL_FIXTURE_PASS_CI_PENDING",
+  "runtime": {
+    "node": "v24.19.0",
+    "sharp": "0.35.4",
+    "authoritative_ci_node": "20",
+    "authoritative_ci_sharp": "0.34.4",
+    "limitation": "Available local runtime differs from pinned CI. Local results do not replace the required exact-head protected validate check."
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "result": "PASS",
+      "tests": 568,
+      "passed": 568,
+      "failed": 0,
+      "skipped": 0,
+      "duration_ms": 16240.47071
+    },
+    {
+      "command": "npm run validate:bootstrap",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run fixture:e2e",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run reader:parity",
+      "result": "PASS",
+      "source_files_compared": 10,
+      "exact_reader_assets": 24,
+      "mismatches": 0
+    }
+  ],
+  "acceptance_ids": [
+    "I06-T01",
+    "I06-T02",
+    "I06-T03",
+    "I06-T04",
+    "I06-T05",
+    "I06-T06",
+    "I06-T07"
+  ],
+  "evidence_scope": "Deterministic code fixtures. Current D1/media and correction release tests use actual validators with explicitly synthetic source/review records and injected rendered/HTTP fixtures; no live proof is claimed.",
+  "pending": [
+    "Exact-head protected validate check on pinned toolchain",
+    "Actual Jekyll fixture build and built-reader verification in CI",
+    "Normal protected merge and postmerge verification"
+  ],
+  "not_performed": {
+    "native_image_generation": 0,
+    "accepted_image_regeneration": 0,
+    "external_image_handoff": false,
+    "image_activation": false,
+    "live_correction": false,
+    "edition_launch": false,
+    "live_feedback_writes": false,
+    "scheduler_mutation": false,
+    "legacy_repository_access": false
+  }
+}
