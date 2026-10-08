@@ -1,0 +1,135 @@
+{
+  "schema_version": "daily-compiler-existing-task-qualification-handoff-v1",
+  "recorded_at": "2026-10-08T19:29:03Z",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "proof_id": "value-image-2026-10-08",
+  "scope": "ACTUAL_OPERATOR_CONFIGURATION_READBACK_NOT_RUNTIME_OR_IMAGE_PROOF",
+  "engine_commit": "aee4f026e88a30e14369099d45f95514933f4707",
+  "request_commit": "5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b",
+  "source_commit": "73b41c7312c9b1ad98fc33f455dc62cdc686476b",
+  "request_branch": "qualification/value-image-2026-10-08",
+  "request_path": "qualifications/value-image-2026-10-08/request.json",
+  "request_sha256": "97452833383d27312f0095e41a2f09b811cd833551b04a5e24a7c2c3ea09254b",
+  "task_before": {
+    "id": "6ac6cf14a9e88191af48c353b9bc1e11",
+    "title": "D1 Work Image Lane",
+    "is_enabled": false,
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261008T131100\nRRULE:FREQ=DAILY;COUNT=1;BYHOUR=13;BYMINUTE=11;BYSECOND=0\nEND:VEVENT",
+    "timing_mode": "exact_schedule",
+    "default_timezone": "America/Chicago",
+    "next_run_time": null,
+    "last_run_time": "2026-10-08T18:19:26.598203+00:00",
+    "updated_at": "2026-10-08T18:20:30.962404+00:00"
+  },
+  "task_after": {
+    "id": "6ac6cf14a9e88191af48c353b9bc1e11",
+    "title": "D1 Work Image Lane",
+    "is_enabled": true,
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261008T143600\nRRULE:FREQ=DAILY;COUNT=1;BYHOUR=14;BYMINUTE=36;BYSECOND=0\nEND:VEVENT",
+    "timing_mode": "exact_schedule",
+    "default_timezone": "America/Chicago",
+    "next_run_time": null,
+    "last_run_time": "2026-10-08T18:19:26.598203+00:00",
+    "updated_at": "2026-10-08T19:28:35.248184+00:00"
+  },
+  "same_existing_task_id": true,
+  "unchanged_saved_conversation_binding": true,
+  "saved_conversation_opaque_id": "ctx-6e3c404c0f227cdb3596e358e4fd41db18525f35f19fd48b2a02f658a318f825",
+  "prompt_before_sha256": "467ba4e26d88b2a7ccb0ef1c0e246937ce8c0a3b71cb4ee75ef0957a3fe732b9",
+  "prompt_after_sha256": "ac50b5e4cd2d8e1be1f07f6d460b39b9d6ad8afdf0441cc6e89b12d1eb635d6e",
+  "prompt_after_utf8_bytes": 25638,
+  "prompt_after_characters": 25632,
+  "exact_submitted_prompt_preserved": true,
+  "protected_prompt_template": {
+    "commit": "ff38e89f1da7716f3f674ca4582a0f8d10c79154",
+    "path": "docs/implementation/oct9-value-and-improvement/iteration-07/live-qualification-task-prompt.txt",
+    "bytes_sha256": "4c71e660c441e3506cecc2537c7d6b27aa57573270a156d3e026657a9b66a8f7",
+    "pr_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/93",
+    "merge_method": "NORMAL_PROTECTED_MERGE",
+    "merged_at": "2026-10-08T19:25:44Z"
+  },
+  "protected_prompt_check": {
+    "head_sha": "ff38e89f1da7716f3f674ca4582a0f8d10c79154",
+    "name": "validate",
+    "app_id": 15368,
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-08T19:27:38Z",
+    "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37831874121/job/113499001517",
+    "value_tests": 15,
+    "full_suite_tests": 628,
+    "failures": 0,
+    "skips": 0
+  },
+  "protected_engine_check": {
+    "head_sha": "aee4f026e88a30e14369099d45f95514933f4707",
+    "name": "validate",
+    "app_id": 15368,
+    "status": "completed",
+    "conclusion": "success",
+    "completed_at": "2026-10-08T17:31:26Z",
+    "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37816997806/job/113448063139"
+  },
+  "protected_engine_check_provenance": "Retained original actual engine check readback in operator handoff at f1e9b0afdbdba89d4746adc3bb3d067d86a85a93; this later prompt-only protected commit does not retarget the image runtime engine.",
+  "source_authorization_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5d9d89bcdeb2b75e7f1d8fa3aae96d26229aa29b/qualifications/value-image-2026-10-08/authorization.json",
+  "previous_runtime_head": "6dcd08338b5d6b732b2c99523478a62b39f13e20",
+  "previous_actual_result": {
+    "path": "qualifications/value-image-2026-10-08/evidence/runtime-prompt-mismatch-20261008T181840Z.json",
+    "blob_sha": "6ebe540eef744ff513e77b8bb8cdbb0a28c806cf",
+    "result": "D1_SUBMITTED_PROMPT_MISMATCH_PREGENERATION",
+    "native_generations": 0,
+    "consumed_quality_attempts": 0,
+    "accepted_locks": 0,
+    "root_cause": "UNKNOWN",
+    "outcome_reconciliation_before_new_generation_required": true
+  },
+  "unchanged_state": {
+    "bound_at_commit": "8178168757bfc9f4f93af1f673f3512903ff63bf",
+    "state_sha256": "0eea245459f89eefef22f98ac24c21c065508405d6990282ca9767d5ec9398cc",
+    "state_git_blob_sha": "580e780942ba6b42966f62b303bd06b59ad9c9db",
+    "attempt_log_sha256": "da675d90f437e94a365bebe3b44ddd70c4bac758d823ae35c55c3bb3d3db2a97",
+    "attempt_log_git_blob_sha": "a12df7f328c308b2de737ede76f1b8fb6d2af486"
+  },
+  "scheduled_for_utc": "2026-10-08T19:36:00Z",
+  "minimum_one_hour_after_last_run_observed": true,
+  "observed_current_invocation_result": null,
+  "platform_run_id": null,
+  "unavailable_platform_run_id_not_fabricated": true,
+  "preserved_primary_and_recovery_tasks": [
+    {
+      "id": "6ac57b19b3508191944ce2e0dec1d57b",
+      "prompt_unchanged": true,
+      "schedule_unchanged": true,
+      "conversation_unchanged": true,
+      "enabled_unchanged": true
+    },
+    {
+      "id": "6ac57b28e8b08191a35a634a556583fb",
+      "prompt_unchanged": true,
+      "schedule_unchanged": true,
+      "conversation_unchanged": true,
+      "enabled_unchanged": true
+    },
+    {
+      "id": "6ac57b39c2108191b0502fa432e3a2fb",
+      "prompt_unchanged": true,
+      "schedule_unchanged": true,
+      "conversation_unchanged": true,
+      "enabled_unchanged": true
+    },
+    {
+      "id": "6ac57b4a77988191a2986f11ac597140",
+      "prompt_unchanged": true,
+      "schedule_unchanged": true,
+      "conversation_unchanged": true,
+      "enabled_unchanged": true
+    }
+  ],
+  "private_conversation_identifiers_published": false,
+  "native_image_generation_performed_by_operator": false,
+  "activation_performed": false,
+  "edition_launched": false,
+  "resume": "At the actual invocation, reconcile the specific aborted context outcome. Preserve all prior records. Use the protected complete-string and actual-composer pre-submit equality procedure with unchanged source/request/runtime and budget. If unavailable, retain the precise blocker. Stop after two genuine accepted locks before Story 3; later actual same-task resume proof remains required.",
+  "actual_prompt_path": "qualifications/value-image-2026-10-08/evidence/operator-task-prompt-20261008T193600Z.txt",
+  "actual_bindings_path": "qualifications/value-image-2026-10-08/evidence/operator-task-bindings-20261008T193600Z.json"
+}
