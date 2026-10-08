@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "windows-hybrid-intelligence-copilot",
+  "grammar": "layered_system",
+  "title": "Hybrid intelligence needs containment below the agent",
+  "subtitle": "Local context, identity, routing, execution isolation, and review form the platform boundary for delegated work.",
+  "nodes": [
+    {
+      "id": "intent",
+      "label": "User intent",
+      "detail": "A delegated goal defines the requested outcome",
+      "emphasis": true
+    },
+    {
+      "id": "context",
+      "label": "Local context",
+      "detail": "Relevant PC state is available only with permission"
+    },
+    {
+      "id": "policy",
+      "label": "Identity + policy",
+      "detail": "Access rules constrain data, tools, and destinations"
+    },
+    {
+      "id": "router",
+      "label": "Hybrid router",
+      "detail": "Work is directed to local or cloud intelligence"
+    },
+    {
+      "id": "container",
+      "label": "Execution container",
+      "detail": "File and network boundaries isolate agent activity"
+    },
+    {
+      "id": "result",
+      "label": "Bounded result",
+      "detail": "Actions and outputs return through controlled surfaces"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Containment",
+      "detail": "Execution Containers enforce runtime file and network boundaries."
+    },
+    {
+      "label": "Hybrid routing",
+      "detail": "Work can stay local or use cloud capacity according to policy."
+    },
+    {
+      "label": "Rollout caveat",
+      "detail": "Broader Copilot local-context actions are expanding over time."
+    }
+  ],
+  "flow_label": "Intent → context → policy → isolated action",
+  "footer": "Useful desktop agency depends on context access and execution boundaries advancing together."
+}
