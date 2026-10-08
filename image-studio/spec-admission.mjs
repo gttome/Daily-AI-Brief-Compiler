@@ -1,3 +1,4 @@
+import {hasRecipeProfile,assertNewGenerationProfile,validateRecipeStory,legacyMinimumShape,compileRecipeProjections} from './specification-projection.mjs';
 import fs from 'node:fs';
 import {canonicalSha, sha256, nonempty, hex} from '../image-capsules/util.mjs';
 import {validateSetPlan, setPlanGate} from '../image-capsules/set-plan.mjs';
@@ -181,14 +182,27 @@ function validate(request, sourceEvidence) {
 }
 
 export function admitD1Specifications(request, sourceEvidence, {previousReceipt=null}={}) {
-  let checked;
+  let checked, profileBindings=null;
   try {
     if (JSON.stringify(request)?.length > limits.request_characters || JSON.stringify(sourceEvidence)?.length > limits.evidence_characters) checked = {errors:['payload_size_limit'],gate:null};
-    else checked = validate(request,sourceEvidence);
-  } catch { checked = {errors:['malformed_specification_or_source_evidence'],gate:null}; }
+    else if (hasRecipeProfile(request)) {
+      assertNewGenerationProfile(request);
+      profileBindings=request.stories.map(story=>{
+        if(Object.keys(story).some(k=>!['story_id','story_content_sha256','specification_sha256','generation','recipe_profile'].includes(k)) || story.specification_sha256!==canonicalSha(specificationPayload(story))) throw new Error('recipe_v2:story_hash_or_fields');
+        const visible=strings(story.generation).join('\n').normalize('NFKC');
+        if(operationalPatterns.some(p=>p.test(visible))) throw new Error('recipe_v2:generator_context_contamination');
+        for(const id of [request.execution_id,request.request_id,request.source_commit,...request.stories.map(s=>s.story_id)]) if(typeof id==='string'&&id.length>=4&&visible.toLowerCase().includes(id.toLowerCase())) throw new Error('recipe_v2:generator_identity_leak');
+        for(const other of request.stories.filter(s=>s.story_id!==story.story_id)) for(const value of [other.generation?.subject,other.generation?.core_mechanism]) if(typeof value==='string'&&value.length>=16&&normalize(visible).includes(normalize(value))) throw new Error('recipe_v2:other_story_contamination');
+        return validateRecipeStory(story,sourceEvidence.stories.find(s=>s.story_id===story.story_id));
+      });
+      const minimumShape=legacyMinimumShape(request);
+      for(const story of minimumShape.stories) story.specification_sha256=canonicalSha(specificationPayload(story));
+      checked=validate(minimumShape,sourceEvidence);
+    } else checked = validate(request,sourceEvidence);
+  } catch(error) { checked = {errors:[hasRecipeProfile(request) ? error.message : 'malformed_specification_or_source_evidence'],gate:null}; }
   const result = checked.errors.length ? 'FAIL' : 'PASS';
-  const binding = result === 'PASS' ? {request_sha256:canonicalSha(request),source_evidence_sha256:canonicalSha(sourceEvidence),set_plan_sha256:canonicalSha(request.set_plan),quality_contract_sha256:canonicalSha(imageContract),admission_contract_sha256:canonicalSha(admissionContract)} : {};
-  const reusable = result === 'PASS' && previousReceipt?.schema_version === D1_SPEC_ADMISSION_SCHEMA && previousReceipt?.result === 'PASS' && previousReceipt?.gate === 'IMAGE_SPEC_ADMISSION' && Object.entries(binding).every(([key,value]) => previousReceipt[key] === value);
+  const binding = result === 'PASS' ? {request_sha256:canonicalSha(request),source_evidence_sha256:canonicalSha(sourceEvidence),set_plan_sha256:canonicalSha(request.set_plan),quality_contract_sha256:canonicalSha(imageContract),admission_contract_sha256:canonicalSha(admissionContract),...(profileBindings?{recipe_profile:{profile_id:request.stories[0].recipe_profile.profile_id,definition_sha256:request.stories[0].recipe_profile.definition_sha256,stories:profileBindings}}:{})} : {};
+  const reusable = result === 'PASS' && previousReceipt?.schema_version === D1_SPEC_ADMISSION_SCHEMA && previousReceipt?.result === 'PASS' && previousReceipt?.gate === 'IMAGE_SPEC_ADMISSION' && Object.entries(binding).every(([key,value]) => canonicalSha(previousReceipt[key]??null) === canonicalSha(value));
   return {schema_version:D1_SPEC_ADMISSION_SCHEMA,gate:'IMAGE_SPEC_ADMISSION',result,errors:checked.errors,...binding,all_six_validated:result === 'PASS',planned_diversity:checked.gate,
     quality_attempts_consumed:0,story_chats_opened:0,generation_authorized:false,visual_quality:'NOT_EVALUATED',live_proof:'NOT_EVALUATED',activation:'NOT_GRANTED',
     proof_reuse:result !== 'PASS' ? 'NONE' : reusable ? 'ALREADY_SATISFIED' : 'VALIDATED'};
@@ -204,6 +218,7 @@ export function compileD1StoryPrompt(request, sourceEvidence, storyId) {
   const admission = assertD1Specifications(request,sourceEvidence);
   const story = request.stories.find(item => item.story_id === storyId);
   if (!story) throw new Error('D1 specification story missing');
+  if (story.recipe_profile) return {...compileRecipeProjections(story),admission_sha256:canonicalSha(admission)};
   // Construct a new object from the exact approved fields. Never project the envelope,
   // source records, set plan, other stories, proof history, or benchmark documents.
   const projection = Object.fromEntries(generationFields.map(key => [key,structuredClone(story.generation[key])]));

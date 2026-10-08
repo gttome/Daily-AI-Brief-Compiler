@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {makeD1SpecificationsFixture} from './fixtures/d1-specifications.mjs';
+import {makeD1RecipeFixture as makeD1SpecificationsFixture} from './fixtures/d1-recipe-v2.mjs';
 import {admitD1Specifications,sealD1Specifications} from '../image-studio/spec-admission.mjs';
 import {initialD1ProofState,nextD1ProofAction} from '../image-studio/proof-state.mjs';
 import {buildD1ImageLaneHandoff,IMAGE_TASK_ID} from '../operations/image-lane-handoff.mjs';

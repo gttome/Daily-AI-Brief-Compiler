@@ -1,3 +1,4 @@
+import {validateRecipeCompanion,hasRecipeProfile} from './specification-projection.mjs';
 import fs from 'node:fs';
 import {canonicalSha,hex} from '../image-capsules/util.mjs';
 import {validateVisualReview} from '../image-capsules/review-contract.mjs';
@@ -21,6 +22,7 @@ export function validateD1ProductEvidence({bundle,state,manifest,handoff,porter,
     need(record.manifest_sha256===canonicalSha(manifest)&&instant(manifest.accepted_at),'d1_product_review_manifest');
     const request=readD1Evidence(repoRoot,record.request),sources=readD1Evidence(repoRoot,record.source_evidence),admission=readD1Evidence(repoRoot,record.admission);
     const admitted=assertD1Specifications(request,sources);
+    validateRecipeCompanion(request,sources,record);
     need(same(admission,admitted),'d1_product_specification_admission');
     need(request.edition_date===bundle.edition_date&&request.execution_id===handoff.execution_id,'d1_product_request_identity');
     const ids=bundle.stories.map(story=>story.id);

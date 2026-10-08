@@ -1,3 +1,4 @@
+import {assertNewGenerationProfile} from '../image-studio/specification-projection.mjs';
 import crypto from 'node:crypto';
 import {assertD1Specifications} from '../image-studio/spec-admission.mjs';
 import {canonicalSha,hex} from '../image-capsules/util.mjs';
@@ -23,13 +24,14 @@ export function buildImageLaneHandoff({edition, executionId, branch, requestPath
 // Neither function invokes a scheduler or grants image activation.
 export function buildD1ImageLaneHandoff({specifications,sourceEvidence,sourceEvidencePath,requestCommit,...input}) {
   const admission = assertD1Specifications(specifications,sourceEvidence);
+  assertNewGenerationProfile(specifications);
   if (input.edition !== specifications.edition_date || input.executionId !== specifications.execution_id || input.requestSha256 !== admission.request_sha256) throw new Error('d1_handoff_specification_binding');
   const safePath = value => typeof value === 'string' && value.length > 0 && !value.includes('\\') && !value.startsWith('/') && !value.split('/').some(part => !part || part === '.' || part === '..') && !/[\s:#?]/.test(value);
   if (!safePath(input.requestPath) || !safePath(sourceEvidencePath) || input.requestPath === sourceEvidencePath || !hex(requestCommit,40)) throw new Error('d1_handoff_source_locator');
   if (typeof input.branch !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9_./-]*$/.test(input.branch) || input.branch.includes('..')) throw new Error('d1_handoff_branch');
   const handoff = buildImageLaneHandoff({...input,previous:null});
   const binding = {edition_date:input.edition,execution_id:input.executionId,branch:input.branch,request_path:input.requestPath,request_sha256:admission.request_sha256,
-    request_commit:requestCommit,source_evidence_path:sourceEvidencePath,source_evidence_sha256:admission.source_evidence_sha256,quality_contract_sha256:admission.quality_contract_sha256,admission_contract_sha256:admission.admission_contract_sha256};
+    request_commit:requestCommit,source_evidence_path:sourceEvidencePath,source_evidence_sha256:admission.source_evidence_sha256,quality_contract_sha256:admission.quality_contract_sha256,admission_contract_sha256:admission.admission_contract_sha256,recipe_profile:admission.recipe_profile};
   const key = canonicalSha(binding);
   const sameVerified = input.previous?.handoff_key === key && input.previous?.scheduler_readback_verified === true;
   const result = sameVerified ? {action:'NOOP',scheduler_readback_verified:true} : handoff;

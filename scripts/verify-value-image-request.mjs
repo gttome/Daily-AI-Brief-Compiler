@@ -160,7 +160,7 @@ try{
     assert.equal(row.sha256,prepared[row.role]??null,'evidence digest or unknown');
   }
   result={schema_version:'daily-compiler-value-image-static-qualification-v1',result:'PASS',
-    scope:'ACTUAL_REFERENCE_PACKET_SPECIFICATION_AND_INITIAL_BINDINGS',checked_at:new Date().toISOString(),
+    scope:'ACTUAL_REFERENCE_PACKET_SPECIFICATION_AND_INITIAL_BINDINGS',historical_v1_interpretation:true,current_recipe_qualification:false,checked_at:new Date().toISOString(),
     repository:'gttome/Daily-AI-Brief-Compiler',event_sha:eventSha,engine_sha:engineSha,proof_id:proofId,
     source_commit:sourceCommit,source_records_sha256:protectedSourceDigest,request_sha256:canonicalSha(request),
     source_evidence_sha256:canonicalSha(sourceEvidence),retained_admission_sha256:canonicalSha(retainedAdmission),
@@ -174,7 +174,7 @@ try{
     validator_sha256:digest('image-studio/spec-admission.mjs'),proof_state_sha256:digest('image-studio/proof-state.mjs')};
 }catch(error){
   result={schema_version:'daily-compiler-value-image-static-qualification-v1',result:'FAIL',
-    scope:'ACTUAL_REFERENCE_PACKET_SPECIFICATION_AND_INITIAL_BINDINGS',checked_at:new Date().toISOString(),
+    scope:'ACTUAL_REFERENCE_PACKET_SPECIFICATION_AND_INITIAL_BINDINGS',historical_v1_interpretation:true,current_recipe_qualification:false,checked_at:new Date().toISOString(),
     repository:'gttome/Daily-AI-Brief-Compiler',event_sha:eventSha,engine_sha:engineSha,proof_id:proofId,
     error:error.message,live_proof:'NOT_EVALUATED',activation:'NOT_APPLIED_BY_THIS_CHECK'};
   process.exitCode=1;

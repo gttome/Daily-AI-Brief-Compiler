@@ -1,3 +1,4 @@
+import {validateRecipeCompanion,hasRecipeProfile} from './specification-projection.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {canonicalSha,hex} from '../image-capsules/util.mjs';
@@ -68,6 +69,8 @@ export function validateD1QualificationEvidence({repoRoot='.',evidence,proofId}=
     need(runtime.proof_id===proofId&&runtime.result==='PASS'&&instant(runtime.observed_at)&&runtime.existing_task_id===IMAGE_TASK_ID&&runtime.unattended_execution===true,'d1_qualification_runtime');
     need(readback.proof_id===proofId&&readback.result==='PASS'&&instant(readback.verified_at)&&readback.method==='exact_commit_raw_github_download'&&hex(readback.commit,40),'d1_qualification_readback');
     need(reviews.proof_id===proofId,'d1_qualification_review_identity');
+    validateRecipeCompanion(request,data.source_evidence,{...reviews,sessions:runtime.sessions});
+    if(hasRecipeProfile(request)) need(same(admission.recipe_profile,admitted.recipe_profile),'d1_qualification_recipe_admission');
     const collections=[porter.images,runtime.sessions,reviews.images,reviews.observations,readback.images,data.attempt_log.stories];
     for(const rows of collections) need(Array.isArray(rows)&&rows.length===6&&sameSet(rows.map(x=>x?.story_id),request.stories.map(x=>x.story_id)),'d1_qualification_six_mapped_rows');
     need(validateSetReview(set).length===0&&set.result==='PASS'&&set.edition_date===manifest.edition_date,'d1_qualification_set_review');
@@ -127,8 +130,8 @@ export function validateD1QualificationEvidence({repoRoot='.',evidence,proofId}=
     const expectedRows=prefix.map(id=>data.attempt_log.stories.find(x=>x.story_id===id));
     for(const [checkpoint,log] of [[before,beforeLog],[after,afterLog]]){
       need(checkpoint.status==='BROWSER_RUNNING'&&checkpoint.proof_id===proofId&&checkpoint.branch===state.branch&&checkpoint.request_path===state.request_path&&sameSet(checkpoint.accepted_assets,expectedRows.map(x=>x.accepted_assets[0]))&&sameSet(checkpoint.accepted_story_chats,prefix.map(id=>manifest.images.find(x=>x.story_id===id).chat_session_id)),'d1_qualification_resume_checkpoint');
-      const next=nextD1ProofAction(checkpoint,{request,sourceEvidence:data.source_evidence,attemptLog:log,requestSource:{branch:state.branch,request_path:e.request.path,source_evidence_path:e.source_evidence.path,commit:e.request.commit}});
-      need(next.action===(checkpoint===before?'RESUME_FIRST_UNACCEPTED_STORY':'RESUME_EXISTING_CANDIDATE'),'d1_qualification_resume_operation');
+      const next=nextD1ProofAction(checkpoint,{request,sourceEvidence:data.source_evidence,attemptLog:log,historicalVerification:!hasRecipeProfile(request),requestSource:{branch:state.branch,request_path:e.request.path,source_evidence_path:e.source_evidence.path,commit:e.request.commit}});
+      need(next.action===(checkpoint===before?(hasRecipeProfile(request)?'RESUME_FIRST_UNACCEPTED_STORY':'HISTORICAL_NEXT_STORY'):'RESUME_EXISTING_CANDIDATE'),'d1_qualification_resume_operation');
       if(checkpoint===after) need(next.story_id===third&&next.attempt===1,'d1_qualification_resume_first_generation');
       need(same(prefix.map(id=>log.stories.find(x=>x.story_id===id)),expectedRows),'d1_qualification_resume_locks');
     }
