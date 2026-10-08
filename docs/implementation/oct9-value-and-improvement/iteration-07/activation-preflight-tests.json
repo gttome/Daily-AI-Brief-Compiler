@@ -1,0 +1,85 @@
+{
+  "schema_version": "daily-compiler-activation-preflight-tests-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "baseline_protected_sha": "ff38e89f1da7716f3f674ca4582a0f8d10c79154",
+  "source_blob_verification": {
+    "baseline_blobs": 1324,
+    "unchanged_blobs": 1321,
+    "changed_paths": [
+      {
+        "path": "tests/d1-architecture-contract.test.mjs",
+        "baseline_git_blob_sha": "7801f0c6921eb9646ac00fc42e914176d21a124f",
+        "candidate_git_blob_sha": "f3b5d2109cf63fd14101721dbfb22ebe049ffb16",
+        "candidate_sha256": "d16a76e83da7b9bb3f7b4de31d3474acfb87234ec05fbe8ff2368bc6b175afe7"
+      },
+      {
+        "path": "tests/d1-implementation-readiness.test.mjs",
+        "baseline_git_blob_sha": "3f12f41879c24561e455796d8f2173f046a78820",
+        "candidate_git_blob_sha": "33df84edb6e1a36d414034ee2500f6504030f62d",
+        "candidate_sha256": "ca6c87cb19dd5d3aa46c0dc997497d2c01ced463f7fc5d49f992a94f773f8a80"
+      },
+      {
+        "path": "tests/fixtures/d1-qualification.mjs",
+        "baseline_git_blob_sha": "593187bb0a3481b7fb090d4849f28481e1586922",
+        "candidate_git_blob_sha": "3ccd9a19c564e55ed240615281ad605869cc373a",
+        "candidate_sha256": "0c73ace1a38c2fd7fa2072ec13da3b2e0438ebd29116a17630971e76fdb8f707"
+      }
+    ]
+  },
+  "scope": "TEST_ONLY: tests and temporary synthetic fixture; no real activation, proof or accepted assets changed.",
+  "final_focused_results": [
+    {
+      "scope": "TEST_ONLY_LOCAL",
+      "checkout": "activation-test-fix",
+      "command": "node --test tests/d1-architecture-contract.test.mjs tests/d1-implementation-readiness.test.mjs tests/d1-activation.test.mjs tests/d1-qualification-evidence.test.mjs",
+      "started_at": "2026-10-08T19:47:55.732075+00:00",
+      "exit_code": 0,
+      "duration_seconds": 6.146,
+      "summary": [
+        "\u2714 I02-T03: accepted transport retry remains independent of new qualification evidence (58.376516ms)",
+        "\u2139 tests 61",
+        "\u2139 suites 0",
+        "\u2139 pass 61",
+        "\u2139 fail 0",
+        "\u2139 cancelled 0",
+        "\u2139 skipped 0",
+        "\u2139 todo 0",
+        "\u2139 duration_ms 5997.030732"
+      ]
+    },
+    {
+      "scope": "TEST_ONLY_LOCAL",
+      "checkout": "activation-test-fix-active-simulation",
+      "command": "node --test tests/d1-architecture-contract.test.mjs tests/d1-implementation-readiness.test.mjs tests/d1-activation.test.mjs tests/d1-qualification-evidence.test.mjs",
+      "started_at": "2026-10-08T19:47:55.732894+00:00",
+      "exit_code": 0,
+      "duration_seconds": 6.167,
+      "summary": [
+        "\u2714 I02-T03: accepted transport retry remains independent of new qualification evidence (64.507223ms)",
+        "\u2139 tests 61",
+        "\u2139 suites 0",
+        "\u2139 pass 61",
+        "\u2139 fail 0",
+        "\u2139 cancelled 0",
+        "\u2139 skipped 0",
+        "\u2139 todo 0",
+        "\u2139 duration_ms 6044.150985"
+      ]
+    }
+  ],
+  "preliminary_full_suites": {
+    "pending_source": {
+      "passed": 618,
+      "failed_test_file_imports": 4,
+      "result": "FAIL_ENVIRONMENT"
+    },
+    "active_test_only_source": {
+      "passed": 618,
+      "failed_test_file_imports": 4,
+      "result": "FAIL_ENVIRONMENT"
+    },
+    "reason": "sharp is absent in the scratch source snapshot; protected CI installs pinned sharp@0.34.4. These runs preceded the final strengthened missing-companion assertion."
+  },
+  "protected_candidate_ci": "PENDING_ACTUAL_RUN",
+  "production_activation": "NOT_APPLIED"
+}

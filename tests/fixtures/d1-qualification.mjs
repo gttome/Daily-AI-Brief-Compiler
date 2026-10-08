@@ -27,6 +27,10 @@ export function makeD1QualificationFixture({root=fs.mkdtempSync(path.join(os.tmp
   // A fresh-process activation check imports this copied, current implementation.
   const code=['image-studio/activation.mjs','image-studio/activation-apply.mjs','image-studio/proof-evidence.mjs','image-studio/proof-state.mjs','image-studio/spec-admission.mjs','image-studio/acceptance.mjs','image-capsules/util.mjs','image-capsules/state.mjs','image-capsules/set-plan.mjs','image-capsules/set-review.mjs','image-capsules/review-contract.mjs','work-porter/integrity.mjs','operations/image-lane-handoff.mjs','scripts/build-d1-cloud-proof.mjs','contracts/d1-image-contract.json','contracts/d1-image-admission-contract.json'];
   for(const p of code){const dest=path.join(root,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(new URL(p,sourceRoot),dest);}
+  // Synthetic activation tests always start unactivated, even after the source
+  // checkout is activated. Preserve every non-activation contract requirement.
+  const qualityContract={...JSON.parse(fs.readFileSync(path.join(root,'contracts/d1-image-contract.json'),'utf8')),activation_status:'proof_required',activation_receipt_path:null,activation_receipt_sha256:null};
+  write(root,'contracts/d1-image-contract.json',qualityContract);
   const supplied=makeD1SpecificationsFixture(),sourceEvidence=supplied.sourceEvidence;
   supplied.request.execution_id='TEST_ONLY-d1-qualification';sourceEvidence.execution_id=supplied.request.execution_id;
   const request=sealD1Specifications(supplied.request,sourceEvidence);
@@ -52,7 +56,10 @@ export function makeD1QualificationFixture({root=fs.mkdtempSync(path.join(os.tmp
   const checkpoints={before_state:before,before_log:beforeLog,after_state:after,after_log:afterLog};
   const ref=(p,obj,commitValue)=>({path:p,sha256:canonicalSha(obj),...(commitValue?{commit:commitValue}:{})});
   const resume={proof_id:proofId,result:'PASS',interrupted_at:'2026-10-08T01:21:00Z',resumed_at:'2026-10-08T01:30:00Z',next_story_id:images[2].story_id,regenerated_accepted_images:0,interrupted_invocation_id:ctx('before'),resumed_invocation_id:ctx('after'),before:{state:ref(dir+'/before_state.json',before,'d'.repeat(40)),attempt_log:ref(dir+'/before_log.json',beforeLog,'d'.repeat(40))},after:{state:ref(dir+'/after_state.json',after,'e'.repeat(40)),attempt_log:ref(dir+'/after_log.json',afterLog,'e'.repeat(40))}};
-  const data={state,manifest,handoff,porter,request,source_evidence:sourceEvidence,attempt_log:attemptLog,admission:admitD1Specifications(request,sourceEvidence),quality_contract:JSON.parse(fs.readFileSync(path.join(root,'contracts/d1-image-contract.json'),'utf8')),runtime,canonical_reviews:canonicalReviews,binary_readback:readback,resume,set_review:set};
+  // Admission still validates with current constraints; its module reads the
+  // source checkout, so bind this TEST_ONLY receipt to the fixture's snapshot.
+  const admission={...admitD1Specifications(request,sourceEvidence),quality_contract_sha256:canonicalSha(qualityContract)};
+  const data={state,manifest,handoff,porter,request,source_evidence:sourceEvidence,attempt_log:attemptLog,admission,quality_contract:qualityContract,runtime,canonical_reviews:canonicalReviews,binary_readback:readback,resume,set_review:set};
   const evidence={schema_version:'daily-compiler-d1-qualification-evidence-v1',proof_id:proofId,...Object.fromEntries(Object.entries(data).map(([key,value])=>[key,ref(paths[key],value,key==='request'?requestCommit:undefined)]))};
   const evidencePath=dir+'/evidence.json',proofPath=dir+'/cloud-proof.json';
   const proof={schema_version:'daily-compiler-d1-cloud-proof-v2',result:'PASS',proof_id:proofId,browser_orchestrator:structuredClone(runtime.browser_orchestrator),story_chats:structuredClone(runtime.story_chats),handoff:structuredClone(runtime.handoff),git_readback:structuredClone(readback.git_readback),cloud_only:true,owner_intervention:false,local_computer_used:false,prohibited_dependencies_used:false,evidence:{path:evidencePath,sha256:canonicalSha(evidence)}};
