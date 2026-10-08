@@ -12,6 +12,15 @@ Accepted images are immutable. Accepted/locked image bytes and identities must b
 
 EDITORIAL persists the candidate evidence and locked six-story selection. CONTENT persists stories, media, Watchlist and book mappings. Completed semantic outputs are not replayed merely because image work is incomplete.
 
+For new output, set `state.research_cutoff_at` once during unfinished EDITORIAL, before progressing to CONTENT. Retain that exact timezone-qualified value in the editorial evidence, bundle and every media record. The existing progress-preservation guard rejects changing or removing it, or assigning it after EDITORIAL. Later source retrieval does not extend the cutoff. Preserve absence in historical states; do not retrofit terminal history.
+
+CONTENT uses [the current media contract](MEDIA-CONTRACT.md) for exactly two videos and two distinct podcast shows. Preserve original item/channel/show metadata, direct selected destinations, original publication precision/timezone, exact observed seconds, substantive source support and documented fallback rationales. Run `validateMediaSelection` on the candidate content using the same state cutoff; the sealed bundle compiler calls the same gate through `validateBundleMedia`.
+
+During the existing content pass, review Summary, Why it matters and Connection to the Brief for their different reader purposes and source support, including paraphrased duplication. Persist the bounded `reader_value_review` alongside source observations in `media-evidence.json`, with the current copy hash, selected-story context hash, reviewed-evidence hash, support references, actual review timestamp and separate rationale for each field. A Boolean, three different strings, or a digest alone cannot establish factual or semantic quality. Do not add another reviewing service.
+
+New bundles declare `daily-compiler-edition-bundle-v2`, `daily-compiler-editorial-contract-v2` and `daily-compiler-media-contract-v1`, and bind the retained evidence file by path and SHA-256. Missing qualifying media blocks the core selection; do not lower counts, use stale fill or substitute a podcast-length talk for a short-video slot. Synthetic acceptance fixtures do not qualify a future edition's media.
+
+
 ## IMAGES — D1 Cloud Image Studio
 
 D1 is the target permanent reader-image path after activation.

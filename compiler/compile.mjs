@@ -6,6 +6,7 @@ import { materializeReaderSource } from './reader-materializer.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
+import { validateBundleMedia } from './media.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -57,9 +58,10 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   const verifiedRebuild=state.state === 'SHADOW_VERIFIED' && state.stage === 'VERIFY';
   if (!bundleReady && !verifiedRebuild) fail('state must be BUNDLE_READY at BUNDLE or SHADOW_VERIFIED at VERIFY');
   if (state.bundle?.status !== 'BUNDLE_READY' || state.bundle?.digest !== digest) fail('state bundle digest mismatch');
-  if (bundle.schema_version !== 'daily-compiler-edition-bundle-v1') fail('bundle schema_version mismatch');
+  if (!['daily-compiler-edition-bundle-v1','daily-compiler-edition-bundle-v2'].includes(bundle.schema_version)) fail('bundle schema_version mismatch');
   if (bundle.status !== 'BUNDLE_READY') fail('bundle status mismatch');
-  if (bundle.editorial_contract_version !== 'daily-compiler-editorial-contract-v1') fail('editorial contract mismatch');
+  const currentMedia = bundle.schema_version === 'daily-compiler-edition-bundle-v2';
+  if (bundle.editorial_contract_version !== (currentMedia ? 'daily-compiler-editorial-contract-v2' : 'daily-compiler-editorial-contract-v1')) fail('editorial contract mismatch');
   if (bundle.edition_date !== state.edition_date) fail('edition date mismatch');
 
   ensureArray(bundle.stories, 'stories', 6);
@@ -81,6 +83,11 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
 
   ensureArray(bundle.videos, 'videos', 2);
   ensureArray(bundle.podcasts, 'podcasts', 2);
+  let mediaGate = null;
+  if (currentMedia) mediaGate = validateBundleMedia({bundle,state,bundleDigest:digest,repoRoot});
+  // Frozen v1 bundles retain their recorded checks. Exact-byte compatibility below
+  // does not admit new v1 selections or retroactively claim current qualification.
+  else {
   for (const video of bundle.videos) {
     for (const field of ['title','source','url','original_date','focus','summary','why_it_matters']) if (!video[field]) fail('video field missing: '+field);
     if (!Number.isFinite(video.duration_minutes) || video.duration_minutes <= 0 || video.duration_minutes > 20 || video.verified !== true) fail('video record invalid');
@@ -90,6 +97,7 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     if (!Number.isFinite(podcast.duration_minutes) || podcast.duration_minutes <= 0 || !Number.isInteger(podcast.written_reading_time_minutes) || podcast.written_reading_time_minutes < 1 || podcast.verified !== true) fail('podcast record invalid');
   }
   if (new Set(bundle.podcasts.map(p => p.source)).size !== 2) fail('podcast sources must be diverse');
+  }
 
   for (const key of ['new','updated','carried_forward','dropped']) ensureArray(bundle.watchlist?.[key], 'watchlist.'+key);
   for (const item of bundle.watchlist.new) if (!item.topic || !item.why) fail('Watchlist New item invalid');
@@ -157,7 +165,8 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     for (const pattern of PROD_MUTATION_PATTERNS) if (pattern.test(value)) fail('production repository mutation target forbidden');
   });
 
-  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate};
+  if (!mediaGate) mediaGate = validateBundleMedia({bundle,state,bundleDigest:digest,repoRoot});
+  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate,mediaGate};
 }
 
 export async function buildSite({validation, outDir, repoRoot='.'}) {
@@ -203,6 +212,7 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
     production_reader_source_sha:parity.production_reader_source_sha,
     reader_parity_gate:parity,
     accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,
+    media_contract_gate:validation.mediaGate,
     source_manifest:built.manifest,
     verification
   };
