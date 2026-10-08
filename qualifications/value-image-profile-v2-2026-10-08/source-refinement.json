@@ -1,0 +1,30 @@
+{
+  "schema_version": "daily-compiler-qualification-source-refinement-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "qualification_id": "value-image-profile-v2-2026-10-08",
+  "reviewed_at": "2026-10-08T21:34:54Z",
+  "prior_source_commit": "7fb3cb76c1a79933b4a0a36f9904f8de7ee0dc45",
+  "prior_source_records_sha256": "22e2685f20fb511411a2844b343425ba880ef3fd169528aa43a387807c45a20b",
+  "refined_source_records_sha256": "5ae2a0c6ef217751fab780391350376ee83ce1f80de7ab73eb4ab2ca9e8cdb58",
+  "refined_eligibility_sha256": "cdb4c4589ca6f37839a0a413b4a66a15080e800da5af476ef0a6c3a355217d46",
+  "case_id": "crystal-stability-active-learning",
+  "prior_story_content_sha256": "7130d0c8234c5be184e5ff3e041a1bb88a54ac1a04ca5f9e4abf3a621b6bba15",
+  "refined_story_content_sha256": "7dc745b8f439ddfa9a84681ca64d461f2f23114410c9ea817a3c89d621cc3b42",
+  "finding": "The initial overview-based recipe incorrectly drew a formula-derived atomic structure before compositional prediction. It was caught during source-semantic review before any image generation or request publication.",
+  "repair": "Separate atom-neighbour structural graphs from element-type compositional graphs, keep their models distinct, and place random structure search after composition-only filtering and before DFT.",
+  "evidence": [
+    "Primary paper pp. 1–2: distinct structural/compositional proposals and filtering before AIRSS/DFT.",
+    "Primary paper Methods pp. 7–8: structure generation, graph representations and model training."
+  ],
+  "case_identity_preserved": true,
+  "native_generations": 0,
+  "prior_attempts_reopened": 0,
+  "five_carried_source_objects_equal": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "approval": "NOT_APPROVED"
+}

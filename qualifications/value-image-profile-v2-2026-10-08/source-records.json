@@ -3,7 +3,7 @@
   "repository": "gttome/Daily-AI-Brief-Compiler",
   "qualification_id": "value-image-profile-v2-2026-10-08",
   "qualification_date": "2026-10-08",
-  "prepared_at": "2026-10-08T21:07:07Z",
+  "prepared_at": "2026-10-08T21:34:54Z",
   "purpose": "Exact proposed successor source portfolio. Five unstarted stable case identities are retained, and one genuinely new source replaces the excluded exhausted learning-without-assistant case. These are qualification cases, not an allocated edition.",
   "facts_are_paraphrases": true,
   "raw_copyrighted_pages_published": false,
@@ -32,21 +32,34 @@
         },
         "verified_visual_facts": [
           "The structural pipeline proposes crystals related to known structures.",
-          "The compositional pipeline makes more randomized proposals from chemical formulas.",
-          "Graph representations describe candidate atomic connections for graph neural networks.",
-          "The learned graph model predicts candidate stability.",
+          "The compositional pipeline proposes chemical formulas without crystal structures.",
+          "Structural graph inputs represent atoms and nearby atomic connections.",
+          "Separate structure-based and composition-based graph models predict energy for stability screening.",
           "Density Functional Theory evaluates proposed crystal structures.",
           "Computed results enter the database and supply training data for later active-learning rounds.",
           "Stability is judged against competing compositions with lower energy.",
           "Computationally stable predictions remain candidates for experimental synthesis.",
-          "Initial training uses known crystal structures and their stability."
+          "The initial structural model was trained on known crystal structure and energy data.",
+          "Composition-only graphs represent element types and proportions, without atomic positions.",
+          "Composition-only prediction filters formulas before random structure search produces structures for DFT."
         ],
         "limitations": [
           "Historical research-method qualification case; no current material recommendation or accuracy claim.",
           "Lattices and energy constraints are conceptual, with no chemical formulas, measured energies, real device or synthesis guarantee."
+        ],
+        "supplementary_primary_sources": [
+          {
+            "title": "Scaling deep learning for materials discovery",
+            "authors": "Amil Merchant and coauthors",
+            "publication_date": "2023-11-29",
+            "doi": "10.1038/s41586-023-06735-9",
+            "url": "https://www.law.berkeley.edu/wp-content/uploads/2024/02/Merchant-Scaling-deep-learning-for-materials-discovery.pdf",
+            "source_type": "Author paper, Nature 624, 80–85 (2023), hosted by UC Berkeley",
+            "use": "Resolve structural versus composition-only graph semantics and the ordering of random structure search."
+          }
         ]
       },
-      "story_content_sha256": "7130d0c8234c5be184e5ff3e041a1bb88a54ac1a04ca5f9e4abf3a621b6bba15",
+      "story_content_sha256": "7dc745b8f439ddfa9a84681ca64d461f2f23114410c9ea817a3c89d621cc3b42",
       "fact_support": [
         {
           "fact_index": 0,
@@ -54,15 +67,15 @@
         },
         {
           "fact_index": 1,
-          "source_ref": "turn0view0:L137"
+          "source_ref": "turn8view0:L99-L105"
         },
         {
           "fact_index": 2,
-          "source_ref": "turn0view0:L138"
+          "source_ref": "turn10view0:L717-L734"
         },
         {
           "fact_index": 3,
-          "source_ref": "turn0view0:L139-L141"
+          "source_ref": "turn10view0:L717-L750"
         },
         {
           "fact_index": 4,
@@ -82,7 +95,15 @@
         },
         {
           "fact_index": 8,
-          "source_ref": "turn0view0:L139"
+          "source_ref": "turn10view0:L809-L818"
+        },
+        {
+          "fact_index": 9,
+          "source_ref": "turn10view0:L746-L750"
+        },
+        {
+          "fact_index": 10,
+          "source_ref": "turn8view0:L99-L110;turn10view0:L700-L707"
         }
       ],
       "retrievals": [
@@ -95,6 +116,28 @@
           "returned_text_sha256": "e1702e67ac2fbd90db1738c64310761e5585f6f8b35c5fb1d5bac1017df09e1b",
           "returned_text_utf8_bytes": 18333,
           "measurement_basis": "Exact returned source section from the retained tool envelope; not a raw HTTP response or a claim of fresh origin delivery.",
+          "upstream_http_status": null,
+          "origin_freshness": "NOT_ESTABLISHED"
+        },
+        {
+          "url": "https://www.law.berkeley.edu/wp-content/uploads/2024/02/Merchant-Scaling-deep-learning-for-materials-discovery.pdf",
+          "method": "chatgpt_web_open",
+          "readback_recorded_at": "2026-10-08T21:34:54Z",
+          "source_ref": "turn8view0",
+          "returned_text_sha256": "5a91a0505457e5637d7d56961436cd2c57f3f8e8b5853c2c68d07c6b37c4f25e",
+          "returned_text_utf8_bytes": 29775,
+          "measurement_basis": "Exact returned PDF text in retained tool envelope, not raw PDF bytes or proof of fresh origin delivery.",
+          "upstream_http_status": null,
+          "origin_freshness": "NOT_ESTABLISHED"
+        },
+        {
+          "url": "https://www.law.berkeley.edu/wp-content/uploads/2024/02/Merchant-Scaling-deep-learning-for-materials-discovery.pdf",
+          "method": "chatgpt_web_open",
+          "readback_recorded_at": "2026-10-08T21:34:54Z",
+          "source_ref": "turn10view0",
+          "returned_text_sha256": "be97f9868652835124981d0e3d570054916b29d628619c489368c457239c64db",
+          "returned_text_utf8_bytes": 30858,
+          "measurement_basis": "Exact returned PDF text in retained tool envelope, not raw PDF bytes or proof of fresh origin delivery.",
           "upstream_http_status": null,
           "origin_freshness": "NOT_ESTABLISHED"
         }
@@ -484,5 +527,15 @@
       ],
       "distinct_from_preserved_cases": "Cross-modal conditioning, iterative denoising and temporal recombination, absent from the exhausted and accepted story portfolios."
     }
-  ]
+  ],
+  "preparation_refinement": {
+    "preserved_source_commit": "7fb3cb76c1a79933b4a0a36f9904f8de7ee0dc45",
+    "preserved_source_records_sha256": "22e2685f20fb511411a2844b343425ba880ef3fd169528aa43a387807c45a20b",
+    "changed_case_id": "crystal-stability-active-learning",
+    "previous_story_content_sha256": "7130d0c8234c5be184e5ff3e041a1bb88a54ac1a04ca5f9e4abf3a621b6bba15",
+    "reason": "Pre-generation semantic review found the overview was too coarse to support atomic structure before compositional prediction. The primary paper establishes formula-only prediction followed by random structure search, with separate graph representations. Five carried source objects and hashes remain unchanged.",
+    "native_attempts_before_refinement": 0,
+    "budget_reset": false,
+    "case_renamed": false
+  }
 }
