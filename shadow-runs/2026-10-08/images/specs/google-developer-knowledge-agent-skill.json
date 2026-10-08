@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "google-developer-knowledge-agent-skill",
+  "grammar": "pipeline",
+  "title": "A reusable skill turns current docs into grounded context",
+  "subtitle": "Search first, select relevant evidence, retrieve fresh documentation, then assemble context for a coding agent.",
+  "nodes": [
+    {
+      "id": "intent",
+      "label": "Developer intent",
+      "detail": "A coding question or task enters the reusable skill"
+    },
+    {
+      "id": "policy",
+      "label": "Skill policy",
+      "detail": "Durable instructions define how documentation is retrieved"
+    },
+    {
+      "id": "search",
+      "label": "Snippet search",
+      "detail": "Small results identify likely authoritative passages",
+      "emphasis": true
+    },
+    {
+      "id": "select",
+      "label": "Evidence selection",
+      "detail": "Relevant results are chosen before fuller retrieval"
+    },
+    {
+      "id": "docs",
+      "label": "Fresh documentation",
+      "detail": "Current Markdown is retrieved from official knowledge sources"
+    },
+    {
+      "id": "answer",
+      "label": "Grounded context",
+      "detail": "Selected evidence is assembled for the coding agent"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Reusable behavior",
+      "detail": "The retrieval method is installed once rather than re-prompted."
+    },
+    {
+      "label": "Efficient retrieval",
+      "detail": "Snippet search narrows the evidence before full documents load."
+    },
+    {
+      "label": "Authoritative source",
+      "detail": "Fresh official documentation reduces stale remembered guidance."
+    }
+  ],
+  "flow_label": "Intent → search → select → retrieve → ground",
+  "footer": "The skill packages retrieval policy as a reusable capability, not a one-off prompt."
+}
