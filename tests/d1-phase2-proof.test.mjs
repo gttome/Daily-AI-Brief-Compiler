@@ -14,8 +14,8 @@ test('rehearsal mapping is repository-only and separate from story chat request'
   assert.equal(map.schema_version,'daily-compiler-d1-proof-ingest-mapping-v2');assert.equal(map.repository,'gttome/Daily-AI-Brief-Compiler');assert.equal(map.items.length,6);
   assert.equal(JSON.stringify(req).includes('gttome/Daily-AI-Brief-Compiler'),false);
 });
-test('v2 proof state begins at Work browser story 1 and is resumable',()=>{
-  assert.deepEqual(validateD1ProofState(state),[]);assert.deepEqual(nextD1ProofAction(state),{action:'START_WORK_BROWSER_STORY_1'});
+test('historical v2 proof state is preserved and new generation requires all-six admission',()=>{
+  assert.deepEqual(validateD1ProofState(state),[]);assert.equal(nextD1ProofAction(state).action,'BLOCK_SPEC_ADMISSION');
   const s=initialD1ProofState({proofId:'x',branch:'rehearsal/x',requestPath:'request.json',ingestMappingPath:'map.json',updatedAt:'2026-10-07T00:00:00Z'});
   assert.equal(s.status,'PLANNED');assert.equal(s.accepted_story_chats.length,0);
 });

@@ -17,6 +17,19 @@
     "updated_at"
   ],
   "properties": {
+    "specification_binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_sha256", "source_evidence_sha256", "source_commit", "request_commit", "source_evidence_path", "attempt_log_sha256"],
+      "properties": {
+        "request_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_evidence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "source_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "request_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "source_evidence_path": {"type": "string", "minLength": 1},
+        "attempt_log_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
     "schema_version": {
       "const": "daily-compiler-d1-cloud-proof-execution-v2"
     },
