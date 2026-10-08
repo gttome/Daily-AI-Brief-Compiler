@@ -14,6 +14,7 @@ import { D1_STRATEGY,D1_WORK_SCOPE } from '../image-studio/activation.mjs';
 import { d1EvidencePath } from '../image-studio/proof-evidence.mjs';
 import { CORRECTION_REVISION_SCHEMA,validateCorrectionRevision } from '../operations/correction-apply.mjs';
 import { validateCorrectionIntegrity } from './correction-gate.mjs';
+import { compileEngineBinding } from '../operations/release-engine.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -207,8 +208,9 @@ export async function buildSite({validation, outDir, repoRoot='.',environment}) 
   return materializeReaderSource({bundle:validation.bundle,bundleDigest:validation.bundleDigest,outDir,repoRoot,environment});
 }
 
-export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',environment}) {
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',environment,releaseBinding,requireReleaseBinding=false}) {
   environment=resolveReaderEnvironment(environment);
+  const engineBinding=compileEngineBinding({statePath,bundlePath,semanticRoot:repoRoot,binding:releaseBinding,requireBinding:requireReleaseBinding});
   const validation=validateEdition({statePath,bundlePath,repoRoot});
   const parity=await checkGoldenReaderParity();
   const built=await buildSite({validation,outDir,repoRoot,environment});
@@ -241,6 +243,7 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',en
     edition_date:validation.bundle.edition_date,
     state_sha256:validation.stateSha256,
     bundle_sha256:validation.bundleDigest,
+    ...(engineBinding?{engine_binding:engineBinding}:{}),
     deterministic:true,
     chatgpt_required_after_bundle_ready:false,
     owner_intervention:false,
@@ -262,9 +265,11 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',en
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
-  if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>] [--reader-environment <json-file>]');
+  if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>] [--reader-environment <json-file>] [--release-binding <json-file>]');
   if(Object.hasOwn(args,'reader-environment')&&(!args['reader-environment']||args['reader-environment'].startsWith('--')))fail('reader environment JSON file required');
   const environment=args['reader-environment']?readJson(args['reader-environment']):undefined;
-  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',environment});
+  if(Object.hasOwn(args,'release-binding')&&(!args['release-binding']||args['release-binding'].startsWith('--')))fail('release binding JSON file required');
+  const releaseBinding=args['release-binding']?readJson(args['release-binding']):undefined;
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',environment,releaseBinding,requireReleaseBinding:true});
   console.log(JSON.stringify(receipt,null,2));
 }

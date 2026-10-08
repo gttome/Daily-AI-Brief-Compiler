@@ -115,7 +115,7 @@ test('I06-T01 core terminal bytes and allowed writes are identical with observat
   for(const result of results.slice(1))assert.deepEqual(result,results[0]);
 });
 
-test('I06-T01 finalizer runs in a fresh process with all optional modules missing or import-time throwing',t=>{
+test('I06-T01 offline fixture finalizer runs in a fresh process with all optional modules missing or import-time throwing',t=>{
   for(const variant of ['missing','throwing']){
     const f=finalizationFixture(t),code=path.join(f.root,'code');
     for(const name of ['scripts','compiler','image-capsules','image-studio','work-porter','operations','contracts'])fs.cpSync(path.join(REPO,name),path.join(code,name),{recursive:true});
@@ -126,7 +126,10 @@ test('I06-T01 finalizer runs in a fresh process with all optional modules missin
     // scheduler, producer, telemetry acknowledgement or publication call here.
     const guard=path.join(code,'guard.mjs');
     write(guard,"import cp from 'node:child_process';\nimport {syncBuiltinESMExports} from 'node:module';\nconst forbidden=()=>{throw new Error('TEST_ONLY forbidden external side effect');};\nfor(const name of ['spawn','spawnSync','exec','execSync','execFile','execFileSync','fork'])cp[name]=forbidden;\nglobalThis.fetch=forbidden;\nsyncBuiltinESMExports();\n");
-    const r=spawnSync(process.execPath,['--import',guard,path.join(code,'scripts/finalize-shadow-state.mjs'),f.root,DATE,PAGE],{cwd:f.root,encoding:'utf8',timeout:15_000});
+    // Invoke the pure API in an isolated process: this registered test fixture
+    // is not an operational release with a protected engine/semantic Git pin.
+    const program='const {finalizeShadowState}=await import(process.argv[2]); console.log(JSON.stringify(finalizeShadowState(JSON.parse(process.argv[3]))));';
+    const r=spawnSync(process.execPath,['--import',guard,'--input-type=module','-e',program,'TEST_ONLY_OFFLINE_API',path.join(code,'scripts/finalize-shadow-state.mjs'),JSON.stringify({root:f.root,date:DATE,pageUrl:PAGE})],{cwd:f.root,encoding:'utf8',timeout:15_000});
     assert.equal(r.status,0,r.stderr);
     const result=JSON.parse(r.stdout.trim());
     assert.equal(result.state,'SHADOW_VERIFIED');assert.equal(result.already_terminal,false);
@@ -308,7 +311,7 @@ test('I06-T01 qualified current-media and D1 fixture compiles to identical reade
   sameTree(tree(frozen.root),frozenBytes,'the qualified frozen input is immutable throughout comparison');
 });
 
-test('I06-T01 qualified compile succeeds in fresh processes when optional modules are absent or throw on import',t=>{
+test('I06-T01 qualified offline fixture compile succeeds in fresh processes when optional modules are absent or throw on import',t=>{
   const frozen=makeProductReleaseFixture({root:temp(t)}),frozenBytes=tree(frozen.root),results=[];
   for(const variant of ['absent','throwing']){
     const root=temp(t),input=path.join(root,'input'),code=path.join(root,'code');
@@ -329,9 +332,11 @@ test('I06-T01 qualified compile succeeds in fresh processes when optional module
     const guard=path.join(code,'guard.mjs');
     write(guard,"import cp from 'node:child_process';\nimport {syncBuiltinESMExports} from 'node:module';\nconst forbidden=()=>{throw new Error('TEST_ONLY forbidden network, generation, scheduler or producer call');};\nfor(const name of ['spawn','spawnSync','exec','execSync','execFile','execFileSync','fork'])cp[name]=forbidden;\nglobalThis.fetch=forbidden;\nsyncBuiltinESMExports();\n");
     const run=path.join(input,'shadow-runs',frozen.date),out=path.join(root,'reader');
-    const result=spawnSync(process.execPath,['--import',guard,path.join(code,'compiler/compile.mjs'),'--state',path.join(run,'compiler-state.json'),'--bundle',path.join(run,'edition-bundle.json'),'--out',out,'--repo-root',input],{cwd:root,encoding:'utf8',timeout:30_000,maxBuffer:2*1024*1024});
+    const program='const {compileShadow}=await import(process.argv[2]); console.log(JSON.stringify(await compileShadow(JSON.parse(process.argv[3]))));';
+    const result=spawnSync(process.execPath,['--import',guard,'--input-type=module','-e',program,'TEST_ONLY_OFFLINE_API',path.join(code,'compiler/compile.mjs'),JSON.stringify({statePath:path.join(run,'compiler-state.json'),bundlePath:path.join(run,'edition-bundle.json'),outDir:out,repoRoot:input})],{cwd:root,encoding:'utf8',timeout:30_000,maxBuffer:2*1024*1024});
     assert.equal(result.status,0,result.stderr);
     const receipt=JSON.parse(result.stdout);
+    assert.equal(receipt.engine_binding,undefined,'offline fixture evidence has no immutable release engine claim');
     assert.equal(receipt.result,'PASS');assert.equal(receipt.media_contract_gate.result,'PASS');assert.equal(receipt.image_contract_gate.result,'PASS');
     sameTree(tree(input),frozenBytes,'compile must not mutate its input tree');
     for(const name of ['_generator/lib/analytics.mjs','_generator/lib/quality.mjs','_records/analytics','_records/editorial-feedback','_records/qa','data/qa','qa'])assert.equal(fs.existsSync(path.join(out,name)),false,'optional reader observation excluded: '+name);
