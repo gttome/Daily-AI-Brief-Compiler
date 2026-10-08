@@ -6,6 +6,7 @@ import {readFinalizationRecord as readRecord,verifyFinalizationEvidence} from '.
 export {verifyFinalizationEvidence} from '../compiler/finalization-evidence.mjs';
 import {validateEdition} from '../compiler/compile.mjs';
 import {assertCompleteReleaseEvidence} from '../compiler/release-evidence.mjs';
+import {assertFinalizationEngine} from '../operations/release-engine.mjs';
 
 const fail=message=>{throw new Error(message);};
 const FINALIZATION_RECEIPT='finalization-receipt.json';
@@ -41,7 +42,7 @@ function verifyTerminalProof({proof,evidence,run,exactReplay}){
 
 // Observation consumes persisted receipts independently through the existing
 // finalize-run-intelligence command. No observer runs on this critical path.
-export function finalizeShadowState({root,date,pageUrl,buildDir='build',now=()=>new Date().toISOString()}){
+export function finalizeShadowState({root,date,pageUrl,buildDir='build',now=()=>new Date().toISOString(),requireReleaseBinding=false}){
   if(!root||!/^\d{4}-\d{2}-\d{2}$/.test(date||'')||!pageUrl) fail('usage: node scripts/finalize-shadow-state.mjs <worktree> <date> <page-url>');
   const run=path.join(root,'shadow-runs',date);
   const statePath=path.join(run,'compiler-state.json');
@@ -64,6 +65,7 @@ export function finalizeShadowState({root,date,pageUrl,buildDir='build',now=()=>
   // existing product validator at the last checkpoint; do not duplicate its
   // image/media policy or swallow a real validation failure as telemetry noise.
   const validation=validateEdition({statePath,bundlePath:path.join(run,'edition-bundle.json'),repoRoot:root});
+  const engineBinding=assertFinalizationEngine({state,bundle:validation.bundle,compile,semanticRoot:root,alreadyTerminal,requireBinding:requireReleaseBinding});
   const release=assertCompleteReleaseEvidence({evidence,bundle:validation.bundle,repoRoot:root,sourceDir:path.join(buildDir,'reader-source')});
   verifyTerminalProof({proof:terminalProof,evidence,run,exactReplay});
   const result={result:'PASS',edition_date:date,state:'SHADOW_VERIFIED',bundle_sha256:compile.bundle_sha256,source_manifest_sha256:manifestDigest,already_terminal:alreadyTerminal,...release};
@@ -94,6 +96,7 @@ export function finalizeShadowState({root,date,pageUrl,buildDir='build',now=()=>
     source_manifest_sha256:manifestDigest,production_reader_source_sha:compile.production_reader_source_sha,page_url:pageUrl,
     receipts:receipts.map(({name,bytes})=>({name,sha256:sha256(bytes)}))
   };
+  if(engineBinding)finalizationReceipt.engine_binding=engineBinding;
   fs.mkdirSync(path.join(run,'compiler'),{recursive:true});
   for(const {bytes,name} of receipts) fs.writeFileSync(path.join(run,'compiler',name),bytes);
   fs.writeFileSync(path.join(run,'compiler',FINALIZATION_RECEIPT),JSON.stringify(finalizationReceipt,null,2)+'\n');
@@ -102,6 +105,6 @@ export function finalizeShadowState({root,date,pageUrl,buildDir='build',now=()=>
 }
 
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
-  const result=finalizeShadowState({root:process.argv[2],date:process.argv[3],pageUrl:process.argv[4]});
+  const result=finalizeShadowState({root:process.argv[2],date:process.argv[3],pageUrl:process.argv[4],requireReleaseBinding:true});
   console.log(JSON.stringify(result));
 }
