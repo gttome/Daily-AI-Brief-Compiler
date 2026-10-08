@@ -2,20 +2,24 @@
   "schema_version": "daily-compiler-d1-cloud-proof-execution-v2",
   "proof_id": "d1-six-image-browser-r3-benchmark",
   "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
-  "status": "BROWSER_RUNNING",
+  "status": "BLOCKED",
   "request_path": "rehearsals/d1-six-image-browser-r3-benchmark/request.json",
   "acceptance_manifest_path": null,
   "ingest_mapping_path": "rehearsals/d1-six-image-browser-r3-benchmark/ingest-mapping.json",
   "ingest_handoff_path": null,
   "work_porter_receipt_path": null,
   "cloud_proof_path": null,
-  "native_generations": 0,
+  "native_generations": 4,
   "accepted_assets": [],
   "accepted_story_chats": [],
   "owner_intervention": false,
   "local_computer_used": false,
-  "last_error": null,
-  "updated_at": "2026-10-07T23:55:31.258Z",
+  "last_error": {
+    "code": "STORY_1_QUALITY_ATTEMPTS_EXHAUSTED",
+    "path": "rehearsals/d1-six-image-browser-r3-benchmark/quality-blocker.json",
+    "message": "Story 1 failed the objective quality gate after four genuine visual attempts; no asset accepted or locked."
+  },
+  "updated_at": "2026-10-08T00:02:19.316Z",
   "resolved_blockers": [
     {
       "code": "AUTO_REVIEW_REJECTED_REQUIRED_REGULAR_CHAT_SUBMISSION",
@@ -23,5 +27,6 @@
       "resolved_at": "2026-10-07T23:55:31.258Z",
       "visual_attempt_consumed": false
     }
-  ]
+  ],
+  "attempt_log_path": "rehearsals/d1-six-image-browser-r3-benchmark/attempt-log.json"
 }
