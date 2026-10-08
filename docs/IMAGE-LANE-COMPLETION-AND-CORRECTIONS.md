@@ -19,6 +19,8 @@ If either gate fails, record the exact blocker. Never silently use a weak diagra
 
 Reuse Work task `6ac6cf14a9e88191af48c353b9bc1e11` (D1 Work Image Lane). Its Work conversation identity must be preserved; do not create an ordinary-chat replacement task.
 
+The separate D1 Activation Gate must not restore a fixed 10:15 PM recurrence or overwrite the lane's current prompt/target. Its previous terminal-proof restoration instruction would otherwise undo the completion-driven handoff. Preserve its activation proof requirements; use `contracts/image-lane-activation-guard-prompt.txt` for the schedule-safe guard prompt.
+
 The Primary and each Recovery task must perform this handoff when they first observe durable semantic/specification readiness:
 
 1. Persist an image request containing edition date, original execution ID, exact source commit, branch, request path, sealed specifications and their hashes, selected story IDs, normal/correction mode, accepted locks and attempt history.
