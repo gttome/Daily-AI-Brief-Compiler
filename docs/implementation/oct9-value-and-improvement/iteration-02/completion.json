@@ -1,0 +1,589 @@
+{
+  "schema_version": "iteration-02-completion-v1",
+  "recorded_at": "2026-10-08T05:34:06Z",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "iteration": {
+    "number": 2,
+    "title": "Qualify the existing premium image lane and readiness handoff",
+    "result": "CODE_PASS_EXTERNAL_PENDING",
+    "iteration_exit_gate_satisfied": false,
+    "reason": "Bounded evidence hardening is merged and verified. Current full six-image live proof and actual readiness-bound execution remain unproved; R3 is exhausted."
+  },
+  "implementation": {
+    "result": "MERGED_AND_VERIFIED",
+    "baseline_protected_sha": "c0eba91ac27b0838f4eb64afddffc1106c2e8cc1",
+    "branch": "implementation/iteration-02-premium-lane-proof",
+    "candidate_sha": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e",
+    "candidate_tree_sha": "55240a32f164bc92d6393c4b056e984284b7a564",
+    "pull_request": {
+      "number": 75,
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/75",
+      "merged": true,
+      "merged_at": "2026-10-08T05:32:19Z"
+    },
+    "protected_merge_sha": "1c3f5d1c9a3371829ab3591ad8dc79ddd6ac7b27",
+    "protected_merge_tree_sha": "55240a32f164bc92d6393c4b056e984284b7a564",
+    "tested_candidate_tree_equals_merge_tree": true,
+    "changed_file_count": 21,
+    "changed_files": [
+      "image-studio/proof-evidence.mjs",
+      "image-studio/acceptance.mjs",
+      "image-studio/activation.mjs",
+      "image-studio/activation-apply.mjs",
+      "scripts/build-d1-cloud-proof.mjs",
+      "contracts/d1-cloud-proof.schema.json",
+      "contracts/d1-qualification-evidence.schema.json",
+      "tests/fixtures/d1-qualification.mjs",
+      "tests/d1-qualification-evidence.test.mjs",
+      "tests/d1-activation.test.mjs",
+      "tests/d1-bundle-gate.test.mjs",
+      "contracts/d1-work-browser-prompt.txt",
+      "docs/D1-QUALIFICATION-EVIDENCE.md",
+      "docs/D1-WORK-BROWSER-SIX-IMAGE-REHEARSAL.md",
+      "docs/IMAGE-LANE-COMPLETION-AND-CORRECTIONS.md",
+      "docs/implementation/oct9-value-and-improvement/iteration-02/baseline.json",
+      "docs/implementation/oct9-value-and-improvement/iteration-02/proof-validation-regression.json",
+      "docs/implementation/oct9-value-and-improvement/iteration-02/r3-resume-guard.json",
+      "docs/implementation/oct9-value-and-improvement/iteration-02/readiness-fixture-results.json",
+      "docs/implementation/oct9-value-and-improvement/iteration-02/scheduler-readback.json",
+      "docs/implementation/oct9-value-and-improvement/iteration-02/tests.json"
+    ],
+    "required_checks": [
+      {
+        "scope": "candidate_push",
+        "head_sha": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e",
+        "workflow_run_id": 37732771185,
+        "job_id": 113165444456,
+        "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37732771185/job/113165444456",
+        "required_check": "validate",
+        "integration_id": 15368,
+        "result": "SUCCESS",
+        "tests": 354,
+        "passed": 354,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "scope": "candidate_pull_request",
+        "head_sha": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e",
+        "workflow_run_id": 37732796969,
+        "job_id": 113165524270,
+        "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37732796969/job/113165524270",
+        "required_check": "validate",
+        "integration_id": 15368,
+        "result": "SUCCESS",
+        "tests": 354,
+        "passed": 354,
+        "failed": 0,
+        "skipped": 0
+      },
+      {
+        "scope": "protected_postmerge",
+        "head_sha": "1c3f5d1c9a3371829ab3591ad8dc79ddd6ac7b27",
+        "workflow_run_id": 37732881646,
+        "job_id": 113165790344,
+        "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37732881646/job/113165790344",
+        "required_check": "validate",
+        "integration_id": 15368,
+        "result": "SUCCESS",
+        "tests": 354,
+        "passed": 354,
+        "failed": 0,
+        "skipped": 0
+      }
+    ],
+    "protection": {
+      "ruleset_id": 24610983,
+      "name": "Protect main",
+      "enforcement": "active",
+      "required_check": "validate",
+      "required_integration_id": 15368,
+      "bypass_actors": [],
+      "current_user_can_bypass": "never"
+    },
+    "protection_bypass_used": false,
+    "receipt_scope": "This record describes implementation PR #75. Its subsequent protected documentation commit is not self-hashed or reported as an additional code change."
+  },
+  "versions": {
+    "quality_contract": "daily-compiler-image-contract-v5",
+    "admission": "daily-compiler-d1-image-spec-admission-v1",
+    "cloud_proof": "daily-compiler-d1-cloud-proof-v2",
+    "activation": "daily-compiler-d1-activation-v2",
+    "qualification_evidence": "daily-compiler-d1-qualification-evidence-v1",
+    "strategy": "d1_work_browser_fresh_chat",
+    "historical_r3_request": "daily-compiler-d1-browser-rehearsal-request-v2",
+    "historical_requests_modified": false,
+    "note": "Cloud-proof v2 and activation v2 retain their names but now require retained qualification evidence. Historical one-image receipts retain only their original capability/transport scope."
+  },
+  "package_integrity": {
+    "result": "PASS",
+    "files_verified": 28,
+    "project_source_pngs_readable": 9,
+    "packaged_benchmark_bytes_match_project_source": 6,
+    "image_quality_review_performed": false
+  },
+  "local_source_images": {
+    "readable_png_count": 9,
+    "benchmark_png_count": 6,
+    "benchmark_bytes_match_supplied_package": true,
+    "new_images_generated": 0
+  },
+  "change_summary": [
+    "Reject aggregate-only proof PASS and missing, non-integer, or insufficient diversity counts.",
+    "Require 14 digest-bound retained reference records, six canonical asset files and actual review records at proof construction and activation.",
+    "Bind admission, source/request history, attempt chronology, accepted locks, separate story contexts, canonical file identity, immutable readback records, runtime provenance and same-task resume checkpoints.",
+    "Require observed D1 component/profile and set-diversity evidence rather than accepting declared distinct strings.",
+    "Permit valid Story 3 retries and prior Story 1 invocations without weakening the two-accepted-image interruption checkpoint.",
+    "Keep proof evidence frozen across activation metadata changes; failed activation has no writes.",
+    "Document the existing evidence producer handoff; add no new executor or scheduler."
+  ],
+  "validation": {
+    "focused": {
+      "base_commit": "c0eba91ac27b0838f4eb64afddffc1106c2e8cc1",
+      "command": [
+        "node",
+        "--test",
+        "tests/d1-qualification-evidence.test.mjs",
+        "tests/d1-activation.test.mjs",
+        "tests/d1-spec-admission.test.mjs",
+        "tests/d1-spec-admission-integration.test.mjs",
+        "tests/d1-phase2-proof.test.mjs",
+        "tests/d1-architecture-contract.test.mjs",
+        "tests/d1-transition-schedules.test.mjs"
+      ],
+      "runtime": "v24.19.0",
+      "exit_code": 0,
+      "scope": "DETERMINISTIC_ONLY_NO_LIVE_PROOF",
+      "changed_file_sha256": {
+        "image-studio/proof-evidence.mjs": "73314aee933be65fe54f644e1e00716ea956520dcc0a2b4878b247bfbc4a3dde",
+        "image-studio/acceptance.mjs": "b6b634b1d6f4538f07e838dd6429da27077c94d2ac69a6c6275f4acd70f9b334",
+        "image-studio/activation.mjs": "e839a1046f9560c6f6043ce7c0297a1a36a85525d05ae5a31082b59edc1fd5c7",
+        "image-studio/activation-apply.mjs": "b6c35f64305ed3c0ec605623ebbbd76ce56cffd89c6085c28a10b5b249167b6d",
+        "scripts/build-d1-cloud-proof.mjs": "132ba22523a29b81bd95e404dfd89b3367fba29aa7425701c5a36f4fddb1f40e",
+        "contracts/d1-cloud-proof.schema.json": "57b65a19d8f4579bf22ebe277b53f9bb63fa4beb453220866aa8c9c1294a7d9d",
+        "contracts/d1-qualification-evidence.schema.json": "3ac8ba5c874a591a2e32a6da94c52c408ecffe4049e29218e73f30a29f39ce04",
+        "tests/fixtures/d1-qualification.mjs": "823585361001b4f1e0e06f84fd7156a295fb1478c1450451e164f135b583946a",
+        "tests/d1-qualification-evidence.test.mjs": "9fe8f11d959aa1d2386174d3dbd3d9c5dda3f99948c0b102333a54b078c01b45",
+        "tests/d1-activation.test.mjs": "16ae310500c7c9f31b5612c83efef7c878bdf766b135efa956c6b09256797f93",
+        "tests/d1-bundle-gate.test.mjs": "176f4275f714eb76e45e3e2435516fe20e4cfa0c49c209cb0dc2f6bce3735686"
+      },
+      "not_run_local": [
+        "tests/d1-image-package.test.mjs",
+        "tests/d1-bundle-gate.test.mjs"
+      ],
+      "local_limit": "CI pins sharp@0.34.4; no such dependency is installed in this focused checkout. Shared runtime has 0.35.4 and was not substituted.",
+      "resume_regressions": "Permits accepted Story 3 retries after first pending checkpoint; preserves Story 1 from an earlier invocation; binds pending raw identity.",
+      "tests": 197,
+      "passed": 197,
+      "failed": 0,
+      "skipped": 0,
+      "exact_content_bound_to_candidate_sha": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e"
+    },
+    "baseline": {
+      "tests": 148,
+      "passed": 148,
+      "failed": 0,
+      "source_commit": "c0eba91ac27b0838f4eb64afddffc1106c2e8cc1",
+      "meaning": "Existing suite passed before the false-PASS defect was closed."
+    },
+    "independent_review": {
+      "code_review": "No remaining concrete findings in the reviewed scope",
+      "final_resume_command": "node --test --test-name-pattern=I02-T02 tests/d1-qualification-evidence.test.mjs",
+      "resume_tests_passed": 5,
+      "scope": "Synthetic tests only; no live image review"
+    },
+    "full_ci": {
+      "command": "npm test",
+      "runtime": "Node 20",
+      "pinned_image_dependency": "sharp@0.34.4",
+      "tests": 354,
+      "passed": 354,
+      "failed": 0,
+      "skipped": 0,
+      "auxiliary_commands": {
+        "npm run validate:bootstrap": "PASS",
+        "npm run fixture:e2e": "PASS",
+        "npm run reader:parity": "PASS"
+      },
+      "checks": [
+        {
+          "scope": "candidate_push",
+          "head_sha": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e",
+          "workflow_run_id": 37732771185,
+          "job_id": 113165444456,
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37732771185/job/113165444456",
+          "required_check": "validate",
+          "integration_id": 15368,
+          "result": "SUCCESS",
+          "tests": 354,
+          "passed": 354,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "scope": "candidate_pull_request",
+          "head_sha": "7dc9bce20d88353de6b6fbb94a6f836cc5360b8e",
+          "workflow_run_id": 37732796969,
+          "job_id": 113165524270,
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37732796969/job/113165524270",
+          "required_check": "validate",
+          "integration_id": 15368,
+          "result": "SUCCESS",
+          "tests": 354,
+          "passed": 354,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "scope": "protected_postmerge",
+          "head_sha": "1c3f5d1c9a3371829ab3591ad8dc79ddd6ac7b27",
+          "workflow_run_id": 37732881646,
+          "job_id": 113165790344,
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37732881646/job/113165790344",
+          "required_check": "validate",
+          "integration_id": 15368,
+          "result": "SUCCESS",
+          "tests": 354,
+          "passed": 354,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "local_sharp_dependent_gap_resolved_by_pinned_ci": true,
+      "count_caution": "The 197 focused tests overlap the 354 full-suite tests. Do not add these counts."
+    },
+    "acceptance_cases": [
+      {
+        "test_id": "I02-T01",
+        "deterministic_result": "PASS",
+        "verified": "Six-story structure, reviews, contexts, sequential order and canonical bytes are required.",
+        "live_result": "NOT_RUN",
+        "limitation": "No actual six-image current-lane run; R3 stopped on Story 1."
+      },
+      {
+        "test_id": "I02-T02",
+        "deterministic_result": "PASS",
+        "verified": "Retained two-story checkpoints, unchanged locks, Story 3 resume and permitted retries pass structural tests.",
+        "live_result": "NOT_RUN",
+        "limitation": "Actual interruption after two accepted images remains unproved."
+      },
+      {
+        "test_id": "I02-T03",
+        "deterministic_result": "PASS",
+        "verified": "Transport remains RESUME_EXACT_BYTE_INGEST; altered canonical/readback identities fail.",
+        "live_result": "NOT_RUN",
+        "limitation": "No current six-image accepted checkpoint was available for a live transport restart."
+      },
+      {
+        "test_id": "I02-T04",
+        "deterministic_result": "PASS",
+        "verified": "Existing no-reset tests reused; current actual R3 state returns EXIT_BLOCKED unchanged.",
+        "live_result": "BOUNDARY_VERIFIED",
+        "limitation": "Historical four failed attempts remain authoritative; this invocation generates nothing."
+      },
+      {
+        "test_id": "I02-T05",
+        "deterministic_result": "PASS",
+        "verified": "A failed observed-template verdict is rejected even with six unique declared signatures.",
+        "live_result": "NOT_RUN",
+        "limitation": "Actual full-set pixel review remains unperformed."
+      },
+      {
+        "test_id": "I02-T06",
+        "deterministic_result": "PASS",
+        "verified": "Early/late readiness fixtures retain the same task and report unverified arming; actual read-only scheduler inventory succeeded.",
+        "live_result": "NOT_RUN",
+        "limitation": "Existing task is disabled and unbound. Real readiness arming/readback is NOT_RUN."
+      },
+      {
+        "test_id": "I02-T07",
+        "deterministic_result": "PASS",
+        "verified": "Missing runtime/evidence cannot qualify or activate; actual capability boundaries remain distinct.",
+        "live_result": "BOUNDARY_VERIFIED",
+        "limitation": "Scheduler readback is available here. An eligible image execution was not available; no substitute was created."
+      },
+      {
+        "test_id": "I02-T08",
+        "deterministic_result": "PASS",
+        "verified": "Aggregate-only, one-image, malformed or unsupported proofs fail; activation revalidates evidence before writing.",
+        "live_result": "BOUNDARY_VERIFIED",
+        "limitation": "CODE_PASS is not full image qualification or activation."
+      }
+    ],
+    "historical_r3_guard": {
+      "artifact": "r3-resume-guard.json",
+      "result": "PASS",
+      "action": "EXIT_BLOCKED",
+      "state_unchanged": true,
+      "attempts_used": 4,
+      "new_generations": 0
+    },
+    "readiness_fixtures": {
+      "artifact": "readiness-fixture-results.json",
+      "early": "PASS",
+      "late": "PASS",
+      "same_task_identity": true,
+      "scheduler_mutations": 0,
+      "actual_arming_result": "NOT_RUN"
+    },
+    "limitations": [
+      "Synthetic fixtures establish validation behavior and are explicitly TEST_ONLY, never actual image qualification.",
+      "No live six-image generation, canonical pixel review, actual context isolation, forced runtime interruption, six-asset readback, full-set visual review, or readiness-bound execution occurred.",
+      "Hashes verify identity and retained consistency; they do not establish the truth of visual or runtime assertions.",
+      "Current saved task title/prompt does not independently verify Work mode or browser capability."
+    ]
+  },
+  "evidence_records": {
+    "baseline": "baseline.json",
+    "test_receipt": "tests.json",
+    "negative_reproduction": "proof-validation-regression.json",
+    "r3_guard": "r3-resume-guard.json",
+    "readiness_fixtures": "readiness-fixture-results.json",
+    "scheduler": "scheduler-readback.json",
+    "evidence_contract": "../../../D1-QUALIFICATION-EVIDENCE.md",
+    "implementation_directory": "https://github.com/gttome/Daily-AI-Brief-Compiler/tree/1c3f5d1c9a3371829ab3591ad8dc79ddd6ac7b27/docs/implementation/oct9-value-and-improvement/iteration-02"
+  },
+  "preservation": {
+    "observed_at": "2026-10-08T05:33:12Z",
+    "branches": [
+      {
+        "branch": "operations/d1-image-lane-readiness-20261008T0319Z",
+        "head": "3b09ef21cfc39e41df915634de9265db16279416",
+        "actual": "3b09ef21cfc39e41df915634de9265db16279416",
+        "unchanged": true
+      },
+      {
+        "branch": "proof/d1-cloud-pipeline-r1",
+        "head": "519cc0cfa86add9f5d0f39b29c3d661676917585",
+        "actual": "519cc0cfa86add9f5d0f39b29c3d661676917585",
+        "unchanged": true
+      },
+      {
+        "branch": "rehearsal/d1-cloud-proof-r1",
+        "head": "cfdbf828cf18f28e16ad65bdb924b17633646f1c",
+        "actual": "cfdbf828cf18f28e16ad65bdb924b17633646f1c",
+        "unchanged": true
+      },
+      {
+        "branch": "rehearsal/d1-six-image-browser-r1",
+        "head": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507",
+        "actual": "3fadf520ba47ffdcdf585b6a54000ac03d2e0507",
+        "unchanged": true
+      },
+      {
+        "branch": "rehearsal/d1-six-image-browser-r2-quality",
+        "head": "836f0a85b93255d856cfdd8948cb53dc703e1a49",
+        "actual": "836f0a85b93255d856cfdd8948cb53dc703e1a49",
+        "unchanged": true
+      },
+      {
+        "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
+        "head": "e1efd7fa2b76df315671b442862edee9aab2bfbd",
+        "actual": "e1efd7fa2b76df315671b442862edee9aab2bfbd",
+        "unchanged": true
+      },
+      {
+        "branch": "shadow/2026-10-08",
+        "head": "e636d34c1a1a7894a75d398a221fec46ab05ba6d",
+        "actual": "e636d34c1a1a7894a75d398a221fec46ab05ba6d",
+        "unchanged": true
+      }
+    ],
+    "branch_identity_implies_recorded_tree_and_asset_identity_unchanged": true,
+    "original_asset_identity_audit": "baseline.json",
+    "one_image_proof": {
+      "proof_id": "d1-browser-chat-one-image-r1",
+      "branch": "rehearsal/d1-cloud-proof-r1",
+      "head": "cfdbf828cf18f28e16ad65bdb924b17633646f1c",
+      "asset_commit": "88fda64122658c20f04639189fd3f93970389ae3",
+      "asset_path": "rehearsals/d1-cloud-proof-r1/browser-proof/d1-proof-01-stress-terminal-evidence.png",
+      "sha256": "66f01ee6363a7d63b02320ec0a57f10f67b71287d7378d06e042ec76de8faa04",
+      "git_blob_sha": "b1ed862b007b607bfda268e17e620cf0e416cd77",
+      "bytes": 1360444,
+      "width": 1731,
+      "height": 909,
+      "scope": "One-image native capability, cloud recovery, Git persistence, exact-commit binary SHA-256 readback. Quality not evaluated; not six-image qualification.",
+      "quality_acceptance": "NOT_EVALUATED",
+      "old_transport_blocker_resolved": true,
+      "readback_reexecuted": false
+    },
+    "october8": {
+      "branch": "shadow/2026-10-08",
+      "head": "e636d34c1a1a7894a75d398a221fec46ab05ba6d",
+      "state": "SHADOW_VERIFIED",
+      "strategy": "proposal1r_legacy",
+      "bundle_sha256": "8fd69ce4b96e191c6ae68f743dc12f1292840d49f8ec69af792e2d3400bb9cf7",
+      "owner_selected_locked_assets": 6,
+      "superseded_originals_preserved": 6,
+      "can_substitute_for_autonomous_d1_proof": false
+    },
+    "unrelated_pull_request": {
+      "number": 2,
+      "state": "open",
+      "head_sha": "9d39656ed132d151735e7a9dceaee7aa04bb18aa",
+      "unchanged": true
+    },
+    "accepted_image_regenerations": 0,
+    "history_rewrites": 0
+  },
+  "scheduler": {
+    "readback": "PASS_READ_ONLY",
+    "readback_available": true,
+    "original_artifact": "scheduler-readback.json",
+    "reconfirmed_at": "2026-10-08T05:33:12Z",
+    "observed_tasks": [
+      {
+        "title": "Daily Compiler Primary",
+        "id": "6ac57b19b3508191944ce2e0dec1d57b",
+        "is_enabled": true,
+        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261006T191500\nRRULE:FREQ=DAILY;BYHOUR=19;BYMINUTE=15;BYSECOND=0\nEND:VEVENT",
+        "next_run_time": null,
+        "last_run_time": "2026-10-08T00:18:07.290819+00:00",
+        "updated_at": "2026-10-08T01:47:48.144355+00:00",
+        "full_record_unchanged_since_prior_readback": true
+      },
+      {
+        "title": "D1 Work Image Lane",
+        "id": "6ac6cf14a9e88191af48c353b9bc1e11",
+        "is_enabled": false,
+        "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261007T221500\nRRULE:FREQ=DAILY;BYHOUR=22;BYMINUTE=15;BYSECOND=0\nEND:VEVENT",
+        "next_run_time": null,
+        "last_run_time": "2026-10-08T03:21:42.746973+00:00",
+        "updated_at": "2026-10-08T03:22:47.316487+00:00",
+        "full_record_unchanged_since_prior_readback": true
+      },
+      {
+        "title": "D1 Activation Gate",
+        "id": "6ac6b6532cd48191a69d7d85089fc143",
+        "is_enabled": false,
+        "schedule": "BEGIN:VEVENT\nDTSTART:20261007T233736Z\nRRULE:FREQ=HOURLY;COUNT=12\nEND:VEVENT",
+        "next_run_time": null,
+        "last_run_time": "2026-10-08T01:41:16.056452+00:00",
+        "updated_at": "2026-10-08T01:47:24.007054+00:00",
+        "full_record_unchanged_since_prior_readback": true
+      }
+    ],
+    "task_records_and_private_conversation_identities_unchanged": true,
+    "exact_current_image_target": null,
+    "image_task_intentionally_paused_for_no_eligible_target": true,
+    "actual_readiness_arming": "NOT_RUN",
+    "current_target_ready_at": null,
+    "current_target_request_at": null,
+    "current_target_armed_at": null,
+    "current_target_due_at": null,
+    "current_target_actual_start_at": null,
+    "runtime_mode_and_browser_capability_verified": false,
+    "actual_next_primary_invocation_verified": false,
+    "next_run_limitation": "The enabled primary recurrence is 19:15 America/Chicago, but live next_run_time is null. Only the configured recurrence was confirmed.",
+    "mutation_count": 0,
+    "new_tasks": 0,
+    "new_runtime": 0,
+    "new_controller": 0,
+    "privacy": "No private conversation identifiers or URLs are included."
+  },
+  "live_blocker": {
+    "code": "STORY_1_QUALITY_ATTEMPTS_EXHAUSTED",
+    "premium_lane": "BLOCKED",
+    "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
+    "head": "e1efd7fa2b76df315671b442862edee9aab2bfbd",
+    "state_path": "rehearsals/d1-six-image-browser-r3-benchmark/execution-state.json",
+    "state_blob": "8bcc45a1a48d698727e3396b3fac709d0da16ffe",
+    "attempt_log_path": "rehearsals/d1-six-image-browser-r3-benchmark/attempt-log.json",
+    "attempt_log_blob": "07fe1165cf1d286ce160bcf02a87c1627c526327",
+    "quality_blocker_path": "rehearsals/d1-six-image-browser-r3-benchmark/quality-blocker.json",
+    "quality_blocker_blob": "0e6a3cc6e9949f243dbbed93a52e851ac831235b",
+    "generations": 4,
+    "quality_failures": 4,
+    "accepted_assets": 0,
+    "attempts_remaining": 0,
+    "pending_unreviewed_candidate": false,
+    "final_defects": [
+      "Four evidence fragments are distinct blank solids, but provenance bindings to distinct Process outputs are not visually explicit.",
+      "Review rails do not visibly extend from and physically contact different evidence fragments.",
+      "A single explicit decision point with clearly separate pass and return branches is not visible.",
+      "The return conduit does not visibly terminate at one distinct circular socket on the middle transformation chamber.",
+      "The release wall does not clearly enforce a controlled one-way crossing.",
+      "Several housings and frames remain generic machine structure without a unique causal role."
+    ],
+    "fifth_attempt_authorized": false,
+    "new_request_created": false,
+    "first_unfinished_operation": "Establish an explicitly eligible, bounded current-contract qualification target for the existing approved Work runtime without resetting R3's exhausted lineage. With that prerequisite satisfied, first prove Story 1 pixel acceptance and then the complete six-image path.",
+    "subsequent_live_evidence_needed": [
+      "Six sequential accepted images in fresh, story-specific contexts with actual canonical pixel reviews.",
+      "Forced interruption after two accepted images; later invocation of the same task resumes from retained state without regenerating accepted work.",
+      "Exact original and canonical asset persistence, Git identities and immutable-commit binary readback.",
+      "Observed final set review and current component/geometry/label gate.",
+      "Existing-task readiness binding, arming readback and actual start timestamps.",
+      "Current runtime capability evidence and digest-bound full cloud proof."
+    ],
+    "forbidden_rework": [
+      "Do not retrofit historical R3 request data or rename/restart it to grant a fifth attempt.",
+      "Do not regenerate accepted images or re-prove the completed one-image transport result.",
+      "Do not retarget the terminal October 8 legacy-strategy edition into a normal D1 run.",
+      "Do not create a replacement executor, task, controller, polling loop, owner-transfer workaround or paid service."
+    ]
+  },
+  "independent_release_states": {
+    "IMAGE_SPEC_ADMISSION": "PASS_PREDECESSOR_VERIFIED",
+    "CODE_PASS": "PASS",
+    "IMPLEMENTATION_RELEASE": "MERGED_AND_VERIFIED",
+    "ITERATION_02_LIVE_EXIT_GATE": "BLOCKED",
+    "PREMIUM_LANE": "BLOCKED",
+    "FULL_SIX_IMAGE_PROOF": "NOT_PRODUCED",
+    "READY_FOR_ACTIVATION": false,
+    "IMAGE_ACTIVATION": "proof_required",
+    "ACTIVATION_RECEIPT_PATH": null,
+    "ACTIVATION_RECEIPT_SHA256": null,
+    "ACTIVATION_APPLIED": false,
+    "SCHEDULER_READBACK": "PASS_READ_ONLY",
+    "READINESS_ARMING": "NOT_RUN",
+    "EDITION_PUBLICATION": "NOT_RUN",
+    "CORE_RELEASE_READY": "NOT_ASSESSED_BY_ITERATION_02",
+    "SOURCE_ROLLOUT": "NOT_RUN_IN_ITERATION_02",
+    "OBSERVATION_RELEASE": "NOT_RUN_IN_ITERATION_02",
+    "LEARNING_REPORT": "NOT_RUN_IN_ITERATION_02"
+  },
+  "approval_boundaries": {
+    "protected_implementation_authorized_by_iteration_package": true,
+    "remaining_activation": "Complete current proof and applicable explicit protected activation authority remain required. No activation grant was inferred or applied.",
+    "schedule_mutation": "No eligible target was available for rearming. This receipt does not grant a new target, retry allowance, or scheduler mutation.",
+    "materially_revised_experiment": "Requires explicit bounded authority and preserved old lineage; cannot silently inherit a fresh production budget.",
+    "unpublished_public_preview_or_hosting": "Not performed or authorized by this receipt.",
+    "owner_corrections": "Existing selected corrections remain scoped to their original edition; no new correction was performed."
+  },
+  "deadlines": {
+    "timezone": "America/Chicago",
+    "target_edition": "2026-10-09",
+    "requested_primary_start_local": "2026-10-08T19:15:00-05:00",
+    "requested_primary_start_utc": "2026-10-09T00:15:00Z",
+    "requested_readiness_local": "2026-10-08T17:15:00-05:00",
+    "requested_core_shared_hook_freeze_local": "2026-10-08T18:15:00-05:00",
+    "configured_recurrence_verified": true,
+    "actual_next_invocation_verified": false,
+    "iteration7_readiness_certified": false
+  },
+  "next_eligible_iteration": {
+    "number": 3,
+    "started": false,
+    "scope": "May proceed independently under its own package and dependencies while Iteration 2 live proof remains external-pending.",
+    "iteration2_live_exit_gate_waived": false,
+    "entrypoint": "Read this completion record, baseline.json and the Iteration 3 package; reuse protected Iteration 1/2 code and all preserved asset/proof identities."
+  },
+  "mutations": {
+    "repositories": [
+      "gttome/Daily-AI-Brief-Compiler"
+    ],
+    "legacy_repository_accessed": false,
+    "legacy_repository_modified": false,
+    "implementation_files": 21,
+    "new_images": 0,
+    "accepted_images_regenerated": 0,
+    "quality_attempts": 0,
+    "automation_updates": 0,
+    "activation_applied": false,
+    "edition_started": false,
+    "publication": false,
+    "paid_services_added": 0
+  }
+}
+
