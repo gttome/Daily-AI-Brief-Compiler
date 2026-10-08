@@ -1,0 +1,256 @@
+{
+  "schema_version": "daily-compiler-iteration-07-ci-validation-v1",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "recorded_at": "2026-10-08T15:23:32Z",
+  "result": "CODE_PASS",
+  "exact_head_ci": {
+    "workflow": "compiler-validation",
+    "check_name": "validate",
+    "app_id": 15368,
+    "check_id": 113383684025,
+    "head_sha": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-10-08T15:09:16Z",
+    "completed_at": "2026-10-08T15:10:36Z",
+    "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+    "run_id": 37798368759,
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759"
+  },
+  "runtime": {
+    "node": "v20.20.2",
+    "npm": "10.8.2",
+    "sharp": "0.34.4",
+    "configuration_unchanged": true
+  },
+  "targeted": {
+    "command": "node --test tests/value-release.test.mjs",
+    "tests": 14,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "duration_ms": 2170.2774
+  },
+  "full_suite": {
+    "command": "npm test",
+    "tests": 582,
+    "passed": 582,
+    "failed": 0,
+    "skipped": 0,
+    "duration_ms": 34525.3859
+  },
+  "additional_checks": [
+    {
+      "command": "npm run validate:bootstrap",
+      "result": "PASS"
+    },
+    {
+      "command": "npm run fixture:e2e",
+      "result": "PASS",
+      "fixture_date": "2026-10-06",
+      "image_and_media_gates": "REGISTERED_HISTORICAL_COMPATIBILITY; current qualification false"
+    },
+    {
+      "command": "actions/jekyll-build-pages@v1",
+      "result": "PASS",
+      "deployment": false
+    },
+    {
+      "command": "node scripts/verify-built-reader.mjs build/fixture-built build/fixture build/fixture-built-verification.json",
+      "result": "PASS",
+      "routes": 29,
+      "images": 6,
+      "media_reader_bindings": true,
+      "story_image_bindings": true,
+      "feedback_bindings": true,
+      "accepted_image_regenerations": 0
+    },
+    {
+      "command": "npm run reader:parity",
+      "result": "PASS",
+      "source_files_compared": 10,
+      "exact_reader_assets": 24,
+      "mismatches": 0
+    },
+    {
+      "command": "node scripts/audit-value-release.mjs --root . --engine-sha 1c9242d507f412847e933b0dac5a1bd562ad0309 --schedule docs/implementation/oct9-value-and-improvement/iteration-07/scheduler-readback.json --out build/value-release/qualification.json",
+      "result": "RECORDED",
+      "CORE_RELEASE_READY": "FAIL",
+      "note": "The audit ran before its CI and protected merge completed. Its original pending CI/merge fields are preserved, not rewritten into a fabricated contemporaneous PASS."
+    }
+  ],
+  "acceptance_tests": [
+    {
+      "id": "I07-T01",
+      "deterministic_result": "PASS",
+      "new_tests": 4,
+      "coverage": "Exact engine versus scoped component compatibility; changed, added or deleted code/contracts; invalid inventories; existing full D1 validator rejects quality-contract drift. Predecessors and protected fixture suites reused.",
+      "live_limit": "Historical component code proof is compatible; Iteration 2 full current premium capability remains blocked.",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    },
+    {
+      "id": "I07-T02",
+      "deterministic_result": "PASS",
+      "new_tests": 1,
+      "coverage": "Optional observer/learning absence and failure do not change core decisions or inventory. Existing observation-noninterference positive controls compile qualified current-media/D1 fixtures, preserve identical reader/terminal bytes and run with optional modules absent or throwing.",
+      "live_limit": "Synthetic qualified product fixtures and real deterministic code tests; no new live edition was launched.",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    },
+    {
+      "id": "I07-T03",
+      "deterministic_result": "PASS",
+      "new_tests": 2,
+      "coverage": "Missing proof, approval and runtime evidence fail closed. Synthetic complete runtime capability permits AVAILABLE_IDLE before edition allocation; wrong armed target fails.",
+      "live_limit": "Current actual R3 remains exhausted; no current full six-image proof or protected activation approval established.",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    },
+    {
+      "id": "I07-T04",
+      "deterministic_result": "PASS",
+      "new_tests": 1,
+      "coverage": "Full 204-membership catalogue remains distinct from PARTIAL qualification; enabled/unqualified routes do not count. A synthetic sufficient role fixture demonstrates that PARTIAL alone need not fail core.",
+      "live_limit": "Actual snapshot: 15 qualified resources, 154 unresolved, zero qualified video routes; adequate current video discovery is unestablished.",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    },
+    {
+      "id": "I07-T05",
+      "deterministic_result": "PASS",
+      "new_tests": 1,
+      "coverage": "2026-10-08 19:15 America/Chicago maps to 2026-10-09T00:15:00Z. Invalid, future, duplicated or excluded recurrence rejected; null next-run stays UNKNOWN.",
+      "live_readback": "Existing primary recurrence PASS at 2026-10-08T14:49:57Z; actual next_run_time null; immutable release binding NOT_ESTABLISHED.",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    },
+    {
+      "id": "I07-T06",
+      "deterministic_result": "PASS",
+      "overall_result": "PARTIAL",
+      "new_tests": 2,
+      "coverage": "Reject current-reader-root deployment, replayed PASS-only or old build provenance. Real CI Jekyll build verifies 29 routes, six image bindings/bytes, media and feedback; reader parity passes.",
+      "isolated_deployment": "NOT_RUN",
+      "isolated_live_http": "NOT_RUN",
+      "live_limit": "Existing fixture deployment workflow targets the current public reader root. No approved isolated host is established; it was not dispatched. Historical fixture compatibility is not current image/media qualification.",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    },
+    {
+      "id": "I07-T07",
+      "deterministic_result": "PASS",
+      "new_tests": 1,
+      "coverage": "Old frozen engine/CI cannot certify changed engine or contract; bare inventory is not a freeze event; current identities must be rebound and requalified.",
+      "actual_freeze": "NOT_FROZEN",
+      "command": "node --test tests/value-release.test.mjs; npm test",
+      "source_commit": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+      "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+      "proof_ref": "proofs/provenance.json"
+    }
+  ],
+  "cross_cutting_tests": [
+    "Completed CI must match head, workflow, check and Actions app 15368.",
+    "CLI must match a real clean Git checkout; arbitrary supplied SHA fails."
+  ],
+  "artifacts": {
+    "id": 11560046577,
+    "name": "value-release-evidence-1c9242d507f412847e933b0dac5a1bd562ad0309",
+    "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/artifacts/11560046577",
+    "sha256": "19db41d5d333c8ccd770bd8d8e6ae618f8865fa9e113ceaa1e68bb26b671ce3b",
+    "bytes": 24112,
+    "created_at": "2026-10-08T15:10:33Z",
+    "expires_at": "2027-01-06T15:09:13Z",
+    "expired_at_readback": false
+  },
+  "retained_proof_provenance": "proofs/provenance.json",
+  "artifact_local_materialization": {
+    "result": "UNAVAILABLE",
+    "connector_download": "RETURNED_FILE_REFERENCE",
+    "local_url_fetch": "HTTP_403",
+    "archive_bytes_locally_verified": false,
+    "retained_evidence": "Actual check/job/artifact metadata and log-emitted JSON receipts; exact bounded source inventory independently reconstructed and verified against the remote candidate tree.",
+    "no_signed_url_persisted": true
+  },
+  "implementation_merge": {
+    "pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/85",
+    "sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+    "merged_at": "2026-10-08T15:12:07Z",
+    "method": "NORMAL_PROTECTED_MERGE",
+    "tree_identical_to_candidate": true,
+    "tree": "bbf84eed2c84d17cbbca5363522103d6e6a2d22d",
+    "separate_merge_sha_ci": {
+      "result": "PASS",
+      "observed_at": "2026-10-08T15:23:32Z",
+      "exact_head_ci": {
+        "workflow": "compiler-validation",
+        "check_name": "validate",
+        "app_id": 15368,
+        "check_id": 113389312374,
+        "head_sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T15:20:52Z",
+        "completed_at": "2026-10-08T15:22:13Z",
+        "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/job/113389312374",
+        "run_id": 37799991760,
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760",
+        "source_branch": "implementation/iteration-07-completion",
+        "source_event": "push"
+      },
+      "earlier_readback": {
+        "result": "NOT_OBSERVED",
+        "checked_at": "2026-10-08T15:13:48Z",
+        "limitation": "Exact candidate CI passed and normal protected merge succeeded. No separate merge-commit check is asserted; do not relabel candidate CI with the merge SHA."
+      },
+      "targeted": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "duration_ms": 1368.040429
+      },
+      "full_suite": {
+        "tests": 582,
+        "pass": 582,
+        "fail": 0,
+        "skipped": 0,
+        "duration_ms": 36443.697224
+      },
+      "all_subsequent_bootstrap_build_route_byte_parity_and_audit_steps": "PASS",
+      "actual_core_readiness": "FAIL",
+      "artifact": {
+        "id": 11559654801,
+        "name": "value-release-evidence-e22e0cc19931af9b93cde02826882c9ebfe27c03",
+        "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/artifacts/11559654801",
+        "sha256": "94af17fb02c4ce5838576af09059087d6e7745a7ecf34e9e7b103b931eadb485",
+        "bytes": 24114,
+        "expires_at": "2027-01-06T15:20:48Z",
+        "archive_download_attempted": false
+      },
+      "receipt_value_comparison": "Compile and parity equal the candidate records. The merged built receipt passes all its own route/image-byte and binding checks; 20 HTML route digests differ across builds and are retained separately, not relabeled."
+    }
+  },
+  "skipped_tests": 0,
+  "not_run": [
+    "Current complete six-image live proof",
+    "D1 activation",
+    "Actual isolated deployment and live HTTP verification",
+    "Schedule/task mutation",
+    "October 9 edition allocation or launch",
+    "Actual freeze"
+  ],
+  "test_failures_requiring_code_repair": 0
+}

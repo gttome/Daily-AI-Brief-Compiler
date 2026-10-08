@@ -1,0 +1,162 @@
+{
+  "schema_version": "daily-compiler-iteration-07-release-readiness-v1",
+  "status": "CODE_PASS_EXTERNAL_PENDING",
+  "recorded_at": "2026-10-08T15:23:32Z",
+  "edition_date": "2026-10-09",
+  "intended_run_start": "2026-10-08T19:15:00-05:00",
+  "intended_run_start_utc": "2026-10-09T00:15:00Z",
+  "timezone": "America/Chicago",
+  "engine_sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+  "engine_role": "EXACT_TESTED_PROTECTED_IMPLEMENTATION_MERGE; NOT_A_QUALIFIED_RELEASE",
+  "merged_protected_sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+  "merged_tree": "bbf84eed2c84d17cbbca5363522103d6e6a2d22d",
+  "candidate_tree_equals_merge_tree": true,
+  "qualified_release_sha": null,
+  "source_snapshot_digest": "6f81cd37f20ed238529acb726710076dff660996e3757572913919724e58f560",
+  "source_registry_digest": "4f558dee6e26650453c20330f081666f28840776ccbddbec15a0f58247ac00d1",
+  "source_qualification_digest": "15be312ff3477073d67fc7445ccf4e0a4c923f0486213dd1b3e61f9de6e3902d",
+  "media_contract_version": "daily-compiler-media-contract-v1",
+  "image_contract_version": "daily-compiler-image-contract-v5",
+  "edition_bundle_schema": "daily-compiler-edition-bundle-v2",
+  "version_inventory": "proofs/merged-version-inventory.json",
+  "version_inventory_sha256": "9d5ad9706f9640c21e2e8bd56f82331c21d819654d8379e795ae96b218dc8429",
+  "image_complete_proof": null,
+  "latest_image_proof": {
+    "branch": "rehearsal/d1-six-image-browser-r3-benchmark",
+    "head": "e1efd7fa2b76df315671b442862edee9aab2bfbd",
+    "status": "BLOCKED",
+    "code": "STORY_1_QUALITY_ATTEMPTS_EXHAUSTED",
+    "native_generations": 4,
+    "accepted_assets": [],
+    "attempts_remaining": 0,
+    "state": {
+      "path": "rehearsals/d1-six-image-browser-r3-benchmark/execution-state.json",
+      "git_blob_sha": "8bcc45a1a48d698727e3396b3fac709d0da16ffe"
+    },
+    "attempts": {
+      "path": "rehearsals/d1-six-image-browser-r3-benchmark/attempt-log.json",
+      "git_blob_sha": "07fe1165cf1d286ce160bcf02a87c1627c526327"
+    },
+    "blocker": {
+      "path": "rehearsals/d1-six-image-browser-r3-benchmark/quality-blocker.json",
+      "git_blob_sha": "0e6a3cc6e9949f243dbbed93a52e851ac831235b"
+    },
+    "missing": [
+      "acceptance_manifest",
+      "ingest_handoff",
+      "work_porter_receipt",
+      "cloud_proof",
+      "qualification_evidence"
+    ],
+    "first_unfinished_operation": "Resolve eligibility for a bounded current-contract qualification target under existing explicit authority in the existing approved image runtime, without modifying, renaming, retrying or resetting exhausted R3. No such eligible target is currently evidenced.",
+    "no_auto_resume": "R3's current recorded state yields EXIT_BLOCKED; a fifth attempt is not authorized.",
+    "then_required": "Story 1 actual canonical pixel acceptance, six sequential independent accepted images, real two-image checkpoint and later same-task resume at Story 3, immutable-byte readbacks, final actual-pixel set review and evidence-bound cloud proof."
+  },
+  "activation_approval_and_receipt": null,
+  "activation_status": "proof_required",
+  "actual_schedule_readback": {
+    "path": "scheduler-readback.json",
+    "observed_at": "2026-10-08T14:49:57Z",
+    "recurrence": "PASS",
+    "next_run_time": null,
+    "next_occurrence": "UNKNOWN",
+    "immutable_release_binding": "NOT_ESTABLISHED"
+  },
+  "exact_head_ci": {
+    "workflow": "compiler-validation",
+    "check_name": "validate",
+    "app_id": 15368,
+    "check_id": 113389312374,
+    "head_sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-10-08T15:20:52Z",
+    "completed_at": "2026-10-08T15:22:13Z",
+    "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/job/113389312374",
+    "run_id": 37799991760,
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760",
+    "source_branch": "implementation/iteration-07-completion",
+    "source_event": "push"
+  },
+  "isolated_live_verification": {
+    "result": "NOT_RUN",
+    "approved_isolated_surface": null
+  },
+  "observer_off_test": {
+    "result": "PASS",
+    "scope": "Actual exact-head CI using deterministic qualified product fixtures and optional-module absence/failure controls",
+    "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/job/113389312374"
+  },
+  "CORE_RELEASE_READY": "FAIL",
+  "SOURCE_ROLLOUT": "PARTIAL",
+  "OBSERVATION_RELEASE": "OFF",
+  "LEARNING_REPORT": "UNAVAILABLE",
+  "unresolved_core_blockers": [
+    {
+      "id": "CURRENT_PREMIUM_IMAGE_PROOF",
+      "status": "BLOCKED",
+      "record": "external-gates.json#/latest_image_proof",
+      "detail": "R3 STORY_1_QUALITY_ATTEMPTS_EXHAUSTED: 4 genuine generations, 0 accepted, 0 attempts remaining. No eligible continuation or authorized replacement target is evidenced."
+    },
+    {
+      "id": "PROTECTED_IMAGE_ACTIVATION",
+      "status": "NOT_ESTABLISHED",
+      "record": "contracts/d1-image-contract.json",
+      "detail": "activation_status=proof_required; activation receipt path/digest null; explicit current protected activation approval unverified. Implementation/merge authorization does not waive this gate."
+    },
+    {
+      "id": "SUFFICIENT_QUALIFIED_DISCOVERY",
+      "status": "NOT_ESTABLISHED",
+      "record": "config/source-snapshot.json",
+      "detail": "Valid metadata snapshot with 15 qualified resources and 154 unresolved; zero qualified video routes. Current selected-item/media admission is NOT_RUN."
+    },
+    {
+      "id": "EXISTING_READINESS_HANDOFF_CAPABILITY",
+      "status": "NOT_ESTABLISHED",
+      "record": "scheduler-readback.json",
+      "detail": "Existing D1 task is disabled/unbound. Complete compatible runtime/resume proof plus current capability/base-prompt readback is missing. Proven idle capability may qualify before future edition allocation; no October9 arming is required now."
+    },
+    {
+      "id": "ACTUAL_NEXT_SCHEDULE_OCCURRENCE",
+      "status": "UNKNOWN",
+      "record": "scheduler-readback.json",
+      "detail": "Primary daily 19:15 America/Chicago recurrence matches the target; actual next_run_time is null."
+    },
+    {
+      "id": "IMMUTABLE_RELEASE_SCHEDULE_BINDING",
+      "status": "NOT_ESTABLISHED",
+      "record": "scheduler-readback.json",
+      "detail": "Current primary prompt resolves moving protected main and retains existing preactivation legacy allocation. No qualified immutable premium engine is bound to that scheduled run."
+    },
+    {
+      "id": "APPROVED_ISOLATED_LIVE_PROOF",
+      "status": "NOT_RUN",
+      "record": "external-gates.json#/isolated_preview",
+      "detail": "Current fixture Pages workflow targets the active reader root. An approved separate target and actual exact-engine route/image-byte HTTP proof are unavailable."
+    }
+  ],
+  "freeze": "NOT_FROZEN",
+  "frozen_at": null,
+  "qualified_rollback_release_sha": null,
+  "iteration_exit_gate_satisfied": false,
+  "release_performed": false,
+  "activation_performed": false,
+  "edition_launched": false,
+  "schedules_changed": false,
+  "assessment_limitation": "Post-CI/merge composition of observed records. Original in-job audits retain their then-pending CI/merge fields; candidate and protected merge each have their own actual exact-head check and built-byte receipt. No live qualification is inferred from these code checks.",
+  "candidate_sha": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+  "candidate_exact_head_ci": {
+    "workflow": "compiler-validation",
+    "check_name": "validate",
+    "app_id": 15368,
+    "check_id": 113383684025,
+    "head_sha": "1c9242d507f412847e933b0dac5a1bd562ad0309",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-10-08T15:09:16Z",
+    "completed_at": "2026-10-08T15:10:36Z",
+    "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025",
+    "run_id": 37798368759,
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759"
+  }
+}
