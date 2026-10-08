@@ -1,0 +1,56 @@
+{
+  "schema_version": "daily-compiler-diagram-spec-v2",
+  "story_id": "github-agent-scale-git-infrastructure",
+  "grammar": "comparison",
+  "title": "Agent-scale Git separates authoritative storage from compute",
+  "subtitle": "Decoupling durable repository data from elastic workers and caches lets write pressure and read fan-out scale independently.",
+  "nodes": [
+    {
+      "id": "coupled",
+      "label": "Coupled Git node",
+      "detail": "Storage and compute scale together under human-paced traffic"
+    },
+    {
+      "id": "pressure",
+      "label": "Agent write pressure",
+      "detail": "Concurrent pushes, branches, and refs stress the write path"
+    },
+    {
+      "id": "fanout",
+      "label": "CI read fan-out",
+      "detail": "Automation multiplies repository reads after each change"
+    },
+    {
+      "id": "storage",
+      "label": "Authoritative storage",
+      "detail": "Durable repository data moves to independent blob storage",
+      "emphasis": true
+    },
+    {
+      "id": "workers",
+      "label": "Elastic workers",
+      "detail": "Lightweight compute and caches scale separately from durability"
+    },
+    {
+      "id": "controls",
+      "label": "Protected refs",
+      "detail": "Branch protection, review, and audit remain policy boundaries"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Independent scaling",
+      "detail": "Read, write, and compute capacity no longer move as one unit."
+    },
+    {
+      "label": "Durable authority",
+      "detail": "Source-of-truth repository state is separated from disposable cache."
+    },
+    {
+      "label": "Human control",
+      "detail": "Higher machine throughput does not remove review and protection."
+    }
+  ],
+  "flow_label": "Coupled node → durable storage + elastic compute",
+  "footer": "Agentic coding changes Git from human-paced collaboration into a high-concurrency systems problem."
+}
