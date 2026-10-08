@@ -1,0 +1,22 @@
+{
+  "schema_version": "daily-compiler-iteration-07-freeze-handoff-v1",
+  "edition_date": "2026-10-09",
+  "timezone": "America/Chicago",
+  "readiness_target": "2026-10-08T17:15:00-05:00",
+  "freeze_target": "2026-10-08T18:15:00-05:00",
+  "run_target": "2026-10-08T19:15:00-05:00",
+  "run_target_utc": "2026-10-09T00:15:00Z",
+  "status": "NOT_FROZEN",
+  "frozen_release_sha": null,
+  "frozen_at": null,
+  "qualified_rollback_release_sha": null,
+  "baseline_for_code_recovery": "819956876c8f520d8a5d8ddbdb89c6e7225c02dc",
+  "baseline_is_qualified_premium_release": false,
+  "rollback_reason": "No protected release with complete current premium-image, activation, source/media and isolated live delivery proof was established. The code baseline cannot substitute for such a release.",
+  "critical_change_rule": "After an authorized freeze, any core/shared-hook/contract/source/engine change invalidates the prior readiness binding. Apply only with explicit critical-change authority and requalify the affected exact candidate through protected CI and applicable current live proofs.",
+  "resume_rule": "Resolve recorded external gates without resetting exhausted proof attempts or accepted locks; bind actual engine/contract/source/proof/check identities to the same existing scheduled run and record an actual later freeze only when all mandatory gates pass.",
+  "automatic_actions": [],
+  "public_reader_rollback": false,
+  "legacy_repository_change": false,
+  "target_is_not_schedule_or_freeze_evidence": true
+}
