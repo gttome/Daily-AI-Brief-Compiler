@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
 import {canonicalSha,sha256} from '../image-capsules/util.mjs';
 import {admitD1Specifications,assertD1SubmittedPrompt} from '../image-studio/spec-admission.mjs';
 import {initialD1ProofState,nextD1ProofAction,validateD1ProofState} from '../image-studio/proof-state.mjs';
@@ -22,6 +23,14 @@ const output='build/value-image-qualification/receipt.json';
 const read=filename=>JSON.parse(fs.readFileSync(filename,'utf8'));
 const packet=filename=>read(prefix+'/'+filename);
 const digest=filename=>sha256(fs.readFileSync(filename));
+const eventSha=process.env.GITHUB_SHA??null;
+let engineSha=null;
+if(fs.existsSync(path.join(process.cwd(),'.git'))){
+  try{
+    const head=execFileSync('git',['rev-parse','--verify','HEAD'],{encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
+    if(/^[a-f0-9]{40}$/.test(head))engineSha=head;
+  }catch{}
+}
 const immutableQuality=value=>{
   const copy=structuredClone(value);
   // These are exactly the preactivation snapshot exceptions already allowed by
@@ -31,6 +40,7 @@ const immutableQuality=value=>{
 };
 let result;
 try{
+  if(process.env.GITHUB_ACTIONS==='true')assert(engineSha,'actual checked-out engine SHA is required in CI');
   const sources=packet('source-records.json'),eligibility=packet('eligibility.json');
   const request=packet('request.json'),sourceEvidence=packet('source-evidence.json');
   const retainedAdmission=packet('admission.json'),quality=packet('quality-contract.json');
@@ -135,7 +145,9 @@ try{
     const filename=String(i+1).padStart(2,'0')+'-'+id+'.png';
     return {story_id:id,filename,target_path:prefix+'/images/'+filename};
   }),'six exact intended image destinations');
-  assert(mapping.items.every(x=>!fs.existsSync(x.target_path)),'initial packet has no generated target images');
+  // Accepted files may be added later at these exact destinations. Their
+  // presence does not change the preserved zero-attempt preparation snapshot.
+  const targetImagesPresent=mapping.items.filter(x=>fs.existsSync(x.target_path)).length;
   assert.equal(evidencePlan.proof_id,proofId,'evidence plan proof');
   assert.equal(evidencePlan.live_proof,'NOT_RUN','path plan is not live proof');
   assert.equal(evidencePlan.generation_authorized,false,'path plan grants no generation');
@@ -149,21 +161,21 @@ try{
   }
   result={schema_version:'daily-compiler-value-image-static-qualification-v1',result:'PASS',
     scope:'ACTUAL_REFERENCE_PACKET_SPECIFICATION_AND_INITIAL_BINDINGS',checked_at:new Date().toISOString(),
-    repository:'gttome/Daily-AI-Brief-Compiler',workflow_commit:process.env.GITHUB_SHA??null,proof_id:proofId,
+    repository:'gttome/Daily-AI-Brief-Compiler',event_sha:eventSha,engine_sha:engineSha,proof_id:proofId,
     source_commit:sourceCommit,source_records_sha256:protectedSourceDigest,request_sha256:canonicalSha(request),
     source_evidence_sha256:canonicalSha(sourceEvidence),retained_admission_sha256:canonicalSha(retainedAdmission),
     quality_snapshot_sha256:canonicalSha(quality),active_quality_sha256:canonicalSha(activeQuality),
     admission_contract_sha256:canonicalSha(admissionContract),quality_snapshot_compatible:true,
     specification_admission:'PASS',planned_diversity:admission.planned_diversity,source_stories:6,retained_facts:facts,
     connected_supported_components:components,prompts:promptRows,initial_state:'PLANNED',initial_action:next.action,
-    native_generations:0,accepted_images:0,live_proof:'NOT_RUN',activation:'NOT_APPLIED_BY_THIS_CHECK',
+    native_generations:0,accepted_images:0,target_images_present:targetImagesPresent,live_proof:'NOT_RUN',activation:'NOT_APPLIED_BY_THIS_CHECK',
     source_retrieval_or_fact_verification_performed:false,pixel_review_performed:false,
     script_sha256:digest('scripts/verify-value-image-request.mjs'),
     validator_sha256:digest('image-studio/spec-admission.mjs'),proof_state_sha256:digest('image-studio/proof-state.mjs')};
 }catch(error){
   result={schema_version:'daily-compiler-value-image-static-qualification-v1',result:'FAIL',
     scope:'ACTUAL_REFERENCE_PACKET_SPECIFICATION_AND_INITIAL_BINDINGS',checked_at:new Date().toISOString(),
-    repository:'gttome/Daily-AI-Brief-Compiler',workflow_commit:process.env.GITHUB_SHA??null,proof_id:proofId,
+    repository:'gttome/Daily-AI-Brief-Compiler',event_sha:eventSha,engine_sha:engineSha,proof_id:proofId,
     error:error.message,live_proof:'NOT_EVALUATED',activation:'NOT_APPLIED_BY_THIS_CHECK'};
   process.exitCode=1;
 }
