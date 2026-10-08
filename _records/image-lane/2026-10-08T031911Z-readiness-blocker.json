@@ -1,0 +1,37 @@
+{
+  "schema_version": "daily-compiler-image-lane-readiness-observation-v1",
+  "observed_for": "2026-10-08T03:19:11Z",
+  "status": "BLOCKED",
+  "codes": [
+    "IMAGE_TARGET_BINDING_MISSING",
+    "NORMAL_D1_ACTIVATION_PROOF_REQUIRED",
+    "NORMAL_EDITION_STRATEGY_INELIGIBLE"
+  ],
+  "scope": "gttome/Daily-AI-Brief-Compiler",
+  "task_id": "6ac6cf14a9e88191af48c353b9bc1e11",
+  "target_binding": null,
+  "protected_main_commit": "1dd128202ddd0c76d026878f8298d258cbfcdb12",
+  "activation": {
+    "status": "proof_required",
+    "receipt_path": null,
+    "receipt_sha256": null
+  },
+  "normal_readiness": {
+    "branch": "shadow/2026-10-08",
+    "commit": "e636d34c1a1a7894a75d398a221fec46ab05ba6d",
+    "path": "shadow-runs/2026-10-08/compiler-state.json",
+    "state": "SHADOW_VERIFIED",
+    "execution_id": "daily-compiler-shadow-2026-10-08",
+    "strategy": "proposal1r_legacy",
+    "accepted_images": 6
+  },
+  "new_image_attempts": 0,
+  "images_generated": 0,
+  "accepted_images_regenerated": 0,
+  "edition_state_modified": false,
+  "correction_target_inferred": false,
+  "browser_generation_started": false,
+  "publication_claimed": false,
+  "resume_requires": "Exact eligible request branch/path/SHA handoff; NORMAL additionally requires original d1_work_browser_fresh_chat strategy and active digest-bound D1 activation. Explicit bound owner correction is scoped independently and must not have exhausted quality attempts.",
+  "task_pause_reason": "No bound target and no eligible normal D1 edition; pause current recurrence per automation blocked-run instruction. Preserve task identity and prompt for authorized readiness re-arm."
+}
