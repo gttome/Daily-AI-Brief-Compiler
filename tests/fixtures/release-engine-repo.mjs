@@ -18,9 +18,13 @@ export function testCommit(root,message='TEST_ONLY fixture change'){
 
 export function makeReleaseEngineRepo(t,{copyRuntime=false,seed=()=>{}}={}){
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'TEST_ONLY-engine-pin-'));
-  t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+  t.after(()=>fs.rmSync(root,{recursive:true,force:true,maxRetries:3,retryDelay:50}));
   const engineRoot=path.join(root,'engine'),semanticRoot=path.join(root,'semantic');fs.mkdirSync(engineRoot);
   testGit(engineRoot,'init','-b','main');testGit(engineRoot,'config','user.name','TEST ONLY');testGit(engineRoot,'config','user.email','test@example.invalid');
+  // Throwaway fixtures need no detached Git housekeeping racing their teardown.
+  // Configure this repository before its first commit; shared worktrees inherit it.
+  testGit(engineRoot,'config','--local','gc.auto','0');
+  testGit(engineRoot,'config','--local','maintenance.auto','false');
   writeTestFile(engineRoot,'engine.txt','TEST_ONLY prior protected engine\n');
   const legacySha=testCommit(engineRoot);
   if(copyRuntime){
