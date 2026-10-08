@@ -3,7 +3,7 @@
   "iteration": 7,
   "title": "Prove the integrated Value release and freeze for the October 9 edition",
   "result": "CODE_PASS_EXTERNAL_PENDING",
-  "recorded_at": "2026-10-08T15:15:36Z",
+  "recorded_at": "2026-10-08T15:23:32Z",
   "code_state": "CODE_PASS",
   "iteration_exit_gate_satisfied": false,
   "baseline_protected_sha": "819956876c8f520d8a5d8ddbdb89c6e7225c02dc",
@@ -36,7 +36,7 @@
   "release_readiness_ref": "release-readiness.json",
   "validation_ref": "validation-ci.json",
   "preservation_ref": "preservation.json",
-  "version_inventory_ref": "proofs/candidate-version-inventory.json",
+  "version_inventory_ref": "proofs/merged-version-inventory.json",
   "preserved_predecessors_ref": "predecessors.json",
   "new_code_files": [
     "operations/value-release.mjs",
@@ -51,7 +51,9 @@
     "protected_targeted_passed": 14,
     "protected_full_suite_passed": 582,
     "protected_full_suite_failed": 0,
-    "protected_full_suite_skipped": 0
+    "protected_full_suite_skipped": 0,
+    "protected_merge_targeted_passed": 14,
+    "protected_merge_full_suite_passed": 582
   },
   "independent_states": {
     "CORE_RELEASE_READY": "FAIL",
@@ -123,5 +125,21 @@
   "next_iteration_note": "Iteration8 is Stretch; not authorized, assessed or started here, and cannot block a valid Brief. The first unfinished authorized objective remains Iteration7 external release qualification.",
   "owner_private_inputs_committed": false,
   "paid_services_added": false,
-  "new_runtime_authorities_added": false
+  "new_runtime_authorities_added": false,
+  "merged_exact_head_ci": {
+    "workflow": "compiler-validation",
+    "check_name": "validate",
+    "app_id": 15368,
+    "check_id": 113389312374,
+    "head_sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-10-08T15:20:52Z",
+    "completed_at": "2026-10-08T15:22:13Z",
+    "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/job/113389312374",
+    "run_id": 37799991760,
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760",
+    "source_branch": "implementation/iteration-07-completion",
+    "source_event": "push"
+  }
 }

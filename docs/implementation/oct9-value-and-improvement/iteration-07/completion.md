@@ -2,7 +2,7 @@
 
 **Iteration 7 — Prove the integrated Value release and freeze for the October 9 edition**
 
-**Result: CODE_PASS_EXTERNAL_PENDING.** The bounded repository implementation is merged and its exact candidate passed protected CI. The full live release/freeze objective is **not complete**: CORE_RELEASE_READY remains **FAIL**, and the release is **NOT_FROZEN**. This record was composed from observations through 2026-10-08T15:15:36Z; target times are not completed events.
+**Result: CODE_PASS_EXTERNAL_PENDING.** The bounded repository implementation is merged and its exact candidate passed protected CI. The full live release/freeze objective is **not complete**: CORE_RELEASE_READY remains **FAIL**, and the release is **NOT_FROZEN**. This record was composed from observations through 2026-10-08T15:23:32Z; target times are not completed events.
 
 | Field | Actual value |
 |---|---|
@@ -12,18 +12,19 @@
 | Protected implementation PR | [#85](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/85) |
 | Exact-head CI | [validate / compiler-validation](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/job/113383684025); Actions app 15368; completed success at 2026-10-08T15:10:36Z |
 | Merged protected SHA | e22e0cc19931af9b93cde02826882c9ebfe27c03; normal protected merge at 2026-10-08T15:12:07Z |
+| Exact protected-merge CI | [validate / compiler-validation](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/job/113389312374); success at 2026-10-08T15:22:13Z; 14 targeted and 582 full tests, zero failures/skips |
 | Candidate and merge tree | bbf84eed2c84d17cbbca5363522103d6e6a2d22d; identical |
 | Live proof | BLOCKED. Latest R3 is exhausted; no complete current six-image qualification proof. |
 | Activation | proof_required; receipt identities null; explicit current protected activation approval not established; no activation performed. |
 | Deployment | No approved isolated live surface established; no deployment performed. |
 | Freeze / rollback release | NOT_FROZEN; actual freeze time and qualified rollback SHA are null. |
-| Contract/source/proof versions | [Full exact-candidate inventory](proofs/candidate-version-inventory.json), [baseline contracts](baseline-versions.json), [proof identities](external-gates.json), and [release readiness](release-readiness.json) |
+| Contract/source/proof versions | [Exact protected-merge inventory](proofs/merged-version-inventory.json) and [candidate inventory](proofs/candidate-version-inventory.json), [baseline contracts](baseline-versions.json), [proof identities](external-gates.json), and [release readiness](release-readiness.json) |
 | Files changed | New development audit, CLI and 14 tests; existing CI augmented to run and retain evidence. All other baseline files preserved. |
 | Preserved evidence | [Preservation receipt](preservation.json): 1,249 unchanged baseline blobs; 10 unchanged historical refs; unrelated PR #2 unchanged; accepted/corrected/original assets and terminal/proof histories retained. |
 | Known blocker / remaining scope | Current premium qualification and activation, adequate qualified video discovery, existing runtime readiness capability, actual next invocation and immutable schedule binding, approved isolated live verification. |
 | Next eligible iteration | NOT_ESTABLISHED. Iteration8 is the next numbered Stretch iteration; it was not authorized, assessed or started here. The unfinished objective remains Iteration7 external qualification. |
 
-The candidate check certifies the exact candidate shown above. No separate check for the merge SHA was exposed at the recorded readback; candidate CI is not relabeled as a check on another SHA. The candidate is included in protected main by the normal merge, and the merge tree is byte-identical. The enclosing completion receipt's own commit/check/merge identities are available from GitHub history, not predicted within self-referential file contents.
+The candidate and protected merge each have their own successful exact-head check. The merge-SHA check became available after the initial receipt readback and was observed at 2026-10-08T15:23:32Z; validation-ci.json preserves both observations. That check ran when the completion branch was created at the already-merged SHA and independently checked out that exact commit. The candidate and merge trees are identical. The enclosing completion receipt's own commit/check/merge identities are available from GitHub history, not predicted within self-referential file contents.
 
 ## Evidence checklist
 
@@ -49,7 +50,7 @@ See [validation-ci.json](validation-ci.json) for commands, counts, acceptance ID
 
 GitHub retained [artifact 11560046577](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37798368759/artifacts/11560046577), **24112 bytes**, with declared ZIP SHA-256 **19db41d5d333c8ccd770bd8d8e6ae618f8865fa9e113ceaa1e68bb26b671ce3b**, expiring 2027-01-06T15:09:13Z. The connector returned an artifact file reference, but materializing its temporary URL locally returned HTTP403. The ZIP bytes were therefore not independently extracted or verified locally.
 
-The actual job log yielded complete compile, built-reader and parity JSON values, plus the in-job Value audit summary. These are saved under [proofs/](proofs/), with explicit [provenance](proofs/provenance.json). The 289-file bounded version inventory was independently recomputed from plugin-fetched candidate files, with each Git blob checked against the complete remote candidate tree. It is labeled as reconstructed source evidence, not as extracted artifact bytes. The original audit's pending CI/merge entries remain intact because it ran before those events completed; [release-readiness.json](release-readiness.json) composes the later actual check and merge observations.
+The actual job logs yielded complete compile, built-reader and parity JSON values, plus in-job Value audit summaries. The protected merge job independently passed all the same checks. Its compile and parity receipt values equal the candidate records; its own built-reader receipt also passes, while 20 HTML route digests differ between builds. Both built receipts are retained separately with their exact engine/check identities; no cross-head HTML-byte equality is claimed. The unchanged vendored default layout appends site.github.build_revision to CSS and script URLs. That mechanism is consistent with the observed HTML-only, equal-length differences; rendered body pairs were not independently compared, so it is not asserted to be the only byte difference. These are saved under [proofs/](proofs/), with explicit [provenance](proofs/provenance.json). The 289-file bounded version inventory was independently recomputed from plugin-fetched candidate files, with each Git blob checked against the complete remote candidate tree. It is labeled as reconstructed source evidence, not as extracted artifact bytes. The original audit's pending CI/merge entries remain intact because it ran before those events completed; [release-readiness.json](release-readiness.json) composes the later actual check and merge observations.
 
 ## No-rework handoff
 
@@ -90,7 +91,7 @@ The actual scheduler readback interval was **2026-10-08T14:49:56Z–14:49:57Z**.
 
 | State | Actual result |
 |---|---|
-| CODE_PASS | PASS — exact candidate tests and protected implementation merge |
+| CODE_PASS | PASS — exact candidate and exact protected-merge tests; normal protected implementation merge |
 | CORE_RELEASE_READY | FAIL |
 | SOURCE_ROLLOUT | PARTIAL |
 | OBSERVATION_RELEASE | OFF |

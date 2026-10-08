@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-iteration-07-ci-validation-v1",
   "repository": "gttome/Daily-AI-Brief-Compiler",
-  "recorded_at": "2026-10-08T15:15:36Z",
+  "recorded_at": "2026-10-08T15:23:32Z",
   "result": "CODE_PASS",
   "exact_head_ci": {
     "workflow": "compiler-validation",
@@ -192,9 +192,55 @@
     "tree_identical_to_candidate": true,
     "tree": "bbf84eed2c84d17cbbca5363522103d6e6a2d22d",
     "separate_merge_sha_ci": {
-      "result": "NOT_OBSERVED",
-      "checked_at": "2026-10-08T15:13:48Z",
-      "limitation": "Exact candidate CI passed and normal protected merge succeeded. No separate merge-commit check is asserted; do not relabel candidate CI with the merge SHA."
+      "result": "PASS",
+      "observed_at": "2026-10-08T15:23:32Z",
+      "exact_head_ci": {
+        "workflow": "compiler-validation",
+        "check_name": "validate",
+        "app_id": 15368,
+        "check_id": 113389312374,
+        "head_sha": "e22e0cc19931af9b93cde02826882c9ebfe27c03",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-10-08T15:20:52Z",
+        "completed_at": "2026-10-08T15:22:13Z",
+        "check_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/job/113389312374",
+        "run_id": 37799991760,
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760",
+        "source_branch": "implementation/iteration-07-completion",
+        "source_event": "push"
+      },
+      "earlier_readback": {
+        "result": "NOT_OBSERVED",
+        "checked_at": "2026-10-08T15:13:48Z",
+        "limitation": "Exact candidate CI passed and normal protected merge succeeded. No separate merge-commit check is asserted; do not relabel candidate CI with the merge SHA."
+      },
+      "targeted": {
+        "tests": 14,
+        "pass": 14,
+        "fail": 0,
+        "skipped": 0,
+        "duration_ms": 1368.040429
+      },
+      "full_suite": {
+        "tests": 582,
+        "pass": 582,
+        "fail": 0,
+        "skipped": 0,
+        "duration_ms": 36443.697224
+      },
+      "all_subsequent_bootstrap_build_route_byte_parity_and_audit_steps": "PASS",
+      "actual_core_readiness": "FAIL",
+      "artifact": {
+        "id": 11559654801,
+        "name": "value-release-evidence-e22e0cc19931af9b93cde02826882c9ebfe27c03",
+        "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37799991760/artifacts/11559654801",
+        "sha256": "94af17fb02c4ce5838576af09059087d6e7745a7ecf34e9e7b103b931eadb485",
+        "bytes": 24114,
+        "expires_at": "2027-01-06T15:20:48Z",
+        "archive_download_attempted": false
+      },
+      "receipt_value_comparison": "Compile and parity equal the candidate records. The merged built receipt passes all its own route/image-byte and binding checks; 20 HTML route digests differ across builds and are retained separately, not relabeled."
     }
   },
   "skipped_tests": 0,
