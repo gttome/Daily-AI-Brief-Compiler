@@ -1,0 +1,899 @@
+Generate exactly one premium advanced textbook/editorial mechanism illustration of this story only.
+
+Explain the specified transformation and relevant evidence, constraints or comparison. Show feedback only where explicitly typed and supported; undirected comparison references are not returned material.
+
+Use a white or near-white 1200×630 landscape, dimensional exposed causal geometry, safe margins, crisp linework and every fixed criterion below.
+
+No people, humanoids, faces, avatars, logos, brands, photorealism, screens, UI chrome, card grids, pseudo-writing, placeholder lines, decorative padding or low-quality fallback.
+
+Use the exact allowlisted visible labels and no other characters. Keep all other surfaces smooth and blank.
+
+{
+  "subject": "How a rendered transcript can diverge from preserved underlying records",
+  "core_mechanism": "One event sequence has a preserved stored representation and a rendered representation. A manipulation in the rendering path changes what is shown and exported, while independent retrieval of the stored sequence exposes the divergence.",
+  "verified_visual_facts": [
+    "Agent outputs enter the transcript viewer as untrusted material.",
+    "A staging demonstration altered the actions shown in a rendered transcript.",
+    "The underlying stored trajectory remained unchanged.",
+    "The displayed download could also be intercepted.",
+    "Investigators could recover the real record by checking the separate database.",
+    "The reported vulnerability was patched."
+  ],
+  "conceptual_elements": [
+    "Stored and displayed sequences use aligned, untallied keyed event shapes, with no document or real interface.",
+    "A clear separation plane places the preserved spine behind the offset display layer.",
+    "A gap and replacement insert are conceptual display differences, not a copied incident transcript.",
+    "Four regions: original storage; offset rendering; display-linked download; independent comparison."
+  ],
+  "meaningful_components_plan": [
+    {
+      "component_id": "c1",
+      "description": "An incoming event strip supplies the recorded and rendering paths.",
+      "support": "verified_fact",
+      "support_index": 0,
+      "required": true,
+      "semantic_role": "event_source",
+      "region": "r1",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c2",
+      "description": "A storage intake carries the original event shapes into the preserved representation.",
+      "support": "verified_fact",
+      "support_index": 2,
+      "required": true,
+      "semantic_role": "storage_intake",
+      "region": "r1",
+      "input_bindings": [
+        {
+          "source_component_id": "c1",
+          "entry": "from-c1",
+          "relationship_id": "rel1"
+        }
+      ]
+    },
+    {
+      "component_id": "c3",
+      "description": "An intact stored-trajectory spine retains the original event sequence behind the separation plane.",
+      "support": "verified_fact",
+      "support_index": 2,
+      "required": true,
+      "semantic_role": "preserved_evidence",
+      "region": "r1",
+      "input_bindings": [
+        {
+          "source_component_id": "c2",
+          "entry": "from-c2",
+          "relationship_id": "rel2"
+        }
+      ]
+    },
+    {
+      "component_id": "c4",
+      "description": "An exposed rendering adapter transforms the incoming material into a display representation.",
+      "support": "verified_fact",
+      "support_index": 0,
+      "required": true,
+      "semantic_role": "render_transform",
+      "region": "r2",
+      "input_bindings": [
+        {
+          "source_component_id": "c1",
+          "entry": "from-c1",
+          "relationship_id": "rel3"
+        }
+      ]
+    },
+    {
+      "component_id": "c5",
+      "description": "An abstract untrusted-content wedge touches only the rendering adapter and display layer.",
+      "support": "verified_fact",
+      "support_index": 1,
+      "required": true,
+      "semantic_role": "untrusted_influence",
+      "region": "r2",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c6",
+      "description": "An offset display strip presents the altered event representation.",
+      "support": "verified_fact",
+      "support_index": 1,
+      "required": true,
+      "semantic_role": "display_representation",
+      "region": "r2",
+      "input_bindings": [
+        {
+          "source_component_id": "c4",
+          "entry": "from-c4",
+          "relationship_id": "rel4"
+        }
+      ]
+    },
+    {
+      "component_id": "c7",
+      "description": "A visible alignment gap marks a conceptual omitted event on the display strip.",
+      "support": "approved_concept",
+      "support_index": 2,
+      "required": true,
+      "semantic_role": "omission_marker",
+      "region": "r2",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c8",
+      "description": "A replacement-shaped insert marks a conceptual substituted event on that same display strip.",
+      "support": "approved_concept",
+      "support_index": 2,
+      "required": true,
+      "semantic_role": "replacement_marker",
+      "region": "r2",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c9",
+      "description": "A download fork is attached to the rendered layer, not directly to the preserved spine.",
+      "support": "verified_fact",
+      "support_index": 3,
+      "required": true,
+      "semantic_role": "download_fork",
+      "region": "r3",
+      "input_bindings": [
+        {
+          "source_component_id": "c6",
+          "entry": "from-c6",
+          "relationship_id": "rel5"
+        }
+      ]
+    },
+    {
+      "component_id": "c10",
+      "description": "An altered export strip leaves the display-linked download fork.",
+      "support": "verified_fact",
+      "support_index": 3,
+      "required": true,
+      "semantic_role": "export_representation",
+      "region": "r3",
+      "input_bindings": [
+        {
+          "source_component_id": "c9",
+          "entry": "from-c9",
+          "relationship_id": "rel6"
+        }
+      ]
+    },
+    {
+      "component_id": "c11",
+      "description": "An independent retrieval bridge reaches directly to the preserved stored-trajectory spine.",
+      "support": "verified_fact",
+      "support_index": 4,
+      "required": true,
+      "semantic_role": "independent_retrieval",
+      "region": "r4",
+      "input_bindings": [
+        {
+          "source_component_id": "c3",
+          "entry": "from-c3",
+          "relationship_id": "rel9"
+        }
+      ]
+    },
+    {
+      "component_id": "c12",
+      "description": "A keyed comparison register receives independently retrieved, rendered and exported representations while preserving their distinct event keys.",
+      "support": "verified_fact",
+      "support_index": 4,
+      "required": true,
+      "semantic_role": "comparison_register",
+      "region": "r4",
+      "input_bindings": [
+        {
+          "source_component_id": "c11",
+          "entry": "from-c11",
+          "relationship_id": "rel10"
+        },
+        {
+          "source_component_id": "c6",
+          "entry": "from-c6",
+          "relationship_id": "rel11"
+        },
+        {
+          "source_component_id": "c10",
+          "entry": "from-c10",
+          "relationship_id": "rel12"
+        }
+      ]
+    }
+  ],
+  "mechanism_plan": {
+    "dominant_mechanism": "An exploded render layer exposes the adaptation and display/export substages, visibly isolated from the intact stored-trajectory spine.",
+    "internal_substages": [
+      {
+        "input_component_id": "c1",
+        "transformation": "Route original events through storage intake.",
+        "output_component_id": "c2",
+        "relation_id": "rel1",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c2",
+        "transformation": "Retain the original sequence in the preserved spine.",
+        "output_component_id": "c3",
+        "relation_id": "rel2",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c1",
+        "transformation": "Supply the same incoming events for rendering.",
+        "output_component_id": "c4",
+        "relation_id": "rel3",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 0,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c4",
+        "transformation": "Produce a displayed representation separately from stored data.",
+        "output_component_id": "c6",
+        "relation_id": "rel4",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 1,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c6",
+        "transformation": "Route the display-linked download through its fork.",
+        "output_component_id": "c9",
+        "relation_id": "rel5",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 3,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c9",
+        "transformation": "Produce the representation supplied by that affected fork.",
+        "output_component_id": "c10",
+        "relation_id": "rel6",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 3,
+        "returned_state": null
+      }
+    ],
+    "secondary_relationships": [
+      {
+        "from_component_id": "c5",
+        "to_component_id": "c4",
+        "relationship": "The untrusted influence touches only the rendering path.",
+        "relation_id": "rel7",
+        "kind": "conditioning",
+        "support": "verified_fact",
+        "support_index": 1,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c5",
+        "to_component_id": "c6",
+        "relationship": "The demonstrated change appears in the displayed layer.",
+        "relation_id": "rel8",
+        "kind": "conditioning",
+        "support": "verified_fact",
+        "support_index": 1,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c3",
+        "to_component_id": "c11",
+        "relationship": "Retrieve the original stored sequence through an independent path.",
+        "relation_id": "rel9",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c11",
+        "to_component_id": "c12",
+        "relationship": "Supply the independently retrieved sequence to comparison.",
+        "relation_id": "rel10",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c6",
+        "to_component_id": "c12",
+        "relationship": "Supply the displayed sequence separately for comparison.",
+        "relation_id": "rel11",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c10",
+        "to_component_id": "c12",
+        "relationship": "Supply the affected download separately for comparison.",
+        "relation_id": "rel12",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c6",
+        "to_component_id": "c7",
+        "relationship": "Locate the conceptual gap only within the displayed strip.",
+        "relation_id": "rel13",
+        "kind": "constraint",
+        "support": "approved_concept",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c6",
+        "to_component_id": "c8",
+        "relationship": "Locate the conceptual replacement only within the displayed strip.",
+        "relation_id": "rel14",
+        "kind": "constraint",
+        "support": "approved_concept",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c7",
+        "to_component_id": "c12",
+        "relationship": "Associate the display gap with its missing original event key at comparison.",
+        "relation_id": "rel15",
+        "kind": "comparison_reference",
+        "support": "approved_concept",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c8",
+        "to_component_id": "c12",
+        "relationship": "Associate the changed display token with its original event key at comparison.",
+        "relation_id": "rel16",
+        "kind": "comparison_reference",
+        "support": "approved_concept",
+        "support_index": 2,
+        "returned_state": null
+      }
+    ],
+    "evidence_structure": "The independent bridge starts at the unchanged stored spine. The comparison receives that retrieved original, the full rendered sequence and the downloaded sequence through the declared bindings. The gap and replacement are reference properties, not additional transported streams.",
+    "constraint_structure": "No connector from the manipulation wedge crosses into the preserved storage spine. Every display gap or replacement has a corresponding original event key visible behind it.",
+    "feedback_path": "Gap and replacement braces are undirected comparison references. The independent bridge carries the preserved sequence; there is no outcome feedback or evidence rewrite.",
+    "output_boundary": "The output is an observed disagreement between representations, not a generated exploit, a new attack, or a claim that the reported patched vulnerability remains present.",
+    "selected_construction": "Use an exploded oblique light-box: an intact stored spine at the rear, an offset affected render strip in front, and a display-linked download fork. An independent storage bridge and separate representation tracks reach the comparison register; omission and replacement are local properties of the render strip.",
+    "geometry_requirements": [
+      {
+        "requirement_id": "preserved-rear-spine",
+        "description": "A clear separation plane leaves the rear stored sequence intact. No influence-wedge conduit reaches the stored spine."
+      },
+      {
+        "requirement_id": "exposed-render-substages",
+        "description": "The render adapter and offset displayed strip are visibly separate open substages; original keys can be aligned with the displayed gap and replacement."
+      },
+      {
+        "requirement_id": "display-linked-download",
+        "description": "The download fork physically starts at the affected display strip. It has no direct bypass to the preserved stored sequence."
+      },
+      {
+        "requirement_id": "independent-comparison",
+        "description": "The independent retrieval bridge touches the stored spine, and all representation tracks terminate at their own declared comparison entries. Gap and replacement braces carry no extra stream."
+      },
+      {
+        "requirement_id": "no-attack-content",
+        "description": "Use blank event shapes and visible alignment differences only. No payload, code, actual interface, exploit instruction or assertion of a current unpatched flaw is shown."
+      }
+    ]
+  },
+  "composition_assignment": {
+    "composition_signature": "offset-transcript-lightbox-with-intact-rear-spine",
+    "layout_signature": "exploded-oblique-layer-cutaway",
+    "diagram_grammar": "representation-divergence",
+    "hierarchy_signature": "dominant-separated-representations-and-lower-comparator",
+    "annotation_pattern_signature": "leader-callouts-at-layer-ends",
+    "reading_path": "incoming events split into rear preservation and front rendering; follow the independent bridge to the right-hand comparison",
+    "palette_family": "slate blue and rust with translucent ice",
+    "mechanism_metaphor": "exploded light-box with keyed event strips",
+    "evidence_representation": "visible key alignment between original and altered event shapes",
+    "feedback_pattern": "independent-record-crosscheck-braces",
+    "prohibited_patterns": [
+      "flat-card-row",
+      "dashboard-grid",
+      "decorative-machine-parts",
+      "copied-source-figure"
+    ]
+  },
+  "visible_text_allowlist": [
+    "Recorded",
+    "Rendered",
+    "Download",
+    "Compare"
+  ],
+  "prohibited_specifics": [
+    "provider emblem",
+    "legible source code",
+    "invented numerical score",
+    "copied brand mark"
+  ],
+  "prohibited_composition_patterns": [
+    "flat-card-row",
+    "dashboard-grid",
+    "decorative-machine-parts",
+    "copied-source-figure"
+  ],
+  "reference_policy": "Only this sealed specification and neutral quality rules.",
+  "derived_inputs": [
+    {
+      "component": "c2",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c1",
+          "entry": "from-c1",
+          "relationship_id": "rel1"
+        }
+      ]
+    },
+    {
+      "component": "c3",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c2",
+          "entry": "from-c2",
+          "relationship_id": "rel2"
+        }
+      ]
+    },
+    {
+      "component": "c4",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c1",
+          "entry": "from-c1",
+          "relationship_id": "rel3"
+        }
+      ]
+    },
+    {
+      "component": "c6",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c4",
+          "entry": "from-c4",
+          "relationship_id": "rel4"
+        }
+      ]
+    },
+    {
+      "component": "c9",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c6",
+          "entry": "from-c6",
+          "relationship_id": "rel5"
+        }
+      ]
+    },
+    {
+      "component": "c10",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c9",
+          "entry": "from-c9",
+          "relationship_id": "rel6"
+        }
+      ]
+    },
+    {
+      "component": "c11",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c3",
+          "entry": "from-c3",
+          "relationship_id": "rel9"
+        }
+      ]
+    },
+    {
+      "component": "c12",
+      "input_count": 3,
+      "entries": [
+        {
+          "source_component_id": "c11",
+          "entry": "from-c11",
+          "relationship_id": "rel10"
+        },
+        {
+          "source_component_id": "c6",
+          "entry": "from-c6",
+          "relationship_id": "rel11"
+        },
+        {
+          "source_component_id": "c10",
+          "entry": "from-c10",
+          "relationship_id": "rel12"
+        }
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "basic.subject_match",
+      "requirement": "The visible image must pass subject match."
+    },
+    {
+      "id": "basic.mechanism_detail",
+      "requirement": "The visible image must pass mechanism detail."
+    },
+    {
+      "id": "basic.legible_labels",
+      "requirement": "The visible image must pass legible labels."
+    },
+    {
+      "id": "basic.contrast",
+      "requirement": "The visible image must pass contrast."
+    },
+    {
+      "id": "basic.composition",
+      "requirement": "The visible image must pass composition."
+    },
+    {
+      "id": "basic.no_people",
+      "requirement": "The visible image must pass no people."
+    },
+    {
+      "id": "basic.no_humanoids",
+      "requirement": "The visible image must pass no humanoids."
+    },
+    {
+      "id": "basic.no_branding",
+      "requirement": "The visible image must pass no branding."
+    },
+    {
+      "id": "basic.no_photorealism",
+      "requirement": "The visible image must pass no photorealism."
+    },
+    {
+      "id": "basic.no_overlap",
+      "requirement": "The visible image must pass no overlap."
+    },
+    {
+      "id": "basic.no_clipping",
+      "requirement": "The visible image must pass no clipping."
+    },
+    {
+      "id": "basic.no_unapproved_text",
+      "requirement": "The visible image must pass no unapproved text."
+    },
+    {
+      "id": "basic.no_unsupported_specifics",
+      "requirement": "The visible image must pass no unsupported specifics."
+    },
+    {
+      "id": "basic.no_context_contamination",
+      "requirement": "The visible image must pass no context contamination."
+    },
+    {
+      "id": "basic.professional_textbook_editorial_quality",
+      "requirement": "The visible image must pass professional textbook editorial quality."
+    },
+    {
+      "id": "benchmark.professional_finish",
+      "requirement": "Match premium benchmark professional finish."
+    },
+    {
+      "id": "benchmark.meaningful_detail",
+      "requirement": "Match premium benchmark meaningful detail."
+    },
+    {
+      "id": "benchmark.explanatory_mechanism",
+      "requirement": "Match premium benchmark explanatory mechanism."
+    },
+    {
+      "id": "benchmark.annotation_richness",
+      "requirement": "Match premium benchmark annotation richness."
+    },
+    {
+      "id": "benchmark.visual_depth",
+      "requirement": "Match premium benchmark visual depth."
+    },
+    {
+      "id": "benchmark.hierarchy",
+      "requirement": "Match premium benchmark hierarchy."
+    },
+    {
+      "id": "benchmark.composition",
+      "requirement": "Match premium benchmark composition."
+    },
+    {
+      "id": "benchmark.story_specificity",
+      "requirement": "Match premium benchmark story specificity."
+    },
+    {
+      "id": "benchmark.differentiation",
+      "requirement": "Match premium benchmark differentiation."
+    },
+    {
+      "id": "quality.premium_textbook_editorial",
+      "requirement": "{\"premium_textbook_editorial\":true}"
+    },
+    {
+      "id": "quality.minimum_meaningful_components",
+      "requirement": "{\"minimum_meaningful_components\":12}"
+    },
+    {
+      "id": "quality.visible_text_policy",
+      "requirement": "{\"visible_text_policy\":\"exact_allowlist_only\"}"
+    },
+    {
+      "id": "quality.people_humanoids_faces_avatars_forbidden",
+      "requirement": "{\"people_humanoids_faces_avatars_forbidden\":true}"
+    },
+    {
+      "id": "quality.branding_forbidden",
+      "requirement": "{\"branding_forbidden\":true}"
+    },
+    {
+      "id": "quality.photorealism_forbidden",
+      "requirement": "{\"photorealism_forbidden\":true}"
+    },
+    {
+      "id": "quality.low_quality_fallback_forbidden",
+      "requirement": "{\"low_quality_fallback_forbidden\":true}"
+    },
+    {
+      "id": "quality.story_specificity_required",
+      "requirement": "{\"story_specificity_required\":true}"
+    },
+    {
+      "id": "quality.dimensional_mechanism_plate_required",
+      "requirement": "{\"dimensional_mechanism_plate_required\":true}"
+    },
+    {
+      "id": "quality.canvas_utilization_target",
+      "requirement": "{\"canvas_utilization_target\":\"80-90_percent\"}"
+    },
+    {
+      "id": "quality.major_visual_regions_target",
+      "requirement": "{\"major_visual_regions_target\":\"3-5\"}"
+    },
+    {
+      "id": "quality.minimum_internal_substages_in_dominant_mechanism",
+      "requirement": "{\"minimum_internal_substages_in_dominant_mechanism\":2}"
+    },
+    {
+      "id": "quality.minimum_secondary_relationships",
+      "requirement": "{\"minimum_secondary_relationships\":2}"
+    },
+    {
+      "id": "quality.generic_infographic_aesthetic_forbidden",
+      "requirement": "{\"generic_infographic_aesthetic_forbidden\":true}"
+    },
+    {
+      "id": "quality.decorative_geometry_forbidden",
+      "requirement": "{\"decorative_geometry_forbidden\":true}"
+    },
+    {
+      "id": "source.truth",
+      "requirement": "Preserve the source-supported meaning; conceptual geometry must not invent factual claims."
+    },
+    {
+      "id": "text.allowlist",
+      "requirement": "Show exactly these labels and no additional readable text: [\"Recorded\",\"Rendered\",\"Download\",\"Compare\"]"
+    },
+    {
+      "id": "text.no_pseudotext",
+      "requirement": "No invented glyphs or pseudo-writing. A mark is not evidence of a readable word."
+    },
+    {
+      "id": "text.no_placeholder_lines",
+      "requirement": "No document-placeholder lines or writing-like marks on blank surfaces."
+    },
+    {
+      "id": "layout.regions",
+      "requirement": "Three to five major regions, with distinct functional components."
+    },
+    {
+      "id": "layout.occupancy",
+      "requirement": "Use 80–90 percent useful canvas, preserving safe margins."
+    },
+    {
+      "id": "recipe.selected",
+      "requirement": "Use an exploded oblique light-box: an intact stored spine at the rear, an offset affected render strip in front, and a display-linked download fork. An independent storage bridge and separate representation tracks reach the comparison register; omission and replacement are local properties of the render strip."
+    },
+    {
+      "id": "component.c1",
+      "requirement": "An incoming event strip supplies the recorded and rendering paths.; role event_source; region r1."
+    },
+    {
+      "id": "component.c2",
+      "requirement": "A storage intake carries the original event shapes into the preserved representation.; role storage_intake; region r1."
+    },
+    {
+      "id": "input.c2.from-c1",
+      "requirement": "Connect c1 to c2 at from-c1 using only rel1."
+    },
+    {
+      "id": "component.c3",
+      "requirement": "An intact stored-trajectory spine retains the original event sequence behind the separation plane.; role preserved_evidence; region r1."
+    },
+    {
+      "id": "input.c3.from-c2",
+      "requirement": "Connect c2 to c3 at from-c2 using only rel2."
+    },
+    {
+      "id": "component.c4",
+      "requirement": "An exposed rendering adapter transforms the incoming material into a display representation.; role render_transform; region r2."
+    },
+    {
+      "id": "input.c4.from-c1",
+      "requirement": "Connect c1 to c4 at from-c1 using only rel3."
+    },
+    {
+      "id": "component.c5",
+      "requirement": "An abstract untrusted-content wedge touches only the rendering adapter and display layer.; role untrusted_influence; region r2."
+    },
+    {
+      "id": "component.c6",
+      "requirement": "An offset display strip presents the altered event representation.; role display_representation; region r2."
+    },
+    {
+      "id": "input.c6.from-c4",
+      "requirement": "Connect c4 to c6 at from-c4 using only rel4."
+    },
+    {
+      "id": "component.c7",
+      "requirement": "A visible alignment gap marks a conceptual omitted event on the display strip.; role omission_marker; region r2."
+    },
+    {
+      "id": "component.c8",
+      "requirement": "A replacement-shaped insert marks a conceptual substituted event on that same display strip.; role replacement_marker; region r2."
+    },
+    {
+      "id": "component.c9",
+      "requirement": "A download fork is attached to the rendered layer, not directly to the preserved spine.; role download_fork; region r3."
+    },
+    {
+      "id": "input.c9.from-c6",
+      "requirement": "Connect c6 to c9 at from-c6 using only rel5."
+    },
+    {
+      "id": "component.c10",
+      "requirement": "An altered export strip leaves the display-linked download fork.; role export_representation; region r3."
+    },
+    {
+      "id": "input.c10.from-c9",
+      "requirement": "Connect c9 to c10 at from-c9 using only rel6."
+    },
+    {
+      "id": "component.c11",
+      "requirement": "An independent retrieval bridge reaches directly to the preserved stored-trajectory spine.; role independent_retrieval; region r4."
+    },
+    {
+      "id": "input.c11.from-c3",
+      "requirement": "Connect c3 to c11 at from-c3 using only rel9."
+    },
+    {
+      "id": "component.c12",
+      "requirement": "A keyed comparison register receives independently retrieved, rendered and exported representations while preserving their distinct event keys.; role comparison_register; region r4."
+    },
+    {
+      "id": "input.c12.from-c11",
+      "requirement": "Connect c11 to c12 at from-c11 using only rel10."
+    },
+    {
+      "id": "input.c12.from-c6",
+      "requirement": "Connect c6 to c12 at from-c6 using only rel11."
+    },
+    {
+      "id": "input.c12.from-c10",
+      "requirement": "Connect c10 to c12 at from-c10 using only rel12."
+    },
+    {
+      "id": "relation.rel1",
+      "requirement": "artifact_flow between c1 and c2: Route original events through storage intake.; no implied return."
+    },
+    {
+      "id": "relation.rel2",
+      "requirement": "artifact_flow between c2 and c3: Retain the original sequence in the preserved spine.; no implied return."
+    },
+    {
+      "id": "relation.rel3",
+      "requirement": "artifact_flow between c1 and c4: Supply the same incoming events for rendering.; no implied return."
+    },
+    {
+      "id": "relation.rel4",
+      "requirement": "artifact_flow between c4 and c6: Produce a displayed representation separately from stored data.; no implied return."
+    },
+    {
+      "id": "relation.rel5",
+      "requirement": "artifact_flow between c6 and c9: Route the display-linked download through its fork.; no implied return."
+    },
+    {
+      "id": "relation.rel6",
+      "requirement": "artifact_flow between c9 and c10: Produce the representation supplied by that affected fork.; no implied return."
+    },
+    {
+      "id": "relation.rel7",
+      "requirement": "conditioning between c5 and c4: The untrusted influence touches only the rendering path.; no implied return."
+    },
+    {
+      "id": "relation.rel8",
+      "requirement": "conditioning between c5 and c6: The demonstrated change appears in the displayed layer.; no implied return."
+    },
+    {
+      "id": "relation.rel9",
+      "requirement": "artifact_flow between c3 and c11: Retrieve the original stored sequence through an independent path.; no implied return."
+    },
+    {
+      "id": "relation.rel10",
+      "requirement": "artifact_flow between c11 and c12: Supply the independently retrieved sequence to comparison.; no implied return."
+    },
+    {
+      "id": "relation.rel11",
+      "requirement": "artifact_flow between c6 and c12: Supply the displayed sequence separately for comparison.; no implied return."
+    },
+    {
+      "id": "relation.rel12",
+      "requirement": "artifact_flow between c10 and c12: Supply the affected download separately for comparison.; no implied return."
+    },
+    {
+      "id": "relation.rel13",
+      "requirement": "constraint between c6 and c7: Locate the conceptual gap only within the displayed strip.; no implied return."
+    },
+    {
+      "id": "relation.rel14",
+      "requirement": "constraint between c6 and c8: Locate the conceptual replacement only within the displayed strip.; no implied return."
+    },
+    {
+      "id": "relation.rel15",
+      "requirement": "comparison_reference between c7 and c12: Associate the display gap with its missing original event key at comparison.; undirected reference, not transported material or feedback."
+    },
+    {
+      "id": "relation.rel16",
+      "requirement": "comparison_reference between c8 and c12: Associate the changed display token with its original event key at comparison.; undirected reference, not transported material or feedback."
+    },
+    {
+      "id": "geometry.preserved-rear-spine",
+      "requirement": "A clear separation plane leaves the rear stored sequence intact. No influence-wedge conduit reaches the stored spine."
+    },
+    {
+      "id": "geometry.exposed-render-substages",
+      "requirement": "The render adapter and offset displayed strip are visibly separate open substages; original keys can be aligned with the displayed gap and replacement."
+    },
+    {
+      "id": "geometry.display-linked-download",
+      "requirement": "The download fork physically starts at the affected display strip. It has no direct bypass to the preserved stored sequence."
+    },
+    {
+      "id": "geometry.independent-comparison",
+      "requirement": "The independent retrieval bridge touches the stored spine, and all representation tracks terminate at their own declared comparison entries. Gap and replacement braces carry no extra stream."
+    },
+    {
+      "id": "geometry.no-attack-content",
+      "requirement": "Use blank event shapes and visible alignment differences only. No payload, code, actual interface, exploit instruction or assertion of a current unpatched flaw is shown."
+    }
+  ]
+}
+
+Return only the illustration.

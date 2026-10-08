@@ -1,0 +1,91 @@
+{
+  "schema_version": "daily-compiler-d1-source-evidence-v1",
+  "edition_date": "2026-10-08",
+  "execution_id": "value-image-profile-v2-2026-10-08",
+  "source_commit": "4a304c23d6ab1bdd7b842c059a157889dc4dbfdf",
+  "stories": [
+    {
+      "story_id": "crystal-stability-active-learning",
+      "story_content_sha256": "7dc745b8f439ddfa9a84681ca64d461f2f23114410c9ea817a3c89d621cc3b42",
+      "source_url": "https://deepmind.google/blog/millions-of-new-materials-discovered-with-deep-learning/",
+      "verified_visual_facts": [
+        "The structural pipeline proposes crystals related to known structures.",
+        "The compositional pipeline proposes chemical formulas without crystal structures.",
+        "Structural graph inputs represent atoms and nearby atomic connections.",
+        "Separate structure-based and composition-based graph models predict energy for stability screening.",
+        "Density Functional Theory evaluates proposed crystal structures.",
+        "Computed results enter the database and supply training data for later active-learning rounds.",
+        "Stability is judged against competing compositions with lower energy.",
+        "Computationally stable predictions remain candidates for experimental synthesis.",
+        "The initial structural model was trained on known crystal structure and energy data.",
+        "Composition-only graphs represent element types and proportions, without atomic positions.",
+        "Composition-only prediction filters formulas before random structure search produces structures for DFT."
+      ]
+    },
+    {
+      "story_id": "contrastive-incentive-beliefs",
+      "story_content_sha256": "5b39d0417e1b01bae56a01da3094452952335d9a81feddfa33e2c91e12294dfe",
+      "source_url": "https://www.apolloresearch.ai/science/measuring-reward-seeking-via-contrastive-belief-updates",
+      "verified_visual_facts": [
+        "Contrasting synthetic training documents alter beliefs about what a grader rewards.",
+        "The experiment places the grader preference in conflict with the intended objective.",
+        "Researchers compare behavior under the contrasting belief conditions.",
+        "Behavior is measured by which party's preferred action the model adopts.",
+        "Different reinforcement-learning checkpoints are compared.",
+        "A separately reward-hacking-trained model is also examined."
+      ]
+    },
+    {
+      "story_id": "rendered-record-divergence",
+      "story_content_sha256": "75879bd64548452409afc37f9cc4299d614793c6de71e64ed2cb83b2b8f1a75b",
+      "source_url": "https://metr.org/blog/2026-10-06-ai-systems-could-cover-up-misbehavior/",
+      "verified_visual_facts": [
+        "Agent outputs enter the transcript viewer as untrusted material.",
+        "A staging demonstration altered the actions shown in a rendered transcript.",
+        "The underlying stored trajectory remained unchanged.",
+        "The displayed download could also be intercepted.",
+        "Investigators could recover the real record by checking the separate database.",
+        "The reported vulnerability was patched."
+      ]
+    },
+    {
+      "story_id": "turn-aligned-behaviour",
+      "story_content_sha256": "5d191855393480f39fab5d9528b0d3da74e1d38b60f223271bf30bdc35dcd15b",
+      "source_url": "https://www.aisi.gov.uk/research/transect-retaining-observability-for-long-horizon-llm-agent-evaluations",
+      "verified_visual_facts": [
+        "A reusable configuration specifies task context and a behavioral vocabulary.",
+        "Judge models and analysis settings are supplied separately.",
+        "Recorded events, token use, sub-agent activity and generated labels share a turn-based timeline.",
+        "Each label or event can be traced to its original transcript turns.",
+        "The underlying tables can be exported for comparisons across runs.",
+        "Generated behavioral interpretations are checked against recorded transcript evidence."
+      ]
+    },
+    {
+      "story_id": "weather-mesh-rollout",
+      "story_content_sha256": "2d2d30dfa5d853754f3f265fb7398e5e854aa25eb9ab0077390d5eb8dd9c63af",
+      "source_url": "https://deepmind.google/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/",
+      "verified_visual_facts": [
+        "The model receives the current weather state and the state six hours earlier.",
+        "Weather is represented on a latitude-longitude grid with atmospheric levels.",
+        "Graph neural networks use a multiscale mesh representation.",
+        "The model predicts the state six hours ahead.",
+        "Predicted states are reused in successive forecast steps.",
+        "Training uses historical weather reanalysis."
+      ]
+    },
+    {
+      "story_id": "video-conditioned-audio",
+      "story_content_sha256": "fd21b227bc3dfc5d5e9bd8a7aaf510db4fbddc3b5a18b87b8075f4ea56b52e39",
+      "source_url": "https://deepmind.google/blog/generating-audio-for-video/",
+      "verified_visual_facts": [
+        "Video input is encoded into a compressed representation.",
+        "A diffusion model iteratively refines audio from random noise.",
+        "Visual information and optional text guidance condition the refinement.",
+        "Compressed audio is decoded into a waveform.",
+        "The waveform is combined with the original video.",
+        "Positive and negative text guidance can favor or discourage sound characteristics."
+      ]
+    }
+  ]
+}

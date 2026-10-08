@@ -1,0 +1,937 @@
+Generate exactly one premium advanced textbook/editorial mechanism illustration of this story only.
+
+Explain the specified transformation and relevant evidence, constraints or comparison. Show feedback only where explicitly typed and supported; undirected comparison references are not returned material.
+
+Use a white or near-white 1200×630 landscape, dimensional exposed causal geometry, safe margins, crisp linework and every fixed criterion below.
+
+No people, humanoids, faces, avatars, logos, brands, photorealism, screens, UI chrome, card grids, pseudo-writing, placeholder lines, decorative padding or low-quality fallback.
+
+Use the exact allowlisted visible labels and no other characters. Keep all other surfaces smooth and blank.
+
+{
+  "subject": "Rolling atmospheric forecasts forward through a multiscale graph representation",
+  "core_mechanism": "Two atmospheric states feed a spatial graph representation. Surface and altitude variables meet fine and coarse mesh relationships to predict the next state; the resulting state is paired with its predecessor for the following forecast step.",
+  "verified_visual_facts": [
+    "The model receives the current weather state and the state six hours earlier.",
+    "Weather is represented on a latitude-longitude grid with atmospheric levels.",
+    "Graph neural networks use a multiscale mesh representation.",
+    "The model predicts the state six hours ahead.",
+    "Predicted states are reused in successive forecast steps.",
+    "Training uses historical weather reanalysis."
+  ],
+  "conceptual_elements": [
+    "Use a partial spherical cutaway with surface grid, atmospheric shells outside it, and distinct fine/coarse links; no measured map.",
+    "State alignment and spatial updating are conceptual exposed substages; no neural layer count is asserted.",
+    "Untallied curved field slices denote successive states without numeric temperature, confidence or accuracy.",
+    "Four regions: prior states; spherical graph cutaway; historical-training reference; predictions and reuse.",
+    "Initial and returned pairs feed the same alignment at successive steps, never as simultaneous extra observations."
+  ],
+  "meaningful_components_plan": [
+    {
+      "component_id": "c1",
+      "description": "A prior-state field slice supplies the earlier atmospheric state.",
+      "support": "verified_fact",
+      "support_index": 0,
+      "required": true,
+      "semantic_role": "past_state",
+      "region": "r1",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c2",
+      "description": "A present-state field slice supplies the current atmospheric state.",
+      "support": "verified_fact",
+      "support_index": 0,
+      "required": true,
+      "semantic_role": "present_state",
+      "region": "r1",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c3",
+      "description": "A surface-variable layer follows the spherical surface grid below the atmospheric shells.",
+      "support": "verified_fact",
+      "support_index": 1,
+      "required": true,
+      "semantic_role": "surface_field",
+      "region": "r2",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c4",
+      "description": "Atmospheric-level shells extend radially outside the surface layer in the cutaway.",
+      "support": "verified_fact",
+      "support_index": 1,
+      "required": true,
+      "semantic_role": "altitude_field",
+      "region": "r2",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c5",
+      "description": "An exposed state-alignment interface accepts an initial state pair or the later returned pair and aligns its fields to the spatial representation.",
+      "support": "approved_concept",
+      "support_index": 1,
+      "required": true,
+      "semantic_role": "state_alignment",
+      "region": "r2",
+      "input_bindings": [
+        {
+          "source_component_id": "c13",
+          "entry": "from-c13",
+          "relationship_id": "rel3"
+        },
+        {
+          "source_component_id": "c10",
+          "entry": "from-c10",
+          "relationship_id": "rel15"
+        }
+      ]
+    },
+    {
+      "component_id": "c6",
+      "description": "A fine mesh patch carries short spatial relationships inside the cutaway.",
+      "support": "verified_fact",
+      "support_index": 2,
+      "required": true,
+      "semantic_role": "fine_mesh",
+      "region": "r2",
+      "input_bindings": [
+        {
+          "source_component_id": "c5",
+          "entry": "from-c5",
+          "relationship_id": "rel4"
+        }
+      ]
+    },
+    {
+      "component_id": "c7",
+      "description": "A coarse mesh structure connects wider spatial regions of the same cutaway.",
+      "support": "verified_fact",
+      "support_index": 2,
+      "required": true,
+      "semantic_role": "coarse_mesh",
+      "region": "r2",
+      "input_bindings": [
+        {
+          "source_component_id": "c5",
+          "entry": "from-c5",
+          "relationship_id": "rel10"
+        }
+      ]
+    },
+    {
+      "component_id": "c8",
+      "description": "An exposed spatial-update interface combines the graph relationships into a predicted state.",
+      "support": "approved_concept",
+      "support_index": 1,
+      "required": true,
+      "semantic_role": "spatial_update",
+      "region": "r2",
+      "input_bindings": [
+        {
+          "source_component_id": "c6",
+          "entry": "from-c6",
+          "relationship_id": "rel5"
+        },
+        {
+          "source_component_id": "c7",
+          "entry": "from-c7",
+          "relationship_id": "rel11"
+        }
+      ]
+    },
+    {
+      "component_id": "c9",
+      "description": "A next-state field slice receives the first predicted atmosphere.",
+      "support": "verified_fact",
+      "support_index": 3,
+      "required": true,
+      "semantic_role": "predicted_state",
+      "region": "r4",
+      "input_bindings": [
+        {
+          "source_component_id": "c8",
+          "entry": "from-c8",
+          "relationship_id": "rel6"
+        }
+      ]
+    },
+    {
+      "component_id": "c10",
+      "description": "A state-pair reuse coupling retains the predecessor alongside the predicted state.",
+      "support": "verified_fact",
+      "support_index": 4,
+      "required": true,
+      "semantic_role": "reuse_pair",
+      "region": "r4",
+      "input_bindings": [
+        {
+          "source_component_id": "c9",
+          "entry": "from-c9",
+          "relationship_id": "rel13"
+        },
+        {
+          "source_component_id": "c2",
+          "entry": "from-c2",
+          "relationship_id": "rel14"
+        }
+      ]
+    },
+    {
+      "component_id": "c11",
+      "description": "A later forecast slice shows the result of another use of the same predictor.",
+      "support": "verified_fact",
+      "support_index": 4,
+      "required": true,
+      "semantic_role": "later_state",
+      "region": "r4",
+      "input_bindings": [
+        {
+          "source_component_id": "c8",
+          "entry": "from-c8",
+          "relationship_id": "rel7"
+        }
+      ]
+    },
+    {
+      "component_id": "c12",
+      "description": "A historical-reanalysis reference collar is attached to the learned spatial-update interface.",
+      "support": "verified_fact",
+      "support_index": 5,
+      "required": true,
+      "semantic_role": "training_reference",
+      "region": "r3",
+      "input_bindings": []
+    },
+    {
+      "component_id": "c13",
+      "description": "An initial pair-assembly coupling retains the past and present states as distinct members of the first input pair.",
+      "support": "approved_concept",
+      "support_index": 4,
+      "required": true,
+      "semantic_role": "initial_pair",
+      "region": "r1",
+      "input_bindings": [
+        {
+          "source_component_id": "c1",
+          "entry": "from-c1",
+          "relationship_id": "rel1"
+        },
+        {
+          "source_component_id": "c2",
+          "entry": "from-c2",
+          "relationship_id": "rel2"
+        }
+      ]
+    }
+  ],
+  "mechanism_plan": {
+    "dominant_mechanism": "A partial spherical graph cutaway exposes state alignment and spatial updating, with fine and coarse relationships terminating at the same update interface.",
+    "internal_substages": [
+      {
+        "input_component_id": "c1",
+        "transformation": "Retain the earlier atmospheric state in the initial pair.",
+        "output_component_id": "c13",
+        "relation_id": "rel1",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 0,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c2",
+        "transformation": "Retain the present atmospheric state beside its predecessor.",
+        "output_component_id": "c13",
+        "relation_id": "rel2",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 0,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c13",
+        "transformation": "Send the initial state pair to the alignment interface.",
+        "output_component_id": "c5",
+        "relation_id": "rel3",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 0,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c5",
+        "transformation": "Align atmospheric fields with local spatial graph relationships.",
+        "output_component_id": "c6",
+        "relation_id": "rel4",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c6",
+        "transformation": "Supply local spatial information to the exposed updater.",
+        "output_component_id": "c8",
+        "relation_id": "rel5",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c8",
+        "transformation": "Produce the next atmospheric state.",
+        "output_component_id": "c9",
+        "relation_id": "rel6",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 3,
+        "returned_state": null
+      },
+      {
+        "input_component_id": "c8",
+        "transformation": "After reuse of the predictor, produce a later state slice.",
+        "output_component_id": "c11",
+        "relation_id": "rel7",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      }
+    ],
+    "secondary_relationships": [
+      {
+        "from_component_id": "c3",
+        "to_component_id": "c5",
+        "relationship": "Surface fields are part of the same atmospheric state pair.",
+        "relation_id": "rel8",
+        "kind": "constraint",
+        "support": "verified_fact",
+        "support_index": 1,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c4",
+        "to_component_id": "c5",
+        "relationship": "Atmospheric-level fields are part of that same state pair.",
+        "relation_id": "rel9",
+        "kind": "constraint",
+        "support": "verified_fact",
+        "support_index": 1,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c5",
+        "to_component_id": "c7",
+        "relationship": "Align the state with wider-scale graph relationships.",
+        "relation_id": "rel10",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c7",
+        "to_component_id": "c8",
+        "relationship": "Supply coarse spatial relationships to the same updater.",
+        "relation_id": "rel11",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 2,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c12",
+        "to_component_id": "c8",
+        "relationship": "Historical reanalysis supports the trained updater without being a new live observation.",
+        "relation_id": "rel12",
+        "kind": "conditioning",
+        "support": "verified_fact",
+        "support_index": 5,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c9",
+        "to_component_id": "c10",
+        "relationship": "Retain the prediction as the next pair member.",
+        "relation_id": "rel13",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c2",
+        "to_component_id": "c10",
+        "relationship": "Retain the preceding state as the other member of the next pair.",
+        "relation_id": "rel14",
+        "kind": "artifact_flow",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": null
+      },
+      {
+        "from_component_id": "c10",
+        "to_component_id": "c5",
+        "relationship": "Return the updated pair to the same alignment interface for the next forecast step.",
+        "relation_id": "rel15",
+        "kind": "feedback",
+        "support": "verified_fact",
+        "support_index": 4,
+        "returned_state": "The most recent prediction and its immediately preceding atmospheric state."
+      }
+    ],
+    "evidence_structure": "Paired prior/present input slices, surface/altitude layers and successive predicted slices remain visually distinguishable throughout.",
+    "constraint_structure": "The historical collar is a training reference. Surface and altitude layers describe each atmospheric state, not extra input observations. Initial and reuse entries operate at distinct steps. No real geography, numeric values or accuracy claim appears.",
+    "feedback_path": "The latest prediction and its predecessor meet at the reuse coupling; its return attaches to the same alignment interface and traverses the same spatial predictor. Initial and returned pairs are used at successive times.",
+    "output_boundary": "The final field slice is an abstract next forecast state; it is neither current weather advice nor a newly executed weather prediction.",
+    "selected_construction": "Use a partial spherical cutaway with exposed state alignment, fine and coarse spatial links and a spatial-update surface. The initial pair and later reuse pair arrive at distinct temporal entries to the same alignment interface. Predicted slices advance along an orbit while a subordinate historical reference collar remains separate.",
+    "geometry_requirements": [
+      {
+        "requirement_id": "spherical-substages",
+        "description": "Expose state alignment and spatial updating within the partial spherical cutaway; fine and coarse links terminate at the same update surface. Atmospheric shells lie radially outside the surface-variable grid."
+      },
+      {
+        "requirement_id": "distinct-state-pair",
+        "description": "Past and present slices retain distinct keys in the initial pair. The later reuse coupling retains the predicted state and its predecessor with those temporal roles visible."
+      },
+      {
+        "requirement_id": "return-through-alignment",
+        "description": "The reuse conduit visibly ends on the returned-pair entry of the same alignment surface; it never bypasses alignment or points to a duplicate predictor."
+      },
+      {
+        "requirement_id": "temporal-not-extra-observations",
+        "description": "The initial-pair and returned-pair entries are alternative successive uses of the predictor, made clear by the ordered state slices. They are never depicted as simultaneously independent weather measurements."
+      },
+      {
+        "requirement_id": "training-reference-separate",
+        "description": "The historical-reanalysis collar attaches as a subordinate training reference, separate from every live-state conduit."
+      },
+      {
+        "requirement_id": "nonliteral-forecast",
+        "description": "Field slices and mesh remain abstract, without actual geography, weather numbers, legends or asserted forecast accuracy."
+      }
+    ]
+  },
+  "composition_assignment": {
+    "composition_signature": "partial-globe-mesh-cutaway-with-state-pair-orbit",
+    "layout_signature": "spherical-cutaway-and-orbital-slices",
+    "diagram_grammar": "multiscale-spatial-forecast",
+    "hierarchy_signature": "dominant-spherical-mechanism-with-subordinate-time-orbit",
+    "annotation_pattern_signature": "arc-following-labels-and-short-layer-leaders",
+    "reading_path": "left paired states enter the central cutaway, predicted slices advance clockwise on the right and loop back as a pair",
+    "palette_family": "deep cyan and warm ochre with pearl gray",
+    "mechanism_metaphor": "spherical grid and nested multiscale mesh",
+    "evidence_representation": "distinct surface and altitude layers across paired state slices",
+    "feedback_pattern": "predicted-state-and-predecessor-reuse-coupling",
+    "prohibited_patterns": [
+      "flat-card-row",
+      "dashboard-grid",
+      "decorative-machine-parts",
+      "copied-source-figure"
+    ]
+  },
+  "visible_text_allowlist": [
+    "Past",
+    "Now",
+    "Mesh",
+    "Forecast",
+    "History"
+  ],
+  "prohibited_specifics": [
+    "provider emblem",
+    "legible source code",
+    "invented numerical score",
+    "copied brand mark"
+  ],
+  "prohibited_composition_patterns": [
+    "flat-card-row",
+    "dashboard-grid",
+    "decorative-machine-parts",
+    "copied-source-figure"
+  ],
+  "reference_policy": "Only this sealed specification and neutral quality rules.",
+  "derived_inputs": [
+    {
+      "component": "c5",
+      "input_count": 2,
+      "entries": [
+        {
+          "source_component_id": "c13",
+          "entry": "from-c13",
+          "relationship_id": "rel3"
+        },
+        {
+          "source_component_id": "c10",
+          "entry": "from-c10",
+          "relationship_id": "rel15"
+        }
+      ]
+    },
+    {
+      "component": "c6",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c5",
+          "entry": "from-c5",
+          "relationship_id": "rel4"
+        }
+      ]
+    },
+    {
+      "component": "c7",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c5",
+          "entry": "from-c5",
+          "relationship_id": "rel10"
+        }
+      ]
+    },
+    {
+      "component": "c8",
+      "input_count": 2,
+      "entries": [
+        {
+          "source_component_id": "c6",
+          "entry": "from-c6",
+          "relationship_id": "rel5"
+        },
+        {
+          "source_component_id": "c7",
+          "entry": "from-c7",
+          "relationship_id": "rel11"
+        }
+      ]
+    },
+    {
+      "component": "c9",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c8",
+          "entry": "from-c8",
+          "relationship_id": "rel6"
+        }
+      ]
+    },
+    {
+      "component": "c10",
+      "input_count": 2,
+      "entries": [
+        {
+          "source_component_id": "c9",
+          "entry": "from-c9",
+          "relationship_id": "rel13"
+        },
+        {
+          "source_component_id": "c2",
+          "entry": "from-c2",
+          "relationship_id": "rel14"
+        }
+      ]
+    },
+    {
+      "component": "c11",
+      "input_count": 1,
+      "entries": [
+        {
+          "source_component_id": "c8",
+          "entry": "from-c8",
+          "relationship_id": "rel7"
+        }
+      ]
+    },
+    {
+      "component": "c13",
+      "input_count": 2,
+      "entries": [
+        {
+          "source_component_id": "c1",
+          "entry": "from-c1",
+          "relationship_id": "rel1"
+        },
+        {
+          "source_component_id": "c2",
+          "entry": "from-c2",
+          "relationship_id": "rel2"
+        }
+      ]
+    }
+  ],
+  "criteria": [
+    {
+      "id": "basic.subject_match",
+      "requirement": "The visible image must pass subject match."
+    },
+    {
+      "id": "basic.mechanism_detail",
+      "requirement": "The visible image must pass mechanism detail."
+    },
+    {
+      "id": "basic.legible_labels",
+      "requirement": "The visible image must pass legible labels."
+    },
+    {
+      "id": "basic.contrast",
+      "requirement": "The visible image must pass contrast."
+    },
+    {
+      "id": "basic.composition",
+      "requirement": "The visible image must pass composition."
+    },
+    {
+      "id": "basic.no_people",
+      "requirement": "The visible image must pass no people."
+    },
+    {
+      "id": "basic.no_humanoids",
+      "requirement": "The visible image must pass no humanoids."
+    },
+    {
+      "id": "basic.no_branding",
+      "requirement": "The visible image must pass no branding."
+    },
+    {
+      "id": "basic.no_photorealism",
+      "requirement": "The visible image must pass no photorealism."
+    },
+    {
+      "id": "basic.no_overlap",
+      "requirement": "The visible image must pass no overlap."
+    },
+    {
+      "id": "basic.no_clipping",
+      "requirement": "The visible image must pass no clipping."
+    },
+    {
+      "id": "basic.no_unapproved_text",
+      "requirement": "The visible image must pass no unapproved text."
+    },
+    {
+      "id": "basic.no_unsupported_specifics",
+      "requirement": "The visible image must pass no unsupported specifics."
+    },
+    {
+      "id": "basic.no_context_contamination",
+      "requirement": "The visible image must pass no context contamination."
+    },
+    {
+      "id": "basic.professional_textbook_editorial_quality",
+      "requirement": "The visible image must pass professional textbook editorial quality."
+    },
+    {
+      "id": "benchmark.professional_finish",
+      "requirement": "Match premium benchmark professional finish."
+    },
+    {
+      "id": "benchmark.meaningful_detail",
+      "requirement": "Match premium benchmark meaningful detail."
+    },
+    {
+      "id": "benchmark.explanatory_mechanism",
+      "requirement": "Match premium benchmark explanatory mechanism."
+    },
+    {
+      "id": "benchmark.annotation_richness",
+      "requirement": "Match premium benchmark annotation richness."
+    },
+    {
+      "id": "benchmark.visual_depth",
+      "requirement": "Match premium benchmark visual depth."
+    },
+    {
+      "id": "benchmark.hierarchy",
+      "requirement": "Match premium benchmark hierarchy."
+    },
+    {
+      "id": "benchmark.composition",
+      "requirement": "Match premium benchmark composition."
+    },
+    {
+      "id": "benchmark.story_specificity",
+      "requirement": "Match premium benchmark story specificity."
+    },
+    {
+      "id": "benchmark.differentiation",
+      "requirement": "Match premium benchmark differentiation."
+    },
+    {
+      "id": "quality.premium_textbook_editorial",
+      "requirement": "{\"premium_textbook_editorial\":true}"
+    },
+    {
+      "id": "quality.minimum_meaningful_components",
+      "requirement": "{\"minimum_meaningful_components\":12}"
+    },
+    {
+      "id": "quality.visible_text_policy",
+      "requirement": "{\"visible_text_policy\":\"exact_allowlist_only\"}"
+    },
+    {
+      "id": "quality.people_humanoids_faces_avatars_forbidden",
+      "requirement": "{\"people_humanoids_faces_avatars_forbidden\":true}"
+    },
+    {
+      "id": "quality.branding_forbidden",
+      "requirement": "{\"branding_forbidden\":true}"
+    },
+    {
+      "id": "quality.photorealism_forbidden",
+      "requirement": "{\"photorealism_forbidden\":true}"
+    },
+    {
+      "id": "quality.low_quality_fallback_forbidden",
+      "requirement": "{\"low_quality_fallback_forbidden\":true}"
+    },
+    {
+      "id": "quality.story_specificity_required",
+      "requirement": "{\"story_specificity_required\":true}"
+    },
+    {
+      "id": "quality.dimensional_mechanism_plate_required",
+      "requirement": "{\"dimensional_mechanism_plate_required\":true}"
+    },
+    {
+      "id": "quality.canvas_utilization_target",
+      "requirement": "{\"canvas_utilization_target\":\"80-90_percent\"}"
+    },
+    {
+      "id": "quality.major_visual_regions_target",
+      "requirement": "{\"major_visual_regions_target\":\"3-5\"}"
+    },
+    {
+      "id": "quality.minimum_internal_substages_in_dominant_mechanism",
+      "requirement": "{\"minimum_internal_substages_in_dominant_mechanism\":2}"
+    },
+    {
+      "id": "quality.minimum_secondary_relationships",
+      "requirement": "{\"minimum_secondary_relationships\":2}"
+    },
+    {
+      "id": "quality.generic_infographic_aesthetic_forbidden",
+      "requirement": "{\"generic_infographic_aesthetic_forbidden\":true}"
+    },
+    {
+      "id": "quality.decorative_geometry_forbidden",
+      "requirement": "{\"decorative_geometry_forbidden\":true}"
+    },
+    {
+      "id": "source.truth",
+      "requirement": "Preserve the source-supported meaning; conceptual geometry must not invent factual claims."
+    },
+    {
+      "id": "text.allowlist",
+      "requirement": "Show exactly these labels and no additional readable text: [\"Past\",\"Now\",\"Mesh\",\"Forecast\",\"History\"]"
+    },
+    {
+      "id": "text.no_pseudotext",
+      "requirement": "No invented glyphs or pseudo-writing. A mark is not evidence of a readable word."
+    },
+    {
+      "id": "text.no_placeholder_lines",
+      "requirement": "No document-placeholder lines or writing-like marks on blank surfaces."
+    },
+    {
+      "id": "layout.regions",
+      "requirement": "Three to five major regions, with distinct functional components."
+    },
+    {
+      "id": "layout.occupancy",
+      "requirement": "Use 80–90 percent useful canvas, preserving safe margins."
+    },
+    {
+      "id": "recipe.selected",
+      "requirement": "Use a partial spherical cutaway with exposed state alignment, fine and coarse spatial links and a spatial-update surface. The initial pair and later reuse pair arrive at distinct temporal entries to the same alignment interface. Predicted slices advance along an orbit while a subordinate historical reference collar remains separate."
+    },
+    {
+      "id": "component.c1",
+      "requirement": "A prior-state field slice supplies the earlier atmospheric state.; role past_state; region r1."
+    },
+    {
+      "id": "component.c2",
+      "requirement": "A present-state field slice supplies the current atmospheric state.; role present_state; region r1."
+    },
+    {
+      "id": "component.c3",
+      "requirement": "A surface-variable layer follows the spherical surface grid below the atmospheric shells.; role surface_field; region r2."
+    },
+    {
+      "id": "component.c4",
+      "requirement": "Atmospheric-level shells extend radially outside the surface layer in the cutaway.; role altitude_field; region r2."
+    },
+    {
+      "id": "component.c5",
+      "requirement": "An exposed state-alignment interface accepts an initial state pair or the later returned pair and aligns its fields to the spatial representation.; role state_alignment; region r2."
+    },
+    {
+      "id": "input.c5.from-c13",
+      "requirement": "Connect c13 to c5 at from-c13 using only rel3."
+    },
+    {
+      "id": "input.c5.from-c10",
+      "requirement": "Connect c10 to c5 at from-c10 using only rel15."
+    },
+    {
+      "id": "component.c6",
+      "requirement": "A fine mesh patch carries short spatial relationships inside the cutaway.; role fine_mesh; region r2."
+    },
+    {
+      "id": "input.c6.from-c5",
+      "requirement": "Connect c5 to c6 at from-c5 using only rel4."
+    },
+    {
+      "id": "component.c7",
+      "requirement": "A coarse mesh structure connects wider spatial regions of the same cutaway.; role coarse_mesh; region r2."
+    },
+    {
+      "id": "input.c7.from-c5",
+      "requirement": "Connect c5 to c7 at from-c5 using only rel10."
+    },
+    {
+      "id": "component.c8",
+      "requirement": "An exposed spatial-update interface combines the graph relationships into a predicted state.; role spatial_update; region r2."
+    },
+    {
+      "id": "input.c8.from-c6",
+      "requirement": "Connect c6 to c8 at from-c6 using only rel5."
+    },
+    {
+      "id": "input.c8.from-c7",
+      "requirement": "Connect c7 to c8 at from-c7 using only rel11."
+    },
+    {
+      "id": "component.c9",
+      "requirement": "A next-state field slice receives the first predicted atmosphere.; role predicted_state; region r4."
+    },
+    {
+      "id": "input.c9.from-c8",
+      "requirement": "Connect c8 to c9 at from-c8 using only rel6."
+    },
+    {
+      "id": "component.c10",
+      "requirement": "A state-pair reuse coupling retains the predecessor alongside the predicted state.; role reuse_pair; region r4."
+    },
+    {
+      "id": "input.c10.from-c9",
+      "requirement": "Connect c9 to c10 at from-c9 using only rel13."
+    },
+    {
+      "id": "input.c10.from-c2",
+      "requirement": "Connect c2 to c10 at from-c2 using only rel14."
+    },
+    {
+      "id": "component.c11",
+      "requirement": "A later forecast slice shows the result of another use of the same predictor.; role later_state; region r4."
+    },
+    {
+      "id": "input.c11.from-c8",
+      "requirement": "Connect c8 to c11 at from-c8 using only rel7."
+    },
+    {
+      "id": "component.c12",
+      "requirement": "A historical-reanalysis reference collar is attached to the learned spatial-update interface.; role training_reference; region r3."
+    },
+    {
+      "id": "component.c13",
+      "requirement": "An initial pair-assembly coupling retains the past and present states as distinct members of the first input pair.; role initial_pair; region r1."
+    },
+    {
+      "id": "input.c13.from-c1",
+      "requirement": "Connect c1 to c13 at from-c1 using only rel1."
+    },
+    {
+      "id": "input.c13.from-c2",
+      "requirement": "Connect c2 to c13 at from-c2 using only rel2."
+    },
+    {
+      "id": "relation.rel1",
+      "requirement": "artifact_flow between c1 and c13: Retain the earlier atmospheric state in the initial pair.; no implied return."
+    },
+    {
+      "id": "relation.rel2",
+      "requirement": "artifact_flow between c2 and c13: Retain the present atmospheric state beside its predecessor.; no implied return."
+    },
+    {
+      "id": "relation.rel3",
+      "requirement": "artifact_flow between c13 and c5: Send the initial state pair to the alignment interface.; no implied return."
+    },
+    {
+      "id": "relation.rel4",
+      "requirement": "artifact_flow between c5 and c6: Align atmospheric fields with local spatial graph relationships.; no implied return."
+    },
+    {
+      "id": "relation.rel5",
+      "requirement": "artifact_flow between c6 and c8: Supply local spatial information to the exposed updater.; no implied return."
+    },
+    {
+      "id": "relation.rel6",
+      "requirement": "artifact_flow between c8 and c9: Produce the next atmospheric state.; no implied return."
+    },
+    {
+      "id": "relation.rel7",
+      "requirement": "artifact_flow between c8 and c11: After reuse of the predictor, produce a later state slice.; no implied return."
+    },
+    {
+      "id": "relation.rel8",
+      "requirement": "constraint between c3 and c5: Surface fields are part of the same atmospheric state pair.; no implied return."
+    },
+    {
+      "id": "relation.rel9",
+      "requirement": "constraint between c4 and c5: Atmospheric-level fields are part of that same state pair.; no implied return."
+    },
+    {
+      "id": "relation.rel10",
+      "requirement": "artifact_flow between c5 and c7: Align the state with wider-scale graph relationships.; no implied return."
+    },
+    {
+      "id": "relation.rel11",
+      "requirement": "artifact_flow between c7 and c8: Supply coarse spatial relationships to the same updater.; no implied return."
+    },
+    {
+      "id": "relation.rel12",
+      "requirement": "conditioning between c12 and c8: Historical reanalysis supports the trained updater without being a new live observation.; no implied return."
+    },
+    {
+      "id": "relation.rel13",
+      "requirement": "artifact_flow between c9 and c10: Retain the prediction as the next pair member.; no implied return."
+    },
+    {
+      "id": "relation.rel14",
+      "requirement": "artifact_flow between c2 and c10: Retain the preceding state as the other member of the next pair.; no implied return."
+    },
+    {
+      "id": "relation.rel15",
+      "requirement": "feedback between c10 and c5: Return the updated pair to the same alignment interface for the next forecast step.; return The most recent prediction and its immediately preceding atmospheric state."
+    },
+    {
+      "id": "geometry.spherical-substages",
+      "requirement": "Expose state alignment and spatial updating within the partial spherical cutaway; fine and coarse links terminate at the same update surface. Atmospheric shells lie radially outside the surface-variable grid."
+    },
+    {
+      "id": "geometry.distinct-state-pair",
+      "requirement": "Past and present slices retain distinct keys in the initial pair. The later reuse coupling retains the predicted state and its predecessor with those temporal roles visible."
+    },
+    {
+      "id": "geometry.return-through-alignment",
+      "requirement": "The reuse conduit visibly ends on the returned-pair entry of the same alignment surface; it never bypasses alignment or points to a duplicate predictor."
+    },
+    {
+      "id": "geometry.temporal-not-extra-observations",
+      "requirement": "The initial-pair and returned-pair entries are alternative successive uses of the predictor, made clear by the ordered state slices. They are never depicted as simultaneously independent weather measurements."
+    },
+    {
+      "id": "geometry.training-reference-separate",
+      "requirement": "The historical-reanalysis collar attaches as a subordinate training reference, separate from every live-state conduit."
+    },
+    {
+      "id": "geometry.nonliteral-forecast",
+      "requirement": "Field slices and mesh remain abstract, without actual geography, weather numbers, legends or asserted forecast accuracy."
+    }
+  ]
+}
+
+Return only the illustration.
