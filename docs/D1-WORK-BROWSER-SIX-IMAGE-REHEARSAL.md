@@ -39,6 +39,8 @@ After all six:
 - read all six back from immutable exact-commit raw GitHub URLs;
 - verify byte counts, SHA-256 and Git blob SHA;
 - run deterministic D1 package/bundle validation;
+- retain the actual runtime, canonical reviews, raw/canonical identity, exact-commit readback, two-story interruption/resume and v3 set-review evidence described in `docs/D1-QUALIFICATION-EVIDENCE.md`;
+- freeze the evidence input records and preactivation quality-contract snapshot, then use the evidence-bound cloud-proof builder; boolean summaries or fixture results are insufficient;
 - emit daily-compiler-d1-cloud-proof-v2 only if every gate passes.
 
 ## Pass criteria
@@ -57,3 +59,4 @@ After all six:
 ## Failure rule
 
 Stop on the smallest irreducible platform blocker. Preserve all accepted_locked assets and do not redesign the control plane during the rehearsal.
+

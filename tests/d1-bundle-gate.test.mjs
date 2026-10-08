@@ -8,19 +8,13 @@ import {applyD1Activation} from '../image-studio/activation-apply.mjs';
 import {validateD1BundleImages} from '../image-studio/bundle-gate.mjs';
 import {buildD1WorkPorterReceipt,sha256,gitBlobSha} from '../work-porter/integrity.mjs';
 import {canonicalSha} from '../image-capsules/util.mjs';
-
-const cloudProof=()=>({schema_version:'daily-compiler-d1-cloud-proof-v2',result:'PASS',proof_id:'proof-2',
-  browser_orchestrator:{work_cloud_browser:true,authenticated_session:true,work_native_image_generation:false,work_subagent_image_generation:false},
-  story_chats:{fresh_regular_conversations:true,conversation_count:6,native_chatgpt_images:true,six_assets:true,acceptance_manifest_pass:true,prior_conversation_reuse:false},
-  handoff:{owner_transfer:false,local_file_transfer:false,archive_required:false,programmatic_cloud_download:true,exact_assets_preserved:true},
-  git_readback:{exact_commit_binary_download:true,all_sha256_match:true,all_git_blob_match:true,all_byte_counts_match:true},
-  cloud_only:true,owner_intervention:false,local_computer_used:false,prohibited_dependencies_used:false});
+import {makeD1QualificationFixture} from './fixtures/d1-qualification.mjs';
 
 async function fixture(){
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'d1-bundle-'));fs.mkdirSync(path.join(root,'contracts'),{recursive:true});fs.mkdirSync(path.join(root,'proof'),{recursive:true});
   fs.writeFileSync(path.join(root,'contracts/d1-image-contract.json'),fs.readFileSync('contracts/d1-image-contract.json'));
-  fs.writeFileSync(path.join(root,'proof/cloud.json'),JSON.stringify(cloudProof()));
-  applyD1Activation({repoRoot:root,proofPath:'proof/cloud.json',activatedAt:'2026-10-08T00:00:00Z'});
+  const qualification=makeD1QualificationFixture({root});
+  applyD1Activation({repoRoot:root,proofPath:qualification.proofPath,activatedAt:'2026-10-08T03:00:00Z'});
   const assets={},images=[];
   for(let i=0;i<6;i++){
     const id='asset-'+i,b=await sharp({create:{width:1200,height:630,channels:3,background:{r:230+i,g:240+i,b:245}}}).png().toBuffer();assets[id]=b;
@@ -47,3 +41,4 @@ async function fixture(){
 }
 test('bundle gate passes exact D1 v5 accepted bytes',async()=>{const {root,bundle}=await fixture();const r=validateD1BundleImages({bundle,repoRoot:root});assert.equal(r.result,'PASS',r.errors.join('\n'));});
 test('bundle gate fails on changed repository bytes',async()=>{const {root,bundle}=await fixture();const p=path.join(root,bundle.images[0].path);const b=fs.readFileSync(p);b[b.length-1]^=1;fs.writeFileSync(p,b);assert.equal(validateD1BundleImages({bundle,repoRoot:root}).result,'FAIL');});
+

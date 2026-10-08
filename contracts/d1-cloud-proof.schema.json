@@ -15,7 +15,8 @@
     "cloud_only",
     "owner_intervention",
     "local_computer_used",
-    "prohibited_dependencies_used"
+    "prohibited_dependencies_used",
+    "evidence"
   ],
   "properties": {
     "schema_version": {
@@ -143,6 +144,11 @@
     },
     "prohibited_dependencies_used": {
       "const": false
+    },
+    "evidence": {
+      "$ref": "d1-qualification-evidence.schema.json#/$defs/reference"
     }
-  }
+  },
+  "description": "Current qualification requires durable evidence; historical aggregate-only assertions do not qualify the full lane."
 }
+

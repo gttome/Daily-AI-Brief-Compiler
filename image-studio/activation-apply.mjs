@@ -11,7 +11,7 @@ export function applyD1Activation({repoRoot='.',proofPath,activatedAt=new Date()
   const proof=JSON.parse(fs.readFileSync(proofFull,'utf8'));
   if(contract.schema_version!==D1_CONTRACT||contract.strategy!==D1_STRATEGY) throw new Error('d1_contract_invalid');
   if(contract.activation_status!=='proof_required') throw new Error('d1_contract_not_proof_required');
-  const receipt=buildD1ActivationReceipt({proofPath,proof,activatedAt});
+  const receipt=buildD1ActivationReceipt({proofPath,proof,activatedAt,repoRoot});
   const receiptFull=path.resolve(repoRoot,receiptPath);
   fs.mkdirSync(path.dirname(receiptFull),{recursive:true});
   fs.writeFileSync(receiptFull,JSON.stringify(receipt,null,2)+'\n');
@@ -21,3 +21,4 @@ export function applyD1Activation({repoRoot='.',proofPath,activatedAt=new Date()
   if(verified.result!=='PASS') throw new Error('d1_activation_post_write:'+verified.errors.join(','));
   return {result:'PASS',activation_status:'active',activation_receipt_path:receiptPath,activation_receipt_sha256:active.activation_receipt_sha256};
 }
+
