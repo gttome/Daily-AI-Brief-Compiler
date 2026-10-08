@@ -22,7 +22,9 @@ export function makeD1RecipeFixture(){
 }
 export function syntheticRecipeReview(story,{sha='f'.repeat(64),context='ctx-'+'a'.repeat(64),at='2026-10-08T22:00:10Z',failure=null,conflict=false}={}){
  const criteria=deriveRecipeCriteria(story);
- return {schema_version:'daily-compiler-d1-recipe-review-v2',story_id:story.story_id,specification_sha256:story.specification_sha256,criteria_sha256:canonicalSha(criteria),final_sha256:sha,reviewer_context:context,reviewed_at:at,criteria:criteria.map(c=>({id:c.id,pass:c.id!==failure,location:'TEST_ONLY region '+c.id,observation:'TEST_ONLY observed synthetic evidence for '+c.id+'.',offending_text:null,missing_labels:[]})),specification_conflict:conflict,result:failure||conflict?'FAIL':'PASS'};
+ const values={'layout.occupancy':85,'layout.regions':4,'quality.minimum_internal_substages_in_dominant_mechanism':2,'quality.minimum_secondary_relationships':2,'basic.composition':true};
+ const observation=id=>Object.hasOwn(values,id)?JSON.stringify({value:values[id],observation:'TEST_ONLY synthetic observed value for '+id+'. No actual pixel inspection.'}):'TEST_ONLY observed synthetic evidence for '+id+'.';
+ return {schema_version:'daily-compiler-d1-recipe-review-v2',story_id:story.story_id,specification_sha256:story.specification_sha256,criteria_sha256:canonicalSha(criteria),final_sha256:sha,reviewer_context:context,reviewed_at:at,criteria:criteria.map(c=>({id:c.id,pass:c.id!==failure,location:'TEST_ONLY region '+c.id,observation:observation(c.id),offending_text:null,missing_labels:[]})),specification_conflict:conflict,result:failure||conflict?'FAIL':'PASS'};
 }
 
 export function syntheticResponse(review){return JSON.stringify({criteria:review.criteria,specification_conflict:review.specification_conflict,result:review.result});}

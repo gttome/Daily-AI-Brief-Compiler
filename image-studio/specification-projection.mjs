@@ -1,7 +1,8 @@
 // Pure, versioned single-story projections. No generation, scheduler or Git writes.
 import fs from 'node:fs';
 import {canonicalSha,sha256,hex} from '../image-capsules/util.mjs';
-import {BASIC_GATES,BENCHMARK_DIMENSIONS} from '../image-capsules/review-contract.mjs';
+import {BASIC_GATES,BENCHMARK_DIMENSIONS,REVIEW_SCHEMA,validateVisualReview} from '../image-capsules/review-contract.mjs';
+import {RECIPE_QUALITY_OBSERVATION_INSTRUCTIONS,parseRecipeQualityObservations} from './recipe-quality-observations.mjs';
 
 export const RECIPE_PROFILE=Object.freeze(JSON.parse(fs.readFileSync(new URL('../contracts/d1-image-recipe-profile-v2.json',import.meta.url),'utf8')));
 export const RECIPE_PROFILE_SHA=canonicalSha(RECIPE_PROFILE);
@@ -111,7 +112,7 @@ export function compileRecipeProjections(story){
  const reviewPrompt=['Inspect only the exact saved canonical image in this story conversation. Do not generate or edit.',
  'Judge every criterion against visible pixels. For each criterion return id, pass (boolean), location, observation, offending_text (null except actual unauthorized readable text) and missing_labels (array). Marks are not readable words; assess pseudotext and placeholder lines separately.',
  'Return only a JSON object containing criteria, specification_conflict, and result. Do not invent or emit story IDs, repository paths, context identities or hashes. The outer deterministic recorder adds the actual asset and protocol bindings; they never enter this conversation.',
- 'Do not invent additional topology or geometry. A missing/contradictory requirement is specification_conflict=true and FAIL, not permission to change the target. PASS requires all criteria true.',JSON.stringify(criteria,null,2)].join('\n\n');
+ 'Do not invent additional topology or geometry. A missing/contradictory requirement is specification_conflict=true and FAIL, not permission to change the target. PASS requires all criteria true.',JSON.stringify(criteria,null,2),RECIPE_QUALITY_OBSERVATION_INSTRUCTIONS].join('\n\n');
  const correctionPolicy='Correct only failed existing criterion IDs using their recorded observations. Preserve the complete selected construction, input bindings, relationships and allowlist. A specification conflict stops the case; it does not authorize a new requirement or generation.';
  return {prompt,projection,prompt_sha256:sha256(prompt),projection_sha256:canonicalSha(projection),review_prompt:reviewPrompt,review_prompt_sha256:sha256(reviewPrompt),correction_policy:correctionPolicy,correction_policy_sha256:sha256(correctionPolicy),criteria,criteria_sha256:canonicalSha(criteria)};
 }
@@ -138,8 +139,28 @@ export function validateRecipeReview(story,review,{finalSha256,contextId}={}){
   else if(c.pass)need(c.offending_text===null&&c.missing_labels.length===0,'passing_text_defects');
   else need(text(c.offending_text,160)||c.missing_labels.length>0,'actual_text_defect_required');
  }
+ parseRecipeQualityObservations(review);
  need(typeof review.specification_conflict==='boolean','specification_conflict_boolean');
  const result=review.criteria.every(c=>c.pass)&&!review.specification_conflict?'PASS':'FAIL';need(review.result===result,'derived_review_result');return result;
+}
+// Transcribe an already-bound pixel review into the unchanged v3 record. This
+// does not inspect pixels, invent OCR, or override the stricter recipe result.
+export function projectRecipeVisualReview(story,recipeReview,{attempt,canonicalIdentity}={}){
+ need(Number.isInteger(attempt)&&attempt>=1&&attempt<=4&&obj(canonicalIdentity)&&text(canonicalIdentity.path,1024)&&canonicalIdentity.path.trim()===canonicalIdentity.path&&hex(canonicalIdentity.sha256,64)&&hex(canonicalIdentity.git_blob_sha,40),'visual_projection_identity');
+ validateRecipeReview(story,recipeReview,{finalSha256:canonicalIdentity.sha256,contextId:recipeReview?.reviewer_context});
+ const criteria=new Map(recipeReview.criteria.map(c=>[c.id,c])),localized=c=>c.location+': '+c.observation;
+ const gates=(prefix,keys)=>Object.fromEntries(keys.map(k=>{const c=criteria.get(prefix+k);return [k,{verdict:c.pass?'PASS':'FAIL',observation:localized(c)}];}));
+ const labels=criteria.get('text.allowlist'),required=[...story.generation.visible_text_allowlist];
+ need(labels.offending_text===null||text(labels.offending_text,160),'visual_projection_actual_text');
+ const review={schema_version:REVIEW_SCHEMA,story_id:story.story_id,attempt,final_path:canonicalIdentity.path,final_sha256:canonicalIdentity.sha256,final_git_blob_sha:canonicalIdentity.git_blob_sha,packet_sha256:story.specification_sha256,prompt_sha256:compileRecipeProjections(story).prompt_sha256,reviewed_at:recipeReview.reviewed_at,reviewer_identity:recipeReview.reviewer_context,
+  basic_gates:gates('basic.',BASIC_GATES),
+  visible_text:{result:labels.pass?'PASS':'FAIL',required_labels:required,observed_required_labels:required.filter(label=>!labels.missing_labels.includes(label)),missing_labels:[...labels.missing_labels],extra_visible_text:labels.offending_text===null?[]:[labels.offending_text]},
+  meaningful_components:story.generation.meaningful_components_plan.map(c=>criteria.get('component.'+c.component_id)).filter(c=>c.pass).map(localized),
+  benchmark_dimensions:gates('benchmark.',BENCHMARK_DIMENSIONS),
+  generic_or_sparse:['quality.generic_infographic_aesthetic_forbidden','quality.minimum_meaningful_components','benchmark.meaningful_detail'].every(id=>criteria.get(id).pass)?false:null,
+  decorative_only:criteria.get('quality.decorative_geometry_forbidden').pass?false:null,result:'PASS'};
+ review.result=validateVisualReview(review,{packet:{envelope:{story_id:story.story_id,packet_sha256:story.specification_sha256},generation:story.generation},finalReceipt:{story_id:story.story_id,attempt,final:canonicalIdentity}}).length===0?'PASS':'FAIL';
+ return review;
 }
 export function compileRecipeCorrection(story,previousReview){
  validateRecipeReview(story,previousReview,{finalSha256:previousReview.final_sha256,contextId:previousReview.reviewer_context});

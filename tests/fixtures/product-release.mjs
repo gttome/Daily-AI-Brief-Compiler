@@ -6,7 +6,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {refreshSyntheticReview,syntheticRecipeReview,syntheticResponse} from './d1-recipe-v2.mjs';
-import {validateRecipeStory,compileRecipeProjections} from '../../image-studio/specification-projection.mjs';
+import {validateRecipeStory,compileRecipeProjections,projectRecipeVisualReview} from '../../image-studio/specification-projection.mjs';
+import {projectRecipeQualityProfile} from '../../image-studio/recipe-quality-observations.mjs';
 import {makeD1QualificationFixture} from './d1-qualification.mjs';
 import {makeMediaFixture,makeMediaEvidence} from './media.mjs';
 import {applyD1Activation} from '../../image-studio/activation-apply.mjs';
@@ -75,6 +76,11 @@ export function makeProductReleaseFixture(options={}){
     return {...validateRecipeStory(specification,sourceEvidence.stories[i]),specification_sha256:specification.specification_sha256,attempts:[{attempt:1,raw_sha256:session.attempts[0].raw_sha256,generation_text:projection.prompt,generation_text_sha256:projection.prompt_sha256,review_request_text:projection.review_prompt,review_request_sha256:projection.review_prompt_sha256,review:syntheticRecipeReview(specification,{sha:review.final_sha256,context:review.reviewer_identity,at:review.reviewed_at}),correction:null}]};
   });
   if(options.recipeV2===true)for(const row of reviews.recipe_reviews)for(const attempt of row.attempts){attempt.review_response_text=syntheticResponse(attempt.review);attempt.review_response_sha256=sha256(attempt.review_response_text);}
+  if(options.recipeV2===true)for(const [i,story] of dailyRequest.stories.entries()){
+    const recipe=reviews.recipe_reviews[i].attempts[0].review,prior=reviewImages[i];
+    const review=projectRecipeVisualReview(story,recipe,{attempt:prior.attempt,canonicalIdentity:{path:prior.final_path,sha256:prior.final_sha256,git_blob_sha:prior.final_git_blob_sha}});
+    reviewImages[i]=review;observations[i]=projectRecipeQualityProfile(story,recipe,review);
+  }
   if(options.recipeV2===true)for(const row of reviews.recipe_reviews)for(const [i,attempt] of row.attempts.entries())Object.assign(sessions.find(s=>s.story_id===row.story_id).attempts[i],{generation_prompt_sha256:attempt.generation_text_sha256,review_request_sha256:attempt.review_request_sha256,review_response_sha256:attempt.review_response_sha256});
   const write=(relative,value)=>{
     const file=path.join(root,relative);fs.mkdirSync(path.dirname(file),{recursive:true});
