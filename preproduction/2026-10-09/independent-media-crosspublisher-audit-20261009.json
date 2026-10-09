@@ -1,0 +1,126 @@
+{
+  "schema_version": "daily-compiler-preproduction-media-crosspublisher-audit-v1",
+  "edition_date": "2026-10-09",
+  "observation_local_date": "2026-10-09",
+  "scope": "ADDITIVE_CANDIDATE_ONLY_NOT_SELECTED_NOT_ADMITTED",
+  "based_on": {
+    "candidate_path": "preproduction/2026-10-09/media-candidate-intake.json",
+    "prior_independent_audit_path": "preproduction/2026-10-09/independent-media-source-audit-20261008.json",
+    "prior_evidence_head": "d13ed860b9229aa77ccd3a6b1725481670564586",
+    "ci_run": 37885332086,
+    "ci_status": "completed_success",
+    "ci_head": "d13ed860b9229aa77ccd3a6b1725481670564586"
+  },
+  "verification_method": "Read publisher-index and distributor episode pages and independently available podcast catalogs. Public web page/text observations ONLY: no actual playback, audio listening, video watching or exact media-byte review was performed. Duration entries are transcribed as displayed, not inferred from text length.",
+  "results": [
+    {
+      "candidate_id": "oct9-podcast-p1",
+      "publisher": "Reuters Econ World",
+      "title": "AI at work",
+      "publisher_url": "https://www.reuters.com/podcasts/ai-work-2026-10-07/",
+      "publisher_verified": true,
+      "published_utc": "2026-10-07T13:00:00Z",
+      "publisher_named_hosts": [
+        "Carmel Crimmins",
+        "Nela Richardson (ADP chief economist)"
+      ],
+      "transcript_present": true,
+      "syndication": [
+        {
+          "source": "Apple Podcasts",
+          "url": "https://podcasts.apple.com/nz/podcast/ai-at-work/id1746360591?i=1000793661295",
+          "runtime_display": "35 min",
+          "precision": "minute-rounded"
+        },
+        {
+          "source": "Podscan.fm",
+          "url": "https://www.podscan.fm/podcasts/reuters-econ-world/episodes/ai-at-work-2",
+          "runtime_display": "31 min",
+          "precision": "minute-rounded"
+        },
+        {
+          "source": "The Podcast App",
+          "url": "https://podcast.app/reuters-econ-world-p6055532",
+          "runtime_display": "36 min",
+          "precision": "minute-rounded"
+        }
+      ],
+      "observation": "Verified exact publisher identity, date and official transcript. Conflicting third-party runtime displays (31, 35 and 36 minutes) mean the true exact runtime has NOT been resolved; do not record 35:00 as exact or claim true audio playback.",
+      "actual_playback_verified": false,
+      "exact_duration_verified": false,
+      "status": "PUBLISHER_TRANSCRIPT_AND_AUDIO_DISTRIBUTION_CONFIRMED_DURATION_CONFLICT_ADMISSION_PENDING"
+    },
+    {
+      "candidate_id": "oct9-podcast-newer-alternative",
+      "publisher": "DoiT / AI Signal Daily",
+      "title": "GPT-6, Haiku, SynthID and Biohub Get Physical",
+      "publisher_index": "https://www.doit.com/ai-daily",
+      "distributor_episode": "https://www.buzzsprout.com/2614078/episodes/19928564",
+      "publisher_date_display": "October 8, 2026",
+      "distributor_date_display": "October 07, 2026",
+      "publisher_runtime_display": "13:15",
+      "distributor_runtime_display": "13:15",
+      "observations": [
+        "DoiT's own first-party AI Signal Daily index and full podcast index date the episode October 8 at 13:15.",
+        "Its exact linked Buzzsprout episode displays October 07 and 13:15 with named chapter timestamps and transcript.",
+        "The dating difference may reflect platform time zones but there is no verified timestamp establishing that cause. Do not relabel both sources as agreeing on the publication date."
+      ],
+      "actual_playback_verified": false,
+      "source_date_conflict_resolved": false,
+      "exact_display_runtime_corrobated": true,
+      "status": "DURATION_CORROBORATED_PLATFORM_DATE_CONFLICT_PENDING"
+    },
+    {
+      "candidate_id": "oct9-podcast-p3",
+      "publisher": "DoiT / AI Signal Daily",
+      "title": "OpenAI, Wikimedia, South Korea, Mistral: Agents Meet Liability",
+      "publisher_index": "https://www.doit.com/ai-daily",
+      "distributor_episode": "https://www.buzzsprout.com/2614078/episodes/19922945",
+      "publisher_date_display": "October 7, 2026",
+      "publisher_runtime_display": "11:50",
+      "publisher_identity_verified": true,
+      "actual_playback_verified": false,
+      "status": "PUBLISHER_METADATA_READY_PLAYBACK_EDITORIAL_PENDING"
+    },
+    {
+      "candidate_id": "oct9-podcast-p2",
+      "publisher": "Chain of Thought",
+      "source": "https://chainofthought.show/podcast/77-switching-models-shouldnt-mean-starting-over-walrus-protocols-kimberly-logan/",
+      "publisher_date_display": "October 7, 2026",
+      "publisher_runtime_display": "38 min",
+      "sponsorship_note": "Publisher explicitly identifies Walrus sponsorship; distinguish sponsor claims from independently proven outcomes.",
+      "actual_playback_verified": false,
+      "status": "PUBLISHER_METADATA_CONFIRMED_SPONSOR_AND_PLAYBACK_REVIEW_PENDING"
+    },
+    {
+      "candidate_id": "oct9-video-v1",
+      "publisher": "OpenAI",
+      "source": "https://www.youtube.com/watch?v=ZcDFZzsp3_Y",
+      "original_channel_playback_verified": false,
+      "precise_audio_visual_content_reviewed": false,
+      "status": "PRIOR_METADATA_ONLY_ADMISSION_PENDING"
+    },
+    {
+      "candidate_id": "oct9-video-v2",
+      "publisher": "OpenAI",
+      "source": "https://www.youtube.com/watch?v=FB6oCmrIj-Y",
+      "original_channel_playback_verified": false,
+      "precise_audio_visual_content_reviewed": false,
+      "status": "PRIOR_METADATA_ONLY_ADMISSION_PENDING"
+    }
+  ],
+  "implications": [
+    "Reuters episode exists in the original publisher on October 7 with transcript and named interview; it is no longer unconfirmed as a publisher page, but conflicting distributors leave runtime exactness unresolved.",
+    "The DoiT newer episode has equal 13:15 runtime at both its publisher and linked distributor, yet October 8 versus October 7 date conflict remains unresolved.",
+    "Reuters, Chain of Thought and DoiT represent three distinct publishers and permit editorial diversity selection after REAL playback and accurate runtime checks.",
+    "Two video candidates remain no stronger than metadata corroboration; content/playability and relation to the final selected six stories are not proven.",
+    "No selected videos, selected podcasts, image acceptance, production allocation, publisher deployment or release authorization is created by this evidence."
+  ],
+  "release_effects": {
+    "selected_media_count_change": 0,
+    "production_authorized": false,
+    "protected_main_modified": false,
+    "original_preproduction_image_case_modified": false,
+    "accepted_locked_pngs_modified": false
+  }
+}
