@@ -31,8 +31,8 @@ jobs:
         run: |
           test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = 'cdaf7939888c02f1876df1734d168af85f805dce'
           test "$(git ls-remote origin refs/heads/implementation/iteration-1-2-canonical-placeholder-20261009 | awk '{print $1}')" = '8e787fadba849c4d3663937eece5ab517a2a5a94'
-          git fetch --no-tags origin shadow/2026-10-08 shadow-pages-history
-          test "$(git rev-parse FETCH_HEAD)" = '68f75996a8a5ad038303f5eadb21878b71e10fe1'
+          git fetch --no-tags origin '+refs/heads/shadow/2026-10-08:refs/remotes/origin/shadow/2026-10-08' '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          test "$(git rev-parse refs/remotes/origin/shadow-pages-history)" = '68f75996a8a5ad038303f5eadb21878b71e10fe1'
           test "$(git rev-parse origin/shadow/2026-10-08)" = 'e636d34c1a1a7894a75d398a221fec46ab05ba6d'
           git worktree add --detach history 68f75996a8a5ad038303f5eadb21878b71e10fe1
           git worktree add --detach oct8 e636d34c1a1a7894a75d398a221fec46ab05ba6d
