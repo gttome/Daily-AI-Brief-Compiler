@@ -1,0 +1,91 @@
+name: One-time October 8 live-preservation preflight
+on:
+  push:
+    branches:
+      - 'proof/oct9-preservation-20261009-readonly'
+    paths:
+      - '.github/workflows/oct9-one-time-live-preservation.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Compare all 17 public October 8 objects to pinned Git bytes
+        run: |
+          python3 - <<'PY'
+          import concurrent.futures,datetime,hashlib,json,pathlib,struct,subprocess,sys,urllib.request
+          BASE="68f75996a8a5ad038303f5eadb21878b71e10fe1"
+          MAIN="b325cc1e80acb5306d1058dfd7ce36b3000a0424"
+          ROOT="https://gttome.github.io/Daily-AI-Brief-Compiler/"
+          story=["cisco-webex-agentic-collaboration","github-agent-scale-git-infrastructure","google-developer-knowledge-agent-skill","jump-trading-agentic-quant-research","realtor-realassist-agent-actions","windows-hybrid-intelligence-copilot"]
+          media=["site/videos/2026-10-08/agent-skills/index.html","site/videos/2026-10-08/general/index.html","site/podcasts/2026-10-08/ai-at-work/index.html","site/podcasts/2026-10-08/the-new-new-kingmakers-agents-developers-and-the-future-of-software-with-stephen-o-grady/index.html"]
+          PAGES=["site/briefs/2026-10-08/index.html"]+["site/stories/2026-10-08/"+s+"/index.html" for s in story]+media
+          IMAGES=["site/briefs/images/2026-10-08/dab-edition-2026-10-08-"+n+".png" for n in ("m01","m02","m10","m11","m12","m14")]
+          KNOWN={"m01":"dd1dca5333a5e156880f1b575ddae3ec1c42f1656d0be5e879f253903fe1633f","m02":"ecf91db50db09f70fd085391494d169dfacf1209f541edd3c690d5d49f46636a","m10":"f40573aa30dd243bbe0a2a2ff87a1ecad5650abac75391dcb80ca95f973768d0","m11":"d304fce97b1d2f7d821a50edf5db2d2afb2d9411d08c0bd9a9ea5ecaa19354b1","m12":"0dad7a6a1592cb28bd4ff7c0c686f1a08a92de62557c2559a8387f1bbfcebeb4","m14":"28b12f2a682f071bdba33fdcb4719afb193e8e7da7e760371f9668c32b1ef768"}
+          res={"schema":"oct9-preservation-preflight-v1","started_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"expected_main":MAIN,"expected_pages":BASE,"objects":[],"errors":[],"result":"FAIL"}
+          def cmd(*args):return subprocess.check_output(list(args),stderr=subprocess.STDOUT).decode().strip()
+          try:
+              res["observed_main"]=cmd("git","ls-remote","origin","refs/heads/main").split()[0]
+              if res["observed_main"]!=MAIN:raise RuntimeError("Restored main moved")
+              cmd("git","fetch","--no-tags","origin","shadow-pages-history")
+              res["observed_pages"]=cmd("git","rev-parse","FETCH_HEAD")
+              if res["observed_pages"]!=BASE:raise RuntimeError("Pages history moved")
+              tree=cmd("git","ls-tree","-r","--name-only",BASE,"--","site/briefs/2026-10-08","site/briefs/images/2026-10-08","site/stories/2026-10-08","site/videos/2026-10-08","site/podcasts/2026-10-08").splitlines()
+              if sorted(tree)!=sorted(PAGES+IMAGES):raise RuntimeError("Oct8 17-path set mismatch")
+              def check(path):
+                  base=subprocess.check_output(["git","show",BASE+":"+path])
+                  rel=path[5:]
+                  if rel.endswith("index.html"):rel=rel[:-10]
+                  url=ROOT+rel
+                  d={"path":path,"url":url,"baseline_bytes":len(base),"baseline_sha256":hashlib.sha256(base).hexdigest()}
+                  try:
+                      req=urllib.request.Request(url,headers={"User-Agent":"DailyCompilerOct9ReadOnlyPreservationAudit/1.0","Cache-Control":"no-cache"})
+                      with urllib.request.urlopen(req,timeout=30) as resp:
+                          live=resp.read()
+                          d["status"]=resp.status
+                      d["live_bytes"]=len(live)
+                      d["live_sha256"]=hashlib.sha256(live).hexdigest()
+                      d["exact_bytes"]=live==base
+                      if path.endswith(".png"):
+                          d["dimensions"]=list(struct.unpack(">II",live[16:24])) if live[:8]==bytes.fromhex("89504e470d0a1a0a") and len(live)>24 else []
+                          d["pinned_hash_matches"]=d["baseline_sha256"]==KNOWN[path[-7:-4]]
+                      d["pass"]=d["status"]==200 and d["exact_bytes"] and (not path.endswith(".png") or (d["dimensions"]==[1200,630] and d["pinned_hash_matches"]))
+                  except Exception as exc:
+                      d["error"]=str(exc)
+                      d["pass"]=False
+                  return d
+              with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:res["objects"]=list(pool.map(check,PAGES+IMAGES))
+              res["result"]="PASS" if len(res["objects"])==17 and all(x["pass"] for x in res["objects"]) else "FAIL"
+          except Exception as exc:res["errors"].append(str(exc))
+          finally:
+              res["finished_at_utc"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+              pathlib.Path("oct8-preservation-result.json").write_text(json.dumps(res,indent=2)+"\n")
+              for x in res["objects"]:print(("PASS " if x["pass"] else "FAIL ")+x["url"]+" "+str(x.get("status"))+" "+str(x.get("error","")))
+              print("PRESERVATION_RESULT",res["result"],"OBJECT_COUNT",len(res["objects"]),"ERRORS",res["errors"])
+          sys.exit(0 if res["result"]=="PASS" else 1)
+          PY
+      - name: Capture representative visual screenshots
+        if: always()
+        run: |
+          set +e
+          mkdir -p oct8-visual
+          CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          if [ -z "$CHROME" ]; then echo "No headless browser available; screenshot validation pending"; exit 0; fi
+          printf '%s\n' 'https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-08/' 'https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-08/google-developer-knowledge-agent-skill/' 'https://gttome.github.io/Daily-AI-Brief-Compiler/videos/2026-10-08/general/' 'https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-08/dab-edition-2026-10-08-m01.png' > oct8-visual/urls.txt
+          i=0
+          while IFS= read -r url; do i=$((i+1)); "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1440,1000 --virtual-time-budget=5000 --screenshot="$PWD/oct8-visual/0$i.png" "$url" >/dev/null 2>&1; done < oct8-visual/urls.txt
+          ls -l oct8-visual/
+      - name: Upload read-only audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oct8-preservation-one-time
+          path: |
+            oct8-preservation-result.json
+            oct8-visual/
+          retention-days: 7
