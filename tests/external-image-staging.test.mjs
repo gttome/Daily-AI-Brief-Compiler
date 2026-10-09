@@ -79,7 +79,7 @@ test('pixel bytes, source binding, stale index and prior lock tampering fail clo
   const bad=structuredClone(f.manifest);bad.images[0].visual_review.inspected_png_sha256='f'.repeat(64);
   assert.throws(()=>validateExternalImagePackage({...f,manifest:bad}),/saved_pixel/);
   const dup=structuredClone(f.manifest);dup.images[1].sha256=dup.images[0].sha256;
-  assert.throws(()=>validateExternalImagePackage({...f,manifest:dup}),/set_review_hash_or_duplication|committed_png/);
+  assert.throws(()=>validateExternalImagePackage({...f,manifest:dup}),/genuine_story_bound|set_review_hash_or_duplication|committed_png/);
   const broken=Buffer.from(fs.readFileSync(path.join(f.repoRoot,f.manifest.images[0].path)));broken[45]^=0xff;
   assert.throws(()=>checkRealPng(broken),/png_crc|png_inflate/);
   fs.writeFileSync(path.join(f.repoRoot,f.manifest.images[0].path),broken);
