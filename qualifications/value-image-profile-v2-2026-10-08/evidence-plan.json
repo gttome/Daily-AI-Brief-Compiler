@@ -34,14 +34,14 @@
     {
       "role": "request",
       "path": "qualifications/value-image-profile-v2-2026-10-08/request.json",
-      "commit": null,
+      "commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
       "sha256": "8fcf6822346127a6d23de6aec9e8e7a6123228653ee0c7db87c95cb9bcf821aa",
       "status": "PREPARED"
     },
     {
       "role": "source_evidence",
       "path": "qualifications/value-image-profile-v2-2026-10-08/source-evidence.json",
-      "commit": null,
+      "commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
       "sha256": "34bb46ed8c2c392f52fec5af79ae63fb0cfbd454c6304af1aaca36ebebdeec63",
       "status": "PREPARED"
     },
@@ -55,14 +55,14 @@
     {
       "role": "admission",
       "path": "qualifications/value-image-profile-v2-2026-10-08/admission.json",
-      "commit": null,
+      "commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
       "sha256": "90e061976efcf7ce72e8c8fd64bfcc63837a1775622dab145879347e8a74c375",
       "status": "PREPARED"
     },
     {
       "role": "quality_contract",
       "path": "qualifications/value-image-profile-v2-2026-10-08/quality-contract.json",
-      "commit": null,
+      "commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
       "sha256": "d4322cab56663299558c89ad5e18440e75651e23647f41696cbfae86c0c584d3",
       "status": "PREPARED"
     },
@@ -104,5 +104,31 @@
   ],
   "live_proof": "NOT_RUN",
   "generation_authorized": false,
-  "notes": "PLANNED state and empty attempt log are seeds only; actual event records, accepted canonical PNGs and fourteen-companion completion remain required."
+  "notes": "The prepared request/source/admission/quality records are pinned to S2. Published zero-generation initial state/log at B are preparation only, not the final state or attempt-log qualification companions. Actual events, six accepted PNGs, runtime, resume, set review and remaining fourteen-companion completion are still required.",
+  "preparation_bindings": {
+    "request_snapshot_commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
+    "engine_sha": "8b59462d47974bab4c1dc0b3525499540a595bac",
+    "initial_state": {
+      "path": "qualifications/value-image-profile-v2-2026-10-08/execution-state.json",
+      "commit": "e8db39e2f09ce7e03b93771f79d23d13fd2f061e",
+      "sha256": "8d2a0a0eacf9c9291880748ce1a4a647e385bc2dfbd2518c70cf6fd24d17f93e"
+    },
+    "initial_attempt_log": {
+      "path": "qualifications/value-image-profile-v2-2026-10-08/attempt-log.json",
+      "commit": "e8db39e2f09ce7e03b93771f79d23d13fd2f061e",
+      "sha256": "5e87ffaafc37e25fdd9b35a1f94849eced1e5da918c8f3e63ddab2171336f5bc"
+    },
+    "driver": {
+      "path": "qualifications/value-image-profile-v2-2026-10-08/runtime-preflight/driver-instructions.md",
+      "commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
+      "sha256": "43ce491129ab10119e51a8a480cb3e7974f7b9f07b76a4d90664dc1adb2b2d66",
+      "bytes": 25275
+    },
+    "task_prompt": {
+      "path": "qualifications/value-image-profile-v2-2026-10-08/task-prompt.txt",
+      "sha256": "fbe96c3cf7f2c4aaaa9d2ad05ec8fb652f2a199cf2d6df521d159f1bc391a809",
+      "bytes": 35504
+    },
+    "final_approval_scope_path": "qualifications/value-image-profile-v2-2026-10-08/approval-scope.json"
+  }
 }

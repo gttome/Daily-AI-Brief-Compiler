@@ -1,12 +1,7 @@
-# TEST_ONLY serializer roundtrip
+# Bound TEST_ONLY preflight
 
-These are initial code-integration seeds inside the existing successor branch. No native call, image, pixel review, accepted lock, live portfolio attempt or qualification PASS is permitted here.
+Use request/source snapshot **c714e4571e7db02ad0a10fbcab95cc4980f87b38**, actual bound zero-generation state/log commit **e8db39e2f09ce7e03b93771f79d23d13fd2f061e**, and protected engine **8b59462d47974bab4c1dc0b3525499540a595bac**. The final bindings are in ../preparation-bindings.json and preflight-seed.json. State files are already bound; do not reinitialize them.
 
-1. Publish this request, source evidence, empty attempt log and unbound initial state at actual seed commit S.
-2. Use the existing initializer/binding code to publish state bound to request S and its exact hashes at actual commit B. The state remains at zero generations with no accepted assets. Do not invent either SHA.
-3. In the first approved invocation of existing image task 6ac6cf14a9e88191af48c353b9bc1e11, fetch actual request S and current state/log B. Bind the actual protected engine, current branch head, actual invocation/context identity and event observation time.
-4. Invoke the pinned CLI to emit the prescribed INFRASTRUCTURE_BLOCKED / NOT_INVOKED event. Use the new stdio caller of publishD1EventBatch with the existing authenticated GitHub getHead/readFile/createCommit/updateRef tools.
-5. Retain actual helper/module/input/output hashes, emitted three-file batch, expected parent, immutable published commit and exact-byte readback. Repeating the identical event is a no-op; a stale parent must be rejected before a commit. Do not advance to a native call unless the real callable/publisher path succeeds.
-6. Resume the separately approved real successor request in its original namespace. This fixture remains isolated and is never cited as an accepted image or substituted for any of the fourteen proof companions.
+The fixture remains unrun: no native calls, pixels, accepted locks or qualification proof. Keep expected head, invocation/context identity and observation time unknown until the actual approved Work invocation observes them. Read the entire driver at c714e4571e7db02ad0a10fbcab95cc4980f87b38, SHA-256 43ce491129ab10119e51a8a480cb3e7974f7b9f07b76a4d90664dc1adb2b2d66, before execution. The actual current branch head can advance after B.
 
-The root implementation owner supplies the separate normalized-old validate-only input. It must report BLOCKED, four consumed attempts, zero accepted assets and zero permitted generations without persisting changes to the old case.
+Only the existing image task 6ac6cf14a9e88191af48c353b9bc1e11 may perform the approved real preflight. Run the exact historical validate-only first, then emit/publish the fixture's prescribed INFRASTRUCTURE_BLOCKED / NOT_INVOKED event through the actual serializer and existing writer. Retain zero-generation publication, immutable readback, identical-event no-op and stale-head rejection. This seed is not owner approval or live capability proof.
