@@ -1,10 +1,14 @@
 # Daily AI Brief — GitHub image-production prompt
 
-**Revision 4 — External app, mandatory text, article-fit infographics and six-image variation — 2026-10-09**
+**Revision 5 — Correct until all six pass; complete only after verified GitHub upload — 2026-10-09**
 
 This revision incorporates a review of the five latest dated Briefs available on the public site at review time: **October 3–7, 2026**, covering **30 article/image pairs**. The dated calibration notes at the end explain the changes. They are operator guidance, not extra story content for an image generator.
 
 Use my existing image application to retrieve the Daily AI Brief’s image assignments from GitHub, create the six required images, and return the finished PNGs to the correct GitHub staging location. Do not build or modify an application.
+
+**The executing session owns completion.** This includes the Work session when Work is used, without making Work a platform requirement. Create six valid images, review them, correct every failed image, and repeat generation/editing and review until all six pass every applicable individual and set-level requirement. Routine corrections and retries are already authorized; do not return the work to the owner to fix, ask whether to continue fixing ordinary defects, or stop after a preset number of quality attempts.
+
+**The session is not complete until all six passing PNGs have been successfully uploaded to the specified GitHub paths and verified from the exact committed bytes, with a complete matching manifest and genuine review evidence.** Six local files, previews, download links, a partial upload or a list of defects are not completion. Remain responsible for fixing upload/readback failures and finishing the six-image delivery. Publication is a separate Compiler step.
 
 **App-independent exchange:** the app reads this prompt and the GitHub job, creates and reviews six images, then copies the six PNG binaries and their manifest/review records back to GitHub. The Compiler does not require a ChatGPT Work chat, a fresh chat, a browser session, a particular image provider or a particular app architecture. Use the app's existing authorized capabilities. Clean story-only generator inputs are required for image quality; they do not mean a particular chat product must be used. The app finishes at the staged package. The Compiler handles any separately authorized publication.
 
@@ -125,17 +129,23 @@ Before generating each image, derive a nonempty exact visible-text allowlist fro
 - Instruct the generator to include all required labels exactly as specified and no other readable characters. A missing label list requires completing this preparation step; never use a blank list as a shortcut to textless generation.
 - Record the authority truthfully: the owner requires explanatory text, and the app prepared the exact source-supported wording. Do not claim that the owner separately reviewed or approved every label, the final image or a production release.
 
-**Text acceptance is part of image acceptance.** Inspect the exact persisted PNG pixels for all required labels, correct spelling, faithful meaning, readability, placement and absence of extra text or pseudo-writing. A textless image, a title-only image, or an image with missing, garbled, illegible or unsupported labels fails. OCR may assist, but it does not replace visual inspection. Preserve rejected candidates and record their defects within the bounded attempt policy.
+**Text acceptance is part of image acceptance.** Inspect the exact persisted PNG pixels for all required labels, correct spelling, faithful meaning, readability, placement and absence of extra text or pseudo-writing. A textless image, a title-only image, or an image with missing, garbled, illegible or unsupported labels fails. OCR may assist, but it does not replace visual inspection. Preserve rejected candidates, record their defects, correct them and repeat review until they pass.
 
 If a repository validator cannot represent this owner correction, report the specific contract conflict without falsifying metadata or reverting to textless images. Do not rewrite the immutable source job to make its original label fields appear different.
 
-Use the approved bounded attempt policy and record failed attempts honestly. Preserve successful work across interruptions. Do not regenerate accepted images because transport or validation failed. If an earlier candidate was accepted under the erroneous textless instruction, preserve its bytes and history but report it as noncompliant with this revised requirement; do not silently overwrite it or count it as a passing labeled image.
+Record failed attempts honestly and preserve successful work across interruptions. Do not regenerate an otherwise valid accepted image because transport or file-validation tooling failed. If a previously accepted candidate has a real quality defect, including missing mandatory text, preserve its original bytes and review history, create a corrected version with an explicit supersedes record, and review the new version. Never count the defective version as passing or silently overwrite its evidence.
 
-Unless the current authorized job specifies a tighter bound, use at most four generation attempts per story. A pre-generation validation failure or a transport/infrastructure failure without generation does not consume an image-generation attempt. Wrong-subject or cross-story contamination requires a fresh, clean story-only generation request; preserve the failed candidate as evidence rather than editing its foreign mechanism into the intended story. Do not assume historical repair epochs grant extra attempts.
+This owner instruction supersedes the earlier four-attempt cap, bounded-repair stopping rules and any legacy instruction to stop with fixable quality failures. There is no fixed quality-attempt limit for this assignment. Use targeted corrections that address observed defects; if the same defect persists, revise the source-grounded recipe or rendering approach rather than repeating an unchanged request. Wrong-subject or cross-story contamination requires a fresh, clean story-only generation request; preserve the failed output as evidence.
+
+Actual platform quotas, authentication failures, missing eligible source data, unavailable required tools or exhausted authorized service capacity must be reported truthfully as **BLOCKED_INCOMPLETE**, with exact remaining work and a durable resume checkpoint. Do not claim completion, fabricate a PASS, bypass access controls or purchase new services. Resume from that checkpoint when the blocker is resolved. An ordinary failed image review is work to correct, not a blocker that ends the assignment.
 
 Use the existing app's authorized generation, pixel-review and GitHub transfer capabilities. This prompt does not authorize new paid services, account changes, owner-assisted transfers or an app build. If a necessary capability is unavailable, report that capability precisely; do not describe absence of Work mode as a blocker.
 
 **6. Review article alignment before accepting an image**
+
+**Mandatory correction loop:** generate or edit → save the candidate → review its actual pixels against every requirement → record precise defects → correct the failed parts while preserving passing features → save a new version → re-review the whole image for defects and regressions. Continue until the image passes. Version any necessary label/specification correction with source support; do not weaken the requirement or change the article's facts to make a failed image pass.
+
+After all six pass individually, review the complete set. If the set fails article pairing, variation, readability or any other applicable requirement, identify the responsible images, correct them, re-review each changed image, and repeat the full set review. Preserve unaffected passing images. A later review may supersede an earlier acceptance if it identifies a real defect; preserve the old version and history and lock only the corrected passing version for final delivery.
 
 Inspect the actual saved PNG alongside that story's complete article, evidence map and exact label list. Review the pixels, not merely the generation prompt or a model's claim of success. Record a result and concrete evidence for each check:
 
@@ -148,11 +158,11 @@ Inspect the actual saved PNG alongside that story's complete article, evidence m
 - **File:** the actual PNG decodes and is exactly 1200 × 630 with the required encoding. A CSS display size, filename or prompt instruction is not evidence of its pixel dimensions. Complete any workflow-permitted export before review and hash locking; do not stretch artwork or crop off explanatory content to pass.
 - **Accessibility:** provide substantive alt text describing the actual mechanism, key components and important relationship, rather than repeating the headline. Store it with the image's review metadata; it does not substitute for visible labels.
 
-A semantic or text failure blocks acceptance regardless of visual polish or component count. Record a specific defect and correct the affected recipe within the bounded attempt policy. Do not mark all checklist items PASS from one overall aesthetic judgment.
+A semantic or text failure blocks acceptance regardless of visual polish or component count. Record a specific defect, correct the affected recipe and image, and repeat full review until all applicable checks pass. Do not mark all checklist items PASS from one overall aesthetic judgment.
 
 Perform a six-image comparison after the individual checks: verify the correct article/image pairing, six distinct files, and genuinely appropriate compositions. Distinct hashes prove different bytes, not different explanations. Do not introduce factual changes merely to make repeated subject matter look different.
 
-Compare the actual six images against the reserved signatures and variation targets. Record separate judgments for professional finish, meaningful detail, explanatory mechanism, annotations, visual depth where useful, hierarchy, composition, story specificity and differentiation. An overall score or successful PNG validation cannot stand in for those judgments. Repair later candidates before locking them; do not regenerate already accepted images because a later story repeats their layout.
+Compare the actual six images against the reserved signatures and variation targets. Record separate judgments for professional finish, meaningful detail, explanatory mechanism, annotations, visual depth where useful, hierarchy, composition, story specificity and differentiation. An overall score or successful PNG validation cannot stand in for those judgments. Prefer correcting the later candidate that repeats an already passing layout. If correcting an earlier image is necessary to satisfy the full set, create an explicitly versioned successor and preserve the prior accepted bytes and review history. Do not regenerate unaffected passing images.
 
 **7. Copy the actual PNG binaries back to GitHub**
 
@@ -180,21 +190,26 @@ Use its `external-compiler-image-package-v1` contract, including the original jo
 
 After committing the images, read their exact Git blobs back and independently download their raw bytes using the exact commit SHA. Verify PNG structure, required encoding, 1200 × 630 dimensions, byte counts, SHA-256 and Git blob SHA-1. Require six distinct image hashes.
 
-Visually inspect the exact persisted PNGs and perform the independent six-image set review. Only mark `accepted_locked` when the required saved-pixel checks genuinely pass. Never fabricate PASS results or overwrite accepted image bytes.
+Visually inspect the exact persisted PNGs and perform the independent six-image set review. Only mark `accepted_locked` when the required saved-pixel checks genuinely pass. Never fabricate PASS results or overwrite accepted evidence. A necessary quality correction is a new reviewed version/commit with the prior immutable commit, hash and supersedes relationship retained; it is not silent mutation of the old accepted bytes.
 
 Recheck each persisted PNG against its corresponding article and label specification after upload. Verify the committed manifest binds that exact file hash to the correct story and `expected_stage_path`; do not rely on filenames alone. If transport fails, retry transport of the accepted bytes rather than regenerating the image.
 
-**8. Finish with the staged package**
+**8. Finish only after all six passing images are verified in GitHub**
+
+Continue uploading and correcting transfer problems until GitHub contains all six final reviewed PNGs at their exact job paths. Read each file back from the final package commit and verify its bytes/hash, dimensions, story binding and matching review evidence. Confirm the committed manifest points to those same six final versions and that the set-review hashes match them. A successful upload of fewer than six images does not complete the session. Transfer retries reuse valid accepted bytes; an actual image defect requires the correction and re-review loop above.
+
+Report **STAGED_COMPLETE** only when all six individual reviews are PASS, the final set review is PASS, all six GitHub uploads and exact-commit readbacks are verified, and the complete manifest/review records are committed and bound to those same bytes. These are session-report labels, not invented manifest schema fields. Otherwise report **IN_PROGRESS** or **BLOCKED_INCOMPLETE**, never success or “done.”
 
 Return:
 
 - selected edition and job URL;
 - staging branch and exact commit URL;
-- links to all six PNGs and `manifest.json`;
+- links to all six PNGs at the final immutable commit and `manifest.json`;
 - per-image review and exact-byte verification results, including the visual thesis, distinctive anchors, evidence map, exact label list, saved-pixel alignment and text checks for each image;
-- remaining blockers and readiness for owner review.
+- a six-row completion table showing story ID, final image link, image SHA-256, individual review PASS and GitHub upload/readback verification, plus the final set-review result;
+- overall completion status and any genuine remaining blockers. A blocker means the assignment remains incomplete.
 
-Stop after staging and reporting. Do not merge, deploy, dispatch the replacement workflow, create an owner-approval record, change schedules or modify protected main, Pages history, edition content or existing image metadata. Publication requires separate explicit owner approval for the exact package.
+Finish after verified complete six-image staging and reporting. Do not merge, deploy, dispatch the replacement workflow, create an owner-approval record, change schedules or modify protected main, Pages history, edition content or existing image metadata. Publication requires separate explicit owner approval for the exact package. This publication boundary does not excuse unfinished image corrections or incomplete GitHub uploads.
 
 ---
 
@@ -235,4 +250,5 @@ These are visual-review findings and recommendations. Where a drawing is ambiguo
 Across the other reviewed illustrations, retain the useful white backgrounds, visible labels, color-traced relationships and varied compositions. Strengthen the exposed mechanism: citation maps should distinguish source support from guaranteed truth; database evaluation should compare observed state with expected outcomes and make mismatches visible; adoption and training stories should show the supported organizational process rather than decorative buildings or generic machinery. Repeated placeholder paragraphs, oversized enclosures and unlabeled internals should not be counted as explanatory detail.
 
 **Acceptance priority:** factual alignment and correct relationships; mandatory readable text; visible mechanism; visual quality; exact final bytes and packaging. Every requirement still has to pass. A beautiful image with the wrong mechanism is not acceptable.
+
 
