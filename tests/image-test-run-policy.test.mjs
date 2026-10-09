@@ -11,6 +11,7 @@ import {makeD1QualificationFixture} from './fixtures/d1-qualification.mjs';
 import {syntheticRecipeReview,syntheticResponse} from './fixtures/d1-recipe-v2.mjs';
 import {compileRecipeProjections,compileRecipeCorrection,projectRecipeVisualReview} from '../image-studio/specification-projection.mjs';
 import {validateD1ProofState} from '../image-studio/proof-state.mjs';
+import {D1_CONTINUOUS_QUALITY_MODE} from '../image-studio/independent-recovery.mjs';
 import {recordD1ImageEvent} from '../image-studio/runtime-records.mjs';
 import {assertD1Specifications} from '../image-studio/spec-admission.mjs';
 import {validateD1AcceptanceManifest} from '../image-studio/acceptance.mjs';
@@ -103,6 +104,7 @@ test('development never enters production state, admission, acceptance or a capp
 
 test('an explicit new preproduction run has a fresh six-case allowance while exhausted earlier runs remain immutable',()=>{
   const f=preproduction('TEST_ONLY-pre-run-one');
+  assert.equal(f.prepared.manifest.qualification_mode,D1_CONTINUOUS_QUALITY_MODE);
   for(let attempt=0;attempt<4;attempt++)failPreproductionAttempt(f);
   assert.equal(f.state.status,'BLOCKED');assert.equal(f.state.native_generations,4);
   const before={state:structuredClone(f.state),attemptLog:structuredClone(f.attemptLog),request:structuredClone(f.prepared.request)};

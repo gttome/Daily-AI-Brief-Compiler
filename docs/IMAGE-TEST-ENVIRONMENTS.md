@@ -124,3 +124,7 @@ or review event accepts those bytes. Output creation is exclusive: the CLI never
 replaces a saved result. It does not publish to GitHub, generate an image, create
 a task, arm a schedule or change an activation. The existing caller retains its
 actual runtime authorization and performs guarded persistence.
+
+## Quality cadence versus recovery qualification
+
+The six-image preproduction budget (six cases, four genuine attempts per case, 24 total) does **not** imply a one-hour pause between quality checks or accepted stories. Inspect/correct/lock each image immediately; proceed directly to the next story. The prospective v2 qualification separately validates persistence and actual Work-task recovery after all six image locks, with zero new images and immutable before/after readbacks. The image-quality process can finish before the recovery test. A qualified protected release still requires **both** complete quality evidence and real separate recovery evidence. Legacy v1 interruption proofs and currently frozen run evidence are preserved, not silently upgraded.

@@ -60,3 +60,7 @@ After all six:
 
 Stop on the smallest irreducible platform blocker. Preserve all accepted_locked assets and do not redesign the control plane during the rehearsal.
 
+
+## Prospective no-wait six-image qualification
+
+For a specifically bound v2 qualification, do **not** stop the story sequence after Story 2. Review each native output and canonical 1200x630 asset in that story's own clean Chat session, immediately persist its accepted lock, and proceed to the next story without an artificial scheduling delay. Preserve the complete six-story quality evidence and the final actual-pixel set review. Test task restart separately using the immutable final six-lock state/log and an independent real Work task invocation, zero additional native image generations, exact scheduler/run readbacks and no lock changes. Historical v1 rehearsals retain their required two-image interruption and must not be rewritten or called v2.
