@@ -33,7 +33,7 @@
     },
     "branch": {
       "type": "string",
-      "pattern": "^shadow/\\d{4}-\\d{2}-\\d{2}$"
+      "pattern": "^(?:shadow/\\d{4}-\\d{2}-\\d{2}|shadow/2026-10-09-owner-placeholder-20261009)$"
     },
     "state": {
       "enum": [
@@ -340,6 +340,66 @@
           ]
         }
       }
+    },
+    "one_time_recovery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "owner_authorized",
+        "owner_authorization_scope",
+        "historical_branch",
+        "historical_commit_sha",
+        "historical_execution_id",
+        "historical_terminal_state",
+        "historical_retryable",
+        "historical_accepted_images",
+        "historical_editorial_blob_sha",
+        "normal_schedule_unchanged",
+        "not_an_unattended_release_one_proof",
+        "image_generation_disabled"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "daily-compiler-oct9-owner-placeholder-exception-v1"
+        },
+        "owner_authorized": {
+          "const": true
+        },
+        "owner_authorization_scope": {
+          "const": "publish_oct9_placeholders_and_provide_external_work_handoff_only"
+        },
+        "historical_branch": {
+          "const": "shadow/2026-10-09"
+        },
+        "historical_commit_sha": {
+          "const": "246c04d1c9761c4bb9164ce34b63833fa277dc49"
+        },
+        "historical_execution_id": {
+          "const": "daily-compiler-shadow-2026-10-09-validation-r1"
+        },
+        "historical_terminal_state": {
+          "const": "SHADOW_FAILED"
+        },
+        "historical_retryable": {
+          "const": false
+        },
+        "historical_accepted_images": {
+          "const": 0
+        },
+        "historical_editorial_blob_sha": {
+          "const": "39489270a150dde168f43348ebce99d8a535e61f"
+        },
+        "normal_schedule_unchanged": {
+          "const": true
+        },
+        "not_an_unattended_release_one_proof": {
+          "const": true
+        },
+        "image_generation_disabled": {
+          "const": true
+        }
+      }
     }
   },
   "allOf": [
@@ -376,6 +436,35 @@
                 "const": "illustration-pending-1200x630-v1"
               }
             }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "branch": {
+            "const": "shadow/2026-10-09-owner-placeholder-20261009"
+          }
+        },
+        "required": [
+          "branch"
+        ]
+      },
+      "then": {
+        "required": [
+          "one_time_recovery"
+        ],
+        "properties": {
+          "edition_date": {
+            "const": "2026-10-09"
+          },
+          "state": {
+            "enum": [
+              "BUNDLE_READY",
+              "SHADOW_VERIFIED",
+              "SHADOW_FAILED"
+            ]
           }
         }
       }
