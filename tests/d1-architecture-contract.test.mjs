@@ -49,6 +49,18 @@ test('Work contract preserves clean story chats and exact-byte recovery',()=>{
   assert.equal(w.execution_boundary.inner_target_chat_selected,true);
   assert.equal(w.execution_boundary.inner_target_work_selected,false);
   assert.equal(w.execution_boundary.inner_chat_mode_is_required_not_violation,true);
+  // Contract regression only; browser capability still needs actual invocation evidence.
+  const prompt=fs.readFileSync('contracts/d1-work-browser-prompt.txt','utf8');
+  assert.match(prompt,/segments of at most 2000 UTF-8 bytes each/);
+  assert.match(prompt,/Preserve complete Unicode code points and every newline/);
+  assert.match(prompt,/After EVERY paste, independently read the COMPLETE actual editable composer value/);
+  assert.match(prompt,/Do not paste the next segment until that prefix check passes/);
+  assert.match(prompt,/Never press Enter during entry/);
+  assert.match(prompt,/Passing an individual prefix check is not permission to Send/);
+  assert.match(prompt,/one explicit, observed Send action, separate from non-submitting entry/);
+  assert.match(prompt,/Read back the COMPLETE actual sent user message/);
+  assert.match(prompt,/only when those operations are supported by the current returned documentation/);
+  assert.match(prompt,/Do not invent a browser API, mutate the DOM through an evaluation call/);
 });
 
 test('Dot is optional and not the reader-image path owner',()=>{
