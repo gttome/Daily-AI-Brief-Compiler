@@ -1,3 +1,4 @@
+import {allowedPendingEditionBranch,isAuthorizedOct9Recovery} from '../compiler/oct9-owner-exception.mjs';
 // Compiler-only, deterministic handoff generation. No image-generation or scheduling.
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -32,7 +33,7 @@ function validateInput({bundle,bundleBytes,state,sourceCommit,liveReceipt}){
     bundle.image_representation?.width!==1200||bundle.image_representation?.height!==630||
     bundle.image_system)fail('not_an_honest_placeholder_bundle');
   if(state?.state!=='SHADOW_VERIFIED'||state.stage!=='VERIFY'||
-    state.edition_date!==date||state.branch!=='shadow/'+date||
+    state.edition_date!==date||!allowedPendingEditionBranch({state,bundle})||
     state.images?.mode!=='images_pending'||state.images?.accepted?.length!==0||
     state.images?.placeholder_id!=='illustration-pending-1200x630-v1'||
     state.bundle?.digest!==hash(bundleBytes)||state.preview?.bundle_digest!==hash(bundleBytes)||
@@ -87,7 +88,9 @@ export function buildExternalImageJob({bundleBytes,state,sourceCommit,liveReceip
     lifecycle:'PUBLISHED_PENDING',
     accepted_images:0,
     source:{
-      branch:'shadow/'+date,
+      branch:state.branch,
+      one_time_owner_recovery:isAuthorizedOct9Recovery({state,bundle}),
+      unattended_schedule_proven:!isAuthorizedOct9Recovery({state,bundle}),
       commit_sha:sourceCommit,
       bundle_path:'shadow-runs/'+date+'/edition-bundle.json',
       bundle_sha256:sourceBundleSha,
