@@ -1,0 +1,162 @@
+{
+  "schema_version": "daily-compiler-preproduction-independent-editorial-source-audit-v1",
+  "edition_date": "2026-10-09",
+  "scope": "SOURCE_FACT_VERIFICATION_ONLY_NO_SELECTION_NO_EDITION_ALLOCATION_NO_IMAGE_GENERATION",
+  "observed_utc": "2026-10-09T07:07:29.151Z",
+  "reference": {
+    "protected_main": "3a1e9cbbb781931ff1123273f21b7595ba110a66",
+    "editorial_path": "preproduction/2026-10-09/editorial-intake.json",
+    "editorial_blob": "f3da8dca26da96416db059041f5604f595cd30ec",
+    "candidate_branch_before": "c82d5b653f7cdccb9cb6919fe0eb10a1d1169a0c",
+    "qualification_branch": "qualification/preproduction-oct9-transport-20261009t0110z"
+  },
+  "verification_method": "Independent direct read of source-publisher pages via public web; only publication metadata, explicit source-supported mechanisms, corrections and deduplication. No publication, source freshness after current observation, article-byte capture or image readiness inferred.",
+  "results": [
+    {
+      "candidate_id": "oct9-c01",
+      "category": "Technical AI Engineering",
+      "source_url": "https://developers.googleblog.com/en/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/",
+      "publisher": "Google Developers",
+      "source_date": "2026-10-08",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "AQuA runs outside the agent request path in the Google Cloud project, samples recent traces, reviews against a checklist, clusters similar failures, verifies clusters with complete transcripts, and can diagnose against a deployment-bound source snapshot. It does not autonomously patch code.",
+      "caveats": [
+        "Do not imply that AQuA intercepts live production requests or automatically applies fixes.",
+        "No independent deployment/pixel proof is part of this audit."
+      ],
+      "source_status": "SOURCE_VERIFIED_CANDIDATE"
+    },
+    {
+      "candidate_id": "oct9-c02",
+      "category": "Technical AI Engineering",
+      "source_url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+      "publisher": "GitHub",
+      "source_date": "2026-10-07",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "Copilot local sandboxing is GA for Copilot CLI, Copilot app and VS Code Agent Host, with developer/org-defined tool access policy enforced through Microsoft eXecution Container native operating system controls for filesystem, network and credential access.",
+      "caveats": [
+        "This is local agent tool isolation, not a claim that model weights or reasoning are sandboxed.",
+        "Do not present it as cloud-only."
+      ],
+      "source_status": "SOURCE_VERIFIED_CANDIDATE"
+    },
+    {
+      "candidate_id": "oct9-c03",
+      "category": "Applied Generative AI for Knowledge Workers",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/10/08/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams/",
+      "publisher": "Microsoft",
+      "source_date": "2026-10-08",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "Dynamics CRM data and actions surface in Microsoft Copilot and Teams through skills; sales/service staff can view account insights and draft response or proposed updates, with review and consent/readiness checks; sales and service agents handle defined processes with human judgment/approval handoffs.",
+      "caveats": [
+        "Cowork skills generally available, Autopilot private preview, Code Frontier Program, Teams CRM flow public preview; do not collapse rollout statuses into GA.",
+        "No claim that all 30 skills or agent actions are generally available across all surfaces."
+      ],
+      "source_status": "SOURCE_VERIFIED_CANDIDATE"
+    },
+    {
+      "candidate_id": "oct9-c04",
+      "category": "Applied Generative AI for Knowledge Workers",
+      "source_url": "https://openai.com/index/gpt-6-for-everyone/",
+      "publisher": "OpenAI",
+      "source_date": "2026-10-07",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "GPT-6 Intelligent UI streams native interactive components such as controls, forms, charts, diagrams and calculators into chat as a context-dependent response; a UI compiler renders components progressively.",
+      "caveats": [
+        "Do not imply every response is interactive or that UI controls inherently execute third-party business actions.",
+        "Published October 7; verify current availability and rollout when authoring."
+      ],
+      "source_status": "SOURCE_VERIFIED_CANDIDATE"
+    },
+    {
+      "candidate_id": "oct9-c05",
+      "category": "Agents for Everyone",
+      "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+      "publisher": "Google Cloud",
+      "source_date": "2026-10-08",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "agent_skills_candidate": true,
+      "agent_skills_source_verification": "Google's Oct 8 article explicitly defines skills as reusable instruction/knowledge/workflow modules, describes a shared company skills registry and personal skills, and names operational reporting skills integrated with BigQuery and Knowledge Catalog that build/save a grounded query and later execute saved reports on demand. This is a real reusable skills mechanism rather than an unsupported generic agent mention.",
+      "source_supported_mechanism": "Business and organizational context plus a selected reusable skill feed an agent, governed connectors and reports; the reporting skill uses catalog-grounded schema to form a saved query that can be rerun without an additional model call.",
+      "caveats": [
+        "Keep vendor-announced capabilities distinct from independent efficacy tests.",
+        "Differentiate tools registry from skills registry; generated dashboards are not proof of governed approval flows.",
+        "One Agent Skills story total across final six."
+      ],
+      "source_status": "AGENT_SKILLS_MECHANISM_SOURCE_VERIFIED_CANDIDATE"
+    },
+    {
+      "candidate_id": "oct9-c06",
+      "category": "Agents for Everyone",
+      "source_url": "https://docs.glean.com/release-notes/releases/2026-10-07-october-release",
+      "publisher": "Glean",
+      "source_date": "2026-10-07",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "Admin enables Claude Haiku 5.5 in Glean, after which it becomes selectable as the assistant or agent model; this is a governed model-choice rollout, not an autonomous cross-app business-workflow example.",
+      "caveats": [
+        "Source itself discloses possible usage-based pricing.",
+        "Original source supports model selection but is weak for the Agents-for-Everyone application-value focus.",
+        "Do not confuse release-note last-update Oct 8 with Oct 7 edition heading."
+      ],
+      "source_status": "SOURCE_VERIFIED_BUT_EDITORIAL_RELEVANCE_WEAK"
+    },
+    {
+      "candidate_id": "oct9-a01",
+      "category": "Agents for Everyone",
+      "source_url": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/",
+      "publisher": "Google Cloud",
+      "source_date": "2026-10-08",
+      "source_accessible": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "SMB use cases and benefits of the same Gemini agent announced in candidate c05.",
+      "caveats": [
+        "Source explicitly points to the same Gemini agent announcement; high duplicate-event risk with c05.",
+        "Do not select both without independently differentiated deployment facts/mechanism."
+      ],
+      "source_status": "PUBLISHER_VERIFIED_BUT_DUPLICATE_LAUNCH_ALTERNATE"
+    },
+    {
+      "candidate_id": "oct9-a02",
+      "category": "Technical AI Engineering",
+      "input_url": "https://devblogs.microsoft.com/azure-sdk/bring-agentic-reasoning-to-python-function-apps-with-azure-functions-agent-bindings-preview/",
+      "correct_publisher_url": "https://devblogs.microsoft.com/azure-sdk/azure-functions-agent-binding/",
+      "publisher": "Microsoft Azure SDK Blog",
+      "source_date": "2026-10-06",
+      "source_accessible_at_input_url": false,
+      "canonical_alternative_verified": true,
+      "source_facts_supported": true,
+      "source_supported_mechanism": "Preview Python Azure Functions Agent bindings inject a Microsoft Agent Framework Agent into a Python handler while deterministic code controls trigger, validation, provided context, invocation and output. Durable Functions can replay-safe schedule bounded Agent calls; Python 3.13+ and Microsoft Agent Framework provider are required.",
+      "caveats": [
+        "Replace the non-resolving intake URL before any later use; do not claim an Oct 7 publish date.",
+        "Preview status, provider/Python prerequisites and deterministic application control are essential.",
+        "Older than primary Oct 8 candidates, therefore freshness review required."
+      ],
+      "source_status": "CORRECTED_OFFICIAL_URL_SOURCE_VERIFIED_ALTERNATE_DATE_2026_10_06"
+    }
+  ],
+  "audit_summary": {
+    "primary_candidates_source_verified": 6,
+    "source_verified_primary_with_relevance_caveat": 1,
+    "agent_skills_mechanism_supported_by_exact_official_explanation": true,
+    "alternate_duplicate_warning": true,
+    "incorrect_original_alternate_url_identified": true,
+    "correct_alternate_published_date": "2026-10-06",
+    "candidate_selection_count": 0,
+    "selected_stories": [],
+    "quality_approved_images": 0
+  },
+  "release_effects": {
+    "editorial_evidence_only": true,
+    "production_allocation_created": false,
+    "release_engine_promoted": false,
+    "protected_main_modified": false,
+    "qualification_attempts_modified": false,
+    "selected_media_changed": false
+  }
+}
