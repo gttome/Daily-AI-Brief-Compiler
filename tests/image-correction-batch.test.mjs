@@ -73,6 +73,44 @@ test('handoff arms same Work task after readiness with exact edition and hourly 
   assert.equal(h.automation_update.schedule,'BEGIN:VEVENT\nDTSTART:20261009T010000Z\nEND:VEVENT');
   assert.equal(h.scheduler_readback_verified,false);
 });
+test('serialized handoff time meets exact fractional input bounds and matches due_at',async t=>{
+  // Parse input fractions independently as integer nanoseconds, without losing
+  // their submillisecond tail through Date.parse.
+  const inputNanoseconds=value=>{
+    const parts=/^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(?:\.(\d{1,9}))?(Z|[+-]\d{2}:\d{2})$/.exec(value);
+    assert.ok(parts,value);
+    return BigInt(Date.parse(parts[1]+parts[3]))*1_000_000n+BigInt((parts[2]??'').padEnd(9,'0'));
+  };
+  const cases=[
+    {name:'whole second',lastRunAt:'2026-10-09T00:00:00Z',expected:'2026-10-09T01:00:00.000Z'},
+    {name:'zero fractional tail',lastRunAt:'2026-10-09T00:00:00.000000Z',expected:'2026-10-09T01:00:00.000Z'},
+    {name:'millisecond last run',lastRunAt:'2026-10-09T00:00:00.927Z',expected:'2026-10-09T01:00:01.000Z'},
+    {name:'actual microsecond last run',lastRunAt:'2026-10-09T02:03:17.927968Z',expected:'2026-10-09T03:03:18.000Z'},
+    {name:'submillisecond last run',lastRunAt:'2026-10-09T00:00:00.000123Z',expected:'2026-10-09T01:00:01.000Z'},
+    {name:'offset submillisecond last run',lastRunAt:'2026-10-08T19:00:00.000123-05:00',expected:'2026-10-09T01:00:01.000Z'},
+    {name:'submillisecond handling without last run',now:'2026-10-09T00:02:00.000123Z',expected:'2026-10-09T00:03:01.000Z'},
+    {name:'fractional handling dominates last run',now:'2026-10-09T01:01:00.927968Z',lastRunAt:'2026-10-09T00:00:00.000123Z',expected:'2026-10-09T01:02:01.000Z'},
+    {name:'fractional hourly bound dominates whole-second handling',now:'2026-10-09T00:59:00Z',lastRunAt:'2026-10-09T00:00:00.000123Z',expected:'2026-10-09T01:00:01.000Z'},
+    {name:'roll over UTC day',now:'2026-10-09T23:58:59.999999Z',expected:'2026-10-10T00:00:00.000Z'},
+    {name:'nonzero precision beyond microseconds',lastRunAt:'2026-10-09T00:00:00.000000001Z',expected:'2026-10-09T01:00:01.000Z'}
+  ];
+  for(const {name,expected,...times} of cases) await t.test(name,()=>{
+    const input={...handoff,...times},before=structuredClone(input),h=buildImageLaneHandoff(input);
+    const stamp=/^BEGIN:VEVENT\nDTSTART:(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z\nEND:VEVENT$/.exec(h.automation_update.schedule);
+    assert.ok(stamp,h.automation_update.schedule);
+    const actualMs=Date.UTC(Number(stamp[1]),Number(stamp[2])-1,...stamp.slice(3).map(Number));
+    const actual=BigInt(actualMs)*1_000_000n;
+    assert.equal(new Date(actualMs).toISOString(),h.due_at);
+    assert.equal(h.due_at,expected);
+    const bounds=[inputNanoseconds(input.now)+60_000_000_000n];
+    if(input.lastRunAt) bounds.push(inputNanoseconds(input.lastRunAt)+3_600_000_000_000n);
+    for(const bound of bounds) assert.ok(actual>=bound,'serialized DTSTART precedes a true minimum');
+    const minimum=bounds.reduce((a,b)=>a>b?a:b);
+    assert.ok(actual-minimum<1_000_000_000n,'rounding adds less than one second');
+    assert.equal(h.automation_update.jawbone_id,IMAGE_TASK_ID);
+    assert.deepEqual(input,before);
+  });
+});
 test('verified identical handoff does not reschedule; unverified or changed handoff does',()=>{
   const h=buildImageLaneHandoff(handoff);
   assert.equal(buildImageLaneHandoff({...handoff,previous:h}).action,'ARM_EXISTING_TASK');
