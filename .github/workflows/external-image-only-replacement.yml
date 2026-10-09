@@ -1,0 +1,223 @@
+name: external-image-only-replacement
+# Manual-only owner-approved workflow: no schedule or external image-generation dependency.
+on:
+  workflow_dispatch:
+    inputs:
+      edition_date:
+        description: Eligible published placeholder edition date
+        required: true
+        type: string
+      package_pr_number:
+        description: Protected and already merged approved package PR
+        required: true
+        type: string
+      package_pr_head_sha:
+        description: Exact successful PR validation SHA
+        required: true
+        type: string
+      package_main_merge_sha:
+        description: Exact protected-main package merge SHA
+        required: true
+        type: string
+      expected_pages_history_head:
+        description: Exact immutable Pages history SHA
+        required: true
+        type: string
+permissions:
+  contents: write
+  actions: read
+  pull-requests: read
+  pages: write
+  id-token: write
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+jobs:
+  image-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TARGET_DATE: ${{ inputs.edition_date }}
+      PACKAGE_PR: ${{ inputs.package_pr_number }}
+      PACKAGE_PR_HEAD: ${{ inputs.package_pr_head_sha }}
+      PACKAGE_MERGE_HEAD: ${{ inputs.package_main_merge_sha }}
+      HISTORY_HEAD: ${{ inputs.expected_pages_history_head }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Require protected exact-head PR/CI and active no-bypass ruleset
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$TARGET_DATE" =~ ^20[0-9]{2}-[0-9]{2}-[0-9]{2}$ ]] && [[ "$TARGET_DATE" > "2026-10-08" ]]
+          [[ "$PACKAGE_PR" =~ ^[1-9][0-9]*$ ]]
+          [[ "$PACKAGE_PR_HEAD" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$PACKAGE_MERGE_HEAD" =~ ^[a-f0-9]{40}$ ]]
+          [[ "$HISTORY_HEAD" =~ ^[a-f0-9]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$PACKAGE_MERGE_HEAD"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$PACKAGE_MERGE_HEAD"
+          gh api "repos/$GITHUB_REPOSITORY/rulesets/24610983" |
+            jq -e '.enforcement=="active" and (.bypass_actors|length)==0' >/dev/null
+          gh api "repos/$GITHUB_REPOSITORY/pulls/$PACKAGE_PR" |
+            jq -e --arg merge "$PACKAGE_MERGE_HEAD" --arg head "$PACKAGE_PR_HEAD" \
+              '.merged_at != null and .base.ref=="main" and .merge_commit_sha==$merge and .head.sha==$head' >/dev/null
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?head_sha=$PACKAGE_PR_HEAD&event=pull_request&per_page=100" |
+            jq -e --arg sha "$PACKAGE_PR_HEAD" \
+              '.workflow_runs|any(.head_sha==$sha and .event=="pull_request" and .name=="compiler-validation" and .conclusion=="success")' >/dev/null
+      - name: Bind immutable published job, source execution and exact history HEAD
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          test "$(git rev-parse refs/remotes/origin/shadow-pages-history)" = "$HISTORY_HEAD"
+          git worktree add --detach history "$HISTORY_HEAD"
+          test -s "history/site/image-jobs/$TARGET_DATE/job.json"
+          test -s history/site/image-jobs/index.json
+          SOURCE_SHA="$(node -e "const j=require('./history/site/image-jobs/$TARGET_DATE/job.json');console.log(j.source.commit_sha)")"
+          [[ "$SOURCE_SHA" =~ ^[a-f0-9]{40}$ ]]
+          git fetch origin "+refs/heads/shadow/$TARGET_DATE:refs/remotes/origin/shadow/$TARGET_DATE"
+          git cat-file -e "$SOURCE_SHA^{commit}"
+          git merge-base --is-ancestor "$SOURCE_SHA" "refs/remotes/origin/shadow/$TARGET_DATE"
+          git worktree add --detach original "$SOURCE_SHA"
+          test -s "original/shadow-runs/$TARGET_DATE/edition-bundle.json"
+          test -s "original/shadow-runs/$TARGET_DATE/compiler-state.json"
+          test -s "external-image-packages/$TARGET_DATE/manifest.json"
+          test -s "external-image-packages/$TARGET_DATE/owner-release-approval.json"
+      - name: Explicit owner GO and unmodified original source/manifest binding
+        run: |
+          mkdir -p build/evidence
+          node scripts/check-external-image-release-gates.mjs \
+            "history/site/image-jobs/$TARGET_DATE/job.json" history/site/image-jobs/index.json \
+            "external-image-packages/$TARGET_DATE/manifest.json" \
+            "external-image-packages/$TARGET_DATE/owner-release-approval.json" \
+            build/evidence/owner-go.json
+      - name: Verify six real Git PNG bytes and exact immutable remote commit readback
+        run: |
+          node scripts/stage-external-image-package.mjs \
+            "history/site/image-jobs/$TARGET_DATE/job.json" \
+            "external-image-packages/$TARGET_DATE/manifest.json" . \
+            build/evidence/exact-binary-staging.json
+      - name: Verify original seven placeholder pages and all 17 Oct 8 historical objects live
+        run: |
+          node scripts/verify-external-image-original-live.mjs \
+            "history/site/image-jobs/$TARGET_DATE/job.json" history/site \
+            build/evidence/original-public-pages.json
+      - name: Stage only exact six images and edition/story HTML, no editorial recompile
+        run: |
+          node scripts/prepare-external-image-replacement.mjs \
+            "history/site/image-jobs/$TARGET_DATE/job.json" \
+            "original/shadow-runs/$TARGET_DATE/edition-bundle.json" \
+            "original/shadow-runs/$TARGET_DATE/compiler-state.json" \
+            "external-image-packages/$TARGET_DATE/manifest.json" \
+            build/evidence/exact-binary-staging.json \
+            history/site build/patched . "$HISTORY_HEAD" \
+            build/evidence/only-image-paths-prepared.json
+      - name: Block races with protected main or Pages-history and require real browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$BROWSER"
+          echo "CHROME_BINARY=$BROWSER" >> "$GITHUB_ENV"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$PACKAGE_MERGE_HEAD"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/patched
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Independently verify changed pages/PNGs, unchanged controls and Oct 8 live SHA-256
+        run: |
+          node scripts/verify-external-image-live.mjs \
+            build/evidence/only-image-paths-prepared.json \
+            build/patched history/site build/evidence/live-postdeploy.json
+      - name: Real desktop and mobile browser screenshots and image-loaded DOM on seven pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/evidence/browser
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const d=process.env.TARGET_DATE;
+          const job=JSON.parse(fs.readFileSync('history/site/image-jobs/'+d+'/job.json','utf8'));
+          const base='https://gttome.github.io/Daily-AI-Brief-Compiler/';
+          const routes=['briefs/'+d+'/',...job.stories.map(s=>{
+            if(!s.permanent_url.startsWith(base+'stories/'+d+'/'))throw Error('unexpected route');
+            return s.permanent_url.slice(base.length);
+          })];
+          if(new Set(routes).size!==7)throw Error('seven distinct routes required');
+          fs.writeFileSync('build/evidence/browser/routes.txt',routes.join('\n')+'\n');
+          NODE
+          n=0
+          while IFS= read -r route; do
+            n=$((n+1))
+            url="https://gttome.github.io/Daily-AI-Brief-Compiler/$route"
+            for viewport in desktop mobile; do
+              if [ "$viewport" = desktop ]; then size=1440,1000; else size=390,844; fi
+              "$CHROME_BINARY" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage \
+                --window-size="$size" --virtual-time-budget=3500 \
+                --screenshot="$PWD/build/evidence/browser/$n-$viewport.png" "$url" >/dev/null 2>&1
+              test -s "build/evidence/browser/$n-$viewport.png"
+            done
+            "$CHROME_BINARY" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage \
+              --virtual-time-budget=3500 --dump-dom "$url" \
+              > "build/evidence/browser/$n-dom.html" 2>/dev/null
+            grep -q "dab-edition-$TARGET_DATE-" "build/evidence/browser/$n-dom.html"
+            if grep -q 'Illustration pending for' "build/evidence/browser/$n-dom.html"; then
+              echo "Original placeholder still visible at $route"; exit 1
+            fi
+          done < build/evidence/browser/routes.txt
+          test "$n" = 7
+          python3 - <<'PY'
+          from pathlib import Path
+          b=Path('build/evidence/browser')
+          assert len(list(b.glob('*-dom.html')))==7
+          imgs=list(b.glob('*.png'))
+          assert len(imgs)==14
+          assert all(f.read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')) for f in imgs)
+          print('REAL_BROWSER_DOM_AND_SCREENSHOT_CAPTURE_PASS 7 pages 14 captures')
+          PY
+      - name: Write revision/index only after real live checks, preserve source branch and October 8
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/released-image-jobs
+          cp -a history/site/image-jobs/. build/released-image-jobs/
+          node scripts/finalize-external-image-release.mjs \
+            history/site/image-jobs/index.json \
+            "history/site/image-jobs/$TARGET_DATE/job.json" \
+            build/evidence/only-image-paths-prepared.json \
+            build/evidence/live-postdeploy.json \
+            "https://gttome.github.io/Daily-AI-Brief-Compiler/" \
+            "$PACKAGE_PR_HEAD" "$PACKAGE_MERGE_HEAD" \
+            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+            build/released-image-jobs
+          mkdir -p build/patched/image-jobs
+          cp -a build/released-image-jobs/. build/patched/image-jobs/
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          rm -rf history/site
+          mkdir -p history/site
+          cp -a build/patched/. history/site/
+          git -C history config user.name "Daily Compiler"
+          git -C history config user.email "actions@users.noreply.github.com"
+          git -C history add site
+          git -C history commit -m "Verify external image-only replacement for $TARGET_DATE"
+          git -C history push origin HEAD:shadow-pages-history
+      - name: Archive real release evidence (not owner Release 2 acceptance)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-image-only-release-evidence
+          path: build/evidence/
+          retention-days: 30
+          if-no-files-found: warn
