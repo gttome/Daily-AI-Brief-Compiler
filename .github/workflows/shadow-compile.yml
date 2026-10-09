@@ -47,10 +47,15 @@ jobs:
       - name: Validate target identity
         run: |
           case "$TARGET_BRANCH" in
-            shadow/????-??-??) ;;
+            shadow/2026-10-09-owner-placeholder-20261009)
+              echo "TARGET_DATE=2026-10-09" >> "$GITHUB_ENV"
+              echo "ONE_TIME_OWNER_RECOVERY=true" >> "$GITHUB_ENV"
+              ;;
+            shadow/????-??-??)
+              echo "TARGET_DATE=${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
+              ;;
             *) echo "Invalid shadow branch: $TARGET_BRANCH"; exit 1 ;;
           esac
-          echo "TARGET_DATE=${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
       - name: Check out exact semantic branch as worktree
         run: |
           git fetch origin "$TARGET_BRANCH:$TARGET_BRANCH"
