@@ -1,0 +1,530 @@
+{
+  "schema_version": "daily-compiler-edition-bundle-v1",
+  "edition_date": "2026-10-09",
+  "status": "BUNDLE_READY",
+  "editorial_contract_version": "daily-compiler-editorial-contract-v1",
+  "stories": [
+    {
+      "id": "oct9-t1-aqua",
+      "headline": "AQuA watches live agent failures without becoming another tool in the agent",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "publisher": "Google Developers Blog",
+        "title": "The Outer Loop, Insights First: An Ambient Quality Agent That Diagnoses Your Production Agent",
+        "url": "https://developers.googleblog.com/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Google Developers publisher analysis of AQuA: representative agent trace sampling, review checks, failure clustering and transcript verification, out-of-request-path diagnosis with pinned source snapshots and no automatic source edits."
+        }
+      },
+      "reading_time_minutes": 11,
+      "topics": [
+        "agent observability",
+        "failure clustering",
+        "production diagnosis",
+        "trace evidence"
+      ],
+      "coverage_labels": [
+        "October 8 source",
+        "quality evidence",
+        "72-hour freshness window"
+      ],
+      "agent_skills": false,
+      "summary": "Google Developers describes AQuA, an ambient quality agent positioned outside an application agent’s live request path. Instead of asking the production agent to grade itself, AQuA takes a bounded sample of recent execution trajectories from Cloud Trace, Cloud Logging, or BigQuery, checks them against a nine-point quality rubric, groups the suspicious behaviors into recurring patterns, and verifies representative transcripts before reporting actionable issues. A targeted diagnosis can then compare a confirmed pattern with the deployed source snapshot. The architecture is deliberately read-only: underlying customer traces and source code stay within the organization’s Google Cloud project, and the observer does not change the running agent. In its reported scripted test, 32 replayed sessions yielded 27 failures, 42 initial findings, nine candidate clusters, and six remaining issues after three were rejected on inspection. Those figures describe the authors’ bounded example, not a universal accuracy benchmark. AQuA is best understood as an external quality-investigation pattern that produces human-reviewable evidence, not a guarantee that silent failures are eliminated.",
+      "why_it_matters": "An agent can return an apparently helpful answer while losing a requirement, taking a wrong tool path, or repeating a costly mistake. Separating the diagnostic loop from production prevents the evaluator from silently changing the system it measures. For a pilot, choose a small representative trace sample, define quality criteria, require reviewed examples for each error class, and track whether a confirmed issue recurs after a release.",
+      "related_coverage": "The companion Copilot sandbox story addresses what an agent may do; this story addresses how to detect when permitted actions still yield poor outcomes.",
+      "image_alt_intent": "Textbook mechanism diagram with a production-agent lane isolated from a parallel read-only quality-observation loop; trace sampler, rubric, clustering, transcript review, source-snapshot diagnosis and triage connect to a bounded quality report.",
+      "permanent_route": "/stories/2026-10-09/aqua-ambient-agent-quality/"
+    },
+    {
+      "id": "oct9-t2-copilot-sandbox",
+      "headline": "Copilot local sandboxing makes agent tool permissions an OS-level boundary",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "publisher": "GitHub Changelog",
+        "title": "Local sandboxing for GitHub Copilot now generally available",
+        "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+        "published_at": "2026-10-07",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 7 GitHub publisher changelog: generally available local Copilot CLI/App/VS Code Agent Host sandbox with OS-level filesystem, network and credential permissions, separate from model decision quality."
+        }
+      },
+      "reading_time_minutes": 2,
+      "topics": [
+        "agent security",
+        "sandbox policy",
+        "tool execution",
+        "filesystem and network permissions"
+      ],
+      "coverage_labels": [
+        "October 7 source",
+        "security controls",
+        "72-hour fallback"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub says local sandboxing is now generally available in Copilot CLI, the GitHub Copilot application, and VS Code Agent Host sessions. The mechanism places a developer- or administrator-defined access policy between agent-generated tool commands and the resources those commands would touch. Filesystem paths, internet and local-network destinations, Git credentials, and selected tools can be allowed or denied. Microsoft eXecution Container translates the shared policy into native operating-system enforcement on Windows, macOS, and Linux. Enterprise-managed settings can require sandboxing and prevent an individual developer from weakening the rules. The key architectural distinction is that restricting tool execution is independent of which language model produces the tool call: a capable model still runs inside the same boundary. A sandbox does not mean every output is correct, and policy quality still matters. This is a local execution protection, not evidence that every remote cloud-agent or third-party integration is automatically covered.",
+      "why_it_matters": "As coding assistants execute real commands, a prompt instruction alone is not a credible access-control boundary. Teams can start by enumerating writable project folders, credential access, allowed network destinations and MCP tools, then test deliberate denied operations. Pair this containment with read-only execution auditing and quality review rather than treating sandbox enforcement as a complete safety system.",
+      "related_coverage": "AQuA shows how to detect quality regressions after an agent runs; the sandbox constrains its execution capabilities before a command can affect the developer’s machine.",
+      "image_alt_intent": "Layered security cutaway showing agent command proposals entering an OS sandbox policy gate, then separating into authorized filesystem, bounded network and credential-denied tool execution paths with an audit return.",
+      "permanent_route": "/stories/2026-10-09/copilot-local-sandbox-boundaries/"
+    },
+    {
+      "id": "oct9-k1-dynamics",
+      "headline": "Microsoft brings CRM records and approval-bound agents into everyday work",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "publisher": "Microsoft 365 Copilot — AI at Work Blog",
+        "title": "Bringing CRM into the flow of work and agents into business process for sales and service teams",
+        "url": "https://www.microsoft.com/en-us/copilot/blog/2026/10/08/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams/",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Microsoft publisher product announcement: thirty Dynamics 365 prebuilt skills, customer CRM grounding in Teams, proposed record edits and approval points, with general-availability versus private/public preview distinctions."
+        }
+      },
+      "reading_time_minutes": 6,
+      "topics": [
+        "CRM context",
+        "sales and service",
+        "agent handoff",
+        "human approval"
+      ],
+      "coverage_labels": [
+        "October 8 source",
+        "knowledge-worker workflow",
+        "72-hour freshness window"
+      ],
+      "agent_skills": false,
+      "summary": "Microsoft's October 8 announcement moves customer relationship management data and work from a separate destination into Copilot and Teams. Thirty prebuilt Dynamics 365 skills let a seller surface at-risk opportunities, assemble account plans and propose CRM updates, while service colleagues can retrieve case history, investigate an issue and prepare a response without losing customer context. The source makes important availability distinctions: the skills are generally available in Cowork; Autopilot remains a private preview; Code is part of the Frontier Program; the connected Dynamics CRM-in-Teams experience is a public preview. At the process level, a Service Agent can carry selected work across business functions but escalate when judgment or approval is necessary. A Sales Development Agent can research and contact prospects and hand qualified opportunities to sellers; Microsoft lists it as a public preview, not broad general release. The effective design is a governed data-to-action path, not a generic conversational bot detached from its source of truth.",
+      "why_it_matters": "For a sales or service team, the most useful pilot may be narrow: retrieve one account’s trustworthy data, draft a suggested action, obtain human sign-off and record what changed in CRM. Measure avoided handoffs alongside data provenance, permissions and mistaken updates. Do not infer that preview features are already enabled for a particular tenant.",
+      "related_coverage": "The Gemini skill-registry story explains reusable cross-task procedures; Dynamics shows how such procedures consume authoritative customer records inside an actual job.",
+      "image_alt_intent": "Exposed CRM workflow where an authoritative customer-data ledger feeds Teams/Copilot work surfaces, skills propose actions, human approval gates changes and a verified update returns to CRM.",
+      "permanent_route": "/stories/2026-10-09/dynamics-crm-agents-in-workflow/"
+    },
+    {
+      "id": "oct9-k2-intelligent-ui",
+      "headline": "Intelligent UI turns an AI answer into a working interactive surface",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "GPT-6 and Intelligent UI for everyone",
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "published_at": "2026-10-07",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 7 OpenAI publisher article: Intelligent UI converts answers into interactive diagrams and controls, uses progressive streamable UI components and a compiler, and discloses staged product availability rather than universal access."
+        }
+      },
+      "reading_time_minutes": 7,
+      "topics": [
+        "interactive responses",
+        "structured controls",
+        "visual reasoning",
+        "work surfaces"
+      ],
+      "coverage_labels": [
+        "October 7 source",
+        "user-facing interaction",
+        "72-hour fallback"
+      ],
+      "agent_skills": false,
+      "summary": "OpenAI introduced Intelligent UI with GPT-6 as an answer format that can combine written explanation with diagrams, structured comparisons and functioning controls. Instead of merely explaining how to configure a calculator or compare options, the assistant can present an interface tailored to the question, then let the reader manipulate the relevant inputs in place. The announcement emphasizes responsiveness: useful material can appear quickly while richer interactive elements are assembled. The important change is the boundary between model synthesis and user choice. An interface can make assumptions visible and support direct exploration, but the user still needs to inspect source facts, parameters and computed outputs. Some responses remain better as plain prose; visual interaction is not itself a quality guarantee. Rollout and feature availability can vary by plan and release stage, so the example should not imply every account gets identical controls immediately.",
+      "why_it_matters": "Knowledge workers often lose time copying AI recommendations into spreadsheets, comparison sheets or little calculation tools. Ask for a compact decision surface that exposes the actual inputs, then vary a key assumption and confirm that dependent outputs update coherently. Save the underlying methodology, not only the attractive presentation. The test is whether interaction makes a decision more auditable and faster.",
+      "related_coverage": "Claude Dashboards connects a similar interaction-first idea to live organizational data. Intelligent UI focuses on answer-native controls; dashboards add a refreshed external source pipeline.",
+      "image_alt_intent": "Interactive answer construction mechanism with a question entering model planning, splitting into textual, visual and control primitives, assembling a working surface whose live input adjustment updates dependent output.",
+      "permanent_route": "/stories/2026-10-09/chatgpt-intelligent-ui-work-surfaces/"
+    },
+    {
+      "id": "oct9-a1-gemini-skills",
+      "headline": "Gemini agent uses modular skills to repeat governed business procedures",
+      "focus": "Agents for Everyone",
+      "source": {
+        "publisher": "Google Cloud Blog",
+        "title": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Google Cloud announcement: modular reusable skill prompts, global/team/personal registries, enterprise tool registry and governed tool selection, procedural memory and differentiated preview versus released claims."
+        }
+      },
+      "reading_time_minutes": 12,
+      "topics": [
+        "Agent Skills",
+        "skills registry",
+        "cross-app tools",
+        "procedural context"
+      ],
+      "coverage_labels": [
+        "October 8 source",
+        "reusable Agent Skills",
+        "72-hour freshness window"
+      ],
+      "agent_skills": true,
+      "summary": "At Gemini at Work 2026, Google Cloud described a unified enterprise agent that brings tools, organizational context and reusable skills into one work environment. Here 'skill' has a concrete meaning: modular instructions, knowledge or a multi-step workflow stored as a prompt package that can be used again instead of rewritten for each request. Teams can publish shared procedures to a skills registry; individuals can maintain personal skills; a broader library supplies reusable starting points. A tools registry then connects an approved procedure to enterprise applications and data, while context mechanisms include task-session, semantic, procedural and episodic memory. The source also describes identity, authorization, policy management, sandboxing and network gateways. These are product announcements and design claims: they do not prove that every connector or capability is generally available to all customers. The durable mechanism is a governed skill-selection-and-execution pipeline, with organizational permissions constraining which systems a procedure can touch.",
+      "why_it_matters": "A nontechnical team can begin with one repeatable operating procedure, such as collecting weekly status from approved systems, explaining an anomaly and drafting a reviewable update. Specify inputs, tool permissions, acceptable evidence, human approval and output format inside the skill. Evaluate it on repeated tasks, not a single successful demo; version it when business rules change.",
+      "related_coverage": "Microsoft's CRM story applies task skills to a specific system of record. Here the central idea is the reusable and shareable procedure itself, including tool and context boundaries.",
+      "image_alt_intent": "Dimensional agent-skills workshop showing a library of modular reusable skill capsules feeding a selection chamber, bound tools and memory layers, a policy/approval gate, and a reusable reviewed result.",
+      "permanent_route": "/stories/2026-10-09/gemini-modular-business-agent-skills/",
+      "agent_skills_evidence": "Google Cloud's October 8 original announcement explicitly defines Agent Skills as reusable modular prompts containing instructions, knowledge and multi-step workflows. It describes global, shared company and personal skill registries, governed tool-selection and procedural memory. A bounded business procedure can therefore be repackaged and repeated without reauthoring every action; availability and adoption claims remain publisher claims, not independent general-use proof."
+    },
+    {
+      "id": "oct9-a2-claude-dashboard",
+      "headline": "Claude builds live data dashboards from plain-language questions",
+      "focus": "Agents for Everyone",
+      "source": {
+        "publisher": "Claude by Anthropic",
+        "title": "Build live dashboards and animate explainers with Claude",
+        "url": "https://claude.com/resources/articles/dashboards-and-motion",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "independent_full_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Anthropic publisher item independently read in full text: paid-plan beta dashboards connected to live business data, visible source queries and freshness, motion explainer distinction and limitations of announced features."
+        }
+      },
+      "reading_time_minutes": 6,
+      "topics": [
+        "live dashboards",
+        "data source provenance",
+        "business questions",
+        "refresh controls"
+      ],
+      "coverage_labels": [
+        "October 8 source",
+        "everyday data work",
+        "72-hour freshness window"
+      ],
+      "agent_skills": false,
+      "summary": "Anthropic introduced Claude Dashboards in paid-plan beta as a way to turn an ordinary business question into a dashboard connected to the underlying data. Supported examples include data warehouses such as BigQuery, Databricks and Snowflake and customer systems such as Salesforce. The displayed result is intended to remain current as the source updates, so an analysis can be revisited rather than frozen as a screenshot. The strongest reader value lies in the visible path from question to chosen data, query or calculation, chart, and latest refresh. The announcement also introduces Claude Motion, a separate beta capability for animated explainers, and makes Docs, Slides and Design available beyond beta. Those features have different eligibility; Motion is specifically Team and Enterprise beta. A live dashboard still needs the ordinary protections of any business-intelligence system: source ownership, calculation checks, access control, freshness indicators and an opportunity to challenge the chart.",
+      "why_it_matters": "A good first use is a low-risk recurring metric review. Ask for one live dashboard over a trusted dataset, inspect the metric definition and filters, then make one known data change and confirm the refresh behaves correctly. The product may simplify dashboard creation; it cannot replace the judgment needed to decide whether the underlying metric is meaningful.",
+      "related_coverage": "Intelligent UI makes the response itself interactive. Claude Dashboards extends interaction to connected, continuously changing organizational data.",
+      "image_alt_intent": "Mechanism showing a plain-language question transformed into a governed data query, warehouse and CRM sources passing through metric-definition checks, live chart assembly and refresh/provenance feedback.",
+      "permanent_route": "/stories/2026-10-09/claude-live-dashboards-from-data/"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Introducing the Decisions API",
+      "source": "OpenAI",
+      "url": "https://www.youtube.com/watch?v=FB6oCmrIj-Y",
+      "original_date": "2026-10-06",
+      "duration_minutes": 5.566666666666666,
+      "focus": "Technical AI Engineering",
+      "summary": "OpenAI's 5:34 official demo shows text and image inputs being classified into a deliberately bounded set of actions. It includes lead-routing, real-time visual choices and live-interaction examples; application logic acts on the selected decision rather than asking a general chatbot to invent unrestricted commands.",
+      "why_it_matters": "A useful companion to the sandbox story: the model selects within a small defined action space while other controls determine what execution is actually permitted. This is a demonstration, not independent production-latency benchmarking.",
+      "verified": true,
+      "verification_method": "OpenAI official channel and YouTube identity, title, 5:34 runtime corroborated by podcast video index, contemporaneous transcript and publisher-developer commentary; playback not directly inspected",
+      "content_retrieved_at": "2026-10-09T16:04:56.647Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "runtime_source_url": "https://www.youtube.com/watch?v=FB6oCmrIj-Y",
+        "checked_at": "2026-10-09T16:05:38.802Z",
+        "method": "verified_original_publisher_and_independent_metadata",
+        "verification_scope": "OpenAI official channel and YouTube identity, title, 5:34 runtime corroborated by podcast video index, contemporaneous transcript and publisher-developer commentary; playback not directly inspected",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "Build custom site annotations with ChatGPT",
+      "source": "OpenAI",
+      "url": "https://www.youtube.com/watch?v=ZcDFZzsp3_Y",
+      "original_date": "2026-10-07",
+      "duration_minutes": 2.5833333333333335,
+      "focus": "Agents for Everyone",
+      "summary": "A 2:35 OpenAI how-to on adding custom site annotation controls and suggested questions to a website. It shows the practical shift from a generic chat bubble toward a contextual reader interface with task-relevant prompts and interaction.",
+      "why_it_matters": "Connects Intelligent UI to a small, concrete application: specify which actions a reader needs, expose them where the context lives, and evaluate whether the controls reduce friction. A short demonstration does not establish broad production suitability.",
+      "verified": true,
+      "verification_method": "OpenAI official channel Oct7 identity and creator description corroborated by independent video index and its ISO 8601 PT2M35S runtime; playback not directly inspected",
+      "content_retrieved_at": "2026-10-09T16:04:56.647Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "runtime_source_url": "https://www.youtube.com/watch?v=ZcDFZzsp3_Y",
+        "checked_at": "2026-10-09T16:05:38.802Z",
+        "method": "verified_original_publisher_and_independent_metadata",
+        "verification_scope": "OpenAI official channel Oct7 identity and creator description corroborated by independent video index and its ISO 8601 PT2M35S runtime; playback not directly inspected",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Switching Models Shouldn't Mean Starting Over | Walrus Protocol's Kimberly Logan",
+      "source": "Chain of Thought",
+      "url": "https://chainofthought.show/podcast/77-switching-models-shouldnt-mean-starting-over-walrus-protocols-kimberly-logan/",
+      "original_date": "2026-10-07",
+      "duration_minutes": 38,
+      "written_reading_time_minutes": 3,
+      "summary": "Episode 77, with host Conor Bronsdon and Walrus Foundation product lead Kimberly Logan, examines why portable agent memory remains difficult even with large context windows. The conversation separates a point-in-time export from maintaining memory across models and agent harnesses, and examines storage provenance, verifiability, and the trade-offs of decentralized memory. Walrus sponsors the episode; product claims are presented as guest claims, not independently validated outcomes.",
+      "why_it_matters": "Context portability is an architectural concern whenever a personal or enterprise assistant is expected to outlive a model switch. Readers should distinguish exported chat logs from durable, structured, permissioned and testable memory before committing a workflow to one vendor.",
+      "verified": true,
+      "verification_method": "Publisher season 4 episode 77 page, Oct7 date, player and 38-minute displayed duration, full show notes and transcript independently examined; runtime rounded by publisher and sponsorship disclosed",
+      "content_retrieved_at": "2026-10-09T16:04:56.647Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "runtime_source_url": "https://chainofthought.show/podcast/77-switching-models-shouldnt-mean-starting-over-walrus-protocols-kimberly-logan/",
+        "checked_at": "2026-10-09T16:05:38.802Z",
+        "method": "verified_original_publisher_and_independent_metadata",
+        "verification_scope": "Publisher season 4 episode 77 page, Oct7 date, player and 38-minute displayed duration, full show notes and transcript independently examined; runtime rounded by publisher and sponsorship disclosed",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "The Best Way to Test New AI Models",
+      "source": "The AI Daily Brief",
+      "url": "https://www.aidailybrief.ai/e/2026-10-07",
+      "original_date": "2026-10-07",
+      "duration_minutes": 49.81666666666667,
+      "written_reading_time_minutes": 4,
+      "summary": "Nathaniel Whittemore and guest Nufar Gaspar offer a practical operator's approach to choosing among the many new models: define four to six representative work tasks, include a wish-list challenge, compare models or agent harnesses blindly in fresh sessions, score outputs, and decide whether to switch, split work across tools or stay put. The discussion covers speed, cost, quality bias, repeatability and the problem of evaluating a rendered visual result from source code alone. Sponsor material and subjective model rankings are not treated as independent evidence of model superiority.",
+      "why_it_matters": "A professional can learn more by testing a candidate against their own failure-sensitive tasks than by adopting each benchmark winner. The repeatable procedure gives a concrete way to compare agents with consistent inputs and reveal trade-offs in cost, latency, judgment and quality.",
+      "verified": true,
+      "verification_method": "Publisher Oct7 episode and archive plus two independent podcast directories listing Oct7 and 49 min; independent feed listing 00:49:49; full transcript crosschecked, audio not listened to end-to-end",
+      "content_retrieved_at": "2026-10-09T16:04:56.647Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "runtime_source_url": "https://www.aidailybrief.ai/e/2026-10-07",
+        "checked_at": "2026-10-09T16:05:38.802Z",
+        "method": "verified_original_publisher_and_independent_metadata",
+        "verification_scope": "Publisher Oct7 episode and archive plus two independent podcast directories listing Oct7 and 49 min; independent feed listing 00:49:49; full transcript crosschecked, audio not listened to end-to-end",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "watchlist": {
+    "schema_version": "daily-compiler-watchlist-v1",
+    "target_edition_date": "2026-10-09",
+    "refreshed_at": "2026-10-09T16:04:56.647Z",
+    "new": [
+      {
+        "topic": "Ambient agent quality investigation",
+        "why": "Google's AQuA describes evidence-based quality diagnosis outside the production request path, including representative transcript verification and source-snapshot analysis.",
+        "evidence": {
+          "url": "https://developers.googleblog.com/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/",
+          "date": "2026-10-08"
+        }
+      },
+      {
+        "topic": "Question-to-live-dashboard work surfaces",
+        "why": "Anthropic's connected Claude Dashboards beta adds a concrete way to turn plain-language work requests into refreshable, data-linked charts.",
+        "evidence": {
+          "url": "https://claude.com/resources/articles/dashboards-and-motion",
+          "date": "2026-10-08"
+        }
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Reusable Agent Skills",
+        "what_changed": "Google Cloud announced modular agent skill prompts, a shared skills registry and the ability to select skills with governed enterprise tools.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+          "date": "2026-10-08"
+        }
+      },
+      {
+        "topic": "Agent governance and review points",
+        "what_changed": "GitHub expanded local OS-enforced tool sandboxing, while Microsoft's CRM agents surface human approval and process handoffs.",
+        "evidence": {
+          "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+          "date": "2026-10-07"
+        }
+      },
+      {
+        "topic": "Interactive answer surfaces",
+        "what_changed": "OpenAI Intelligent UI adds working controls and visual answers directly in a question-response workflow.",
+        "evidence": {
+          "url": "https://openai.com/index/gpt-6-for-everyone/",
+          "date": "2026-10-07"
+        }
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Agent-scale repository infrastructure",
+        "why": "GitHub's October 6 infrastructure evidence remains relevant to heavier autonomous-development workloads, although no new independent October 9 measurement changes it.",
+        "evidence": {
+          "url": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/",
+          "date": "2026-10-06"
+        }
+      },
+      {
+        "topic": "Persistent and collaborative agents",
+        "why": "The new Gemini procedural and episodic context discussion reinforces continuing attention to durable and shared agent context; deployment claims still need independent evidence.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+          "date": "2026-10-08"
+        }
+      },
+      {
+        "topic": "Enterprise context becomes the agent battleground",
+        "why": "Dynamics' system-of-record links and Gemini's tools/context registry deepen but do not independently settle the source/permissions challenge.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/copilot/blog/2026/10/08/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams/",
+          "date": "2026-10-08"
+        }
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Review-before-action in professional AI",
+        "reason": "The pattern is now integrated into the broader agent-governance topic instead of duplicated as a separate monitoring card.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/copilot/blog/2026/10/08/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams/",
+          "date": "2026-10-08"
+        }
+      },
+      {
+        "topic": "Inference latency as agent UX",
+        "reason": "The new Decisions API video offers an interesting demonstration, but the available evidence does not supply an independent cross-system latency benchmark worthy of a separate watch item.",
+        "evidence": {
+          "url": "https://www.youtube.com/watch?v=FB6oCmrIj-Y",
+          "date": "2026-10-06"
+        }
+      }
+    ]
+  },
+  "book_mappings": [
+    {
+      "story_id": "oct9-t1-aqua",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Evaluation, monitoring and verification as the final gate",
+      "connection": "AQuA makes post-deployment quality observable by binding failures to concrete examples before triage; the book's verification concepts provide a way to design acceptance criteria for a repeatable evaluator.",
+      "what_to_study_next": "Define a review rubric for one agent task, sample failures and require representative supporting traces."
+    },
+    {
+      "story_id": "oct9-t2-copilot-sandbox",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Execution context, tool scope and permission-aware access",
+      "connection": "An agent's context is not only what it knows; its tool permissions determine what it can affect. The sandbox separates contextual reasoning from OS-enforced execution.",
+      "what_to_study_next": "Map input context, credential boundaries and deny-by-default filesystem or network tool policies."
+    },
+    {
+      "story_id": "oct9-k1-dynamics",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Source-of-truth grounding and dynamic context in execution",
+      "connection": "Dynamics illustrates source-aware context passed into sales/service workflows and returned to a governed system of record, instead of untracked copy-and-paste.",
+      "what_to_study_next": "Design a context-source ledger for one CRM workflow, including refresh, approval and audit."
+    },
+    {
+      "story_id": "oct9-k2-intelligent-ui",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Clarifying user intent and making output constraints explicit",
+      "connection": "Interactive UI is most useful when a prompt exposes adjustable inputs, assumptions and the boundaries of the expected decision instead of merely asking for a polished answer.",
+      "what_to_study_next": "Reframe a comparison prompt into visible criteria, controllable inputs and testable results."
+    },
+    {
+      "story_id": "oct9-a1-gemini-skills",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable prompt templates, skills and feedback-driven improvement",
+      "connection": "Modular skills translate a repeated business method into a shareable, auditable procedure that can improve through execution results while preserving permission boundaries.",
+      "what_to_study_next": "Specify and version one task skill's trigger, tools, steps, review gates and outputs."
+    },
+    {
+      "story_id": "oct9-a2-claude-dashboard",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Hybrid retrieval and evidence-grounded claims",
+      "connection": "Live dashboards only remain reliable when each visualized claim traces to authoritative data, a clear calculation and a known refresh point.",
+      "what_to_study_next": "Inspect a metric's source query and verify a dashboard refresh against the raw data."
+    }
+  ],
+  "images": [
+    {
+      "story_id": "oct9-t1-aqua",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Textbook mechanism diagram with a production-agent lane isolated from a parallel read-only quality-observation loop; trace sampler, rubric, clustering, transcript review, source-snapshot diagnosis and triage connect to a bounded quality report."
+    },
+    {
+      "story_id": "oct9-t2-copilot-sandbox",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Layered security cutaway showing agent command proposals entering an OS sandbox policy gate, then separating into authorized filesystem, bounded network and credential-denied tool execution paths with an audit return."
+    },
+    {
+      "story_id": "oct9-k1-dynamics",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Exposed CRM workflow where an authoritative customer-data ledger feeds Teams/Copilot work surfaces, skills propose actions, human approval gates changes and a verified update returns to CRM."
+    },
+    {
+      "story_id": "oct9-k2-intelligent-ui",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Interactive answer construction mechanism with a question entering model planning, splitting into textual, visual and control primitives, assembling a working surface whose live input adjustment updates dependent output."
+    },
+    {
+      "story_id": "oct9-a1-gemini-skills",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Dimensional agent-skills workshop showing a library of modular reusable skill capsules feeding a selection chamber, bound tools and memory layers, a policy/approval gate, and a reusable reviewed result."
+    },
+    {
+      "story_id": "oct9-a2-claude-dashboard",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Mechanism showing a plain-language question transformed into a governed data query, warehouse and CRM sources passing through metric-definition checks, live chart assembly and refresh/provenance feedback."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "producer_receipt": {
+    "schema_version": "daily-compiler-oct9-owner-recovery-producer-v1",
+    "result": "PASS",
+    "owner_intervention": true,
+    "scheduled_execution": false,
+    "exception_contract": "daily-compiler-oct9-owner-placeholder-exception-v1",
+    "historical_failed_execution_reopened": false,
+    "work_used": false,
+    "codex_used": false,
+    "paid_model_api_used": false,
+    "local_computer_used": false,
+    "accepted_image_regenerations": 0,
+    "source_archive_branch": "shadow/2026-10-09",
+    "source_archive_commit": "246c04d1c9761c4bb9164ce34b63833fa277dc49",
+    "original_editorial_blob_sha": "39489270a150dde168f43348ebce99d8a535e61f",
+    "source_read_evidence_original_and_revalidated": true,
+    "media_verified_from_original_metadata_not_claimed_as_direct_playback": true,
+    "actual_new_semantic_story_research_or_rewrite": false,
+    "old_failed_execution_mutated": false
+  }
+}
