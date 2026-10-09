@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/edition-bundle.schema.json",
-  "title": "Daily Compiler Edition Bundle v2 with frozen v1 compatibility",
+  "title": "Daily Compiler Edition Bundle v1",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -19,10 +19,7 @@
   ],
   "properties": {
     "schema_version": {
-      "enum": [
-        "daily-compiler-edition-bundle-v1",
-        "daily-compiler-edition-bundle-v2"
-      ]
+      "const": "daily-compiler-edition-bundle-v1"
     },
     "edition_date": {
       "type": "string",
@@ -32,10 +29,7 @@
       "const": "BUNDLE_READY"
     },
     "editorial_contract_version": {
-      "enum": [
-        "daily-compiler-editorial-contract-v1",
-        "daily-compiler-editorial-contract-v2"
-      ]
+      "const": "daily-compiler-editorial-contract-v1"
     },
     "stories": {
       "type": "array",
@@ -118,16 +112,14 @@
             "ingest_handoff_path",
             "ingest_handoff_sha256",
             "work_porter_receipt_path",
-            "work_porter_receipt_sha256",
-            "canonical_reviews_path",
-            "canonical_reviews_sha256"
+            "work_porter_receipt_sha256"
           ],
           "properties": {
             "strategy": {
-              "const": "d1_work_browser_fresh_chat"
+              "const": "d1_cloud_image_studio"
             },
             "contract_version": {
-              "const": "daily-compiler-image-contract-v5"
+              "const": "daily-compiler-image-contract-v4"
             },
             "acceptance_manifest_path": {
               "type": "string",
@@ -150,14 +142,6 @@
               "minLength": 1
             },
             "ingest_handoff_sha256": {
-              "type": "string",
-              "pattern": "^[a-f0-9]{64}$"
-            },
-            "canonical_reviews_path": {
-              "type": "string",
-              "minLength": 1
-            },
-            "canonical_reviews_sha256": {
               "type": "string",
               "pattern": "^[a-f0-9]{64}$"
             }
@@ -296,44 +280,7 @@
           },
           "preserve_original": {
             "const": true
-          },
-          "revision_id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "request_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "expected_previous_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
           }
-        }
-      }
-    },
-    "media_contract_version": {
-      "const": "daily-compiler-media-contract-v1"
-    },
-    "research_cutoff_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "media_evidence": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "path",
-        "sha256"
-      ],
-      "properties": {
-        "path": {
-          "type": "string",
-          "minLength": 1
-        },
-        "sha256": {
-          "type": "string",
-          "pattern": "^[a-f0-9]{64}$"
         }
       }
     }
@@ -404,7 +351,7 @@
           "image_system": {
             "properties": {
               "strategy": {
-                "const": "d1_work_browser_fresh_chat"
+                "const": "d1_cloud_image_studio"
               }
             },
             "required": [
@@ -430,93 +377,11 @@
                   "const": true
                 },
                 "image_system": {
-                  "const": "d1_work_browser_fresh_chat"
+                  "const": "d1_cloud_image_studio"
                 }
               }
             }
           }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "schema_version": {
-            "const": "daily-compiler-edition-bundle-v2"
-          }
-        },
-        "required": [
-          "schema_version"
-        ]
-      },
-      "then": {
-        "required": [
-          "media_contract_version",
-          "research_cutoff_at",
-          "media_evidence"
-        ],
-        "properties": {
-          "editorial_contract_version": {
-            "const": "daily-compiler-editorial-contract-v2"
-          },
-          "videos": {
-            "items": {
-              "allOf": [
-                {
-                  "$ref": "media-record.schema.json"
-                },
-                {
-                  "properties": {
-                    "type": {
-                      "const": "video"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "podcasts": {
-            "items": {
-              "allOf": [
-                {
-                  "$ref": "media-record.schema.json"
-                },
-                {
-                  "properties": {
-                    "type": {
-                      "const": "podcast"
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      },
-      "else": {
-        "properties": {
-          "editorial_contract_version": {
-            "const": "daily-compiler-editorial-contract-v1"
-          }
-        },
-        "not": {
-          "anyOf": [
-            {
-              "required": [
-                "media_contract_version"
-              ]
-            },
-            {
-              "required": [
-                "research_cutoff_at"
-              ]
-            },
-            {
-              "required": [
-                "media_evidence"
-              ]
-            }
-          ]
         }
       }
     }

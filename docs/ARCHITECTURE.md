@@ -92,7 +92,7 @@ If a required capability needs prohibited machinery or paid capacity, preserve c
 
 ## State
 
-Each shadow edition uses exactly one authoritative execution file: `shadow-runs/YYYY-MM-DD/compiler-state.json`. An additive correction has its own revision and verification records; it retains the original terminal execution and bundle digest unchanged.
+Each shadow edition uses exactly one authoritative file: `shadow-runs/YYYY-MM-DD/compiler-state.json`.
 
 Legal top-level states:
 
@@ -108,6 +108,6 @@ Active shadow executions do not repair program code. A software/platform defect 
 
 ## Operational intelligence
 
-Independent optional projections may emit timing/usage events, resource observations, problem-learning records, run metrics, post-run analysis and dashboard snapshots from persisted evidence. These outputs are not required for BUNDLE_READY, compilation, complete product verification or terminal success; absence, stale data or an observer failure cannot alter a valid core result. Missing or invalid image, media, reader and release evidence remains a core failure. Reader ratings, shares and comments are product functions; operator observation cannot reuse their mutation endpoints, database or deployment artifact. Charges are not inferred unless an explicit rate card exists.
+Every run emits structured timing/usage events, resource observations, problem-learning records, run metrics, a post-run analysis, and a dashboard snapshot. Source health/yield, Dot active time, Work active time, image attempts, research queries, CI/deploy timing, retries and wait time are first-class metrics. Charges are not inferred unless an explicit rate card exists.
 
 Future Brief suggestions live in a durable inbox and can target articles, story topics, images, videos, podcasts, Watchlist items or new research resources. Post-publication corrections are additive protected revisions for articles, images, videos, podcasts and Watchlist items; original historical artifacts remain preserved and the original edition execution is not reopened.

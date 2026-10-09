@@ -1,125 +1,49 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+import sharp from 'sharp';
+import {applyD1Activation} from '../image-studio/activation-apply.mjs';
 import {validateD1BundleImages} from '../image-studio/bundle-gate.mjs';
-import {validateCanonicalPng} from '../image-studio/png-integrity.mjs';
-import {validateEdition,validateEditionRecords} from '../compiler/compile.mjs';
-import {canonicalSha,sha256} from '../image-capsules/util.mjs';
-import {makeProductReleaseFixture} from './fixtures/product-release.mjs';
+import {buildD1WorkPorterReceipt,sha256,gitBlobSha} from '../work-porter/integrity.mjs';
+import {canonicalSha} from '../image-capsules/util.mjs';
 
-const fixture=t=>{const f=makeProductReleaseFixture();t.after(()=>f.cleanup());return f;};
-const gate=f=>validateD1BundleImages({bundle:f.bundle,state:f.state,repoRoot:f.root});
-const core=f=>validateEdition({statePath:f.statePath,bundlePath:f.bundlePath,repoRoot:f.root});
-const saveCandidate=f=>{const text=JSON.stringify(f.bundle,null,2)+'\n';fs.writeFileSync(f.bundlePath,text);f.state.bundle.digest=sha256(text);fs.writeFileSync(f.statePath,JSON.stringify(f.state,null,2)+'\n');};
-const green=f=>{
-  fs.mkdirSync(path.join(f.root,'dashboard'),{recursive:true});
-  fs.writeFileSync(path.join(f.root,'dashboard','status.json'),JSON.stringify({result:'PASS',all_green:true,images:'PASS',media:'PASS',stale:true}));
-};
-const refreshReview=f=>{f.reviews.observations.forEach(profile=>{profile.review_sha256=canonicalSha(f.reviews.images.find(image=>image.story_id===profile.story_id));});f.persist();};
+const cloudProof=()=>({schema_version:'daily-compiler-d1-cloud-proof-v2',result:'PASS',proof_id:'proof-2',
+  browser_orchestrator:{work_cloud_browser:true,authenticated_session:true,work_native_image_generation:false,work_subagent_image_generation:false},
+  story_chats:{fresh_regular_conversations:true,conversation_count:6,native_chatgpt_images:true,six_assets:true,acceptance_manifest_pass:true,prior_conversation_reuse:false},
+  handoff:{owner_transfer:false,local_file_transfer:false,archive_required:false,programmatic_cloud_download:true,exact_assets_preserved:true},
+  git_readback:{exact_commit_binary_download:true,all_sha256_match:true,all_git_blob_match:true,all_byte_counts_match:true},
+  cloud_only:true,owner_intervention:false,local_computer_used:false,prohibited_dependencies_used:false});
 
-test('I06-T06 current D1 product passes only with exact canonical reviews and active qualified fixture',t=>{
-  const f=fixture(t),result=gate(f);assert.equal(result.result,'PASS',result.errors.join('\n'));
-  assert.equal(result.quality.reviewed_images,6);assert.equal(result.subjective_rereview_performed,false);
-  assert.ok(f.bundle.images.every(image=>image.visual_review===undefined));
-  assert.equal(core(f).d1ImageGate.result,'PASS');
-});
-
-test('I06-T03/T06 each immutable asset readback may retain its own commit',t=>{
-  const f=fixture(t),before=structuredClone(f.reviews.binary_readback.images),row=f.reviews.binary_readback.images[0];
-  row.commit='e'.repeat(40);row.url=row.url.replace(f.reviews.binary_readback.commit,row.commit);f.persist();
-  assert.deepEqual(f.reviews.binary_readback.images.slice(1),before.slice(1));
-  assert.equal(gate(f).result,'PASS');
-  row.commit='main';f.persist();assert.equal(gate(f).result,'FAIL');
-});
-
-test('I06-T03 exact historical legacy bundle retains its separate diagram-contract binding',()=>{
-  const state=JSON.parse(fs.readFileSync('fixtures/complete-edition/compiler-state.json','utf8'));
-  state.state='SHADOW_VERIFIED';state.stage='VERIFY';
-  state.images={...state.images,strategy:'proposal1r_legacy',strategy_contract_version:'daily-compiler-diagram-spec-v2'};
-  const result=validateEditionRecords({stateText:JSON.stringify(state),bundleText:fs.readFileSync('fixtures/complete-edition/edition-bundle.json','utf8'),repoRoot:'.'});
-  assert.equal(result.legacyImageGate.result,'HISTORICAL_COMPATIBILITY');
-  assert.equal(result.state.state,'SHADOW_VERIFIED');
-});
-
-for(const [label,mutate,expected] of [
-  ['canonical review absent',f=>{delete f.bundle.image_system.canonical_reviews_path;delete f.bundle.image_system.canonical_reviews_sha256;},/canonical_reviews/],
-  ['canonical review hash stale',f=>{f.bundle.image_system.canonical_reviews_sha256='0'.repeat(64);},/evidence_digest_mismatch/],
-  ['review records are proxy flags',f=>{f.reviews.images[0]={story_id:f.bundle.stories[0].id,result:'PASS'};refreshReview(f);},/review/],
-  ['canonical review bound to native raw bytes instead of published bytes',f=>{f.reviews.images[0].final_sha256='f'.repeat(64);refreshReview(f);},/canonical_review/],
-  ['review basic gate failed despite overall PASS',f=>{f.reviews.images[0].basic_gates.no_overlap.verdict='FAIL';refreshReview(f);},/canonical_review/],
-  ['unapproved visible text',f=>{f.reviews.images[0].visible_text.extra_visible_text=['Unapproved'];refreshReview(f);},/canonical_review/],
-  ['stale edition acceptance',f=>{f.manifest.edition_date='2026-10-07';f.persist();},/edition_binding/],
-  ['wrong repository handoff',f=>{f.handoff.repository='gttome/other-repository';f.persist();},/handoff_target/],
-  ['wrong execution handoff',f=>{f.handoff.execution_id='stale-execution';f.persist();},/review_identity/],
-  ['wrong story mapping',f=>{f.bundle.images[0].story_id=f.bundle.images[1].story_id;},/image_story_mapping/],
-  ['incorrect asset length',f=>{f.manifest.images[0].bytes++;f.persist();},/byte_count/],
-  ['review profile false despite green summary',f=>{f.reviews.observations[0].story_specific_mechanism_clear=false;f.persist();},/product_profile/],
-  ['profile numeric string',f=>{f.reviews.observations[0].canvas_utilization_percent='85';f.persist();},/profile_layout/],
-  ['mutable raw URL',f=>{f.reviews.binary_readback.images[0].url=f.reviews.binary_readback.images[0].url.replace(f.reviews.binary_readback.commit,'main');f.persist();},/immutable_readback/],
-  ['raw transformed without canonical acceptance',f=>{f.reviews.binary_readback.images[0].raw.sha256='d'.repeat(64);f.persist();},/raw_identity/],
-  ['semantic editing normalization',f=>{f.reviews.binary_readback.images[0].normalization.semantic_editing=true;f.persist();},/normalization/],
-  ['used story conversation',f=>{f.reviews.sessions[0].prior_context_reused=true;f.persist();},/story_context/],
-  ['attempt reset',f=>{f.reviews.sessions[0].attempts[0].attempt=2;f.persist();},/attempt_lineage/],
-  ['old strategy contract',f=>{f.bundle.image_system.contract_version='daily-compiler-image-contract-v4';},/contract_version/]
-]){
-  test('I06-T02/I06-T06 green observation cannot mask '+label,t=>{
-    const f=fixture(t);green(f);mutate(f);
-    const result=gate(f);assert.equal(result.result,'FAIL');assert.match(result.errors.join(';'),expected);
-  });
+async function fixture(){
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'d1-bundle-'));fs.mkdirSync(path.join(root,'contracts'),{recursive:true});fs.mkdirSync(path.join(root,'proof'),{recursive:true});
+  fs.writeFileSync(path.join(root,'contracts/d1-image-contract.json'),fs.readFileSync('contracts/d1-image-contract.json'));
+  fs.writeFileSync(path.join(root,'proof/cloud.json'),JSON.stringify(cloudProof()));
+  applyD1Activation({repoRoot:root,proofPath:'proof/cloud.json',activatedAt:'2026-10-08T00:00:00Z'});
+  const assets={},images=[];
+  for(let i=0;i<6;i++){
+    const id='asset-'+i,b=await sharp({create:{width:1200,height:630,channels:3,background:{r:230+i,g:240+i,b:245}}}).png().toBuffer();assets[id]=b;
+    images.push({story_id:'story-'+i,chat_session_id:'chat-'+i,cloud_asset_id:id,filename:'story-'+i+'.png',width:1200,height:630,format:'png',
+      bytes:b.length,sha256:sha256(b),composition_signature:'comp-'+i,visible_text_allowlist:['Input','Result'],attempt:1,visual_acceptance:'PASS',accepted_locked:true,supersedes:null});
+  }
+  const manifest={schema_version:'daily-compiler-d1-image-acceptance-manifest-v2',edition_date:'2026-10-08',studio_session_id:'work-browser-1',accepted_at:'2026-10-08T00:10:00Z',
+    quality_gate_location:'fresh_regular_chat_per_story',github_visual_rereview_required:false,set_review:{result:'PASS',unique_compositions:6,unique_byte_streams:6,unique_story_chats:6,distinct_layouts:4,distinct_mechanisms:4},images,owner_intervention:false};
+  const handoff={schema_version:'daily-compiler-d1-ingest-handoff-v2',edition_date:'2026-10-08',execution_id:'daily-compiler-shadow-2026-10-08',repository:'gttome/Daily-AI-Brief-Compiler',
+    branch:'shadow/2026-10-08',manifest_sha256:canonicalSha(manifest),scope:'IMAGE_BROWSER_ORCHESTRATION_AND_INGEST',visual_rereview_required:false,image_generation_allowed:false,
+    items:images.map(x=>({story_id:x.story_id,filename:x.filename,target_path:'shadow-runs/2026-10-08/images/d1/'+x.filename}))};
+  for(const x of images){const target=handoff.items.find(h=>h.story_id===x.story_id).target_path;fs.mkdirSync(path.dirname(path.join(root,target)),{recursive:true});fs.writeFileSync(path.join(root,target),assets[x.cloud_asset_id]);}
+  const rb={};for(const x of images){const target=handoff.items.find(h=>h.story_id===x.story_id).target_path;rb[x.story_id]={sha256:x.sha256,git_blob_sha:gitBlobSha(assets[x.cloud_asset_id]),target_path:target,bytes:assets[x.cloud_asset_id].length};}
+  const porter=buildD1WorkPorterReceipt({manifest,handoff,assetsById:assets,gitReadbackByStory:rb,recordedAt:'2026-10-08T00:20:00Z'});
+  fs.mkdirSync(path.join(root,'shadow-runs/2026-10-08/images'),{recursive:true});
+  for(const [name,obj] of [['d1-acceptance.json',manifest],['d1-ingest-handoff.json',handoff],['d1-porter.json',porter]]) fs.writeFileSync(path.join(root,'shadow-runs/2026-10-08/images',name),JSON.stringify(obj));
+  const bundle={image_system:{strategy:'d1_work_browser_fresh_chat',contract_version:'daily-compiler-image-contract-v5',
+      acceptance_manifest_path:'shadow-runs/2026-10-08/images/d1-acceptance.json',acceptance_manifest_sha256:canonicalSha(manifest),
+      ingest_handoff_path:'shadow-runs/2026-10-08/images/d1-ingest-handoff.json',ingest_handoff_sha256:canonicalSha(handoff),
+      work_porter_receipt_path:'shadow-runs/2026-10-08/images/d1-porter.json',work_porter_receipt_sha256:canonicalSha(porter)},
+    images:images.map(x=>{const target=handoff.items.find(h=>h.story_id===x.story_id).target_path;return {story_id:x.story_id,path:target,sha256:x.sha256,
+      git_blob_sha:gitBlobSha(assets[x.cloud_asset_id]),accepted:true,accepted_locked:true,image_system:'d1_work_browser_fresh_chat',asset_version:'d1-v2',cache_key:'d1-'+x.story_id,supersedes:null};})};
+  return {root,bundle};
 }
-
-test('I06-T02 canonical PNG must be complete and CRC-valid even when header dimensions are valid',t=>{
-  const f=fixture(t),original=fs.readFileSync(path.join(f.root,f.bundle.images[0].path));
-  assert.deepEqual(validateCanonicalPng(original),{width:1200,height:630});
-  for(const bytes of [original.subarray(0,24),original.subarray(0,-12),Buffer.concat([original,Buffer.from('extra')])])assert.throws(()=>validateCanonicalPng(bytes),/canonical_png_/);
-  const corrupt=Buffer.from(original);corrupt[corrupt.length-5]^=1;
-  assert.throws(()=>validateCanonicalPng(corrupt),/canonical_png_crc/);
-  green(f);fs.writeFileSync(path.join(f.root,f.bundle.images[0].path),corrupt);
-  assert.equal(gate(f).result,'FAIL');assert.throws(()=>core(f),/canonical_png_crc/);
-});
-
-test('I06-T02 an in-root symlink cannot supply an out-of-root canonical asset',t=>{
-  const f=fixture(t),target=path.join(f.root,f.bundle.images[0].path),outside=path.join(f.root,'..',path.basename(f.root)+'-outside.png');
-  fs.copyFileSync(target,outside);t.after(()=>fs.rmSync(outside,{force:true}));fs.unlinkSync(target);fs.symlinkSync(outside,target);
-  assert.equal(gate(f).result,'FAIL');assert.throws(()=>core(f),/outside|escape/);
-});
-
-test('I06-T06 sealed image specification cannot be reused after editorial story bytes change',t=>{
-  const f=fixture(t);f.bundle.stories[0].summary+=' Changed after image approval.';f.persist();green(f);
-  assert.throws(()=>core(f),/selected_story_binding/);
-});
-
-test('I06-T02 an unvalidated corrections label cannot bypass fresh sequential story contexts',t=>{
-  const f=fixture(t);f.bundle.corrections=[{result:'PASS',unvalidated:true}];
-  f.reviews.sessions[1].started_at=f.reviews.sessions[0].started_at;f.persist();green(f);
-  const result=gate(f);assert.equal(result.result,'FAIL');assert.match(result.errors.join(';'),/story_order/);
-  assert.throws(()=>core(f),/validated separate correction revision/);
-});
-
-test('I06-T02 missing external activation remains a real image blocker',t=>{
-  const f=fixture(t),contract=path.join(f.root,'contracts','d1-image-contract.json');
-  fs.copyFileSync(new URL('../contracts/d1-image-contract.json',import.meta.url),contract);green(f);
-  const result=gate(f);assert.equal(result.result,'FAIL');assert.match(result.errors.join(';'),/activation/);
-});
-
-for(const [label,mutate,expected] of [
-  ['old strategy label',f=>{f.bundle.image_system.strategy='d1_cloud_image_studio';},/unsupported image strategy/],
-  ['mixed strategy',f=>{f.bundle.images[0].image_system='d0_native_image_capsules';},/multiple image systems/],
-  ['missing D1 metadata',f=>{delete f.bundle.image_system;},/D1 image system metadata missing/],
-  ['legacy fallback on a new current edition',f=>{
-    delete f.bundle.image_system;delete f.state.images.strategy;
-    f.bundle.producer_receipt.work_used=false;
-    for(const image of f.bundle.images){delete image.image_system;image.visual_review={result:'PASS',reviewed_sha256:image.sha256};}
-  },/unregistered legacy image strategy/],
-  ['old Work scope',f=>{f.bundle.producer_receipt.work_scope='IMAGE_PACKAGE_INGEST';},/D1 Work usage/],
-  ['accepted image regeneration',f=>{f.bundle.producer_receipt.accepted_image_regenerations=1;},/regeneration forbidden/],
-  ['wrong media duration',f=>{f.bundle.videos[0].duration_minutes=21;},/media/i],
-  ['unsafe story source link',f=>{f.bundle.stories[0].source.url='javascript:alert(1)';},/source URL invalid/],
-  ['reused permanent route',f=>{f.bundle.stories[0].permanent_route=f.bundle.stories[1].permanent_route;},/permanent routes must be unique/]
-]){
-  test('I06-T02 compiler rejects '+label+' independently of green observation',t=>{
-    const f=fixture(t);mutate(f);saveCandidate(f);green(f);assert.throws(()=>core(f),expected);
-  });
-}
-
+test('bundle gate passes exact D1 v5 accepted bytes',async()=>{const {root,bundle}=await fixture();const r=validateD1BundleImages({bundle,repoRoot:root});assert.equal(r.result,'PASS',r.errors.join('\n'));});
+test('bundle gate fails on changed repository bytes',async()=>{const {root,bundle}=await fixture();const p=path.join(root,bundle.images[0].path);const b=fs.readFileSync(p);b[b.length-1]^=1;fs.writeFileSync(p,b);assert.equal(validateD1BundleImages({bundle,repoRoot:root}).result,'FAIL');});

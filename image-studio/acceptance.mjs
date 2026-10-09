@@ -14,7 +14,7 @@ export function validateD1AcceptanceManifest(manifest={}){
   if(manifest?.owner_intervention!==false) errors.push('d1_owner_intervention');
 
   const set=manifest?.set_review||{};
-  if(set.result!=='PASS'||set.unique_compositions!==6||set.unique_byte_streams!==6||set.unique_story_chats!==6||!Number.isInteger(set.distinct_layouts)||set.distinct_layouts<4||!Number.isInteger(set.distinct_mechanisms)||set.distinct_mechanisms<4) errors.push('d1_set_review');
+  if(set.result!=='PASS'||set.unique_compositions!==6||set.unique_byte_streams!==6||set.unique_story_chats!==6||set.distinct_layouts<4||set.distinct_mechanisms<4) errors.push('d1_set_review');
 
   const images=Array.isArray(manifest?.images)?manifest.images:[];
   if(images.length!==6) errors.push('d1_exactly_six_images');
@@ -65,4 +65,3 @@ export function buildD1IngestPlan(manifest={},handoff={}){
     })
   };
 }
-

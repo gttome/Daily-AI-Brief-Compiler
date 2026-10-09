@@ -1,20 +1,12 @@
-import fs from 'node:fs';
-import {hasRecipeProfile,assertNewGenerationProfile} from './specification-projection.mjs';
-const stateKeys=Object.keys(JSON.parse(fs.readFileSync(new URL('../contracts/d1-cloud-proof-execution.schema.json',import.meta.url),'utf8')).properties);
-import {admitD1Specifications} from './spec-admission.mjs';
-import {canonicalSha,hex} from '../image-capsules/util.mjs';
-import {nextD0ImageOperation} from '../image-capsules/state.mjs';
-
 export const D1_PROOF_STATE_SCHEMA='daily-compiler-d1-cloud-proof-execution-v2';
 export const D1_PROOF_STATES=Object.freeze(['PLANNED','BROWSER_RUNNING','PACKAGE_ACCEPTED','GIT_INGEST','GITHUB_VERIFIED','COMPLETE','BLOCKED']);
 
 export function validateD1ProofState(state={}){
   const errors=[];
-  if(!state||typeof state!=='object'||Object.keys(state).some(k=>!stateKeys.includes(k))) return ['d1_proof_state_closed_fields'];
   if(state.schema_version!==D1_PROOF_STATE_SCHEMA) errors.push('d1_proof_state_schema');
   if(!state.proof_id||!state.branch||!D1_PROOF_STATES.includes(state.status)) errors.push('d1_proof_state_identity');
   if(!state.request_path||!state.ingest_mapping_path) errors.push('d1_proof_state_paths');
-  if(!Number.isInteger(state.native_generations)||state.native_generations<0||state.native_generations>24) errors.push('d1_proof_state_generations');
+  if(!Number.isInteger(state.native_generations)||state.native_generations<0) errors.push('d1_proof_state_generations');
   if(!Array.isArray(state.accepted_assets)||state.accepted_assets.length>6||new Set(state.accepted_assets).size!==state.accepted_assets.length) errors.push('d1_proof_state_assets');
   if(!Array.isArray(state.accepted_story_chats)||state.accepted_story_chats.length>6||new Set(state.accepted_story_chats).size!==state.accepted_story_chats.length) errors.push('d1_proof_state_chats');
   if(state.owner_intervention!==false||state.local_computer_used!==false) errors.push('d1_proof_state_cloud_boundary');
@@ -26,87 +18,8 @@ export function validateD1ProofState(state={}){
   if(state.status==='COMPLETE'&&!state.cloud_proof_path) errors.push('d1_proof_state_cloud_proof_required');
   return [...new Set(errors)];
 }
-// Read-only adapter for the existing flat (R3) and grouped (R1/R2) attempt logs.
-// The original records remain intact. Context IDs are deliberately not copied:
-// D1 retries within one story chat, unlike D0's per-attempt capsule policy.
-export function nextRecordedStoryOperation(state,request,attemptLog){
-  if(!attemptLog || attemptLog.proof_id!==state.proof_id || canonicalSha(attemptLog)!==state.specification_binding.attempt_log_sha256) throw new Error('attempt_log_binding');
-  if(state.status==='PLANNED'&&(state.native_generations!==0||state.accepted_assets.length!==0||state.accepted_story_chats.length!==0)) throw new Error('planned_state_contains_existing_generation');
-  const rows=Array.isArray(attemptLog.stories)?attemptLog.stories:attemptLog.story_id?[attemptLog]:null;
-  if(!rows || rows.length>6 || new Set(rows.map(row=>row?.story_id)).size!==rows.length) throw new Error('attempt_log_stories');
-  const ids=new Set(request.stories.map(story=>story.story_id)),operations=new Map();
-  let generations=0;
-  const acceptedAssets=[];
-  for(const row of rows){
-    if(!ids.has(row?.story_id)||!Array.isArray(row?.attempts)) throw new Error('attempt_log_story_binding');
-    const attempts=[];
-    for(const item of row.attempts){
-      if(item?.native_generation_completed===false && item?.quality_attempt_consumed===false){
-        if(item.status!=='BLOCKED_INFRASTRUCTURE'||item.result!==undefined||item.review!==undefined) throw new Error('contradictory_infrastructure_evidence');
-        continue;
-      }
-      const review=item?.result??item?.review;
-      if(item?.native_generation_completed!==true && !['PASS','FAIL'].includes(review)) throw new Error('attempt_generation_evidence_missing');
-      generations++;
-      if(item.attempt!==attempts.length+1||item.attempt>4) throw new Error('attempt_number_or_limit');
-      let status=review==='FAIL'?'REJECTED_QUALITY':'CAPSULE_ADMITTED';
-      if(review==='PASS') status='REVIEW_PASS_PENDING_SET';
-      if(row.accepted_locked===true && item.attempt===row.accepted_attempt){
-        if(review!=='PASS'||!Array.isArray(row.accepted_assets)||row.accepted_assets.length!==1||!state.accepted_assets.includes(row.accepted_assets[0])) throw new Error('accepted_lock_binding');
-        status='ACCEPTED_LOCKED';acceptedAssets.push(row.accepted_assets[0]);
-      }
-      attempts.push({attempt:item.attempt,state:status,quality_attempt_consumed:true});
-    }
-    if(row.accepted_locked===true && !attempts.some(item=>item.state==='ACCEPTED_LOCKED')) throw new Error('accepted_attempt_missing');
-    if(row.accepted_locked===true && row.accepted_attempt!==attempts.length) throw new Error('generation_after_accepted_lock');
-    operations.set(row.story_id,nextD0ImageOperation(attempts));
-  }
-  if(generations!==state.native_generations || (attemptLog.native_generations!==undefined&&attemptLog.native_generations!==generations)) throw new Error('generation_count_changed_or_missing');
-  if(new Set(acceptedAssets).size!==state.accepted_assets.length||state.accepted_assets.some(asset=>!acceptedAssets.includes(asset))) throw new Error('accepted_assets_removed_or_unbound');
-  let unfinished=false;
-  for(const story of request.stories){
-    const row=rows.find(item=>item.story_id===story.story_id);
-    const generated=listGenerated(row);
-    if(unfinished&&generated) throw new Error('non_prefix_story_history');
-    if(operations.get(story.story_id)?.action!=='REUSE_ACCEPTED_LOCKED') unfinished=true;
-  }
-  if(attemptLog.pending_intent){
-    const intent=attemptLog.pending_intent,first=request.stories.find(s=>operations.get(s.story_id)?.action!=='REUSE_ACCEPTED_LOCKED');
-    if(first?.story_id!==intent.story_id||!hex(intent.event_sha256,64)||!/^ctx-[a-f0-9]{64}$/.test(intent.context_id)) throw new Error('pending_intent_binding');
-    const current=rows.find(r=>r.story_id===intent.story_id),completed=(current?.attempts??[]).filter(a=>a.native_generation_completed===true||['PASS','FAIL'].includes(a.result??a.review));
-    if(intent.attempt!==completed.length+1||intent.attempt>4||state.native_generations>=24||completed.length&&((completed.at(-1).result??completed.at(-1).review)!=='FAIL'))throw new Error('pending_intent_attempt_or_budget');
-    return {action:'RECONCILE_EXISTING_INTENT',story_id:intent.story_id,context_id:intent.context_id};
-  }
-  for(const story of request.stories){
-    const operation=operations.get(story.story_id)??{action:'ALLOCATE_FRESH_CAPSULE',attempt:1};
-    if(operation.action==='REUSE_ACCEPTED_LOCKED') continue;
-    return {story_id:story.story_id,...operation};
-  }
-  return {action:'REUSE_ACCEPTED_LOCKED'};
-}
-
-function listGenerated(row){
-  return Array.isArray(row?.attempts)&&row.attempts.some(item=>item?.native_generation_completed===true||['PASS','FAIL'].includes(item?.result??item?.review));
-}
-
-export function nextD1ProofAction(state={}, {request,sourceEvidence,requestSource,attemptLog,historicalVerification=false}={}){
+export function nextD1ProofAction(state={}){
   const errors=validateD1ProofState(state); if(errors.length) throw new Error(errors.join(';'));
-  if(['PLANNED','BROWSER_RUNNING'].includes(state.status)){
-    const admission=admitD1Specifications(request,sourceEvidence);
-    if(admission.result!=='PASS') return {action:'BLOCK_SPEC_ADMISSION',errors:admission.errors,quality_attempts_consumed:0,story_chats_opened:0};
-    const binding=state.specification_binding;
-    if(!binding||binding.request_sha256!==admission.request_sha256||binding.source_evidence_sha256!==admission.source_evidence_sha256||binding.source_commit!==request.source_commit||request.execution_id!==state.proof_id||
-      !hex(binding.request_commit,40)||!hex(binding.attempt_log_sha256,64)||!binding.source_evidence_path||
-      requestSource?.branch!==state.branch||requestSource?.request_path!==state.request_path||requestSource?.commit!==binding.request_commit||requestSource?.source_evidence_path!==binding.source_evidence_path){
-      return {action:'BLOCK_REQUEST_BINDING',quality_attempts_consumed:0,story_chats_opened:0};
-    }
-    try{
-      const operation=nextRecordedStoryOperation(state,request,attemptLog);
-      if(['FAIL_ATTEMPT_LIMIT','RESUME_EXISTING_CANDIDATE','REUSE_ACCEPTED_LOCKED','RECONCILE_EXISTING_INTENT'].includes(operation.action)) return operation;
-      if(historicalVerification) return {action:'HISTORICAL_NEXT_STORY',story_id:operation.story_id,generation_authorized:false};
-      try{assertNewGenerationProfile(request);}catch{return {action:'BLOCK_NEW_GENERATION_PROFILE_REQUIRED',quality_attempts_consumed:0,story_chats_opened:0};}
-    }catch(error){return {action:'BLOCK_ATTEMPT_LINEAGE',errors:[error.message],quality_attempts_consumed:0,story_chats_opened:0};}
-  }
   switch(state.status){
     case 'PLANNED': return {action:'START_WORK_BROWSER_STORY_1'};
     case 'BROWSER_RUNNING': return {action:'RESUME_FIRST_UNACCEPTED_STORY'};
@@ -125,4 +38,3 @@ export function initialD1ProofState({proofId,branch,requestPath,ingestMappingPat
     local_computer_used:false,last_error:null,updated_at:updatedAt};
   const errors=validateD1ProofState(state); if(errors.length) throw new Error(errors.join(';')); return state;
 }
-

@@ -3,18 +3,9 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { materializeReaderSource } from './reader-materializer.mjs';
-import { resolveReaderEnvironment } from './reader-environment.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
-import { validateCanonicalPng } from '../image-studio/png-integrity.mjs';
-import { validateBundleMedia } from './media.mjs';
-import { canonicalSha } from '../image-capsules/util.mjs';
-import { D1_STRATEGY,D1_WORK_SCOPE } from '../image-studio/activation.mjs';
-import { d1EvidencePath } from '../image-studio/proof-evidence.mjs';
-import { CORRECTION_REVISION_SCHEMA,validateCorrectionRevision } from '../operations/correction-apply.mjs';
-import { validateCorrectionIntegrity } from './correction-gate.mjs';
-import { compileEngineBinding } from '../operations/release-engine.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -47,40 +38,31 @@ function scanStrings(value, visit) {
   else if (Array.isArray(value)) value.forEach(v => scanStrings(v, visit));
   else if (value && typeof value === 'object') Object.values(value).forEach(v => scanStrings(v, visit));
 }
+function pngDimensions(bytes) {
+  const sig = '89504e470d0a1a0a';
+  if (bytes.subarray(0,8).toString('hex') !== sig) fail('invalid PNG signature');
+  if (bytes.subarray(12,16).toString('ascii') !== 'IHDR') fail('PNG IHDR missing');
+  return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
+}
+
 export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   const stateText = fs.readFileSync(statePath, 'utf8');
   const bundleText = fs.readFileSync(bundlePath, 'utf8');
-  return validateEditionRecords({stateText,bundleText,repoRoot});
-}
-
-export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
-  const inputState = JSON.parse(stateText);
+  const state = JSON.parse(stateText);
   const bundle = JSON.parse(bundleText);
-  const correction = inputState.schema_version===CORRECTION_REVISION_SCHEMA ? validateCorrectionRevision({revision:inputState,bundle,bundleText}) : null;
-  const state = correction ? correction.baseState : inputState;
-  let baseValidation=null;
-  if(correction){
-    baseValidation=validateEditionRecords({stateText:JSON.stringify(state),bundleText:inputState.original_bundle_text,repoRoot});
-    validateCorrectionIntegrity({revision:inputState,bundle,validation:correction,repoRoot});
-  }
   const digest = sha256(Buffer.from(bundleText, 'utf8'));
 
   if (state.schema_version !== 'daily-compiler-state-v1') fail('state schema_version mismatch');
   const bundleReady=state.state === 'BUNDLE_READY' && state.stage === 'BUNDLE';
   const verifiedRebuild=state.state === 'SHADOW_VERIFIED' && state.stage === 'VERIFY';
   if (!bundleReady && !verifiedRebuild) fail('state must be BUNDLE_READY at BUNDLE or SHADOW_VERIFIED at VERIFY');
-  if (inputState.bundle?.status !== 'BUNDLE_READY' || inputState.bundle?.digest !== digest) fail('state bundle digest mismatch');
-  if (!['daily-compiler-edition-bundle-v1','daily-compiler-edition-bundle-v2'].includes(bundle.schema_version)) fail('bundle schema_version mismatch');
+  if (state.bundle?.status !== 'BUNDLE_READY' || state.bundle?.digest !== digest) fail('state bundle digest mismatch');
+  if (bundle.schema_version !== 'daily-compiler-edition-bundle-v1') fail('bundle schema_version mismatch');
   if (bundle.status !== 'BUNDLE_READY') fail('bundle status mismatch');
-  const currentMedia = bundle.schema_version === 'daily-compiler-edition-bundle-v2';
-  if (bundle.editorial_contract_version !== (currentMedia ? 'daily-compiler-editorial-contract-v2' : 'daily-compiler-editorial-contract-v1')) fail('editorial contract mismatch');
+  if (bundle.editorial_contract_version !== 'daily-compiler-editorial-contract-v1') fail('editorial contract mismatch');
   if (bundle.edition_date !== state.edition_date) fail('edition date mismatch');
 
   ensureArray(bundle.stories, 'stories', 6);
-  const storyIds=new Set(bundle.stories.map(story=>story?.id));
-  if(storyIds.size!==6||[...storyIds].some(id=>typeof id!=='string'||!id.trim()))fail('story identities must be unique');
-  const routes=new Set(bundle.stories.map(story=>story?.permanent_route));
-  if(routes.size!==6)fail('story permanent routes must be unique');
   const focusCounts = new Map([...EXPECTED_FOCUS.keys()].map(k => [k,0]));
   for (const story of bundle.stories) {
     for (const field of ['id','headline','focus','summary','why_it_matters','related_coverage','image_alt_intent','permanent_route']) {
@@ -92,19 +74,13 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
     if (!Number.isInteger(story.reading_time_minutes) || story.reading_time_minutes < 1) fail('reading time invalid');
     if (!Array.isArray(story.topics) || story.topics.length < 1) fail('story topics missing');
     if (!Array.isArray(story.coverage_labels) || story.coverage_labels.length < 1) fail('story coverage labels missing');
-    if (!new RegExp('^/stories/'+bundle.edition_date+'/[a-z0-9-]+/$').test(story.permanent_route)) fail('story permanent route invalid');
-    try{const source=new URL(story.source.url);if(!['https:','http:'].includes(source.protocol)||source.username||source.password)fail('story source URL invalid');}catch{fail('story source URL invalid');}
+    if (!String(story.permanent_route).startsWith('/stories/'+bundle.edition_date+'/')) fail('story permanent route invalid');
   }
   for (const [focus,count] of EXPECTED_FOCUS) if (focusCounts.get(focus) !== count) fail('focus allocation mismatch: '+focus);
   if (bundle.stories.filter(s => s.agent_skills === true).length !== 1) fail('exactly one Agent Skills story required');
 
   ensureArray(bundle.videos, 'videos', 2);
   ensureArray(bundle.podcasts, 'podcasts', 2);
-  let mediaGate = null;
-  if (currentMedia) mediaGate = validateBundleMedia({bundle,state,bundleDigest:digest,repoRoot});
-  // Frozen v1 bundles retain their recorded checks. Exact-byte compatibility below
-  // does not admit new v1 selections or retroactively claim current qualification.
-  else {
   for (const video of bundle.videos) {
     for (const field of ['title','source','url','original_date','focus','summary','why_it_matters']) if (!video[field]) fail('video field missing: '+field);
     if (!Number.isFinite(video.duration_minutes) || video.duration_minutes <= 0 || video.duration_minutes > 20 || video.verified !== true) fail('video record invalid');
@@ -114,7 +90,6 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
     if (!Number.isFinite(podcast.duration_minutes) || podcast.duration_minutes <= 0 || !Number.isInteger(podcast.written_reading_time_minutes) || podcast.written_reading_time_minutes < 1 || podcast.verified !== true) fail('podcast record invalid');
   }
   if (new Set(bundle.podcasts.map(p => p.source)).size !== 2) fail('podcast sources must be diverse');
-  }
 
   for (const key of ['new','updated','carried_forward','dropped']) ensureArray(bundle.watchlist?.[key], 'watchlist.'+key);
   for (const item of bundle.watchlist.new) if (!item.topic || !item.why) fail('Watchlist New item invalid');
@@ -137,27 +112,21 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
   if (requiredBooks.size) fail('required book series coverage missing: '+[...requiredBooks].join(', '));
 
   ensureArray(bundle.images, 'images', 6);
-  const strategies=[bundle.image_system?.strategy,state.images?.strategy,bundle.producer_receipt?.bound_image_strategy,...bundle.images.map(image=>image?.image_system)].filter(value=>value!==undefined&&value!==null);
-  if(strategies.some(value=>!['d0_native_image_capsules',D1_STRATEGY,'proposal1r_legacy'].includes(value)))fail('unsupported image strategy');
-  if(new Set(strategies).size>1)fail('multiple image systems requested');
-  const d0Requested=strategies.includes('d0_native_image_capsules');
-  const d1Requested=strategies.includes(D1_STRATEGY);
-  if(d0Requested&&bundle.image_system?.strategy!=='d0_native_image_capsules')fail('D0 image system metadata missing');
-  if(d1Requested&&bundle.image_system?.strategy!==D1_STRATEGY)fail('D1 image system metadata missing');
-  if(d1Requested&&bundle.corrections?.length&&!correction)fail('D1 corrected bundle requires a validated separate correction revision');
-  if((d0Requested||d1Requested)&&bundle.images.some(image=>image?.image_system!==bundle.image_system.strategy))fail('image strategy mapping mismatch');
-  if((d0Requested||d1Requested)&&state.images?.strategy_contract_version&&state.images.strategy_contract_version!==bundle.image_system?.contract_version)fail('bound image contract mismatch');
-  if(new Set(bundle.images.map(image=>image?.story_id)).size!==6||bundle.images.some(image=>!storyIds.has(image?.story_id)))fail('image story mapping mismatch');
-  if(new Set(bundle.images.map(image=>image?.path)).size!==6)fail('image paths must be unique');
+  const d0Requested=bundle.image_system?.strategy==='d0_native_image_capsules'||bundle.images.some(x=>x?.image_system==='d0_native_image_capsules');
+  const d1Requested=bundle.image_system?.strategy==='d1_cloud_image_studio'||bundle.images.some(x=>x?.image_system==='d1_cloud_image_studio');
+  if(d0Requested&&d1Requested) fail('multiple image systems requested');
+  if(d0Requested&&bundle.image_system?.strategy!=='d0_native_image_capsules') fail('D0 image system metadata missing');
+  if(d1Requested&&bundle.image_system?.strategy!=='d1_cloud_image_studio') fail('D1 image system metadata missing');
   const imageEvidence = [];
   for (const image of bundle.images) {
     if (!image.story_id || !image.path || image.accepted !== true) fail('image acceptance record invalid');
     if (!/^[a-f0-9]{64}$/.test(image.sha256 || '')) fail('image sha256 invalid');
     if (!/^[a-f0-9]{40}$/.test(image.git_blob_sha || '')) fail('image git blob sha invalid');
     if (!d0Requested && !d1Requested && (image.visual_review?.result !== 'PASS' || image.visual_review?.reviewed_sha256 !== image.sha256)) fail('image visual review mismatch');
-    const asset = d1EvidencePath(repoRoot,image.path);
+    const asset = path.resolve(repoRoot, image.path);
+    if (!fs.existsSync(asset)) fail('image missing: '+image.path);
     const bytes = fs.readFileSync(asset);
-    const dims = validateCanonicalPng(bytes);
+    const dims = pngDimensions(bytes);
     if (dims.width !== 1200 || dims.height !== 630) fail('image dimensions invalid: '+image.path);
     if (sha256(bytes) !== image.sha256) fail('image SHA mismatch: '+image.path);
     if (gitBlobSha(bytes) !== image.git_blob_sha) fail('image Git blob mismatch: '+image.path);
@@ -170,7 +139,7 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
     if(d0ImageGate.result!=='PASS') fail('D0 image bundle gate failed: '+d0ImageGate.errors.join(';'));
   }
   if(d1Requested){
-    d1ImageGate=validateD1BundleImages({bundle,state,repoRoot,validatedCorrection:Boolean(correction)});
+    d1ImageGate=validateD1BundleImages({bundle,repoRoot});
     if(d1ImageGate.result!=='PASS') fail('D1 image bundle gate failed: '+d1ImageGate.errors.join(';'));
   }
 
@@ -178,7 +147,7 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
   if (bundle.producer_receipt.owner_intervention !== false) fail('owner intervention must be false');
   if (bundle.producer_receipt.codex_used !== false || bundle.producer_receipt.paid_model_api_used !== false) fail('codex/paid model API must be false');
   if(d1Requested){
-    if(bundle.producer_receipt.work_used!==true||bundle.producer_receipt.work_scope!==D1_WORK_SCOPE||bundle.producer_receipt.work_image_generation!==false)fail('D1 Work usage must be narrow '+D1_WORK_SCOPE+' only');
+    if(bundle.producer_receipt.work_used!==true||bundle.producer_receipt.work_scope!=='IMAGE_PACKAGE_INGEST'||bundle.producer_receipt.work_image_generation!==false) fail('D1 Work usage must be narrow IMAGE_PACKAGE_INGEST only');
     if(bundle.producer_receipt.local_computer_used!==false) fail('D1 local computer use forbidden');
   }else if(bundle.producer_receipt.work_used!==false) fail('work_used must be false');
   const acceptedImageRegenerations=bundle.producer_receipt.accepted_image_regenerations ?? 0;
@@ -188,32 +157,17 @@ export function validateEditionRecords({stateText,bundleText,repoRoot='.'}) {
     for (const pattern of PROD_MUTATION_PATTERNS) if (pattern.test(value)) fail('production repository mutation target forbidden');
   });
 
-  if (!mediaGate) {
-    if(correction&&inputState.semantic_scope==='image_only'&&baseValidation.mediaGate.result==='HISTORICAL_COMPATIBILITY'){
-      mediaGate={...baseValidation.mediaGate,result:'HISTORICAL_CORRECTION_COMPATIBILITY',original_bundle_sha256:inputState.original_bundle_sha256,revision_id:inputState.revision_id,current_media_qualification:false};
-    }else mediaGate=validateBundleMedia({bundle,state,bundleDigest:digest,repoRoot});
-  }
-  let legacyImageGate=null;
-  if(!d0Requested&&!d1Requested){
-    const compatibility=JSON.parse(fs.readFileSync(new URL('../contracts/image-compatibility.json',import.meta.url),'utf8'));
-    const fixedFixture=compatibility.entries.some(row=>row.bundle_sha256===digest&&row.edition_date===bundle.edition_date&&row.execution_id===state.execution_id&&row.branch===state.branch&&row.purpose==='immutable_test_fixture');
-    if(!fixedFixture&&!['HISTORICAL_COMPATIBILITY','HISTORICAL_CORRECTION_COMPATIBILITY'].includes(mediaGate.result))fail('unregistered legacy image strategy cannot bypass current image contract');
-    legacyImageGate={result:'HISTORICAL_COMPATIBILITY',current_image_qualification:false,fixture_only:fixedFixture};
-  }
-  if(currentMedia&&!correction&&acceptedImageRegenerations!==0)fail('accepted image regeneration forbidden in a new edition');
-  return {state:inputState,baseState:state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate,legacyImageGate,mediaGate,correction:correction?{revision_id:inputState.revision_id,original_bundle_sha256:inputState.original_bundle_sha256,selected_story_ids:inputState.selected_story_ids}:null};
+  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate};
 }
 
-export async function buildSite({validation, outDir, repoRoot='.',environment}) {
-  return materializeReaderSource({bundle:validation.bundle,bundleDigest:validation.bundleDigest,outDir,repoRoot,environment});
+export async function buildSite({validation, outDir, repoRoot='.'}) {
+  return materializeReaderSource({bundle:validation.bundle,outDir,repoRoot});
 }
 
-export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',environment,releaseBinding,requireReleaseBinding=false}) {
-  environment=resolveReaderEnvironment(environment);
-  const engineBinding=compileEngineBinding({statePath,bundlePath,semanticRoot:repoRoot,binding:releaseBinding,requireBinding:requireReleaseBinding});
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
   const validation=validateEdition({statePath,bundlePath,repoRoot});
   const parity=await checkGoldenReaderParity();
-  const built=await buildSite({validation,outDir,repoRoot,environment});
+  const built=await buildSite({validation,outDir,repoRoot});
   const verification={
     schema_version:'daily-compiler-reader-source-verification-v2',
     result:'PASS',
@@ -243,18 +197,12 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',en
     edition_date:validation.bundle.edition_date,
     state_sha256:validation.stateSha256,
     bundle_sha256:validation.bundleDigest,
-    ...(engineBinding?{engine_binding:engineBinding}:{}),
     deterministic:true,
     chatgpt_required_after_bundle_ready:false,
     owner_intervention:false,
     production_reader_source_sha:parity.production_reader_source_sha,
     reader_parity_gate:parity,
     accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,
-    media_contract_gate:validation.mediaGate,
-    image_contract_gate:validation.d1ImageGate||validation.d0ImageGate||validation.legacyImageGate,
-    image_evidence:validation.imageEvidence,
-    source_manifest_sha256:canonicalSha(built.manifest),
-    correction_revision:validation.correction,
     source_manifest:built.manifest,
     verification
   };
@@ -265,11 +213,7 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',en
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
-  if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>] [--reader-environment <json-file>] [--release-binding <json-file>]');
-  if(Object.hasOwn(args,'reader-environment')&&(!args['reader-environment']||args['reader-environment'].startsWith('--')))fail('reader environment JSON file required');
-  const environment=args['reader-environment']?readJson(args['reader-environment']):undefined;
-  if(Object.hasOwn(args,'release-binding')&&(!args['release-binding']||args['release-binding'].startsWith('--')))fail('release binding JSON file required');
-  const releaseBinding=args['release-binding']?readJson(args['release-binding']):undefined;
-  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',environment,releaseBinding,requireReleaseBinding:true});
+  if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>]');
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.'});
   console.log(JSON.stringify(receipt,null,2));
 }

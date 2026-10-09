@@ -43,38 +43,7 @@ const freshness=(edition,published)=>{
     fallback_reason:'Preserved edition selection represented in the canonical reader freshness schema.'
   };
 };
-// v1 compatibility keeps the recorded minute estimate. Current records carry
-// exact observed seconds; an absent runtime is never converted into zero/one.
-export const mediaDurationSeconds=(item,bundle)=>{
-  if(bundle?.schema_version==='daily-compiler-edition-bundle-v2')return Number.isInteger(item.duration_seconds)&&item.duration_seconds>0?item.duration_seconds:null;
-  const recorded=Number.isFinite(item.duration_minutes)&&item.duration_minutes>0?Math.round(item.duration_minutes*60):null;
-  return recorded>0?recorded:null;
-};
-export const mediaDurationLabel=seconds=>{
-  if(!Number.isInteger(seconds)||seconds<1)return 'Not independently verified';
-  const hours=Math.floor(seconds/3600),minutes=Math.floor((seconds%3600)/60),remainder=String(seconds%60).padStart(2,'0');
-  return hours?`${hours}:${String(minutes).padStart(2,'0')}:${remainder}`:`${minutes}:${remainder}`;
-};
-function mediaEvidence(item,bundle){
-  return {
-    compiler_media_id:item.id,
-    media_contract_version:bundle.media_contract_version||null,
-    selected_item_id:item.item_id||null,
-    source_id:item.source_id||null,
-    source_url:item.source_url||null,
-    publication:item.publication?structuredClone(item.publication):null,
-    research_cutoff_at:item.research_cutoff_at||null,
-    duration_band:item.duration_band||null,
-    freshness_band:item.freshness_band||null,
-    related_story_ids:[...(item.related_story_ids||[])],
-    summary:item.summary,
-    why_it_matters:item.why_it_matters,
-    // Missing historical copy stays missing. Reading an old bundle is not a
-    // content pass and cannot manufacture a new editorial relationship.
-    connection_to_brief:item.connection_to_brief||null,
-    connection:item.connection_to_brief||''
-  };
-}
+const durationSeconds=minutes=>Math.max(1,Math.round(Number(minutes)*60));
 const imageName=(date,slot)=>`dab-edition-${date}-${slot}.png`;
 function storySlot(bundle,story){
   const mapped=focus(story.focus);
@@ -142,39 +111,38 @@ function adaptStory(bundle,story,environment){
 
 function adaptVideo(bundle,video){
   return {
-    ...mediaEvidence(video,bundle),
     status:'included',
     title:video.title,
     channel:video.source,
-    upload_date:video.publication?.original_value||video.original_date,
-    runtime_seconds:mediaDurationSeconds(video,bundle),
+    upload_date:video.original_date,
+    runtime_seconds:durationSeconds(video.duration_minutes),
     url:video.url,
     verification_note:'Verified media identity and duration preserved from the edition bundle.',
+    connection:video.why_it_matters,
     why_useful:video.summary,
     official_source_verified:video.verified===true,
-    duration_tier:mediaDurationSeconds(video,bundle)===null?null:(mediaDurationSeconds(video,bundle)<=600?'short':'extended')
+    duration_tier:Number(video.duration_minutes)<=10?'short':'extended'
   };
 }
 
 function adaptPodcast(bundle,podcast,index){
   const slug=slugify(podcast.title);
   return {
-    ...mediaEvidence(podcast,bundle),
     status:'included',
     ordinal:9+index,
     item_id:`dab-podcast-${bundle.edition_date}-${index+1}`,
     title:podcast.title,
     show:podcast.source,
     host:'Not listed',
-    publication_date:podcast.publication?.original_value||podcast.original_date,
-    runtime_seconds:mediaDurationSeconds(podcast,bundle),
-    written_reading_time_minutes:podcast.written_reading_time_minutes,
+    publication_date:podcast.original_date,
+    runtime_seconds:durationSeconds(podcast.duration_minutes),
     url:podcast.url,
     permanent_url:`/podcasts/${bundle.edition_date}/${slug}/`,
     focus:'agents_non_technical_people',
     topics:[],
     summary:podcast.summary,
     why_useful:podcast.why_it_matters,
+    connection:podcast.why_it_matters,
     selection_rationale:podcast.why_it_matters,
     verification_note:'Verified media identity and duration preserved from the edition bundle.',
     coverage_note:'Selected for this edition.',
@@ -294,11 +262,11 @@ function adaptBookOverlay(bundle,adaptedStories){
 }
 
 export function adaptCompilerBundle(bundle,{environment=readerEnvironment,priorWatchlist=null}={}){
-  if(!['daily-compiler-edition-bundle-v1','daily-compiler-edition-bundle-v2'].includes(bundle?.schema_version))throw new Error('unsupported Compiler bundle');
+  if(bundle?.schema_version!=='daily-compiler-edition-bundle-v1')throw new Error('unsupported Compiler bundle');
   const stories=bundle.stories.map(story=>adaptStory(bundle,story,environment));
   const videos=bundle.videos.map(video=>adaptVideo(bundle,video));
   const podcasts=bundle.podcasts.map((podcast,index)=>adaptPodcast(bundle,podcast,index));
-  const dates=[...stories.map(x=>x.event_date),...videos.map(x=>x.upload_date),...podcasts.map(x=>x.publication_date)].map(value=>String(value).slice(0,10)).sort();
+  const dates=[...stories.map(x=>x.event_date),...videos.map(x=>x.upload_date),...podcasts.map(x=>x.publication_date)].sort();
   const edition={
     schema_version:'1.0.0',
     edition_id:`dab-edition-${bundle.edition_date}`,
@@ -307,8 +275,7 @@ export function adaptCompilerBundle(bundle,{environment=readerEnvironment,priorW
     published_at:`${bundle.edition_date}T12:00:00-05:00`,
     timezone:environment.timezone,
     status:'published',
-    research_cutoff_at:bundle.research_cutoff_at||bundle.videos[0]?.research_cutoff_at||bundle.watchlist?.refreshed_at||`${bundle.edition_date}T12:00:00Z`,
-    media_contract_version:bundle.media_contract_version||null,
+    research_cutoff_at:bundle.watchlist?.refreshed_at||`${bundle.edition_date}T12:00:00Z`,
     coverage_period:{start:dates[0]||bundle.edition_date,end:dates.at(-1)||bundle.edition_date},
     article_freshness_policy:'article-24-72-168-v1',
     policy_profile:'reader-parity-preserved-semantic-bundle-v1',

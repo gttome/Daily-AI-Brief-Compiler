@@ -1,5 +1,5 @@
 {
-  "schema_version": "daily-compiler-editorial-contract-v2",
+  "schema_version": "daily-compiler-editorial-contract-v1",
   "articles": {
     "count": 6,
     "focus_allocation": {
@@ -15,26 +15,14 @@
     }
   },
   "media": {
-    "contract_version": "daily-compiler-media-contract-v1",
     "videos": {
       "count": 2,
-      "max_age_hours": 72,
-      "preferred_max_seconds": 600,
-      "fallback_max_seconds": 900,
-      "last_resort_max_seconds": 1200,
-      "fallback_reason_required": true
+      "target_max_minutes": 10,
+      "fallback_max_minutes": 20
     },
     "podcasts": {
       "count": 2,
-      "distinct_canonical_shows": true,
-      "preferred_age_hours": 48,
-      "fallback_age_hours": 168,
-      "exceptional_age_hours": 720,
-      "fallback_reason_required": true,
-      "exceptional_reason_required": true,
-      "duration_ceiling_seconds": null,
-      "observed_runtime_required": true,
-      "unknown_runtime_disposition": "UNRESOLVED; retain the existing requirement for observed runtime"
+      "source_diverse": true
     }
   },
   "watchlist": {
@@ -82,15 +70,7 @@
     "resource_observation_required": true,
     "source_health_monitoring": true,
     "source_yield_monitoring": true,
-    "large_registry_supported": true,
-    "source_policy_path": "config/source-discovery-policy.json",
-    "source_snapshot_path": "config/source-snapshot.json",
-    "source_qualifications_path": "config/source-route-qualifications.json",
-    "source_rollout_complete_required_for_core": false,
-    "retained_article_limit": 20,
-    "article_deep_packet_limit": 9,
-    "article_evidence_character_limit": 12000,
-    "bounded_source_producer": "producer/source-research.mjs"
+    "large_registry_supported": true
   },
   "future_brief": {
     "inbox_path": "config/future-brief-inbox.json",
