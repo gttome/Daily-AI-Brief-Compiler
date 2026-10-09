@@ -15,6 +15,13 @@ const compile=JSON.parse(fs.readFileSync('build/reader-source/compile-receipt.js
 const sourceVerify=JSON.parse(fs.readFileSync('build/reader-source/verification-receipt.json','utf8'));
 const built=JSON.parse(fs.readFileSync('build/built-verification.json','utf8'));
 const live=JSON.parse(fs.readFileSync('build/live-verification.json','utf8'));
+const release1Pending=compile.image_representation==='images_pending';
+let before=null,after=null;
+if(release1Pending){
+  before=JSON.parse(fs.readFileSync('build/prepublish-integrity.json','utf8'));
+  after=JSON.parse(fs.readFileSync('build/postpublish-integrity.json','utf8'));
+  if(before.result!=='PASS'||before.mode!=='preflight'||after.result!=='PASS'||after.mode!=='postdeploy'||after.oct8_protected_count!==17||after.edition_date!==date)throw new Error('pending edition cannot finalize without independent exact live 17-object preservation');
+}
 
 if(compile.result!=='PASS'||sourceVerify.result!=='PASS'||built.result!=='PASS'||live.result!=='PASS') {
   throw new Error('cannot finalize without source, built-reader and live parity PASS');
@@ -30,7 +37,9 @@ for(const [source,name] of [
   ['build/reader-source/verification-receipt.json','source-verification-receipt.json'],
   ['build/built-verification.json','built-reader-verification.json'],
   ['build/live-verification.json','live-verification.json'],
-  ['build/history-merge-receipt.json','history-merge-receipt.json']
+  ['build/history-merge-receipt.json','history-merge-receipt.json'],
+  ['build/prepublish-integrity.json','prepublish-integrity.json'],
+  ['build/postpublish-integrity.json','postpublish-integrity.json']
 ]){
   if(fs.existsSync(source))fs.copyFileSync(source,path.join(run,'compiler',name));
 }
@@ -43,6 +52,8 @@ state.last_error=null;
 state.preview={url:pageUrl,bundle_digest:compile.bundle_sha256};
 state.reader_parity={
   result:'PASS',
+  image_representation:release1Pending?'images_pending':'accepted',
+  october8_public_objects_preserved:release1Pending?after.oct8_protected_count:undefined,
   contract:'reader-surface-parity-v2',
   production_reader_source_sha:compile.production_reader_source_sha,
   semantic_rework:0,

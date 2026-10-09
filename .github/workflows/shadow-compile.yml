@@ -73,7 +73,9 @@ jobs:
             --state "run/shadow-runs/$TARGET_DATE/compiler-state.json" \
             --bundle "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
             --out build/reader-source \
-            --repo-root run
+            --repo-root run \
+            --allow-pending-images true \
+            --release1-production true
       - id: pages
         uses: actions/configure-pages@v5
       - name: Build canonical reader with GitHub Pages Jekyll
@@ -96,6 +98,12 @@ jobs:
           fi
       - name: Preserve missing prior permanent pages without rewriting canonical reader
         run: node scripts/merge-shadow-history.mjs "$HISTORY_DIR" build/current build/shadow "$TARGET_DATE" build/history-merge-receipt.json
+      - name: Fail closed if October 8 local or currently live historical bytes drift
+        run: |
+          IMAGE_MODE="$(node -p "require('./build/reader-source/build-manifest.json').image_representation")"
+          if [ "$IMAGE_MODE" = 'images_pending' ]; then
+            node scripts/verify-publication-preservation.mjs preflight "$HISTORY_DIR" build/shadow build/reader-source/build-manifest.json 'https://gttome.github.io/Daily-AI-Brief-Compiler/' build/prepublish-integrity.json
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/shadow
@@ -103,6 +111,12 @@ jobs:
         uses: actions/deploy-pages@v4
       - name: Verify exact live canonical reader
         run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/reader-source build/shadow build/live-verification.json
+      - name: Independently verify every new public page plus all 17 preserved October 8 objects
+        run: |
+          IMAGE_MODE="$(node -p "require('./build/reader-source/build-manifest.json').image_representation")"
+          if [ "$IMAGE_MODE" = 'images_pending' ]; then
+            node scripts/verify-publication-preservation.mjs postdeploy "$HISTORY_DIR" build/shadow build/reader-source/build-manifest.json "${{ steps.deployment.outputs.page_url }}" build/postpublish-integrity.json
+          fi
       - name: Persist parity receipts on the same semantic execution
         run: |
           node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "${{ steps.deployment.outputs.page_url }}"
