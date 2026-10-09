@@ -100,7 +100,14 @@ function adaptStory(bundle,story,environment){
       organization:story.source.publisher,
       url:story.source.url,
       publication_date:story.source.published_at,
-      reading_evidence:{
+      reading_evidence:isPending(bundle)?{
+        status:'verified',
+        reading_minutes:story.reading_time_minutes,
+        word_count:story.reading_time_minutes*200,
+        verified_at:story.source.read_evidence?.read_at||story.source.retrieved_at,
+        method:story.source.read_evidence?.method||'preview-only original source context',
+        full_source_read:story.source.read_evidence?.full_source_read===true
+      }:{
         status:'verified',
         reading_minutes:story.reading_time_minutes,
         word_count:story.reading_time_minutes*200,

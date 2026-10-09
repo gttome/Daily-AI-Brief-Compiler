@@ -7,6 +7,7 @@ import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
 import { validatePendingImageRecords } from './pending-images.mjs';
+import { validateNewPendingEditorial } from './pending-editorial.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -46,7 +47,7 @@ function pngDimensions(bytes) {
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
 }
 
-export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendingImages=false}) {
+export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendingImages=false,release1Production=false}) {
   const stateText = fs.readFileSync(statePath, 'utf8');
   const bundleText = fs.readFileSync(bundlePath, 'utf8');
   const state = JSON.parse(stateText);
@@ -116,6 +117,7 @@ export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendi
   if(bundle.image_representation && !pendingImages) fail('unsupported image representation');
   if(pendingImages !== (state.images?.mode==='images_pending')) fail('pending image state/bundle mismatch');
   if(pendingImages && !allowPendingImages) fail('images_pending publishing is not activated');
+  if(release1Production && pendingImages) validateNewPendingEditorial({bundle,state});
   ensureArray(bundle.images, 'images', 6);
   const d0Requested=bundle.image_system?.strategy==='d0_native_image_capsules'||bundle.images.some(x=>x?.image_system==='d0_native_image_capsules');
   const d1Requested=bundle.image_system?.strategy==='d1_cloud_image_studio'||bundle.images.some(x=>x?.image_system==='d1_cloud_image_studio');
@@ -171,8 +173,8 @@ export async function buildSite({validation, outDir, repoRoot='.'}) {
   return materializeReaderSource({bundle:validation.bundle,outDir,repoRoot});
 }
 
-export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',allowPendingImages=false}) {
-  const validation=validateEdition({statePath,bundlePath,repoRoot,allowPendingImages});
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',allowPendingImages=false,release1Production=false}) {
+  const validation=validateEdition({statePath,bundlePath,repoRoot,allowPendingImages,release1Production});
   const parity=await checkGoldenReaderParity();
   const built=await buildSite({validation,outDir,repoRoot});
   const verification={
@@ -223,6 +225,6 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
   if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>]');
-  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',allowPendingImages:args['allow-pending-images']==='true'});
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',allowPendingImages:args['allow-pending-images']==='true',release1Production:args['release1-production']==='true'});
   console.log(JSON.stringify(receipt,null,2));
 }
