@@ -1,0 +1,171 @@
+name: October 9 unpublished reader review export
+on:
+  push:
+    branches:
+      - 'proof/oct9-reader-review-only-20261009'
+    paths:
+      - '.github/workflows/oct9-review-only-reader-export.yml'
+permissions:
+  contents: read
+jobs:
+  review-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout exact October 9 failed-run commit (read only)
+        uses: actions/checkout@v4
+        with:
+          ref: 246c04d1c9761c4bb9164ce34b63833fa277dc49
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Assemble review-only unapproved input and canonical reader source
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          import path from 'node:path';
+          import {materializeReaderSource} from './compiler/reader-materializer.mjs';
+          
+          const DATE='2026-10-09';
+          const ROOT='shadow-runs/'+DATE;
+          const expectedExecution='daily-compiler-shadow-2026-10-09-validation-r1';
+          const state=JSON.parse(fs.readFileSync(ROOT+'/compiler-state.json','utf8'));
+          const semantic=JSON.parse(fs.readFileSync(ROOT+'/content/semantic-content.json','utf8'));
+          const setReview=JSON.parse(fs.readFileSync(ROOT+'/images/set-review.json','utf8'));
+          if(state.execution_id!==expectedExecution||state.state!=='SHADOW_FAILED'||state.stage!=='IMAGES'||state.images.strategy!=='proposal1r_legacy')throw new Error('wrong or nonfailed original execution');
+          if(setReview.result!=='FAIL'||setReview.accepted_images!==0)throw new Error('the review gate result changed');
+          if(semantic.edition_date!==DATE||semantic.stories.length!==6||semantic.videos.length!==2||semantic.podcasts.length!==2)throw new Error('semantic data incomplete');
+          const sha256=buf=>crypto.createHash('sha256').update(buf).digest('hex');
+          const blobSha=buf=>crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+buf.length+'\0'),buf])).digest('hex');
+          const images=semantic.stories.map(story=>{
+            const pathReview=ROOT+'/images/reviews/'+story.id+'.json';
+            const review=JSON.parse(fs.readFileSync(pathReview,'utf8'));
+            if(review.story_id!==story.id||review.result!=='FAIL'||review.accepted!==false||review.source_commit_sha!=='6328278321754058cec351cfcd955e6af8dd39bc')throw new Error('invalid exact image review '+story.id);
+            const asset=fs.readFileSync(review.image_path);
+            if(sha256(asset)!==review.source_png_sha256||blobSha(asset)!==review.source_png_git_blob_sha)throw new Error('image bytes mismatch '+story.id);
+            return {story_id:story.id,path:review.image_path,sha256:review.source_png_sha256,git_blob_sha:review.source_png_git_blob_sha,accepted:false,visual_review:{result:'FAIL',reviewed_sha256:review.source_png_sha256,review_path:pathReview,exact_saved_bytes_reviewed:true}};
+          });
+          const draft={
+            schema_version:'daily-compiler-edition-bundle-v1',
+            edition_date:DATE,
+            status:'REVIEW_ONLY__NOT_BUNDLE_READY',
+            editorial_contract_version:'daily-compiler-editorial-contract-v1',
+            stories:semantic.stories,
+            videos:semantic.videos,
+            podcasts:semantic.podcasts,
+            watchlist:semantic.watchlist,
+            book_mappings:semantic.book_mappings,
+            images,
+            producer_receipt:{result:'NOT_APPROVED',owner_intervention:false,work_used:false,codex_used:false,paid_model_api_used:false,accepted_image_regenerations:0,reason:'original six-image gate failed'}
+          };
+          fs.mkdirSync('build',{recursive:true});
+          fs.writeFileSync('build/review-only-input.json',JSON.stringify(draft,null,2)+'\n');
+          const generated=await materializeReaderSource({bundle:draft,repoRoot:process.cwd(),outDir:'build/reader-source'});
+          const manifest={
+            schema_version:'oct9-reader-review-export-v1',
+            original_execution_id:expectedExecution,
+            original_edition_commit:'246c04d1c9761c4bb9164ce34b63833fa277dc49',
+            original_state:'SHADOW_FAILED',
+            original_stage:'IMAGES',
+            reader_status:'REVIEW_ONLY__UNPUBLISHED',
+            public_pages_deployed:false,
+            protected_pipeline_run:false,
+            image_visual_review_result:'FAIL',
+            accepted_images:0,
+            included_rejected_images:6,
+            feedback_submissions_disabled_in_export:true,
+            generated_at_utc:new Date().toISOString(),
+            stories:generated.adapted.edition.stories.map(s=>({title:s.headline,route:s.permanent_url,id:s.compiler_story_id})),
+            videos:['/videos/'+DATE+'/general/','/videos/'+DATE+'/agent-skills/'],
+            podcasts:generated.adapted.edition.podcasts.map(p=>({title:p.title,route:p.permanent_url})),
+            original_renderer:'vendored-production-reader',
+            history_merging_not_performed:true,
+            source:'saved original 2026-10-09 semantic content and exact Git image bytes',
+            verified_original_oct8_public_objects_at_run_start:17
+          };
+          fs.writeFileSync('build/review-preview-manifest.json',JSON.stringify(manifest,null,2)+'\n');
+          console.log('REVIEW_READER_MATERIALIZED',JSON.stringify({story_pages:manifest.stories.length,video_pages:manifest.videos.length,podcast_pages:manifest.podcasts.length,images:images.length,route_count:generated.manifest.required_routes.length}));
+          JS
+      - name: Build Jekyll reader (no deployment)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/reader-source
+          destination: ./build/review-html
+      - name: Validate canonical static reader structure
+        run: node scripts/verify-built-reader.mjs build/review-html build/reader-source build/reader-verification.json
+      - name: Create portable, navigable review with disabled API submissions
+        run: |
+          python3 <<'PY'
+          import html,json,os,pathlib,posixpath,re,shutil,urllib.parse
+          site=pathlib.Path('build/review-html')
+          dst=pathlib.Path('build/portable-review')
+          if not site.exists():raise SystemExit('Jekyll-built reader missing')
+          if dst.exists():shutil.rmtree(dst)
+          shutil.copytree(site,dst)
+          meta=json.loads(pathlib.Path('build/review-preview-manifest.json').read_text())
+          date='2026-10-09'
+          base='https://gttome.github.io/Daily-AI-Brief-Compiler'
+          pathprefix='/Daily-AI-Brief-Compiler'
+          routes=['index.html','briefs/'+date+'/index.html','videos/'+date+'/general/index.html','videos/'+date+'/agent-skills/index.html','watchlist/index.html','briefs-archive/index.html','feedback/index.html']
+          routes += [s['route'].lstrip('/')+'index.html' for s in meta['stories']]
+          routes += [s['route'].lstrip('/')+'index.html' for s in meta['podcasts']]
+          missing=[p for p in routes if not (dst/p).is_file()]
+          if missing:raise RuntimeError('Missing review pages: '+repr(missing))
+          def local_url(value,at):
+              if value.startswith(base+'/'):suffix=value[len(base):]
+              elif value==base:suffix='/'
+              elif value.startswith(pathprefix+'/'):suffix=value[len(pathprefix):]
+              elif value==pathprefix:suffix='/'
+              else:return value
+              parsed=urllib.parse.urlsplit(suffix)
+              target=urllib.parse.unquote(parsed.path).lstrip('/')
+              if not target or target.endswith('/'):target+='index.html'
+              current=at.parent.relative_to(dst).as_posix()
+              rel=posixpath.relpath(target,current if current!='.' else '.')
+              return rel + ('?'+parsed.query if parsed.query else '') + ('#'+parsed.fragment if parsed.fragment else '')
+          attr=re.compile(r'(?P<a>\b(?:href|src)=)(?P<q>["\'])(?P<url>.*?)(?P=q)',re.I)
+          banner='<div role="note" style="z-index:2147483647;background:#f5f5f5;border-bottom:2px solid #777;color:#202020;padding:14px 20px;font:700 15px/1.4 Arial,sans-serif">UNPUBLISHED REVIEW COPY — October 9, 2026. Images did not pass the professional-quality gate. This is not a production release; feedback submissions are disabled. <a href="{start}" style="text-decoration:underline;color:#17436a">Review page index</a></div>'
+          csp='<meta http-equiv="Content-Security-Policy" content="connect-src &#39;none&#39;; form-action &#39;none&#39;">'
+          for file in dst.rglob('*.html'):
+              h=file.read_text(encoding='utf-8')
+              h=attr.sub(lambda m:m.group('a')+m.group('q')+html.escape(local_url(m.group('url'),file),quote=True)+m.group('q'),h)
+              if '</head>' in h:h=h.replace('</head>',csp+'\n</head>',1)
+              indexlink=posixpath.relpath('REVIEW_START_HERE.html',file.parent.relative_to(dst).as_posix() or '.')
+              h=re.sub(r'(<body\b[^>]*>)',lambda m:m.group(1)+'\n'+banner.format(start=indexlink)+'\n',h,count=1,flags=re.I)
+              file.write_text(h,encoding='utf-8')
+          # The export must not transmit feedback, comments, audience events or watchlist votes.
+          # CSP connect-src none stops requests without modifying the canonical source or the real feedback database.
+          names=[('Full October 9 Brief','briefs/'+date+'/index.html')]
+          names+= [('Story: '+s['title'],s['route'].lstrip('/')+'index.html') for s in meta['stories']]
+          names+= [('Video: General','videos/'+date+'/general/index.html'),('Video: Agent Skills','videos/'+date+'/agent-skills/index.html')]
+          names+= [('Podcast: '+s['title'],s['route'].lstrip('/')+'index.html') for s in meta['podcasts']]
+          names+= [('Homepage / Latest','index.html'),('Watchlist','watchlist/index.html'),('Briefs Archive','briefs-archive/index.html'),('Feedback interface (disabled)','feedback/index.html')]
+          li='\n'.join('<li><a href="'+html.escape(u,quote=True)+'">'+html.escape(name)+'</a></li>' for name,u in names)
+          index='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>October 9 Brief — Review-only page index</title><style>body{font-family:system-ui,Arial,sans-serif;max-width:930px;margin:40px auto;padding:0 22px;background:#fff;color:#202634;line-height:1.55}h1{font-size:28px}h2{font-size:20px}p{max-width:850px}a{color:#174f83}li{margin:8px 0}.caution{background:#f4f5f6;border-left:4px solid #666;padding:15px 18px}.muted{color:#555}</style></head><body><h1>October 9, 2026 — Full Brief review copy</h1><p class="caution"><strong>Not published.</strong> This is a portable review of the original saved October 9 editorial work, all six stories, four media pages, Watchlist and canonical reader layout. Six saved renderer outputs are included solely for inspection: every one <strong>failed the actual visual-quality gate</strong>. This copy is not a certified release and must not be mistaken for a successful deployment. Feedback submissions are disabled.</p><h2>Open each page</h2><ol>'''+li+'''</ol><h2>Review limitations</h2><p>Layout, static routes, images and navigation are inspectable offline. Account-connected feedback, dynamic voting, subscriptions, real outbound navigation and GitHub Pages deployment are not validated by this review copy. This does not change the original <code>SHADOW_FAILED / IMAGES</code> state.</p><p class="muted">Original edition commit: 246c04d1c9761c4bb9164ce34b63833fa277dc49. Original protected main is unchanged.</p></body></html>'''
+          (dst/'REVIEW_START_HERE.html').write_text(index,encoding='utf-8')
+          shutil.copy('build/review-preview-manifest.json',dst/'REVIEW_METADATA.json')
+          receipt={'status':'REVIEW_ONLY','result':'PASS','original_image_gate':'FAIL','main_modified':False,'public_deployment':False,'route_count':len(routes),'pages_to_review':[{'label':name,'relative_path':u} for name,u in names], 'expected_routes_present':True,'live_backends_not_tested':True}
+          (dst/'REVIEW_ROUTE_CHECK.json').write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+          # Keep convenient direct page link and count exact story media pages.
+          print('PORTABLE_REVIEW_READY',len(names),'pages; source files',sum(1 for p in dst.rglob('*') if p.is_file()))
+          PY
+      - name: Capture local edition screenshot
+        if: success()
+        run: |
+          mkdir -p build/portable-review/_screenshots
+                    CHROME="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+                    if [ -n "$CHROME" ]; then "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1400,1100 --virtual-time-budget=5000 --screenshot="$PWD/build/portable-review/_screenshots/oct9-full-brief.png" "file://$PWD/build/portable-review/briefs/2026-10-09/index.html" >/dev/null 2>&1 || true; fi
+      - name: Upload self-contained reader review pages and QA receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oct9-reader-review-only
+          path: |
+            build/portable-review/
+            build/review-preview-manifest.json
+            build/reader-verification.json
+          if-no-files-found: warn
+          retention-days: 14
