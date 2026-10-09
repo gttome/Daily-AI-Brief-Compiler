@@ -440,3 +440,12 @@ Do not invent additional topology or geometry. A missing/contradictory requireme
     "requirement": "Every lattice node, composition token, energy token and reference surface is smooth and blank. The lattice geometry explains bonds or categories; it is never writing or a copied source figure."
   }
 ]
+
+Observation format for five existing criteria: preserve the criterion IDs, requirements and response fields. These are observations of the saved canonical pixels, not new criteria.
+For each criterion listed below, its observation field must be a compact JSON STRING containing exactly {"value":...,"observation":"..."}. The inner observation is a specific visible-pixel description of at least 12 characters. Keep location, pass, offending_text and missing_labels in their existing fields. All other criteria retain their existing observation format.
+layout.occupancy: value is the actual observed useful-canvas percentage, as a number from 0 to 100. An honest visual estimate is allowed; never copy a requested target or substitute a midpoint. This criterion can PASS only for a value from 80 through 90.
+layout.regions: value is the actual count of major visual regions, as a nonnegative integer. This criterion can PASS only for a count from 3 through 5.
+quality.minimum_internal_substages_in_dominant_mechanism: value is the actual count of visible internal substages in the dominant mechanism, as a nonnegative integer. This criterion can PASS only for a count of at least 2.
+quality.minimum_secondary_relationships: value is the actual count of visible secondary relationships, as a nonnegative integer. This criterion can PASS only for a count of at least 2.
+basic.composition: value records whether the actual background is white or near-white, as true or false. This records the already specified background requirement. This criterion can PASS only when value is true and its other existing composition requirements pass.
+For any of these five values, report null and set that criterion pass=false if the value cannot be determined. Preserve an observed failing value with pass=false. A value in the permitted range does not override another failure of the same existing criterion. Do not invent a measurement, count, score, observation or PASS.

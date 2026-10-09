@@ -24,7 +24,7 @@ eligibility_sha256: f6ecee6820992ffe07c7dde6c717aea6604dba44bba5199ce5fd52f01cf9
 recipe_profile_id: daily-compiler-d1-image-recipe-profile-v2
 recipe_profile_sha256: cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1
 prompt_bindings_path: qualifications/value-image-profile-v2-2026-10-08/prompt-bindings.json
-prompt_bindings_sha256: 343cf7e6d1a1380e62563c2bfaf29a963b7774b6458cd3b64c9b527550c48f8b
+prompt_bindings_sha256: 67144b91cbf54d79c9baae6243e785429dd67299d4e339e00a90d623be4afeea
 admission_path: qualifications/value-image-profile-v2-2026-10-08/admission.json
 admission_sha256: 90e061976efcf7ce72e8c8fd64bfcc63837a1775622dab145879347e8a74c375
 quality_contract_sha256: d4322cab56663299558c89ad5e18440e75651e23647f41696cbfae86c0c584d3
@@ -33,6 +33,9 @@ execution_state_path: qualifications/value-image-profile-v2-2026-10-08/execution
 attempt_log_path: qualifications/value-image-profile-v2-2026-10-08/attempt-log.json
 ingest_mapping_path: qualifications/value-image-profile-v2-2026-10-08/ingest-mapping.json
 evidence_directory: qualifications/value-image-profile-v2-2026-10-08/evidence
+driver_path: qualifications/value-image-profile-v2-2026-10-08/runtime-preflight/driver-instructions.md
+driver_sha256: 43ce491129ab10119e51a8a480cb3e7974f7b9f07b76a4d90664dc1adb2b2d66
+driver_commit: Read the exact immutable driver reference from the approved operator handoff; never assume it equals request_commit.
 test_only_seed_request_commit: PENDING_TEST_ONLY_SEED_COMMIT_S
 test_only_bound_state_commit: PENDING_TEST_ONLY_BOUND_STATE_COMMIT_B
 test_only_request_path: qualifications/value-image-profile-v2-2026-10-08/runtime-preflight/TEST_ONLY/request.json
@@ -61,6 +64,9 @@ AUTHORITATIVE WORK RUNTIME CLARIFICATION — RETAINED FROM THE EXISTING TASK
 
 Keep the same established Work conversation. The actual operator's before/after readbacks establish its preservation; no extra platform-association token is required. For the deterministic helper permission, follow the pinned base protocol below: Node serialization, validation, permitted normalization and existing-connector transport run within this same outer Work invocation. They do not create another executor or an image route.
 
+FULL DRIVER REQUIRED
+Before preflight or generation, fetch and read the ENTIRE driver_path from the actual immutable driver commit bound in the approved operator handoff. Verify its full UTF-8 SHA-256 against driver_sha256. The driver contains the required review projections, separate review-only set conversation, original/final path binding and staged full-companion validation before GITHUB_VERIFIED publication. Do not execute from this prompt summary alone or read an older driver at the source/request commit by assumption.
+
 IMMUTABLE INPUT AND EXACT PROMPT GUARD
 1. Stop before creating a story conversation if any required PENDING_ value remains or the actual one-time approval/readback binding is missing or contradictory. Reconcile the live current branch head, complete attempt history, pending intent/candidate and accepted locks before starting work. Never overwrite another active target.
 2. Verify the actual checked-out executable source against engine_commit. Read request/source/evidence at their pinned commits; compare their canonical JSON hashes. Read current state/log from the exact observed current branch commit, and verify their immutable request/source binding and full canonical digests. A supplied engine string or local CLI output saying engine_checkout_verified=false is not executable identity proof.
@@ -76,6 +82,15 @@ B. Read the separate TEST_ONLY request/source at seed commit S and its bound zer
 C. Execute scripts/record-d1-image-event.mjs emit on that concrete input, writing a new local batch path. Execute scripts/publish-d1-image-event.mjs through the actual reviewed functions-code-mode host in scripts/d1-github-writer-host.mjs, using only this same caller's exposed tools. Read runtime-preflight/driver-instructions.md for the exact caller and protocol. This is the executable exported publishD1EventBatch path, not a manually reconstructed set of state updates.
 D. Retain real tool/module/input/output hashes, the emitted complete batch, actual expected parent, result and resulting immutable commit/readbacks. Require exactly three fixture writes and zero native generations, accepted assets or quality attempts. Read the actual new state/log, submit the identical event to the serializer and retain UNCHANGED with no writes. Submitting the original batch against the now-advanced actual branch must fail stale_expected_head before another commit; no force update is allowed. The fixture's state/log/event paths remain separate from the live six-case lineage.
 E. Retain capability evidence only for the actual caller in which these actions occurred. Local tests, this file, future scheduled intentions, computed events or a bridge receipt from an implementation chat do not prove the Work task's live capability. If either actual preflight is unavailable or mismatched, preserve the exact blocker and stop with zero new native images. Do not install a runtime or create another task.
+
+CANONICAL REVIEW PROJECTION — ONE ACTUAL SUBJECTIVE RESPONSE
+After the exact compiled review prompt has been submitted with the saved canonical image in its same story conversation, retain the complete actual response unchanged. Use bindRecipeReview(story, responseText, {finalSha256, contextId, reviewedAt}) from image-studio/specification-projection.mjs to bind that response to the actual canonical SHA-256, context and observation time. Then invoke the same pinned module's projectRecipeVisualReview(story, recipeReview, {attempt, canonicalIdentity}). canonicalIdentity must be computed from the actual saved canonical PNG and its serializer-assigned path: path, sha256, git_blob_sha, bytes, width, height and format. It is not a model-authored asset description.
+
+Supply both outputs, without rewriting them, as recipe_review and visual_review in the REVIEW_COMPLETED event, together with the exact complete review request and response texts and the actual canonical file. The helper projects existing basic.*, benchmark.*, text.allowlist and component.* observations plus confirmed quality criteria; it adds no subjective judgment. It records generic_or_sparse=false or decorative_only=false only when the existing observations establish the corresponding gate. Unconfirmed flags remain null in a rejected record, never invented true/false observations. The accepted canonical v3 schema still requires both flags false. The v3 result is derived by its existing validator and can differ from a detailed recipe FAIL; the event serializer retains the recipe FAIL and never grants acceptance on the narrower v3 result alone. Do not request a second subjective review, add another review prompt, append instructions to the frozen review string, or manually author v3 quality findings.
+
+The final frozen review prompts already append RECIPE_QUALITY_OBSERVATION_INSTRUCTIONS from image-studio/recipe-quality-observations.mjs. They retain every existing criterion and request five actual values inside those existing observation strings: canvas percent, region count, internal-substage count, secondary-relation count and white/near-white background. bindRecipeReview validates these with parseRecipeQualityObservations; do not append another instruction or obtain a second subjective review. After identical-byte transport and the final path-only v3 copy, call projectRecipeQualityProfile(story, recipeReview, finalReview) to construct the accepted quality profile and exact final-review digest.
+
+Any separate full-companion measurements must come from actual observations at the approved review boundary. Do not fill canvas utilization with a midpoint, use planned counts as observed counts, or infer a white background merely because generation was asked for one. Preserve complete observations and a precise missing-evidence condition if an existing required fact has not been observed.
 
 REAL INTERRUPTION, RESUME AND DOWNSTREAM OWNERSHIP
 Use the frozen story order. In the invocation that first durably accepts Stories 1 and 2, save actual immutable state/log checkpoints and actual invocation end/interruption evidence, then exit BEFORE opening Story 3. Keep the existing coarse state compatible with BROWSER_RUNNING. The image task does not schedule itself or poll for a later turn. The implementation operator may re-arm only this same existing task after observing the real checkpoint. Retain the existing schedule calculation: next invocation is the later of current time plus one minute and the actual recorded last run plus one hour. This repository calculation is not an invented universal platform rule; do not remove it or create another task to evade it.
