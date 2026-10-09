@@ -9,8 +9,10 @@ import {validateD1ProofState,nextD1ProofAction} from './proof-state.mjs';
 import {assertD1AcceptanceManifest,buildD1IngestPlan,D1_WORK_SCOPE} from './acceptance.mjs';
 import {sha256,gitBlobSha,pngDimensions} from '../work-porter/integrity.mjs';
 import {IMAGE_TASK_ID} from '../operations/image-lane-handoff.mjs';
+import {assertD1IndependentRecovery,D1_CONTINUOUS_QUALITY_MODE} from './independent-recovery.mjs';
 
 export const D1_QUALIFICATION_EVIDENCE_SCHEMA='daily-compiler-d1-qualification-evidence-v1';
+export const D1_QUALIFICATION_EVIDENCE_SCHEMA_V2='daily-compiler-d1-qualification-evidence-v2';
 const records=['state','manifest','handoff','porter','request','source_evidence','attempt_log','admission','quality_contract','runtime','canonical_reviews','binary_readback','resume','set_review'];
 const need=(condition,code)=>{if(!condition) throw new Error(code);};
 const same=(a,b)=>canonicalSha(a)===canonicalSha(b);
@@ -44,8 +46,9 @@ export function readD1Evidence(repoRoot,reference){
 export function validateD1QualificationEvidence({repoRoot='.',evidence,proofId}={}){
   try{
     const e=readD1Evidence(repoRoot,evidence);
-    need(e.schema_version===D1_QUALIFICATION_EVIDENCE_SCHEMA&&e.proof_id===proofId,'d1_qualification_identity');
-    need(Object.keys(e).every(key=>['schema_version','proof_id',...records].includes(key)),'d1_qualification_fields');
+    const continuous=e.schema_version===D1_QUALIFICATION_EVIDENCE_SCHEMA_V2;
+    need((continuous||e.schema_version===D1_QUALIFICATION_EVIDENCE_SCHEMA)&&e.proof_id===proofId,'d1_qualification_identity');
+    need((continuous?e.qualification_mode===D1_CONTINUOUS_QUALITY_MODE:!Object.hasOwn(e,'qualification_mode'))&&Object.keys(e).every(key=>['schema_version','proof_id',...(continuous?['qualification_mode']:[]),...records].includes(key)),'d1_qualification_fields');
     const data=Object.fromEntries(records.map(key=>[key,readD1Evidence(repoRoot,e[key])]));
     const {state,manifest,handoff,porter,request,runtime,canonical_reviews:reviews,binary_readback:readback,resume,set_review:set,quality_contract:quality,admission}=data;
     need(validateD1ProofState(state).length===0&&['GITHUB_VERIFIED','COMPLETE'].includes(state.status)&&state.proof_id===proofId,'d1_qualification_state');
@@ -120,6 +123,11 @@ export function validateD1QualificationEvidence({repoRoot='.',evidence,proofId}=
     }
     need(sameSet(state.accepted_assets,locked),'d1_qualification_asset_locks');
     need(instant(manifest.accepted_at)&&Date.parse(manifest.accepted_at)>=Date.parse(previousLockedAt)&&Date.parse(readback.verified_at)>=Date.parse(previousLockedAt)&&Date.parse(runtime.observed_at)>=Date.parse(previousLockedAt)&&instant(set.reviewed_at)&&Date.parse(set.reviewed_at)>=Date.parse(previousLockedAt),'d1_qualification_completion_chronology');
+    // Prospective v2 validates a separate read-only recovery exercise after all
+    // six quality locks. No forced interruption is part of the image sequence.
+    if(continuous){
+      assertD1IndependentRecovery({repoRoot,proofId,recovery:resume,evidence:e,manifest,runtime,state,attemptLog:data.attempt_log,read:readD1Evidence});
+    }else{
     // Revalidate retained checkpoints: two accepted locks, then a different
     // continuation with its first pending Story 3 generation and no lock changes.
     need(resume.proof_id===proofId&&resume.result==='PASS'&&instant(resume.interrupted_at)&&instant(resume.resumed_at)&&Date.parse(resume.interrupted_at)<Date.parse(resume.resumed_at)&&resume.next_story_id===request.stories[2].story_id&&resume.regenerated_accepted_images===0,'d1_qualification_resume');
@@ -141,6 +149,7 @@ export function validateD1QualificationEvidence({repoRoot='.',evidence,proofId}=
     need(firstPending?.native_generation_completed===true&&firstPending.raw_sha256===firstGeneration.raw_sha256,'d1_qualification_resume_candidate');
     const secondSession=runtime.sessions.find(x=>x.story_id===prefix[1]);
     need(prefix.every(id=>{const session=runtime.sessions.find(x=>x.story_id===id);return session.invocation_id!==resume.resumed_invocation_id&&Date.parse(session.locked_at)<=Date.parse(resume.interrupted_at);})&&secondSession.invocation_id===resume.interrupted_invocation_id&&thirdSession.invocation_id===resume.resumed_invocation_id&&Date.parse(thirdSession.started_at)>=Date.parse(resume.resumed_at)&&instant(before.updated_at)&&instant(after.updated_at)&&Date.parse(before.updated_at)<=Date.parse(resume.interrupted_at)&&Date.parse(after.updated_at)>=Date.parse(firstGeneration.generated_at),'d1_qualification_resume_runtime');
+    }
     const claims={browser_orchestrator:runtime.browser_orchestrator,story_chats:runtime.story_chats,handoff:runtime.handoff,git_readback:readback.git_readback,cloud_only:runtime.cloud_only,owner_intervention:runtime.owner_intervention,local_computer_used:runtime.local_computer_used,prohibited_dependencies_used:runtime.prohibited_dependencies_used};
     return {result:'PASS',errors:[],claims,evidence:e,data};
   }catch(error){return {result:'FAIL',errors:[error.message],claims:null,evidence:null,data:null};}
