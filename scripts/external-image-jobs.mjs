@@ -110,6 +110,8 @@ export function buildExternalImageJob({bundleBytes,state,sourceCommit,liveReceip
       useful_canvas_occupancy:'80-90%',story_specific_six_way_differentiation:true,
       forbidden:['people','humanoids','photography','brands','logos','pseudotext','unapproved_text','generic_boxes','generic_dashboard','low_quality_fallback'],
       exact_saved_pixel_review_required:true,
+      explanatory_text_required:true,
+      story_fit_infographic_allowed:true,
       no_unapproved_labels:true
     },
     stories:bundle.stories.map(story=>({
@@ -127,7 +129,11 @@ export function buildExternalImageJob({bundleBytes,state,sourceCommit,liveReceip
         explanatory_significance:story.why_it_matters,
         factual_scope:story.source.read_evidence.scope,
         visible_text_allowlist:[],
-        labels_authorized:false,
+        labels_authorized:true,
+        visible_text_required:true,
+        label_specification_status:'APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS',
+        label_authority:'Owner requires explanatory text; app prepares exact wording without claiming separate owner review.',
+        story_fit_infographic_allowed:true,
         story_only_clean_context_required:true,
         external_operator_must_complete_distinct_mechanism_recipe:true
       },
@@ -178,3 +184,4 @@ function main(){
   process.stdout.write(JSON.stringify({result:'STAGED_READ_ONLY_HISTORY_INPUT',edition_date:job.edition_date,entry})+'\n');
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main();
+

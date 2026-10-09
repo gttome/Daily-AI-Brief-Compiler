@@ -45,25 +45,26 @@ function stagedFixture(t){
       visual_review:{result:'PASS',inspected_png_sha256:hash(asset),pixel_inspection_method:'persisted_git_binary',
         story_id:id,verified_original_source_url:job.stories[i].primary_source.url,
         factual_fidelity_verified:true,quality_and_visual_text_verified:true,distinct_from_other_five_verified:true,
-        mechanism_and_quality_notes:'TEST FIXTURE ONLY. Evidence is a simulated positive structure, not a real Work review.'}
+        mechanism_and_quality_notes:'TEST FIXTURE ONLY. Evidence is a simulated positive structure, not a real visual review.'}
     };
   });
   git(root,['add','.']);git(root,['commit','-qm','TEST FIXTURE ONLY: synthetic PNGs']);
   const manifest={schema_version:'external-compiler-image-package-v1',edition_date:date,execution_id:job.execution_id,
     original_bundle_sha256:job.source.bundle_sha256,original_source_commit_sha:job.source.commit_sha,
     job_sha256:hash(jobBytes),expected_pages_history_head:'c'.repeat(40),
-    external_operator_cold_start_evidence:{actual_work_session:true,fresh_no_prior_chat:true,
-      handoff_url_used:'https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/EXTERNAL_WORK_HANDOFF.md'},
     set_review:{result:'PASS',independent_saved_pixel_review:true,
       differentiation_evidence:'TEST FIXTURE ONLY. Six unique deliberately different synthetic samples are structurally bound to distinct story IDs, but NOT visually approved.',
       reviewed_sha256s:images.map(r=>r.sha256)},images};
   return {job,jobBytes,manifest,repoRoot:root};
 }
-test('six actual committed synthetic PNGs are byte-, git-, and size-bound (structural only)',async t=>{
+test('external app needs no chat-session metadata; six committed PNGs remain byte-, git-, and size-bound',async t=>{
   const f=stagedFixture(t),receipt=validateExternalImagePackage(f);
   assert.equal(receipt.result,'STAGED_ONLY');
   assert.equal(receipt.exact_git_readback,true);
   assert.equal(receipt.release_ready,false);
+  assert.equal(Object.hasOwn(f.manifest,'external_operator_cold_start_evidence'),false);
+  const legacy={...f.manifest,external_operator_cold_start_evidence:{actual_work_session:false,fresh_no_prior_chat:false}};
+  assert.equal(validateExternalImagePackage({...f,manifest:legacy}).result,'STAGED_ONLY');
   const m=new Map(f.manifest.images.map(r=>[r.path,fs.readFileSync(path.join(f.repoRoot,r.path))]));
   const remote=await verifyRemoteStagedPackage(receipt,{fetchImpl:async url=>{
     const entry=[...m].find(([relative])=>url.endsWith('/'+relative));
@@ -92,3 +93,4 @@ test('all 17 October 8 pins are present; bad HTTP and bad byte hashes fail close
   assert.throws(()=>auditOct8Response(route,404,Buffer.alloc(0)),/live_http/);
   assert.throws(()=>auditOct8Response(route,200,Buffer.from('wrong')),/live_oct8_hash/);
 });
+

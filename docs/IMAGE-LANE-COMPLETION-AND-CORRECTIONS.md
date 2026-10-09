@@ -1,3 +1,5 @@
+> **Historical reference — superseded for the external app on 2026-10-09.** Use [EXTERNAL_APP_HANDOFF.md](../EXTERNAL_APP_HANDOFF.md) and the [current prompt](external-app/Brief_Compiler_Image_App_GitHub_Prompt.md). The external app reads GitHub and returns six PNGs; no Work chat, fresh-chat proof, old lane activation or scheduler rearming is required. Mandatory explanatory text and article-fit infographics follow the current image specification. The earlier instructions below are retained as history, not active commands.
+
 # Image completion handoff and post-publication corrections
 
 Owner directive: October 7, 2026, 8:34 PM America/Chicago. Repository scope: `gttome/Daily-AI-Brief-Compiler` only.
@@ -89,3 +91,4 @@ The original published terminal receipt remains historical evidence. Store corre
 - D1 activation is still gated by its required proof; this hardening does not satisfy or bypass that proof.
 
 Code unit tests establish selection, preservation, stale-target, integrity-binding and schedule-payload behavior. They do not establish unattended browser availability or image quality. Report those remaining gates honestly.
+

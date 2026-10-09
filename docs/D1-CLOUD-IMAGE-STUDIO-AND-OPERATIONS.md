@@ -1,3 +1,5 @@
+> **Historical reference — superseded for the external app on 2026-10-09.** Use [EXTERNAL_APP_HANDOFF.md](../EXTERNAL_APP_HANDOFF.md) and the [current prompt](external-app/Brief_Compiler_Image_App_GitHub_Prompt.md). The external app reads GitHub and returns six PNGs; no Work chat, fresh-chat proof, old lane activation or scheduler rearming is required. Mandatory explanatory text and article-fit infographics follow the current image specification. The earlier instructions below are retained as history, not active commands.
+
 # D1 Work Cloud Browser + Fresh Chat Image Architecture
 
 Date: 2026-10-07  
@@ -105,3 +107,4 @@ Only then may `daily-compiler-d1-cloud-proof-v2` be emitted and D1 activated.
 ## Complexity rule
 
 The image system is one bounded Work image lane plus six isolated ordinary chats. It must not grow a Supervisor, Watchdog, leases, worker pools, wake PRs or runtime repair loops.
+
