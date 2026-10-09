@@ -1,6 +1,6 @@
 # Actual approval and task handoff
 
-The owner has approved this exact six-case qualification and its conditional release. Read [operator-handoff.json](operator-handoff.json), [owner-grant.json](owner-grant.json), and [task-installation-readback.json](task-installation-readback.json) for the actual observations. The task remains disabled until the operator publishes its separate armed readback. The historical preparation statuses below retain their original meaning. No qualification or production readiness is claimed.
+The owner has approved this exact six-case qualification and its conditional release. Read [operator-handoff.json](operator-handoff.json), [owner-grant.json](owner-grant.json), and [task-installation-readback.json](task-installation-readback.json) for the actual observations. The same existing task is armed for October 8 at 19:21 America/Chicago; [task-dispatch-readback.json](task-dispatch-readback.json) records the exact observed prompt and schedule. Actual invocation and runtime proof remain pending. The historical preparation statuses below retain their original meaning. No qualification or production readiness is claimed.
 
 # Bound six-case qualification package
 

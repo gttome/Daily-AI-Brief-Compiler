@@ -1,14 +1,15 @@
 {
   "schema_version": "daily-compiler-d1-approved-operator-handoff-v1",
-  "status": "APPROVED_INSTALLED_PENDING_ARM",
-  "recorded_at": "2026-10-09 00:18:05 UTC",
+  "status": "APPROVED_INSTALLED_ARMED_AWAITING_ACTUAL_INVOCATION",
+  "recorded_at": "2026-10-09 00:19:36 UTC",
   "repository": "gttome/Daily-AI-Brief-Compiler",
   "branch": "qualification/value-image-profile-v2-2026-10-08",
   "approved_package_commit": "1a20edbffd007717bffdc31471ec011a994c4c66",
   "owner_grant": {
     "path": "qualifications/value-image-profile-v2-2026-10-08/owner-grant.json",
     "sha256": "cea1ea3327ecaf069e9c5d0a69e488c6c6edcd94476807b36c5848069f48ec40",
-    "approval_observed": true
+    "approval_observed": true,
+    "commit": "34262743b76a431e02ed869b6e265b3ad9f85b28"
   },
   "approved_scope": {
     "path": "qualifications/value-image-profile-v2-2026-10-08/approval-scope.json",
@@ -50,25 +51,32 @@
   "test_only_seed_commit": "c714e4571e7db02ad0a10fbcab95cc4980f87b38",
   "test_only_bound_state_commit": "e8db39e2f09ce7e03b93771f79d23d13fd2f061e",
   "task_readback": {
-    "path": "qualifications/value-image-profile-v2-2026-10-08/task-installation-readback.json",
-    "sha256": "69df8ff2c5047ed113ef642de9c227b6b83a164aaa20306613c1506b1e5feaa9"
+    "path": "qualifications/value-image-profile-v2-2026-10-08/task-dispatch-readback.json",
+    "sha256": "e17ef1204316b119651b8f9f8cc37b0ddc41213608851f7da72d1852d52a6595"
   },
   "actual_task": {
     "task_id": "6ac6cf14a9e88191af48c353b9bc1e11",
-    "is_enabled": false,
-    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261008T192500\nRRULE:FREQ=DAILY;COUNT=1;BYHOUR=19;BYMINUTE=25;BYSECOND=0\nEND:VEVENT",
+    "is_enabled": true,
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261008T192100\nRRULE:FREQ=DAILY;COUNT=1;BYHOUR=19;BYMINUTE=21;BYSECOND=0\nEND:VEVENT",
     "default_timezone": "America/Chicago",
     "prompt_sha256": "fbe96c3cf7f2c4aaaa9d2ad05ec8fb652f2a199cf2d6df521d159f1bc391a809",
     "prompt_bytes": 35504,
     "saved_conversation_sha256": "6e3c404c0f227cdb3596e358e4fd41db18525f35f19fd48b2a02f658a318f825",
     "last_run_time": "2026-10-08T19:58:36.276376+00:00",
     "next_run_time": null,
-    "updated_at": "2026-10-09T00:18:05.875437+00:00"
+    "updated_at": "2026-10-09T00:19:57.405884+00:00"
   },
   "saved_conversation_preserved": true,
   "scope_status_explanation": "The BOUND_NOT_APPROVED flags in the immutable preparation at A describe that earlier snapshot. This separate actual owner grant and observed installation now supply approval and installation evidence. They do not supply runtime or image proof.",
   "production_primary_local": "2026-10-08T22:15:00-05:00",
   "allocation_hold_preserved_until_qualified": true,
   "runtime_capability_proven": false,
-  "qualification_passed": false
+  "qualification_passed": false,
+  "task_installation_readback": {
+    "path": "qualifications/value-image-profile-v2-2026-10-08/task-installation-readback.json",
+    "sha256": "69df8ff2c5047ed113ef642de9c227b6b83a164aaa20306613c1506b1e5feaa9",
+    "commit": "34262743b76a431e02ed869b6e265b3ad9f85b28"
+  },
+  "armed": true,
+  "actual_invocation_observed": false
 }
