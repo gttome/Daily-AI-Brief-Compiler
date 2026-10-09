@@ -1,3 +1,4 @@
+import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
 // Strict evidence gate for a NEW unattended Release 1 pending-figure edition.
 // This is not invoked by fixture/reader preview compilation or legacy illustrated editions.
 const fail=s=>{throw new Error('Release 1 editorial evidence: '+s);};
@@ -13,7 +14,7 @@ function narrative(s,name,min=16){
 export function validateNewPendingEditorial({bundle,state}){
   if(bundle.fixture_only||bundle.producer_receipt?.preview_only)fail('fixtures/previews cannot be production editions');
   if(state.state!=='BUNDLE_READY'||state.stage!=='BUNDLE')fail('a new pending release needs a sealed BUNDLE_READY execution');
-  if(state.branch!=='shadow/'+bundle.edition_date||typeof state.execution_id!=='string'||!state.execution_id.trim())fail('edition branch and execution identity inconsistent');
+  if(!allowedPendingEditionBranch({state,bundle})||typeof state.execution_id!=='string'||!state.execution_id.trim())fail('edition branch and execution identity inconsistent');
   if(bundle.stories.length!==6)fail('six stories required');
   const ids=new Set(),sources=new Set();
   const noon=time(bundle.edition_date+'T12:00:00Z','edition date');
