@@ -40,7 +40,7 @@ function protectedOctober8(root){
   if(rows.length!==17)fail('oct8_incomplete');
   return rows;
 }
-function slotsFor(bundle){
+export function slotsFor(bundle){
   const positions=new Map();
   const counters=new Map();
   for(const s of bundle.stories){
@@ -51,7 +51,7 @@ function slotsFor(bundle){
   if(positions.size!==6||[...counters.values()].some(n=>n!==2))fail('six_canonical_slots_required');
   return positions;
 }
-function replaceSingleTag(document,story,imageUrl){
+export function replaceSingleTag(document,story,imageUrl){
   const expectedAlt=escapeHtml('Illustration pending for '+story.headline+'. Planned illustration: '+story.image_alt_intent);
   const expectedPath='/Daily-AI-Brief-Compiler/briefs/images/'+story.permanent_route.split('/')[2]+'/illustration-pending.svg';
   let replacements=0;
@@ -75,7 +75,7 @@ function replaceHtml(file,stories,urls){
   if(next===original)fail('reader_html_unchanged');
   fs.writeFileSync(file,next,'utf8');
 }
-function verifyNoOtherChanges(historyRoot,outRoot,allowed){
+export function verifyNoOtherChanges(historyRoot,outRoot,allowed){
   const previous=fileWalk(historyRoot),next=fileWalk(outRoot);
   const toRelative=p=>path.relative(historyRoot,p).split(path.sep).join('/');
   const fromOutput=p=>path.relative(outRoot,p).split(path.sep).join('/');
@@ -117,7 +117,7 @@ export function prepareExternalImageReplacement({job,jobBytes,bundleBytes,state,
   if(!Array.isArray(bundle.stories)||bundle.stories.length!==6||
     !Array.isArray(manifest.images)||manifest.images.length!==6||
     !Array.isArray(job.stories)||job.stories.length!==6)fail('six_story_package_required');
-  if(path.resolve(outputRoot)===path.resolve(historyRoot))fail('history_read_only');
+  if(path.resolve(outputRoot)===path.resolve(historyRoot)||path.resolve(outputRoot).startsWith(path.resolve(historyRoot)+path.sep)||path.resolve(historyRoot).startsWith(path.resolve(outputRoot)+path.sep))fail('history_read_only');
   const oct8=protectedOctober8(historyRoot),slots=slotsFor(bundle);
   const stageMap=new Map(stagingReceipt.images.map(x=>[x.story_id,x]));
   const inputs=new Map(job.stories.map(x=>[x.story_id,x]));
