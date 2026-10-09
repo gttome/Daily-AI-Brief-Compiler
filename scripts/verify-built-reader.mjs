@@ -30,6 +30,16 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   }
 
   const edition=fs.readFileSync(path.join(siteDir,'briefs',manifest.edition_date,'index.html'),'utf8');
+  if(manifest.image_representation==='images_pending'){
+    if(manifest.current_images.length!==6 || manifest.current_images.some(x=>x.status!=='pending'||x.accepted!==false||x.placeholder_id!=='illustration-pending-1200x630-v1')) fail('pending-image representation manifest invalid');
+    if(new Set(manifest.current_images.map(x=>x.route)).size!==1) fail('pending edition must reuse one generic illustration');
+    if((edition.match(/illustration-pending\.svg/g)||[]).length!==6) fail('pending figure slots not present in all six articles');
+    if((edition.match(/alt="Illustration pending for /g)||[]).length!==6) fail('story-specific pending illustration descriptions missing');
+    for(const route of manifest.required_routes.filter(x=>x.startsWith('stories/'+manifest.edition_date+'/')&&x.endsWith('index.html'))){
+      const html=fs.readFileSync(path.join(siteDir,route),'utf8');
+      if(!html.includes('illustration-pending.svg')||!html.includes('alt="Illustration pending for '))fail('pending figure missing from story: '+route);
+    }
+  }
   const home=fs.readFileSync(path.join(siteDir,'index.html'),'utf8');
   for(const marker of ['research-ledger-header','The Daily Generative AI Brief','Briefs Archive','Emerging AI Watchlist','Sources','About This Brief']){
     if(!edition.includes(marker))fail('canonical reader marker missing: '+marker);
@@ -92,6 +102,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     production_reader_source_sha:manifest.production_reader_source_sha,
     required_routes:manifest.required_routes.length,
     current_images:manifest.current_images.length,
+    image_representation:manifest.image_representation||'accepted',
     canonical_layout:true,
     ratings:true,
     sharing:true,
