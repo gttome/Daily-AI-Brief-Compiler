@@ -25,3 +25,11 @@ jobs:
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
       - run: npm run reader:parity
+      - name: Independently audit all 17 immutable October 8 live HTTP bytes
+        run: node scripts/audit-oct8-live.mjs build/audits/oct8-live.json
+      - name: Archive October 8 exact network-hash evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: oct8-live-hashes
+          path: build/audits/oct8-live.json
+          if-no-files-found: error
