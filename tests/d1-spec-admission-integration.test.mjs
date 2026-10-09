@@ -136,6 +136,22 @@ test('I01-T06: admitted handoff binds both immutable input locators and uses the
   }
 });
 
+test('admitted production handoff schedules no earlier than a microsecond last-run bound',()=>{
+  const f={...handoffFixture(),lastRunAt:'2026-10-08T01:00:00.000123Z'},before=structuredClone(f);
+  const h=buildD1ImageLaneHandoff(f);
+  const stamp=/^DTSTART:(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/m.exec(h.automation_update.schedule);
+  assert.ok(stamp);
+  const actualMs=Date.UTC(Number(stamp[1]),Number(stamp[2])-1,...stamp.slice(3).map(Number));
+  assert.equal(new Date(actualMs).toISOString(),h.due_at);
+  assert.equal(h.due_at,'2026-10-08T02:00:01.000Z');
+  assert.ok(BigInt(actualMs)*1_000n>=BigInt(Date.parse('2026-10-08T01:00:00Z'))*1_000n+123n+3_600_000_000n);
+  assert.ok(actualMs>=Date.parse(f.now)+60_000);
+  assert.equal(h.automation_update.jawbone_id,IMAGE_TASK_ID);
+  assert.equal(h.specification_admission.result,'PASS');
+  assert.equal(h.generation_authorized,false);
+  assert.deepEqual(f,before);
+});
+
 test('I01-T01: handoff rejects missing, invalid or mismatched specification/evidence bindings',async t=>{
   for(const update of [{sourceEvidence:undefined},{requestSha256:'0'.repeat(64)},{executionId:'other'},{sourceEvidencePath:undefined},{requestPath:'../request.json'},{requestCommit:'main'},{branch:'other branch'}]){
     await t.test(JSON.stringify(update),()=>assert.throws(()=>buildD1ImageLaneHandoff({...handoffFixture(),...update})));
