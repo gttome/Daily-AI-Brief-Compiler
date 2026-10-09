@@ -3,10 +3,10 @@
   "edition_date": "2026-10-09",
   "execution_id": "daily-compiler-shadow-2026-10-09-validation-r1",
   "branch": "shadow/2026-10-09",
-  "state": "PRODUCING",
+  "state": "SHADOW_FAILED",
   "stage": "IMAGES",
   "started_at": "2026-10-09T15:56:23.542Z",
-  "updated_at": "2026-10-09T16:05:41.491Z",
+  "updated_at": "2026-10-09T16:10:20.840Z",
   "editorial_bundle": {
     "status": "complete",
     "digest": "git-blob-sha1:39489270a150dde168f43348ebce99d8a535e61f"
@@ -15,16 +15,24 @@
     "required": 6,
     "accepted": [],
     "strategy": "proposal1r_legacy",
-    "phase": "PLANNED",
+    "phase": "SET_REVIEW_READY",
     "strategy_bound_at": "2026-10-09T15:56:23.542Z",
-    "strategy_contract_version": "daily-compiler-diagram-spec-v2"
+    "strategy_contract_version": "daily-compiler-diagram-spec-v2",
+    "set_review_path": "shadow-runs/2026-10-09/images/set-review.json"
   },
   "bundle": {
     "status": "pending",
     "digest": null
   },
-  "last_error": null,
-  "retryable": true,
+  "last_error": {
+    "code": "IMAGE_VISUAL_QUALITY_GATE_FAILED_RESTORED_PROPOSAL1R",
+    "stage": "IMAGES",
+    "message": "All six structurally valid deterministic images were visually inspected; none meets the required mechanism/production-quality bar, and multiple contain clipped or crowded text. No images accepted.",
+    "evidence_path": "shadow-runs/2026-10-09/images/set-review.json",
+    "remediation": "Stop without publication or implementation fixes; preserve all completed semantic stages and exact rendered outputs.",
+    "render_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/37956769032"
+  },
+  "retryable": false,
   "observability": {
     "events_path": "shadow-runs/2026-10-09/observability/events.json",
     "metrics_path": null,
