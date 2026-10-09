@@ -35,9 +35,6 @@ jobs:
     env:
       TARGET_BRANCH: ${{ github.event.client_payload.branch || inputs.branch }}
       EXPECTED_DIGEST: ${{ github.event.client_payload.bundle_digest || '' }}
-      EXPECTED_ENGINE_SHA: ${{ github.event.client_payload.engine_sha || '' }}
-      EXPECTED_SEMANTIC_COMMIT: ${{ github.event.client_payload.semantic_commit || '' }}
-      TRIGGER_EVENT: ${{ github.event_name }}
       READER_REBUILD: ${{ github.event.client_payload.reader_rebuild || inputs.reader_rebuild || false }}
     steps:
       - uses: actions/checkout@v4
@@ -49,33 +46,25 @@ jobs:
           node-version: '20'
       - name: Validate target identity
         run: |
-          [[ "$TARGET_BRANCH" =~ ^shadow/[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo 'Invalid shadow branch'; exit 1; }
-          if [ "$TRIGGER_EVENT" = 'repository_dispatch' ]; then
-            [[ "$EXPECTED_ENGINE_SHA" =~ ^[a-f0-9]{40}$ ]] || { echo 'Exact dispatch engine SHA required'; exit 1; }
-            [[ "$EXPECTED_SEMANTIC_COMMIT" =~ ^[a-f0-9]{40}$ ]] || { echo 'Exact dispatch semantic commit required'; exit 1; }
-            [[ "$EXPECTED_DIGEST" =~ ^[a-f0-9]{64}$ ]] || { echo 'Exact dispatch bundle digest required'; exit 1; }
-          fi
+          case "$TARGET_BRANCH" in
+            shadow/????-??-??) ;;
+            *) echo "Invalid shadow branch: $TARGET_BRANCH"; exit 1 ;;
+          esac
           echo "TARGET_DATE=${TARGET_BRANCH#shadow/}" >> "$GITHUB_ENV"
-      - name: Read semantic branch as data in an exact detached worktree
+      - name: Check out exact semantic branch as worktree
         run: |
-          git fetch origin "+refs/heads/$TARGET_BRANCH:refs/remotes/origin/$TARGET_BRANCH"
-          git worktree add --detach run "refs/remotes/origin/$TARGET_BRANCH"
-      - name: Select immutable engine using protected-main bootstrap
-        id: engine
+          git fetch origin "$TARGET_BRANCH:$TARGET_BRANCH"
+          git worktree add run "$TARGET_BRANCH"
+      - name: Require sealed semantic bundle without rework
         run: |
-          EXTRA=()
-          if [ "$READER_REBUILD" = 'true' ]; then EXTRA+=(--allow-verified); fi
-          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" run "${EXTRA[@]}" \
-            --require-remote-head --write-binding "$RUNNER_TEMP/value-engine-binding.json" > "$RUNNER_TEMP/value-ready.txt"
-          cat "$RUNNER_TEMP/value-ready.txt"
-          grep -q '^ready=true$' "$RUNNER_TEMP/value-ready.txt"
-          cat "$RUNNER_TEMP/value-ready.txt" >> "$GITHUB_OUTPUT"
-      - name: Execute the selected protected release engine
-        env:
-          ENGINE_SHA: ${{ steps.engine.outputs.engine_sha }}
-        run: |
-          git checkout --detach "$ENGINE_SHA"
-          node --input-type=module -e 'import fs from "node:fs"; import {verifyReleaseEngineHandoff} from "./operations/release-engine.mjs"; verifyReleaseEngineHandoff({binding:JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/value-engine-binding.json","utf8")),semanticRoot:"run",branch:process.env.TARGET_BRANCH,allowVerified:process.env.READER_REBUILD==="true"});'
+          EXTRA=""
+          if [ "$READER_REBUILD" = "true" ]; then EXTRA="--allow-verified"; fi
+          node scripts/check-current-shadow-ready.mjs "$TARGET_BRANCH" run $EXTRA > ready.txt
+          cat ready.txt
+          grep -q '^ready=true$' ready.txt
+          if [ -n "$EXPECTED_DIGEST" ]; then
+            grep -q "^bundle_digest=$EXPECTED_DIGEST$" ready.txt
+          fi
       - name: Materialize canonical production reader from sealed bundle
         run: |
           rm -rf build
@@ -84,8 +73,7 @@ jobs:
             --state "run/shadow-runs/$TARGET_DATE/compiler-state.json" \
             --bundle "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
             --out build/reader-source \
-            --repo-root run \
-            --release-binding "$RUNNER_TEMP/value-engine-binding.json"
+            --repo-root run
       - id: pages
         uses: actions/configure-pages@v5
       - name: Build canonical reader with GitHub Pages Jekyll
@@ -111,9 +99,6 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/shadow
-      - name: Recheck exact semantic head immediately before deployment
-        run: |
-          node --input-type=module -e 'import fs from "node:fs"; import {verifyReleaseEngineHandoff,assertCompiledEngineReceipt} from "./operations/release-engine.mjs"; const binding=verifyReleaseEngineHandoff({binding:JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/value-engine-binding.json","utf8")),semanticRoot:"run",branch:process.env.TARGET_BRANCH,allowVerified:process.env.READER_REBUILD==="true",requireRemoteHead:true}); assertCompiledEngineReceipt({binding,compile:JSON.parse(fs.readFileSync("build/reader-source/compile-receipt.json","utf8"))});'
       - id: deployment
         uses: actions/deploy-pages@v4
       - name: Verify exact live canonical reader

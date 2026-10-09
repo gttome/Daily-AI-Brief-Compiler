@@ -17,7 +17,7 @@ Every edition must contain exactly:
 - reader-value book connections
 - 6 accepted professional explanatory diagrams
 
-## Article freshness
+## Freshness
 
 1. prioritize the most recent 24 hours;
 2. normal fallback through 72 hours when needed;
@@ -31,16 +31,9 @@ Each story requires a headline, source date, authoritative/credible source, prof
 
 ## Media
 
-Current selections use `daily-compiler-media-contract-v1` and edition bundle v2. The independently versioned video and podcast policies are defined in `contracts/media-contract.json` and explained in [MEDIA-CONTRACT.md](MEDIA-CONTRACT.md).
-
-- Exactly two verified videos: maximum age 72 hours at the original research cutoff; at most 600 seconds preferred, 900 seconds fallback, 1200 seconds last resort. Both fallback bands require a documented reason. Article freshness extensions do not apply.
-- Exactly two podcasts from distinct canonical shows: strongly prefer 48 hours; use the documented seven-day fallback or exceptional 30-day policy only with a specific rationale. There is no listening-duration ceiling. The existing observed-runtime requirement remains; unknown runtime is unresolved.
-- Bind exact item and channel/show identities, direct item destinations, original publication precision/timezone, exact seconds and substantive authoritative evidence. A channel/show listing and `verified=true` alone do not qualify.
-- Preserve Summary, Why it matters and Connection to the Brief as three distinct fields on edition, home/latest, permanent media pages and relevant feeds. Reject normalized exact duplicates and retain a copy-bound semantic review from the existing content pass.
-- Use Duration, avoid redundant time beneath titles, preserve written podcast-page reading time, and open external source links safely in a new tab.
-- Date-only metadata remains an interval. Resolve an uncertain eligibility boundary from better evidence; never invent a publication instant or move the research cutoff on resume.
-
-Exact frozen historical bundles retain their recorded contract through the protected media compatibility registry; they are not relabeled as current media qualification.
+- 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
+- 2 source-diverse podcasts with verified episode identity/date/source.
+- Source links open in a new tab.
 
 ## Watchlist
 

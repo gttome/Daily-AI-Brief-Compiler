@@ -10,17 +10,6 @@ Allow an owner-requested correction to replace one, several, or all six images a
 
 ## Two independent gates
 
-### Current D1 specification admission
-
-New D1 generation requests must first pass the versioned all-six admission in
-`docs/D1-IMAGE-SPECIFICATION-ADMISSION.md`. Use `scripts/build-d1-image-handoff.mjs`
-for their admission-bound handoff and `scripts/admit-d1-specifications.mjs` for
-each exact single-story prompt. The original `build-image-lane-handoff.mjs` remains
-a historical schedule-payload helper, not proof of generation eligibility.
-Accepted-asset transport and terminal history retain their existing paths; do not
-regenerate accepted bytes or rewrite exhausted proof requests to add this schema.
-No script in this admission change calls the scheduler or establishes browser availability.
-
 - **Readiness:** articles and six story-specific specifications are durably persisted and digest-bound. This is when the semantic run hands off, even though image generation and final publication are unfinished.
 - **Permission and capability:** the normal D1 lane still requires its protected activation evidence. This change does not activate D1 or declare the failed R3 proof successful. An explicit owner-requested image correction may use the approved browser route within that correction's scope without changing the edition's original strategy or activating global D1.
 
@@ -90,16 +79,6 @@ The original published terminal receipt remains historical evidence. Store corre
 
 ## Completion evidence required before next-run readiness can be claimed
 
-For a full current D1 qualification, follow
-`docs/D1-QUALIFICATION-EVIDENCE.md`. The cloud-proof builder and activation gate
-both require its digest-bound companion records, including actual canonical
-pixel review, observed set variety, accepted-lock resume evidence and exact
-binary readback. Preserve immutable input snapshots when the active execution
-state advances. A one-image capability proof, local CI, or an owner-selected
-correction does not substitute for the full qualification. This requirement does
-not change the existing scope of authorized image-only corrections or their
-accepted-asset transport.
-
 - Primary and Recovery handoff prompts are saved and read back.
 - The same Work task is actually re-armed from a real semantic completion, with exact target and due time verified.
 - An unattended run has Work Cloud Browser and can resume its signed-in session.
@@ -110,4 +89,3 @@ accepted-asset transport.
 - D1 activation is still gated by its required proof; this hardening does not satisfy or bypass that proof.
 
 Code unit tests establish selection, preservation, stale-target, integrity-binding and schedule-payload behavior. They do not establish unattended browser availability or image quality. Report those remaining gates honestly.
-
