@@ -1,15 +1,17 @@
+import {OCT9_RECOVERY_BRANCH,isAuthorizedOct9Recovery} from '../compiler/oct9-owner-exception.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const branch=process.argv[2] || process.env.GITHUB_REF_NAME || '';
 const root=process.argv[3] || '.';
 const allowVerified=process.argv.includes('--allow-verified');
+const isOct9Recovery=branch===OCT9_RECOVERY_BRANCH;
 const match=/^shadow\/(\d{4}-\d{2}-\d{2})$/.exec(branch);
-if(!match){
+if(!match && !isOct9Recovery){
   console.log('ready=false');
   process.exit(0);
 }
-const date=match[1];
+const date=isOct9Recovery?'2026-10-09':match[1];
 const statePath=path.join(root,'shadow-runs',date,'compiler-state.json');
 if(!fs.existsSync(statePath)){
   console.log('ready=false');
@@ -17,7 +19,9 @@ if(!fs.existsSync(statePath)){
 }
 const state=JSON.parse(fs.readFileSync(statePath,'utf8'));
 const readyState=(state.state==='BUNDLE_READY' && state.stage==='BUNDLE') || (allowVerified && state.state==='SHADOW_VERIFIED' && state.stage==='VERIFY');
-const ready=readyState &&
+const bundlePath=path.join(root,'shadow-runs',date,'edition-bundle.json');
+const exceptionValid=!isOct9Recovery || (fs.existsSync(bundlePath) && isAuthorizedOct9Recovery({state,bundle:JSON.parse(fs.readFileSync(bundlePath,'utf8'))}));
+const ready=exceptionValid && readyState &&
   state.bundle?.status==='BUNDLE_READY' &&
   typeof state.bundle?.digest==='string' &&
   /^[a-f0-9]{64}$/.test(state.bundle.digest);

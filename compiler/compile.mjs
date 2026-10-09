@@ -8,6 +8,7 @@ import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
 import { validatePendingImageRecords } from './pending-images.mjs';
 import { validateNewPendingEditorial } from './pending-editorial.mjs';
+import { isAuthorizedOct9Recovery } from './oct9-owner-exception.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -153,7 +154,7 @@ export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendi
   }
 
   if (bundle.producer_receipt?.result !== 'PASS') fail('producer receipt missing PASS');
-  if (bundle.producer_receipt.owner_intervention !== false) fail('owner intervention must be false');
+  if (bundle.producer_receipt.owner_intervention !== false && !(bundle.producer_receipt.owner_intervention === true && isAuthorizedOct9Recovery({state,bundle}))) fail('owner intervention must be false absent the exact separately authorized Oct9 recovery');
   if (bundle.producer_receipt.codex_used !== false || bundle.producer_receipt.paid_model_api_used !== false) fail('codex/paid model API must be false');
   if(d1Requested){
     if(bundle.producer_receipt.work_used!==true||bundle.producer_receipt.work_scope!=='IMAGE_PACKAGE_INGEST'||bundle.producer_receipt.work_image_generation!==false) fail('D1 Work usage must be narrow IMAGE_PACKAGE_INGEST only');
@@ -209,7 +210,9 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
     bundle_sha256:validation.bundleDigest,
     deterministic:true,
     chatgpt_required_after_bundle_ready:false,
-    owner_intervention:false,
+    owner_intervention:validation.bundle.producer_receipt.owner_intervention,
+    one_time_oct9_recovery:isAuthorizedOct9Recovery({state:validation.state,bundle:validation.bundle}),
+    unattended_release_one_proven:validation.bundle.producer_receipt.owner_intervention===false,
     production_reader_source_sha:parity.production_reader_source_sha,
     reader_parity_gate:parity,
     accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,

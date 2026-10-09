@@ -19,6 +19,10 @@ This file gives a new authorized GitHub-connected Work operator a permanent disc
 
 The durable image job is generated from the original, already-published semantic bundle **only after** independent live publication, including a 17-object October 8 hash gate, has completed. The source bundle remains immutable; the job carries its branch, exact source commit, execution, bundle SHA-256, full six Compiler story objects, publisher URLs and original dates, source reading evidence, figure alt intents, verified media context, Watchlist/book links and image-quality rules. No private chat history or cross-story research notes are required for discovery.
 
+### One owner-approved historical exception: 2026-10-09 only
+
+A separately approved, **manually** published October 9 placeholder edition can be a legitimate job **only after** the real protected Pages publisher verifies the dated Brief, six permanent story pages, original semantic bundle and all 17 October 8 public hashes. It uses source branch `shadow/2026-10-09-owner-placeholder-20261009`, **never** the immutable terminal `shadow/2026-10-09` failure. Its job will declare `source.one_time_owner_recovery=true` and `source.unattended_schedule_proven=false`. Read and preserve those exact values. This exceptional published edition is not proof of the normal 19:15 unattended Release 1 schedule and does not authorize automatic external image generation. No job means no work target. A later manual six-image release still requires its own owner GO, exact genuine saved PNG evidence, protected PR/CI, and independent live readback.
+
 ## 3. Quality and editorial scope
 
 Work from the six **different** story records in job.stories. Within each story's generation context, use that story's complete Compiler article, primary publisher URL/original date, verified full-source reading scope, image_alt_intent and story-only text spec. Consult the immutable original source as needed for accuracy. Do not bring other stories, prior Brief images, repository orchestration, branch IDs or chat history into a story-only generator conversation.

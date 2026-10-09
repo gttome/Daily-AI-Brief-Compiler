@@ -1,3 +1,4 @@
+import {OCT9_RECOVERY_BRANCH} from '../compiler/oct9-owner-exception.mjs';
 // Verifies a separately produced package already committed to Git. No image creation.
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -60,7 +61,7 @@ export function inspectCommittedImage({repoRoot,relative,expectedSha256,expected
 function validateContext({job,jobBytes,manifest}){
   if(job?.schema_version!=='external-compiler-image-job-v1'||job.lifecycle!=='PUBLISHED_PENDING'||
     job.accepted_images!==0||job.placeholder?.count!==6||
-    job.source?.branch!=='shadow/'+job.edition_date||
+    !(job.source?.branch==='shadow/'+job.edition_date || (job.edition_date==='2026-10-09' && job.source?.branch===OCT9_RECOVERY_BRANCH && job.source?.one_time_owner_recovery===true && job.source?.unattended_schedule_proven===false))||
     !SHA1.test(job.source?.commit_sha||'')||!SHA256.test(job.source?.bundle_sha256||''))fail('job_not_qualified');
   if(manifest?.schema_version!==PACKAGE_SCHEMA||manifest.edition_date!==job.edition_date||
     manifest.execution_id!==job.execution_id||
