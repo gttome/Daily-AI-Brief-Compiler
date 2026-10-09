@@ -129,6 +129,30 @@ jobs:
             git -C run commit -m "Verify canonical reader parity for shadow edition $TARGET_DATE"
             git -C run push origin HEAD:"$TARGET_BRANCH"
           fi
+      - name: Nonblocking post-verification external image-job discovery (zero image dependency)
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          IMAGE_MODE="$(node -p "require('./build/reader-source/build-manifest.json').image_representation")"
+          if [ "$IMAGE_MODE" != 'images_pending' ]; then
+            echo "No external image job: already illustrated edition"
+            exit 0
+          fi
+          test -s build/postpublish-integrity.json
+          SOURCE_COMMIT="$(git -C run rev-parse HEAD)"
+          mkdir -p build/external-work-postverify
+          node scripts/external-image-jobs.mjs \
+            "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
+            "run/shadow-runs/$TARGET_DATE/compiler-state.json" \
+            "$SOURCE_COMMIT" \
+            build/postpublish-integrity.json \
+            "$HISTORY_DIR" \
+            build/external-work-postverify/image-jobs
+          test -s build/external-work-postverify/image-jobs/index.json
+          test -s "build/external-work-postverify/image-jobs/$TARGET_DATE/job.json"
+          cp -a build/external-work-postverify/image-jobs build/shadow/
+          echo "PUBLIC_SAFE_IMAGE_JOB_PREPARED_AFTER_VERIFIED_RELEASE $TARGET_DATE $SOURCE_COMMIT"
       - name: Persist cumulative verified reader history
         run: |
           if [ "$HISTORY_EXISTS" = "true" ]; then
