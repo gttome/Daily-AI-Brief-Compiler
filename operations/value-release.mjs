@@ -14,7 +14,9 @@ import {IMAGE_TASK_ID} from './image-lane-handoff.mjs';
 
 export const VALUE_TARGET=Object.freeze({edition_date:'2026-10-09',timezone:'America/Chicago',
   readiness_target:'2026-10-08T17:15:00-05:00',freeze_target:'2026-10-08T18:15:00-05:00',
-  intended_run_start:'2026-10-08T23:45:00-05:00',intended_run_start_utc:'2026-10-09T04:45:00Z',
+  intended_run_start:'2026-10-09T00:45:00-05:00',intended_run_start_utc:'2026-10-09T05:45:00Z',
+  edition_date_rule:'CURRENT_LOCAL_CALENDAR_DAY',
+  previous_intended_run_start:'2026-10-08T23:45:00-05:00',previous_intended_run_start_utc:'2026-10-09T04:45:00Z',
   original_intended_run_start:'2026-10-08T19:15:00-05:00',rescheduling_authority:'Owner October 8 instruction: move the run time back if needed'});
 export const PRIMARY_TASK_ID='6ac57b19b3508191944ce2e0dec1d57b';
 export const VALUE_TEST_COMMANDS=Object.freeze(['node --test tests/value-release.test.mjs','npm test','npm run validate:bootstrap',
@@ -121,7 +123,8 @@ export function compareValueSchedule(readback={},engineSha=null){
   const targetClock=VALUE_TARGET.intended_run_start.slice(11,19).replaceAll(':','');
   const start=starts.length===1?new RegExp('^DTSTART;TZID=America/Chicago:(\\d{4})(\\d\\d)(\\d\\d)T'+targetClock+'$').exec(starts[0]):null;
   const startDate=start?start[1]+'-'+start[2]+'-'+start[3]:null;
-  const startOkay=startDate!==null&&Number.isFinite(Date.parse(startDate+'T00:00:00Z'))&&new Date(startDate+'T00:00:00Z').toISOString().slice(0,10)===startDate&&startDate<='2026-10-08';
+  const targetDate=VALUE_TARGET.intended_run_start.slice(0,10);
+  const startOkay=startDate!==null&&Number.isFinite(Date.parse(startDate+'T00:00:00Z'))&&new Date(startDate+'T00:00:00Z').toISOString().slice(0,10)===startDate&&startDate<=targetDate;
   const parts=rules.length===1?rules[0].slice(6).split(';').map(part=>part.split('=')):[];
   const rule=Object.fromEntries(parts),known=['FREQ','BYHOUR','BYMINUTE','BYSECOND','INTERVAL'];
   const cadence=matches.length===1&&task.is_enabled===true&&task.timing_mode==='exact_schedule'&&task.default_timezone==='America/Chicago'&&

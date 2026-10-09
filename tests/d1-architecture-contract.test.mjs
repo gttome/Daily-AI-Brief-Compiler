@@ -62,7 +62,9 @@ test('schedule contract remains four coarse schedules and forbids paid dependenc
   const s=read('contracts/schedule-contract.json');
   assert.equal(s.schema_version,'daily-compiler-schedule-contract-v2');
   assert.equal(s.schedules.length,4);
-  assert.equal(s.schedules[0].time,'23:45');
+  assert.deepEqual(s.schedules.map(row=>[row.role,row.time,row.may_allocate]),[
+    ['primary','00:45',true],['recovery','21:15',false],['recovery','01:15',false],['recovery','05:15',false]
+  ]);
   assert.equal(s.rules.paid_model_api,false);
   assert.equal(s.rules.paid_browser_service,false);
   assert.equal(s.rules.dot_required_for_image_path,false);
