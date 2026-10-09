@@ -77,7 +77,13 @@ export function buildOct9OwnerRecovery({originalSelection,originalSemantic,origi
       !s.headline||!s.summary||!s.why_it_matters||!s.permanent_route)fail('archived_story_changed:'+s.id);
     const r=structuredClone(s);
     r.source={...r.source,read_evidence:checkedSource(s,receipt)};
-    if(r.agent_skills===true)requireString(r.agent_skills_evidence,'reusable_agent_skills_evidence',45);
+    if(r.agent_skills===true){
+      const skillEvidence=verification.agent_skills_evidence;
+      if(skillEvidence?.story_id!==s.id || url(skillEvidence.primary_source_url)!==url(s.source.url))
+        fail('reusable_skills_evidence_not_source_bound');
+      requireString(skillEvidence.explanation,'reusable_agent_skills_evidence',70);
+      r.agent_skills_evidence=skillEvidence.explanation;
+    }
     return r;
   });
   if(stories.filter(s=>s.agent_skills===true).length!==1)fail('exactly_one_real_agent_skills_story_required');
