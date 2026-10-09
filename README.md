@@ -1,33 +1,26 @@
 # Daily AI Brief Compiler
 
-Independent shadow/challenger system for producing the Daily AI Brief as one immutable semantic edition bundle, followed by deterministic GitHub validation/build/deploy.
+The Compiler publishes an immutable editorial edition through deterministic GitHub validation, build and verification. Optional premium images come from an existing external app after publication.
 
-## Isolation
+## External image app
 
-- Official production remains `gttome/Daily-AI-Brief`.
-- This repository has no authority to modify production repository state, schedules, Pages, branches, or execution records.
-- No Supervisor, Watchdog Ring, writer/recovery leases, worker pools, wake PRs, or runtime repair framework.
-- No Codex, paid model API, alternate account, owner upload, owner-liveness, or local-computer dependency.
-- Work is allowed only for the narrow cloud `IMAGE_PACKAGE_INGEST` porter scope after Image Studio acceptance. Work may not generate, edit, regenerate, or visually approve images.
+Start with [EXTERNAL_APP_HANDOFF.md](EXTERNAL_APP_HANDOFF.md) and the [full reusable prompt](docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md).
 
-## Modes
+The app reads the prompt and GitHub's eligible six-story job, creates and reviews six images, and copies six PNG binaries plus the manifest/reviews back to GitHub. The Compiler does not require Work mode, a fresh chat, a browser session, a particular generator or an app build. It validates article bindings, exact files and review evidence. The daily publisher remains independent of image-app availability.
 
-- **BOOTSTRAP**: build this repository and execute feasibility gates F0/F1/F2. No shadow edition is required.
-- **PRIMARY PRODUCER**: after development authorization, allocate exactly one shadow edition for a target date.
-- **RECOVERY**: resume only an existing nonterminal shadow edition; if none exists, exit without mutation.
+Readable explanatory text is mandatory. Article-fit infographic styling is permitted with the established quality requirements. See the [image specification](docs/external-app/Perfect_Image_Specification.md), [variation guidance](docs/external-app/Image_Variation_After_Action.md) and [benchmark](docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md).
 
-## Development authorization
+## Repository and release boundaries
 
-Full Daily Compiler development is authorized only after all three feasibility gates pass:
+Operate only in `gttome/Daily-AI-Brief-Compiler`; do not modify `gttome/Daily-AI-Brief`. The external app stages on an unprotected branch. Publication remains a separate owner-authorized protected Compiler release with exact-head CI, image-only scope, preserved historical assets and independent live-byte verification.
 
-- **F0** Scheduled ChatGPT can autonomously persist a proof file to this repository.
-- **F1** Scheduled/native ChatGPT can generate a real PNG, persist exact bytes, and verify Git/readback identity with zero owner intervention.
-- **F2** A committed disposable `BUNDLE_READY` fixture autonomously triggers deterministic GitHub validation/build with no ChatGPT involvement.
+This interface change does not alter schedules, reopen terminal runs, rewrite editorial content, generate images in the Compiler or activate an old D0/D1/Proposal 1R lane. Existing immutable jobs retain their original hashes; the current prompt supplies the mandatory-text correction for older empty-label packets.
 
-See `docs/ARCHITECTURE.md`, `docs/ISOLATION-BASELINE.md`, and `docs/EDITORIAL-CONTRACT.md`.
+## Documentation
 
-## D1 Cloud Image Studio
+- [Current external-app documents](docs/external-app/README.md)
+- [Compiler architecture and historical context](docs/ARCHITECTURE.md)
+- [Editorial contract](docs/EDITORIAL-CONTRACT.md)
+- [Operational learning](docs/OPERATIONAL-LEARNING.md)
 
-The target reader-image architecture is D1: Dot coordinates a fresh cloud Image Studio task, the Studio accepts six native ChatGPT images and locks their exact hashes, then one narrow Work Cloud Porter moves those exact individual assets into GitHub. No ZIP is required and GitHub does not repeat visual-quality review.
-
-Operational telemetry, source health, cumulative learning, future-Brief suggestions, post-publication corrections and dashboard-ready snapshots are first-class contracts. See `docs/D1-CLOUD-IMAGE-STUDIO-AND-OPERATIONS.md`.
+`EXTERNAL_WORK_HANDOFF.md` is a compatibility pointer. Retained D0/D1 proof documents describe historical implementations and do not impose external-app platform requirements.

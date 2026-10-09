@@ -39,16 +39,21 @@ function fixture(){
     ]};
   return {bundle,bundleBytes,state,sourceCommit:'a'.repeat(40),liveReceipt};
 }
-test('external Work handoff captures six exact source-bound stories, not accepted art',()=>{
+test('external app handoff requires explanatory text and permits story-fit infographics without preapproving art',()=>{
   const f=fixture(),job=buildExternalImageJob(f);
   assert.equal(job.lifecycle,'PUBLISHED_PENDING');
   assert.equal(job.accepted_images,0);
   assert.equal(job.source.bundle_sha256,digest(f.bundleBytes));
   assert.equal(job.stories.length,6);
+  assert.equal(job.quality.explanatory_text_required,true);
+  assert.equal(job.quality.story_fit_infographic_allowed,true);
   assert.deepEqual(job.stories.map(s=>s.story_id),f.bundle.stories.map(s=>s.id));
   assert.equal(new Set(job.stories.map(s=>s.permanent_url)).size,6);
   for(const s of job.stories){
-    assert.equal(s.visual_specification.labels_authorized,false);
+    assert.equal(s.visual_specification.labels_authorized,true);
+    assert.equal(s.visual_specification.visible_text_required,true);
+    assert.equal(s.visual_specification.label_specification_status,'APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS');
+    assert.equal(s.visual_specification.story_fit_infographic_allowed,true);
     assert.deepEqual(s.visual_specification.visible_text_allowlist,[]);
     assert.equal(s.primary_source.verified_read_evidence.full_source_read,true);
     assert.equal(s.accepted_locked,false);
@@ -120,3 +125,4 @@ test('publication workflow generates optional index only AFTER live proof and ve
   assert.match(scope,/git -C run rev-parse HEAD/);
   assert.doesNotMatch(scope,/image_gen|render-shadow-images|workflow_dispatch|create_task|schedule:/);
 });
+

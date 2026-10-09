@@ -70,11 +70,9 @@ function validateContext({job,jobBytes,manifest}){
     manifest.job_sha256!==sha256(jobBytes)||
     !SHA1.test(manifest.expected_pages_history_head||'')||
     !Array.isArray(manifest.images)||manifest.images.length!==6)fail('stale_or_unbound_package');
-  if(!manifest.external_operator_cold_start_evidence||!manifest.external_operator_cold_start_evidence.actual_work_session||
-    !manifest.external_operator_cold_start_evidence.handoff_url_used||
-    !manifest.external_operator_cold_start_evidence.fresh_no_prior_chat)fail('cold_start_evidence_required');
-  if(manifest.external_operator_cold_start_evidence.handoff_url_used!==
-    'https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/EXTERNAL_WORK_HANDOFF.md')fail('wrong_handoff_url');
+  // The external app's platform/session is outside the Compiler contract.
+  // Exact job/source hashes, six committed PNGs and saved-pixel review evidence
+  // below establish the exchange. Legacy session metadata is not an admission gate.
   const expected=new Set(job.stories?.map(s=>s.story_id));
   if(expected.size!==6)fail('job_six_unique_stories');
   if(new Set(manifest.images.map(r=>r.story_id)).size!==6||
@@ -140,3 +138,4 @@ async function main(){
   process.stdout.write(JSON.stringify({result:remote.result,exact_remote_six_image_readback:true,release_ready:false})+'\n');
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))await main();
+
