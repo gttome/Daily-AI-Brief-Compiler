@@ -1,3 +1,7 @@
+# Actual approval and task handoff
+
+The owner has approved this exact six-case qualification and its conditional release. Read [operator-handoff.json](operator-handoff.json), [owner-grant.json](owner-grant.json), and [task-installation-readback.json](task-installation-readback.json) for the actual observations. The task remains disabled until the operator publishes its separate armed readback. The historical preparation statuses below retain their original meaning. No qualification or production readiness is claimed.
+
 # Bound six-case qualification package
 
 **Use the final files below.** This package is fully bound and remains **NOT APPROVED, NOT INSTALLED and NOT ARMED**. Native generation and runtime preflight have not occurred. Earlier PENDING files remain retained preparation history and are not the run target.
