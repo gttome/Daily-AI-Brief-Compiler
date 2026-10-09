@@ -1,0 +1,4106 @@
+{
+  "schema_version": "daily-compiler-d1-image-specifications-v1",
+  "contract_version": "daily-compiler-image-contract-v5",
+  "edition_date": "2026-10-08",
+  "execution_id": "oct9-transport-20261009t0110z-test-only",
+  "request_id": "oct9-transport-20261009t0110z-test-only",
+  "source_commit": "4a304c23d6ab1bdd7b842c059a157889dc4dbfdf",
+  "stories": [
+    {
+      "story_id": "crystal-stability-active-learning",
+      "story_content_sha256": "7dc745b8f439ddfa9a84681ca64d461f2f23114410c9ea817a3c89d621cc3b42",
+      "generation": {
+        "subject": "Testing predicted crystal stability and returning evaluated structures to active learning",
+        "core_mechanism": "Separate structural and compositional proposal paths use their respective graph models to screen energy. Formula screening precedes structure search. Proposed structures then enter an exposed energy-evaluation and relative-stability assembly. Computed records supply later training; computationally stable structures leave as synthesis candidates.",
+        "verified_visual_facts": [
+          "The structural pipeline proposes crystals related to known structures.",
+          "The compositional pipeline proposes chemical formulas without crystal structures.",
+          "Structural graph inputs represent atoms and nearby atomic connections.",
+          "Separate structure-based and composition-based graph models predict energy for stability screening.",
+          "Density Functional Theory evaluates proposed crystal structures.",
+          "Computed results enter the database and supply training data for later active-learning rounds.",
+          "Stability is judged against competing compositions with lower energy.",
+          "Computationally stable predictions remain candidates for experimental synthesis.",
+          "The initial structural model was trained on known crystal structure and energy data.",
+          "Composition-only graphs represent element types and proportions, without atomic positions.",
+          "Composition-only prediction filters formulas before random structure search produces structures for DFT."
+        ],
+        "conceptual_elements": [
+          "Use blank spatial lattices for structures and a nonspatial element-type lattice for compositions; assert no formula or count.",
+          "Open, distinct predictor prisms expose graph intake and energy screening without invented layers, numeric energies or a shared model.",
+          "The exposed evaluator yields a keyed computed-energy token; a separate surface compares it with competing phases. These are conceptual surfaces, not scientific equations.",
+          "Four regions: proposals; distinct predictors/screens; search, evaluation and candidate outlet; computed records and separate learning returns.",
+          "A shallow faceted reference surface and keyed tokens explain relative energy; no axis, symbol or numerical threshold is implied."
+        ],
+        "visible_text_allowlist": [
+          "Structures",
+          "Composition",
+          "Predict",
+          "Search",
+          "Evaluate",
+          "Stability",
+          "Learn",
+          "Candidates"
+        ],
+        "prohibited_specifics": [
+          "provider emblem",
+          "legible source code",
+          "invented numerical score",
+          "copied brand mark"
+        ],
+        "prohibited_composition_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ],
+        "reference_policy": "Only this sealed specification and neutral quality rules.",
+        "composition_assignment": {
+          "composition_signature": "split-crystal-graphs-and-open-energy-basin",
+          "layout_signature": "branched-oblique-lattice-and-lower-return",
+          "diagram_grammar": "active-learning-material-screening",
+          "hierarchy_signature": "dominant-energy-cutaway-with-distinct-predictor-flanks",
+          "annotation_pattern_signature": "perimeter-stage-labels-with-blank-keyed-sockets",
+          "reading_path": "upper-left proposal branches reach separate predictors, converge as structures at right-hand evaluation, then return below as computed training records",
+          "palette_family": "petrol blue and copper with pale celadon",
+          "mechanism_metaphor": "open crystal lattices and an exposed energy-reference basin",
+          "evidence_representation": "computed structure-energy pairs bound to competing-phase reference",
+          "feedback_pattern": "evaluated-records-to-separate-predictor-training-paths",
+          "prohibited_patterns": [
+            "flat-card-row",
+            "dashboard-grid",
+            "decorative-machine-parts",
+            "copied-source-figure"
+          ]
+        },
+        "meaningful_components_plan": [
+          {
+            "component_id": "c1",
+            "description": "A known-crystal reference supplies structural seeds and the initial structure-energy training basis.",
+            "support": "verified_fact",
+            "support_index": 8,
+            "required": true,
+            "semantic_role": "source_reference",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c2",
+            "description": "A changed blank crystal lattice represents a structural proposal related to a known structure.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "structural_proposal",
+            "region": "r1",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel1"
+              }
+            ]
+          },
+          {
+            "component_id": "c3",
+            "description": "An atomic-neighbour graph retains the spatial connections of the structural proposal.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "structural_graph",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c2",
+                "entry": "from-c2",
+                "relationship_id": "rel2"
+              }
+            ]
+          },
+          {
+            "component_id": "c4",
+            "description": "An exposed structure-based predictor receives that atomic graph.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "structural_predictor",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c3",
+                "entry": "from-c3",
+                "relationship_id": "rel3"
+              },
+              {
+                "source_component_id": "c16",
+                "entry": "from-c16",
+                "relationship_id": "rel19"
+              }
+            ]
+          },
+          {
+            "component_id": "c5",
+            "description": "A separate structural energy-screen surface retains the candidate structure with its predicted-energy token.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "structural_screen",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c4",
+                "entry": "from-c4",
+                "relationship_id": "rel4"
+              }
+            ]
+          },
+          {
+            "component_id": "c6",
+            "description": "A blank composition proposal distinguishes element types and proportions without atomic positions.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "composition_proposal",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c7",
+            "description": "A composition-only graph preserves element types and proportions while omitting atomic positions.",
+            "support": "verified_fact",
+            "support_index": 9,
+            "required": true,
+            "semantic_role": "composition_graph",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c6",
+                "entry": "from-c6",
+                "relationship_id": "rel5"
+              }
+            ]
+          },
+          {
+            "component_id": "c8",
+            "description": "An exposed composition-based predictor receives that nonspatial graph separately from the structural predictor.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "composition_predictor",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c7",
+                "entry": "from-c7",
+                "relationship_id": "rel6"
+              },
+              {
+                "source_component_id": "c17",
+                "entry": "from-c17",
+                "relationship_id": "rel20"
+              }
+            ]
+          },
+          {
+            "component_id": "c9",
+            "description": "A formula-screen surface passes selected composition tokens toward structure search.",
+            "support": "verified_fact",
+            "support_index": 10,
+            "required": true,
+            "semantic_role": "composition_screen",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c8",
+                "entry": "from-c8",
+                "relationship_id": "rel7"
+              }
+            ]
+          },
+          {
+            "component_id": "c10",
+            "description": "An open search fan turns a screened composition into candidate atomic arrangements.",
+            "support": "verified_fact",
+            "support_index": 10,
+            "required": true,
+            "semantic_role": "structure_search",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c9",
+                "entry": "from-c9",
+                "relationship_id": "rel8"
+              }
+            ]
+          },
+          {
+            "component_id": "c11",
+            "description": "A keyed structural intake receives candidate atomic arrangements from the structural and composition-search paths.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "structure_intake",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c5",
+                "entry": "from-c5",
+                "relationship_id": "rel9"
+              },
+              {
+                "source_component_id": "c10",
+                "entry": "from-c10",
+                "relationship_id": "rel10"
+              }
+            ]
+          },
+          {
+            "component_id": "c12",
+            "description": "An exposed computational-energy surface attaches a computed-energy token to the evaluated structure.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "energy_evaluation",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c11",
+                "entry": "from-c11",
+                "relationship_id": "rel11"
+              }
+            ]
+          },
+          {
+            "component_id": "c13",
+            "description": "A competing-phase reference surface supplies the relative-energy constraint without numerical axes.",
+            "support": "verified_fact",
+            "support_index": 6,
+            "required": true,
+            "semantic_role": "energy_constraint",
+            "region": "r3",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c14",
+            "description": "An open stability-comparison surface compares the evaluated structure-energy pair with the competing-phase reference.",
+            "support": "verified_fact",
+            "support_index": 6,
+            "required": true,
+            "semantic_role": "stability_comparison",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c12",
+                "entry": "from-c12",
+                "relationship_id": "rel12"
+              }
+            ]
+          },
+          {
+            "component_id": "c15",
+            "description": "A computed-record receptacle retains evaluated structure-energy pairs for subsequent learning.",
+            "support": "verified_fact",
+            "support_index": 5,
+            "required": true,
+            "semantic_role": "computed_evidence_store",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c12",
+                "entry": "from-c12",
+                "relationship_id": "rel15"
+              }
+            ]
+          },
+          {
+            "component_id": "c16",
+            "description": "A structural-training track prepares the stored computed records for the structure-based predictor.",
+            "support": "verified_fact",
+            "support_index": 5,
+            "required": true,
+            "semantic_role": "structural_training",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c15",
+                "entry": "from-c15",
+                "relationship_id": "rel16"
+              }
+            ]
+          },
+          {
+            "component_id": "c17",
+            "description": "A separate compositional-training track prepares the stored computed records for the composition-based predictor.",
+            "support": "verified_fact",
+            "support_index": 5,
+            "required": true,
+            "semantic_role": "composition_training",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c15",
+                "entry": "from-c15",
+                "relationship_id": "rel17"
+              }
+            ]
+          },
+          {
+            "component_id": "c18",
+            "description": "A candidate outlet holds computationally stable structures without claiming experimental synthesis.",
+            "support": "verified_fact",
+            "support_index": 7,
+            "required": true,
+            "semantic_role": "candidate_output",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c14",
+                "entry": "from-c14",
+                "relationship_id": "rel13"
+              }
+            ]
+          }
+        ],
+        "mechanism_plan": {
+          "dominant_mechanism": "An exposed structural-evaluation assembly separates computed-energy measurement from relative-stability comparison, downstream of distinct structural and compositional screening paths.",
+          "internal_substages": [
+            {
+              "input_component_id": "c1",
+              "transformation": "Modify a known structural seed into a structural candidate.",
+              "output_component_id": "c2",
+              "relation_id": "rel1",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c2",
+              "transformation": "Encode the candidate atomic neighbours as a structural graph.",
+              "output_component_id": "c3",
+              "relation_id": "rel2",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c3",
+              "transformation": "Supply the structural graph to its structure-based predictor.",
+              "output_component_id": "c4",
+              "relation_id": "rel3",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c4",
+              "transformation": "Use the predicted energy to screen the structural candidate.",
+              "output_component_id": "c5",
+              "relation_id": "rel4",
+              "kind": "measurement",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c6",
+              "transformation": "Encode element types and proportions without atomic positions.",
+              "output_component_id": "c7",
+              "relation_id": "rel5",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 9,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c7",
+              "transformation": "Supply the composition graph to its separate predictor.",
+              "output_component_id": "c8",
+              "relation_id": "rel6",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c8",
+              "transformation": "Filter the proposed formula using the composition-based prediction.",
+              "output_component_id": "c9",
+              "relation_id": "rel7",
+              "kind": "measurement",
+              "support": "verified_fact",
+              "support_index": 10,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c9",
+              "transformation": "Send the screened composition into random structure search.",
+              "output_component_id": "c10",
+              "relation_id": "rel8",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 10,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c5",
+              "transformation": "Carry a screened structural arrangement to computational evaluation.",
+              "output_component_id": "c11",
+              "relation_id": "rel9",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c10",
+              "transformation": "Carry searched atomic arrangements to the same evaluation intake.",
+              "output_component_id": "c11",
+              "relation_id": "rel10",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 10,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c11",
+              "transformation": "Evaluate a candidate atomic arrangement and retain its computed energy.",
+              "output_component_id": "c12",
+              "relation_id": "rel11",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c12",
+              "transformation": "Compare the computed structure-energy pair against relative stability.",
+              "output_component_id": "c14",
+              "relation_id": "rel12",
+              "kind": "measurement",
+              "support": "verified_fact",
+              "support_index": 6,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c14",
+              "transformation": "Release computationally stable structures as candidates for experiments.",
+              "output_component_id": "c18",
+              "relation_id": "rel13",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 7,
+              "returned_state": null
+            }
+          ],
+          "secondary_relationships": [
+            {
+              "from_component_id": "c13",
+              "to_component_id": "c14",
+              "relationship": "The competing-phase reference constrains the stability decision.",
+              "relation_id": "rel14",
+              "kind": "constraint",
+              "support": "verified_fact",
+              "support_index": 6,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c12",
+              "to_component_id": "c15",
+              "relationship": "Retain the evaluated structure and energy as a computed record.",
+              "relation_id": "rel15",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c15",
+              "to_component_id": "c16",
+              "relationship": "Supply computed evidence to later structural training.",
+              "relation_id": "rel16",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c15",
+              "to_component_id": "c17",
+              "relationship": "Supply computed evidence to later compositional training.",
+              "relation_id": "rel17",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c1",
+              "to_component_id": "c16",
+              "relationship": "The known structure-energy data provide the initial structural training reference.",
+              "relation_id": "rel18",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 8,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c16",
+              "to_component_id": "c4",
+              "relationship": "Return the updated structural predictor to structural screening.",
+              "relation_id": "rel19",
+              "kind": "feedback",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": "A structural predictor updated from evaluated structure-energy records."
+            },
+            {
+              "from_component_id": "c17",
+              "to_component_id": "c8",
+              "relationship": "Return the updated compositional predictor to composition screening.",
+              "relation_id": "rel20",
+              "kind": "feedback",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": "A composition predictor updated from evaluated composition-energy records."
+            }
+          ],
+          "evidence_structure": "Candidate atomic arrangements retain their structural key through evaluation; the resulting structure-energy pairs reach the comparison surface and the computed-record store through separate bound paths.",
+          "constraint_structure": "The composition graph has no spatial atom locations. Structure search follows composition screening. The competing-phase surface is a constraint, never another proposed crystal or measured output.",
+          "feedback_path": "Computed records enter separate training tracks. Each trained predictor returns to its own graph-screening path; no training return is attached to the candidate outlet.",
+          "output_boundary": "The final outlet contains computational candidates only. No arrow crosses into an experiment, manufactured device or guaranteed material application.",
+          "selected_construction": "Use staggered structural and composition-only proposal branches at upper left, separate open predictor prisms, and a dominant exposed energy-evaluation and stability basin at right. A lower record store returns evidence to separate training tracks. Keep all branch identities visible.",
+          "geometry_requirements": [
+            {
+              "requirement_id": "separate-graph-semantics",
+              "description": "The structural graph contains spatial neighbour connections; the composition graph contains only element-type and proportion geometry. Never draw atomic positions before composition filtering and search."
+            },
+            {
+              "requirement_id": "open-energy-substages",
+              "description": "Show a visible structure-to-computed-energy transformation on the exposed evaluation surface and a separate comparison contact against the competing-phase reference. Neither surface is an enclosing box or an unexplained funnel."
+            },
+            {
+              "requirement_id": "bound-computed-evidence",
+              "description": "Preserve the structural key on every computed-energy pair. Distinct conduits attach the evaluated pair to the stability comparison and the computed-record receptacle."
+            },
+            {
+              "requirement_id": "separate-learning-returns",
+              "description": "The lower computed-record receptacle branches to distinct structural and compositional training tracks; their returns visibly attach to their respective predictors."
+            },
+            {
+              "requirement_id": "candidate-boundary",
+              "description": "The candidate outlet ends within the computational illustration. There is no laboratory, fabricated object or implied synthesis-success path."
+            },
+            {
+              "requirement_id": "blank-material-surfaces",
+              "description": "Every lattice node, composition token, energy token and reference surface is smooth and blank. The lattice geometry explains bonds or categories; it is never writing or a copied source figure."
+            }
+          ]
+        }
+      },
+      "recipe_profile": {
+        "profile_id": "daily-compiler-d1-image-recipe-profile-v2",
+        "definition_sha256": "cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1",
+        "semantic_review": {
+          "schema_version": "daily-compiler-d1-recipe-source-review-v2",
+          "recipe_sha256": "31ea844522dd26fe159e2cfe3f21d878ea5b402610f1ac3981796f1ca7d8dba1",
+          "source_story_sha256": "77740427ed1c8521aabf75c264e4a7bf7070953c2e6e4df8b637d3e8b34ae3b8",
+          "reviewer": "ChatGPT source-semantic construction review",
+          "reviewed_at": "2026-10-08T23:38:03.433Z",
+          "claims": [
+            {
+              "id": "component.c1",
+              "support": "verified_fact",
+              "support_index": 8,
+              "assessment": "SUPPORTED",
+              "observation": "Known structure-energy records support initial training."
+            },
+            {
+              "id": "component.c2",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Related known structures supply structural proposals."
+            },
+            {
+              "id": "component.c3",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Structural graphs retain atoms and nearby connections."
+            },
+            {
+              "id": "component.c4",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Distinct graph models predict energy for screening."
+            },
+            {
+              "id": "component.c5",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Exposed predictor surfaces are schematic, not claimed layers."
+            },
+            {
+              "id": "component.c6",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Formula proposals contain no initial atomic structure."
+            },
+            {
+              "id": "component.c7",
+              "support": "verified_fact",
+              "support_index": 9,
+              "assessment": "SUPPORTED",
+              "observation": "Composition graphs contain types/proportions, not positions."
+            },
+            {
+              "id": "component.c8",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Distinct graph models predict energy for screening."
+            },
+            {
+              "id": "component.c9",
+              "support": "verified_fact",
+              "support_index": 10,
+              "assessment": "SUPPORTED",
+              "observation": "Formula filtering precedes structure search and DFT."
+            },
+            {
+              "id": "component.c10",
+              "support": "verified_fact",
+              "support_index": 10,
+              "assessment": "SUPPORTED",
+              "observation": "Formula filtering precedes structure search and DFT."
+            },
+            {
+              "id": "component.c11",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "DFT evaluates candidate structures and their energies."
+            },
+            {
+              "id": "component.c12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "DFT evaluates candidate structures and their energies."
+            },
+            {
+              "id": "component.c13",
+              "support": "verified_fact",
+              "support_index": 6,
+              "assessment": "SUPPORTED",
+              "observation": "Relative energy against competing phases defines stability."
+            },
+            {
+              "id": "component.c14",
+              "support": "verified_fact",
+              "support_index": 6,
+              "assessment": "SUPPORTED",
+              "observation": "Relative energy against competing phases defines stability."
+            },
+            {
+              "id": "component.c15",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "component.c16",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "component.c17",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "component.c18",
+              "support": "verified_fact",
+              "support_index": 7,
+              "assessment": "SUPPORTED",
+              "observation": "Computational stability does not establish synthesis."
+            },
+            {
+              "id": "relation.rel1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Related known structures supply structural proposals."
+            },
+            {
+              "id": "relation.rel2",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Structural graphs retain atoms and nearby connections."
+            },
+            {
+              "id": "relation.rel3",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Distinct graph models predict energy for screening."
+            },
+            {
+              "id": "relation.rel4",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Distinct graph models predict energy for screening."
+            },
+            {
+              "id": "relation.rel5",
+              "support": "verified_fact",
+              "support_index": 9,
+              "assessment": "SUPPORTED",
+              "observation": "Composition graphs contain types/proportions, not positions."
+            },
+            {
+              "id": "relation.rel6",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Distinct graph models predict energy for screening."
+            },
+            {
+              "id": "relation.rel7",
+              "support": "verified_fact",
+              "support_index": 10,
+              "assessment": "SUPPORTED",
+              "observation": "Formula filtering precedes structure search and DFT."
+            },
+            {
+              "id": "relation.rel8",
+              "support": "verified_fact",
+              "support_index": 10,
+              "assessment": "SUPPORTED",
+              "observation": "Formula filtering precedes structure search and DFT."
+            },
+            {
+              "id": "relation.rel9",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "DFT evaluates candidate structures and their energies."
+            },
+            {
+              "id": "relation.rel10",
+              "support": "verified_fact",
+              "support_index": 10,
+              "assessment": "SUPPORTED",
+              "observation": "Formula filtering precedes structure search and DFT."
+            },
+            {
+              "id": "relation.rel11",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "DFT evaluates candidate structures and their energies."
+            },
+            {
+              "id": "relation.rel12",
+              "support": "verified_fact",
+              "support_index": 6,
+              "assessment": "SUPPORTED",
+              "observation": "Relative energy against competing phases defines stability."
+            },
+            {
+              "id": "relation.rel13",
+              "support": "verified_fact",
+              "support_index": 7,
+              "assessment": "SUPPORTED",
+              "observation": "Computational stability does not establish synthesis."
+            },
+            {
+              "id": "relation.rel14",
+              "support": "verified_fact",
+              "support_index": 6,
+              "assessment": "SUPPORTED",
+              "observation": "Relative energy against competing phases defines stability."
+            },
+            {
+              "id": "relation.rel15",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "relation.rel16",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "relation.rel17",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "relation.rel18",
+              "support": "verified_fact",
+              "support_index": 8,
+              "assessment": "SUPPORTED",
+              "observation": "Known structure-energy records support initial training."
+            },
+            {
+              "id": "relation.rel19",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            },
+            {
+              "id": "relation.rel20",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Computed records support later training in both paths."
+            }
+          ],
+          "result": "PASS"
+        }
+      },
+      "specification_sha256": "712d0b8899ced5c11d49af65e8f1217eb1b5d9726270b0398908a44cb4b83aba"
+    },
+    {
+      "story_id": "contrastive-incentive-beliefs",
+      "story_content_sha256": "5b39d0417e1b01bae56a01da3094452952335d9a81feddfa33e2c91e12294dfe",
+      "generation": {
+        "subject": "Testing behavior under conflicting learned beliefs about grading incentives",
+        "core_mechanism": "Two contrasting training-document conditions modify the same kind of model's beliefs about reward. Each conditioned model faces a matched objective conflict; the observed choices converge on a comparison register, with checkpoint identity retained.",
+        "verified_visual_facts": [
+          "Contrasting synthetic training documents alter beliefs about what a grader rewards.",
+          "The experiment places the grader preference in conflict with the intended objective.",
+          "Researchers compare behavior under the contrasting belief conditions.",
+          "Behavior is measured by which party's preferred action the model adopts.",
+          "Different reinforcement-learning checkpoints are compared.",
+          "A separately reward-hacking-trained model is also examined."
+        ],
+        "conceptual_elements": [
+          "Blank interlocking lattices represent belief-training material; no paper, commands or writing.",
+          "Each oblique open prism exposes belief insertion and a separate objective-conflict choice surface.",
+          "Paired keyed comparison sockets preserve conditions without implying effect size.",
+          "Four regions: objective/checkpoint references; belief lattices; open choice prisms; behavioral comparison."
+        ],
+        "meaningful_components_plan": [
+          {
+            "component_id": "c1",
+            "description": "A shared model-family anchor supplies both experimental condition prisms.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "model_reference",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c2",
+            "description": "An intended-objective rail reaches the choice surface in each condition.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "objective_constraint",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c3",
+            "description": "The first blank belief lattice supplies one grader-preference condition.",
+            "support": "approved_concept",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "belief_input",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c4",
+            "description": "The contrasting blank belief lattice supplies the other grader-preference condition.",
+            "support": "approved_concept",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "belief_input",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c5",
+            "description": "The first open prism contains a distinct belief-insertion surface.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "belief_insertion",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c3",
+                "entry": "from-c3",
+                "relationship_id": "rel1"
+              }
+            ]
+          },
+          {
+            "component_id": "c6",
+            "description": "The second open prism contains the corresponding contrasting belief-insertion surface.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "belief_insertion",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c4",
+                "entry": "from-c4",
+                "relationship_id": "rel2"
+              }
+            ]
+          },
+          {
+            "component_id": "c7",
+            "description": "A first choice-routing surface exposes the conflict between the learned grader preference and the intended objective.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "choice_mechanism",
+            "region": "r3",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c8",
+            "description": "A second choice-routing surface exposes the matched conflict under the other belief condition.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "choice_mechanism",
+            "region": "r3",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c9",
+            "description": "The first observed-choice token leaves its own condition prism.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "observed_action",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c7",
+                "entry": "from-c7",
+                "relationship_id": "rel5"
+              }
+            ]
+          },
+          {
+            "component_id": "c10",
+            "description": "The second observed-choice token leaves the contrasting condition prism.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "observed_action",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c8",
+                "entry": "from-c8",
+                "relationship_id": "rel6"
+              }
+            ]
+          },
+          {
+            "component_id": "c11",
+            "description": "A paired comparison register receives both observed-choice tokens while preserving condition identity.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "comparison_register",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c9",
+                "entry": "from-c9",
+                "relationship_id": "rel11"
+              },
+              {
+                "source_component_id": "c10",
+                "entry": "from-c10",
+                "relationship_id": "rel12"
+              }
+            ]
+          },
+          {
+            "component_id": "c12",
+            "description": "A checkpoint-index rail connects the common model anchor and comparison register without adding an optimization loop.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "comparison_reference",
+            "region": "r1",
+            "input_bindings": []
+          }
+        ],
+        "mechanism_plan": {
+          "dominant_mechanism": "Two offset open prisms each expose belief insertion and objective-conflict choice routing, with physically distinct condition inputs and observed outputs.",
+          "internal_substages": [
+            {
+              "input_component_id": "c3",
+              "transformation": "Insert the first blank grader-belief lattice.",
+              "output_component_id": "c5",
+              "relation_id": "rel1",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c4",
+              "transformation": "Insert the contrasting blank grader-belief lattice.",
+              "output_component_id": "c6",
+              "relation_id": "rel2",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c5",
+              "transformation": "Condition the first choice on its learned grader belief.",
+              "output_component_id": "c7",
+              "relation_id": "rel3",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c6",
+              "transformation": "Condition the matched choice on the contrasting grader belief.",
+              "output_component_id": "c8",
+              "relation_id": "rel4",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c7",
+              "transformation": "Record the action chosen under the first condition.",
+              "output_component_id": "c9",
+              "relation_id": "rel5",
+              "kind": "measurement",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c8",
+              "transformation": "Record the action chosen under the contrasting condition.",
+              "output_component_id": "c10",
+              "relation_id": "rel6",
+              "kind": "measurement",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            }
+          ],
+          "secondary_relationships": [
+            {
+              "from_component_id": "c1",
+              "to_component_id": "c5",
+              "relationship": "Use the common model-family anchor for the first condition.",
+              "relation_id": "rel7",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c1",
+              "to_component_id": "c6",
+              "relationship": "Use the same model-family anchor for the contrast.",
+              "relation_id": "rel8",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c2",
+              "to_component_id": "c7",
+              "relationship": "Apply the intended objective to the first choice surface.",
+              "relation_id": "rel9",
+              "kind": "constraint",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c2",
+              "to_component_id": "c8",
+              "relationship": "Apply the same intended objective to the contrasting surface.",
+              "relation_id": "rel10",
+              "kind": "constraint",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c9",
+              "to_component_id": "c11",
+              "relationship": "Retain the first action in its own comparison socket.",
+              "relation_id": "rel11",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c10",
+              "to_component_id": "c11",
+              "relationship": "Retain the contrasting action in its own comparison socket.",
+              "relation_id": "rel12",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c12",
+              "to_component_id": "c1",
+              "relationship": "Associate the model anchor with the checkpoint being compared.",
+              "relation_id": "rel13",
+              "kind": "comparison_reference",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c11",
+              "to_component_id": "c12",
+              "relationship": "Associate the behavioral comparison with that checkpoint identity.",
+              "relation_id": "rel14",
+              "kind": "comparison_reference",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            }
+          ],
+          "evidence_structure": "Each output token follows its own uninterrupted track into one comparison socket; the paired register never merges their identities.",
+          "constraint_structure": "The intended-objective rail reaches both choice surfaces separately; blank document lattices contain no readable training text or actionable commands.",
+          "feedback_path": "The checkpoint rail is an identity-reference connection for comparing measurements. It does not feed measured outcomes into further training.",
+          "output_boundary": "A paired behavioral contrast is the output, with no invented probability, score, causal attribution to a deployed product, or universal model verdict.",
+          "selected_construction": "Use opposed diagonal open prisms. Each preserves its own blank belief lattice through insertion and objective-conflict choice routing. Observed actions reach separate keyed comparison sockets; a subordinate undirected checkpoint reference relates the comparison to the common model anchor.",
+          "geometry_requirements": [
+            {
+              "requirement_id": "opposed-exposed-prisms",
+              "description": "Both condition prisms are open, showing a belief-insertion surface and a separate choice-routing surface with an air gap and a visible relationship between them."
+            },
+            {
+              "requirement_id": "identity-preserving-register",
+              "description": "The observed action from each prism reaches its own comparison socket with its key unchanged; no aggregate score replaces either action."
+            },
+            {
+              "requirement_id": "shared-objective",
+              "description": "The objective rail visibly touches both choice-routing surfaces while the belief lattices remain distinct."
+            },
+            {
+              "requirement_id": "undirected-checkpoint",
+              "description": "The checkpoint rail uses undirected reference braces with attached ends. It transports no action token and supplies no outcome-to-training loop."
+            },
+            {
+              "requirement_id": "blank-belief-lattices",
+              "description": "Belief lattices and action tokens are smooth blank solids, with no document lines, written incentives, commands or numerical outcomes."
+            }
+          ]
+        },
+        "composition_assignment": {
+          "composition_signature": "oblique-twin-belief-prisms-with-choice-register",
+          "layout_signature": "opposed-diagonal-prisms",
+          "diagram_grammar": "matched-intervention-contrast",
+          "hierarchy_signature": "shared-objective-anchor-and-two-exposed-choice-axes",
+          "annotation_pattern_signature": "paired-rail-engraving-free-labels",
+          "reading_path": "upper common anchors into two opposing diagonal prisms, then toward the lower comparison register",
+          "palette_family": "aubergine and sage with cool gray",
+          "mechanism_metaphor": "opposed belief lattices and matched open choice prisms",
+          "evidence_representation": "two identity-preserving observed-choice tracks",
+          "feedback_pattern": "checkpoint-reference-rail-without-retraining",
+          "prohibited_patterns": [
+            "flat-card-row",
+            "dashboard-grid",
+            "decorative-machine-parts",
+            "copied-source-figure"
+          ]
+        },
+        "visible_text_allowlist": [
+          "Belief A",
+          "Belief B",
+          "Objective",
+          "Choice",
+          "Compare"
+        ],
+        "prohibited_specifics": [
+          "provider emblem",
+          "legible source code",
+          "invented numerical score",
+          "copied brand mark"
+        ],
+        "prohibited_composition_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ],
+        "reference_policy": "Only this sealed specification and neutral quality rules."
+      },
+      "recipe_profile": {
+        "profile_id": "daily-compiler-d1-image-recipe-profile-v2",
+        "definition_sha256": "cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1",
+        "semantic_review": {
+          "schema_version": "daily-compiler-d1-recipe-source-review-v2",
+          "recipe_sha256": "4deb4dd53b34dca1af8b80b79b968cae5639d5cdaee3f0fc53b97bc9fc1c79ed",
+          "source_story_sha256": "327d95370b4281c02792c67f18293ddae16ab54069416c792fb3442410cc3ed2",
+          "reviewer": "ChatGPT source-semantic construction review",
+          "reviewed_at": "2026-10-08T23:38:03.433Z",
+          "claims": [
+            {
+              "id": "component.c1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Contrasting learned grader beliefs define matched conditions."
+            },
+            {
+              "id": "component.c2",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The intended objective conflicts with the grader preference."
+            },
+            {
+              "id": "component.c3",
+              "support": "approved_concept",
+              "support_index": 0,
+              "assessment": "CONCEPTUAL",
+              "observation": "Blank lattices replace documents without asserting training text."
+            },
+            {
+              "id": "component.c4",
+              "support": "approved_concept",
+              "support_index": 0,
+              "assessment": "CONCEPTUAL",
+              "observation": "Blank lattices replace documents without asserting training text."
+            },
+            {
+              "id": "component.c5",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Prism surfaces separate belief insertion from choice routing."
+            },
+            {
+              "id": "component.c6",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Prism surfaces separate belief insertion from choice routing."
+            },
+            {
+              "id": "component.c7",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The intended objective conflicts with the grader preference."
+            },
+            {
+              "id": "component.c8",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Condition-specific behavior remains distinct for comparison."
+            },
+            {
+              "id": "component.c9",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Chosen actions are the reported behavioral measurement."
+            },
+            {
+              "id": "component.c10",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Chosen actions are the reported behavioral measurement."
+            },
+            {
+              "id": "component.c11",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Condition-specific behavior remains distinct for comparison."
+            },
+            {
+              "id": "component.c12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Checkpoint association is a reference, not retraining."
+            },
+            {
+              "id": "relation.rel1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Contrasting learned grader beliefs define matched conditions."
+            },
+            {
+              "id": "relation.rel2",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Contrasting learned grader beliefs define matched conditions."
+            },
+            {
+              "id": "relation.rel3",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The intended objective conflicts with the grader preference."
+            },
+            {
+              "id": "relation.rel4",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The intended objective conflicts with the grader preference."
+            },
+            {
+              "id": "relation.rel5",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Chosen actions are the reported behavioral measurement."
+            },
+            {
+              "id": "relation.rel6",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Chosen actions are the reported behavioral measurement."
+            },
+            {
+              "id": "relation.rel7",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Contrasting learned grader beliefs define matched conditions."
+            },
+            {
+              "id": "relation.rel8",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Contrasting learned grader beliefs define matched conditions."
+            },
+            {
+              "id": "relation.rel9",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The intended objective conflicts with the grader preference."
+            },
+            {
+              "id": "relation.rel10",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The intended objective conflicts with the grader preference."
+            },
+            {
+              "id": "relation.rel11",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Condition-specific behavior remains distinct for comparison."
+            },
+            {
+              "id": "relation.rel12",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Condition-specific behavior remains distinct for comparison."
+            },
+            {
+              "id": "relation.rel13",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Checkpoint association is a reference, not retraining."
+            },
+            {
+              "id": "relation.rel14",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Checkpoint association is a reference, not retraining."
+            }
+          ],
+          "result": "PASS"
+        }
+      },
+      "specification_sha256": "4131d6d7c2cc5bce33849cf6dc06da86916942ac3c00cbb8e4d78757d18f071f"
+    },
+    {
+      "story_id": "rendered-record-divergence",
+      "story_content_sha256": "75879bd64548452409afc37f9cc4299d614793c6de71e64ed2cb83b2b8f1a75b",
+      "generation": {
+        "subject": "How a rendered transcript can diverge from preserved underlying records",
+        "core_mechanism": "One event sequence has a preserved stored representation and a rendered representation. A manipulation in the rendering path changes what is shown and exported, while independent retrieval of the stored sequence exposes the divergence.",
+        "verified_visual_facts": [
+          "Agent outputs enter the transcript viewer as untrusted material.",
+          "A staging demonstration altered the actions shown in a rendered transcript.",
+          "The underlying stored trajectory remained unchanged.",
+          "The displayed download could also be intercepted.",
+          "Investigators could recover the real record by checking the separate database.",
+          "The reported vulnerability was patched."
+        ],
+        "conceptual_elements": [
+          "Stored and displayed sequences use aligned, untallied keyed event shapes, with no document or real interface.",
+          "A clear separation plane places the preserved spine behind the offset display layer.",
+          "A gap and replacement insert are conceptual display differences, not a copied incident transcript.",
+          "Four regions: original storage; offset rendering; display-linked download; independent comparison."
+        ],
+        "meaningful_components_plan": [
+          {
+            "component_id": "c1",
+            "description": "An incoming event strip supplies the recorded and rendering paths.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "event_source",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c2",
+            "description": "A storage intake carries the original event shapes into the preserved representation.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "storage_intake",
+            "region": "r1",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel1"
+              }
+            ]
+          },
+          {
+            "component_id": "c3",
+            "description": "An intact stored-trajectory spine retains the original event sequence behind the separation plane.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "preserved_evidence",
+            "region": "r1",
+            "input_bindings": [
+              {
+                "source_component_id": "c2",
+                "entry": "from-c2",
+                "relationship_id": "rel2"
+              }
+            ]
+          },
+          {
+            "component_id": "c4",
+            "description": "An exposed rendering adapter transforms the incoming material into a display representation.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "render_transform",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel3"
+              }
+            ]
+          },
+          {
+            "component_id": "c5",
+            "description": "An abstract untrusted-content wedge touches only the rendering adapter and display layer.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "untrusted_influence",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c6",
+            "description": "An offset display strip presents the altered event representation.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "display_representation",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c4",
+                "entry": "from-c4",
+                "relationship_id": "rel4"
+              }
+            ]
+          },
+          {
+            "component_id": "c7",
+            "description": "A visible alignment gap marks a conceptual omitted event on the display strip.",
+            "support": "approved_concept",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "omission_marker",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c8",
+            "description": "A replacement-shaped insert marks a conceptual substituted event on that same display strip.",
+            "support": "approved_concept",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "replacement_marker",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c9",
+            "description": "A download fork is attached to the rendered layer, not directly to the preserved spine.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "download_fork",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c6",
+                "entry": "from-c6",
+                "relationship_id": "rel5"
+              }
+            ]
+          },
+          {
+            "component_id": "c10",
+            "description": "An altered export strip leaves the display-linked download fork.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "export_representation",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c9",
+                "entry": "from-c9",
+                "relationship_id": "rel6"
+              }
+            ]
+          },
+          {
+            "component_id": "c11",
+            "description": "An independent retrieval bridge reaches directly to the preserved stored-trajectory spine.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "independent_retrieval",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c3",
+                "entry": "from-c3",
+                "relationship_id": "rel9"
+              }
+            ]
+          },
+          {
+            "component_id": "c12",
+            "description": "A keyed comparison register receives independently retrieved, rendered and exported representations while preserving their distinct event keys.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "comparison_register",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c11",
+                "entry": "from-c11",
+                "relationship_id": "rel10"
+              },
+              {
+                "source_component_id": "c6",
+                "entry": "from-c6",
+                "relationship_id": "rel11"
+              },
+              {
+                "source_component_id": "c10",
+                "entry": "from-c10",
+                "relationship_id": "rel12"
+              }
+            ]
+          }
+        ],
+        "mechanism_plan": {
+          "dominant_mechanism": "An exploded render layer exposes the adaptation and display/export substages, visibly isolated from the intact stored-trajectory spine.",
+          "internal_substages": [
+            {
+              "input_component_id": "c1",
+              "transformation": "Route original events through storage intake.",
+              "output_component_id": "c2",
+              "relation_id": "rel1",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c2",
+              "transformation": "Retain the original sequence in the preserved spine.",
+              "output_component_id": "c3",
+              "relation_id": "rel2",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c1",
+              "transformation": "Supply the same incoming events for rendering.",
+              "output_component_id": "c4",
+              "relation_id": "rel3",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c4",
+              "transformation": "Produce a displayed representation separately from stored data.",
+              "output_component_id": "c6",
+              "relation_id": "rel4",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c6",
+              "transformation": "Route the display-linked download through its fork.",
+              "output_component_id": "c9",
+              "relation_id": "rel5",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c9",
+              "transformation": "Produce the representation supplied by that affected fork.",
+              "output_component_id": "c10",
+              "relation_id": "rel6",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            }
+          ],
+          "secondary_relationships": [
+            {
+              "from_component_id": "c5",
+              "to_component_id": "c4",
+              "relationship": "The untrusted influence touches only the rendering path.",
+              "relation_id": "rel7",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c5",
+              "to_component_id": "c6",
+              "relationship": "The demonstrated change appears in the displayed layer.",
+              "relation_id": "rel8",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c3",
+              "to_component_id": "c11",
+              "relationship": "Retrieve the original stored sequence through an independent path.",
+              "relation_id": "rel9",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c11",
+              "to_component_id": "c12",
+              "relationship": "Supply the independently retrieved sequence to comparison.",
+              "relation_id": "rel10",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c6",
+              "to_component_id": "c12",
+              "relationship": "Supply the displayed sequence separately for comparison.",
+              "relation_id": "rel11",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c10",
+              "to_component_id": "c12",
+              "relationship": "Supply the affected download separately for comparison.",
+              "relation_id": "rel12",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c6",
+              "to_component_id": "c7",
+              "relationship": "Locate the conceptual gap only within the displayed strip.",
+              "relation_id": "rel13",
+              "kind": "constraint",
+              "support": "approved_concept",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c6",
+              "to_component_id": "c8",
+              "relationship": "Locate the conceptual replacement only within the displayed strip.",
+              "relation_id": "rel14",
+              "kind": "constraint",
+              "support": "approved_concept",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c7",
+              "to_component_id": "c12",
+              "relationship": "Associate the display gap with its missing original event key at comparison.",
+              "relation_id": "rel15",
+              "kind": "comparison_reference",
+              "support": "approved_concept",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c8",
+              "to_component_id": "c12",
+              "relationship": "Associate the changed display token with its original event key at comparison.",
+              "relation_id": "rel16",
+              "kind": "comparison_reference",
+              "support": "approved_concept",
+              "support_index": 2,
+              "returned_state": null
+            }
+          ],
+          "evidence_structure": "The independent bridge starts at the unchanged stored spine. The comparison receives that retrieved original, the full rendered sequence and the downloaded sequence through the declared bindings. The gap and replacement are reference properties, not additional transported streams.",
+          "constraint_structure": "No connector from the manipulation wedge crosses into the preserved storage spine. Every display gap or replacement has a corresponding original event key visible behind it.",
+          "feedback_path": "Gap and replacement braces are undirected comparison references. The independent bridge carries the preserved sequence; there is no outcome feedback or evidence rewrite.",
+          "output_boundary": "The output is an observed disagreement between representations, not a generated exploit, a new attack, or a claim that the reported patched vulnerability remains present.",
+          "selected_construction": "Use an exploded oblique light-box: an intact stored spine at the rear, an offset affected render strip in front, and a display-linked download fork. An independent storage bridge and separate representation tracks reach the comparison register; omission and replacement are local properties of the render strip.",
+          "geometry_requirements": [
+            {
+              "requirement_id": "preserved-rear-spine",
+              "description": "A clear separation plane leaves the rear stored sequence intact. No influence-wedge conduit reaches the stored spine."
+            },
+            {
+              "requirement_id": "exposed-render-substages",
+              "description": "The render adapter and offset displayed strip are visibly separate open substages; original keys can be aligned with the displayed gap and replacement."
+            },
+            {
+              "requirement_id": "display-linked-download",
+              "description": "The download fork physically starts at the affected display strip. It has no direct bypass to the preserved stored sequence."
+            },
+            {
+              "requirement_id": "independent-comparison",
+              "description": "The independent retrieval bridge touches the stored spine, and all representation tracks terminate at their own declared comparison entries. Gap and replacement braces carry no extra stream."
+            },
+            {
+              "requirement_id": "no-attack-content",
+              "description": "Use blank event shapes and visible alignment differences only. No payload, code, actual interface, exploit instruction or assertion of a current unpatched flaw is shown."
+            }
+          ]
+        },
+        "composition_assignment": {
+          "composition_signature": "offset-transcript-lightbox-with-intact-rear-spine",
+          "layout_signature": "exploded-oblique-layer-cutaway",
+          "diagram_grammar": "representation-divergence",
+          "hierarchy_signature": "dominant-separated-representations-and-lower-comparator",
+          "annotation_pattern_signature": "leader-callouts-at-layer-ends",
+          "reading_path": "incoming events split into rear preservation and front rendering; follow the independent bridge to the right-hand comparison",
+          "palette_family": "slate blue and rust with translucent ice",
+          "mechanism_metaphor": "exploded light-box with keyed event strips",
+          "evidence_representation": "visible key alignment between original and altered event shapes",
+          "feedback_pattern": "independent-record-crosscheck-braces",
+          "prohibited_patterns": [
+            "flat-card-row",
+            "dashboard-grid",
+            "decorative-machine-parts",
+            "copied-source-figure"
+          ]
+        },
+        "visible_text_allowlist": [
+          "Recorded",
+          "Rendered",
+          "Download",
+          "Compare"
+        ],
+        "prohibited_specifics": [
+          "provider emblem",
+          "legible source code",
+          "invented numerical score",
+          "copied brand mark"
+        ],
+        "prohibited_composition_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ],
+        "reference_policy": "Only this sealed specification and neutral quality rules."
+      },
+      "recipe_profile": {
+        "profile_id": "daily-compiler-d1-image-recipe-profile-v2",
+        "definition_sha256": "cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1",
+        "semantic_review": {
+          "schema_version": "daily-compiler-d1-recipe-source-review-v2",
+          "recipe_sha256": "932c8ddc1df2c38b72fa45d23752d02c1ffe3d5ad0aaff52cd22b1e1522886e5",
+          "source_story_sha256": "af28c9efd2b8fac774228e1f60eec1a46521c5a3d11969b23197b5dcc79add5e",
+          "reviewer": "ChatGPT source-semantic construction review",
+          "reviewed_at": "2026-10-08T23:38:03.433Z",
+          "claims": [
+            {
+              "id": "component.c1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Untrusted event material enters the rendering path."
+            },
+            {
+              "id": "component.c2",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "The underlying stored event sequence remained intact."
+            },
+            {
+              "id": "component.c3",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "The underlying stored event sequence remained intact."
+            },
+            {
+              "id": "component.c4",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Untrusted event material enters the rendering path."
+            },
+            {
+              "id": "component.c5",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The demonstration changed the displayed representation."
+            },
+            {
+              "id": "component.c6",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The demonstration changed the displayed representation."
+            },
+            {
+              "id": "component.c7",
+              "support": "approved_concept",
+              "support_index": 2,
+              "assessment": "CONCEPTUAL",
+              "observation": "The gap and insert illustrate differences, not copied events."
+            },
+            {
+              "id": "component.c8",
+              "support": "approved_concept",
+              "support_index": 2,
+              "assessment": "CONCEPTUAL",
+              "observation": "The gap and insert illustrate differences, not copied events."
+            },
+            {
+              "id": "component.c9",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "The displayed download can carry the affected representation."
+            },
+            {
+              "id": "component.c10",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "The displayed download can carry the affected representation."
+            },
+            {
+              "id": "component.c11",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "An independent stored-record check supports comparison."
+            },
+            {
+              "id": "component.c12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "An independent stored-record check supports comparison."
+            },
+            {
+              "id": "relation.rel1",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "The underlying stored event sequence remained intact."
+            },
+            {
+              "id": "relation.rel2",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "The underlying stored event sequence remained intact."
+            },
+            {
+              "id": "relation.rel3",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Untrusted event material enters the rendering path."
+            },
+            {
+              "id": "relation.rel4",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The demonstration changed the displayed representation."
+            },
+            {
+              "id": "relation.rel5",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "The displayed download can carry the affected representation."
+            },
+            {
+              "id": "relation.rel6",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "The displayed download can carry the affected representation."
+            },
+            {
+              "id": "relation.rel7",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The demonstration changed the displayed representation."
+            },
+            {
+              "id": "relation.rel8",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "The demonstration changed the displayed representation."
+            },
+            {
+              "id": "relation.rel9",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "An independent stored-record check supports comparison."
+            },
+            {
+              "id": "relation.rel10",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "An independent stored-record check supports comparison."
+            },
+            {
+              "id": "relation.rel11",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "An independent stored-record check supports comparison."
+            },
+            {
+              "id": "relation.rel12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "An independent stored-record check supports comparison."
+            },
+            {
+              "id": "relation.rel13",
+              "support": "approved_concept",
+              "support_index": 2,
+              "assessment": "CONCEPTUAL",
+              "observation": "The gap and insert illustrate differences, not copied events."
+            },
+            {
+              "id": "relation.rel14",
+              "support": "approved_concept",
+              "support_index": 2,
+              "assessment": "CONCEPTUAL",
+              "observation": "The gap and insert illustrate differences, not copied events."
+            },
+            {
+              "id": "relation.rel15",
+              "support": "approved_concept",
+              "support_index": 2,
+              "assessment": "CONCEPTUAL",
+              "observation": "The gap and insert illustrate differences, not copied events."
+            },
+            {
+              "id": "relation.rel16",
+              "support": "approved_concept",
+              "support_index": 2,
+              "assessment": "CONCEPTUAL",
+              "observation": "The gap and insert illustrate differences, not copied events."
+            }
+          ],
+          "result": "PASS"
+        }
+      },
+      "specification_sha256": "0615fed31a8c57583b917d97e1d367d0ad91041e97c42b804e5821e3312a7cf3"
+    },
+    {
+      "story_id": "turn-aligned-behaviour",
+      "story_content_sha256": "5d191855393480f39fab5d9528b0d3da74e1d38b60f223271bf30bdc35dcd15b",
+      "generation": {
+        "subject": "Linking behavioral interpretations to original turns in long agent transcripts",
+        "core_mechanism": "Recorded activity and model-generated interpretations are aligned on the same turn spine. Separate task-vocabulary and analysis inputs shape the interpretation layer; every label has a direct route to the original turns and exported structured records.",
+        "verified_visual_facts": [
+          "A reusable configuration specifies task context and a behavioral vocabulary.",
+          "Judge models and analysis settings are supplied separately.",
+          "Recorded events, token use, sub-agent activity and generated labels share a turn-based timeline.",
+          "Each label or event can be traced to its original transcript turns.",
+          "The underlying tables can be exported for comparisons across runs.",
+          "Generated behavioral interpretations are checked against recorded transcript evidence."
+        ],
+        "conceptual_elements": [
+          "An arched turn spine with perpendicular ribs shows correspondence, not a product screen.",
+          "Recorded-data ribs and generated interpretations occupy different depths.",
+          "Blank, differently keyed combs represent task, vocabulary, judge and settings without commands or file icons.",
+          "Four regions: configuration; aligned ribs; original-turn anchors and source bridges; structured export.",
+          "The same original transcript supplies interpretation and turn alignment; the added evidence path is a conceptual view of this shared origin."
+        ],
+        "meaningful_components_plan": [
+          {
+            "component_id": "c1",
+            "description": "An original-turn anchor strip holds distinct untallied turn keys.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "original_evidence",
+            "region": "r3",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c2",
+            "description": "A recorded-event rib maps observed events onto the turn keys.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "event_rib",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c3",
+            "description": "A token-use rib follows the same turn correspondence without numerical scales.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "token_use_rib",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c4",
+            "description": "A sub-agent-activity rib exposes branch relationships at the corresponding turns.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "activity_rib",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c5",
+            "description": "A vocabulary comb constrains the meanings available to the generated-label layer.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "vocabulary_condition",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c6",
+            "description": "A task-context comb separately conditions those interpretations.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "task_condition",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c7",
+            "description": "A judge-selection comb supplies the model used for interpretation.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "judge_condition",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c8",
+            "description": "An analysis-settings comb connects to the judge-selection assembly through its own port.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "analysis_constraint",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c9",
+            "description": "A generated-behavior-label rib is visibly separate from the recorded-data ribs.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "interpretation_rib",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel14"
+              }
+            ]
+          },
+          {
+            "component_id": "c10",
+            "description": "A common alignment spine joins the ribs by matching turn keys.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "alignment_spine",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c9",
+                "entry": "from-c9",
+                "relationship_id": "rel4"
+              },
+              {
+                "source_component_id": "c2",
+                "entry": "from-c2",
+                "relationship_id": "rel8"
+              },
+              {
+                "source_component_id": "c3",
+                "entry": "from-c3",
+                "relationship_id": "rel9"
+              },
+              {
+                "source_component_id": "c4",
+                "entry": "from-c4",
+                "relationship_id": "rel10"
+              }
+            ]
+          },
+          {
+            "component_id": "c11",
+            "description": "A source-jump bridge connects a generated label directly to the relevant original-turn keys.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "source_trace",
+            "region": "r3",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c12",
+            "description": "A structured export fan preserves aligned columns from the common spine.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "structured_export",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c10",
+                "entry": "from-c10",
+                "relationship_id": "rel13"
+              }
+            ]
+          }
+        ],
+        "mechanism_plan": {
+          "dominant_mechanism": "An arched provenance assembly exposes interpretation conditioning, common-turn alignment and direct source-turn resolution as nested connected substages.",
+          "internal_substages": [
+            {
+              "input_component_id": "c5",
+              "transformation": "Constrain interpretations with the reusable vocabulary.",
+              "output_component_id": "c9",
+              "relation_id": "rel1",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c6",
+              "transformation": "Condition interpretation on the task context.",
+              "output_component_id": "c9",
+              "relation_id": "rel2",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c7",
+              "transformation": "Use the selected judge for the interpretation layer.",
+              "output_component_id": "c9",
+              "relation_id": "rel3",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c9",
+              "transformation": "Align generated labels with the common turn reference.",
+              "output_component_id": "c10",
+              "relation_id": "rel4",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c10",
+              "transformation": "Locate the source turns for an inspected interpretation.",
+              "output_component_id": "c11",
+              "relation_id": "rel5",
+              "kind": "provenance",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c11",
+              "transformation": "Resolve that interpretation against the original recorded turns.",
+              "output_component_id": "c1",
+              "relation_id": "rel6",
+              "kind": "provenance",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            }
+          ],
+          "secondary_relationships": [
+            {
+              "from_component_id": "c8",
+              "to_component_id": "c7",
+              "relationship": "Supply analysis settings separately from the judge choice.",
+              "relation_id": "rel7",
+              "kind": "constraint",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c2",
+              "to_component_id": "c10",
+              "relationship": "Align observed events to their original turn keys.",
+              "relation_id": "rel8",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c3",
+              "to_component_id": "c10",
+              "relationship": "Align token use without inventing numeric values.",
+              "relation_id": "rel9",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c4",
+              "to_component_id": "c10",
+              "relationship": "Align sub-agent activity with the same turn keys.",
+              "relation_id": "rel10",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c1",
+              "to_component_id": "c10",
+              "relationship": "Use original turns as the correspondence reference.",
+              "relation_id": "rel11",
+              "kind": "provenance",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c9",
+              "to_component_id": "c11",
+              "relationship": "Attach the inspected label to its source-jump entry.",
+              "relation_id": "rel12",
+              "kind": "provenance",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c10",
+              "to_component_id": "c12",
+              "relationship": "Preserve aligned recorded and interpreted data in export.",
+              "relation_id": "rel13",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c1",
+              "to_component_id": "c9",
+              "relationship": "Supply the original transcript evidence to the interpretation layer.",
+              "relation_id": "rel14",
+              "kind": "artifact_flow",
+              "support": "approved_concept",
+              "support_index": 4,
+              "returned_state": null
+            }
+          ],
+          "evidence_structure": "Three recorded-data ribs and a separate generated-label rib visibly land on the same keyed turn spine. At least one label-to-source bridge has both ends clearly attached.",
+          "constraint_structure": "Task context and vocabulary are separate from judge and analysis controls. Generated interpretations remain at a different depth from the recorded evidence.",
+          "feedback_path": "The source-jump bridge returns an interpretation to its supporting turns for checking. It never rewrites the original-turn anchor.",
+          "output_boundary": "The export fan preserves the aligned records and interpretation distinction; no label correctness, numerical token count or complete narrative is invented.",
+          "selected_construction": "Use an arched turn spine crossed by recorded-event, token-use, activity and generated-label ribs at distinct depths. Separate configuration combs condition interpretation. An attached source-jump bridge resolves an inspected label against the original turn keys, and a structured export fan preserves all alignments.",
+          "geometry_requirements": [
+            {
+              "requirement_id": "recorded-versus-interpreted",
+              "description": "Recorded event, token-use and activity ribs occupy a distinct depth from generated labels; all meet the same keyed spine."
+            },
+            {
+              "requirement_id": "open-interpretation-alignment",
+              "description": "The interpretation-conditioning area and keyed turn-alignment area are both open and visibly connected; neither is a card or a generic screen."
+            },
+            {
+              "requirement_id": "attached-source-trace",
+              "description": "A clearly attached source-jump bridge connects an inspected generated label to the exact corresponding original-turn key. It never rewrites that key."
+            },
+            {
+              "requirement_id": "separate-configuration",
+              "description": "Task and vocabulary combs are distinct from judge and analysis controls and contain no command text or document styling."
+            },
+            {
+              "requirement_id": "export-keeps-provenance",
+              "description": "The export fan keeps recorded-data and interpreted-label tracks separate and preserves their common turn correspondence."
+            }
+          ]
+        },
+        "composition_assignment": {
+          "composition_signature": "arched-turn-spine-with-provenance-ribs-and-export-fan",
+          "layout_signature": "arched-transverse-weave",
+          "diagram_grammar": "turn-provenance-weave",
+          "hierarchy_signature": "central-keyed-spine-with-orthogonal-evidence-ribs",
+          "annotation_pattern_signature": "end-tab-labels-and-single-source-leader",
+          "reading_path": "left configuration combs feed upper interpretation ribs, down through keyed turn correspondence, then right to export",
+          "palette_family": "forest green and muted violet with limestone",
+          "mechanism_metaphor": "arched turn spine with orthogonal provenance ribs",
+          "evidence_representation": "recorded and interpreted ribs at distinct depths",
+          "feedback_pattern": "label-to-original-turn-return-bridge",
+          "prohibited_patterns": [
+            "flat-card-row",
+            "dashboard-grid",
+            "decorative-machine-parts",
+            "copied-source-figure"
+          ]
+        },
+        "visible_text_allowlist": [
+          "Config",
+          "Turns",
+          "Events",
+          "Labels",
+          "Trace"
+        ],
+        "prohibited_specifics": [
+          "provider emblem",
+          "legible source code",
+          "invented numerical score",
+          "copied brand mark"
+        ],
+        "prohibited_composition_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ],
+        "reference_policy": "Only this sealed specification and neutral quality rules."
+      },
+      "recipe_profile": {
+        "profile_id": "daily-compiler-d1-image-recipe-profile-v2",
+        "definition_sha256": "cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1",
+        "semantic_review": {
+          "schema_version": "daily-compiler-d1-recipe-source-review-v2",
+          "recipe_sha256": "e92049f20ba7eb3b24c794405b91ffd5c30f89e9ac9b5f0e7c563d288aa3de46",
+          "source_story_sha256": "8a1eaa1b5514c77f00467df6786242d1fe8cce761ad93c26aa7a94f30feb5d02",
+          "reviewer": "ChatGPT source-semantic construction review",
+          "reviewed_at": "2026-10-08T23:38:03.433Z",
+          "claims": [
+            {
+              "id": "component.c1",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Source turns support traceability, not evidence rewriting."
+            },
+            {
+              "id": "component.c2",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "component.c3",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "component.c4",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "component.c5",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Task context and vocabulary condition interpretation."
+            },
+            {
+              "id": "component.c6",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Task context and vocabulary condition interpretation."
+            },
+            {
+              "id": "component.c7",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Judge choice and analysis settings are supplied separately."
+            },
+            {
+              "id": "component.c8",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Judge choice and analysis settings are supplied separately."
+            },
+            {
+              "id": "component.c9",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "component.c10",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "component.c11",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Source turns support traceability, not evidence rewriting."
+            },
+            {
+              "id": "component.c12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Structured export retains data for comparisons across runs."
+            },
+            {
+              "id": "relation.rel1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Task context and vocabulary condition interpretation."
+            },
+            {
+              "id": "relation.rel2",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Task context and vocabulary condition interpretation."
+            },
+            {
+              "id": "relation.rel3",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Judge choice and analysis settings are supplied separately."
+            },
+            {
+              "id": "relation.rel4",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "relation.rel5",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Source turns support traceability, not evidence rewriting."
+            },
+            {
+              "id": "relation.rel6",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Source turns support traceability, not evidence rewriting."
+            },
+            {
+              "id": "relation.rel7",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Judge choice and analysis settings are supplied separately."
+            },
+            {
+              "id": "relation.rel8",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "relation.rel9",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "relation.rel10",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Recorded and generated data share the turn correspondence."
+            },
+            {
+              "id": "relation.rel11",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Source turns support traceability, not evidence rewriting."
+            },
+            {
+              "id": "relation.rel12",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Source turns support traceability, not evidence rewriting."
+            },
+            {
+              "id": "relation.rel13",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Structured export retains data for comparisons across runs."
+            },
+            {
+              "id": "relation.rel14",
+              "support": "approved_concept",
+              "support_index": 4,
+              "assessment": "CONCEPTUAL",
+              "observation": "The same transcript supports interpretation and traceability."
+            }
+          ],
+          "result": "PASS"
+        }
+      },
+      "specification_sha256": "c5fbb53dd8843e00b936ceca617d13b677e1e21ae5d46b3389ad00bddab0a1f5"
+    },
+    {
+      "story_id": "weather-mesh-rollout",
+      "story_content_sha256": "2d2d30dfa5d853754f3f265fb7398e5e854aa25eb9ab0077390d5eb8dd9c63af",
+      "generation": {
+        "subject": "Rolling atmospheric forecasts forward through a multiscale graph representation",
+        "core_mechanism": "Two atmospheric states feed a spatial graph representation. Surface and altitude variables meet fine and coarse mesh relationships to predict the next state; the resulting state is paired with its predecessor for the following forecast step.",
+        "verified_visual_facts": [
+          "The model receives the current weather state and the state six hours earlier.",
+          "Weather is represented on a latitude-longitude grid with atmospheric levels.",
+          "Graph neural networks use a multiscale mesh representation.",
+          "The model predicts the state six hours ahead.",
+          "Predicted states are reused in successive forecast steps.",
+          "Training uses historical weather reanalysis."
+        ],
+        "conceptual_elements": [
+          "Use a partial spherical cutaway with surface grid, atmospheric shells outside it, and distinct fine/coarse links; no measured map.",
+          "State alignment and spatial updating are conceptual exposed substages; no neural layer count is asserted.",
+          "Untallied curved field slices denote successive states without numeric temperature, confidence or accuracy.",
+          "Four regions: prior states; spherical graph cutaway; historical-training reference; predictions and reuse.",
+          "Initial and returned pairs feed the same alignment at successive steps, never as simultaneous extra observations."
+        ],
+        "meaningful_components_plan": [
+          {
+            "component_id": "c1",
+            "description": "A prior-state field slice supplies the earlier atmospheric state.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "past_state",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c2",
+            "description": "A present-state field slice supplies the current atmospheric state.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "present_state",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c3",
+            "description": "A surface-variable layer follows the spherical surface grid below the atmospheric shells.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "surface_field",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c4",
+            "description": "Atmospheric-level shells extend radially outside the surface layer in the cutaway.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "altitude_field",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c5",
+            "description": "An exposed state-alignment interface accepts an initial state pair or the later returned pair and aligns its fields to the spatial representation.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "state_alignment",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c13",
+                "entry": "from-c13",
+                "relationship_id": "rel3"
+              },
+              {
+                "source_component_id": "c10",
+                "entry": "from-c10",
+                "relationship_id": "rel15"
+              }
+            ]
+          },
+          {
+            "component_id": "c6",
+            "description": "A fine mesh patch carries short spatial relationships inside the cutaway.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "fine_mesh",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c5",
+                "entry": "from-c5",
+                "relationship_id": "rel4"
+              }
+            ]
+          },
+          {
+            "component_id": "c7",
+            "description": "A coarse mesh structure connects wider spatial regions of the same cutaway.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "coarse_mesh",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c5",
+                "entry": "from-c5",
+                "relationship_id": "rel10"
+              }
+            ]
+          },
+          {
+            "component_id": "c8",
+            "description": "An exposed spatial-update interface combines the graph relationships into a predicted state.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "spatial_update",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c6",
+                "entry": "from-c6",
+                "relationship_id": "rel5"
+              },
+              {
+                "source_component_id": "c7",
+                "entry": "from-c7",
+                "relationship_id": "rel11"
+              }
+            ]
+          },
+          {
+            "component_id": "c9",
+            "description": "A next-state field slice receives the first predicted atmosphere.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "predicted_state",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c8",
+                "entry": "from-c8",
+                "relationship_id": "rel6"
+              }
+            ]
+          },
+          {
+            "component_id": "c10",
+            "description": "A state-pair reuse coupling retains the predecessor alongside the predicted state.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "reuse_pair",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c9",
+                "entry": "from-c9",
+                "relationship_id": "rel13"
+              },
+              {
+                "source_component_id": "c2",
+                "entry": "from-c2",
+                "relationship_id": "rel14"
+              }
+            ]
+          },
+          {
+            "component_id": "c11",
+            "description": "A later forecast slice shows the result of another use of the same predictor.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "later_state",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c8",
+                "entry": "from-c8",
+                "relationship_id": "rel7"
+              }
+            ]
+          },
+          {
+            "component_id": "c12",
+            "description": "A historical-reanalysis reference collar is attached to the learned spatial-update interface.",
+            "support": "verified_fact",
+            "support_index": 5,
+            "required": true,
+            "semantic_role": "training_reference",
+            "region": "r3",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c13",
+            "description": "An initial pair-assembly coupling retains the past and present states as distinct members of the first input pair.",
+            "support": "approved_concept",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "initial_pair",
+            "region": "r1",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel1"
+              },
+              {
+                "source_component_id": "c2",
+                "entry": "from-c2",
+                "relationship_id": "rel2"
+              }
+            ]
+          }
+        ],
+        "mechanism_plan": {
+          "dominant_mechanism": "A partial spherical graph cutaway exposes state alignment and spatial updating, with fine and coarse relationships terminating at the same update interface.",
+          "internal_substages": [
+            {
+              "input_component_id": "c1",
+              "transformation": "Retain the earlier atmospheric state in the initial pair.",
+              "output_component_id": "c13",
+              "relation_id": "rel1",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c2",
+              "transformation": "Retain the present atmospheric state beside its predecessor.",
+              "output_component_id": "c13",
+              "relation_id": "rel2",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c13",
+              "transformation": "Send the initial state pair to the alignment interface.",
+              "output_component_id": "c5",
+              "relation_id": "rel3",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c5",
+              "transformation": "Align atmospheric fields with local spatial graph relationships.",
+              "output_component_id": "c6",
+              "relation_id": "rel4",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c6",
+              "transformation": "Supply local spatial information to the exposed updater.",
+              "output_component_id": "c8",
+              "relation_id": "rel5",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c8",
+              "transformation": "Produce the next atmospheric state.",
+              "output_component_id": "c9",
+              "relation_id": "rel6",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c8",
+              "transformation": "After reuse of the predictor, produce a later state slice.",
+              "output_component_id": "c11",
+              "relation_id": "rel7",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            }
+          ],
+          "secondary_relationships": [
+            {
+              "from_component_id": "c3",
+              "to_component_id": "c5",
+              "relationship": "Surface fields are part of the same atmospheric state pair.",
+              "relation_id": "rel8",
+              "kind": "constraint",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c4",
+              "to_component_id": "c5",
+              "relationship": "Atmospheric-level fields are part of that same state pair.",
+              "relation_id": "rel9",
+              "kind": "constraint",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c5",
+              "to_component_id": "c7",
+              "relationship": "Align the state with wider-scale graph relationships.",
+              "relation_id": "rel10",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c7",
+              "to_component_id": "c8",
+              "relationship": "Supply coarse spatial relationships to the same updater.",
+              "relation_id": "rel11",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c12",
+              "to_component_id": "c8",
+              "relationship": "Historical reanalysis supports the trained updater without being a new live observation.",
+              "relation_id": "rel12",
+              "kind": "conditioning",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c9",
+              "to_component_id": "c10",
+              "relationship": "Retain the prediction as the next pair member.",
+              "relation_id": "rel13",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c2",
+              "to_component_id": "c10",
+              "relationship": "Retain the preceding state as the other member of the next pair.",
+              "relation_id": "rel14",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c10",
+              "to_component_id": "c5",
+              "relationship": "Return the updated pair to the same alignment interface for the next forecast step.",
+              "relation_id": "rel15",
+              "kind": "feedback",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": "The most recent prediction and its immediately preceding atmospheric state."
+            }
+          ],
+          "evidence_structure": "Paired prior/present input slices, surface/altitude layers and successive predicted slices remain visually distinguishable throughout.",
+          "constraint_structure": "The historical collar is a training reference. Surface and altitude layers describe each atmospheric state, not extra input observations. Initial and reuse entries operate at distinct steps. No real geography, numeric values or accuracy claim appears.",
+          "feedback_path": "The latest prediction and its predecessor meet at the reuse coupling; its return attaches to the same alignment interface and traverses the same spatial predictor. Initial and returned pairs are used at successive times.",
+          "output_boundary": "The final field slice is an abstract next forecast state; it is neither current weather advice nor a newly executed weather prediction.",
+          "selected_construction": "Use a partial spherical cutaway with exposed state alignment, fine and coarse spatial links and a spatial-update surface. The initial pair and later reuse pair arrive at distinct temporal entries to the same alignment interface. Predicted slices advance along an orbit while a subordinate historical reference collar remains separate.",
+          "geometry_requirements": [
+            {
+              "requirement_id": "spherical-substages",
+              "description": "Expose state alignment and spatial updating within the partial spherical cutaway; fine and coarse links terminate at the same update surface. Atmospheric shells lie radially outside the surface-variable grid."
+            },
+            {
+              "requirement_id": "distinct-state-pair",
+              "description": "Past and present slices retain distinct keys in the initial pair. The later reuse coupling retains the predicted state and its predecessor with those temporal roles visible."
+            },
+            {
+              "requirement_id": "return-through-alignment",
+              "description": "The reuse conduit visibly ends on the returned-pair entry of the same alignment surface; it never bypasses alignment or points to a duplicate predictor."
+            },
+            {
+              "requirement_id": "temporal-not-extra-observations",
+              "description": "The initial-pair and returned-pair entries are alternative successive uses of the predictor, made clear by the ordered state slices. They are never depicted as simultaneously independent weather measurements."
+            },
+            {
+              "requirement_id": "training-reference-separate",
+              "description": "The historical-reanalysis collar attaches as a subordinate training reference, separate from every live-state conduit."
+            },
+            {
+              "requirement_id": "nonliteral-forecast",
+              "description": "Field slices and mesh remain abstract, without actual geography, weather numbers, legends or asserted forecast accuracy."
+            }
+          ]
+        },
+        "composition_assignment": {
+          "composition_signature": "partial-globe-mesh-cutaway-with-state-pair-orbit",
+          "layout_signature": "spherical-cutaway-and-orbital-slices",
+          "diagram_grammar": "multiscale-spatial-forecast",
+          "hierarchy_signature": "dominant-spherical-mechanism-with-subordinate-time-orbit",
+          "annotation_pattern_signature": "arc-following-labels-and-short-layer-leaders",
+          "reading_path": "left paired states enter the central cutaway, predicted slices advance clockwise on the right and loop back as a pair",
+          "palette_family": "deep cyan and warm ochre with pearl gray",
+          "mechanism_metaphor": "spherical grid and nested multiscale mesh",
+          "evidence_representation": "distinct surface and altitude layers across paired state slices",
+          "feedback_pattern": "predicted-state-and-predecessor-reuse-coupling",
+          "prohibited_patterns": [
+            "flat-card-row",
+            "dashboard-grid",
+            "decorative-machine-parts",
+            "copied-source-figure"
+          ]
+        },
+        "visible_text_allowlist": [
+          "Past",
+          "Now",
+          "Mesh",
+          "Forecast",
+          "History"
+        ],
+        "prohibited_specifics": [
+          "provider emblem",
+          "legible source code",
+          "invented numerical score",
+          "copied brand mark"
+        ],
+        "prohibited_composition_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ],
+        "reference_policy": "Only this sealed specification and neutral quality rules."
+      },
+      "recipe_profile": {
+        "profile_id": "daily-compiler-d1-image-recipe-profile-v2",
+        "definition_sha256": "cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1",
+        "semantic_review": {
+          "schema_version": "daily-compiler-d1-recipe-source-review-v2",
+          "recipe_sha256": "acb01cf487198f066ee934c12bce3943b6750b76842e9b9384bb857041eb65c3",
+          "source_story_sha256": "2e3eca541ce88ecc0ca612deefb52fc1a0117b7cb61347ee164096dd11fee39b",
+          "reviewer": "ChatGPT source-semantic construction review",
+          "reviewed_at": "2026-10-08T23:38:03.433Z",
+          "claims": [
+            {
+              "id": "component.c1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Initial weather inputs are a current/prior state pair."
+            },
+            {
+              "id": "component.c2",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Initial weather inputs are a current/prior state pair."
+            },
+            {
+              "id": "component.c3",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Each state includes surface and atmospheric-level fields."
+            },
+            {
+              "id": "component.c4",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Each state includes surface and atmospheric-level fields."
+            },
+            {
+              "id": "component.c5",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Alignment and updating are conceptual exposed substages."
+            },
+            {
+              "id": "component.c6",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Fine and coarse graph relationships support spatial prediction."
+            },
+            {
+              "id": "component.c7",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Fine and coarse graph relationships support spatial prediction."
+            },
+            {
+              "id": "component.c8",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Alignment and updating are conceptual exposed substages."
+            },
+            {
+              "id": "component.c9",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "The learned model produces the following weather state."
+            },
+            {
+              "id": "component.c10",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Predictions and predecessors form successive reused pairs."
+            },
+            {
+              "id": "component.c11",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Predictions and predecessors form successive reused pairs."
+            },
+            {
+              "id": "component.c12",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Reanalysis is training evidence, not an extra live input."
+            },
+            {
+              "id": "component.c13",
+              "support": "approved_concept",
+              "support_index": 4,
+              "assessment": "CONCEPTUAL",
+              "observation": "Initial and returned pairs are alternate temporal uses."
+            },
+            {
+              "id": "relation.rel1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Initial weather inputs are a current/prior state pair."
+            },
+            {
+              "id": "relation.rel2",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Initial weather inputs are a current/prior state pair."
+            },
+            {
+              "id": "relation.rel3",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Initial weather inputs are a current/prior state pair."
+            },
+            {
+              "id": "relation.rel4",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Fine and coarse graph relationships support spatial prediction."
+            },
+            {
+              "id": "relation.rel5",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Fine and coarse graph relationships support spatial prediction."
+            },
+            {
+              "id": "relation.rel6",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "The learned model produces the following weather state."
+            },
+            {
+              "id": "relation.rel7",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Predictions and predecessors form successive reused pairs."
+            },
+            {
+              "id": "relation.rel8",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Each state includes surface and atmospheric-level fields."
+            },
+            {
+              "id": "relation.rel9",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Each state includes surface and atmospheric-level fields."
+            },
+            {
+              "id": "relation.rel10",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Fine and coarse graph relationships support spatial prediction."
+            },
+            {
+              "id": "relation.rel11",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Fine and coarse graph relationships support spatial prediction."
+            },
+            {
+              "id": "relation.rel12",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Reanalysis is training evidence, not an extra live input."
+            },
+            {
+              "id": "relation.rel13",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Predictions and predecessors form successive reused pairs."
+            },
+            {
+              "id": "relation.rel14",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Predictions and predecessors form successive reused pairs."
+            },
+            {
+              "id": "relation.rel15",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "Predictions and predecessors form successive reused pairs."
+            }
+          ],
+          "result": "PASS"
+        }
+      },
+      "specification_sha256": "dd5df6219fb4318b5247bd0bc354a6073f031ef07cf155ef0c7e88c18562b574"
+    },
+    {
+      "story_id": "video-conditioned-audio",
+      "story_content_sha256": "fd21b227bc3dfc5d5e9bd8a7aaf510db4fbddc3b5a18b87b8075f4ea56b52e39",
+      "generation": {
+        "subject": "Conditioning iterative audio denoising on compressed video information",
+        "core_mechanism": "Compressed visual information and optional text conditions enter a denoising assembly together. Noise is progressively refined into a compressed acoustic representation, decoded into a waveform and aligned with the original video.",
+        "verified_visual_facts": [
+          "Video input is encoded into a compressed representation.",
+          "A diffusion model iteratively refines audio from random noise.",
+          "Visual information and optional text guidance condition the refinement.",
+          "Compressed audio is decoded into a waveform.",
+          "The waveform is combined with the original video.",
+          "Positive and negative text guidance can favor or discourage sound characteristics."
+        ],
+        "conceptual_elements": [
+          "An untallied strip of blank geometric frames denotes video order; no copied scene, person or text.",
+          "Separate open conditioning and refinement surfaces turn smooth disconnected noise particles into a continuous acoustic ribbon.",
+          "The refinement surfaces explain iteration; their visible count is not a model iteration count.",
+          "Four regions: encoded video/guidance; open denoising core; decoding; original-video/waveform alignment."
+        ],
+        "meaningful_components_plan": [
+          {
+            "component_id": "c1",
+            "description": "An original abstract frame strip supplies the video information and preserves its temporal order.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "video_source",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c2",
+            "description": "A compressed visual ribbon carries the encoded video information into the denoising assembly.",
+            "support": "verified_fact",
+            "support_index": 0,
+            "required": true,
+            "semantic_role": "visual_encoding",
+            "region": "r1",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel1"
+              }
+            ]
+          },
+          {
+            "component_id": "c3",
+            "description": "A positive-guidance token enters one optional condition port.",
+            "support": "verified_fact",
+            "support_index": 5,
+            "required": true,
+            "semantic_role": "positive_guidance",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c4",
+            "description": "A negative-guidance token enters a distinct optional condition port.",
+            "support": "verified_fact",
+            "support_index": 5,
+            "required": true,
+            "semantic_role": "negative_guidance",
+            "region": "r1",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c5",
+            "description": "A guidance junction keeps the positive and negative condition inputs distinct as they reach the core.",
+            "support": "verified_fact",
+            "support_index": 2,
+            "required": true,
+            "semantic_role": "guidance_junction",
+            "region": "r1",
+            "input_bindings": [
+              {
+                "source_component_id": "c3",
+                "entry": "from-c3",
+                "relationship_id": "rel8"
+              },
+              {
+                "source_component_id": "c4",
+                "entry": "from-c4",
+                "relationship_id": "rel9"
+              }
+            ]
+          },
+          {
+            "component_id": "c6",
+            "description": "An untallied collection of disconnected smooth blank particles represents the initial acoustic noise independently of the visual ribbon.",
+            "support": "verified_fact",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "initial_noise",
+            "region": "r2",
+            "input_bindings": []
+          },
+          {
+            "component_id": "c7",
+            "description": "An exposed conditioning surface combines visual information and optional guidance with the current acoustic state.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "conditioning_surface",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c6",
+                "entry": "from-c6",
+                "relationship_id": "rel2"
+              },
+              {
+                "source_component_id": "c2",
+                "entry": "from-c2",
+                "relationship_id": "rel7"
+              },
+              {
+                "source_component_id": "c5",
+                "entry": "from-c5",
+                "relationship_id": "rel10"
+              },
+              {
+                "source_component_id": "c8",
+                "entry": "from-c8",
+                "relationship_id": "rel13"
+              }
+            ]
+          },
+          {
+            "component_id": "c8",
+            "description": "An exposed refinement surface turns the conditioned noisy state into a more structured acoustic ribbon.",
+            "support": "approved_concept",
+            "support_index": 1,
+            "required": true,
+            "semantic_role": "refinement_surface",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c7",
+                "entry": "from-c7",
+                "relationship_id": "rel3"
+              }
+            ]
+          },
+          {
+            "component_id": "c9",
+            "description": "A compressed-audio ribbon leaves the iterative refinement region.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "compressed_audio",
+            "region": "r2",
+            "input_bindings": [
+              {
+                "source_component_id": "c8",
+                "entry": "from-c8",
+                "relationship_id": "rel4"
+              }
+            ]
+          },
+          {
+            "component_id": "c10",
+            "description": "An acoustic decoding interface transforms that compressed representation into signal geometry.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "decoder",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c9",
+                "entry": "from-c9",
+                "relationship_id": "rel5"
+              }
+            ]
+          },
+          {
+            "component_id": "c11",
+            "description": "A continuous waveform strip carries the decoded acoustic output.",
+            "support": "verified_fact",
+            "support_index": 3,
+            "required": true,
+            "semantic_role": "waveform",
+            "region": "r3",
+            "input_bindings": [
+              {
+                "source_component_id": "c10",
+                "entry": "from-c10",
+                "relationship_id": "rel6"
+              }
+            ]
+          },
+          {
+            "component_id": "c12",
+            "description": "A temporal alignment track joins that waveform to the original ordered frame strip.",
+            "support": "verified_fact",
+            "support_index": 4,
+            "required": true,
+            "semantic_role": "temporal_alignment",
+            "region": "r4",
+            "input_bindings": [
+              {
+                "source_component_id": "c1",
+                "entry": "from-c1",
+                "relationship_id": "rel11"
+              },
+              {
+                "source_component_id": "c11",
+                "entry": "from-c11",
+                "relationship_id": "rel12"
+              }
+            ]
+          }
+        ],
+        "mechanism_plan": {
+          "dominant_mechanism": "An open acoustic denoising assembly exposes condition integration and noise refinement before a separate decoder, with the original video bypass visibly intact.",
+          "internal_substages": [
+            {
+              "input_component_id": "c1",
+              "transformation": "Encode ordered visual information as a compressed ribbon.",
+              "output_component_id": "c2",
+              "relation_id": "rel1",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 0,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c6",
+              "transformation": "Supply the initial acoustic-noise state to conditioning.",
+              "output_component_id": "c7",
+              "relation_id": "rel2",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c7",
+              "transformation": "Carry the conditioned acoustic state to refinement.",
+              "output_component_id": "c8",
+              "relation_id": "rel3",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c8",
+              "transformation": "Release the refined compressed acoustic representation.",
+              "output_component_id": "c9",
+              "relation_id": "rel4",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c9",
+              "transformation": "Supply compressed audio to the separate decoder.",
+              "output_component_id": "c10",
+              "relation_id": "rel5",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            },
+            {
+              "input_component_id": "c10",
+              "transformation": "Produce the decoded acoustic waveform.",
+              "output_component_id": "c11",
+              "relation_id": "rel6",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 3,
+              "returned_state": null
+            }
+          ],
+          "secondary_relationships": [
+            {
+              "from_component_id": "c2",
+              "to_component_id": "c7",
+              "relationship": "Supply the encoded visual condition to the conditioning surface.",
+              "relation_id": "rel7",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c3",
+              "to_component_id": "c5",
+              "relationship": "Retain positive guidance in its own junction entry.",
+              "relation_id": "rel8",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c4",
+              "to_component_id": "c5",
+              "relationship": "Retain negative guidance in a distinct junction entry.",
+              "relation_id": "rel9",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 5,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c5",
+              "to_component_id": "c7",
+              "relationship": "Supply optional text conditions without merging them into the video path.",
+              "relation_id": "rel10",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 2,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c1",
+              "to_component_id": "c12",
+              "relationship": "Preserve original frame order on the bypass to final alignment.",
+              "relation_id": "rel11",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c11",
+              "to_component_id": "c12",
+              "relationship": "Join the waveform with the original temporal reference.",
+              "relation_id": "rel12",
+              "kind": "artifact_flow",
+              "support": "verified_fact",
+              "support_index": 4,
+              "returned_state": null
+            },
+            {
+              "from_component_id": "c8",
+              "to_component_id": "c7",
+              "relationship": "Return the evolving acoustic state to conditioning for another conceptual refinement.",
+              "relation_id": "rel13",
+              "kind": "feedback",
+              "support": "verified_fact",
+              "support_index": 1,
+              "returned_state": "The current refined acoustic state, retaining the same video and guidance conditions."
+            }
+          ],
+          "evidence_structure": "The original frame strip has an uninterrupted path to temporal alignment. The compressed visual ribbon separately terminates at the denoising core.",
+          "constraint_structure": "Positive and negative optional guidance have distinct ports. No frame count, waveform amplitude, duration or perfect synchronization metric is asserted.",
+          "feedback_path": "The evolving acoustic ribbon loops from the refinement surface to the conditioning surface at an explicit landing point; the loop never regenerates the original frame strip.",
+          "output_boundary": "A waveform aligned with the original frame order is the explanatory output; no actual audio or video content is produced by this specification.",
+          "selected_construction": "Use a diagonal acoustic braid with exposed conditioning and refinement surfaces separated by visible space. Encoded video, optional guidance and acoustic state retain their declared entries. The refined acoustic ribbon reaches a separate decoder; the original frame strip bypasses the core and meets the waveform only at final alignment.",
+          "geometry_requirements": [
+            {
+              "requirement_id": "open-diffusion-substages",
+              "description": "The conditioning surface and refinement surface are separate open structures with visible state transformation between them. Smooth noise particles become a connected acoustic ribbon; neither stage is an enclosing tube."
+            },
+            {
+              "requirement_id": "distinct-conditioning-entries",
+              "description": "Encoded video, optional guidance, initial noise and returned acoustic state meet only through their declared entries; no guide or video trace becomes the acoustic output itself."
+            },
+            {
+              "requirement_id": "precise-acoustic-return",
+              "description": "The acoustic return leaves the refinement surface and lands on its declared conditioning entry. It never returns into the original frame strip."
+            },
+            {
+              "requirement_id": "intact-original-video",
+              "description": "The original frame order remains visibly intact along a separate bypass to temporal alignment, independently of visual encoding."
+            },
+            {
+              "requirement_id": "decoder-after-refinement",
+              "description": "The compressed acoustic ribbon passes through a separate visible decoder before becoming a waveform and reaching alignment."
+            },
+            {
+              "requirement_id": "blank-noise-geometry",
+              "description": "Noise is smooth blank particle geometry, not writing marks, surface texture or pseudotext. Guidance tokens show no positive or negative symbols outside the allowlist."
+            }
+          ]
+        },
+        "composition_assignment": {
+          "composition_signature": "diagonal-acoustic-braid-with-open-denoising-core",
+          "layout_signature": "diagonal-braid-and-temporal-rejoin",
+          "diagram_grammar": "cross-modal-conditioned-diffusion",
+          "hierarchy_signature": "dominant-open-refinement-core-and-bypass-reference",
+          "annotation_pattern_signature": "port-labels-and-one-waveform-caption",
+          "reading_path": "upper-left video and guidance feed the open central core, acoustic flow descends right while original frames bypass to the final alignment",
+          "palette_family": "indigo and coral with pale mint",
+          "mechanism_metaphor": "acoustic braid with exposed conditioning and refinement surfaces",
+          "evidence_representation": "original-frame bypass beside decoded waveform",
+          "feedback_pattern": "acoustic-refinement-return-to-conditioning-surface",
+          "prohibited_patterns": [
+            "flat-card-row",
+            "dashboard-grid",
+            "decorative-machine-parts",
+            "copied-source-figure"
+          ]
+        },
+        "visible_text_allowlist": [
+          "Video",
+          "Guide",
+          "Noise",
+          "Refine",
+          "Audio"
+        ],
+        "prohibited_specifics": [
+          "provider emblem",
+          "legible source code",
+          "invented numerical score",
+          "copied brand mark"
+        ],
+        "prohibited_composition_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ],
+        "reference_policy": "Only this sealed specification and neutral quality rules."
+      },
+      "recipe_profile": {
+        "profile_id": "daily-compiler-d1-image-recipe-profile-v2",
+        "definition_sha256": "cd5dcda897d12fe031b86c565073b52a31167e448b54c1942ad2606b0f7ac7d1",
+        "semantic_review": {
+          "schema_version": "daily-compiler-d1-recipe-source-review-v2",
+          "recipe_sha256": "56f73806b5de14a0ce7d0374ebbb22b978a302d595a86e3c0432ad7ea925e272",
+          "source_story_sha256": "2af79935813ecb0bcc97bc7103da5bb23a1f21236be0103aa8484ed2e2687c1c",
+          "reviewer": "ChatGPT source-semantic construction review",
+          "reviewed_at": "2026-10-08T23:38:03.433Z",
+          "claims": [
+            {
+              "id": "component.c1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Video is encoded separately into a compressed representation."
+            },
+            {
+              "id": "component.c2",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Video is encoded separately into a compressed representation."
+            },
+            {
+              "id": "component.c3",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Positive and negative guidance are distinct optional controls."
+            },
+            {
+              "id": "component.c4",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Positive and negative guidance are distinct optional controls."
+            },
+            {
+              "id": "component.c5",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Visual and optional text information condition refinement."
+            },
+            {
+              "id": "component.c6",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Acoustic denoising is iterative, supporting a state return."
+            },
+            {
+              "id": "component.c7",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Blank particles and ribbon expose a conceptual denoising change."
+            },
+            {
+              "id": "component.c8",
+              "support": "approved_concept",
+              "support_index": 1,
+              "assessment": "CONCEPTUAL",
+              "observation": "Blank particles and ribbon expose a conceptual denoising change."
+            },
+            {
+              "id": "component.c9",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Compressed audio is decoded into a waveform."
+            },
+            {
+              "id": "component.c10",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Compressed audio is decoded into a waveform."
+            },
+            {
+              "id": "component.c11",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Compressed audio is decoded into a waveform."
+            },
+            {
+              "id": "component.c12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "The resulting waveform rejoins the original video."
+            },
+            {
+              "id": "relation.rel1",
+              "support": "verified_fact",
+              "support_index": 0,
+              "assessment": "SUPPORTED",
+              "observation": "Video is encoded separately into a compressed representation."
+            },
+            {
+              "id": "relation.rel2",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Acoustic denoising is iterative, supporting a state return."
+            },
+            {
+              "id": "relation.rel3",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Visual and optional text information condition refinement."
+            },
+            {
+              "id": "relation.rel4",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Compressed audio is decoded into a waveform."
+            },
+            {
+              "id": "relation.rel5",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Compressed audio is decoded into a waveform."
+            },
+            {
+              "id": "relation.rel6",
+              "support": "verified_fact",
+              "support_index": 3,
+              "assessment": "SUPPORTED",
+              "observation": "Compressed audio is decoded into a waveform."
+            },
+            {
+              "id": "relation.rel7",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Visual and optional text information condition refinement."
+            },
+            {
+              "id": "relation.rel8",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Positive and negative guidance are distinct optional controls."
+            },
+            {
+              "id": "relation.rel9",
+              "support": "verified_fact",
+              "support_index": 5,
+              "assessment": "SUPPORTED",
+              "observation": "Positive and negative guidance are distinct optional controls."
+            },
+            {
+              "id": "relation.rel10",
+              "support": "verified_fact",
+              "support_index": 2,
+              "assessment": "SUPPORTED",
+              "observation": "Visual and optional text information condition refinement."
+            },
+            {
+              "id": "relation.rel11",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "The resulting waveform rejoins the original video."
+            },
+            {
+              "id": "relation.rel12",
+              "support": "verified_fact",
+              "support_index": 4,
+              "assessment": "SUPPORTED",
+              "observation": "The resulting waveform rejoins the original video."
+            },
+            {
+              "id": "relation.rel13",
+              "support": "verified_fact",
+              "support_index": 1,
+              "assessment": "SUPPORTED",
+              "observation": "Acoustic denoising is iterative, supporting a state return."
+            }
+          ],
+          "result": "PASS"
+        }
+      },
+      "specification_sha256": "5bd77f40a9a0f2c64afb0ba8cad9dc4d6ce452f3a1221d5a3ceef4dffc5a656f"
+    }
+  ],
+  "set_plan": {
+    "schema_version": "daily-compiler-d1-image-set-plan-v1",
+    "edition_date": "2026-10-08",
+    "stories": [
+      {
+        "story_id": "crystal-stability-active-learning",
+        "composition_signature": "split-crystal-graphs-and-open-energy-basin",
+        "layout_signature": "branched-oblique-lattice-and-lower-return",
+        "diagram_grammar": "active-learning-material-screening",
+        "hierarchy_signature": "dominant-energy-cutaway-with-distinct-predictor-flanks",
+        "annotation_pattern_signature": "perimeter-stage-labels-with-blank-keyed-sockets",
+        "reading_path": "upper-left proposal branches reach separate predictors, converge as structures at right-hand evaluation, then return below as computed training records",
+        "palette_family": "petrol blue and copper with pale celadon",
+        "mechanism_metaphor": "open crystal lattices and an exposed energy-reference basin",
+        "evidence_representation": "computed structure-energy pairs bound to competing-phase reference",
+        "feedback_pattern": "evaluated-records-to-separate-predictor-training-paths",
+        "prohibited_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ]
+      },
+      {
+        "story_id": "contrastive-incentive-beliefs",
+        "composition_signature": "oblique-twin-belief-prisms-with-choice-register",
+        "layout_signature": "opposed-diagonal-prisms",
+        "diagram_grammar": "matched-intervention-contrast",
+        "hierarchy_signature": "shared-objective-anchor-and-two-exposed-choice-axes",
+        "annotation_pattern_signature": "paired-rail-engraving-free-labels",
+        "reading_path": "upper common anchors into two opposing diagonal prisms, then toward the lower comparison register",
+        "palette_family": "aubergine and sage with cool gray",
+        "mechanism_metaphor": "opposed belief lattices and matched open choice prisms",
+        "evidence_representation": "two identity-preserving observed-choice tracks",
+        "feedback_pattern": "checkpoint-reference-rail-without-retraining",
+        "prohibited_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ]
+      },
+      {
+        "story_id": "rendered-record-divergence",
+        "composition_signature": "offset-transcript-lightbox-with-intact-rear-spine",
+        "layout_signature": "exploded-oblique-layer-cutaway",
+        "diagram_grammar": "representation-divergence",
+        "hierarchy_signature": "dominant-separated-representations-and-lower-comparator",
+        "annotation_pattern_signature": "leader-callouts-at-layer-ends",
+        "reading_path": "incoming events split into rear preservation and front rendering; follow the independent bridge to the right-hand comparison",
+        "palette_family": "slate blue and rust with translucent ice",
+        "mechanism_metaphor": "exploded light-box with keyed event strips",
+        "evidence_representation": "visible key alignment between original and altered event shapes",
+        "feedback_pattern": "independent-record-crosscheck-braces",
+        "prohibited_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ]
+      },
+      {
+        "story_id": "turn-aligned-behaviour",
+        "composition_signature": "arched-turn-spine-with-provenance-ribs-and-export-fan",
+        "layout_signature": "arched-transverse-weave",
+        "diagram_grammar": "turn-provenance-weave",
+        "hierarchy_signature": "central-keyed-spine-with-orthogonal-evidence-ribs",
+        "annotation_pattern_signature": "end-tab-labels-and-single-source-leader",
+        "reading_path": "left configuration combs feed upper interpretation ribs, down through keyed turn correspondence, then right to export",
+        "palette_family": "forest green and muted violet with limestone",
+        "mechanism_metaphor": "arched turn spine with orthogonal provenance ribs",
+        "evidence_representation": "recorded and interpreted ribs at distinct depths",
+        "feedback_pattern": "label-to-original-turn-return-bridge",
+        "prohibited_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ]
+      },
+      {
+        "story_id": "weather-mesh-rollout",
+        "composition_signature": "partial-globe-mesh-cutaway-with-state-pair-orbit",
+        "layout_signature": "spherical-cutaway-and-orbital-slices",
+        "diagram_grammar": "multiscale-spatial-forecast",
+        "hierarchy_signature": "dominant-spherical-mechanism-with-subordinate-time-orbit",
+        "annotation_pattern_signature": "arc-following-labels-and-short-layer-leaders",
+        "reading_path": "left paired states enter the central cutaway, predicted slices advance clockwise on the right and loop back as a pair",
+        "palette_family": "deep cyan and warm ochre with pearl gray",
+        "mechanism_metaphor": "spherical grid and nested multiscale mesh",
+        "evidence_representation": "distinct surface and altitude layers across paired state slices",
+        "feedback_pattern": "predicted-state-and-predecessor-reuse-coupling",
+        "prohibited_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ]
+      },
+      {
+        "story_id": "video-conditioned-audio",
+        "composition_signature": "diagonal-acoustic-braid-with-open-denoising-core",
+        "layout_signature": "diagonal-braid-and-temporal-rejoin",
+        "diagram_grammar": "cross-modal-conditioned-diffusion",
+        "hierarchy_signature": "dominant-open-refinement-core-and-bypass-reference",
+        "annotation_pattern_signature": "port-labels-and-one-waveform-caption",
+        "reading_path": "upper-left video and guidance feed the open central core, acoustic flow descends right while original frames bypass to the final alignment",
+        "palette_family": "indigo and coral with pale mint",
+        "mechanism_metaphor": "acoustic braid with exposed conditioning and refinement surfaces",
+        "evidence_representation": "original-frame bypass beside decoded waveform",
+        "feedback_pattern": "acoustic-refinement-return-to-conditioning-surface",
+        "prohibited_patterns": [
+          "flat-card-row",
+          "dashboard-grid",
+          "decorative-machine-parts",
+          "copied-source-figure"
+        ]
+      }
+    ],
+    "planned_set_gate": {
+      "unique_composition_signatures": 6,
+      "distinct_layout_signatures_min": 4,
+      "distinct_diagram_grammars_min": 4,
+      "distinct_hierarchy_signatures_min": 4,
+      "distinct_annotation_patterns_min": 3
+    }
+  },
+  "source_evidence_sha256": "f3b55330928960687756f866f8487f2635fc0a3aa99883ce031e36a456f51cb6",
+  "set_plan_sha256": "0c1f57900d8e32e51cf1becadcfb4d192f7f523cb4a2886b8d51debc83ba9879"
+}

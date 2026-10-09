@@ -1,0 +1,451 @@
+Inspect only the exact saved canonical image in this story conversation. Do not generate or edit.
+
+Judge every criterion against visible pixels. For each criterion return id, pass (boolean), location, observation, offending_text (null except actual unauthorized readable text) and missing_labels (array). Marks are not readable words; assess pseudotext and placeholder lines separately.
+
+Return only a JSON object containing criteria, specification_conflict, and result. Do not invent or emit story IDs, repository paths, context identities or hashes. The outer deterministic recorder adds the actual asset and protocol bindings; they never enter this conversation.
+
+Do not invent additional topology or geometry. A missing/contradictory requirement is specification_conflict=true and FAIL, not permission to change the target. PASS requires all criteria true.
+
+[
+  {
+    "id": "basic.subject_match",
+    "requirement": "The visible image must pass subject match."
+  },
+  {
+    "id": "basic.mechanism_detail",
+    "requirement": "The visible image must pass mechanism detail."
+  },
+  {
+    "id": "basic.legible_labels",
+    "requirement": "The visible image must pass legible labels."
+  },
+  {
+    "id": "basic.contrast",
+    "requirement": "The visible image must pass contrast."
+  },
+  {
+    "id": "basic.composition",
+    "requirement": "The visible image must pass composition."
+  },
+  {
+    "id": "basic.no_people",
+    "requirement": "The visible image must pass no people."
+  },
+  {
+    "id": "basic.no_humanoids",
+    "requirement": "The visible image must pass no humanoids."
+  },
+  {
+    "id": "basic.no_branding",
+    "requirement": "The visible image must pass no branding."
+  },
+  {
+    "id": "basic.no_photorealism",
+    "requirement": "The visible image must pass no photorealism."
+  },
+  {
+    "id": "basic.no_overlap",
+    "requirement": "The visible image must pass no overlap."
+  },
+  {
+    "id": "basic.no_clipping",
+    "requirement": "The visible image must pass no clipping."
+  },
+  {
+    "id": "basic.no_unapproved_text",
+    "requirement": "The visible image must pass no unapproved text."
+  },
+  {
+    "id": "basic.no_unsupported_specifics",
+    "requirement": "The visible image must pass no unsupported specifics."
+  },
+  {
+    "id": "basic.no_context_contamination",
+    "requirement": "The visible image must pass no context contamination."
+  },
+  {
+    "id": "basic.professional_textbook_editorial_quality",
+    "requirement": "The visible image must pass professional textbook editorial quality."
+  },
+  {
+    "id": "benchmark.professional_finish",
+    "requirement": "Match premium benchmark professional finish."
+  },
+  {
+    "id": "benchmark.meaningful_detail",
+    "requirement": "Match premium benchmark meaningful detail."
+  },
+  {
+    "id": "benchmark.explanatory_mechanism",
+    "requirement": "Match premium benchmark explanatory mechanism."
+  },
+  {
+    "id": "benchmark.annotation_richness",
+    "requirement": "Match premium benchmark annotation richness."
+  },
+  {
+    "id": "benchmark.visual_depth",
+    "requirement": "Match premium benchmark visual depth."
+  },
+  {
+    "id": "benchmark.hierarchy",
+    "requirement": "Match premium benchmark hierarchy."
+  },
+  {
+    "id": "benchmark.composition",
+    "requirement": "Match premium benchmark composition."
+  },
+  {
+    "id": "benchmark.story_specificity",
+    "requirement": "Match premium benchmark story specificity."
+  },
+  {
+    "id": "benchmark.differentiation",
+    "requirement": "Match premium benchmark differentiation."
+  },
+  {
+    "id": "quality.premium_textbook_editorial",
+    "requirement": "{\"premium_textbook_editorial\":true}"
+  },
+  {
+    "id": "quality.minimum_meaningful_components",
+    "requirement": "{\"minimum_meaningful_components\":12}"
+  },
+  {
+    "id": "quality.visible_text_policy",
+    "requirement": "{\"visible_text_policy\":\"exact_allowlist_only\"}"
+  },
+  {
+    "id": "quality.people_humanoids_faces_avatars_forbidden",
+    "requirement": "{\"people_humanoids_faces_avatars_forbidden\":true}"
+  },
+  {
+    "id": "quality.branding_forbidden",
+    "requirement": "{\"branding_forbidden\":true}"
+  },
+  {
+    "id": "quality.photorealism_forbidden",
+    "requirement": "{\"photorealism_forbidden\":true}"
+  },
+  {
+    "id": "quality.low_quality_fallback_forbidden",
+    "requirement": "{\"low_quality_fallback_forbidden\":true}"
+  },
+  {
+    "id": "quality.story_specificity_required",
+    "requirement": "{\"story_specificity_required\":true}"
+  },
+  {
+    "id": "quality.dimensional_mechanism_plate_required",
+    "requirement": "{\"dimensional_mechanism_plate_required\":true}"
+  },
+  {
+    "id": "quality.canvas_utilization_target",
+    "requirement": "{\"canvas_utilization_target\":\"80-90_percent\"}"
+  },
+  {
+    "id": "quality.major_visual_regions_target",
+    "requirement": "{\"major_visual_regions_target\":\"3-5\"}"
+  },
+  {
+    "id": "quality.minimum_internal_substages_in_dominant_mechanism",
+    "requirement": "{\"minimum_internal_substages_in_dominant_mechanism\":2}"
+  },
+  {
+    "id": "quality.minimum_secondary_relationships",
+    "requirement": "{\"minimum_secondary_relationships\":2}"
+  },
+  {
+    "id": "quality.generic_infographic_aesthetic_forbidden",
+    "requirement": "{\"generic_infographic_aesthetic_forbidden\":true}"
+  },
+  {
+    "id": "quality.decorative_geometry_forbidden",
+    "requirement": "{\"decorative_geometry_forbidden\":true}"
+  },
+  {
+    "id": "source.truth",
+    "requirement": "Preserve the source-supported meaning; conceptual geometry must not invent factual claims."
+  },
+  {
+    "id": "text.allowlist",
+    "requirement": "Show exactly these labels and no additional readable text: [\"Structures\",\"Composition\",\"Predict\",\"Search\",\"Evaluate\",\"Stability\",\"Learn\",\"Candidates\"]"
+  },
+  {
+    "id": "text.no_pseudotext",
+    "requirement": "No invented glyphs or pseudo-writing. A mark is not evidence of a readable word."
+  },
+  {
+    "id": "text.no_placeholder_lines",
+    "requirement": "No document-placeholder lines or writing-like marks on blank surfaces."
+  },
+  {
+    "id": "layout.regions",
+    "requirement": "Three to five major regions, with distinct functional components."
+  },
+  {
+    "id": "layout.occupancy",
+    "requirement": "Use 80–90 percent useful canvas, preserving safe margins."
+  },
+  {
+    "id": "recipe.selected",
+    "requirement": "Use staggered structural and composition-only proposal branches at upper left, separate open predictor prisms, and a dominant exposed energy-evaluation and stability basin at right. A lower record store returns evidence to separate training tracks. Keep all branch identities visible."
+  },
+  {
+    "id": "component.c1",
+    "requirement": "A known-crystal reference supplies structural seeds and the initial structure-energy training basis.; role source_reference; region r1."
+  },
+  {
+    "id": "component.c2",
+    "requirement": "A changed blank crystal lattice represents a structural proposal related to a known structure.; role structural_proposal; region r1."
+  },
+  {
+    "id": "input.c2.from-c1",
+    "requirement": "Connect c1 to c2 at from-c1 using only rel1."
+  },
+  {
+    "id": "component.c3",
+    "requirement": "An atomic-neighbour graph retains the spatial connections of the structural proposal.; role structural_graph; region r2."
+  },
+  {
+    "id": "input.c3.from-c2",
+    "requirement": "Connect c2 to c3 at from-c2 using only rel2."
+  },
+  {
+    "id": "component.c4",
+    "requirement": "An exposed structure-based predictor receives that atomic graph.; role structural_predictor; region r2."
+  },
+  {
+    "id": "input.c4.from-c3",
+    "requirement": "Connect c3 to c4 at from-c3 using only rel3."
+  },
+  {
+    "id": "input.c4.from-c16",
+    "requirement": "Connect c16 to c4 at from-c16 using only rel19."
+  },
+  {
+    "id": "component.c5",
+    "requirement": "A separate structural energy-screen surface retains the candidate structure with its predicted-energy token.; role structural_screen; region r2."
+  },
+  {
+    "id": "input.c5.from-c4",
+    "requirement": "Connect c4 to c5 at from-c4 using only rel4."
+  },
+  {
+    "id": "component.c6",
+    "requirement": "A blank composition proposal distinguishes element types and proportions without atomic positions.; role composition_proposal; region r1."
+  },
+  {
+    "id": "component.c7",
+    "requirement": "A composition-only graph preserves element types and proportions while omitting atomic positions.; role composition_graph; region r2."
+  },
+  {
+    "id": "input.c7.from-c6",
+    "requirement": "Connect c6 to c7 at from-c6 using only rel5."
+  },
+  {
+    "id": "component.c8",
+    "requirement": "An exposed composition-based predictor receives that nonspatial graph separately from the structural predictor.; role composition_predictor; region r2."
+  },
+  {
+    "id": "input.c8.from-c7",
+    "requirement": "Connect c7 to c8 at from-c7 using only rel6."
+  },
+  {
+    "id": "input.c8.from-c17",
+    "requirement": "Connect c17 to c8 at from-c17 using only rel20."
+  },
+  {
+    "id": "component.c9",
+    "requirement": "A formula-screen surface passes selected composition tokens toward structure search.; role composition_screen; region r2."
+  },
+  {
+    "id": "input.c9.from-c8",
+    "requirement": "Connect c8 to c9 at from-c8 using only rel7."
+  },
+  {
+    "id": "component.c10",
+    "requirement": "An open search fan turns a screened composition into candidate atomic arrangements.; role structure_search; region r3."
+  },
+  {
+    "id": "input.c10.from-c9",
+    "requirement": "Connect c9 to c10 at from-c9 using only rel8."
+  },
+  {
+    "id": "component.c11",
+    "requirement": "A keyed structural intake receives candidate atomic arrangements from the structural and composition-search paths.; role structure_intake; region r3."
+  },
+  {
+    "id": "input.c11.from-c5",
+    "requirement": "Connect c5 to c11 at from-c5 using only rel9."
+  },
+  {
+    "id": "input.c11.from-c10",
+    "requirement": "Connect c10 to c11 at from-c10 using only rel10."
+  },
+  {
+    "id": "component.c12",
+    "requirement": "An exposed computational-energy surface attaches a computed-energy token to the evaluated structure.; role energy_evaluation; region r3."
+  },
+  {
+    "id": "input.c12.from-c11",
+    "requirement": "Connect c11 to c12 at from-c11 using only rel11."
+  },
+  {
+    "id": "component.c13",
+    "requirement": "A competing-phase reference surface supplies the relative-energy constraint without numerical axes.; role energy_constraint; region r3."
+  },
+  {
+    "id": "component.c14",
+    "requirement": "An open stability-comparison surface compares the evaluated structure-energy pair with the competing-phase reference.; role stability_comparison; region r3."
+  },
+  {
+    "id": "input.c14.from-c12",
+    "requirement": "Connect c12 to c14 at from-c12 using only rel12."
+  },
+  {
+    "id": "component.c15",
+    "requirement": "A computed-record receptacle retains evaluated structure-energy pairs for subsequent learning.; role computed_evidence_store; region r4."
+  },
+  {
+    "id": "input.c15.from-c12",
+    "requirement": "Connect c12 to c15 at from-c12 using only rel15."
+  },
+  {
+    "id": "component.c16",
+    "requirement": "A structural-training track prepares the stored computed records for the structure-based predictor.; role structural_training; region r4."
+  },
+  {
+    "id": "input.c16.from-c15",
+    "requirement": "Connect c15 to c16 at from-c15 using only rel16."
+  },
+  {
+    "id": "component.c17",
+    "requirement": "A separate compositional-training track prepares the stored computed records for the composition-based predictor.; role composition_training; region r4."
+  },
+  {
+    "id": "input.c17.from-c15",
+    "requirement": "Connect c15 to c17 at from-c15 using only rel17."
+  },
+  {
+    "id": "component.c18",
+    "requirement": "A candidate outlet holds computationally stable structures without claiming experimental synthesis.; role candidate_output; region r3."
+  },
+  {
+    "id": "input.c18.from-c14",
+    "requirement": "Connect c14 to c18 at from-c14 using only rel13."
+  },
+  {
+    "id": "relation.rel1",
+    "requirement": "artifact_flow between c1 and c2: Modify a known structural seed into a structural candidate.; no implied return."
+  },
+  {
+    "id": "relation.rel2",
+    "requirement": "artifact_flow between c2 and c3: Encode the candidate atomic neighbours as a structural graph.; no implied return."
+  },
+  {
+    "id": "relation.rel3",
+    "requirement": "artifact_flow between c3 and c4: Supply the structural graph to its structure-based predictor.; no implied return."
+  },
+  {
+    "id": "relation.rel4",
+    "requirement": "measurement between c4 and c5: Use the predicted energy to screen the structural candidate.; no implied return."
+  },
+  {
+    "id": "relation.rel5",
+    "requirement": "artifact_flow between c6 and c7: Encode element types and proportions without atomic positions.; no implied return."
+  },
+  {
+    "id": "relation.rel6",
+    "requirement": "artifact_flow between c7 and c8: Supply the composition graph to its separate predictor.; no implied return."
+  },
+  {
+    "id": "relation.rel7",
+    "requirement": "measurement between c8 and c9: Filter the proposed formula using the composition-based prediction.; no implied return."
+  },
+  {
+    "id": "relation.rel8",
+    "requirement": "artifact_flow between c9 and c10: Send the screened composition into random structure search.; no implied return."
+  },
+  {
+    "id": "relation.rel9",
+    "requirement": "artifact_flow between c5 and c11: Carry a screened structural arrangement to computational evaluation.; no implied return."
+  },
+  {
+    "id": "relation.rel10",
+    "requirement": "artifact_flow between c10 and c11: Carry searched atomic arrangements to the same evaluation intake.; no implied return."
+  },
+  {
+    "id": "relation.rel11",
+    "requirement": "artifact_flow between c11 and c12: Evaluate a candidate atomic arrangement and retain its computed energy.; no implied return."
+  },
+  {
+    "id": "relation.rel12",
+    "requirement": "measurement between c12 and c14: Compare the computed structure-energy pair against relative stability.; no implied return."
+  },
+  {
+    "id": "relation.rel13",
+    "requirement": "artifact_flow between c14 and c18: Release computationally stable structures as candidates for experiments.; no implied return."
+  },
+  {
+    "id": "relation.rel14",
+    "requirement": "constraint between c13 and c14: The competing-phase reference constrains the stability decision.; no implied return."
+  },
+  {
+    "id": "relation.rel15",
+    "requirement": "artifact_flow between c12 and c15: Retain the evaluated structure and energy as a computed record.; no implied return."
+  },
+  {
+    "id": "relation.rel16",
+    "requirement": "artifact_flow between c15 and c16: Supply computed evidence to later structural training.; no implied return."
+  },
+  {
+    "id": "relation.rel17",
+    "requirement": "artifact_flow between c15 and c17: Supply computed evidence to later compositional training.; no implied return."
+  },
+  {
+    "id": "relation.rel18",
+    "requirement": "conditioning between c1 and c16: The known structure-energy data provide the initial structural training reference.; no implied return."
+  },
+  {
+    "id": "relation.rel19",
+    "requirement": "feedback between c16 and c4: Return the updated structural predictor to structural screening.; return A structural predictor updated from evaluated structure-energy records."
+  },
+  {
+    "id": "relation.rel20",
+    "requirement": "feedback between c17 and c8: Return the updated compositional predictor to composition screening.; return A composition predictor updated from evaluated composition-energy records."
+  },
+  {
+    "id": "geometry.separate-graph-semantics",
+    "requirement": "The structural graph contains spatial neighbour connections; the composition graph contains only element-type and proportion geometry. Never draw atomic positions before composition filtering and search."
+  },
+  {
+    "id": "geometry.open-energy-substages",
+    "requirement": "Show a visible structure-to-computed-energy transformation on the exposed evaluation surface and a separate comparison contact against the competing-phase reference. Neither surface is an enclosing box or an unexplained funnel."
+  },
+  {
+    "id": "geometry.bound-computed-evidence",
+    "requirement": "Preserve the structural key on every computed-energy pair. Distinct conduits attach the evaluated pair to the stability comparison and the computed-record receptacle."
+  },
+  {
+    "id": "geometry.separate-learning-returns",
+    "requirement": "The lower computed-record receptacle branches to distinct structural and compositional training tracks; their returns visibly attach to their respective predictors."
+  },
+  {
+    "id": "geometry.candidate-boundary",
+    "requirement": "The candidate outlet ends within the computational illustration. There is no laboratory, fabricated object or implied synthesis-success path."
+  },
+  {
+    "id": "geometry.blank-material-surfaces",
+    "requirement": "Every lattice node, composition token, energy token and reference surface is smooth and blank. The lattice geometry explains bonds or categories; it is never writing or a copied source figure."
+  }
+]
+
+Observation format for five existing criteria: preserve the criterion IDs, requirements and response fields. These are observations of the saved canonical pixels, not new criteria.
+For each criterion listed below, its observation field must be a compact JSON STRING containing exactly {"value":...,"observation":"..."}. The inner observation is a specific visible-pixel description of at least 12 characters. Keep location, pass, offending_text and missing_labels in their existing fields. All other criteria retain their existing observation format.
+layout.occupancy: value is the actual observed useful-canvas percentage, as a number from 0 to 100. An honest visual estimate is allowed; never copy a requested target or substitute a midpoint. This criterion can PASS only for a value from 80 through 90.
+layout.regions: value is the actual count of major visual regions, as a nonnegative integer. This criterion can PASS only for a count from 3 through 5.
+quality.minimum_internal_substages_in_dominant_mechanism: value is the actual count of visible internal substages in the dominant mechanism, as a nonnegative integer. This criterion can PASS only for a count of at least 2.
+quality.minimum_secondary_relationships: value is the actual count of visible secondary relationships, as a nonnegative integer. This criterion can PASS only for a count of at least 2.
+basic.composition: value records whether the actual background is white or near-white, as true or false. This records the already specified background requirement. This criterion can PASS only when value is true and its other existing composition requirements pass.
+For any of these five values, report null and set that criterion pass=false if the value cannot be determined. Preserve an observed failing value with pass=false. A value in the permitted range does not override another failure of the same existing criterion. Do not invent a measurement, count, score, observation or PASS.
