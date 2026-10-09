@@ -163,7 +163,7 @@ export function writeExternalImageJob({job,historyRoot,outputRoot}){
   const editions=present?old.editions:[...old.editions,entry];
   editions.sort((a,b)=>a.edition_date.localeCompare(b.edition_date));
   if(new Set(editions.map(e=>e.edition_date)).size!==editions.length)fail('duplicate_index_date');
-  const index={schema_version:IMAGE_INDEX_SCHEMA,latest_eligible_date:editions.at(-1)?.edition_date||null,editions};
+  const index={schema_version:IMAGE_INDEX_SCHEMA,latest_eligible_date:editions.filter(entry=>entry.status==='PUBLISHED_PENDING').map(entry=>entry.edition_date).sort().at(-1)||null,editions};
   fs.writeFileSync(indexFile,json(index));
   return {index,entry};
 }
