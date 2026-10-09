@@ -1,0 +1,24 @@
+{
+  "schema_version": "daily-compiler-d1-observed-event-v1",
+  "event_sha256": "9c8ee608ac63ddcd69c2bfb896d72811ccc42e269d67991ec8b33d8396548f03",
+  "engine_sha": "8b59462d47974bab4c1dc0b3525499540a595bac",
+  "expected_head": "2f9b7bff5ccbbe0391798dc85d883138b89a5915",
+  "request_sha256": "8fcf6822346127a6d23de6aec9e8e7a6123228653ee0c7db87c95cb9bcf821aa",
+  "prior_state_sha256": "ef13107ed2281579c1259a32b7a08f26fabe1ecc990cd9280a184e77ab926eb0",
+  "prior_log_canonical_sha256": "4880380356d09cec9ffd1fc8a8dec66a6d429eb0046617835babe352d91f9aa3",
+  "event": {
+    "event_id": "crystal-stability-active-learning-a01-readback-transport-blocked",
+    "type": "INFRASTRUCTURE_BLOCKED",
+    "story_id": "crystal-stability-active-learning",
+    "context_id": "ctx-8374b103bb8547cc6b958ade78b6cbe1aa1d7a20d9ce0fad8b73e2ec7b3fc069",
+    "invocation_id": "ctx-bffa496910c5fe79db8fac2922020e4aae7a8e1f10856b3caf781b621d4c8292",
+    "observed_at": "2026-10-09T00:44:24.426Z",
+    "data": {
+      "reason": "EXACT_PROMPT_TRANSPORT_MISMATCH_AFTER_NATIVE_INVOCATION remains blocking. Independent immutable raw-GitHub binary readback at commit 834d5ec82c2a102e16e2715f415a208c606fcd58 matched 1669854 bytes, sha256 884d0d9ac67b88905ea9e14b15aa1c1adf55ccdbc2301a45e6843ee963326c26, git blob 3aa95c5b8a5c7805820434447b7fd530a97a6476 and PNG 1731x909. The connector binary content reader returned zero content and caused its publication receipt error, but the committed bytes are exact. Accepted lock remains false; preserve the same context and attempt lineage.",
+      "external_outcome": "NOT_INVOKED"
+    }
+  },
+  "raw_identity": null,
+  "canonical_identity": null,
+  "generation_authorized": false
+}
