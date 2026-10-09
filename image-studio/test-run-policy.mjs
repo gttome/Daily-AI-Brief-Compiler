@@ -8,6 +8,7 @@ import {initialD1ProofState} from './proof-state.mjs';
 import {inspectD1RuntimeRecords} from './runtime-records.mjs';
 import {validateCanonicalPng} from './png-integrity.mjs';
 import {pngDimensions} from '../work-porter/integrity.mjs';
+import {D1_CONTINUOUS_QUALITY_MODE} from './independent-recovery.mjs';
 
 const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
 export const IMAGE_TEST_ENVIRONMENTS=freeze(JSON.parse(fs.readFileSync(new URL('../contracts/image-test-environments.json',import.meta.url),'utf8')));
@@ -88,7 +89,7 @@ export function preparePreproductionImageRun(input){
   const draft=structuredClone(input.request);draft.execution_id=metadata.run_id;draft.request_id=metadata.run_id;
   const request=sealD1Specifications(draft,sourceEvidence),admission=assertD1Specifications(request,sourceEvidence);
   need(same(request.stories,input.request.stories),'preproduction_specifications_changed');
-  const manifest={schema_version:'daily-compiler-image-preproduction-run-v1',...metadata,case_count:6,request_sha256:canonicalSha(request),source_evidence_sha256:canonicalSha(sourceEvidence),template_request_sha256:canonicalSha(input.request),template_source_evidence_sha256:canonicalSha(input.sourceEvidence),production_eligible:false,qualification_eligible:true};
+  const manifest={schema_version:'daily-compiler-image-preproduction-run-v1',...metadata,qualification_mode:D1_CONTINUOUS_QUALITY_MODE,case_count:6,request_sha256:canonicalSha(request),source_evidence_sha256:canonicalSha(sourceEvidence),template_request_sha256:canonicalSha(input.request),template_source_evidence_sha256:canonicalSha(input.sourceEvidence),production_eligible:false,qualification_eligible:true};
   const mapping={schema_version:'daily-compiler-d1-proof-ingest-mapping-v2',repository:'gttome/Daily-AI-Brief-Compiler',branch:'qualification/preproduction-'+metadata.run_id,execution_id:metadata.run_id,edition_date:request.edition_date,items:request.stories.map((story,index)=>{const filename=String(index+1).padStart(2,'0')+'-'+story.story_id+'.png';return {story_id:story.story_id,filename,target_path:metadata.namespace+'/images/'+filename};})};
   return {manifest,request,sourceEvidence,admission,mapping,registry:register(input.registry,manifest),budget:imageRunBudget('preproduction'),generation_authorized:false,publication_required:true};
 }
@@ -96,7 +97,7 @@ export function preparePreproductionImageRun(input){
 export function initializePreproductionRuntime({prepared,requestCommit,observedAt,existingState,existingAttemptLog}){
   need(existingState===null&&existingAttemptLog===null,'runtime_already_exists_resume_instead');
   const {manifest,request,sourceEvidence,mapping}=prepared;
-  need(manifest?.schema_version==='daily-compiler-image-preproduction-run-v1'&&manifest.environment==='preproduction'&&manifest.production_eligible===false&&manifest.qualification_eligible===true&&manifest.namespace===namespace('preproduction',manifest.run_id)&&manifest.policy_sha256===IMAGE_TEST_ENVIRONMENTS_SHA256,'preproduction_manifest');
+  need((manifest?.qualification_mode===undefined||manifest.qualification_mode===D1_CONTINUOUS_QUALITY_MODE)&&manifest?.schema_version==='daily-compiler-image-preproduction-run-v1'&&manifest.environment==='preproduction'&&manifest.production_eligible===false&&manifest.qualification_eligible===true&&manifest.namespace===namespace('preproduction',manifest.run_id)&&manifest.policy_sha256===IMAGE_TEST_ENVIRONMENTS_SHA256,'preproduction_manifest');
   need(hex(requestCommit,40)&&instant(observedAt)&&Date.parse(observedAt)>=Date.parse(manifest.created_at),'immutable_request_commit_time');
   need(manifest.request_sha256===canonicalSha(request)&&manifest.source_evidence_sha256===canonicalSha(sourceEvidence)&&request.execution_id===manifest.run_id&&mapping.execution_id===manifest.run_id,'preproduction_request_binding');
   need(mapping.repository==='gttome/Daily-AI-Brief-Compiler'&&mapping.branch==='qualification/preproduction-'+manifest.run_id&&mapping.items?.length===6&&mapping.items.every((item,index)=>item.story_id===request.stories[index].story_id&&item.target_path===manifest.namespace+'/images/'+String(index+1).padStart(2,'0')+'-'+item.story_id+'.png'),'preproduction_target_binding');
@@ -110,7 +111,7 @@ export function initializePreproductionRuntime({prepared,requestCommit,observedA
 export function resumePreproductionImageRun({operation,prepared,state,attemptLog,expectedStateSha256,expectedLogSha256}){
   need(operation==='RESUME_EXISTING_RUN','explicit_resume_required');
   const {manifest,request,sourceEvidence}=prepared;
-  need(manifest?.environment==='preproduction'&&state.proof_id===manifest.run_id&&state.request_path===manifest.namespace+'/request.json'&&manifest.request_sha256===canonicalSha(request)&&manifest.source_evidence_sha256===canonicalSha(sourceEvidence),'preproduction_resume_binding');
+  need((manifest?.qualification_mode===undefined||manifest.qualification_mode===D1_CONTINUOUS_QUALITY_MODE)&&manifest?.environment==='preproduction'&&state.proof_id===manifest.run_id&&state.request_path===manifest.namespace+'/request.json'&&manifest.request_sha256===canonicalSha(request)&&manifest.source_evidence_sha256===canonicalSha(sourceEvidence),'preproduction_resume_binding');
   const inspection=inspectD1RuntimeRecords({state,attemptLog,request,sourceEvidence,expectedStateSha256,expectedLogSha256});
   return {state:structuredClone(state),attemptLog:structuredClone(attemptLog),inspection,budget:imageRunBudget('preproduction'),generation_authorized:false};
 }
