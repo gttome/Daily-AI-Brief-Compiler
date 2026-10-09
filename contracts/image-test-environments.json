@@ -1,0 +1,35 @@
+{
+  "schema_version": "daily-compiler-image-test-environments-v1",
+  "default_environment": "production",
+  "production": {
+    "cases_per_run": 6,
+    "maximum_attempts_per_case": 4,
+    "maximum_native_generations_per_run": 24,
+    "existing_execution_resumes_without_reset": true
+  },
+  "preproduction": {
+    "cases_per_run": 6,
+    "maximum_attempts_per_case": 4,
+    "maximum_native_generations_per_run": 24,
+    "fresh_allowance_on_explicit_new_run": true,
+    "same_cases_may_be_tested_in_later_runs": true,
+    "existing_execution_resumes_without_reset": true,
+    "previous_evidence_preserved": true
+  },
+  "development": {
+    "maximum_cases_per_run": null,
+    "maximum_attempts_per_case": null,
+    "maximum_native_generations_per_run": null,
+    "null_means": "NO_APPLICATION_QUOTA",
+    "existing_execution_resumes_without_reset": true,
+    "accepted_locks_preserved": true,
+    "production_eligible": false,
+    "qualification_eligible": false
+  },
+  "new_run_operation": "START_NEW_TEST_RUN",
+  "resume_operation": "RESUME_EXISTING_RUN",
+  "new_run_requires_unused_identity_and_namespace": true,
+  "automatic_reset_on_failure_or_resume": false,
+  "creates_image_executor_or_scheduler": false,
+  "changes_quality_requirements": false
+}
