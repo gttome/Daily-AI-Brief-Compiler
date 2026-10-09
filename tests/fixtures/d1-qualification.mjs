@@ -4,6 +4,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {deflateSync} from 'node:zlib';
+import {makeD1RecipeFixture,syntheticRecipeReview,syntheticResponse} from './d1-recipe-v2.mjs';
+import {validateRecipeStory,compileRecipeProjections,projectRecipeVisualReview} from '../../image-studio/specification-projection.mjs';
+import {projectRecipeQualityProfile} from '../../image-studio/recipe-quality-observations.mjs';
 import {makeD1SpecificationsFixture} from './d1-specifications.mjs';
 import {canonicalSha} from '../../image-capsules/util.mjs';
 import {BASIC_GATES,BENCHMARK_DIMENSIONS} from '../../image-capsules/review-contract.mjs';
@@ -23,15 +26,15 @@ function png(index){
   if(!pngs.has(index)){const header=Buffer.alloc(13);header.writeUInt32BE(1200);header.writeUInt32BE(630,4);header[8]=8;header[9]=2;const rows=Buffer.alloc((1200*3+1)*630,index+235);for(let y=0;y<630;y++)rows[y*(1200*3+1)]=0;pngs.set(index,Buffer.concat([Buffer.from('89504e470d0a1a0a','hex'),chunk('IHDR',header),chunk('IDAT',deflateSync(rows)),chunk('IEND',Buffer.alloc(0))]));}return pngs.get(index);
 }
 
-export function makeD1QualificationFixture({root=fs.mkdtempSync(path.join(os.tmpdir(),'TEST_ONLY-d1-qualification-'))}={}){
+export function makeD1QualificationFixture({recipeV2=false,root=fs.mkdtempSync(path.join(os.tmpdir(),'TEST_ONLY-d1-qualification-'))}={}){
   // A fresh-process activation check imports this copied, current implementation.
-  const code=['image-studio/activation.mjs','image-studio/activation-apply.mjs','image-studio/proof-evidence.mjs','image-studio/proof-state.mjs','image-studio/spec-admission.mjs','image-studio/acceptance.mjs','image-capsules/util.mjs','image-capsules/state.mjs','image-capsules/set-plan.mjs','image-capsules/set-review.mjs','image-capsules/review-contract.mjs','work-porter/integrity.mjs','operations/image-lane-handoff.mjs','scripts/build-d1-cloud-proof.mjs','contracts/d1-image-contract.json','contracts/d1-image-admission-contract.json'];
+  const code=['contracts/d1-canonical-reviews.schema.json','tests/fixtures/d1-recipe-v2.mjs','tests/fixtures/d1-specifications.mjs','image-studio/specification-projection.mjs','image-studio/recipe-quality-observations.mjs','contracts/d1-image-recipe-profile-v2.json','contracts/d1-cloud-proof-execution.schema.json','image-studio/activation.mjs','image-studio/activation-apply.mjs','image-studio/proof-evidence.mjs','image-studio/proof-state.mjs','image-studio/spec-admission.mjs','image-studio/acceptance.mjs','image-capsules/util.mjs','image-capsules/state.mjs','image-capsules/set-plan.mjs','image-capsules/set-review.mjs','image-capsules/review-contract.mjs','work-porter/integrity.mjs','operations/image-lane-handoff.mjs','scripts/build-d1-cloud-proof.mjs','contracts/d1-image-contract.json','contracts/d1-image-admission-contract.json'];
   for(const p of code){const dest=path.join(root,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(new URL(p,sourceRoot),dest);}
   // Synthetic activation tests always start unactivated, even after the source
   // checkout is activated. Preserve every non-activation contract requirement.
   const qualityContract={...JSON.parse(fs.readFileSync(path.join(root,'contracts/d1-image-contract.json'),'utf8')),activation_status:'proof_required',activation_receipt_path:null,activation_receipt_sha256:null};
   write(root,'contracts/d1-image-contract.json',qualityContract);
-  const supplied=makeD1SpecificationsFixture(),sourceEvidence=supplied.sourceEvidence;
+  const supplied=recipeV2?makeD1RecipeFixture():makeD1SpecificationsFixture(),sourceEvidence=supplied.sourceEvidence;
   supplied.request.execution_id='TEST_ONLY-d1-qualification';sourceEvidence.execution_id=supplied.request.execution_id;
   const request=sealD1Specifications(supplied.request,sourceEvidence);
   const proofId=request.execution_id,dir='TEST_ONLY/qualification',commit='c'.repeat(40),requestCommit='b'.repeat(40),when='2026-10-08T02:00:00Z';
@@ -46,6 +49,17 @@ export function makeD1QualificationFixture({root=fs.mkdtempSync(path.join(os.tmp
   const gate=()=>({verdict:'PASS',observation:'TEST_ONLY synthetic observation; no actual pixel review.'});
   const reviewImages=request.stories.map((story,i)=>({schema_version:'daily-compiler-image-review-v3',story_id:story.story_id,attempt:1,final_path:handoff.items[i].target_path,final_sha256:images[i].sha256,final_git_blob_sha:porter.images[i].git_blob_sha,packet_sha256:story.specification_sha256,prompt_sha256:runtime.sessions[i].prompt_sha256,reviewed_at:stamp(i,2),reviewer_identity:images[i].chat_session_id,basic_gates:Object.fromEntries(BASIC_GATES.map(key=>[key,gate()])),visible_text:{result:'PASS',required_labels:images[i].visible_text_allowlist,observed_required_labels:images[i].visible_text_allowlist,missing_labels:[],extra_visible_text:[]},meaningful_components:Array.from({length:12},(_,n)=>'TEST_ONLY component '+n),benchmark_dimensions:Object.fromEntries(BENCHMARK_DIMENSIONS.map(key=>[key,gate()])),generic_or_sparse:false,decorative_only:false,result:'PASS'}));
   const canonicalReviews={proof_id:proofId,images:reviewImages,observations:request.stories.map((story,i)=>({story_id:story.story_id,canonical_sha256:images[i].sha256,review_sha256:canonicalSha(reviewImages[i]),context_id:images[i].chat_session_id,internal_substages:2,secondary_relationships:2,major_visual_regions:4,canvas_utilization_percent:85,dimensional_mechanism_plate:true,white_or_near_white_background:true,no_generic_forms:true,no_decorative_geometry:true,no_pseudotext:true,story_specific_mechanism_clear:true,premium_production_grade_textbook_editorial_finish:true,...Object.fromEntries(['palette_family','mechanism_metaphor','evidence_representation','feedback_pattern'].map(key=>[key,story.generation.composition_assignment[key]]))}))};
+  if(recipeV2) canonicalReviews.recipe_reviews=request.stories.map((story,i)=>{
+    const p=compileRecipeProjections(story),binding=validateRecipeStory(story,sourceEvidence.stories[i]);
+    return {...binding,specification_sha256:story.specification_sha256,attempts:[{attempt:1,raw_sha256:images[i].sha256,generation_text:p.prompt,generation_text_sha256:p.prompt_sha256,review_request_text:p.review_prompt,review_request_sha256:p.review_prompt_sha256,review:syntheticRecipeReview(story,{sha:images[i].sha256,context:images[i].chat_session_id,at:stamp(i,2)}),correction:null}]};
+  });
+  if(recipeV2)for(const row of canonicalReviews.recipe_reviews)for(const attempt of row.attempts){attempt.review_response_text=syntheticResponse(attempt.review);attempt.review_response_sha256=sha256(attempt.review_response_text);}
+  if(recipeV2)for(const [i,story] of request.stories.entries()){
+    const recipe=canonicalReviews.recipe_reviews[i].attempts[0].review,prior=canonicalReviews.images[i];
+    const review=projectRecipeVisualReview(story,recipe,{attempt:prior.attempt,canonicalIdentity:{path:prior.final_path,sha256:prior.final_sha256,git_blob_sha:prior.final_git_blob_sha}});
+    canonicalReviews.images[i]=review;canonicalReviews.observations[i]=projectRecipeQualityProfile(story,recipe,review);
+  }
+  if(recipeV2)for(const row of canonicalReviews.recipe_reviews)for(const [i,attempt] of row.attempts.entries())Object.assign(runtime.sessions.find(s=>s.story_id===row.story_id).attempts[i],{generation_prompt_sha256:attempt.generation_text_sha256,review_request_sha256:attempt.review_request_sha256,review_response_sha256:attempt.review_response_sha256});
   const readback={proof_id:proofId,result:'PASS',verified_at:when,method:'exact_commit_raw_github_download',commit,git_readback:{exact_commit_binary_download:true,all_sha256_match:true,all_git_blob_match:true,all_byte_counts_match:true},images:images.map((image,i)=>{const identity={sha256:image.sha256,git_blob_sha:porter.images[i].git_blob_sha,bytes:image.bytes,width:1200,height:630,format:'png'};return {story_id:image.story_id,raw:identity,canonical:{...identity,path:handoff.items[i].target_path},normalization:{method:'none',semantic_editing:false},url:`https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/${commit}/${handoff.items[i].target_path}`,readback_sha256:image.sha256,readback_git_blob_sha:identity.git_blob_sha,readback_bytes:image.bytes};})};
   const candidates=request.stories.map((story,i)=>({story_id:story.story_id,final_sha256:images[i].sha256,...Object.fromEntries(['composition_signature','layout_signature','diagram_grammar','hierarchy_signature','annotation_pattern_signature'].map(key=>[key,story.generation.composition_assignment[key]]))}));
   const set={schema_version:'daily-compiler-image-set-review-v3',edition_date:request.edition_date,candidates,observed_gate:observedSetGate(candidates),no_labels_swapped_template:true,no_repeated_dominant_template:true,intentionally_curated:true,all_individually_benchmark_grade:true,result:'PASS',reviewed_at:when};
