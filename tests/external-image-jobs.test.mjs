@@ -79,3 +79,44 @@ test('immutable edition packet and index are idempotent; changed source cannot o
   assert.deepEqual(again.entry,first.entry);
   assert.throws(()=>writeExternalImageJob({job:{...job,execution_id:'mutated'},historyRoot:hist,outputRoot:out}),/immutable_job/);
 });
+
+
+test('postdeploy index inherits immutable older jobs and newest eligible ignores later released jobs',t=>{
+  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'external-job-history-'));
+  t.after(()=>fs.rmSync(tmp,{recursive:true,force:true}));
+  const hist=path.join(tmp,'history'),histIndex=path.join(hist,'image-jobs','index.json');
+  const out=path.join(tmp,'new','image-jobs');
+  fs.mkdirSync(path.dirname(histIndex),{recursive:true});
+  const records=[
+    {edition_date:'2026-10-10',status:'PUBLISHED_PENDING',job_url:'historical-job-1'},
+    {edition_date:'2026-10-12',status:'RELEASED_VERIFIED',job_url:'historical-job-2'}
+  ];
+  const original={schema_version:'external-compiler-image-index-v1',latest_eligible_date:'2026-10-10',editions:records};
+  const originalText=JSON.stringify(original,null,2)+'\n';
+  fs.writeFileSync(histIndex,originalText);
+  fs.mkdirSync(path.join(hist,'image-jobs','2026-10-10'),{recursive:true});
+  fs.writeFileSync(path.join(hist,'image-jobs','2026-10-10','job.json'),'{"immutable":"older"}\n');
+  const job=buildExternalImageJob(fixture());
+  const {index}=writeExternalImageJob({job,historyRoot:hist,outputRoot:out});
+  assert.equal(index.editions.length,3);
+  assert.equal(index.latest_eligible_date,DATE);
+  assert.deepEqual(index.editions.map(x=>x.edition_date),['2026-10-10','2026-10-11','2026-10-12']);
+  assert.equal(fs.readFileSync(histIndex,'utf8'),originalText);
+  assert.equal(fs.readFileSync(path.join(out,'2026-10-10','job.json'),'utf8'),'{"immutable":"older"}\n');
+  const latest=JSON.parse(fs.readFileSync(path.join(out,'index.json'),'utf8'));
+  assert.equal(latest.latest_eligible_date,DATE);
+});
+test('publication workflow generates optional index only AFTER live proof and verified state persistence',()=>{
+  const yml=fs.readFileSync('.github/workflows/shadow-compile.yml','utf8');
+  const live=yml.indexOf('Independently verify every new public page plus all 17 preserved October 8 objects');
+  const state=yml.indexOf('Persist parity receipts on the same semantic execution');
+  const job=yml.indexOf('Nonblocking post-verification external image-job discovery');
+  const history=yml.indexOf('Persist cumulative verified reader history');
+  assert.ok(live>=0&&state>live&&job>state&&history>job);
+  const scope=yml.slice(job,history);
+  assert.match(scope,/continue-on-error: true/);
+  assert.match(scope,/scripts\/external-image-jobs\.mjs/);
+  assert.match(scope,/build\/postpublish-integrity\.json/);
+  assert.match(scope,/git -C run rev-parse HEAD/);
+  assert.doesNotMatch(scope,/image_gen|render-shadow-images|workflow_dispatch|create_task|schedule:/);
+});
