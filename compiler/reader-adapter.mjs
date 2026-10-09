@@ -1,4 +1,7 @@
 import path from 'node:path';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {PENDING_PLACEHOLDER_ID} from './pending-images.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 
 const FOCUS=Object.freeze({
@@ -45,6 +48,12 @@ const freshness=(edition,published)=>{
 };
 const durationSeconds=minutes=>Math.max(1,Math.round(Number(minutes)*60));
 const imageName=(date,slot)=>`dab-edition-${date}-${slot}.png`;
+const PLACEHOLDER_FILENAME='illustration-pending.svg';
+const PLACEHOLDER_SOURCE='compiler/assets/illustration-pending.svg';
+const PLACEHOLDER_BYTES=fs.readFileSync(new URL('./assets/illustration-pending.svg',import.meta.url));
+const PLACEHOLDER_SHA=crypto.createHash('sha256').update(PLACEHOLDER_BYTES).digest('hex');
+const PLACEHOLDER_BLOB=crypto.createHash('sha1').update(Buffer.concat([Buffer.from('blob '+PLACEHOLDER_BYTES.length+'\0'),PLACEHOLDER_BYTES])).digest('hex');
+const isPending=bundle=>bundle.image_representation?.status==='images_pending';
 function storySlot(bundle,story){
   const mapped=focus(story.focus);
   const peers=bundle.stories.filter(candidate=>focus(candidate.focus)===mapped);
@@ -60,9 +69,11 @@ export const canonicalWatchTopicId=item=>{
 
 function adaptStory(bundle,story,environment){
   const image=bundle.images.find(x=>x.story_id===story.id);
-  if(!image)throw new Error('accepted image missing for '+story.id);
+  if(!image)throw new Error('reader figure binding missing for '+story.id);
   const slot=storySlot(bundle,story);
-  const filename=imageName(bundle.edition_date,slot);
+  const pending=isPending(bundle);
+  const filename=pending?PLACEHOLDER_FILENAME:imageName(bundle.edition_date,slot);
+  const imageHash=pending?PLACEHOLDER_SHA:image.sha256;
   return {
     story_id:`dab-story-${bundle.edition_date}-${slot}`,
     compiler_story_id:story.id,
@@ -74,12 +85,13 @@ function adaptStory(bundle,story,environment){
     event_date:story.source.published_at,
     image:{
       path:`briefs/images/${bundle.edition_date}/${filename}`,
-      public_url:`${environment.publicBase}/briefs/images/${bundle.edition_date}/${filename}?v=${image.sha256.slice(0,12)}`,
-      alt:story.image_alt_intent,
+      public_url:`${environment.publicBase}/briefs/images/${bundle.edition_date}/${filename}?v=${imageHash.slice(0,12)}`,
+      alt:pending?'Illustration pending for '+story.headline+'. Planned illustration: '+story.image_alt_intent:story.image_alt_intent,
       width:1200,
       height:630,
-      kind:'editorial_explainer',
-      cache_key:`compiler-${bundle.edition_date}-${image.sha256.slice(0,12)}`
+      kind:pending?'editorial_placeholder':'editorial_explainer',
+      status:pending?'pending':'accepted',
+      cache_key:`compiler-${bundle.edition_date}-${imageHash.slice(0,12)}`
     },
     summary:story.summary,
     why_it_matters:story.why_it_matters,
@@ -293,10 +305,13 @@ export function adaptCompilerBundle(bundle,{environment=readerEnvironment,priorW
       if(!story)throw new Error('image binding story missing: '+image.story_id);
       return {
         story_id:image.story_id,
-        source_path:image.path,
-        reader_filename:imageName(bundle.edition_date,storySlot(bundle,story)),
-        sha256:image.sha256,
-        git_blob_sha:image.git_blob_sha
+        source_path:isPending(bundle)?PLACEHOLDER_SOURCE:image.path,
+        reader_filename:isPending(bundle)?PLACEHOLDER_FILENAME:imageName(bundle.edition_date,storySlot(bundle,story)),
+        sha256:isPending(bundle)?PLACEHOLDER_SHA:image.sha256,
+        git_blob_sha:isPending(bundle)?PLACEHOLDER_BLOB:image.git_blob_sha,
+        status:isPending(bundle)?'pending':'accepted',
+        accepted:!isPending(bundle),
+        placeholder_id:isPending(bundle)?PENDING_PLACEHOLDER_ID:null
       };
     })
   };

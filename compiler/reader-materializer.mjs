@@ -182,7 +182,7 @@ function copyCurrentImages(root,repoRoot,bindings,date){
   fs.mkdirSync(dir,{recursive:true});
   for(const binding of bindings){
     const source=path.resolve(repoRoot,binding.source_path);
-    if(!fs.existsSync(source))throw new Error('accepted image source missing: '+binding.source_path);
+    if(!fs.existsSync(source))throw new Error('reader figure source missing: '+binding.source_path);
     fs.copyFileSync(source,path.join(dir,binding.reader_filename));
   }
 }
@@ -258,8 +258,12 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
       story_id:x.story_id,
       route:'briefs/images/'+bundle.edition_date+'/'+x.reader_filename,
       sha256:x.sha256,
-      git_blob_sha:x.git_blob_sha
+      git_blob_sha:x.git_blob_sha,
+      status:x.status||'accepted',
+      accepted:x.accepted!==false,
+      placeholder_id:x.placeholder_id||null
     })),
+    image_representation:bundle.image_representation?.status||'accepted',
     semantic_rework:0,
     accepted_image_regenerations:bundle.producer_receipt?.accepted_image_regenerations ?? 0,
     production_runtime_dependency:false,

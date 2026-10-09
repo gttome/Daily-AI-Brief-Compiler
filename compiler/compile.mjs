@@ -171,8 +171,8 @@ export async function buildSite({validation, outDir, repoRoot='.'}) {
   return materializeReaderSource({bundle:validation.bundle,outDir,repoRoot});
 }
 
-export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) {
-  const validation=validateEdition({statePath,bundlePath,repoRoot});
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',allowPendingImages=false}) {
+  const validation=validateEdition({statePath,bundlePath,repoRoot,allowPendingImages});
   const parity=await checkGoldenReaderParity();
   const built=await buildSite({validation,outDir,repoRoot});
   const verification={
@@ -196,7 +196,8 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
     },
     reader_parity_gate:parity.result,
     semantic_rework:0,
-    accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0
+    accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,
+    image_representation:validation.imagesPending?'images_pending':'accepted'
   };
   const receipt={
     schema_version:'daily-compiler-compile-receipt-v2',
@@ -211,6 +212,7 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
     reader_parity_gate:parity,
     accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,
     source_manifest:built.manifest,
+    image_representation:validation.imagesPending?'images_pending':'accepted',
     verification
   };
   fs.writeFileSync(path.join(outDir,'compile-receipt.json'),JSON.stringify(receipt,null,2)+'\n');
@@ -221,6 +223,6 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.'}) 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
   if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>]');
-  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.'});
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',allowPendingImages:args['allow-pending-images']==='true'});
   console.log(JSON.stringify(receipt,null,2));
 }
