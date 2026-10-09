@@ -1,0 +1,114 @@
+name: owner-approved-oct9-placeholder-recovery
+# One named, source-controlled, event-only recovery; NEVER a recurring publisher.
+# No schedule, Work, D0/D1 activation or image generation. Original failure immutable.
+on:
+  push:
+    branches:
+      - shadow/2026-10-09-owner-placeholder-20261009
+    paths:
+      - recovery-input/2026-10-09/authorization-and-evidence.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: owner-oct9-separate-placeholder-recovery
+  cancel-in-progress: false
+
+jobs:
+  build-and-signal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Assert unique authorized source branch, stable protected implementation and no existing recovery execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'shadow/2026-10-09-owner-placeholder-20261009'
+          test -s recovery-input/2026-10-09/authorization-and-evidence.json
+          test ! -e shadow-runs/2026-10-09/compiler-state.json
+          test ! -e shadow-runs/2026-10-09/edition-bundle.json
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = \
+               "$(git rev-parse HEAD^)"
+          test "$(git ls-remote origin refs/heads/shadow/2026-10-09 | awk '{print $1}')" = \
+               '246c04d1c9761c4bb9164ce34b63833fa277dc49'
+      - name: Read exact immutable October 9 historical semantic, editorial and media files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow/2026-10-09:refs/remotes/origin/shadow/2026-10-09'
+          test "$(git rev-parse refs/remotes/origin/shadow/2026-10-09)" = \
+               '246c04d1c9761c4bb9164ce34b63833fa277dc49'
+          mkdir -p build/original
+          BEFORE='246c04d1c9761c4bb9164ce34b63833fa277dc49'
+          git show "$BEFORE:shadow-runs/2026-10-09/editorial/locked-selection.json" > build/original/locked-selection.json
+          git show "$BEFORE:shadow-runs/2026-10-09/content/semantic-content.json" > build/original/semantic-content.json
+          git show "$BEFORE:shadow-runs/2026-10-09/content/media-evidence.json" > build/original/media-evidence.json
+          git show "$BEFORE:shadow-runs/2026-10-09/compiler-state.json" > build/original/original-failure.json
+          test "$(git hash-object build/original/locked-selection.json)" = \
+               '39489270a150dde168f43348ebce99d8a535e61f'
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const s=JSON.parse(fs.readFileSync('build/original/original-failure.json','utf8'));
+          if(s.state!=='SHADOW_FAILED'||s.stage!=='IMAGES'||s.retryable!==false||
+             s.execution_id!=='daily-compiler-shadow-2026-10-09-validation-r1'||
+             s.images?.accepted?.length!==0)throw Error('historical failure not preserved exactly');
+          NODE
+      - name: Construct sealed six-story placeholder bundle from original editorial/evidence (no image generator)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/one-time
+          node scripts/prepare-oct9-owner-recovery.mjs \
+            build/original/locked-selection.json \
+            build/original/semantic-content.json \
+            build/original/media-evidence.json \
+            recovery-input/2026-10-09/authorization-and-evidence.json \
+            build/one-time
+      - name: Run actual strict Release 1 editorial/pending-figure and canonical reader validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save sharp@0.34.4
+          node compiler/compile.mjs \
+            --state build/one-time/compiler-state.json \
+            --bundle build/one-time/edition-bundle.json \
+            --out build/preflight-reader \
+            --repo-root . --allow-pending-images true \
+            --release1-production true > build/preflight-compile-receipt.json
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const b=JSON.parse(fs.readFileSync('build/one-time/edition-bundle.json','utf8'));
+          const r=JSON.parse(fs.readFileSync('build/preflight-compile-receipt.json','utf8'));
+          if(r.result!=='PASS'||r.image_representation!=='images_pending'||
+             r.owner_intervention!==true||r.unattended_release_one_proven!==false||
+             b.stories.length!==6||b.images.length!==6||b.images.some(x=>x.accepted!==false)||
+             b.producer_receipt.scheduled_execution!==false)
+             throw Error('one-time publication code did not prove full strict preflight');
+          NODE
+      - name: Persist separately authorized execution and dispatch existing protected Publisher exactly once
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test ! -d shadow-runs/2026-10-09
+          mkdir -p shadow-runs/2026-10-09
+          cp build/one-time/edition-bundle.json shadow-runs/2026-10-09/edition-bundle.json
+          cp build/one-time/compiler-state.json shadow-runs/2026-10-09/compiler-state.json
+          cp build/one-time/owner-recovery-provenance.json shadow-runs/2026-10-09/owner-recovery-provenance.json
+          git config user.name 'Daily Compiler one-time verified recovery'
+          git config user.email 'actions@users.noreply.github.com'
+          git add shadow-runs/2026-10-09
+          git commit -m 'Seal owner-authorized Oct9 placeholders without rewriting failed validation'
+          git push origin "HEAD:$GITHUB_REF_NAME"
+          EXPECTED_DIGEST="$(node -p "require('./shadow-runs/2026-10-09/compiler-state.json').bundle.digest")"
+          printf '{"event_type":"daily-compiler-bundle-ready","client_payload":{"branch":"shadow/2026-10-09-owner-placeholder-20261009","date":"2026-10-09","bundle_digest":"%s"}}' "$EXPECTED_DIGEST" |
+            gh api --method POST "repos/$GITHUB_REPOSITORY/dispatches" --input -
+          echo 'DISPATCHED_EXISTING_PROTECTED_READER_PUBLISHER; OCT9_HISTORY_IMMUTABLE'
