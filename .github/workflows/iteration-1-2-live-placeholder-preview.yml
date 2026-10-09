@@ -1,0 +1,205 @@
+name: Iteration 1.2 isolated production-reader preview
+
+on:
+  push:
+    branches:
+      - 'proof/iteration-1-2-live-placeholder-preview-20261009'
+    paths:
+      - '.github/workflows/iteration-1-2-live-placeholder-preview.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  verify-preview-and-preserve-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check exact source and preserve all verified history
+        run: |
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = 'cdaf7939888c02f1876df1734d168af85f805dce'
+          test "$(git ls-remote origin refs/heads/implementation/iteration-1-2-canonical-placeholder-20261009 | awk '{print $1}')" = '8e787fadba849c4d3663937eece5ab517a2a5a94'
+          git fetch --no-tags origin shadow/2026-10-08 shadow-pages-history
+          test "$(git rev-parse FETCH_HEAD)" = '68f75996a8a5ad038303f5eadb21878b71e10fe1'
+          test "$(git rev-parse origin/shadow/2026-10-08)" = 'e636d34c1a1a7894a75d398a221fec46ab05ba6d'
+          git worktree add --detach history 68f75996a8a5ad038303f5eadb21878b71e10fe1
+          git worktree add --detach oct8 e636d34c1a1a7894a75d398a221fec46ab05ba6d
+          mkdir -p build/proof
+      - name: Pre-deployment independent 17-object and last-good homepage HTTP/SHA checks
+        run: |
+          python3 - <<'PY'
+          import concurrent.futures,hashlib,json,pathlib,urllib.request,sys
+          ROOT='https://gttome.github.io/Daily-AI-Brief-Compiler/'
+          story=['cisco-webex-agentic-collaboration','github-agent-scale-git-infrastructure','google-developer-knowledge-agent-skill','jump-trading-agentic-quant-research','realtor-realassist-agent-actions','windows-hybrid-intelligence-copilot']
+          media=['videos/2026-10-08/agent-skills/index.html','videos/2026-10-08/general/index.html','podcasts/2026-10-08/ai-at-work/index.html','podcasts/2026-10-08/the-new-new-kingmakers-agents-developers-and-the-future-of-software-with-stephen-o-grady/index.html']
+          pages=['briefs/2026-10-08/index.html']+['stories/2026-10-08/'+s+'/index.html' for s in story]+media
+          imgs=['briefs/images/2026-10-08/dab-edition-2026-10-08-'+p+'.png' for p in ('m01','m02','m10','m11','m12','m14')]
+          controls=['index.html','briefs-archive/index.html','watchlist/index.html','daily-feed.xml','feed.xml']
+          expected=pages+imgs+controls
+          def check(rel):
+            path=pathlib.Path('history/site')/rel
+            if not path.is_file():raise RuntimeError('pinned history missing '+rel)
+            baseline=path.read_bytes()
+            route=rel[:-10] if rel.endswith('index.html') else rel
+            req=urllib.request.Request(ROOT+route,headers={'Cache-Control':'no-cache','User-Agent':'CompilerReleaseOnePreviewPreservation'})
+            with urllib.request.urlopen(req,timeout=28) as f:
+              live=f.read(); status=f.status
+            row={'route':route,'status':status,'bytes':len(live),'sha256':hashlib.sha256(live).hexdigest(),'match':live==baseline}
+            if status!=200 or live!=baseline:raise RuntimeError('live preservation drift '+str(row))
+            return row
+          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:results=list(pool.map(check,expected))
+          assert len(results)==22
+          pathlib.Path('build/proof/preflight.json').write_text(json.dumps({'result':'PASS','history_ref':'68f75996a8a5ad038303f5eadb21878b71e10fe1','preserved_oct8_objects':17,'control_objects':5,'objects':results},indent=2)+'\n')
+          print('LIVE_PREFLIGHT_PASS',len(results),'HTTP200_AND_EXACT_BYTES')
+          PY
+      - name: Assemble isolated preview from original October 8 editorial content only
+        run: |
+          mkdir -p build/pending
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const b=JSON.parse(fs.readFileSync('oct8/shadow-runs/2026-10-08/edition-bundle.json'));
+          const s=JSON.parse(fs.readFileSync('oct8/shadow-runs/2026-10-08/compiler-state.json'));
+          if(b.edition_date!=='2026-10-08'||s.state!=='SHADOW_VERIFIED'||b.stories.length!==6)throw Error('not an immutable historical source');
+          if(b.images.some(x=>x.accepted!==true))throw Error('Oct8 original accepted evidence incomplete');
+          const id='illustration-pending-1200x630-v1';
+          b.image_representation={status:'images_pending',placeholder_id:id,width:1200,height:630};
+          b.images=b.stories.map(x=>({story_id:x.id,status:'pending',accepted:false,placeholder_id:id,alt:x.image_alt_intent}));
+          s.images={required:6,accepted:[],mode:'images_pending',placeholder_id:id};
+          s.state='BUNDLE_READY';s.stage='BUNDLE';
+          s.execution_id='proof-only-iteration-1-2-history-reader-preview';
+          s.last_error=null;s.retryable=false;
+          s.bundle.status='BUNDLE_READY';
+          fs.writeFileSync('build/pending/edition-bundle.json',JSON.stringify(b,null,2)+'\n');
+          s.bundle.digest=crypto.createHash('sha256').update(fs.readFileSync('build/pending/edition-bundle.json')).digest('hex');
+          fs.writeFileSync('build/pending/compiler-state.json',JSON.stringify(s,null,2)+'\n');
+          console.log('PREVIEW_ONLY__NOT_A_NEW_EDITION',b.edition_date,b.images.length,s.bundle.digest);
+          NODE
+          npm install --no-save sharp@0.34.4
+          node compiler/compile.mjs --state build/pending/compiler-state.json --bundle build/pending/edition-bundle.json --out build/preview-source --repo-root . --allow-pending-images true > build/proof/compiler-receipt.json
+          node -e "let v=require('./build/preview-source/build-manifest.json');if(v.image_representation!=='images_pending'||v.current_images.length!==6||new Set(v.current_images.map(x=>x.route)).size!==1||v.current_images.some(x=>x.accepted!==false))process.exit(1)"
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/preview-source
+          destination: ./build/preview-rendered
+      - name: Check actual canonical Jekyll pages and copy only into isolated preview namespace
+        run: |
+          node scripts/verify-built-reader.mjs build/preview-rendered build/preview-source build/proof/local-reader-verification.json
+          mkdir -p build/public/preview/iteration-1-2
+          cp -a history/site/. build/public/
+          cp -a build/preview-rendered/. build/public/preview/iteration-1-2/
+          python3 - <<'PY'
+          import pathlib,hashlib,json
+          original=pathlib.Path('history/site')
+          final=pathlib.Path('build/public')
+          n=0
+          for old in original.rglob('*'):
+            if old.is_file():
+              relative=old.relative_to(original)
+              if relative.parts[0]=='preview':raise RuntimeError('Unexpected preview in pinned history')
+              new=final/relative
+              if not new.is_file() or new.read_bytes()!=old.read_bytes():raise RuntimeError('Preserved history byte mutation '+str(relative))
+              n+=1
+          prefix=final/'preview/iteration-1-2'
+          oldpublic='https://gttome.github.io/Daily-AI-Brief-Compiler'
+          newpublic=oldpublic+'/preview/iteration-1-2'
+          oldbase='/Daily-AI-Brief-Compiler'
+          newbase=oldbase+'/preview/iteration-1-2'
+          for f in prefix.rglob('*'):
+            if f.is_file() and f.suffix in {'.html','.js','.css','.json','.xml','.md','.txt','.ics'}:
+              try: content=f.read_text('utf-8')
+              except UnicodeDecodeError:continue
+              content=content.replace(oldpublic,'__PREVIEW_PUBLIC_BASE__').replace(oldbase+'/',newbase+'/').replace('__PREVIEW_PUBLIC_BASE__',newpublic)
+              f.write_text(content,encoding='utf-8')
+          man=json.loads(pathlib.Path('build/preview-source/build-manifest.json').read_text())
+          rows=[]
+          for route in [*man['required_routes'],*(x['route'] for x in man['current_images'])]:
+            file=prefix/route
+            if not file.is_file():raise RuntimeError('Preview route not built '+route)
+            rows.append({'route':route,'sha256':hashlib.sha256(file.read_bytes()).hexdigest(),'bytes':file.stat().st_size})
+          if len(set(x['route'] for x in man['current_images']))!=1:raise RuntimeError('Figure identity not shared')
+          pathlib.Path('build/proof/preview-files.json').write_text(json.dumps({'result':'PASS','source':'pinned 2026-10-08 editorials only','release_accepted':False,'historical_files_preserved':n,'preview_routes':rows,'public_preview_url':newpublic+'/briefs/2026-10-08/'},indent=2)+'\n')
+          print('HISTORICAL_FILES_UNCHANGED',n,'ADDITIVE_PREVIEW_FILES',len(rows))
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/public
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Independently recheck live preview and all last-good public bytes
+        run: |
+          python3 - <<'PY'
+          import json,pathlib,hashlib,urllib.request,concurrent.futures,time
+          ROOT='https://gttome.github.io/Daily-AI-Brief-Compiler/'
+          previous=json.loads(pathlib.Path('build/proof/preflight.json').read_text())
+          built=json.loads(pathlib.Path('build/proof/preview-files.json').read_text())
+          urls=[(ROOT+x['route'],x['sha256']) for x in previous['objects']]
+          prefix='preview/iteration-1-2/'
+          urls += [(ROOT+prefix+x['route'],x['sha256']) for x in built['preview_routes']]
+          def inspect(x):
+            url,h=x
+            q=urllib.request.Request(url,headers={'Cache-Control':'no-cache','User-Agent':'CompilerReleaseOnePreviewReadback'})
+            with urllib.request.urlopen(q,timeout=27) as f:
+              data=f.read()
+              if f.status!=200:raise RuntimeError('HTTP failure '+url+' '+str(f.status))
+            found=hashlib.sha256(data).hexdigest()
+            if found!=h:raise RuntimeError('SHA mismatch '+url+' expected '+h+' found '+found)
+            return {'url':url,'status':200,'sha256':found,'bytes':len(data)}
+          for attempt in range(1,15):
+            try:
+              with concurrent.futures.ThreadPoolExecutor(max_workers=7) as pool: rows=list(pool.map(inspect,urls))
+              break
+            except Exception as e:
+              if attempt==14:raise
+              print('propagation-wait',attempt,str(e));time.sleep(12)
+          result={'result':'PASS','release_accepted':False,'historical_verified':len(previous['objects']),'oct8_protected_objects_verified':17,'preview_verified':len(built['preview_routes']),'browser_check_pending':True,'pages_deployment':'real'}
+          result['pages']=rows
+          pathlib.Path('build/proof/live-check.json').write_text(json.dumps(result,indent=2)+'\n')
+          print('LIVE_PREVIEW_AND_HISTORY_EXACT_BYTES_PASS',len(rows))
+          PY
+      - name: Browser inspect preview desktop/mobile and capture evidence
+        run: |
+          BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$BROWSER" || { echo 'Required real browser unavailable'; exit 1; }
+          URL='https://gttome.github.io/Daily-AI-Brief-Compiler/preview/iteration-1-2/briefs/2026-10-08/'
+          "$BROWSER" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=1440,1000 --virtual-time-budget=4500 --screenshot="$PWD/build/proof/desktop.png" "$URL" > /dev/null 2>&1
+          "$BROWSER" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=390,844 --virtual-time-budget=4500 --screenshot="$PWD/build/proof/mobile.png" "$URL" > /dev/null 2>&1
+          "$BROWSER" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=1440,1000 --virtual-time-budget=4500 --dump-dom "$URL" > build/proof/browser-dom.html 2>/dev/null
+          test -s build/proof/desktop.png
+          test -s build/proof/mobile.png
+          grep -q 'Illustration pending for' build/proof/browser-dom.html
+          grep -q 'research-ledger-header' build/proof/browser-dom.html
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          p=Path('build/proof')
+          for kind in ('desktop','mobile'):
+            data=(p/(kind+'.png')).read_bytes()
+            if data[:8]!=bytes.fromhex('89504e470d0a1a0a'):raise RuntimeError('Chrome screenshot invalid')
+            print(kind,'screenshot pixel dimensions',struct.unpack('>II',data[16:24]))
+          PY
+      - name: Upload proof-only receipts and browser captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iteration-1-2-hosted-preview-proof
+          path: |
+            build/proof/
+          retention-days: 14
+          if-no-files-found: warn
