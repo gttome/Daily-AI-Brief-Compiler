@@ -72,9 +72,22 @@ try{
   async readFile(args){
    const result=await call('readFile',args);
    if(result?.found===false){need(exact(result,['found','verified_absent'])&&result.verified_absent===true,'absence_not_verified');return null;}
-   need(exact(result,['found','content_base64','bytes'])&&result.found===true&&typeof result.content_base64==='string'&&Number.isInteger(result.bytes)&&result.bytes>=0&&result.bytes<=MAX_ASSET_BYTES,'file_response');
+   if(result?.content_file){
+    need(exact(result,['found','content_file'])&&result.found===true,'content_file_response');
+    const ref=result.content_file;
+    need(exact(ref,['path','bytes','sha256','git_blob_sha','repository','commit','repository_path'])&&ref.repository===args.repository&&ref.commit===args.commit&&ref.repository_path===args.path&&hex(ref.git_blob_sha,40)&&hex(ref.sha256,64)&&Number.isSafeInteger(ref.bytes)&&ref.bytes>=0&&ref.bytes<=MAX_ASSET_BYTES,'content_file_binding');
+    need(typeof ref.path==='string'&&ref.path.length>0&&!path.isAbsolute(ref.path)&&!ref.path.includes('\\')&&!ref.path.split('/').some(p=>!p||p==='.'||p==='..'),'content_file_scope');
+    let file=batchRoot;for(const part of ref.path.split('/')){file=path.join(file,part);need(!fs.lstatSync(file).isSymbolicLink(),'content_file_symlink');}
+    need(fs.realpathSync(file).startsWith(batchRoot+path.sep)&&fs.statSync(file).isFile()&&fs.statSync(file).size===ref.bytes,'content_file_scope_or_size');
+    const bytes=fs.readFileSync(file);
+    need(bytes.length===ref.bytes&&digest(bytes)===ref.sha256&&createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex')===ref.git_blob_sha,'content_file_digest');
+    return bytes;
+   }
+   need((exact(result,['found','content_base64','bytes'])||exact(result,['found','content_base64','bytes','git_blob_sha']))&&result.found===true&&typeof result.content_base64==='string'&&Number.isInteger(result.bytes)&&result.bytes>=0&&result.bytes<=MAX_ASSET_BYTES,'file_response');
    need(result.content_base64.length===4*Math.ceil(result.bytes/3),'file_base64_size');
-   const bytes=Buffer.from(result.content_base64,'base64');need(bytes.length===result.bytes&&bytes.toString('base64')===result.content_base64,'file_base64');return bytes;
+   const bytes=Buffer.from(result.content_base64,'base64');need(bytes.length===result.bytes&&bytes.toString('base64')===result.content_base64,'file_base64');
+   if(Object.hasOwn(result,'git_blob_sha'))need(hex(result.git_blob_sha,40)&&createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex')===result.git_blob_sha,'connector_blob_digest');
+   return bytes;
   },
   async createCommit({repository,branch,parent,writes}){
    // Avoid multi-megabyte stdout frames. The host reads these exact original

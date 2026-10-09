@@ -1,6 +1,7 @@
-// Code-mode host for the existing GitHub connector. No network or credential
-// client is introduced. Evaluate this reviewed function in the same outer Work
-// task's code-mode environment, passing its actually exposed tools object.
+// Code-mode host for the existing GitHub connector. Connector-omitted binary
+// reads use the bounded immutable-public-URL helper in this same Work invocation.
+// All Git mutations remain on the existing connector. Evaluate this function
+// in the same outer Work task, passing its actually exposed tools object.
 // It runs the deterministic Node publisher and answers only its four operations.
 async function runD1GitHubWriterHost({tools, root, batchPath}) {
   const protocol = 'daily-compiler-d1-existing-writer-stdio-v1';
@@ -25,6 +26,17 @@ async function runD1GitHubWriterHost({tools, root, batchPath}) {
     return s;
   }
   const fetchJson = async suffix => body(await tools.mcp__codex_apps__github_fetch({url: 'https://api.github.com/repos/' + repository + '/' + suffix}));
+  const immutableBinaryRead = async (args, expectedBlob, expectedBytes) => {
+    const parameters=[batchPath,args.commit,args.path,expectedBlob,...(expectedBytes===undefined?[]:[String(expectedBytes)])];
+    let run=await tools.exec_command({cmd:'node '+quote(root+'/scripts/read-d1-immutable-file.mjs')+' '+parameters.map(quote).join(' '),workdir:root,yield_time_ms:1000,max_output_tokens:2000});
+    let output=run.output||'';
+    while(run.session_id&&run.exit_code===undefined){run=await tools.write_stdin({session_id:run.session_id,chars:'',yield_time_ms:1000,max_output_tokens:2000});output+=run.output||'';}
+    let value;try{value=JSON.parse(output);}catch{throw new Error('immutable_binary_read_response');}
+    if(run.exit_code!==0||value.error)throw new Error(value.error||'immutable_binary_read_failed');
+    const ref=value.content_file;
+    if(value.found!==true||ref?.repository!==repository||ref.commit!==args.commit||ref.repository_path!==args.path||ref.git_blob_sha!==expectedBlob)throw new Error('immutable_binary_read_binding');
+    return value;
+  };
   const source = await py('import pathlib,hashlib,json,sys\np=pathlib.Path(sys.argv[1]); b=p.read_bytes(); print(json.dumps({"path":str(p.resolve()),"bytes":len(b),"sha256":hashlib.sha256(b).hexdigest(),"characters":len(b.decode("utf-8"))}))', [batchPath]);
   let serialized = '';
   // Keep large native PNG payloads inside code mode, never in model output.
@@ -42,13 +54,18 @@ async function runD1GitHubWriterHost({tools, root, batchPath}) {
       return {sha: d.object?.sha};
     }
     if (request.op === 'readFile') {
-      if (!/^[a-f0-9]{40}$/.test(a.commit || '')) throw new Error('immutable_file_commit_required');
+      if (!/^[a-f0-9]{40}$/.test(a.commit || '')||typeof a.path!=='string'||a.path.length>1024||!a.path||/^[\/]|[\\\s:#?]/.test(a.path)||a.path.split('/').some(x=>!x||x==='.'||x==='..')) throw new Error('immutable_file_commit_and_path_required');
       try {
         const r = body(await tools.mcp__codex_apps__github_fetch_file({repository_full_name: repository, path: a.path, ref: a.commit, encoding: 'base64'}));
-        if (r.encoding !== 'base64' || typeof r.content !== 'string') throw new Error('binary_encoding_not_established');
+        if (r.encoding !== 'base64' || typeof r.content !== 'string'||!/^[a-f0-9]{40}$/.test(r.sha||'')) throw new Error('binary_encoding_or_blob_not_established');
+        if(r.size!==undefined&&(!Number.isSafeInteger(r.size)||r.size<0||r.size>64*1024*1024))throw new Error('connector_file_size_bound');
         const content = r.content.replace(/\s/g, '');
         const bytes = content.length * 3 / 4 - (content.endsWith('==') ? 2 : content.endsWith('=') ? 1 : 0);
-        return {found: true, content_base64: content, bytes};
+        // Empty base64 is a real empty file only when the immutable Git blob
+        // is Git's empty-blob identity. Large binary omissions are not absence.
+        if(content===''&&r.sha!=='e69de29bb2d1d6434b8b29ae775ad8c2e48c5391')return await immutableBinaryRead(a,r.sha,r.size);
+        if(r.size!==undefined&&r.size!==bytes)throw new Error('connector_file_size_mismatch');
+        return {found: true, content_base64: content, bytes,git_blob_sha:r.sha};
       } catch (error) {
         const r = error.toolResult;
         const s = r?.structuredContent;

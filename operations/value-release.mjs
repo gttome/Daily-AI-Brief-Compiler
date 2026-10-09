@@ -14,7 +14,7 @@ import {IMAGE_TASK_ID} from './image-lane-handoff.mjs';
 
 export const VALUE_TARGET=Object.freeze({edition_date:'2026-10-09',timezone:'America/Chicago',
   readiness_target:'2026-10-08T17:15:00-05:00',freeze_target:'2026-10-08T18:15:00-05:00',
-  intended_run_start:'2026-10-08T22:15:00-05:00',intended_run_start_utc:'2026-10-09T03:15:00Z',
+  intended_run_start:'2026-10-08T23:45:00-05:00',intended_run_start_utc:'2026-10-09T04:45:00Z',
   original_intended_run_start:'2026-10-08T19:15:00-05:00',rescheduling_authority:'Owner October 8 instruction: move the run time back if needed'});
 export const PRIMARY_TASK_ID='6ac57b19b3508191944ce2e0dec1d57b';
 export const VALUE_TEST_COMMANDS=Object.freeze(['node --test tests/value-release.test.mjs','npm test','npm run validate:bootstrap',
