@@ -1,0 +1,133 @@
+{
+  "schema_version": "daily-compiler-preproduction-editorial-intake-v1",
+  "edition_date": "2026-10-09",
+  "scope": "CANDIDATE_DISCOVERY_ONLY_NO_ALLOCATION",
+  "source_observed_local_date": "2026-10-08",
+  "prepared_at_note": "Prepared before the October 9 edition while image qualification is blocked; do not treat this as a production execution or sealed selection.",
+  "source_branch": "preproduction/oct9-editorial-intake",
+  "reference_working_edition": {
+    "branch": "shadow/2026-10-08",
+    "state": "SHADOW_VERIFIED",
+    "strategy": "proposal1r_legacy",
+    "qualifier": "The prior edition is a reader baseline only. Its stories and image bytes are not reusable for different October 9 stories."
+  },
+  "quality_constraints": {
+    "stories_required": 6,
+    "focus_allocation": "2/2/2",
+    "reusable_agent_skills_exactly": 1,
+    "videos_required": 2,
+    "podcasts_required": 2,
+    "new_images_required": 6,
+    "low_quality_fallback_allowed": false
+  },
+  "selected_final_stories": false,
+  "verified_videos": 0,
+  "verified_podcasts": 0,
+  "accepted_new_images": 0,
+  "live_publication_authorized": false,
+  "research_candidates": [
+    {
+      "candidate_id": "oct9-c01",
+      "focus": "Technical AI Engineering",
+      "publisher": "Google Developers",
+      "published_date": "2026-10-08",
+      "source_url": "https://developers.googleblog.com/en/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/",
+      "headline_candidate": "AQuA analyzes silent quality failures around live agents",
+      "mechanism": "Adjacent quality agent inspects agent runs, clusters failure patterns, binds diagnoses to deployed source snapshot",
+      "status": "source_identified",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-c02",
+      "focus": "Technical AI Engineering",
+      "publisher": "GitHub",
+      "published_date": "2026-10-07",
+      "source_url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+      "headline_candidate": "Copilot local sandboxing puts agent tool use inside explicit access boundaries",
+      "mechanism": "Policy mediates agent tool calls against file, credential and network permissions; native OS sandbox enforces the boundary",
+      "status": "source_identified",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-c03",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "publisher": "Microsoft",
+      "published_date": "2026-10-08",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/10/08/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams/",
+      "headline_candidate": "Copilot brings CRM context into sales and service workflows",
+      "mechanism": "CRM business context flows into in-workflow assistance; governed agents perform defined processes and raise human-approval interrupts",
+      "status": "source_identified",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-c04",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "publisher": "OpenAI",
+      "published_date": "2026-10-07",
+      "source_url": "https://openai.com/index/gpt-6-for-everyone/",
+      "headline_candidate": "ChatGPT Intelligent UI turns answers into interactive working surfaces",
+      "mechanism": "Question maps to answer or interactive presentation; user edits or operates contextual controls instead of copying a static response",
+      "status": "source_identified",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-c05",
+      "focus": "Agents for Everyone",
+      "publisher": "Google Cloud",
+      "published_date": "2026-10-08",
+      "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+      "headline_candidate": "Gemini agent brings reusable skills into governed cross-app work",
+      "mechanism": "Business context and reusable tool/analytics skills feed a planning agent, governed tool calls and an approved user-facing result",
+      "agent_skills_candidate": true,
+      "agent_skills_verification": "Confirm a specific reusable skill with a source-supported interface, not merely a generic mention of skills",
+      "status": "source_identified_needs_skills_verification",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-c06",
+      "focus": "Agents for Everyone",
+      "publisher": "Glean",
+      "published_date": "2026-10-07",
+      "source_url": "https://docs.glean.com/release-notes/releases/2026-10-07-october-release",
+      "headline_candidate": "Glean adds Claude Haiku 5.5 as an assistant and agent model choice",
+      "mechanism": "Admin approval and selectable model constrain which requests can use a lightweight model in assistant and agent workflows",
+      "status": "source_identified_requires_relevance_check",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-a01",
+      "focus": "Agents for Everyone",
+      "publisher": "Google Cloud",
+      "published_date": "2026-10-08",
+      "source_url": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/",
+      "headline_candidate": "Gemini extends cross-app agent work to smaller businesses",
+      "mechanism": "Small-business data and services connect to task-oriented agent actions, under organizational security and cost controls",
+      "status": "alternate_duplicate_launch_risk",
+      "duplication_warning": "Same Gemini agent launch as c05; do not select both without demonstrably distinct mechanisms",
+      "image_generation_allowed": false
+    },
+    {
+      "candidate_id": "oct9-a02",
+      "focus": "Technical AI Engineering",
+      "publisher": "Microsoft",
+      "published_date": "2026-10-07",
+      "source_url": "https://devblogs.microsoft.com/azure-sdk/bring-agentic-reasoning-to-python-function-apps-with-azure-functions-agent-bindings-preview/",
+      "headline_candidate": "Azure Functions agent bindings place bounded reasoning beside deterministic code",
+      "mechanism": "Typed function application routes selected steps to an agent binding while deterministic business logic stays in control",
+      "status": "alternate_url_needs_verification",
+      "image_generation_allowed": false
+    }
+  ],
+  "next_operations": [
+    "Verify source publication dates, freshness, claim support, originality and deduplication; select 2/2/2 with exactly one concrete reusable Agent Skills story.",
+    "Qualify two independently verified videos and two source-diverse podcast episodes; do not invent runtimes or episode dates.",
+    "Write and seal actual semantic content and story-specific image specifications only within an independently authorized edition allocation.",
+    "Preserve protected release admission: only a six-image proof plus activation, exact-head CI, delivery and task promotion can remove the hold."
+  ],
+  "prohibitions": [
+    "Do not write production repository gttome/Daily-AI-Brief.",
+    "Do not amend or allocate shadow/2026-10-09 from this intake alone.",
+    "Do not reopen shadow/2026-10-08 or reuse its accepted images for new stories.",
+    "Do not reinterpret prior exhausted image attempts or lower premium standards."
+  ]
+}
