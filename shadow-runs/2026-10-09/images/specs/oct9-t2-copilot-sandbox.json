@@ -1,0 +1,64 @@
+{
+  "story_id": "oct9-t2-copilot-sandbox",
+  "grammar": "layered_system",
+  "title": "Copilot local sandbox: tools within policy",
+  "subtitle": "OS-enforced isolation separates model choices from execution authority",
+  "nodes": [
+    {
+      "id": "n1",
+      "label": "Agent plan",
+      "detail": "Generated command or tool request"
+    },
+    {
+      "id": "n2",
+      "label": "Policy envelope",
+      "detail": "Developer or enterprise scope defines access"
+    },
+    {
+      "id": "n3",
+      "label": "OS sandbox gate",
+      "detail": "Native controls enforce policy by platform"
+    },
+    {
+      "id": "n4",
+      "label": "Filesystem access",
+      "detail": "Allow only bounded directories and edits"
+    },
+    {
+      "id": "n5",
+      "label": "Network and credentials",
+      "detail": "Restrict destinations and sensitive tokens"
+    },
+    {
+      "id": "n6",
+      "label": "Audit and rejection",
+      "detail": "Denied actions stop before side effects"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Tool-independent",
+      "detail": "Enforcement applies regardless of model choice"
+    },
+    {
+      "label": "Managed boundaries",
+      "detail": "Enterprise settings prevent local weakening"
+    },
+    {
+      "label": "Least privilege",
+      "detail": "MCP and local tools inherit bounded access"
+    }
+  ],
+  "flow_label": "Propose → policy → permit or deny",
+  "footer": "Sandbox limits actions; quality review remains separate",
+  "group_labels": [
+    "Agent reasoning",
+    "Enforced execution"
+  ],
+  "palette": {
+    "accent1": "#275B91",
+    "accent2": "#0F8279",
+    "accent3": "#B07232"
+  },
+  "schema_version": "daily-compiler-diagram-spec-v2"
+}

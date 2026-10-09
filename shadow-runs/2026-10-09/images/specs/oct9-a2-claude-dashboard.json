@@ -1,0 +1,64 @@
+{
+  "story_id": "oct9-a2-claude-dashboard",
+  "grammar": "comparison",
+  "title": "From static answer to live data dashboard",
+  "subtitle": "Plain-language business question enters a governed data-to-visualization loop",
+  "nodes": [
+    {
+      "id": "n1",
+      "label": "Business question",
+      "detail": "Define metric, group and comparison"
+    },
+    {
+      "id": "n2",
+      "label": "Connected data source",
+      "detail": "Warehouse or CRM with permission scope"
+    },
+    {
+      "id": "n3",
+      "label": "Metric and query",
+      "detail": "Resolve fields, filters and calculations"
+    },
+    {
+      "id": "n4",
+      "label": "Static answer path",
+      "detail": "One-time result ages as data changes"
+    },
+    {
+      "id": "n5",
+      "label": "Live dashboard path",
+      "detail": "Chart binds to refreshed source results"
+    },
+    {
+      "id": "n6",
+      "label": "Freshness evidence",
+      "detail": "Review calculations and update time"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Availability caveat",
+      "detail": "Dashboards is beta on paid Claude plans"
+    },
+    {
+      "label": "Inspect calculations",
+      "detail": "Refresh cannot repair a wrong definition"
+    },
+    {
+      "label": "Data governance",
+      "detail": "Respect source permissions and retention"
+    }
+  ],
+  "flow_label": "Question → query → chart → refresh",
+  "footer": "A live display still needs trusted metrics and human review",
+  "group_labels": [
+    "Static snapshot",
+    "Connected dashboard"
+  ],
+  "palette": {
+    "accent1": "#2C729C",
+    "accent2": "#0F917F",
+    "accent3": "#9364A0"
+  },
+  "schema_version": "daily-compiler-diagram-spec-v2"
+}

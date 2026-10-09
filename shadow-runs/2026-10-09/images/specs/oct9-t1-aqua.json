@@ -1,0 +1,64 @@
+{
+  "story_id": "oct9-t1-aqua",
+  "grammar": "control_loop",
+  "title": "AQuA: evidence-led agent quality loop",
+  "subtitle": "Read-only diagnosis of production agent failures outside the request path",
+  "nodes": [
+    {
+      "id": "n1",
+      "label": "Production agent",
+      "detail": "Live task execution remains isolated"
+    },
+    {
+      "id": "n2",
+      "label": "Read-only trace sampler",
+      "detail": "Sample sessions from trace, logs or analytics"
+    },
+    {
+      "id": "n3",
+      "label": "Quality rubric",
+      "detail": "Compare trajectories with defined checks"
+    },
+    {
+      "id": "n4",
+      "label": "Failure clusters",
+      "detail": "Group recurring patterns, not isolated guesses"
+    },
+    {
+      "id": "n5",
+      "label": "Transcript verification",
+      "detail": "Review representative sessions per cluster"
+    },
+    {
+      "id": "n6",
+      "label": "Source-bound diagnosis",
+      "detail": "Check issues against deployed source snapshot"
+    }
+  ],
+  "callouts": [
+    {
+      "label": "Protected boundary",
+      "detail": "Observer does not change live agent responses"
+    },
+    {
+      "label": "Human triage",
+      "detail": "Confirmed patterns become reviewable issues"
+    },
+    {
+      "label": "Feedback to monitoring",
+      "detail": "Track recurring, new and resolved failures"
+    }
+  ],
+  "flow_label": "Observe → verify → diagnose → track",
+  "footer": "Production context remains untouched; findings require evidence",
+  "group_labels": [
+    "Production",
+    "Quality observer"
+  ],
+  "palette": {
+    "accent1": "#0E7C86",
+    "accent2": "#3469A1",
+    "accent3": "#A85B3E"
+  },
+  "schema_version": "daily-compiler-diagram-spec-v2"
+}
