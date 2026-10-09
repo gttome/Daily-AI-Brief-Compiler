@@ -4,115 +4,17 @@
   "stories": [
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-10-08-m12",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-06",
-      "headline": "RealAssist turns client signals into reviewable agent actions",
-      "url": "/stories/2026-10-08/realtor-realassist-agent-actions/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "agentic actions",
-        "professional workflow",
-        "human approval"
-      ],
-      "companies": [
-        "Realtor.com Media Room"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Realtor.com+ introduced RealAssist as an AI workspace for real-estate agents. It combines client activity into a daily digest and can recommend or prepare follow-up actions such as refined searches and drafted messages, while keeping the agent in the approval loop before anything is sent or acted on."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-08-m14",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-07",
-      "headline": "Windows adds a containment layer for local and cloud AI actions",
-      "url": "/stories/2026-10-08/windows-hybrid-intelligence-copilot/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "hybrid intelligence",
-        "agent containment",
-        "local context"
-      ],
-      "companies": [
-        "Microsoft Windows Experience Blog"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent memory and context",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Microsoft is positioning Windows as a hybrid-intelligence layer that can route AI work between local and cloud resources. Microsoft Execution Containers are generally available on Windows 11 to isolate agent activity with file and network boundaries, while broader Copilot abilities to use local PC context and act on a user’s behalf are described as capabilities that will expand over time."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-08-m10",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-07",
-      "headline": "Webex brings digital teammates into shared collaboration context",
-      "url": "/stories/2026-10-08/cisco-webex-agentic-collaboration/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "collaborative agents",
-        "shared context",
-        "enterprise governance"
-      ],
-      "companies": [
-        "Cisco Newsroom"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Cisco announced new Webex experiences built around digital teammates that can participate in spaces, meetings, and calls with shared team context. Examples include one agent gathering analytics while another updates a presentation, with identity, security, AI Defense guardrails, and Splunk telemetry around the workflow. Several capabilities are described as upcoming rather than universally available today."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-08-m11",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-06",
-      "headline": "Jump Trading scales long-horizon research without removing human acceptance",
-      "url": "/stories/2026-10-08/jump-trading-agentic-quant-research/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "long-horizon research",
-        "evaluation",
-        "human review"
-      ],
-      "companies": [
-        "OpenAI"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Jump Trading describes using GPT-6 Astra for longer, ambiguous research tasks by defining the problem, the working environment, and how output quality and significance will be evaluated. Agents can work for extended periods and be redirected, while consequential outputs such as trading signals remain subject to controlled human review."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-08-m01",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-07",
-      "headline": "Google packages fresh developer documentation as a reusable agent skill",
-      "url": "/stories/2026-10-08/google-developer-knowledge-agent-skill/",
+      "story_id": "dab-story-2026-10-09-m01",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-08",
+      "headline": "AQuA watches live agent failures without becoming another tool in the agent",
+      "url": "/stories/2026-10-09/aqua-ambient-agent-quality/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "Agent Skills",
-        "developer knowledge",
-        "MCP",
-        "grounding"
+        "agent observability",
+        "failure clustering",
+        "production diagnosis",
+        "trace evidence"
       ],
       "companies": [
         "Google Developers Blog"
@@ -120,104 +22,203 @@
       "evidence_type": "publisher_authored",
       "availability_status": "available",
       "trends": [
-        "Agent memory and context",
         "AI-assisted development",
         "Accessible agents for knowledge work"
       ],
-      "summary": "Google introduced a Developer Knowledge API ecosystem that exposes current technical documentation as fresh Markdown and includes a reusable skill for compatible coding agents. The skill uses a multi-step retrieval pattern—searching for relevant snippets before pulling fuller documentation—and can connect through MCP across several agent environments."
+      "summary": "Google Developers describes AQuA, an ambient quality agent positioned outside an application agent’s live request path. Instead of asking the production agent to grade itself, AQuA takes a bounded sample of recent execution trajectories from Cloud Trace, Cloud Logging, or BigQuery, checks them against a nine-point quality rubric, groups the suspicious behaviors into recurring patterns, and verifies representative transcripts before reporting actionable issues. A targeted diagnosis can then compare a confirmed pattern with the deployed source snapshot. The architecture is deliberately read-only: underlying customer traces and source code stay within the organization’s Google Cloud project, and the observer does not change the running agent. In its reported scripted test, 32 replayed sessions yielded 27 failures, 42 initial findings, nine candidate clusters, and six remaining issues after three were rejected on inspection. Those figures describe the authors’ bounded example, not a universal accuracy benchmark. AQuA is best understood as an external quality-investigation pattern that produces human-reviewable evidence, not a guarantee that silent failures are eliminated."
     },
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-10-08-m02",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-06",
-      "headline": "GitHub separates durable storage from compute for agent-scale Git traffic",
-      "url": "/stories/2026-10-08/github-agent-scale-git-infrastructure/",
+      "story_id": "dab-story-2026-10-09-m02",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-07",
+      "headline": "Copilot local sandboxing makes agent tool permissions an OS-level boundary",
+      "url": "/stories/2026-10-09/copilot-local-sandbox-boundaries/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "agentic development",
-        "Git infrastructure",
-        "storage architecture"
+        "agent security",
+        "sandbox policy",
+        "tool execution",
+        "filesystem and network permissions"
       ],
       "companies": [
-        "GitHub Engineering"
+        "GitHub Changelog"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
       "trends": [
+        "Agent reliability and governance",
+        "AI-assisted development",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "GitHub says local sandboxing is now generally available in Copilot CLI, the GitHub Copilot application, and VS Code Agent Host sessions. The mechanism places a developer- or administrator-defined access policy between agent-generated tool commands and the resources those commands would touch. Filesystem paths, internet and local-network destinations, Git credentials, and selected tools can be allowed or denied. Microsoft eXecution Container translates the shared policy into native operating-system enforcement on Windows, macOS, and Linux. Enterprise-managed settings can require sandboxing and prevent an individual developer from weakening the rules. The key architectural distinction is that restricting tool execution is independent of which language model produces the tool call: a capable model still runs inside the same boundary. A sandbox does not mean every output is correct, and policy quality still matters. This is a local execution protection, not evidence that every remote cloud-agent or third-party integration is automatically covered."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-09-m10",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-08",
+      "headline": "Microsoft brings CRM records and approval-bound agents into everyday work",
+      "url": "/stories/2026-10-09/dynamics-crm-agents-in-workflow/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "CRM context",
+        "sales and service",
+        "agent handoff",
+        "human approval"
+      ],
+      "companies": [
+        "Microsoft 365 Copilot — AI at Work Blog"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
         "Agent memory and context",
         "AI-assisted development",
         "Accessible agents for knowledge work"
       ],
-      "summary": "GitHub says agentic development is sharply increasing pushes, branch activity, merge-queue pressure, and CI read fan-out. Its evolving Git architecture separates durable authoritative repository data in blob storage from lightweight compute and cache workers so read and write capacity can scale more independently while preserving branch protections, auditability, and review controls."
+      "summary": "Microsoft's October 8 announcement moves customer relationship management data and work from a separate destination into Copilot and Teams. Thirty prebuilt Dynamics 365 skills let a seller surface at-risk opportunities, assemble account plans and propose CRM updates, while service colleagues can retrieve case history, investigate an issue and prepare a response without losing customer context. The source makes important availability distinctions: the skills are generally available in Cowork; Autopilot remains a private preview; Code is part of the Frontier Program; the connected Dynamics CRM-in-Teams experience is a public preview. At the process level, a Service Agent can carry selected work across business functions but escalate when judgment or approval is necessary. A Sales Development Agent can research and contact prospects and hand qualified opportunities to sellers; Microsoft lists it as a public preview, not broad general release. The effective design is a governed data-to-action path, not a generic conversational bot detached from its source of truth."
     },
     {
-      "content_type": "Video",
-      "story_id": "dab-video-2026-10-08-general",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-06",
-      "headline": "BigQuery Graph measures explained (Why your AI agents get metrics wrong and how measures fix it)",
-      "url": "/videos/2026-10-08/general/",
-      "focus": "general_video",
-      "topics": [],
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-09-m11",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-07",
+      "headline": "Intelligent UI turns an AI answer into a working interactive surface",
+      "url": "/stories/2026-10-09/chatgpt-intelligent-ui-work-surfaces/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "interactive responses",
+        "structured controls",
+        "visual reasoning",
+        "work surfaces"
+      ],
       "companies": [
-        "Google Cloud Tech"
+        "OpenAI"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "An 8:48 walkthrough of BigQuery Graph measures that shows why ordinary joins can double-count metrics and how reusable measures can give agentic analytics a more trustworthy semantic layer."
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "OpenAI introduced Intelligent UI with GPT-6 as an answer format that can combine written explanation with diagrams, structured comparisons and functioning controls. Instead of merely explaining how to configure a calculator or compare options, the assistant can present an interface tailored to the question, then let the reader manipulate the relevant inputs in place. The announcement emphasizes responsiveness: useful material can appear quickly while richer interactive elements are assembled. The important change is the boundary between model synthesis and user choice. An interface can make assumptions visible and support direct exploration, but the user still needs to inspect source facts, parameters and computed outputs. Some responses remain better as plain prose; visual interaction is not itself a quality guarantee. Rollout and feature availability can vary by plan and release stage, so the example should not imply every account gets identical controls immediately."
     },
     {
-      "content_type": "Video",
-      "story_id": "dab-video-2026-10-08-agent-skills",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-01",
-      "headline": "How to build an agentic C-Suite with Google Cloud ADK and Cloud Run",
-      "url": "/videos/2026-10-08/agent-skills/",
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-09-m12",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-08",
+      "headline": "Gemini agent uses modular skills to repeat governed business procedures",
+      "url": "/stories/2026-10-09/gemini-modular-business-agent-skills/",
       "focus": "agents_non_technical_people",
-      "topics": [],
-      "companies": [
-        "Google Cloud Tech"
+      "topics": [
+        "Agent Skills",
+        "skills registry",
+        "cross-app tools",
+        "procedural context"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
+      "companies": [
+        "Google Cloud Blog"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
       "trends": [
+        "Agent reliability and governance",
         "Agent memory and context",
         "Accessible agents for knowledge work"
       ],
-      "summary": "A 6:26 end-to-end demonstration of specialized agents passing context through decision loops and running as an application on Cloud Run."
+      "summary": "At Gemini at Work 2026, Google Cloud described a unified enterprise agent that brings tools, organizational context and reusable skills into one work environment. Here 'skill' has a concrete meaning: modular instructions, knowledge or a multi-step workflow stored as a prompt package that can be used again instead of rewritten for each request. Teams can publish shared procedures to a skills registry; individuals can maintain personal skills; a broader library supplies reusable starting points. A tools registry then connects an approved procedure to enterprise applications and data, while context mechanisms include task-session, semantic, procedural and episodic memory. The source also describes identity, authorization, policy management, sandboxing and network gateways. These are product announcements and design claims: they do not prove that every connector or capability is generally available to all customers. The durable mechanism is a governed skill-selection-and-execution pipeline, with organizational permissions constraining which systems a procedure can touch."
     },
     {
-      "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-10-08-1",
-      "brief_date": "2026-10-08",
-      "event_date": "2026-10-07",
-      "headline": "AI at work",
-      "url": "/podcasts/2026-10-08/ai-at-work/",
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-09-m14",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-08",
+      "headline": "Claude builds live data dashboards from plain-language questions",
+      "url": "/stories/2026-10-09/claude-live-dashboards-from-data/",
       "focus": "agents_non_technical_people",
+      "topics": [
+        "live dashboards",
+        "data source provenance",
+        "business questions",
+        "refresh controls"
+      ],
+      "companies": [
+        "Claude by Anthropic"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Anthropic introduced Claude Dashboards in paid-plan beta as a way to turn an ordinary business question into a dashboard connected to the underlying data. Supported examples include data warehouses such as BigQuery, Databricks and Snowflake and customer systems such as Salesforce. The displayed result is intended to remain current as the source updates, so an analysis can be revisited rather than frozen as a screenshot. The strongest reader value lies in the visible path from question to chosen data, query or calculation, chart, and latest refresh. The announcement also introduces Claude Motion, a separate beta capability for animated explainers, and makes Docs, Slides and Design available beyond beta. Those features have different eligibility; Motion is specifically Team and Enterprise beta. A live dashboard still needs the ordinary protections of any business-intelligence system: source ownership, calculation checks, access control, freshness indicators and an opportunity to challenge the chart."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-10-09-general",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-06",
+      "headline": "Introducing the Decisions API",
+      "url": "/videos/2026-10-09/general/",
+      "focus": "general_video",
       "topics": [],
       "companies": [
-        "Reuters Econ World"
+        "OpenAI"
       ],
       "evidence_type": "practitioner_analysis",
       "availability_status": "not_applicable",
       "trends": [],
-      "summary": "Carmel Crimmins speaks with ADP chief economist Nela Richardson about how AI is changing tasks inside jobs, why career-stage effects differ, and why experience may remain more resilient than simple automation narratives suggest."
+      "summary": "OpenAI's 5:34 official demo shows text and image inputs being classified into a deliberately bounded set of actions. It includes lead-routing, real-time visual choices and live-interaction examples; application logic acts on the selected decision rather than asking a general chatbot to invent unrestricted commands."
     },
     {
-      "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-10-08-2",
-      "brief_date": "2026-10-08",
+      "content_type": "Video",
+      "story_id": "dab-video-2026-10-09-agent-skills",
+      "brief_date": "2026-10-09",
       "event_date": "2026-10-07",
-      "headline": "The New, New Kingmakers: Agents, Developers, and the Future of Software with Stephen O'Grady",
-      "url": "/podcasts/2026-10-08/the-new-new-kingmakers-agents-developers-and-the-future-of-software-with-stephen-o-grady/",
+      "headline": "Build custom site annotations with ChatGPT",
+      "url": "/videos/2026-10-09/agent-skills/",
       "focus": "agents_non_technical_people",
       "topics": [],
       "companies": [
-        "The Enterprise AI Show"
+        "OpenAI"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent memory and context"
+      ],
+      "summary": "A 2:35 OpenAI how-to on adding custom site annotation controls and suggested questions to a website. It shows the practical shift from a generic chat bubble toward a contextual reader interface with task-relevant prompts and interaction."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-10-09-1",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-07",
+      "headline": "Switching Models Shouldn't Mean Starting Over | Walrus Protocol's Kimberly Logan",
+      "url": "/podcasts/2026-10-09/switching-models-shouldn-t-mean-starting-over-walrus-protocol-s-kimberly-logan/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "Chain of Thought"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent memory and context",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Episode 77, with host Conor Bronsdon and Walrus Foundation product lead Kimberly Logan, examines why portable agent memory remains difficult even with large context windows. The conversation separates a point-in-time export from maintaining memory across models and agent harnesses, and examines storage provenance, verifiability, and the trade-offs of decentralized memory. Walrus sponsors the episode; product claims are presented as guest claims, not independently validated outcomes."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-10-09-2",
+      "brief_date": "2026-10-09",
+      "event_date": "2026-10-07",
+      "headline": "The Best Way to Test New AI Models",
+      "url": "/podcasts/2026-10-09/the-best-way-to-test-new-ai-models/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "The AI Daily Brief"
       ],
       "evidence_type": "practitioner_analysis",
       "availability_status": "not_applicable",
@@ -225,7 +226,7 @@
         "AI-assisted development",
         "Accessible agents for knowledge work"
       ],
-      "summary": "Brandon Whichard interviews RedMonk co-founder Stephen O'Grady about how software developers gained influence over technology choices and how coding agents may now reshape that relationship between developers, platforms, and software creation."
+      "summary": "Nathaniel Whittemore and guest Nufar Gaspar offer a practical operator's approach to choosing among the many new models: define four to six representative work tasks, include a wish-list challenge, compare models or agent harnesses blindly in fresh sessions, score outputs, and decide whether to switch, split work across tools or stay put. The discussion covers speed, cost, quality bias, repeatability and the problem of evaluating a rendered visual result from source code alone. Sponsor material and subjective model rankings are not treated as independent evidence of model superiority."
     },
     {
       "content_type": "Article",
@@ -5329,226 +5330,6 @@
         "Agent reliability and governance"
       ],
       "summary": "Stanford professor Christopher Potts joins Sam Charrington to examine whether growing token consumption is producing proportional value, why benchmarks alone can hide economic tradeoffs, and how AI fluency and iterative human interaction affect outcomes."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-09-e9be6ec5",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-08",
-      "headline": "GitHub gives enterprises central control over Copilot’s JetBrains sandbox",
-      "url": "/stories/2026-09-09/github-gives-enterprises-central-control-over-copilot-s-jetbrains-sandbox/",
-      "focus": "technical_ai_engineering",
-      "topics": [
-        "GitHub Copilot",
-        "sandboxing",
-        "enterprise policy",
-        "agent security"
-      ],
-      "companies": [
-        "GitHub"
-      ],
-      "evidence_type": "official_changelog",
-      "availability_status": "public_preview",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "GitHub added enterprise-managed sandbox policies for Copilot in JetBrains IDEs. Administrators can centrally control sandbox enablement, filesystem and network access, proxy settings, developer tools, and macOS Keychain access; managed restrictions override local user settings and policy diagnostics show whether controls are enforced."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-09-0b6b1021",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-08",
-      "headline": "Dart’s Skills CLI 1.0 makes agent instructions portable with software packages",
-      "url": "/stories/2026-09-09/dart-s-skills-cli-1-0-makes-agent-instructions-portable-with-software-packages/",
-      "focus": "technical_ai_engineering",
-      "topics": [
-        "agent skills",
-        "context engineering",
-        "software packages",
-        "progressive disclosure"
-      ],
-      "companies": [
-        "Google",
-        "Dart"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "general_availability",
-      "trends": [
-        "Agent memory and context",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Dart’s Skills CLI 1.0 shows how reusable Agent Skills can travel with a tool: a SKILL.md file explains a repeatable method, while supporting resources and validation help an agent load the right instructions only when needed. Although the release is aimed at package authors, the practical pattern applies to non-technical work such as preparing reports, reviewing documents, building presentations, or running a standard client workflow."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-09-259c8fd8",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-08",
-      "headline": "ChatGPT Images 2.5 improves reference fidelity, editing precision, and iteration speed",
-      "url": "/stories/2026-09-09/chatgpt-images-2-5-improves-reference-fidelity-editing-precision-and-iteration-speed/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "image generation",
-        "precision editing",
-        "reference fidelity",
-        "creative workflows"
-      ],
-      "companies": [
-        "OpenAI"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "general_availability",
-      "trends": [
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "OpenAI released ChatGPT Images 2.5 with sharper detail, more reliable reference preservation, more precise multi-turn editing, and generation latency reduced by up to 50% versus Images 2.0. ChatGPT adds sketch references, image comments, templates, and prompt sharing; the model is available across ChatGPT, ChatGPT Work, and Codex, with Flare and Sunburst variants in the API."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-09-1f112fc7",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-08",
-      "headline": "GPT-5.6 Sol runs adaptive quantum-chip measurements while researchers retain scientific judgment",
-      "url": "/stories/2026-09-09/gpt-5-6-sol-runs-adaptive-quantum-chip-measurements-while-researchers-retain-scientific-judg/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "scientific agents",
-        "closed-loop experimentation",
-        "quantum computing",
-        "human review"
-      ],
-      "companies": [
-        "OpenAI",
-        "MIT"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "research",
-      "trends": [
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "An OpenAI case study describes an MIT researcher connecting GPT-5.6 Sol through Codex to quantum-lab software. Given measurement-specific skills and chip targets, the agent selected parameters, ran measurements, analyzed results, refined weak runs, and passed outputs into subsequent measurements."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-09-a02b9db1",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-08",
-      "headline": "Meta launches Muse as a personal agent with secure execution and approval checkpoints",
-      "url": "/stories/2026-09-09/meta-launches-muse-as-a-personal-agent-with-secure-execution-and-approval-checkpoints/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "personal agents",
-        "computer use",
-        "secure virtual machines",
-        "human approval"
-      ],
-      "companies": [
-        "Meta"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "general_availability",
-      "trends": [
-        "Agent reliability and governance",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Meta introduced Muse in the United States for adults through a dedicated app and WhatsApp. Meta says the personal agent can plan and carry out tasks across connected services, runs in a dedicated secure virtual machine, and uses permissions plus approval steps for consequential actions."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-09-81d2a78e",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-08",
-      "headline": "GitHub unifies support resources behind Copilot-powered search",
-      "url": "/stories/2026-09-09/github-unifies-support-resources-behind-copilot-powered-search/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "Copilot search",
-        "support workflows",
-        "knowledge retrieval",
-        "human escalation"
-      ],
-      "companies": [
-        "GitHub"
-      ],
-      "evidence_type": "official_changelog",
-      "availability_status": "general_availability",
-      "trends": [
-        "Agent memory and context",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "GitHub moved its customer portal to help.github.com and combined support, documentation, learning, community, and account resources with Copilot-powered search across them. The portal creates one retrieval surface for self-service questions and support escalation."
-    },
-    {
-      "content_type": "Video",
-      "story_id": "dab-video-2026-09-09-general",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-04-22",
-      "headline": "Introducing workspace agents in ChatGPT",
-      "url": "/videos/2026-09-09/general/",
-      "focus": "general_video",
-      "topics": [],
-      "companies": [
-        "OpenAI"
-      ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "A concise official overview of shared agents that can handle longer-running work across team tools."
-    },
-    {
-      "content_type": "Video",
-      "story_id": "dab-video-2026-09-09-agent-skills",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-07-24",
-      "headline": "ChatGPT Projects vs Skills Explained in 2 Minutes",
-      "url": "/videos/2026-09-09/agent-skills/",
-      "focus": "agents_non_technical_people",
-      "topics": [],
-      "companies": [
-        "AI with Kyle"
-      ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Agent memory and context"
-      ],
-      "summary": "A short, plain-language distinction between project context and reusable skills for repeated work."
-    },
-    {
-      "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-09-09-agentic-loops",
-      "brief_date": "2026-09-09",
-      "event_date": "2026-09-03",
-      "headline": "Agentic Loops for Knowledge Workers",
-      "url": "/podcasts/2026-09-09/agentic-loops-for-knowledge-workers/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "loop engineering",
-        "graph engineering",
-        "verification",
-        "human review",
-        "knowledge work"
-      ],
-      "companies": [
-        "The AI Daily Brief"
-      ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Nufar Gaspar explains how knowledge workers can use agent loops and connected workflows. The central lesson is to define a checkable completion condition before asking an agent to repeat work. The session includes a Claude Code demonstration."
     }
   ]
 }
