@@ -126,7 +126,7 @@ export function validateD1QualificationEvidence({repoRoot='.',evidence,proofId}=
     // Prospective v2 validates a separate read-only recovery exercise after all
     // six quality locks. No forced interruption is part of the image sequence.
     if(continuous){
-      assertD1IndependentRecovery({repoRoot,proofId,recovery:resume,evidence:e,manifest,runtime,state,attemptLog:data.attempt_log,read:readD1Evidence});
+      assertD1IndependentRecovery({repoRoot,proofId,recovery:resume,evidence:e,manifest,runtime,state,attemptLog:data.attempt_log,request,sourceEvidence:data.source_evidence,read:readD1Evidence});
     }else{
     // Revalidate retained checkpoints: two accepted locks, then a different
     // continuation with its first pending Story 3 generation and no lock changes.
