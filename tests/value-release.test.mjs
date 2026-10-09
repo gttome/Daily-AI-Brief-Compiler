@@ -27,7 +27,7 @@ function copyInputs(t){
   return root;
 }
 function schedule(){return {observed_at:'2026-10-08T14:50:00Z',tasks:[{id:PRIMARY_TASK_ID,title:'Daily Compiler Primary',is_enabled:true,timing_mode:'exact_schedule',default_timezone:'America/Chicago',
-  schedule:'BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261008T221500\nRRULE:FREQ=DAILY;BYHOUR=22;BYMINUTE=15;BYSECOND=0\nEND:VEVENT',next_run_time:null}]};}
+  schedule:'BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261008T234500\nRRULE:FREQ=DAILY;BYHOUR=23;BYMINUTE=45;BYSECOND=0\nEND:VEVENT',next_run_time:null}]};}
 const completedCI=head=>({head_sha:head,status:'completed',conclusion:'success',workflow:'compiler-validation',check_name:'validate',app_id:15368,
   completed_at:'2026-10-08T23:18:00Z',check_url:'https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/123/job/456'});
 const binding=head=>({source:'GIT_CHECKOUT',head_sha:head,tracked_files_clean:true});
@@ -143,7 +143,8 @@ test('I07-T04 sufficient current role coverage remains PARTIAL and cannot grant 
 });
 
 test('I07-T05 fixed October 8 Central start crosses UTC date once; recurrence does not fill an unknown next run',()=>{
-  assert.equal(new Date(VALUE_TARGET.intended_run_start).toISOString(),'2026-10-09T03:15:00.000Z');
+  assert.equal(new Date(VALUE_TARGET.intended_run_start).toISOString(),'2026-10-09T04:45:00.000Z');
+  assert.equal(VALUE_TARGET.original_intended_run_start,'2026-10-08T19:15:00-05:00');
   const record=schedule(),unknown=compareValueSchedule(record,A);
   assert.equal(unknown.recurrence_result,'PASS');assert.equal(unknown.next_run_time,null);assert.equal(unknown.next_occurrence_result,'UNKNOWN');
   assert.equal(unknown.immutable_release_binding,'NOT_ESTABLISHED');
@@ -152,8 +153,9 @@ test('I07-T05 fixed October 8 Central start crosses UTC date once; recurrence do
   record.tasks[0].next_run_time='2026-10-10T00:15:00Z';
   assert.equal(compareValueSchedule(record,A).next_occurrence_result,'FAIL');
   for(const altered of [record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('20261008','20261009'),
-    record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('T221500','T191500').replace('BYHOUR=22','BYHOUR=19'),
-    record=>record.tasks[0].schedule+='\nDTSTART;TZID=America/Chicago:20261008T221500',record=>record.tasks[0].schedule+='\nEXDATE:20261009T001500Z',
+    record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('T234500','T191500').replace('BYHOUR=23','BYHOUR=19'),
+    record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('T234500','T221500').replace('BYHOUR=23','BYHOUR=22').replace('BYMINUTE=45','BYMINUTE=15'),
+    record=>record.tasks[0].schedule+='\nDTSTART;TZID=America/Chicago:20261008T234500',record=>record.tasks[0].schedule+='\nEXDATE:20261009T001500Z',
     record=>record.tasks.push(structuredClone(record.tasks[0])),record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('BYSECOND=0','BYSECOND=0;COUNT=1')]){
     const fixture=schedule();altered(fixture);assert.equal(compareValueSchedule(fixture,A).recurrence_result,'FAIL');
   }
@@ -169,7 +171,7 @@ test('I07-T05 verified daily configuration accepts unknown next-run metadata wit
   assert.equal(gate(result,'EXISTING_IMAGE_RUNTIME_READINESS_HANDOFF').result,'PENDING_OR_FAIL');
   assert.equal(result.CORE_RELEASE_READY,'FAIL');assert.equal(result.schedules_changed,false);assert.equal(result.edition_launched,false);
   for(const mutate of [record=>record.tasks[0].id='TEST_ONLY-wrong-task',record=>record.tasks[0].is_enabled=false,
-    record=>record.tasks[0].default_timezone='Etc/UTC',record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('BYHOUR=22','BYHOUR=20'),
+    record=>record.tasks[0].default_timezone='Etc/UTC',record=>record.tasks[0].schedule=record.tasks[0].schedule.replace('BYHOUR=23','BYHOUR=20'),
     record=>record.tasks[0].next_run_time='2026-10-10T00:15:00Z',record=>record.tasks[0].next_run_time='invalid']){
     const wrong=schedule();mutate(wrong);
     const rejected=auditValueRelease({repoRoot:ROOT,engineSha:A,recordedAt:WHEN,scheduleReadback:wrong});

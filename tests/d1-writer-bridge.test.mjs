@@ -73,7 +73,7 @@ function fixtureHost(f){
   }
  };
 }
-async function execute(batch,host,{changeResponse,sidecars=false}={}){
+async function execute(batch,host,{changeResponse,sidecars=false,binaryFiles=false}={}){
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'TEST_ONLY-d1-writer-bridge-')),batchPath=path.join(dir,'batch.json');
  fs.writeFileSync(batchPath,j(batch));
  const child=spawn(process.execPath,['scripts/publish-d1-image-event.mjs',batchPath],{cwd:new URL('../',import.meta.url),stdio:['pipe','pipe','pipe']});
@@ -89,7 +89,11 @@ async function execute(batch,host,{changeResponse,sidecars=false}={}){
    let response;
    try{response={protocol,kind:'response',id:frame.id,op:frame.op,ok:true,result:await host.handle(frame)};}
    catch(error){response={protocol,kind:'response',id:frame.id,op:frame.op,ok:false,error:{code:'TEST_ONLY_HOST_ERROR',message:error.message.slice(0,600)}};}
-   if(changeResponse)response=await changeResponse(response,frame);
+   if(binaryFiles&&frame.op==='readFile'&&response.ok&&response.result.found){
+    const bytes=Buffer.from(response.result.content_base64,'base64'),name='content-'+frame.id+'.bin';fs.writeFileSync(path.join(dir,name),bytes);
+    response.result={found:true,content_file:{path:name,bytes:bytes.length,sha256:sha256(bytes),git_blob_sha:gitBlobSha(bytes),repository:frame.args.repository,commit:frame.args.commit,repository_path:frame.args.path}};
+   }
+   if(changeResponse)response=await changeResponse(response,frame,dir);
    if(sidecars&&frame.op==='readFile'){
     const name='response-'+frame.id+'.json',bytes=Buffer.from(j(response));fs.writeFileSync(path.join(dir,name),bytes);
     response={protocol,kind:'response_file',id:frame.id,op:frame.op,file:{path:name,bytes:bytes.length,sha256:sha256(bytes)}};
@@ -161,5 +165,33 @@ test('unknown commit or ref outcomes stop once and require reconciliation before
   const run=await execute(batch,host,{changeResponse(response,frame){return frame.op===op?{protocol,kind:'response',id:frame.id,op,ok:false,error:{code:'TEST_ONLY_OUTCOME_UNKNOWN',message:'TEST_ONLY lost response after operation'}}:response;}});
   assert.equal(run.code,1);assert.equal(run.final.publication_outcome,'UNKNOWN_RECONCILE_BEFORE_ANY_RETRY');
   assert.equal(run.requests.filter(x=>x.op===op).length,1);assert.equal(host.commits,1);assert.equal(host.updates,op==='updateRef'?1:0);
+ });
+});
+
+test('binary local-file responses preserve complete replay, CAS, immutable readback and accepted locks',async()=>{
+ const {f,batch,canonicalPath}=prepared('lock'),host=fixtureHost(f);host.trees.set(C,new Map([[canonicalPath,raw]]));
+ const run=await execute(batch,host,{binaryFiles:true});
+ assert.equal(run.code,0,JSON.stringify(run.final));assert.equal(run.final.receipt.result,'EXACT_COMMIT_READBACK_PASS');
+ assert.equal(host.commits,1);assert.equal(host.updates,1);
+});
+
+test('local binary response preconditions reject wrong identity, hash, bounds and escaped files before any mutation',async t=>{
+ for(const mode of ['commit','path','repository','blob','sha256','size','traversal','symlink','inline-empty-wrong-blob'])await t.test(mode,async()=>{
+  const {f,batch}=prepared(),host=fixtureHost(f);
+  const run=await execute(batch,host,{binaryFiles:true,changeResponse(response,frame,dir){
+   if(frame.op!=='readFile'||!response.result?.content_file)return response;
+   const ref=response.result.content_file;
+   if(mode==='commit')ref.commit=C;
+   if(mode==='path')ref.repository_path+='wrong';
+   if(mode==='repository')ref.repository='TEST_ONLY/other';
+   if(mode==='blob')ref.git_blob_sha='0'.repeat(40);
+   if(mode==='sha256')ref.sha256='0'.repeat(64);
+   if(mode==='size')ref.bytes=64*1024*1024+1;
+   if(mode==='traversal')ref.path='../outside.bin';
+   if(mode==='symlink'){const link='link-'+frame.id;fs.symlinkSync(path.join(dir,ref.path),path.join(dir,link));ref.path=link;}
+   if(mode==='inline-empty-wrong-blob')response.result={found:true,content_base64:'',bytes:0,git_blob_sha:'0'.repeat(40)};
+   return response;
+  }});
+  assert.equal(run.code,1);assert.equal(run.final.publication_outcome,'NO_GIT_MUTATION_ATTEMPTED');assert.equal(host.commits,0);assert.equal(host.updates,0);
  });
 });
