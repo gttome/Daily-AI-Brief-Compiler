@@ -6,6 +6,7 @@ import { materializeReaderSource } from './reader-materializer.mjs';
 import { checkGoldenReaderParity } from '../scripts/check-reader-parity.mjs';
 import { validateD0BundleImages } from '../image-capsules/bundle-gate.mjs';
 import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
+import { validatePendingImageRecords } from './pending-images.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -45,7 +46,7 @@ function pngDimensions(bytes) {
   return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
 }
 
-export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
+export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendingImages=false}) {
   const stateText = fs.readFileSync(statePath, 'utf8');
   const bundleText = fs.readFileSync(bundlePath, 'utf8');
   const state = JSON.parse(stateText);
@@ -111,14 +112,20 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
   }
   if (requiredBooks.size) fail('required book series coverage missing: '+[...requiredBooks].join(', '));
 
+  const pendingImages=bundle.image_representation?.status==='images_pending';
+  if(bundle.image_representation && !pendingImages) fail('unsupported image representation');
+  if(pendingImages !== (state.images?.mode==='images_pending')) fail('pending image state/bundle mismatch');
+  if(pendingImages && !allowPendingImages) fail('images_pending publishing is not activated');
   ensureArray(bundle.images, 'images', 6);
   const d0Requested=bundle.image_system?.strategy==='d0_native_image_capsules'||bundle.images.some(x=>x?.image_system==='d0_native_image_capsules');
   const d1Requested=bundle.image_system?.strategy==='d1_cloud_image_studio'||bundle.images.some(x=>x?.image_system==='d1_cloud_image_studio');
   if(d0Requested&&d1Requested) fail('multiple image systems requested');
   if(d0Requested&&bundle.image_system?.strategy!=='d0_native_image_capsules') fail('D0 image system metadata missing');
   if(d1Requested&&bundle.image_system?.strategy!=='d1_cloud_image_studio') fail('D1 image system metadata missing');
+  if(pendingImages && (d0Requested||d1Requested)) fail('pending publication cannot request generated-image systems');
   const imageEvidence = [];
-  for (const image of bundle.images) {
+  const pendingImageEvidence=pendingImages?validatePendingImageRecords({bundle,state}):[];
+  if(!pendingImages) for (const image of bundle.images) {
     if (!image.story_id || !image.path || image.accepted !== true) fail('image acceptance record invalid');
     if (!/^[a-f0-9]{64}$/.test(image.sha256 || '')) fail('image sha256 invalid');
     if (!/^[a-f0-9]{40}$/.test(image.git_blob_sha || '')) fail('image git blob sha invalid');
@@ -157,7 +164,7 @@ export function validateEdition({statePath, bundlePath, repoRoot='.'}) {
     for (const pattern of PROD_MUTATION_PATTERNS) if (pattern.test(value)) fail('production repository mutation target forbidden');
   });
 
-  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,d0ImageGate,d1ImageGate};
+  return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,pendingImageEvidence,imagesPending:pendingImages,d0ImageGate,d1ImageGate};
 }
 
 export async function buildSite({validation, outDir, repoRoot='.'}) {

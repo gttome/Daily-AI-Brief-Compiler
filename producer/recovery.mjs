@@ -14,6 +14,11 @@ export function firstIncompleteSemanticStage(state) {
   if (state.stage === 'EDITORIAL') return 'EDITORIAL';
   if (state.stage === 'CONTENT') return 'CONTENT';
   if (state.stage === 'IMAGES') {
+    if(state.images?.mode==='images_pending'){
+      if(state.editorial_bundle?.status!=='complete') throw new Error('pending edition has incomplete editorial checkpoint');
+      if((state.images?.accepted||[]).length!==0) throw new Error('pending figures may not be accepted images');
+      return 'BUNDLE';
+    }
     const accepted = state.images?.accepted || [];
     if (accepted.length < 6) return 'IMAGES';
     return 'BUNDLE';
@@ -51,6 +56,8 @@ export function assertProgressPreserved(previous, next) {
     throw new Error('completed editorial bundle was invalidated');
   }
 
+  if(previous.images?.mode && next.images?.mode!==previous.images.mode) throw new Error('image representation changed after edition binding');
+  if(previous.images?.mode==='images_pending' && (next.images?.accepted||[]).length!==0) throw new Error('pending edition cannot acquire accepted images');
   if(previous.images?.strategy && next.images?.strategy !== previous.images.strategy) throw new Error('image strategy changed after edition binding');
   if(previous.images?.strategy_contract_version && next.images?.strategy_contract_version !== previous.images.strategy_contract_version) throw new Error('image strategy contract changed after edition binding');
 

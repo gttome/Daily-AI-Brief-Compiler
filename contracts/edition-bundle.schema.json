@@ -154,99 +154,133 @@
       "minItems": 6,
       "maxItems": 6,
       "items": {
-        "type": "object",
-        "required": [
-          "path",
-          "sha256",
-          "git_blob_sha",
-          "accepted"
-        ],
-        "properties": {
-          "story_id": {
-            "type": "string"
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "path",
+              "sha256",
+              "git_blob_sha",
+              "accepted"
+            ],
+            "properties": {
+              "story_id": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "git_blob_sha": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "accepted": {
+                "const": true
+              },
+              "accepted_locked": {
+                "type": "boolean"
+              },
+              "image_system": {
+                "type": "string"
+              },
+              "asset_version": {
+                "type": "string"
+              },
+              "cache_key": {
+                "type": "string"
+              },
+              "supersedes": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "packet_path": {
+                "type": "string"
+              },
+              "packet_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "admission_path": {
+                "type": "string"
+              },
+              "admission_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "raw_receipt_path": {
+                "type": "string"
+              },
+              "raw_receipt_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "final_receipt_path": {
+                "type": "string"
+              },
+              "final_receipt_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "structural_gate_path": {
+                "type": "string"
+              },
+              "structural_gate_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "visual_review_path": {
+                "type": "string"
+              },
+              "visual_review_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "set_review_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "visual_review": {
+                "type": "object"
+              }
+            }
           },
-          "path": {
-            "type": "string"
-          },
-          "sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "git_blob_sha": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{40}$"
-          },
-          "accepted": {
-            "const": true
-          },
-          "accepted_locked": {
-            "type": "boolean"
-          },
-          "image_system": {
-            "type": "string"
-          },
-          "asset_version": {
-            "type": "string"
-          },
-          "cache_key": {
-            "type": "string"
-          },
-          "supersedes": {
-            "type": [
-              "object",
-              "null"
-            ]
-          },
-          "packet_path": {
-            "type": "string"
-          },
-          "packet_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "admission_path": {
-            "type": "string"
-          },
-          "admission_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "raw_receipt_path": {
-            "type": "string"
-          },
-          "raw_receipt_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "final_receipt_path": {
-            "type": "string"
-          },
-          "final_receipt_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "structural_gate_path": {
-            "type": "string"
-          },
-          "structural_gate_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "visual_review_path": {
-            "type": "string"
-          },
-          "visual_review_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "set_review_sha256": {
-            "type": "string",
-            "pattern": "^[a-f0-9]{64}$"
-          },
-          "visual_review": {
-            "type": "object"
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "story_id",
+              "status",
+              "accepted",
+              "placeholder_id",
+              "alt"
+            ],
+            "properties": {
+              "story_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "const": "pending"
+              },
+              "accepted": {
+                "const": false
+              },
+              "placeholder_id": {
+                "const": "illustration-pending-1200x630-v1"
+              },
+              "alt": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
           }
-        }
+        ]
       }
     },
     "producer_receipt": {
@@ -281,6 +315,30 @@
           "preserve_original": {
             "const": true
           }
+        }
+      }
+    },
+    "image_representation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "placeholder_id",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "status": {
+          "const": "images_pending"
+        },
+        "placeholder_id": {
+          "const": "illustration-pending-1200x630-v1"
+        },
+        "width": {
+          "const": 1200
+        },
+        "height": {
+          "const": 630
         }
       }
     }
@@ -378,6 +436,75 @@
                 },
                 "image_system": {
                   "const": "d1_cloud_image_studio"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "image_representation"
+        ],
+        "properties": {
+          "image_representation": {
+            "required": [
+              "status"
+            ],
+            "properties": {
+              "status": {
+                "const": "images_pending"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "image_system"
+          ]
+        },
+        "properties": {
+          "images": {
+            "items": {
+              "required": [
+                "story_id",
+                "status",
+                "accepted",
+                "placeholder_id",
+                "alt"
+              ],
+              "properties": {
+                "accepted": {
+                  "const": false
+                },
+                "status": {
+                  "const": "pending"
+                },
+                "placeholder_id": {
+                  "const": "illustration-pending-1200x630-v1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "images": {
+            "items": {
+              "required": [
+                "path",
+                "sha256",
+                "git_blob_sha",
+                "accepted"
+              ],
+              "properties": {
+                "accepted": {
+                  "const": true
                 }
               }
             }
