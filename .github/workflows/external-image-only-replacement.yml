@@ -83,10 +83,19 @@ jobs:
           test -s "history/site/image-jobs/$TARGET_DATE/job.json"
           test -s history/site/image-jobs/index.json
           SOURCE_SHA="$(node -e "const j=require('./history/site/image-jobs/$TARGET_DATE/job.json');console.log(j.source.commit_sha)")"
+          SOURCE_BRANCH="$(node -e "const j=require('./history/site/image-jobs/$TARGET_DATE/job.json');console.log(j.source.branch)")"
           [[ "$SOURCE_SHA" =~ ^[a-f0-9]{40}$ ]]
-          git fetch origin "+refs/heads/shadow/$TARGET_DATE:refs/remotes/origin/shadow/$TARGET_DATE"
+          case "$SOURCE_BRANCH" in
+            "shadow/$TARGET_DATE") ;;
+            shadow/2026-10-09-owner-placeholder-20261009)
+              test "$TARGET_DATE" = 2026-10-09
+              node -e "const j=require('./history/site/image-jobs/2026-10-09/job.json');if(j.source.one_time_owner_recovery!==true||j.source.unattended_schedule_proven!==false)process.exit(1)"
+              ;;
+            *) echo 'Unapproved image job source branch'; exit 1 ;;
+          esac
+          git fetch origin "+refs/heads/$SOURCE_BRANCH:refs/remotes/origin/$SOURCE_BRANCH"
           git cat-file -e "$SOURCE_SHA^{commit}"
-          git merge-base --is-ancestor "$SOURCE_SHA" "refs/remotes/origin/shadow/$TARGET_DATE"
+          git merge-base --is-ancestor "$SOURCE_SHA" "refs/remotes/origin/$SOURCE_BRANCH"
           git worktree add --detach original "$SOURCE_SHA"
           test -s "original/shadow-runs/$TARGET_DATE/edition-bundle.json"
           test -s "original/shadow-runs/$TARGET_DATE/compiler-state.json"
