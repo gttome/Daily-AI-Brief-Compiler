@@ -32,10 +32,10 @@ test('feature gate checks explicit owner decision and exact image job/index/mani
   assert.equal(r.result,'GO_RECORDED_NOT_DEPLOYED');
   assert.equal(r.release2_accepted,false);
   for(const field of ['release1_genuine_scheduled_placeholder_verified','release1_owner_acceptance_recorded','external_six_image_package_owner_approved','external_work_cold_start_proven','exact_saved_pixel_review_proven']){
-    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/real_owner_approval_absent/);
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
   }
-  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:null}),/real_owner_approval_absent/);
-  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,manifest_sha256:'f'.repeat(64)}}),/real_owner_approval_absent/);
+  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:null}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
+  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,manifest_sha256:'f'.repeat(64)}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,index:{...f.index,editions:[{...f.index.editions[0],status:'RELEASED_VERIFIED'}]}}),/index_job_digest_or_status_mismatch/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,index:{...f.index,editions:[]}}),/no_published_pending_index_job/);
 });
@@ -57,4 +57,27 @@ test('replacement workflow is manual-only; protected exact-head gates before any
   const verify=yml.indexOf('verify-external-image-live.mjs');
   assert.ok(gate>0&&deploy>gate&&verify>deploy);
   assert.doesNotMatch(yml,/github\.com\/gttome\/Daily-AI-Brief(?:\/|["'])/);
+});
+
+test('image replacement still requires a new specific owner GO but supports the exceptional published Oct9 job',()=>{
+  const f=inputs(),job=JSON.parse(f.jobBytes.toString('utf8'));
+  job.source.branch='shadow/2026-10-09-owner-placeholder-20261009';
+  job.source.one_time_owner_recovery=true;
+  job.source.unattended_schedule_proven=false;
+  const jobBytes=Buffer.from(JSON.stringify(job)+'\n'),index=structuredClone(f.index);
+  index.editions[0].job_sha256=sha(jobBytes);
+  const m=JSON.parse(f.manifestBytes.toString('utf8'));
+  m.job_sha256=sha(jobBytes);
+  const manifestBytes=Buffer.from(JSON.stringify(m)+'\n');
+  const approval={...f.approval,job_sha256:sha(jobBytes),manifest_sha256:sha(manifestBytes),
+    release1_genuine_scheduled_placeholder_verified:false,release1_owner_acceptance_recorded:false,
+    oct9_separate_owner_recovery_published_and_live_verified:true,
+    oct9_manual_placeholder_publication_owner_accepted:true};
+  const args={jobBytes,index,manifestBytes,approval};
+  const ok=verifyExternalImageReleaseGo(args);
+  assert.equal(ok.result,'GO_RECORDED_NOT_DEPLOYED');
+  assert.equal(ok.separately_owner_authorized_oct9_exception,true);
+  assert.equal(ok.unattended_release1_accepted,false);
+  assert.throws(()=>verifyExternalImageReleaseGo({...args,approval:{...approval,oct9_manual_placeholder_publication_owner_accepted:false}}),/scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
+  assert.throws(()=>verifyExternalImageReleaseGo({...args,approval:{...approval,external_six_image_package_owner_approved:false}}),/real_owner_approval_absent/);
 });
