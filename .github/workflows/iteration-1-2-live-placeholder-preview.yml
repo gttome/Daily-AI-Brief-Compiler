@@ -1,4 +1,4 @@
-name: Iteration 1.2 isolated production-reader preview
+name: Iteration 1.2 isolated reader build and history verification
 
 on:
   push:
@@ -20,9 +20,6 @@ jobs:
   verify-preview-and-preserve-history:
     runs-on: ubuntu-latest
     timeout-minutes: 25
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -136,70 +133,10 @@ jobs:
           pathlib.Path('build/proof/preview-files.json').write_text(json.dumps({'result':'PASS','source':'pinned 2026-10-08 editorials only','release_accepted':False,'historical_files_preserved':n,'preview_routes':rows,'public_preview_url':newpublic+'/briefs/2026-10-08/'},indent=2)+'\n')
           print('HISTORICAL_FILES_UNCHANGED',n,'ADDITIVE_PREVIEW_FILES',len(rows))
           PY
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: build/public
-      - id: deployment
-        uses: actions/deploy-pages@v4
-      - name: Independently recheck live preview and all last-good public bytes
-        run: |
-          python3 - <<'PY'
-          import json,pathlib,hashlib,urllib.request,concurrent.futures,time
-          ROOT='https://gttome.github.io/Daily-AI-Brief-Compiler/'
-          previous=json.loads(pathlib.Path('build/proof/preflight.json').read_text())
-          built=json.loads(pathlib.Path('build/proof/preview-files.json').read_text())
-          urls=[(ROOT+x['route'],x['sha256']) for x in previous['objects']]
-          prefix='preview/iteration-1-2/'
-          urls += [(ROOT+prefix+x['route'],x['sha256']) for x in built['preview_routes']]
-          def inspect(x):
-            url,h=x
-            q=urllib.request.Request(url,headers={'Cache-Control':'no-cache','User-Agent':'CompilerReleaseOnePreviewReadback'})
-            with urllib.request.urlopen(q,timeout=27) as f:
-              data=f.read()
-              if f.status!=200:raise RuntimeError('HTTP failure '+url+' '+str(f.status))
-            found=hashlib.sha256(data).hexdigest()
-            if found!=h:raise RuntimeError('SHA mismatch '+url+' expected '+h+' found '+found)
-            return {'url':url,'status':200,'sha256':found,'bytes':len(data)}
-          for attempt in range(1,15):
-            try:
-              with concurrent.futures.ThreadPoolExecutor(max_workers=7) as pool: rows=list(pool.map(inspect,urls))
-              break
-            except Exception as e:
-              if attempt==14:raise
-              print('propagation-wait',attempt,str(e));time.sleep(12)
-          result={'result':'PASS','release_accepted':False,'historical_verified':len(previous['objects']),'oct8_protected_objects_verified':17,'preview_verified':len(built['preview_routes']),'browser_check_pending':True,'pages_deployment':'real'}
-          result['pages']=rows
-          pathlib.Path('build/proof/live-check.json').write_text(json.dumps(result,indent=2)+'\n')
-          print('LIVE_PREVIEW_AND_HISTORY_EXACT_BYTES_PASS',len(rows))
-          PY
-      - name: Browser inspect preview desktop/mobile and capture evidence
-        run: |
-          BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
-          test -n "$BROWSER" || { echo 'Required real browser unavailable'; exit 1; }
-          URL='https://gttome.github.io/Daily-AI-Brief-Compiler/preview/iteration-1-2/briefs/2026-10-08/'
-          "$BROWSER" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=1440,1000 --virtual-time-budget=4500 --screenshot="$PWD/build/proof/desktop.png" "$URL" > /dev/null 2>&1
-          "$BROWSER" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=390,844 --virtual-time-budget=4500 --screenshot="$PWD/build/proof/mobile.png" "$URL" > /dev/null 2>&1
-          "$BROWSER" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --window-size=1440,1000 --virtual-time-budget=4500 --dump-dom "$URL" > build/proof/browser-dom.html 2>/dev/null
-          test -s build/proof/desktop.png
-          test -s build/proof/mobile.png
-          grep -q 'Illustration pending for' build/proof/browser-dom.html
-          grep -q 'research-ledger-header' build/proof/browser-dom.html
-          python3 - <<'PY'
-          from pathlib import Path
-          import struct
-          p=Path('build/proof')
-          for kind in ('desktop','mobile'):
-            data=(p/(kind+'.png')).read_bytes()
-            if data[:8]!=bytes.fromhex('89504e470d0a1a0a'):raise RuntimeError('Chrome screenshot invalid')
-            print(kind,'screenshot pixel dimensions',struct.unpack('>II',data[16:24]))
-          PY
-      - name: Upload proof-only receipts and browser captures
-        if: always()
+      - name: Upload nondeployment proof receipts
         uses: actions/upload-artifact@v4
         with:
-          name: iteration-1-2-hosted-preview-proof
-          path: |
-            build/proof/
+          name: iteration-1-2-unhosted-build-only
+          path: build/proof/
           retention-days: 14
-          if-no-files-found: warn
+          if-no-files-found: error
