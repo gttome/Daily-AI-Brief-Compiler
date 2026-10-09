@@ -61,15 +61,21 @@ test('replacement workflow is manual-only; protected exact-head gates before any
 
 test('image replacement still requires a new specific owner GO but supports the exceptional published Oct9 job',()=>{
   const f=inputs(),job=JSON.parse(f.jobBytes.toString('utf8'));
+  job.edition_date='2026-10-09';
+  job.execution_id='compiler-2026-10-09-r1';
   job.source.branch='shadow/2026-10-09-owner-placeholder-20261009';
   job.source.one_time_owner_recovery=true;
   job.source.unattended_schedule_proven=false;
   const jobBytes=Buffer.from(JSON.stringify(job)+'\n'),index=structuredClone(f.index);
+  index.editions[0].edition_date='2026-10-09';
+  index.editions[0].job_url='https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/shadow-pages-history/site/image-jobs/2026-10-09/job.json';
   index.editions[0].job_sha256=sha(jobBytes);
   const m=JSON.parse(f.manifestBytes.toString('utf8'));
+  m.edition_date='2026-10-09';
+  m.execution_id=job.execution_id;
   m.job_sha256=sha(jobBytes);
   const manifestBytes=Buffer.from(JSON.stringify(m)+'\n');
-  const approval={...f.approval,job_sha256:sha(jobBytes),manifest_sha256:sha(manifestBytes),
+  const approval={...f.approval,edition_date:'2026-10-09',execution_id:job.execution_id,job_sha256:sha(jobBytes),manifest_sha256:sha(manifestBytes),
     release1_genuine_scheduled_placeholder_verified:false,release1_owner_acceptance_recorded:false,
     oct9_separate_owner_recovery_published_and_live_verified:true,
     oct9_manual_placeholder_publication_owner_accepted:true};
