@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gttome.github.io/Daily-AI-Brief-Compiler/contracts/d1-qualification-evidence-v2.schema.json",
+  "title": "D1 continuous six-image quality plus independent recovery evidence v2",
+  "description": "Prospective: six premium images are reviewed consecutively; resume is a separately observed, post-quality read-only recovery exercise. Historical v1 requires its own forced two-lock interruption and is unchanged.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "proof_id",
+    "qualification_mode",
+    "state",
+    "manifest",
+    "handoff",
+    "porter",
+    "request",
+    "source_evidence",
+    "attempt_log",
+    "admission",
+    "quality_contract",
+    "runtime",
+    "canonical_reviews",
+    "binary_readback",
+    "resume",
+    "set_review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "daily-compiler-d1-qualification-evidence-v2"
+    },
+    "proof_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state": {
+      "$ref": "#/$defs/reference"
+    },
+    "manifest": {
+      "$ref": "#/$defs/reference"
+    },
+    "handoff": {
+      "$ref": "#/$defs/reference"
+    },
+    "porter": {
+      "$ref": "#/$defs/reference"
+    },
+    "request": {
+      "$ref": "#/$defs/reference"
+    },
+    "source_evidence": {
+      "$ref": "#/$defs/reference"
+    },
+    "attempt_log": {
+      "$ref": "#/$defs/reference"
+    },
+    "admission": {
+      "$ref": "#/$defs/reference"
+    },
+    "quality_contract": {
+      "$ref": "#/$defs/reference"
+    },
+    "runtime": {
+      "$ref": "#/$defs/reference"
+    },
+    "canonical_reviews": {
+      "$ref": "#/$defs/reference"
+    },
+    "binary_readback": {
+      "$ref": "#/$defs/reference"
+    },
+    "resume": {
+      "$ref": "#/$defs/reference",
+      "description": "Immutable reference to separate recovery exercise with two actual Work task invocations and unchanged accepted image locks."
+    },
+    "set_review": {
+      "$ref": "#/$defs/reference"
+    },
+    "qualification_mode": {
+      "const": "continuous_six_independent_recovery",
+      "description": "No forced two-image pause; independent recovery remains a separate evidence gate."
+    }
+  },
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Repository-relative immutable artifact; traversal and outside-checkout symlinks are rejected."
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$",
+          "description": "Required on request and resume checkpoint references; binary readback records also require the exact immutable download commit."
+        }
+      }
+    }
+  }
+}
