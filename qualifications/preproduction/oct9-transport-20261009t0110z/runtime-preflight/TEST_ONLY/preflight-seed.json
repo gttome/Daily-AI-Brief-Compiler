@@ -1,0 +1,47 @@
+{
+  "schema_version": "daily-compiler-d1-runtime-preflight-seed-v1",
+  "scope": "TEST_ONLY_CODE_INTEGRATION_NO_NATIVE_CALLS",
+  "status": "NOT_RUN",
+  "seed_request_commit": "06a692fe03d21c7519f917f1bb6d26d3f2bcd36f",
+  "bound_state_commit": "e6dcc9cb7476e63e68be205b352deaa4e920371a",
+  "engine_sha": "26cb3d4fa4e447d11cc149b87927775f8db55d62",
+  "expected_head": null,
+  "invocation_id": null,
+  "context_id": null,
+  "observed_at": null,
+  "source_commit": "4a304c23d6ab1bdd7b842c059a157889dc4dbfdf",
+  "request_path": "qualifications/preproduction/oct9-transport-20261009t0110z/runtime-preflight/TEST_ONLY/request.json",
+  "request_sha256": "75730dbcd2e371b32a93b5a3a9bb29cb182d0a8699719185376781bd3e73574e",
+  "source_evidence_path": "qualifications/preproduction/oct9-transport-20261009t0110z/runtime-preflight/TEST_ONLY/source-evidence.json",
+  "source_evidence_sha256": "f3b55330928960687756f866f8487f2635fc0a3aa99883ce031e36a456f51cb6",
+  "permitted_event": {
+    "event_id": "TEST_ONLY_serializer_roundtrip",
+    "type": "INFRASTRUCTURE_BLOCKED",
+    "story_id": "crystal-stability-active-learning",
+    "context_id": null,
+    "invocation_id": null,
+    "observed_at": null,
+    "data": {
+      "reason": "TEST_ONLY_SERIALIZER_ROUNDTRIP_NO_NATIVE_CALL",
+      "external_outcome": "NOT_INVOKED"
+    }
+  },
+  "expected": {
+    "native_generations": 0,
+    "accepted_assets": 0,
+    "quality_attempts_consumed": 0,
+    "writes": 3,
+    "changed_paths": [
+      "qualifications/preproduction/oct9-transport-20261009t0110z/runtime-preflight/TEST_ONLY/execution-state.json",
+      "qualifications/preproduction/oct9-transport-20261009t0110z/runtime-preflight/TEST_ONLY/attempt-log.json",
+      "qualifications/preproduction/oct9-transport-20261009t0110z/runtime-preflight/TEST_ONLY/evidence/events/TEST_ONLY_serializer_roundtrip.json"
+    ],
+    "duplicate_identical_event": "UNCHANGED",
+    "stale_expected_head": "REJECTED_BEFORE_COMMIT"
+  },
+  "actual_capability_proven": false,
+  "pixel_review_synthetics": false,
+  "native_generation_forbidden": true,
+  "qualification_evidence": false,
+  "binding_scope": "ACTUAL_PUBLISHED_REQUEST_STATE_AND_PROTECTED_ENGINE; INVOCATION_CONTEXT_TIME_AND_EXPECTED_HEAD_REMAIN_RUNTIME_OBSERVATIONS"
+}
