@@ -44,15 +44,15 @@ test('A fabricated, missing or same-invocation recovery cannot activate the cont
     ['missing recovery readback',f=>{delete f.data.resume.after.immutable_readback;}],
     ['same invocation',f=>{f.data.resume.after.invocation_id=f.data.resume.before.invocation_id;}],
     ['recovery during image production',f=>{f.data.resume.before.observed_at='2026-10-08T01:20:00Z';}],
-    ['restarted task has changed prompt',f=>{f.write('TEST_ONLY/qualification/independent/after-task.json',{...f.data.__afterTask,prompt_sha256:'f'.repeat(64)});}],
+    ['restarted task has changed prompt',(f,data)=>{f.write('TEST_ONLY/qualification/independent/after-task.json',{...data.afterTask,prompt_sha256:'f'.repeat(64)});}],
     ['regenerated one accepted image',f=>{f.data.resume.regenerated_accepted_images=1;}],
     ['missing actual scheduler witness',f=>{f.data.resume.before.task_readback={};}],
     ['missing completed lock',f=>{f.data.attempt_log.stories[0].accepted_locked=false;f.data.state.specification_binding.attempt_log_sha256=canonicalSha(f.data.attempt_log);}],
   ];
   for(const [label,fn] of cases)await t.test(label,()=>{
     const f=makeD1QualificationFixture();try{
-      const data=upgrade(f);f.data.__afterTask=data.afterTask;
-      fn(f);f.refresh();assert.notDeepEqual(check(f),[],label);
+      const data=upgrade(f);
+      fn(f,data);f.refresh();assert.notDeepEqual(check(f),[],label);
     }finally{f.cleanup();}
   });
 });
