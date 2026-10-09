@@ -1,6 +1,6 @@
 # Daily AI Brief — Image Specification for an External App
 
-**Revision:** 2026-10-09, aligned with external-app prompt revision 4.  
+**Revision:** 2026-10-09, aligned with external-app prompt revision 5.  
 **Operational repository:** `gttome/Daily-AI-Brief-Compiler`.  
 **Scope:** image quality and review for an existing app that reads the prompt and GitHub, then returns six PNGs to GitHub. No Work chat, fresh-chat proof, specific provider or app build is required.
 
@@ -120,9 +120,11 @@ Provide substantive alt text describing the image's actual mechanism and main re
 
 Verify PNG signature/structure, **1200 × 630 actual pixels**, 8-bit RGB or RGBA, noninterlaced encoding, byte count, SHA-256 and Git blob SHA-1. Finish any permitted export before review and locking; no stretching or clipping labels. Review the committed bytes again after GitHub readback.
 
-Use the current authorized attempt bound, otherwise at most four generation attempts per story. Validation failures before generation and transport failures without generation consume no generation attempt. Wrong-subject contamination requires a fresh clean story-only request. Do not assume historical repair epochs allow extra attempts. Keep rejected candidates and honest defect records.
+The executing session, including the Work session when used, is responsible for correcting failed images until all six pass every individual and set-level requirement. The owner's current instruction supersedes the earlier four-attempt cap and bounded-repair stopping rules. There is no fixed quality-attempt limit. Record each defect, make a targeted correction, save a new version and re-review the entire image for defects and regressions. If the set fails, correct the responsible images and repeat individual and full-set review. Do not weaken criteria, invent facts, fabricate PASS results or ask the owner to perform routine fixes.
 
-Accepted image bytes remain immutable. Transport or CI retries reuse them. A legitimate replacement needs an explicit new asset identity and review; do not silently overwrite history.
+Wrong-subject contamination requires a fresh clean story-only request. Preserve rejected candidates and honest defect records. Actual tool quotas, unavailable capabilities, authentication or source-data blockers leave the task BLOCKED_INCOMPLETE with a resume checkpoint; ordinary fixable review failures require correction and continued work. This instruction does not authorize new paid services or bypassing platform limits.
+
+Accepted image bytes remain immutable. Transport or CI retries reuse them. If later review discovers a real defect in an earlier accepted candidate, create a corrected successor with a new version/hash/commit, record the superseded identity, and re-review it and the set. Preserve the old bytes and review history. Unaffected passing images are reused.
 
 ## 9. Single-story generator instruction
 
@@ -161,4 +163,5 @@ Start at [EXTERNAL_APP_HANDOFF.md](https://github.com/gttome/Daily-AI-Brief-Comp
 
 Return six PNGs on the authorized unprotected staging branch at `external-image-packages/YYYY-MM-DD/images/<exact-story-id>.png`, plus `external-image-packages/YYYY-MM-DD/manifest.json` and referenced review records. Derive the date, IDs and paths from that job. Use the [full prompt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md) for discovery, immutable hashes, packaging and completion instructions.
 
-The external app stops at staging. Publication and owner approval remain separate Compiler responsibilities.
+**The session is not complete until all six passing PNGs are successfully uploaded to GitHub and independently read back from the exact final commit, with matching hashes, story paths and committed manifest/review evidence.** A partial upload, six local images or a defects report is incomplete. The session must finish routine upload repairs using the accepted bytes. Report STAGED_COMPLETE only after six individual PASS results, set-level PASS and verified 6/6 GitHub delivery. Publication and owner approval remain separate Compiler responsibilities.
+

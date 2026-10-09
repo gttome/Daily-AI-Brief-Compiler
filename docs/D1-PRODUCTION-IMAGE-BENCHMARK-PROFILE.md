@@ -38,3 +38,10 @@ Targets: six composition signatures; at least four layouts, four diagram grammar
 Actual saved-pixel inspection must establish article match, correct relationships and scope, readable labels, mechanism detail, hierarchy, professional finish and differentiation. Provide descriptive alt text. No people/humanoids, photorealism, logos, invented UI, generic AI symbols or low-quality fallback.
 
 Inspect the exact committed PNGs after readback and bind each review to its image hash and story. Technical validity, a hash or an overall score is not visual acceptance. The historical October 3–7 review in the prompt is calibration evidence, not a set of automatically passing templates.
+
+## Required correction and delivery loop
+
+The executing session owns corrective work. Generate/edit, save, review actual pixels, record defects, correct and repeat full review until all six satisfy every applicable individual and set-level criterion. No fixed quality-attempt cap applies. Set-level failures require correction of the responsible images and renewed individual/set review. Preserve unaffected passing images; a necessary correction to an earlier accepted candidate is a versioned successor with old bytes and review history retained.
+
+**Completion requires all six passing PNGs uploaded to the specified GitHub paths, independently read back from the exact final commit, and matched to committed manifest/review hashes.** Partial uploads and local-only files are incomplete. The session continues routine correction and upload work; real tool/access/quota/source blockers are reported as incomplete with a resume checkpoint, without fabricated PASS results or bypassing limits.
+

@@ -10,6 +10,8 @@ The app reads the prompt and GitHub's eligible six-story job, creates and review
 
 Readable explanatory text is mandatory. Article-fit infographic styling is permitted with the established quality requirements. See the [image specification](docs/external-app/Perfect_Image_Specification.md), [variation guidance](docs/external-app/Image_Variation_After_Action.md) and [benchmark](docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md).
 
+The executing image session must correct and re-review failures until all six images pass every individual and set-level requirement. The session is complete only after all six final PNGs are uploaded to GitHub and exact-commit readbacks verify the matching manifest/review evidence. There is no fixed quality-attempt stopping rule; genuine capability blockers remain incomplete with saved progress.
+
 ## Repository and release boundaries
 
 Operate only in `gttome/Daily-AI-Brief-Compiler`; do not modify `gttome/Daily-AI-Brief`. The external app stages on an unprotected branch. Publication remains a separate owner-authorized protected Compiler release with exact-head CI, image-only scope, preserved historical assets and independent live-byte verification.
@@ -24,3 +26,4 @@ This interface change does not alter schedules, reopen terminal runs, rewrite ed
 - [Operational learning](docs/OPERATIONAL-LEARNING.md)
 
 `EXTERNAL_WORK_HANDOFF.md` is a compatibility pointer. Retained D0/D1 proof documents describe historical implementations and do not impose external-app platform requirements.
+

@@ -10,6 +10,8 @@ An existing external app reads the [image-production prompt](https://github.com/
 
 The Compiler does not require a ChatGPT Work chat, a fresh conversation, a browser session, a particular image provider, a Work porter or a new app architecture. Story-only generator inputs are a quality requirement inside the app, not a chat-platform requirement. No Work-session receipt is required. Do not fabricate `actual_work_session` or other platform claims.
 
+The executing session, including a Work session when used, owns completion: correct and re-review failed images until all six pass every applicable individual and set-level requirement, then successfully upload and read back all six exact PNGs and the matching manifest/reviews from GitHub. There is no fixed quality-attempt cap. Routine review or upload failures require corrective work, not an early completion report. Genuine tool/access/quota/source-data blockers leave the assignment BLOCKED_INCOMPLETE with saved progress.
+
 The daily publisher remains independent of this optional post-publication work. Image-app failure must not delay, restart or reschedule the Brief. Do not build an app, revive retired image lanes, reopen terminal executions or modify `gttome/Daily-AI-Brief`.
 
 ## 2. Read the actual job from GitHub
@@ -58,10 +60,15 @@ The Compiler checks the package, not the app's internal platform. `external_oper
 
 Read the exact committed blobs back, and independently retrieve the raw files at the exact commit SHA. Verify PNG structure, 1200 × 630 actual pixels, 8-bit RGB/RGBA noninterlaced encoding, byte counts, SHA-256 and blob identities. Require six unique story bindings and six distinct image hashes. Reinspect those persisted pixels against their actual articles and exact label lists. Never overwrite accepted/locked images or regenerate them because transport failed.
 
-## 5. Return the package and stop
+## 5. Complete only after all six pass and are verified in GitHub
 
 Return the edition/job URL, staging branch and commit URL, six PNG links, manifest link, actual per-image and set-review results, exact-byte verification, and any blockers. Do not claim a live six-image pass from a synthetic test.
+
+The session is not complete until all six individual reviews and the final set review are PASS, all six PNG uploads and exact-commit readbacks are verified, and the matching manifest/review records are committed. Supply a six-row table with story ID, final committed image URL, SHA-256, review PASS and verified GitHub delivery. Partial uploads and local-only outputs remain incomplete.
+
+When a later review reveals a real defect in an accepted candidate, preserve its bytes/history, create an explicitly versioned corrected successor with a supersedes record, and re-review the changed image and set. Reuse unaffected passing images and retry transport with their existing bytes. Never fabricate approval or silently replace historical accepted evidence.
 
 Staging is not publication. The app does not merge, deploy, dispatch the replacement workflow, create owner-approval records or change schedules. A separately authorized Compiler release retains the existing owner approval, protected PR, exact-head CI, image-only replacement, historical preservation and independent live-byte verification gates. The release must preserve editorial content and the 17 protected October 8 public objects.
 
 `EXTERNAL_WORK_HANDOFF.md` remains a compatibility pointer to this document. Its historical name does not impose a Work requirement.
+
