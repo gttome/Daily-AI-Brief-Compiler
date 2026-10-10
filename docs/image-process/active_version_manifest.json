@@ -6,21 +6,31 @@
   "pages_history_before_evidence_pr": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
   "static_config_path": "contracts/image-process-versions.json",
   "selected_flags": {
-    "image_release_authority_policy": "legacy_go_v1",
-    "image_starter_contract_version": "rev6",
-    "image_target_capture_policy": "legacy",
-    "image_status_sync_mode": "baseline",
-    "image_verify_only_enabled": false,
-    "image_additional_first_pass_qc": "baseline"
+    "image_release_authority_policy": "bounded_starter_v7",
+    "image_starter_contract_version": "rev7",
+    "image_target_capture_policy": "element24_v1",
+    "image_status_sync_mode": "public_sync_v2",
+    "image_verify_only_enabled": true,
+    "image_additional_first_pass_qc": "enriched_v1"
   },
   "compatible_pairs": [
     "legacy_go_v1:rev6",
     "bounded_starter_v7:rev7"
   ],
   "mismatch_result": "RELEASE_ADMISSION_HOLD",
-  "revision7_starter_active": false,
+  "revision7_starter_active": true,
   "new_edition_generation_attempts": 0,
   "live_24_target_semantic_review": "UNPROVEN",
   "github_existing_workflow_dispatch_capability": "UNAVAILABLE_IN_THIS_CONNECTED_TOOLSET",
-  "next_operation": "Run protected nonpublishing historical rollback drills before feature activation; align all selected Rev7 docs, validator and workflow."
+  "next_operation": "Use supported authenticated workflow dispatch for already-published Oct10 metadata-only sync, verify public receipt and all Oct8 hashes, and resolve 390px mobile label legibility with a separately reviewed future correction without regenerating accepted historical images.",
+  "main_after_activation": "5678bb3d789dafad6114c00ebd5a97aaa50d093b",
+  "selector_compatibility": "COMPATIBLE_BOUNDED_STARTER_V7_REV7",
+  "actual_full_production_qualification": "BLOCKED_INCOMPLETE",
+  "verified_historic_24_captures": 24,
+  "mobile_390px_small_text_legibility": "FAIL",
+  "semantic_pixel_24_review": "INCOMPLETE",
+  "public_metadata_status": "STATUS_SYNC_PENDING",
+  "workflow_dispatch_capability": "UNAVAILABLE_IN_CONNECTED_GITHUB_TOOLSET",
+  "separate_manual_owner_release_go_required": false,
+  "existing_workflow_dispatch_preflight_required": true
 }
