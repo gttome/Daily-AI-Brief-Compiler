@@ -1,0 +1,79 @@
+name: premium-image-activation-qualification
+# Read-only historic Oct10 qualification; no images generated or publication.
+on:
+  pull_request:
+    paths:
+      - .github/workflows/premium-image-activation-qualification.yml
+      - scripts/capture-image-element24.mjs
+      - scripts/verify-external-image-postrelease.mjs
+      - tests/image-element24-i3.test.mjs
+permissions:
+  contents: read
+jobs:
+  historic-six-image-capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check protected Pages-history identity and original accepted source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          test "$(git rev-parse refs/remotes/origin/shadow-pages-history)" = "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          mkdir -p build/qualification
+          git worktree add --detach build/qualification/history "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          test -s build/qualification/history/site/image-jobs/2026-10-10/release.json
+          test -s build/qualification/history/site/image-jobs/2026-10-10/job.json
+          test -s external-image-packages/2026-10-10/manifest.json
+      - name: Check exact six accepted PNG hashes and 12 live article pairs
+        run: |
+          node scripts/verify-external-image-postrelease.mjs \
+            build/qualification/history/site/image-jobs/2026-10-10/job.json \
+            build/qualification/history/site/image-jobs/index.json \
+            build/qualification/history/site/image-jobs/2026-10-10/release.json \
+            external-image-packages/2026-10-10/manifest.json \
+            build/qualification/postrelease.json
+      - name: Confirm all 17 October 8 public history objects are identical
+        run: node scripts/audit-oct8-live.mjs build/qualification/oct8-live.json
+      - name: Capture exact 24 loaded article-image regions without generation
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BINARY="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$CHROME_BINARY"
+          npm install --no-save playwright-core@1.56.1
+          CHROME_BINARY="$CHROME_BINARY" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import {chromium} from 'playwright-core';
+          import {captureImageTargetEvidence,evaluateImageTargetEvidence} from './scripts/capture-image-element24.mjs';
+          const job=JSON.parse(fs.readFileSync('build/qualification/history/site/image-jobs/2026-10-10/job.json','utf8'));
+          const manifest=JSON.parse(fs.readFileSync('external-image-packages/2026-10-10/manifest.json','utf8'));
+          const captured=await captureImageTargetEvidence({job,manifest,outDir:'build/qualification/captures',chromium});
+          const status=evaluateImageTargetEvidence({targets:captured.targets,rows:captured.rows,reviews:[]});
+          if(captured.rows.length!==24||status.captured_targets!==24||status.result!=='BLOCKED_INCOMPLETE')
+             throw Error('expected_24_saved_captures_and_unreviewed_status');
+          fs.writeFileSync('build/qualification/capture_status.json',JSON.stringify(status,null,2)+'\n');
+          console.log(JSON.stringify({evidence:'24_CAPTURED_NOT_SEMANTICALLY_REVIEWED',captured:captured.rows.length,real_mobile:12,real_desktop:12,pixel_review_result:'UNPROVEN'}));
+          NODE
+      - name: Fail closed if protected history advanced during evidence capture
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          echo "NO_HISTORIC_OBJECT_OR_PNG_WRITE"
+      - name: Archive actual pixel crops, exact URLs, hashes and status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oct10-premium-image-24-target-capture-qualification
+          path: build/qualification/
+          retention-days: 30
+          if-no-files-found: warn
