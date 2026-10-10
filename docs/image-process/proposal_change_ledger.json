@@ -9,7 +9,7 @@
   "observed_pages_history_sha": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
   "initial_editorial_publisher_modified": false,
   "accepted_history_assets_modified": false,
-  "revision7_active": false,
+  "revision7_active": true,
   "active_selectors": {
     "schema_version": "external-image-process-versions-v1",
     "image_release_authority_policy": "bounded_starter_v7",
@@ -20,7 +20,7 @@
     "image_additional_first_pass_qc": "enriched_v1"
   },
   "safe_cutover_condition": "AFTER_ALL_RELEVANT_EdITIONS_TERMINAL_OR_QUIESCENT_WITH_PROTECTED_CI",
-  "version_compatibility": "legacy_go_v1:rev6 selected; bounded_starter_v7:rev7 supported only when both selected; all mismatches HOLD",
+  "version_compatibility": "bounded_starter_v7:rev7 SELECTED_COMPATIBLE; isolated I1 or I2 inverse puts future release on HOLD",
   "source_receipts_preserved": [
     "external-compiler-image-job-v1",
     "external-compiler-image-package-v1",
@@ -94,10 +94,13 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING",
+      "actual_public_status": "PUBLIC_STATUS_VERIFIED",
       "protected_activation_pr_head_sha": "eb484af40cfac5bd2e2aeb3d85877a79c2e2d589",
       "activation_exact_head_ci": "PASS",
-      "no_original_edition_changes": true
+      "no_original_edition_changes": true,
+      "latest_public_metadata_status": "PUBLIC_STATUS_VERIFIED",
+      "latest_reader_viewer": "TWELVE_MOBILE_FULL_RESOLUTION_VIEWERS_LIVE_VERIFIED",
+      "mobile_inline_fine_text_not_inferred_pass": true
     },
     {
       "proposal_id": "I2",
@@ -146,10 +149,13 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING",
+      "actual_public_status": "PUBLIC_STATUS_VERIFIED",
       "protected_activation_pr_head_sha": "ba6a7be4fea0f4c9c7835c26d3a5e4a25f91d069",
       "activation_exact_head_ci": "PASS",
-      "no_original_edition_changes": true
+      "no_original_edition_changes": true,
+      "latest_public_metadata_status": "PUBLIC_STATUS_VERIFIED",
+      "latest_reader_viewer": "TWELVE_MOBILE_FULL_RESOLUTION_VIEWERS_LIVE_VERIFIED",
+      "mobile_inline_fine_text_not_inferred_pass": true
     },
     {
       "proposal_id": "I3",
@@ -203,10 +209,13 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING",
+      "actual_public_status": "PUBLIC_STATUS_VERIFIED",
       "protected_activation_pr_head_sha": "3735d9de8fbd645db8a329a9fd1560fdbbe1377d",
       "activation_exact_head_ci": "PASS",
-      "no_original_edition_changes": true
+      "no_original_edition_changes": true,
+      "latest_public_metadata_status": "PUBLIC_STATUS_VERIFIED",
+      "latest_reader_viewer": "TWELVE_MOBILE_FULL_RESOLUTION_VIEWERS_LIVE_VERIFIED",
+      "mobile_inline_fine_text_not_inferred_pass": true
     },
     {
       "proposal_id": "I4",
@@ -260,7 +269,7 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING",
+      "actual_public_status": "PUBLIC_STATUS_VERIFIED",
       "protected_activation_pr_head_sha": "0859906245eb8ef4df9302c57260bee04a8f4b40",
       "activation_exact_head_ci": "PASS",
       "no_original_edition_changes": true,
@@ -277,7 +286,10 @@
           "merge_sha": "2e91dd73d12f7e50f5d17f33ee311542f31a37a2",
           "active": "public_sync_v2"
         }
-      ]
+      ],
+      "latest_public_metadata_status": "PUBLIC_STATUS_VERIFIED",
+      "latest_reader_viewer": "TWELVE_MOBILE_FULL_RESOLUTION_VIEWERS_LIVE_VERIFIED",
+      "mobile_inline_fine_text_not_inferred_pass": true
     },
     {
       "proposal_id": "I5",
@@ -326,10 +338,13 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING",
+      "actual_public_status": "PUBLIC_STATUS_VERIFIED",
       "protected_activation_pr_head_sha": "66404303b202a8738357f71a53869e8711883209",
       "activation_exact_head_ci": "PASS",
-      "no_original_edition_changes": true
+      "no_original_edition_changes": true,
+      "latest_public_metadata_status": "PUBLIC_STATUS_VERIFIED",
+      "latest_reader_viewer": "TWELVE_MOBILE_FULL_RESOLUTION_VIEWERS_LIVE_VERIFIED",
+      "mobile_inline_fine_text_not_inferred_pass": true
     }
   ],
   "activation_as_of_main_sha": "5678bb3d789dafad6114c00ebd5a97aaa50d093b",
@@ -340,8 +355,13 @@
   "actual_24_target_capture_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38079454643",
   "actual_24_target_capture_artifact_id": 11680195736,
   "actual_capture_targets": 24,
-  "mobile_legibility_result": "FAIL_AT_NATIVE_390PX_12_CONTEXTS",
-  "public_status": "STATUS_SYNC_PENDING",
-  "workflow_dispatch_route": "UNAVAILABLE_IN_THIS_GITHUB_CONNECTION",
-  "full_process_completion": "BLOCKED_INCOMPLETE"
+  "mobile_legibility_result": "INLINE_390PX_FINE_PRINT_SMALL_FULLSCREEN_NATIVE_1200PX_VIEWER_AVAILABLE",
+  "public_status": "PUBLIC_STATUS_VERIFIED",
+  "workflow_dispatch_route": "OPTIONAL_MANUAL_API_UNAVAILABLE_PROTECTED_MAIN_MANIFEST_MERGE_TRIGGER_ADDED_PR150_FIXED_PR152_NOT_GENUINELY_USED",
+  "full_process_completion": "BLOCKED_INCOMPLETE",
+  "current_live_mobile_viewer": "TWELVE_MOBILE_FULL_RESOLUTION_VIEWERS_LIVE_VERIFIED",
+  "pages_history_after_mobile_viewer_release_sha": "436c299569d6e457831e7f5383adbf2f9d0ac432",
+  "latest_public_status_sync_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38081183267",
+  "latest_mobile_figure_viewer_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38087354318",
+  "current_operation_result": "READER_AND_STATUS_READY_NEW_IMAGE_OPERATOR_ROUNDTRIP_NOT_YET_PROVEN"
 }
