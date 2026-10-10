@@ -1,4 +1,4 @@
-# October 10 image-only exception — awaiting owner decision
+# October 10 image-only exception — owner approved
 
 The six accepted images are already merged in PR #118. Revision 6 compatibility
 was repaired and merged in PR #119. The existing GitHub browser is signed in and
@@ -15,14 +15,14 @@ The original release run 38014934604 succeeded. An independent preflight verifie
 all seven original October 10 pages and all 17 protected October 8 public objects.
 These facts establish a published continued edition, not unattended Release 1.
 
-## Concrete proposed authorization
+## Owner-approved authorization
 
 Authorize one-time image-only replacement for the existing, continued October 10
 publication using only the six accepted images and manifest from PR #118. Accept
 that existing publication as the base for this replacement without certifying
 unattended scheduling or Scheduled Release 1 acceptance.
 
-The proposed exception is hard-bound to:
+The owner-approved exception is hard-bound to:
 
 - Edition: `2026-10-10`.
 - Execution: `daily-compiler-shadow-2026-10-10`.
@@ -39,7 +39,13 @@ objects, image-only changes and independent live verification remain required.
 The workflow, permissions, schedules, article content and all accepted PNG bytes
 are unchanged. No later edition can use this exception.
 
-The candidate owner-release-approval.json records WAITING and false exception
-authorization. It cannot pass the release gate. No release has been dispatched.
-The draft must not be merged or dispatched until the owner specifically accepts
-this proposed exception. Approval does not claim personal artwork inspection.
+The owner replied `yes` at 2026-10-09T22:51:36-05:00 to the specific question
+asking approval of this one-time October 10 image-only exception while accepting
+the continued publication without claiming unattended scheduling. The exact
+question, response, timestamp and constraints are recorded in
+owner-release-approval.json. The former pending record remains in immutable
+commit 1486773818b70b252d279bd32b7487ab2f031e2b.
+
+Proceed through required exact-head CI, normal protected merge and the existing
+manual release workflow. Approval does not claim personal artwork inspection.
+This document is authorization evidence, not evidence that deployment completed.

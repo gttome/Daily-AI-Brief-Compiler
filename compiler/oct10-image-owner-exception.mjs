@@ -1,4 +1,4 @@
-// Proposed single-job exception. An explicit owner decision is required.
+// Single-job exception explicitly approved by the owner for October 10.
 // This admits only the already reviewed October 10 image package; it does not
 // certify unattended scheduling, alter the frozen job/bundle, or apply later.
 export const OCT10_IMAGE_EXCEPTION = Object.freeze({
