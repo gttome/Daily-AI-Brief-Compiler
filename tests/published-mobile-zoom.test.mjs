@@ -46,3 +46,23 @@ test('full-size mobile accessibility preserves pixels; no thumbnail-regeneration
  assert.match(css,/overflow:auto/);
  assert.doesNotMatch(browser,/image_gen|render-shadow-images|regenerat(e|ion)\s*\(/i);
 });
+
+test('reader canonical source carries the same fullsize zoom assets into every future daily compile',()=>{
+ const assets=[
+  ['assets/premium-image-zoom.js','vendor/production-reader/snapshot/assets/js/premium-image-zoom.js'],
+  ['assets/premium-image-zoom.css','vendor/production-reader/snapshot/assets/css/premium-image-zoom.css']
+ ];
+ for(const [preview,canonical] of assets)
+   assert.deepEqual(fs.readFileSync(preview),fs.readFileSync(canonical),
+     'future reader build must preserve identical tested JS/CSS bytes');
+ const layout=fs.readFileSync('vendor/production-reader/snapshot/_layouts/default.html','utf8');
+ for(const filename of ['premium-image-zoom.js','premium-image-zoom.css']){
+   assert.ok(layout.includes('/assets/'+(filename.endsWith('.js')?'js/':'css/')+filename));
+ }
+ assert.match(layout, /\{\% if page.reader_release \%\}.*premium-image-zoom\.js/);
+ assert.match(layout, /\{\% if page.reader_release \%\}.*premium-image-zoom\.css/);
+ const js=fs.readFileSync(assets[0][1],'utf8');
+ assert.match(js,/dab-edition-20/);
+ assert.match(js,/img\.insertAdjacentElement|figure\.insertAdjacentElement/);
+ assert.doesNotMatch(js,/illustration-pending\.svg/);
+});
