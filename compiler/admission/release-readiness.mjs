@@ -38,7 +38,7 @@ export function evaluateCompilerReadiness(input={}, {selector='v1'}={}){
     blockers.push('C1_SCHEDULER_NOT_PROVEN');
  if(scheduler.exactly_one_enabled_primary!==true || scheduler.legacy_tasks_disabled!==true)
     blockers.push('ONE_PRODUCER_NOT_PROVEN');
- if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(requestedEdition||'') ||
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(requestedEdition||'') ||
     input.same_date_guard?.unique===false || input.same_date_guard?.authority!=='live_repo_branch_readback' ||
     input.same_date_guard?.target_edition!==requestedEdition)
     blockers.push('SAME_DATE_GUARD_UNPROVEN');
