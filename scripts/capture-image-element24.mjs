@@ -112,7 +112,7 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
       meta.naturalWidth!==1200||meta.naturalHeight!==630||
       meta.box.width<150||meta.box.height<75||meta.overflow||
       meta.box.x<0||meta.box.y<0||meta.box.x+meta.box.width>vp.width+1||
-      meta.box.y+meta.box.height>vp.height+1)fail('image_area_or_size_invalid:'+target.target_id);
+      meta.box.y+meta.box.height>vp.height+1)fail('image_area_or_size_invalid:'+target.target_id+':'+JSON.stringify({viewport:vp,actual:meta}));
     const imgResponse=await fetchImpl(meta.src);
     if(imgResponse.status!==200||hash(Buffer.from(await imgResponse.arrayBuffer()))!==target.expected_sha256)
       fail('live_image_hash_mismatch:'+target.target_id);
