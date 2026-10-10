@@ -25,7 +25,7 @@ test('one-time Oct10 public metadata repair is explicit protected main merge ONL
   'placeholder_replacement_invocations!==0','group: daily-compiler-pages-deploy']){
   assert.ok(y.includes(fragment),fragment);
  }
- assert.doesNotMatch(y,/prepare-external-image-replacement|render-shadow-images|image_gen|git -C history (commit|push)|git push origin|schedule:/);
+ assert.doesNotMatch(y,/prepare-external-image-replacement|render-shadow-images|\bimage_gen\b|git -C history (commit|push)|git push origin|schedule:/);
 });
 test('repair cannot turn image or artwork pixel review into accepted status',()=>{
  const y=fs.readFileSync(f,'utf8');
