@@ -53,3 +53,10 @@ test('C5: unknown receipt versions and empty input fail closed',()=>{
  assert.equal(normalizeReadinessReceipt({schema_version:'unknown',status:'GO'}).status,'UNATTENDED_NO_GO');
  assert.equal(evaluateCompilerReadiness().status,'UNATTENDED_NO_GO');
 });
+
+test('C5: missing uniqueness observation is NO_GO, never an implicit success',()=>{
+ const x=evaluateCompilerReadiness({...good,same_date_guard:{authority:'live_repo_branch_readback',
+   target_edition:'2026-10-11'}});
+ assert.equal(x.status,'UNATTENDED_NO_GO');
+ assert.ok(x.blockers.includes('SAME_DATE_GUARD_UNPROVEN'));
+});
