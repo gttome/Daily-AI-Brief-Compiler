@@ -1,5 +1,5 @@
 name: external-image-only-replacement
-# Manual-only owner-approved workflow: no schedule or external image-generation dependency.
+# Manual-only authenticated existing image release; version-compatible I1/I2 authority; no schedule.
 on:
   workflow_dispatch:
     inputs:
@@ -100,15 +100,24 @@ jobs:
           test -s "original/shadow-runs/$TARGET_DATE/edition-bundle.json"
           test -s "original/shadow-runs/$TARGET_DATE/compiler-state.json"
           test -s "external-image-packages/$TARGET_DATE/manifest.json"
-          test -s "external-image-packages/$TARGET_DATE/owner-release-approval.json"
-      - name: Explicit owner GO and unmodified original source/manifest binding
+          # Resolve ONE static, version-compatible authority contract without
+          # rewriting any previously published job or historical GO receipt.
+          STARTER_VERSION="$(node --input-type=module -e "import {readImageProcessVersions,imageReleaseCompatibility} from './scripts/image-process-versions.mjs';let v=readImageProcessVersions();if(imageReleaseCompatibility(v).result!=='COMPATIBLE')process.exit(42);process.stdout.write(v.image_starter_contract_version)")"
+          if [ "$STARTER_VERSION" = rev7 ]; then
+            ASSIGNMENT_FILE="external-image-packages/$TARGET_DATE/starter-assignment.json"
+          else
+            ASSIGNMENT_FILE="external-image-packages/$TARGET_DATE/owner-release-approval.json"
+          fi
+          test -s "$ASSIGNMENT_FILE"
+          echo "IMAGE_ASSIGNMENT_FILE=$ASSIGNMENT_FILE" >> "$GITHUB_ENV"
+      - name: Version-compatible bounded assignment or historical GO with immutable source/manifest binding
         run: |
           mkdir -p build/evidence
           node scripts/check-external-image-release-gates.mjs \
             "history/site/image-jobs/$TARGET_DATE/job.json" history/site/image-jobs/index.json \
             "external-image-packages/$TARGET_DATE/manifest.json" \
-            "external-image-packages/$TARGET_DATE/owner-release-approval.json" \
-            build/evidence/owner-go.json
+            "$IMAGE_ASSIGNMENT_FILE" \
+            build/evidence/image-release-admission.json
       - name: Verify six real Git PNG bytes and exact immutable remote commit readback
         run: |
           node scripts/stage-external-image-package.mjs \
