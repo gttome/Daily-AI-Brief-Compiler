@@ -30,8 +30,18 @@ export function selectExternalImageAppDocuments(config=readImageProcessVersions(
    const file=path.join(root,value);
    if(!fs.existsSync(file))throw Error('missing_selected_external_image_doc:'+value);
    const body=fs.readFileSync(file,'utf8');
-   if(!body.includes('Revision '+(config.image_starter_contract_version==='rev7'?'7':'6')))
+   const selectedRevision=config.image_starter_contract_version==='rev7'?'7':'6';
+   // The original v6 handoff was never titled "Revision 6"; historical
+   // documents are read without rewriting or backfilling their content.
+   if((selectedRevision==='7'||key!=='handoff')&&!body.includes('Revision '+selectedRevision))
      throw Error('wrong_selected_external_image_doc_version:'+value);
+  }
+  if(config.image_starter_contract_version==='rev6'){
+   const starter=fs.readFileSync(path.join(root,docs.starter),'utf8');
+   const handoff=fs.readFileSync(path.join(root,docs.handoff),'utf8');
+   if(!starter.includes(docs.full_prompt)||!starter.includes(docs.handoff)||
+     !handoff.includes(docs.full_prompt))
+      throw Error('rev6_historic_starter_full_handoff_not_aligned');
   }
   if(config.image_starter_contract_version==='rev7'){
    const starter=fs.readFileSync(path.join(root,docs.starter),'utf8');
