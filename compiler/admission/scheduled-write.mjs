@@ -14,8 +14,14 @@ export async function evaluateScheduledWrite(record={},{
     !record.invocation_id.trim() || record.origin!=='scheduled'){
   return decision('UNPROVEN','SCHEDULED_INVOCATION_UNVERIFIED');
  }
- if(!/^proof\\/compiler-c3-[a-z0-9-]+$/.test(record.branch||'') ||
-    !/^proof\\/[a-zA-Z0-9_.-]+\\.(json|txt)$/.test(record.path||'') ||
+ const validBranch = typeof record.branch==='string' &&
+   record.branch.startsWith('proof/compiler-c3-') &&
+   /^[a-z0-9-]+$/.test(record.branch.slice('proof/compiler-c3-'.length));
+ const validPath = typeof record.path==='string' &&
+   record.path.startsWith('proof/') &&
+   /^[a-zA-Z0-9_.-]+$/.test(record.path.slice('proof/'.length)) &&
+   (record.path.endsWith('.json') || record.path.endsWith('.txt'));
+ if(!validBranch || !validPath ||
     record.repository!=='gttome/Daily-AI-Brief-Compiler'){
   return decision('UNPROVEN','UNSAFE_OR_NONPROOF_TARGET');
  }
