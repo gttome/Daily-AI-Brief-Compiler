@@ -60,17 +60,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Derive exact image-package release inputs from protected merge
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
-            test "$GITHUB_REF" = refs/heads/main
-            test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
-            test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
-            mapfile -t changed < <(git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA")
-            test "${#changed[@]}" -gt 0
-            mapfile -t manifests < <(printf '%s\n' "${changed[@]}" | grep -E '^external-image-packages/20[0-9]{2}-[0-9]{2}-[0-9]{2}/manifest\.json
+      - name: Bind exactly one protected image-package merge without manual dispatch
+        run: node scripts/derive-protected-image-package-release.mjs
+      - name: Resolve selected matching starter, full prompt and handoff
         run: node scripts/select-image-app-contracts.mjs
       - name: Require protected exact-head PR/CI and active no-bypass ruleset
         shell: bash
