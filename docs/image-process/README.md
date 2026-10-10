@@ -2,19 +2,20 @@
 
 **Repository:** gttome/Daily-AI-Brief-Compiler  
 **Baseline:** October 10, 2026 six-image edition; 17 October 8 protected objects  
-**Status:** All feature code merged behind legacy/off selectors; five nonpublishing reversals require the dedicated CI proof to complete
+**Status:** **I1–I5 selected and active in protected main, but full new-image production release qualification is BLOCKED_INCOMPLETE.** See [Oct10 activation and qualification](ACTIVATION_QUALIFICATION_2026-10-10.md).
 
-## Independently merged proposal changes
+## Independently protected code and active selectors
 
-| Feature | PRs | Version selector | Current selected | Available enhanced |
-|---|---|---|---|---|
-| I1 | #130 | `image_release_authority_policy` | `legacy_go_v1` | `bounded_starter_v7` |
-| I2 | #131 | `image_starter_contract_version` | `rev6` | `rev7` |
-| I3 | #132, correction #134 | `image_target_capture_policy` | `legacy` | `element24_v1` |
-| I4 | #133, correction #135 | `image_status_sync_mode` and `image_verify_only_enabled` | `baseline` / `false` | `public_sync_v2` / `true` |
-| I5 | #136 | `image_additional_first_pass_qc` | `baseline` | `enriched_v1` |
+| Feature | Implementation | Activation PR | Selected mode |
+|---|---|---|---|
+| I1 | #130 | [#140](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/140) | `bounded_starter_v7` |
+| I2 | #131 | [#141](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/141) | `rev7` |
+| I3 | #132 / correction #134 | [#142](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/142) | `element24_v1` |
+| I4 verify-only | #133 / correction #135 | [#143](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/143) | `true` |
+| I4 status sync | #133 / correction #135 | [#144](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/144) | `public_sync_v2` |
+| I5 | #136 | [#145](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/145) | `enriched_v1` |
 
-All PRs were individual and merged after protected CI. Code merge is not the same thing as production activation. See [actual SHA/PR ledger](proposal_change_ledger.json) and [active-version manifest](active_version_manifest.json). Revision 7 remains inactive while selectors show `legacy_go_v1:rev6`.
+All activation PRs were individually protected, exact-head CI passed, and all merge SHAs are in the [filled change ledger](proposal_change_ledger.json). I1/I2 have compatible selected Rev7 versions and remain independently reversible. I4 status and verify-only are independent. The [active-version manifest](active_version_manifest.json) mirrors `contracts/image-process-versions.json`.
 
 ## Production and rollback boundary
 
@@ -39,7 +40,7 @@ The selected I-proposal is reversed without altering any other selector. I1 or I
 
 A dedicated path-scoped [workflow](../../.github/workflows/image-postproduction-rollback-drills.yml) reads exact Pages history into a detached worktree, uses the immutable October 10 job, release receipt, six real accepted binary PNGs and manifest, and audits the 17 October 8 objects over live HTTP. It checks all six live image digests and twelve article contexts *before and after* each in-memory selector reversal. The five cases are **RB-I1**, **RB-I2**, **RB-I3**, **RB-I4** (two separate sub-switch inverses), and **RB-I5**. The proof never invokes the original-placeholder replacement function, publishes HTML, generates an image or mutates history.
 
-CI evidence outputs (after the workflow actually passes): `postproduction_rollback_drills.json` and `postproduction_rollback_receipt_dryrun.json`, retained in the Actions artifact named `independent-image-postproduction-rollback-receipts`. A green normal unit test by itself does not establish the live fixture drill result.
+Verified [nonpublishing five-drill Actions PASS](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38075054951) produced: `postproduction_rollback_drills.json` and `postproduction_rollback_receipt_dryrun.json`, retained in the Actions artifact named `independent-image-postproduction-rollback-receipts`. A green normal unit test by itself does not establish the live fixture drill result.
 
 ### Authentic historical proof versus fixture contracts
 
@@ -51,9 +52,11 @@ An actual production rollback requires separate owner direction. After verifying
 
 ## Remaining release capability / quality gates
 
-- Revision 7 selected starter/full prompt/handoff/validator/workflow alignment: **not yet activated**.
-- Actual external application generation/export/GitHub binary upload/workflow dispatch capabilities: **preflight not proven in this session**; connected GitHub tools do not expose dispatch.
-- Twenty-four loaded, exact image-region captures with genuine visual/semantic pixel review: **UNPROVEN**, not 24/24 PASS merely because a screenshot script is present.
-- Public status-sync improvement and verification-only mode: **implemented, default off**, not deployed or independently live-released yet.
+- Selected Rev7 starter, full prompt, handoff, validator and workflow: **ACTIVE, version-compatible**; normal first-edition placeholder publisher unchanged.
+- Actual Oct10 image-region captures: **24/24 completed**, with six live PNG hashes, twelve article pairings and all seventeen October 8 objects verified. [Actual capture proof](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38079454643).
+- At 390px, twelve mobile image contexts show explanatory text too small; semantic 24/24 review remains **BLOCKED_INCOMPLETE**, not fabricated PASS.
+- Public image release-index mirror still `STATUS_SYNC_PENDING` pending an authorized existing metadata-only workflow dispatch and independent public readback. I4 is selected but **was not run live** in this activation conversation.
+- Actual six-image creation/export/upload/remote binary-readback/dispatch full route has **not** been qualified under the executing external app in this conversation. The connected Github toolset has no direct `workflow_dispatch` method. Preflight must fail closed before producing any new images.
+- Rollback drills remain PASSED on historical already illustrated assets; a later live rollback requires independent authority. No accepted art regeneration, production Work/Codex/paid API, added schedules, initial editorial publisher delay or forced history update.
 
-No production Work, Codex, paid API, schedule additions, original editorial-publisher delay or live rollback has been authorized by these fixture drills.
+Full disposition, owner-safe next operations and exact workflow inputs: [Activation Qualification Report](ACTIVATION_QUALIFICATION_2026-10-10.md).
