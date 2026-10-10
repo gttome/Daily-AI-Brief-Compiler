@@ -1,0 +1,53 @@
+{
+  "schema_version": "compiler-scheduled-admission-incident-v1",
+  "observation_type": "independent_post_run_read_only_audit",
+  "observer_context": "interactive_chat_not_scheduled_primary",
+  "edition_date": "2026-10-11",
+  "intended_trigger_local": "2026-10-10 11:00:00 America/Chicago",
+  "primary_task_id": "6ac9868490b88191ac91f84d5f555994",
+  "scheduler_evidence": {
+    "last_run_time_utc": "2026-10-10T16:00:26.944119Z",
+    "enabled_at_observation": true,
+    "recurrence": "FREQ=DAILY;BYHOUR=19;BYMINUTE=15;BYSECOND=0",
+    "one_off_added": "2026-10-10T11:00:00 America/Chicago",
+    "task_run_result_content_available_to_observer": false,
+    "actual_host_mode": null,
+    "actual_invocation_id": null
+  },
+  "github_evidence": {
+    "protected_main_sha": "ef623aefc1a4d31e86335c5ebc1e74fec29f1975",
+    "no_oct11_shadow_branch_visible": true,
+    "no_oct11_state_readback": true,
+    "no_oct11_compiler_dispatch_visible": true,
+    "c3_disposable_branch": "proof/compiler-c3-scheduled-20261010",
+    "pre_trigger_create_commit": {
+      "sha": "0fd65d8e8ffded1473555d05fbd8eefe83330902",
+      "timestamp_utc": "2026-10-10T15:58:06Z"
+    },
+    "pre_trigger_update_commit": {
+      "sha": "62ff81e9e763f7ab50eef05d3d792eae9ecec26b",
+      "timestamp_utc": "2026-10-10T15:58:27Z"
+    },
+    "c3_proof_file_value": "SECOND_GITHUB_UPDATE_VALUE",
+    "c3_proof_claim": "INTERACTIVE_ORIGIN_UNDETERMINED_NOT_VALID_SCHEDULED_CONTEXT_PROOF",
+    "c3_ci_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38065762985"
+  },
+  "gate_assessment": {
+    "c1": "PASS_SCHEDULER_ENABLED",
+    "c2": "UNPROVEN_HOST_ATTESTATION_UNAVAILABLE",
+    "c3": "UNPROVEN_SCHEDULED_SAME_CONTEXT",
+    "oct11_semantic_state": "NO_AUTHORITATIVE_DURABLE_CHECKPOINT_FOUND",
+    "executor_state": "SCHEDULED_TRIGGER_RECORDED_ACTUAL_RUNTIME_OUTCOME_UNKNOWN",
+    "readiness": "UNATTENDED_NO_GO",
+    "october11_publication": "NOT_VERIFIED"
+  },
+  "prohibited_inferences": [
+    "Pre-trigger Git commits are not proof of the 11:00 scheduled task's GitHub capabilities",
+    "Scheduler last_run_time is not evidence of ordinary-chat mode, editorial progress or terminal success",
+    "Missing GitHub branch does not establish whether a scheduled task is still running"
+  ],
+  "next_safe_action": "Inspect the actual 11:00 task's run result in Scheduled > Previous runs or another first-party run-result surface. Determine affirmative actual execution mode and whether a GitHub plugin action was available or refused. Do not start competing editorial production. Preserve the existing 19:15 Primary and all published history.",
+  "changes_to_production": 0,
+  "publishing_performed": false,
+  "images_generated": 0
+}
