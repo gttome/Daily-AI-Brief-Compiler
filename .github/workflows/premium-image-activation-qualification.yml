@@ -74,6 +74,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: oct10-premium-image-24-target-capture-qualification
-          path: build/qualification/
+          path: |
+            build/qualification/postrelease.json
+            build/qualification/oct8-live.json
+            build/qualification/capture_status.json
+            build/qualification/captures/captures.json
+            build/qualification/captures/*.png
           retention-days: 30
           if-no-files-found: warn
