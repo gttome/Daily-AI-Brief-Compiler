@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {slotsFor} from './prepare-external-image-replacement.mjs';
 const BASE='https://gttome.github.io/Daily-AI-Brief-Compiler/';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fail=x=>{throw Error('image_postrelease:'+x);};
@@ -27,12 +28,12 @@ export function bindAlreadyReleasedJob({jobBytes,index,release,manifest}){
  const byRelease=new Map(release.images.map(x=>[x.story_id,x]));
  const byManifest=new Map(manifest.images.map(x=>[x.story_id,x]));
  const stories=[];
- if(byRelease.size!==6||byManifest.size!==6)fail('duplicate_story');
+ const canonicalSlots=slotsFor({stories:job.stories.map(row=>row.complete_compiler_story)});
+ if(byRelease.size!==6||byManifest.size!==6||canonicalSlots.size!==6)fail('duplicate_story');
  for(const story of job.stories){
    const row=byRelease.get(story.story_id),m=byManifest.get(story.story_id);
    if(!row||!m||row.sha256!==m.sha256||row.bytes!==m.bytes||
-     !row.route?.startsWith('briefs/images/'+date+'/dab-edition-'+date+'-')||
-     !row.route.endsWith('.png')||m.alt_text?.length<10||m.accepted_locked!==true||
+     row.route!=='briefs/images/'+date+'/dab-edition-'+date+'-'+canonicalSlots.get(story.story_id)+'.png'||m.alt_text?.length<10||m.accepted_locked!==true||
      m.visual_review?.inspected_png_sha256!==row.sha256||
      !story.permanent_url?.startsWith(BASE+'stories/'+date+'/'))
      fail('immutable_published_image_pair_mismatch:'+story.story_id);
