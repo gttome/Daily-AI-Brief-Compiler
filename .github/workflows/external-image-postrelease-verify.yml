@@ -1,0 +1,137 @@
+name: external-image-postrelease-verify
+# Manual-only verify/metadata-sync; no new schedule, generation or owner GO.
+on:
+  workflow_dispatch:
+    inputs:
+      edition_date:
+        description: Already-illustrated edition date
+        type: string
+        required: true
+      expected_history_head:
+        description: Exact current Pages history SHA
+        type: string
+        required: true
+      mode:
+        description: Nonpublishing verify-only or same-content metadata sync
+        type: choice
+        options:
+          - verify_only
+          - sync_metadata
+        required: true
+        default: verify_only
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+jobs:
+  postrelease:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      TARGET_DATE: ${{ inputs.edition_date }}
+      EXPECTED_HISTORY_HEAD: ${{ inputs.expected_history_head }}
+      MODE: ${{ inputs.mode }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Require selected flags and exact main/history heads
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$TARGET_DATE" =~ ^20[0-9]{2}-[0-9]{2}-[0-9]{2}$ ]]
+          [[ "$EXPECTED_HISTORY_HEAD" =~ ^[a-f0-9]{40}$ ]]
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+          if [ "$MODE" = sync_metadata ]; then
+            node --input-type=module -e "import {readImageProcessVersions} from './scripts/image-process-versions.mjs';let v=readImageProcessVersions();if(v.image_status_sync_mode!=='public_sync_v2'||v.image_verify_only_enabled!==true)process.exit(42)"
+          else
+            node --input-type=module -e "import {readImageProcessVersions} from './scripts/image-process-versions.mjs';if(readImageProcessVersions().image_verify_only_enabled!==true)process.exit(42)"
+          fi
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          test "$(git rev-parse refs/remotes/origin/shadow-pages-history)" = "$EXPECTED_HISTORY_HEAD"
+          git worktree add --detach history "$EXPECTED_HISTORY_HEAD"
+          test -s "history/site/image-jobs/$TARGET_DATE/release.json"
+          test -s "history/site/image-jobs/$TARGET_DATE/job.json"
+          test -s "external-image-packages/$TARGET_DATE/manifest.json"
+          mkdir -p build/evidence/image-verify-only
+      - name: Verify six previously accepted bytes, 12 article pairings and public status
+        run: |
+          node scripts/verify-external-image-postrelease.mjs \
+            "history/site/image-jobs/$TARGET_DATE/job.json" \
+            history/site/image-jobs/index.json \
+            "history/site/image-jobs/$TARGET_DATE/release.json" \
+            "external-image-packages/$TARGET_DATE/manifest.json" \
+            build/evidence/image-verify-only/before.json
+          node scripts/audit-oct8-live.mjs build/evidence/image-verify-only/oct8-live.json
+      - name: Capture optional 24 image-area targets, without claiming semantic review
+        shell: bash
+        run: |
+          set -euo pipefail
+          POLICY="$(node --input-type=module -e "import {readImageProcessVersions} from './scripts/image-process-versions.mjs';process.stdout.write(readImageProcessVersions().image_target_capture_policy)")"
+          if [ "$POLICY" = element24_v1 ]; then
+            npm install --no-save playwright-core@1.56.1
+            BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+            test -n "$BROWSER"
+            CHROME_BINARY="$BROWSER" node scripts/capture-image-element24.mjs \
+              "history/site/image-jobs/$TARGET_DATE/job.json" \
+              "external-image-packages/$TARGET_DATE/manifest.json" \
+              build/evidence/image-verify-only/image-element24
+          fi
+      - name: Verify history has not changed before optional metadata-only redeploy
+        if: env.MODE == 'sync_metadata'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$EXPECTED_HISTORY_HEAD"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+          # Deploy current approved history/site as-is: never restore placeholders.
+      - uses: actions/configure-pages@v5
+        if: env.MODE == 'sync_metadata'
+      - uses: actions/upload-pages-artifact@v3
+        if: env.MODE == 'sync_metadata'
+        with:
+          path: history/site
+          name: image-metadata-sync-${{ github.run_id }}
+      - id: deployment
+        if: env.MODE == 'sync_metadata'
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: image-metadata-sync-${{ github.run_id }}
+      - name: Verify metadata and live assets again after optional deployment
+        if: env.MODE == 'sync_metadata'
+        shell: bash
+        run: |
+          set -euo pipefail
+          result=1
+          for attempt in 1 2 3 4 5; do
+            node scripts/verify-external-image-postrelease.mjs \
+              "history/site/image-jobs/$TARGET_DATE/job.json" \
+              history/site/image-jobs/index.json \
+              "history/site/image-jobs/$TARGET_DATE/release.json" \
+              "external-image-packages/$TARGET_DATE/manifest.json" \
+              build/evidence/image-verify-only/after.json
+            if node -e "let a=require('./build/evidence/image-verify-only/after.json');if(a.public_status.result!=='PUBLIC_STATUS_VERIFIED')process.exit(1)"; then
+              result=0
+              break
+            fi
+            sleep 10
+          done
+          exit "$result"
+      - name: Archive factual verification-only and public-sync evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: external-image-postrelease-verify-evidence
+          path: build/evidence/image-verify-only/
+          retention-days: 30
+          if-no-files-found: warn
