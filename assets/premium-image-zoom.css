@@ -1,0 +1,15 @@
+/* Full-resolution premium-figure readability. Does not change source PNGs. */
+.premium-image-enlarge-controls{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.1rem;margin:10px 0 24px}
+.premium-image-enlarge-button{border:1px solid #8b4b34;background:#fffaf3;color:#5f2f1e;border-radius:7px;padding:10px 15px;font:700 14px/1.35 Arial,sans-serif;cursor:pointer}
+.premium-image-open-original{font:600 13px/1.45 Arial,sans-serif}
+.premium-image-enlarge-button:hover{background:#f3e6d6}
+.premium-image-enlarge-button:focus-visible,.premium-image-viewer button:focus-visible,.premium-image-viewer a:focus-visible,.premium-image-viewer-viewport:focus-visible{outline:3px solid #1260b0;outline-offset:3px}
+.premium-image-viewer{box-sizing:border-box;border:1px solid #d1c8b9;background:#fff;color:#202820;border-radius:12px;padding:12px;max-width:min(96vw,1500px);width:96vw;max-height:94dvh;overflow:hidden}
+.premium-image-viewer::backdrop{background:rgba(12,23,31,.76)}
+.premium-image-viewer-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 18px;font:700 15px/1.4 Arial,sans-serif}
+.premium-image-viewer-toolbar a{margin-left:auto;font-weight:500}
+.premium-image-viewer-toolbar button{border:1px solid #8b4b34;background:white;border-radius:6px;padding:6px 12px;cursor:pointer}
+.premium-image-viewer-help{font:400 13px/1.45 Arial,sans-serif;margin:10px 0;color:#39483c}
+.premium-image-viewer-viewport{box-sizing:border-box;overflow:auto;max-height:calc(94dvh - 138px);max-width:100%;border:1px solid #d8d8d8;background:#fff;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;scrollbar-width:auto}
+.premium-image-viewer .premium-image-full-resolution{display:block!important;width:1200px!important;min-width:1200px!important;max-width:none!important;height:630px!important;min-height:630px!important;max-height:none!important;object-fit:fill}
+@media(max-width:600px){.premium-image-enlarge-controls{margin:9px 0 22px}.premium-image-enlarge-button{font-size:15px;padding:12px 14px}.premium-image-viewer{padding:8px;width:98vw;max-width:98vw;max-height:95dvh}.premium-image-viewer-toolbar{font-size:14px}.premium-image-viewer-toolbar a{margin:0}.premium-image-viewer-help{font-size:12px}.premium-image-viewer-viewport{max-height:calc(95dvh - 152px)}}

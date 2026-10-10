@@ -1,0 +1,65 @@
+name: premium-mobile-fullsize-viewer-qualification
+# PR only: preview and browser-proof one already illustrated edition, never deploy.
+on:
+  pull_request:
+    paths:
+      - assets/premium-image-zoom.js
+      - assets/premium-image-zoom.css
+      - scripts/stage-published-mobile-zoom.mjs
+      - tests/published-mobile-zoom.test.mjs
+      - tests/published-mobile-zoom-playwright.mjs
+      - .github/workflows/premium-mobile-fullsize-viewer-qualification.yml
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch exact existing October10 protected history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          test "$(git rev-parse refs/remotes/origin/shadow-pages-history)" = "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          mkdir -p build/proof
+          git worktree add --detach build/history "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+      - name: Stage seven source-safe HTML additions and two zoom assets in temporary fixture
+        run: |
+          node scripts/stage-published-mobile-zoom.mjs \
+            build/history/site build/proof/site build/proof/staging-receipt.json
+          node scripts/audit-oct8-live.mjs build/proof/oct8-live.json
+      - name: Verify twelve full-resolution mobile viewer paths without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save playwright-core@1.56.1
+          CHROME_BINARY="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          test -n "$CHROME_BINARY"
+          CHROME_BINARY="$CHROME_BINARY" node tests/published-mobile-zoom-playwright.mjs build/proof/site build/proof
+      - name: Assert immutable Pages history remains exactly pinned
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          echo "NO_ACCEPTED_PNG_OR_PAGES_HISTORY_CHANGE"
+      - name: Archive twelve mobile browser proof crops and receipts only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-resolution-mobile-premium-diagram-qualification
+          path: |
+            build/proof/staging-receipt.json
+            build/proof/oct8-live.json
+            build/proof/zoom-browser-receipt.json
+            build/proof/mobile-*.png
+          retention-days: 30
+          if-no-files-found: warn
