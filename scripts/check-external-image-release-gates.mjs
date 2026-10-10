@@ -131,7 +131,7 @@ export function verifyImageReleaseAdmission({jobBytes,index,manifestBytes,assign
     !Number.isFinite(Date.parse(a.observed_at))||
     a.owner_personal_artwork_review_claimed!==false||
     (a.conversation_url!==null&&a.conversation_url!==undefined&&
-      !/^https:\\/\\/chatgpt\\.com\\//.test(a.conversation_url)))
+      !a.conversation_url.startsWith('https://chatgpt.com/')))
     fail('real_scoped_starter_assignment_absent');
   if(!Array.isArray(a.accepted_images)||a.accepted_images.length!==6)fail('assignment_six_hash_bindings_missing');
   const evidence=new Map(a.accepted_images.map(x=>[x.story_id,x.sha256]));
