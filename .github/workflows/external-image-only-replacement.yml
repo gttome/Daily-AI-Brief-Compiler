@@ -205,6 +205,21 @@ jobs:
           assert all(f.read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')) for f in imgs)
           print('REAL_BROWSER_DOM_AND_SCREENSHOT_CAPTURE_PASS 7 pages 14 captures')
           PY
+      - name: I3 actual 24 target image-area captures (not a subjective review)
+        shell: bash
+        run: |
+          set -euo pipefail
+          POLICY="$(node --input-type=module -e "import {readImageProcessVersions} from './scripts/image-process-versions.mjs';process.stdout.write(readImageProcessVersions().image_target_capture_policy)")"
+          if [ "$POLICY" = element24_v1 ]; then
+            npm install --no-save playwright-core@1.56.1
+            node scripts/capture-image-element24.mjs \
+              "history/site/image-jobs/$TARGET_DATE/job.json" \
+              "external-image-packages/$TARGET_DATE/manifest.json" \
+              build/evidence/image-element24
+            # The saved receipt is CAPTURED_UNREVIEWED until actual pixel
+            # inspection is recorded. Workflow success is NOT 24/24 QA PASS.
+            test -s build/evidence/image-element24/status.json
+          fi
       - name: Write revision/index only after real live checks, preserve source branch and October 8
         shell: bash
         run: |
