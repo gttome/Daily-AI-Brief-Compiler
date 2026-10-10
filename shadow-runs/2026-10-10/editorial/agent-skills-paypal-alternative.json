@@ -1,0 +1,35 @@
+{
+  "schema_version": "daily-compiler-oct10-editorial-source-addendum-v1",
+  "edition_date": "2026-10-10",
+  "status": "SUPPLEMENTAL_VERIFIED_CANDIDATE_NOT_LOCKED",
+  "purpose": "Fresh concrete Agent Skills alternative to the October 8 Gemini Skills article that overlaps the October 9 edition; editorial producer must independently decide selection and preserve exact-one-skills rule.",
+  "suggested_replacement_id": "oct10-a1-gemini-skills",
+  "proposed_id": "oct10-a1-paypal-governed-skills",
+  "focus": "Agents for Everyone",
+  "agent_skills": true,
+  "headline_candidate": "PayPal puts reusable Agent Skills through a human-reviewed trust pipeline",
+  "source": {
+    "publisher": "PayPal Tech Blog Team",
+    "title": "How PayPal is governing agent skills at enterprise scale",
+    "published_at": "2026-10-09",
+    "url": "https://developer.paypal.com/community/blog/agent_skills_at_enterprise_scale/",
+    "retrieved_at": "2026-10-10T01:44:00.000Z",
+    "reading_time_minutes_publisher": 12,
+    "read_evidence": {
+      "status": "verified",
+      "full_source_read": true,
+      "method": "publisher_main_text",
+      "read_at": "2026-10-10T01:44:00.000Z",
+      "scope": "Complete original PayPal October 9 article, including skill package structure, team-owned GitHub repositories, read-only registry discovery and webhooks, blocking security validation, human approval, versioned marketplace release, and future Agent Plugins roadmap."
+    }
+  },
+  "mechanism": "A team packages reusable instructions in SKILL.md and optional references, scripts, and assets in its own GitHub repository. A read-only GitHub App discovers new or changed packages. Each submission passes structure, sensitive-data, harmful-instructions and prompt-injection checks, with duplication advisory, then an administrator approves the version for marketplace distribution. Every revision enters the same review path.",
+  "concrete_practitioner_value": "Use one reusable skill folder for a bounded recurring work procedure; keep source ownership in the functional team; require security checks and an authorized human reviewer for every version before wide distribution.",
+  "caveats": [
+    "PayPal's own design statement; not independently evaluated for effectiveness or security.",
+    "Plugin packaging for roles is a future plan, not established current availability.",
+    "LangChain and Snyk percentages cited by PayPal are third-party claims; avoid repeating without independent validation."
+  ],
+  "cross_edition_overlap": "Different from October 9 Gemini modular-skill announcement: focuses on internal package governance, read-only repository intake, blocking validation, versioning and human approval.",
+  "approved_for_automatic_release": false
+}
