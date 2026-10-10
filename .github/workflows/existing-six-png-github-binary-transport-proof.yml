@@ -1,0 +1,43 @@
+name: existing-six-png-github-binary-transport-proof
+# Nonpublishing authenticated GitHub Git-blob roundtrip of existing Oct10 pixels.
+# Creates no new images, commits, branches, schedules or public Pages changes.
+on:
+  pull_request:
+    paths:
+      - scripts/qualify-existing-six-image-github-transport.mjs
+      - tests/image-github-binary-transport-actual-six.test.mjs
+      - .github/workflows/existing-six-png-github-binary-transport-proof.yml
+permissions:
+  contents: write
+  pull-requests: read
+jobs:
+  existing-six-accepted-png-binary:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Prove all six original accepted PNGs survive API byte upload and raw exact-head readback
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$PR_HEAD_SHA"
+          node scripts/qualify-existing-six-image-github-transport.mjs
+          node --input-type=module -e "import fs from 'node:fs';let r=JSON.parse(fs.readFileSync('build/evidence/nonpublishing-binary-roundtrip/receipt.json','utf8'));if(r.validated_images!==6||r.new_images_generated!==0||r.new_commits_created!==0||r.pages_deployments_started!==0||r.immutable_accepted_images.some(x=>!x.api_roundtrip_match||!x.raw_commit_match))process.exit(1)"
+      - name: Preserve exact real binary API and remote readback evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: six-existing-png-github-blob-remote-roundtrip-proof
+          path: build/evidence/nonpublishing-binary-roundtrip/receipt.json
+          if-no-files-found: warn
+          retention-days: 30
