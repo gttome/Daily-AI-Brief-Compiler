@@ -1,4 +1,5 @@
 import {OCT9_RECOVERY_BRANCH} from '../compiler/oct9-owner-exception.mjs';
+import {isAuthorizedOct10ImageException} from '../compiler/oct10-image-owner-exception.mjs';
 // Pure, fail-closed owner + published-job release admission.
 // This does not schedule the Work app, generate images or declare visual PASS.
 import fs from 'node:fs';
@@ -32,7 +33,9 @@ export function verifyExternalImageReleaseGo({jobBytes,index,manifestBytes,appro
     manifest.images?.length!==6)fail('package_not_original_job_bound');
   // Only this specific, separately owner-approved Oct9 manual publication can substitute
   // for an otherwise-required genuinely scheduled Release 1 publication.
-  const ordinaryRelease1=approval?.release1_genuine_scheduled_placeholder_verified===true &&
+  // The immutable October 10 producer receipt says scheduled_execution=false.
+  // Do not accept its incorrectly inferred job flag as scheduled-run evidence.
+  const ordinaryRelease1=date!=='2026-10-10' && approval?.release1_genuine_scheduled_placeholder_verified===true &&
     approval?.release1_owner_acceptance_recorded===true;
   const explicitOct9Exception=date==='2026-10-09'&&
     job.source?.branch===OCT9_RECOVERY_BRANCH&&
@@ -42,7 +45,8 @@ export function verifyExternalImageReleaseGo({jobBytes,index,manifestBytes,appro
     approval?.oct9_manual_placeholder_publication_owner_accepted===true&&
     approval?.release1_genuine_scheduled_placeholder_verified===false&&
     approval?.release1_owner_acceptance_recorded===false;
-  if(!ordinaryRelease1&&!explicitOct9Exception)fail('scheduled_release_one_or_exact_owner_oct9_exception_not_accepted');
+  const explicitOct10Exception=isAuthorizedOct10ImageException({job,jobSha256:expectedJob,manifestSha256:expectedManifest,approval});
+  if(!ordinaryRelease1&&!explicitOct9Exception&&!explicitOct10Exception)fail('scheduled_release_one_or_exact_owner_exception_not_accepted');
   if(approval?.schema_version!==OWNER_GATE_VERSION||approval.owner_decision!=='GO'||
     approval.approved_by!=='gttome'||approval.scope!=='image_only_postpublication'||
     approval.edition_date!==date||approval.execution_id!==job.execution_id||
@@ -62,6 +66,7 @@ export function verifyExternalImageReleaseGo({jobBytes,index,manifestBytes,appro
     approved_by:'gttome',approved_at:approval.approved_at,decision_evidence_url:approval.owner_decision_evidence_url,
     publisher_scheduler_modified:false,release2_accepted:false,
     separately_owner_authorized_oct9_exception:explicitOct9Exception,
+    separately_owner_authorized_oct10_image_exception:explicitOct10Exception,
     unattended_release1_accepted:ordinaryRelease1};
 }
 function main(){

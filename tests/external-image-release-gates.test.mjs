@@ -32,10 +32,10 @@ test('feature gate checks explicit owner decision and exact image job/index/mani
   assert.equal(r.result,'GO_RECORDED_NOT_DEPLOYED');
   assert.equal(r.release2_accepted,false);
   for(const field of ['release1_genuine_scheduled_placeholder_verified','release1_owner_acceptance_recorded','external_six_image_package_owner_approved','exact_saved_pixel_review_proven','original_oct8_preservation_required']){
-    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_exception_not_accepted/);
   }
-  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:null}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
-  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,manifest_sha256:'f'.repeat(64)}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
+  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:null}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,manifest_sha256:'f'.repeat(64)}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_exception_not_accepted/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,index:{...f.index,editions:[{...f.index.editions[0],status:'RELEASED_VERIFIED'}]}}),/index_job_digest_or_status_mismatch/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,index:{...f.index,editions:[]}}),/no_published_pending_index_job/);
 });
@@ -95,6 +95,70 @@ test('image replacement still requires a new specific owner GO but supports the 
   assert.equal(ok.result,'GO_RECORDED_NOT_DEPLOYED');
   assert.equal(ok.separately_owner_authorized_oct9_exception,true);
   assert.equal(ok.unattended_release1_accepted,false);
-  assert.throws(()=>verifyExternalImageReleaseGo({...args,approval:{...approval,oct9_manual_placeholder_publication_owner_accepted:false}}),/scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
+  assert.throws(()=>verifyExternalImageReleaseGo({...args,approval:{...approval,oct9_manual_placeholder_publication_owner_accepted:false}}),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
   assert.throws(()=>verifyExternalImageReleaseGo({...args,approval:{...approval,external_six_image_package_owner_approved:false}}),/real_owner_approval_absent/);
+});
+
+function oct10Inputs(){
+  const root='external-image-packages/2026-10-10/';
+  const jobBytes=fs.readFileSync(root+'source/job.json');
+  const job=JSON.parse(jobBytes);
+  const manifestBytes=fs.readFileSync(root+'manifest.json');
+  const approval=JSON.parse(fs.readFileSync(root+'owner-release-approval.json','utf8'));
+  const index={schema_version:'external-compiler-image-index-v1',editions:[{
+    edition_date:job.edition_date,job_sha256:sha(jobBytes),bundle_sha256:job.source.bundle_sha256,
+    source_commit_sha:job.source.commit_sha,story_count:6,status:'PUBLISHED_PENDING',
+    job_url:'https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/shadow-pages-history/site/image-jobs/2026-10-10/job.json'
+  }]};
+  return {jobBytes,index,manifestBytes,approval};
+}
+function authorizedOct10Fixture(){
+  const f=oct10Inputs();
+  // Test-only simulated owner decision; never mutates the stored owner record.
+  f.approval={...f.approval,owner_decision:'GO',approved_by:'gttome',approved_at:'2026-10-10T04:00:00Z',
+    oct10_continued_publication_owner_accepted:true,oct10_image_only_exception_owner_authorized:true};
+  return f;
+}
+test('pending October 10 exception cannot release and cannot claim scheduled Release 1',()=>{
+  const f=oct10Inputs();
+  f.approval={...f.approval,owner_decision:'WAITING_FOR_SPECIFIC_EXCEPTION_APPROVAL',
+    oct10_continued_publication_owner_accepted:false,oct10_image_only_exception_owner_authorized:false};
+  assert.throws(()=>verifyExternalImageReleaseGo(f),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  const falseSchedule={...f.approval,owner_decision:'GO',approved_by:'gttome',approved_at:'2026-10-10T04:00:00Z',
+    release1_genuine_scheduled_placeholder_verified:true,release1_owner_acceptance_recorded:true};
+  assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:falseSchedule}),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  const bundle=fs.readFileSync('external-image-packages/2026-10-10/source/edition-bundle.json');
+  assert.equal(sha(bundle),JSON.parse(f.jobBytes).source.bundle_sha256);
+  assert.equal(JSON.parse(bundle).producer_receipt.scheduled_execution,false);
+});
+test('only explicitly accepted exact October 10 package can use the one-job exception',()=>{
+  const f=authorizedOct10Fixture(),r=verifyExternalImageReleaseGo(f);
+  assert.equal(r.result,'GO_RECORDED_NOT_DEPLOYED');
+  assert.equal(r.separately_owner_authorized_oct10_image_exception,true);
+  assert.equal(r.unattended_release1_accepted,false);
+  assert.equal(r.release2_accepted,false);
+  for(const field of ['oct10_existing_continued_publication_verified','oct10_continued_publication_owner_accepted','oct10_image_only_exception_owner_authorized']){
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  }
+  for(const field of ['release1_genuine_scheduled_placeholder_verified','release1_owner_acceptance_recorded','unattended_release1_acceptance_claimed']){
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:true}}),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  }
+  for(const field of ['expected_pages_history_head','approved_package_commit_sha']){
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:'0'.repeat(40)}}),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  }
+  const manifest=JSON.parse(f.manifestBytes);manifest.images[0].sha256='0'.repeat(64);
+  const manifestBytes=Buffer.from(JSON.stringify(manifest)+'\n');
+  assert.throws(()=>verifyExternalImageReleaseGo({...f,manifestBytes,approval:{...f.approval,manifest_sha256:sha(manifestBytes)}}),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
+  for(const field of ['external_six_image_package_owner_approved','exact_saved_pixel_review_proven','original_oct8_preservation_required']){
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/real_owner_approval_absent/);
+  }
+});
+test('October 10 exception flags do not admit another edition',()=>{
+  const f=inputs(),exception=authorizedOct10Fixture().approval;
+  f.approval={...f.approval,release1_genuine_scheduled_placeholder_verified:false,release1_owner_acceptance_recorded:false,
+    oct10_existing_continued_publication_verified:exception.oct10_existing_continued_publication_verified,
+    oct10_continued_publication_owner_accepted:true,oct10_image_only_exception_owner_authorized:true,
+    unattended_release1_acceptance_claimed:false,expected_pages_history_head:exception.expected_pages_history_head,
+    approved_package_commit_sha:exception.approved_package_commit_sha};
+  assert.throws(()=>verifyExternalImageReleaseGo(f),/scheduled_release_one_or_exact_owner_exception_not_accepted/);
 });
