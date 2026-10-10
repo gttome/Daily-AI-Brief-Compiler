@@ -6,19 +6,20 @@ import {DOCUMENT_PAIRS,selectExternalImageAppDocuments} from '../scripts/select-
 import {REQUIRED_OPERATIONS,evaluateImageAppPreflight} from '../scripts/preflight-image-app-route.mjs';
 
 const baseline=readImageProcessVersions();
+const rev6={...baseline,image_release_authority_policy:'legacy_go_v1',image_starter_contract_version:'rev6'};
 const rev7={...baseline,image_release_authority_policy:'bounded_starter_v7',image_starter_contract_version:'rev7'};
 
 test('I2 real selected Rev6 historical starter/full/handoff remains readable and unchanged',()=>{
- assert.equal(baseline.image_release_authority_policy,'legacy_go_v1');
- assert.equal(baseline.image_starter_contract_version,'rev6');
- const selected=selectExternalImageAppDocuments(baseline,true);
+ assert.equal(rev6.image_release_authority_policy,'legacy_go_v1');
+ assert.equal(rev6.image_starter_contract_version,'rev6');
+ const selected=selectExternalImageAppDocuments(rev6,true);
  assert.equal(selected.result,'SELECTED_EXTERNAL_IMAGE_CONTRACTS_COMPATIBLE');
  assert.equal(selected.selected_version,'rev6');
  const oldHandoff=fs.readFileSync(DOCUMENT_PAIRS.rev6.handoff,'utf8');
  const oldFull=fs.readFileSync(DOCUMENT_PAIRS.rev6.full_prompt,'utf8');
  assert.match(oldHandoff,/External Image App Handoff/);
  assert.match(oldFull,/Revision 6/);
- assert.equal(imageReleaseCompatibility(baseline).result,'COMPATIBLE');
+ assert.equal(imageReleaseCompatibility(rev6).result,'COMPATIBLE');
 });
 
 test('I2 proposed Rev7 starter + full prompt + handoff are mutually selected, source- and edition-specific',()=>{
@@ -84,5 +85,7 @@ test('existing protected release refuses wrong selected document versions while 
  assert.match(workflow,/check-external-image-release-gates\.mjs/);
  assert.match(workflow,/verify-external-image-live\.mjs/);
  const cfg=fs.readFileSync('contracts/image-process-versions.json','utf8');
- assert.equal(JSON.parse(cfg).image_starter_contract_version,'rev6');
+ const actual=JSON.parse(cfg);
+ assert.equal(actual.image_starter_contract_version,baseline.image_starter_contract_version);
+ assert.equal(actual.image_release_authority_policy,baseline.image_release_authority_policy);
 });
