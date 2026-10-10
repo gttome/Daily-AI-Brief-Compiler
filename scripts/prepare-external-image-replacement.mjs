@@ -184,7 +184,7 @@ function main(){
   const jobBytes=fs.readFileSync(jobPath),bundleBytes=fs.readFileSync(bundlePath);
   const receipt=prepareExternalImageReplacement({job:JSON.parse(jobBytes),jobBytes,bundleBytes,
     state:JSON.parse(fs.readFileSync(statePath,'utf8')),manifest:JSON.parse(fs.readFileSync(manifestPath,'utf8')),
-    stagingReceipt:JSON.parse(fs.readFileSync(stagePath,'utf8')),historyRoot,outRoot,repoRoot,historyHead});
+    stagingReceipt:JSON.parse(fs.readFileSync(stagePath,'utf8')),historyRoot,outputRoot:outRoot,repoRoot,historyHead});
   fs.mkdirSync(path.dirname(receiptPath),{recursive:true});
   fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
   console.log(JSON.stringify({result:receipt.result,edition_date:receipt.edition_date,changed_count:receipt.changed_count,oct8_pinned_count:receipt.oct8_pinned_count,release_ready:false}));
