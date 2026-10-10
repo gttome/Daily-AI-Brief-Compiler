@@ -31,13 +31,24 @@ test('feature gate checks explicit owner decision and exact image job/index/mani
   const f=inputs(),r=verifyExternalImageReleaseGo(f);
   assert.equal(r.result,'GO_RECORDED_NOT_DEPLOYED');
   assert.equal(r.release2_accepted,false);
-  for(const field of ['release1_genuine_scheduled_placeholder_verified','release1_owner_acceptance_recorded','external_six_image_package_owner_approved','external_work_cold_start_proven','exact_saved_pixel_review_proven']){
+  for(const field of ['release1_genuine_scheduled_placeholder_verified','release1_owner_acceptance_recorded','external_six_image_package_owner_approved','exact_saved_pixel_review_proven','original_oct8_preservation_required']){
     assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,[field]:false}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
   }
   assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:null}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,manifest_sha256:'f'.repeat(64)}}),/real_owner_approval_absent|scheduled_release_one_or_exact_owner_oct9_exception_not_accepted/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,index:{...f.index,editions:[{...f.index.editions[0],status:'RELEASED_VERIFIED'}]}}),/index_job_digest_or_status_mismatch/);
   assert.throws(()=>verifyExternalImageReleaseGo({...f,index:{...f.index,editions:[]}}),/no_published_pending_index_job/);
+});
+test('Revision 6 accepts an authorized reviewed package without legacy Work-session claims',()=>{
+  for(const legacy of [undefined,false,true]){
+    const f=inputs();
+    if(legacy===undefined)delete f.approval.external_work_cold_start_proven;
+    else f.approval.external_work_cold_start_proven=legacy;
+    assert.equal(verifyExternalImageReleaseGo(f).result,'GO_RECORDED_NOT_DEPLOYED');
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,owner_decision:'WAIT'}}),/real_owner_approval_absent/);
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,job_sha256:'0'.repeat(64)}}),/real_owner_approval_absent/);
+    assert.throws(()=>verifyExternalImageReleaseGo({...f,approval:{...f.approval,exact_saved_pixel_review_proven:false}}),/real_owner_approval_absent/);
+  }
 });
 test('replacement workflow is manual-only; protected exact-head gates before any deployment',()=>{
   const yml=fs.readFileSync('.github/workflows/external-image-only-replacement.yml','utf8');

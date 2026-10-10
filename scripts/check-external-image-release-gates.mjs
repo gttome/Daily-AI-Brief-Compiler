@@ -49,7 +49,8 @@ export function verifyExternalImageReleaseGo({jobBytes,index,manifestBytes,appro
     approval.job_sha256!==expectedJob||approval.manifest_sha256!==expectedManifest||
 
     approval.external_six_image_package_owner_approved!==true||
-    approval.external_work_cold_start_proven!==true||
+    // Revision 6 makes the image exchange app-independent. Legacy Work-session
+    // metadata is optional; job/manifest, owner and saved-pixel gates remain.
     approval.exact_saved_pixel_review_proven!==true||
     approval.original_oct8_preservation_required!==true||
     typeof approval.owner_decision_evidence_url!=='string'||
