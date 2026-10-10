@@ -1,0 +1,251 @@
+{
+  "schema_version": "external-image-detailed-review-v1",
+  "edition_date": "2026-10-10",
+  "story_id": "oct10-k2-copilot-builder",
+  "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/copilot-studio-app-workflow-agent-gates/",
+  "original_source_url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+  "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+  "recipe_version": "oct10-r2",
+  "reviewed_at": "2026-10-10T03:30:49Z",
+  "reviewer": "executing assistant",
+  "owner_personal_artwork_review_claimed": false,
+  "image_sha256": "7a12d801447555f008c75a406dd5f574f1cd365afe59d0de0a0e2a79c5ee0f81",
+  "git_blob_sha": "d109c457e6ce5daa7e94902b96a0fe42536cae1b",
+  "persisted_binary_commit": "0b0a6141a2d819830c28985dacebbeaea37fcccf",
+  "pixel_inspection_method": "persisted_git_binary",
+  "inspection_scope": "Each final exported image inspected individually; six-image comparison; exact GitHub readbacks byte-identical to inspected PNGs and reinspection performed. No live-rendering claim.",
+  "result": "PASS",
+  "exact_visible_labels": [
+    "Choose the right role for each task",
+    "Apps: public preview",
+    "Structured interface",
+    "Managed Runtime: preview",
+    "Identity and governed access",
+    "Git-backed versions",
+    "Workflows",
+    "Repeatable steps",
+    "Agents",
+    "Handle exceptions",
+    "GitHub Copilot harness hooks: preview",
+    "Inspect tool call",
+    "Allow",
+    "Block",
+    "Evaluations",
+    "Readiness review",
+    "Publish when ready"
+  ],
+  "evidence_map": [
+    {
+      "labels": [
+        "Choose the right role for each task",
+        "Apps: public preview",
+        "Structured interface",
+        "Managed Runtime: preview",
+        "Identity and governed access",
+        "Git-backed versions"
+      ],
+      "source_location": "Microsoft announcement, Apps and Managed Runtime passages, lines 32–44.",
+      "visual_role": "Exploded foundation under the app interface alone.",
+      "qualification": "Preview qualification remains visible; no shared runtime for unrelated features.",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Workflows",
+        "Repeatable steps",
+        "Agents",
+        "Handle exceptions"
+      ],
+      "source_location": "Microsoft multi-role comparison, lines 32–50.",
+      "visual_role": "Middle repeatable sequence is distinct from adaptive agent lane.",
+      "qualification": "Distinct roles, not an invented shared synchronization rail.",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "GitHub Copilot harness hooks: preview",
+        "Inspect tool call",
+        "Allow",
+        "Block"
+      ],
+      "source_location": "Microsoft GitHub Copilot harness hook description, lines 44–50.",
+      "visual_role": "Tool call encounters inspection before an allow or terminal block branch.",
+      "qualification": "A hook can control a call; does not guarantee agent safety.",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Evaluations",
+        "Readiness review",
+        "Publish when ready"
+      ],
+      "source_location": "Microsoft quality/evaluation and readiness passages, lines 62–79.",
+      "visual_role": "Evaluation evidence precedes readiness review and conditional publication.",
+      "qualification": "No failed path feeds publication; no guarantee of readiness.",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+      "source_checked_on": "2026-10-10"
+    }
+  ],
+  "relationship_map": [
+    {
+      "origin": "Structured interface",
+      "destination": "Managed Runtime foundation layers",
+      "meaning": "support relationship",
+      "condition_or_scope": "Runtime, identity/access and versioning belong to app feature."
+    },
+    {
+      "origin": "Workflow step",
+      "destination": "Subsequent workflow step",
+      "meaning": "sequence",
+      "condition_or_scope": "Repeatable steps, no invented stages named."
+    },
+    {
+      "origin": "Agent tool call",
+      "destination": "Inspect tool call",
+      "meaning": "control",
+      "condition_or_scope": "Inspection precedes execution."
+    },
+    {
+      "origin": "Inspection",
+      "destination": "Allow → tool / Block → terminal",
+      "meaning": "conditional branch",
+      "condition_or_scope": "Only allowed path proceeds."
+    },
+    {
+      "origin": "Evaluation artifacts",
+      "destination": "Evaluations → Readiness review → Publish when ready",
+      "meaning": "quality progression",
+      "condition_or_scope": "Conditional publication; no arrow from blocked tool to publication."
+    }
+  ],
+  "specification": {
+    "story_id": "oct10-k2-copilot-builder",
+    "visual_thesis": "App interfaces, deterministic workflows and adaptive agents serve distinct roles, with app runtime governance and agent checks shown in their proper scope.",
+    "anchors": [
+      "Apps and managed runtime are preview",
+      "Preview hooks can block a tool call before execution",
+      "Evaluation and readiness review precede agent publication"
+    ],
+    "grammar": "exploded role architecture with conditional tool gate",
+    "layout": "staggered three-role assembly above a narrow evaluation strip",
+    "hierarchy": "three differentiated roles with app-only foundation and agent-only conditional gate",
+    "palette": "indigo and citron",
+    "metaphor": "separated functional layers",
+    "annotation": "layer captions and condition labels",
+    "labels": [
+      "Choose the right role for each task",
+      "Apps: public preview",
+      "Structured interface",
+      "Managed Runtime: preview",
+      "Identity and governed access",
+      "Git-backed versions",
+      "Workflows",
+      "Repeatable steps",
+      "Agents",
+      "Handle exceptions",
+      "GitHub Copilot harness hooks: preview",
+      "Inspect tool call",
+      "Allow",
+      "Block",
+      "Evaluations",
+      "Readiness review",
+      "Publish when ready"
+    ],
+    "components": [
+      "app interface",
+      "runtime hosting layer",
+      "identity",
+      "governed access",
+      "git history",
+      "workflow sequence",
+      "repeatable step logic",
+      "agent exception input",
+      "adaptive response branching",
+      "hook event",
+      "pre-tool inspection",
+      "allowed tool action",
+      "blocked terminal branch",
+      "evaluation evidence",
+      "readiness review",
+      "conditional publication"
+    ],
+    "evidence": "Microsoft lines 32-50,62-79. Runtime shown under apps only; hooks scoped to the agent lane. Publication is conditional rather than guaranteed.",
+    "exclusions": [
+      "No runtime asserted as one data plane for all features",
+      "No unqualified general availability",
+      "No failed branch reaches published result",
+      "No UI screenshots"
+    ],
+    "source_ref": "turn1view0",
+    "recipe_version": "oct10-r2",
+    "edition_date": "2026-10-10",
+    "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+    "label_authority": "Owner requires readable text; operator drafted wording. No personal owner review claimed.",
+    "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/copilot-studio-app-workflow-agent-gates/",
+    "primary_source_url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/"
+  },
+  "visual_signature": {
+    "story_id": "oct10-k2-copilot-builder",
+    "visual_grammar": "exploded role architecture with conditional tool gate",
+    "layout_signature": "staggered three-role assembly above a narrow evaluation strip",
+    "composition_signature": "staggered three-role assembly above a narrow evaluation strip; three differentiated roles with app-only foundation and agent-only conditional gate",
+    "dominant_palette": "indigo and citron",
+    "mechanism_metaphor": "separated functional layers",
+    "major_object_family": "exploded feature layers and conditional gate",
+    "connector_style": "blue step arrows and green/red conditional split",
+    "hierarchy_pattern": "three differentiated roles with app-only foundation and agent-only conditional gate",
+    "annotation_pattern": "layer captions and condition labels",
+    "perspective_style": "Controlled dimensional technical illustration on white; depth carries artifact relationships",
+    "evidence_representation": "Exploded foundation under the app interface alone. Middle repeatable sequence is distinct from adaptive agent lane. Tool call encounters inspection before an allow or terminal block branch. Evaluation evidence precedes readiness review and conditional publication.",
+    "feedback_pattern": "No automated feedback loop",
+    "sha256": "7a12d801447555f008c75a406dd5f574f1cd365afe59d0de0a0e2a79c5ee0f81",
+    "review_status": "PASS"
+  },
+  "checklist": {
+    "factual_alignment": {
+      "result": "PASS",
+      "notes": "Indigo app layers keep the preview runtime and identity/access/version features under the app alone. The middle workflow is a repeatable sequence; the agent lane has a preview hook inspection gate before allow and terminal block branches. Evaluations and readiness review precede conditional publication in the separate bottom strip. All 17 labels were inspected, including the scoped GitHub Copilot harness wording; preview qualifications remain visible."
+    },
+    "relationships": {
+      "result": "PASS",
+      "notes": "Structured interface | Managed Runtime foundation layers | support relationship | Runtime, identity/access and versioning belong to app feature.\nWorkflow step | Subsequent workflow step | sequence | Repeatable steps, no invented stages named.\nAgent tool call | Inspect tool call | control | Inspection precedes execution.\nInspection | Allow → tool / Block → terminal | conditional branch | Only allowed path proceeds.\nEvaluation artifacts | Evaluations → Readiness review → Publish when ready | quality progression | Conditional publication; no arrow from blocked tool to publication."
+    },
+    "text": {
+      "result": "PASS",
+      "notes": "All 17 listed labels inspected in final 1200×630 saved pixels; correct spelling, complete qualifiers, no clipped labels, no invented microcopy. Label wrapping is visual only."
+    },
+    "mechanism_detail": {
+      "result": "PASS",
+      "notes": "16 supported explanatory roles; four major explanatory regions, with pre-tool inspection/branch and evaluation/readiness visibly exposed. Decorative repeats not counted."
+    },
+    "evidence_constraints": {
+      "result": "PASS",
+      "notes": "Preview qualification remains visible; no shared runtime for unrelated features. Distinct roles, not an invented shared synchronization rail. A hook can control a call; does not guarantee agent safety. No failed path feeds publication; no guarantee of readiness."
+    },
+    "professional_finish": {
+      "result": "PASS",
+      "notes": "Clean white background, crisp readable type, dimensional artifact forms and restrained story palette; no people, logos, photorealism, decorative guarantees or pseudo-writing."
+    },
+    "hierarchy_composition": {
+      "result": "PASS",
+      "notes": "staggered three-role assembly above a narrow evaluation strip; three differentiated roles with app-only foundation and agent-only conditional gate. Explanatory roles occupy approximately 80–90% of the useful composition by manual review; this is not a calculated nonwhite-pixel statistic."
+    },
+    "differentiation": {
+      "result": "PASS",
+      "notes": "Distinct separated functional layers explanation in indigo and citron; compared with the other five accepted PNGs in the six-image contact sheet."
+    },
+    "encoding": {
+      "result": "PASS",
+      "notes": "Decoded exact 1200×630, RGB 8-bit noninterlaced PNG; SHA-256 and Git blob identities match both connected-GitHub and raw exact-commit downloads."
+    },
+    "accessibility": {
+      "result": "PASS",
+      "notes": "Substantive mechanism alt text supplied; final-image text checked full size and in the reduced set view. Live desktop/mobile rendering has not been verified."
+    }
+  },
+  "alt_text": "App interfaces sit on a preview managed-runtime foundation with governed access and Git-backed versions. Repeatable workflows and exception-handling agents have separate roles. A preview harness hook inspects a tool call before allowing or blocking it, while evaluations and readiness review precede publication."
+}
+

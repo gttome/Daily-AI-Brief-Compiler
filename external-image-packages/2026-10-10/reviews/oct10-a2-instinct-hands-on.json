@@ -1,0 +1,228 @@
+{
+  "schema_version": "external-image-detailed-review-v1",
+  "edition_date": "2026-10-10",
+  "story_id": "oct10-a2-instinct-hands-on",
+  "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/instinct-agent-missed-prerequisites/",
+  "original_source_url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+  "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+  "recipe_version": "oct10-r2",
+  "reviewed_at": "2026-10-10T03:30:49Z",
+  "reviewer": "executing assistant",
+  "owner_personal_artwork_review_claimed": false,
+  "image_sha256": "ade3b51a6708ee5cddb77697bd8585c5bac5fcbd9e8d3c76bf1e9a4e3d5addd3",
+  "git_blob_sha": "a69c21adee90d6bbbbb90ea636c371f5ea77992b",
+  "persisted_binary_commit": "0b0a6141a2d819830c28985dacebbeaea37fcccf",
+  "pixel_inspection_method": "persisted_git_binary",
+  "inspection_scope": "Each final exported image inspected individually; six-image comparison; exact GitHub readbacks byte-identical to inspected PNGs and reinspection performed. No live-rendering claim.",
+  "result": "PASS",
+  "exact_visible_labels": [
+    "A plausible plan can miss a prerequisite",
+    "Reported swim-lesson test",
+    "Message request",
+    "Community-center search",
+    "Times and dates matched",
+    "Proposed lesson",
+    "Required introductory class",
+    "Missed prerequisite",
+    "Reporter cross-check",
+    "Plan incomplete",
+    "Recommended checks",
+    "Check prerequisites",
+    "Confirm with service",
+    "Ask when uncertain",
+    "Limit account access"
+  ],
+  "evidence_map": [
+    {
+      "labels": [
+        "A plausible plan can miss a prerequisite",
+        "Reported swim-lesson test",
+        "Message request",
+        "Community-center search",
+        "Times and dates matched",
+        "Proposed lesson",
+        "Plan incomplete"
+      ],
+      "source_location": "The Verge first-person hands-on swim-lesson passage, retrieved from original publisher search result; frozen source evidence.",
+      "visual_role": "Reported request/search/date evidence produces a plausible but incomplete proposal.",
+      "qualification": "Single observed task; no population reliability statistic or completed booking.",
+      "source_url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Required introductory class",
+        "Missed prerequisite",
+        "Reporter cross-check"
+      ],
+      "source_location": "Same first-person swim-lesson passage: reporter discovered introductory-class condition.",
+      "visual_role": "Independent cross-check exposes missing dependency; dashed leader connects requirement to empty prerequisite slot.",
+      "qualification": "Evidence relation, not a repaired or resumed booking flow.",
+      "source_url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Recommended checks",
+        "Check prerequisites",
+        "Confirm with service",
+        "Ask when uncertain",
+        "Limit account access"
+      ],
+      "source_location": "Frozen complete_compiler_story why_it_matters recommendations.",
+      "visual_role": "Separate advisory margin without arrows into reported task.",
+      "qualification": "Recommendations are not represented as existing automatic product controls.",
+      "source_url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+      "source_checked_on": "2026-10-10"
+    }
+  ],
+  "relationship_map": [
+    {
+      "origin": "Message request",
+      "destination": "Community-center search → Times and dates matched → Proposed lesson → Plan incomplete",
+      "meaning": "observed sequence",
+      "condition_or_scope": "Dates/times support an option but not full readiness."
+    },
+    {
+      "origin": "Reporter cross-check",
+      "destination": "Required introductory class",
+      "meaning": "evidence",
+      "condition_or_scope": "Reporter finds requirement."
+    },
+    {
+      "origin": "Required introductory class",
+      "destination": "Empty prerequisite slot under proposed lesson",
+      "meaning": "dependency annotation",
+      "condition_or_scope": "Dashed missing relation; no successful repair."
+    },
+    {
+      "origin": "Recommended checks",
+      "destination": "Reported test",
+      "meaning": "no connection",
+      "condition_or_scope": "Separate recommendations must not be inferred as automatic observed behavior."
+    }
+  ],
+  "specification": {
+    "story_id": "oct10-a2-instinct-hands-on",
+    "visual_thesis": "Correct lesson times and dates did not establish booking readiness when an introductory-class prerequisite was missed.",
+    "anchors": [
+      "Swim lesson search at community center",
+      "Dates and times checked but prerequisite overlooked",
+      "Reporter independently caught requirement"
+    ],
+    "grammar": "dependency gap comparison with separate recommended checks",
+    "layout": "upper observed plan opposite lower requirement path; broken join and sidebar recommendations",
+    "hierarchy": "dominant missing dependency with compact advisory margin",
+    "palette": "coral and dark slate with pale stone",
+    "metaphor": "missing dependency bridge",
+    "annotation": "observed-versus-recommended headings and gap callout",
+    "labels": [
+      "A plausible plan can miss a prerequisite",
+      "Reported swim-lesson test",
+      "Message request",
+      "Community-center search",
+      "Times and dates matched",
+      "Proposed lesson",
+      "Required introductory class",
+      "Missed prerequisite",
+      "Reporter cross-check",
+      "Plan incomplete",
+      "Recommended checks",
+      "Check prerequisites",
+      "Confirm with service",
+      "Ask when uncertain",
+      "Limit account access"
+    ],
+    "components": [
+      "message task",
+      "community-center search scope",
+      "lesson option",
+      "time evidence",
+      "date evidence",
+      "proposed plan",
+      "separate introductory prerequisite",
+      "missing connection",
+      "reporter cross-check",
+      "incomplete readiness state",
+      "recommended prerequisite check",
+      "recommended service confirmation",
+      "recommended escalation",
+      "recommended access scope"
+    ],
+    "evidence": "Verge first-person swim-lesson passage confirms times/dates and overlooked prerequisite. Frozen story why_it_matters supplies explicitly labeled recommendations. No population reliability statistic.",
+    "exclusions": [
+      "No completed booking claim",
+      "No automatic built-in repair gate",
+      "No guaranteed human-confirmation system",
+      "No people or brands"
+    ],
+    "source_ref": "turn1news1",
+    "recipe_version": "oct10-r2",
+    "edition_date": "2026-10-10",
+    "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+    "label_authority": "Owner requires readable text; operator drafted wording. No personal owner review claimed.",
+    "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/instinct-agent-missed-prerequisites/",
+    "primary_source_url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots"
+  },
+  "visual_signature": {
+    "story_id": "oct10-a2-instinct-hands-on",
+    "visual_grammar": "dependency gap comparison with separate recommended checks",
+    "layout_signature": "upper observed plan opposite lower requirement path; broken join and sidebar recommendations",
+    "composition_signature": "upper observed plan opposite lower requirement path; broken join and sidebar recommendations; dominant missing dependency with compact advisory margin",
+    "dominant_palette": "coral and dark slate with pale stone",
+    "mechanism_metaphor": "missing dependency bridge",
+    "major_object_family": "proposal/dependency planes",
+    "connector_style": "slate sequence arrows and coral dashed dependency leader",
+    "hierarchy_pattern": "dominant missing dependency with compact advisory margin",
+    "annotation_pattern": "observed-versus-recommended headings and gap callout",
+    "perspective_style": "Controlled dimensional technical illustration on white; depth carries artifact relationships",
+    "evidence_representation": "Reported request/search/date evidence produces a plausible but incomplete proposal. Independent cross-check exposes missing dependency; dashed leader connects requirement to empty prerequisite slot. Separate advisory margin without arrows into reported task.",
+    "feedback_pattern": "No automated feedback loop",
+    "sha256": "ade3b51a6708ee5cddb77697bd8585c5bac5fcbd9e8d3c76bf1e9a4e3d5addd3",
+    "review_status": "PASS"
+  },
+  "checklist": {
+    "factual_alignment": {
+      "result": "PASS",
+      "notes": "The coral/slate reported task ends at Plan incomplete despite matched dates and times. A separate reporter cross-check discovers the introductory class and points to the missing prerequisite slot. The right-hand recommended checks have no causal arrows into the observed task. All 15 labels are readable; there are no people, fake interface paragraphs, completed booking or automatic recovery claims."
+    },
+    "relationships": {
+      "result": "PASS",
+      "notes": "Message request | Community-center search → Times and dates matched → Proposed lesson → Plan incomplete | observed sequence | Dates/times support an option but not full readiness.\nReporter cross-check | Required introductory class | evidence | Reporter finds requirement.\nRequired introductory class | Empty prerequisite slot under proposed lesson | dependency annotation | Dashed missing relation; no successful repair.\nRecommended checks | Reported test | no connection | Separate recommendations must not be inferred as automatic observed behavior."
+    },
+    "text": {
+      "result": "PASS",
+      "notes": "All 15 listed labels inspected in final 1200×630 saved pixels; correct spelling, complete qualifiers, no clipped labels, no invented microcopy. Label wrapping is visual only."
+    },
+    "mechanism_detail": {
+      "result": "PASS",
+      "notes": "14 supported explanatory roles; four major explanatory regions, with option discovery/date checking and prerequisite cross-check visibly exposed. Decorative repeats not counted."
+    },
+    "evidence_constraints": {
+      "result": "PASS",
+      "notes": "Single observed task; no population reliability statistic or completed booking. Evidence relation, not a repaired or resumed booking flow. Recommendations are not represented as existing automatic product controls."
+    },
+    "professional_finish": {
+      "result": "PASS",
+      "notes": "Clean white background, crisp readable type, dimensional artifact forms and restrained story palette; no people, logos, photorealism, decorative guarantees or pseudo-writing."
+    },
+    "hierarchy_composition": {
+      "result": "PASS",
+      "notes": "upper observed plan opposite lower requirement path; broken join and sidebar recommendations; dominant missing dependency with compact advisory margin. Explanatory roles occupy approximately 80–90% of the useful composition by manual review; this is not a calculated nonwhite-pixel statistic."
+    },
+    "differentiation": {
+      "result": "PASS",
+      "notes": "Distinct missing dependency bridge explanation in coral and dark slate with pale stone; compared with the other five accepted PNGs in the six-image contact sheet."
+    },
+    "encoding": {
+      "result": "PASS",
+      "notes": "Decoded exact 1200×630, RGB 8-bit noninterlaced PNG; SHA-256 and Git blob identities match both connected-GitHub and raw exact-commit downloads."
+    },
+    "accessibility": {
+      "result": "PASS",
+      "notes": "Substantive mechanism alt text supplied; final-image text checked full size and in the reduced set view. Live desktop/mobile rendering has not been verified."
+    }
+  },
+  "alt_text": "A reported swim-lesson search matches times and dates but produces an incomplete plan. The reporter's separate cross-check finds a required introductory class, shown as a missing dependency below the proposed lesson. A separate margin recommends prerequisite checks, service confirmation, asking when uncertain and limited account access."
+}
+
