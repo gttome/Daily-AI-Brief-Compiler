@@ -66,3 +66,12 @@ After live deployment, require authoritatively verified release receipt and publ
 Return `PUBLISHED_COMPLETE` only after six passing live premium PNG hashes/alt/article pairings, all required honest visual reviews, Oct8 17 protection, protected package PR/CI/merge, actual existing workflow run, correct public status and final release receipt. Include dated Brief, six rows of article and image links and SHA, accepted PNG review, 24-target inspection evidence and public closeout. Missing capture review, dispatch, authorizations, source evidence or actual live release means `BLOCKED_INCOMPLETE`, preserve completed work and specify exact next safe operation.
 
 This Revision 7 document is not selected merely by being in the repository. The static version selectors are the authority; no Work session, extra custom owner GO, new application or production scheduler changes follow from these instructions.
+
+
+## 9. Existing detailed image-quality specifications retained
+
+**Revision 7** is the active *future* contract only when the matching I1/I2 selectors explicitly choose `bounded_starter_v7:rev7`. The long original Revision 6 full prompt at `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md` and the original `Perfect_Image_Specification.md` and `Image_Variation_After_Action.md` remain detailed **quality-reference sources** for source interpretation, visual variation, geometry, text legibility, exact PNG checks and evidence review, insofar as they do not conflict with this selected Revision 7. They are not independent release authorization documents.
+
+Where old documents discuss a separate manual owner `GO`, a genuine scheduled Release 1 acceptance, date-specific Oct9/Oct10 exceptions, or Work-session evidence as an admission prerequisite, **Revision 7 supersedes that old instruction**; do not silently reintroduce those gates. Immutable historical v6 source, package, art, and release receipts remain readable and must not be rewritten. A selection mismatch is `RELEASE_ADMISSION_HOLD`, not permission to guess which revision governs.
+
+All original technical and editorial safety gates remain: primary-source fidelity, mandatory readable explanatory labels, no made-up causal arrows or pseudo-writing, advanced explanatory density, unique six-image compositions, exact saved-pixel review, real 1200×630 RGB/RGBA PNG bytes, correct story pairing and alt, GitHub SHA/PR/CI/Pages protections, and full live verification. There is no low-quality fallback and no fixed cap on necessary corrections.
