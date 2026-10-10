@@ -18,7 +18,6 @@ test('protected six-image package merge starts existing release, preserving manu
  assert.doesNotMatch(yaml,/\n[ \t]+schedule:/);
  for(const expected of [
    'node scripts/derive-protected-image-package-release.mjs',
-   'PROTECTED_SINGLE_EDITION_PACKAGE_MERGE_AUTO_ROUTE_READY',
    'rulesets/24610983','event=pull_request','compiler-validation',
    'check-external-image-release-gates.mjs','stage-external-image-package.mjs',
    'verify-external-image-original-live.mjs','prepare-external-image-replacement.mjs',
@@ -30,7 +29,7 @@ test('protected six-image package merge starts existing release, preserving manu
  assert.equal((yaml.match(/uses: actions\/deploy-pages@v4/g)||[]).length,2);
  assert.equal((yaml.match(/^    steps:/gm)||[]).length,1);
  assert.ok(yaml.trim().endsWith('if-no-files-found: warn'),'no duplicated dangling YAML tail');
- for(const expected of ['git','main_moved_or_checkout_not_exact','exactly_one_date_manifest_required',
+ for(const expected of ['PROTECTED_SINGLE_EDITION_PACKAGE_MERGE_AUTO_ROUTE_READY','git','main_moved_or_checkout_not_exact','exactly_one_date_manifest_required',
    'image_only_single_edition_files_required','exact_merged_protected_pr_required','GITHUB_ENV']){
    assert.ok(derivation.includes(expected),expected);
  }
