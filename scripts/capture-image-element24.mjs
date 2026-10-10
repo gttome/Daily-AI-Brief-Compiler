@@ -91,16 +91,29 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
    try{
     const response=await page.goto(target.page_url,{waitUntil:'domcontentloaded',timeout:45000});
     if(response?.status()!==200)fail('target_page_http:'+target.target_id);
-    const image=page.locator('img').filter({hasNot:page.locator('svg')}); // locator narrowed by exact src below
-    const matching=page.locator('img[src*="'+target.image_url.split('/').pop().split('?')[0]+'"]');
+    const fileName=target.image_url.split('/').pop().split('?')[0];
+    const matching=page.locator('img[src*="'+fileName+'"]');
     if(await matching.count()!==1)fail('not_exactly_one_target_image:'+target.target_id);
+    // The reader requests smooth page scrolling. Measuring immediately after
+    // scrollIntoView() formerly read a y>13,000px offscreen rectangle.
+    // Force an immediate scroll in this temporary browser only, then wait for
+    // a stable, fully visible image region. No live HTML/CSS is modified.
+    await page.addStyleTag({content:'html, body { scroll-behavior: auto !important; scroll-snap-type: none !important; }'});
     await matching.evaluate(async el=>{
        if(!el.complete)await new Promise((resolve,reject)=>{
          el.addEventListener('load',resolve,{once:true});el.addEventListener('error',reject,{once:true});
          setTimeout(()=>reject(Error('image load timeout')),20000);
        });
-       el.scrollIntoView({block:'center',inline:'nearest'});
+       el.scrollIntoView({behavior:'instant',block:'center',inline:'nearest'});
     });
+    await matching.scrollIntoViewIfNeeded({timeout:20000});
+    await page.waitForFunction(srcPart=>{
+      const target=[...document.querySelectorAll('img')].find(el=>el.src.includes(srcPart));
+      if(!target||!target.complete||target.naturalWidth!==1200||target.naturalHeight!==630)return false;
+      const box=target.getBoundingClientRect();
+      return box.width>=150&&box.height>=75&&box.x>=-1&&box.y>=-1&&
+        box.right<=innerWidth+1&&box.bottom<=innerHeight+1;
+    },fileName,{timeout:20000});
     const meta=await matching.evaluate(el=>{
       const b=el.getBoundingClientRect();
       const headings=Array.from(document.querySelectorAll('h1,h2,h3')).filter(h=>h.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING);
@@ -112,7 +125,7 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
       meta.naturalWidth!==1200||meta.naturalHeight!==630||
       meta.box.width<150||meta.box.height<75||meta.overflow||
       meta.box.x<0||meta.box.y<0||meta.box.x+meta.box.width>vp.width+1||
-      meta.box.y+meta.box.height>vp.height+1)fail('image_area_or_size_invalid:'+target.target_id);
+      meta.box.y+meta.box.height>vp.height+1)fail('image_area_or_size_invalid:'+target.target_id+':'+JSON.stringify({viewport:vp,actual:meta}));
     const imgResponse=await fetchImpl(meta.src);
     if(imgResponse.status!==200||hash(Buffer.from(await imgResponse.arrayBuffer()))!==target.expected_sha256)
       fail('live_image_hash_mismatch:'+target.target_id);
