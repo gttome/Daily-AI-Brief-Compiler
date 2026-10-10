@@ -1,0 +1,39 @@
+{
+  "schema_version": "external-image-original-publication-provenance-review-v1",
+  "result": "PUBLICATION_VERIFIED_SCHEDULED_RELEASE1_NOT_PROVEN",
+  "edition_date": "2026-10-10",
+  "source_commit_sha": "2482a644d6d5f9a1ee5e1e4f05bbe53c76104da7",
+  "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+  "bundle_sha256": "85c8575ddd03e0077e25a710b5159d04140bc632a14533827f7dda8d75957872",
+  "immutable_job_claim": {
+    "path": "source.unattended_schedule_proven",
+    "value": true
+  },
+  "immutable_bundle_evidence": {
+    "path": "producer_receipt",
+    "scheduled_execution": false,
+    "continuation_mode": "ordinary_chat_saved_checkpoint",
+    "owner_intervention": false
+  },
+  "why_job_flag_is_not_proof": "At original publisher main c225656f5e6b32f070207d3947ee18f11406e44b, scripts/external-image-jobs.mjs buildExternalImageJob sets unattended_schedule_proven to !isAuthorizedOct9Recovery({state,bundle}). It never checks producer_receipt.scheduled_execution. A non-October-9 branch therefore receives true even when its immutable receipt is false.",
+  "original_publication": {
+    "run_id": 38014934604,
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38014934604",
+    "workflow": "shadow-compile",
+    "event": "repository_dispatch",
+    "conclusion": "success",
+    "job_id": 114102997895,
+    "job_name": "compile-deploy",
+    "verified_state": "SHADOW_VERIFIED",
+    "source_bundle_sha256": "85c8575ddd03e0077e25a710b5159d04140bc632a14533827f7dda8d75957872",
+    "pages_history_head": "aa56456a16475a078c7b01eea7ffe686c4ecc171"
+  },
+  "independent_verification": {
+    "original_placeholder_pages": 7,
+    "oct8_protected_objects": 17,
+    "result": "PASS",
+    "receipt": "reviews/original-live-preflight.json"
+  },
+  "required_owner_decision": "Accept only the existing, already-live continued October 10 publication as the base for this exact six-image replacement. Do not certify unattended scheduling or Scheduled Release 1 acceptance.",
+  "job_and_bundle_rewritten": false
+}
