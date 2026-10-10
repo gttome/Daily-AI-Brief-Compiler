@@ -9,7 +9,7 @@
     if(!content)return;
     const images=[...content.querySelectorAll('img')].filter(img=>{
       try{const u=new URL(img.currentSrc||img.src,document.baseURI);
-        return u.origin===location.origin &&
+        return u.protocol==='https:' && u.hostname==='gttome.github.io' &&
           /^\/Daily-AI-Brief-Compiler\/briefs\/images\/20\d{2}-\d{2}-\d{2}\/dab-edition-20\d{2}-\d{2}-\d{2}-m(01|02|10|11|12|14)\.png$/.test(u.pathname);
       }catch{return false;}
     });
@@ -69,7 +69,8 @@
       link.target='_blank';link.rel='noopener noreferrer';
       controls.append(btn,link);
       // Keep original image markup, article HTML and story text untouched.
-      img.insertAdjacentElement('afterend',controls);
+      const figure=img.parentElement?.tagName==='P'?img.parentElement:img;
+      figure.insertAdjacentElement('afterend',controls);
     }
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
