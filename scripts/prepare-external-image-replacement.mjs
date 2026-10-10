@@ -11,6 +11,15 @@ const fail=s=>{throw new Error('external_image_replacement:'+s);};
 const digest=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const gitBlob=bytes=>crypto.createHash('sha1').update(Buffer.from('blob '+bytes.length+'\0')).update(bytes).digest('hex');
 const escapeHtml=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function decodeAttribute(value){
+  const named={amp:'&',lt:'<',gt:'>',quot:'"',apos:"'"};
+  return value.replace(/&(#x[0-9a-f]+|#[0-9]+|amp|lt|gt|quot|apos);/gi,(match,entity)=>{
+    if(entity[0]!=='#')return named[entity.toLowerCase()];
+    const hex=entity[1].toLowerCase()==='x';
+    const point=Number.parseInt(entity.slice(hex?2:1),hex?16:10);
+    return point>0&&point<=0x10ffff&&!(point>=0xd800&&point<=0xdfff)?String.fromCodePoint(point):match;
+  });
+}
 const SLOTS={
   'Technical AI Engineering':['m01','m02'],
   'Applied Generative AI for Knowledge Workers':['m10','m11'],
@@ -51,27 +60,30 @@ export function slotsFor(bundle){
   if(positions.size!==6||[...counters.values()].some(n=>n!==2))fail('six_canonical_slots_required');
   return positions;
 }
-export function replaceSingleTag(document,story,imageUrl){
-  const expectedAlt=escapeHtml('Illustration pending for '+story.headline+'. Planned illustration: '+story.image_alt_intent);
+export function replaceSingleTag(document,story,imageUrl,acceptedAlt=story.image_alt_intent){
+  const expectedAlt='Illustration pending for '+story.headline+'. Planned illustration: '+story.image_alt_intent;
+  if(typeof acceptedAlt!=='string'||!acceptedAlt.trim())fail('missing_reviewed_alt:'+story.id);
   const expectedPath='/Daily-AI-Brief-Compiler/briefs/images/'+story.permanent_route.split('/')[2]+'/illustration-pending.svg';
   let replacements=0;
   const result=document.replace(/<img\b[^>]*>/g,tag=>{
     const alt=/\balt="([^"]*)"/.exec(tag),src=/\bsrc="([^"]+)"/.exec(tag);
-    if(alt?.[1]!==expectedAlt)return tag;
+    // Compare attribute values, not equivalent serialization choices made by Jekyll.
+    // The full story-specific text, original source path and unique match remain required.
+    if(!alt||decodeAttribute(alt[1])!==expectedAlt)return tag;
     if(!src)fail('missing_img_source_for_story:'+story.id);
     let url;try{url=new URL(src[1].replaceAll('&amp;','&'),OCT8_PUBLIC_BASE);}catch{fail('invalid_original_image_url');}
     if(url.pathname!==expectedPath)fail('not_an_original_pending_image:'+story.id);
     replacements++;
-    return tag.replace(src[0],'src="'+imageUrl+'"').replace(alt[0],'alt="'+escapeHtml(story.image_alt_intent)+'"');
+    return tag.replace(src[0],'src="'+imageUrl+'"').replace(alt[0],'alt="'+escapeHtml(acceptedAlt)+'"');
   });
   if(replacements!==1)fail('exactly_one_original_placeholder_per_story:'+story.id+':'+replacements);
   return result;
 }
-function replaceHtml(file,stories,urls){
+function replaceHtml(file,stories,urls,alts){
   if(!fs.existsSync(file))fail('reader_html_missing:'+file);
   const original=fs.readFileSync(file,'utf8');
   let next=original;
-  for(const story of stories)next=replaceSingleTag(next,story,urls.get(story.id));
+  for(const story of stories)next=replaceSingleTag(next,story,urls.get(story.id),alts.get(story.id));
   if(next===original)fail('reader_html_unchanged');
   fs.writeFileSync(file,next,'utf8');
 }
@@ -126,7 +138,7 @@ export function prepareExternalImageReplacement({job,jobBytes,bundleBytes,state,
   const output=path.resolve(outputRoot),source=path.resolve(historyRoot),root=path.resolve(repoRoot);
   fs.rmSync(output,{recursive:true,force:true});
   fs.cpSync(source,output,{recursive:true});
-  const images=[],urls=new Map(),allowed=new Set();
+  const images=[],urls=new Map(),alts=new Map(),allowed=new Set();
   for(const story of bundle.stories){
     const pkg=packageMap.get(story.id),stage=stageMap.get(story.id),input=inputs.get(story.id);
     if(!pkg||!stage||!input||input.permanent_url!==OCT8_PUBLIC_BASE+story.permanent_route.slice(1)||
@@ -144,21 +156,24 @@ export function prepareExternalImageReplacement({job,jobBytes,bundleBytes,state,
     allowed.add(relative);
     const url=OCT8_PUBLIC_BASE+relative+'?v='+pkg.sha256.slice(0,12);
     urls.set(story.id,url);
+    // Current packages carry reviewed descriptions of the actual accepted pixels.
+    // Older packages retain their original image intent when no reviewed alt is supplied.
+    alts.set(story.id,pkg.alt_text??story.image_alt_intent);
     images.push({story_id:story.id,slot:slots.get(story.id),route:relative,url,sha256:actual.sha256,git_blob_sha:gitBlob(bytes),bytes:actual.bytes});
   }
   const dated='briefs/'+date+'/index.html';
-  replaceHtml(path.join(output,dated),bundle.stories,urls);
+  replaceHtml(path.join(output,dated),bundle.stories,urls,alts);
   allowed.add(dated);
   for(const story of bundle.stories){
     const relative=cleanRelative(story.permanent_route,date);
-    replaceHtml(path.join(output,relative),[story],urls);
+    replaceHtml(path.join(output,relative),[story],urls,alts);
     allowed.add(relative);
   }
   const home=path.join(output,'index.html');
   const homeText=fs.readFileSync(home,'utf8');
   const homeIsEdition=homeText.includes('data-brief-date="'+date+'"');
   if(homeIsEdition){
-    replaceHtml(home,bundle.stories,urls);allowed.add('index.html');
+    replaceHtml(home,bundle.stories,urls,alts);allowed.add('index.html');
   }
   const unrelatedVerified=verifyNoOtherChanges(source,output,allowed);
   protectedOctober8(output);
