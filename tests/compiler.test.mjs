@@ -33,6 +33,9 @@ test('fixture compiles to canonical reader source without ChatGPT after BUNDLE_R
   });
   assert.equal(receipt.result,'PASS');
   assert.equal(receipt.chatgpt_required_after_bundle_ready,false);
+  assert.equal(receipt.unattended_release_one_proven,false);
+  assert.equal(receipt.unattended_certification_status,'UNPROVEN');
+  assert.equal(receipt.unattended_certification_reason,'SCHEDULED_INVOCATION_NOT_ESTABLISHED');
   assert.equal(receipt.reader_parity_gate.result,'PASS');
   assert.equal(receipt.verification.permanent_story_pages,6);
   assert.equal(receipt.verification.reader_contract.canonical_production_renderer,true);
