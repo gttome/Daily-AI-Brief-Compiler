@@ -86,7 +86,7 @@ export function verifyImageReleaseAdmission({jobBytes,index,manifestBytes,assign
   const job=JSON.parse(jobBytes),manifest=JSON.parse(manifestBytes);
   const date=job.edition_date,jobHash=sha(jobBytes),manifestHash=sha(manifestBytes);
   if(job.schema_version!=='external-compiler-image-job-v1'||job.lifecycle!=='PUBLISHED_PENDING'||
-    !/^20\\d{2}-\\d{2}-\\d{2}$/.test(date||'')||date<='2026-10-08'||
+    !/^20\d{2}-\d{2}-\d{2}$/.test(date||'')||date<='2026-10-08'||
     !Array.isArray(job.stories)||job.stories.length!==6||
     index?.schema_version!=='external-compiler-image-index-v1'||!Array.isArray(index.editions)||
     index.editions.filter(x=>x.edition_date===date).length!==1)
