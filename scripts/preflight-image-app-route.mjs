@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {imageReleaseCompatibility,readImageProcessVersions} from './image-process-versions.mjs';
+import {selectExternalImageAppDocuments} from './select-image-app-contracts.mjs';
 export const REQUIRED_OPERATIONS=[
  'native_image_generation','saved_pixel_inspection','exact_1200x630_png_export',
  'github_authenticated_binary_upload','exact_commit_binary_readback',
@@ -13,6 +14,16 @@ export function evaluateImageAppPreflight({capabilities,versions=readImageProces
  const compat=imageReleaseCompatibility(versions);
  const blockers=[];
  if(compat.result!=='COMPATIBLE')blockers.push('RELEASE_ADMISSION_HOLD:starter_authority_version_incompatible');
+ let selectedDocs=null;
+ if(compat.result==='COMPATIBLE'){
+   try{
+     selectedDocs=selectExternalImageAppDocuments(versions);
+     if(selectedDocs.result!=='SELECTED_EXTERNAL_IMAGE_CONTRACTS_COMPATIBLE')
+       blockers.push('selected_starter_full_handoff_not_compatible');
+   }catch(error){
+     blockers.push('selected_starter_full_handoff_not_compatible:'+error.message);
+   }
+ }
  if(job?.schema_version!=='external-compiler-image-job-v1'||job.lifecycle!=='PUBLISHED_PENDING'||
    !Array.isArray(job.stories)||job.stories.length!==6)blockers.push('no_eligible_immutable_six_story_job');
  for(const operation of REQUIRED_OPERATIONS){
@@ -22,7 +33,8 @@ export function evaluateImageAppPreflight({capabilities,versions=readImageProces
      blockers.push('capability_unproven:'+operation);
  }
  return {schema_version:'external-image-route-preflight-v7',result:blockers.length?'BLOCKED_INCOMPLETE':'CAPABILITY_ROUTE_PROVEN',
-   blockers,edition_date:job?.edition_date??null,creative_attempts_consumed:0,
+   blockers,edition_date:job?.edition_date??null,
+   selected_document_version:selectedDocs?.selected_version??null,creative_attempts_consumed:0,
    owner_browser_login_assumed:false,production_dispatch_not_inferred:true};
 }
 function main(){
