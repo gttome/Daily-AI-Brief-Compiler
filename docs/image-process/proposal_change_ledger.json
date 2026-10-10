@@ -1,0 +1,278 @@
+{
+  "schema_version": "proposal-change-ledger-v2",
+  "is_template": false,
+  "kind": "premium_image_process",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "recorded_date_utc": "2026-10-10",
+  "source_baseline_main_sha": "ef623aefc1a4d31e86335c5ebc1e74fec29f1975",
+  "observed_main_sha_before_this_ledger_pr": "204d95a7968f269ef43926e7a9d06021810de9a2",
+  "observed_pages_history_sha": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+  "initial_editorial_publisher_modified": false,
+  "accepted_history_assets_modified": false,
+  "revision7_active": false,
+  "active_selectors": {
+    "schema_version": "external-image-process-versions-v1",
+    "image_release_authority_policy": "legacy_go_v1",
+    "image_starter_contract_version": "rev6",
+    "image_target_capture_policy": "legacy",
+    "image_status_sync_mode": "baseline",
+    "image_verify_only_enabled": false,
+    "image_additional_first_pass_qc": "baseline"
+  },
+  "safe_cutover_condition": "AFTER_ALL_RELEVANT_EdITIONS_TERMINAL_OR_QUIESCENT_WITH_PROTECTED_CI",
+  "version_compatibility": "legacy_go_v1:rev6 selected; bounded_starter_v7:rev7 supported only when both selected; all mismatches HOLD",
+  "source_receipts_preserved": [
+    "external-compiler-image-job-v1",
+    "external-compiler-image-package-v1",
+    "external-compiler-image-release-v1"
+  ],
+  "future_reader_fixtures_not_live_authorization": [
+    "external-compiler-starter-assignment-v7",
+    "external-compiler-image-release-v2"
+  ],
+  "rollback_test_automation": {
+    "script": "scripts/drill-image-postproduction-rollback.mjs",
+    "test": "tests/image-rollback-matrix.test.mjs",
+    "workflow": ".github/workflows/image-postproduction-rollback-drills.yml",
+    "artifact": "independent-image-postproduction-rollback-receipts",
+    "public_live_24_review": "UNPROVEN",
+    "real_rollback_executed": false
+  },
+  "proposal_records": [
+    {
+      "proposal_id": "I1",
+      "rollout_type": "INDIVIDUAL_PROTECTED_PR",
+      "code_state": "CODE_MERGED_FEATURE_OFF",
+      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "feature_selector": "image_release_authority_policy",
+      "prior_feature_mode": "legacy_go_v1",
+      "active_feature_mode": "legacy_go_v1",
+      "available_future_feature_mode": "bounded_starter_v7",
+      "baseline_main_sha": "7f4fac0059ae86fc1b80978b60757e137ef9f213",
+      "first_code_merge_sha": "beea9e5746e225744d916ba66265083ee72169c6",
+      "latest_code_merge_sha": "beea9e5746e225744d916ba66265083ee72169c6",
+      "code_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/130",
+      "code_pr_head_sha": "70305fd7b03ef76da9b333d2af4d325631c36ac8",
+      "supporting_prs": [
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/130",
+          "head": "70305fd7b03ef76da9b333d2af4d325631c36ac8",
+          "merge": "beea9e5746e225744d916ba66265083ee72169c6"
+        }
+      ],
+      "activation_main_sha": null,
+      "protected_activation_pr_url": null,
+      "unaffected_proposals": [
+        "I2",
+        "I3",
+        "I4",
+        "I5"
+      ],
+      "image_release_context": "ALREADY_PUBLISHED_2026-10-10_SIX_ACCEPTED",
+      "immutable_six_image_manifest": "external-image-packages/2026-10-10/manifest.json",
+      "protected_oct8_objects": 17,
+      "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+      "rollback_inverse_plan": "Revert the I1 static authority selector only; I2 remains rev7, future optional releases enter RELEASE_ADMISSION_HOLD; never reimpose a custom GO on an already published release.",
+      "semantic_pixel_24_review_status": "UNPROVEN",
+      "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
+      "nonpublishing_rollback_drill_result": "CI_PROOF_WORKFLOW_PENDING",
+      "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
+      "actual_published_assets_regenerated": 0,
+      "old_new_schema_proofs": "historical_v1_plus_future_test_only_readers",
+      "review_evidence": [
+        "tests/image-rollback-matrix.test.mjs",
+        ".github/workflows/image-postproduction-rollback-drills.yml"
+      ]
+    },
+    {
+      "proposal_id": "I2",
+      "rollout_type": "INDIVIDUAL_PROTECTED_PR",
+      "code_state": "CODE_MERGED_FEATURE_OFF",
+      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "feature_selector": "image_starter_contract_version",
+      "prior_feature_mode": "rev6",
+      "active_feature_mode": "rev6",
+      "available_future_feature_mode": "rev7",
+      "baseline_main_sha": "beea9e5746e225744d916ba66265083ee72169c6",
+      "first_code_merge_sha": "e0e3e2b1b3750a61c564809feba7f88a9edce359",
+      "latest_code_merge_sha": "e0e3e2b1b3750a61c564809feba7f88a9edce359",
+      "code_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/131",
+      "code_pr_head_sha": "40b3816684b53197ee3063392fa5c7e2aa836849",
+      "supporting_prs": [
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/131",
+          "head": "40b3816684b53197ee3063392fa5c7e2aa836849",
+          "merge": "e0e3e2b1b3750a61c564809feba7f88a9edce359"
+        }
+      ],
+      "activation_main_sha": null,
+      "protected_activation_pr_url": null,
+      "unaffected_proposals": [
+        "I1",
+        "I3",
+        "I4",
+        "I5"
+      ],
+      "image_release_context": "ALREADY_PUBLISHED_2026-10-10_SIX_ACCEPTED",
+      "immutable_six_image_manifest": "external-image-packages/2026-10-10/manifest.json",
+      "protected_oct8_objects": 17,
+      "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+      "rollback_inverse_plan": "Revert only I2 starter/provenance selector to rev6, maintain historical v6/7 readers; I1 remains v7 and future optional releases enter RELEASE_ADMISSION_HOLD; source scheduled=false remains false.",
+      "semantic_pixel_24_review_status": "UNPROVEN",
+      "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
+      "nonpublishing_rollback_drill_result": "CI_PROOF_WORKFLOW_PENDING",
+      "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
+      "actual_published_assets_regenerated": 0,
+      "old_new_schema_proofs": "historical_v1_plus_future_test_only_readers",
+      "review_evidence": [
+        "tests/image-rollback-matrix.test.mjs",
+        ".github/workflows/image-postproduction-rollback-drills.yml"
+      ]
+    },
+    {
+      "proposal_id": "I3",
+      "rollout_type": "INDIVIDUAL_PROTECTED_PR",
+      "code_state": "CODE_MERGED_FEATURE_OFF",
+      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "feature_selector": "image_target_capture_policy",
+      "prior_feature_mode": "legacy",
+      "active_feature_mode": "legacy",
+      "available_future_feature_mode": "element24_v1",
+      "baseline_main_sha": "e0e3e2b1b3750a61c564809feba7f88a9edce359",
+      "first_code_merge_sha": "1a63f0c6f88d20c3a9c16180c1b8f103f1c9c217",
+      "latest_code_merge_sha": "00c72f2b2994ae4fa97126491f8581013b025d28",
+      "code_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/132",
+      "code_pr_head_sha": "5f0e7925f14d76f9825a7eabeb6aa049d1054f5e",
+      "supporting_prs": [
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/132",
+          "head": "5f0e7925f14d76f9825a7eabeb6aa049d1054f5e",
+          "merge": "1a63f0c6f88d20c3a9c16180c1b8f103f1c9c217"
+        },
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/134",
+          "head": "30ab8d93be10e291c7573d4ef0486f08cc95da67",
+          "merge": "00c72f2b2994ae4fa97126491f8581013b025d28"
+        }
+      ],
+      "activation_main_sha": null,
+      "protected_activation_pr_url": null,
+      "unaffected_proposals": [
+        "I1",
+        "I2",
+        "I4",
+        "I5"
+      ],
+      "image_release_context": "ALREADY_PUBLISHED_2026-10-10_SIX_ACCEPTED",
+      "immutable_six_image_manifest": "external-image-packages/2026-10-10/manifest.json",
+      "protected_oct8_objects": 17,
+      "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+      "rollback_inverse_plan": "Revert only image-target capture policy to legacy, never claim 24/24 image-region visual review; other features stay selected; already live pixels untouched.",
+      "semantic_pixel_24_review_status": "UNPROVEN",
+      "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
+      "nonpublishing_rollback_drill_result": "CI_PROOF_WORKFLOW_PENDING",
+      "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
+      "actual_published_assets_regenerated": 0,
+      "old_new_schema_proofs": "historical_v1_plus_future_test_only_readers",
+      "review_evidence": [
+        "tests/image-rollback-matrix.test.mjs",
+        ".github/workflows/image-postproduction-rollback-drills.yml"
+      ]
+    },
+    {
+      "proposal_id": "I4",
+      "rollout_type": "INDIVIDUAL_PROTECTED_PR",
+      "code_state": "CODE_MERGED_FEATURE_OFF",
+      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "feature_selector": "image_status_sync_mode|image_verify_only_enabled",
+      "prior_feature_mode": "baseline|false",
+      "active_feature_mode": "baseline|false",
+      "available_future_feature_mode": "public_sync_v2|true",
+      "baseline_main_sha": "1a63f0c6f88d20c3a9c16180c1b8f103f1c9c217",
+      "first_code_merge_sha": "1f935c72e729495d8db9f7e78945ecb9d547bc25",
+      "latest_code_merge_sha": "1ff57a2931007ec5c39f1e98ba4f89a668159ff1",
+      "code_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/133",
+      "code_pr_head_sha": "aa9bb1cf93474d5d684e075143784eeae47e7881",
+      "supporting_prs": [
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/133",
+          "head": "aa9bb1cf93474d5d684e075143784eeae47e7881",
+          "merge": "1f935c72e729495d8db9f7e78945ecb9d547bc25"
+        },
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/135",
+          "head": "5afa758fe8f83f4df68f346e6d0582aaec320a24",
+          "merge": "1ff57a2931007ec5c39f1e98ba4f89a668159ff1"
+        }
+      ],
+      "activation_main_sha": null,
+      "protected_activation_pr_url": null,
+      "unaffected_proposals": [
+        "I1",
+        "I2",
+        "I3",
+        "I5"
+      ],
+      "image_release_context": "ALREADY_PUBLISHED_2026-10-10_SIX_ACCEPTED",
+      "immutable_six_image_manifest": "external-image-packages/2026-10-10/manifest.json",
+      "protected_oct8_objects": 17,
+      "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+      "rollback_inverse_plan": "Reverse status-sync to baseline independently of verification-only; or disable verification-only without reverting status-sync. No original placeholder patch, no accepted binary mutation.",
+      "semantic_pixel_24_review_status": "UNPROVEN",
+      "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
+      "nonpublishing_rollback_drill_result": "CI_PROOF_WORKFLOW_PENDING",
+      "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
+      "actual_published_assets_regenerated": 0,
+      "old_new_schema_proofs": "historical_v1_plus_future_test_only_readers",
+      "review_evidence": [
+        "tests/image-rollback-matrix.test.mjs",
+        ".github/workflows/image-postproduction-rollback-drills.yml"
+      ]
+    },
+    {
+      "proposal_id": "I5",
+      "rollout_type": "INDIVIDUAL_PROTECTED_PR",
+      "code_state": "CODE_MERGED_FEATURE_OFF",
+      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "feature_selector": "image_additional_first_pass_qc",
+      "prior_feature_mode": "baseline",
+      "active_feature_mode": "baseline",
+      "available_future_feature_mode": "enriched_v1",
+      "baseline_main_sha": "00c72f2b2994ae4fa97126491f8581013b025d28",
+      "first_code_merge_sha": "204d95a7968f269ef43926e7a9d06021810de9a2",
+      "latest_code_merge_sha": "204d95a7968f269ef43926e7a9d06021810de9a2",
+      "code_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/136",
+      "code_pr_head_sha": "ce3e05eba56d4f9138cec9d4bc37874aa7a34a1e",
+      "supporting_prs": [
+        {
+          "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/136",
+          "head": "ce3e05eba56d4f9138cec9d4bc37874aa7a34a1e",
+          "merge": "204d95a7968f269ef43926e7a9d06021810de9a2"
+        }
+      ],
+      "activation_main_sha": null,
+      "protected_activation_pr_url": null,
+      "unaffected_proposals": [
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "image_release_context": "ALREADY_PUBLISHED_2026-10-10_SIX_ACCEPTED",
+      "immutable_six_image_manifest": "external-image-packages/2026-10-10/manifest.json",
+      "protected_oct8_objects": 17,
+      "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+      "rollback_inverse_plan": "Select I5 first-pass baseline only for future attempts; retain mandatory readable text, source-fidelity/saved pixel/correction until PASS and PR121 HTML compatibility.",
+      "semantic_pixel_24_review_status": "UNPROVEN",
+      "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
+      "nonpublishing_rollback_drill_result": "CI_PROOF_WORKFLOW_PENDING",
+      "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
+      "actual_published_assets_regenerated": 0,
+      "old_new_schema_proofs": "historical_v1_plus_future_test_only_readers",
+      "review_evidence": [
+        "tests/image-rollback-matrix.test.mjs",
+        ".github/workflows/image-postproduction-rollback-drills.yml"
+      ]
+    }
+  ]
+}
