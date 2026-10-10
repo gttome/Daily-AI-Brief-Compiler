@@ -10,9 +10,9 @@ const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fail=s=>{throw Error('image_element24:'+s);};
 const VIEWPORTS={desktop:{width:1440,height:1000},mobile:{width:390,height:844}};
 const FOCUS_SLOTS={
- 'Technical AI Engineering':['t1','t2'],
- 'Applied Generative AI for Knowledge Workers':['k1','k2'],
- 'Agents for Everyone':['a1','a2']
+ 'Technical AI Engineering':['m01','m02'],
+ 'Applied Generative AI for Knowledge Workers':['m10','m11'],
+ 'Agents for Everyone':['m12','m14']
 };
 export function planImageElementTargets({job,manifest}){
  if(job?.schema_version!=='external-compiler-image-job-v1'||manifest?.schema_version!=='external-compiler-image-package-v1'||
