@@ -1,18 +1,22 @@
 # Daily AI Brief — GitHub image-production prompt
 
-**Revision 5 — Correct until all six pass; complete only after verified GitHub upload — 2026-10-09**
+**Revision 6 — Existing GitHub connection; complete only after all six images are published and verified — 2026-10-09**
 
 This revision incorporates a review of the five latest dated Briefs available on the public site at review time: **October 3–7, 2026**, covering **30 article/image pairs**. The dated calibration notes at the end explain the changes. They are operator guidance, not extra story content for an image generator.
 
-Use my existing image application to retrieve the Daily AI Brief’s image assignments from GitHub, create the six required images, and return the finished PNGs to the correct GitHub staging location. Do not build or modify an application.
+Use my existing image application to retrieve the Daily AI Brief’s image assignments from GitHub, create and upload the six required images, then use the existing Compiler release process to integrate and publish them in the Brief. Do not build or modify an application.
 
 **The executing session owns completion.** This includes the Work session when Work is used, without making Work a platform requirement. Create six valid images, review them, correct every failed image, and repeat generation/editing and review until all six pass every applicable individual and set-level requirement. Routine corrections and retries are already authorized; do not return the work to the owner to fix, ask whether to continue fixing ordinary defects, or stop after a preset number of quality attempts.
 
-**The session is not complete until all six passing PNGs have been successfully uploaded to the specified GitHub paths and verified from the exact committed bytes, with a complete matching manifest and genuine review evidence.** Six local files, previews, download links, a partial upload or a list of defects are not completion. Remain responsible for fixing upload/readback failures and finishing the six-image delivery. Publication is a separate Compiler step.
+**The task is not finished until all six passing images are uploaded to GitHub, integrated into their correct articles in the dated Brief, published, and independently verified on the live site.** Uploads, a merged PR, a queued release, previews or a successful deployment status alone do not satisfy completion. Continue correcting image, integration and publication failures until the complete live result passes; a genuine unresolved access, tool or quota blocker leaves the task incomplete.
 
-**App-independent exchange:** the app reads this prompt and the GitHub job, creates and reviews six images, then copies the six PNG binaries and their manifest/review records back to GitHub. The Compiler does not require a ChatGPT Work chat, a fresh chat, a browser session, a particular image provider or a particular app architecture. Use the app's existing authorized capabilities. Clean story-only generator inputs are required for image quality; they do not mean a particular chat product must be used. The app finishes at the staged package. The Compiler handles any separately authorized publication.
+**App-independent exchange:** the app reads this prompt and the GitHub job, creates and reviews six images, then copies the six PNG binaries and their manifest/review records back to GitHub. The Compiler does not require a ChatGPT Work chat, a fresh chat, a browser session, a particular image provider or a particular app architecture. Use the app's existing authorized capabilities. Clean story-only generator inputs are required for image quality; they do not mean a particular chat product must be used. The same executing session continues from verified staging through the Compiler's protected image-only publication and live verification. No additional chat is required.
 
 **Readable, meaningful explanatory text is mandatory in every image.** This owner correction supersedes the earlier prompt's textless instruction and the empty-label defaults in the GitHub handoff/job for this image-production task. An empty `visible_text_allowlist` or `labels_authorized=false` means the story's label specification still needs to be completed; it is not an instruction to produce an unlabeled image. Prepare source-faithful labels as described below. Preserve the original GitHub job bytes and hashes, and record this correction separately from the immutable source packet. All other publication, integrity and owner-release gates remain in force.
+
+**Use the existing GitHub connection first.** Read the job, upload binary PNGs, create commits and PRs, and perform supported release operations through the already connected account. Do not require a separate GitHub browser sign-in as a routine startup step. Request authentication only after an actual authorization failure establishes that the connection needs it; lack of a workflow-dispatch tool is a capability limitation, not proof that the owner must sign in. Never request passwords or access tokens in chat.
+
+Before generation, inspect the available publication capabilities and the current repository release workflow. Use a supported authenticated API, connector or already configured automation route when available. The image replacement workflow was manual-only at this revision, and the GitHub tools in the editing session did not expose a new-workflow dispatch action. This prompt does not add that capability or change the workflow. If release cannot be started through an available authorized route, preserve completed work, identify the precise missing capability and report **BLOCKED_INCOMPLETE**. Do not automatically fall back to browser login, fabricate a dispatch or silently change release triggers, permissions or schedules.
 
 **1. Start here and discover the current assignment**
 
@@ -28,7 +32,7 @@ Read the current image-job index:
 
 https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/shadow-pages-history/site/image-jobs/index.json
 
-Use `latest_eligible_date` to locate the corresponding `PUBLISHED_PENDING` entry with six stories, then retrieve its `job_url`. Discover the date and story IDs from GitHub each time; do not require date-specific edits to this prompt.
+For a new assignment, use `latest_eligible_date` to locate the corresponding `PUBLISHED_PENDING` entry with six stories, then retrieve its `job_url`. Discover the date and story IDs from GitHub; do not require date-specific edits to this prompt. When resuming an identified job, keep its exact edition and accepted work. If its index entry is already `RELEASED_VERIFIED`, verify that job's release receipt and six live results before reporting completion; do not start a different edition or regenerate its accepted images.
 
 Verify the exact downloaded job bytes against `job_sha256`. Retrieve `job.source.bundle_url` and verify its original bytes against `job.source.bundle_sha256`. Confirm the source commit, edition, execution, completed publication evidence, live dated Brief and six permanent story pages as required by the handoff.
 
@@ -194,22 +198,47 @@ Visually inspect the exact persisted PNGs and perform the independent six-image 
 
 Recheck each persisted PNG against its corresponding article and label specification after upload. Verify the committed manifest binds that exact file hash to the correct story and `expected_stage_path`; do not rely on filenames alone. If transport fails, retry transport of the accepted bytes rather than regenerating the image.
 
-**8. Finish only after all six passing images are verified in GitHub**
+**8. Verify all six images in GitHub, then continue to publication**
 
 Continue uploading and correcting transfer problems until GitHub contains all six final reviewed PNGs at their exact job paths. Read each file back from the final package commit and verify its bytes/hash, dimensions, story binding and matching review evidence. Confirm the committed manifest points to those same six final versions and that the set-review hashes match them. A successful upload of fewer than six images does not complete the session. Transfer retries reuse valid accepted bytes; an actual image defect requires the correction and re-review loop above.
 
-Report **STAGED_COMPLETE** only when all six individual reviews are PASS, the final set review is PASS, all six GitHub uploads and exact-commit readbacks are verified, and the complete manifest/review records are committed and bound to those same bytes. These are session-report labels, not invented manifest schema fields. Otherwise report **IN_PROGRESS** or **BLOCKED_INCOMPLETE**, never success or “done.”
+Mark verified staging as an intermediate checkpoint only: **STAGED_VERIFIED_CONTINUING**. It requires six individual PASS results, final set PASS, six exact-commit upload/readback verifications and a matching committed manifest/review package. Continue immediately to the publication stage below; it is not the completion status.
+
+**9. Integrate, publish and verify all six images before finishing**
+
+The executing session owns the complete result. The external image app supplies the PNGs and package; the Compiler's existing image-only release mechanism integrates and publishes them. These are stages of the same assignment, not a requirement to start another chat or stop after staging.
+
+**Publication authority:** when the owner submits this startup prompt as the assignment, it authorizes the selected eligible job's image-only publication after all six images pass review, including the normal protected PR, merge and existing release workflow. Preserve that actual owner instruction as the authorization evidence and bind the release record to the exact job, manifest and six accepted image hashes once available. Do not ask for the same routine publication permission again. This authorization does not claim that the owner personally inspected the artwork, supply missing historical evidence, waive a required repository approval, or permit bypassing branch protection or failed checks. Record only facts and approval evidence that actually exist.
+
+Read the current release workflow and its contracts before preparing the release:
+
+- `.github/workflows/external-image-only-replacement.yml`;
+- `scripts/check-external-image-release-gates.mjs`;
+- `scripts/stage-external-image-package.mjs`;
+- the preparation, finalization and live-verification scripts referenced by that workflow.
+
+1. Resolve current protected `main`, the exact Pages-history head, existing job/package branches, relevant PRs and release runs. Resume valid completed work. If the selected job is already released, verify that exact release and all six live images; do not regenerate the images or switch editions while resuming.
+2. Prepare truthful owner-release evidence under the current schema, linked to the actual owner authorization and bound to the exact job and manifest. Preserve all edition-specific prerequisites and October 8 historical protection. Never set legacy Work-session, source-publication or review fields to true merely to satisfy a validator. A stale or incompatible gate is a specific blocker to report, not permission to fabricate evidence.
+3. Open or resume the package PR. Run the required validation on its actual current head; fix supported package or image defects, re-review changed images and repeat affected validation. Preserve unaffected accepted image bytes. Merge only through the normal protected process after all required checks and repository approvals pass.
+4. Start the existing authorized image-only release using the verified edition, PR number, PR head SHA, merge SHA and Pages-history head. Use an available supported authenticated route as described in the connection instructions. Monitor that exact run through deployment and finalization; resolve ordinary failures and safely retry without repeating a successful release. Do not reset the original edition execution, rewrite articles, alter schedules, weaken release controls or modify `gttome/Daily-AI-Brief`.
+5. Independently retrieve the live dated Brief and all six permanent story pages from the Compiler's published site, using the job and release evidence to resolve their URLs. Verify the Brief contains all six correct images, each permanent article contains its matching image, and no assigned slot still shows a pending placeholder, broken image or stale version.
+6. Retrieve each final live PNG and verify its SHA-256 against the accepted GitHub bytes and manifest, along with its PNG encoding and actual 1200 × 630 dimensions. Check article-to-image binding, visible mandatory labels, legibility and rendering at desktop and mobile sizes using actual rendered-page evidence. A GitHub file link, HTML reference, cached screenshot or CI assertion alone is insufficient.
+7. Confirm the release's finalization/index state and preservation checks succeeded, including unchanged editorial content and the 17 protected October 8 public objects. If the live site has changed but release finalization failed, record that partial state, repair it safely and do not deploy the same images blindly again.
+
+**The task is not finished until all six passing images are uploaded to GitHub, integrated into their correct articles in the dated Brief, published, and independently verified on the live site.** Uploads, a merged PR, a queued release, previews or a successful deployment status alone do not satisfy completion. Continue correcting image, integration and publication failures until the complete live result passes; a genuine unresolved access, tool or quota blocker leaves the task incomplete.
+
+Report **PUBLISHED_COMPLETE** only after six individual reviews and the final set review are PASS; all six GitHub uploads/readbacks are verified; the protected integration and release succeed; and all six matching images are verified in the live dated Brief and their permanent articles. Use **IN_PROGRESS** or **BLOCKED_INCOMPLETE** otherwise. These are session-report labels, not new manifest schema values. A blocked report must preserve the exact branch, commit, hashes, PR/run IDs, completed checks and next recoverable action.
 
 Return:
 
-- selected edition and job URL;
-- staging branch and exact commit URL;
-- links to all six PNGs at the final immutable commit and `manifest.json`;
-- per-image review and exact-byte verification results, including the visual thesis, distinctive anchors, evidence map, exact label list, saved-pixel alignment and text checks for each image;
-- a six-row completion table showing story ID, final image link, image SHA-256, individual review PASS and GitHub upload/readback verification, plus the final set-review result;
-- overall completion status and any genuine remaining blockers. A blocker means the assignment remains incomplete.
+- the live dated Brief URL and selected edition/job URL;
+- the protected package PR, merge commit and successful release-run links;
+- the committed manifest and immutable GitHub links for the six accepted PNGs;
+- a six-row table with story ID, permanent article URL, live PNG URL, SHA-256, image-review PASS, GitHub readback PASS and live publication verification PASS;
+- the final set-review result, desktop/mobile display checks, historical-preservation result and verification time;
+- `PUBLISHED_COMPLETE` only if every completion requirement passed, or the exact remaining blocker and resume checkpoint.
 
-Finish after verified complete six-image staging and reporting. Do not merge, deploy, dispatch the replacement workflow, create an owner-approval record, change schedules or modify protected main, Pages history, edition content or existing image metadata. Publication requires separate explicit owner approval for the exact package. This publication boundary does not excuse unfinished image corrections or incomplete GitHub uploads.
+A documentation change or this prompt's wording is not evidence that a release occurred. Do not claim completion until the actual live result has been checked.
 
 ---
 
@@ -250,5 +279,3 @@ These are visual-review findings and recommendations. Where a drawing is ambiguo
 Across the other reviewed illustrations, retain the useful white backgrounds, visible labels, color-traced relationships and varied compositions. Strengthen the exposed mechanism: citation maps should distinguish source support from guaranteed truth; database evaluation should compare observed state with expected outcomes and make mismatches visible; adoption and training stories should show the supported organizational process rather than decorative buildings or generic machinery. Repeated placeholder paragraphs, oversized enclosures and unlabeled internals should not be counted as explanatory detail.
 
 **Acceptance priority:** factual alignment and correct relationships; mandatory readable text; visible mechanism; visual quality; exact final bytes and packaging. Every requirement still has to pass. A beautiful image with the wrong mechanism is not acceptable.
-
-

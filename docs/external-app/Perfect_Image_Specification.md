@@ -1,6 +1,6 @@
 # Daily AI Brief — Image Specification for an External App
 
-**Revision:** 2026-10-09, aligned with external-app prompt revision 5.  
+**Revision:** 2026-10-09, aligned with external-app prompt revision 6.  
 **Operational repository:** `gttome/Daily-AI-Brief-Compiler`.  
 **Scope:** image quality and review for an existing app that reads the prompt and GitHub, then returns six PNGs to GitHub. No Work chat, fresh-chat proof, specific provider or app build is required.
 
@@ -163,5 +163,4 @@ Start at [EXTERNAL_APP_HANDOFF.md](https://github.com/gttome/Daily-AI-Brief-Comp
 
 Return six PNGs on the authorized unprotected staging branch at `external-image-packages/YYYY-MM-DD/images/<exact-story-id>.png`, plus `external-image-packages/YYYY-MM-DD/manifest.json` and referenced review records. Derive the date, IDs and paths from that job. Use the [full prompt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md) for discovery, immutable hashes, packaging and completion instructions.
 
-**The session is not complete until all six passing PNGs are successfully uploaded to GitHub and independently read back from the exact final commit, with matching hashes, story paths and committed manifest/review evidence.** A partial upload, six local images or a defects report is incomplete. The session must finish routine upload repairs using the accepted bytes. Report STAGED_COMPLETE only after six individual PASS results, set-level PASS and verified 6/6 GitHub delivery. Publication and owner approval remain separate Compiler responsibilities.
-
+**The task is not finished until all six passing images are uploaded to GitHub, integrated into their correct articles in the dated Brief, published, and independently verified on the live site.** Uploads, a merged PR, a queued release, previews or a successful deployment status alone do not satisfy completion. Continue correcting image, integration and publication failures until the complete live result passes; a genuine unresolved access, tool or quota blocker leaves the task incomplete. Verify all six exact GitHub readbacks and matching manifest/reviews, then follow the full prompt's protected publication and live-verification steps. Use the existing GitHub connection first; require sign-in only for an actual authentication need. Report PUBLISHED_COMPLETE only after all six images and article bindings pass on the live dated Brief and permanent story pages. Genuine blockers remain BLOCKED_INCOMPLETE.

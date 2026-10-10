@@ -1,10 +1,10 @@
 # Daily AI Brief — Image Variation After-Action and Current Guidance
 
 **Updated:** 2026-10-09.  
-**Status:** corrective guidance incorporated into external-app prompt revision 5; successful live six-image execution has not been claimed.  
+**Status:** corrective guidance incorporated into external-app prompt revision 6; successful live six-image execution has not been claimed.  
 **Operational repository:** `gttome/Daily-AI-Brief-Compiler` only.
 
-This revision separates the October 8 historical lesson from the current reusable instructions. It does not reopen that edition, regenerate accepted images, start an app-development project or authorize a publication. No Work-enabled chat or specific image provider is required.
+This revision separates the October 8 historical lesson from the current reusable instructions. It does not reopen that edition, regenerate accepted images, start an app-development project or itself authorize a publication; the owner's submitted startup assignment supplies publication authority for the selected eligible job. No Work-enabled chat or specific image provider is required.
 
 ## Historical finding
 
@@ -36,7 +36,7 @@ These names are not current job paths, proof of publication, or a new generation
 7. Inspect the final six saved images as a set and record visible differences. Different hashes or differently named signatures are not sufficient evidence of visual diversity.
 
 8. Correct every failed image or set-level requirement and repeat individual and set reviews until all six pass. The executing session owns these corrections; no fixed quality-attempt cap or routine owner intervention ends that responsibility. Actual unavailable-tool, quota, access or source-data blockers leave the assignment incomplete with a durable resume checkpoint.
-9. Upload all six final passing PNGs and the matching manifest/review records to the job's GitHub staging paths, then verify the exact committed bytes by readback. **The session is not complete until 6/6 images pass and 6/6 uploads/readbacks are verified.** Local files, partial packages and review-only reports are incomplete.
+9. Upload all six final passing PNGs and the matching manifest/review records to the job's GitHub staging paths, then verify the exact committed bytes by readback. This is an intermediate checkpoint. Continue through the protected image-only release and verify all six live images in the dated Brief and correct permanent articles. **Completion requires 6/6 review passes, 6/6 verified GitHub readbacks and 6/6 verified live publications.** Local files, staged packages and review-only reports are incomplete.
 
 ## Article-driven visual choices
 
@@ -94,5 +94,4 @@ Synthetic tests can verify interface behavior, not visual quality. Keep the hist
 
 ## External-app boundary
 
-The existing app reads the [prompt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md) and [GitHub handoff](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/EXTERNAL_APP_HANDOFF.md), prepares and reviews six images, then returns their bytes and manifest to the job's staging paths. No Work chat, fresh-chat certificate, new scheduler or app-development iteration is required. The Compiler handles separately authorized publication.
-
+The existing app reads the [prompt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md) and [GitHub handoff](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/EXTERNAL_APP_HANDOFF.md), prepares and reviews six images, then returns their bytes and manifest to the job's staging paths. No Work chat, fresh-chat certificate, new scheduler or app-development iteration is required. The same session uses the existing GitHub connection and Compiler release process to complete owner-authorized publication and verify all six live results; no separate chat is required.
