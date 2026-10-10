@@ -1,0 +1,20 @@
+{
+  "status": "BLOCKED_INCOMPLETE",
+  "edition_date": "2026-10-10",
+  "images_created_reviewed_uploaded": 6,
+  "publication_started": false,
+  "live_verification_complete": false,
+  "blockers": [
+    {
+      "kind": "capability",
+      "detail": "Connected GitHub has authenticated read/write/PR/merge and rerun-existing-job tools, but no new workflow_dispatch capability. The release workflow triggers only workflow_dispatch. No existing October 10 release run is available to resume.",
+      "required_resolution": "An authorized authenticated route to dispatch the existing workflow with verified protected PR/merge bindings; do not change workflow triggers or schedules."
+    },
+    {
+      "kind": "release_contract_compatibility",
+      "detail": "scripts/check-external-image-release-gates.mjs still requires external_work_cold_start_proven===true. Revision 6 explicitly removes that requirement and prohibits fabricated Work proof. Scheduled Release 1 owner-acceptance prerequisite also needs genuine evidence; owner personal review is not inferred from delegated authorization.",
+      "required_resolution": "Repository maintainer must reconcile the legacy release gate through its protected process and supply any genuinely required historical evidence. Preserve protections; do not falsify approval fields."
+    }
+  ],
+  "resume": "Reuse accepted locked PNG hashes, complete protected package PR/merge if still pending, bind truthful release evidence, dispatch existing workflow when available, monitor finalization, independently verify seven live pages, six live PNG hashes and desktop/mobile rendering."
+}

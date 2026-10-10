@@ -1,0 +1,234 @@
+{
+  "schema_version": "external-image-detailed-review-v1",
+  "edition_date": "2026-10-10",
+  "story_id": "oct10-t1-browser-agent-caching",
+  "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/browser-agent-context-cache-economics/",
+  "original_source_url": "https://openai.com/index/asana-browser-agent/",
+  "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+  "recipe_version": "oct10-r2",
+  "reviewed_at": "2026-10-10T03:30:49Z",
+  "reviewer": "executing assistant",
+  "owner_personal_artwork_review_claimed": false,
+  "image_sha256": "72a75d2ba53226f3dac6932b37f6dfe09978c63429d3f2469ff511064a372cba",
+  "git_blob_sha": "cae556fb54fec2f2a432473c72927dcfe53ebb79",
+  "persisted_binary_commit": "0b0a6141a2d819830c28985dacebbeaea37fcccf",
+  "pixel_inspection_method": "persisted_git_binary",
+  "inspection_scope": "Each final exported image inspected individually; six-image comparison; exact GitHub readbacks byte-identical to inspected PNGs and reinspection performed. No live-rendering claim.",
+  "result": "PASS",
+  "exact_visible_labels": [
+    "Stable history makes browser agents cheaper",
+    "Instructions and tools",
+    "Page text",
+    "Screenshots",
+    "Retained history",
+    "Stable prefix",
+    "New input",
+    "Appended input",
+    "Reuse cached prefix",
+    "Batch pruning at 20 screenshots",
+    "Keep newest screenshot",
+    "Model request",
+    "32-book demo task",
+    "Estimated cost per run",
+    "Same model: $1.97 to $0.47"
+  ],
+  "evidence_map": [
+    {
+      "labels": [
+        "Stable history makes browser agents cheaper",
+        "Instructions and tools",
+        "Page text",
+        "Screenshots",
+        "Retained history",
+        "Stable prefix",
+        "New input",
+        "Appended input",
+        "Reuse cached prefix",
+        "Model request"
+      ],
+      "source_location": "Asana source, Identifying inefficiencies and From an estimated two months; lines 63–76.",
+      "visual_role": "Retained layers and new suffix assemble the request; thin leaders explain magnification.",
+      "qualification": "Reported implementation; does not assert perpetual cache retention after pruning.",
+      "source_url": "https://openai.com/index/asana-browser-agent/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Batch pruning at 20 screenshots",
+        "Keep newest screenshot"
+      ],
+      "source_location": "Asana context-history optimization passage, lines 69–76.",
+      "visual_role": "Threshold bracket and batch-to-newest transition.",
+      "qualification": "Older screenshot content is removed in batches; not a lossless compression claim.",
+      "source_url": "https://openai.com/index/asana-browser-agent/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "32-book demo task",
+        "Estimated cost per run",
+        "Same model: $1.97 to $0.47"
+      ],
+      "source_location": "Asana Bringing model cost below $0.50, lines 89–104.",
+      "visual_role": "Output task scope beside a same-model cost comparison.",
+      "qualification": "Estimated USD per run for this task; not cross-model 76x or a universal saving.",
+      "source_url": "https://openai.com/index/asana-browser-agent/",
+      "source_checked_on": "2026-10-10"
+    }
+  ],
+  "relationship_map": [
+    {
+      "origin": "Instructions and tools / Page text / Screenshots",
+      "destination": "Retained history",
+      "meaning": "data",
+      "condition_or_scope": "Input layers retained as history."
+    },
+    {
+      "origin": "Stable prefix and Appended input",
+      "destination": "Model request",
+      "meaning": "assembly",
+      "condition_or_scope": "Cached prefix reused with newly appended context."
+    },
+    {
+      "origin": "20-screenshot batch",
+      "destination": "Keep newest screenshot",
+      "meaning": "state change",
+      "condition_or_scope": "Batched pruning retains newest screenshot."
+    },
+    {
+      "origin": "Model request",
+      "destination": "32-book demo task",
+      "meaning": "task scope",
+      "condition_or_scope": "Request supports this demonstration task; illustration is not a guarantee of book-level execution."
+    },
+    {
+      "origin": "Retained history",
+      "destination": "Stable prefix and pruning details",
+      "meaning": "annotation",
+      "condition_or_scope": "Fine leaders identify enlarged details, not feedback."
+    }
+  ],
+  "specification": {
+    "story_id": "oct10-t1-browser-agent-caching",
+    "visual_thesis": "Retaining stable browsing history enables cached prefix reuse, while batched screenshot removal limits destructive context edits.",
+    "anchors": [
+      "Batch removal at 20 screenshots keeps the newest",
+      "Same-model estimated cost falls from $1.97 to $0.47 per run",
+      "32-book demonstration task"
+    ],
+    "grammar": "unfolded context anatomy with comparison inset",
+    "layout": "long context ribbon over two magnified details",
+    "hierarchy": "dominant horizontal history ribbon; subordinate threshold and estimate",
+    "palette": "petrol teal and restrained copper",
+    "metaphor": "layered context ribbon",
+    "annotation": "leader-line anatomy labels",
+    "labels": [
+      "Stable history makes browser agents cheaper",
+      "Instructions and tools",
+      "Page text",
+      "Screenshots",
+      "Retained history",
+      "Stable prefix",
+      "New input",
+      "Appended input",
+      "Reuse cached prefix",
+      "Batch pruning at 20 screenshots",
+      "Keep newest screenshot",
+      "Model request",
+      "32-book demo task",
+      "Estimated cost per run",
+      "Same model: $1.97 to $0.47"
+    ],
+    "components": [
+      "fixed instruction layer",
+      "tool definition layer",
+      "page text",
+      "screenshot history",
+      "retained history extent",
+      "stable prefix portion",
+      "new suffix",
+      "cache reuse path",
+      "20-screenshot threshold",
+      "discarded older batch",
+      "newest retained frame",
+      "request assembly",
+      "task output",
+      "same-model cost comparison"
+    ],
+    "evidence": "Primary source sections Identifying inefficiencies, From an estimated two months, Bringing model cost below $0.50; current source lines 63-76 and 89-104 agree with frozen packet.",
+    "exclusions": [
+      "No 76x displayed without cross-model baseline",
+      "No universal performance claim",
+      "No lossless perpetual cache after pruning",
+      "No exact quantitative chart or fake UI"
+    ],
+    "source_ref": "turn0view0",
+    "recipe_version": "oct10-r2",
+    "edition_date": "2026-10-10",
+    "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+    "label_authority": "Owner requires readable text; operator drafted wording. No personal owner review claimed.",
+    "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/browser-agent-context-cache-economics/",
+    "primary_source_url": "https://openai.com/index/asana-browser-agent/"
+  },
+  "visual_signature": {
+    "story_id": "oct10-t1-browser-agent-caching",
+    "visual_grammar": "unfolded context anatomy with comparison inset",
+    "layout_signature": "long context ribbon over two magnified details",
+    "composition_signature": "long context ribbon over two magnified details; dominant horizontal history ribbon; subordinate threshold and estimate",
+    "dominant_palette": "petrol teal and restrained copper",
+    "mechanism_metaphor": "layered context ribbon",
+    "major_object_family": "layered history strips and request blocks",
+    "connector_style": "solid teal assembly arrows and thin magnification leaders",
+    "hierarchy_pattern": "dominant horizontal history ribbon; subordinate threshold and estimate",
+    "annotation_pattern": "leader-line anatomy labels",
+    "perspective_style": "Controlled dimensional technical illustration on white; depth carries artifact relationships",
+    "evidence_representation": "Retained layers and new suffix assemble the request; thin leaders explain magnification. Threshold bracket and batch-to-newest transition. Output task scope beside a same-model cost comparison.",
+    "feedback_pattern": "No automated feedback loop",
+    "sha256": "72a75d2ba53226f3dac6932b37f6dfe09978c63429d3f2469ff511064a372cba",
+    "review_status": "PASS"
+  },
+  "checklist": {
+    "factual_alignment": {
+      "result": "PASS",
+      "notes": "Stable teal history layers retain instructions, page text and screenshots while the copper suffix appends new input. Magnified request assembly and the 20-screenshot batch detail are visibly separate. The cost text says estimated per run, same model, $1.97 to $0.47 and sits beside the 32-book task scope. All 15 labels were inspected on the final PNG; no pseudo-writing, unsupported timing metric or perpetual-cache claim remains."
+    },
+    "relationships": {
+      "result": "PASS",
+      "notes": "Instructions and tools / Page text / Screenshots | Retained history | data | Input layers retained as history.\nStable prefix and Appended input | Model request | assembly | Cached prefix reused with newly appended context.\n20-screenshot batch | Keep newest screenshot | state change | Batched pruning retains newest screenshot.\nModel request | 32-book demo task | task scope | Request supports this demonstration task; illustration is not a guarantee of book-level execution.\nRetained history | Stable prefix and pruning details | annotation | Fine leaders identify enlarged details, not feedback."
+    },
+    "text": {
+      "result": "PASS",
+      "notes": "All 15 listed labels inspected in final 1200×630 saved pixels; correct spelling, complete qualifiers, no clipped labels, no invented microcopy. Label wrapping is visual only."
+    },
+    "mechanism_detail": {
+      "result": "PASS",
+      "notes": "14 supported explanatory roles; four major explanatory regions, with request assembly and batch pruning visibly exposed. Decorative repeats not counted."
+    },
+    "evidence_constraints": {
+      "result": "PASS",
+      "notes": "Reported implementation; does not assert perpetual cache retention after pruning. Older screenshot content is removed in batches; not a lossless compression claim. Estimated USD per run for this task; not cross-model 76x or a universal saving."
+    },
+    "professional_finish": {
+      "result": "PASS",
+      "notes": "Clean white background, crisp readable type, dimensional artifact forms and restrained story palette; no people, logos, photorealism, decorative guarantees or pseudo-writing."
+    },
+    "hierarchy_composition": {
+      "result": "PASS",
+      "notes": "long context ribbon over two magnified details; dominant horizontal history ribbon; subordinate threshold and estimate. Explanatory roles occupy approximately 80–90% of the useful composition by manual review; this is not a calculated nonwhite-pixel statistic."
+    },
+    "differentiation": {
+      "result": "PASS",
+      "notes": "Distinct layered context ribbon explanation in petrol teal and restrained copper; compared with the other five accepted PNGs in the six-image contact sheet."
+    },
+    "encoding": {
+      "result": "PASS",
+      "notes": "Decoded exact 1200×630, RGB 8-bit noninterlaced PNG; SHA-256 and Git blob identities match both connected-GitHub and raw exact-commit downloads."
+    },
+    "accessibility": {
+      "result": "PASS",
+      "notes": "Substantive mechanism alt text supplied; final-image text checked full size and in the reduced set view. Live desktop/mobile rendering has not been verified."
+    }
+  },
+  "alt_text": "Layered browsing context keeps instructions, page text and screenshots stable while new input is appended to a model request. A separate detail shows screenshot pruning at 20, retaining the newest. The 32-book demonstration is paired with the same-model estimated cost change from $1.97 to $0.47 per run."
+}
+

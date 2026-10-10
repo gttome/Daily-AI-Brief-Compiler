@@ -1,0 +1,239 @@
+{
+  "schema_version": "external-image-detailed-review-v1",
+  "edition_date": "2026-10-10",
+  "story_id": "oct10-k1-oracle-knowledge",
+  "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/oracle-repeatable-ai-business-intelligence/",
+  "original_source_url": "https://openai.com/index/oracle/",
+  "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+  "recipe_version": "oct10-r2",
+  "reviewed_at": "2026-10-10T03:30:49Z",
+  "reviewer": "executing assistant",
+  "owner_personal_artwork_review_claimed": false,
+  "image_sha256": "a9eeb84c764a6debfa4f006e482099cef99d02a3654f5e3e07eca1b933cd2ad9",
+  "git_blob_sha": "9588bacc48ae1fc497aa60ca4a32f7a336fa4f3b",
+  "persisted_binary_commit": "0b0a6141a2d819830c28985dacebbeaea37fcccf",
+  "pixel_inspection_method": "persisted_git_binary",
+  "inspection_scope": "Each final exported image inspected individually; six-image comparison; exact GitHub readbacks byte-identical to inspected PNGs and reinspection performed. No live-rendering claim.",
+  "result": "PASS",
+  "exact_visible_labels": [
+    "Domain knowledge makes work repeatable",
+    "Recruiting",
+    "Job description",
+    "Roles, pay and locations",
+    "Recruiter briefing",
+    "Business analytics",
+    "Business question",
+    "Objects, relationships and rules",
+    "SQL query",
+    "Internal systems",
+    "Analysis",
+    "Incident response",
+    "Incident context",
+    "Relevant playbook",
+    "Guided investigation",
+    "People remain responsible"
+  ],
+  "evidence_map": [
+    {
+      "labels": [
+        "Domain knowledge makes work repeatable",
+        "Recruiting",
+        "Job description",
+        "Roles, pay and locations",
+        "Recruiter briefing"
+      ],
+      "source_location": "Oracle Making recruiting research more efficient, lines 60–67.",
+      "visual_role": "Job context fans into supported recruiting dimensions then briefing.",
+      "qualification": "Roles are conceptual organization of domain information, not a hardware system.",
+      "source_url": "https://openai.com/index/oracle/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Business analytics",
+        "Business question",
+        "Objects, relationships and rules",
+        "SQL query",
+        "Internal systems",
+        "Analysis"
+      ],
+      "source_location": "Oracle Business users get the answers they need faster, lines 68–74.",
+      "visual_role": "Ontology lattice grounds a question-to-SQL-to-system-to-analysis sequence.",
+      "qualification": "No unreported common datastore linking the three workflows.",
+      "source_url": "https://openai.com/index/oracle/",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Incident response",
+        "Incident context",
+        "Relevant playbook",
+        "Guided investigation",
+        "People remain responsible"
+      ],
+      "source_location": "Oracle incident-response discussion and Leadership lessons, lines 75–80.",
+      "visual_role": "Context selects playbook; guided investigation retains responsibility baseline.",
+      "qualification": "Guidance is not autonomous incident remediation.",
+      "source_url": "https://openai.com/index/oracle/",
+      "source_checked_on": "2026-10-10"
+    }
+  ],
+  "relationship_map": [
+    {
+      "origin": "Job description",
+      "destination": "Roles, pay and locations → Recruiter briefing",
+      "meaning": "context synthesis",
+      "condition_or_scope": "Recruiting research path."
+    },
+    {
+      "origin": "Business question",
+      "destination": "Objects, relationships and rules",
+      "meaning": "grounding",
+      "condition_or_scope": "Ontology resolves business meaning."
+    },
+    {
+      "origin": "Ontology",
+      "destination": "SQL query → Internal systems → Analysis",
+      "meaning": "query and result",
+      "condition_or_scope": "Business question maps through domain knowledge to query and analysis."
+    },
+    {
+      "origin": "Incident context",
+      "destination": "Relevant playbook → Guided investigation",
+      "meaning": "evidence and action",
+      "condition_or_scope": "Playbook selection supports investigation."
+    },
+    {
+      "origin": "Three independent contexts",
+      "destination": "People remain responsible",
+      "meaning": "constraint",
+      "condition_or_scope": "Shared responsibility bracket, not shared data synchronization."
+    }
+  ],
+  "specification": {
+    "story_id": "oct10-k1-oracle-knowledge",
+    "visual_thesis": "Distinct recruiting, analytics and incident workflows turn domain-specific context into usable work while retaining human responsibility.",
+    "anchors": [
+      "Business ontology maps objects, relationships and rules to SQL",
+      "Recruiting compares roles, compensation and geography",
+      "Incident context retrieves playbooks"
+    ],
+    "grammar": "three-context knowledge map",
+    "layout": "large central ontology lattice between separate recruiting and incident vignettes",
+    "hierarchy": "dominant semantic lattice; secondary context paths; responsibility baseline",
+    "palette": "burgundy and warm graphite",
+    "metaphor": "knowledge lattice",
+    "annotation": "radial callouts and separate context headings",
+    "labels": [
+      "Domain knowledge makes work repeatable",
+      "Recruiting",
+      "Job description",
+      "Roles, pay and locations",
+      "Recruiter briefing",
+      "Business analytics",
+      "Business question",
+      "Objects, relationships and rules",
+      "SQL query",
+      "Internal systems",
+      "Analysis",
+      "Incident response",
+      "Incident context",
+      "Relevant playbook",
+      "Guided investigation",
+      "People remain responsible"
+    ],
+    "components": [
+      "recruiting role input",
+      "comparable role comparison",
+      "pay context",
+      "location/talent context",
+      "recruiter briefing",
+      "business question",
+      "object definitions",
+      "relationship mapping",
+      "business rules",
+      "SQL query",
+      "internal authoritative system",
+      "analysis result",
+      "incident context",
+      "playbook retrieval",
+      "guided investigation",
+      "human responsibility brace"
+    ],
+    "evidence": "Primary source Making recruiting research more efficient, Business users get the answers they need faster, Leadership lessons; lines 60-80.",
+    "exclusions": [
+      "No universal speed-up",
+      "No cross-workflow synchronized datastore",
+      "No autonomous incident remediation",
+      "No people"
+    ],
+    "source_ref": "turn0view2",
+    "recipe_version": "oct10-r2",
+    "edition_date": "2026-10-10",
+    "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+    "label_authority": "Owner requires readable text; operator drafted wording. No personal owner review claimed.",
+    "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/oracle-repeatable-ai-business-intelligence/",
+    "primary_source_url": "https://openai.com/index/oracle/"
+  },
+  "visual_signature": {
+    "story_id": "oct10-k1-oracle-knowledge",
+    "visual_grammar": "three-context knowledge map",
+    "layout_signature": "large central ontology lattice between separate recruiting and incident vignettes",
+    "composition_signature": "large central ontology lattice between separate recruiting and incident vignettes; dominant semantic lattice; secondary context paths; responsibility baseline",
+    "dominant_palette": "burgundy and warm graphite",
+    "mechanism_metaphor": "knowledge lattice",
+    "major_object_family": "ontology nodes and knowledge artifacts",
+    "connector_style": "burgundy thin directional paths and responsibility brace",
+    "hierarchy_pattern": "dominant semantic lattice; secondary context paths; responsibility baseline",
+    "annotation_pattern": "radial callouts and separate context headings",
+    "perspective_style": "Controlled dimensional technical illustration on white; depth carries artifact relationships",
+    "evidence_representation": "Job context fans into supported recruiting dimensions then briefing. Ontology lattice grounds a question-to-SQL-to-system-to-analysis sequence. Context selects playbook; guided investigation retains responsibility baseline.",
+    "feedback_pattern": "No automated feedback loop",
+    "sha256": "a9eeb84c764a6debfa4f006e482099cef99d02a3654f5e3e07eca1b933cd2ad9",
+    "review_status": "PASS"
+  },
+  "checklist": {
+    "factual_alignment": {
+      "result": "PASS",
+      "notes": "Burgundy recruiting and incident vignettes flank the dominant business ontology. The central question maps through objects, relationships and rules into SQL, internal systems and analysis. Incident context selects a playbook for guided investigation. The bottom responsibility brace does not imply data exchange among workflows. All 16 labels are readable and no invented chart values or autonomous remediation appear."
+    },
+    "relationships": {
+      "result": "PASS",
+      "notes": "Job description | Roles, pay and locations → Recruiter briefing | context synthesis | Recruiting research path.\nBusiness question | Objects, relationships and rules | grounding | Ontology resolves business meaning.\nOntology | SQL query → Internal systems → Analysis | query and result | Business question maps through domain knowledge to query and analysis.\nIncident context | Relevant playbook → Guided investigation | evidence and action | Playbook selection supports investigation.\nThree independent contexts | People remain responsible | constraint | Shared responsibility bracket, not shared data synchronization."
+    },
+    "text": {
+      "result": "PASS",
+      "notes": "All 16 listed labels inspected in final 1200×630 saved pixels; correct spelling, complete qualifiers, no clipped labels, no invented microcopy. Label wrapping is visual only."
+    },
+    "mechanism_detail": {
+      "result": "PASS",
+      "notes": "16 supported explanatory roles; four major explanatory regions, with ontology grounding and SQL/query stages visibly exposed. Decorative repeats not counted."
+    },
+    "evidence_constraints": {
+      "result": "PASS",
+      "notes": "Roles are conceptual organization of domain information, not a hardware system. No unreported common datastore linking the three workflows. Guidance is not autonomous incident remediation."
+    },
+    "professional_finish": {
+      "result": "PASS",
+      "notes": "Clean white background, crisp readable type, dimensional artifact forms and restrained story palette; no people, logos, photorealism, decorative guarantees or pseudo-writing."
+    },
+    "hierarchy_composition": {
+      "result": "PASS",
+      "notes": "large central ontology lattice between separate recruiting and incident vignettes; dominant semantic lattice; secondary context paths; responsibility baseline. Explanatory roles occupy approximately 80–90% of the useful composition by manual review; this is not a calculated nonwhite-pixel statistic."
+    },
+    "differentiation": {
+      "result": "PASS",
+      "notes": "Distinct knowledge lattice explanation in burgundy and warm graphite; compared with the other five accepted PNGs in the six-image contact sheet."
+    },
+    "encoding": {
+      "result": "PASS",
+      "notes": "Decoded exact 1200×630, RGB 8-bit noninterlaced PNG; SHA-256 and Git blob identities match both connected-GitHub and raw exact-commit downloads."
+    },
+    "accessibility": {
+      "result": "PASS",
+      "notes": "Substantive mechanism alt text supplied; final-image text checked full size and in the reduced set view. Live desktop/mobile rendering has not been verified."
+    }
+  },
+  "alt_text": "Three distinct Oracle workflows use domain knowledge: recruiting turns a job description and role, pay and location context into a briefing; business analytics maps a question through objects, relationships and rules to SQL and internal systems; incident context selects a playbook for guided investigation. People retain responsibility."
+}
+

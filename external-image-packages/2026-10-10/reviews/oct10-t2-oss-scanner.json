@@ -1,0 +1,237 @@
+{
+  "schema_version": "external-image-detailed-review-v1",
+  "edition_date": "2026-10-10",
+  "story_id": "oct10-t2-oss-scanner",
+  "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/oss-scanner-human-triage-boundary/",
+  "original_source_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+  "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+  "recipe_version": "oct10-r2",
+  "reviewed_at": "2026-10-10T03:30:49Z",
+  "reviewer": "executing assistant",
+  "owner_personal_artwork_review_claimed": false,
+  "image_sha256": "b52963662cb73da4f103b98cb794181d6acfa5d24a01fceab5730cf21727de82",
+  "git_blob_sha": "134911c1acdfb5150268a895cb93b17ade85a4f5",
+  "persisted_binary_commit": "0b0a6141a2d819830c28985dacebbeaea37fcccf",
+  "pixel_inspection_method": "persisted_git_binary",
+  "inspection_scope": "Each final exported image inspected individually; six-image comparison; exact GitHub readbacks byte-identical to inspected PNGs and reinspection performed. No live-rendering claim.",
+  "result": "PASS",
+  "exact_visible_labels": [
+    "AI findings need human triage",
+    "Opt-in repository",
+    "Model scan",
+    "Candidate report",
+    "Explanation",
+    "Reproducer",
+    "Patch when available",
+    "Unverified fast-track",
+    "Maintainer triage",
+    "Expert validation",
+    "Coordinated disclosure",
+    "Reported review workload",
+    "29,000+ candidates",
+    "About 6,000 manually reviewed"
+  ],
+  "evidence_map": [
+    {
+      "labels": [
+        "AI findings need human triage",
+        "Opt-in repository",
+        "Model scan",
+        "Candidate report",
+        "Explanation",
+        "Reproducer",
+        "Patch when available"
+      ],
+      "source_location": "Anthropic launch article, opening service description and report contents, lines 15–26.",
+      "visual_role": "Repository scan yields candidate evidence; report unfolds into three components.",
+      "qualification": "Patch availability is conditional; a candidate is not a verified vulnerability.",
+      "source_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Unverified fast-track",
+        "Maintainer triage",
+        "Expert validation",
+        "Coordinated disclosure"
+      ],
+      "source_location": "Anthropic fast-track and human-validated coordinated-disclosure passages, lines 15–26.",
+      "visual_role": "Separate upper raw-report path and lower expert-validation path.",
+      "qualification": "Fast-track remains unverified; no automatic public disclosure or safety guarantee.",
+      "source_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+      "source_checked_on": "2026-10-10"
+    },
+    {
+      "labels": [
+        "Reported review workload",
+        "29,000+ candidates",
+        "About 6,000 manually reviewed"
+      ],
+      "source_location": "Anthropic reported candidate and manually reviewed counts, lines 17–20.",
+      "visual_role": "Non-causal bracketed workload comparison.",
+      "qualification": "Counts are not an accuracy ratio or charted efficiency gain.",
+      "source_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+      "source_checked_on": "2026-10-10"
+    }
+  ],
+  "relationship_map": [
+    {
+      "origin": "Opt-in repository",
+      "destination": "Model scan",
+      "meaning": "data",
+      "condition_or_scope": "Opt-in source scope."
+    },
+    {
+      "origin": "Model scan",
+      "destination": "Candidate report",
+      "meaning": "transformation",
+      "condition_or_scope": "Model produces candidate finding report."
+    },
+    {
+      "origin": "Candidate report",
+      "destination": "Explanation / Reproducer / Patch when available",
+      "meaning": "anatomy",
+      "condition_or_scope": "Report content, patch conditional."
+    },
+    {
+      "origin": "Candidate report",
+      "destination": "Unverified fast-track → Maintainer triage",
+      "meaning": "route",
+      "condition_or_scope": "Raw findings sent for maintainer assessment."
+    },
+    {
+      "origin": "Candidate report",
+      "destination": "Expert validation → Coordinated disclosure",
+      "meaning": "route",
+      "condition_or_scope": "Validated coordinated handling follows expert review."
+    },
+    {
+      "origin": "29,000+ candidates",
+      "destination": "About 6,000 manually reviewed",
+      "meaning": "comparison",
+      "condition_or_scope": "Bracketed reported workload counts; no causal arrow or accuracy rate."
+    }
+  ],
+  "specification": {
+    "story_id": "oct10-t2-oss-scanner",
+    "visual_thesis": "Automated scanning produces evidence-bearing candidate reports whose fast delivery remains separate from human-verified disclosure.",
+    "anchors": [
+      "Opt-in source scanning",
+      "Report includes reproducer and optional patch",
+      "Faster unverified route versus human-verified CVD"
+    ],
+    "grammar": "branching responsibility boundary",
+    "layout": "upper source/report anatomy feeding two vertically separated routes",
+    "hierarchy": "central split with differently qualified terminal states",
+    "palette": "ochre amber with charcoal",
+    "metaphor": "forked evidence distribution",
+    "annotation": "inline route labels and bracketed capacity evidence",
+    "labels": [
+      "AI findings need human triage",
+      "Opt-in repository",
+      "Model scan",
+      "Candidate report",
+      "Explanation",
+      "Reproducer",
+      "Patch when available",
+      "Unverified fast-track",
+      "Maintainer triage",
+      "Expert validation",
+      "Coordinated disclosure",
+      "Reported review workload",
+      "29,000+ candidates",
+      "About 6,000 manually reviewed"
+    ],
+    "components": [
+      "opt-in repository scope",
+      "model scan",
+      "candidate report",
+      "explanation",
+      "reproducer",
+      "optional patch",
+      "choice split",
+      "raw fast-track",
+      "maintainer triage",
+      "expert validation",
+      "verified disclosure",
+      "candidate volume",
+      "reviewed volume",
+      "capacity comparison brace"
+    ],
+    "evidence": "Primary source lines 15-26 establish the two routes and report content; lines 17-20 distinguish candidate and manually reviewed counts.",
+    "exclusions": [
+      "No guaranteed secure patch",
+      "No automatic public disclosure",
+      "No accuracy rate derived from 29000/6000",
+      "No people or vulnerability exploit instructions"
+    ],
+    "source_ref": "turn0view1",
+    "recipe_version": "oct10-r2",
+    "edition_date": "2026-10-10",
+    "job_sha256": "15301d33191ad1e04eb8bba0ce9f40a5ac53809bdcc363f1647bce5f97b2749e",
+    "label_authority": "Owner requires readable text; operator drafted wording. No personal owner review claimed.",
+    "permanent_article_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/oss-scanner-human-triage-boundary/",
+    "primary_source_url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source"
+  },
+  "visual_signature": {
+    "story_id": "oct10-t2-oss-scanner",
+    "visual_grammar": "branching responsibility boundary",
+    "layout_signature": "upper source/report anatomy feeding two vertically separated routes",
+    "composition_signature": "upper source/report anatomy feeding two vertically separated routes; central split with differently qualified terminal states",
+    "dominant_palette": "ochre amber with charcoal",
+    "mechanism_metaphor": "forked evidence distribution",
+    "major_object_family": "branching report folios",
+    "connector_style": "ochre/charcoal branching ribbons",
+    "hierarchy_pattern": "central split with differently qualified terminal states",
+    "annotation_pattern": "inline route labels and bracketed capacity evidence",
+    "perspective_style": "Controlled dimensional technical illustration on white; depth carries artifact relationships",
+    "evidence_representation": "Repository scan yields candidate evidence; report unfolds into three components. Separate upper raw-report path and lower expert-validation path. Non-causal bracketed workload comparison.",
+    "feedback_pattern": "No automated feedback loop",
+    "sha256": "b52963662cb73da4f103b98cb794181d6acfa5d24a01fceab5730cf21727de82",
+    "review_status": "PASS"
+  },
+  "checklist": {
+    "factual_alignment": {
+      "result": "PASS",
+      "notes": "Amber candidate reports unfold into explanation, reproducer and optional patch. The upper path is explicitly unverified fast-track ending at maintainer triage; the lower expert-validation route leads to coordinated disclosure. The 29,000+ versus about 6,000 figures are reported workload counts joined by a bracket, not a performance rate. All 14 labels are readable and no fake paragraphs remain."
+    },
+    "relationships": {
+      "result": "PASS",
+      "notes": "Opt-in repository | Model scan | data | Opt-in source scope.\nModel scan | Candidate report | transformation | Model produces candidate finding report.\nCandidate report | Explanation / Reproducer / Patch when available | anatomy | Report content, patch conditional.\nCandidate report | Unverified fast-track → Maintainer triage | route | Raw findings sent for maintainer assessment.\nCandidate report | Expert validation → Coordinated disclosure | route | Validated coordinated handling follows expert review.\n29,000+ candidates | About 6,000 manually reviewed | comparison | Bracketed reported workload counts; no causal arrow or accuracy rate."
+    },
+    "text": {
+      "result": "PASS",
+      "notes": "All 14 listed labels inspected in final 1200×630 saved pixels; correct spelling, complete qualifiers, no clipped labels, no invented microcopy. Label wrapping is visual only."
+    },
+    "mechanism_detail": {
+      "result": "PASS",
+      "notes": "14 supported explanatory roles; four major explanatory regions, with report evidence anatomy and route qualification visibly exposed. Decorative repeats not counted."
+    },
+    "evidence_constraints": {
+      "result": "PASS",
+      "notes": "Patch availability is conditional; a candidate is not a verified vulnerability. Fast-track remains unverified; no automatic public disclosure or safety guarantee. Counts are not an accuracy ratio or charted efficiency gain."
+    },
+    "professional_finish": {
+      "result": "PASS",
+      "notes": "Clean white background, crisp readable type, dimensional artifact forms and restrained story palette; no people, logos, photorealism, decorative guarantees or pseudo-writing."
+    },
+    "hierarchy_composition": {
+      "result": "PASS",
+      "notes": "upper source/report anatomy feeding two vertically separated routes; central split with differently qualified terminal states. Explanatory roles occupy approximately 80–90% of the useful composition by manual review; this is not a calculated nonwhite-pixel statistic."
+    },
+    "differentiation": {
+      "result": "PASS",
+      "notes": "Distinct forked evidence distribution explanation in ochre amber with charcoal; compared with the other five accepted PNGs in the six-image contact sheet."
+    },
+    "encoding": {
+      "result": "PASS",
+      "notes": "Decoded exact 1200×630, RGB 8-bit noninterlaced PNG; SHA-256 and Git blob identities match both connected-GitHub and raw exact-commit downloads."
+    },
+    "accessibility": {
+      "result": "PASS",
+      "notes": "Substantive mechanism alt text supplied; final-image text checked full size and in the reduced set view. Live desktop/mobile rendering has not been verified."
+    }
+  },
+  "alt_text": "An opt-in repository scan produces a candidate report with explanation, reproducer and an optional patch. One route sends unverified findings for maintainer triage; another proceeds through expert validation to coordinated disclosure. Reported workload compares more than 29,000 candidates with about 6,000 manually reviewed."
+}
+
