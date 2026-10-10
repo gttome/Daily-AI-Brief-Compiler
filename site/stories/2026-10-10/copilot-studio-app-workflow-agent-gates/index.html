@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Copilot Studio separates apps, deterministic workflows and agents | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Copilot Studio separates apps, deterministic workflows and agents" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Microsoft&#39;s October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft&#39;s onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ." />
+<meta property="og:description" content="Microsoft&#39;s October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft&#39;s onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/copilot-studio-app-workflow-agent-gates/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/copilot-studio-app-workflow-agent-gates/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-10/illustration-pending.svg?v=fe54b845623b" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-10/illustration-pending.svg?v=fe54b845623b" />
+<meta property="twitter:title" content="Copilot Studio separates apps, deterministic workflows and agents" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Microsoft&#39;s October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft&#39;s onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ.","headline":"Copilot Studio separates apps, deterministic workflows and agents","image":"https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-10/illustration-pending.svg?v=fe54b845623b","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-10/copilot-studio-app-workflow-agent-gates/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/reader-release.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=c225656f5e6b32f070207d3947ee18f11406e44b">
+</head>
+  <body class="reader-release" data-brief-date="2026-10-10" data-story-id="dab-story-2026-10-10-m11" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">Copilot Studio separates apps, deterministic workflows and agents</h1>
+          <p class="project-tagline">Microsoft's October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft's onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>October 10</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-10-10/">← Daily Brief for October 10, 2026</a></p>
+<h1 id="copilot-studio-separates-apps-deterministic-workflows-and-agents">Copilot Studio separates apps, deterministic workflows and agents</h1>
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 07 Oct 2026</p><p><strong>Copilot Studio:</strong> Microsoft&#39;s October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft&#39;s onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ.</p><div class="learning-outcome"><strong>What you’ll learn</strong><p>An effective agent rollout needs three maps: the parts requiring a human interface, the steps that can be reliably encoded, and the questions or exceptions that truly need adaptive reasoning. Before exposing a draft app to colleagues, define access scope, pre-action checks, expected outcomes and failure-state tests. Review preview versus GA status and service entitlements before making an implementation commitment. A polished app demo is not the same as an approved production workflow.</p></div><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/workspace-turns-prompts-into-images-canvases-and-cross-app-work/" target="_blank" rel="noopener noreferrer">Workspace turns prompts into images, canvases and cross-app work</a></p><p>2026-10-06 · Oracle shows the value of domain-specific enterprise data and repeatable preparation; Copilot Studio shows how to partition the interface, business logic and agent into independently governed layers.</p></div></aside>
+<!-- reader-release:end -->
+<p><span class="story-data" data-story-id="dab-story-2026-10-10-m11" hidden></span></p>
+<p><strong>Focus:</strong> Applied Generative AI for Knowledge Workers<br />
+<strong>Date:</strong> October 7, 2026<br />
+<strong>Topics:</strong> Copilot Studio, low-code business applications, agent hooks, enterprise governance, release testing<br />
+<strong>Evidence:</strong> Publisher Authored<br />
+<strong>Availability:</strong> Available</p>
+<p><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-10/illustration-pending.svg?v=fe54b845623b" alt="Illustration pending for Copilot Studio separates apps, deterministic workflows and agents. Planned illustration: Dimensional three-lane process architecture: structured employee application, deterministic workflow steps, and adaptive reasoning agent enter a shared governed managed runtime; preview hooks intercept sensitive actions, while test assertions and approval gates precede deployment." /></p>
+<p><strong>Summary:</strong> Microsoft's October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft's onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ.</p>
+<p><strong>Why it matters:</strong> An effective agent rollout needs three maps: the parts requiring a human interface, the steps that can be reliably encoded, and the questions or exceptions that truly need adaptive reasoning. Before exposing a draft app to colleagues, define access scope, pre-action checks, expected outcomes and failure-state tests. Review preview versus GA status and service entitlements before making an implementation commitment. A polished app demo is not the same as an approved production workflow.</p>
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Task decomposition and testable output contracts — Rewrite a business-agent prompt into inputs, tools, exceptions, fixed output fields and a pre-deployment test case.</p><p>Copilot Studio&#39;s app, workflow and agent partition suggests how to express intent, interfaces and deterministic decision steps separately.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+<p><strong>Source:</strong> <a href="https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/" data-item-id="dab-story-2026-10-10-m11" data-edition-date="2026-10-10" data-action="source_clicks">New and improved: Build apps, extend agents, and transform business processes in Microsoft Copilot Studio</a></p>
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-10" data-feedback-story-id="dab-story-compiler-2026-10-10-oct10-k2-copilot-builder">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-10-10/">← Daily Brief for October 10, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=c225656f5e6b32f070207d3947ee18f11406e44b"></script>
+</body>
+</html>
