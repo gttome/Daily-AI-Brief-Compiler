@@ -9,6 +9,7 @@ import { validateD1BundleImages } from '../image-studio/bundle-gate.mjs';
 import { validatePendingImageRecords } from './pending-images.mjs';
 import { validateNewPendingEditorial } from './pending-editorial.mjs';
 import { isAuthorizedOct9Recovery } from './oct9-owner-exception.mjs';
+import { assessUnattendedCertification } from './unattended-certification.mjs';
 
 const EXPECTED_FOCUS = new Map([
   ['Technical AI Engineering', 2],
@@ -178,6 +179,9 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
   const validation=validateEdition({statePath,bundlePath,repoRoot,allowPendingImages,release1Production});
   const parity=await checkGoldenReaderParity();
   const built=await buildSite({validation,outDir,repoRoot});
+  // No first-party scheduled host adapter is supplied by this deterministic workflow.
+  // Producer receipts alone cannot certify an unattended invocation.
+  const unattended=assessUnattendedCertification(validation.bundle.producer_receipt);
   const verification={
     schema_version:'daily-compiler-reader-source-verification-v2',
     result:'PASS',
@@ -212,7 +216,9 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
     chatgpt_required_after_bundle_ready:false,
     owner_intervention:validation.bundle.producer_receipt.owner_intervention,
     one_time_oct9_recovery:isAuthorizedOct9Recovery({state:validation.state,bundle:validation.bundle}),
-    unattended_release_one_proven:validation.bundle.producer_receipt.owner_intervention===false,
+    unattended_release_one_proven:unattended.proven,
+    unattended_certification_status:unattended.status,
+    unattended_certification_reason:unattended.reason,
     production_reader_source_sha:parity.production_reader_source_sha,
     reader_parity_gate:parity,
     accepted_image_regenerations:validation.bundle.producer_receipt.accepted_image_regenerations ?? 0,
