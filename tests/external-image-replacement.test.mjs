@@ -28,6 +28,25 @@ test('wrong source, duplicate figure and nonexistent story fail without silently
   assert.throws(()=>replaceSingleTag(original+original,story,image),/exactly_one_original_placeholder/);
   assert.throws(()=>replaceSingleTag('<p>untouched</p>',story,image),/exactly_one_original_placeholder/);
 });
+test('equivalent HTML attribute encodings match exactly without weakening story or source identity',()=>{
+  const quoted={...story,headline:"Asana's research & tools",image_alt_intent:'A "quoted" input < boundary'};
+  const text='Illustration pending for '+quoted.headline+'. Planned illustration: '+quoted.image_alt_intent;
+  const encode=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
+  const raw=original.replace(/alt="[^"]*"/,'alt="'+encode(text)+'"');
+  for(const variant of [raw,raw.replaceAll("'",'&#39;'),raw.replaceAll("'",'&#x27;'),raw.replaceAll("'",'&apos;')]){
+    assert.match(replaceSingleTag(variant,quoted,image),/dab-edition-2026-10-11-m01/);
+    assert.throws(()=>replaceSingleTag(variant.replace('research','different'),quoted,image),/exactly_one_original_placeholder/);
+    assert.throws(()=>replaceSingleTag(variant.replace('illustration-pending.svg','already-accepted.png'),quoted,image),/not_an_original_pending_image/);
+    assert.throws(()=>replaceSingleTag(variant+variant,quoted,image),/exactly_one_original_placeholder/);
+  }
+});
+test('reviewed accepted-image alt replaces planning text and preserves all other HTML bytes',()=>{
+  const accepted='Cached prefix & new input; the operator\'s reviewed "request" assembly.';
+  const patched=replaceSingleTag(original,story,image,accepted);
+  assert.match(patched,/alt="Cached prefix &amp; new input; the operator&#39;s reviewed &quot;request&quot; assembly\."/);
+  assert.equal(patched.replace(/<img\b[^>]*>/,'<REPLACED>'),original.replace(/<img\b[^>]*>/,'<REPLACED>'));
+  assert.throws(()=>replaceSingleTag(original,story,image,''),/missing_reviewed_alt/);
+});
 test('focus-bound reader slots are unique and exact 2/2/2, no guessed order',()=>{
   const stories=['Technical AI Engineering','Technical AI Engineering','Applied Generative AI for Knowledge Workers','Applied Generative AI for Knowledge Workers','Agents for Everyone','Agents for Everyone'].map((focus,i)=>({id:'story'+i,focus}));
   const slots=slotsFor({stories});
