@@ -246,6 +246,38 @@ jobs:
           git -C history add site
           git -C history commit -m "Verify external image-only replacement for $TARGET_DATE"
           git -C history push origin HEAD:shadow-pages-history
+      - name: Select independent I4 public-status synchronization
+        shell: bash
+        run: |
+          MODE="$(node --input-type=module -e "import {readImageProcessVersions} from './scripts/image-process-versions.mjs';process.stdout.write(readImageProcessVersions().image_status_sync_mode)")"
+          echo "IMAGE_PUBLIC_SYNC_MODE=$MODE" >> "$GITHUB_ENV"
+      - uses: actions/upload-pages-artifact@v3
+        if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
+        with:
+          path: build/patched
+          name: image-final-metadata-${{ github.run_id }}
+      - uses: actions/deploy-pages@v4
+        if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
+        with:
+          artifact_name: image-final-metadata-${{ github.run_id }}
+      - name: I4 independently confirm index and receipt public status
+        if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Final Pages has identical HTML/PNG bytes plus synchronized release/index.
+          result=1
+          for attempt in 1 2 3 4 5; do
+            node scripts/verify-external-image-postrelease.mjs \
+              "history/site/image-jobs/$TARGET_DATE/job.json" \
+              history/site/image-jobs/index.json \
+              "history/site/image-jobs/$TARGET_DATE/release.json" \
+              "external-image-packages/$TARGET_DATE/manifest.json" \
+              build/evidence/image-public-status-readback.json
+            if node -e "let a=require('./build/evidence/image-public-status-readback.json');if(a.public_status.result!=='PUBLIC_STATUS_VERIFIED')process.exit(1)"; then result=0; break; fi
+            sleep 10
+          done
+          exit "$result"
       - name: Archive real release evidence (not owner Release 2 acceptance)
         if: always()
         uses: actions/upload-artifact@v4
