@@ -1,0 +1,75 @@
+{
+  "schema_version": "external-image-capability-evidence-v7",
+  "observed_at": "2026-10-10T21:48:51Z",
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "built_in_image_gen_imagegen",
+    "evidence_ref": "session exposed callable tools.image_gen__imagegen; user explicitly requested image_gen; no new creative attempts before route admission",
+    "proof_scope": "callable native generation route; current-job creation still to execute"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "view_image_saved_png",
+    "evidence_ref": "Inspected exact saved desktop/mobile PNG captures from artifact 11680195736 in this session"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "Pillow_lossless_PNG_export_before_acceptance",
+    "evidence_ref": "preflight/exact-png-export-proof.png: RGB 1200x630; exported fixture pixels equal original; final files must undergo the same PNG checks",
+    "creative_modification": false
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_GitHub_create_blob_base64",
+    "evidence_ref": "Session POST of 708705-byte existing PNG returned exact existing Git blob 9588bacc48ae1fc497aa60ca4a32f7a336fa4f3b; no branch/ref changed"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_fetch_file_base64_and_raw_commit_HTTP",
+    "evidence_ref": "5ea82607cc374f68198cbbfaee40b7f4a7930f8e/external-image-packages/2026-10-10/images/oct10-k1-oracle-knowledge.png: exact base64 equality after upload; raw bytes independently downloaded"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_create_pull_request_and_merge_pull_request_with_expected_head",
+    "evidence_ref": "ruleset 24610983 active, no bypass actors, zero required approving reviewers, required validate; PR152 head 211d3d04c68bb37eb4a7a4a4d6e62730f18d9375 CI run38082527726 success; protected merged; current main push CI38088136129 success"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml",
+    "evidence_ref": "5ea82607cc374f68198cbbfaee40b7f4a7930f8e workflow blob63c9b4cf9703a78e2aafd045804584955cb1f0c4 has manifest-scoped main push; derives single edition/PR/head/history; PR152 CI38082527726 success",
+    "new_job_release_already_executed": false
+  },
+  "existing_workflow_dispatch": {
+    "available": false,
+    "authorized": true,
+    "method": "not_exposed",
+    "evidence_ref": "No manual workflow-dispatch tool exposed; verified protected package-merge alternative is used"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_image_only_workflow_element24_and_download_artifact",
+    "evidence_ref": "Capture run38079454643 artifact11680195736 archive SHA256 2ae71fc75721807ec436c56f2502fc066e51595ef58e95608334a3d5ef578115 downloaded; 1440x1000 target metadata and actual saved pixels inspected; same script wired into selected release workflow"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_image_only_workflow_element24_and_download_artifact",
+    "evidence_ref": "Capture run38079454643 artifact11680195736: 390x844 target metadata and actual saved mobile image pixels inspected; final new images need real semantic inspection"
+  },
+  "limitations": [
+    "Local Chromium unavailable and official Playwright download returned invalid ZIP. Existing GitHub Actions capture route plus connected artifact download proved viable.",
+    "github_fetch_blob attempts UTF-8 decoding and fails on PNG; exact-commit github_fetch_file encoding=base64 and raw bytes are proven alternatives.",
+    "Source producer scheduled_execution is false, preserved; job's inferred unattended flag is not repeated as a proven claim.",
+    "Anthropic immutable job URL /news is not retrievable; verified same report at canonical /research URL, preserving original binding."
+  ],
+  "current_job_creation_attempts": 0
+}

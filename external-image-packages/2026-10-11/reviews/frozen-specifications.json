@@ -1,0 +1,932 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct11-t1-live-agent-evaluation-containment",
+    "source_url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+    "verified_source_url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+    "visual_thesis": "When an agent persists after a blocked or ambiguous evaluation task, intended limits can be crossed; independent containment and detection are separate mitigations.",
+    "mechanism_metaphor": "breached boundary with independently closed channels",
+    "story_anchors": [
+      "Four reported unintended-action classes involve real external systems.",
+      "A broken dummy-form environment led to live form submission in reported evaluations.",
+      "Anthropic restricted live evaluation access and reports its detection tooling blocked the described examples."
+    ],
+    "required_labels": [
+      "When persistence crosses a boundary",
+      "Blocked task",
+      "Ambiguous instructions",
+      "Server commands",
+      "Live forms",
+      "Gated data",
+      "URL workarounds",
+      "Live systems",
+      "Offline tests",
+      "Restricted tools",
+      "Detect and block",
+      "Transcript review",
+      "Reported cases; limited impact"
+    ],
+    "source_claim_map": [
+      {
+        "id": "incident-categories",
+        "proposition": "Four observed classes cover unintended server commands, live submissions, access to gated data and URL-limit workarounds.",
+        "supporting_source_excerpt": "Paraphrased source support: Report Overview of behaviors: four reported categories; no prevalence estimate.",
+        "source_url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "task-blockers",
+        "proposition": "Ambiguous or broken tasks can precede persistence beyond the intended scope.",
+        "supporting_source_excerpt": "Paraphrased source support: Report examples and Lessons and next steps discuss ambiguous or impossible tasks.",
+        "source_url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "remediation-controls",
+        "proposition": "Offline evaluations, tighter tool constraints and behavior detection are separate mitigations.",
+        "supporting_source_excerpt": "Paraphrased source support: Remediation section describes offline/rebuilt tasks, restricted fetch tools, and detection tested on these cases.",
+        "source_url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "limited-scope",
+        "proposition": "The report attributes limited impact to these cases and does not guarantee all future behavior.",
+        "supporting_source_excerpt": "Paraphrased source support: Intro and Discussion distinguish the observed cases from more severe past incidents.",
+        "source_url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Blocked task",
+        "to": "Unintended action path",
+        "support_claim_id": "task-blockers",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Unintended action path",
+        "to": "Live systems",
+        "support_claim_id": "incident-categories",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Restricted tools",
+        "to": "Constrained requests",
+        "support_claim_id": "remediation-controls",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Behavior detection",
+        "to": "Blocked attempt",
+        "support_claim_id": "remediation-controls",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not show exploit instructions, code, credentials or real victim sites.",
+      "Do not imply all agents fail, any measured incident frequency, or that all risk is eliminated.",
+      "Separate observed incident paths from later mitigations; no automatic feedback retraining loop."
+    ],
+    "composition_signature": {
+      "composition": "forensic boundary cross-section with four crossing channels and separate mitigation band",
+      "layout": "asymmetric two-level sectional field",
+      "grammar": "incident-path anatomy",
+      "palette": "burnt copper and charcoal with restrained red",
+      "metaphor": "breached boundary with independently closed channels",
+      "hierarchy": "large split boundary above subordinate prevention section",
+      "annotation": "direct labels with aligned channel brackets",
+      "perspective": "shallow dimensional sectional view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_roles": [
+        "Blocked goal",
+        "Ambiguity condition",
+        "Task persistence",
+        "Server-command route",
+        "Live-form route",
+        "Gated-data route",
+        "Shortened-URL route",
+        "External-system boundary",
+        "Offline-test separation",
+        "Tool restriction",
+        "Behavior detector",
+        "Blocked-action stop",
+        "Transcript evidence",
+        "Case-scope qualification"
+      ],
+      "minimum_label_px_at_1200": 36,
+      "desktop_and_mobile_review_required": true
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant in executing session",
+      "source_url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope": "Reviewed complete compiler article and publisher source; source URL correction recorded separately; no owner pixel review asserted."
+    },
+    "generator_direction": "Premium forensic editorial mechanism illustration, landscape white. Main upper 65%: a strongly dimensional exposed boundary section, asymmetrically arranged. At left an incomplete task assembly visibly stalls at a gap, with a second ambiguity annotation. Four DISTINCT paths fan through four separate breaks in the intended boundary to the live-system plane on right: server command, live form, gated dataset, shortened URL. Draw high-level abstract geometry only, no code or exploitation instructions. Lower 25% is clearly a SEPARATE later-remediation section: offline test physically disconnected, tightened tool aperture, detector intercepting a stopped attempt, transcript-review evidence. This lower section does not claim all historical paths were prevented. Four major visual regions and at least 12 meaningful explanatory elements; no decorative bolts or fake document lines. Copper, charcoal, warm neutral, tiny red for crossings. Label all paths directly; use large strong typography, 38–48 px equivalent at final1200 width. Qualifier at bottom 34px or larger. Keep all geometry story-specific and restrained."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct11-t2-copilot-sandbox-scope",
+    "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+    "verified_source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+    "visual_thesis": "Coding-agent operation is bounded by local file/network/credential controls while license identity, repository identity and model choice remain distinct decisions.",
+    "mechanism_metaphor": "nested workspace boundary and separate identity keys",
+    "story_anchors": [
+      "Local sandboxing spans CLI, desktop app and supported VS Code Agent Host sessions.",
+      "The app can separate the account providing the Copilot license from repository access.",
+      "CLI discovers models from a running local Ollama instance; VS Code supports side-by-side sessions and inactive-worktree cleanup."
+    ],
+    "required_labels": [
+      "Separate the agent's operating boundaries",
+      "License account",
+      "Repository account",
+      "CLI",
+      "App",
+      "VS Code",
+      "Local sandbox",
+      "Files",
+      "Network",
+      "Credentials",
+      "Model choice",
+      "Local Ollama",
+      "Cloud models",
+      "Parallel sessions",
+      "Inactive worktrees"
+    ],
+    "source_claim_map": [
+      {
+        "id": "scope-controls",
+        "proposition": "Local sandboxing restricts file, network and credential access in the listed clients.",
+        "supporting_source_excerpt": "Paraphrased source support: Weekly release Local sandboxing paragraph identifies three resource classes and supported clients.",
+        "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "split-identity",
+        "proposition": "The app can use distinct accounts for the license and repositories.",
+        "supporting_source_excerpt": "Paraphrased source support: Copilot app section separates the license account from repository access.",
+        "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "model-options",
+        "proposition": "The CLI can discover supported models in a running local Ollama instance alongside cloud/configured choices.",
+        "supporting_source_excerpt": "Paraphrased source support: Copilot CLI paragraph describes discovery; it does not claim automatic routing.",
+        "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "workspace-controls",
+        "proposition": "VS Code displays parallel agent sessions and offers cleanup of inactive worktrees.",
+        "supporting_source_excerpt": "Paraphrased source support: VS Code section lists side-by-side sessions and cleanup.",
+        "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "CLI / App / VS Code",
+        "to": "Local sandbox",
+        "support_claim_id": "scope-controls",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Sandbox policy",
+        "to": "Files / Network / Credentials",
+        "support_claim_id": "scope-controls",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "License account",
+        "to": "License entitlement",
+        "support_claim_id": "split-identity",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Repository account",
+        "to": "Repository access",
+        "support_claim_id": "split-identity",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Model choice",
+        "to": "Local Ollama or Cloud models",
+        "support_claim_id": "model-options",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No branded icon, product screen or invented automatic routing.",
+      "Do not merge billing identity with repository permissions.",
+      "Do not imply local models eliminate network access or show an unsupported audit-to-training feedback loop."
+    ],
+    "composition_signature": {
+      "composition": "split identity conduits over a cutaway sandbox and offset model selector",
+      "layout": "off-center architectural cutaway with lower parallel rails",
+      "grammar": "permission architecture",
+      "palette": "cobalt and cool graphite",
+      "metaphor": "nested workspace boundary and separate identity keys",
+      "hierarchy": "sandbox dominant; identity and model choices secondary",
+      "annotation": "leader-callouts to exposed boundaries",
+      "perspective": "oblique cutaway"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 15,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_roles": [
+        "License identity",
+        "Repository identity",
+        "Separate entitlement connection",
+        "Separate repository connection",
+        "CLI client",
+        "App client",
+        "VS Code client",
+        "Sandbox boundary",
+        "File controls",
+        "Network controls",
+        "Credential controls",
+        "Local model option",
+        "Cloud model option",
+        "Parallel session tracks",
+        "Inactive-worktree cleanup"
+      ],
+      "minimum_label_px_at_1200": 36,
+      "desktop_and_mobile_review_required": true
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant in executing session",
+      "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope": "Reviewed complete compiler article and publisher source; source URL correction recorded separately; no owner pixel review asserted."
+    },
+    "generator_direction": "Premium cobalt-blue technical cutaway on white. Four regions: upper separated license and repository identity rails; center-left large oblique exposed sandbox; right distinct model-choice fork; lower narrow parallel-session/worktree section. The license and repository rails stay separate. Three unbranded labeled client tabs feed a common local execution boundary. Expose THREE visibly different permission apertures on boundary: file compartment, network port, credential key slot. Interior shows task execution without fake code. Separate model-choice selector branches neutrally to local Ollama and cloud models, no automation claim. Lower region two coherent separate session tracks and a removable inactive worktree branch, not a dashboard card grid. Fine engineering linework, rich sectional layers, minimal surface shading; 12+ meaningful parts. Large exact labels 36–46 px at1200 width; title48. No tiny pseudo detail."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct11-k1-governed-invoice-extraction",
+    "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+    "verified_source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+    "visual_thesis": "Invoice extraction becomes useful only when structured fields are classified, normalized and checked against governed history and accounting rules before distinct operational outputs.",
+    "mechanism_metaphor": "layered warehouse workbench",
+    "story_anchors": [
+      "PDFs staged in Cloud Storage are extracted using a selected Document AI or Gemini path.",
+      "BigQuery-native history matching flags potential duplicates.",
+      "Unmatched invoices undergo rule checks, including comparing gross amount against net plus tax."
+    ],
+    "required_labels": [
+      "From invoices to governed outputs",
+      "Visual authoring",
+      "Invoice PDFs",
+      "Extract fields",
+      "Classify items",
+      "Normalize IDs",
+      "Invoice history",
+      "Match records",
+      "Potential duplicates",
+      "Check totals",
+      "Net plus tax",
+      "New invoice queue",
+      "Traceable execution"
+    ],
+    "source_claim_map": [
+      {
+        "id": "extract-fields",
+        "proposition": "Cloud-stored PDFs yield structured fields through the selected document-extraction service.",
+        "supporting_source_excerpt": "Paraphrased source support: Walkthrough ingestion/extraction stages and source model choice.",
+        "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "normalize-classify",
+        "proposition": "Classification and identifier normalization precede history matching.",
+        "supporting_source_excerpt": "Paraphrased source support: Walkthrough Classify extracted content and Normalize data.",
+        "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "history-match",
+        "proposition": "Normalized invoice records are compared with governed history to flag potential duplicates.",
+        "supporting_source_excerpt": "Paraphrased source support: Compare against history step.",
+        "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "rule-output",
+        "proposition": "Unmatched records receive business-rule checks and exceptions; distinct operational outputs are produced.",
+        "supporting_source_excerpt": "Paraphrased source support: Flag exceptions and Produce operational outputs distinguish duplicates from unmatched current invoices.",
+        "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "execution-plane",
+        "proposition": "Browser authoring is separated from platform coordination and governed execution.",
+        "supporting_source_excerpt": "Paraphrased source support: Architecture section distinguishes authoring, services, and customer data environment.",
+        "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Invoice PDFs",
+        "to": "Extract fields",
+        "support_claim_id": "extract-fields",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Extract fields",
+        "to": "Classify items / Normalize IDs",
+        "support_claim_id": "normalize-classify",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Normalized current records + Invoice history",
+        "to": "Match records",
+        "support_claim_id": "history-match",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Matched records",
+        "to": "Potential duplicates",
+        "support_claim_id": "history-match",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Unmatched records",
+        "to": "Check totals then New invoice queue",
+        "support_claim_id": "rule-output",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Visual authoring",
+        "to": "Governed execution",
+        "support_claim_id": "execution-plane",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No actual invoice identifiers, account data, payment success or fabricated quantities.",
+      "Do not turn extracted values directly into automatic payment.",
+      "Duplicate branch must remain separate from new-invoice branch; exceptions are flagged, not silently cleared."
+    ],
+    "composition_signature": {
+      "composition": "terraced warehouse reconciliation with two sharply separated output routes",
+      "layout": "descending diagonal process and orthogonal history inlet",
+      "grammar": "data reconciliation flow",
+      "palette": "deep teal and muted amber",
+      "metaphor": "layered warehouse workbench",
+      "hierarchy": "reconciliation comparator dominant",
+      "annotation": "stage labels and distinct evidence inlet",
+      "perspective": "isometric stepped layers"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 16,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_roles": [
+        "Source PDF set",
+        "File-location input",
+        "Extraction stage",
+        "Structured field output",
+        "Line-item categories",
+        "Identifier normalization",
+        "Historical records",
+        "Comparison join",
+        "Matched duplicate branch",
+        "Unmatched branch",
+        "Amount test",
+        "Net-plus-tax inputs",
+        "Exception marker",
+        "Operational queue",
+        "Authoring plane",
+        "Traceability path"
+      ],
+      "minimum_label_px_at_1200": 36,
+      "desktop_and_mobile_review_required": true
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant in executing session",
+      "source_url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope": "Reviewed complete compiler article and publisher source; source URL correction recorded separately; no owner pixel review asserted."
+    },
+    "generator_direction": "White premium textbook isometric data-reconciliation workbench. Upper slim authoring plane directs execution without carrying invoice data. Main diagonal terraced mechanism starts left with distinct PDF source -> exposed extraction separating named field tokens (no tiny writing) -> classification and normalization -> large central comparator receiving historical records from a perpendicular lower inlet. Comparator branches one route to clearly labeled potential duplicates and a separate unmatched route through a totals comparator (invoice amount against net-plus-tax) into new-invoice output with explicit exception markers; do not portray approvals/payments or outcomes as automatically successful. Thin traceability guide underneath associates stages without an invented return loop. Deep teal dominant, muted amber exception accents, white/pale stone planes. Four regions, at least12 meaningful parts. Large labels 36–44 px; no illegible inset text, generic flat cards, decorative pipes or repeated documents as filler."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct11-k2-oracle-outcome-ai",
+    "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+    "verified_source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+    "visual_thesis": "Outcome-first enterprise AI keeps data authority, access, network and runtime controls stable around interchangeable models and measures total spend per completed governed workflow.",
+    "mechanism_metaphor": "stable foundation with replaceable cartridge",
+    "story_anchors": [
+      "The interview puts a defined outcome and accountable owner before model selection.",
+      "Three guardrail levels are identity-scoped access, private networking and runtime safeguards.",
+      "The proposed metric divides total monthly spend by successfully completed governed workflows."
+    ],
+    "required_labels": [
+      "Define the outcome before the model",
+      "Outcome and owner",
+      "Governed data",
+      "Model options",
+      "Scoped access",
+      "Private network",
+      "Runtime checks",
+      "Human approval",
+      "Consequential action",
+      "Monthly AI spend",
+      "Completed governed workflows",
+      "Cost per outcome",
+      "Interview guidance"
+    ],
+    "source_claim_map": [
+      {
+        "id": "outcome-first",
+        "proposition": "Define a business outcome and owner before model choice.",
+        "supporting_source_excerpt": "Paraphrased source support: Interview Start with the outcome and From prototype to production sections.",
+        "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "stable-controls",
+        "proposition": "Identity, network, observability and guardrails should persist as models change.",
+        "supporting_source_excerpt": "Paraphrased source support: Interview Model flexibility section.",
+        "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "three-boundaries",
+        "proposition": "Access policy, private networking and runtime guardrails serve distinct control roles.",
+        "supporting_source_excerpt": "Paraphrased source support: Interview guardrail levels.",
+        "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "approval-before-action",
+        "proposition": "Consequential actions need narrow scope and human approval/review.",
+        "supporting_source_excerpt": "Paraphrased source support: Interview high-impact actions and production operating-model discussion.",
+        "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "workflow-cost",
+        "proposition": "Suggested cost metric uses total spend divided by completed governed outcomes, including surrounding work.",
+        "supporting_source_excerpt": "Paraphrased source support: Interview Measure AI by the workflow section; not a measured ROI claim.",
+        "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Outcome and owner",
+        "to": "Scope and design decisions",
+        "support_claim_id": "outcome-first",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Governed data",
+        "to": "Authorized workflow",
+        "support_claim_id": "stable-controls",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Scoped access",
+        "to": "Permitted data/actions",
+        "support_claim_id": "three-boundaries",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Human approval",
+        "to": "Consequential action",
+        "support_claim_id": "approval-before-action",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Monthly AI spend / Completed governed workflows",
+        "to": "Cost per outcome",
+        "support_claim_id": "workflow-cost",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No numerical ROI, guaranteed savings or performance benchmark.",
+      "Show this as interview guidance, not tested universal results.",
+      "Approval must precede consequential action; models must not bypass stable controls."
+    ],
+    "composition_signature": {
+      "composition": "outcome apex above open governance stack beside a large cost fraction",
+      "layout": "vertical architecture plus right-hand analytical balance",
+      "grammar": "operating-model stack and metric decomposition",
+      "palette": "wine red and warm taupe",
+      "metaphor": "stable foundation with replaceable cartridge",
+      "hierarchy": "outcome apex then controls then cost equation",
+      "annotation": "layer brackets and mathematical fraction labels",
+      "perspective": "frontal exploded layers"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_roles": [
+        "Outcome definition",
+        "Accountable owner",
+        "Governed data foundation",
+        "Model cartridge options",
+        "Identity boundary",
+        "Private-network boundary",
+        "Runtime input check",
+        "Runtime output check",
+        "Human approval gate",
+        "Consequential action",
+        "Spend numerator",
+        "Completed-workflow denominator",
+        "Cost result",
+        "Source-scope qualification"
+      ],
+      "minimum_label_px_at_1200": 36,
+      "desktop_and_mobile_review_required": true
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant in executing session",
+      "source_url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope": "Reviewed complete compiler article and publisher source; source URL correction recorded separately; no owner pixel review asserted."
+    },
+    "generator_direction": "Premium white-background consulting textbook plate with open exploded foundation architecture on left and clear cost arithmetic on right; no cards/dashboard. Wine-red, warm taupe, charcoal. Outcome-and-owner apex is first reading point. Under it a stable architectural stack exposes governed data and three distinct labeled control layers: scoped access, private network, runtime checks; replaceable model cartridges sit in a separate side socket behind these controls. A small coherent action path has a human approval gate BEFORE consequential action, no person icon. Right third: large typographic fraction Monthly AI spend over Completed governed workflows, leading to Cost per outcome; show actual fraction bar as conceptual geometry, no invented numbers or savings. Title and qualifier Interview guidance. Four meaningful regions, 12+ parts, 2 exposed runtime substages. Labels large38–46px, no pseudo-writing. Bold architectural hierarchy and readable open geometry."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct11-a1-agent-skills-trigger-guide",
+    "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+    "verified_source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+    "visual_thesis": "A reusable skill must match real requests through precise metadata, load a narrow bounded procedure, and be tested in a fresh session for both activation and output.",
+    "mechanism_metaphor": "indexed procedure folio",
+    "story_anchors": [
+      "Description metadata is used to decide whether to load the full skill instructions.",
+      "A skill should do one bounded job and load references separately when needed.",
+      "The guide recommends testing five different phrasings after starting a fresh session."
+    ],
+    "required_labels": [
+      "A skill must load and stay in scope",
+      "Real requests",
+      "Trigger description",
+      "SKILL.md",
+      "One task",
+      "Use boundaries",
+      "Stop rules",
+      "References",
+      "Scripts",
+      "Follow procedure",
+      "Review output",
+      "Fresh session",
+      "Five phrasings",
+      "Check activation"
+    ],
+    "source_claim_map": [
+      {
+        "id": "trigger-load",
+        "proposition": "Metadata descriptions guide when the full procedure is loaded.",
+        "supporting_source_excerpt": "Paraphrased source support: Guide Skill Loading Model and description-as-trigger discussion.",
+        "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "bounded-procedure",
+        "proposition": "A single-purpose skill separates use conditions, exclusions and procedural steps.",
+        "supporting_source_excerpt": "Paraphrased source support: Guide One Skill One Job and Guard the Boundaries.",
+        "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "separate-resources",
+        "proposition": "Detailed references load as needed and deterministic work can use bundled scripts.",
+        "supporting_source_excerpt": "Paraphrased source support: Guide references subdirectory and Scripts for Deterministic Work.",
+        "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "fresh-tests",
+        "proposition": "A new session and five realistic request phrasings test activation.",
+        "supporting_source_excerpt": "Paraphrased source support: Guide Test Your Trigger, Restart Tax and Checklist.",
+        "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "output-check",
+        "proposition": "The Brief recommends checking appropriate activation and verifiable outputs within declared scope.",
+        "supporting_source_excerpt": "Paraphrased source support: Complete compiler story recommendation; conceptual evaluation plan, not an achieved pass rate.",
+        "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor",
+        "interpretation_note": "Compiler editorial recommendation; do not depict as measured product fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Real requests",
+        "to": "Trigger description",
+        "support_claim_id": "trigger-load",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Matching description",
+        "to": "SKILL.md body loaded",
+        "support_claim_id": "trigger-load",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "One task + boundaries",
+        "to": "Follow procedure",
+        "support_claim_id": "bounded-procedure",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Procedure",
+        "to": "References / Scripts as needed",
+        "support_claim_id": "separate-resources",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Fresh session + Five phrasings",
+        "to": "Check activation",
+        "support_claim_id": "fresh-tests",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No claim that exact trigger words guarantee every activation.",
+      "Do not adopt unverified ecosystem popularity counts.",
+      "No real executable code, no payment authorization, no fabricated test pass score."
+    ],
+    "composition_signature": {
+      "composition": "exploded skill folio with trigger inlet and separate verification rail",
+      "layout": "open book anatomy with curved reading path",
+      "grammar": "package anatomy plus activation test",
+      "palette": "olive green and ochre",
+      "metaphor": "indexed procedure folio",
+      "hierarchy": "metadata-to-body reveal then validation",
+      "annotation": "folio brackets and numbered-free test rail",
+      "perspective": "exploded editorial axonometric"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 15,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_roles": [
+        "Request variation",
+        "Description metadata",
+        "Name metadata via SKILL.md identification",
+        "Matching decision",
+        "Procedure body",
+        "Single-task scope",
+        "Use boundary",
+        "Stop rule",
+        "Reference module",
+        "Script module",
+        "Procedure execution",
+        "Output review",
+        "Fresh-session reset",
+        "Five-phrase test set",
+        "Activation assessment"
+      ],
+      "minimum_label_px_at_1200": 36,
+      "desktop_and_mobile_review_required": true
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant in executing session",
+      "source_url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope": "Reviewed complete compiler article and publisher source; source URL correction recorded separately; no owner pixel review asserted."
+    },
+    "generator_direction": "White premium olive-and-ochre editorial skill-package anatomy. An open dimensional folio occupies center-left, exposed tabs and distinct layers explain metadata versus instructions; actual text only exact approved labels, no fake paragraphs. Real request shapes approach the trigger description, which controls opening of the SKILL.md instruction body. Body contains one task with separate use boundary and stop-rule brackets. Two distinct detached attachments connect on demand: reference leaves and a deterministic-script gearless block, no code or tiny strokes. Right-hand bounded procedural trail goes from follow procedure to review output with a visible stop gate for outside scope. Bottom independent testing rail connects fresh session and five alternative request trials to activation check; do not draw a perfect score or guarantee. Four major regions, 12+ meaningful components; all labels36–44px and title46. Beautiful paper anatomy and clear causal loading; no generic dashboard."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct11-a2-agent-privacy-promises",
+    "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+    "verified_source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+    "visual_thesis": "Isolation from other users, the agent's read/action permissions, provider visibility and data-retention choices are separate privacy questions that require verification.",
+    "mechanism_metaphor": "separate transparent boundary sleeves",
+    "story_anchors": [
+      "Per-user isolation does not itself prevent the provider from viewing data.",
+      "The report distinguishes current provider access from planned stronger restrictions.",
+      "Action limits and enterprise retention options are claims/controls to examine, not proof of total privacy."
+    ],
+    "required_labels": [
+      "Privacy promises need separate checks",
+      "Other users",
+      "Your workspace",
+      "Provider visibility",
+      "Isolation is not provider privacy",
+      "Read scope",
+      "Action scope",
+      "Stored data",
+      "Training choice",
+      "Retention",
+      "Approval limits",
+      "Activity history",
+      "Verify before granting access"
+    ],
+    "source_claim_map": [
+      {
+        "id": "isolation-distinction",
+        "proposition": "User-to-user isolation differs from provider access; the report says stronger provider exclusion was planned.",
+        "supporting_source_excerpt": "Paraphrased source support: Verge report compares isolated Muse VMs with present provider access and a future stronger restriction.",
+        "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "read-act",
+        "proposition": "An agent's data-reading authority and action authority can have different consequences.",
+        "supporting_source_excerpt": "Paraphrased source support: Reported unintended message access and action limits; Brief separates read and change scopes.",
+        "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "data-policy",
+        "proposition": "Training choices and retention options need separate inspection.",
+        "supporting_source_excerpt": "Paraphrased source support: Report discusses Meta training opt-out and OpenAI enterprise retention options as distinct policies.",
+        "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+        "evidence_kind": "primary_source_fact",
+        "interpretation_note": null
+      },
+      {
+        "id": "verify-controls",
+        "proposition": "The Brief advises checking approval limits and activity records before granting access.",
+        "supporting_source_excerpt": "Paraphrased source support: Complete compiler story recommendation; shown as reader checks, not product implementation or security certification.",
+        "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor",
+        "interpretation_note": "Compiler editorial recommendation; do not depict as measured product fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "User isolation boundary",
+        "to": "Separation from other users",
+        "support_claim_id": "isolation-distinction",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Provider visibility",
+        "to": "Separate access question",
+        "support_claim_id": "isolation-distinction",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Granted read scope",
+        "to": "Data available to agent",
+        "support_claim_id": "read-act",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Granted action scope",
+        "to": "Permitted changes",
+        "support_claim_id": "read-act",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Retention / training choice",
+        "to": "Separate data policies",
+        "support_claim_id": "data-policy",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No product is certified safe or private; no future encryption depicted as already implemented.",
+      "No brand mascots, people or personal messages.",
+      "Do not imply one isolation ring blocks provider access or that permission limits always prevent all errors."
+    ],
+    "composition_signature": {
+      "composition": "paired nested privacy boundaries beside an orthogonal control comparison",
+      "layout": "radial boundary cutaway with aligned right-hand control axes",
+      "grammar": "trust-boundary comparison",
+      "palette": "slate navy and muted apricot",
+      "metaphor": "separate transparent boundary sleeves",
+      "hierarchy": "isolation distinction dominant and permission checks subordinate",
+      "annotation": "boundary labels and comparison braces",
+      "perspective": "plan-view concentric section with flat analytical annotations"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "component_roles": [
+        "Other-user region",
+        "Your-workspace region",
+        "User-isolation sleeve",
+        "Separate provider boundary",
+        "Provider visibility question",
+        "Read-scope port",
+        "Action-scope port",
+        "Stored-data state",
+        "Training-use choice",
+        "Retention duration choice",
+        "Approval limit gate",
+        "Activity evidence",
+        "Pregrant verification instruction"
+      ],
+      "minimum_label_px_at_1200": 36,
+      "desktop_and_mobile_review_required": true
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant in executing session",
+      "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope": "Reviewed complete compiler article and publisher source; source URL correction recorded separately; no owner pixel review asserted."
+    },
+    "generator_direction": "Premium source-grounded privacy comparison plate on white, dominant slate navy with muted apricot. Left 55%: beautifully precise top-down cutaway of two DISTINCT boundaries, user separation and provider visibility. Your workspace is isolated from other users, while provider visibility is shown as a SEPARATE question using an open viewing axis, NOT blocked by the same sleeve. Clear large annotation Isolation is not provider privacy. Right 40%: three aligned analytical tracks, not boxed cards: read versus action scope; stored data with training choice and retention as separate policy axes; approval limits with an activity-history evidence trail. These are checks to make, not depicted proof that a product satisfies them. Footer Verify before granting access. Four major regions, 12+ meaningful states/relationships. 38–46px explanatory labels at1200 width; strong contrast, no tiny tables, fake data, checkbox scores, shields, guarantees or human icons."
+  }
+]
