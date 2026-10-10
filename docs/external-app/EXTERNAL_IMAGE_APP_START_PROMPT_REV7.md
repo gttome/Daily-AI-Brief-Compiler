@@ -5,8 +5,8 @@
 **Create the six premium images for the selected eligible Daily AI Brief, correct them until all six pass, upload their exact accepted 1200 × 630 PNG binaries and reviews to GitHub, then publish and verify the six images on the dated Brief and all six permanent story pages.** This is an execution request, not an audit-only request.
 
 Use the connected GitHub account. Operate ONLY in `gttome/Daily-AI-Brief-Compiler`. Read these documents fully before production:
-- `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md` (current selected version)
-- `EXTERNAL_APP_HANDOFF.md`
+- `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV7.md` (matching complete Revision 7 contract)
+- `EXTERNAL_APP_HANDOFF_REV7.md`
 - `docs/external-app/Perfect_Image_Specification.md` and `Image_Variation_After_Action.md`
 - `docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md` as a quality example, NOT a D1 operating procedure.
 

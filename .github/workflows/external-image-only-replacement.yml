@@ -54,6 +54,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Resolve one selected full starter/handoff/validator contract
+        run: node scripts/select-image-app-contracts.mjs
       - name: Require protected exact-head PR/CI and active no-bypass ruleset
         shell: bash
         run: |
