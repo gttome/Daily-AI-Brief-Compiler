@@ -26,16 +26,29 @@ export function evaluateImageAppPreflight({capabilities,versions=readImageProces
  }
  if(job?.schema_version!=='external-compiler-image-job-v1'||job.lifecycle!=='PUBLISHED_PENDING'||
    !Array.isArray(job.stories)||job.stories.length!==6)blockers.push('no_eligible_immutable_six_story_job');
+ const proven=c=>c?.available===true&&c.authorized===true&&
+   typeof c.evidence_ref==='string'&&c.evidence_ref.length>=8&&
+   typeof c.method==='string'&&c.method.length>=3;
+ let release_start_mode=null;
  for(const operation of REQUIRED_OPERATIONS){
-   const c=capabilities?.[operation];
-   if(c?.available!==true||c.authorized!==true||typeof c.evidence_ref!=='string'||
-     c.evidence_ref.length<8||typeof c.method!=='string'||c.method.length<3)
-     blockers.push('capability_unproven:'+operation);
+   if(operation==='existing_workflow_dispatch'){
+     // The protected main package-merge trigger eliminates a redundant manual
+     // dispatch. Both are optional alternatives; neither may be invented.
+     const auto=capabilities?.protected_main_package_merge_auto_release;
+     const manual=capabilities?.existing_workflow_dispatch;
+     if(proven(auto)&&auto.method==='protected_merged_package_manifest'&&
+       auto.workflow_path==='.github/workflows/external-image-only-replacement.yml')
+       release_start_mode='protected_package_merge';
+     else if(proven(manual))release_start_mode='authenticated_manual_dispatch';
+     else blockers.push('capability_unproven:existing_workflow_dispatch_or_protected_package_merge_auto_release');
+     continue;
+   }
+   if(!proven(capabilities?.[operation]))blockers.push('capability_unproven:'+operation);
  }
  return {schema_version:'external-image-route-preflight-v7',result:blockers.length?'BLOCKED_INCOMPLETE':'CAPABILITY_ROUTE_PROVEN',
-   blockers,edition_date:job?.edition_date??null,
+   blockers,edition_date:job?.edition_date??null,release_start_mode,
    selected_document_version:selectedDocs?.selected_version??null,creative_attempts_consumed:0,
-   owner_browser_login_assumed:false,production_dispatch_not_inferred:true};
+   owner_browser_login_assumed:false,production_dispatch_not_inferred:release_start_mode!=='authenticated_manual_dispatch'};
 }
 function main(){
  const [jobFile,capabilityFile,receiptFile]=process.argv.slice(2);
