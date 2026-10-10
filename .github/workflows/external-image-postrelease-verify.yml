@@ -126,7 +126,9 @@ jobs:
             fi
             sleep 10
           done
-          exit "$result"
+          test "$result" -eq 0
+          node scripts/audit-oct8-live.mjs build/evidence/image-verify-only/oct8-after-sync.json
+          echo "PUBLIC_STATUS_AND_ALL_17_PROTECTED_OCT8_BYTES_VERIFIED_AFTER_SYNC"
       - name: Archive factual verification-only and public-sync evidence
         if: always()
         uses: actions/upload-artifact@v4
