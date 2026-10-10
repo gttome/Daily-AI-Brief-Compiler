@@ -12,6 +12,7 @@ test('I3 uses actual Oct10 six-image receipt, story/slot pairing regardless of m
  assert.equal(a.filter(x=>x.viewport==='desktop').length,12);
  assert.equal(a.filter(x=>x.viewport==='mobile').length,12);
  assert.equal(new Set(a.map(x=>x.image_url)).size,6);
+ assert.deepEqual([...new Set(a.map(x=>x.image_url.split('/').pop().split('?')[0]))],[...['m01','m02','m10','m11','m12','m14'].map(slot=>'dab-edition-2026-10-10-'+slot+'.png')]);
 });
 test('I3 header-only automated screenshots never prove actual target or semantic pixels',()=>{
  const targets=planImageElementTargets({job,manifest});
