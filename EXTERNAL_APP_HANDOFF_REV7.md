@@ -11,7 +11,7 @@
 
 The app is external to the Daily Compiler and optional *after* the independently published editorial edition, which initially uses one shared placeholder. Do not block or reschedule the editorial publisher while images are being made. Do not reactivate D0, D1, Proposal1R, retire protection rules, build a new app or require ChatGPT Work/Codex/paid APIs. Read the [complete Revision 7 production contract](docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV7.md) and its [Rev7 starter](docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV7.md); both versions must be selected together with the compatible I1 bounded starter authority policy.
 
-Only use the already connected GitHub account and the existing authorized workflow routes. Do not ask for routine browser sign-in, user tokens or a redundant owner release GO. Missing connected workflow dispatch is an execution capability blocker, not permission to bypass GitHub safety checks. If any required route is actually unavailable, stop as `BLOCKED_INCOMPLETE`, keep genuine completed work and report exactly which operation is missing.
+Only use the already connected GitHub account and the existing authorized workflow routes. Do not ask for routine browser sign-in, user tokens or a redundant owner release GO. Missing connected manual workflow dispatch alone is no longer a blocker **when the exact protected package-merge auto-release route is genuinely verified**. If neither authorized route works, report BLOCKED_INCOMPLETE; do not bypass GitHub safety checks. If any required route is actually unavailable, stop as `BLOCKED_INCOMPLETE`, keep genuine completed work and report exactly which operation is missing.
 
 ## 2. Source and job binding
 
@@ -24,9 +24,9 @@ A `RELEASED_VERIFIED` image release must be handled through verification-only co
 ## 3. Pre-generation capability admission
 
 Before first image generation, run the real capability preflight for:
-(1) image creation, (2) saved-pixel inspection, (3) exact 1200×630 PNG export, (4) authenticated binary GitHub upload, (5) exact-commit binary readback, (6) protected package PR + required CI + merge, (7) existing authorized image-only workflow dispatch, (8) 1440×1000 desktop image-target inspection, and (9) 390×844 mobile image-target inspection.
+(1) image creation, (2) saved-pixel inspection, (3) exact 1200×630 PNG export, (4) authenticated binary GitHub upload, (5) exact-commit binary readback, (6) protected package PR + required CI + merge, (7) verified protected image-package merge auto-release **or** existing authenticated manual workflow dispatch, (8) 1440×1000 desktop image-target inspection, and (9) 390×844 mobile image-target inspection.
 
-Use `scripts/preflight-image-app-route.mjs` where available, recording real method/evidence for **every** capability. Absence of actual dispatch, export or mobile element capture = `BLOCKED_INCOMPLETE`, zero new generation attempts consumed. A successful PR or CLI syntax alone is not sufficient proof of the complete route. The static policy selector must match `bounded_starter_v7:rev7`; any incompatible independently rolled-back I1 or I2 selector is `RELEASE_ADMISSION_HOLD`.
+Use `scripts/preflight-image-app-route.mjs` where available, recording real method/evidence for **every** capability. Absence of both a proven release-start route and genuine export or mobile element capture = `BLOCKED_INCOMPLETE`, zero new generation attempts consumed. A successful PR or CLI syntax alone is not sufficient proof of the complete route. The static policy selector must match `bounded_starter_v7:rev7`; any incompatible independently rolled-back I1 or I2 selector is `RELEASE_ADMISSION_HOLD`.
 
 ## 4. Source-verified art and exact bytes
 
@@ -46,7 +46,7 @@ A real owner-submitted Revision 7 starter is standing approval for **one selecte
 
 ## 6. Existing image-only release
 
-Use a freshly based staging branch, protected PR and exact-head required status check. Deploy only through the current authenticated image-only release workflow, with immutable PR/head/merge and Pages-history head inputs; do not silently add a schedule, push trigger, substitute GitHub browser auth or use an invented dispatch. Confirm old shared placeholders are still genuinely present before allowing exactly one replacement per image slot; preserve all other article text and prior October 8 assets.
+Use a freshly based staging branch, protected PR and exact-head required status check. Deploy only through the current image-only release workflow. The selected Revision 7 code permits an exact protected-main package-manifest merge to trigger the workflow automatically for one edition after required exact-head PR CI; the existing manual-dispatch path also remains. Both routes bind the same immutable PR/head/merge and Pages-history head evidence. Do not introduce additional triggers, schedules, substitute GitHub browser auth or invent a dispatch. Confirm old shared placeholders are still genuinely present before allowing exactly one replacement per image slot; preserve all other article text and prior October 8 assets.
 
 If a release already has all six accepted images live, do **not** reapply the original-placeholder patch. Under selected I4 flags, use `external-image-postrelease-verify` for read-only proof or metadata-only public-status synchronization; re-read hashes before and after. A stale public index remains explicitly `STATUS_SYNC_PENDING` until network readback matches the authoritative release receipt.
 
