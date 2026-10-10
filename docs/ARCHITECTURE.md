@@ -2,9 +2,9 @@
 
 Updated: 2026-10-09.
 
-The Compiler publishes the verified editorial Brief independently of optional premium image generation. An existing external app reads the [prompt](external-app/Brief_Compiler_Image_App_GitHub_Prompt.md) and the GitHub image job, creates and reviews six article-specific images, and returns six exact PNG binaries plus the manifest/reviews to GitHub. The Compiler validates the package and handles separately authorized publication.
+The Compiler publishes the verified editorial Brief independently of optional premium image generation. An existing external app reads the [prompt](external-app/Brief_Compiler_Image_App_GitHub_Prompt.md) and the GitHub image job, creates and reviews six article-specific images, and returns six exact PNG binaries plus the manifest/reviews to GitHub. The Compiler validates the package and performs protected image-only publication. The executing session remains responsible until all six accepted images are integrated, published and verified on the live dated Brief and permanent articles; GitHub staging is an intermediate checkpoint.
 
-No Work chat, fresh conversation, browser session, named generator, Work porter or new app implementation is required. Source-bound input/output and saved-pixel review replace platform-specific admission claims. This boundary does not change the daily schedule or activate retired lanes. See [EXTERNAL_APP_HANDOFF.md](../EXTERNAL_APP_HANDOFF.md).
+No Work chat, fresh conversation, browser session, named generator, Work porter or new app implementation is required. Source-bound input/output and saved-pixel review replace platform-specific admission claims. Use the existing authenticated GitHub connection first; a routine browser sign-in is not part of startup. The owner's submitted startup prompt authorizes bounded publication while retaining required approval evidence and all release gates. A missing dispatch capability leaves the assignment incomplete. This boundary does not change the daily schedule or activate retired lanes. See [EXTERNAL_APP_HANDOFF.md](../EXTERNAL_APP_HANDOFF.md).
 
 Mandatory explanatory text and article-fit infographic styling follow the [current image specification](external-app/Perfect_Image_Specification.md). Existing job/bundle bytes, accepted images, completed executions and historical evidence remain immutable.
 
@@ -124,4 +124,3 @@ Active shadow executions do not repair program code. A software/platform defect 
 Every run emits structured timing/usage events, resource observations, problem-learning records, run metrics, a post-run analysis, and a dashboard snapshot. Source health/yield, Dot active time, Work active time, image attempts, research queries, CI/deploy timing, retries and wait time are first-class metrics. Charges are not inferred unless an explicit rate card exists.
 
 Future Brief suggestions live in a durable inbox and can target articles, story topics, images, videos, podcasts, Watchlist items or new research resources. Post-publication corrections are additive protected revisions for articles, images, videos, podcasts and Watchlist items; original historical artifacts remain preserved and the original edition execution is not reopened.
-

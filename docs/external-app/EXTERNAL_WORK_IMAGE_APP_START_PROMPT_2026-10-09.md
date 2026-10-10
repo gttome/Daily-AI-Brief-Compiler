@@ -1,24 +1,28 @@
-# External Image App — Start Prompt
+# External Image App — Startup Prompt
 
-**Updated:** 2026-10-09. The historical filename is retained for compatibility. This replaces the earlier app-development and Work-chat instructions.
+**Revision 6 — 2026-10-09.** The historical filename is retained for compatibility. Paste this prompt into the executing session, or attach it and instruct the session to carry it out.
 
-Use my existing image application. Read the complete reusable prompt at:
+Use my existing image application and connected GitHub account. Read these current documents in full:
 
-https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md
+- Full production prompt: https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt.md
+- Input/output and release handoff: https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/EXTERNAL_APP_HANDOFF.md
 
-Then follow the permanent input/output handoff:
+Operate only in `gttome/Daily-AI-Brief-Compiler`. Retrieve the latest eligible six-story job from its image-job index and verify the immutable job, source bundle, edition and story bindings. If resuming, finish the already selected job and reuse valid completed work.
 
-https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/EXTERNAL_APP_HANDOFF.md
+**Use the existing GitHub connection first. Do not require a separate GitHub browser sign-in as a routine step.** Request authentication only when an actual authorization failure shows that the connection needs it. A missing workflow-dispatch tool is a capability limitation, not a sign-in failure. Inspect the current publication route before generating; do not promise publication when no authorized route is available.
 
-Retrieve the actual eligible six-story assignment and source evidence from GitHub, create and review six article-specific 1200 × 630 PNGs, and copy their real binaries and manifest/review records back to the exact GitHub staging paths in that job.
+Create six article-specific 1200 × 630 PNGs from the complete articles and verified source evidence. **Readable explanatory text is mandatory in every image.** An infographic-like or hybrid appearance is allowed where it best explains the particular article. Preserve the established quality, factual alignment, exact label, distinct composition and file requirements. Use separate story-only generation inputs.
 
-**Readable explanatory text is mandatory.** An infographic-like look is allowed when it fits a particular article and retains the established explanatory quality. Plan variation across the six images, use separate story-only inputs, review each image before moving to the next, and verify the finished set and saved GitHub bytes.
+**You own the corrections.** Review actual saved pixels, correct every failed image, and repeat individual and complete-set reviews until all six satisfy every requirement. There is no fixed quality-attempt cap. Preserve passing features and unaffected accepted images; version genuine corrections without silently replacing historical evidence.
 
-**The executing session is responsible for correcting failed images and repeating individual and set-level reviews until all six satisfy every requirement.** Continue with targeted fixes; do not stop at four attempts or return routine corrections to the owner. Preserve passing features and unaffected accepted images; version any necessary correction to an earlier accepted candidate and retain its history.
+Upload all six actual PNG binaries and the required manifest/reviews to the exact job paths. Read back the files at the final Git commit and verify their bytes, hashes, dimensions and story bindings.
 
-**The session is not complete until all six passing PNGs are successfully uploaded to GitHub at the job's exact paths and verified by readback from the final commit, with matching hashes and committed manifest/review evidence.** Six local images, a partial upload or a defects report is not completion. Real tool/access/quota blockers must be reported as incomplete with a resume checkpoint; do not invent success or bypass limits.
+**I authorize you to continue through the normal protected package PR, merge and existing image-only publication process for this selected job after all six images pass.** Bind my actual instruction to the exact job, manifest and accepted hashes in the required release evidence. Preserve all required CI, repository approvals, release gates, historical assets and original article content. Do not ask me again for routine permission already granted here, and do not invent personal artwork review or missing evidence.
 
-No Work chat, fresh-chat proof or specific app platform is required. Do not build an app. Do not modify `gttome/Daily-AI-Brief`, alter schedules, rewrite articles or publish the staged package. The Compiler handles separately authorized publication.
+**The task is not finished until all six images are integrated into the correct articles in the dated Brief, published, and independently verified on the live site.** Verify the live dated Brief and all six permanent article pages, download the six live PNGs and compare their hashes with the accepted GitHub files, and inspect correct pairing, readable text and desktop/mobile rendering. No assigned image may remain missing, broken, pending or stale. Confirm release finalization and historical-preservation checks.
 
-The full prompt contains the complete quality, immutable-source, review and GitHub packaging requirements; this launcher does not replace them.
+GitHub uploads, a merged PR, a queued workflow, previews or a deployment success message alone do not complete the task. Continue through ordinary correction, integration and publication failures. Real tool, access, quota or source-data blockers mean **BLOCKED_INCOMPLETE**, with a saved checkpoint and precise remaining action. Do not bypass controls or claim success. The workflow was manual-only when these documents were revised; this prompt does not add a missing dispatch capability or authorize silently changing release triggers.
 
+Return **PUBLISHED_COMPLETE** only with the live Brief link, package PR/commit and release-run links, manifest link, and a six-row table of story links, live image links, SHA-256 hashes, review results, GitHub readback results and live publication verification.
+
+No Work chat, fresh-chat proof or specific app platform is required. Do not build an app, change schedules, rewrite articles or modify `gttome/Daily-AI-Brief`. The full production prompt supplies the detailed requirements.
