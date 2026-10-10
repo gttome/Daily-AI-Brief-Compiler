@@ -1,0 +1,497 @@
+{
+  "schema_version": "daily-compiler-oct10-semantic-content-v1",
+  "edition_date": "2026-10-10",
+  "execution_id": "daily-compiler-shadow-2026-10-10",
+  "created_at": "2026-10-10T01:45:59.919Z",
+  "source_read_provenance": "Actual publisher full text opened October 9 Chicago evening; research checkpoint reused",
+  "media_verification_caveat": "Identity, publication dates, and duration metadata crosschecked against publisher and indexes or preceding verified Oct9 receipt; no direct full playback/listen claimed.",
+  "stories": [
+    {
+      "id": "oct10-t1-browser-agent-caching",
+      "headline": "Asana's browser-agent tests show why stable context can slash costs",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://openai.com/index/asana-browser-agent/",
+        "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+        "publisher": "OpenAI",
+        "published_at": "2026-10-09",
+        "retrieved_at": "2026-10-10T00:46:40.236Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-10T01:45:59.919Z",
+          "scope": "Complete OpenAI case study: StackAI browser-agent history caching, context and screenshot retention, 144-run factorial study of four models, 32-book test task, baseline cost/runtime caveats, human review and deployment."
+        }
+      },
+      "reading_time_minutes": 7,
+      "reading_time_evidence": {
+        "method": "publisher_text_length_estimate",
+        "estimated_original_word_count": 1190,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-10T01:45:59.919Z",
+        "caveat": "Editorial estimate of primary source reading time, not a timed observer playback."
+      },
+      "topics": [
+        "browser agents",
+        "prompt caching",
+        "context retention",
+        "evaluation design",
+        "model operating cost"
+      ],
+      "coverage_labels": [
+        "October 9 original source",
+        "under 24 hours",
+        "vendor/customer case study"
+      ],
+      "agent_skills": false,
+      "summary": "Asana's StackAI browser agent repeatedly builds requests from a growing trail of pages, screenshots and tool results. Its existing cache covered fixed instructions but not that changing history, so an expensive part of each step was sent again. In a 144-run experiment across four models, the team compared two history budgets with six caching and screenshot-handling policies. Holding more page history and pruning screenshots in batches—rather than continually rewriting the whole context—preserved stable input prefixes that could be reused by a prompt cache. The chosen policy retained as many as 20 screenshots before trimming to the newest image. On GPT-6.1 Sol, the larger-history configuration with that policy reduced estimated model cost from $1.97 to $0.47 per run. Versus the previous production setup on a different model, the optimized Sol workflow was reported as 76 times cheaper and approximately five times faster, taking roughly four minutes. The test collected six fields from each of 32 demonstration-catalog books, not arbitrary internet work. Its baseline included capped or unfinished runs, and the cost figures reflect a particular workload and providers' pricing—not a universal agent-performance ranking.",
+      "why_it_matters": "The design lesson is that context management is part of systems engineering, not merely prompt style. Measure which parts of the history change, cache stable prefixes, change trimming only at intentional boundaries and keep enough evidence to avoid repeat browsing. Compare cost, elapsed time and task completion together; a superficially cheaper configuration that loses needed context can increase retries and error rates. Treat the reported 76-fold figure as a case result, not a forecast for another application.",
+      "related_coverage": "The companion security-scanner story covers a different trade-off: cheap automated candidate generation is useful only when the human validation step can absorb the output.",
+      "image_alt_intent": "Exposed browser-agent mechanism with six connected stages: web pages and screenshots entering a history buffer, stable cached prefix with reusable tokens, batch screenshot pruning, model request path, validated 32-book task output, and a small bounded cost-and-latency comparison showing task-specific trade-offs.",
+      "permanent_route": "/stories/2026-10-10/browser-agent-context-cache-economics/"
+    },
+    {
+      "id": "oct10-t2-oss-scanner",
+      "headline": "Anthropic's OSS Scanner puts human triage behind AI-found flaws",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+        "title": "Launching an opt-in vulnerability-finding service for open-source software",
+        "publisher": "Anthropic Frontier Red Team",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-10T00:46:40.236Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-10T01:45:59.919Z",
+          "scope": "Entire primary research announcement: opt-in source-code scanning pipeline, full-model-generated untriaged disclosures, reproducer and patch fields, maintainer feedback, 29k candidate/6k manually reviewed evidence, 97 high-severity validation sample and eligibility."
+        }
+      },
+      "reading_time_minutes": 6,
+      "reading_time_evidence": {
+        "method": "publisher_text_length_estimate",
+        "estimated_original_word_count": 920,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-10T01:45:59.919Z",
+        "caveat": "Editorial estimate of primary source reading time, not a timed observer playback."
+      },
+      "topics": [
+        "AI-assisted security",
+        "open source",
+        "human validation",
+        "coordinated disclosure",
+        "workflow triage"
+      ],
+      "coverage_labels": [
+        "October 8 original source",
+        "72-hour fallback",
+        "first-party program announcement"
+      ],
+      "agent_skills": false,
+      "summary": "Anthropic's Frontier Red Team introduced OSS Scanner as a free, opt-in vulnerability-finding service for qualifying open-source maintainers. Its models can inspect code and produce candidate weaknesses, supporting detail and proposed patches, but candidate generation and trusted security disclosure are not the same thing. Anthropic reports identifying more than 29,000 candidate vulnerabilities during earlier scanning and manually reviewing roughly 6,000; those totals describe an enormous triage workload, not 29,000 confirmed exploitable flaws or a measured precision rate. The service offers maintainers a choice: request unverified candidate reports sooner and do their own triage, or use the established coordinated disclosure route for human-verified findings. The announcement notes that nearly 5,000 unvalidated reports had already been sent to maintainers who explicitly asked for the bulk findings. The key architecture is an evidence and responsibility boundary. An LLM can expand coverage and suggest reproductions; maintainers still have to reproduce, judge severity, decide whether a patch is safe and coordinate disclosure. This is not a warrant for publishing exploits or accepting an automated patch unreviewed.",
+      "why_it_matters": "Open-source teams need a receipt-and-queue process before turning on automated security discovery. Require opt-in scope, confidentiality, reproducible evidence, issue deduplication, human validation and disclosure ownership. Track how often findings become confirmed remediations and how much reviewer effort they consume, rather than treating number of generated reports as success. Projects with limited triage capacity may benefit more from the slower verified route.",
+      "related_coverage": "Asana's browser-agent test measures context and operating cost; this scanner shows why reducing generation cost alone does not remove downstream review bottlenecks.",
+      "image_alt_intent": "Technical cutaway of source repository entering an opt-in model-scanning chamber; a candidate queue explicitly marked unverified branches into maintainer triage, reproducibility check, severity assessment, coordinated disclosure and safely tested patch, with review capacity constraining throughput.",
+      "permanent_route": "/stories/2026-10-10/oss-scanner-human-triage-boundary/"
+    },
+    {
+      "id": "oct10-k1-oracle-knowledge",
+      "headline": "Oracle turns specialist knowledge into repeatable AI-assisted work",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://openai.com/index/oracle/",
+        "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+        "publisher": "OpenAI",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-10T00:46:40.236Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-10T01:45:59.919Z",
+          "scope": "Entire OpenAI customer case: recruiting market intelligence from job descriptions, two-to-four day manual to 15–20 minute reported use, business ontology for grounded SQL, SRE incident playbook retrieval, governance and maintainability warnings."
+        }
+      },
+      "reading_time_minutes": 7,
+      "reading_time_evidence": {
+        "method": "publisher_text_length_estimate",
+        "estimated_original_word_count": 1060,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-10T01:45:59.919Z",
+        "caveat": "Editorial estimate of primary source reading time, not a timed observer playback."
+      },
+      "topics": [
+        "knowledge work",
+        "recruiting workflows",
+        "business ontology",
+        "text-to-SQL",
+        "enterprise context"
+      ],
+      "coverage_labels": [
+        "October 8 original source",
+        "72-hour fallback",
+        "customer-reported outcomes"
+      ],
+      "agent_skills": false,
+      "summary": "OpenAI's Oracle customer study describes how domain knowledge, tools and human review are combined into repeatable workplace procedures. In recruiting, a job description feeds a talent-market-intelligence workflow that compares roles, looks at compensation and assesses talent pools by geography. Oracle's hiring lead says preparation that previously took two to four days can now be done in about 15 to 20 minutes; that is a customer-reported case, not an independent controlled trial. The Oracle Applications Lab team also describes an ontology of company entities, relationships and rules that lets business users ask questions in plain language and have Codex translate their intent into appropriate SQL and reports. In operations, institutional playbooks and specialist expertise form context for incident investigation instead of requiring an employee to know where everything is stored. The connecting thread is not a new chat interface: inputs are typed by business purpose, data lives in an authoritative system, output formats are predictable, and employees remain responsible for use of sensitive data and decisions. The case illustrates several possible patterns without proving that every organization will achieve the same speed-up.",
+      "why_it_matters": "Teams evaluating enterprise AI should identify a specific expensive preparatory task, inventory authoritative data and policy, and define what evidence a reviewer needs to trust the result. For recruiting, preserve market sources and date ranges; for analytics, validate the generated query against approved metrics; for incidents, check the retrieved playbook version before acting. Measure preparation time and error corrections together, not simply adoption.",
+      "related_coverage": "Microsoft's Copilot Studio update shows a complementary way to package such grounded tasks as app, deterministic workflow and agent components with explicit release gates.",
+      "image_alt_intent": "Layered business workflow showing job description and approved market sources entering a bounded research assembly, skill-grounded recruiter briefing to human review, and a separate enterprise-ontology-to-SQL branch returning audited business analysis, with system-of-record boundaries.",
+      "permanent_route": "/stories/2026-10-10/oracle-repeatable-ai-business-intelligence/"
+    },
+    {
+      "id": "oct10-k2-copilot-builder",
+      "headline": "Copilot Studio separates apps, deterministic workflows and agents",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+        "title": "New and improved: Build apps, extend agents, and transform business processes in Microsoft Copilot Studio",
+        "publisher": "Microsoft Copilot Studio",
+        "published_at": "2026-10-07",
+        "retrieved_at": "2026-10-10T00:46:40.236Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-10T01:45:59.919Z",
+          "scope": "Complete six-minute Microsoft October 7 product article: preview apps and managed runtime, hooks across agent events, Foundry IQ grounding, scoped tests and graders, Review panel readiness, registry and rollout distinctions."
+        }
+      },
+      "reading_time_minutes": 6,
+      "reading_time_evidence": {
+        "method": "publisher_text_length_estimate",
+        "estimated_original_word_count": 990,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-10T01:45:59.919Z",
+        "caveat": "Editorial estimate of primary source reading time, not a timed observer playback."
+      },
+      "topics": [
+        "Copilot Studio",
+        "low-code business applications",
+        "agent hooks",
+        "enterprise governance",
+        "release testing"
+      ],
+      "coverage_labels": [
+        "October 7 publisher roundup",
+        "72-hour fallback",
+        "preview and GA differentiated"
+      ],
+      "agent_skills": false,
+      "summary": "Microsoft's October 7 Copilot Studio roundup describes an approach in which the useful business solution is not always the agent itself. Makers describe an outcome, users, data and actions; Copilot Studio can generate a draft application alongside workflows and agents. In Microsoft's onboarding example, the app gives people a controlled interface, the workflow handles deterministic steps, and the agent answers exceptions or unfamiliar questions. That division limits the burden on probabilistic reasoning. The announcement introduces apps and the Copilot Managed Runtime in public preview, with identity, hosted execution, governed data access, Git-backed versioning and administration capabilities. It also describes event-triggered hooks for Copilot-harness agents in preview, so certain controls can run consistently before or after relevant actions. Grounding, tests and review features add separate ways to verify suitability before wider deployment. Because this is a roundup of September functionality published on October 7, publication date must not be confused with feature launch timing; preview availability and generally available elements differ.",
+      "why_it_matters": "An effective agent rollout needs three maps: the parts requiring a human interface, the steps that can be reliably encoded, and the questions or exceptions that truly need adaptive reasoning. Before exposing a draft app to colleagues, define access scope, pre-action checks, expected outcomes and failure-state tests. Review preview versus GA status and service entitlements before making an implementation commitment. A polished app demo is not the same as an approved production workflow.",
+      "related_coverage": "Oracle shows the value of domain-specific enterprise data and repeatable preparation; Copilot Studio shows how to partition the interface, business logic and agent into independently governed layers.",
+      "image_alt_intent": "Dimensional three-lane process architecture: structured employee application, deterministic workflow steps, and adaptive reasoning agent enter a shared governed managed runtime; preview hooks intercept sensitive actions, while test assertions and approval gates precede deployment.",
+      "permanent_route": "/stories/2026-10-10/copilot-studio-app-workflow-agent-gates/"
+    },
+    {
+      "id": "oct10-a1-gemini-skills",
+      "headline": "Build a reusable Agent Skill with a guarded, testable procedure",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+        "title": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+        "publisher": "Google Cloud",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-10T00:46:40.236Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-10T01:45:59.919Z",
+          "scope": "Full October 8 first-party keynote adaptation: universal agent roles/channels, model choice, tool registry, personal and shared reusable modular skills, four memory types, access control and enterprise features."
+        }
+      },
+      "reading_time_minutes": 8,
+      "reading_time_evidence": {
+        "method": "publisher_text_length_estimate",
+        "estimated_original_word_count": 1290,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-10T01:45:59.919Z",
+        "caveat": "Editorial estimate of primary source reading time, not a timed observer playback."
+      },
+      "topics": [
+        "agent skills",
+        "reusable workflow prompts",
+        "tool permissions",
+        "procedural memory",
+        "human approval"
+      ],
+      "coverage_labels": [
+        "October 8 original source",
+        "practical prior-day follow-on",
+        "exactly one Agent Skills article"
+      ],
+      "agent_skills": true,
+      "agent_skills_evidence": "The primary Google Cloud October 8 article explicitly defines modular skills as reusable prompts containing instructions, knowledge and multi-step workflows, describes global, personal and company registries and a governed tools registry. Practical, reusable example: a customer-ticket summarization skill triggered weekly, scoped to approved source folders, with a fixed extract/classify/cite/summarize sequence, prohibitions on contacting customers, a structured output, human approval, test cases and semantic versioning. This is an editorial example of how to reuse the announced mechanism, not a claim that Google supplies a built-in ticket skill.",
+      "summary": "Google's October 8 Gemini at Work announcement gives a concrete mechanism for turning an ad-hoc AI request into a reusable Agent Skill. A skill is a modular prompt containing instructions, task knowledge and a multi-step procedure; the platform describes personal, shared-company and global skill libraries along with a governed tool registry. That means a recurring task should specify more than a clever sentence. For example, a weekly customer-issue summary skill can define an eligible input folder, allowed support-data fields, the sequence for grouping recurring issues, a rule to cite exact ticket references, a fixed output template and a final human approval point. The agent can retrieve appropriate authorized tools and repeat the procedure while session, semantic, procedural and episodic memory support different forms of continuity. A sensible operator would first run the skill against two historical ticket sets, compare its grouped findings with source records, remove unauthorized actions and only then publish a versioned shared skill. This is a practical how-to follow-on to the prior Brief's announcement coverage—not a second claim that Gemini Skills were launched again on October 10. Google describes these capabilities, but availability, permissions and reliability vary by organization.",
+      "why_it_matters": "Readers can create a minimal reusable skill specification today: name and trigger; intended users; required and prohibited data; ordered steps; tool allowlist; source-citation rule; output schema; escalation condition; review owner; and version. Test it against realistic successes and edge cases before putting it in a team registry. The transferable idea is controlled procedural reuse, independent of whether the particular Google agent is enabled in one's organization.",
+      "related_coverage": "October 9 introduced Gemini's modular skills generally; this follow-on supplies a concrete reusable skill recipe. The Instinct hands-on story illustrates why a procedure still needs escalation when important prerequisites are missing.",
+      "image_alt_intent": "Infographic-style but dimensional reusable Agent Skill mechanism: trigger and bounded data input flow into a versioned procedural instruction module, authorized tool registry and sequential issue-grouping steps; cited findings reach a human approval gate before shared-registry publication, with feedback returning to a revised skill version.",
+      "permanent_route": "/stories/2026-10-10/practical-reusable-gemini-agent-skill/"
+    },
+    {
+      "id": "oct10-a2-instinct-hands-on",
+      "headline": "Instinct's real-world agent tests expose the missing-prerequisite problem",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+        "title": "Instinct was the buzziest AI agent around — can it survive Muse?",
+        "publisher": "The Verge",
+        "published_at": "2026-10-09",
+        "retrieved_at": "2026-10-10T00:46:40.236Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-10T01:45:59.919Z",
+          "scope": "Complete first-person hands-on feature: messaging-only agent setup, contacts and calendar integration, swim-lesson verification and missed prerequisite, appointments and returns, ambiguities, rollout and privacy/monetization cautions."
+        }
+      },
+      "reading_time_minutes": 6,
+      "reading_time_evidence": {
+        "method": "publisher_text_length_estimate",
+        "estimated_original_word_count": 930,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-10T01:45:59.919Z",
+        "caveat": "Editorial estimate of primary source reading time, not a timed observer playback."
+      },
+      "topics": [
+        "personal AI agents",
+        "task completion",
+        "calendar automation",
+        "privacy permissions",
+        "missing prerequisites"
+      ],
+      "coverage_labels": [
+        "October 9 first-person report",
+        "under 24 hours",
+        "limited hands-on evidence"
+      ],
+      "agent_skills": false,
+      "summary": "In an October 9 first-person trial, The Verge tested Instinct, a messaging-based assistant that can act through connected personal services. Rather than judging an agent by a single perfect demo, the reporter asked it to handle actual chores. It could coordinate through messages and connected calendars, attempt appointment or return processes, and move ordinary errands forward. But the swim-lesson example exposed a central failure: an apparent appointment plan can omit a prerequisite that must happen before the booking is genuinely useful. That distinction separates a plausible next message from a completed real-world task. The article also surfaces practical concerns about which personal accounts an agent can access, whether an invitation or waitlist allows a user to try the product, and whether commercial incentives will shape agent recommendations. The testing is a limited personal account, not an independent statistically powered reliability study. It is useful precisely because it makes the gap between agent intention, externally confirmed action and user-visible evidence obvious.",
+      "why_it_matters": "Before handing an assistant calendar, purchases or contacts, define the completion receipt in ordinary language: what system must confirm, what prerequisites must be satisfied, what should trigger a question, and which actions always require approval. Give the agent the least sensitive access it needs. A useful pilot measures missed prerequisites and unauthorized actions as carefully as successful tasks. A coherent conversation is not proof that a service has been booked or a purchase completed.",
+      "related_coverage": "The companion Agent Skills story supplies a reusable task procedure and approval gate; this real-world test shows why both still need independent completion checks and a clear stop condition.",
+      "image_alt_intent": "Story-specific messaging-agent flow from a user's natural-language chore through an isolated agent planning lane to calendar, class-registration and product-return services; a missing-prerequisite gate visibly diverts a proposed swim-class booking to human confirmation, with privacy and payment-access boundaries.",
+      "permanent_route": "/stories/2026-10-10/instinct-agent-missed-prerequisites/"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Build custom site annotations with ChatGPT",
+      "source": "OpenAI (official channel)",
+      "url": "https://www.youtube.com/watch?v=ZcDFZzsp3_Y",
+      "original_date": "2026-10-07",
+      "duration_minutes": 2.5833333333333335,
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "summary": "OpenAI's short official tutorial shows how to request custom site annotations in ChatGPT and use them to direct attention to exact areas of a page rather than describing the layout from memory. The demonstrated workflow helps a knowledge worker anchor editing or review notes to visible context. The 2:35 runtime and October 7 identity were corroborated from the official channel and a separate video index in the preceding verified Compiler media checkpoint; this edition did not replay the complete footage.",
+      "why_it_matters": "A scoped visual annotation is more testable than a vague instruction to improve a website. Use the tutorial to practice naming the exact area, desired effect and acceptance criteria, and verify the resulting change against the page.",
+      "verified": true,
+      "verification_method": "October 9 verified official YouTube channel identity, independent index 2:35/PT2M35S runtime; metadata re-used with provenance, audiovisual replay not claimed.",
+      "content_retrieved_at": "2026-10-10T01:45:59.919Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-10T01:45:59.919Z",
+        "runtime_source_url": "https://www.youtube.com/watch?v=ZcDFZzsp3_Y",
+        "method": "original_publisher_plus_independent_index_from_prior_verified_receipt",
+        "verification_scope": "Official Oct 7 OpenAI video and independent 2:35 index corroborated in preserved Oct9 media-evidence; current new playback not claimed.",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "Build Your First AI Agent in 10 Minutes — No Coding",
+      "source": "The Tech Girl",
+      "url": "https://www.youtube.com/watch?v=7ReHiROdPbE",
+      "original_date": "2026-09-05",
+      "duration_minutes": 9.7,
+      "focus": "Agents for Everyone",
+      "summary": "A 9:42 practical no-code tutorial walks through constructing a daily AI news research agent with Claude Cowork, giving it a narrow goal and allowed tools, reviewing the first output, saving results to Google Drive and scheduling subsequent reports. Chapters distinguish a genuinely multi-step agent from a single chatbot answer, with a closing warning about granting app and account access. The program description and chapter timestamps were inspected on the indexed creator video page, rather than claiming direct playback.",
+      "why_it_matters": "The walkthrough pairs well with today's reusable-skills article: constrain inputs and permissions, specify an output artifact, review one run, then consider repeat scheduling only after evaluating reliability. It is educational, not an instruction to activate another Compiler producer.",
+      "verified": true,
+      "verification_method": "Original creator title and date, independent third-party indexed YouTube listing with 9:42 duration and detailed chapter markers; actual playback not claimed.",
+      "content_retrieved_at": "2026-10-10T01:45:59.919Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-10T01:45:59.919Z",
+        "runtime_source_url": "https://natokhd.com/video/build-your-first-ai-agent-in-10-minutes-no-coding/7ReHiROdPbE",
+        "method": "creator_metadata_and_independent_video_index",
+        "verification_scope": "Indexed YouTube video 7ReHiROdPbE from The Tech Girl, Sep5 publication and 9:42 duration verified against creator listing and indexed description; not an end-to-end watch.",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "The Most Important Trends Showing Up in New AI Products",
+      "source": "The AI Daily Brief",
+      "url": "https://www.aidailybrief.ai/e/2026-10-08",
+      "original_date": "2026-10-08",
+      "duration_minutes": 28,
+      "written_reading_time_minutes": 5,
+      "summary": "Nathaniel Whittemore connects several seemingly disconnected product announcements into three structural trends: multi-model agent harnesses, competition at the low-cost model end, and product/interface differentiation once frontier intelligence is more widely available. The source page surveys Hermes and open-agent distribution, expensive infrastructure financing, Claude Haiku 5.5, GrokBot routing beyond a single model family and the emerging prominence of interactive interfaces. Its analysis argues that enterprise spending evidence and switching costs may matter as much as a single benchmark release. Sponsor placements and the host's interpretation are not independent measurements; the podcast is most useful as a thesis to test against primary product documents and independent usage data.",
+      "why_it_matters": "For an AI adoption roadmap, track portability of procedures, cost per validated outcome, interface quality and vendor lock-in separately. The episode provides a market-wide context for Asana's cost study and the practical Agent Skills workflow.",
+      "verified": true,
+      "verification_method": "Official episode page identifies Thursday Oct 8, 2026; Subvolts independently lists same title/show as Oct8 28min. Other syndication listings show an Oct9 distribution date and 27min rounding, noted as a platform discrepancy. Full official written episode notes inspected; no complete audio playback claimed.",
+      "content_retrieved_at": "2026-10-10T01:45:59.919Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-10T01:45:59.919Z",
+        "runtime_source_url": "https://www.subvolts.com/podcasts/",
+        "method": "original_publisher_date_and_independent_28min_index",
+        "verification_scope": "Official aidailybrief.ai/e/2026-10-08 page plus independent Subvolts Oct8 28min episode entry. Some distributors date audio Oct9 and round 27min; this selection uses original site's dated edition and the independent approximate runtime.",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "Switching Models Shouldn't Mean Starting Over | Walrus Protocol's Kimberly Logan",
+      "source": "Chain of Thought",
+      "url": "https://chainofthought.show/podcast/77-switching-models-shouldnt-mean-starting-over-walrus-protocols-kimberly-logan/",
+      "original_date": "2026-10-07",
+      "duration_minutes": 38,
+      "written_reading_time_minutes": 4,
+      "summary": "Host Conor Bronsdon interviews Walrus Foundation product lead Kimberly Logan about preserving AI agent memory when switching models or agent harnesses. The discussion distinguishes dumping old chats from preserving structured, selectively accessible, portable experience. Questions include storage provenance, verifiable retrieval, ownership of remembered preferences and the costs of context migration. It also raises the possibility that decentralized storage could enable durable memory without requiring one assistant provider, while providing no independent proof that Walrus's implementation solves every data governance problem. The episode is sponsored by Walrus and the interviewee's product assertions should be treated as claims. Its full show notes and transcript were checked in the previous day's verified media evidence; an audio listen-through is not claimed.",
+      "why_it_matters": "Anyone building a long-lived personal or team agent should separate task procedures, permissions and durable context from model-vendor identity. This complements today's Agent Skills recipe: version the procedure and make its source data portable and auditable.",
+      "verified": true,
+      "verification_method": "Direct publisher Chain of Thought season4 episode77 Oct7 page with player 38min, full notes/transcript inspected Oct9, preserved independent validation; metadata verified again by exact page identity, playback not claimed.",
+      "content_retrieved_at": "2026-10-10T01:45:59.919Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-10T01:45:59.919Z",
+        "runtime_source_url": "https://chainofthought.show/podcast/77-switching-models-shouldnt-mean-starting-over-walrus-protocols-kimberly-logan/",
+        "method": "original_publisher_and_previous_independent_crosscheck",
+        "verification_scope": "Publisher season4 episode77 source, 38min display and Oct7 date corroborated in Oct9 historical media receipt; transcript inspected and sponsor disclosed. Not a playback claim.",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "watchlist": {
+    "schema_version": "daily-compiler-watchlist-v1",
+    "target_edition_date": "2026-10-10",
+    "refreshed_at": "2026-10-10T01:45:59.919Z",
+    "new": [
+      {
+        "topic": "History-aware browser-agent cost controls",
+        "why": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects.",
+        "evidence": {
+          "url": "https://openai.com/index/asana-browser-agent/",
+          "date": "2026-10-09"
+        }
+      },
+      {
+        "topic": "AI-generated open-source security findings at maintainer scale",
+        "why": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage.",
+        "evidence": {
+          "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+          "date": "2026-10-08"
+        }
+      },
+      {
+        "topic": "Prerequisite and proof-of-completion checks for personal agents",
+        "why": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions.",
+        "evidence": {
+          "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+          "date": "2026-10-09"
+        }
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Governed low-code agent deployment",
+        "what_changed": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
+          "date": "2026-10-07"
+        }
+      },
+      {
+        "topic": "Enterprise source-grounded AI work",
+        "what_changed": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims.",
+        "evidence": {
+          "url": "https://openai.com/index/oracle/",
+          "date": "2026-10-08"
+        }
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Reusable Agent Skills",
+        "why": "Google's Oct8 company/personal/global skills registries remain important. Today's follow-on adds a concrete tested ticket-summary skill recipe; the underlying announcement is not misrepresented as a new Oct10 release.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+          "date": "2026-10-08"
+        }
+      },
+      {
+        "topic": "Agent permissions and observable review boundaries",
+        "why": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted.",
+        "evidence": {
+          "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+          "date": "2026-10-07"
+        }
+      }
+    ],
+    "dropped": []
+  },
+  "book_mappings": [
+    {
+      "story_id": "oct10-t1-browser-agent-caching",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Evaluate systems on success, latency, cost and robustness together",
+      "connection": "Asana's experiment illustrates a measurable optimization with distinct caching, completion and pricing levers; a reliable system needs tests against each dimension rather than a single cost headline.",
+      "what_to_study_next": "Build a three-metric evaluation worksheet and include failure/capped-run handling."
+    },
+    {
+      "story_id": "oct10-t2-oss-scanner",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Evaluation evidence and reviewer capacity",
+      "connection": "Untriaged OSS Scanner reports show why verified claims, confidence thresholds and human review are different release stages.",
+      "what_to_study_next": "Create a finding disposition ledger with reproductions, escalation and patch-review checkpoints."
+    },
+    {
+      "story_id": "oct10-k1-oracle-knowledge",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Authoritative enterprise context and metadata",
+      "connection": "Oracle's object ontology and retrieval use cases demonstrate how an AI workflow needs a stable business vocabulary and permission-aware source grounding.",
+      "what_to_study_next": "Map a business metric to approved tables and the date, scope and permission of its source."
+    },
+    {
+      "story_id": "oct10-k2-copilot-builder",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Task decomposition and testable output contracts",
+      "connection": "Copilot Studio's app, workflow and agent partition suggests how to express intent, interfaces and deterministic decision steps separately.",
+      "what_to_study_next": "Rewrite a business-agent prompt into inputs, tools, exceptions, fixed output fields and a pre-deployment test case."
+    },
+    {
+      "story_id": "oct10-a1-gemini-skills",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Versioned reusable prompt skills and formative feedback",
+      "connection": "A modular Agent Skill supports iterative improvement when its constraints, examples, access boundaries and review outcomes are preserved between uses.",
+      "what_to_study_next": "Create a versioned weekly-ticket summarization skill, test it on two historical sets and record corrections."
+    },
+    {
+      "story_id": "oct10-a2-instinct-hands-on",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "State prerequisites and action authorization in context",
+      "connection": "Instinct's missed prerequisite shows why calendar, booking and account status must be read as authoritative context before action, not filled by conversational inference.",
+      "what_to_study_next": "Write completion-state checks and permission prompts for one personal assistant task."
+    }
+  ],
+  "quality": {
+    "story_count": 6,
+    "technical": 2,
+    "knowledge_workers": 2,
+    "agents_for_everyone": 2,
+    "agent_skills_count": 1,
+    "video_count": 2,
+    "podcast_count": 2,
+    "podcast_sources": 2,
+    "book_coverage": 4,
+    "placeholder_image_count": 6
+  }
+}
