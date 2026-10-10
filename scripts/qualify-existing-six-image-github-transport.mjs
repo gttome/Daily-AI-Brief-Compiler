@@ -49,10 +49,10 @@ export function validateAcceptedSixTransportFixture({manifest,jobBytes,repoRoot=
 }
 async function main(){
  if(process.env.GITHUB_REPOSITORY!==REPO||process.env.GITHUB_EVENT_NAME!=='pull_request'||
-   !process.env.GITHUB_SHA||!process.env.GITHUB_HEAD_REF||
+   !process.env.PR_HEAD_SHA||!process.env.GITHUB_HEAD_REF||
    !process.env.GH_TOKEN)
    fail('protected_pr_with_authentication_required');
- const commit=process.env.GITHUB_SHA;
+ const commit=process.env.PR_HEAD_SHA;
  if(!/^[a-f0-9]{40}$/.test(commit)||git(['rev-parse','HEAD'])!==commit)
    fail('checkout_pr_head_mismatch');
  const refBefore={
