@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Google Cloud and Alteryx show a governed path from invoice PDFs to decisions | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Google Cloud and Alteryx show a governed path from invoice PDFs to decisions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Google Cloud and Alteryx describe a finance-workflow pattern in which staff can design an invoice pipeline through a browser interface while data transformations and reconciliation operate close to governed BigQuery data. Invoice PDFs begin in Cloud Storage. An Alteryx Live Query document-extraction step uses a selected service, such as Gemini through BigQuery&#39;s AI.GENERATE or Document AI, to turn source PDFs into structured fields. The workflow can classify line items with AI.CLASSIFY, normalize vendor and invoice identifiers, compare those fields with historical records already in BigQuery, and flag duplicates or amounts that fail a reconciliation rule. The vendor walkthrough separates the user-facing workflow editor from the platform&#39;s transformation service and the customer&#39;s execution/data environment. Its SQL is explicitly illustrative, not evidence of an independently measured production throughput improvement. The article describes two operational output paths: potentially duplicated invoices and validated new invoices with exceptions routed for review. Governance is achieved through existing data policies and reducing unnecessary data movement, not by trusting extraction output blindly." />
+<meta property="og:description" content="Google Cloud and Alteryx describe a finance-workflow pattern in which staff can design an invoice pipeline through a browser interface while data transformations and reconciliation operate close to governed BigQuery data. Invoice PDFs begin in Cloud Storage. An Alteryx Live Query document-extraction step uses a selected service, such as Gemini through BigQuery&#39;s AI.GENERATE or Document AI, to turn source PDFs into structured fields. The workflow can classify line items with AI.CLASSIFY, normalize vendor and invoice identifiers, compare those fields with historical records already in BigQuery, and flag duplicates or amounts that fail a reconciliation rule. The vendor walkthrough separates the user-facing workflow editor from the platform&#39;s transformation service and the customer&#39;s execution/data environment. Its SQL is explicitly illustrative, not evidence of an independently measured production throughput improvement. The article describes two operational output paths: potentially duplicated invoices and validated new invoices with exceptions routed for review. Governance is achieved through existing data policies and reducing unnecessary data movement, not by trusting extraction output blindly." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-11/governed-invoice-pdfs-to-bigquery-decisions/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-11/governed-invoice-pdfs-to-bigquery-decisions/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-11/illustration-pending.svg?v=fe54b845623b" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-11/illustration-pending.svg?v=fe54b845623b" />
+<meta property="twitter:title" content="Google Cloud and Alteryx show a governed path from invoice PDFs to decisions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Google Cloud and Alteryx describe a finance-workflow pattern in which staff can design an invoice pipeline through a browser interface while data transformations and reconciliation operate close to governed BigQuery data. Invoice PDFs begin in Cloud Storage. An Alteryx Live Query document-extraction step uses a selected service, such as Gemini through BigQuery&#39;s AI.GENERATE or Document AI, to turn source PDFs into structured fields. The workflow can classify line items with AI.CLASSIFY, normalize vendor and invoice identifiers, compare those fields with historical records already in BigQuery, and flag duplicates or amounts that fail a reconciliation rule. The vendor walkthrough separates the user-facing workflow editor from the platform&#39;s transformation service and the customer&#39;s execution/data environment. Its SQL is explicitly illustrative, not evidence of an independently measured production throughput improvement. The article describes two operational output paths: potentially duplicated invoices and validated new invoices with exceptions routed for review. Governance is achieved through existing data policies and reducing unnecessary data movement, not by trusting extraction output blindly.","headline":"Google Cloud and Alteryx show a governed path from invoice PDFs to decisions","image":"https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-11/illustration-pending.svg?v=fe54b845623b","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-11/governed-invoice-pdfs-to-bigquery-decisions/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/reader-release.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975">
+</head>
+  <body class="reader-release" data-brief-date="2026-10-11" data-story-id="dab-story-2026-10-11-m10" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">Google Cloud and Alteryx show a governed path from invoice PDFs to decisions</h1>
+          <p class="project-tagline">Google Cloud and Alteryx describe a finance-workflow pattern in which staff can design an invoice pipeline through a browser interface while data transformations and reconciliation operate close to governed BigQuery data. Invoice PDFs begin in Cloud Storage. An Alteryx Live Query document-extraction step uses a selected service, such as Gemini through BigQuery's AI.GENERATE or Document AI, to turn source PDFs into structured fields. The workflow can classify line items with AI.CLASSIFY, normalize vendor and invoice identifiers, compare those fields with historical records already in BigQuery, and flag duplicates or amounts that fail a reconciliation rule. The vendor walkthrough separates the user-facing workflow editor from the platform's transformation service and the customer's execution/data environment. Its SQL is explicitly illustrative, not evidence of an independently measured production throughput improvement. The article describes two operational output paths: potentially duplicated invoices and validated new invoices with exceptions routed for review. Governance is achieved through existing data policies and reducing unnecessary data movement, not by trusting extraction output blindly.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>October 11</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/briefs/2026-10-11/">← Daily Brief for October 11, 2026</a></p>
+<h1 id="google-cloud-and-alteryx-show-a-governed-path-from-invoice-pdfs-to-decisions">Google Cloud and Alteryx show a governed path from invoice PDFs to decisions</h1>
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 10 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 09 Oct 2026</p><p><strong>invoice processing:</strong> Google Cloud and Alteryx describe a finance-workflow pattern in which staff can design an invoice pipeline through a browser interface while data transformations and reconciliation operate close to governed BigQuery data. Invoice PDFs begin in Cloud Storage. An Alteryx Live Query document-extraction step uses a selected service, such as Gemini through BigQuery&#39;s AI.GENERATE or Document AI, to turn source PDFs into structured fields. The workflow can classify line items with AI.CLASSIFY, normalize vendor and invoice identifiers, compare those fields with historical records already in BigQuery, and flag duplicates or amounts that fail a reconciliation rule. The vendor walkthrough separates the user-facing workflow editor from the platform&#39;s transformation service and the customer&#39;s execution/data environment. Its SQL is explicitly illustrative, not evidence of an independently measured production throughput improvement. The article describes two operational output paths: potentially duplicated invoices and validated new invoices with exceptions routed for review. Governance is achieved through existing data policies and reducing unnecessary data movement, not by trusting extraction output blindly.</p><div class="learning-outcome"><strong>What you’ll learn</strong><p>A knowledge worker can move from reviewing unstructured invoices to overseeing an auditable exception queue. The critical design move is to place deterministic matching and accounting rules after probabilistic extraction, rather than allowing an LLM to make payment decisions unaided. A useful pilot should test missing invoice fields, duplicate numbers, net-plus-tax mismatches, extraction confidence and human sign-off, recording false positives before any automatic posting.</p></div><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/workspace-turns-prompts-into-images-canvases-and-cross-app-work/" target="_blank" rel="noopener noreferrer">Workspace turns prompts into images, canvases and cross-app work</a></p><p>2026-10-06 · The enterprise operating-model interview emphasizes measuring completed governed workflows, rather than only model-token costs.</p></div></aside>
+<!-- reader-release:end -->
+<p><span class="story-data" data-story-id="dab-story-2026-10-11-m10" hidden></span></p>
+<p><strong>Focus:</strong> Applied Generative AI for Knowledge Workers<br />
+<strong>Date:</strong> October 9, 2026<br />
+<strong>Topics:</strong> invoice processing, document AI, BigQuery, governed data, exception review<br />
+<strong>Evidence:</strong> Publisher Authored<br />
+<strong>Availability:</strong> Available</p>
+<p><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-11/illustration-pending.svg?v=fe54b845623b" alt="Illustration pending for Google Cloud and Alteryx show a governed path from invoice PDFs to decisions. Planned illustration: Professional finance document-processing infographic: cloud-stored invoice PDFs pass through Gemini extraction, field normalization, BigQuery history match, rule-based exception classifier, two output queues and accountant approval with lineage trails." /></p>
+<p><strong>Summary:</strong> Google Cloud and Alteryx describe a finance-workflow pattern in which staff can design an invoice pipeline through a browser interface while data transformations and reconciliation operate close to governed BigQuery data. Invoice PDFs begin in Cloud Storage. An Alteryx Live Query document-extraction step uses a selected service, such as Gemini through BigQuery's AI.GENERATE or Document AI, to turn source PDFs into structured fields. The workflow can classify line items with AI.CLASSIFY, normalize vendor and invoice identifiers, compare those fields with historical records already in BigQuery, and flag duplicates or amounts that fail a reconciliation rule. The vendor walkthrough separates the user-facing workflow editor from the platform's transformation service and the customer's execution/data environment. Its SQL is explicitly illustrative, not evidence of an independently measured production throughput improvement. The article describes two operational output paths: potentially duplicated invoices and validated new invoices with exceptions routed for review. Governance is achieved through existing data policies and reducing unnecessary data movement, not by trusting extraction output blindly.</p>
+<p><strong>Why it matters:</strong> A knowledge worker can move from reviewing unstructured invoices to overseeing an auditable exception queue. The critical design move is to place deterministic matching and accounting rules after probabilistic extraction, rather than allowing an LLM to make payment decisions unaided. A useful pilot should test missing invoice fields, duplicate numbers, net-plus-tax mismatches, extraction confidence and human sign-off, recording false positives before any automatic posting.</p>
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Source authority, provenance and structured context for execution — Build a field-lineage sheet joining each AI-extracted invoice value to its original PDF and approved comparison rule.</p><p>Extracted PDF fields become trustworthy business context only when joined to governed invoice history and checked by deterministic reconciliation rules.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+<p><strong>Source:</strong> <a href="https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/" data-item-id="dab-story-2026-10-11-m10" data-edition-date="2026-10-11" data-action="source_clicks">Modernizing Unstructured Data Workflows: Alteryx Live Query meets Google Cloud BigQuery</a></p>
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-11" data-feedback-story-id="dab-story-compiler-2026-10-11-oct11-k1-governed-invoice-extraction">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+<hr />
+<p><a href="/Daily-AI-Brief-Compiler/briefs/2026-10-11/">← Daily Brief for October 11, 2026</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=ef623aefc1a4d31e86335c5ebc1e74fec29f1975"></script>
+</body>
+</html>

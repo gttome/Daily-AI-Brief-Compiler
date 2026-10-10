@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-10-10",
-  "updated_at": "2026-10-10T01:45:59.919Z",
+  "edition_date": "2026-10-11",
+  "updated_at": "2026-10-10T17:01:36.028Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -781,13 +781,13 @@
       "topic_id": "dab-topic-agent-skills-observability",
       "name": "Reusable agent skills become observable",
       "audience": "AI leaders, admins, and agent builders",
-      "summary": "Google's Oct8 company/personal/global skills registries remain important. Today's follow-on adds a concrete tested ticket-summary skill recipe; the underlying announcement is not misrepresented as a new Oct10 release.",
-      "why_now": "Google's Oct8 company/personal/global skills registries remain important. Today's follow-on adds a concrete tested ticket-summary skill recipe; the underlying announcement is not misrepresented as a new Oct10 release.",
-      "practical_value": "Google's Oct8 company/personal/global skills registries remain important. Today's follow-on adds a concrete tested ticket-summary skill recipe; the underlying announcement is not misrepresented as a new Oct10 release.",
+      "summary": "Treat skills, custom agents, MCP servers, commands, and plugins as reusable components whose maintained domain knowledge and actual use can be governed and measured.",
+      "why_now": "AWS released the aws-ai-ml reusable agent skill for MCP-compatible coding agents, with endpoint benchmarking, deployment recommendations, comparison of performance runs, and executable SageMaker SDK code.",
+      "practical_value": "Makes reusable agent know-how easier to govern while traces and spans make tool/model behavior easier to inspect.",
       "limitations": "The published evaluation is vendor-run on DOCA tasks; independent replication and cross-platform portability remain unverified.",
       "next_action": "Compare SKILL.md portability, versioning, evaluation, permission boundaries and independent performance across platforms.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-08T12:00:00Z",
+      "updated_at": "2026-10-06T01:17:05.017Z",
       "verification_observed_at": "2026-10-06T01:17:05.017Z",
       "status": "gaining_evidence",
       "confidence": "strong",
@@ -911,16 +911,6 @@
           "checked_at": "2026-10-06T01:17:05.017Z",
           "development_id": "aws-sagemaker-agent-skill-2026-10-05",
           "review_depth": "bounded first-party source verification recorded by Task 08"
-        },
-        {
-          "kind": "primary",
-          "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
-          "title": "Reusable Agent Skills",
-          "publisher": "cloud.google.com",
-          "publication_date": "2026-10-08",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
-          "development_id": "compiler-carried_forward-1"
         }
       ],
       "external_attention": [],
@@ -2082,14 +2072,362 @@
       "trial_story_ids": []
     },
     {
+      "topic_id": "dab-topic-live-system-boundaries-in-agent-evaluation",
+      "name": "Live-system boundaries in agent evaluation",
+      "summary": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox.",
+      "why_now": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox.",
+      "practical_value": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox.",
+      "first_detected": "2026-10-11",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+          "title": "Live-system boundaries in agent evaluation",
+          "publisher": "anthropic.com",
+          "publication_date": "2026-10-09",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-new-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "Anthropic's October 9 incident inventory shows that seemingly internal agent tests may use live forms, software tools or gated sources outside the intended sandbox."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-warehouse-native-document-to-decision-pipelines",
+      "name": "Warehouse-native document-to-decision pipelines",
+      "summary": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows.",
+      "why_now": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows.",
+      "practical_value": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows.",
+      "first_detected": "2026-10-11",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+          "title": "Warehouse-native document-to-decision pipelines",
+          "publisher": "cloud.google.com",
+          "publication_date": "2026-10-09",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-new-2"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "Google Cloud and Alteryx publish an explicit invoice extraction, classification, reconciliation and exception-routing architecture within governed BigQuery workflows."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-verifiable-provider-access-and-retention-for-personal-",
+      "name": "Verifiable provider access and retention for personal agents",
+      "summary": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises.",
+      "why_now": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises.",
+      "practical_value": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises.",
+      "first_detected": "2026-10-11",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+          "title": "Verifiable provider access and retention for personal agents",
+          "publisher": "theverge.com",
+          "publication_date": "2026-10-10",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-new-3"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "October 10 reporting separates isolated user data from platform-provider access and examines the practical meaning of privacy and safety promises."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-least-privilege-development-agents",
+      "name": "Least-privilege development agents",
+      "summary": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls.",
+      "why_now": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls.",
+      "practical_value": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls.",
+      "first_detected": "2026-10-09",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "status": "under_research",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5/",
+          "title": "Least-privilege development agents",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-09",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-updated-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "GitHub's October 9 recap consolidates local sandboxing for coding-agent tools with account-identity separation and worktree-session controls."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-economic-evaluation-per-successful-governed-workflow",
+      "name": "Economic evaluation per successful governed workflow",
+      "summary": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations.",
+      "why_now": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations.",
+      "practical_value": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations.",
+      "first_detected": "2026-10-09",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "status": "under_research",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://www.expresscomputer.in/news/start-with-the-outcome-oracle-indias-vivek-gupta-on-taking-ai-from-pilot-to-production/139678/",
+          "title": "Economic evaluation per successful governed workflow",
+          "publisher": "expresscomputer.in",
+          "publication_date": "2026-10-09",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-updated-2"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "An October 9 Oracle executive interview explicitly includes human review, retrieval and monitoring in cost-per-completed-outcome calculations."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-agent-skill-activation-and-scope-design",
+      "name": "Agent Skill activation and scope design",
+      "summary": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified.",
+      "why_now": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified.",
+      "practical_value": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified.",
+      "first_detected": "2026-10-07",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "status": "under_research",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://agentconn.com/blog/claude-skills-guide-rules-agents-load/",
+          "title": "Agent Skill activation and scope design",
+          "publisher": "agentconn.com",
+          "publication_date": "2026-10-07",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-updated-3"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "An October 7 field guide supplies repeatable trigger phrasing, on/off scope boundaries and activation tests; broad repository-popularity figures remain unverified."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
       "topic_id": "dab-topic-history-aware-browser-agent-cost-controls",
       "name": "History-aware browser-agent cost controls",
-      "summary": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects.",
-      "why_now": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects.",
-      "practical_value": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects.",
-      "first_detected": "2026-10-10",
-      "updated_at": "2026-10-10T12:00:00Z",
-      "status": "early_signal",
+      "summary": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today.",
+      "why_now": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today.",
+      "practical_value": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today.",
+      "first_detected": "2026-10-09",
+      "updated_at": "2026-10-09T12:00:00Z",
+      "status": "under_research",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
@@ -2100,8 +2438,8 @@
           "publisher": "openai.com",
           "publication_date": "2026-10-09",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
-          "development_id": "compiler-new-1"
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-carried_forward-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2109,27 +2447,27 @@
       "rubric": {
         "novelty": {
           "score": 3,
-          "reason": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects."
+          "reason": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today."
         },
         "evidence": {
           "score": 3,
-          "reason": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects."
+          "reason": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today."
         },
         "independence": {
           "score": 3,
-          "reason": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects."
+          "reason": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today."
         },
         "momentum": {
           "score": 3,
-          "reason": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects."
+          "reason": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today."
         },
         "relevance": {
           "score": 3,
-          "reason": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects."
+          "reason": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today."
         },
         "durability": {
           "score": 3,
-          "reason": "Asana published task-level measurements isolating prompt caching, larger context and batched screenshot removal as architecture choices with measurable cost and completion effects."
+          "reason": "The October 9 Asana case remains useful architecture evidence for caching and bounded context; no fresh performance benchmark is independently established today."
         }
       },
       "momentum": {
@@ -2140,257 +2478,25 @@
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
     {
-      "topic_id": "dab-topic-ai-generated-open-source-security-findings-at-maintain",
-      "name": "AI-generated open-source security findings at maintainer scale",
-      "summary": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage.",
-      "why_now": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage.",
-      "practical_value": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage.",
-      "first_detected": "2026-10-10",
-      "updated_at": "2026-10-10T12:00:00Z",
-      "status": "early_signal",
+      "topic_id": "dab-topic-open-source-ai-security-finding-triage",
+      "name": "Open-source AI security finding triage",
+      "summary": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch.",
+      "why_now": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch.",
+      "practical_value": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch.",
+      "first_detected": "2026-10-08",
+      "updated_at": "2026-10-08T12:00:00Z",
+      "status": "under_research",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
         {
           "kind": "primary",
           "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
-          "title": "AI-generated open-source security findings at maintainer scale",
+          "title": "Open-source AI security finding triage",
           "publisher": "anthropic.com",
           "publication_date": "2026-10-08",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
-          "development_id": "compiler-new-2"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "Anthropic opened opt-in OSS scanning with an explicitly unverified findings route, surfacing the operational importance of capacity-limited maintainer triage."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-prerequisite-and-proof-of-completion-checks-for-person",
-      "name": "Prerequisite and proof-of-completion checks for personal agents",
-      "summary": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions.",
-      "why_now": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions.",
-      "practical_value": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions.",
-      "first_detected": "2026-10-10",
-      "updated_at": "2026-10-10T12:00:00Z",
-      "status": "early_signal",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
-          "title": "Prerequisite and proof-of-completion checks for personal agents",
-          "publisher": "theverge.com",
-          "publication_date": "2026-10-09",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
-          "development_id": "compiler-new-3"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "October 9 hands-on testing shows that an assistant's fluent proposed booking may fail to satisfy a prerequisite, motivating action receipts and least-privilege tool permissions."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-governed-low-code-agent-deployment",
-      "name": "Governed low-code agent deployment",
-      "summary": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic.",
-      "why_now": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic.",
-      "practical_value": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic.",
-      "first_detected": "2026-10-07",
-      "updated_at": "2026-10-10T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/new-and-improved-build-apps-extend-agents-and-transform-business-processes-in-microsoft-copilot-studio/",
-          "title": "Governed low-code agent deployment",
-          "publisher": "microsoft.com",
-          "publication_date": "2026-10-07",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
-          "development_id": "compiler-updated-1"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "Microsoft's Oct7 recap brings draft applications, preview managed runtime and hooks together with separate tests and review gates, clarifying which work should be deterministic."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-enterprise-source-grounded-ai-work",
-      "name": "Enterprise source-grounded AI work",
-      "summary": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims.",
-      "why_now": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims.",
-      "practical_value": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims.",
-      "first_detected": "2026-10-08",
-      "updated_at": "2026-10-10T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://openai.com/index/oracle/",
-          "title": "Enterprise source-grounded AI work",
-          "publisher": "openai.com",
-          "publication_date": "2026-10-08",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
-          "development_id": "compiler-updated-2"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 60,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims."
-        },
-        "evidence": {
-          "score": 3,
-          "reason": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims."
-        },
-        "independence": {
-          "score": 3,
-          "reason": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims."
-        },
-        "momentum": {
-          "score": 3,
-          "reason": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims."
-        },
-        "relevance": {
-          "score": 3,
-          "reason": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims."
-        },
-        "durability": {
-          "score": 3,
-          "reason": "Oracle's Oct8 customer case illustrates role benchmarks and ontology-grounded business queries as reusable context-rich workflow patterns; numerical speed-ups remain vendor/customer claims."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-agent-permissions-and-observable-review-boundaries",
-      "name": "Agent permissions and observable review boundaries",
-      "summary": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted.",
-      "why_now": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted.",
-      "practical_value": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted.",
-      "first_detected": "2026-10-07",
-      "updated_at": "2026-10-07T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
-          "title": "Agent permissions and observable review boundaries",
-          "publisher": "github.blog",
-          "publication_date": "2026-10-07",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-10",
+          "checked_at": "2026-10-11",
           "development_id": "compiler-carried_forward-2"
         }
       ],
@@ -2399,27 +2505,85 @@
       "rubric": {
         "novelty": {
           "score": 3,
-          "reason": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted."
+          "reason": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch."
         },
         "evidence": {
           "score": 3,
-          "reason": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted."
+          "reason": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch."
         },
         "independence": {
           "score": 3,
-          "reason": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted."
+          "reason": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch."
         },
         "momentum": {
           "score": 3,
-          "reason": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted."
+          "reason": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch."
         },
         "relevance": {
           "score": 3,
-          "reason": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted."
+          "reason": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch."
         },
         "durability": {
           "score": 3,
-          "reason": "October9 coverage of sandboxing and ambient quality monitoring remains relevant to the October10 OSS scanning triage boundary; no independently established new universal benchmark is asserted."
+          "reason": "The October 8 opt-in scanning announcement still requires human reproduction and maintainer review; it is carried forward, not labeled a new October 11 launch."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Current edition evidence is preserved without inferring additional momentum."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-proof-of-completion-for-personal-agent-actions",
+      "name": "Proof-of-completion for personal agent actions",
+      "summary": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks.",
+      "why_now": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks.",
+      "practical_value": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks.",
+      "first_detected": "2026-10-09",
+      "updated_at": "2026-10-09T12:00:00Z",
+      "status": "under_research",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://www.theverge.com/tech/1008254/instinct-agent-ai-hands-on-muse-dots",
+          "title": "Proof-of-completion for personal agent actions",
+          "publisher": "theverge.com",
+          "publication_date": "2026-10-09",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-11",
+          "development_id": "compiler-carried_forward-3"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks."
+        },
+        "momentum": {
+          "score": 3,
+          "reason": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks."
+        },
+        "relevance": {
+          "score": 3,
+          "reason": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "Recent hands-on testing showed a missing-prerequisite problem; today's privacy coverage extends the need for independent action receipts and permission checks."
         }
       },
       "momentum": {
