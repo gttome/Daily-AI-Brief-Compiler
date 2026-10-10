@@ -5,6 +5,7 @@ import {readImageProcessVersions} from '../scripts/image-process-versions.mjs';
 import {REQUIRED_OPERATIONS,evaluateImageAppPreflight} from '../scripts/preflight-image-app-route.mjs';
 const file='.github/workflows/external-image-only-replacement.yml';
 const yaml=fs.readFileSync(file,'utf8');
+const derivation=fs.readFileSync('scripts/derive-protected-image-package-release.mjs','utf8');
 const job=JSON.parse(fs.readFileSync('external-image-packages/2026-10-10/source/job.json','utf8'));
 const v=readImageProcessVersions();
 const capability=k=>({available:true,authorized:true,evidence_ref:'verified-'+k,method:'connector_bounded'});
@@ -16,13 +17,7 @@ test('protected six-image package merge starts existing release, preserving manu
  assert.match(yaml,/workflow_dispatch:/);
  assert.doesNotMatch(yaml,/\n[ \t]+schedule:/);
  for(const expected of [
-   'git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA"',
-   'test "${#manifests[@]}" -eq 1',
-   'test "${#changed[@]}" -gt 0',
-   'Cross-edition or unrelated package change',
-   'Unexpected image package path',
-   'exactly_one_merged_pr_required',
-   'PROTECTED_SINGLE_EDITION_PACKAGE_MERGE_AUTO_ROUTE_READY',
+   'node scripts/derive-protected-image-package-release.mjs',
    'rulesets/24610983','event=pull_request','compiler-validation',
    'check-external-image-release-gates.mjs','stage-external-image-package.mjs',
    'verify-external-image-original-live.mjs','prepare-external-image-replacement.mjs',
@@ -30,7 +25,15 @@ test('protected six-image package merge starts existing release, preserving manu
    'image_status_sync_mode','deploy-pages@v4',
    'group: daily-compiler-pages-deploy'
  ])assert.ok(yaml.includes(expected),expected);
- const derive=yaml.indexOf('Derive exact image-package release inputs from protected merge');
+ assert.equal((yaml.match(/^jobs:/gm)||[]).length,1);
+ assert.equal((yaml.match(/uses: actions\/deploy-pages@v4/g)||[]).length,2);
+ assert.equal((yaml.match(/^    steps:/gm)||[]).length,1);
+ assert.ok(yaml.trim().endsWith('if-no-files-found: warn'),'no duplicated dangling YAML tail');
+ for(const expected of ['PROTECTED_SINGLE_EDITION_PACKAGE_MERGE_AUTO_ROUTE_READY','git','main_moved_or_checkout_not_exact','exactly_one_date_manifest_required',
+   'image_only_single_edition_files_required','exact_merged_protected_pr_required','GITHUB_ENV']){
+   assert.ok(derivation.includes(expected),expected);
+ }
+ const derive=yaml.indexOf('Bind exactly one protected image-package merge without manual dispatch');
  const validate=yaml.indexOf('Require protected exact-head PR/CI and active no-bypass ruleset');
  const deployment=yaml.indexOf('uses: actions/deploy-pages@v4');
  assert.ok(derive>0&&validate>derive&&deployment>validate);
