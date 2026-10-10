@@ -12,12 +12,12 @@
   "revision7_active": false,
   "active_selectors": {
     "schema_version": "external-image-process-versions-v1",
-    "image_release_authority_policy": "legacy_go_v1",
-    "image_starter_contract_version": "rev6",
-    "image_target_capture_policy": "legacy",
-    "image_status_sync_mode": "baseline",
-    "image_verify_only_enabled": false,
-    "image_additional_first_pass_qc": "baseline"
+    "image_release_authority_policy": "bounded_starter_v7",
+    "image_starter_contract_version": "rev7",
+    "image_target_capture_policy": "element24_v1",
+    "image_status_sync_mode": "public_sync_v2",
+    "image_verify_only_enabled": true,
+    "image_additional_first_pass_qc": "enriched_v1"
   },
   "safe_cutover_condition": "AFTER_ALL_RELEVANT_EdITIONS_TERMINAL_OR_QUIESCENT_WITH_PROTECTED_CI",
   "version_compatibility": "legacy_go_v1:rev6 selected; bounded_starter_v7:rev7 supported only when both selected; all mismatches HOLD",
@@ -50,11 +50,11 @@
     {
       "proposal_id": "I1",
       "rollout_type": "INDIVIDUAL_PROTECTED_PR",
-      "code_state": "CODE_MERGED_FEATURE_OFF",
-      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "code_state": "CODE_MERGED_AND_FEATURE_SELECTED",
+      "activation_state": "SELECTED_ACTIVE_NOT_FULLY_END_TO_END_QUALIFIED",
       "feature_selector": "image_release_authority_policy",
       "prior_feature_mode": "legacy_go_v1",
-      "active_feature_mode": "legacy_go_v1",
+      "active_feature_mode": "bounded_starter_v7",
       "available_future_feature_mode": "bounded_starter_v7",
       "baseline_main_sha": "7f4fac0059ae86fc1b80978b60757e137ef9f213",
       "first_code_merge_sha": "beea9e5746e225744d916ba66265083ee72169c6",
@@ -68,8 +68,8 @@
           "merge": "beea9e5746e225744d916ba66265083ee72169c6"
         }
       ],
-      "activation_main_sha": null,
-      "protected_activation_pr_url": null,
+      "activation_main_sha": "6dfecfdb7033060921a8ea926ef9b825417544ef",
+      "protected_activation_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/140",
       "unaffected_proposals": [
         "I2",
         "I3",
@@ -81,7 +81,7 @@
       "protected_oct8_objects": 17,
       "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
       "rollback_inverse_plan": "Revert the I1 static authority selector only; I2 remains rev7, future optional releases enter RELEASE_ADMISSION_HOLD; never reimpose a custom GO on an already published release.",
-      "semantic_pixel_24_review_status": "UNPROVEN",
+      "semantic_pixel_24_review_status": "FAIL_MOBILE_390PX_LEGIBILITY_UNPROVEN_FULL_SEMANTIC_ACCEPTANCE",
       "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
       "nonpublishing_rollback_drill_result": "FIXTURE_PASS_WITH_LIVE_SIX_AND_OCT8_17_READBACK",
       "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
@@ -94,16 +94,19 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING"
+      "actual_public_status": "STATUS_SYNC_PENDING",
+      "protected_activation_pr_head_sha": "eb484af40cfac5bd2e2aeb3d85877a79c2e2d589",
+      "activation_exact_head_ci": "PASS",
+      "no_original_edition_changes": true
     },
     {
       "proposal_id": "I2",
       "rollout_type": "INDIVIDUAL_PROTECTED_PR",
-      "code_state": "CODE_MERGED_FEATURE_OFF",
-      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "code_state": "CODE_MERGED_AND_FEATURE_SELECTED",
+      "activation_state": "SELECTED_ACTIVE_NOT_FULLY_END_TO_END_QUALIFIED",
       "feature_selector": "image_starter_contract_version",
       "prior_feature_mode": "rev6",
-      "active_feature_mode": "rev6",
+      "active_feature_mode": "rev7",
       "available_future_feature_mode": "rev7",
       "baseline_main_sha": "beea9e5746e225744d916ba66265083ee72169c6",
       "first_code_merge_sha": "e0e3e2b1b3750a61c564809feba7f88a9edce359",
@@ -117,8 +120,8 @@
           "merge": "e0e3e2b1b3750a61c564809feba7f88a9edce359"
         }
       ],
-      "activation_main_sha": null,
-      "protected_activation_pr_url": null,
+      "activation_main_sha": "0a0fe8b5f2caa5c1d689a8b8c0091ae568b67f87",
+      "protected_activation_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/141",
       "unaffected_proposals": [
         "I1",
         "I3",
@@ -130,7 +133,7 @@
       "protected_oct8_objects": 17,
       "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
       "rollback_inverse_plan": "Revert only I2 starter/provenance selector to rev6, maintain historical v6/7 readers; I1 remains v7 and future optional releases enter RELEASE_ADMISSION_HOLD; source scheduled=false remains false.",
-      "semantic_pixel_24_review_status": "UNPROVEN",
+      "semantic_pixel_24_review_status": "FAIL_MOBILE_390PX_LEGIBILITY_UNPROVEN_FULL_SEMANTIC_ACCEPTANCE",
       "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
       "nonpublishing_rollback_drill_result": "FIXTURE_PASS_WITH_LIVE_SIX_AND_OCT8_17_READBACK",
       "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
@@ -143,16 +146,19 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING"
+      "actual_public_status": "STATUS_SYNC_PENDING",
+      "protected_activation_pr_head_sha": "ba6a7be4fea0f4c9c7835c26d3a5e4a25f91d069",
+      "activation_exact_head_ci": "PASS",
+      "no_original_edition_changes": true
     },
     {
       "proposal_id": "I3",
       "rollout_type": "INDIVIDUAL_PROTECTED_PR",
-      "code_state": "CODE_MERGED_FEATURE_OFF",
-      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "code_state": "CODE_MERGED_AND_FEATURE_SELECTED",
+      "activation_state": "SELECTED_ACTIVE_NOT_FULLY_END_TO_END_QUALIFIED",
       "feature_selector": "image_target_capture_policy",
       "prior_feature_mode": "legacy",
-      "active_feature_mode": "legacy",
+      "active_feature_mode": "element24_v1",
       "available_future_feature_mode": "element24_v1",
       "baseline_main_sha": "e0e3e2b1b3750a61c564809feba7f88a9edce359",
       "first_code_merge_sha": "1a63f0c6f88d20c3a9c16180c1b8f103f1c9c217",
@@ -171,8 +177,8 @@
           "merge": "00c72f2b2994ae4fa97126491f8581013b025d28"
         }
       ],
-      "activation_main_sha": null,
-      "protected_activation_pr_url": null,
+      "activation_main_sha": "e1a4a4f4c619b627a489719c496b6a428c5da303",
+      "protected_activation_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/142",
       "unaffected_proposals": [
         "I1",
         "I2",
@@ -184,7 +190,7 @@
       "protected_oct8_objects": 17,
       "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
       "rollback_inverse_plan": "Revert only image-target capture policy to legacy, never claim 24/24 image-region visual review; other features stay selected; already live pixels untouched.",
-      "semantic_pixel_24_review_status": "UNPROVEN",
+      "semantic_pixel_24_review_status": "FAIL_MOBILE_390PX_LEGIBILITY_UNPROVEN_FULL_SEMANTIC_ACCEPTANCE",
       "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
       "nonpublishing_rollback_drill_result": "FIXTURE_PASS_WITH_LIVE_SIX_AND_OCT8_17_READBACK",
       "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
@@ -197,16 +203,19 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING"
+      "actual_public_status": "STATUS_SYNC_PENDING",
+      "protected_activation_pr_head_sha": "3735d9de8fbd645db8a329a9fd1560fdbbe1377d",
+      "activation_exact_head_ci": "PASS",
+      "no_original_edition_changes": true
     },
     {
       "proposal_id": "I4",
       "rollout_type": "INDIVIDUAL_PROTECTED_PR",
-      "code_state": "CODE_MERGED_FEATURE_OFF",
-      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "code_state": "CODE_MERGED_AND_FEATURE_SELECTED",
+      "activation_state": "SELECTED_ACTIVE_NOT_FULLY_END_TO_END_QUALIFIED",
       "feature_selector": "image_status_sync_mode|image_verify_only_enabled",
       "prior_feature_mode": "baseline|false",
-      "active_feature_mode": "baseline|false",
+      "active_feature_mode": "public_sync_v2|true",
       "available_future_feature_mode": "public_sync_v2|true",
       "baseline_main_sha": "1a63f0c6f88d20c3a9c16180c1b8f103f1c9c217",
       "first_code_merge_sha": "1f935c72e729495d8db9f7e78945ecb9d547bc25",
@@ -225,8 +234,8 @@
           "merge": "1ff57a2931007ec5c39f1e98ba4f89a668159ff1"
         }
       ],
-      "activation_main_sha": null,
-      "protected_activation_pr_url": null,
+      "activation_main_sha": "2e91dd73d12f7e50f5d17f33ee311542f31a37a2",
+      "protected_activation_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/144",
       "unaffected_proposals": [
         "I1",
         "I2",
@@ -238,7 +247,7 @@
       "protected_oct8_objects": 17,
       "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
       "rollback_inverse_plan": "Reverse status-sync to baseline independently of verification-only; or disable verification-only without reverting status-sync. No original placeholder patch, no accepted binary mutation.",
-      "semantic_pixel_24_review_status": "UNPROVEN",
+      "semantic_pixel_24_review_status": "FAIL_MOBILE_390PX_LEGIBILITY_UNPROVEN_FULL_SEMANTIC_ACCEPTANCE",
       "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
       "nonpublishing_rollback_drill_result": "FIXTURE_PASS_WITH_LIVE_SIX_AND_OCT8_17_READBACK",
       "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
@@ -251,16 +260,33 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING"
+      "actual_public_status": "STATUS_SYNC_PENDING",
+      "protected_activation_pr_head_sha": "0859906245eb8ef4df9302c57260bee04a8f4b40",
+      "activation_exact_head_ci": "PASS",
+      "no_original_edition_changes": true,
+      "i4_independent_activation_subswitches": [
+        {
+          "selector": "image_verify_only_enabled",
+          "pr": 143,
+          "merge_sha": "47a7d30d4d45c9335d563763cdae67a093f7075f",
+          "active": true
+        },
+        {
+          "selector": "image_status_sync_mode",
+          "pr": 144,
+          "merge_sha": "2e91dd73d12f7e50f5d17f33ee311542f31a37a2",
+          "active": "public_sync_v2"
+        }
+      ]
     },
     {
       "proposal_id": "I5",
       "rollout_type": "INDIVIDUAL_PROTECTED_PR",
-      "code_state": "CODE_MERGED_FEATURE_OFF",
-      "activation_state": "INACTIVE_CURRENT_CONFIGURATION",
+      "code_state": "CODE_MERGED_AND_FEATURE_SELECTED",
+      "activation_state": "SELECTED_ACTIVE_NOT_FULLY_END_TO_END_QUALIFIED",
       "feature_selector": "image_additional_first_pass_qc",
       "prior_feature_mode": "baseline",
-      "active_feature_mode": "baseline",
+      "active_feature_mode": "enriched_v1",
       "available_future_feature_mode": "enriched_v1",
       "baseline_main_sha": "00c72f2b2994ae4fa97126491f8581013b025d28",
       "first_code_merge_sha": "204d95a7968f269ef43926e7a9d06021810de9a2",
@@ -274,8 +300,8 @@
           "merge": "204d95a7968f269ef43926e7a9d06021810de9a2"
         }
       ],
-      "activation_main_sha": null,
-      "protected_activation_pr_url": null,
+      "activation_main_sha": "52426c8de7b844c166f8fb36fe6419221648b49b",
+      "protected_activation_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/145",
       "unaffected_proposals": [
         "I1",
         "I2",
@@ -287,7 +313,7 @@
       "protected_oct8_objects": 17,
       "last_observed_pages_history_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
       "rollback_inverse_plan": "Select I5 first-pass baseline only for future attempts; retain mandatory readable text, source-fidelity/saved pixel/correction until PASS and PR121 HTML compatibility.",
-      "semantic_pixel_24_review_status": "UNPROVEN",
+      "semantic_pixel_24_review_status": "FAIL_MOBILE_390PX_LEGIBILITY_UNPROVEN_FULL_SEMANTIC_ACCEPTANCE",
       "current_live_rollback_result": "NOT_EXECUTED_NOT_AUTHORIZED",
       "nonpublishing_rollback_drill_result": "FIXTURE_PASS_WITH_LIVE_SIX_AND_OCT8_17_READBACK",
       "safe_cutover_condition": "AFTER_TERMINAL_OR_QUIESCENT",
@@ -300,7 +326,22 @@
       ],
       "protected_oct8_17_live_after_check": "PASS",
       "six_live_published_image_hashes_after_check": "PASS",
-      "actual_public_status": "STATUS_SYNC_PENDING"
+      "actual_public_status": "STATUS_SYNC_PENDING",
+      "protected_activation_pr_head_sha": "66404303b202a8738357f71a53869e8711883209",
+      "activation_exact_head_ci": "PASS",
+      "no_original_edition_changes": true
     }
-  ]
+  ],
+  "activation_as_of_main_sha": "5678bb3d789dafad6114c00ebd5a97aaa50d093b",
+  "activation_date_utc": "2026-10-10",
+  "activation_result": "ALL_FIVE_FEATURE_GROUPS_SELECTED_RELEASE_QUALIFICATION_INCOMPLETE",
+  "original_edition_2026_10_10_assets_mutated": false,
+  "pages_history_post_activation_head": "0730acb060f9bb31ea664f33e609e7c98fb914ca",
+  "actual_24_target_capture_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38079454643",
+  "actual_24_target_capture_artifact_id": 11680195736,
+  "actual_capture_targets": 24,
+  "mobile_legibility_result": "FAIL_AT_NATIVE_390PX_12_CONTEXTS",
+  "public_status": "STATUS_SYNC_PENDING",
+  "workflow_dispatch_route": "UNAVAILABLE_IN_THIS_GITHUB_CONNECTION",
+  "full_process_completion": "BLOCKED_INCOMPLETE"
 }
