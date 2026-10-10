@@ -58,10 +58,25 @@ export async function inspectLiveMobileViewer({receipt,siteRoot,outDir,chromium,
     const image=page.locator('main img[src*="/dab-edition-"]');
     if(await image.count()!==expectedN)fail('wrong_six_original_image_pairs:'+route);
     for(let j=0;j<expectedN;j++){
+     await image.nth(j).scrollIntoViewIfNeeded({timeout:20000});
+     await image.nth(j).evaluate(async el=>{
+       if(!el.complete)await new Promise((resolve,reject)=>{
+         el.addEventListener('load',resolve,{once:true});
+         el.addEventListener('error',()=>reject(Error('image_load_failed')),{once:true});
+         setTimeout(()=>reject(Error('image_load_timeout')),20000);
+       });
+     });
      const orig=await image.nth(j).evaluate(el=>({src:el.src,alt:el.alt,width:el.naturalWidth,height:el.naturalHeight}));
      if(orig.width!==1200||orig.height!==630||!orig.alt||!orig.src.startsWith(BASE+'briefs/images/2026-10-10/'))
        fail('original_accepted_image_broken:'+route+':'+j);
      await page.locator('.premium-image-enlarge-button').nth(j).click();
+     await page.locator('dialog.premium-image-viewer img.premium-image-full-resolution').evaluate(async el=>{
+       if(!el.complete)await new Promise((resolve,reject)=>{
+         el.addEventListener('load',resolve,{once:true});
+         el.addEventListener('error',()=>reject(Error('fullsize_image_load_failed')),{once:true});
+         setTimeout(()=>reject(Error('fullsize_image_load_timeout')),20000);
+       });
+     });
      const data=await page.locator('dialog.premium-image-viewer').evaluate(d=>{
       const view=d.querySelector('.premium-image-viewer-viewport');
       const img=view?.querySelector('img');
