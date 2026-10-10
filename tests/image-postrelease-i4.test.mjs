@@ -9,11 +9,14 @@ const jobBytes=fs.readFileSync(root+'source/job.json'),job=JSON.parse(jobBytes),
 const index={schema_version:'external-compiler-image-index-v1',editions:[{edition_date:job.edition_date,status:'RELEASED_VERIFIED'}]};
 const release={schema_version:'external-compiler-image-release-v1',result:'RELEASED_VERIFIED',edition_date:job.edition_date,
  immutable_job_sha256:hash(jobBytes),original_bundle_sha256:job.source.bundle_sha256,
- images:manifest.images.map(({story_id,sha256,bytes})=>({story_id,sha256,bytes,route:'briefs/images/2026-10-10/dab-edition-2026-10-10-'+(story_id.includes('t1-')?'t1':story_id.includes('t2-')?'t2':story_id.includes('k1-')?'k1':story_id.includes('k2-')?'k2':story_id.includes('a1-')?'a1':'a2')+'.png'}))};
+ images:manifest.images.map(({story_id,sha256,bytes})=>({story_id,sha256,bytes,route:'briefs/images/2026-10-10/dab-edition-2026-10-10-'+(story_id.includes('t1-')?'m01':story_id.includes('t2-')?'m02':story_id.includes('k1-')?'m10':story_id.includes('k2-')?'m11':story_id.includes('a1-')?'m12':'m14')+'.png'}))};
 test('I4 existing Oct10 completed assets bind by accepted hashes, not ordered manifest',()=>{
  const x=bindAlreadyReleasedJob({jobBytes,index,release,manifest:{...manifest,images:[...manifest.images].reverse()}});
  assert.equal(x.stories.length,6);
  assert.equal(new Set(x.stories.map(s=>s.image_sha256)).size,6);
+ assert.ok(x.stories.every(s=>/dab-edition-2026-10-10-m(01|02|10|11|12|14)\.png/.test(s.image_url)));
+ const wrong={...release,images:[{...release.images[0],route:'briefs/images/2026-10-10/dab-edition-2026-10-10-m02.png'},...release.images.slice(1)]};
+ assert.throws(()=>bindAlreadyReleasedJob({jobBytes,index,release:wrong,manifest}),/immutable_published_image_pair_mismatch/);
  assert.throws(()=>bindAlreadyReleasedJob({jobBytes,index:{...index,editions:[{edition_date:job.edition_date,status:'PUBLISHED_PENDING'}]},release,manifest}),/no_exact_completed/);
  assert.throws(()=>bindAlreadyReleasedJob({jobBytes,index,release:{...release,images:[...release.images.slice(1),release.images[0]] .slice(0,5)},manifest}),/no_exact_completed/);
 });
