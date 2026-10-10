@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/watchlist.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/header.css?v=1' | relative_url }}">
     {% if page.reader_release %}<link rel="stylesheet" href="{{ '/assets/css/reader-release.css?v=' | append: site.github.build_revision | relative_url }}">{% endif %}
+    {% if page.reader_release %}<link rel="stylesheet" href="{{ '/assets/css/premium-image-zoom.css?v=' | append: site.github.build_revision | relative_url }}">{% endif %}
     {% include head-custom.html %}
   <link rel="stylesheet" href="{{ '/assets/css/subscription-guidance.css?v=' | append: site.github.build_revision | relative_url }}">
 </head>
@@ -97,5 +98,6 @@
       });
     </script>
   <script defer src="{{ '/assets/js/subscription-guidance.js?v=' | append: site.github.build_revision | relative_url }}"></script>
+  {% if page.reader_release %}<script defer src="{{ '/assets/js/premium-image-zoom.js?v=' | append: site.github.build_revision | relative_url }}"></script>{% endif %}
 </body>
 </html>
