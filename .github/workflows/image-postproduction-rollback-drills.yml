@@ -1,0 +1,64 @@
+name: image-postproduction-rollback-drills
+# Proof is nonpublishing and only runs when the rollback fixture implementation is changed.
+on:
+  pull_request:
+    paths:
+      - scripts/drill-image-postproduction-rollback.mjs
+      - tests/image-rollback-matrix.test.mjs
+permissions:
+  contents: read
+jobs:
+  image-rollback-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Read exact protected postproduction Pages history without mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          BEFORE="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          echo "HISTORY_SHA_BEFORE=$BEFORE" >> "$GITHUB_ENV"
+          mkdir -p build
+          git worktree add --detach build/history "$BEFORE"
+          test -s build/history/site/image-jobs/2026-10-10/release.json
+          test -s build/history/site/image-jobs/2026-10-10/job.json
+          test -s build/history/site/image-jobs/index.json
+      - name: Execute five independent nonpublishing postproduction reversal drills
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/drill-image-postproduction-rollback.mjs build/history build/image-rollback
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const data=JSON.parse(fs.readFileSync('build/image-rollback/postproduction_rollback_drills.json'));
+          if(data.result!=='FIVE_NONPUBLISHING_ROLLBACK_DRILLS_PASS'||
+             data.independent_proposals.length!==5||data.baseline.accepted_six_pngs.length!==6||
+             data.baseline.protected_oct8_17_before_after_http_hash_verified!==true||
+             data.independent_proposals.some(x=>x.other_four_unchanged!==true||
+               x.accepted_six_live_hashes_unchanged!=='PASS'))process.exit(1);
+          console.log('FIVE_INDEPENDENT_POSTPRODUCTION_FIXTURE_ROLLBACKS_PASS');
+          NODE
+      - name: Prove unchanged history ref and no publishing operation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_SHA_BEFORE"
+          test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
+          test "$(git -C build/history rev-parse HEAD)" = "$HISTORY_SHA_BEFORE"
+          echo "PUBLISHED_ASSETS_AND_PAGES_HISTORY_PRESERVED"
+      - name: Archive exact five-case drill matrix and dry-run I1 rollback receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: independent-image-postproduction-rollback-receipts
+          path: build/image-rollback/
+          if-no-files-found: warn
+          retention-days: 30
