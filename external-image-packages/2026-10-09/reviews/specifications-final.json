@@ -1,0 +1,2581 @@
+{
+  "created_before_first_generation": true,
+  "created_at": "2026-10-09T23:07:15.324Z",
+  "job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+  "stories": [
+    {
+      "story_id": "oct9-t1-aqua",
+      "visual_thesis": "AQuA samples production traces outside the live request path, filters candidate failure patterns against full transcripts, and prepares source-anchored issues without editing the running agent.",
+      "distinctive_anchors": [
+        "Nine-point rubric followed by full-transcript verification",
+        "Read-only diagnosis against a pinned deployment source snapshot"
+      ],
+      "signature": {
+        "visual_grammar": "parallel-lane evidence sieve",
+        "layout_signature": "upper live rail over lower stepped investigation",
+        "composition_signature": "teal sidecar with rejection spur and bottom provenance wedge",
+        "dominant_palette": "petrol teal and graphite",
+        "mechanism_metaphor": "evidence sieve",
+        "major_object_family": "trace ribbons and open comparison folds",
+        "connector_style": "fine orthogonal arrows and solid trace ribbons",
+        "hierarchy_pattern": "separate live lane above dominant diagnostic lane",
+        "annotation_pattern": "stage labels plus edge constraints",
+        "perspective_style": "shallow axonometric folds",
+        "evidence_representation": "candidate groups compared to full transcripts",
+        "feedback_pattern": "none"
+      },
+      "labels": [
+        "AQuA: read-only quality diagnosis",
+        "Live request path",
+        "Production agent",
+        "Response",
+        "Recent traces",
+        "Bounded sample",
+        "Nine-point rubric",
+        "Actual versus expected",
+        "Candidate clusters",
+        "Full transcripts",
+        "Verify evidence",
+        "Unsupported clusters discarded",
+        "Issue queue",
+        "On-demand diagnosis",
+        "Pinned source snapshot",
+        "No automatic edits",
+        "Inside your Google Cloud project"
+      ],
+      "components": [
+        [
+          "Live request path",
+          "ongoing requests, separate from observer",
+          "source: What AQuA is; packet summary sentences 1\u20132"
+        ],
+        [
+          "Production agent",
+          "processes requests without AQuA in the request path",
+          "source: What AQuA is; packet summary sentence 1"
+        ],
+        [
+          "Response",
+          "normal production output",
+          "conceptual geometry of live request path; no correctness guarantee"
+        ],
+        [
+          "Recent traces",
+          "observed execution trajectories",
+          "packet summary sentence 2"
+        ],
+        [
+          "Bounded sample",
+          "selects recent trajectories",
+          "packet summary sentence 2"
+        ],
+        [
+          "Nine-point rubric",
+          "evaluates sampled sessions",
+          "packet summary sentence 2"
+        ],
+        [
+          "Actual versus expected",
+          "structured finding separates observed and expected behavior",
+          "source: five-stage pipeline, Review"
+        ],
+        [
+          "Candidate clusters",
+          "groups findings by suspected failure mechanism",
+          "packet summary sentence 2"
+        ],
+        [
+          "Full transcripts",
+          "independent supporting evidence",
+          "packet summary sentence 2; source Verify"
+        ],
+        [
+          "Verify evidence",
+          "compares candidate patterns with transcripts",
+          "packet summary sentence 2"
+        ],
+        [
+          "Unsupported clusters discarded",
+          "rejected branch ends here",
+          "source: Verify; packet reported example"
+        ],
+        [
+          "Issue queue",
+          "surviving issues remain reviewable",
+          "packet summary sentences 2 and 7"
+        ],
+        [
+          "On-demand diagnosis",
+          "optional analysis of a supported issue",
+          "packet summary sentence 3"
+        ],
+        [
+          "Pinned source snapshot",
+          "deployment code evidence supplied to diagnosis",
+          "packet summary sentences 3\u20134"
+        ],
+        [
+          "No automatic edits",
+          "diagnosis cannot alter production",
+          "packet summary sentence 4"
+        ],
+        [
+          "Inside your Google Cloud project",
+          "project boundary contains traces and source",
+          "packet summary sentence 4"
+        ]
+      ],
+      "relationships": [
+        [
+          "Live request path",
+          "Production agent",
+          "request",
+          "data"
+        ],
+        [
+          "Production agent",
+          "Response",
+          "normal output",
+          "data"
+        ],
+        [
+          "Production agent",
+          "Recent traces",
+          "observed telemetry, outward only",
+          "evidence"
+        ],
+        [
+          "Recent traces",
+          "Bounded sample",
+          "select trajectories",
+          "data"
+        ],
+        [
+          "Bounded sample",
+          "Nine-point rubric",
+          "review sessions",
+          "data"
+        ],
+        [
+          "Nine-point rubric",
+          "Actual versus expected",
+          "record mismatches",
+          "state"
+        ],
+        [
+          "Actual versus expected",
+          "Candidate clusters",
+          "group common mechanisms",
+          "data"
+        ],
+        [
+          "Candidate clusters",
+          "Verify evidence",
+          "candidate claim",
+          "evidence"
+        ],
+        [
+          "Full transcripts",
+          "Verify evidence",
+          "support or reject claim",
+          "evidence"
+        ],
+        [
+          "Verify evidence",
+          "Unsupported clusters discarded",
+          "unsupported; terminal",
+          "branch"
+        ],
+        [
+          "Verify evidence",
+          "Issue queue",
+          "supported",
+          "branch"
+        ],
+        [
+          "Issue queue",
+          "On-demand diagnosis",
+          "optional investigation",
+          "action"
+        ],
+        [
+          "Pinned source snapshot",
+          "On-demand diagnosis",
+          "source evidence",
+          "provenance"
+        ]
+      ],
+      "regions": [
+        "live production rail",
+        "trace sampling and rubric",
+        "clustering and verification",
+        "queue and source diagnosis"
+      ],
+      "internal_substages": [
+        "structured findings",
+        "transcript-supported clustering"
+      ],
+      "secondary_relationships": [
+        "full transcript evidence to verification",
+        "pinned source evidence to diagnosis"
+      ],
+      "exclusions": [
+        "No feedback arrow into production",
+        "No automatic source edit or guaranteed correctness",
+        "Omit test numbers to avoid confusing bounded results with general accuracy"
+      ],
+      "composition": "Four regions use most of the near-white canvas. Upper narrow live rail with request, production agent, response. Below it a larger teal trace stream is sampled, unfolded under rubric into paired actual/expected strips, grouped into candidate clusters, and compared in an open fold with full transcript ribbons. Rejected patterns branch downward to a terminated spur; surviving patterns enter an issue queue. Bottom right a pinned source stack supplies a small on-demand diagnosis wedge. This is a read-only evidence process, not a dashboard. Text attaches to each operation. Smooth blank surfaces, no document-like pseudo-lines.",
+      "schema_version": "article-to-image-specification-v1",
+      "recipe_version": "2026-10-09-external-r5",
+      "edition_date": "2026-10-09",
+      "execution_id": "daily-compiler-oct9-owner-placeholder-recovery-r1",
+      "original_job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-09/aqua-ambient-agent-quality/",
+      "primary_source": {
+        "url": "https://developers.googleblog.com/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/",
+        "title": "The Outer Loop, Insights First: An Ambient Quality Agent That Diagnoses Your Production Agent",
+        "publisher": "Google Developers Blog",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Google Developers publisher analysis of AQuA: representative agent trace sampling, review checks, failure clustering and transcript verification, out-of-request-path diagnosis with pinned source snapshots and no automatic source edits."
+        }
+      },
+      "created_at": "2026-10-09T23:07:15.324Z",
+      "text_authority": "Owner task and current handoff require text and authorize app-drafted source-supported labels; no separate owner label approval claimed. Immutable job retained.",
+      "evidence_map": [
+        {
+          "visual_element": "Live request path",
+          "source_location": "source: What AQuA is; packet summary sentences 1\u20132",
+          "visual_role": "ongoing requests, separate from observer",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Production agent",
+          "source_location": "source: What AQuA is; packet summary sentence 1",
+          "visual_role": "processes requests without AQuA in the request path",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Response",
+          "source_location": "conceptual geometry of live request path; no correctness guarantee",
+          "visual_role": "normal production output",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Recent traces",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "observed execution trajectories",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Bounded sample",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "selects recent trajectories",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Nine-point rubric",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "evaluates sampled sessions",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Actual versus expected",
+          "source_location": "source: five-stage pipeline, Review",
+          "visual_role": "structured finding separates observed and expected behavior",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Candidate clusters",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "groups findings by suspected failure mechanism",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Full transcripts",
+          "source_location": "packet summary sentence 2; source Verify",
+          "visual_role": "independent supporting evidence",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Verify evidence",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "compares candidate patterns with transcripts",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Unsupported clusters discarded",
+          "source_location": "source: Verify; packet reported example",
+          "visual_role": "rejected branch ends here",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Issue queue",
+          "source_location": "packet summary sentences 2 and 7",
+          "visual_role": "surviving issues remain reviewable",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "On-demand diagnosis",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "optional analysis of a supported issue",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Pinned source snapshot",
+          "source_location": "packet summary sentences 3\u20134",
+          "visual_role": "deployment code evidence supplied to diagnosis",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "No automatic edits",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "diagnosis cannot alter production",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Inside your Google Cloud project",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "project boundary contains traces and source",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        }
+      ],
+      "label_specification": {
+        "version": "r1",
+        "labels": [
+          {
+            "text": "AQuA: read-only quality diagnosis",
+            "placement": "title"
+          },
+          {
+            "text": "Live request path",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Production agent",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Response",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Recent traces",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Bounded sample",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Nine-point rubric",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Actual versus expected",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Candidate clusters",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Full transcripts",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Verify evidence",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Unsupported clusters discarded",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Issue queue",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "On-demand diagnosis",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Pinned source snapshot",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "No automatic edits",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Inside your Google Cloud project",
+            "placement": "adjacent to corresponding component or relationship"
+          }
+        ],
+        "immutable_source_labels_modified": false,
+        "bound_recipe_version": "2026-10-09-external-r5"
+      },
+      "final_generator_recipe": "reviews/generation-history.json#oct9-t1-aqua/attempt/5",
+      "actual_visual_signature": {
+        "visual_grammar": "parallel-lane evidence sieve",
+        "layout_signature": "upper live rail over lower stepped investigation",
+        "composition_signature": "teal sidecar with rejection spur and bottom provenance wedge",
+        "dominant_palette": "petrol teal and graphite",
+        "mechanism_metaphor": "evidence sieve",
+        "major_object_family": "trace ribbons and open comparison folds",
+        "connector_style": "fine orthogonal arrows and solid trace ribbons",
+        "hierarchy_pattern": "separate live lane above dominant diagnostic lane",
+        "annotation_pattern": "stage labels plus edge constraints",
+        "perspective_style": "shallow axonometric folds",
+        "evidence_representation": "candidate groups compared to full transcripts",
+        "feedback_pattern": "none",
+        "image_sha256": "4201112985987c56f70e19f1cbef02a272198515d3df93d2b25db458786d0dfd",
+        "review_status": "LOCAL_PIXEL_PASS_PENDING_REMOTE"
+      },
+      "alt_text": "A teal production rail runs across the top while a one-way telemetry tap supplies a separate read-only AQuA process below. Sampled traces are judged against a nine-point rubric, compared as actual versus expected paths, and grouped. Full transcripts support a separate verification stage; unsupported patterns are discarded and supported issues enter a queue. The queue and pinned source snapshot feed optional diagnosis, ending at a no-automatic-edits boundary."
+    },
+    {
+      "story_id": "oct9-t2-copilot-sandbox",
+      "visual_thesis": "Copilot tool calls meet a developer or organization policy translated by Microsoft eXecution Container into native OS controls before accessing local resources.",
+      "distinctive_anchors": [
+        "Microsoft eXecution Container translates one policy into native controls",
+        "Policy covers files, networks, credentials, and selected local tools independently of model choice"
+      ],
+      "signature": {
+        "visual_grammar": "exploded trust-boundary cutaway",
+        "layout_signature": "vertical stack with four resource exits",
+        "composition_signature": "ochre exploded policy membrane above native resource fan",
+        "dominant_palette": "ochre gold and charcoal",
+        "mechanism_metaphor": "permission membrane",
+        "major_object_family": "cutaway strata and blocked apertures",
+        "connector_style": "vertical channels with blunt denied ends",
+        "hierarchy_pattern": "central enforcement boundary dominates",
+        "annotation_pattern": "layer callouts with bracketed resources",
+        "perspective_style": "exploded isometric",
+        "evidence_representation": "policy-fed native enforcement",
+        "feedback_pattern": "none"
+      },
+      "labels": [
+        "Copilot local sandbox",
+        "Tool command",
+        "Model choice is separate",
+        "Developer or organization policy",
+        "Microsoft eXecution Container",
+        "Native OS controls",
+        "Windows",
+        "macOS",
+        "Linux",
+        "Policy-dependent access",
+        "Filesystem paths",
+        "Network destinations",
+        "Git credentials",
+        "Local tools",
+        "Allowed",
+        "Denied",
+        "Enterprise rules cannot be weakened"
+      ],
+      "components": [
+        [
+          "Tool command",
+          "proposed local command",
+          "packet summary sentences 1\u20132"
+        ],
+        [
+          "Model choice is separate",
+          "model reasoning outside resource enforcement",
+          "packet summary sentence 6"
+        ],
+        [
+          "Developer or organization policy",
+          "resource access rules",
+          "packet summary sentence 2"
+        ],
+        [
+          "Microsoft eXecution Container",
+          "translates shared rules",
+          "packet summary sentence 4"
+        ],
+        [
+          "Native OS controls",
+          "enforces before resource access",
+          "packet summary sentence 4"
+        ],
+        [
+          "Windows",
+          "supported OS",
+          "packet summary sentence 4"
+        ],
+        [
+          "macOS",
+          "supported OS",
+          "packet summary sentence 4"
+        ],
+        [
+          "Linux",
+          "supported OS",
+          "packet summary sentence 4"
+        ],
+        [
+          "Filesystem paths",
+          "policy resource category",
+          "packet summary sentence 3"
+        ],
+        [
+          "Network destinations",
+          "policy resource category",
+          "packet summary sentence 3"
+        ],
+        [
+          "Git credentials",
+          "policy resource category",
+          "packet summary sentence 3"
+        ],
+        [
+          "Local tools",
+          "selected local services subject to support",
+          "packet summary sentence 3; source bullet 3"
+        ],
+        [
+          "Allowed",
+          "illustrative policy outcome",
+          "packet allow/deny; conceptual example not default configuration"
+        ],
+        [
+          "Denied",
+          "illustrative terminated policy outcome",
+          "packet allow/deny; conceptual example not default configuration"
+        ],
+        [
+          "Enterprise rules cannot be weakened",
+          "managed policy constraint",
+          "packet summary sentence 5"
+        ]
+      ],
+      "relationships": [
+        [
+          "Tool command",
+          "Native OS controls",
+          "attempted execution",
+          "action"
+        ],
+        [
+          "Developer or organization policy",
+          "Microsoft eXecution Container",
+          "policy input",
+          "control"
+        ],
+        [
+          "Microsoft eXecution Container",
+          "Native OS controls",
+          "translation",
+          "control"
+        ],
+        [
+          "Native OS controls",
+          "Windows",
+          "alternative native implementation",
+          "taxonomy"
+        ],
+        [
+          "Native OS controls",
+          "macOS",
+          "alternative native implementation",
+          "taxonomy"
+        ],
+        [
+          "Native OS controls",
+          "Linux",
+          "alternative native implementation",
+          "taxonomy"
+        ],
+        [
+          "Native OS controls",
+          "Policy-dependent access",
+          "allowed/denied decision before access",
+          "control"
+        ],
+        [
+          "Policy-dependent access",
+          "Filesystem paths",
+          "permission category",
+          "control"
+        ],
+        [
+          "Policy-dependent access",
+          "Network destinations",
+          "permission category",
+          "control"
+        ],
+        [
+          "Policy-dependent access",
+          "Git credentials",
+          "permission category",
+          "control"
+        ],
+        [
+          "Policy-dependent access",
+          "Local tools",
+          "permission category where supported",
+          "control"
+        ],
+        [
+          "Enterprise rules cannot be weakened",
+          "Developer or organization policy",
+          "managed lower bound",
+          "constraint"
+        ]
+      ],
+      "regions": [
+        "command and model separation",
+        "policy and translation",
+        "native enforcement strata",
+        "resource exits"
+      ],
+      "internal_substages": [
+        "policy translation",
+        "native enforcement"
+      ],
+      "secondary_relationships": [
+        "enterprise constraint to policy",
+        "model choice independence annotation"
+      ],
+      "exclusions": [
+        "No shield or safety guarantee",
+        "No audit return: packet image intent suggests one but source describes auditing as a recommendation",
+        "No universal remote-agent coverage",
+        "Do not imply one category always allowed or denied"
+      ],
+      "composition": "Tall central exposed ochre enforcement membrane with layers floating vertically, viewed in restrained isometric perspective. Command descends from top, separate thin policy document slab feeds translation then native controls. Windows/macOS/Linux are three small labeled facets under one native layer (alternatives, not serial stages). Four resource channels fan below. Alongside them one explicitly illustrative Allowed passage and one Denied blunt termination demonstrate policy-dependent outcomes without assigning permanent outcomes to categories. Warm gold, cream, dark graphite; no locks, shields, gearwork or UI.",
+      "schema_version": "article-to-image-specification-v1",
+      "recipe_version": "2026-10-09-external-r2",
+      "edition_date": "2026-10-09",
+      "execution_id": "daily-compiler-oct9-owner-placeholder-recovery-r1",
+      "original_job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-09/copilot-local-sandbox-boundaries/",
+      "primary_source": {
+        "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+        "title": "Local sandboxing for GitHub Copilot now generally available",
+        "publisher": "GitHub Changelog",
+        "published_at": "2026-10-07",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 7 GitHub publisher changelog: generally available local Copilot CLI/App/VS Code Agent Host sandbox with OS-level filesystem, network and credential permissions, separate from model decision quality."
+        }
+      },
+      "created_at": "2026-10-09T23:07:15.324Z",
+      "text_authority": "Owner task and current handoff require text and authorize app-drafted source-supported labels; no separate owner label approval claimed. Immutable job retained.",
+      "evidence_map": [
+        {
+          "visual_element": "Tool command",
+          "source_location": "packet summary sentences 1\u20132",
+          "visual_role": "proposed local command",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Model choice is separate",
+          "source_location": "packet summary sentence 6",
+          "visual_role": "model reasoning outside resource enforcement",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Developer or organization policy",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "resource access rules",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Microsoft eXecution Container",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "translates shared rules",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Native OS controls",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "enforces before resource access",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Windows",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "supported OS",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "macOS",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "supported OS",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Linux",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "supported OS",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Filesystem paths",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "policy resource category",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Network destinations",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "policy resource category",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Git credentials",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "policy resource category",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Local tools",
+          "source_location": "packet summary sentence 3; source bullet 3",
+          "visual_role": "selected local services subject to support",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Allowed",
+          "source_location": "packet allow/deny; conceptual example not default configuration",
+          "visual_role": "illustrative policy outcome",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Denied",
+          "source_location": "packet allow/deny; conceptual example not default configuration",
+          "visual_role": "illustrative terminated policy outcome",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Enterprise rules cannot be weakened",
+          "source_location": "packet summary sentence 5",
+          "visual_role": "managed policy constraint",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        }
+      ],
+      "label_specification": {
+        "version": "r1",
+        "labels": [
+          {
+            "text": "Copilot local sandbox",
+            "placement": "title"
+          },
+          {
+            "text": "Tool command",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Model choice is separate",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Developer or organization policy",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Microsoft eXecution Container",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Native OS controls",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Windows",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "macOS",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Linux",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Policy-dependent access",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Filesystem paths",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Network destinations",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Git credentials",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Local tools",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Allowed",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Denied",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Enterprise rules cannot be weakened",
+            "placement": "adjacent to corresponding component or relationship"
+          }
+        ],
+        "immutable_source_labels_modified": false,
+        "bound_recipe_version": "2026-10-09-external-r2"
+      },
+      "final_generator_recipe": "reviews/generation-history.json#oct9-t2-copilot-sandbox/attempt/2",
+      "actual_visual_signature": {
+        "visual_grammar": "exploded trust-boundary cutaway",
+        "layout_signature": "vertical stack with four resource exits",
+        "composition_signature": "ochre exploded policy membrane above native resource fan",
+        "dominant_palette": "ochre gold and charcoal",
+        "mechanism_metaphor": "permission membrane",
+        "major_object_family": "cutaway strata and blocked apertures",
+        "connector_style": "vertical channels with blunt denied ends",
+        "hierarchy_pattern": "central enforcement boundary dominates",
+        "annotation_pattern": "layer callouts with bracketed resources",
+        "perspective_style": "exploded isometric",
+        "evidence_representation": "policy-fed native enforcement",
+        "feedback_pattern": "none",
+        "image_sha256": "64af82a0a692331cd36b07b84439cc89dbc80fe6443ba11d2c4233cf2ff6a0b9",
+        "review_status": "LOCAL_PIXEL_PASS_PENDING_REMOTE"
+      },
+      "alt_text": "An ochre tool-command arrow enters a layered policy enforcement diagram. Developer or organization rules feed Microsoft eXecution Container, which maps policy to Windows, macOS and Linux controls. A policy-dependent fork allows access to files, networks, Git credentials and local tools or ends at a separate denial barrier. Side annotations state model choice is separate and enterprise rules cannot be weakened."
+    },
+    {
+      "story_id": "oct9-k1-dynamics",
+      "visual_thesis": "Dynamics customer records ground sales and service work in Copilot, with proposed changes reviewed before an illustrative CRM update, while Teams connectivity remains public preview.",
+      "distinctive_anchors": [
+        "Thirty prebuilt Dynamics skills, generally available in Cowork",
+        "Different sales and service operations share customer context; CRM in Teams is public preview"
+      ],
+      "signature": {
+        "visual_grammar": "governed workflow with return path",
+        "layout_signature": "horseshoe around split sales and service tasks",
+        "composition_signature": "plum ledger feeding two task ribbons and a review fork",
+        "dominant_palette": "plum violet and slate",
+        "mechanism_metaphor": "reviewed record circulation",
+        "major_object_family": "record leaves and folded task ribbons",
+        "connector_style": "curved directed ribbons and explicit branch labels",
+        "hierarchy_pattern": "source ledger anchors nested task lanes",
+        "annotation_pattern": "object labels plus availability captions",
+        "perspective_style": "overhead with shallow raised paper layers",
+        "evidence_representation": "CRM grounding plus review-before-update boundary",
+        "feedback_pattern": "approved record change returns to CRM; not model learning"
+      },
+      "labels": [
+        "Dynamics CRM in everyday work",
+        "Customer records",
+        "Account context",
+        "Case history",
+        "30 prebuilt skills",
+        "Cowork: generally available",
+        "Sales work",
+        "At-risk deals",
+        "Account plans",
+        "Service work",
+        "Investigate issue",
+        "Draft response",
+        "Proposed record update",
+        "Human review",
+        "Approved",
+        "CRM update",
+        "Not approved",
+        "No change",
+        "CRM in Teams: public preview",
+        "Illustrative reviewed-update workflow"
+      ],
+      "components": [
+        [
+          "Customer records",
+          "authoritative source",
+          "packet summary sentences 1\u20132"
+        ],
+        [
+          "Account context",
+          "sales grounding",
+          "packet summary sentence 2"
+        ],
+        [
+          "Case history",
+          "service grounding",
+          "packet summary sentence 2"
+        ],
+        [
+          "30 prebuilt skills",
+          "specific announced skill count",
+          "packet summary sentence 2"
+        ],
+        [
+          "Cowork: generally available",
+          "availability bound to skills",
+          "packet summary sentence 3"
+        ],
+        [
+          "Sales work",
+          "task grouping",
+          "packet summary sentence 2"
+        ],
+        [
+          "At-risk deals",
+          "sales operation",
+          "packet summary sentence 2"
+        ],
+        [
+          "Account plans",
+          "sales operation",
+          "packet summary sentence 2"
+        ],
+        [
+          "Service work",
+          "task grouping",
+          "packet summary sentence 2"
+        ],
+        [
+          "Investigate issue",
+          "service operation",
+          "packet summary sentence 2"
+        ],
+        [
+          "Draft response",
+          "service output",
+          "packet summary sentence 2"
+        ],
+        [
+          "Proposed record update",
+          "proposal not committed state",
+          "source Bringing CRM into flow of work; packet summary"
+        ],
+        [
+          "Human review",
+          "review gate",
+          "packet summary; proposed record updates for review"
+        ],
+        [
+          "CRM update",
+          "illustrative post-review result",
+          "packet why_it_matters recommended pilot; explicitly conceptual workflow"
+        ],
+        [
+          "No change",
+          "unapproved proposal does not update in illustrated pilot",
+          "logical constraint of recommended pilot, not product default claim"
+        ],
+        [
+          "CRM in Teams: public preview",
+          "connected Teams context availability",
+          "packet summary sentence 3"
+        ]
+      ],
+      "relationships": [
+        [
+          "Customer records",
+          "Account context",
+          "grounding",
+          "data"
+        ],
+        [
+          "Customer records",
+          "Case history",
+          "grounding",
+          "data"
+        ],
+        [
+          "Account context",
+          "Sales work",
+          "customer context",
+          "data"
+        ],
+        [
+          "Case history",
+          "Service work",
+          "customer context",
+          "data"
+        ],
+        [
+          "30 prebuilt skills",
+          "Sales work",
+          "task support",
+          "control"
+        ],
+        [
+          "30 prebuilt skills",
+          "Service work",
+          "task support",
+          "control"
+        ],
+        [
+          "Sales work",
+          "At-risk deals",
+          "supported operation",
+          "taxonomy"
+        ],
+        [
+          "Sales work",
+          "Account plans",
+          "supported operation",
+          "taxonomy"
+        ],
+        [
+          "Service work",
+          "Investigate issue",
+          "supported operation",
+          "taxonomy"
+        ],
+        [
+          "Investigate issue",
+          "Draft response",
+          "prepare response",
+          "action"
+        ],
+        [
+          "Sales work",
+          "Proposed record update",
+          "proposal",
+          "action"
+        ],
+        [
+          "Proposed record update",
+          "Human review",
+          "review before change",
+          "control"
+        ],
+        [
+          "Human review",
+          "CRM update",
+          "Approved, in illustrated pilot",
+          "branch"
+        ],
+        [
+          "Human review",
+          "No change",
+          "Not approved, in illustrated pilot",
+          "branch"
+        ],
+        [
+          "CRM update",
+          "Customer records",
+          "write reviewed change",
+          "state"
+        ],
+        [
+          "Customer records",
+          "CRM in Teams: public preview",
+          "context availability; separate relation",
+          "data"
+        ]
+      ],
+      "regions": [
+        "CRM source ledger",
+        "sales and service task ribbons",
+        "proposal and review decision",
+        "return update and availability"
+      ],
+      "internal_substages": [
+        "context to task work",
+        "proposal to review before update"
+      ],
+      "secondary_relationships": [
+        "record grounding to both lanes",
+        "Cowork versus Teams availability qualifiers"
+      ],
+      "exclusions": [
+        "Do not combine unrelated preview features into a universally available product",
+        "Do not imply every CRM operation requires approval",
+        "No verified badge or automated audit",
+        "Only the explicitly illustrative reviewed-update path returns to CRM"
+      ],
+      "composition": "Overhead horseshoe. Plum source ledger left splits into upper sales ribbon with at-risk deals and account plans and lower service ribbon with issue investigation and response. Thirty-skill folded spine supports both; clear Cowork availability caption. Sales proposal peels toward review fork right. Approved branch curls down and left through CRM update into original ledger, while Not approved terminates at No change. A bottom caption explicitly states Illustrative reviewed-update workflow. Separate Teams context annotation public preview, no invented screen. Four major regions, readable short labels throughout.",
+      "schema_version": "article-to-image-specification-v1",
+      "recipe_version": "2026-10-09-external-r3",
+      "edition_date": "2026-10-09",
+      "execution_id": "daily-compiler-oct9-owner-placeholder-recovery-r1",
+      "original_job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-09/dynamics-crm-agents-in-workflow/",
+      "primary_source": {
+        "url": "https://www.microsoft.com/en-us/copilot/blog/2026/10/08/bringing-crm-into-the-flow-of-work-and-agents-into-business-process-for-sales-and-service-teams/",
+        "title": "Bringing CRM into the flow of work and agents into business process for sales and service teams",
+        "publisher": "Microsoft 365 Copilot \u2014 AI at Work Blog",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Microsoft publisher product announcement: thirty Dynamics 365 prebuilt skills, customer CRM grounding in Teams, proposed record edits and approval points, with general-availability versus private/public preview distinctions."
+        }
+      },
+      "created_at": "2026-10-09T23:07:15.324Z",
+      "text_authority": "Owner task and current handoff require text and authorize app-drafted source-supported labels; no separate owner label approval claimed. Immutable job retained.",
+      "evidence_map": [
+        {
+          "visual_element": "Customer records",
+          "source_location": "packet summary sentences 1\u20132",
+          "visual_role": "authoritative source",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Account context",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "sales grounding",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Case history",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "service grounding",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "30 prebuilt skills",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "specific announced skill count",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Cowork: generally available",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "availability bound to skills",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Sales work",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "task grouping",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "At-risk deals",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "sales operation",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Account plans",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "sales operation",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Service work",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "task grouping",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Investigate issue",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "service operation",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Draft response",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "service output",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Proposed record update",
+          "source_location": "source Bringing CRM into flow of work; packet summary",
+          "visual_role": "proposal not committed state",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Human review",
+          "source_location": "packet summary; proposed record updates for review",
+          "visual_role": "review gate",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "CRM update",
+          "source_location": "packet why_it_matters recommended pilot; explicitly conceptual workflow",
+          "visual_role": "illustrative post-review result",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "No change",
+          "source_location": "logical constraint of recommended pilot, not product default claim",
+          "visual_role": "unapproved proposal does not update in illustrated pilot",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "CRM in Teams: public preview",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "connected Teams context availability",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        }
+      ],
+      "label_specification": {
+        "version": "r1",
+        "labels": [
+          {
+            "text": "Dynamics CRM in everyday work",
+            "placement": "title"
+          },
+          {
+            "text": "Customer records",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Account context",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Case history",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "30 prebuilt skills",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Cowork: generally available",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Sales work",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "At-risk deals",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Account plans",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Service work",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Investigate issue",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Draft response",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Proposed record update",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Human review",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Approved",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "CRM update",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Not approved",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "No change",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "CRM in Teams: public preview",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Illustrative reviewed-update workflow",
+            "placement": "adjacent to corresponding component or relationship"
+          }
+        ],
+        "immutable_source_labels_modified": false,
+        "bound_recipe_version": "2026-10-09-external-r3"
+      },
+      "final_generator_recipe": "reviews/generation-history.json#oct9-k1-dynamics/attempt/3",
+      "actual_visual_signature": {
+        "visual_grammar": "governed workflow with return path",
+        "layout_signature": "horseshoe around split sales and service tasks",
+        "composition_signature": "plum ledger feeding two task ribbons and a review fork",
+        "dominant_palette": "plum violet and slate",
+        "mechanism_metaphor": "reviewed record circulation",
+        "major_object_family": "record leaves and folded task ribbons",
+        "connector_style": "curved directed ribbons and explicit branch labels",
+        "hierarchy_pattern": "source ledger anchors nested task lanes",
+        "annotation_pattern": "object labels plus availability captions",
+        "perspective_style": "overhead with shallow raised paper layers",
+        "evidence_representation": "CRM grounding plus review-before-update boundary",
+        "feedback_pattern": "approved record change returns to CRM; not model learning",
+        "image_sha256": "6cdc91452724c114ccbc56bc8d7338405b7d212f8387ecad6befc47b2c6a1bb9",
+        "review_status": "LOCAL_PIXEL_PASS_PENDING_REMOTE"
+      },
+      "alt_text": "Plum customer-record folders provide account context and case history to thirty prebuilt Dynamics skills. Sales tasks include risk identification, account plans and a proposed record update; service work investigates an issue and drafts a response separately. The proposed update reaches human review. An approved update loops back to CRM while an unapproved proposal ends at no change. Captions distinguish Cowork general availability, Teams public preview, and the illustrative reviewed-update workflow."
+    },
+    {
+      "story_id": "oct9-k2-intelligent-ui",
+      "visual_thesis": "Intelligent UI composes text, visual and control components as a response streams, then lets an input adjustment change a dependent result in place.",
+      "distinctive_anchors": [
+        "Native streamable components and compiler",
+        "Progressive assembly of an answer with adjustable inputs"
+      ],
+      "signature": {
+        "visual_grammar": "exploded response assembly",
+        "layout_signature": "diagonal fan of primitives into progressive layers",
+        "composition_signature": "coral radial component fan opening into layered answer",
+        "dominant_palette": "coral red and warm graphite",
+        "mechanism_metaphor": "response loom",
+        "major_object_family": "interlocking graphic planes and variable controls",
+        "connector_style": "tapered assembly ribbons and one user-change link",
+        "hierarchy_pattern": "large progressive answer assembly with subordinate primitive fan",
+        "annotation_pattern": "leader callouts and staged captions",
+        "perspective_style": "oblique exploded planes",
+        "evidence_representation": "input-change to dependent-result connection",
+        "feedback_pattern": "user changes input; output recalculates, no training loop"
+      },
+      "labels": [
+        "Intelligent UI: answers you can adjust",
+        "Question",
+        "Choose useful format",
+        "Text",
+        "Visuals",
+        "Controls",
+        "Native component library",
+        "Streaming compiler",
+        "Progressive answer",
+        "Adjust input",
+        "Dependent result updates",
+        "Check facts and assumptions",
+        "Plain text when sufficient",
+        "Availability varies"
+      ],
+      "components": [
+        [
+          "Question",
+          "user request",
+          "packet summary sentences 1\u20132"
+        ],
+        [
+          "Choose useful format",
+          "format chosen for request",
+          "source Introducing Intelligent UI; packet summary"
+        ],
+        [
+          "Text",
+          "written explanation",
+          "packet summary sentence 1"
+        ],
+        [
+          "Visuals",
+          "diagrams/comparisons",
+          "packet summary sentence 1"
+        ],
+        [
+          "Controls",
+          "functioning controls",
+          "packet summary sentence 1"
+        ],
+        [
+          "Native component library",
+          "streamable building blocks",
+          "packet verified source scope; source How Intelligent UI works"
+        ],
+        [
+          "Streaming compiler",
+          "processes interface while generated",
+          "packet verified source scope; source How Intelligent UI works"
+        ],
+        [
+          "Progressive answer",
+          "useful content arrives before completion",
+          "packet summary sentence 3"
+        ],
+        [
+          "Adjust input",
+          "reader varies a relevant parameter",
+          "packet summary sentence 2"
+        ],
+        [
+          "Dependent result updates",
+          "interaction response",
+          "packet image intent; why_it_matters"
+        ],
+        [
+          "Check facts and assumptions",
+          "recommended reader verification",
+          "packet summary sentence 5; must not look like automatic capability"
+        ],
+        [
+          "Plain text when sufficient",
+          "alternative to interactive form",
+          "packet summary sentence 6"
+        ],
+        [
+          "Availability varies",
+          "staged rollout constraint",
+          "packet summary sentence 7"
+        ]
+      ],
+      "relationships": [
+        [
+          "Question",
+          "Choose useful format",
+          "request interpreted",
+          "data"
+        ],
+        [
+          "Choose useful format",
+          "Plain text when sufficient",
+          "alternative sufficient answer",
+          "branch"
+        ],
+        [
+          "Choose useful format",
+          "Text",
+          "composition choice",
+          "action"
+        ],
+        [
+          "Choose useful format",
+          "Visuals",
+          "composition choice",
+          "action"
+        ],
+        [
+          "Choose useful format",
+          "Controls",
+          "composition choice",
+          "action"
+        ],
+        [
+          "Native component library",
+          "Streaming compiler",
+          "component supply",
+          "data"
+        ],
+        [
+          "Text",
+          "Streaming compiler",
+          "content assembly",
+          "data"
+        ],
+        [
+          "Visuals",
+          "Streaming compiler",
+          "content assembly",
+          "data"
+        ],
+        [
+          "Controls",
+          "Streaming compiler",
+          "content assembly",
+          "data"
+        ],
+        [
+          "Streaming compiler",
+          "Progressive answer",
+          "streamed rendering",
+          "state"
+        ],
+        [
+          "Adjust input",
+          "Dependent result updates",
+          "in-place interaction",
+          "action"
+        ],
+        [
+          "Check facts and assumptions",
+          "Progressive answer",
+          "reader responsibility, not automated verification",
+          "constraint"
+        ]
+      ],
+      "regions": [
+        "question and format branch",
+        "primitive fan and component library",
+        "compiler and progressive answer",
+        "input/output dependency"
+      ],
+      "internal_substages": [
+        "component composition",
+        "progressive compilation"
+      ],
+      "secondary_relationships": [
+        "component library supplies compiler",
+        "reader checking annotation and rollout qualification"
+      ],
+      "exclusions": [
+        "No fake ChatGPT screenshot or browser chrome",
+        "No invented numerical calculator values",
+        "No feedback arrow to model training",
+        "Checking facts is reader guidance, not product guarantee"
+      ],
+      "composition": "Dynamic diagonal coral assembly, not boxes. Lower-left question turns into an open fan of three precise primitives: a single actual word Text, a geometric explanatory Visuals assembly, and an unnumbered slider Controls. Native component library is a stack of differently keyed pieces behind the fan. Thin ribbons converge into a visibly open Streaming compiler with component joining and progressive layering evident. Right side has three partially overlapping answer planes, from sparse to combined, labeled Progressive answer. A visible unnumbered input slider connects only to a changed dependent geometric output, with Adjust input and Dependent result updates. Small plain-prose alternate route and clear reader-check annotation. Every visual is conceptual, no UI chrome, chart values or pseudo-writing.",
+      "schema_version": "article-to-image-specification-v1",
+      "recipe_version": "2026-10-09-external-r2",
+      "edition_date": "2026-10-09",
+      "execution_id": "daily-compiler-oct9-owner-placeholder-recovery-r1",
+      "original_job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-09/chatgpt-intelligent-ui-work-surfaces/",
+      "primary_source": {
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "title": "GPT-6 and Intelligent UI for everyone",
+        "publisher": "OpenAI",
+        "published_at": "2026-10-07",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 7 OpenAI publisher article: Intelligent UI converts answers into interactive diagrams and controls, uses progressive streamable UI components and a compiler, and discloses staged product availability rather than universal access."
+        }
+      },
+      "created_at": "2026-10-09T23:07:15.324Z",
+      "text_authority": "Owner task and current handoff require text and authorize app-drafted source-supported labels; no separate owner label approval claimed. Immutable job retained.",
+      "evidence_map": [
+        {
+          "visual_element": "Question",
+          "source_location": "packet summary sentences 1\u20132",
+          "visual_role": "user request",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Choose useful format",
+          "source_location": "source Introducing Intelligent UI; packet summary",
+          "visual_role": "format chosen for request",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Text",
+          "source_location": "packet summary sentence 1",
+          "visual_role": "written explanation",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Visuals",
+          "source_location": "packet summary sentence 1",
+          "visual_role": "diagrams/comparisons",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Controls",
+          "source_location": "packet summary sentence 1",
+          "visual_role": "functioning controls",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Native component library",
+          "source_location": "packet verified source scope; source How Intelligent UI works",
+          "visual_role": "streamable building blocks",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Streaming compiler",
+          "source_location": "packet verified source scope; source How Intelligent UI works",
+          "visual_role": "processes interface while generated",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Progressive answer",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "useful content arrives before completion",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Adjust input",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "reader varies a relevant parameter",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Dependent result updates",
+          "source_location": "packet image intent; why_it_matters",
+          "visual_role": "interaction response",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Check facts and assumptions",
+          "source_location": "packet summary sentence 5; must not look like automatic capability",
+          "visual_role": "recommended reader verification",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Plain text when sufficient",
+          "source_location": "packet summary sentence 6",
+          "visual_role": "alternative to interactive form",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Availability varies",
+          "source_location": "packet summary sentence 7",
+          "visual_role": "staged rollout constraint",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        }
+      ],
+      "label_specification": {
+        "version": "r1",
+        "labels": [
+          {
+            "text": "Intelligent UI: answers you can adjust",
+            "placement": "title"
+          },
+          {
+            "text": "Question",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Choose useful format",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Text",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Visuals",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Controls",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Native component library",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Streaming compiler",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Progressive answer",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Adjust input",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Dependent result updates",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Check facts and assumptions",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Plain text when sufficient",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Availability varies",
+            "placement": "adjacent to corresponding component or relationship"
+          }
+        ],
+        "immutable_source_labels_modified": false,
+        "bound_recipe_version": "2026-10-09-external-r2"
+      },
+      "final_generator_recipe": "reviews/generation-history.json#oct9-k2-intelligent-ui/attempt/2",
+      "actual_visual_signature": {
+        "visual_grammar": "exploded response assembly",
+        "layout_signature": "diagonal fan of primitives into progressive layers",
+        "composition_signature": "coral radial component fan opening into layered answer",
+        "dominant_palette": "coral red and warm graphite",
+        "mechanism_metaphor": "response loom",
+        "major_object_family": "interlocking graphic planes and variable controls",
+        "connector_style": "tapered assembly ribbons and one user-change link",
+        "hierarchy_pattern": "large progressive answer assembly with subordinate primitive fan",
+        "annotation_pattern": "leader callouts and staged captions",
+        "perspective_style": "oblique exploded planes",
+        "evidence_representation": "input-change to dependent-result connection",
+        "feedback_pattern": "user changes input; output recalculates, no training loop",
+        "image_sha256": "b4c607e8d966afb5e018c35c4479baa7c731fb1da8144e19985b955f793bc45b",
+        "review_status": "LOCAL_PIXEL_PASS_PENDING_REMOTE"
+      },
+      "alt_text": "A question branches into a sufficient plain-text response or text, visual and control components. A native library supplies a streaming compiler where separate pieces align and join. Overlapping answer planes depict progressive assembly. A separate slider changes a dependent geometric result in the answer; annotations remind readers to check facts and assumptions and that availability varies."
+    },
+    {
+      "story_id": "oct9-a1-gemini-skills",
+      "visual_thesis": "Gemini selects reusable prompt packages from global, company and personal registries, combines them with task context and governed tools, and executes a business procedure within permission boundaries.",
+      "distinctive_anchors": [
+        "Global, company, and personal skill registries",
+        "A skill combines instructions, knowledge or workflow; tool access is separately governed"
+      ],
+      "signature": {
+        "visual_grammar": "registry taxonomy and package anatomy",
+        "layout_signature": "branching library above central open skill with side inputs",
+        "composition_signature": "forest-green branching registry feeding exploded prompt anatomy",
+        "dominant_palette": "forest green and muted brass",
+        "mechanism_metaphor": "reusable procedure kit",
+        "major_object_family": "keyed prompt leaves and nested context rings",
+        "connector_style": "branch braces, fine leader lines, restrained directed flows",
+        "hierarchy_pattern": "open skill package as dominant central object",
+        "annotation_pattern": "taxonomy braces plus anatomical labels",
+        "perspective_style": "front elevation with shallow exploded depth",
+        "evidence_representation": "separate skill, context, tool and permission contributions",
+        "feedback_pattern": "none shown"
+      },
+      "labels": [
+        "Gemini: reusable business procedures",
+        "Global skills",
+        "Company skills",
+        "Personal skills",
+        "Select a skill",
+        "Modular prompt package",
+        "Instructions",
+        "Knowledge",
+        "Workflow",
+        "Task context",
+        "Session",
+        "Semantic",
+        "Procedural",
+        "Episodic",
+        "Enterprise tools registry",
+        "Organization permissions",
+        "Governed execution",
+        "Task result",
+        "Announced capabilities; availability varies"
+      ],
+      "components": [
+        [
+          "Global skills",
+          "global skill library",
+          "packet summary sentences 2\u20133"
+        ],
+        [
+          "Company skills",
+          "shared registry",
+          "packet summary sentence 3"
+        ],
+        [
+          "Personal skills",
+          "personal reusable prompts",
+          "packet summary sentence 3"
+        ],
+        [
+          "Select a skill",
+          "choose relevant procedure",
+          "packet final sentence; verified evidence"
+        ],
+        [
+          "Modular prompt package",
+          "reusable artifact not executed result",
+          "packet summary sentence 2"
+        ],
+        [
+          "Instructions",
+          "skill content",
+          "packet summary sentence 2"
+        ],
+        [
+          "Knowledge",
+          "skill content",
+          "packet summary sentence 2"
+        ],
+        [
+          "Workflow",
+          "skill content",
+          "packet summary sentence 2"
+        ],
+        [
+          "Task context",
+          "task grounding",
+          "packet summary sentence 4"
+        ],
+        [
+          "Session",
+          "memory type",
+          "packet summary sentence 4"
+        ],
+        [
+          "Semantic",
+          "memory type",
+          "packet summary sentence 4"
+        ],
+        [
+          "Procedural",
+          "memory type",
+          "packet summary sentence 4"
+        ],
+        [
+          "Episodic",
+          "memory type",
+          "packet summary sentence 4"
+        ],
+        [
+          "Enterprise tools registry",
+          "tools separate from procedure",
+          "packet summary sentence 4"
+        ],
+        [
+          "Organization permissions",
+          "governs systems touched",
+          "packet summary sentences 5 and 7"
+        ],
+        [
+          "Governed execution",
+          "selected procedure uses authorized tools and context",
+          "packet summary final sentence"
+        ],
+        [
+          "Task result",
+          "requested work output",
+          "conceptual outcome of execution, no success or accuracy guarantee"
+        ]
+      ],
+      "relationships": [
+        [
+          "Global skills",
+          "Select a skill",
+          "source option",
+          "selection"
+        ],
+        [
+          "Company skills",
+          "Select a skill",
+          "source option",
+          "selection"
+        ],
+        [
+          "Personal skills",
+          "Select a skill",
+          "source option",
+          "selection"
+        ],
+        [
+          "Select a skill",
+          "Modular prompt package",
+          "chosen artifact",
+          "data"
+        ],
+        [
+          "Modular prompt package",
+          "Instructions",
+          "contains",
+          "taxonomy"
+        ],
+        [
+          "Modular prompt package",
+          "Knowledge",
+          "contains",
+          "taxonomy"
+        ],
+        [
+          "Modular prompt package",
+          "Workflow",
+          "contains",
+          "taxonomy"
+        ],
+        [
+          "Modular prompt package",
+          "Governed execution",
+          "procedure supplied",
+          "data"
+        ],
+        [
+          "Session",
+          "Task context",
+          "type",
+          "taxonomy"
+        ],
+        [
+          "Semantic",
+          "Task context",
+          "type",
+          "taxonomy"
+        ],
+        [
+          "Procedural",
+          "Task context",
+          "type",
+          "taxonomy"
+        ],
+        [
+          "Episodic",
+          "Task context",
+          "type",
+          "taxonomy"
+        ],
+        [
+          "Task context",
+          "Governed execution",
+          "context supply",
+          "data"
+        ],
+        [
+          "Enterprise tools registry",
+          "Governed execution",
+          "tools supply",
+          "data"
+        ],
+        [
+          "Organization permissions",
+          "Governed execution",
+          "constrain access before use",
+          "constraint"
+        ],
+        [
+          "Governed execution",
+          "Task result",
+          "requested output",
+          "data"
+        ]
+      ],
+      "regions": [
+        "registry taxonomy",
+        "selected prompt anatomy",
+        "context and tools",
+        "permission-bound execution"
+      ],
+      "internal_substages": [
+        "select reusable package",
+        "apply procedure using governed tools"
+      ],
+      "secondary_relationships": [
+        "memory context to execution",
+        "permissions limit tool use"
+      ],
+      "exclusions": [
+        "No unconditional accuracy/security guarantee",
+        "No automatic improvement loop depicted",
+        "No approval gate attributed to product merely because pilot recommendation mentions one",
+        "No universal availability claim"
+      ],
+      "composition": "Forest-green editorial botanical-like branching taxonomy but made of crisp prompt leaves, no literal plant decorations. Three source branches across top descend into one selected open package at center. Its three separated leaves show Instructions, Knowledge, Workflow. Left four memory types use nested brackets under Task context, right tools registry supplied via permission boundary. Beneath package, a horizontal grounded execution assembly visibly binds procedure, context, and permitted tools then produces one result. Different from a linear pipeline: anatomy and taxonomy dominate. Thin dark green outlines, pale sage depth, brass constraint accent, near-white.",
+      "schema_version": "article-to-image-specification-v1",
+      "recipe_version": "2026-10-09-external-r1",
+      "edition_date": "2026-10-09",
+      "execution_id": "daily-compiler-oct9-owner-placeholder-recovery-r1",
+      "original_job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-09/gemini-modular-business-agent-skills/",
+      "primary_source": {
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+        "title": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+        "publisher": "Google Cloud Blog",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Google Cloud announcement: modular reusable skill prompts, global/team/personal registries, enterprise tool registry and governed tool selection, procedural memory and differentiated preview versus released claims."
+        }
+      },
+      "created_at": "2026-10-09T23:07:15.324Z",
+      "text_authority": "Owner task and current handoff require text and authorize app-drafted source-supported labels; no separate owner label approval claimed. Immutable job retained.",
+      "evidence_map": [
+        {
+          "visual_element": "Global skills",
+          "source_location": "packet summary sentences 2\u20133",
+          "visual_role": "global skill library",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Company skills",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "shared registry",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Personal skills",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "personal reusable prompts",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Select a skill",
+          "source_location": "packet final sentence; verified evidence",
+          "visual_role": "choose relevant procedure",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Modular prompt package",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "reusable artifact not executed result",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Instructions",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "skill content",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Knowledge",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "skill content",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Workflow",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "skill content",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Task context",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "task grounding",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Session",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "memory type",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Semantic",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "memory type",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Procedural",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "memory type",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Episodic",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "memory type",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Enterprise tools registry",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "tools separate from procedure",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Organization permissions",
+          "source_location": "packet summary sentences 5 and 7",
+          "visual_role": "governs systems touched",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Governed execution",
+          "source_location": "packet summary final sentence",
+          "visual_role": "selected procedure uses authorized tools and context",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Task result",
+          "source_location": "conceptual outcome of execution, no success or accuracy guarantee",
+          "visual_role": "requested work output",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        }
+      ],
+      "label_specification": {
+        "version": "r1",
+        "labels": [
+          {
+            "text": "Gemini: reusable business procedures",
+            "placement": "title"
+          },
+          {
+            "text": "Global skills",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Company skills",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Personal skills",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Select a skill",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Modular prompt package",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Instructions",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Knowledge",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Workflow",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Task context",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Session",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Semantic",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Procedural",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Episodic",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Enterprise tools registry",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Organization permissions",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Governed execution",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Task result",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Announced capabilities; availability varies",
+            "placement": "adjacent to corresponding component or relationship"
+          }
+        ],
+        "immutable_source_labels_modified": false,
+        "bound_recipe_version": "2026-10-09-external-r1"
+      },
+      "final_generator_recipe": "reviews/generation-history.json#oct9-a1-gemini-skills/attempt/1",
+      "actual_visual_signature": {
+        "visual_grammar": "registry taxonomy and package anatomy",
+        "layout_signature": "branching library above central open skill with side inputs",
+        "composition_signature": "forest-green branching registry feeding exploded prompt anatomy",
+        "dominant_palette": "forest green and muted brass",
+        "mechanism_metaphor": "reusable procedure kit",
+        "major_object_family": "keyed prompt leaves and nested context rings",
+        "connector_style": "branch braces, fine leader lines, restrained directed flows",
+        "hierarchy_pattern": "open skill package as dominant central object",
+        "annotation_pattern": "taxonomy braces plus anatomical labels",
+        "perspective_style": "front elevation with shallow exploded depth",
+        "evidence_representation": "separate skill, context, tool and permission contributions",
+        "feedback_pattern": "none shown",
+        "image_sha256": "352322fd45407f3a58b4c12d2040944f88582de80e2b1717c642254c861c8302",
+        "review_status": "LOCAL_PIXEL_PASS_PENDING_REMOTE"
+      },
+      "alt_text": "Global, company and personal skill libraries feed selection of a modular prompt package, opened to reveal instructions, knowledge and workflow. Session, semantic, procedural and episodic context enters execution separately. An enterprise tools registry crosses an organization-permission boundary before joining the procedure and context, yielding a task result. A caption identifies these as announced capabilities with varying availability."
+    },
+    {
+      "story_id": "oct9-a2-claude-dashboard",
+      "visual_thesis": "Claude Dashboards turns a business question and connected source data into a refreshable display with inspectable queries and visible freshness, while metric checking remains a human responsibility.",
+      "distinctive_anchors": [
+        "Paid-plan beta with warehouse and Salesforce connections",
+        "Each chart exposes its query and last refresh"
+      ],
+      "signature": {
+        "visual_grammar": "data lineage and refresh provenance map",
+        "layout_signature": "left source constellation to right query-display anatomy",
+        "composition_signature": "cobalt sources linked to split query and refreshed-view planes",
+        "dominant_palette": "cobalt blue and stone grey",
+        "mechanism_metaphor": "traceable data lens",
+        "major_object_family": "source cylinders, query lens, linked display marks",
+        "connector_style": "thin provenance ties and refresh arc",
+        "hierarchy_pattern": "query-to-view pair dominates over source constellation",
+        "annotation_pattern": "provenance tethers and scope footnotes",
+        "perspective_style": "editorial planar view with small dimensional source volumes",
+        "evidence_representation": "query and freshness tethered to displayed chart",
+        "feedback_pattern": "source refresh flows into view, never model training or writeback"
+      },
+      "labels": [
+        "Claude Dashboards: traceable live data",
+        "Business question",
+        "Connected sources",
+        "BigQuery",
+        "Databricks",
+        "Snowflake",
+        "Salesforce",
+        "Query and calculation",
+        "Refresh from source",
+        "Live view",
+        "Inspect the query",
+        "Last refreshed",
+        "Check metric definitions",
+        "Paid-plan beta",
+        "Conceptual data flow"
+      ],
+      "components": [
+        [
+          "Business question",
+          "natural-language request",
+          "packet summary sentence 1"
+        ],
+        [
+          "Connected sources",
+          "underlying data",
+          "packet summary sentences 1\u20132"
+        ],
+        [
+          "BigQuery",
+          "warehouse option",
+          "packet summary sentence 2"
+        ],
+        [
+          "Databricks",
+          "warehouse option",
+          "packet summary sentence 2"
+        ],
+        [
+          "Snowflake",
+          "warehouse option",
+          "packet summary sentence 2"
+        ],
+        [
+          "Salesforce",
+          "CRM option",
+          "packet summary sentence 2"
+        ],
+        [
+          "Query and calculation",
+          "transforms selected data",
+          "packet summary sentence 4"
+        ],
+        [
+          "Refresh from source",
+          "data updates propagated to view",
+          "packet summary sentence 3"
+        ],
+        [
+          "Live view",
+          "revisitable chart/display artifact",
+          "packet summary sentence 3"
+        ],
+        [
+          "Inspect the query",
+          "query available behind display",
+          "packet summary sentence 4 and verified source scope"
+        ],
+        [
+          "Last refreshed",
+          "freshness shown",
+          "packet summary sentence 4; original announcement Dashboards section"
+        ],
+        [
+          "Check metric definitions",
+          "reader validation needed",
+          "packet summary final sentence; why_it_matters"
+        ],
+        [
+          "Paid-plan beta",
+          "scope/availability",
+          "packet summary sentence 1"
+        ]
+      ],
+      "relationships": [
+        [
+          "Business question",
+          "Query and calculation",
+          "define requested analysis",
+          "data"
+        ],
+        [
+          "BigQuery",
+          "Connected sources",
+          "source alternative",
+          "taxonomy"
+        ],
+        [
+          "Databricks",
+          "Connected sources",
+          "source alternative",
+          "taxonomy"
+        ],
+        [
+          "Snowflake",
+          "Connected sources",
+          "source alternative",
+          "taxonomy"
+        ],
+        [
+          "Salesforce",
+          "Connected sources",
+          "source alternative",
+          "taxonomy"
+        ],
+        [
+          "Connected sources",
+          "Query and calculation",
+          "selected data",
+          "data"
+        ],
+        [
+          "Query and calculation",
+          "Live view",
+          "computed representation",
+          "data"
+        ],
+        [
+          "Connected sources",
+          "Refresh from source",
+          "source changes",
+          "data"
+        ],
+        [
+          "Refresh from source",
+          "Live view",
+          "update view, no reverse write",
+          "state"
+        ],
+        [
+          "Live view",
+          "Inspect the query",
+          "trace displayed result to query",
+          "provenance"
+        ],
+        [
+          "Refresh from source",
+          "Last refreshed",
+          "freshness metadata",
+          "provenance"
+        ],
+        [
+          "Check metric definitions",
+          "Query and calculation",
+          "recommended human check, no auto-validation",
+          "constraint"
+        ]
+      ],
+      "regions": [
+        "business question and sources",
+        "query transformation",
+        "live display and refresh",
+        "query/freshness provenance"
+      ],
+      "internal_substages": [
+        "select/query source data",
+        "assemble and refresh display"
+      ],
+      "secondary_relationships": [
+        "inspectable query tied to view",
+        "last-refresh tied to source update"
+      ],
+      "exclusions": [
+        "No invented numbers, chart values or timestamps",
+        "No Motion combined into the dashboard workflow",
+        "No automated correctness badge",
+        "No source writeback or feedback to model",
+        "A conceptual chart glyph is nonquantitative and labeled as conceptual"
+      ],
+      "composition": "Cobalt and stone diagonal lineage plate. Four small named source cylinders arranged as an asymmetric constellation left, bounded by Connected sources brace. A business question above feeds exposed query lens in center. Selected data ribbons and query lens yield right-side Live view, drawn as a nonquantitative relational plot glyph: connected geometric points rather than invented bars, scales or numeric values. Below, a provenance flap labeled Inspect the query ties directly to the query lens. A separate source-to-view arc labeled Refresh from source terminates beside a freshness tab Last refreshed. Clear Conceptual data flow caption makes geometry nonliteral; no actual chart data and no UI/dashboard grid. Reader-check instruction near query, beta qualifier near title.",
+      "schema_version": "article-to-image-specification-v1",
+      "recipe_version": "2026-10-09-external-r2",
+      "edition_date": "2026-10-09",
+      "execution_id": "daily-compiler-oct9-owner-placeholder-recovery-r1",
+      "original_job_sha256": "5ee395b5a429d254dbb6bf16c40cd6d6c807b4325f8fcb6a91e0bf5029fc52c5",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-09/claude-live-dashboards-from-data/",
+      "primary_source": {
+        "url": "https://claude.com/resources/articles/dashboards-and-motion",
+        "title": "Build live dashboards and animate explainers with Claude",
+        "publisher": "Claude by Anthropic",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-09T16:04:56.647Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "independent_full_text",
+          "read_at": "2026-10-09T16:01:21.959Z",
+          "scope": "October 8 Anthropic publisher item independently read in full text: paid-plan beta dashboards connected to live business data, visible source queries and freshness, motion explainer distinction and limitations of announced features."
+        }
+      },
+      "created_at": "2026-10-09T23:07:15.324Z",
+      "text_authority": "Owner task and current handoff require text and authorize app-drafted source-supported labels; no separate owner label approval claimed. Immutable job retained.",
+      "evidence_map": [
+        {
+          "visual_element": "Business question",
+          "source_location": "packet summary sentence 1",
+          "visual_role": "natural-language request",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Connected sources",
+          "source_location": "packet summary sentences 1\u20132",
+          "visual_role": "underlying data",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "BigQuery",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "warehouse option",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Databricks",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "warehouse option",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Snowflake",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "warehouse option",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Salesforce",
+          "source_location": "packet summary sentence 2",
+          "visual_role": "CRM option",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Query and calculation",
+          "source_location": "packet summary sentence 4",
+          "visual_role": "transforms selected data",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Refresh from source",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "data updates propagated to view",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Live view",
+          "source_location": "packet summary sentence 3",
+          "visual_role": "revisitable chart/display artifact",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Inspect the query",
+          "source_location": "packet summary sentence 4 and verified source scope",
+          "visual_role": "query available behind display",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Last refreshed",
+          "source_location": "packet summary sentence 4; original announcement Dashboards section",
+          "visual_role": "freshness shown",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Check metric definitions",
+          "source_location": "packet summary final sentence; why_it_matters",
+          "visual_role": "reader validation needed",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        },
+        {
+          "visual_element": "Paid-plan beta",
+          "source_location": "packet summary sentence 1",
+          "visual_role": "scope/availability",
+          "qualification": "Geometry conceptual; limitations and exclusions in this specification apply."
+        }
+      ],
+      "label_specification": {
+        "version": "r1",
+        "labels": [
+          {
+            "text": "Claude Dashboards: traceable live data",
+            "placement": "title"
+          },
+          {
+            "text": "Business question",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Connected sources",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "BigQuery",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Databricks",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Snowflake",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Salesforce",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Query and calculation",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Refresh from source",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Live view",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Inspect the query",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Last refreshed",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Check metric definitions",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Paid-plan beta",
+            "placement": "adjacent to corresponding component or relationship"
+          },
+          {
+            "text": "Conceptual data flow",
+            "placement": "adjacent to corresponding component or relationship"
+          }
+        ],
+        "immutable_source_labels_modified": false,
+        "bound_recipe_version": "2026-10-09-external-r2"
+      },
+      "final_generator_recipe": "reviews/generation-history.json#oct9-a2-claude-dashboard/attempt/2",
+      "actual_visual_signature": {
+        "visual_grammar": "data lineage and refresh provenance map",
+        "layout_signature": "left source constellation to right query-display anatomy",
+        "composition_signature": "cobalt sources linked to split query and refreshed-view planes",
+        "dominant_palette": "cobalt blue and stone grey",
+        "mechanism_metaphor": "traceable data lens",
+        "major_object_family": "source cylinders, query lens, linked display marks",
+        "connector_style": "thin provenance ties and refresh arc",
+        "hierarchy_pattern": "query-to-view pair dominates over source constellation",
+        "annotation_pattern": "provenance tethers and scope footnotes",
+        "perspective_style": "editorial planar view with small dimensional source volumes",
+        "evidence_representation": "query and freshness tethered to displayed chart",
+        "feedback_pattern": "source refresh flows into view, never model training or writeback",
+        "image_sha256": "4902b0ddaf72f3eeabbeb41deaf80510977007edb9b15f29781d9c78d270b4bc",
+        "review_status": "LOCAL_PIXEL_PASS_PENDING_REMOTE"
+      },
+      "alt_text": "Four neutrally drawn data sources are grouped as BigQuery, Databricks, Snowflake and Salesforce. A business question and a selected source enter an exposed query-and-calculation lens and produce a conceptual live view. A separate source-refresh arc reaches the view and its last-refreshed tag. Dotted tethers link an inspectable query to both calculation and view. The illustration labels paid-plan beta and recommends checking metric definitions."
+    }
+  ]
+}
