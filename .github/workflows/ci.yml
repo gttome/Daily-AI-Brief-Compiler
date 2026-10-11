@@ -28,6 +28,8 @@ jobs:
           if [ -f .github/workflows/existing-six-png-github-binary-transport-proof.yml ]; then
             ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/existing-six-png-github-binary-transport-proof.yml
           fi
+      - name: Parse nonpublishing operations reporting workflow YAML
+        run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/daily-operations-report.yml
       - run: npm test
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e

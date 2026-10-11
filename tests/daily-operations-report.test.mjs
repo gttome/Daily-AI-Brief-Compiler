@@ -41,7 +41,10 @@ test('an image released with six hashes but no 24 pixel reviews stays PARTIAL ov
     protected_oct8_objects_verified:17,verified_at:'2026-10-12T03:00:00Z',
     images:Array.from({length:6},(_,i)=>({story_id:'a'+i,sha256:String(i).repeat(64)}))}
  };
- const x=compileDailyReports({cycleDate:'2026-10-11',evidence});
+ evidence['image-manifest']={schema_version:'external-compiler-image-package-v1',edition_date:date,job_sha256:'d'.repeat(64),
+  original_bundle_sha256:source.bundle_sha256,original_source_commit_sha:source.commit_sha,
+  images:evidence['image-release'].images.map(x=>({story_id:x.story_id,sha256:x.sha256,accepted_locked:true}))};
+ const x=compileDailyReports({cycleDate:'2026-10-11',evidence,hashes:{'image-job':'d'.repeat(64)}});
  assert.equal(x.images.publication,'VERIFIED');
  assert.equal(x.images.result,'PARTIAL');
  assert.equal(x.images.reviewed_24_contexts,null);

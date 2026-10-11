@@ -82,22 +82,30 @@ function compilerAar(cycle,date,e){
   next_run_reason:'The reporter cannot authenticate the next ordinary scheduled host or GitHub connector; previous-cycle failure does not block next date by itself'
  };
 }
-function imageAar(cycle,date,e){
+function imageAar(cycle,date,e,hashes={}){
  const job=validFor(e['image-job'],date)?e['image-job']:null;
  const release=validFor(e['image-release'],date)?e['image-release']:null;
  const manifest=validFor(e['image-manifest'],date)?e['image-manifest']:null;
  const recurring=validFor(e['image-recurring-assignment'],date)?e['image-recurring-assignment']:null;
  const seen=!!(release||manifest||recurring);
- const jobHash=release?.immutable_job_sha256??null;
+ const jobHash=hashes['image-job']??null;
  const sourceBound=!!(release&&job&&release.original_source_commit_sha===job.source?.commit_sha&&
     release.original_bundle_sha256===job.source?.bundle_sha256);
  const hashes=release?.images;
  const sixHashes=Array.isArray(hashes)&&hashes.length===6&&
    new Set(hashes.map(x=>x.story_id)).size===6&&
    hashes.every(x=>/^[a-f0-9]{64}$/.test(x.sha256||''));
+ const packageBound=!!(manifest&&manifest.schema_version==='external-compiler-image-package-v1'&&
+   manifest.edition_date===date&&manifest.job_sha256===jobHash&&
+   manifest.original_bundle_sha256===job?.source?.bundle_sha256&&
+   manifest.original_source_commit_sha===job?.source?.commit_sha&&
+   Array.isArray(manifest.images)&&manifest.images.length===6&&
+   new Set(manifest.images.map(x=>x.story_id)).size===6&&
+   manifest.images.every(img=>img.accepted_locked===true&&
+     hashes?.some(x=>x.story_id===img.story_id&&x.sha256===img.sha256)));
  const liveVerified=release?.result==='RELEASED_VERIFIED'&&
    release.independent_http_sha256_checks>=17&&release.protected_oct8_objects_verified===17&&
-   sourceBound&&sixHashes&&jobHash===release.immutable_job_sha256;
+   sourceBound&&sixHashes&&packageBound&&jobHash===release.immutable_job_sha256;
  // A live image release receipt proves bytes/paths; it does not independently prove
  // all 24 actual screenshot pixel reviews or natural scheduled Work identity.
  const qa24=validFor(recurring,date)&&recurring.actual_24_pixel_reviews?.result==='PASS'&&
@@ -139,7 +147,7 @@ export function compileDailyReports({cycleDate,evidence={},hashes={}}){
  const date=datePlusOne(cycleDate);
  // Missing or stale evidence can never be silently adopted for a different edition.
  const compiler=compilerAar(cycleDate,date,evidence);
- const images=imageAar(cycleDate,date,evidence);
+ const images=imageAar(cycleDate,date,evidence,hashes);
  const rollup={
   schema_version:'daily-compiler-rollup-v1',cycle_date:cycleDate,edition_date:date,
   evidence_digest:sha(JSON.stringify(Object.entries(hashes).sort())),
