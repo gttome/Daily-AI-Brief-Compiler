@@ -59,5 +59,6 @@ test('Standing authority accepts only exact new current-cycle job and real-type 
  assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{...d.assignment,scheduled_runtime_evidence:{...d.assignment.scheduled_runtime_evidence,mode:'chat'}}}),/SCHEDULED_WORK_EVIDENCE/);
  assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,authorization:{...JSON.parse(fs.readFileSync('contracts/automation/recurring-image-authorization.json')),revocation:{enabled:true}}}),/STANDING_AUTHORITY/);
  const bad=JSON.parse(d.manifestBytes);bad.images[0].visual_review.result='FAIL';
- assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,manifestBytes:Buffer.from(JSON.stringify(bad)+'\n')}),/IMAGE_SOURCE/);
+ const badBytes=Buffer.from(JSON.stringify(bad)+'\n');
+ assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,manifestBytes:badBytes,assignment:{...d.assignment,manifest_sha256:hash(badBytes)}}),/IMAGE_SOURCE/);
 });

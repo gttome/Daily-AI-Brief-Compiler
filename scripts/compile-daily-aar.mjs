@@ -54,7 +54,6 @@ function compilerAar(cycle,date,e){
  if(seen&&!verified)defects.push('Complete protected public Compiler verification evidence is missing');
  if(job?.source?.unattended_schedule_proven===true&&producer?.scheduled_execution===false)
    claims.push('Image job infers unattended source while actual producer receipt says scheduled_execution=false');
- const stories=Number.isInteger(compile?.source_manifest?.required_routes?.length)?null:null;
  return {
   schema_version:'daily-compiler-lane-aar-v1',lane:'compiler',cycle_date:cycle,edition_date:date,
   task_id:TASKS.compiler,expected_local_start:'19:15 America/Chicago',

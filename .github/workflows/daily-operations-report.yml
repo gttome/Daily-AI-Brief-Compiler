@@ -45,6 +45,7 @@ jobs:
           tmp="$(mktemp -d)"
           # Use protected main reporter code even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
+          git fetch -q origin '+refs/heads/main:refs/remotes/origin/main'
           git config user.name 'Daily Compiler Report Reconciler'
           git config user.email 'actions@users.noreply.github.com'
           git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
