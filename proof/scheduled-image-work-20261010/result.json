@@ -1,0 +1,82 @@
+{
+  "schema": "scheduled-image-work-capability-proof-v1",
+  "result": "TEST_INCOMPLETE",
+  "phase": "initial_write",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "branch": "proof/image-work-scheduled-20261010",
+  "path": "proof/scheduled-image-work-20261010/result.json",
+  "base_main_commit": "b90c4c861ea76a0ae6bc4fa329e87fa06acbbc0d",
+  "observed_at_utc": "2026-10-11T02:29:31Z",
+  "evidence": {
+    "host_mode": {
+      "observed": "WORK_CODEX",
+      "source": "current runtime context",
+      "scheduled_mode_binding": "UNKNOWN"
+    },
+    "scheduler": {
+      "task_configuration_verified": true,
+      "task_id": "6acac88cff048191ba02e5b2bcb3becb",
+      "configured_schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Chicago:20261010T213000\nEND:VEVENT",
+      "task_conversation_id": "6acab19d-7868-83ea-aa16-d94eeece8c94",
+      "last_run_time": null,
+      "next_run_time": null,
+      "actual_trigger": "UNKNOWN",
+      "actual_invocation_id": null,
+      "first_party_invocation_binding": "NOT_EXPOSED",
+      "note": "Configuration is not execution proof. No authentic scheduler event or invocation-to-mode binding is exposed. The task's stored last_run_time is null. No value is inferred from prompt, title, clock or prior interactive success."
+    },
+    "native_image_creation": {
+      "tool_exposed": true,
+      "tool_name": "image_gen__imagegen",
+      "invoked": false,
+      "execution_proven": false
+    },
+    "saved_pixel_inspection": {
+      "status": "NOT_RUN"
+    },
+    "png_export": {
+      "status": "NOT_RUN",
+      "required_width": 1200,
+      "required_height": 630
+    },
+    "github": {
+      "connected_read": "PASS",
+      "branch_creation": "PASS",
+      "branch_base_exact_readback": "PASS",
+      "file_write_readback": "PENDING",
+      "binary_exact_commit_readback": "NOT_RUN"
+    }
+  },
+  "generation": {
+    "attempts": 0,
+    "probe_png_created": false,
+    "reason": "Actual scheduled Work execution is not independently proven; conditional generation gate remains closed."
+  },
+  "missing_evidence": [
+    "Authentic scheduler-trigger evidence for this invocation",
+    "First-party invocation identifier bound to task and Work mode",
+    "Native generation execution, exact 1200x630 PNG export and saved-pixel inspection",
+    "PNG upload and exact-commit byte readback with header, dimensions, byte count, Git blob SHA and SHA-256"
+  ],
+  "scope": {
+    "production_changes": false,
+    "pull_requests_created": 0,
+    "publishing_invoked": false,
+    "schedules_changed": false,
+    "main_mutated": false,
+    "workflows_changed": false,
+    "selectors_changed": false,
+    "historical_packages_changed": false,
+    "other_repositories_accessed": false,
+    "paid_api_used": false,
+    "owner_login_requested": false
+  },
+  "workflow_preflight": {
+    "commit": "b90c4c861ea76a0ae6bc4fa329e87fa06acbbc0d",
+    "workflow_files_reviewed": 16,
+    "publication_push_matches": false,
+    "expected_automatic_workflow": "compiler-validation (read-only CI on proof/**)",
+    "manual_dispatch": false
+  },
+  "next_action": "Preserve this proof. Do not qualify production or relax provenance gates based on this incomplete result."
+}
