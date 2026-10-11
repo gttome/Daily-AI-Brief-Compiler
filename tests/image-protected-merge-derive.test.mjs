@@ -17,6 +17,23 @@ test('derive protected future image release: only exact one date and merged PR/C
  assert.deepEqual(o,{TARGET_DATE:date,PACKAGE_PR:'345',PACKAGE_PR_HEAD:'c'.repeat(40),
    PACKAGE_MERGE_HEAD:head,HISTORY_HEAD:'b'.repeat(40)});
 });
+test('future Rev8 current-edition recurring assignment is allowed without broadening image-only PR scope',()=>{
+ const current='2026-10-12';
+ const m={...manifest,edition_date:current};
+ const files=[
+  'external-image-packages/'+current+'/manifest.json',
+  'external-image-packages/'+current+'/recurring-assignment.json',
+  'external-image-packages/'+current+'/images/oct12-a1-skill.png',
+  'external-image-packages/'+current+'/reviews/pixel-review.json'
+ ];
+ const base={...args,manifest:m,manifestPath:files[0],changedPaths:files};
+ assert.equal(deriveProtectedPackageReleaseInputs(base).TARGET_DATE,current);
+ for(const extra of [
+  'external-image-packages/2026-10-11/recurring-assignment.json',
+  'external-image-packages/'+current+'/operator.js',
+  'contracts/image-process-versions.json'
+ ])assert.throws(()=>deriveProtectedPackageReleaseInputs({...base,changedPaths:[...files,extra]}),/protected_image_auto_release/);
+});
 test('single-proposal release cannot mix another edition, code, duplicate manifest or old release',()=>{
  const failures=[
   {...args,mainSha:'0'.repeat(40)},
