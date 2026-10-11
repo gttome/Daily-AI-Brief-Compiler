@@ -1,0 +1,90 @@
+name: daily-operations-report
+# Only deterministic GitHub evidence reconciliation, NEVER reader/image publication.
+on:
+  schedule:
+    # One workflow, DST-aware 09:00 Chicago guard: one of these UTC starts is skipped.
+    - cron: '0 14,15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: compiler-daily-evidence-report
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - id: chicago
+        shell: bash
+        run: |
+          set -euo pipefail
+          hour="$(TZ=America/Chicago date +%H)"
+          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$hour" != 09 ]; then
+            echo 'go=false' >> "$GITHUB_OUTPUT"
+            echo "Skipping UTC cron not aligned with 09:00 Chicago"
+          else
+            echo 'go=true' >> "$GITHUB_OUTPUT"
+            echo "One deterministic morning reconciliation; no AI, image generation, dispatch, Pages, or scheduler changes"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.chicago.outputs.go == 'true'
+        with:
+          node-version: '20'
+      - name: Reconcile previous 14 cycles without publication triggers
+        if: steps.chicago.outputs.go == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = 'gttome/Daily-AI-Brief-Compiler'
+          test "$(git branch --show-current)" = main
+          tmp="$(mktemp -d)"
+          # Use protected main reporter code even if the evidence branch has an older snapshot.
+          cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
+          git config user.name 'Daily Compiler Report Reconciler'
+          git config user.email 'actions@users.noreply.github.com'
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          for lag in $(seq 1 14); do
+            current="$(TZ=America/Chicago date +%F)"
+            cycle="$(date -u -d "$current -$lag days" +%F)"
+            if [[ "$cycle" < '2026-10-11' ]]; then continue; fi
+            edition="$(date -u -d "$cycle +1 day" +%F)"
+            if git ls-remote --exit-code origin "refs/heads/shadow/$edition" >/dev/null 2>&1; then
+              git fetch -q origin "+refs/heads/shadow/$edition:refs/remotes/origin/shadow/$edition"
+            fi
+            in="$tmp/evidence/$cycle"
+            mkdir -p "$in"
+            # Source trust: immutable protected branch, exact edition-scoped paths, no cross-date fallback.
+            ref="refs/remotes/origin/shadow/$edition"
+            git show "$ref:shadow-runs/$edition/compiler-state.json" > "$in/compiler-state.json" 2>/dev/null || rm -f "$in/compiler-state.json"
+            git show "$ref:shadow-runs/$edition/producer-receipt.json" > "$in/producer-receipt.json" 2>/dev/null || rm -f "$in/producer-receipt.json"
+            git show "$ref:shadow-runs/$edition/compiler/compile-receipt.json" > "$in/compile-receipt.json" 2>/dev/null || rm -f "$in/compile-receipt.json"
+            git show "$ref:shadow-runs/$edition/compiler/postpublish-integrity.json" > "$in/postpublish-integrity.json" 2>/dev/null || rm -f "$in/postpublish-integrity.json"
+            git show "refs/remotes/origin/shadow-pages-history:site/image-jobs/$edition/job.json" > "$in/image-job.json" 2>/dev/null || rm -f "$in/image-job.json"
+            git show "refs/remotes/origin/shadow-pages-history:site/image-jobs/$edition/release.json" > "$in/image-release.json" 2>/dev/null || rm -f "$in/image-release.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/manifest.json" > "$in/image-manifest.json" 2>/dev/null || rm -f "$in/image-manifest.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/recurring-assignment.json" > "$in/image-recurring-assignment.json" 2>/dev/null || rm -f "$in/image-recurring-assignment.json"
+          done
+          if git ls-remote --exit-code origin refs/heads/operations-reports >/dev/null 2>&1; then
+            git fetch -q origin '+refs/heads/operations-reports:refs/remotes/origin/operations-reports'
+            git checkout -B operations-reports refs/remotes/origin/operations-reports
+          else
+            git checkout -b operations-reports
+          fi
+          for lag in $(seq 1 14); do
+            current="$(TZ=America/Chicago date +%F)"
+            cycle="$(date -u -d "$current -$lag days" +%F)"
+            if [[ "$cycle" < '2026-10-11' ]]; then continue; fi
+            node "$tmp/compile-daily-aar.mjs" "$cycle" "$tmp/evidence/$cycle" .
+          done
+          git add -- daily
+          if git diff --cached --quiet; then
+            echo 'AAR reports already idempotently current; no commit'
+          else
+            git commit -m "Reconcile evidence-backed daily Compiler and image AARs"
+            git push origin HEAD:refs/heads/operations-reports
+          fi
