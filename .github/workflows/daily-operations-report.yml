@@ -69,6 +69,8 @@ jobs:
             git show "refs/remotes/origin/shadow-pages-history:site/image-jobs/$edition/release.json" > "$in/image-release.json" 2>/dev/null || rm -f "$in/image-release.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/manifest.json" > "$in/image-manifest.json" 2>/dev/null || rm -f "$in/image-manifest.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/recurring-assignment.json" > "$in/image-recurring-assignment.json" 2>/dev/null || rm -f "$in/image-recurring-assignment.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/live/image-element24/semantic-verification.json" > "$in/image-context-verification.json" 2>/dev/null || rm -f "$in/image-context-verification.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/live/image-element24/semantic-reviews.json" > "$in/image-context-reviews.json" 2>/dev/null || rm -f "$in/image-context-reviews.json"
           done
           if git ls-remote --exit-code origin refs/heads/operations-reports >/dev/null 2>&1; then
             git fetch -q origin '+refs/heads/operations-reports:refs/remotes/origin/operations-reports'

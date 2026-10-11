@@ -49,6 +49,24 @@ test('an image released with six hashes but no 24 pixel reviews stays PARTIAL ov
  assert.equal(x.images.result,'PARTIAL');
  assert.equal(x.images.reviewed_24_contexts,null);
  assert.equal(x.images.scheduled_host_mode,'UNPROVEN');
+ const reviews=evidence['image-release'].images.flatMap(x=>
+  ['dated_brief','permanent_story'].flatMap(context=>['desktop','mobile'].map(device=>({
+   target_id:x.story_id+':'+context+':'+device,result:'PASS',
+   inspection_method:'semantic_pixel_inspection',screenshot_sha256:'e'.repeat(64),
+   accepted_image_sha256:x.sha256,small_text_legible:true,
+   no_clipping_overlap_pseudotext:true,story_mechanism_correct:true}))));
+ evidence['image-context-verification']={schema_version:'external-image-element24-verification-v1',
+  result:'VISUAL_24_VERIFIED',expected_targets:24,captured_targets:24,
+  reviewed_pass:24,defects:[],automatic_screenshot_count_not_visual_pass:true};
+ evidence['image-context-reviews']={schema_version:'external-image-element24-semantic-review-v7',
+  edition_date:date,reviews};
+ const y=compileDailyReports({cycleDate:'2026-10-11',evidence,
+  hashes:{'image-job':'d'.repeat(64),'image-context-reviews':'a'.repeat(64)}});
+ assert.equal(y.images.result,'SUCCESS');
+ assert.equal(y.images.reviewed_24_contexts,24);
+ evidence['image-context-reviews'].reviews[0].accepted_image_sha256='0'.repeat(64);
+ assert.equal(compileDailyReports({cycleDate:'2026-10-11',evidence,
+  hashes:{'image-job':'d'.repeat(64)}}).images.reviewed_24_contexts,null);
  assert.equal(x['daily-rollup'].combined_result,'PARTIAL');
 });
 test('stale previous-day state never contaminates current-cycle reports',()=>{

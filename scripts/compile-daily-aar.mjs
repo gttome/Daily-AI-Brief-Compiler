@@ -6,7 +6,8 @@ import {fileURLToPath} from 'node:url';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
- 'image-job','image-release','image-manifest','image-recurring-assignment'];
+ 'image-job','image-release','image-manifest','image-recurring-assignment',
+ 'image-context-verification','image-context-reviews'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -87,6 +88,8 @@ function imageAar(cycle,date,e,hashes={}){
  const release=validFor(e['image-release'],date)?e['image-release']:null;
  const manifest=validFor(e['image-manifest'],date)?e['image-manifest']:null;
  const recurring=validFor(e['image-recurring-assignment'],date)?e['image-recurring-assignment']:null;
+ const contextVerification=e['image-context-verification'];
+ const contextReviews=validFor(e['image-context-reviews'],date)?e['image-context-reviews']:null;
  const seen=!!(release||manifest||recurring);
  const jobHash=hashes['image-job']??null;
  const sourceBound=!!(release&&job&&release.original_source_commit_sha===job.source?.commit_sha&&
@@ -108,8 +111,28 @@ function imageAar(cycle,date,e,hashes={}){
    sourceBound&&sixHashes&&packageBound&&jobHash===release.immutable_job_sha256;
  // A live image release receipt proves bytes/paths; it does not independently prove
  // all 24 actual screenshot pixel reviews or natural scheduled Work identity.
- const qa24=validFor(recurring,date)&&recurring.actual_24_pixel_reviews?.result==='PASS'&&
-   recurring.actual_24_pixel_reviews?.count===24;
+ const expectedContexts=new Set(
+   (releaseImages??[]).flatMap(x=>['dated_brief','permanent_story'].flatMap(context=>
+     ['desktop','mobile'].map(device=>x.story_id+':'+context+':'+device))));
+ const acceptedById=new Map((releaseImages??[]).map(x=>[x.story_id,x.sha256]));
+ const reviewedRows=contextReviews?.reviews;
+ const real24=liveVerified&&
+   contextVerification?.schema_version==='external-image-element24-verification-v1'&&
+   contextVerification.result==='VISUAL_24_VERIFIED'&&
+   contextVerification.expected_targets===24&&contextVerification.captured_targets===24&&
+   contextVerification.reviewed_pass===24&&
+   contextVerification.automatic_screenshot_count_not_visual_pass===true&&
+   Array.isArray(contextVerification.defects)&&contextVerification.defects.length===0&&
+   contextReviews.schema_version==='external-image-element24-semantic-review-v7'&&
+   Array.isArray(reviewedRows)&&reviewedRows.length===24&&
+   new Set(reviewedRows.map(x=>x.target_id)).size===24&&
+   reviewedRows.every(x=>expectedContexts.has(x.target_id)&&
+     x.result==='PASS'&&x.inspection_method==='semantic_pixel_inspection'&&
+     /^[a-f0-9]{64}$/.test(x.screenshot_sha256||'')&&
+     acceptedById.get(x.target_id.split(':')[0])===x.accepted_image_sha256&&
+     x.small_text_legible===true&&x.no_clipping_overlap_pseudotext===true&&
+     x.story_mechanism_correct===true);
+ const qa24=real24===true;
  const defects=[];
  if(!seen)defects.push('No image task execution receipt was found');
  if(seen&&!liveVerified)defects.push('Protected image-only live verification is missing or incomplete');
@@ -134,6 +157,7 @@ function imageAar(cycle,date,e,hashes={}){
   image_count:liveVerified?6:(manifest?.images?.length??null),
   six_live_image_sha256:liveVerified?releaseImages.map(x=>({story_id:x.story_id,sha256:x.sha256})):[],
   reviewed_24_contexts:qa24?24:null,
+  reviewed_contexts_evidence_sha256:qa24?hashes['image-context-reviews']:null,
   source_job_status:job?.lifecycle??null,
   release_actions_run_url:release?.actions_run_url??null,
   accepted_image_regenerations:release?.accepted_image_regenerations??null,
