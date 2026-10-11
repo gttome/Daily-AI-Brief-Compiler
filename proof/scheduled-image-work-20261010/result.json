@@ -1,7 +1,7 @@
 {
   "schema": "scheduled-image-work-capability-proof-v1",
   "result": "TEST_INCOMPLETE",
-  "phase": "initial_write",
+  "phase": "completed",
   "repository": "gttome/Daily-AI-Brief-Compiler",
   "branch": "proof/image-work-scheduled-20261010",
   "path": "proof/scheduled-image-work-20261010/result.json",
@@ -43,8 +43,18 @@
       "connected_read": "PASS",
       "branch_creation": "PASS",
       "branch_base_exact_readback": "PASS",
-      "file_write_readback": "PENDING",
-      "binary_exact_commit_readback": "NOT_RUN"
+      "file_write_readback": "PASS",
+      "binary_exact_commit_readback": "NOT_RUN",
+      "verified_text_roundtrip": {
+        "commit": "64c6bebc50d27d40cb58b33c355191d458afaf72",
+        "path": "proof/scheduled-image-work-20261010/result.json",
+        "full_utf8_content_equal": true,
+        "byte_count": 3183,
+        "git_blob_sha": "a1dbcc51a293df193c5c0349e744e2507f517012",
+        "locally_computed_git_blob_sha_matches": true,
+        "sha256": "40c10831b7a93ecf7c3c40f5231b7f6289e68496cf25acd2aeb1862d8931d14b",
+        "note": "Hashes bind the initial proof file, read back from its exact commit. This final receipt is a subsequent update and will itself be read back before completion."
+      }
     }
   },
   "generation": {
@@ -76,7 +86,8 @@
     "workflow_files_reviewed": 16,
     "publication_push_matches": false,
     "expected_automatic_workflow": "compiler-validation (read-only CI on proof/**)",
-    "manual_dispatch": false
+    "manual_dispatch": false,
+    "ci_skip_requested": true
   },
   "next_action": "Preserve this proof. Do not qualify production or relax provenance gates based on this incomplete result."
 }
