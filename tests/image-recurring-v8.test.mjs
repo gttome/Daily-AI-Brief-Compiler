@@ -38,9 +38,9 @@ function f(){
    accepted_images:images.map(x=>({story_id:x.story_id,sha256:x.sha256}))};
  return {jobBytes,index,manifestBytes,assignment};
 }
-test('Rev8 is future-compatible while Rev6/Rev7 still resolve separately and selector stays Rev7',()=>{
+test('Rev8 is active and backward-compatible while Rev6/Rev7 remain readable',()=>{
  const baseline=readImageProcessVersions();
- assert.equal(baseline.image_starter_contract_version,'rev7');
+ assert.equal(baseline.image_starter_contract_version,'rev8');
  const v8={...baseline,image_release_authority_policy:'recurring_work_v8',image_starter_contract_version:'rev8'};
  assert.equal(imageReleaseCompatibility(v8).result,'COMPATIBLE');
  assert.equal(selectExternalImageAppDocuments(v8,true).selected_version,'rev8');
