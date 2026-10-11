@@ -1,6 +1,7 @@
 import {readImageProcessVersions,imageReleaseCompatibility} from './image-process-versions.mjs';
 import {OCT9_RECOVERY_BRANCH} from '../compiler/oct9-owner-exception.mjs';
 import {isAuthorizedOct10ImageException} from '../compiler/oct10-image-owner-exception.mjs';
+import {verifyRecurringImageReleaseAdmission} from './recurring-image-admission.mjs';
 // Pure, fail-closed owner + published-job release admission.
 // This does not schedule the Work app, generate images or declare visual PASS.
 import fs from 'node:fs';
@@ -80,6 +81,8 @@ export function verifyExternalImageReleaseGo({jobBytes,index,manifestBytes,appro
 export function verifyImageReleaseAdmission({jobBytes,index,manifestBytes,assignment,versions=readImageProcessVersions()}){
   const compatibility=imageReleaseCompatibility(versions);
   if(compatibility.result!=='COMPATIBLE')fail('RELEASE_ADMISSION_HOLD:'+compatibility.pair);
+  if(versions.image_release_authority_policy==='recurring_work_v8')
+    return verifyRecurringImageReleaseAdmission({jobBytes,index,manifestBytes,assignment});
   if(versions.image_release_authority_policy==='legacy_go_v1')
     return verifyExternalImageReleaseGo({jobBytes,index,manifestBytes,approval:assignment});
   if(!Buffer.isBuffer(jobBytes)||!Buffer.isBuffer(manifestBytes))fail('exact_file_bytes_required');

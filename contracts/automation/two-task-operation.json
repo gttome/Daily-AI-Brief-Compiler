@@ -1,0 +1,44 @@
+{
+  "schema_version": "daily-compiler-two-task-operation-v1",
+  "phase": "PREPARED_RUNTIME_QUALIFICATION_REQUIRED",
+  "repository": "gttome/Daily-AI-Brief-Compiler",
+  "forbidden_write_repository": "gttome/Daily-AI-Brief",
+  "timezone": "America/Chicago",
+  "first_cycle_date": "2026-10-11",
+  "cycle_definition": "cycle_date is the Chicago date of the scheduled evening; edition_date is cycle_date plus one Chicago calendar day; preserve the binding across midnight",
+  "primaries": {
+    "compiler": {
+      "id": "6ac9868490b88191ac91f84d5f555994",
+      "local_time": "19:15",
+      "runtime": "ordinary_scheduled_chatgpt",
+      "required_capabilities": ["connected_github_read", "connected_github_write", "same_invocation_exact_readback"],
+      "forbidden": ["work", "codex", "paid_api"]
+    },
+    "images": {
+      "id": "6acac88cff048191ba02e5b2bcb3becb",
+      "local_time": "21:15",
+      "runtime": "scheduled_work",
+      "required_capabilities": ["native_image_creation", "exact_png_export", "saved_pixel_inspection", "connected_github_binary_write", "exact_commit_readback", "protected_merge_and_deploy", "desktop_and_mobile_pixel_review"]
+    }
+  },
+  "max_enabled_chatgpt_production_tasks": 2,
+  "other_ai_recovery_tasks_allowed": false,
+  "owner_intervention_required_in_normal_operation": false,
+  "image_selection": "EXACT_CURRENT_CYCLE_ONLY",
+  "already_released_image_job_action": "NO_OP",
+  "missing_current_image_job_action": "WAITING_SOURCE_NO_GENERATION",
+  "prior_cycle_failure_blocks_next_cycle": false,
+  "required_daily_reports": ["compiler.json", "compiler.md", "images.json", "images.md", "daily-rollup.json", "daily-rollup.md"],
+  "reporting": {
+    "runtime": "deterministic_github_actions",
+    "workflow": ".github/workflows/daily-operations-report.yml",
+    "branch": "operations-reports",
+    "page_publication_allowed": false,
+    "backfill_cycles": 14,
+    "report_missing_start_receipt_as": "NO_START_RECEIPT",
+    "never_infer_first_party_scheduled_mode": true
+  },
+  "activation_requires": ["real_compiler_scheduled_mode_and_github_proof", "real_image_scheduled_work_creation_and_github_proof", "protected_ci", "protected_release_route", "saved_task_readback"],
+  "observation_days_min": 7,
+  "observation_days_max": 14
+}

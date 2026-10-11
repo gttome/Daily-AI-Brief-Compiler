@@ -113,7 +113,9 @@ jobs:
           # Resolve ONE static, version-compatible authority contract without
           # rewriting any previously published job or historical GO receipt.
           STARTER_VERSION="$(node --input-type=module -e "import {readImageProcessVersions,imageReleaseCompatibility} from './scripts/image-process-versions.mjs';let v=readImageProcessVersions();if(imageReleaseCompatibility(v).result!=='COMPATIBLE')process.exit(42);process.stdout.write(v.image_starter_contract_version)")"
-          if [ "$STARTER_VERSION" = rev7 ]; then
+          if [ "$STARTER_VERSION" = rev8 ]; then
+            ASSIGNMENT_FILE="external-image-packages/$TARGET_DATE/recurring-assignment.json"
+          elif [ "$STARTER_VERSION" = rev7 ]; then
             ASSIGNMENT_FILE="external-image-packages/$TARGET_DATE/starter-assignment.json"
           else
             ASSIGNMENT_FILE="external-image-packages/$TARGET_DATE/owner-release-approval.json"
