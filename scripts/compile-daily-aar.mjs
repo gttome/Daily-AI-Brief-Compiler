@@ -91,10 +91,10 @@ function imageAar(cycle,date,e,hashes={}){
  const jobHash=hashes['image-job']??null;
  const sourceBound=!!(release&&job&&release.original_source_commit_sha===job.source?.commit_sha&&
     release.original_bundle_sha256===job.source?.bundle_sha256);
- const hashes=release?.images;
- const sixHashes=Array.isArray(hashes)&&hashes.length===6&&
-   new Set(hashes.map(x=>x.story_id)).size===6&&
-   hashes.every(x=>/^[a-f0-9]{64}$/.test(x.sha256||''));
+ const releaseImages=release?.images;
+ const sixHashes=Array.isArray(releaseImages)&&releaseImages.length===6&&
+   new Set(releaseImages.map(x=>x.story_id)).size===6&&
+   releaseImages.every(x=>/^[a-f0-9]{64}$/.test(x.sha256||''));
  const packageBound=!!(manifest&&manifest.schema_version==='external-compiler-image-package-v1'&&
    manifest.edition_date===date&&manifest.job_sha256===jobHash&&
    manifest.original_bundle_sha256===job?.source?.bundle_sha256&&
@@ -102,7 +102,7 @@ function imageAar(cycle,date,e,hashes={}){
    Array.isArray(manifest.images)&&manifest.images.length===6&&
    new Set(manifest.images.map(x=>x.story_id)).size===6&&
    manifest.images.every(img=>img.accepted_locked===true&&
-     hashes?.some(x=>x.story_id===img.story_id&&x.sha256===img.sha256)));
+     releaseImages?.some(x=>x.story_id===img.story_id&&x.sha256===img.sha256)));
  const liveVerified=release?.result==='RELEASED_VERIFIED'&&
    release.independent_http_sha256_checks>=17&&release.protected_oct8_objects_verified===17&&
    sourceBound&&sixHashes&&packageBound&&jobHash===release.immutable_job_sha256;
@@ -132,7 +132,7 @@ function imageAar(cycle,date,e,hashes={}){
   immutable_job_sha256:jobHash,
   protected_source_commit_sha:release?.original_source_commit_sha??null,
   image_count:liveVerified?6:(manifest?.images?.length??null),
-  six_live_image_sha256:liveVerified?hashes.map(x=>({story_id:x.story_id,sha256:x.sha256})):[],
+  six_live_image_sha256:liveVerified?releaseImages.map(x=>({story_id:x.story_id,sha256:x.sha256})):[],
   reviewed_24_contexts:qa24?24:null,
   source_job_status:job?.lifecycle??null,
   release_actions_run_url:release?.actions_run_url??null,
