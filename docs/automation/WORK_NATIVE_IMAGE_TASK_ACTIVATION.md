@@ -1,59 +1,65 @@
-# Work-native Premium Image Schedule — Activation Procedure
+# Work-native Premium Image Automation — Qualification and Selected Route
 
-**Owner authorization:** October 10, 2026. **Status:** Work-native creation/qualification required; this file is NOT an activation receipt.  
-**Repository boundary:** `gttome/Daily-AI-Brief-Compiler` only. Never write to `gttome/Daily-AI-Brief`.  
-**Production recurrence:** 21:15 `America/Chicago`, beginning Sunday October 11, 2026. Every scheduled evening targets **the next Chicago calendar day**. The first target is **2026-10-12**.
+**Evidence date:** October 10, 2026  
+**Status:** `SCHEDULED_WORK_NATIVE_PNG_GITHUB_PROBE_PASS / FIRST_SIX_IMAGE_PRODUCTION_PENDING`  
+**Production repository:** `gttome/Daily-AI-Brief-Compiler` exclusively. **Never write:** `gttome/Daily-AI-Brief`.  
+**Edition cycle:** 19:15 ordinary scheduled ChatGPT Compiler → 21:15 scheduled cloud Work Premium Images, `America/Chicago`. Each evening targets **the following Chicago calendar date**, including daylight-saving transitions.
 
-## The specific platform boundary
+> This is a bounded capability qualification, not a declaration that six premium production images were published or that every recurring invocation will be healthy.
 
-OpenAI documents recurring cloud Work tasks, but the ordinary ChatGPT scheduled-task create/update action does **not** supply a field to select/verify the saved Work execution mode. Putting “Work” in an ordinary task's prompt does not bind Work. The new recurring task **must be created from an actual Work-selected conversation**, using Work Cloud, Image Creation and the connected GitHub account. A GitHub PR, code test, manually opened chat or task title does not prove that a scheduled execution has those capabilities.
+## Owner-selected route: 21:15 scheduled Work
 
-A previous task `6acac88cff048191ba02e5b2bcb3becb` was assigned a bounded **one-time nonpublishing diagnostic** on October 10. It must NOT be promoted or mistaken for a Work-native recurring task. Its original recurring 21:15 configuration was superseded by that diagnostic. Do not enable any duplicate daily image executor.
+The existing saved image task `6acac88cff048191ba02e5b2bcb3becb` is **enabled** with a recurring `21:15 America/Chicago` schedule beginning October 11, 2026. **Do not replace it, create a duplicate daily producer, or interpret its title alone as execution evidence.** The ordinary ChatGPT Compiler task remains `6ac9868490b88191ac91f84d5f555994` at 19:15. The first image cycle on October 11 must select **October 12** and no other image job.
 
-## One Work-session implementation assignment
+The same existing saved image task produced a **genuinely scheduled** disposable image-generation and exact GitHub binary round-trip on October 10, using observed Work Mode runtime. Its one-off qualification schedule has since been restored to the daily 21:15 production recurrence. The task ID, exact owner recurring authorization and Rev8 selector are already aligned on protected main. A new task is **not** required merely to put the word Work in its title. Each production invocation must still recheck its actual Work/Image Creation/GitHub capabilities.
 
-Use this document together with:
-- `docs/automation/TWO_TASK_DAILY_RUNBOOK.md`
-- `contracts/automation/two-task-operation.json`
-- `contracts/automation/recurring-image-authorization.json`
-- `docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV8.md`
-- `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV8.md`
-- `EXTERNAL_APP_HANDOFF_REV8.md`
-- `docs/external-app/Perfect_Image_Specification.md`, `docs/external-app/Image_Variation_After_Action.md`
-- historical selected Revision 7 docs for the uncompromised quality/release baseline.
+## Evidence — actual scheduled image and GitHub binary test
 
-**Create exactly one new recurring production Image task inside Work** with these parameters:
-
-| Field | Required |
+| Assertion | Observation |
 |---|---|
-| Title | Daily Brief Premium Images — Work |
-| Mode | Genuine cloud Work; NOT ordinary Chat/Codex |
-| Start | Sunday Oct 11, 2026 at 21:15 Central |
-| Repeat | Daily, `America/Chicago` with daylight-saving support |
-| Connections | GitHub account `gttome`, actual Image Creation, saved-pixel visual inspection and exact binary export |
-| Scope | Only one current-cycle eligible image job from `gttome/Daily-AI-Brief-Compiler` |
-| Output | Six production-grade distinct 1200 × 630 PNGs, source-faithful explanatory text, hashes, manifest, reviews, protected PR/CI/merge/Pages and truthful AAR |
-| Historical jobs | NEVER select prior `PUBLISHED_PENDING` jobs as fallback; NEVER reopen `RELEASED_VERIFIED` |
-| Extra schedules | No third recurring AI task, recovery task, Supervisor or Watchdog |
+| Time of scheduled test | October 10, 2026 at 21:47 America/Chicago |
+| Reused task | `6acac88cff048191ba02e5b2bcb3becb` |
+| Saved proof branch | `proof/scheduled-work-image-png-20261010` (nonpublishing) |
+| Work and scheduled runtime | Both observed in the real task invocation, according to its persisted receipt |
+| Native image creation | Real native Image Creation executed once |
+| Canonical PNG | Exactly 1200×630, 114,358 bytes, header `89504e470d0a1a0a` |
+| Immutable PNG commit | `02c18369a83f209053fef2fd8606cd845286c673` |
+| PNG Git blob SHA | `84cba85fe49c303ee42acb4ccc974392e0b54130` |
+| PNG SHA-256 | `fbc798f09ccb3f815ba76d61bef5dad6d664458ae8dbb6c8505ef1437a1521d8` |
+| Native pixels reviewed | `true` in receipt |
+| GitHub exact-commit binary readback | `true` in receipt; bytes, hash, and IHDR matched |
+| Scheduler-native unique invocation ID | `UNKNOWN` (not exposed; never invent) |
+| Production release / reader publication | **NOT performed** (intentionally nonpublishing test) |
 
-**Do not simply say the task uses Work.** After creation, read the saved task details from the actual scheduling surface; record the generated task ID, selected Work mode if exposed, saved full prompt, time zone, recurrence, enabled state and connection permissions. Prove that actual scheduled Work execution can create a real native image and transport its exact 1200 × 630 PNG bytes through GitHub. A bounded one-time *Work-created* nonpublishing qualification is allowed, but it must not become a recurring production schedule or touch Pages or released historical art.
+**Primary evidence:** `proof/scheduled-work-image-png-20261010/receipt.json` at commit `ea809cdae2228f165616028d43f93219140e4bbe`. The previous scheduled text-only probe at `proof/image-work-scheduled-20261010/result.json` was incomplete; preserve both. The receipt reports its own independent hash comparisons. Repository blob metadata corroborates the saved PNG byte count and Git blob identity; do not claim an otherwise inaccessible task-host invocation ID.
 
-## GitHub activation after the new Work task ID is known
+**Critical production correction:** the disposable proof image was optimized to **palette/indexed (`P`)** mode. That image was adequate for capability testing, but it does **NOT** meet the production RGB/RGBA pixel format requirement. Every production accepted PNG must be **8-bit RGB or RGBA**, true `PNG`, exact 1200×630; reject PNG color type 3 / indexed / palette. Never use a smaller palette-mode file merely to reduce bytes. Review the actual saved RGB/RGBA pixels and exact original Git binary readback.
 
-The existing pending Rev8 implementation is backward compatible but intentionally **inactive** under `contracts/image-process-versions.json` = `bounded_starter_v7:rev7`. Before the first production image release, update via **protected PR with required exact-head CI**:
+## Alternative evaluated: GitHub event-triggered Work
 
-1. Replace the old image-task ID with the **actual new Work-created task ID**, consistently in `contracts/automation/two-task-operation.json`, `contracts/automation/recurring-image-authorization.json`, `scripts/recurring-image-admission.mjs` (currently exact-ID fenced), and the Revision 8 starter/full prompt/runbook and associated tests that refer to the task. Do not relax to a wildcard/any-task authorization.
-2. Record the owner-authorized effective cycle and edition: evening Oct 11 → edition Oct 12. Preserve GitHub no-bypass protection, six-pairing checks and historical Rev6/Rev7 read support.
-3. Run the required selector/doc/release-gate tests, full CI, fixture/reader parity and exact 17-object Oct 8 live-integrity audit. Do not bypass a failing protection.
-4. Only after Work-native task creation and safe capability checks, choose the compatible `recurring_work_v8:rev8` pair in `contracts/image-process-versions.json`, through a protected PR. No direct protected-main push.
-5. Read back selected main SHA, task details and protected workflow trigger. Distinguish configured and enabled from actually observed scheduled execution. Record exact `GO`, `NO_GO` or `UNPROVEN` evidence.
+OpenAI documents native Work event tasks for supported **GitHub pull request** activity, NOT arbitrary pushes, releases, or workflow completion. The installed `gttome` GitHub App has authorized access to this repo and subscribes to `pull_request` events. This verifies the **GitHub-side prerequisite**, not a complete task trigger.
 
-**Automatic image deployment remains the existing** `.github/workflows/external-image-only-replacement.yml`. No alternate publication, direct Pages changes, manual GO, owner token or new paid API is authorized.
+The existing `.github/workflows/shadow-compile.yml` publishes the external image job **after verification**; it does not emit a dedicated image-ready PR. The event design would require one durable, exact-edition, post-publication GitHub PR signal; a separately authorized Work event-triggered task; an actual event test; plus duplicate suppression and a strict subscription filter so that release/image/maintenance PRs do not start overlapping runs. The ordinary task creation/update controls do **not** expose creation of a Work GitHub event subscription.
 
-## First cycle, honest failure, and AARs
+**Event-trigger end-to-end status: `NOT_TESTED`.** Do not claim such a task exists or has fired. Do not create a second recurring image Work task or a new GitHub signal PR while the scheduled route is selected and operating. The owner selected the **scheduled Work** route because it has a real native PNG/GitHub proof and precisely matches the 21:15 daily requirement, without new signal PRs or duplicate execution risk.
 
-The Compiler must run at **19:15** as an ordinary ChatGPT scheduled task with its **own** GitHub access; do not change it to Work. On Oct 11, it produces the independently verified **Oct 12** placeholder edition and publishes the immutable six-story image job. At 21:15 Work selects the image-job row for **Oct 12 only** and validates the job SHA256, original source/bundle commit, six story IDs and pending status.
+## Production contracts and active authorization
 
-Before any expensive image generation, prove the actual production invocation's creation/export/GitHub/binary/review path. If the source is unavailable, exit `WAITING_SOURCE` without images. If host Work or required permissions are absent, exit `BLOCKED_INCOMPLETE` truthfully rather than pretending to generate. Do not claim account quota resets each day. For a successful image run, require exactly six distinct mechanism illustrations with mandatory readable labels, actual saved-pixel reviews, exact Git binary hashes, protected PR/CI/merge, six live hashes, 12 article/image pairings, 24 **semantically reviewed** desktop/mobile image contexts, and unchanged original pages/Oct 8 history. Record per-lane after-action reports and the next-cycle readiness using the deterministic nonpublishing AAR infrastructure. Missing task receipts are `NO_START_RECEIPT`, never invented `SUCCESS`.
+Read live protected main before every image cycle:
+- `contracts/image-process-versions.json` — selected `recurring_work_v8:rev8`
+- `contracts/automation/recurring-image-authorization.json` — `STANDING_FUTURE_ONLY` authority bound to image task `6acac88cff048191ba02e5b2bcb3becb`, effective Oct 11, earliest eligible Oct 12
+- `contracts/automation/two-task-operation.json` and `docs/automation/TWO_TASK_DAILY_RUNBOOK.md`
+- `docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV8.md`, `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV8.md`, `EXTERNAL_APP_HANDOFF_REV8.md`
+- All applicable Revision 7 quality criteria, `Perfect_Image_Specification.md`, `Image_Variation_After_Action.md`, source/job/manifest/pixel/reader and release contracts
 
-The image schedule must be tested against real Work and GitHub capabilities, not a generic ChatGPT task. If Work-native task creation cannot be performed by the available actual environment, explicitly report the **first-party mode-selection blocker** rather than claiming activation. Keep original publication intact.
+All edits to these contracts and selectors must use the **protected PR + exact-head required CI + permitted merge** route. No direct main write, weakened gate, manual per-edition approval, new paid API, external browser wallet, owner file transfer or new recurring AI worker is authorized.
+
+## First live production cycle and definition of done
+
+At 19:15 October 11 the ordinary Compiler independently researches, validates and publishes the **October 12** six-story placeholder edition plus its immutable current-date image job. At 21:15 the selected Work task reads that exact job only. If the genuine `PUBLISHED_PENDING` job is absent, report `WAITING_SOURCE_NO_GENERATION`; never process October 11 as a fallback or reopen any `RELEASED_VERIFIED` job.
+
+For the eligible current image job: verify actual Work mode, native creation/export, RGB/RGBA exact Git transport and saved-pixel review. Create six premium story-specific factual labeled 1200×630 RGB/RGBA PNGs, correcting failures until all six and their set pass; preserve accepted immutable assets. Save exact binaries and the manifest/current recurring assignment. Use the existing authorized image-only PR, protected exact-head CI, permitted merge, `.github/workflows/external-image-only-replacement.yml`, actual Pages deploy, fresh independent six live hash checks, 12 story/image pairings, and **24 semantically reviewed real desktop/mobile image contexts**. Preserve the original 17 October 8 public objects and all historical editions.
+
+The run is `PUBLISHED_COMPLETE` only after all six real production images are accepted **and publicly verified**. Otherwise persist the exact smallest blocker or a genuine `WAITING_SOURCE`, never fabricate publication or Work identity. Produce detailed factual Compiler and Image AARs (including measured usage only when telemetry supports it) and next-cycle readiness; the existing single deterministic GitHub reporter backfills missing receipts without creating another ChatGPT task.
+
+**This document supersedes its pre-qualification instruction to create a new Work task.** Do not undo the proven scheduled primary or introduce a competing GitHub event-triggered producer simply because the old text once said Work-native creation was still needed.
