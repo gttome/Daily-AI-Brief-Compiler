@@ -123,7 +123,7 @@ function imageAar(cycle,date,e,hashes={}){
    contextVerification.reviewed_pass===24&&
    contextVerification.automatic_screenshot_count_not_visual_pass===true&&
    Array.isArray(contextVerification.defects)&&contextVerification.defects.length===0&&
-   contextReviews.schema_version==='external-image-element24-semantic-review-v7'&&
+   contextReviews?.schema_version==='external-image-element24-semantic-review-v7'&&
    Array.isArray(reviewedRows)&&reviewedRows.length===24&&
    new Set(reviewedRows.map(x=>x.target_id)).size===24&&
    reviewedRows.every(x=>expectedContexts.has(x.target_id)&&
