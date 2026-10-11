@@ -38,9 +38,9 @@ function f(){
    accepted_images:images.map(x=>({story_id:x.story_id,sha256:x.sha256}))};
  return {jobBytes,index,manifestBytes,assignment};
 }
-test('Rev8 is future-compatible while Rev6/Rev7 still resolve separately and selector stays Rev7',()=>{
+test('Rev8 is active and backward-compatible while Rev6/Rev7 remain readable',()=>{
  const baseline=readImageProcessVersions();
- assert.equal(baseline.image_starter_contract_version,'rev7');
+ assert.equal(baseline.image_starter_contract_version,'rev8');
  const v8={...baseline,image_release_authority_policy:'recurring_work_v8',image_starter_contract_version:'rev8'};
  assert.equal(imageReleaseCompatibility(v8).result,'COMPATIBLE');
  assert.equal(selectExternalImageAppDocuments(v8,true).selected_version,'rev8');
@@ -50,6 +50,22 @@ test('Rev8 is future-compatible while Rev6/Rev7 still resolve separately and sel
 test('Standing authority accepts only exact new current-cycle job and real-type evidence',()=>{
  const d=f(),r=verifyRecurringImageReleaseAdmission(d);
  assert.equal(r.result,'STANDING_CURRENT_CYCLE_AUTHORIZED_NOT_DEPLOYED');
+ assert.equal(r.scheduled_host_invocation_id_verified,true);
+ const observed={...d.assignment,scheduled_runtime_evidence:{
+   ...d.assignment.scheduled_runtime_evidence,
+   mode:'WORK_CODEX',source:'scheduled_task_runtime_observation',host_invocation_id:null,
+   runtime_tool_evidence:{native_image_tool_name:'image_gen__imagegen',
+     actual_generation_count:6,exact_png_1200x630_export_observed:true,
+     github_binary_sha256_readback_observed:true,
+     original_manifest_sha256:d.assignment.manifest_sha256,
+     six_actual_saved_pixel_reviews_passed:true}}};
+ const rr=verifyRecurringImageReleaseAdmission({...d,assignment:observed});
+ assert.equal(rr.scheduled_host_invocation_id_verified,false);
+ assert.equal(rr.runtime_observed_image_github_route,true);
+ assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{...observed,
+   scheduled_runtime_evidence:{...observed.scheduled_runtime_evidence,
+     runtime_tool_evidence:{...observed.scheduled_runtime_evidence.runtime_tool_evidence,
+       actual_generation_count:0}}}}),/REAL_SCHEDULED_WORK_EVIDENCE/);
  assert.equal(r.edition_date,'2026-10-12');
  assert.equal(r.ci_does_not_independently_attest_chatgpt_work_mode,true);
  for(const patch of [

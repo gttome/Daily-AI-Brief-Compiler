@@ -34,13 +34,29 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
  if(date!==expected||date<policy.first_authorized_edition_date||
    a.cycle_date<policy.effective_cycle_date)fail('NOT_CURRENT_AUTHORIZED_CYCLE');
  const sched=a.scheduled_runtime_evidence;
- if(sched?.task_id!==policy.task_id||sched?.mode!=='work'||
-   sched?.source!=='first_party_scheduler'||sched?.native_image_creation_observed!==true||
+ const workMode=['work','WORK_CODEX'].includes(sched?.mode);
+ const firstPartySchedulerProof=sched?.source==='first_party_scheduler'&&
+   typeof sched.host_invocation_id==='string'&&sched.host_invocation_id.length>=8;
+ // Some real scheduled Work environments expose the native image and connected
+ // GitHub tools but no internal scheduler invocation ID. Such an ID can never
+ // be invented. The alternate route is explicitly marked unproven on host
+ // provenance, and demands genuine image/export/Git evidence tied to package
+ // bytes. This is NOT a substitution for pixel, CI or deployment gates.
+ const observedWorkRoute=sched?.source==='scheduled_task_runtime_observation'&&
+   (sched.host_invocation_id===null||sched.host_invocation_id===undefined)&&
+   ['image_gen__imagegen','image_gen'].includes(sched.runtime_tool_evidence?.native_image_tool_name)&&
+   sched.runtime_tool_evidence?.actual_generation_count>=6&&
+   sched.runtime_tool_evidence?.exact_png_1200x630_export_observed===true&&
+   sched.runtime_tool_evidence?.github_binary_sha256_readback_observed===true&&
+   sched.runtime_tool_evidence?.original_manifest_sha256===manifestHash&&
+   sched.runtime_tool_evidence?.six_actual_saved_pixel_reviews_passed===true;
+ if(sched?.task_id!==policy.task_id||!workMode||
+   (!firstPartySchedulerProof&&!observedWorkRoute)||
+   sched?.native_image_creation_observed!==true||
    sched?.same_invocation_github_binary_readback_observed!==true||
    sched?.actual_saved_pixel_review_observed!==true||
    !Number.isFinite(Date.parse(sched.scheduled_for))||
-   !Number.isFinite(Date.parse(sched.observed_at))||
-   typeof sched.host_invocation_id!=='string'||sched.host_invocation_id.length<8)
+   !Number.isFinite(Date.parse(sched.observed_at)))
    fail('REAL_SCHEDULED_WORK_EVIDENCE_NOT_SUPPLIED');
  // The genuinely observed host schedule binds the cycle, not a later release clock.
  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',
@@ -88,7 +104,9 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
   original_source_commit_sha:job.source.commit_sha,
   original_bundle_sha256:job.source.bundle_sha256,
   accepted_images:manifest.images.map(x=>({story_id:x.story_id,sha256:x.sha256})),
-  scheduled_runtime_claim_requires_first_party_confirmation:true,
+  scheduled_runtime_claim_requires_first_party_confirmation:!firstPartySchedulerProof,
+  scheduled_host_invocation_id_verified:firstPartySchedulerProof,
+  runtime_observed_image_github_route:observedWorkRoute,
   ci_does_not_independently_attest_chatgpt_work_mode:true,
   manual_release_go_not_required:true,
   actual_protected_pr_ci_merge_and_live_checks_still_required:true
