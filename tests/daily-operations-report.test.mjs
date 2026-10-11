@@ -64,7 +64,7 @@ test('an image released with six hashes but no 24 pixel reviews stays PARTIAL ov
   hashes:{'image-job':'d'.repeat(64),'image-context-reviews':'a'.repeat(64)}});
  assert.equal(y.images.result,'SUCCESS');
  assert.equal(y.images.reviewed_24_contexts,24);
- evidence['image-context-reviews'].reviews[0].accepted_image_sha256='0'.repeat(64);
+ evidence['image-context-reviews'].reviews[0].accepted_image_sha256='f'.repeat(64);
  assert.equal(compileDailyReports({cycleDate:'2026-10-11',evidence,
   hashes:{'image-job':'d'.repeat(64)}}).images.reviewed_24_contexts,null);
  assert.equal(x['daily-rollup'].combined_result,'PARTIAL');
