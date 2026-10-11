@@ -81,6 +81,7 @@ test('workflow cannot trigger publisher, generate content, enable AI tasks, or t
  assert.match(w,/operations-reports/);
  assert.match(w,/America\/Chicago/);
  assert.match(w,/compile-daily-aar\.mjs/);
+ assert.match(w,/if \[ ! -d daily \]; then/);
  assert.match(w,/NO.?START.?RECEIPT|Reconcile previous 14 cycles/);
  assert.doesNotMatch(w,/\b(?:repository_dispatch|actions\/deploy-pages|render-shadow-images|image-only-replacement)\b/);
  assert.doesNotMatch(w,/\b(?:openai|codex|work-execution|genai)\b/i);
