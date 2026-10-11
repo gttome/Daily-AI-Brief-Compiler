@@ -14,7 +14,7 @@ export function deriveProtectedPackageReleaseInputs({headSha,mainSha,changedPath
  if(manifests.length!==1||manifests[0]!==manifestPath)fail('exactly_one_date_manifest_required');
  const date=manifestPath.split('/')[1];
  if(date<='2026-10-08')fail('historic_image_release_prohibited');
- const allowed=new RegExp('^external-image-packages/'+date+'/(?:manifest\\.json|starter-assignment\\.json|images/[a-z0-9-]+\\.png|reviews/[a-zA-Z0-9_./-]+|source/[a-zA-Z0-9_./-]+)$');
+ const allowed=new RegExp('^external-image-packages/'+date+'/(?:manifest\\.json|starter-assignment\\.json|recurring-assignment\\.json|images/[a-z0-9-]+\\.png|reviews/[a-zA-Z0-9_./-]+|source/[a-zA-Z0-9_./-]+)$');
  if(new Set(changedPaths).size!==changedPaths.length||changedPaths.some(p=>!allowed.test(p)||p.includes('..')))
    fail('image_only_single_edition_files_required');
  if(manifest?.schema_version!=='external-compiler-image-package-v1'||manifest.edition_date!==date||
