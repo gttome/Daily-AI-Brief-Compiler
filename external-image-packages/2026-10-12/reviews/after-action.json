@@ -2,79 +2,96 @@
   "schema_version": "external-image-after-action-v8",
   "edition_date": "2026-10-12",
   "cycle_date": "2026-10-11",
-  "status": "CORRECTIVE_PACKAGE_PR_PENDING",
+  "status": "PUBLIC_VERIFIED",
   "source": {
     "job_sha256": "bbfcf47319771f23107569639d66c878b6f0cefdc165d9b829af76e37ef907d2",
     "bundle_sha256": "6be70d9db13ca43759cedcb899b8663cabdd3483e9498ac6d46b16af57193b15",
     "source_commit_sha": "7038f92bec84b6548cfaae23b38e33ef2b1b303c",
-    "pages_history_head": "41c86885bb7f5ed4bed1268456a5ba901c770524"
+    "pages_history_head_before_release": "41c86885bb7f5ed4bed1268456a5ba901c770524"
   },
   "production": {
+    "native_generation_executed": true,
     "actual_generation_count": 13,
     "accepted_count": 6,
     "rejected_count": 7,
     "saved_pixel_reviews_passed": 6,
-    "set_review": "PASS",
+    "six_set_review": "PASS",
     "exact_png_export": "PASS",
+    "dimensions": "1200x630",
+    "pixel_format": "8-bit RGB",
     "github_binary_stage_commit": "a6c3686a5578e4afc1dc325cfac44454db82a0c1",
-    "github_blob_readback": "PASS"
+    "github_exact_commit_readback": "PASS",
+    "accepted_art_regenerated_after_lock": 0
   },
-  "usage": {
-    "weekly_usage_measurement": "UNKNOWN",
-    "reason": "No authoritative per-run or weekly usage telemetry was exposed; no estimate was fabricated.",
-    "efficiency_target": "under 5% weekly usage"
+  "images": [
+    {"story_id":"oct12-t1-jetbrains-agent-model-mcp-controls","file":"oct12-t1-jetbrains-agent-model-mcp-controls.png","bytes":1045105,"sha256":"4fa4f122bcfa5240671da3fe9a8b49592f21b32fa4b7750a506dedca4687d11f","git_blob_sha":"33b12919dc7ecfe33442840c1da4236ab8778edc","generation_attempts":3,"saved_pixel_review":"PASS","live_contexts_passed":4},
+    {"story_id":"oct12-t2-ironclad-contracting-rubric","file":"oct12-t2-ironclad-contracting-rubric.png","bytes":1169734,"sha256":"03860512c6632e2fdbcc69d8c1be5f03984e66ca9ece3749a4f5ba5c431638d1","git_blob_sha":"3a381c7eeb244045062fd13b0cd2a58d032182ef","generation_attempts":1,"saved_pixel_review":"PASS","live_contexts_passed":4},
+    {"story_id":"oct12-k1-gemini-business-context-agent","file":"oct12-k1-gemini-business-context-agent.png","bytes":1074852,"sha256":"72ff485acdbebd4986fd838982c5e67e1e5de2590085d8c715dab13f53d57781","git_blob_sha":"5d4fac7738c3b2145945e9b26255e318c4694843","generation_attempts":1,"saved_pixel_review":"PASS","live_contexts_passed":4},
+    {"story_id":"oct12-k2-sap-joule-process-context","file":"oct12-k2-sap-joule-process-context.png","bytes":1022965,"sha256":"30f9b130b33b2a94db22da3cf30df6ccc6e3aa4bbf6097d45c21983b2fe29c24","git_blob_sha":"2b3a03a3d9dc09af1d6a595e30594ef318573965","generation_attempts":4,"saved_pixel_review":"PASS","live_contexts_passed":4},
+    {"story_id":"oct12-a1-license-provenance-agent-skill","file":"oct12-a1-license-provenance-agent-skill.png","bytes":985605,"sha256":"bfe5103b8b64204bd6b5c24e5807325e1e079eacea840737c93732087a415f36","git_blob_sha":"92f3af199b4c0672f2948f933036cb462f6fe241","generation_attempts":2,"saved_pixel_review":"PASS","live_contexts_passed":4},
+    {"story_id":"oct12-a2-smb-agent-delegation","file":"oct12-a2-smb-agent-delegation.png","bytes":783395,"sha256":"266725440c0fbadba9403546aa249b1088d69695debea693d3fa2dbdcabc14bd","git_blob_sha":"6792e7e4a3ba2f2bbf373e599a5b04e7dc04f630","generation_attempts":2,"saved_pixel_review":"PASS","live_contexts_passed":4}
+  ],
+  "release": {
+    "package_pr": 167,
+    "package_merge_sha": "c8b17b1cca5752036a7059c4237ace06d1601fdf",
+    "corrective_prs": [168,169,170,172,173],
+    "final_package_head": "f7533bc5b40b3397497e52ad89fa07d4151c7076",
+    "workflow_run_id": 38198706684,
+    "workflow_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38198706684",
+    "required_ci": "PASS",
+    "pages_deployment": "PASS",
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "live_png_hashes": "6_OF_6_PASS",
+    "story_image_pairings": "12_OF_12_PASS",
+    "visual_context_reviews": "24_OF_24_PASS",
+    "october_8_objects": "17_OF_17_UNCHANGED",
+    "editorial_text_preserved": true,
+    "daily_ai_brief_repository_modified": false
   },
   "errors": [
     {
       "phase": "binary_transport",
       "issue": "Single-call tool output truncated base64 for PNGs near or above one megabyte.",
-      "correction": "Used deterministic fixed-offset base64 segments, reconstructed exact bytes, and required returned Git blob IDs to match locally computed Git object IDs.",
+      "correction": "Used deterministic fixed-offset base64 segments and required returned Git blob IDs to match locally computed Git object IDs.",
       "art_regenerated": false
     },
     {
       "phase": "automatic_release_derivation",
-      "issue": "The first protected merge placed after-action.md at the package root, outside the automatic-release single-edition allowlist.",
-      "correction": "Move the Markdown AAR under reviews/, update and rebind the manifest and recurring assignment, then use a second protected exact-head PR.",
-      "pages_changed": false,
+      "issue": "The initial package placed after-action.md at the package root, outside the image-only release allowlist.",
+      "correction": "Protected PR #168 moved the report under reviews; PR #169 rebound the package to the corrected immutable head.",
       "art_regenerated": false
     },
     {
       "phase": "exact_binary_staging_validator",
-      "issue": "The manifest used a truthful but noncanonical pixel-inspection method value instead of the validator-required persisted_git_binary token.",
-      "correction": "Record persisted_git_binary after immutable commit readback and saved-pixel inspection, then rebind the manifest and assignment.",
-      "pages_changed": false,
+      "issue": "The manifest used a truthful but noncanonical pixel-inspection method token.",
+      "correction": "Protected PR #170 recorded the validator-required persisted_git_binary token after exact readback and inspection.",
       "art_regenerated": false
     },
     {
       "phase": "exact_git_cat_file_readback",
       "issue": "Node's default child-process output buffer raised ENOBUFS for premium PNG blobs above one MiB.",
-      "correction": "Protected PR #172 raised only the git cat-file buffer to 8 MiB and added a deterministic greater-than-one-MiB regression fixture.",
+      "correction": "Protected PR #172 raised only the git cat-file buffer to 8 MiB and added a deterministic greater-than-one-MiB regression fixture; PR #173 retriggered the unchanged package.",
       "code_fix_merge_sha": "2048a3660e37dd242059e54d79409e99c77b6d2b",
-      "pages_changed": false,
       "art_regenerated": false
     }
   ],
-  "continuity": {
-    "next_cycle": "Select only the next Chicago cycle edition if PUBLISHED_PENDING; never reopen this package.",
-    "accepted_art_locked": true
+  "usage": {
+    "weekly_usage_measurement": "UNKNOWN",
+    "reason": "No authoritative per-run or weekly usage telemetry was exposed; no estimate was fabricated.",
+    "efficiency_target": "under 5% weekly usage"
   },
   "efficiency_proposals": [
-    "Keep story mechanism and label freeze before generation.",
+    "Freeze story mechanisms and exact visible labels before generation.",
     "Retain one-image-at-a-time correction and lock accepted pixels immediately.",
-    "Use segmented binary transport proactively for files above 750 kB.",
-    "Rely on one protected package PR and automatic image-only release.",
-    "Carry forward correction taxonomy to avoid humanoid, pseudo-writing and topology defects."
+    "Use segmented Git blob transport proactively for files above 750 kB.",
+    "Validate every package path and controlled manifest enum locally before opening the first PR.",
+    "Keep the 8 MiB exact-readback regression test in protected CI.",
+    "Carry the correction taxonomy forward to prevent humanoid, pseudo-writing, logo-like glyph and topology defects."
   ],
-  "release": {
-    "pr": null,
-    "required_ci": "PENDING",
-    "merge_sha": null,
-    "workflow_run": null,
-    "pages": "PENDING",
-    "live_png_hashes": "PENDING",
-    "pairings_12": "PENDING",
-    "context_reviews_24": "PENDING",
-    "oct8_objects_17": "PENDING"
+  "continuity": {
+    "next_cycle": "Select only the next Chicago-cycle PUBLISHED_PENDING six-story job. Never reopen or regenerate this released edition.",
+    "accepted_art_locked": true,
+    "recurring_task_should_remain_enabled": true,
+    "new_recovery_schedule_created": false
   }
 }
-
