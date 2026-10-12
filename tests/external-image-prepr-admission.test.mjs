@@ -64,6 +64,7 @@ function fixture(t){
   write(root,bundlePath,bundle);
   git(root,['add','.']);git(root,['commit','-qm','fixture source bundle']);
   const sourceCommit=git(root,['rev-parse','HEAD']);
+  git(root,['update-ref','refs/remotes/origin/shadow/'+DATE,sourceCommit]);
   git(root,['checkout','-q','main']);
   git(root,['checkout','-qb','shadow-pages-history']);
   const ids=Array.from({length:6},(_,i)=>'oct13-story-'+(i+1));
@@ -205,6 +206,13 @@ test('full pre-first-image-PR package gate: positive and adversarial regression 
     await assert.rejects(preflightRecurringImagePackage({...f.opts,fetchImpl:async()=>({
       status:200,arrayBuffer:async()=>Buffer.alloc(200)
     })}),/png_signature|png_crc|incomplete_png|truncated_chunk/);
+  });
+  await t.test('T15a source object detached from live same-date branch fails',async()=>{
+    const oldSource=git(f.root,['rev-parse','refs/remotes/origin/shadow/'+DATE]);
+    git(f.root,['update-ref','refs/remotes/origin/shadow/'+DATE,
+      git(f.root,['rev-parse','main'])]);
+    await assert.rejects(preflightRecurringImagePackage(f.opts),/SOURCE_COMMIT_NOT_IN_CURRENT_DATE_BRANCH/);
+    git(f.root,['update-ref','refs/remotes/origin/shadow/'+DATE,oldSource]);
   });
   await t.test('T15 stale history HEAD never passes',async()=>{
     git(f.root,['update-ref','refs/remotes/origin/shadow-pages-history',f.base]);
