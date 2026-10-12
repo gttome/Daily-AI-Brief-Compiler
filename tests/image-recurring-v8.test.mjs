@@ -30,11 +30,11 @@ function f(){
    edition_date:date,execution_id:job.execution_id,job_sha256:hash(jobBytes),
    manifest_sha256:hash(manifestBytes),original_source_commit_sha:source.commit_sha,
    original_bundle_sha256:source.bundle_sha256,
-   scheduled_runtime_evidence:{task_id:'6acac88cff048191ba02e5b2bcb3becb',
-    mode:'work',source:'first_party_scheduler',scheduled_for:'2026-10-12T02:15:00Z',
-    observed_at:'2026-10-12T02:15:08Z',host_invocation_id:'evidence-only-fixture',
-    native_image_creation_observed:true,same_invocation_github_binary_readback_observed:true,
-    actual_saved_pixel_review_observed:true},
+   image_execution_evidence:{
+    actual_generation_count:6,exact_png_1200x630_export_observed:true,
+    github_binary_sha256_readback_observed:true,
+    original_manifest_sha256:hash(manifestBytes),
+    six_actual_saved_pixel_reviews_passed:true},
    accepted_images:images.map(x=>({story_id:x.story_id,sha256:x.sha256}))};
  return {jobBytes,index,manifestBytes,assignment};
 }
@@ -47,34 +47,41 @@ test('Rev8 is active and backward-compatible while Rev6/Rev7 remain readable',()
  assert.equal(imageReleaseCompatibility({...v8,image_starter_contract_version:'rev7'}).result,'RELEASE_ADMISSION_HOLD');
  assert.match(fs.readFileSync('docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV8.md','utf8'),/Create the six premium images/);
 });
-test('Standing authority accepts only exact new current-cycle job and real-type evidence',()=>{
+test('Standing current-date image release uses actual image/GitHub proof, never chat-mode checks',()=>{
  const d=f(),r=verifyRecurringImageReleaseAdmission(d);
  assert.equal(r.result,'STANDING_CURRENT_CYCLE_AUTHORIZED_NOT_DEPLOYED');
- assert.equal(r.scheduled_host_invocation_id_verified,true);
- const observed={...d.assignment,scheduled_runtime_evidence:{
-   ...d.assignment.scheduled_runtime_evidence,
-   mode:'WORK_CODEX',source:'scheduled_task_runtime_observation',host_invocation_id:null,
-   runtime_tool_evidence:{native_image_tool_name:'image_gen__imagegen',
-     actual_generation_count:6,exact_png_1200x630_export_observed:true,
-     github_binary_sha256_readback_observed:true,
-     original_manifest_sha256:d.assignment.manifest_sha256,
-     six_actual_saved_pixel_reviews_passed:true}}};
- const rr=verifyRecurringImageReleaseAdmission({...d,assignment:observed});
- assert.equal(rr.scheduled_host_invocation_id_verified,false);
- assert.equal(rr.runtime_observed_image_github_route,true);
- assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{...observed,
-   scheduled_runtime_evidence:{...observed.scheduled_runtime_evidence,
-     runtime_tool_evidence:{...observed.scheduled_runtime_evidence.runtime_tool_evidence,
-       actual_generation_count:0}}}}),/REAL_SCHEDULED_WORK_EVIDENCE/);
+ assert.equal(r.chat_type_admission_required,false);
+ assert.equal(r.scheduler_invocation_id_admission_required,false);
+ assert.equal(r.actual_image_creation_and_github_evidence_required,true);
+ assert.equal(r.actual_generation_count,6);
+ // Arbitrary host labels and missing scheduler invocation IDs cannot block a
+ // real six-image package with exact accepted PNG/GitHub/pixel evidence.
+ const arbitraryHost={...d.assignment,scheduled_runtime_evidence:{
+  task_id:d.assignment.task_id,mode:'chat',source:'UNKNOWN',host_invocation_id:null}};
+ assert.equal(verifyRecurringImageReleaseAdmission({...d,assignment:arbitraryHost}).result,
+  'STANDING_CURRENT_CYCLE_AUTHORIZED_NOT_DEPLOYED');
  assert.equal(r.edition_date,'2026-10-12');
- assert.equal(r.ci_does_not_independently_attest_chatgpt_work_mode,true);
  for(const patch of [
   {cycle_date:'2026-10-10'}, {task_id:'wrong'}, {job_sha256:'f'.repeat(64)},
   {owner_personal_artwork_review_claimed:true}
- ]) assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{...d.assignment,...patch}}),/external_image_recurring_gate/);
- assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{...d.assignment,scheduled_runtime_evidence:{...d.assignment.scheduled_runtime_evidence,mode:'chat'}}}),/SCHEDULED_WORK_EVIDENCE/);
- assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,authorization:{...JSON.parse(fs.readFileSync('contracts/automation/recurring-image-authorization.json')),revocation:{enabled:true}}}),/STANDING_AUTHORITY/);
- const bad=JSON.parse(d.manifestBytes);bad.images[0].visual_review.result='FAIL';
+ ])assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{...d.assignment,...patch}}),/external_image_recurring_gate/);
+ for(const patch of [
+  {actual_generation_count:0}, {github_binary_sha256_readback_observed:false},
+  {exact_png_1200x630_export_observed:false},
+  {six_actual_saved_pixel_reviews_passed:false},
+  {original_manifest_sha256:'f'.repeat(64)}
+ ]){
+  assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,assignment:{
+   ...d.assignment,image_execution_evidence:{...d.assignment.image_execution_evidence,...patch}
+  }}),/REAL_IMAGE_EXPORT_GITHUB_AND_PIXEL_EVIDENCE_REQUIRED/);
+ }
+ assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,
+  authorization:{...JSON.parse(fs.readFileSync('contracts/automation/recurring-image-authorization.json')),revocation:{enabled:true}}}),/STANDING_AUTHORITY/);
+ const bad=JSON.parse(d.manifestBytes);
+ bad.images[0].visual_review.result='FAIL';
  const badBytes=Buffer.from(JSON.stringify(bad)+'\n');
- assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,manifestBytes:badBytes,assignment:{...d.assignment,manifest_sha256:hash(badBytes)}}),/IMAGE_SOURCE/);
+ assert.throws(()=>verifyRecurringImageReleaseAdmission({...d,manifestBytes:badBytes,assignment:{
+  ...d.assignment,manifest_sha256:hash(badBytes),
+  image_execution_evidence:{...d.assignment.image_execution_evidence,original_manifest_sha256:hash(badBytes)}
+ }}),/IMAGE_SOURCE/);
 });
