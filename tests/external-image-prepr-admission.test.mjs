@@ -10,6 +10,7 @@ import zlib from 'node:zlib';
 import {execFileSync} from 'node:child_process';
 import {preflightRecurringImagePackage} from '../scripts/preflight-recurring-image-package.mjs';
 import {checkRealPng} from '../scripts/stage-external-image-package.mjs';
+import {SEGMENT_BYTES,reassembleFixedOffsetPng} from '../scripts/reassemble-fixed-offset-image.mjs';
 
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const blob=b=>crypto.createHash('sha1').update(Buffer.from('blob '+b.length+'\0')).update(b).digest('hex');
@@ -212,4 +213,21 @@ test('full pre-first-image-PR package gate: positive and adversarial regression 
 });
 test('PNG decoder rejects indexed/palette-mode despite valid CRC/inflate',()=>{
   assert.throws(()=>checkRealPng(png(3,true)),/rgb_rgba_noninterlaced_required/);
+});
+
+test('T16 fixed-offset >1 MiB exact PNG transport is lossless, missing/altered segments fail',()=>{
+  const full=png(1);
+  assert.ok(full.length>1024*1024,'exercise above original one-MiB subprocess limit');
+  const segments=[];
+  for(let off=0;off<full.length;off+=SEGMENT_BYTES)
+    segments.push({offset:off,base64:full.subarray(off,off+SEGMENT_BYTES).toString('base64')});
+  const request={segments,bytes:full.length,sha256:hash(full),git_blob_sha:blob(full)};
+  const done=reassembleFixedOffsetPng(request);
+  assert.equal(done.receipt.result,'EXACT_PNG_REASSEMBLED_NOT_RELEASED');
+  assert.equal(done.receipt.large_png_segmented,true);
+  assert.ok(done.png.equals(full));
+  assert.throws(()=>reassembleFixedOffsetPng({...request,segments:segments.slice(1)}),/MISSING_OR_DUPLICATED_SEGMENTS/);
+  assert.throws(()=>reassembleFixedOffsetPng({...request,segments:segments.map((s,i)=>i===1?{...s,offset:s.offset+1}:s)}),/SEGMENT_OFFSET/);
+  assert.throws(()=>reassembleFixedOffsetPng({...request,segments:segments.map((s,i)=>i===2?{...s,base64:s.base64.slice(0,-4)}:s)}),/SEGMENT_LENGTH/);
+  assert.throws(()=>reassembleFixedOffsetPng({...request,sha256:'f'.repeat(64)}),/SHA256_OR_GIT_BLOB/);
 });
