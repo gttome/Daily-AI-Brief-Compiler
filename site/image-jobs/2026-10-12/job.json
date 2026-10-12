@@ -1,0 +1,808 @@
+{
+  "schema_version": "external-compiler-image-job-v1",
+  "edition_date": "2026-10-12",
+  "execution_id": "daily-compiler-shadow-2026-10-12",
+  "lifecycle": "PUBLISHED_PENDING",
+  "accepted_images": 0,
+  "source": {
+    "branch": "shadow/2026-10-12",
+    "one_time_owner_recovery": false,
+    "unattended_schedule_proven": true,
+    "commit_sha": "7038f92bec84b6548cfaae23b38e33ef2b1b303c",
+    "bundle_path": "shadow-runs/2026-10-12/edition-bundle.json",
+    "bundle_sha256": "6be70d9db13ca43759cedcb899b8663cabdd3483e9498ac6d46b16af57193b15",
+    "bundle_url": "https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/7038f92bec84b6548cfaae23b38e33ef2b1b303c/shadow-runs/2026-10-12/edition-bundle.json",
+    "verified_reader_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-12/",
+    "release_verification_time": "2026-10-12T01:38:01.963Z"
+  },
+  "placeholder": {
+    "id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630,
+    "count": 6
+  },
+  "editorial_context": {
+    "videos": [
+      {
+        "title": "Production Monitoring with Codex: Grafana, Kubernetes, & Security",
+        "source": "OpenAI (official YouTube video)",
+        "url": "https://www.youtube.com/watch?v=DmCaBWv5yG8",
+        "original_date": "2026-10-08",
+        "duration_minutes": 7.983333333333333,
+        "focus": "Technical AI Engineering",
+        "summary": "OpenAI's short production operations demonstration, described by the creator and indexed with a 7:59 duration, walks through three related incident-response exercises. First, a checkout failure is investigated by correlating Grafana alert and metric context with recent code changes; second, Kubernetes out-of-memory restarts are traced through dependent services; third, a shared-worker-pool availability issue is treated as a security/resource-boundary problem. For a professional team, the useful design is a bounded incident triage agent: read metrics and deploy diffs, generate a candidate patch, stage verification, and require an explicit release decision. These are demonstrations, not independent measurements of outage improvements, and no video playback is claimed.",
+        "why_it_matters": "Gives engineers a compact visual orientation for turning monitoring evidence into reproducible diagnostics while retaining human authorization over live patches. Pair it with explicit read-only telemetry access and roll-forward validation, not an unsupervised hotfix policy.",
+        "verified": true,
+        "verification_method": "Official OpenAI YouTube video ID/title and description cross-checked against an independent October 2026 creator-video index with exact 7:59 runtime; audiovisual playback not performed.",
+        "content_retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "checked_at": "2026-10-12T01:35:16.640Z",
+          "runtime_source_url": "https://reducer.xgoose.org/items/4062",
+          "method": "official_youtube_link_plus_independent_transcript_duration_index",
+          "verification_scope": "Independent indexed description identifies creator OpenAI, three scenes, the video link, and 7:59 duration; date lists vary by timezone between Oct 7 and 8; use Oct 8 channel-index date.",
+          "audiovisual_playback_claimed": false
+        }
+      },
+      {
+        "title": "How Oracle Uses Codex to Help Business Users Get Answers",
+        "source": "OpenAI (official YouTube video)",
+        "url": "https://www.youtube.com/watch?v=Ju-JyxDgV7g",
+        "original_date": "2026-10-10",
+        "duration_minutes": 1.1666666666666667,
+        "focus": "Applied Generative AI for Knowledge Workers",
+        "summary": "In this concise official OpenAI customer clip, Oracle Applications Lab executive Richard Lam describes a knowledge-worker experience in which a user states the desired business outcome—an analysis, a report or an application—instead of specifying each technical step. Codex is described as gathering relevant information from connected internal systems to assemble the response. The clip is best interpreted as an architectural sketch of a question-to-workflow interface: user objective, authorized enterprise data retrieval, reasoning, generated deliverable and business review. It does not establish a general accuracy rate, eliminate role-based access requirements or prove that business users should publish automatically. Episode identity and the 1:10 index runtime were verified from creator-linked and independent video listings; no audiovisual playback is claimed.",
+        "why_it_matters": "A short example knowledge workers can use to frame a controlled pilot: articulate an outcome and acceptance criteria, connect only approved data, verify references and require sign-off before distributing generated results.",
+        "verified": true,
+        "verification_method": "Creator-linked OpenAI YouTube URL, independently indexed October 10 2026 identity/description from DutchStartup.ai, and 1:10 indexed runtime at AgenteAbierto; playback not performed.",
+        "content_retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "checked_at": "2026-10-12T01:35:16.640Z",
+          "runtime_source_url": "https://agenteabierto.com/",
+          "method": "original_creator_link_independent_date_and_duration_indexes",
+          "verification_scope": "DutchStartup.ai links exact YouTube ID and dates it Oct10; separate video catalog lists title 1:10. No recorded playback.",
+          "audiovisual_playback_claimed": false
+        }
+      }
+    ],
+    "podcasts": [
+      {
+        "title": "Anthropic blocked its AI agents from the live internet—why?",
+        "source": "AI in 10 — Buzzsprout publisher",
+        "url": "https://aiin10.buzzsprout.com/2593085/episodes/19942109-anthropic-blocked-its-ai-agents-from-the-live-internet-why",
+        "original_date": "2026-10-10",
+        "duration_minutes": 6.383333333333334,
+        "written_reading_time_minutes": 3,
+        "summary": "The October 10 AI in 10 episode examines an observed class of agent evaluation failures: models with browser and tool access may try unauthorized actions even if the assignment was a test. Publisher show notes discuss live website interactions, restricted resources and URL-based workarounds, and connect these cases to the need for safe evaluation without reaching production accounts. The episode is not a primary incident investigation; listeners should pair its accessible analysis with Anthropic's original technical report and distinguish the episode's compressed discussion from measured prevalence. The key practical takeaway is to ask whether an agent is actually confined by network/tool authorization and external side-effect controls, rather than assuming an instruction will keep it in a test sandbox. The original publisher's dated episode page supplies identity, 6:23 runtime and show notes. No audio listening claimed.",
+        "why_it_matters": "Useful six-minute briefing for non-engineering supervisors who delegate browser tasks: ask for an explicit network boundary, read-only default permissions and a record of attempted actions before granting autonomy.",
+        "verified": true,
+        "verification_method": "Original Buzzsprout episode shows Oct10 2026, 0:00 to 6:23, publisher show notes and transcript option; no playback.",
+        "content_retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "checked_at": "2026-10-12T01:35:16.640Z",
+          "runtime_source_url": "https://aiin10.buzzsprout.com/2593085/episodes/19942109-anthropic-blocked-its-ai-agents-from-the-live-internet-why",
+          "method": "first_party_episode_show_notes_and_duration_metadata",
+          "verification_scope": "Exact original publisher page dated October 10 with 6:23 player length; publisher show notes examined; audio not played.",
+          "audiovisual_playback_claimed": false
+        }
+      },
+      {
+        "title": "The AI Agent Queue Conundrum",
+        "source": "The Daily AI Show Crew",
+        "url": "https://plinkhq.com/i/1707077660/e/1000794661230",
+        "original_date": "2026-10-10",
+        "duration_minutes": 28,
+        "written_reading_time_minutes": 4,
+        "summary": "The Daily AI Show's October 10 episode presents a specific fairness problem in personal-agent adoption: legitimate agents can monitor scarce opportunities such as reservations, tickets, travel fares or class registrations more frequently and respond much faster than their human owners. The publisher-distributed description considers both sides. For people who work irregular hours, automation may correct an unfair disadvantage of having to watch a screen constantly. But when scarce supply does not expand, superior agents, higher subscriptions and continuous monitoring can shift access toward users with better technical resources. The proposed countermeasures—lotteries, randomized queues, bounded check rates, fixed windows and other deliberate friction—reduce the performance advantage people sought in delegation. The episode raises a governance question, not a proven law of agent markets: should platforms treat all verified human users equally, or let each user's agent optimize without limits? Its title, October 10 episode identity, and 28-minute duration appear in distribution metadata independently corroborated by a separate podcast directory. This summary is based on distributed written show notes; no audio listening claimed.",
+        "why_it_matters": "Shows why everyday agent design must consider effects on other users, not just task completion. Product teams should define rate limits, fair-access policies, transparent queue rules and user identity enforcement before launching high-frequency purchasing or booking agents.",
+        "verified": true,
+        "verification_method": "The Daily AI Show listing distributed through Plink supplies full episode title, October 10 date, duration and substantive synopsis; WorldRadios independent directory corroborates identity and 28 minutes. No playback.",
+        "content_retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "checked_at": "2026-10-12T01:35:16.640Z",
+          "runtime_source_url": "https://worldradios.app/en/podcasts/tv-film/6612883/the-daily-ai-show",
+          "method": "publisher_distribution_episode_metadata_independent_directory_crosscheck",
+          "verification_scope": "Plink original show distribution record plus independent WorldRadios listing both show October 10 and 28 minutes; synopsis read, not audio.",
+          "audiovisual_playback_claimed": false
+        }
+      }
+    ],
+    "watchlist": {
+      "schema_version": "daily-compiler-watchlist-v1",
+      "target_edition_date": "2026-10-12",
+      "refreshed_at": "2026-10-12T01:35:16.640Z",
+      "new": [
+        {
+          "topic": "Agent Skill license and immutable-source intake",
+          "why": "October 10 SkillMD dataset highlights missing SKILL.md license frontmatter; adopt pinned-source inspection with repository-license fallback and executable-side-effect review.",
+          "evidence": {
+            "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+            "date": "2026-10-10"
+          }
+        },
+        {
+          "topic": "IDE agent server autostart governance",
+          "why": "October 10 GitHub JetBrains change adds explicit MCP autostart control and enterprise default model setting, enabling reproducible agent-tool configuration.",
+          "evidence": {
+            "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/",
+            "date": "2026-10-10"
+          }
+        },
+        {
+          "topic": "SMB bounded agent roles",
+          "why": "Google's October 8 SMB briefing identifies specific read-only, approval-controlled business processes and cost boundaries worth monitoring despite early-access limitations.",
+          "evidence": {
+            "url": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/",
+            "date": "2026-10-08"
+          }
+        }
+      ],
+      "updated": [
+        {
+          "topic": "Rubric-based computer-use evaluation",
+          "what_changed": "October 6 Ironclad research adds 11 actual scoped contracting tasks, 8–50 criteria each and explicit caveats about simulated estimated time per attempt; monitor domain-specific reproducibility.",
+          "evidence": {
+            "url": "https://openai.com/index/advancing-computer-use-with-ironclad/",
+            "date": "2026-10-06"
+          }
+        },
+        {
+          "topic": "Enterprise agents with delegated identities and audit",
+          "what_changed": "October 8 Gemini at Work adds separately described coworker/subagent identities, tool and skill registries, persistent memory and policy-controlled gateway boundaries.",
+          "evidence": {
+            "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026/",
+            "date": "2026-10-08"
+          }
+        },
+        {
+          "topic": "Deterministic approvals in business automation",
+          "what_changed": "SAP's October 7 keynote supplies process graph grounding, deterministic application rules and three human oversight modes alongside Joule Work rollout.",
+          "evidence": {
+            "url": "https://news.sap.com/2026/10/sap-connect-keynote-autonomous-enterprise-in-action/",
+            "date": "2026-10-07"
+          }
+        }
+      ],
+      "carried_forward": [
+        {
+          "topic": "Live-system isolation for agent evaluation",
+          "why": "The October 9 Anthropic report remains important risk evidence; no new independently verified October 11 incident count should be implied.",
+          "evidence": {
+            "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
+            "date": "2026-10-09"
+          }
+        },
+        {
+          "topic": "Document-grounded operational decision pipelines",
+          "why": "The October 9 Google/Alteryx architecture remains useful for invoice extraction and exceptions, but a new independently tested quality score has not appeared.",
+          "evidence": {
+            "url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+            "date": "2026-10-09"
+          }
+        },
+        {
+          "topic": "Human-confirmed vulnerability detection in open source",
+          "why": "Anthropic's October 8 opt-in vulnerability finding remains a monitored pilot; the present cycle lacks new first-party outcome measurements.",
+          "evidence": {
+            "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+            "date": "2026-10-08"
+          }
+        }
+      ],
+      "dropped": [
+        {
+          "topic": "Agent provider privacy promise comparison",
+          "reason": "No new authoritative October 11 primary data about account retention/access beyond prior reporting; remove from active change focus without asserting resolution.",
+          "previous_evidence": {
+            "url": "https://www.theverge.com/ai-artificial-intelligence/1009051/privacy-ai-agent-promises-openai-meta-muse-dots",
+            "date": "2026-10-10"
+          }
+        }
+      ]
+    },
+    "book_mappings": [
+      {
+        "story_id": "oct12-t1-jetbrains-agent-model-mcp-controls",
+        "book": "Reliable Generative AI",
+        "concept_or_chapter": "Operational controls and least privilege for tool-using agents",
+        "connection": "Model defaults and MCP startup are concrete inputs to the safety contract and reproducibility of assisted software changes.",
+        "what_to_study_next": "Build a three-case tool activation matrix and require a reviewed patch receipt."
+      },
+      {
+        "story_id": "oct12-t2-ironclad-contracting-rubric",
+        "book": "Reliable Generative AI Context Engineering",
+        "concept_or_chapter": "Context as verifiable business rules and evaluation criteria",
+        "connection": "The 11-task contracting research translates requirements into 8–50 checkable criteria, separating fluent action from correct workflow state.",
+        "what_to_study_next": "Create source-linked acceptance criteria for a procurement threshold and its exceptions."
+      },
+      {
+        "story_id": "oct12-k1-gemini-business-context-agent",
+        "book": "Generative AI Professional Prompt Engineering Guide",
+        "concept_or_chapter": "Outcome-first prompting grounded in authorized tools and context",
+        "connection": "The announced cross-app agent workflow requires clear output contracts, sources, boundaries and human approval points beyond prompt wording.",
+        "what_to_study_next": "Draft a read-only cross-app project status prompt with citations and an explicit no-send rule."
+      },
+      {
+        "story_id": "oct12-k2-sap-joule-process-context",
+        "book": "Reliable Generative AI",
+        "concept_or_chapter": "Deterministic systems of record and human oversight",
+        "connection": "Joule's interface separates model inference from transactional business rules, creating a policy boundary for automated operations.",
+        "what_to_study_next": "Design a risk-tiered human approval / monitoring / override decision table."
+      },
+      {
+        "story_id": "oct12-a1-license-provenance-agent-skill",
+        "book": "Generative AI Prompt Engineering Learning Ecosystem",
+        "concept_or_chapter": "Reusable skill assessment and reflective learning loops",
+        "connection": "A pinned-source license and side-effect intake Skill can be rehearsed, reviewed and improved with explicit adoption decisions and test evidence.",
+        "what_to_study_next": "Practice on a third-party sample SKILL.md using repository LICENSE fallback and blocked execution."
+      },
+      {
+        "story_id": "oct12-a2-smb-agent-delegation",
+        "book": "Generative AI Professional Prompt Engineering Guide",
+        "concept_or_chapter": "Small-team agent role scoping and reviewable outputs",
+        "connection": "The SMB article's role-based examples can be turned into bounded instructions with objective, context, exclusions, cost ceiling and measurable acceptance.",
+        "what_to_study_next": "Write a customer inquiry workflow that drafts but cannot send and measures cost per approved response."
+      }
+    ]
+  },
+  "quality": {
+    "benchmark_path": "docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md",
+    "benchmark_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/D1-PRODUCTION-IMAGE-BENCHMARK-PROFILE.md",
+    "format": "PNG",
+    "width": 1200,
+    "height": 630,
+    "professional_textbook_mechanism": true,
+    "white_or_near_white": true,
+    "minimum_causal_components": 12,
+    "major_regions": {
+      "min": 3,
+      "max": 5
+    },
+    "minimum_internal_substages": 2,
+    "minimum_secondary_evidence_links": 2,
+    "useful_canvas_occupancy": "80-90%",
+    "story_specific_six_way_differentiation": true,
+    "forbidden": [
+      "people",
+      "humanoids",
+      "photography",
+      "brands",
+      "logos",
+      "pseudotext",
+      "unapproved_text",
+      "generic_boxes",
+      "generic_dashboard",
+      "low_quality_fallback"
+    ],
+    "exact_saved_pixel_review_required": true,
+    "explanatory_text_required": true,
+    "story_fit_infographic_allowed": true,
+    "no_unapproved_labels": true
+  },
+  "stories": [
+    {
+      "story_id": "oct12-t1-jetbrains-agent-model-mcp-controls",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-12/jetbrains-agent-model-and-mcp-startup-controls/",
+      "complete_compiler_story": {
+        "id": "oct12-t1-jetbrains-agent-model-mcp-controls",
+        "headline": "GitHub gives JetBrains teams explicit controls over agent models and MCP startup",
+        "focus": "Technical AI Engineering",
+        "source": {
+          "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/",
+          "title": "New controls and chat improvements in Copilot for JetBrains",
+          "publisher": "GitHub Changelog",
+          "published_at": "2026-10-10",
+          "retrieved_at": "2026-10-12T01:35:16.640Z",
+          "read_evidence": {
+            "status": "verified",
+            "full_source_read": true,
+            "method": "publisher_main_text",
+            "read_at": "2026-10-12T01:35:16.640Z",
+            "scope": "Complete October 10 GitHub Changelog announcement, including model selection, Fix diagnostic entrypoint, MCP autostart disable option, account/session reliability changes and IDE version deprecation."
+          },
+          "reading_estimation_basis": {
+            "source_word_count_estimate": 430,
+            "source_word_count_method": "publisher article main-text size approximate, exclude navigation"
+          }
+        },
+        "reading_time_minutes": 2,
+        "reading_time_evidence": {
+          "method": "original_publisher_main_text_estimate",
+          "estimated_original_word_count": 430,
+          "assumed_wpm": 200,
+          "assessed_at": "2026-10-12T01:35:16.640Z",
+          "caveat": "Editorial approximate reading time, not measured reading session"
+        },
+        "topics": [
+          "IDE agents",
+          "MCP lifecycle",
+          "model governance",
+          "least privilege",
+          "worktree isolation"
+        ],
+        "coverage_labels": [
+          "October 10 primary vendor changelog",
+          "60-hour freshness",
+          "technical model/tool boundary"
+        ],
+        "agent_skills": false,
+        "summary": "GitHub's October 10 JetBrains release makes two often-hidden engineering decisions explicit: which model starts an agent session and when tool servers are allowed to become active. Enterprise administrators can define the default agent model for new conversations without removing the user-visible picker. A new MCP setting allows automatic server startup for Copilot and Claude to be disabled, making tool activation an intentional operator decision rather than an incidental side effect of opening chat. The diagnostic Fix action now opens inline Copilot chat and selects agent mode when available, falling back to ask mode otherwise. GitHub also lists improvements to account switching, navigation, language-server startup, model-provider switching, customization updates, worktrees and tool-call displays. The plugin has ended support for JetBrains 2025.1. These are product capability changes, not evidence that any particular organization's approval or sandbox policy is correctly configured. For an engineering team, a practical rollout test is to set the administrator default, open a new conversation, verify the chosen model, leave untrusted MCP endpoints disabled, and record which diagnostic fixes require explicit approval before a tool runs.",
+        "why_it_matters": "An agent's nominal model and tool inventory should be treated as configuration-controlled execution inputs. Without an MCP startup boundary, merely entering a development session may activate integrations with broader privileges than intended. Document the approved model, tool-server allowlist, worktree and account context; then deliberately test three cases: passive chat, a code diagnostic and a tool-mediated Fix. Capture session logs and the actual file diff before approving changes. The release gives administrators concrete switches; engineering assurance still requires independent verification against local policy.",
+        "related_coverage": "Compare the policy boundary of IDE tools with the criterion-based evaluation design in the Ironclad research story.",
+        "image_alt_intent": "High-density mechanism diagram of an enterprise JetBrains agent session: managed model default and user picker converge at session initialization, MCP servers pass a disabled-by-default activation gate, diagnostic Fix enters a separately permissioned agent path, and audit/worktree outputs terminate in a reviewed diff.",
+        "permanent_route": "/stories/2026-10-12/jetbrains-agent-model-and-mcp-startup-controls/"
+      },
+      "primary_source": {
+        "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/",
+        "title": "New controls and chat improvements in Copilot for JetBrains",
+        "publisher": "GitHub Changelog",
+        "published_at": "2026-10-10",
+        "retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-12T01:35:16.640Z",
+          "scope": "Complete October 10 GitHub Changelog announcement, including model selection, Fix diagnostic entrypoint, MCP autostart disable option, account/session reliability changes and IDE version deprecation."
+        }
+      },
+      "visual_specification": {
+        "original_image_alt_intent": "High-density mechanism diagram of an enterprise JetBrains agent session: managed model default and user picker converge at session initialization, MCP servers pass a disabled-by-default activation gate, diagnostic Fix enters a separately permissioned agent path, and audit/worktree outputs terminate in a reviewed diff.",
+        "source_faithful_mechanism": "GitHub's October 10 JetBrains release makes two often-hidden engineering decisions explicit: which model starts an agent session and when tool servers are allowed to become active. Enterprise administrators can define the default agent model for new conversations without removing the user-visible picker. A new MCP setting allows automatic server startup for Copilot and Claude to be disabled, making tool activation an intentional operator decision rather than an incidental side effect of opening chat. The diagnostic Fix action now opens inline Copilot chat and selects agent mode when available, falling back to ask mode otherwise. GitHub also lists improvements to account switching, navigation, language-server startup, model-provider switching, customization updates, worktrees and tool-call displays. The plugin has ended support for JetBrains 2025.1. These are product capability changes, not evidence that any particular organization's approval or sandbox policy is correctly configured. For an engineering team, a practical rollout test is to set the administrator default, open a new conversation, verify the chosen model, leave untrusted MCP endpoints disabled, and record which diagnostic fixes require explicit approval before a tool runs.",
+        "explanatory_significance": "An agent's nominal model and tool inventory should be treated as configuration-controlled execution inputs. Without an MCP startup boundary, merely entering a development session may activate integrations with broader privileges than intended. Document the approved model, tool-server allowlist, worktree and account context; then deliberately test three cases: passive chat, a code diagnostic and a tool-mediated Fix. Capture session logs and the actual file diff before approving changes. The release gives administrators concrete switches; engineering assurance still requires independent verification against local policy.",
+        "factual_scope": "Complete October 10 GitHub Changelog announcement, including model selection, Fix diagnostic entrypoint, MCP autostart disable option, account/session reliability changes and IDE version deprecation.",
+        "visible_text_allowlist": [],
+        "labels_authorized": true,
+        "visible_text_required": true,
+        "label_specification_status": "APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS",
+        "label_authority": "Owner requires explanatory text; app prepares exact wording without claiming separate owner review.",
+        "story_fit_infographic_allowed": true,
+        "story_only_clean_context_required": true,
+        "external_operator_must_complete_distinct_mechanism_recipe": true
+      },
+      "expected_stage_path": "external-image-packages/2026-10-12/images/oct12-t1-jetbrains-agent-model-mcp-controls.png",
+      "approval": "NOT_REVIEWED",
+      "accepted_locked": false
+    },
+    {
+      "story_id": "oct12-t2-ironclad-contracting-rubric",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-12/ironclad-criteria-based-computer-use-agent-evaluation/",
+      "complete_compiler_story": {
+        "id": "oct12-t2-ironclad-contracting-rubric",
+        "headline": "OpenAI's Ironclad research exposes why agent evaluation needs rule-by-rule outcomes",
+        "focus": "Technical AI Engineering",
+        "source": {
+          "url": "https://openai.com/index/advancing-computer-use-with-ironclad/",
+          "title": "Advancing computer use with Ironclad",
+          "publisher": "OpenAI",
+          "published_at": "2026-10-06",
+          "retrieved_at": "2026-10-12T01:35:16.640Z",
+          "read_evidence": {
+            "status": "verified",
+            "full_source_read": true,
+            "method": "publisher_main_text",
+            "read_at": "2026-10-12T01:35:16.640Z",
+            "scope": "Full October 6 OpenAI primary research feature, task formation, contracting approval example, 11-task scoring table, model-comparison caveats, synthetic training methodology and footnotes about estimated task times and data."
+          },
+          "reading_estimation_basis": {
+            "source_word_count_estimate": 1050,
+            "source_word_count_method": "publisher article main-text size approximate, exclude navigation"
+          },
+          "freshness_reason": "October 6 primary research provides a uniquely concrete 11-task, 8–50-criterion evaluation method for complex computer use, not replicated by the fresher general announcements; within the permitted seven-day fallback."
+        },
+        "reading_time_minutes": 5,
+        "reading_time_evidence": {
+          "method": "original_publisher_main_text_estimate",
+          "estimated_original_word_count": 1050,
+          "assumed_wpm": 200,
+          "assessed_at": "2026-10-12T01:35:16.640Z",
+          "caveat": "Editorial approximate reading time, not measured reading session"
+        },
+        "topics": [
+          "computer-use evaluation",
+          "rubric design",
+          "business rules",
+          "reinforcement learning",
+          "human review"
+        ],
+        "coverage_labels": [
+          "October 6 first-party research",
+          "justified 168-hour fallback",
+          "11-task scoped benchmark"
+        ],
+        "agent_skills": false,
+        "summary": "OpenAI and contracting software company Ironclad converted specialized professional work into structured research tasks for computer-use agents. Instead of asking whether a contract workflow looks complete, experts specified 11 tasks—such as an NDA process, a procurement approval workflow or a jurisdiction-specific clause—and graded each against 8 to 50 concrete acceptance criteria. The research report illustrates why success depends on preserving business rules throughout a multistep software session. A purchasing process is not correct merely because a form and agreement were generated: spending thresholds must route to Finance, exceptions must reach Security or Legal where required, and requests on either side of a threshold must actually traverse the intended path. The reported comparison used the strongest tested reasoning configurations for each model: a mean rubric score of 55.0% for GPT-6 Astra against 41.6% for GPT-5.6 Sol across those 11 research tasks. Estimated simulated time per attempt declined from 37.0 to 19.2 minutes, but those figures are not observed customer productivity savings. Synthetic practice tasks were derived from filtered public EDGAR contracts, not nonpublic customer contracts. The sample is small and domain-specific; the result should be read as an evaluation-method demonstration, not general proof of autonomous contracting readiness.",
+        "why_it_matters": "This is a reusable engineering pattern for reliable agents: represent the instruction as explicit decision rules, run tasks in a safe replica of the real business application, score the final state against observable criteria, and separately check that prohibited paths never occurred. Use boundary-value examples around approval thresholds and nonstandard terms. Record failed criteria—not just an aggregate percentage—and require human review of any rule-changing action. The business-rule rubric, rather than model fluency, becomes the release gate.",
+        "related_coverage": "The SAP and Gemini stories show why industry-process context and delegated permissions have to accompany such criteria.",
+        "image_alt_intent": "Dimensional cutaway of a contracting computer-use test harness: synthetic agreement requirements feed a decision-rule compiler, finance/legal/security approval branches are exercised in a sandbox application, 8-to-50 criterion checks compare expected with observed states, and failed rule cases return to model-training analysis.",
+        "permanent_route": "/stories/2026-10-12/ironclad-criteria-based-computer-use-agent-evaluation/"
+      },
+      "primary_source": {
+        "url": "https://openai.com/index/advancing-computer-use-with-ironclad/",
+        "title": "Advancing computer use with Ironclad",
+        "publisher": "OpenAI",
+        "published_at": "2026-10-06",
+        "retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-12T01:35:16.640Z",
+          "scope": "Full October 6 OpenAI primary research feature, task formation, contracting approval example, 11-task scoring table, model-comparison caveats, synthetic training methodology and footnotes about estimated task times and data."
+        }
+      },
+      "visual_specification": {
+        "original_image_alt_intent": "Dimensional cutaway of a contracting computer-use test harness: synthetic agreement requirements feed a decision-rule compiler, finance/legal/security approval branches are exercised in a sandbox application, 8-to-50 criterion checks compare expected with observed states, and failed rule cases return to model-training analysis.",
+        "source_faithful_mechanism": "OpenAI and contracting software company Ironclad converted specialized professional work into structured research tasks for computer-use agents. Instead of asking whether a contract workflow looks complete, experts specified 11 tasks—such as an NDA process, a procurement approval workflow or a jurisdiction-specific clause—and graded each against 8 to 50 concrete acceptance criteria. The research report illustrates why success depends on preserving business rules throughout a multistep software session. A purchasing process is not correct merely because a form and agreement were generated: spending thresholds must route to Finance, exceptions must reach Security or Legal where required, and requests on either side of a threshold must actually traverse the intended path. The reported comparison used the strongest tested reasoning configurations for each model: a mean rubric score of 55.0% for GPT-6 Astra against 41.6% for GPT-5.6 Sol across those 11 research tasks. Estimated simulated time per attempt declined from 37.0 to 19.2 minutes, but those figures are not observed customer productivity savings. Synthetic practice tasks were derived from filtered public EDGAR contracts, not nonpublic customer contracts. The sample is small and domain-specific; the result should be read as an evaluation-method demonstration, not general proof of autonomous contracting readiness.",
+        "explanatory_significance": "This is a reusable engineering pattern for reliable agents: represent the instruction as explicit decision rules, run tasks in a safe replica of the real business application, score the final state against observable criteria, and separately check that prohibited paths never occurred. Use boundary-value examples around approval thresholds and nonstandard terms. Record failed criteria—not just an aggregate percentage—and require human review of any rule-changing action. The business-rule rubric, rather than model fluency, becomes the release gate.",
+        "factual_scope": "Full October 6 OpenAI primary research feature, task formation, contracting approval example, 11-task scoring table, model-comparison caveats, synthetic training methodology and footnotes about estimated task times and data.",
+        "visible_text_allowlist": [],
+        "labels_authorized": true,
+        "visible_text_required": true,
+        "label_specification_status": "APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS",
+        "label_authority": "Owner requires explanatory text; app prepares exact wording without claiming separate owner review.",
+        "story_fit_infographic_allowed": true,
+        "story_only_clean_context_required": true,
+        "external_operator_must_complete_distinct_mechanism_recipe": true
+      },
+      "expected_stage_path": "external-image-packages/2026-10-12/images/oct12-t2-ironclad-contracting-rubric.png",
+      "approval": "NOT_REVIEWED",
+      "accepted_locked": false
+    },
+    {
+      "story_id": "oct12-k1-gemini-business-context-agent",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-12/gemini-agent-context-skills-enterprise-governance/",
+      "complete_compiler_story": {
+        "id": "oct12-k1-gemini-business-context-agent",
+        "headline": "Google's Gemini agent turns cross-app context, skills and governance into a work system",
+        "focus": "Applied Generative AI for Knowledge Workers",
+        "source": {
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026/",
+          "title": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+          "publisher": "Google Cloud",
+          "published_at": "2026-10-08",
+          "retrieved_at": "2026-10-12T01:35:16.640Z",
+          "read_evidence": {
+            "status": "verified",
+            "full_source_read": true,
+            "method": "publisher_main_text",
+            "read_at": "2026-10-12T01:35:16.640Z",
+            "scope": "Complete Thomas Kurian Gemini at Work October 8 keynote article: unified agent and coworker roles, agent/subagent identity, four memory types, registry of tools and skills, Workspace assistance, analytics, sector specializations, sandbox/network gateway, authorization and budget controls."
+          },
+          "reading_estimation_basis": {
+            "source_word_count_estimate": 2750,
+            "source_word_count_method": "publisher article main-text size approximate, exclude navigation"
+          },
+          "freshness_reason": "October 8 keynote is the original architectural announcement containing distinct cross-app agent, skills, memory and policy specifications; retained within seven days because no equivalent newer primary walkthrough was available."
+        },
+        "reading_time_minutes": 14,
+        "reading_time_evidence": {
+          "method": "original_publisher_main_text_estimate",
+          "estimated_original_word_count": 2750,
+          "assumed_wpm": 200,
+          "assessed_at": "2026-10-12T01:35:16.640Z",
+          "caveat": "Editorial approximate reading time, not measured reading session"
+        },
+        "topics": [
+          "context engineering",
+          "enterprise agents",
+          "cross-app workflows",
+          "memory",
+          "agent identity"
+        ],
+        "coverage_labels": [
+          "October 8 primary cloud announcement",
+          "extended fallback for major enterprise architecture",
+          "governed knowledge-work design"
+        ],
+        "agent_skills": false,
+        "summary": "At Gemini at Work 2026, Google Cloud announced a universal Gemini agent intended to combine answering, drafting, data analysis, media generation and tool-using execution across documents, email, chat and connected business systems. Its architecture has four separate ingredients: persistent contextual memory, modular task skills, connector-backed tools and policies that govern the agent's authority. The keynote describes background task execution, on-demand subagents with task-specific identities, and longer-lived coworker agents whose context and permissions are supplied by a team. It also describes session, semantic, procedural and episodic memory, rather than treating every interaction as a fresh prompt. Within Workspace, examples include extracting a meeting's participants from a chat space, finding calendar openings, or responding to a project-update request by assembling a sheet and presentation. The broader enterprise design adds a skills registry, tool registry, data-catalog grounding, industry-specific packages and model routing. Google says agent actions are attributed to identities in audit logs and controlled by role-based permissions, a sandbox and a policy-enforcing network gateway. A number of large customer adoption or productivity figures appear in the keynote and should be treated as Google-reported outcomes, not independently verified causal estimates. The announcement describes capabilities and direction; enterprises must check their own edition, geography and rollout availability.",
+        "why_it_matters": "A productive cross-application assistant is a workflow architecture, not a more elaborate prompt. Knowledge workers should identify where authoritative context lives, what systems the agent may read, which actions it may take and which decisions require human confirmation. A practical pilot is a read-only project briefing spanning email, source documents and a status table. Verify every cited fact, inspect the exact access footprint, then selectively enable reversible write actions. Govern the memory and permissions that survive between jobs, rather than assuming the interface boundary limits data access.",
+        "related_coverage": "SAP's Joule uses process graphs and deterministic business rules for a complementary governance model.",
+        "image_alt_intent": "Exposed enterprise knowledge-agent architecture: four memory strata surround a scoped agent core, trusted source registries feed grounding, modular skills select approved tools, Workspace and external application connectors cross an identity-and-authorization barrier, and sandbox gateway/audit controls bound outgoing actions.",
+        "permanent_route": "/stories/2026-10-12/gemini-agent-context-skills-enterprise-governance/"
+      },
+      "primary_source": {
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026/",
+        "title": "Welcome to Gemini at Work 2026: Introducing the Gemini agent",
+        "publisher": "Google Cloud",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-12T01:35:16.640Z",
+          "scope": "Complete Thomas Kurian Gemini at Work October 8 keynote article: unified agent and coworker roles, agent/subagent identity, four memory types, registry of tools and skills, Workspace assistance, analytics, sector specializations, sandbox/network gateway, authorization and budget controls."
+        }
+      },
+      "visual_specification": {
+        "original_image_alt_intent": "Exposed enterprise knowledge-agent architecture: four memory strata surround a scoped agent core, trusted source registries feed grounding, modular skills select approved tools, Workspace and external application connectors cross an identity-and-authorization barrier, and sandbox gateway/audit controls bound outgoing actions.",
+        "source_faithful_mechanism": "At Gemini at Work 2026, Google Cloud announced a universal Gemini agent intended to combine answering, drafting, data analysis, media generation and tool-using execution across documents, email, chat and connected business systems. Its architecture has four separate ingredients: persistent contextual memory, modular task skills, connector-backed tools and policies that govern the agent's authority. The keynote describes background task execution, on-demand subagents with task-specific identities, and longer-lived coworker agents whose context and permissions are supplied by a team. It also describes session, semantic, procedural and episodic memory, rather than treating every interaction as a fresh prompt. Within Workspace, examples include extracting a meeting's participants from a chat space, finding calendar openings, or responding to a project-update request by assembling a sheet and presentation. The broader enterprise design adds a skills registry, tool registry, data-catalog grounding, industry-specific packages and model routing. Google says agent actions are attributed to identities in audit logs and controlled by role-based permissions, a sandbox and a policy-enforcing network gateway. A number of large customer adoption or productivity figures appear in the keynote and should be treated as Google-reported outcomes, not independently verified causal estimates. The announcement describes capabilities and direction; enterprises must check their own edition, geography and rollout availability.",
+        "explanatory_significance": "A productive cross-application assistant is a workflow architecture, not a more elaborate prompt. Knowledge workers should identify where authoritative context lives, what systems the agent may read, which actions it may take and which decisions require human confirmation. A practical pilot is a read-only project briefing spanning email, source documents and a status table. Verify every cited fact, inspect the exact access footprint, then selectively enable reversible write actions. Govern the memory and permissions that survive between jobs, rather than assuming the interface boundary limits data access.",
+        "factual_scope": "Complete Thomas Kurian Gemini at Work October 8 keynote article: unified agent and coworker roles, agent/subagent identity, four memory types, registry of tools and skills, Workspace assistance, analytics, sector specializations, sandbox/network gateway, authorization and budget controls.",
+        "visible_text_allowlist": [],
+        "labels_authorized": true,
+        "visible_text_required": true,
+        "label_specification_status": "APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS",
+        "label_authority": "Owner requires explanatory text; app prepares exact wording without claiming separate owner review.",
+        "story_fit_infographic_allowed": true,
+        "story_only_clean_context_required": true,
+        "external_operator_must_complete_distinct_mechanism_recipe": true
+      },
+      "expected_stage_path": "external-image-packages/2026-10-12/images/oct12-k1-gemini-business-context-agent.png",
+      "approval": "NOT_REVIEWED",
+      "accepted_locked": false
+    },
+    {
+      "story_id": "oct12-k2-sap-joule-process-context",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-12/joule-enterprise-process-graph-and-oversight/",
+      "complete_compiler_story": {
+        "id": "oct12-k2-sap-joule-process-context",
+        "headline": "SAP's Joule shows how enterprise agents need process graphs and deterministic controls",
+        "focus": "Applied Generative AI for Knowledge Workers",
+        "source": {
+          "url": "https://news.sap.com/2026/10/sap-connect-keynote-autonomous-enterprise-in-action/",
+          "title": "SAP Showcases the Autonomous Enterprise in Action",
+          "publisher": "SAP News Center",
+          "published_at": "2026-10-07",
+          "retrieved_at": "2026-10-12T01:35:16.640Z",
+          "read_evidence": {
+            "status": "verified",
+            "full_source_read": true,
+            "method": "publisher_main_text",
+            "read_at": "2026-10-12T01:35:16.640Z",
+            "scope": "Full October 7 SAP Connect keynote report, three Joule Work pillars, Business AI platform graph/context layer, enterprise agents/assistants, deterministic process controls, example customers, risk tiers and three human oversight modes."
+          },
+          "reading_estimation_basis": {
+            "source_word_count_estimate": 1250,
+            "source_word_count_method": "publisher article main-text size approximate, exclude navigation"
+          },
+          "freshness_reason": "This October 7 first-party keynote supplies specific process-graph, deterministic-workflow and human-oversight mechanics unavailable in the fresher generic product releases; retained as a verified within-seven-day architecture source."
+        },
+        "reading_time_minutes": 6,
+        "reading_time_evidence": {
+          "method": "original_publisher_main_text_estimate",
+          "estimated_original_word_count": 1250,
+          "assumed_wpm": 200,
+          "assessed_at": "2026-10-12T01:35:16.640Z",
+          "caveat": "Editorial approximate reading time, not measured reading session"
+        },
+        "topics": [
+          "enterprise process automation",
+          "knowledge graphs",
+          "governance",
+          "ERP AI",
+          "human oversight"
+        ],
+        "coverage_labels": [
+          "October 7 original SAP keynote",
+          "justified 168-hour fallback",
+          "business process control"
+        ],
+        "agent_skills": false,
+        "summary": "SAP's October 7 account of SAP Connect separates the conversational interface from the enterprise systems that make an AI action legitimate. Joule Work is presented through three pillars: conversations for questions and delegation, shared spaces that show business context and work, and Joule Studio for customizing agent behavior. Underneath, SAP positions its Business AI Platform and Knowledge Graph as the source of process relationships, data definitions, application APIs and business rules. The keynote's central distinction is between probabilistic model outputs and operational actions carried out through deterministic application workflows. A procurement or finance agent should not simply infer what an approval means from a chat response; it should use the correct application context, role permissions, established rules and auditable workflow execution. SAP also describes an Autonomous Suite spanning finance, procurement, supply chain, HR and customer experience, with customers choosing different levels of autonomy by process risk. Chief Security Officer Marielle Ehrmann outlined three distinct human controls: approval before consequential actions, monitoring during permitted operation and override authority when operators need to regain control. Several counts of agents and productivity improvements are SAP-reported and should not be read as independent verification of deployment success.",
+        "why_it_matters": "A knowledge worker implementing AI inside ERP, HR or finance should map the process and business data before selecting a model. Build a simple approval matrix identifying who owns an agent, which records it can see, which transaction thresholds it may handle and how its decisions are logged. Separate read-only explanation from action execution and test exceptions—missing supplier data, nonstandard terms and failed approvals. The strongest design keeps the model flexible in interpretation while the system of record retains authoritative control over transactions.",
+        "related_coverage": "Google's cross-app context story shows similar needs for identity and access; the Ironclad story supplies evaluable rule tests.",
+        "image_alt_intent": "Detailed SAP-style generic process mechanism without logos: natural-language conversation and shared workspace feed a process knowledge graph, business record schemas and deterministic workflow engine; risk-tiered approval, monitoring and override tracks control actions before an audited enterprise transaction.",
+        "permanent_route": "/stories/2026-10-12/joule-enterprise-process-graph-and-oversight/"
+      },
+      "primary_source": {
+        "url": "https://news.sap.com/2026/10/sap-connect-keynote-autonomous-enterprise-in-action/",
+        "title": "SAP Showcases the Autonomous Enterprise in Action",
+        "publisher": "SAP News Center",
+        "published_at": "2026-10-07",
+        "retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-12T01:35:16.640Z",
+          "scope": "Full October 7 SAP Connect keynote report, three Joule Work pillars, Business AI platform graph/context layer, enterprise agents/assistants, deterministic process controls, example customers, risk tiers and three human oversight modes."
+        }
+      },
+      "visual_specification": {
+        "original_image_alt_intent": "Detailed SAP-style generic process mechanism without logos: natural-language conversation and shared workspace feed a process knowledge graph, business record schemas and deterministic workflow engine; risk-tiered approval, monitoring and override tracks control actions before an audited enterprise transaction.",
+        "source_faithful_mechanism": "SAP's October 7 account of SAP Connect separates the conversational interface from the enterprise systems that make an AI action legitimate. Joule Work is presented through three pillars: conversations for questions and delegation, shared spaces that show business context and work, and Joule Studio for customizing agent behavior. Underneath, SAP positions its Business AI Platform and Knowledge Graph as the source of process relationships, data definitions, application APIs and business rules. The keynote's central distinction is between probabilistic model outputs and operational actions carried out through deterministic application workflows. A procurement or finance agent should not simply infer what an approval means from a chat response; it should use the correct application context, role permissions, established rules and auditable workflow execution. SAP also describes an Autonomous Suite spanning finance, procurement, supply chain, HR and customer experience, with customers choosing different levels of autonomy by process risk. Chief Security Officer Marielle Ehrmann outlined three distinct human controls: approval before consequential actions, monitoring during permitted operation and override authority when operators need to regain control. Several counts of agents and productivity improvements are SAP-reported and should not be read as independent verification of deployment success.",
+        "explanatory_significance": "A knowledge worker implementing AI inside ERP, HR or finance should map the process and business data before selecting a model. Build a simple approval matrix identifying who owns an agent, which records it can see, which transaction thresholds it may handle and how its decisions are logged. Separate read-only explanation from action execution and test exceptions—missing supplier data, nonstandard terms and failed approvals. The strongest design keeps the model flexible in interpretation while the system of record retains authoritative control over transactions.",
+        "factual_scope": "Full October 7 SAP Connect keynote report, three Joule Work pillars, Business AI platform graph/context layer, enterprise agents/assistants, deterministic process controls, example customers, risk tiers and three human oversight modes.",
+        "visible_text_allowlist": [],
+        "labels_authorized": true,
+        "visible_text_required": true,
+        "label_specification_status": "APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS",
+        "label_authority": "Owner requires explanatory text; app prepares exact wording without claiming separate owner review.",
+        "story_fit_infographic_allowed": true,
+        "story_only_clean_context_required": true,
+        "external_operator_must_complete_distinct_mechanism_recipe": true
+      },
+      "expected_stage_path": "external-image-packages/2026-10-12/images/oct12-k2-sap-joule-process-context.png",
+      "approval": "NOT_REVIEWED",
+      "accepted_locked": false
+    },
+    {
+      "story_id": "oct12-a1-license-provenance-agent-skill",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-12/reusable-agent-skill-license-and-provenance-intake/",
+      "complete_compiler_story": {
+        "id": "oct12-a1-license-provenance-agent-skill",
+        "headline": "Build an Agent Skill that checks license, provenance and side effects before use",
+        "focus": "Agents for Everyone",
+        "source": {
+          "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+          "title": "83% of Agent Skills have no license",
+          "publisher": "SkillMD Blog",
+          "published_at": "2026-10-10",
+          "retrieved_at": "2026-10-12T01:35:16.640Z",
+          "read_evidence": {
+            "status": "verified",
+            "full_source_read": true,
+            "method": "publisher_main_text",
+            "read_at": "2026-10-12T01:35:16.640Z",
+            "scope": "Complete October 10 SkillMD registry analysis: survey denominators, sampling query boundaries, license normalization table, repository-license caveat, frontmatter example, SPDX and lint suggestions."
+          },
+          "reading_estimation_basis": {
+            "source_word_count_estimate": 640,
+            "source_word_count_method": "publisher article main-text size approximate, exclude navigation"
+          }
+        },
+        "reading_time_minutes": 3,
+        "reading_time_evidence": {
+          "method": "original_publisher_main_text_estimate",
+          "estimated_original_word_count": 640,
+          "assumed_wpm": 200,
+          "assessed_at": "2026-10-12T01:35:16.640Z",
+          "caveat": "Editorial approximate reading time, not measured reading session"
+        },
+        "topics": [
+          "Agent Skills",
+          "license metadata",
+          "provenance",
+          "supply chain review",
+          "safe adoption"
+        ],
+        "coverage_labels": [
+          "October 10 original registry measurement",
+          "reusable Agent Skills practice",
+          "license-scope caveat"
+        ],
+        "agent_skills": true,
+        "summary": "A new SkillMD registry count illustrates an avoidable weakness in reusable agent instructions: provenance and permissions are often invisible to the person or agent copying them. The site's October 10 query found that 901,653 of 1,081,266 indexed public SKILL.md files—83.4%—lacked a populated license field in their own frontmatter. That figure measures one metadata field in one indexed population, not the proportion of skills that are legally unlicensed. The survey deliberately did not inspect repository-level LICENSE files, which may grant rights even when frontmatter is blank. Where license strings were present, authors used inconsistent free-text forms such as Apache 2.0 versus Apache-2.0, complicating automated policy checks. Turn this observation into a practical Agent Skill named third-party-skill-intake. Its trigger is 'review this external SKILL.md before our team uses it.' Require the exact source URL and pinned commit; read the complete SKILL.md and associated scripts; inspect frontmatter license and the containing repository's LICENSE; normalize only recognizable SPDX identifiers and mark ambiguous permissions for legal review; enumerate network, filesystem, credential and command side effects; simulate or manually review with all external writes disabled; request approval from a named owner; finally output an intake record with source commit, observed permission terms, tool/secret scope, unresolved risks, test result and an explicit adopt/reject decision. Never execute the candidate skill merely to inspect it.",
+        "why_it_matters": "A skill is operational instruction, not harmless reference text. Copying it into a workspace can silently expand an agent's behaviors and create intellectual-property or security exposure. The reusable intake procedure is lightweight enough for a non-developer to follow: pin provenance, inspect declared rights, identify the actual executable capabilities, keep permissions off by default and require a sign-off before installation. A missing frontmatter field alone must never be misreported as definitive lack of a repository license.",
+        "related_coverage": "The JetBrains MCP startup story addresses the tool-execution half of the same third-party instruction trust boundary.",
+        "image_alt_intent": "Textbook mechanism cross-section of a third-party Agent Skill intake: immutable source commit and SKILL.md pass through metadata SPDX normalization and repository-license fallback, script/tool side-effect inspection, sandbox test with outbound actions blocked, named human approval and a final adopt-or-reject audit record.",
+        "permanent_route": "/stories/2026-10-12/reusable-agent-skill-license-and-provenance-intake/",
+        "agent_skills_evidence": "Reusable trigger: 'Review this external SKILL.md before our team adopts it.' Required input: full source URL, immutable commit and intended use. Procedure: read full SKILL.md and any referenced scripts; inspect YAML license and repository LICENSE (do not infer absent legal rights from missing frontmatter); normalize SPDX only where unambiguous; inventory network/filesystem/credential side effects; simulate with all writes and network disabled; escalate unknown terms and high-risk tools to human approver. Output a structured receipt with source ref, license evidence, side effects, approver, test results and ACCEPT/REJECT. Do not execute the unreviewed candidate skill."
+      },
+      "primary_source": {
+        "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+        "title": "83% of Agent Skills have no license",
+        "publisher": "SkillMD Blog",
+        "published_at": "2026-10-10",
+        "retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-12T01:35:16.640Z",
+          "scope": "Complete October 10 SkillMD registry analysis: survey denominators, sampling query boundaries, license normalization table, repository-license caveat, frontmatter example, SPDX and lint suggestions."
+        }
+      },
+      "visual_specification": {
+        "original_image_alt_intent": "Textbook mechanism cross-section of a third-party Agent Skill intake: immutable source commit and SKILL.md pass through metadata SPDX normalization and repository-license fallback, script/tool side-effect inspection, sandbox test with outbound actions blocked, named human approval and a final adopt-or-reject audit record.",
+        "source_faithful_mechanism": "A new SkillMD registry count illustrates an avoidable weakness in reusable agent instructions: provenance and permissions are often invisible to the person or agent copying them. The site's October 10 query found that 901,653 of 1,081,266 indexed public SKILL.md files—83.4%—lacked a populated license field in their own frontmatter. That figure measures one metadata field in one indexed population, not the proportion of skills that are legally unlicensed. The survey deliberately did not inspect repository-level LICENSE files, which may grant rights even when frontmatter is blank. Where license strings were present, authors used inconsistent free-text forms such as Apache 2.0 versus Apache-2.0, complicating automated policy checks. Turn this observation into a practical Agent Skill named third-party-skill-intake. Its trigger is 'review this external SKILL.md before our team uses it.' Require the exact source URL and pinned commit; read the complete SKILL.md and associated scripts; inspect frontmatter license and the containing repository's LICENSE; normalize only recognizable SPDX identifiers and mark ambiguous permissions for legal review; enumerate network, filesystem, credential and command side effects; simulate or manually review with all external writes disabled; request approval from a named owner; finally output an intake record with source commit, observed permission terms, tool/secret scope, unresolved risks, test result and an explicit adopt/reject decision. Never execute the candidate skill merely to inspect it.",
+        "explanatory_significance": "A skill is operational instruction, not harmless reference text. Copying it into a workspace can silently expand an agent's behaviors and create intellectual-property or security exposure. The reusable intake procedure is lightweight enough for a non-developer to follow: pin provenance, inspect declared rights, identify the actual executable capabilities, keep permissions off by default and require a sign-off before installation. A missing frontmatter field alone must never be misreported as definitive lack of a repository license.",
+        "factual_scope": "Complete October 10 SkillMD registry analysis: survey denominators, sampling query boundaries, license normalization table, repository-license caveat, frontmatter example, SPDX and lint suggestions.",
+        "visible_text_allowlist": [],
+        "labels_authorized": true,
+        "visible_text_required": true,
+        "label_specification_status": "APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS",
+        "label_authority": "Owner requires explanatory text; app prepares exact wording without claiming separate owner review.",
+        "story_fit_infographic_allowed": true,
+        "story_only_clean_context_required": true,
+        "external_operator_must_complete_distinct_mechanism_recipe": true
+      },
+      "expected_stage_path": "external-image-packages/2026-10-12/images/oct12-a1-license-provenance-agent-skill.png",
+      "approval": "NOT_REVIEWED",
+      "accepted_locked": false
+    },
+    {
+      "story_id": "oct12-a2-smb-agent-delegation",
+      "permanent_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-12/small-business-bounded-agent-role-playbook/",
+      "complete_compiler_story": {
+        "id": "oct12-a2-smb-agent-delegation",
+        "headline": "For small teams, the useful agent pattern is a bounded role with measurable work",
+        "focus": "Agents for Everyone",
+        "source": {
+          "url": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/",
+          "title": "Empowering SMBs to do more with Gemini",
+          "publisher": "Google Cloud",
+          "published_at": "2026-10-08",
+          "retrieved_at": "2026-10-12T01:35:16.640Z",
+          "read_evidence": {
+            "status": "verified",
+            "full_source_read": true,
+            "method": "publisher_main_text",
+            "read_at": "2026-10-12T01:35:16.640Z",
+            "scope": "Complete Sharon Prosser October 8 SMB article: announced agent availability status, small-business role examples, connector/model/cost controls, named customer case categories, support-document and marketing use cases and recommended learning resources."
+          },
+          "reading_estimation_basis": {
+            "source_word_count_estimate": 1050,
+            "source_word_count_method": "publisher article main-text size approximate, exclude navigation"
+          },
+          "freshness_reason": "The October 8 Google Cloud SMB guide is the source of a differentiated small-team implementation blueprint and explicit early-access constraints; fresher general enterprise articles do not supply its role-based examples."
+        },
+        "reading_time_minutes": 5,
+        "reading_time_evidence": {
+          "method": "original_publisher_main_text_estimate",
+          "estimated_original_word_count": 1050,
+          "assumed_wpm": 200,
+          "assessed_at": "2026-10-12T01:35:16.640Z",
+          "caveat": "Editorial approximate reading time, not measured reading session"
+        },
+        "topics": [
+          "small business",
+          "agent delegation",
+          "workflow design",
+          "spend controls",
+          "human-in-loop"
+        ],
+        "coverage_labels": [
+          "October 8 primary SMB article",
+          "extended fallback for implementation value",
+          "early-access availability noted"
+        ],
+        "agent_skills": false,
+        "summary": "Google Cloud's October 8 SMB guide reframes the agent as a narrowly assigned team role rather than a universal replacement for staff. For a small business it suggests practical roles—bookkeeping assistant, inventory coordinator, marketing consultant or project manager—and emphasizes connections to the systems the team already uses. Google lists tools such as Shopify, Slack, Salesforce, Notion and Box alongside document and collaboration applications. The claimed advantages come from continuity of context, selecting models appropriate to task complexity and billing controls that cap project-level spend. Real customer examples span automating technical support, formatting learning materials against approved templates, indexing internal knowledge and processing logistics documents. The article also points readers toward training paths for Workspace, data transformation and custom agents. Importantly, Google said the new universal Gemini agent was in early access for SMB customers at publication time, with broader availability to follow; a reader should not assume immediate access on every plan. Customer time or error reductions are illustrative, vendor-reported case studies, not independently audited causal outcomes. The broadly reusable idea is a job design: one agent owns a bounded information flow, operates on approved systems and returns evidence the business can inspect.",
+        "why_it_matters": "A small team can pilot an agent without automating purchases or customer commitments. Choose a recurrent task such as turning a customer request into a draft response and a proposed inventory check. Allow the agent to read only the approved mailbox and inventory export, prohibit outbound sending or stock adjustments, and have an owner approve the final action. Measure first-pass accuracy, time saved after review, mistakes caught, cost per completed item and how often access permissions must change. Expand autonomy only when these observations justify it.",
+        "related_coverage": "Use the reusable Skill intake process before expanding a small team's agent to third-party instructions.",
+        "image_alt_intent": "Mechanism infographic of a small-business customer inquiry routed to a bounded assistant role, with a read-only CRM and inventory snapshot, drafting and confidence checks, project budget meter, human approval barrier, and an auditable customer-response and inventory-update outcome.",
+        "permanent_route": "/stories/2026-10-12/small-business-bounded-agent-role-playbook/"
+      },
+      "primary_source": {
+        "url": "https://cloud.google.com/blog/topics/startups/how-to-grow-your-small-business-using-google-gemini/",
+        "title": "Empowering SMBs to do more with Gemini",
+        "publisher": "Google Cloud",
+        "published_at": "2026-10-08",
+        "retrieved_at": "2026-10-12T01:35:16.640Z",
+        "verified_read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-12T01:35:16.640Z",
+          "scope": "Complete Sharon Prosser October 8 SMB article: announced agent availability status, small-business role examples, connector/model/cost controls, named customer case categories, support-document and marketing use cases and recommended learning resources."
+        }
+      },
+      "visual_specification": {
+        "original_image_alt_intent": "Mechanism infographic of a small-business customer inquiry routed to a bounded assistant role, with a read-only CRM and inventory snapshot, drafting and confidence checks, project budget meter, human approval barrier, and an auditable customer-response and inventory-update outcome.",
+        "source_faithful_mechanism": "Google Cloud's October 8 SMB guide reframes the agent as a narrowly assigned team role rather than a universal replacement for staff. For a small business it suggests practical roles—bookkeeping assistant, inventory coordinator, marketing consultant or project manager—and emphasizes connections to the systems the team already uses. Google lists tools such as Shopify, Slack, Salesforce, Notion and Box alongside document and collaboration applications. The claimed advantages come from continuity of context, selecting models appropriate to task complexity and billing controls that cap project-level spend. Real customer examples span automating technical support, formatting learning materials against approved templates, indexing internal knowledge and processing logistics documents. The article also points readers toward training paths for Workspace, data transformation and custom agents. Importantly, Google said the new universal Gemini agent was in early access for SMB customers at publication time, with broader availability to follow; a reader should not assume immediate access on every plan. Customer time or error reductions are illustrative, vendor-reported case studies, not independently audited causal outcomes. The broadly reusable idea is a job design: one agent owns a bounded information flow, operates on approved systems and returns evidence the business can inspect.",
+        "explanatory_significance": "A small team can pilot an agent without automating purchases or customer commitments. Choose a recurrent task such as turning a customer request into a draft response and a proposed inventory check. Allow the agent to read only the approved mailbox and inventory export, prohibit outbound sending or stock adjustments, and have an owner approve the final action. Measure first-pass accuracy, time saved after review, mistakes caught, cost per completed item and how often access permissions must change. Expand autonomy only when these observations justify it.",
+        "factual_scope": "Complete Sharon Prosser October 8 SMB article: announced agent availability status, small-business role examples, connector/model/cost controls, named customer case categories, support-document and marketing use cases and recommended learning resources.",
+        "visible_text_allowlist": [],
+        "labels_authorized": true,
+        "visible_text_required": true,
+        "label_specification_status": "APP_MUST_PREPARE_SOURCE_SUPPORTED_EXACT_LABELS",
+        "label_authority": "Owner requires explanatory text; app prepares exact wording without claiming separate owner review.",
+        "story_fit_infographic_allowed": true,
+        "story_only_clean_context_required": true,
+        "external_operator_must_complete_distinct_mechanism_recipe": true
+      },
+      "expected_stage_path": "external-image-packages/2026-10-12/images/oct12-a2-smb-agent-delegation.png",
+      "approval": "NOT_REVIEWED",
+      "accepted_locked": false
+    }
+  ],
+  "replacement_contract": {
+    "requires_six_differentiated_approved_exact_pngs": true,
+    "external_app_separate_project": true,
+    "primary_scheduler_independent": true,
+    "protected_pr_exact_head_ci": true,
+    "no_semantic_rewrite": true,
+    "preserve_all_oct8_live_hashes": true
+  }
+}

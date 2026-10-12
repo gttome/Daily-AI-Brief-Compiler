@@ -10,7 +10,7 @@
     const images=[...content.querySelectorAll('img')].filter(img=>{
       try{const u=new URL(img.currentSrc||img.src,document.baseURI);
         return u.protocol==='https:' && u.hostname==='gttome.github.io' &&
-          /^\/Daily-AI-Brief-Compiler\/briefs\/images\/20\d{2}-\d{2}-\d{2}\/dab-edition-20\d{2}-\d{2}-\d{2}-m(01|02|10|11|12|14)\.png$/.test(u.pathname);
+          /^\/Daily-AI-Brief-Compiler-Compiler\/briefs\/images\/20\d{2}-\d{2}-\d{2}\/dab-edition-20\d{2}-\d{2}-\d{2}-m(01|02|10|11|12|14)\.png$/.test(u.pathname);
       }catch{return false;}
     });
     if(!images.length)return;
