@@ -44,6 +44,14 @@
       "correction": "Record persisted_git_binary after immutable commit readback and saved-pixel inspection, then rebind the manifest and assignment.",
       "pages_changed": false,
       "art_regenerated": false
+    },
+    {
+      "phase": "exact_git_cat_file_readback",
+      "issue": "Node's default child-process output buffer raised ENOBUFS for premium PNG blobs above one MiB.",
+      "correction": "Protected PR #172 raised only the git cat-file buffer to 8 MiB and added a deterministic greater-than-one-MiB regression fixture.",
+      "code_fix_merge_sha": "2048a3660e37dd242059e54d79409e99c77b6d2b",
+      "pages_changed": false,
+      "art_regenerated": false
     }
   ],
   "continuity": {
