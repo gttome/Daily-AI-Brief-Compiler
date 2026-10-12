@@ -23,22 +23,26 @@ test('C5: independent synthetic full-gate fixture is PRE_RUN_GO only',()=>{
  assert.equal(evaluateCompilerReadiness(good).status,'PRE_RUN_GO');
  assert.equal(evaluateCompilerReadiness(good).publication_status,'NOT_PROVEN_BY_PRE_RUN_ADMISSION');
 });
-test('C5: actual initial observed situation no C2/C3 live evidence stays NO_GO',()=>{
- const r=evaluateCompilerReadiness({...good,c2:{status:'UNPROVEN'},c3:{status:'UNPROVEN'}});
- assert.equal(r.status,'UNATTENDED_NO_GO');
- assert.ok(r.blockers.includes('C2_ORDINARY_SCHEDULED_MODE_UNPROVEN'));
- assert.ok(r.blockers.includes('C3_SAME_CONTEXT_GITHUB_WRITE_UNPROVEN'));
+test('C5: absent or unsuitable chat type and C2/C3 proofs never block production',()=>{
+ const r=evaluateCompilerReadiness({...good,c2:{status:'UNPROVEN',mode:'work'},c3:{status:'UNPROVEN'}});
+ assert.equal(r.status,'PRE_RUN_GO');
+ assert.equal(r.chat_type_admission_required,false);
+ assert.equal(r.c2_c3_diagnostic_proofs_required,false);
+ assert.deepEqual(r.blockers,[]);
 });
 test('C5: C1 reversed disabled means NO_GO, even if everything else is intact',()=>{
  const r=evaluateCompilerReadiness({...good,task:{...good.task,is_enabled:false}});
  assert.equal(r.status,'UNATTENDED_NO_GO');
 });
-test('C5: C2/C3 different invocation, exact-head mismatch, missing oct8 protects fail closed',()=>{
+test('C5: exact-head mismatch and missing Oct8 integrity fail closed regardless of chat metadata',()=>{
  const x=evaluateCompilerReadiness({...good,
-  c3:{...good.c3,invocation_id:'different-invocation'},
+  c2:{mode:'codex'},c3:{invocation_id:'different-invocation'},
   github:{...good.github,ci_commit_sha:'e'.repeat(40)},
   history:{...good.history,oct8_protected_count:16}});
- assert.equal(x.status,'UNATTENDED_NO_GO');assert.ok(x.blockers.length>=3);
+ assert.equal(x.status,'UNATTENDED_NO_GO');
+ assert.ok(x.blockers.includes('EXACT_HEAD_PROTECTED_GITHUB_NOT_PROVEN'));
+ assert.ok(x.blockers.includes('HISTORICAL_INTEGRITY_UNPROVEN'));
+ assert.equal(x.blockers.length,2);
 });
 test('C5: versioned OFF selector forbids falsely green fallback',()=>{
  assert.equal(evaluateCompilerReadiness(good,{selector:'off'}).status,'UNATTENDED_NO_GO');

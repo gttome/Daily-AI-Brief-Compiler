@@ -1,5 +1,8 @@
 # Work-native Premium Image Automation — Qualification and Selected Route
 
+
+> **CURRENT OPERATING OVERRIDE — October 11, 2026:** The owner withdrew **ALL chat-type and scheduler invocation mode/identity gates**. This file's October 10 scheduled Work probe is historical capability evidence only. Nothing below authorizes a new Work-mode precondition, C2/C3/C5 diagnostic, host invocation ID check, or stop merely because an actual connected executor reports another chat mode. The two existing tasks retain their schedules. Actual native image generation, 8-bit RGB/RGBA 1200×630 PNG exact bytes, saved-pixel inspections, connected GitHub immutable readback, protected PR/CI/Pages and current-edition gates remain mandatory. Operative instructions are the October 11 revision of `docs/automation/TWO_TASK_DAILY_RUNBOOK.md` and `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV8.md`. Do not represent the historical probe as a current six-image release.
+
 **Evidence date:** October 10, 2026  
 **Status:** `SCHEDULED_WORK_NATIVE_PNG_GITHUB_PROBE_PASS / FIRST_SIX_IMAGE_PRODUCTION_PENDING`  
 **Production repository:** `gttome/Daily-AI-Brief-Compiler` exclusively. **Never write:** `gttome/Daily-AI-Brief`.  
