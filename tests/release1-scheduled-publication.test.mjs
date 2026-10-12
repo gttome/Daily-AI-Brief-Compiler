@@ -44,6 +44,56 @@ function valid(){
 test('Release 1 evidence gate accepts a valid complete editorial package independently of image generation',()=>{
  const p=valid();assert.equal(validateNewPendingEditorial(p).result,'PASS');
 });
+
+function validOctober13ReaderDensity(){
+ const p=valid();
+ p.bundle.edition_date='2026-10-13';
+ p.state.edition_date='2026-10-13';
+ p.state.branch='shadow/2026-10-13';
+ p.state.execution_id='reader-density-proof-2026-10-13';
+ p.bundle.stories.forEach((s,i)=>{
+   s.source.published_at='2026-10-12T13:00:00Z';
+   s.source.retrieved_at='2026-10-12T18:00:00Z';
+   s.source.read_evidence.read_at='2026-10-12T18:00:00Z';
+   s.topics=['agent systems','evidence checks','human decisions'];
+   s.summary=Array.from({length:52},(_,n)=>['Verified','source','evidence','explains','the','mechanism','and','its','scope'][n%9]).join(' ');
+   s.why_it_matters=Array.from({length:39},(_,n)=>['Professional','users','can','assess','the','decision','boundary','and','test','results'][n%10]).join(' ');
+ });
+ p.bundle.videos.forEach(v=>{v.original_date='2026-10-12';v.verification.checked_at='2026-10-12T18:00:00Z';});
+ p.bundle.podcasts.forEach(v=>{v.original_date='2026-10-12';v.verification.checked_at='2026-10-12T18:00:00Z';});
+ p.bundle.watchlist.refreshed_at='2026-10-12T18:00:00Z';
+ return p;
+}
+test('October 13 reader copy matches concise October 8 length baseline',()=>{
+ const p=validOctober13ReaderDensity();
+ assert.equal(validateNewPendingEditorial(p).result,'PASS');
+});
+test('October 13 reader density rejects excess Topics, Summary and impact words independently',()=>{
+ const variants=[
+  p=>{p.bundle.stories[0].topics.push('fourth topic');},
+  p=>{p.bundle.stories[0].topics[1]='agent systems';},
+  p=>{p.bundle.stories[0].topics[1]='one two three four five';},
+  p=>{p.bundle.stories[1].summary=Array(61).fill('source').join(' ');},
+  p=>{p.bundle.stories[1].summary=Array(44).fill('source').join(' ');},
+  p=>{p.bundle.stories[2].why_it_matters=Array(46).fill('decision').join(' ');},
+  p=>{p.bundle.stories[2].why_it_matters=Array(31).fill('decision').join(' ');}
+ ];
+ for(const change of variants){
+   const p=validOctober13ReaderDensity();
+   change(p);
+   assert.throws(()=>validateNewPendingEditorial(p),/Release 1 editorial evidence: story/);
+ }
+});
+test('October 12 and earlier historical copy is not invalidated by October 13 limits',()=>{
+ const p=valid();
+ p.bundle.stories.forEach(s=>{
+   s.topics=['old','long','historical','topic'];
+   s.summary=Array(200).fill('historic').join(' ');
+   s.why_it_matters=Array(80).fill('historic').join(' ');
+ });
+ assert.equal(validateNewPendingEditorial(p).result,'PASS');
+});
+
 test('pending production gate rejects missing original-source reads, fake URLs, stale stories and unverified media',()=>{
  const cases=[
  p=>{delete p.bundle.stories[0].source.read_evidence;},

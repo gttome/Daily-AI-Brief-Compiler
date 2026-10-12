@@ -11,6 +11,29 @@ function httpsUrl(v,name){
 function narrative(s,name,min=16){
   if(typeof s!=='string'||s.trim().length<min) fail(name+' incomplete');
 }
+
+// Reader density acceptance starts with the October 13 edition. Earlier immutable
+// editions must never be rejected retroactively for historical copy lengths.
+const READER_DENSITY_START='2026-10-13';
+const editorialWordCount=value=>
+  (String(value??'').match(/\b[\w]+(?:['’\-][\w]+)*\b/g)||[]).length;
+function enforceReaderDensity(story,index){
+  const num=index+1;
+  const topics=story.topics;
+  if(!Array.isArray(topics)||topics.length!==3||topics.some(x=>
+    typeof x!=='string'||!x.trim()||editorialWordCount(x)>4)||
+    new Set(topics.map(x=>x.trim().toLocaleLowerCase())).size!==3)
+    fail('story '+num+' Topics must contain exactly 3 distinct short phrases (1-4 words each)');
+  for(const [name,value,min,max] of [
+    ['Summary',story.summary,45,60],
+    ['Why it matters / What you’ll learn',story.why_it_matters,32,45]
+  ]){
+    const words=editorialWordCount(value);
+    if(words<min||words>max)
+      fail('story '+num+' '+name+' must have '+min+'-'+max+' words; found '+words);
+  }
+}
+
 export function validateNewPendingEditorial({bundle,state}){
   if(bundle.fixture_only||bundle.producer_receipt?.preview_only)fail('fixtures/previews cannot be production editions');
   if(state.state!=='BUNDLE_READY'||state.stage!=='BUNDLE')fail('a new pending release needs a sealed BUNDLE_READY execution');
@@ -27,6 +50,7 @@ export function validateNewPendingEditorial({bundle,state}){
     narrative(story.summary,'story summary '+(i+1),35);
     narrative(story.why_it_matters,'Why it matters '+(i+1),25);
     narrative(story.image_alt_intent,'story illustration description '+(i+1),28);
+    if(bundle.edition_date>=READER_DENSITY_START)enforceReaderDensity(story,i);
     const published=time(story.source.published_at,'original story publication '+(i+1));
     const retrieved=time(story.source.retrieved_at,'source retrieved '+(i+1));
     const age=(noon-published)/3600000;

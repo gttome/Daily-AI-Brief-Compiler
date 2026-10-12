@@ -29,6 +29,19 @@ Use original publication date, not modification time.
 
 Each story requires a headline, source date, authoritative/credible source, professional explanatory diagram, substantive summary, Why it matters, reading-time estimate, focus/category, reader-facing topics/coverage labels where used, and permanent story route.
 
+## October 13 and later reader-density requirement
+
+The October 8, 2026 published Brief is the normative *reader-length* exemplar, not a requirement to reduce factual research or source verification. For every **new edition dated October 13, 2026 or later**, each of the six article stories must have:
+
+- **Topics:** exactly 3 distinct concise keyword phrases, each 1–4 words.
+- **Summary:** **45–60 words**, grounded in actual verified source facts.
+- **Why it matters:** **32–45 words**, communicating a professional consequence or decision rather than repeating the Summary.
+- **What you'll learn:** **32–45 words**, conveying a reader capability or outcome. The current canonical reader derives this block from the same story-level `why_it_matters` field, so that field's 32–45-word bound applies to both rendered sections.
+
+These limits apply to the *reader-facing editorial text*, not full publisher reading/evidence records, underlying research capsules, image specifications, or immutable historical content. **Do not truncate using CSS or blind programmatic slicing.** Rewrite only the invalid new story while retaining the facts, citations and accepted content, before sealing its new immutable bundle.
+
+The Release 1 validator enforces word counts and topic cardinality as a hard gate on new editions beginning October 13. The canonical homepage, dated Brief and permanent pages must show equivalent concise copy. The October 8–12 corpus remains unchanged and must never retroactively fail or be republished.
+
 ## Media
 
 - 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
