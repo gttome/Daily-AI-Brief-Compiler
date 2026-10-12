@@ -21,9 +21,16 @@ function png(seed){
   const width=1200,height=630,ihdr=Buffer.alloc(13);
   ihdr.writeUInt32BE(width,0);ihdr.writeUInt32BE(height,4);ihdr[8]=8;ihdr[9]=6;
   const row=width*4+1,raw=Buffer.alloc(row*height);
+  let state=(0x9e3779b9^seed)>>>0;
+  const next=()=>{state^=state<<13;state^=state>>>17;state^=state<<5;return state&255;};
   for(let y=0;y<height;y++){
     raw[y*row]=0;
-    for(let x=0;x<width;x++){const k=y*row+1+x*4;raw[k]=(x+seed*11)&255;raw[k+1]=(y+seed*19)&255;raw[k+2]=seed;raw[k+3]=255;}
+    for(let x=0;x<width;x++){
+      const k=y*row+1+x*4;
+      if(seed===1){raw[k]=next();raw[k+1]=next();raw[k+2]=next();}
+      else{raw[k]=(x+seed*11)&255;raw[k+1]=(y+seed*19)&255;raw[k+2]=seed;}
+      raw[k+3]=255;
+    }
   }
   return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',ihdr),chunk('IDAT',zlib.deflateSync(raw)),chunk('IEND',Buffer.alloc(0))]);
 }
@@ -59,6 +66,7 @@ function stagedFixture(t){
 }
 test('external app needs no chat-session metadata; six committed PNGs remain byte-, git-, and size-bound',async t=>{
   const f=stagedFixture(t),receipt=validateExternalImagePackage(f);
+  assert.ok(f.manifest.images[0].bytes>1024*1024,'fixture exercises git cat-file output above Node default maxBuffer');
   assert.equal(receipt.result,'STAGED_ONLY');
   assert.equal(receipt.exact_git_readback,true);
   assert.equal(receipt.release_ready,false);
@@ -93,4 +101,5 @@ test('all 17 October 8 pins are present; bad HTTP and bad byte hashes fail close
   assert.throws(()=>auditOct8Response(route,404,Buffer.alloc(0)),/live_http/);
   assert.throws(()=>auditOct8Response(route,200,Buffer.from('wrong')),/live_oct8_hash/);
 });
+
 

@@ -45,7 +45,11 @@ function git(cwd,args){return execFileSync('git',args,{cwd,encoding:'utf8'}).tri
 function exactGitBytes(root,relative,expectedBlob){
   const blob=git(root,['rev-parse','HEAD:'+relative]);
   if(blob!==expectedBlob)fail('file_not_at_exact_commit:'+relative);
-  return execFileSync('git',['cat-file','blob',expectedBlob],{cwd:root,encoding:'buffer'});
+  return execFileSync('git',['cat-file','blob',expectedBlob],{
+    cwd:root,
+    encoding:'buffer',
+    maxBuffer:8*1024*1024
+  });
 }
 export function inspectCommittedImage({repoRoot,relative,expectedSha256,expectedBlob,expectedBytes}){
   if(!SHA256.test(expectedSha256)||!SHA1.test(expectedBlob)||!Number.isSafeInteger(expectedBytes))fail('invalid_image_digest_claim');
@@ -138,4 +142,5 @@ async function main(){
   process.stdout.write(JSON.stringify({result:remote.result,exact_remote_six_image_readback:true,release_ready:false})+'\n');
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))await main();
+
 
