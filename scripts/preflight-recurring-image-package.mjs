@@ -93,6 +93,13 @@ function verifySourceBundle(root,job){
     src.bundle_path!=='shadow-runs/'+date+'/edition-bundle.json')
     fail('SOURCE_COMMIT_AND_BUNDLE_PATH_INVALID');
   git(root,['cat-file','-e',src.commit_sha+'^{commit}']);
+  // An existent object is insufficient: it must be reachable from the current
+  // exact-date production source branch fetched immediately before admission.
+  const sourceRef='refs/remotes/origin/shadow/'+date;
+  try{
+    git(root,['rev-parse','--verify',sourceRef]);
+    git(root,['merge-base','--is-ancestor',src.commit_sha,sourceRef]);
+  }catch{fail('SOURCE_COMMIT_NOT_IN_CURRENT_DATE_BRANCH');}
   const bytes=readGit(root,src.commit_sha+':'+src.bundle_path);
   if(hash(bytes)!==src.bundle_sha256)fail('SOURCE_BUNDLE_BYTES_HASH_MISMATCH');
   return {source_commit_sha:src.commit_sha,source_bundle_sha256:hash(bytes)};
