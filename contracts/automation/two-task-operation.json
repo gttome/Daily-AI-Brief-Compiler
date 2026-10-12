@@ -1,6 +1,6 @@
 {
   "schema_version": "daily-compiler-two-task-operation-v1",
-  "phase": "REV8_COMPATIBILITY_PREPARED_PENDING_SCHEDULED_RUNTIME_QUALIFICATION",
+  "phase": "ACTIVE_TWO_PRIMARY_TASKS_NO_CHAT_TYPE_GATES",
   "repository": "gttome/Daily-AI-Brief-Compiler",
   "forbidden_write_repository": "gttome/Daily-AI-Brief",
   "timezone": "America/Chicago",
@@ -10,15 +10,29 @@
     "compiler": {
       "id": "6ac9868490b88191ac91f84d5f555994",
       "local_time": "19:15",
-      "runtime": "ordinary_scheduled_chatgpt",
-      "required_capabilities": ["connected_github_read", "connected_github_write", "same_invocation_exact_readback"],
-      "forbidden": ["work", "codex", "paid_api"]
+      "runtime": "any_chat_type_with_connected_github",
+      "required_capabilities": [
+        "connected_github_read",
+        "connected_github_write",
+        "exact_content_readback"
+      ],
+      "forbidden": [
+        "paid_api"
+      ]
     },
     "images": {
       "id": "6acac88cff048191ba02e5b2bcb3becb",
       "local_time": "21:15",
-      "runtime": "scheduled_work",
-      "required_capabilities": ["native_image_creation", "exact_png_export", "saved_pixel_inspection", "connected_github_binary_write", "exact_commit_readback", "protected_merge_and_deploy", "desktop_and_mobile_pixel_review"]
+      "runtime": "any_chat_type_with_actual_native_image_creation",
+      "required_capabilities": [
+        "native_image_creation",
+        "exact_png_export",
+        "saved_pixel_inspection",
+        "connected_github_binary_write",
+        "exact_commit_readback",
+        "protected_merge_and_deploy",
+        "desktop_and_mobile_pixel_review"
+      ]
     }
   },
   "max_enabled_chatgpt_production_tasks": 2,
@@ -28,7 +42,14 @@
   "already_released_image_job_action": "NO_OP",
   "missing_current_image_job_action": "WAITING_SOURCE_NO_GENERATION",
   "prior_cycle_failure_blocks_next_cycle": false,
-  "required_daily_reports": ["compiler.json", "compiler.md", "images.json", "images.md", "daily-rollup.json", "daily-rollup.md"],
+  "required_daily_reports": [
+    "compiler.json",
+    "compiler.md",
+    "images.json",
+    "images.md",
+    "daily-rollup.json",
+    "daily-rollup.md"
+  ],
   "reporting": {
     "runtime": "deterministic_github_actions",
     "workflow": ".github/workflows/daily-operations-report.yml",
@@ -38,7 +59,16 @@
     "report_missing_start_receipt_as": "NO_START_RECEIPT",
     "never_infer_first_party_scheduled_mode": true
   },
-  "activation_requires": ["real_compiler_scheduled_mode_and_github_proof", "real_image_scheduled_work_creation_and_github_proof", "protected_ci", "protected_release_route", "saved_task_readback"],
+  "activation_requires": [
+    "real_github_read_write",
+    "actual_image_creation_export_and_github_binary_readback",
+    "protected_ci",
+    "protected_release_route",
+    "saved_task_readback"
+  ],
   "observation_days_min": 7,
-  "observation_days_max": 14
+  "observation_days_max": 14,
+  "chat_type_admission_enabled": false,
+  "scheduler_invocation_id_admission_enabled": false,
+  "c2_c3_proof_admission_enabled": false
 }
