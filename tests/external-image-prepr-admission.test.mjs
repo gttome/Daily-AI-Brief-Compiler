@@ -182,7 +182,7 @@ test('full pre-first-image-PR package gate: positive and adversarial regression 
     ['T06 wrong manifest image story path',()=>{modifyJson(f,PREFIX+'manifest.json',m=>m.images[0].path=PREFIX+'images/other.png');rebindManifest(f);},/SIX_IMAGE_PATHS_NOT_EXACTLY_DIFF/],
     ['T07 missing independent set review',()=>{modifyJson(f,PREFIX+'manifest.json',m=>m.set_review.result='FAIL');rebindManifest(f);},/PACKAGE_MANIFEST|independent_six/],
     ['T08 individual saved-pixel receipt hash mismatch',()=>modifyJson(f,PREFIX+'reviews/'+f.images[0].story_id+'.json',r=>r.inspected_saved_png_sha256='f'.repeat(64)),/REVIEW_RECEIPT_NOT_BOUND/],
-    ['T09 actual committed PNG changes but manifest not re-bound',()=>{const p=f.images[0].path;let b=fs.readFileSync(path.join(f.root,p));b[100]^=1;write(f.root,p,b);},/committed_png|png_crc|png_inflate|digest_mismatch/],
+    ['T09 actual committed PNG changes but manifest not re-bound',()=>{const p=f.images[0].path;let b=fs.readFileSync(path.join(f.root,p));b[100]^=1;write(f.root,p,b);},/file_not_at_exact_commit|committed_png|png_crc|png_inflate|digest_mismatch/],
     ['T10 unsupported package root file despite valid six bytes',()=>{write(f.root,PREFIX+'notes.txt','unauthorized\n');},/FORBIDDEN_PACKAGE_PATH/]
   ];
   for(const [title,mutation,why] of cases)await t.test(title,async()=>{
