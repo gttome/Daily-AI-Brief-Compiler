@@ -24,6 +24,10 @@ Produce exactly six source-backed original stories in 2/2/2 order, including one
 
 Save actual full evidence and exact-byte digest-backed `shadow-runs/YYYY-MM-DD/edition-bundle.json` and `compiler-state.json` in `shadow/YYYY-MM-DD`. Existing `bundle-ready-signal.yml` → protected-main `shadow-compile.yml` must provide genuine GitHub Pages deployment, independent live checks and unchanged 17 October 8 objects before declaring success. Image generation is not an editorial publishing dependency.
 
+### October 13+ concise reader-copy gate (required before BUNDLE_READY)
+
+Match the published October 8 editorial density. For each of six **new Oct 13+ stories** produce **exactly 3 distinct Topics** (each at most 4 words); **Summary 45–60 words**; **Why it matters 32–45 words**. The canonical reader uses the Why field for the visible **What you'll learn**, so it must also be **32–45 words**, factual and outcome oriented. Preserve full research/evidence separately. Correct any noncompliant new story before sealing; the protected deterministic editorial validator rejects out-of-bound copy. Do not clip, blindly truncate, or revise/reseal published October 8–12 editions. Keep source freshness, media, images, Watchlist and all-four-book requirements unchanged.
+
 ## 4. Image acceptance and release
 
 Selected contract: `recurring_work_v8:rev8`; owner standing authority `contracts/automation/recurring-image-authorization.json`. Rev8 requires `external-image-packages/YYYY-MM-DD/recurring-assignment.json` with exact cycle/task/source/job/manifest SHA-256s and six accepted hash pairs, plus `image_execution_evidence` demonstrating genuine generation count, actual 1200×630 RGB/RGBA PNG export, exact GitHub binary SHA-256 readback, source manifest hash and six passing saved-pixel reviews. **No chat or scheduler mode proof.**
