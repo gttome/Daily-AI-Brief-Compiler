@@ -12,6 +12,11 @@
 
 ---
 
+> [!NOTE]
+> **Post-report next-cycle correction (October 11, 2026, ~22:50 CDT).** The October 13 upstream editorial density fix is now **merged and verified** in protected [PR #176](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/176), [CI 38201237573](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38201237573) SUCCESS; the saved 19:15 Compiler primary instruction is synchronized. The same existing 21:15 Chicago image task was restored and read back, and the completed October 12 hourly incident watch and redundant one-time schedule-restorer were disabled. Only the **next natural October 13 source-job and image scheduled execution** can demonstrate uninterrupted future autonomy. Per-package path/enum preflight remains a process acceptance check and is **not** claimed code-fixed merely by these reports.
+
+---
+
 ## Contents
 
 1. [Executive scorecard](#1-executive-scorecard)
