@@ -1,0 +1,58 @@
+{
+  "schema_version": "external-image-after-action-v8",
+  "edition_date": "2026-10-12",
+  "cycle_date": "2026-10-11",
+  "status": "PACKAGE_STAGED_PENDING_PROTECTED_PR",
+  "source": {
+    "job_sha256": "bbfcf47319771f23107569639d66c878b6f0cefdc165d9b829af76e37ef907d2",
+    "bundle_sha256": "6be70d9db13ca43759cedcb899b8663cabdd3483e9498ac6d46b16af57193b15",
+    "source_commit_sha": "7038f92bec84b6548cfaae23b38e33ef2b1b303c",
+    "pages_history_head": "41c86885bb7f5ed4bed1268456a5ba901c770524"
+  },
+  "production": {
+    "actual_generation_count": 13,
+    "accepted_count": 6,
+    "rejected_count": 7,
+    "saved_pixel_reviews_passed": 6,
+    "set_review": "PASS",
+    "exact_png_export": "PASS",
+    "github_binary_stage_commit": "a6c3686a5578e4afc1dc325cfac44454db82a0c1",
+    "github_blob_readback": "PASS"
+  },
+  "usage": {
+    "weekly_usage_measurement": "UNKNOWN",
+    "reason": "No authoritative per-run or weekly usage telemetry was exposed; no estimate was fabricated.",
+    "efficiency_target": "under 5% weekly usage"
+  },
+  "errors": [
+    {
+      "phase": "binary_transport",
+      "issue": "Single-call tool output truncated base64 for PNGs near or above one megabyte.",
+      "correction": "Used deterministic fixed-offset base64 segments, reconstructed exact bytes, and required returned Git blob IDs to match locally computed Git object IDs.",
+      "art_regenerated": false
+    }
+  ],
+  "continuity": {
+    "next_cycle": "Select only the next Chicago cycle edition if PUBLISHED_PENDING; never reopen this package.",
+    "accepted_art_locked": true
+  },
+  "efficiency_proposals": [
+    "Keep story mechanism and label freeze before generation.",
+    "Retain one-image-at-a-time correction and lock accepted pixels immediately.",
+    "Use segmented binary transport proactively for files above 750 kB.",
+    "Rely on one protected package PR and automatic image-only release.",
+    "Carry forward correction taxonomy to avoid humanoid, pseudo-writing and topology defects."
+  ],
+  "release": {
+    "pr": null,
+    "required_ci": "PENDING",
+    "merge_sha": null,
+    "workflow_run": null,
+    "pages": "PENDING",
+    "live_png_hashes": "PENDING",
+    "pairings_12": "PENDING",
+    "context_reviews_24": "PENDING",
+    "oct8_objects_17": "PENDING"
+  }
+}
+
