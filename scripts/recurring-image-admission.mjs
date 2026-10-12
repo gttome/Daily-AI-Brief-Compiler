@@ -12,7 +12,7 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
    policy.owner_identity!=='gttome'||policy.decision!=='STANDING_FUTURE_ONLY'||
    policy.repository!=='gttome/Daily-AI-Brief-Compiler'||policy.task_id!=='6acac88cff048191ba02e5b2bcb3becb'||
    policy.active_when_selected!==true||policy.revocation?.enabled!==false||
-   policy.requires_scheduled_work_mode!==true||policy.requires_actual_image_creation!==true||
+   policy.requires_scheduled_work_mode!==false||policy.requires_actual_image_creation!==true||
    policy.requires_same_invocation_connected_github!==true||
    policy.manual_github_pr_approval_bypass_allowed!==false)fail('STANDING_AUTHORITY_INACTIVE_OR_INCONSISTENT');
  if(!Buffer.isBuffer(jobBytes)||!Buffer.isBuffer(manifestBytes))fail('EXACT_BYTES_REQUIRED');
@@ -33,38 +33,19 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
  }catch{fail('INVALID_CYCLE_BINDING');}
  if(date!==expected||date<policy.first_authorized_edition_date||
    a.cycle_date<policy.effective_cycle_date)fail('NOT_CURRENT_AUTHORIZED_CYCLE');
- const sched=a.scheduled_runtime_evidence;
- const workMode=['work','WORK_CODEX'].includes(sched?.mode);
- const firstPartySchedulerProof=sched?.source==='first_party_scheduler'&&
-   typeof sched.host_invocation_id==='string'&&sched.host_invocation_id.length>=8;
- // Some real scheduled Work environments expose the native image and connected
- // GitHub tools but no internal scheduler invocation ID. Such an ID can never
- // be invented. The alternate route is explicitly marked unproven on host
- // provenance, and demands genuine image/export/Git evidence tied to package
- // bytes. This is NOT a substitution for pixel, CI or deployment gates.
- const observedWorkRoute=sched?.source==='scheduled_task_runtime_observation'&&
-   (sched.host_invocation_id===null||sched.host_invocation_id===undefined)&&
-   ['image_gen__imagegen','image_gen'].includes(sched.runtime_tool_evidence?.native_image_tool_name)&&
-   sched.runtime_tool_evidence?.actual_generation_count>=6&&
-   sched.runtime_tool_evidence?.exact_png_1200x630_export_observed===true&&
-   sched.runtime_tool_evidence?.github_binary_sha256_readback_observed===true&&
-   sched.runtime_tool_evidence?.original_manifest_sha256===manifestHash&&
-   sched.runtime_tool_evidence?.six_actual_saved_pixel_reviews_passed===true;
- if(sched?.task_id!==policy.task_id||!workMode||
-   (!firstPartySchedulerProof&&!observedWorkRoute)||
-   sched?.native_image_creation_observed!==true||
-   sched?.same_invocation_github_binary_readback_observed!==true||
-   sched?.actual_saved_pixel_review_observed!==true||
-   !Number.isFinite(Date.parse(sched.scheduled_for))||
-   !Number.isFinite(Date.parse(sched.observed_at)))
-   fail('REAL_SCHEDULED_WORK_EVIDENCE_NOT_SUPPLIED');
- // The genuinely observed host schedule binds the cycle, not a later release clock.
- const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',
-   year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'})
-   .formatToParts(new Date(sched.scheduled_for));
- const part=type=>parts.find(x=>x.type===type)?.value;
- if(part('year')+'-'+part('month')+'-'+part('day')!==a.cycle_date||
-   part('hour')!=='21'||part('minute')!=='15')fail('SCHEDULE_IS_NOT_THIS_EVENING');
+ // Owner explicitly withdrew every chat-type and scheduler-invocation identity gate.
+ // Admission instead checks real generation/export, saved-pixel inspection and
+ // committed GitHub binary evidence, plus the immutable date/source bindings below.
+ const evidence=a.image_execution_evidence;
+ if(!evidence||!Number.isInteger(evidence.actual_generation_count)||
+   evidence.actual_generation_count<6||
+   evidence.exact_png_1200x630_export_observed!==true||
+   evidence.github_binary_sha256_readback_observed!==true||
+   evidence.six_actual_saved_pixel_reviews_passed!==true||
+   evidence.original_manifest_sha256!==manifestHash)
+   fail('REAL_IMAGE_EXPORT_GITHUB_AND_PIXEL_EVIDENCE_REQUIRED');
+ // Neither mode labels nor a first-party scheduler invocation identifier are
+ // required, inferred, inspected or certified by this release gate.
  if(job.schema_version!=='external-compiler-image-job-v1'||job.lifecycle!=='PUBLISHED_PENDING'||
    !Array.isArray(job.stories)||job.stories.length!==6||
    new Set(job.stories.map(x=>x.story_id)).size!==6||
@@ -104,10 +85,11 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
   original_source_commit_sha:job.source.commit_sha,
   original_bundle_sha256:job.source.bundle_sha256,
   accepted_images:manifest.images.map(x=>({story_id:x.story_id,sha256:x.sha256})),
-  scheduled_runtime_claim_requires_first_party_confirmation:!firstPartySchedulerProof,
-  scheduled_host_invocation_id_verified:firstPartySchedulerProof,
-  runtime_observed_image_github_route:observedWorkRoute,
-  ci_does_not_independently_attest_chatgpt_work_mode:true,
+  chat_type_admission_required:false,
+  scheduler_invocation_id_admission_required:false,
+  actual_image_creation_and_github_evidence_required:true,
+  actual_generation_count:evidence.actual_generation_count,
+  runtime_tool_provenance_claimed:false,
   manual_release_go_not_required:true,
   actual_protected_pr_ci_merge_and_live_checks_still_required:true
  };
