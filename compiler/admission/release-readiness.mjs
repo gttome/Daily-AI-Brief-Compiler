@@ -1,9 +1,9 @@
-// C5: projection only. The production admission/publisher remains unchanged.
-// Never reinterpret an absent or obsolete historical receipt as proof of an unattended run.
+// C5: observational projection only; never a publisher admission gate.
+// Owner withdrew chat-type and C2/C3 runtime identity requirements on Oct 11.
+// This projection checks one owner task, edition identity and actual protected/public evidence.
 export const C5_VERSION='c5-release-readiness-v1';
 export const REQUIRED_PRIMARY='6ac9868490b88191ac91f84d5f555994';
 const sha40=s=>typeof s==='string'&&/^[0-9a-f]{40}$/.test(s);
-const id=x=>typeof x==='string'&&x.length>=6;
 const report=(status,blockers,extra={})=>Object.freeze({
  schema_version:C5_VERSION,status,blockers:[...new Set(blockers)],...extra
 });
@@ -42,18 +42,8 @@ export function evaluateCompilerReadiness(input={}, {selector='v1'}={}){
     input.same_date_guard?.unique!==true || input.same_date_guard?.authority!=='live_repo_branch_readback' ||
     input.same_date_guard?.target_edition!==requestedEdition)
     blockers.push('SAME_DATE_GUARD_UNPROVEN');
- const c2=input.c2||{},c3=input.c3||{};
- if(c2.status!=='PASS'||c2.authority!=='first_party_scheduled_runtime'||
-    c2.task_id!==REQUIRED_PRIMARY||!id(c2.invocation_id)||
-    !id(c2.evidence_id)||c2.mode!=='ordinary_chat' ||
-    c2.work_used!==false||c2.codex_used!==false)
-    blockers.push('C2_ORDINARY_SCHEDULED_MODE_UNPROVEN');
- if(c3.status!=='PASS'||c3.authority!=='scheduled_same_context_github_readback'||
-    c3.task_id!==REQUIRED_PRIMARY||!id(c3.invocation_id)||
-    !id(c3.evidence_id)||c3.invocation_id!==c2.invocation_id ||
-    !sha40(c3.blob_sha)||typeof c3.sha256!=='string'||!/^[a-f0-9]{64}$/.test(c3.sha256) ||
-    !String(c3.proof_branch||'').startsWith('proof/compiler-c3-'))
-    blockers.push('C3_SAME_CONTEXT_GITHUB_WRITE_UNPROVEN');
+ // Chat type, runtime mode, scheduler invocation ID and C2/C3 diagnostic proof
+ // are never prerequisites for real GitHub editorial or image production.
  const git=input.github||{},history=input.history||{};
  if(!sha40(git.main_sha)||git.protected_main!==true||
     git.exact_head_ci!=='PASS'||git.ci_commit_sha!==git.main_sha ||
@@ -67,6 +57,8 @@ export function evaluateCompilerReadiness(input={}, {selector='v1'}={}){
   edition_date:requestedEdition||null,main_sha:git.main_sha||null,
   record_kind:'OBSERVATIONAL_ADMISSION_PROJECTION',
   authoritativeness:'EVIDENCE_REQUIRED_NOT_INFERRED',
-  publication_status:'NOT_PROVEN_BY_PRE_RUN_ADMISSION'
+  publication_status:'NOT_PROVEN_BY_PRE_RUN_ADMISSION',
+  chat_type_admission_required:false,
+  c2_c3_diagnostic_proofs_required:false
  });
 }
