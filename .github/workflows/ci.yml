@@ -7,6 +7,7 @@ on:
       - main
       - 'implementation/**'
       - 'proof/**'
+      - 'image-package/**'
 
 permissions:
   contents: read
@@ -30,6 +31,26 @@ jobs:
           fi
       - name: Parse nonpublishing operations reporting workflow YAML
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/daily-operations-report.yml
+      - name: Pre-first-PR image-package gate on push and PR (Rev8 only)
+        if: (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/image-package/')) || (github.event_name == 'pull_request' && startsWith(github.head_ref, 'image-package/'))
+        env:
+          CANDIDATE_BRANCH: ${{ github.head_ref || github.ref_name }}
+          CANDIDATE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$CANDIDATE_BRANCH" =~ ^image-package/(20[0-9]{2}-[0-9]{2}-[0-9]{2})-[a-zA-Z0-9_-]+$ ]]
+          TARGET_DATE="${BASH_REMATCH[1]}"
+          CYCLE_DATE="$(node -e "const d=new Date(process.argv[1]+'T00:00:00Z');d.setUTCDate(d.getUTCDate()-1);process.stdout.write(d.toISOString().slice(0,10))" "$TARGET_DATE")"
+          if [ "$(git rev-parse --is-shallow-repository)" = true ]; then git fetch --unshallow origin; fi
+          git fetch origin "+refs/heads/main:refs/remotes/origin/main" \
+            "+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history" \
+            "+refs/heads/shadow/$TARGET_DATE:refs/remotes/origin/shadow/$TARGET_DATE"
+          git fetch origin "$CANDIDATE_HEAD"
+          git cat-file -e "$CANDIDATE_HEAD^{commit}"
+          WORKTREE="$RUNNER_TEMP/image-prepr-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          git worktree add -b "image-package/$TARGET_DATE-ci-admission-$GITHUB_RUN_ATTEMPT" "$WORKTREE" "$CANDIDATE_HEAD"
+          (cd "$WORKTREE" && node scripts/preflight-recurring-image-package.mjs "$CYCLE_DATE" .)
       - run: npm test
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
