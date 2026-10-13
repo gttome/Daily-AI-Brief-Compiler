@@ -119,6 +119,7 @@ jobs:
           else
             git commit -m "Reconcile evidence-backed daily Compiler and image AARs"
             git push origin HEAD:refs/heads/operations-reports
+          fi
           # Portable report archives: original published PNG bytes are read from
           # current protected main and independently SHA-256 checked. They never
           # change published content or add binaries to operations-reports.
@@ -139,4 +140,3 @@ jobs:
           path: ${{ runner.temp }}/unified-aar-offline/
           if-no-files-found: ignore
           retention-days: 90
-          fi
