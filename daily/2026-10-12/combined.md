@@ -16,8 +16,8 @@
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
 | Compiler state duration | **18.0 min** | Persisted state timestamps; not a host scheduler attestation |
-| **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
-| Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
+| **Image processing stage duration** | **18m 04s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
+| Image scheduled-to-final-review window | **38m 09s** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **8** | Image worker AAR; no estimation |
 | Rejected candidates | **2** | Image worker AAR |
@@ -74,17 +74,17 @@ flowchart LR
 
 ### Image production duration — Git-verified milestones
 
-**Auditable image stage duration:** **Not independently recorded** (first accepted binary saved in Git → final 24-context quality-review merge). **First asset to public image release:** **Not independently recorded**.
-**Scheduled-to-final-review window:** **Not independently recorded**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.
+**Auditable image stage duration:** **18m 04s** (first accepted binary saved in Git → final 24-context quality-review merge). **First asset to public image release:** **8m 02s**.
+**Scheduled-to-final-review window:** **38m 09s**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.
 
 | Production milestone | Chicago local time | Evidence |
 |---|---|---|
-| Scheduled image start (if exact-date record exists) | Not independently recorded | Time planned, not actual execution start |
-| First accepted PNG bytes saved to Git | Not independently recorded | Immutable binary-stage commit |
-| Six-image package / reviews committed | Not independently recorded | Exact-head PR source commit |
-| Protected package merged | Not independently recorded | Merge SHA and required CI |
-| Public images verified | Not independently recorded | Image-release receipt |
-| Final 24/24 semantic visual review approved | Not independently recorded | Immutable first review-approval commit |
+| Scheduled image start (if exact-date record exists) | 8:15:00 PM | Time planned, not actual execution start |
+| First accepted PNG bytes saved to Git | 8:35:05 PM | Immutable binary-stage commit |
+| Six-image package / reviews committed | 8:39:30 PM | Exact-head PR source commit |
+| Protected package merged | 8:42:22 PM | Merge SHA and required CI |
+| Public images verified | 8:43:06 PM | Image-release receipt |
+| Final 24/24 semantic visual review approved | 8:53:09 PM | Immutable first review-approval commit |
 
 > **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.
 
