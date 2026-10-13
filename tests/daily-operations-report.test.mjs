@@ -84,8 +84,8 @@ test('workflow cannot trigger publisher, generate content, enable AI tasks, or t
  assert.match(w,/if \[ ! -d daily \]; then/);
  assert.match(w,/NO.?START.?RECEIPT|Reconcile previous 14 cycles/);
  // Incoming workflow_run notification is allowed; this reporter must never dispatch or deploy.
- assert.match(w,/workflow_run:\\s*\\n\\s*workflows:\\s*\\[external-image-only-replacement\\]\\s*\\n\\s*types:\\s*\\[completed\\]/);
- const withoutInboundTrigger=w.replace(/^\\s*workflows:\\s*\\[external-image-only-replacement\\]\\s*$/m,'');
- assert.doesNotMatch(withoutInboundTrigger,/\\b(?:repository_dispatch|actions\\/deploy-pages|render-shadow-images|image-only-replacement)\\b/);
+ assert.match(w,/workflow_run:\s*\n\s*workflows:\s*\[external-image-only-replacement\]\s*\n\s*types:\s*\[completed\]/);
+ const withoutInboundTrigger=w.replace(/^\s*workflows:\s*\[external-image-only-replacement\]\s*$/m,'');
+ assert.doesNotMatch(withoutInboundTrigger,/\b(?:repository_dispatch|actions\/deploy-pages|render-shadow-images|image-only-replacement)\b/);
  assert.doesNotMatch(w,/\b(?:openai|codex|work-execution|genai)\b/i);
 });
