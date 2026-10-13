@@ -113,6 +113,8 @@ flowchart LR
 | **First accepted PNG commit → final QA** | **8:35:05 PM** | **8:53:09 PM** | **18m 04s** | **Git-auditable image processing stage** |
 | **Scheduled start → final QA** | **8:15:00 PM** | **8:53:09 PM** | **38m 09s** | **Schedule-bound window; not a measured native generation start** |
 
+**Verification note:** Because PR #179 used a protected squash merge, the accepted original image-byte and full-package timestamps are read from the exact date-bound source PR history, while the final QA timestamp is read from the protected review-merge history. This preserves a verifiable 18m 04s duration without treating the source commits as ancestors of protected `main`.
+
 **Interpretation for future editions:** The daily AAR will compute image-stage duration from actual accepted-binary Git commit through the first approved 24-context review commit. If an exact, date-scoped scheduled start is separately available, it will display the scheduled-to-review window as a second metric. Unavailable timing evidence appears as **Not independently recorded**, never an estimate.
 
 
