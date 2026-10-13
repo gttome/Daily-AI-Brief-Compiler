@@ -19,15 +19,26 @@ function git(cwd,...args){
 }
 const iso=t=>typeof t==='string'&&Number.isFinite(Date.parse(t))?new Date(t).toISOString():null;
 const difference=(a,b)=>a&&b&&Date.parse(b)>=Date.parse(a)?Number(((Date.parse(b)-Date.parse(a))/1000).toFixed(3)):null;
+function commitExists(cwd,sha){
+ if(!sha40.test(sha??''))return false;
+ try{execFileSync('git',['cat-file','-e',sha+'^{commit}'],{cwd,stdio:'ignore'});return true;}
+ catch{return false;}
+}
 function commitTime(cwd,sha,ref='refs/remotes/origin/main'){
- if(!sha40.test(sha??''))return null;
- if(!git(cwd,'cat-file','-e',sha+'^{commit}')){ // cat-file -e emits no output on success; check below
-   try{execFileSync('git',['cat-file','-e',sha+'^{commit}'],{cwd,stdio:'ignore'});}
-   catch{return null;}
- }
+ if(!commitExists(cwd,sha)||!sha40.test(ref??'')&&!ref?.startsWith('refs/'))return null;
  try{execFileSync('git',['merge-base','--is-ancestor',sha,ref],{cwd,stdio:'ignore'});}
  catch{return null;}
  return iso(git(cwd,'show','-s','--format=%cI',sha));
+}
+function fetchBoundPackageHead(cwd,edition,sha){
+ // The accepted feature commits often disappear from protected main after a squash merge.
+ // Fetch the *exact receipt-bound* feature head, never a guessed previous cycle or another PR.
+ if(!sha40.test(sha??''))return false;
+ if(commitExists(cwd,sha))return true;
+ try{
+   execFileSync('git',['fetch','-q','origin',sha],{cwd,stdio:'ignore',timeout:20000});
+   return commitExists(cwd,sha);
+ }catch{return false;}
 }
 function firstPathCommit(cwd,ref,gitPath){
  // First addition of the real approval receipt, not a subsequent editorial/doc edit.
@@ -43,11 +54,14 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
  const ref='refs/remotes/origin/main';
  const firstSha=aar?.edition_date===edition?aar?.production?.github_binary_stage_commit:null;
  const packageSha=release?.edition_date===edition?release?.exact_head_ci_sha:null;
+ // This is still the original protected PR source head if main used squash merge.
+ // Its Git parent history proves the accepted original binary staging commit.
+ const packageResolved=fetchBoundPackageHead(cwd,edition,packageSha);
  const mergeSha=release?.edition_date===edition?release?.protected_main_commit:null;
  const validRelease=release?.edition_date===edition&&release?.result==='RELEASED_VERIFIED'&&
    release?.images?.length===6;
- const firstAt=commitTime(cwd,firstSha,ref);
- const packageAt=commitTime(cwd,packageSha,ref);
+ const firstAt=packageResolved?commitTime(cwd,firstSha,packageSha):null;
+ const packageAt=packageResolved?commitTime(cwd,packageSha,packageSha):null;
  const mergeAt=commitTime(cwd,mergeSha,ref);
  const releaseAt=validRelease?iso(release.verified_at):null;
  const qaPath='external-image-packages/'+edition+'/reviews/live/image-element24/semantic-reviews.json';
@@ -70,7 +84,7 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
  const result={
   schema_version:'daily-ai-brief-image-stage-timing-v1',
   cycle_date:cycle,edition_date:edition,
-  result:stageSeconds!==null&&validRelease?'DURATIONS_VERIFIED':'INCOMPLETE_SOURCE_TIMING',
+  result:stageSeconds!==null&&validRelease&&packageResolved?'DURATIONS_VERIFIED':'INCOMPLETE_SOURCE_TIMING',
   interpretation:'First accepted binary Git checkpoint to final approved 24-context Git review is an auditable persisted-stage duration, not the precise image-generation runtime.',
   actual_generation_start_attested:false,
   events,
@@ -85,7 +99,7 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
    scheduled_start_to_final_review:scheduledSeconds
   },
   schedule_duration_provenance:scheduleAt?'Owner-approved one-cycle scheduled clock time; not a verified execution-start event.':'No verified per-cycle scheduled start record. Do not infer precise task start from a saved GitHub contract.',
-  timestamp_provenance:'Original accepted binary staging commit, source PR head, protected merge, public Pages release receipt, and first final semantic review commit; all tied to the exact edition.',
+  timestamp_provenance:'Exact source PR head (fetched separately if a squash merge removed ancestry), original accepted binary staging commit as its ancestor, protected main merge, public Pages release receipt and first final semantic review commit; all tied to the exact edition.',
   source_refs:{image_production_aar:aar?.edition_date===edition?'external-image-packages/'+edition+'/reviews/after-action.json':null,
     final_context_review:qa?.at?qaPath:null}
  };
