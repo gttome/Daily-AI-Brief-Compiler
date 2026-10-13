@@ -35,6 +35,16 @@ function fetchBoundPackageHead(cwd,edition,sha){
  // Fetch the *exact receipt-bound* feature head, never a guessed previous cycle or another PR.
  if(!sha40.test(sha??''))return false;
  if(commitExists(cwd,sha))return true;
+ // Prefer an advertised exact-cycle image package branch, if still retained.
+ // Validate it resolves to the same immutable package head bound by the release.
+ const advertised=git(cwd,'ls-remote','--heads','origin','refs/heads/image-package/'+edition+'-*')||'';
+ const exact=advertised.split('\n').map(s=>s.trim().split(/\s+/))
+   .find(([head,ref])=>head===sha&&ref?.startsWith('refs/heads/image-package/'+edition+'-'));
+ if(exact){
+   try{execFileSync('git',['fetch','-q','origin',exact[1]],{cwd,stdio:'ignore',timeout:20000});}
+   catch{/* Fall through to immutable SHA fetching. */}
+   if(commitExists(cwd,sha))return true;
+ }
  try{
    execFileSync('git',['fetch','-q','origin',sha],{cwd,stdio:'ignore',timeout:20000});
    return commitExists(cwd,sha);
