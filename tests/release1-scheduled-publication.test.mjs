@@ -94,6 +94,39 @@ test('October 12 and earlier historical copy is not invalidated by October 13 li
  assert.equal(validateNewPendingEditorial(p).result,'PASS');
 });
 
+function validOctober14WatchlistCopy(){
+ const p=validOctober13ReaderDensity();
+ p.bundle.edition_date='2026-10-14';
+ p.state.edition_date='2026-10-14';
+ p.state.branch='shadow/2026-10-14';
+ p.state.execution_id='watchlist-copy-proof-2026-10-14';
+ p.bundle.watchlist.refreshed_at='2026-10-13T18:00:00Z';
+ const copy={
+   summary:'Agent policy boundaries define what actions an automated browser may safely perform across websites.',
+   why_now:'An October 13 source update raises specific questions about web permissions and isolated evaluation.',
+   practical_value:'A professional team can define tests for approved network access, action logs and human escalation.'
+ };
+ for(const kind of ['new','updated','carried_forward','dropped'])
+   p.bundle.watchlist[kind]=p.bundle.watchlist[kind].map(item=>({...item,...copy}));
+ return p;
+}
+test('October 14 producer requires distinct summary, Why now and Potential value for all Watchlist states',()=>{
+ const p=validOctober14WatchlistCopy();
+ assert.equal(validateNewPendingEditorial(p).result,'PASS');
+ for(const kind of ['new','updated','carried_forward','dropped']){
+   for(const field of ['summary','why_now','practical_value']){
+     const broken=validOctober14WatchlistCopy();delete broken.bundle.watchlist[kind][0][field];
+     assert.throws(()=>validateNewPendingEditorial(broken),/Release 1 editorial evidence: Watchlist/);
+   }
+   const repeated=validOctober14WatchlistCopy();
+   repeated.bundle.watchlist[kind][0].why_now=repeated.bundle.watchlist[kind][0].summary;
+   assert.throws(()=>validateNewPendingEditorial(repeated),/Watchlist.*repeated/);
+ }
+});
+test('October 13 Watchlist history is not retroactively invalidated by October 14 copy gate',()=>{
+ assert.equal(validateNewPendingEditorial(validOctober13ReaderDensity()).result,'PASS');
+});
+
 test('pending production gate rejects missing original-source reads, fake URLs, stale stories and unverified media',()=>{
  const cases=[
  p=>{delete p.bundle.stories[0].source.read_evidence;},
