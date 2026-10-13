@@ -45,3 +45,16 @@ No independent recovery AI schedule is active. Preserve partial valid work and i
 ## 6. Protected deployment and rollback
 
 Every code/contract change requires normal protected PR, exact-head CI and permitted merge; no direct main, force push, disabled checks or bypass. The selected image policy may roll back separately without touching the Compiler, October 8 assets, prior editions or public reader. A saved task and an image-release contract must agree, but neither may impose a chat-type test.
+
+
+## Unified editorial + premium-image after-action report (October 13 onward)
+
+**Primary daily deliverable:** `operations-reports:daily/YYYY-MM-DD/combined.md`, with `combined.json` as its evidence-backed metadata. `YYYY-MM-DD` is the **Chicago evening cycle date**, and the report is labeled for the next-day edition. Keep the separate `compiler.{json,md}`, `images.{json,md}`, and `daily-rollup.{json,md}` as auditable source-specific companions, not competing owner-facing summaries.
+
+The protected `.github/workflows/daily-operations-report.yml` generates and updates the combined report **automatically** after `external-image-only-replacement` completes (GitHub `workflow_run`) and during its existing Chicago 09:00 next-morning reconciliation. The workflow is deterministic and does **not** generate AI content, images, app reports from unsupported claims, add a ChatGPT task, alter schedules, deploy Pages or bypass protected main. It is idempotent and preserves the prior fourteen cycles. Never write a status of COMPLETE unless the Compiler public receipt, six real published PNG hashes and 24 source-matched actual desktop/mobile review records all pass.
+
+A high-design combined `.md` includes color status indicators, GitHub callouts, Mermaid workflow diagrams, KPI tables, six live article images, generation/correction reviews, protected PR/CI/Pages evidence, immutability status, next-cycle readiness and a usage/budget section. Accepted image hashes and reviewed contexts must be read from current-cycle GitHub evidence, not inferred from a scheduled task label or image count.
+
+**Owner-provided Work usage is optional.** If supplied for a specific cycle, store a protected, reviewable JSON record `docs/after-action/usage/YYYY-MM-DD.json` with `cycle_date`, `edition_date`, `work_usage_percent`, source `owner_reported_in_chat`, and `carry_forward_allowed:false`; the unified AAR displays the figure as owner-reported, not as API-metered telemetry. If no record is present, display **Not reported**, publish normally, and never carry a prior cycle's number forward. October 12 evening / October 13 edition had **2% of weekly Work usage**, directly reported by the owner. This is not an estimated rate or a statement of account balance.
+
+**Cycle-start safety:** A missing external chat heartbeat or first-party scheduler attestation is not, by itself, a production failure. Release and quality gates remain artifact-based. Preserve the existing two production tasks and normal 19:15 / 21:15 Chicago times; the October 12 early 20:15 image-time exception is governed by the existing one-time October 13 09:00 restoration task, not by the AAR workflow.
