@@ -26,19 +26,21 @@ function generateUnified(cycle,e) {
   const rejected=imageAar?.production?.rejected_count;
   const accepted=imageAar?.production?.accepted_count;
   const imgb=imagesOk?images.map((i,idx)=>({label:stories.find(s=>s.id===i.story_id)?.headline||i.story_id,...i,attempts:imageAar?.images?.find(a=>a.story_id===i.story_id)?.generation_attempts})): [];
-  const good="![COMPLETE](https://img.shields.io/badge/STATUS-"+badge+"-"+stateColor+"?style=for-the-badge)";
+  // Text and Unicode status colors render without third-party image downloads in Typora and GitHub.
+  const good="**"+(complete?"🟩":"🟨")+" RELEASE "+badge.replaceAll("_"," ")+"**";
+  const indicators="**"+(compilerOk?"🟩":"🟨")+" COMPILER "+(compilerOk?"VERIFIED":"UNVERIFIED")+"** · **"+(imagesOk?"🟦":"🟨")+" IMAGES "+(imagesOk?"6/6 RELEASED":"NOT YET COMPLETE")+"** · **"+(visualOk?"🟪":"🟨")+" VISUAL QA "+(visualOk?"24/24 PASS":"NOT YET VERIFIED")+"**";
   const line=(v)=>v?"✅":"Not yet evidenced";
   const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/image-element24/semantic-reviews.json`],["Original image AAR",`${gh}/blob/main/external-image-packages/${edition}/reviews/after-action.md`]];
   const imgCols=imgb.length===6?["<table>"].concat([0,2,4].map(n=>`<tr><td width="50%"><a href="${pub}${imgb[n].route}"><img src="${pub}${imgb[n].route}" alt="Diagram for ${imgb[n].story_id}" width="420"/></a><br/><b>${nice(imgb[n].label)}</b></td><td width="50%"><a href="${pub}${imgb[n+1].route}"><img src="${pub}${imgb[n+1].route}" alt="Diagram for ${imgb[n+1].story_id}" width="420"/></a><br/><b>${nice(imgb[n+1].label)}</b></td></tr>`)).concat(["</table>"]).join("\n"):"No six-image public release gallery available yet.";
   const md=[
 good,
-`![EDITORIAL](https://img.shields.io/badge/COMPILER-${compilerOk?"VERIFIED":"UNVERIFIED"}-${compilerOk?"087f5b":"d97706"}?style=flat-square) ![IMAGES](https://img.shields.io/badge/IMAGES-${imagesOk?"6%2F6_RELEASED":"NOT_YET_COMPLETE"}-${imagesOk?"155e75":"d97706"}?style=flat-square) ![VISUAL](https://img.shields.io/badge/VISUAL_QA-${visualOk?"24%2F24_PASS":"NOT_YET_VERIFIED"}-${visualOk?"166534":"d97706"}?style=flat-square)`,
+indicators,
 "",
 "# Daily AI Brief — Unified Production After-Action Report",
 `**Edition:** ${dateString} · **Production evening:** ${cycle} · **Timezone:** America/Chicago`,
 `**Primary public reader:** [Open ${edition} Brief](${pub}briefs/${edition}/) · **Repository:** [Daily-AI-Brief-Compiler](${gh})`,
 "",
-"> [!IMPORTANT]",
+"> **IMPORTANT — VERIFIED PRODUCTION RESULT**",
 `> **Executive result: ${badge.replace("_"," ")}.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **${compilerOk?"VERIFIED":"NOT VERIFIED"}**. Image release: **${imagesOk?"RELEASED_VERIFIED":"not complete"}**. Direct 24-context visual quality: **${visualOk?"24/24 PASS":"not yet evidenced"}**. Missing evidence must not be promoted to a success claim.`,
 "",
 "## Performance dashboard",
@@ -57,7 +59,7 @@ good,
 `| October 8 immutable history | **${release?.protected_oct8_objects_verified??integrity?.oct8_protected_count??"Not recorded"} / 17** | Independent content-preservation checks |`,
 `| **Owner-reported weekly Work usage for this run** | **${amount===null?"Not reported":amount+"%"}** | ${amount===null?"No per-cycle usage supplied":"User-reported for this cycle only; not account-metered"} |`,
 "",
-"> [!TIP]",
+"> **EFFICIENCY NOTE**",
 `> **Resource reporting policy:** ${amount===null?"No usage figure was supplied for this cycle, so none is assumed.":"The owner reported "+amount+"% of weekly Work usage for this run; the internal target is under 5%. This number is not GitHub billing telemetry."} Future runs show **Not reported** unless the owner supplies new cycle-specific usage metadata. No approval or extra step is required to generate the AAR.`,
 "",
 "## Production architecture and checkpoints",
@@ -125,7 +127,7 @@ imgCols,
 ...imageAar.errors.map(a=>`| ${nice(a.phase)} | ${nice(a.issue)} | ${nice(a.correction)} |`)
 ]:["No image-stage correction receipts were available for this cycle."]),
 "",
-"> [!NOTE]",
+"> **OPERATIONAL NOTE**",
 "> This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.",
 "",
 "## Usage and cost stewardship",
@@ -151,7 +153,7 @@ imgCols,
 "| AAR | Combined report generated automatically from new GitHub receipts |",
 "| Optional Work usage | Owner-supplied per cycle, otherwise `Not reported` |",
 "",
-"> [!WARNING]",
+"> **SCHEDULE RESTORATION NOTE**",
 "> A temporary scheduling exception must be explicitly restored before claiming standard-time readiness. This deterministic document generator reads existing state only; it does not modify production schedules.",
 "",
 "## Evidence register",

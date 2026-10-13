@@ -47,6 +47,9 @@ test('full source, final release and direct reviews => complete combined report'
  assert.match(md,/mermaid/);
  assert.match(md,/<table>/);
  assert.match(md,/44/);
+ assert.doesNotMatch(md,/img\.shields\.io/);
+ assert.doesNotMatch(md,/> \[!(?:IMPORTANT|TIP|NOTE|WARNING)\]/);
+ assert.match(md,/🟩/);
 });
 test('owner usage is truly optional and never copied from previous cycles',()=>{
  const {meta,md}=run({'owner-usage':null});
