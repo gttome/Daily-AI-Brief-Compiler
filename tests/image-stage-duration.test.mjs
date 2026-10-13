@@ -104,7 +104,7 @@ test('read-only cloned main retrieves exact date-bound original package commit a
   runGit(ctx.d,['push','-q','origin','HEAD:refs/heads/main']);
   runGit(ctx.d,['push','-q','origin','refs/heads/image-package/2026-10-13-recurring-v8:refs/heads/image-package/2026-10-13-recurring-v8']);
   const checkout=path.join(ctx.d,'isolated-checkout');
-  execFileSync('git',['clone','-q','--single-branch','--branch','main',bare,checkout],{cwd:ctx.d});
+  execFileSync('git',['clone','-q','--no-local','--single-branch','--branch','main','file://'+bare,checkout],{cwd:ctx.d});
   // The accepted feature commits were squash-merged, so this clone lacks them.
   assert.throws(()=>execFileSync('git',['cat-file','-e',ctx.pkg+'^{commit}'],{cwd:checkout,stdio:'ignore'}));
   const proc=spawnSync(process.execPath,[script,cycle,ctx.evidence,checkout],{encoding:'utf8'});
