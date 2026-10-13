@@ -16,6 +16,8 @@
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
 | Compiler state duration | **13.6 min** | Persisted state timestamps; not a host scheduler attestation |
+| **Image processing stage duration** | **36m 23s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
+| Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **13** | Image worker AAR; no estimation |
 | Rejected candidates | **7** | Image worker AAR |
@@ -69,6 +71,23 @@ flowchart LR
 ## Track 2 — Premium images
 
 **Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 13 · **Rejected candidates:** 7.
+
+### Image production duration — Git-verified milestones
+
+**Auditable image stage duration:** **36m 23s** (first accepted binary saved in Git → final 24-context quality-review merge). **First asset to public image release:** **21m 34s**.
+**Scheduled-to-final-review window:** **Not independently recorded**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.
+
+| Production milestone | Chicago local time | Evidence |
+|---|---|---|
+| Scheduled image start (if exact-date record exists) | Not independently recorded | Time planned, not actual execution start |
+| First accepted PNG bytes saved to Git | 9:49:32 PM | Immutable binary-stage commit |
+| Six-image package / reviews committed | 10:09:20 PM | Exact-head PR source commit |
+| Protected package merged | 10:10:20 PM | Merge SHA and required CI |
+| Public images verified | 10:11:06 PM | Image-release receipt |
+| Final 24/24 semantic visual review approved | 10:25:55 PM | Immutable first review-approval commit |
+
+> **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.
+
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|

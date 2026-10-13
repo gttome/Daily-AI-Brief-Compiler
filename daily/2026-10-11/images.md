@@ -9,9 +9,9 @@
 | Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
-| Started | UNKNOWN |
-| Finished | 2026-10-12T03:11:06.479Z |
-| Duration (min) | UNKNOWN |
+| Started | 2026-10-12T02:49:32.000Z |
+| Finished | 2026-10-12T03:25:55.000Z |
+| Duration (min) | 36.38 |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
