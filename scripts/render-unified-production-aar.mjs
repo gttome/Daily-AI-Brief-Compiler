@@ -126,7 +126,7 @@ indicators,
 `| Public images verified | ${chicago(timingEvents.public_release_verified_at)} | Image-release receipt |`,
 `| Final 24/24 semantic visual review approved | ${chicago(timingEvents.final_live_review_approved_commit)} | Immutable first review-approval commit |`,
 "",
-> **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.
+"> **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.",
 "",
 "",
 "| Source-bound image | Attempts | File size | Public page |",
