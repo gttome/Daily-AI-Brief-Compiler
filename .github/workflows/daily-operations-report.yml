@@ -9,6 +9,9 @@ on:
       - 'external-image-packages/**/reviews/live/image-element24/semantic-reviews.json'
       - 'docs/after-action/usage/*.json'
       - 'docs/after-action/*-unified-production-aar.md'
+      - 'docs/after-action/timing/*.json'
+      - 'scripts/derive-image-stage-timing.mjs'
+      - 'scripts/render-unified-production-aar.mjs'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
     workflows: [external-image-only-replacement]
