@@ -7,7 +7,7 @@ const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
  'image-job','image-release','image-manifest','image-recurring-assignment',
- 'image-context-verification','image-context-reviews'];
+ 'image-context-verification','image-context-reviews','image-after-action','owner-usage'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -50,7 +50,7 @@ function compilerAar(cycle,date,e){
  const verified=state?.state==='SHADOW_VERIFIED'&&
    state.reader_parity?.result==='PASS'&&compile?.result==='PASS'&&publicProof;
  const claims=[],defects=[];
- if(producer?.scheduled_execution!==true)defects.push('Scheduled Compiler execution is not independently proven');
+ if(producer?.scheduled_execution!==true)claims.push('Host scheduler identity not independently attested in GitHub; no effect on verified public publication');
  if(!seen)defects.push('No Compiler source execution receipt was found');
  if(seen&&!verified)defects.push('Complete protected public Compiler verification evidence is missing');
  if(job?.source?.unattended_schedule_proven===true&&producer?.scheduled_execution===false)
@@ -90,6 +90,9 @@ function imageAar(cycle,date,e,hashes={}){
  const recurring=validFor(e['image-recurring-assignment'],date)?e['image-recurring-assignment']:null;
  const contextVerification=e['image-context-verification'];
  const contextReviews=validFor(e['image-context-reviews'],date)?e['image-context-reviews']:null;
+ const imageAfterAction=validFor(e['image-after-action'],date)?e['image-after-action']:null;
+ const ownerUsage=e['owner-usage']?.cycle_date===cycle&&e['owner-usage']?.edition_date===date?e['owner-usage']:null;
+ const ownerUsagePercent=typeof ownerUsage?.work_usage_percent==='number'&&Number.isFinite(ownerUsage.work_usage_percent)&&ownerUsage.work_usage_percent>=0&&ownerUsage.work_usage_percent<=100?ownerUsage.work_usage_percent:null;
  const seen=!!(release||manifest||recurring);
  const jobHash=hashes['image-job']??null;
  const sourceBound=!!(release&&job&&release.original_source_commit_sha===job.source?.commit_sha&&
@@ -132,7 +135,17 @@ function imageAar(cycle,date,e,hashes={}){
      acceptedById.get(x.target_id.split(':')[0])===x.accepted_image_sha256&&
      x.small_text_legible===true&&x.no_clipping_overlap_pseudotext===true&&
      x.story_mechanism_correct===true);
- const qa24=real24===true;
+ // Rev8: six source-bound story reviews, four actual screenshot targets each.
+ const new24=liveVerified&&contextReviews?.schema_version==='external-image-element24-semantic-review-v1'&&
+   contextReviews.result==='PASS'&&contextReviews.reviewed_targets===24&&contextReviews.expected_targets===24&&
+   contextReviews.criteria?.semantic_defects===0&&Array.isArray(contextReviews.stories)&&
+   contextReviews.stories.length===6&&new Set(contextReviews.stories.map(s=>s.story_id)).size===6&&
+   contextReviews.stories.every(story=>story.result==='PASS'&&
+     acceptedById.get(story.story_id)===story.live_image_sha256&&
+     Array.isArray(story.targets)&&story.targets.length===4&&
+     story.targets.every(t=>t.result==='PASS'&&expectedContexts.has(t.target_id)&&
+       /^[a-f0-9]{64}$/.test(t.screenshot_sha256||'')));
+ const qa24=real24===true||new24===true;
  const defects=[];
  if(!seen)defects.push('No image task execution receipt was found');
  if(seen&&!liveVerified)defects.push('Protected image-only live verification is missing or incomplete');
@@ -161,7 +174,9 @@ function imageAar(cycle,date,e,hashes={}){
   source_job_status:job?.lifecycle??null,
   release_actions_run_url:release?.actions_run_url??null,
   accepted_image_regenerations:release?.accepted_image_regenerations??null,
-  generation_attempts:null,weekly_work_usage_percent:null,
+  generation_attempts:imageAfterAction?.production?.actual_generation_count??null,
+  weekly_work_usage_percent:ownerUsagePercent,
+  weekly_work_usage_source:ownerUsagePercent===null?null:'owner_reported',
   defects,
   next_run:'UNKNOWN',
   next_run_reason:'Next natural Work/Image Creation/GitHub availability and task enablement are not observable from repository records'
