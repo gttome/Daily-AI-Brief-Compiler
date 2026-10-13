@@ -28,6 +28,8 @@ function generateUnified(cycle,e) {
   const chicago=t=>t&&Number.isFinite(Date.parse(t))?
     new Date(t).toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit',second:'2-digit'}):'Not independently recorded';
   const timeEvidence=imageTiming?.result==='DURATIONS_VERIFIED'&&imageTiming?.events?imageTiming:null;
+  const compilerStageDuration=Number.isFinite(started)&&Number.isFinite(ended)&&ended>=started?
+    seconds((ended-started)/1000):'Not independently recorded';
   const imageStageDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_final_review);
   const imageScheduleWindow=seconds(timeEvidence?.durations_seconds?.scheduled_start_to_final_review);
   const imageReleaseDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_public_release);
@@ -53,6 +55,8 @@ indicators,
 "> **IMPORTANT — VERIFIED PRODUCTION RESULT**",
 `> **Executive result: ${badge.replace("_"," ")}.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **${compilerOk?"VERIFIED":"NOT VERIFIED"}**. Image release: **${imagesOk?"RELEASED_VERIFIED":"not complete"}**. Direct 24-context visual quality: **${visualOk?"24/24 PASS":"not yet evidenced"}**. Missing evidence must not be promoted to a success claim.`,
 "",
+`**🕒 Production stage durations:** **Compiler ${compilerStageDuration}** · **Premium Images ${imageStageDuration}** (evidence-bounded elapsed times; the start/end events differ).`,
+"",
 "## Performance dashboard",
 "",
 "| Measure | Recorded result | Source / caveat |",
@@ -60,7 +64,7 @@ indicators,
 `| Editorial publication | **${compilerOk?"PASS":"NOT VERIFIED"}** | State and public reader integrity receipt |`,
 `| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
 `| Media | **${durations}** | Sealed bundle |`,
-`| Compiler state duration | **${elapsed}** | Persisted state timestamps; not a host scheduler attestation |`,
+`| **Compiler stage duration** | **${compilerStageDuration} (${elapsed})** | First persisted Compiler state → verified public reader; not a host scheduler attestation |`,
 `| **Image processing stage duration** | **${imageStageDuration}** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |`,
 `| Image scheduled-to-final-review window | **${imageScheduleWindow}** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |`,
 `| Accepted premium PNGs | **${imagesOk?6:"Not complete"} / 6** | Exact package and public release hashes |`,
@@ -92,7 +96,7 @@ indicators,
 "",
 "## Track 1 — Compiler",
 "",
-`**State:** \`${state?.state??"NOT_OBSERVED"}\` · **Bundle:** \`${state?.bundle?.status??"NOT_OBSERVED"}\` · **Compiler duration:** ${elapsed}.`,
+`**State:** \`${state?.state??"NOT_OBSERVED"}\` · **Bundle:** \`${state?.bundle?.status??"NOT_OBSERVED"}\` · **Compiler duration:** ${compilerStageDuration} (${elapsed}).`,
 "",
 "| Publication gate | Result |",
 "|---|:---:|",
