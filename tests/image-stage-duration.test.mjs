@@ -23,8 +23,13 @@ function setup(){
    runGit(d,['commit','-q','-m',name],{GIT_AUTHOR_DATE:time,GIT_COMMITTER_DATE:time});
    return runGit(d,['rev-parse','HEAD']);
  };
+ // Emulate the real protected GitHub squash merge: original image source branch
+ // contains the first binary+package commits, while main has an independent merge.
+ const base=commit('README.md','2026-10-13T01:30:00+00:00');
  const first=commit('external-image-packages/2026-10-13/images/first.png','2026-10-13T01:35:05+00:00');
  const pkg=commit('external-image-packages/2026-10-13/manifest.json','2026-10-13T01:39:30+00:00');
+ runGit(d,['update-ref','refs/heads/image-package/2026-10-13-recurring-v8',pkg]);
+ runGit(d,['reset','--hard',base]);
  const merge=commit('packages/merge-receipt.txt','2026-10-13T01:42:22+00:00');
  const review=commit('external-image-packages/2026-10-13/reviews/live/image-element24/semantic-reviews.json','2026-10-13T01:53:09+00:00');
  runGit(d,['update-ref','refs/remotes/origin/main',review]);
