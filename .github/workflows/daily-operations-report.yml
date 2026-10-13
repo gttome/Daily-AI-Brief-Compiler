@@ -8,6 +8,7 @@ on:
     paths:
       - 'external-image-packages/**/reviews/live/image-element24/semantic-reviews.json'
       - 'docs/after-action/usage/*.json'
+      - 'docs/after-action/*-unified-production-aar.md'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
     workflows: [external-image-only-replacement]
@@ -57,6 +58,7 @@ jobs:
           # Use protected main report renderers even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
+          cp scripts/package-offline-unified-aar.mjs "$tmp/package-offline-unified-aar.mjs"
           git fetch -q origin '+refs/heads/main:refs/remotes/origin/main'
           git config user.name 'Daily Compiler Report Reconciler'
           git config user.email 'actions@users.noreply.github.com'
@@ -117,4 +119,24 @@ jobs:
           else
             git commit -m "Reconcile evidence-backed daily Compiler and image AARs"
             git push origin HEAD:refs/heads/operations-reports
+          # Portable report archives: original published PNG bytes are read from
+          # current protected main and independently SHA-256 checked. They never
+          # change published content or add binaries to operations-reports.
+          for lag in 0 1 2; do
+            current="$(TZ=America/Chicago date +%F)"
+            cycle="$(date -u -d "$current -$lag days" +%F)"
+            report_path="daily/$cycle/combined.md"
+            if [ -s "$report_path" ]; then
+              node "$tmp/package-offline-unified-aar.mjs" "$cycle" "$report_path" \
+                "$tmp/evidence/$cycle" "$RUNNER_TEMP/unified-aar-offline/$cycle"
+            fi
+          done
+      - name: Upload standalone Markdown + original PNGs for offline Typora
+        if: steps.chicago.outputs.go == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: unified-aar-offline-${{ github.run_id }}
+          path: ${{ runner.temp }}/unified-aar-offline/
+          if-no-files-found: ignore
+          retention-days: 90
           fi
