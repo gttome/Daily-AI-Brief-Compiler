@@ -58,6 +58,7 @@ jobs:
           # Use protected main report renderers even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
+          cp scripts/derive-image-stage-timing.mjs "$tmp/derive-image-stage-timing.mjs"
           cp scripts/package-offline-unified-aar.mjs "$tmp/package-offline-unified-aar.mjs"
           git fetch -q origin '+refs/heads/main:refs/remotes/origin/main'
           git config user.name 'Daily Compiler Report Reconciler'
@@ -89,10 +90,13 @@ jobs:
             git show "refs/remotes/origin/main:external-image-packages/$edition/manifest.json" > "$in/image-manifest.json" 2>/dev/null || rm -f "$in/image-manifest.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/recurring-assignment.json" > "$in/image-recurring-assignment.json" 2>/dev/null || rm -f "$in/image-recurring-assignment.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/after-action.json" > "$in/image-after-action.json" 2>/dev/null || rm -f "$in/image-after-action.json"
+            # Exception-only per-cycle schedule anchor; missing is normal.
+            git show "refs/remotes/origin/main:docs/after-action/timing/$cycle.json" > "$in/image-scheduled-start.json" 2>/dev/null || rm -f "$in/image-scheduled-start.json"
             # Owner usage is a per-cycle optional input; a missing record is normal.
             git show "refs/remotes/origin/main:docs/after-action/usage/$cycle.json" > "$in/owner-usage.json" 2>/dev/null || rm -f "$in/owner-usage.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/live/image-element24/semantic-verification.json" > "$in/image-context-verification.json" 2>/dev/null || rm -f "$in/image-context-verification.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/live/image-element24/semantic-reviews.json" > "$in/image-context-reviews.json" 2>/dev/null || rm -f "$in/image-context-reviews.json"
+            node "$tmp/derive-image-stage-timing.mjs" "$cycle" "$in" .
           done
           if git ls-remote --exit-code origin refs/heads/operations-reports >/dev/null 2>&1; then
             git fetch -q origin '+refs/heads/operations-reports:refs/remotes/origin/operations-reports'

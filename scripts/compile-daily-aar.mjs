@@ -7,7 +7,7 @@ const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
  'image-job','image-release','image-manifest','image-recurring-assignment',
- 'image-context-verification','image-context-reviews','image-after-action','owner-usage'];
+ 'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -91,6 +91,7 @@ function imageAar(cycle,date,e,hashes={}){
  const contextVerification=e['image-context-verification'];
  const contextReviews=validFor(e['image-context-reviews'],date)?e['image-context-reviews']:null;
  const imageAfterAction=validFor(e['image-after-action'],date)?e['image-after-action']:null;
+ const imageTiming=validFor(e['image-timing'],date)?e['image-timing']:null;
  const ownerUsage=e['owner-usage']?.cycle_date===cycle&&e['owner-usage']?.edition_date===date?e['owner-usage']:null;
  const ownerUsagePercent=typeof ownerUsage?.work_usage_percent==='number'&&Number.isFinite(ownerUsage.work_usage_percent)&&ownerUsage.work_usage_percent>=0&&ownerUsage.work_usage_percent<=100?ownerUsage.work_usage_percent:null;
  const seen=!!(release||manifest||recurring);
@@ -160,8 +161,17 @@ function imageAar(cycle,date,e,hashes={}){
   scheduled_host_mode:mode,
   same_invocation_connected_github:'UNPROVEN',
   execution_id:job?.execution_id??release?.execution_id??null,
-  started_at:null,finished_at:safeTime(release?.verified_at),
-  elapsed_minutes:null,
+  // Image stage uses persisted accepted binary Git commit → merged final 24-context review.
+  // This is not an attested host start time or native-model generation time.
+  started_at:safeTime(imageTiming?.events?.first_accepted_binary_commit),
+  finished_at:safeTime(imageTiming?.events?.final_live_review_approved_commit),
+  elapsed_minutes:imageTiming?.result==='DURATIONS_VERIFIED'&&
+    Number.isFinite(imageTiming.durations_seconds?.first_accepted_binary_to_final_review)?
+      Number((imageTiming.durations_seconds.first_accepted_binary_to_final_review/60).toFixed(2)):null,
+  scheduled_start_to_final_review_minutes:
+    Number.isFinite(imageTiming?.durations_seconds?.scheduled_start_to_final_review)?
+      Number((imageTiming.durations_seconds.scheduled_start_to_final_review/60).toFixed(2)):null,
+  timing_basis:'First persisted accepted image Git bytes to first merged 24-context review; scheduled window is separate and not exact generator runtime.',
   publication:liveVerified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
   result:liveVerified&&qa24?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
   aar_status:'BACKFILLED',

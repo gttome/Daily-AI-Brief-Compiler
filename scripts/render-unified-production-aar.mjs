@@ -6,7 +6,7 @@ function generateUnified(cycle,e) {
   const edition=d.toISOString().slice(0,10), gh="https://github.com/gttome/Daily-AI-Brief-Compiler", pub="https://gttome.github.io/Daily-AI-Brief-Compiler/";
   const obj=k=>e[k]&&e[k].edition_date===edition?e[k]:null;
   const state=obj("compiler-state"),compile=obj("compile-receipt"),integrity=obj("postpublish-integrity"),bundle=obj("edition-bundle");
-  const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews");
+  const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews"),imageTiming=obj("image-timing");
   const usage=e["owner-usage"]&&e["owner-usage"].cycle_date===cycle&&e["owner-usage"].edition_date===edition?e["owner-usage"]:null;
   const amount=usage&&typeof usage.work_usage_percent==="number"&&Number.isFinite(usage.work_usage_percent)&&usage.work_usage_percent>=0&&usage.work_usage_percent<=100?usage.work_usage_percent:null;
   const usageDisplay=amount===null?"**Not reported**":`**${amount}%** (owner reported)`;
@@ -22,6 +22,16 @@ function generateUnified(cycle,e) {
   const elapsed=Number.isFinite(started)&&Number.isFinite(ended)&&ended>=started?((ended-started)/60000).toFixed(1)+" min":"Not recorded";
   const stories=Array.isArray(bundle?.stories)?bundle.stories:[];
   const durations=bundle?.videos?.length===2&&bundle?.podcasts?.length===2?"2 videos + 2 podcasts":"Source receipt incomplete";
+  // Image timeline uses persisted first-accepted-binary and approved 24-context review Git events.
+  const seconds=n=>typeof n==='number'&&Number.isFinite(n)&&n>=0?
+    Math.floor(n/60)+'m '+String(Math.round(n%60)).padStart(2,'0')+'s':'Not independently recorded';
+  const chicago=t=>t&&Number.isFinite(Date.parse(t))?
+    new Date(t).toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit',second:'2-digit'}):'Not independently recorded';
+  const timeEvidence=imageTiming?.result==='DURATIONS_VERIFIED'&&imageTiming?.events?imageTiming:null;
+  const imageStageDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_final_review);
+  const imageScheduleWindow=seconds(timeEvidence?.durations_seconds?.scheduled_start_to_final_review);
+  const imageReleaseDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_public_release);
+  const timingEvents=timeEvidence?.events??{};
   const attempts=imageAar?.production?.actual_generation_count;
   const rejected=imageAar?.production?.rejected_count;
   const accepted=imageAar?.production?.accepted_count;
@@ -51,6 +61,8 @@ indicators,
 `| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
 `| Media | **${durations}** | Sealed bundle |`,
 `| Compiler state duration | **${elapsed}** | Persisted state timestamps; not a host scheduler attestation |`,
+`| **Image processing stage duration** | **${imageStageDuration}** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |`,
+`| Image scheduled-to-final-review window | **${imageScheduleWindow}** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |`,
 `| Accepted premium PNGs | **${imagesOk?6:"Not complete"} / 6** | Exact package and public release hashes |`,
 `| Native image generation attempts | **${typeof attempts==="number"?attempts:"Not reported"}** | Image worker AAR; no estimation |`,
 `| Rejected candidates | **${typeof rejected==="number"?rejected:"Not reported"}** | Image worker AAR |`,
@@ -99,6 +111,23 @@ indicators,
 "## Track 2 — Premium images",
 "",
 `**Public status:** \`${release?.result??"NOT_OBSERVED"}\` · **Saved images:** ${imgb.length}/6 · **Actual generation attempts:** ${typeof attempts==="number"?attempts:"Not reported"} · **Rejected candidates:** ${typeof rejected==="number"?rejected:"Not reported"}.`,
+"",
+"### Image production duration — Git-verified milestones",
+"",
+`**Auditable image stage duration:** **${imageStageDuration}** (first accepted binary saved in Git → final 24-context quality-review merge). **First asset to public image release:** **${imageReleaseDuration}**.`,
+`**Scheduled-to-final-review window:** **${imageScheduleWindow}**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.`,
+"",
+"| Production milestone | Chicago local time | Evidence |",
+"|---|---|---|",
+`| Scheduled image start (if exact-date record exists) | ${chicago(timingEvents.scheduled_image_task_start)} | Time planned, not actual execution start |`,
+`| First accepted PNG bytes saved to Git | ${chicago(timingEvents.first_accepted_binary_commit)} | Immutable binary-stage commit |`,
+`| Six-image package / reviews committed | ${chicago(timingEvents.six_image_package_commit)} | Exact-head PR source commit |`,
+`| Protected package merged | ${chicago(timingEvents.protected_image_merge_commit)} | Merge SHA and required CI |`,
+`| Public images verified | ${chicago(timingEvents.public_release_verified_at)} | Image-release receipt |`,
+`| Final 24/24 semantic visual review approved | ${chicago(timingEvents.final_live_review_approved_commit)} | Immutable first review-approval commit |`,
+"",
+"> **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.",
+"",
 "",
 "| Source-bound image | Attempts | File size | Public page |",
 "|---|---:|---:|---|",
@@ -175,7 +204,7 @@ imgCols,
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","owner-usage"];
+const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","owner-usage"];
 const ev={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;try{ev[k]=JSON.parse(fs.readFileSync(p,"utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev);
 fs.mkdirSync(outDir,{recursive:true});

@@ -15,6 +15,7 @@
 | **Six stories** | 6/6 ✓ | 2 technical · 2 knowledge worker · 2 agents |
 | **Videos / Podcasts** | 2 + 2 ✓ | Verified identity and runtime evidence |
 | **Premium diagrams** | 6/6 ✓ | 1200×630 PNGs · 8 genuine generations |
+| **Image stage duration** | **18m 04s** | First persisted accepted PNGs → merged 24-context visual review; 38m 09s scheduled-to-review window |
 | **Live image reviews** | 24/24 ✓ | Desktop/mobile on dated and permanent pages |
 | **Work usage** | **2%** | Owner-reported weekly usage · target under 5% |
 | **Public reader and history** | **PASS** | 30 reader-route functional checks; 42 Compiler / 44 image HTTP+SHA checks; 17 October 8 immutable objects preserved |
@@ -95,6 +96,24 @@ flowchart LR
 
 
 ## 3. Premium image assessment
+
+### Image processing stage duration
+
+> **🟩 18 minutes 04 seconds — verified persisted-image stage.** This is the elapsed time from the first accepted PNG bytes committed to GitHub at **8:35:05 PM CDT** to the merged, passing **24/24 live image review at 8:53:09 PM CDT**.
+
+> **🟦 38 minutes 09 seconds — scheduled production window.** The owner-approved one-day exception scheduled the image worker for **8:15:00 PM CDT**. The precise start of native image generation is not independently recorded. Therefore the window is **not** claimed as the exact active generation runtime.
+
+| Stage boundary | From (CDT) | To (CDT) | Elapsed | Evidence |
+|---|---|---|---:|---|
+| Scheduled image start → first accepted PNGs saved | 8:15:00 PM | 8:35:05 PM | **20m 05s** | One-day schedule exception → [accepted binary commit](https://github.com/gttome/Daily-AI-Brief-Compiler/commit/9873d74d13b0f04e4dfc63062afa15b797d3ca28); includes unobservable pre-commit processing |
+| Accepted bytes → six-image package/reviews | 8:35:05 PM | 8:39:30 PM | **4m 25s** | [Package commit](https://github.com/gttome/Daily-AI-Brief-Compiler/commit/aa31c0fb690fc09a20a0acd34069bd4aac1d5ded) |
+| Full package → protected PR merge | 8:39:30 PM | 8:42:22 PM | **2m 52s** | [Protected PR #179](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/179), CI PASS |
+| Protected merge → verified public image release | 8:42:22 PM | 8:43:06 PM | **0m 45s** | [RELEASED_VERIFIED receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-10-13/release.json) |
+| Verified release → final visual review merged | 8:43:06 PM | 8:53:09 PM | **10m 02s** | [PR #180](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/180); 24/24 passing inspected contexts |
+| **First accepted PNG commit → final QA** | **8:35:05 PM** | **8:53:09 PM** | **18m 04s** | **Git-auditable image processing stage** |
+| **Scheduled start → final QA** | **8:15:00 PM** | **8:53:09 PM** | **38m 09s** | **Schedule-bound window; not a measured native generation start** |
+
+**Interpretation for future editions:** The daily AAR will compute image-stage duration from actual accepted-binary Git commit through the first approved 24-context review commit. If an exact, date-scoped scheduled start is separately available, it will display the scheduled-to-review window as a second metric. Unavailable timing evidence appears as **Not independently recorded**, never an estimate.
 
 
 **Final status:** `PUBLIC_VERIFIED` · **Accepted:** 6/6 · **Genuine attempts:** 8 · **Rejected:** 2 · **Regenerated after acceptance:** 0.
