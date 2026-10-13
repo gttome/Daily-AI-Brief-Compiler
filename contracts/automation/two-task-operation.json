@@ -48,7 +48,9 @@
     "images.json",
     "images.md",
     "daily-rollup.json",
-    "daily-rollup.md"
+    "daily-rollup.md",
+    "combined.json",
+    "combined.md"
   ],
   "reporting": {
     "runtime": "deterministic_github_actions",
@@ -57,7 +59,14 @@
     "page_publication_allowed": false,
     "backfill_cycles": 14,
     "report_missing_start_receipt_as": "NO_START_RECEIPT",
-    "never_infer_first_party_scheduled_mode": true
+    "never_infer_first_party_scheduled_mode": true,
+    "primary_audience_report": "daily/<cycle_date>/combined.md",
+    "combined_report_generator": "scripts/render-unified-production-aar.mjs",
+    "auto_after_image_release": "workflow_run:external-image-only-replacement:completed",
+    "morning_reconciliation": "09:00_America/Chicago_with_UTC_guard",
+    "optional_owner_usage_path": "docs/after-action/usage/<cycle_date>.json",
+    "unknown_work_usage_policy": "Not reported; do not estimate or carry forward",
+    "no_new_scheduled_ai_tasks": true
   },
   "activation_requires": [
     "real_github_read_write",
