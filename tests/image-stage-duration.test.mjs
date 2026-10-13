@@ -23,8 +23,13 @@ function setup(){
    runGit(d,['commit','-q','-m',name],{GIT_AUTHOR_DATE:time,GIT_COMMITTER_DATE:time});
    return runGit(d,['rev-parse','HEAD']);
  };
+ // Emulate the real protected GitHub squash merge: original image source branch
+ // contains the first binary+package commits, while main has an independent merge.
+ const base=commit('README.md','2026-10-13T01:30:00+00:00');
  const first=commit('external-image-packages/2026-10-13/images/first.png','2026-10-13T01:35:05+00:00');
  const pkg=commit('external-image-packages/2026-10-13/manifest.json','2026-10-13T01:39:30+00:00');
+ runGit(d,['update-ref','refs/heads/image-package/2026-10-13-recurring-v8',pkg]);
+ runGit(d,['reset','--hard',base]);
  const merge=commit('packages/merge-receipt.txt','2026-10-13T01:42:22+00:00');
  const review=commit('external-image-packages/2026-10-13/reviews/live/image-element24/semantic-reviews.json','2026-10-13T01:53:09+00:00');
  runGit(d,['update-ref','refs/remotes/origin/main',review]);
@@ -88,5 +93,25 @@ test('invalid or inaccessible binary-stage commit cannot produce duration',()=>{
   const x=ctx.run();
   assert.equal(x.result,'INCOMPLETE_SOURCE_TIMING');
   assert.equal(x.durations_seconds.first_accepted_binary_to_final_review,null);
+ }finally{fs.rmSync(ctx.d,{force:true,recursive:true});}
+});
+test('read-only cloned main retrieves exact date-bound original package commit after squash',()=>{
+ const ctx=setup();
+ try{
+  const bare=path.join(ctx.d,'remote.git');
+  execFileSync('git',['init','--bare','-q',bare],{cwd:ctx.d});
+  runGit(ctx.d,['remote','add','origin',bare]);
+  runGit(ctx.d,['push','-q','origin','HEAD:refs/heads/main']);
+  runGit(ctx.d,['push','-q','origin','refs/heads/image-package/2026-10-13-recurring-v8:refs/heads/image-package/2026-10-13-recurring-v8']);
+  const checkout=path.join(ctx.d,'isolated-checkout');
+  execFileSync('git',['clone','-q','--no-local','--single-branch','--branch','main','file://'+bare,checkout],{cwd:ctx.d});
+  // The accepted feature commits were squash-merged, so this clone lacks them.
+  assert.throws(()=>execFileSync('git',['cat-file','-e',ctx.pkg+'^{commit}'],{cwd:checkout,stdio:'ignore'}));
+  const proc=spawnSync(process.execPath,[script,cycle,ctx.evidence,checkout],{encoding:'utf8'});
+  assert.equal(proc.status,0,proc.stderr);
+  const rec=JSON.parse(fs.readFileSync(path.join(ctx.evidence,'image-timing.json'),'utf8'));
+  assert.equal(rec.result,'DURATIONS_VERIFIED');
+  assert.equal(rec.durations_seconds.first_accepted_binary_to_final_review,1084);
+  assert.equal(rec.durations_seconds.scheduled_start_to_final_review,2289);
  }finally{fs.rmSync(ctx.d,{force:true,recursive:true});}
 });
