@@ -8,6 +8,8 @@
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
 > **Executive result: COMPLETE.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Missing evidence must not be promoted to a success claim.
 
+**🕒 Production stage durations:** **Compiler 13m 37s** · **Premium Images 36m 23s** (evidence-bounded elapsed times; the start/end events differ).
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |
@@ -15,7 +17,7 @@
 | Editorial publication | **PASS** | State and public reader integrity receipt |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
-| Compiler state duration | **13.6 min** | Persisted state timestamps; not a host scheduler attestation |
+| **Compiler stage duration** | **13m 37s (13.6 min)** | First persisted Compiler state → verified public reader; not a host scheduler attestation |
 | **Image processing stage duration** | **36m 23s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
@@ -47,7 +49,7 @@ flowchart LR
 
 ## Track 1 — Compiler
 
-**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler duration:** 13.6 min.
+**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler duration:** 13m 37s (13.6 min).
 
 | Publication gate | Result |
 |---|:---:|
