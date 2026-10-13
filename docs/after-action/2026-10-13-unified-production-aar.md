@@ -10,11 +10,14 @@
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
 > **Management conclusion — complete successful edition.** The two-stage system produced and publicly verified the October 13 Brief and six premium illustrations. The Compiler sealed a source-backed six-story bundle and deployed the reader; the image worker generated eight candidates, accepted six, passed exact-byte checks and protected CI, published the images, and recorded **24/24 genuine desktop/mobile image-context reviews**. No second image worker, paid image API, accepted-image regeneration or manual illustration upload was required.
 
+**🕒 Production stage durations:** **Compiler 18m 02s** · **Premium Images 18m 04s** (both evidence-bounded elapsed times; start/end definitions differ).
+
 | Operating indicator | Result | Evidence / interpretation |
 |:---|:---:|:---|
 | **Six stories** | 6/6 ✓ | 2 technical · 2 knowledge worker · 2 agents |
 | **Videos / Podcasts** | 2 + 2 ✓ | Verified identity and runtime evidence |
 | **Premium diagrams** | 6/6 ✓ | 1200×630 PNGs · 8 genuine generations |
+| **Compiler stage duration** | **18m 02s (18.0 min)** | First persisted Compiler state (7:21:02 PM CDT) → verified reader (7:39:04 PM CDT) |
 | **Image stage duration** | **18m 04s** | First persisted accepted PNGs → merged 24-context visual review; 38m 09s scheduled-to-review window |
 | **Live image reviews** | 24/24 ✓ | Desktop/mobile on dated and permanent pages |
 | **Work usage** | **2%** | Owner-reported weekly usage · target under 5% |
@@ -68,7 +71,7 @@ flowchart LR
 ## 2. Editorial Compiler assessment
 
 
-**Final state:** `SHADOW_VERIFIED` · **Compiler state-to-public-verification duration:** **18.0 minutes** · **Bundle digest:** `9f89e913a3da694be5098fc6d3efb3b57adab19f349fbc523e7babc8fd8bdcbb`
+**Final state:** `SHADOW_VERIFIED` · **Compiler state-to-public-verification duration:** **18m 02s (18.0 minutes)**, 7:21:02–7:39:04 PM CDT · **Bundle digest:** `9f89e913a3da694be5098fc6d3efb3b57adab19f349fbc523e7babc8fd8bdcbb`
 
 | Publishing contract | October 13 observation | Outcome |
 |---|---|:---:|
