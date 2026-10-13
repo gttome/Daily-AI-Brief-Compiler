@@ -1,3 +1,4 @@
+import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
 import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
 // Strict evidence gate for a NEW unattended Release 1 pending-figure edition.
 // This is not invoked by fixture/reader preview compilation or legacy illustrated editions.
@@ -78,6 +79,14 @@ export function validateNewPendingEditorial({bundle,state}){
   }
   const wl=bundle.watchlist;
   time(wl?.refreshed_at,'Watchlist refresh timestamp');
+  if(bundle.edition_date>=WATCHLIST_COPY_EFFECTIVE){
+    for(const kind of ['new','updated','carried_forward','dropped']){
+      for(const item of wl[kind]||[]){
+        const issues=watchlistCopyProblems(item);
+        if(issues.length)fail('Watchlist '+kind+' '+item.topic+': '+issues.join('; '));
+      }
+    }
+  }
   if(![...wl.new,...wl.updated,...wl.carried_forward].length)fail('Watchlist cannot be empty');
   for(const entry of [...wl.new,...wl.updated]){
     httpsUrl(entry?.evidence?.url,'Watchlist updated/new evidence URL');
