@@ -22,6 +22,16 @@ const evidence={
   'image-manifest':{edition_date:ed,images:imgs},
   'image-after-action':{edition_date:ed,production:{actual_generation_count:8,accepted_count:6,rejected_count:2,accepted_art_regenerated_after_lock:0},errors:[{phase:'quality',issue:'Initial label defect',correction:'Corrected before acceptance'}]},
   'image-context-reviews':{edition_date:ed,result:'PASS',reviewed_targets:24,expected_targets:24,criteria:{semantic_defects:0},stories:imgs.map(x=>({story_id:x.story_id,result:'PASS',live_image_sha256:x.sha256,targets:Array.from({length:4},()=>({result:'PASS'}))}))},
+  'image-timing':{edition_date:ed,result:'DURATIONS_VERIFIED',events:{
+    scheduled_image_task_start:'2026-10-13T01:15:00Z',
+    first_accepted_binary_commit:'2026-10-13T01:35:05Z',
+    six_image_package_commit:'2026-10-13T01:39:30Z',
+    protected_image_merge_commit:'2026-10-13T01:42:22Z',
+    public_release_verified_at:'2026-10-13T01:43:06.955Z',
+    final_live_review_approved_commit:'2026-10-13T01:53:09Z'},
+    durations_seconds:{first_accepted_binary_to_final_review:1084,
+      first_accepted_binary_to_public_release:481.955,
+      scheduled_start_to_final_review:2289}},
   'owner-usage':{cycle_date:cy,edition_date:ed,work_usage_percent:2,source:'owner_reported_in_chat'}
 };
 function run(overrides={}){
@@ -47,6 +57,10 @@ test('full source, final release and direct reviews => complete combined report'
  assert.match(md,/mermaid/);
  assert.match(md,/<table>/);
  assert.match(md,/44/);
+ assert.match(md,/Image processing stage duration/);
+ assert.match(md,/18m 04s/);
+ assert.match(md,/38m 09s/);
+ assert.match(md,/8:35:05 PM/);
  assert.doesNotMatch(md,/img\.shields\.io/);
  assert.doesNotMatch(md,/> \[!(?:IMPORTANT|TIP|NOTE|WARNING)\]/);
  assert.match(md,/🟩/);
@@ -70,4 +84,11 @@ test('screenshots without 24 passing actual context reviews cannot certify quali
  const {meta}=run({'image-context-reviews':v});
  assert.equal(meta.result,'PARTIAL');
  assert.equal(meta.visual_24_pass,false);
+});
+
+test('missing auditable image timestamps never fabricates active runtime',()=>{
+ const {md}=run({'image-timing':null});
+ assert.match(md,/Image processing stage duration/);
+ assert.match(md,/Not independently recorded/);
+ assert.doesNotMatch(md,/18m 04s/);
 });
