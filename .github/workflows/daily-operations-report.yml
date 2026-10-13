@@ -1,6 +1,13 @@
 name: daily-operations-report
 # Only deterministic GitHub evidence reconciliation, NEVER reader/image publication.
 on:
+  # Refresh after the actual approved 24-context review or a new optional usage entry.
+  # Paths are restricted; report writes only to operations-reports, not main or Pages.
+  push:
+    branches: [main]
+    paths:
+      - 'external-image-packages/**/reviews/live/image-element24/semantic-reviews.json'
+      - 'docs/after-action/usage/*.json'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
     workflows: [external-image-only-replacement]
@@ -57,7 +64,7 @@ jobs:
           # Image workflow completion is on the *production evening* (lag zero).
           # The next-morning schedule starts at lag one, avoiding premature reports.
           start_lag=1
-          if [[ "$GITHUB_EVENT_NAME" = workflow_run || "$GITHUB_EVENT_NAME" = workflow_dispatch ]]; then start_lag=0; fi
+          if [[ "$GITHUB_EVENT_NAME" = workflow_run || "$GITHUB_EVENT_NAME" = workflow_dispatch || "$GITHUB_EVENT_NAME" = push ]]; then start_lag=0; fi
           for lag in $(seq "$start_lag" 14); do
             current="$(TZ=America/Chicago date +%F)"
             cycle="$(date -u -d "$current -$lag days" +%F)"
