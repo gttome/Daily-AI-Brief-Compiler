@@ -17,7 +17,7 @@ test('Watchlist requires three substantive, distinct paragraphs',()=>{
  for(const key of ['summary','why_now','practical_value']){
    const missing={...good};delete missing[key];
    assert.ok(watchlistCopyProblems(missing).length>0,key+' missing did not fail');
-   const repeated={...good,[key]:good.summary};
+   const repeated={...good,[key]:key==='summary'?good.why_now:good.summary};
    assert.ok(watchlistCopyProblems(repeated).length>0,key+' repetition did not fail');
  }
  const close={...good,why_now:good.summary+' Indeed.'};
