@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+// Narrow post-publication patch. Does NOT recompile a sealed edition or touch image assets.
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {pathToFileURL} from 'node:url';
+import {requireWatchlistCopy} from '../compiler/watchlist-copy.mjs';
+
+const fail=message=>{throw new Error('Watchlist text-only correction: '+message);};
+const sha=data=>crypto.createHash('sha256').update(data).digest('hex');
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const load=file=>JSON.parse(fs.readFileSync(file,'utf8'));
+const textFile=(root,p)=>path.join(root,...p.split('/'));
+function walk(root){
+  const files=[];
+  function recur(dir){
+    for(const e of fs.readdirSync(dir,{withFileTypes:true})){
+      const f=path.join(dir,e.name);
+      if(e.isDirectory())recur(f);
+      else if(e.isFile())files.push(path.relative(root,f).split(path.sep).join('/'));
+      else fail('unexpected symlink or special file: '+f);
+    }
+  }
+  recur(root);return files.sort();
+}
+export function applyWatchlistRevision({revision,historySite,outSite}){
+  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||revision.scope!=='watchlist_copy_only'||revision.requested_by!=='owner')fail('unsupported revision authorization');
+  if(!/^20\d\d-\d\d-\d\d$/.test(revision.edition_date))fail('invalid target date');
+  if(!Array.isArray(revision.items)||!revision.items.length)fail('no editorial fixes supplied');
+  if(!fs.existsSync(historySite)||fs.existsSync(outSite))fail('missing input or output already exists');
+  const jsonRoute='data/watchlist.json',htmlRoute='watchlist/research/index.html';
+  const watch=load(textFile(historySite,jsonRoute));
+  if(watch.edition_date!==revision.edition_date)fail('latest published Watchlist date differs from target; do not overwrite a newer edition');
+  let html=fs.readFileSync(textFile(historySite,htmlRoute),'utf8');
+  const seen=new Set();
+  for(const item of revision.items){
+    if(!/^dab-topic-[a-z0-9-]+$/.test(item.topic_id)||seen.has(item.topic_id))fail('duplicate/invalid topic ID');seen.add(item.topic_id);
+    const topic=watch.topics.find(t=>t.topic_id===item.topic_id);
+    if(!topic||topic.name!==item.topic)fail('topic identity changed: '+item.topic_id);
+    if(topic.summary!==item.expected_original_text||topic.why_now!==item.expected_original_text||topic.practical_value!==item.expected_original_text)fail('expected original repeated copy no longer present: '+item.topic_id);
+    if(!topic.evidence?.some(e=>e.url===item.expected_evidence_url))fail('topic primary evidence changed: '+item.topic_id);
+    requireWatchlistCopy(item,item.topic_id);
+    const title='<section class="wl-card" id="'+esc(item.topic_id)+'"><h2>'+esc(topic.name)+'</h2>';
+    const original=title+'<p>'+esc(topic.summary)+'</p><p><strong>Why now:</strong> '+esc(topic.why_now)+'</p><p><strong>Potential value:</strong> '+esc(topic.practical_value)+'</p>';
+    const revised=title+'<p>'+esc(item.summary)+'</p><p><strong>Why now:</strong> '+esc(item.why_now)+'</p><p><strong>Potential value:</strong> '+esc(item.practical_value)+'</p>';
+    if(html.split(original).length!==2)fail('original HTML heading not found exactly once: '+item.topic_id);
+    html=html.replace(original,revised);
+    topic.summary=item.summary;topic.why_now=item.why_now;topic.practical_value=item.practical_value;
+  }
+  if(watch.topics.some(t=>t.summary===t.why_now&&t.why_now===t.practical_value))fail('repeated Watchlist fields remain after correction');
+  fs.cpSync(historySite,outSite,{recursive:true,force:true});
+  fs.writeFileSync(textFile(outSite,jsonRoute),JSON.stringify(watch,null,2)+'\n');
+  fs.writeFileSync(textFile(outSite,htmlRoute),html);
+  const before=walk(historySite),after=walk(outSite);
+  if(JSON.stringify(before)!==JSON.stringify(after))fail('output file inventory changed');
+  const permitted=new Set([jsonRoute,htmlRoute]),changed=[],unchanged=[];
+  for(const route of before){
+    const old=sha(fs.readFileSync(textFile(historySite,route)));
+    const next=sha(fs.readFileSync(textFile(outSite,route)));
+    if(old===next)unchanged.push(route);
+    else {
+      if(!permitted.has(route))fail('unexpected content change at '+route);
+      changed.push({route,previous_sha256:old,current_sha256:next});
+    }
+  }
+  if(changed.length!==2)fail('expected exactly 2 changed Watchlist reader routes');
+  const unchangedImageFiles=unchanged.filter(p=>/\.(?:png|webp|jpe?g|svg)$/i.test(p));
+  const currentImages=unchangedImageFiles.filter(p=>p.startsWith('briefs/images/'+revision.edition_date+'/'));
+  if(currentImages.filter(p=>p.endsWith('.png')).length!==6)fail('six current premium PNGs not independently preserved');
+  if(unchanged.filter(p=>/2026-10-08\//.test(p)).length<17)fail('October 8 historical artifacts were not preserved');
+  return {schema_version:'daily-compiler-watchlist-text-only-patch-v1',result:'PASS',edition_date:revision.edition_date,corrected_topics:seen.size,changed,unchanged_file_count:unchanged.length,unchanged_image_count:unchangedImageFiles.length,current_premium_pngs_preserved:6,normal_compiler_rebuild:false,images_regenerated:0};
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
+ const [revisionPath,historySite,outSite,receiptPath]=process.argv.slice(2);
+ if(!receiptPath)fail('usage: node scripts/apply-watchlist-editorial-revision.mjs <revision.json> <history/site> <build/patched> <receipt.json>');
+ const receipt=applyWatchlistRevision({revision:load(revisionPath),historySite,outSite});
+ fs.mkdirSync(path.dirname(receiptPath),{recursive:true});
+ fs.writeFileSync(receiptPath,JSON.stringify(receipt,null,2)+'\n');
+ console.log(JSON.stringify(receipt));
+}

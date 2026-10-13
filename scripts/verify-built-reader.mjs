@@ -1,3 +1,4 @@
+import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchlist-copy.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -54,6 +55,12 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     if(edition.includes(`data-feedback-story-id="${item.canonical_reader_id}"`))fail('production-style feedback identity leaked into current Compiler reader: '+item.canonical_reader_id);
   }
   const watchlistData=JSON.parse(fs.readFileSync(path.join(sourceDir,'data','watchlist.json'),'utf8'));
+  if(manifest.edition_date>=WATCHLIST_COPY_EFFECTIVE){
+    for(const topic of watchlistData.topics||[]){
+      const problems=watchlistCopyProblems(topic);
+      if(problems.length)fail('published Watchlist '+topic.topic_id+': '+problems.join('; '));
+    }
+  }
   if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').startsWith('dab-topic-compiler-')))fail('Compiler-only Watchlist topic identity leaked into reader');
   if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').length>64))fail('Watchlist topic identity exceeds feedback-service contract');
   if((watchlistData.topics||[]).length<20)fail('rolling Watchlist history was not preserved');

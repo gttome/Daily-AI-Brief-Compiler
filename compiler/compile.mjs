@@ -1,3 +1,4 @@
+import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -100,6 +101,14 @@ export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendi
   for (const item of bundle.watchlist.updated) if (!item.topic || !item.what_changed) fail('Watchlist Updated item invalid');
   for (const item of bundle.watchlist.carried_forward) if (!item.topic || !item.why) fail('Watchlist Carried forward item invalid');
   for (const item of bundle.watchlist.dropped) if (!item.topic || !(item.reason || item.why)) fail('Watchlist Dropped item invalid');
+  if(bundle.edition_date>=WATCHLIST_COPY_EFFECTIVE){
+    for(const kind of ['new','updated','carried_forward','dropped']){
+      for(const entry of bundle.watchlist[kind]){
+        const issues=watchlistCopyProblems(entry);
+        if(issues.length)fail('Watchlist '+kind+' '+entry.topic+': '+issues.join('; '));
+      }
+    }
+  }
 
   ensureArray(bundle.book_mappings, 'book_mappings');
   if (bundle.book_mappings.length < 4) fail('book mappings incomplete');

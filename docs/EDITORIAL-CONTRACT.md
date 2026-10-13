@@ -52,6 +52,18 @@ The Release 1 validator enforces word counts and topic cardinality as a hard gat
 
 Reader-facing states: New, Updated, Carried forward. Show what changed today and explain dropped topics when applicable.
 
+### Watchlist editorial copy — effective October 14, 2026
+
+Every **new, updated, carried-forward and dropped** item needs three **separately authored** reader fields in the sealed edition bundle:
+
+- `summary`: **What it is** — describe the capability, workflow or research question in ordinary language.
+- `why_now`: **Why now** — name the dated verified source development, changed evidence or reason a topic is carried/dropped; do not confuse an old original publication date with a corrected page date.
+- `practical_value`: **Potential value** — explain a specific plausible use, reader decision, evaluation or bounded experiment. Keep uncertainty explicit; do not invent adoption, performance or broad availability.
+
+All three are substantive, 7+ words and not substantially overlapping. They may share technical terms but **must not restate the same evidence sentence**. This is editorial work, not deterministic template expansion. If a field is missing or repeats another, the producer must correct the semantic bundle **before publication**. Deterministic compiler and built-reader validators fail closed. No copy padding, synonym-only rewriting, identical fallback fields or degraded placeholder text. Historical content before the effective date is not retroactively invalidated.
+
+For corrections to an already illustrated published edition, change only the verified Watchlist reader surfaces. Preserve exact current and historical image bytes, published articles, archived source bundle, and the normal 19:15/21:15 autonomous schedules.
+
 ## Books
 
 Mappings are for reader value, should draw across the required Generative AI Professional Series, and must contain no run/control-plane language.

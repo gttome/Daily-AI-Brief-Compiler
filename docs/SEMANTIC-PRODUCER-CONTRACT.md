@@ -10,7 +10,7 @@ Accepted images are immutable. Accepted/locked image bytes and identities must b
 
 ## EDITORIAL and CONTENT
 
-EDITORIAL persists the candidate evidence and locked six-story selection. CONTENT persists stories, media, Watchlist and book mappings. Completed semantic outputs are not replayed merely because image work is incomplete.
+EDITORIAL persists the candidate evidence and locked six-story selection. CONTENT persists stories, media, Watchlist and book mappings. For editions dated October 14, 2026 onward, every Watchlist New, Updated, Carried Forward and Dropped item must carry three distinct evidence-grounded fields: `summary` (what the emerging capability is), `why_now` (what dated evidence changed or why the item remains/retires now), and `practical_value` (the bounded professional application or test). Each is a separately written explanatory sentence of at least seven words; no literal or near-duplicate sections. Cite the item's own evidence, never another story's fallback URL. If editorial fields are absent or repeated, repair the item before sealing the bundle. The reader adapter must not synthesize all three from `why`, `what_changed`, or `reason`. Completed semantic outputs are not replayed merely because image work is incomplete.
 
 ## IMAGES — D1 Cloud Image Studio
 

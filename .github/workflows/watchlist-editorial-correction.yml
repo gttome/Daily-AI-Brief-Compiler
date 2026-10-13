@@ -1,0 +1,111 @@
+name: watchlist-editorial-correction
+# Protected-main merged correction; preserves premium images and prior editions byte for byte.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/watchlist-editorial-revisions/*.json'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  correction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Bind exactly one newly merged editorial correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t revisions < <(git diff --name-only HEAD^ HEAD -- 'config/watchlist-editorial-revisions/*.json')
+          test "${#revisions[@]}" -eq 1
+          test -f "${revisions[0]}"
+          echo "REVISION_PATH=${revisions[0]}" >> "$GITHUB_ENV"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+      - name: Bind latest published reader history without changing semantic bundles
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
+          git worktree add --detach history "$HISTORY_HEAD"
+          test -f history/site/data/watchlist.json
+          test -f history/site/watchlist/research/index.html
+      - name: Apply and audit exactly two Watchlist text/JSON files
+        run: |
+          mkdir -p build
+          node scripts/apply-watchlist-editorial-revision.mjs \
+            "$REVISION_PATH" history/site build/patched build/watchlist-editorial-correction-receipt.json
+          node --input-type=module -e "import fs from 'node:fs';let r=JSON.parse(fs.readFileSync('build/watchlist-editorial-correction-receipt.json'));if(r.result!=='PASS'||r.changed.length!==2||r.current_premium_pngs_preserved!==6)process.exit(1)"
+      - name: Reject stale Pages history and main before deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/patched
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Independently verify both changed live routes byte for byte
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const receipt=JSON.parse(fs.readFileSync('build/watchlist-editorial-correction-receipt.json','utf8'));
+          const base=process.env.SITE_URL.replace(/\/?$/,'/');
+          for(const record of receipt.changed){
+            const target=fs.readFileSync('build/patched/'+record.route);
+            const hash=crypto.createHash('sha256').update(target).digest('hex');
+            if(hash!==record.current_sha256)throw Error('staged hash changed');
+            let passed=false,last='';
+            for(let retry=0;retry<6;retry++){
+              const u=new URL(record.route,base);
+              u.searchParams.set('watchlist-revision',process.env.GITHUB_SHA.slice(0,12));
+              const res=await fetch(u,{headers:{'Cache-Control':'no-cache'}});
+              const body=Buffer.from(await res.arrayBuffer());
+              passed=res.status===200&&body.equals(target);
+              if(passed)break;
+              last='HTTP '+res.status+' bytes '+body.length;
+              await new Promise(r=>setTimeout(r,3000));
+            }
+            if(!passed)throw Error('live readback mismatch for '+record.route+': '+last);
+            console.log('LIVE_EXACT_WATCHLIST_COPY_PASS '+record.route+' '+hash);
+          }
+          NODE
+      - name: Persist the independently verified text-only deployed reader history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          cp build/patched/data/watchlist.json history/site/data/watchlist.json
+          cp build/patched/watchlist/research/index.html history/site/watchlist/research/index.html
+          git -C history config user.name 'Daily Compiler'
+          git -C history config user.email 'actions@users.noreply.github.com'
+          git -C history add site/data/watchlist.json site/watchlist/research/index.html
+          git -C history diff --cached --quiet && { echo 'No actual text changes'; exit 1; }
+          git -C history commit -m 'Apply verified Watchlist editorial copy-only correction'
+          git -C history push origin HEAD:shadow-pages-history
+          echo "LIVE_WATCHLIST_CORRECTION_VERIFIED"
