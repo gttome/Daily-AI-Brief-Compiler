@@ -1,6 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import {requireWatchlistCopy,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
 import {PENDING_PLACEHOLDER_ID} from './pending-images.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 
@@ -178,15 +179,23 @@ function rubric(reason){
 }
 function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
   const reason=item.why||item.what_changed||item.reason||'Evidence preserved for continued monitoring.';
-  const evidence=item.evidence||fallbackEvidence||{};
+  const meaningful=v=>typeof v==='string'&&v.trim()?v.trim():null;
+  const editorial={
+    summary:meaningful(item.summary)||meaningful(prior?.summary)||reason,
+    why_now:meaningful(item.why_now)||((kind==='updated'||kind==='dropped')?reason:(meaningful(prior?.why_now)||reason)),
+    practical_value:meaningful(item.practical_value)||meaningful(prior?.practical_value)||reason
+  };
+  // Historical bundles remain immutable. Future editions must supply three
+  // independently written, source-grounded editorial fields, not a renderer fallback.
+  if(date>=WATCHLIST_COPY_EFFECTIVE||['summary','why_now','practical_value'].some(k=>item[k]!=null))
+    requireWatchlistCopy(editorial,'Watchlist '+kind+' '+item.topic);
+  const evidence=item.evidence||item.previous_evidence||fallbackEvidence||{};
   const evidenceDate=evidence.date||date;
   const archived=kind==='dropped';
   const current={
     topic_id:topicId,
     name:item.topic,
-    summary:reason,
-    why_now:reason,
-    practical_value:reason,
+    ...editorial,
     first_detected:kind==='new'?date:evidenceDate,
     updated_at:(kind==='new'||kind==='updated'||kind==='dropped')?`${date}T12:00:00Z`:`${evidenceDate}T12:00:00Z`,
     status:archived?'archived':(kind==='new'?'early_signal':'under_research'),
@@ -219,9 +228,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     ...prior,
     topic_id:prior.topic_id,
     name:prior.name||item.topic,
-    summary:reason,
-    why_now:reason,
-    practical_value:reason,
+    ...editorial,
     updated_at:current.updated_at,
     status:archived?'archived':(prior.status==='archived'?'under_research':prior.status),
     archive_reason:archived?reason:undefined,
