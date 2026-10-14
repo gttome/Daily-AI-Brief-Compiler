@@ -1,0 +1,533 @@
+{
+  "schema_version": "daily-compiler-semantic-content-v1",
+  "edition_date": "2026-10-14",
+  "editorial_complete": true,
+  "stories": [
+    {
+      "id": "oct14-t1-helion-agent-compute",
+      "headline": "AMD separates agent execution from inference in an open rack blueprint",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
+        "title": "Introducing AMD Helion, Agentic AI Compute at Rack Scale",
+        "publisher": "AMD Investor Relations",
+        "published_at": "2026-10-12",
+        "retrieved_at": "2026-10-14T00:18:50.331Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-14T00:18:50.331Z",
+          "scope": "Complete original AMD October 12 release, reference OCP design, configurable cooling, EPYC-only versus EPYC+Instinct MI350P racks, token routing, partner comments, actual planned November availability and forward-looking caveats."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1150,
+          "source_word_count_method": "original publisher main-text editorial estimate"
+        }
+      },
+      "reading_time_minutes": 6,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1150,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-14T00:22:22.619Z",
+        "caveat": "Editorial approximation, not measured reader session"
+      },
+      "topics": [
+        "Agent compute racks",
+        "CPU GPU balance",
+        "Open rack design"
+      ],
+      "coverage_labels": [
+        "2026-10-12 original publisher article",
+        "current publisher source",
+        "Technical AI Engineering"
+      ],
+      "agent_skills": false,
+      "summary": "AMD introduced Helion, a proposed rack design for agent workloads, not a shipping product. A CPU-only configuration targets execution work with up to 32,768 EPYC cores, while an integrated enterprise design combines EPYC processors and MI350P accelerators. An integrated token router directs model calls, and partner availability is planned for November.",
+      "why_it_matters": "Agent deployments mix orchestration, tool execution and model inference. Engineers can estimate each workload separately, check rack power and networking constraints, and challenge the vendor's planned availability before treating Helion as production capacity.",
+      "related_coverage": "See companion October 14 coverage for infrastructure design, work context, task review and safe skills.",
+      "image_alt_intent": "Detailed cutaway of two Helion rack configurations: high-density EPYC CPU execution on left, hybrid EPYC plus MI350P inference on right, separated by token-routing fabric and annotated power, cooling and interoperability boundaries.",
+      "permanent_route": "/stories/2026-10-14/t1-helion-agent-compute/"
+    },
+    {
+      "id": "oct14-t2-adk-five-runtimes",
+      "headline": "Google's five-language ADK exposes tools through different runtime safeguards",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/",
+        "title": "One Agent Development Kit, five languages",
+        "publisher": "Google Cloud Blog",
+        "published_at": "2026-10-13",
+        "retrieved_at": "2026-10-14T00:18:50.331Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-14T00:18:50.331Z",
+          "scope": "Entire developer article, the MCP/A2A shared interoperability architecture and original per-language examples across Python signature inference, Go struct/generics graph workflows, TypeScript Zod, Java schema annotations, Kotlin compile-time KSP and evaluation."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1900,
+          "source_word_count_method": "original publisher article main-text editorial estimate"
+        }
+      },
+      "reading_time_minutes": 10,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1900,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-14T00:22:55.852Z",
+        "caveat": "Editorial approximation, not measured reader session"
+      },
+      "topics": [
+        "Agent runtimes",
+        "MCP interoperability",
+        "Typed tool contracts"
+      ],
+      "coverage_labels": [
+        "2026-10-13 original publisher article",
+        "current publisher source",
+        "Technical AI Engineering"
+      ],
+      "agent_skills": false,
+      "summary": "Google describes native Agent Development Kit implementations for Python, Go, TypeScript, Java and Kotlin. All support MCP tool connections and A2A agent communication, but their tool schemas are built differently: Python introspection, Go generics, TypeScript Zod, Java annotations and Kotlin compilation. The examples expose interoperability choices rather than proving identical production behavior.",
+      "why_it_matters": "Teams can build agents in their established runtime instead of adding a Python service solely for orchestration. Compare schema validation, traceability, deployment and protocol interoperability with the same test tool before adopting a language-specific implementation.",
+      "related_coverage": "See companion October 14 coverage for engineering, responsible tasks, knowledge context and safe skills.",
+      "image_alt_intent": "Five language-native tool schema mechanisms converging into shared MCP tool exchange and A2A agent messaging; distinct build-time and runtime schema validation stages and evaluation lanes.",
+      "permanent_route": "/stories/2026-10-14/t2-adk-five-runtimes/"
+    },
+    {
+      "id": "oct14-k1-slack-decision-context",
+      "headline": "Atlassian connects Slack decisions with tracked project work in Rovo",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://www.atlassian.com/blog/ai-at-work/rovo-slack-connect-conversations-to-action",
+        "title": "Turn Slack conversations into connected context with Teamwork Graph",
+        "publisher": "Atlassian",
+        "published_at": "2026-10-13",
+        "retrieved_at": "2026-10-14T00:18:50.331Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-14T00:18:50.331Z",
+          "scope": "Complete Atlassian October 13 publisher main body retrieved via indexed publisher full text, including four Project Meridian decision/risk/Jira/incident examples, direct Slack fetch permission restrictions, connector setup and limitations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1300,
+          "source_word_count_method": "original publisher article main-text editorial estimate"
+        }
+      },
+      "reading_time_minutes": 7,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1300,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-14T00:22:58.389Z",
+        "caveat": "Editorial approximation, not measured reader session"
+      },
+      "topics": [
+        "Connected work context",
+        "Permissioned search",
+        "Decision traceability"
+      ],
+      "coverage_labels": [
+        "2026-10-13 original publisher article",
+        "current publisher source",
+        "Applied Generative AI for Knowledge Workers"
+      ],
+      "agent_skills": false,
+      "summary": "Atlassian's October 13 update describes Rovo connecting Slack conversations to Jira, Confluence and other project knowledge. Its examples reconstruct launch decisions, identify risks against plans, create Jira work from discussion and support incident investigation. For newer Slack connectors, results are retrieved directly when needed, subject to each user's underlying Slack permissions.",
+      "why_it_matters": "A project manager can ask why a milestone changed, then verify the answer against its original thread and tracked ticket. Pilot permission checks with private channels and require review before an agent updates assignments or incident plans.",
+      "related_coverage": "See companion October 14 coverage for engineering, responsible tasks, knowledge context and safe skills.",
+      "image_alt_intent": "Traceable project decision from Slack discussion through permission-filtered search into Confluence launch plan and Jira ticket, with risk-update detection, human approval and audit evidence.",
+      "permanent_route": "/stories/2026-10-14/k1-slack-decision-context/"
+    },
+    {
+      "id": "oct14-k2-argon-business-evidence",
+      "headline": "Gemini 4 Argon targets long business analyses with verifiable checkpoints",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud",
+        "title": "Gemini 4 Argon available on Google Cloud, built to help solve your business’ hardest problems",
+        "publisher": "Google Cloud Blog",
+        "published_at": "2026-10-13",
+        "retrieved_at": "2026-10-14T00:18:50.331Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-14T00:18:50.331Z",
+          "scope": "Entire original Cloud October 13 article discussing long-form finance/legal workflows, citations, early customer/vendor benchmark disclosures, guardrails, model identifier, rollout and introductory token pricing."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1450,
+          "source_word_count_method": "original publisher article main-text editorial estimate"
+        }
+      },
+      "reading_time_minutes": 8,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1450,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-14T00:23:01.050Z",
+        "caveat": "Editorial approximation, not measured reader session"
+      },
+      "topics": [
+        "Long task reasoning",
+        "Finance document checks",
+        "Model cost controls"
+      ],
+      "coverage_labels": [
+        "2026-10-13 original publisher article",
+        "current publisher source",
+        "Applied Generative AI for Knowledge Workers"
+      ],
+      "agent_skills": false,
+      "summary": "Google released Gemini 4 Argon for enterprise work and developers on October 13, describing long document synthesis, finance reconciliations, legal citations and guarded cybersecurity tasks. Its public model identifier is gemini-4-argon. Introductory API prices run through November 30 before doubling. Customer results and benchmark scores in the launch post are vendor reported, not independently verified.",
+      "why_it_matters": "Knowledge workers should evaluate one bounded reconciliation or legal-source task with fixed inputs, citation checks, explicit error handling and human signoff. Finance teams should model token costs under both introductory and later pricing before committing a workflow.",
+      "related_coverage": "See companion October 14 coverage for engineering, responsible tasks, knowledge context and safe skills.",
+      "image_alt_intent": "Long-document evidence assembly feeding Gemini Argon financial reconciliation and legal citation checks; independent formula/citation evaluator and approval checkpoint, with November pricing shift and usage-budget ledger.",
+      "permanent_route": "/stories/2026-10-14/k2-argon-business-evidence/"
+    },
+    {
+      "id": "oct14-a1-skill-license-check",
+      "headline": "Build a reusable Agent Skill that checks licensing before installation",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+        "title": "83% of Agent Skills have no license",
+        "publisher": "SkillMD Blog",
+        "published_at": "2026-10-10",
+        "retrieved_at": "2026-10-14T00:18:50.331Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-14T00:18:50.331Z",
+          "scope": "Full dated SkillMD October 10 sample/results, methodology, example frontmatter, SPDX advice, linter SK011, duplicate normalization and limitations regarding repo-level licenses."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 710,
+          "source_word_count_method": "original publisher article main-text editorial estimate"
+        },
+        "freshness_reason": "October 10 dated first-party methodology within 168 hours fills practical Agent Skills review gap that newer launch articles do not; explicitly limits inferred licensing conclusions."
+      },
+      "reading_time_minutes": 4,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 710,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-14T00:23:03.652Z",
+        "caveat": "Editorial approximation, not measured reader session"
+      },
+      "topics": [
+        "Agent Skills",
+        "License provenance",
+        "Approval workflows"
+      ],
+      "coverage_labels": [
+        "2026-10-10 original publisher article",
+        "justified 168-hour freshness fallback",
+        "Agents for Everyone"
+      ],
+      "agent_skills": true,
+      "summary": "SkillMD's October 10 survey found 901,653 of 1,081,266 indexed public SKILL.md files without a license field in frontmatter. The survey did not examine repository licenses, so absence is not proof of no license. A practical read-only review Skill can check source commits, normalize SPDX terms, inspect repository licenses and halt on ambiguity before installation.",
+      "why_it_matters": "Copying an appealing Skill into a work project may import unclear redistribution rights or unsafe instructions. Require provenance, license evidence, allowed tool scope and an explicit approval record before executing unfamiliar procedures; treat ambiguous cases as review required.",
+      "related_coverage": "See companion October 14 coverage for engineering, responsible tasks, knowledge context and safe skills.",
+      "image_alt_intent": "SKILL.md license-review procedure receiving source URL and immutable commit, normalizing SPDX and repo LICENSE, checking permission scope, stopping on uncertainty and producing a human approval ledger.",
+      "permanent_route": "/stories/2026-10-14/a1-skill-license-check/",
+      "agent_skills_evidence": "Reusable Agent Skill procedure: Create SKILL.md with name skill-license-provenance-review and a trigger for proposed external Agent Skill installation. Inputs: source repository, immutable commit, target SKILL.md path and intended license use. Permit read-only inspection of frontmatter SPDX field and repository LICENSE; normalize aliases and record any contradiction. Inspect referenced scripts and requested tools but do not execute unfamiliar code or grant credentials. Output the URL, pinned commit, observed terms, restrictions, decision APPROVE/REVIEW/REJECT, confidence and evidence paths. Require independent human approval before installation or distribution. Test with an MIT SKILL.md plus root LICENSE (review), missing frontmatter but repository license (review), conflicting terms (reject) and missing source commit (reject). SkillMD did not inspect repo-level licenses, so a blank frontmatter field is not itself proof of missing licensing rights."
+    },
+    {
+      "id": "oct14-a2-argon-tasks-consumer",
+      "headline": "Gemini app's task toggle makes permission review a daily habit",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+        "title": "Gemini 4 Argon comes to the Gemini app",
+        "publisher": "The Keyword / Google",
+        "published_at": "2026-10-13",
+        "retrieved_at": "2026-10-14T00:18:50.331Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-14T00:18:50.331Z",
+          "scope": "Complete Google October 13 Gemini app release covering task versus chat toggle, connected third-party apps, macOS coding pathway, Pro/Ultra eligibility and task progress updates."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 270,
+          "source_word_count_method": "original publisher article main-text editorial estimate"
+        }
+      },
+      "reading_time_minutes": 2,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 270,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-14T00:23:05.974Z",
+        "caveat": "Editorial approximation, not measured reader session"
+      },
+      "topics": [
+        "Connected app agents",
+        "Task delegation",
+        "Human confirmation"
+      ],
+      "coverage_labels": [
+        "2026-10-13 original publisher article",
+        "current publisher source",
+        "Agents for Everyone"
+      ],
+      "agent_skills": false,
+      "summary": "Google says Gemini 4 Argon is available in its app for AI Pro and Ultra subscribers, alongside a new chat-to-tasks toggle. It describes background task execution across more than 40 connected apps, including grocery, booking, design and commerce services. The announcement outlines access and features, but provides no independent completion or safety rate for these workflows.",
+      "why_it_matters": "Start with a reversible, low-value task such as preparing a shopping comparison. Review connected accounts and every proposed transaction, and insist on approval before bookings, purchases or external messages. Judge reliability from documented outcomes rather than promotional capability claims.",
+      "related_coverage": "See companion October 14 coverage for engineering, responsible tasks, knowledge context and safe skills.",
+      "image_alt_intent": "Chat-to-task mode toggle connected to permission-scoped services, with separate plan preview, reversible draft actions, final human confirmation barrier and execution receipt, no automatic purchase.",
+      "permanent_route": "/stories/2026-10-14/a2-argon-tasks-consumer/"
+    }
+  ],
+  "videos": [
+    {
+      "title": "MCP vs Skills: Which Is Right for Your AI Agent and LLMs?",
+      "source": "IBM Technology official video",
+      "url": "https://www.youtube.com/watch?v=goU9VIXA8II",
+      "original_date": "2026-07-07",
+      "duration_minutes": 8.05,
+      "focus": "Technical AI Engineering",
+      "summary": "IBM Technology distinguishes MCP, a protocol for connecting agents to permitted live services, from reusable Skills that encode bounded procedures and institutional task knowledge. Its original explainer shows why a CRM search belongs behind authenticated tool access while consistent document generation belongs in a repeatable Skill. The useful engineering takeaway is to specify identity, allowed requests, data provenance, tool contracts and audit checks independently from the procedure the agent follows. This synopsis relies on published captions and video metadata, not audiovisual playback.",
+      "why_it_matters": "Choose MCP for approved external capabilities and Skills for documented task procedures; validate both access rights and result quality.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-14T00:26:10.552Z",
+      "verified_method": "original_ibm_video_page_and_independent_complete_caption_index",
+      "verification_method": "original_ibm_video_page_and_independent_complete_caption_index",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-14T00:26:10.552Z",
+        "runtime_source_url": "https://ainotes.us/summary/608",
+        "method": "publisher_video_page_caption_index_8min03sec",
+        "verification_scope": "IBM original YouTube creator and date, independent complete indexed captions and 08:03 runtime; source-backed editorial summary; audiovisual playback not claimed.",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "Knowing When Not to Use AI: AI Agents vs Rules vs ML",
+      "source": "IBM Technology official video",
+      "url": "https://www.youtube.com/watch?v=_ZqSFVi6UDY",
+      "original_date": "2026-07-23",
+      "duration_minutes": 10.583333333333334,
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "summary": "IBM's practical decision framework compares fixed rules, classical machine learning and generative agents against task ambiguity, predictability and verification risk. For repeatable eligibility checks or fixed routing, a deterministic rule can be cheaper and safer than an agent; established predictive ML suits numeric classification with suitable data; agent tools help interpret variable multi-step requests, but need permissions, validation and human review. The discussion is presented as a reusable selection framework, not as evidence of actual financial savings or autonomous reliability.",
+      "why_it_matters": "Use the shortest dependable method for each step and reserve autonomous tools for uncertain work with approval and audit gates.",
+      "duration_exception_reason": "Verified 10:35 runtime exceeds the normal ten-minute target by 35 seconds; useful complete rules-versus-ML-versus-agent evaluation not available in the selected shorter video.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-14T00:26:10.552Z",
+      "verified_method": "original_ibm_video_identity_and_independent_runtime_listing",
+      "verification_method": "original_ibm_video_identity_and_independent_runtime_listing",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-14T00:26:10.552Z",
+        "runtime_source_url": "https://www.dailymotion.com/video/xa1e2i2",
+        "method": "original_ibm_video_and_independent_listing_10min35sec",
+        "verification_scope": "Original IBM Technology YouTube ID and publication date independently corroborated with runtime listing 10:35; audiovisual playback not claimed.",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Claude's Unintended Actions and Hacking Accountability – AI News (Oct 13, 2026)",
+      "source": "The Automated Daily — original Apple Podcasts listing",
+      "url": "https://podcasts.apple.com/us/podcast/claudes-unintended-actions-and-hacking-accountability/id1697578933?i=1000796130409",
+      "original_date": "2026-10-13",
+      "duration_minutes": 8,
+      "summary": "The Automated Daily's October 13 episode surveys claims and responses about unintended actions in agent evaluations, accountability for hacking tools and boundaries for AI systems operating with network access. Its written episode notes connect prompt-injection risks, unexpected side effects and tool supervision with practical incident investigation. Readers should separate the reported incident details from any independently confirmed technical findings and use the episode as a trigger to examine test isolation, permissions, escalation and audit evidence. No audio was played.",
+      "why_it_matters": "Provides a short briefing on agent accountability and concrete tests for unauthorized external actions before deployment.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-14T00:26:10.552Z",
+      "verified_method": "first_party_apple_podcast_listing_title_original_date_8min_and_original_show_notes",
+      "verification_method": "first_party_apple_podcast_listing_title_original_date_8min_and_original_show_notes",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-14T00:26:10.552Z",
+        "runtime_source_url": "https://podcasts.apple.com/us/podcast/claudes-unintended-actions-and-hacking-accountability/id1697578933?i=1000796130409",
+        "method": "first_party_episode_player_show_notes_8min",
+        "verification_scope": "Original dated Apple episode with identity, eight-minute duration and publisher notes; no listening or audio playback claimed.",
+        "audiovisual_playback_claimed": false
+      },
+      "written_reading_time_minutes": 3
+    },
+    {
+      "title": "AI at work",
+      "source": "Reuters Econ World",
+      "url": "https://podcasts.apple.com/at/podcast/ai-at-work/id1746360591?i=1000793661295",
+      "original_date": "2026-10-07",
+      "duration_minutes": 35,
+      "summary": "Reuters Econ World's original October 7 episode features host Carmel Crimmins discussing artificial intelligence and workforce outcomes with ADP chief economist Nela Richardson. The publisher's description examines how task-level exposure differs from entire job replacement and why impacts differ by role, seniority, wages and experience. For workforce leaders, the useful questions are which repeatable tasks change first, how early-career development is protected and which data show training or productivity changes rather than speculative displacement. The editorial synopsis comes from written episode information; no listening occurred.",
+      "why_it_matters": "Frames AI adoption as an evidence-based task and workforce planning problem rather than a blanket employment prediction.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-14T00:26:10.552Z",
+      "verified_method": "reuters_original_episode_and_multiple_podcast_directories_35min",
+      "verification_method": "reuters_original_episode_and_multiple_podcast_directories_35min",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-14T00:26:10.552Z",
+        "runtime_source_url": "https://podcasts.apple.com/at/podcast/ai-at-work/id1746360591?i=1000793661295",
+        "method": "reuters_original_date_and_apple_directory_35min",
+        "verification_scope": "Original October 7 Reuters Econ World episode linked with Apple published episode record and 35-minute listed duration; no audio playback claimed.",
+        "audiovisual_playback_claimed": false
+      },
+      "written_reading_time_minutes": 4
+    }
+  ],
+  "watchlist": {
+    "schema_version": "daily-compiler-watchlist-v1",
+    "target_edition_date": "2026-10-14",
+    "refreshed_at": "2026-10-14T00:26:47.434Z",
+    "new": [
+      {
+        "topic": "Cross-language agent tool contracts",
+        "why": "Google's October 13 release adds native Agent Development Kit runtimes and new cross-language tool validation choices.",
+        "summary": "Language-specific agent tool adapters let teams combine typed commands, workflow graphs, and external tool protocols.",
+        "why_now": "Google's October 13 engineering announcement documents five ADK runtimes sharing MCP and A2A interfaces.",
+        "practical_value": "Compare tool schema validation and error handling across two languages before standardizing an agent platform.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/",
+          "date": "2026-10-13"
+        }
+      },
+      {
+        "topic": "Rack-scale agent orchestration resources",
+        "why": "October 12 AMD Helion blueprint separates orchestration CPUs from GPU inference at rack scale.",
+        "summary": "The proposed Helion architecture assigns agent execution and model inference to different rack-level compute resources.",
+        "why_now": "AMD disclosed October 12 reference configurations and November partner plans without confirming commercial delivery.",
+        "practical_value": "Model CPU duty cycle, accelerator demand, networking and cooling independently before evaluating procurement promises.",
+        "evidence": {
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
+          "date": "2026-10-12"
+        }
+      },
+      {
+        "topic": "Consumer agent task permissions",
+        "why": "October 13 Gemini app update describes task delegation and over forty connector integrations.",
+        "summary": "App-connected AI assistants can interpret a goal and coordinate multiple actions across external services.",
+        "why_now": "Google's October 13 app update announced a chat-to-tasks toggle for eligible subscribers.",
+        "practical_value": "Test a reversible shopping research request and verify approval prompts before enabling booking or payment.",
+        "evidence": {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+          "date": "2026-10-13"
+        }
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Permission-filtered enterprise conversation memory",
+        "what_changed": "Atlassian's October 13 Rovo announcement extends permissioned project context with direct Slack conversation retrieval and related Jira decisions.",
+        "summary": "A connected work graph links conversational decisions to project records and tracked implementation tasks.",
+        "why_now": "Atlassian's October 13 connector explanation adds on-demand Slack message fetching within existing user channel rights.",
+        "practical_value": "Compare an incident explanation against its original Slack messages and Jira timeline under different user permissions.",
+        "evidence": {
+          "url": "https://www.atlassian.com/blog/ai-at-work/rovo-slack-connect-conversations-to-action",
+          "date": "2026-10-13"
+        }
+      },
+      {
+        "topic": "Audited long-form business reasoning",
+        "what_changed": "Google Cloud's October 13 Argon release adds a named model, business analysis examples, and dated introductory API prices.",
+        "summary": "Long-horizon models can assemble legal, financial and research evidence for an answer that requires external validation.",
+        "why_now": "An October 13 Google Cloud release specifies Argon availability and a November 30 promotional pricing deadline.",
+        "practical_value": "Evaluate reconciled figures and citation quality on a controlled document set while tracking model token costs.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud",
+          "date": "2026-10-13"
+        }
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Third-party Agent Skill license provenance",
+        "why": "An October 10 SkillMD frontmatter survey remains useful, with no verified newer registry-wide repository-license assessment.",
+        "summary": "Reusable SKILL.md packages require traceable distribution rights and limits on imported code execution privileges.",
+        "why_now": "SkillMD's October 10 methodology still lacks repository-license coverage, so frontmatter counts cannot settle legal permissions.",
+        "practical_value": "Run a read-only SPDX and repository LICENSE audit before installing or sharing any unfamiliar Skill.",
+        "evidence": {
+          "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+          "date": "2026-10-10"
+        }
+      },
+      {
+        "topic": "Cloud inference performance reproducibility",
+        "why": "Microsoft's October 12 Maia rack efficiency claims await representative third-party workload benchmarking and availability verification.",
+        "summary": "Cloud inference infrastructure designs balance accelerator memory, serving throughput, energy budgets and deployment economics.",
+        "why_now": "Microsoft's October 12 release made vendor performance claims, but no new independent reproducibility evidence is verified today.",
+        "practical_value": "Benchmark representative batch sizes, latency percentiles and cost per accepted answer before moving production traffic.",
+        "evidence": {
+          "url": "https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/",
+          "date": "2026-10-12"
+        }
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Warehouse native invoice review",
+        "reason": "The October 9 document-to-SQL case remains useful but no distinct new dated verification appeared for this daily Watchlist; preserve previous coverage.",
+        "summary": "Document-extraction workflows convert invoice PDFs into structured warehouse records with reconciliation and exception handling.",
+        "why_now": "The prior October 9 vendor walkthrough has no independently checked October 13 follow-up requiring daily active tracking.",
+        "practical_value": "Keep its exception-control checklist available for future finance pilots without interpreting absence of updates as a failure.",
+        "previous_evidence": {
+          "url": "https://cloud.google.com/blog/products/data-analytics/modernize-unstructured-data-workloads-with-alteryx-and-bigquery/",
+          "date": "2026-10-09"
+        }
+      }
+    ]
+  },
+  "book_mappings": [
+    {
+      "story_id": "oct14-t1-helion-agent-compute",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Reliable orchestration requires honest resource and cost budgets",
+      "connection": "Helion's CPU versus accelerator distinction makes agent harness execution capacity a separately measurable reliability and infrastructure issue.",
+      "what_to_study_next": "Build a load-test matrix for orchestrator threads, model tokens, job retries, cooling and power."
+    },
+    {
+      "story_id": "oct14-t2-adk-five-runtimes",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Typed tool contexts and multi-agent interoperability",
+      "connection": "ADK five-language support illustrates why tool schemas, permissions and A2A message contracts must survive language boundaries.",
+      "what_to_study_next": "Test a single tool schema and context trace across two runtime implementations."
+    },
+    {
+      "story_id": "oct14-k1-slack-decision-context",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Source-scoped retrieval, permission filtering and evidence trails",
+      "connection": "Rovo joins conversational claims with Jira and Confluence records only through authorized retrieval and inspectable project context.",
+      "what_to_study_next": "Design a private-channel access test and a source-citation acceptance checklist."
+    },
+    {
+      "story_id": "oct14-k2-argon-business-evidence",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Evidence-grounded long-form business prompts and test cases",
+      "connection": "A financial or legal analysis prompt must specify source scope, reconciliation criteria, output format, citation checks and explicit escalation.",
+      "what_to_study_next": "Draft an evaluable financial discrepancy analysis with an independent numeric truth set."
+    },
+    {
+      "story_id": "oct14-a1-skill-license-check",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable prompt/Skill learning and feedback loop",
+      "connection": "The read-only license-review Skill turns one governance lesson into a repeatable, testable procedure with evidence and approval.",
+      "what_to_study_next": "Create a SKILL.md with risk triggers, negative tests, a revision ledger and manual approval."
+    },
+    {
+      "story_id": "oct14-a2-argon-tasks-consumer",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Safe external-action boundaries and human supervision",
+      "connection": "Connected Gemini tasks highlight the distinction between drafting an action and granting authority to commit a purchase or booking.",
+      "what_to_study_next": "Create a test task that requires explicit approval before external side effects."
+    }
+  ]
+}
