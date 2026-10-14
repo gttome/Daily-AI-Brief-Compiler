@@ -1,0 +1,49 @@
+{
+  "id": "oct14-a1-skill-license-check",
+  "headline": "Build a reusable Agent Skill that checks licensing before installation",
+  "focus": "Agents for Everyone",
+  "source": {
+    "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+    "title": "83% of Agent Skills have no license",
+    "publisher": "SkillMD Blog",
+    "published_at": "2026-10-10",
+    "retrieved_at": "2026-10-14T00:18:50.331Z",
+    "read_evidence": {
+      "status": "verified",
+      "full_source_read": true,
+      "method": "publisher_main_text",
+      "read_at": "2026-10-14T00:18:50.331Z",
+      "scope": "Full dated SkillMD October 10 sample/results, methodology, example frontmatter, SPDX advice, linter SK011, duplicate normalization and limitations regarding repo-level licenses."
+    },
+    "reading_estimation_basis": {
+      "source_word_count_estimate": 710,
+      "source_word_count_method": "original publisher article main-text editorial estimate"
+    },
+    "freshness_reason": "October 10 dated first-party methodology within 168 hours fills practical Agent Skills review gap that newer launch articles do not; explicitly limits inferred licensing conclusions."
+  },
+  "reading_time_minutes": 4,
+  "reading_time_evidence": {
+    "method": "original_publisher_main_text_estimate",
+    "estimated_original_word_count": 710,
+    "assumed_wpm": 200,
+    "assessed_at": "2026-10-14T00:23:03.652Z",
+    "caveat": "Editorial approximation, not measured reader session"
+  },
+  "topics": [
+    "Agent Skills",
+    "License provenance",
+    "Approval workflows"
+  ],
+  "coverage_labels": [
+    "2026-10-10 original publisher article",
+    "justified 168-hour freshness fallback",
+    "Agents for Everyone"
+  ],
+  "agent_skills": true,
+  "summary": "SkillMD's October 10 survey found 901,653 of 1,081,266 indexed public SKILL.md files without a license field in frontmatter. The survey did not examine repository licenses, so absence is not proof of no license. A practical read-only review Skill can check source commits, normalize SPDX terms, inspect repository licenses and halt on ambiguity before installation.",
+  "why_it_matters": "Copying an appealing Skill into a work project may import unclear redistribution rights or unsafe instructions. Require provenance, license evidence, allowed tool scope and an explicit approval record before executing unfamiliar procedures; treat ambiguous cases as review required.",
+  "related_coverage": "See companion October 14 coverage for engineering, responsible tasks, knowledge context and safe skills.",
+  "image_alt_intent": "SKILL.md license-review procedure receiving source URL and immutable commit, normalizing SPDX and repo LICENSE, checking permission scope, stopping on uncertainty and producing a human approval ledger.",
+  "permanent_route": "/stories/2026-10-14/a1-skill-license-check/",
+  "agent_skills_evidence": "Reusable Agent Skill procedure: Create SKILL.md with name skill-license-provenance-review and a trigger for proposed external Agent Skill installation. Inputs: source repository, immutable commit, target SKILL.md path and intended license use. Permit read-only inspection of frontmatter SPDX field and repository LICENSE; normalize aliases and record any contradiction. Inspect referenced scripts and requested tools but do not execute unfamiliar code or grant credentials. Output the URL, pinned commit, observed terms, restrictions, decision APPROVE/REVIEW/REJECT, confidence and evidence paths. Require independent human approval before installation or distribution. Test with an MIT SKILL.md plus root LICENSE (review), missing frontmatter but repository license (review), conflicting terms (reject) and missing source commit (reject). SkillMD did not inspect repo-level licenses, so a blank frontmatter field is not itself proof of missing licensing rights."
+}
