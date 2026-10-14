@@ -33,6 +33,8 @@ jobs:
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/daily-operations-report.yml
       - name: Parse Watchlist-only correction workflow YAML
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/watchlist-editorial-correction.yml
+      - name: Parse duplicate-reading-copy correction workflow YAML
+        run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/reading-copy-correction.yml
       - name: Pre-first-PR image-package gate on push and PR (Rev8 only)
         if: (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/image-package/')) || (github.event_name == 'pull_request' && startsWith(github.head_ref, 'image-package/'))
         env:
