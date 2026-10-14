@@ -5,6 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { validateEdition, compileShadow, gitBlobSha, sha256 } from '../compiler/compile.mjs';
 import {adaptCompilerBundle, canonicalWatchTopicId} from '../compiler/reader-adapter.mjs';
+import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/watchlist.mjs';
 
 test('complete fixture validates exact editorial and image identities', () => {
   const result=validateEdition({
@@ -80,6 +81,10 @@ test('fixture compiles to canonical reader source without ChatGPT after BUNDLE_R
   assert.ok(watchlist.topics.length>=20);
   assert.ok(watchlist.topics.every(topic=>!topic.topic_id.startsWith('dab-topic-compiler-')));
   assert.ok(watchlist.topics.every(topic=>topic.topic_id.length<=64));
+  assert.ok(watchlist.topics.every(topic=>Number.isInteger(topic.research_score)&&topic.research_score===scoreTopic(topic)),
+    'every published Watchlist topic must contain its rubric-derived score');
+  const research=fs.readFileSync(path.join(out,'watchlist','research','index.md'),'utf8');
+  assert.doesNotMatch(research,/How the research score works · \/100/);
 });
 
 test('production repository mutation target is rejected', () => {
