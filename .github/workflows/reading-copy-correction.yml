@@ -1,0 +1,124 @@
+name: reading-copy-correction
+# Repair the published October 14 reader without rebuilding any edition bundle or images.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/reading-copy-revisions/*.json'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Admit exactly one protected-main correction revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t revisions < <(git diff --name-only HEAD^ HEAD -- 'config/reading-copy-revisions/*.json')
+          test "${#revisions[@]}" -eq 1
+          test -s "${revisions[0]}"
+          echo "REVISION_PATH=${revisions[0]}" >> "$GITHUB_ENV"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+      - name: Read existing published Pages history
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
+          git worktree add --detach history "$HISTORY_HEAD"
+          test -s history/site/briefs/2026-10-14/index.html
+      - name: Remove only confirmed duplicate reading-support HTML
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          node scripts/correct-reading-duplication.mjs \
+            "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/reading-copy-receipt.json','utf8'));
+          if(r.result!=='PASS'||r.files_changed!==13||r.repeated_blocks_removed!==34||
+              r.current_image_files_byte_preserved<1||r.canonical_summary_why_unchanged!==true)
+            throw Error('October 14 text-only integrity invariants failed');
+          console.log('TEXT_ONLY_CORRECTION_PREFLIGHT_PASS',r.files_changed,r.repeated_blocks_removed,r.current_image_files_byte_preserved);
+          NODE
+      - name: Refuse competing history or main changes before deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/patched
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Independently read back each of 13 live corrected routes
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const receipt=JSON.parse(fs.readFileSync('build/reading-copy-receipt.json','utf8'));
+          const base=process.env.SITE_URL.replace(/\/?$/,'/');
+          for(const entry of receipt.changed){
+            const expected=fs.readFileSync('build/patched/'+entry.route);
+            const sha=crypto.createHash('sha256').update(expected).digest('hex');
+            if(sha!==entry.current_sha256)throw Error('local staged file changed: '+entry.route);
+            let ok=false,detail='';
+            for(let retry=0;retry<8;retry++){
+              const url=new URL(entry.route,base);
+              url.searchParams.set('reading-copy-revision',process.env.GITHUB_SHA.slice(0,12));
+              try{
+                const response=await fetch(url,{headers:{'Cache-Control':'no-cache'}});
+                const actual=Buffer.from(await response.arrayBuffer());
+                if(response.status===200&&actual.equals(expected)){ok=true;break;}
+                detail='HTTP '+response.status+', bytes '+actual.length;
+              }catch(e){detail=String(e);}
+              await new Promise(r=>setTimeout(r,3500));
+            }
+            if(!ok)throw Error('live byte-for-byte reader verification failed: '+entry.route+' '+detail);
+            console.log('LIVE_CORRECTED_READER_PASS',entry.route,sha);
+          }
+          console.log('ALL_13_READER_ROUTES_VERIFIED',receipt.repeated_blocks_removed);
+          NODE
+      - name: Persist verified correction to cumulative reader history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          while IFS= read -r route; do
+            test -n "$route"
+            cp "build/patched/$route" "history/site/$route"
+            git -C history add "site/$route"
+          done < <(node -e "const r=require('./build/reading-copy-receipt.json');for(const f of r.changed)console.log(f.route)")
+          test "$(git -C history diff --cached --name-only | wc -l)" -eq 13
+          git -C history config user.name 'Daily Compiler'
+          git -C history config user.email 'actions@users.noreply.github.com'
+          git -C history commit -m 'Publish October 14 reader copy-only deduplication'
+          git -C history push origin HEAD:shadow-pages-history
+          echo 'READING_COPY_CORRECTION_LIVE_VERIFIED_AND_PERSISTED'

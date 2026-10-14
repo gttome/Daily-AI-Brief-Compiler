@@ -60,6 +60,19 @@ function patchFeedbackRuntime(root,environment){
   fs.writeFileSync(feedbackPage,page,'utf8');
 }
 
+function suppressRepeatedReaderContext(root){
+  // Preserve the upstream vendor snapshot and its strict reading-support validation.
+  // The generated reader already has canonical Summary and Why it matters sections.
+  // From Oct 14 on, do not display those same paragraphs in the supplemental panel.
+  const file=path.join(root,'_generator','lib','reading-support.mjs');
+  const source=fs.readFileSync(file,'utf8');
+  const marker='const contextBlock=x?';
+  if(source.split(marker).length!==2)
+    throw new Error('vendored reading-support template changed; duplicate-copy prevention must be reviewed');
+  const corrected=source.replace(marker,"const contextBlock=date>='2026-10-14'?'':x?");
+  fs.writeFileSync(file,corrected,'utf8');
+}
+
 function applyFeedbackIdentities(content,registry){
   let next=String(content);
   for(const item of registry.items){
@@ -219,6 +232,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   rewriteReaderEnvironment(outDir,environment);
   patchWatchlistImmediateSelection(outDir);
   patchFeedbackRuntime(outDir,environment);
+  suppressRepeatedReaderContext(outDir);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
   const priorWatchlist=readJson(path.join(outDir,'_data','watchlist.json'));
