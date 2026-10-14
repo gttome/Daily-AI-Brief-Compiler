@@ -237,16 +237,18 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
 
   const priorWatchlist=readJson(path.join(outDir,'_data','watchlist.json'));
   const adapted=adaptCompilerBundle(bundle,{environment,priorWatchlist});
+  const watchModule=await import(pathToFileURL(path.join(outDir,'_generator','lib','watchlist.mjs')).href);
+  const watchErrors=watchModule.validateWatchlist(adapted.watchlist);
+  if(watchErrors.length)throw new Error('adapted Watchlist invalid: '+watchErrors.join('; '));
+  // Score every topic using the same weighted rubric displayed to readers.
+  // Vendored prior topics do not carry a precomputed score; do not publish blank /100.
+  adapted.watchlist=watchModule.publicWatchlist(adapted.watchlist);
   const feedbackRegistry=compilerFeedbackRegistry(bundle,adapted.edition,adapted.watchlist);
   mergeBookOverlay(outDir,bundle.edition_date,adapted.bookOverlay);
   mergeReadingSupport(outDir,bundle,adapted.edition,environment);
   writeWatchlistData(outDir,adapted.watchlist);
   copyCurrentImages(outDir,repoRoot,adapted.imageBindings,bundle.edition_date);
   writeText(path.join(outDir,'_data','editions',bundle.edition_date+'.json'),JSON.stringify(adapted.edition,null,2));
-
-  const watchModule=await import(pathToFileURL(path.join(outDir,'_generator','lib','watchlist.mjs')).href);
-  const watchErrors=watchModule.validateWatchlist(adapted.watchlist);
-  if(watchErrors.length)throw new Error('adapted Watchlist invalid: '+watchErrors.join('; '));
 
   const render=await import(pathToFileURL(path.join(outDir,'_generator','lib','render.mjs')).href);
   const generated=render.generatedFiles(adapted.edition,outDir,{watchlist:adapted.watchlist});
