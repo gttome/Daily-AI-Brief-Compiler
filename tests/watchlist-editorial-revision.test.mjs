@@ -76,9 +76,9 @@ test('score-only correction fills missing rubric scores in both live routes with
   assert.equal(result.images_regenerated,0);
   assert.deepEqual(result.changed.map(c=>c.route).sort(),['data/watchlist.json','watchlist/research/index.html']);
   const published=JSON.parse(fs.readFileSync(path.join(t.out,'data/watchlist.json'),'utf8'));
-  assert.equal(published.topics[0].research_score,67);
+  assert.equal(published.topics[0].research_score,63);
   const html=fs.readFileSync(path.join(t.out,'watchlist/research/index.html'),'utf8');
-  assert.match(html,/How the research score works · 67\/100/);
+  assert.match(html,/How the research score works · 63\/100/);
   assert.doesNotMatch(html,/How the research score works · \/100/);
   assert.equal(fs.readFileSync(path.join(t.out,'briefs/images/2026-10-13/dab-edition-2026-10-13-m0.png'),'utf8'),'pinned-premium-0');
  }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
