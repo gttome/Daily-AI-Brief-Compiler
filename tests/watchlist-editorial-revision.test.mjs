@@ -49,3 +49,47 @@ test('text-only correction cannot overwrite a newer edition, stale source text o
   assert.throws(()=>applyWatchlistRevision({revision:duplicate,historySite:t.history,outSite:t.out}),/repeated or substantially overlapping/);
  }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
 });
+
+test('score-only correction fills missing rubric scores in both live routes without changing images',()=>{
+ const t=setup();
+ try{
+  const rubric={
+   novelty:{score:4,reason:'Verified'},evidence:{score:4,reason:'Verified'},
+   independence:{score:2,reason:'Verified'},momentum:{score:null,reason:'Unknown'},
+   relevance:{score:5,reason:'Verified'},durability:{score:3,reason:'Verified'}
+  };
+  const dataPath=path.join(t.history,'data/watchlist.json');
+  const data=JSON.parse(fs.readFileSync(dataPath,'utf8'));
+  data.topics[0].rubric=rubric;
+  fs.writeFileSync(dataPath,JSON.stringify(data));
+  const htmlPath=path.join(t.history,'watchlist/research/index.html');
+  fs.writeFileSync(htmlPath,fs.readFileSync(htmlPath,'utf8').replace('</section>','<details class="wl-score-details"><summary>How the research score works · /100</summary></details></section>'));
+  const revision={
+   schema_version:'daily-compiler-watchlist-editorial-revision-v1',
+   scope:'watchlist_score_only',requested_by:'owner',edition_date:'2026-10-13',
+   expected_topic_count:1,expected_missing_score_count:1
+  };
+  const result=applyWatchlistRevision({revision,historySite:t.history,outSite:t.out});
+  assert.equal(result.result,'PASS');
+  assert.equal(result.corrected_topics,1);
+  assert.equal(result.missing_scores_after,0);
+  assert.equal(result.images_regenerated,0);
+  assert.deepEqual(result.changed.map(c=>c.route).sort(),['data/watchlist.json','watchlist/research/index.html']);
+  const published=JSON.parse(fs.readFileSync(path.join(t.out,'data/watchlist.json'),'utf8'));
+  assert.equal(published.topics[0].research_score,67);
+  const html=fs.readFileSync(path.join(t.out,'watchlist/research/index.html'),'utf8');
+  assert.match(html,/How the research score works · 67\/100/);
+  assert.doesNotMatch(html,/How the research score works · \/100/);
+  assert.equal(fs.readFileSync(path.join(t.out,'briefs/images/2026-10-13/dab-edition-2026-10-13-m0.png'),'utf8'),'pinned-premium-0');
+ }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
+});
+test('score-only correction refuses a stale topic audit or changed rendered score',()=>{
+ const t=setup();
+ try{
+  const revision={schema_version:'daily-compiler-watchlist-editorial-revision-v1',scope:'watchlist_score_only',requested_by:'owner',
+   edition_date:'2026-10-13',expected_topic_count:29,expected_missing_score_count:21};
+  assert.throws(()=>applyWatchlistRevision({revision,historySite:t.history,outSite:t.out}),/score audit mismatch/);
+  const unscoped={...revision,scope:'watchlist_other'};
+  assert.throws(()=>applyWatchlistRevision({revision:unscoped,historySite:t.history,outSite:t.out}),/unsupported revision authorization/);
+ }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
+});
