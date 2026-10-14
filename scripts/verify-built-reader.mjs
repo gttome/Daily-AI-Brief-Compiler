@@ -1,4 +1,5 @@
 import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchlist-copy.mjs';
+import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading-copy.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -53,6 +54,28 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     if(!item.feedback_id.includes('-compiler-'))fail('Compiler feedback item namespace missing: '+item.feedback_id);
     if(!edition.includes(`data-feedback-story-id="${item.feedback_id}"`))fail('Compiler feedback identity missing from reader: '+item.feedback_id);
     if(edition.includes(`data-feedback-story-id="${item.canonical_reader_id}"`))fail('production-style feedback identity leaked into current Compiler reader: '+item.canonical_reader_id);
+  }
+  // Regression gate on the actual Jekyll-built reader, not on producer assertions.
+  // Reading metadata and Earlier Brief links remain; Summary/Why appear once only.
+  if(manifest.edition_date>=READING_COPY_EFFECTIVE){
+    const date=manifest.edition_date;
+    const datedRoutes=manifest.required_routes.filter(route=>
+      ['stories','videos','podcasts'].some(group=>route.startsWith(group+'/'+date+'/'))&&route.endsWith('index.html'));
+    const currentRoutes=[...new Set(['index.html','latest.html','briefs/'+date+'/index.html',...datedRoutes])];
+    if(currentRoutes.length!==13||datedRoutes.filter(x=>x.startsWith('stories/')).length!==6)
+      fail('reading-copy validation requires 6 articles, 2 videos and 2 podcasts');
+    for(const route of currentRoutes){
+      const file=path.join(siteDir,route);
+      if(!fs.existsSync(file))fail('missing current reader route for copy review: '+route);
+      const html=fs.readFileSync(file,'utf8');
+      try{assertCleanReadingCopy(html,{editionDate:date});}
+      catch(e){fail('redundant reading-context editorial copy in '+route+': '+e.message);}
+      const count=(re)=>[...html.matchAll(re)].length;
+      const expected=route==='index.html'||route==='latest.html'||route==='briefs/'+date+'/index.html'?10:1;
+      if(count(/<strong>Summary:<\\/strong>/g)!==expected||count(/<strong>Why it matters:<\\/strong>/g)!==expected)
+        fail('Summary or Why it matters missing/repeated in '+route);
+      if(!html.includes('class="reading-context"'))fail('reading-time and coverage context removed from '+route);
+    }
   }
   const watchlistData=JSON.parse(fs.readFileSync(path.join(sourceDir,'data','watchlist.json'),'utf8'));
   if(manifest.edition_date>=WATCHLIST_COPY_EFFECTIVE){
