@@ -72,7 +72,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
       catch(e){fail('redundant reading-context editorial copy in '+route+': '+e.message);}
       const count=(re)=>[...html.matchAll(re)].length;
       const expected=route==='index.html'||route==='latest.html'||route==='briefs/'+date+'/index.html'?10:1;
-      if(count(/<strong>Summary:<\\/strong>/g)!==expected||count(/<strong>Why it matters:<\\/strong>/g)!==expected)
+      if(html.split('<strong>Summary:</strong>').length-1!==expected||html.split('<strong>Why it matters:</strong>').length-1!==expected)
         fail('Summary or Why it matters missing/repeated in '+route);
       if(!html.includes('class="reading-context"'))fail('reading-time and coverage context removed from '+route);
     }
