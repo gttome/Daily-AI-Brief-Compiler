@@ -6,6 +6,8 @@ import crypto from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {requireWatchlistCopy} from '../compiler/watchlist-copy.mjs';
 import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/watchlist.mjs';
+import {renderWatchlistEvidence} from '../vendor/production-reader/snapshot/assets/js/watchlist-evidence.js';
+import {isSyntheticSixty,requireWatchlistRubric} from '../compiler/watchlist-rubric.mjs';
 
 const fail=message=>{throw new Error('Watchlist text-only correction: '+message);};
 const sha=data=>crypto.createHash('sha256').update(data).digest('hex');
@@ -26,10 +28,16 @@ function walk(root){
 }
 export function applyWatchlistRevision({revision,historySite,outSite}){
   const scoreOnly=revision?.scope==='watchlist_score_only';
-  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||(!scoreOnly&&revision.scope!=='watchlist_copy_only')||revision.requested_by!=='owner')fail('unsupported revision authorization');
+  const rubricOnly=revision?.scope==='watchlist_rubric_correction';
+  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||(!scoreOnly&&!rubricOnly&&revision.scope!=='watchlist_copy_only')||revision.requested_by!=='owner')fail('unsupported revision authorization');
   if(!/^20\d\d-\d\d-\d\d$/.test(revision.edition_date))fail('invalid target date');
   if(scoreOnly){
     if(revision.items!==undefined||!Number.isInteger(revision.expected_topic_count)||!Number.isInteger(revision.expected_missing_score_count))fail('score-only correction requires an exact data audit and no editorial changes');
+  }else if(rubricOnly){
+    if(!Number.isInteger(revision.expected_topic_count)||
+      !Number.isInteger(revision.expected_generic_score_count)||
+      !Array.isArray(revision.items)||revision.items.length!==revision.expected_generic_score_count)
+      fail('rubric correction requires exact existing-topic and synthetic-score counts');
   }else if(!Array.isArray(revision.items)||!revision.items.length)fail('no editorial fixes supplied');
   if(!fs.existsSync(historySite)||fs.existsSync(outSite))fail('missing input or output already exists');
   const jsonRoute='data/watchlist.json',htmlRoute='watchlist/research/index.html';
@@ -58,6 +66,47 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
       topic.research_score=score;
     }
     if(html.includes('How the research score works · /100'))fail('blank research score remains');
+  }else if(rubricOnly){
+    const synthetic=watch.topics.filter(isSyntheticSixty);
+    if(watch.topics.length!==revision.expected_topic_count||
+       synthetic.length!==revision.expected_generic_score_count)
+      fail('synthetic 60/100 rubric audit mismatch; a concurrent change may have occurred');
+    const syntheticIds=new Set(synthetic.map(t=>t.topic_id));
+    for(const item of revision.items){
+      if(!/^dab-topic-[a-z0-9-]+$/.test(item.topic_id)||seen.has(item.topic_id))
+        fail('duplicate/invalid rubric topic ID');
+      seen.add(item.topic_id);
+      const topic=watch.topics.find(t=>t.topic_id===item.topic_id);
+      if(!topic||!syntheticIds.has(item.topic_id)||topic.name!==item.topic||
+         item.expected_original_score!==60||
+         !topic.evidence?.some(e=>e.kind==='primary'&&e.url===item.expected_evidence_url))
+        fail('stale, missing or unbound synthetic rubric: '+item.topic_id);
+      requireWatchlistRubric(item.rubric,'Corrected '+item.topic_id);
+      if(topic.evidence.filter(e=>e.kind==='primary').length===1&&item.rubric.independence.score>1)
+        fail('single original source cannot claim independent corroboration: '+item.topic_id);
+      if(!topic.momentum?.observations?.length&&item.rubric.momentum.score!==null)
+        fail('unobserved historical momentum must be marked unknown: '+item.topic_id);
+      const anchor='<section class="wl-card" id="'+esc(topic.topic_id)+'"><h2>'+esc(topic.name)+'</h2>';
+      const start=html.indexOf(anchor);
+      if(start<0||html.indexOf(anchor,start+1)>=0)fail('rubric topic section missing or repeated: '+item.topic_id);
+      const end=html.indexOf('</section>',start);
+      if(end<0)fail('rubric topic section unclosed: '+item.topic_id);
+      const fragment=html.slice(start,end);
+      const scorePattern=/<details class="wl-score-details">[\s\S]*?<\/details>/g;
+      const oldBlocks=[...fragment.matchAll(scorePattern)];
+      if(oldBlocks.length!==1||!oldBlocks[0][0].includes('· 60/100</summary>'))
+        fail('published rubric no longer matches source JSON: '+item.topic_id);
+      topic.rubric=item.rubric;
+      topic.research_score=scoreTopic(topic);
+      if(!Number.isInteger(topic.research_score)||topic.research_score<0||topic.research_score>100)
+        fail('corrected rubric score invalid: '+item.topic_id);
+      const rendered=renderWatchlistEvidence(topic);
+      const replacement=rendered.match(/<details class="wl-score-details">[\s\S]*?<\/details>/);
+      if(!replacement)fail('canonical rubric rendering unavailable');
+      html=html.slice(0,start)+fragment.replace(oldBlocks[0][0],replacement[0])+html.slice(end);
+    }
+    if(seen.size!==syntheticIds.size||watch.topics.some(isSyntheticSixty))
+      fail('synthetic default rubrics remain uncorrected');
   }else{
   for(const item of revision.items){
     if(!/^dab-topic-[a-z0-9-]+$/.test(item.topic_id)||seen.has(item.topic_id))fail('duplicate/invalid topic ID');seen.add(item.topic_id);
@@ -95,7 +144,7 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
   const currentImages=unchangedImageFiles.filter(p=>p.startsWith('briefs/images/'+revision.edition_date+'/'));
   if(currentImages.filter(p=>p.endsWith('.png')).length!==6)fail('six current premium PNGs not independently preserved');
   if(unchanged.filter(p=>/2026-10-08\//.test(p)).length<17)fail('October 8 historical artifacts were not preserved');
-  return {schema_version:'daily-compiler-watchlist-text-only-patch-v1',result:'PASS',edition_date:revision.edition_date,scope:revision.scope,corrected_topics:scoreOnly?watch.topics.length:seen.size,missing_scores_before:scoreOnly?revision.expected_missing_score_count:null,missing_scores_after:scoreOnly?0:null,changed,unchanged_file_count:unchanged.length,unchanged_image_count:unchangedImageFiles.length,current_premium_pngs_preserved:6,normal_compiler_rebuild:false,images_regenerated:0};
+  return {schema_version:'daily-compiler-watchlist-text-only-patch-v1',result:'PASS',edition_date:revision.edition_date,scope:revision.scope,corrected_topics:scoreOnly?watch.topics.length:seen.size,missing_scores_before:scoreOnly?revision.expected_missing_score_count:null,missing_scores_after:scoreOnly?0:null,synthetic_sixties_before:rubricOnly?revision.expected_generic_score_count:null,synthetic_sixties_after:rubricOnly?0:null,changed,unchanged_file_count:unchanged.length,unchanged_image_count:unchangedImageFiles.length,current_premium_pngs_preserved:6,normal_compiler_rebuild:false,images_regenerated:0};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const [revisionPath,historySite,outSite,receiptPath]=process.argv.slice(2);
