@@ -1,4 +1,5 @@
 import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
+import {watchlistRubricProblems,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
 import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
 // Strict evidence gate for a NEW unattended Release 1 pending-figure edition.
 // This is not invoked by fixture/reader preview compilation or legacy illustrated editions.
@@ -84,6 +85,19 @@ export function validateNewPendingEditorial({bundle,state}){
       for(const item of wl[kind]||[]){
         const issues=watchlistCopyProblems(item);
         if(issues.length)fail('Watchlist '+kind+' '+item.topic+': '+issues.join('; '));
+      }
+    }
+  }
+  // Never publish a future 60/100 default with six recycled 3/5 rationales.
+  // A new or updated topic requires six independently justified weighted scores.
+  if(bundle.edition_date>=WATCHLIST_RUBRIC_EFFECTIVE){
+    for(const kind of ['new','updated']){
+      for(const item of wl[kind]||[]){
+        const problems=watchlistRubricProblems(item.rubric);
+        if(problems.length)fail('Watchlist '+kind+' '+item.topic+' scoring: '+problems.join('; '));
+        if(kind==='new'&&item.rubric.momentum.score!==null&&
+           !(Array.isArray(item.momentum?.observations)&&item.momentum.observations.length>=2))
+          fail('Watchlist new '+item.topic+' cannot claim measured momentum without comparisons');
       }
     }
   }
