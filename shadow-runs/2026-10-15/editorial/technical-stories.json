@@ -1,0 +1,45 @@
+{
+  "schema_version": "daily-compiler-oct15-technical-editorial-v1",
+  "edition_date": "2026-10-15",
+  "status": "SOURCE_READ_STORIES_READY_NOT_SEALED",
+  "stories": [
+    {
+      "id": "oct15-t1-hydrafusion-critique",
+      "headline": "GitHub tests multi-model critique and repair in Copilot workflows",
+      "focus": "Technical AI Engineering",
+      "source_url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/",
+      "published_at": "2026-10-14",
+      "publisher": "GitHub Changelog",
+      "read_scope": "Complete official preview changelog; effort settings, Cascade judging/repair, parallel Critique tool use and product scope.",
+      "publisher_reading_time_minutes": 2,
+      "topics": [
+        "Multi-model evaluation",
+        "Critique tools",
+        "Agent repair loops"
+      ],
+      "summary": "GitHub has expanded the HydraFusion research preview across VS Code, Copilot and its command line. Cascade now introduces a judging stage that can request targeted repairs, while Critique uses workspace tools and parallel critics to challenge draft outputs. Medium-effort drafting and higher-effort review are separate choices; these preview controls do not independently demonstrate reliable results.",
+      "why_it_matters": "A second model is not automatically a trustworthy reviewer. Compare its critiques against known failures, capture the evidence behind tool-assisted judgments, and measure whether requested repairs truly improve outcomes before adding this preview to production workflows.",
+      "image_alt_intent": "Two independent model critics read workspace evidence, pass judgments to targeted repair and a separate regression evaluator.",
+      "permanent_route": "/stories/2026-10-15/t1-hydrafusion-critique/"
+    },
+    {
+      "id": "oct15-t2-actions-lockfile",
+      "headline": "Workflow lockfiles give agent CI a reproducible dependency boundary",
+      "focus": "Technical AI Engineering",
+      "source_url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
+      "published_at": "2026-10-14",
+      "publisher": "GitHub Changelog",
+      "read_scope": "Complete official workflow lockfile preview: gh actions-lock, pinned direct/transitive dependencies, reusable workflows, Dependabot updating and review caveat.",
+      "publisher_reading_time_minutes": 2,
+      "topics": [
+        "Dependency provenance",
+        "Workflow security",
+        "Reproducible CI"
+      ],
+      "summary": "GitHub introduced public-preview workflow lockfiles that record immutable commit identifiers for Actions dependencies, including reusable workflows. Its gh actions-lock extension can create and check the lockfile, and Dependabot can update pinned entries through reviewable pull requests. For AI-generated code and agent-driven automation, the mechanism narrows unreviewed dependency drift but does not certify that pinned code is safe.",
+      "why_it_matters": "Ask agents to propose dependency upgrades rather than silently changing action versions. Review pinned code and permissions, test the resulting workflow, and require lockfile consistency in continuous integration. Reproducibility helps incident analysis but cannot replace supplier security assessment.",
+      "image_alt_intent": "Workflow dependency graph resolving to immutable SHA lockfile, reviewer, update PR and deterministic CI comparison.",
+      "permanent_route": "/stories/2026-10-15/t2-actions-lockfile/"
+    }
+  ]
+}
