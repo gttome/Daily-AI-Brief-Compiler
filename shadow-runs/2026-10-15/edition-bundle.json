@@ -1,0 +1,611 @@
+{
+  "schema_version": "daily-compiler-edition-bundle-v1",
+  "edition_date": "2026-10-15",
+  "status": "BUNDLE_READY",
+  "editorial_contract_version": "daily-compiler-editorial-contract-v1",
+  "stories": [
+    {
+      "id": "oct15-t1-hydrafusion-critique",
+      "headline": "GitHub tests multi-model critique and repair in Copilot workflows",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/",
+        "title": "HydraFusion updates and new Max option",
+        "publisher": "GitHub Changelog",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-15T00:38:43.205Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-15T00:38:43.205Z",
+          "scope": "Complete official preview changelog; effort settings, Cascade judging/repair, parallel Critique tool use and product scope."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 360,
+          "source_word_count_method": "original publisher's displayed reading estimate"
+        }
+      },
+      "reading_time_minutes": 2,
+      "reading_time_evidence": {
+        "method": "original_publisher_displayed_read_time",
+        "estimated_original_word_count": 360,
+        "assumed_wpm": 180,
+        "assessed_at": "2026-10-15T00:38:43.205Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Multi-model evaluation",
+        "Critique tools",
+        "Agent repair loops"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Technical AI Engineering",
+        "October 15 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub has expanded the HydraFusion research preview across VS Code, Copilot and its command line. Cascade now introduces a judging stage that can request targeted repairs, while Critique uses workspace tools and parallel critics to challenge draft outputs. Medium-effort drafting and higher-effort review are separate choices; these preview controls do not independently demonstrate reliable results.",
+      "why_it_matters": "A second model is not automatically a trustworthy reviewer. Compare its critiques against known failures, capture the evidence behind tool-assisted judgments, and measure whether requested repairs truly improve outcomes before adding this preview to production workflows.",
+      "related_coverage": "Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.",
+      "image_alt_intent": "Two independent model critics read workspace evidence, pass judgments to targeted repair and a separate regression evaluator.",
+      "permanent_route": "/stories/2026-10-15/t1-hydrafusion-critique/"
+    },
+    {
+      "id": "oct15-t2-actions-lockfile",
+      "headline": "Workflow lockfiles give agent CI a reproducible dependency boundary",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
+        "title": "GitHub Actions workflow lockfiles in public preview",
+        "publisher": "GitHub Changelog",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-15T00:38:43.205Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-15T00:38:43.205Z",
+          "scope": "Complete official workflow lockfile preview: gh actions-lock, pinned direct/transitive dependencies, reusable workflows, Dependabot updating and review caveat."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 360,
+          "source_word_count_method": "original publisher's displayed reading estimate"
+        }
+      },
+      "reading_time_minutes": 2,
+      "reading_time_evidence": {
+        "method": "original_publisher_displayed_read_time",
+        "estimated_original_word_count": 360,
+        "assumed_wpm": 180,
+        "assessed_at": "2026-10-15T00:38:43.205Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Dependency provenance",
+        "Workflow security",
+        "Reproducible CI"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Technical AI Engineering",
+        "October 15 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub introduced public-preview workflow lockfiles that record immutable commit identifiers for Actions dependencies, including reusable workflows. Its gh actions-lock extension can create and check the lockfile, and Dependabot can update pinned entries through reviewable pull requests. For AI-generated code and agent-driven automation, the mechanism narrows unreviewed dependency drift but does not certify that pinned code is safe.",
+      "why_it_matters": "Ask agents to propose dependency upgrades rather than silently changing action versions. Review pinned code and permissions, test the resulting workflow, and require lockfile consistency in continuous integration. Reproducibility helps incident analysis but cannot replace supplier security assessment.",
+      "related_coverage": "Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.",
+      "image_alt_intent": "Workflow dependency graph resolving to immutable SHA lockfile, reviewer, update PR and deterministic CI comparison.",
+      "permanent_route": "/stories/2026-10-15/t2-actions-lockfile/"
+    },
+    {
+      "id": "oct15-k1-agentcore-presentations",
+      "headline": "An AWS reference design turns cited enterprise documents into slide decks",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/",
+        "title": "Generate presentations with Amazon Bedrock AgentCore",
+        "publisher": "AWS Machine Learning Blog",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-15T00:38:43.205Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-15T00:38:43.205Z",
+          "scope": "Complete technical walkthrough: Strands supervisor, PowerPoint creation, retrieval, guardrails and sample limitations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 2200,
+          "source_word_count_method": "editorial original main-text approximation"
+        }
+      },
+      "reading_time_minutes": 11,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 2200,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-15T00:38:43.205Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Grounded presentations",
+        "Document retrieval",
+        "Slide verification"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Applied Generative AI for Knowledge Workers",
+        "October 15 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "AWS describes an AgentCore reference architecture that ingests enterprise files, retrieves relevant passages, and coordinates summarization with PowerPoint generation. The design uses a supervisor, document embeddings, OpenSearch retrieval and guardrails to build cited slides. An illustrative annual-report test produced a short deck, but the example is not an independently validated business productivity benchmark.",
+      "why_it_matters": "For client briefings, start with approved source documents and an explicit slide outline. Verify every headline, number and citation against retrieved pages, then perform human layout and confidentiality review. Treat the sample workflow as an architecture to evaluate, not turnkey accuracy.",
+      "related_coverage": "Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.",
+      "image_alt_intent": "Enterprise source documents through retrieval, cited summaries, deck generation and human citation verification.",
+      "permanent_route": "/stories/2026-10-15/k1-agentcore-presentations/"
+    },
+    {
+      "id": "oct15-k2-adaptive-document-workflow",
+      "headline": "A document-processing agent learns from failed extraction checks",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/",
+        "title": "Build self-improving document processing using Amazon Bedrock AgentCore",
+        "publisher": "AWS Machine Learning Blog",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-15T00:38:43.205Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-15T00:38:43.205Z",
+          "scope": "Complete architecture: eight specialized agents, Textract, database validation, feedback to instruction fixer and example limitations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 2400,
+          "source_word_count_method": "editorial original main-text approximation"
+        }
+      },
+      "reading_time_minutes": 12,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 2400,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-15T00:38:43.205Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Document extraction",
+        "Validation loops",
+        "Instruction memory"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Applied Generative AI for Knowledge Workers",
+        "October 15 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "An AWS walkthrough coordinates eight specialized agents for document identification, extraction, validation and instruction updates. Textract supplies document content; database checks detect mismatches, while a repair agent revises stored extraction guidance for later examples. Its purchase-order timing comparisons come from illustrative runs, not a representative benchmark, and successful adaptation still depends on reliable rules.",
+      "why_it_matters": "Finance or operations teams can pilot one recurring document type with a fixed truth set. Track field-level errors, approve instruction changes before reuse, and retain original files for audit. Measure exceptions and regressions, not just faster second-pass processing.",
+      "related_coverage": "Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.",
+      "image_alt_intent": "Invoice input, extraction agents, schema validation, error-conditioned instruction refinement and approved reusable guidance.",
+      "permanent_route": "/stories/2026-10-15/k2-adaptive-document-workflow/"
+    },
+    {
+      "id": "oct15-a1-github-app-skill",
+      "headline": "Create a reusable Agent Skill to audit app permissions before installation",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management/",
+        "title": "GitHub App improvements for least privilege and management",
+        "publisher": "GitHub Changelog",
+        "published_at": "2026-10-13",
+        "retrieved_at": "2026-10-15T00:38:43.205Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-15T00:38:43.205Z",
+          "scope": "Full official permission release covering narrowly scoped access, organizational approval and refresh-token changes."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 720,
+          "source_word_count_method": "original publisher's displayed reading estimate"
+        }
+      },
+      "reading_time_minutes": 4,
+      "reading_time_evidence": {
+        "method": "original_publisher_displayed_read_time",
+        "estimated_original_word_count": 720,
+        "assumed_wpm": 180,
+        "assessed_at": "2026-10-15T00:38:43.205Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Agent Skills",
+        "Least privilege",
+        "Installation review"
+      ],
+      "coverage_labels": [
+        "2026-10-13 original publisher article",
+        "Agents for Everyone",
+        "October 15 verified source coverage"
+      ],
+      "agent_skills": true,
+      "summary": "GitHub added narrower App permissions for repository creation and installation expansion, alongside offline-access credential improvements. Those controls create a useful teaching case for an Agent Skill that inventories requested access without changing settings. The reusable procedure should compare current and proposed scopes, identify owner approvals, document token handling and stop when consequences remain unclear.",
+      "why_it_matters": "Before authorizing any integration, use a read-only permission review that lists data exposure, external actions and approval owners. Test both harmless and excessive requests, retain the report and require human sign-off. A Skill documents checks; it cannot grant assurance automatically.",
+      "related_coverage": "Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.",
+      "image_alt_intent": "Read-only Agent Skill audit of requested app capabilities, least privilege rules, negative test cases and human approval checkpoint.",
+      "permanent_route": "/stories/2026-10-15/a1-github-app-skill/",
+      "agent_skills_evidence": "Reusable SKILL.md procedure based on GitHub October 13 original report. Inputs: requested app permissions and repository scope. First inventory read/write access; compare each capability against the actual task. Next identify owner-approval requirements and credential lifecycle. Then run two test cases: one necessary read-only scope and one excessive write scope. Return a structured permission table, supporting source links and PASS, REVIEW or STOP recommendation. Final action must be explicit human authorization; the Skill does not install software or alter permissions."
+    },
+    {
+      "id": "oct15-a2-helpdesk-agent",
+      "headline": "ShipStation's Slack helpdesk shows how agents can escalate safely",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/how-shipstation-global-built-an-ai-it-help-desk-on-amazon-bedrock-agentcore/",
+        "title": "How ShipStation Global built an AI IT help desk on Amazon Bedrock AgentCore",
+        "publisher": "AWS Machine Learning Blog",
+        "published_at": "2026-10-13",
+        "retrieved_at": "2026-10-15T00:38:43.205Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-15T00:38:43.205Z",
+          "scope": "Full AWS case study: Deckhand Slack interface, scoped retrieval, screenshot input, Jira escalation, user confirmation and vendor-reported statistics."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1800,
+          "source_word_count_method": "editorial original main-text approximation"
+        }
+      },
+      "reading_time_minutes": 9,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1800,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-15T00:38:43.205Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Helpdesk agents",
+        "Human escalation",
+        "Permission boundaries"
+      ],
+      "coverage_labels": [
+        "2026-10-13 original publisher article",
+        "Agents for Everyone",
+        "October 15 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "AWS describes ShipStation Global's Deckhand helpdesk agent in Slack, combining permission-scoped knowledge retrieval, screenshot analysis and Jira ticket escalation. The case study reports message volume and user feedback from an early deployment; a high reply rate must not be mistaken for resolution. Ticket creation requires an explicit user selection and downstream validation.",
+      "why_it_matters": "Small teams can adapt this pattern by letting agents answer approved questions while reserving account changes and tickets for confirmation. Test private-document access, unanswered questions and escalation evidence before deployment. Evaluate user outcomes rather than headline response rates.",
+      "related_coverage": "Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.",
+      "image_alt_intent": "Role-scoped Slack helpdesk retrieval with screenshots, uncertain-answer escalation, human-confirmed Jira ticket and audit receipt.",
+      "permanent_route": "/stories/2026-10-15/a2-helpdesk-agent/"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Navigating AI automation in Looker: Essential developer tools for agents",
+      "source": "Google Cloud Tech official video",
+      "url": "https://www.youtube.com/watch?v=JvASK8qX4hg",
+      "original_date": "2026-10-08",
+      "duration_minutes": 5.92,
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "summary": "Google Cloud developer advocate Chrissie Goodrich distinguishes five pieces of an agent-ready Looker developer stack: Looker Skills, command-line access, a managed MCP server, a database MCP toolbox and the VS Code extension. The video outlines how metadata-driven instructions can limit context load while service-account permissions govern tool access. Its practical lesson is to separate reusable analytic procedures from actual data authorization and independently verify calculations in LookML. The synopsis uses published caption-derived analysis, not playback.",
+      "why_it_matters": "Use narrow service accounts, explicit schemas and validation when adding Looker business intelligence tools to AI agents.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-15T00:31:43.397Z",
+      "verified_method": "original_creator_video_link_and_independent_caption_summary",
+      "verification_method": "original_creator_video_link_and_independent_caption_summary",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-15T00:31:43.397Z",
+        "runtime_source_url": "https://aiweekly.co/ai-tv",
+        "method": "official_creator_link_and_independent_5min55sec_catalog",
+        "verification_scope": "Google Cloud Tech YouTube identity, October 8 creator date and 5:55 runtime corroborated by AI Weekly with full topical captions from AI Learning Resources; no video playback.",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "Production Monitoring with Codex: Grafana, Kubernetes, & Security",
+      "source": "OpenAI official YouTube video",
+      "url": "https://www.youtube.com/watch?v=DmCaBWv5yG8",
+      "original_date": "2026-10-07",
+      "duration_minutes": 7.98,
+      "focus": "Technical AI Engineering",
+      "summary": "OpenAI presenters walk through three bounded production-response scenarios: a checkout failure correlated with Grafana and recent changes, a Kubernetes rollout with out-of-memory restarts, and shared-worker exhaustion treated as an availability issue. The segment emphasizes reconstructing evidence before proposing patches, human review before high-impact changes, and replay-based validation after remediation. These are demonstrations, not independent incident-resolution benchmarks; summary derives from a complete indexed original-language transcript, not watched playback.",
+      "why_it_matters": "Use telemetry and change history as controlled context, then review and regression-test each suggested operational patch.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-15T00:31:43.397Z",
+      "verified_method": "creator_metadata_and_full_native_transcript_index",
+      "verification_method": "creator_metadata_and_full_native_transcript_index",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-15T00:31:43.397Z",
+        "runtime_source_url": "https://reducer.xgoose.org/items/4062",
+        "method": "original_Youtube_identity_independent_7min59sec_full_transcript",
+        "verification_scope": "OpenAI YouTube publisher, October 7 original date, full timestamped transcript and corroborated 07:59 duration; no playback.",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Can Open Models Keep Up With the AI Frontier? | Nathan Lambert",
+      "source": "The a16z Show / Andreessen Horowitz",
+      "url": "https://podcasts.apple.com/ca/podcast/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/id842818711?i=1000796289780",
+      "original_date": "2026-10-14",
+      "duration_minutes": 60,
+      "summary": "In a discussion hosted by a16z partner Lisha Li, researcher Nathan Lambert contrasts closed frontier labs' infrastructure and capital advantages with open-model builders' ability to adapt techniques. They examine compute constraints, distillation, reinforcement-learning environments and the changing economics of post-training. Lambert also explains Trillium's ambition to make training environments and evaluations more accessible, while acknowledging uncertainty about self-improvement. The episode helps practitioners assess customization costs rather than treating open-weight availability as equivalent to frontier reliability; audio was not played.",
+      "why_it_matters": "Frame model choices around compute, maintainability, adaptation budgets and independent task-specific evaluation, not benchmark rankings alone.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-15T00:31:43.397Z",
+      "verified_method": "original_a16z_Apple_publisher_listing_and_independent_runtime",
+      "verification_method": "original_a16z_Apple_publisher_listing_and_independent_runtime",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-15T00:31:43.397Z",
+        "runtime_source_url": "https://podcasts.apple.com/ca/podcast/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/id842818711?i=1000796289780",
+        "method": "original_episode_metadata_60min_rounded_independent_59min",
+        "verification_scope": "Apple first-party publisher/distributor episode 1228 dated October 14 at 10:00 UTC, displayed 1 hour; Muck Rack independently reports 59 minutes; original show notes read, audio not played.",
+        "audiovisual_playback_claimed": false
+      },
+      "written_reading_time_minutes": 4
+    },
+    {
+      "title": "The AGORÀ Briefing — Wednesday, October 14, 2026",
+      "source": "AGORÀ Intelligence — The Briefing",
+      "url": "https://podcasts.apple.com/it/podcast/the-agor%C3%A0-briefing-wednesday-october-14-2026/id6804164175?i=1000796259365",
+      "original_date": "2026-10-14",
+      "duration_minutes": 8,
+      "summary": "AGORÀ Intelligence's October 14 briefing assembles five reported developments spanning economic conditions for AI investment, a customer-service bot designed as an agent, workplace trust questions, AI gateway access weaknesses and Asia-Pacific enterprise partnership announcements. Its publisher notes list these as individual topics without establishing the underlying claims as independently verified here. For knowledge workers the useful exercise is to separate announcements, operational risks and macroeconomic forecasts, then follow each primary source before adopting a workflow. No listening claimed.",
+      "why_it_matters": "Scan varied AI business risks rapidly, but verify each individual reported incident or commercial claim at its original source.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-15T00:31:43.397Z",
+      "verified_method": "Apple_distributor_episode_identity_date_runtime_and_publisher_topics",
+      "verification_method": "Apple_distributor_episode_identity_date_runtime_and_publisher_topics",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-15T00:31:43.397Z",
+        "runtime_source_url": "https://podcasts.apple.com/it/podcast/the-agor%C3%A0-briefing-wednesday-october-14-2026/id6804164175?i=1000796259365",
+        "method": "original_publisher_distributor_listing_oct14_8min",
+        "verification_scope": "Apple episode 37 released 2026-10-14 at 05:00 UTC with original title, eight-minute duration and five publisher topic descriptions; content not independently investigated and audio not played.",
+        "audiovisual_playback_claimed": false
+      },
+      "written_reading_time_minutes": 2
+    }
+  ],
+  "watchlist": {
+    "schema_version": "daily-compiler-watchlist-v1",
+    "target_edition_date": "2026-10-15",
+    "refreshed_at": "2026-10-15T00:32:54.351Z",
+    "new": [
+      {
+        "topic": "Reproducible agent workflow dependencies",
+        "why": "GitHub announced a public-preview lockfile that records workflow action dependency identities.",
+        "summary": "Action lockfiles pin direct and transitive automation dependencies to immutable Git commits.",
+        "why_now": "GitHub's October 14 release adds automated creation, checking and proposed Dependabot updates.",
+        "practical_value": "Compare a CI workflow before and after dependency pinning, while auditing required permissions.",
+        "evidence": {
+          "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
+          "date": "2026-10-14"
+        }
+      },
+      {
+        "topic": "Source-grounded presentation generation",
+        "why": "A new enterprise reference architecture makes slide generation and citations evaluable together.",
+        "summary": "Retrieval-guided slide workflows transform approved enterprise documents into concise presentation drafts.",
+        "why_now": "AWS detailed the AgentCore supervisor, document retrieval and PowerPoint assembly on October 14.",
+        "practical_value": "Pilot a five-slide briefing with manual number and citation checks before wider use.",
+        "evidence": {
+          "url": "https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/",
+          "date": "2026-10-14"
+        }
+      },
+      {
+        "topic": "Document extraction instruction feedback",
+        "why": "AWS now documents how extraction validation can update stored task instructions.",
+        "summary": "Specialized document agents classify inputs, extract fields and refine instructions after failed checks.",
+        "why_now": "The October 14 AWS walkthrough exposes validation stages and an instruction repair loop.",
+        "practical_value": "Assess one invoice template against known labels and prevent unreviewed guidance changes.",
+        "evidence": {
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/",
+          "date": "2026-10-14"
+        }
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Permission-filtered enterprise conversation memory",
+        "what_changed": "A separate helpdesk implementation links scoped conversations to screenshot-supported triage and ticket escalation.",
+        "summary": "Context-aware work agents retrieve permitted historical answers while separating information from actions.",
+        "why_now": "AWS's October 13 ShipStation case adds a distinct confirmation-based Jira escalation pattern.",
+        "practical_value": "Test a private Slack inquiry and require explicit approval before opening support tickets.",
+        "evidence": {
+          "url": "https://aws.amazon.com/blogs/machine-learning/how-shipstation-global-built-an-ai-it-help-desk-on-amazon-bedrock-agentcore/",
+          "date": "2026-10-13"
+        }
+      },
+      {
+        "topic": "Audited long-form business reasoning",
+        "what_changed": "Document-grounded slide generation gives an additional measurable verification workflow for longer analyses.",
+        "summary": "Complex knowledge-work assistants assemble evidence across documents and produce reviewable business deliverables.",
+        "why_now": "AWS's October 14 article supplies a concrete citation-based presentation architecture to assess.",
+        "practical_value": "Measure unsupported claims, source coverage and numeric consistency in generated client decks.",
+        "evidence": {
+          "url": "https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/",
+          "date": "2026-10-14"
+        }
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Cross-language agent tool contracts",
+        "why": "Cross-language tool and agent schemas remain a live interoperability and governance question.",
+        "summary": "Multi-language agent runtimes exchange structured tool requests and cross-agent messages through common interfaces.",
+        "why_now": "Google's October 13 ADK explanation remains current without a separately verified later amendment.",
+        "practical_value": "Exercise the same read-only tool call from two SDKs and compare error behavior.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/topics/developers-practitioners/one-agent-development-kit-five-languages/",
+          "date": "2026-10-13"
+        }
+      },
+      {
+        "topic": "Third-party Agent Skill license provenance",
+        "why": "Skill licensing remains insufficiently explicit in many indexed third-party manifests.",
+        "summary": "SKILL.md package review must distinguish frontmatter license metadata from repository-level licensing documents.",
+        "why_now": "The October 10 SkillMD registry sample still merits follow-up, with its sampling limitations retained.",
+        "practical_value": "Inspect a candidate Skill's SPDX field, source repository and execution permissions before reuse.",
+        "evidence": {
+          "url": "https://skillmd.com/blog/most-agent-skills-have-no-license",
+          "date": "2026-10-10"
+        }
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Rack-scale agent orchestration resources",
+        "reason": "No incremental October 14 dated infrastructure reference was identified; current edition concentrates on verifiable runtime safeguards.",
+        "summary": "Rack-scale agent systems balance orchestration CPU demand against accelerator inference and power budgets.",
+        "why_now": "The prior AMD October 12 architecture announcement has no checked new change requiring active placement.",
+        "practical_value": "Retain hardware sizing assumptions for future workload benchmarks rather than infer current capacity gains.",
+        "previous_evidence": {
+          "url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
+          "date": "2026-10-12"
+        }
+      },
+      {
+        "topic": "Consumer agent task permissions",
+        "reason": "Carry forward the October 13 application controls in the archive without a new day-specific product confirmation.",
+        "summary": "Consumer task agents can trigger connected services only within reviewed authority and approval boundaries.",
+        "why_now": "No distinct post-October 13 primary update was verified to justify today's active Watchlist.",
+        "practical_value": "Keep an approval checklist for personal task automations until a specific permission change appears.",
+        "previous_evidence": {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
+          "date": "2026-10-13"
+        }
+      }
+    ]
+  },
+  "book_mappings": [
+    {
+      "story_id": "oct15-t1-hydrafusion-critique",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Harness evaluation and agent review",
+      "connection": "Compare a multi-critic verdict against held-out failure cases before trusting automatic repair.",
+      "what_to_study_next": "Construct a regression suite with tool observations, citations and explicit repair acceptance."
+    },
+    {
+      "story_id": "oct15-t2-actions-lockfile",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Trusted tools and provenance",
+      "connection": "Lockfile-pinned dependencies preserve the execution provenance of automated retrieval and CI tools.",
+      "what_to_study_next": "Trace two action dependency changes through approved pinned SHAs and audit logs."
+    },
+    {
+      "story_id": "oct15-k1-agentcore-presentations",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Evidence-grounded deliverable prompting",
+      "connection": "A deck-generation prompt should require traceable sources, numbered citations and independent calculation checks.",
+      "what_to_study_next": "Write an auditable board presentation brief with mandatory fact-review criteria."
+    },
+    {
+      "story_id": "oct15-k2-adaptive-document-workflow",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Context feedback and controlled memory",
+      "connection": "Validation feedback can improve stored extraction instructions, but errors and approvals must remain attributable.",
+      "what_to_study_next": "Design a versioned extraction rubric and approve every memory update using a truth set."
+    },
+    {
+      "story_id": "oct15-a1-github-app-skill",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable prompt learning and evaluation",
+      "connection": "A read-only SKILL.md permission checker turns integration governance into a repeatable tested lesson.",
+      "what_to_study_next": "Write positive and negative Skill tests with human approval requirements and revision history."
+    },
+    {
+      "story_id": "oct15-a2-helpdesk-agent",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Bounded execution and escalation",
+      "connection": "Helpdesk agents need permission-scoped retrieval and explicit confirmation before external ticket actions.",
+      "what_to_study_next": "Pilot a permission isolation test and a confirmed incident handoff with observable outcomes."
+    }
+  ],
+  "images": [
+    {
+      "story_id": "oct15-t1-hydrafusion-critique",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Two independent model critics read workspace evidence, pass judgments to targeted repair and a separate regression evaluator."
+    },
+    {
+      "story_id": "oct15-t2-actions-lockfile",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Workflow dependency graph resolving to immutable SHA lockfile, reviewer, update PR and deterministic CI comparison."
+    },
+    {
+      "story_id": "oct15-k1-agentcore-presentations",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Enterprise source documents through retrieval, cited summaries, deck generation and human citation verification."
+    },
+    {
+      "story_id": "oct15-k2-adaptive-document-workflow",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Invoice input, extraction agents, schema validation, error-conditioned instruction refinement and approved reusable guidance."
+    },
+    {
+      "story_id": "oct15-a1-github-app-skill",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Read-only Agent Skill audit of requested app capabilities, least privilege rules, negative test cases and human approval checkpoint."
+    },
+    {
+      "story_id": "oct15-a2-helpdesk-agent",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Role-scoped Slack helpdesk retrieval with screenshots, uncertain-answer escalation, human-confirmed Jira ticket and audit receipt."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "producer_receipt": {
+    "schema_version": "daily-compiler-release1-editorial-producer-v1",
+    "result": "PASS",
+    "edition_date": "2026-10-15",
+    "execution_id": "daily-compiler-shadow-2026-10-15",
+    "owner_intervention": false,
+    "paid_model_api_used": false,
+    "local_computer_used": false,
+    "accepted_image_regenerations": 0,
+    "editorial_selection_path": "shadow-runs/2026-10-15/editorial/locked-selection.json",
+    "editorial_source_evidence_path": "shadow-runs/2026-10-15/editorial/full-source-evidence.json",
+    "semantic_content_path": "shadow-runs/2026-10-15/content/semantic-content.json",
+    "media_evidence_path": "shadow-runs/2026-10-15/content/media-evidence.json",
+    "image_representation": "one_shared_illustration_placeholder_for_six_stories",
+    "no_premium_image_generation": true,
+    "media_playback_claimed": false,
+    "provenance_note": "Original primary publisher articles substantively read; media source/catalog/trancript and original episode metadata checked; no audiovisual playback or paid model APIs. No execution host identity attested."
+  }
+}
