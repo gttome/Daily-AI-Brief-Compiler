@@ -2,12 +2,13 @@
   "schema_version": "external-image-after-action-v8",
   "edition_date": "2026-10-15",
   "cycle_date": "2026-10-14",
-  "status": "PACKAGE_ACCEPTED_PENDING_PROTECTED_RELEASE",
+  "status": "PUBLIC_VERIFIED",
   "source": {
     "job_sha256": "9502f8b862f83d2529462333b2d1f3f12f65e78a209ded6083364d82cfac945b",
     "bundle_sha256": "fcf25e415a830bfd7db4a9e1ffa6ca86517d11f657cb71fc6031507f403fd43f",
     "source_commit_sha": "2812097248d0070bf83e0264483350187c79765f",
-    "pages_history_head_before_release": "121b57fbf02df4c039796f70f40f1f961e470bee"
+    "pages_history_head_before_release": "121b57fbf02df4c039796f70f40f1f961e470bee",
+    "pages_history_head_after_release": "2b0afad4034e9290131a22e6ae489818f2c7fc23"
   },
   "production": {
     "native_generation_executed": true,
@@ -20,21 +21,58 @@
     "dimensions": "1200x630",
     "pixel_format": "8-bit RGB",
     "github_binary_stage_commit": "326c4cf6a253e17973536d32219781f464be5952",
+    "github_package_head_commit": "2c990446fadc1aba0b6552e47b4f330cfc95b56e",
     "github_exact_blob_identity_readback": "6_OF_6_PASS",
     "github_sha256_readback": "6_OF_6_PASS_AT_EXACT_COMMIT",
     "large_png_fixed_offset_reassembly": "2_OF_2_PASS",
     "accepted_art_regenerated_after_lock": 0
   },
   "release": {
-    "status": "PENDING_PROTECTED_PR_CI_MERGE_DEPLOYMENT_AND_PUBLIC_REVIEW",
+    "package_pr": 194,
+    "package_merge_sha": "b0275ca05a1c3a51bf5e72cc0ebbaf8410858cdd",
+    "package_pre_pr_ci_run_id": 38673471559,
+    "package_exact_head_ci_run_id": 38673620382,
+    "workflow_run_id": 38673724814,
+    "release_evidence_artifact_id": 11945505405,
+    "release_evidence_artifact_digest": "sha256:89fc47813455b2444b71658e4d4cd63c2085c21838b2e9a93f268b53f587f30c",
+    "evidence_pr": 195,
+    "evidence_head_sha": "374f56110a07bd55c7dfc62d1bb042daea4e6741",
+    "evidence_exact_head_ci_run_id": 38674403726,
+    "evidence_merge_sha": "050e1c764f13b13725587263c5d033e2a7828d58",
+    "required_ci": "PASS",
+    "pages_deployment": "PASS",
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "live_png_hashes": "6_OF_6_PASS",
+    "story_image_pairings": "12_OF_12_PASS",
+    "visual_context_reviews": "24_OF_24_PASS",
+    "visual_review_receipt": "external-image-packages/2026-10-15/reviews/live/image-element24/semantic-reviews.json",
+    "october_8_objects": "17_OF_17_UNCHANGED",
+    "independent_http_sha256_checks": 44,
+    "editorial_text_preserved": true,
     "daily_ai_brief_repository_modified": false
   },
+  "images": [
+    {"story_id": "oct15-t1-hydrafusion-critique", "filename": "oct15-t1-hydrafusion-critique.png", "attempts": 1, "bytes": 872727, "sha256": "5654d86066c57bef9f0bf65ea85189521a8c800ed5b631b8488f227c2df80201", "git_blob_sha": "e91c7e7629bb06f586d8f9af088595d844ac3a4b", "live_contexts_passed": 4},
+    {"story_id": "oct15-t2-actions-lockfile", "filename": "oct15-t2-actions-lockfile.png", "attempts": 1, "bytes": 641411, "sha256": "796f6f016a30c068097a4050041fa115351312da22023c358451b7905cc74ee9", "git_blob_sha": "8860e339294319a915466dad15e057b1b738af8f", "live_contexts_passed": 4},
+    {"story_id": "oct15-k1-agentcore-presentations", "filename": "oct15-k1-agentcore-presentations.png", "attempts": 2, "bytes": 814281, "sha256": "158822ce7aac09cf31cecf0a88266e3b0f24d58f6fa74e6d9077aee3b936b9c5", "git_blob_sha": "b17a6dcba82ea20cd3a3859009181ac269d756aa", "live_contexts_passed": 4},
+    {"story_id": "oct15-k2-adaptive-document-workflow", "filename": "oct15-k2-adaptive-document-workflow.png", "attempts": 4, "bytes": 561425, "sha256": "c3cc1f5b353a8be6fc6e7f7b45b91b27fa81080f81367b4a274d743dd349f953", "git_blob_sha": "5d69774661c966c1f7de63521854e34e98c92743", "live_contexts_passed": 4},
+    {"story_id": "oct15-a1-github-app-skill", "filename": "oct15-a1-github-app-skill.png", "attempts": 1, "bytes": 756125, "sha256": "8f52ed2d046f668c5be5df75c73189bdb27c2b2e389c480632bb9fb3c7df492f", "git_blob_sha": "b57eabb86afb531bc45c512f5e18b2a409367a31", "live_contexts_passed": 4},
+    {"story_id": "oct15-a2-helpdesk-agent", "filename": "oct15-a2-helpdesk-agent.png", "attempts": 2, "bytes": 580555, "sha256": "15fd29f518047a86fa388e07aa2c195804f08e52e9b102658cbe3c60ad9da1d8", "git_blob_sha": "357e0953d0c64ad3890781ac48d273d0ac6f078a", "live_contexts_passed": 4}
+  ],
   "usage": {
     "weekly_usage_measurement": "UNKNOWN",
     "reason": "No authoritative per-run or weekly usage telemetry was exposed; no estimate was fabricated.",
     "efficiency_target": "under 5% weekly usage"
   },
+  "efficiency_proposals": [
+    "Freeze exact label allowlists before generation and reject pseudo-writing or unsupported chart detail in the first saved-pixel review.",
+    "Keep source-faithful branch logic explicit so correction passes do not accidentally bypass validation or remove required outcome labels.",
+    "Lock accepted pixels before transport and reuse them unchanged through Git, CI, deployment and evidence retries.",
+    "Verify accepted PNGs above 750 KiB with fixed 256-KiB byte-offset reconstruction before GitHub upload.",
+    "Require the existing pre-first-PR and exact-head PR gates, then bind the final 24 capture hashes to actual semantic review."
+  ],
   "continuity": {
+    "next_cycle": "Select only the next Chicago-cycle PUBLISHED_PENDING six-story job. Never reopen or substitute an older job.",
     "accepted_art_locked": true,
     "recurring_task_should_remain_enabled": true,
     "new_recovery_schedule_created": false
