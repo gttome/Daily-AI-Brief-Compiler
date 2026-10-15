@@ -96,7 +96,7 @@
 <strong>Topics:</strong> Dependency provenance, Workflow security, Reproducible CI<br />
 <strong>Evidence:</strong> Publisher Authored<br />
 <strong>Availability:</strong> Available</p>
-<p><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b" alt="Illustration pending for Workflow lockfiles give agent CI a reproducible dependency boundary. Planned illustration: Workflow dependency graph resolving to immutable SHA lockfile, reviewer, update PR and deterministic CI comparison." /></p>
+<p><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/dab-edition-2026-10-15-m02.png?v=796f6f016a30" alt="Direct, transitive and reusable workflow references resolve from tags or branches into immutable commits recorded in actions.lock, then feed CI checks and reviewed update pull requests." /></p>
 <p><strong>Summary:</strong> GitHub introduced public-preview workflow lockfiles that record immutable commit identifiers for Actions dependencies, including reusable workflows. Its gh actions-lock extension can create and check the lockfile, and Dependabot can update pinned entries through reviewable pull requests. For AI-generated code and agent-driven automation, the mechanism narrows unreviewed dependency drift but does not certify that pinned code is safe.</p>
 <p><strong>Why it matters:</strong> Ask agents to propose dependency upgrades rather than silently changing action versions. Review pinned code and permissions, test the resulting workflow, and require lockfile consistency in continuous integration. Reproducibility helps incident analysis but cannot replace supplier security assessment.</p>
 <!-- reader-release:start -->
