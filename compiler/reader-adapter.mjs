@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {requireWatchlistCopy,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
-import {requireWatchlistRubric,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
+import {requireWatchlistRubric,requireWatchlistScoring,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
 import {PENDING_PLACEHOLDER_ID} from './pending-images.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 
@@ -195,7 +195,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
   // Genuine per-criterion research is mandatory for new/updated topics from
   // October 16. Existing carried topics retain their last reviewed rubric.
   if(date>=WATCHLIST_RUBRIC_EFFECTIVE&&(kind==='new'||kind==='updated'||!prior))
-    requireWatchlistRubric(item.rubric,rubricLabel);
+    requireWatchlistScoring(item,rubricLabel);
   else if(item.rubric!=null)requireWatchlistRubric(item.rubric,rubricLabel);
   const topicRubric=item.rubric||prior?.rubric||legacyRubric(reason);
   const evidence=item.evidence||item.previous_evidence||fallbackEvidence||{};
@@ -224,7 +224,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     limitations:'The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.',
     research_score:null, // populated from the rubric by publicWatchlist()
     rubric:topicRubric,
-    momentum:{classification:'baseline',score:null,reason:'Current edition evidence is preserved without inferring additional momentum.'},
+    momentum:item.momentum?structuredClone(item.momentum):{classification:'baseline',score:null,reason:'Current edition evidence is preserved without inferring additional momentum.'},
     next_action:'Continue monitoring primary evidence and independent developments.'
   };
   if(!prior)return current;
@@ -243,6 +243,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     archive_reason:archived?reason:undefined,
     evidence:[...evidenceByDevelopment.values()],
     rubric:topicRubric,
+    ...((kind==='new'||kind==='updated')?{momentum:current.momentum}:{}),
     limitations:prior.limitations||current.limitations,
     next_action:prior.next_action||current.next_action
   };

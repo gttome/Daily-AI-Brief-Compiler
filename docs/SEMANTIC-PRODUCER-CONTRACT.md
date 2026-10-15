@@ -12,6 +12,31 @@ Accepted images are immutable. Accepted/locked image bytes and identities must b
 
 EDITORIAL persists the candidate evidence and locked six-story selection. CONTENT persists stories, media, Watchlist and book mappings. For editions dated October 14, 2026 onward, every Watchlist New, Updated, Carried Forward and Dropped item must carry three distinct evidence-grounded fields: `summary` (what the emerging capability is), `why_now` (what dated evidence changed or why the item remains/retires now), and `practical_value` (the bounded professional application or test). Each is a separately written explanatory sentence of at least seven words; no literal or near-duplicate sections. Cite the item's own evidence, never another story's fallback URL. If editorial fields are absent or repeated, repair the item before sealing the bundle. The reader adapter must not synthesize all three from `why`, `what_changed`, or `reason`. Completed semantic outputs are not replayed merely because image work is incomplete.
 
+### Watchlist research rubric — required from October 16, 2026
+
+Read `contracts/editorial-contract.json`, `docs/EDITORIAL-CONTRACT.md`, `compiler/watchlist-rubric.mjs` and `compiler/pending-editorial.mjs` from current protected main before research. The semantic producer authors the Watchlist entries directly into `edition-bundle.json`; there is no deterministic scorer that can supply missing research. Preserve `rubric` and any `momentum` observations when copying research/content records into the final bundle. Do not copy the October 15 bundle format unchanged or reopen/reseal that historical bundle.
+
+For **each new or materially updated** item, include exactly six `rubric` keys. Each value is `{ "score": <integer 0–5 or null>, "reason": <separately authored source-grounded explanation> }`. Each reason must contain at least seven words and 42 characters, address that criterion specifically and be distinct from the other five. Bind the assessment to the item's own dated `evidence.url` / `evidence.date` and documented source-reading observations. A source link alone is not a rationale. Do not invent observations, independent corroboration or confidence to pass validation.
+
+| Criterion | Weight | Required assessment |
+| --- | ---: | --- |
+| novelty | 20% | What changes relative to the documented prior capability; bound the claim. |
+| evidence | 25% | What the actual source demonstrates, verification depth and limitations. |
+| independence | 15% | Independent corroborating developments; one publisher is not multiple independent sources. |
+| momentum | 15% | Comparable observations over time, or explicit unknown with `score:null`. |
+| relevance | 15% | A concrete professional use or bounded test supported by this topic. |
+| durability | 10% | Reasons the capability may persist, with source-specific uncertainty. |
+
+**Unknown momentum stays null for both new and updated topics.** A numeric momentum score requires `momentum.metric` naming one comparable measure and `momentum.observations` containing at least two numerical observations at distinct valid `observed_at` timestamps, each with its own HTTPS `source_url` and numeric `value`. Explain the comparison in `rubric.momentum.reason`. Multiple URLs or publication dates without comparable measurements are insufficient. An example shape is `{ "metric": "<same measured quantity and units>", "observations": [{ "observed_at": "<ISO date>", "value": <observed number>, "source_url": "<actual HTTPS evidence>" }, ...] }`; this notation is not data to paste into production.
+
+Keep all three October 14 editorial fields and legacy `why` / `what_changed` / `reason` alongside the rubric. Do not author a public `/100` total: the reader calculates `round(sum(weight * (score ?? 0) / 5))`, without renormalizing unknown criteria. Never assign all six criteria 3/5, copy reasons or mechanically vary scores. A genuinely researched total of 60 is not itself prohibited; synthetic defaults are.
+
+**Carried forward / dropped:** use the stable topic identity matching the current published Watchlist. Preserve its last genuinely reviewed rubric; do not rescore because the date changed. If the compiler cannot resolve a prior record, supply its genuinely reviewed rubric explicitly or research it; never invoke a legacy default. A material evidence change belongs in `updated` with six refreshed assessments, not disguised as carry-forward. The existing adapter fails closed when neither a prior topic nor a valid supplied rubric exists.
+
+**Before sealing:** inspect each new/updated topic's six assessments and evidence; correct missing/duplicate/unsupported reasons through research. Assemble the candidate `BUNDLE_READY` files locally with the exact bundle SHA-256 in state, then run `node scripts/validate-semantic-bundle.mjs <state.json> <edition-bundle.json>` before committing/signaling them. This calls the production deterministic validator with the normal pending-image contract; it does not publish. No fixture/preview exemptions, paid APIs, validator weakening or production restarts. Normal protected compilation additionally resolves prior Watchlist identities and validates reader output. A deterministic PASS proves format/integrity, not the truth of research or successful scheduled execution.
+
+The saved Compiler task must explicitly read this current section and enforce the October 16 gate before `BUNDLE_READY`. Repository edits do not rewrite a saved external task prompt. Preserve its existing task ID, enabled state and 19:15 America/Chicago recurrence; preserve the 21:15 image task untouched.
+
 ## IMAGES — D1 Cloud Image Studio
 
 D1 is the target permanent reader-image path after activation.

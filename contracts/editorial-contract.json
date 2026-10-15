@@ -75,6 +75,46 @@
       "missing_copy_must_be_rewritten_by_semantic_producer": true,
       "renderer_fallback_prohibited": true,
       "earlier_editions_immutable": true
+    },
+    "scoring_contract": {
+      "effective_edition_date": "2026-10-16",
+      "applies_to": [
+        "new",
+        "updated"
+      ],
+      "required_item_field": "rubric",
+      "criteria_weights": {
+        "novelty": 20,
+        "evidence": 25,
+        "independence": 15,
+        "momentum": 15,
+        "relevance": 15,
+        "durability": 10
+      },
+      "criterion_fields": [
+        "score",
+        "reason"
+      ],
+      "score": "integer 0-5 or null when unestablished",
+      "minimum_reason_words": 7,
+      "minimum_reason_characters": 42,
+      "distinct_source_grounded_reasons_required": true,
+      "uniform_three_default_forbidden": true,
+      "numeric_momentum_requires": {
+        "metric": "named comparable measure",
+        "observations_minimum": 2,
+        "observation_fields": [
+          "observed_at",
+          "value",
+          "source_url"
+        ],
+        "distinct_observation_times_required": true
+      },
+      "unknown_momentum": null,
+      "carried_forward": "Reuse last genuinely reviewed rubric by stable topic identity; if unavailable include a reviewed rubric, never generate a default",
+      "computed_research_score": "reader weighted sum, null contributes zero, no renormalization",
+      "preseal_validator": "node scripts/validate-semantic-bundle.mjs <state.json> <edition-bundle.json>",
+      "historical_editions_immutable": true
     }
   },
   "books": {

@@ -17,7 +17,7 @@ export function watchlistRubricProblems(rubric){
     if(!entry||!Object.prototype.hasOwnProperty.call(entry,'score')||
       !(entry.score===null||(Number.isInteger(entry.score)&&entry.score>=0&&entry.score<=5)))
       errors.push(key+': requires an integer 0–5 or null when not established');
-    const reason=String(entry?.reason??'').trim();
+    const reason=typeof entry?.reason==='string'?entry.reason.trim():'';
     if(reason.length<42||reason.split(/\s+/).length<7)
       errors.push(key+': requires a substantive criterion-specific evidence explanation');
     if(reasons.has(normalize(reason)))errors.push(key+': duplicated rubric rationale');
@@ -39,4 +39,28 @@ export function isSyntheticSixty(topic){
   const rubric=topic.rubric;
   const reasons=WATCHLIST_RUBRIC_KEYS.map(k=>normalize(rubric?.[k]?.reason));
   return WATCHLIST_RUBRIC_KEYS.every(k=>rubric?.[k]?.score===3)&&reasons[0].length>0&&reasons.every(x=>x===reasons[0]);
+}
+
+// Numeric momentum is a comparison, including on materially updated topics.
+// Shape is producer-facing; a first sighting with no observations remains null.
+export function watchlistScoringProblems(item){
+  const errors=watchlistRubricProblems(item?.rubric);
+  if(item?.rubric?.momentum?.score!=null){
+    const momentum=item.momentum;
+    const observations=momentum?.observations;
+    const valid=Array.isArray(observations)&&observations.length>=2&&
+      typeof momentum.metric==='string'&&momentum.metric.trim().length>0&&
+      observations.every(o=>{
+        let source;try{source=new URL(o?.source_url);}catch{return false;}
+        return source.protocol==='https:'&&Number.isFinite(o.value)&&
+          typeof o.observed_at==='string'&&Number.isFinite(Date.parse(o.observed_at));
+      })&&new Set(observations.map(o=>Date.parse(o.observed_at))).size>=2;
+    if(!valid)errors.push('measured momentum requires a named comparable metric and at least two dated, source-linked numerical observations; otherwise use null');
+  }
+  return errors;
+}
+export function requireWatchlistScoring(item,label){
+  const issues=watchlistScoringProblems(item);
+  if(issues.length)throw new Error(label+': '+issues.join('; '));
+  return item;
 }
