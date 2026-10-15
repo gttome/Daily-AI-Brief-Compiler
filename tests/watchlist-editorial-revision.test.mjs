@@ -93,3 +93,55 @@ test('score-only correction refuses a stale topic audit or changed rendered scor
   assert.throws(()=>applyWatchlistRevision({revision:unscoped,historySite:t.history,outSite:t.out}),/unsupported revision authorization/);
  }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
 });
+
+test('rubric correction replaces only demonstrably synthetic 60/100 scores with six grounded explanations',()=>{
+ const t=setup();
+ try{
+  const dataPath=path.join(t.history,'data/watchlist.json');
+  const htmlPath=path.join(t.history,'watchlist/research/index.html');
+  const record=JSON.parse(fs.readFileSync(dataPath,'utf8'));
+  const topic=record.topics[0],badReason='One unreviewed source sentence was recycled across all six criteria.';
+  topic.research_score=60;
+  topic.rubric=Object.fromEntries(['novelty','evidence','independence','momentum','relevance','durability']
+    .map(k=>[k,{score:3,reason:badReason}]));
+  topic.momentum={classification:'baseline',score:null,reason:'No comparable past observations establish measurable change.'};
+  topic.confidence='moderate';topic.first_detected='2026-10-13';topic.updated_at='2026-10-13T12:00:00Z';
+  topic.limitations='Only one original source is available.';topic.next_action='Review another independent source.';
+  topic.evidence=[{kind:'primary',url:'https://publisher.example.org/article',title:'Primary article',publisher:'Publisher',checked_at:'2026-10-13',publication_date:'2026-10-13',review_depth:'Article summary',development_id:'primary-1'}];
+  fs.writeFileSync(dataPath,JSON.stringify(record));
+  const priorHtml=fs.readFileSync(htmlPath,'utf8');
+  fs.writeFileSync(htmlPath,priorHtml.replace('</section>',
+    '<details class="wl-score-details"><summary>How the research score works · 60/100</summary><p>Old generic rubric</p></details></section>'));
+  const statements=[
+   'Novelty has a specific testable source-backed technical advance in this example.',
+   'An original publisher article provides architecture details, though broader validation remains necessary.',
+   'The Watchlist has only one original account and no independently corroborating test.',
+   'This first observation lacks prior dated comparable evidence needed to assess momentum.',
+   'The topic offers professionals a concrete and bounded trial against known outcomes.',
+   'The underlying governance problem persists beyond the particular published product announcement.'
+  ];
+  const values=[4,4,1,null,5,4],rubric={};
+  for(const [i,key] of ['novelty','evidence','independence','momentum','relevance','durability'].entries())
+    rubric[key]={score:values[i],reason:statements[i]};
+  const revision={schema_version:'daily-compiler-watchlist-editorial-revision-v1',
+   scope:'watchlist_rubric_correction',requested_by:'owner',edition_date:'2026-10-13',
+   expected_topic_count:1,expected_generic_score_count:1,
+   items:[{topic_id:topic.topic_id,topic:topic.name,expected_original_score:60,
+     expected_evidence_url:topic.evidence[0].url,rubric}]};
+  const result=applyWatchlistRevision({revision,historySite:t.history,outSite:t.out});
+  assert.equal(result.result,'PASS');assert.equal(result.corrected_topics,1);
+  assert.equal(result.synthetic_sixties_before,1);assert.equal(result.synthetic_sixties_after,0);
+  assert.deepEqual(result.changed.map(x=>x.route).sort(),['data/watchlist.json','watchlist/research/index.html']);
+  const corrected=JSON.parse(fs.readFileSync(path.join(t.out,'data/watchlist.json'),'utf8'));
+  assert.equal(corrected.topics[0].research_score,62);
+  const built=fs.readFileSync(path.join(t.out,'watchlist/research/index.html'),'utf8');
+  assert.match(built,/How the research score works · 62\/100/);
+  assert.match(built,/Independent developments<\/strong><span>1\/5/);
+  assert.match(built,/Momentum<\/strong><span>Unknown/);
+  assert.doesNotMatch(built,/Old generic rubric|How the research score works · 60\/100/);
+  const stale=structuredClone(revision);stale.expected_generic_score_count=2;
+  assert.throws(()=>applyWatchlistRevision({revision:stale,historySite:t.history,outSite:path.join(t.tmp,'stale')}),/exact existing-topic/);
+  const weaker=structuredClone(revision);weaker.items[0].rubric.independence.score=4;
+  assert.throws(()=>applyWatchlistRevision({revision:weaker,historySite:t.history,outSite:path.join(t.tmp,'weak')}),/single original source/);
+ }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
+});

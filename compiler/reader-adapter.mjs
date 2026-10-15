@@ -2,6 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {requireWatchlistCopy,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
+import {requireWatchlistRubric,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
 import {PENDING_PLACEHOLDER_ID} from './pending-images.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 
@@ -173,7 +174,8 @@ function adaptPodcast(bundle,podcast,index){
 function evidencePublisher(url){
   try{return new URL(url).hostname.replace(/^www\./,'');}catch{return 'Source';}
 }
-function rubric(reason){
+function legacyRubric(reason){
+  // Historical pre-2026-10-16 bundles did not carry rubric evidence.
   const row={score:3,reason};
   return {novelty:{...row},evidence:{...row},independence:{...row},momentum:{...row},relevance:{...row},durability:{...row}};
 }
@@ -189,6 +191,13 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
   // independently written, source-grounded editorial fields, not a renderer fallback.
   if(date>=WATCHLIST_COPY_EFFECTIVE||['summary','why_now','practical_value'].some(k=>item[k]!=null))
     requireWatchlistCopy(editorial,'Watchlist '+kind+' '+item.topic);
+  const rubricLabel='Watchlist '+kind+' '+item.topic;
+  // Genuine per-criterion research is mandatory for new/updated topics from
+  // October 16. Existing carried topics retain their last reviewed rubric.
+  if(date>=WATCHLIST_RUBRIC_EFFECTIVE&&(kind==='new'||kind==='updated'||!prior))
+    requireWatchlistRubric(item.rubric,rubricLabel);
+  else if(item.rubric!=null)requireWatchlistRubric(item.rubric,rubricLabel);
+  const topicRubric=item.rubric||prior?.rubric||legacyRubric(reason);
   const evidence=item.evidence||item.previous_evidence||fallbackEvidence||{};
   const evidenceDate=evidence.date||date;
   const archived=kind==='dropped';
@@ -213,8 +222,8 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
       development_id:`compiler-${kind}-${index+1}`
     }],
     limitations:'The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.',
-    research_score:60,
-    rubric:rubric(reason),
+    research_score:null, // populated from the rubric by publicWatchlist()
+    rubric:topicRubric,
     momentum:{classification:'baseline',score:null,reason:'Current edition evidence is preserved without inferring additional momentum.'},
     next_action:'Continue monitoring primary evidence and independent developments.'
   };
@@ -233,6 +242,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     status:archived?'archived':(prior.status==='archived'?'under_research':prior.status),
     archive_reason:archived?reason:undefined,
     evidence:[...evidenceByDevelopment.values()],
+    rubric:topicRubric,
     limitations:prior.limitations||current.limitations,
     next_action:prior.next_action||current.next_action
   };

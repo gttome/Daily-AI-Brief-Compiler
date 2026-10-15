@@ -62,6 +62,14 @@ Every **new, updated, carried-forward and dropped** item needs three **separatel
 
 All three are substantive, 7+ words and not substantially overlapping. They may share technical terms but **must not restate the same evidence sentence**. This is editorial work, not deterministic template expansion. If a field is missing or repeats another, the producer must correct the semantic bundle **before publication**. Deterministic compiler and built-reader validators fail closed. No copy padding, synonym-only rewriting, identical fallback fields or degraded placeholder text. Historical content before the effective date is not retroactively invalidated.
 
+### Watchlist evidence-weighted scoring — October 16, 2026 onward
+
+**No generic 60/100 fallback.** Each new or materially updated Watchlist topic in the sealed edition bundle must contain a real `rubric` object. It must give a separate `{score,reason}` for each of the six criteria: **novelty (20%)**, **evidence (25%)**, **independence (15%)**, **momentum (15%)**, **relevance (15%)** and **durability (10%)**. Scores are integers 0–5 or `null` when genuinely unmeasured. Each reason must be specific, substantive and distinct from every other criterion, explaining the available original evidence and its limitations. Compute the provisional /100 research score from these weights (the reader does this automatically); do not handwrite a score.
+
+A single original publisher source does **not** demonstrate two independent developments. First sightings must mark momentum unknown unless independent comparable past observations are recorded; do not substitute first publication date or an unrelated source as momentum evidence. A 3/5 score across all six criteria with copied reasons is a **publication defect**, not a neutral baseline. Read the source and assess each criterion independently rather than fabricate data to pass a check. Earlier original edition bundles remain immutable.
+
+Existing carried-forward or archived topics may keep their last **genuinely reviewed** rubric until credible new evidence warrants revision. When an existing topic is updated materially, refresh its six reasons and scores alongside the dated evidence. For a post-publication score defect, use a scoped `watchlist_rubric_correction` with exact topic identifiers, original-evidence URLs and audited old scores; never recompile editorial content, replace accepted illustrations or reopen historical editions.
+
 For corrections to an already illustrated published edition, change only the verified Watchlist reader surfaces. Preserve exact current and historical image bytes, published articles, archived source bundle, and the normal 19:15/21:15 autonomous schedules.
 
 ## Books
