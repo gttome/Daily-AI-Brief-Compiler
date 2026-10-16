@@ -5,13 +5,17 @@ import path from 'node:path';
 import os from 'node:os';
 import {execFileSync} from 'node:child_process';
 
-test('history merge preserves only missing prior permanent pages and never rewrites canonical current reader surfaces',()=>{
+test('history merge preserves authoritative prior pages, images and image-release metadata without rewriting current reader surfaces',()=>{
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'compiler-history-'));
   const history=path.join(root,'history'),current=path.join(root,'current'),out=path.join(root,'out'),receipt=path.join(root,'receipt.json');
 
   fs.mkdirSync(path.join(history,'briefs','2026-10-06'),{recursive:true});
   fs.mkdirSync(path.join(history,'stories','2026-10-06','old-story'),{recursive:true});
   fs.mkdirSync(path.join(history,'archive'),{recursive:true});
+  fs.mkdirSync(path.join(history,'briefs','images','2026-10-06'),{recursive:true});
+  fs.mkdirSync(path.join(history,'image-jobs'),{recursive:true});
+  fs.writeFileSync(path.join(history,'briefs','images','2026-10-06','accepted.png'),Buffer.from('verified prior image bytes'));
+  fs.writeFileSync(path.join(history,'image-jobs','index.json'),'{"editions":[{"edition_date":"2026-10-06","status":"RELEASED_VERIFIED"}]}');
   fs.writeFileSync(path.join(history,'briefs','2026-10-06','index.html'),'<html>old edition</html>');
   fs.writeFileSync(path.join(history,'stories','2026-10-06','old-story','index.html'),'<html>old story</html>');
   fs.writeFileSync(path.join(history,'archive','index.html'),'<html>legacy custom archive</html>');
@@ -19,6 +23,10 @@ test('history merge preserves only missing prior permanent pages and never rewri
   fs.mkdirSync(path.join(current,'briefs','2026-10-07'),{recursive:true});
   fs.mkdirSync(path.join(current,'stories','2026-10-07','new-story'),{recursive:true});
   fs.mkdirSync(path.join(current,'briefs-archive'),{recursive:true});
+  fs.mkdirSync(path.join(current,'briefs','2026-10-06'),{recursive:true});
+  fs.mkdirSync(path.join(current,'briefs','images','2026-10-06'),{recursive:true});
+  fs.writeFileSync(path.join(current,'briefs','2026-10-06','index.html'),'<html>stale placeholder</html>');
+  fs.writeFileSync(path.join(current,'briefs','images','2026-10-06','accepted.png'),Buffer.from('bad stale bytes'));
   fs.writeFileSync(path.join(current,'index.html'),'<html>canonical latest</html>');
   fs.writeFileSync(path.join(current,'briefs','2026-10-07','index.html'),'<html>new edition</html>');
   fs.writeFileSync(path.join(current,'stories','2026-10-07','new-story','index.html'),'<html>new story</html>');
@@ -26,7 +34,9 @@ test('history merge preserves only missing prior permanent pages and never rewri
   fs.writeFileSync(path.join(current,'feed.json'),'{"version":"https://jsonfeed.org/version/1.1","items":[]}');
 
   execFileSync(process.execPath,['scripts/merge-shadow-history.mjs',history,current,out,'2026-10-07',receipt]);
-  assert.ok(fs.existsSync(path.join(out,'briefs','2026-10-06','index.html')));
+  assert.equal(fs.readFileSync(path.join(out,'briefs','2026-10-06','index.html'),'utf8'),'<html>old edition</html>');
+  assert.equal(fs.readFileSync(path.join(out,'briefs','images','2026-10-06','accepted.png'),'utf8'),'verified prior image bytes');
+  assert.ok(fs.existsSync(path.join(out,'image-jobs','index.json')));
   assert.ok(fs.existsSync(path.join(out,'stories','2026-10-06','old-story','index.html')));
   assert.ok(fs.existsSync(path.join(out,'briefs','2026-10-07','index.html')));
   assert.equal(fs.readFileSync(path.join(out,'briefs-archive','index.html'),'utf8'),'<html>canonical archive</html>');
