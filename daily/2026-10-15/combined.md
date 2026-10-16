@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** October 16, 2026 · **Production evening:** 2026-10-15 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-10-16 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-16/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 103m 44s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -20,11 +20,11 @@
 | **Compiler stage duration** | **103m 44s (103.7 min)** | First persisted Compiler state → verified public reader; not a host scheduler attestation |
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **12** | Image worker AAR; no estimation |
 | Rejected candidates | **6** | Image worker AAR |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -72,7 +72,7 @@ flowchart LR
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 12 · **Rejected candidates:** 6.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 12 · **Rejected candidates:** 6.
 
 ### Image production duration — Git-verified milestones
 
@@ -93,21 +93,31 @@ flowchart LR
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| GitHub's AI Scan adds advisory vulnerability findings to pull requests | — | 0.62 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m01.png) |
+| Agentic autofix couples security repairs with a fresh CodeQL check | — | 0.62 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m02.png) |
+| Gemini can query federated enterprise catalogs without moving the data | — | 0.90 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m10.png) |
+| A curriculum-grounded assistant was shaped through teacher-led pilots | — | 0.99 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m11.png) |
+| Build an Agent Skill that tests autonomy boundaries before deployment | — | 0.84 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m12.png) |
+| Five production lessons turn agent enthusiasm into measurable decisions | — | 0.83 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m01.png" alt="Diagram for oct16-t1-ai-scan-advisory" width="420"/></a><br/><b>GitHub's AI Scan adds advisory vulnerability findings to pull requests</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m02.png" alt="Diagram for oct16-t2-agentic-autofix" width="420"/></a><br/><b>Agentic autofix couples security repairs with a fresh CodeQL check</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m10.png" alt="Diagram for oct16-k1-borderless-lakehouse" width="420"/></a><br/><b>Gemini can query federated enterprise catalogs without moving the data</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m11.png" alt="Diagram for oct16-k2-sanna-teacher" width="420"/></a><br/><b>A curriculum-grounded assistant was shaped through teacher-led pilots</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m12.png" alt="Diagram for oct16-a1-trust-boundary-skill" width="420"/></a><br/><b>Build an Agent Skill that tests autonomy boundaries before deployment</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/dab-edition-2026-10-16-m14.png" alt="Diagram for oct16-a2-production-lessons" width="420"/></a><br/><b>Five production lessons turn agent enthusiasm into measurable decisions</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -153,7 +163,7 @@ No image-stage correction receipts were available for this cycle.
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-16/reviews/live/image-element24/semantic-reviews.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-16/reviews/after-action.md) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/38843902834).
 
 ---
 
