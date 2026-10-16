@@ -32,7 +32,9 @@ if(historyDir&&historyDir!=='-'&&fs.existsSync(historyDir)){
       if(date>=currentDate)continue;
       const source=path.join(historyDir,category,date);
       const dest=path.join(outDir,category,date);
-      if(fs.existsSync(dest))continue;
+      // The previously *published* history is authoritative, even when the
+      // vendored reader snapshot contains an older copy of the same date.
+      if(fs.existsSync(dest))fs.rmSync(dest,{recursive:true,force:true});
       copyDir(source,dest);
       preserved.add(date);
     }
@@ -40,7 +42,18 @@ if(historyDir&&historyDir!=='-'&&fs.existsSync(historyDir)){
   for(const date of preserved){
     const imageSource=path.join(historyDir,'briefs','images',date);
     const imageDest=path.join(outDir,'briefs','images',date);
-    if(fs.existsSync(imageSource)&&!fs.existsSync(imageDest))copyDir(imageSource,imageDest);
+    if(fs.existsSync(imageSource)){
+      if(fs.existsSync(imageDest))fs.rmSync(imageDest,{recursive:true,force:true});
+      copyDir(imageSource,imageDest);
+    }
+  }
+  // Keep prior release receipts public throughout the next edition's first
+  // (placeholder) deploy; current edition's new image job is created later.
+  const oldJobs=path.join(historyDir,'image-jobs');
+  if(fs.existsSync(oldJobs)){
+    const newJobs=path.join(outDir,'image-jobs');
+    if(fs.existsSync(newJobs))fs.rmSync(newJobs,{recursive:true,force:true});
+    copyDir(oldJobs,newJobs);
   }
 }
 

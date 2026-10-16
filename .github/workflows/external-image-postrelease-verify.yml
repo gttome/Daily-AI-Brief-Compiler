@@ -133,6 +133,9 @@ jobs:
           }
           console.log('HISTORY_SAFE_TO_REDEPLOY: six exact accepted PNGs, 12 pairings');
           NODE
+      - name: Prevent metadata publication from reverting any accepted image
+        if: env.MODE == 'sync_metadata'
+        run: node scripts/assert-published-image-continuity.mjs history/site history/site
       - name: Verify history has not changed before optional metadata-only redeploy
         if: env.MODE == 'sync_metadata'
         shell: bash
