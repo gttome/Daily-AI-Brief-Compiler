@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-10-15",
-  "updated_at": "2026-10-15T00:32:54.351Z",
+  "edition_date": "2026-10-16",
+  "updated_at": "2026-10-16T00:24:00.000Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -2093,25 +2093,25 @@
       "research_score": 64
     },
     {
-      "topic_id": "dab-topic-reproducible-agent-workflow-dependencies",
-      "name": "Reproducible agent workflow dependencies",
-      "summary": "Action lockfiles pin direct and transitive automation dependencies to immutable Git commits.",
-      "why_now": "GitHub's October 14 release adds automated creation, checking and proposed Dependabot updates.",
-      "practical_value": "Compare a CI workflow before and after dependency pinning, while auditing required permissions.",
-      "first_detected": "2026-10-15",
-      "updated_at": "2026-10-15T12:00:00Z",
+      "topic_id": "dab-topic-advisory-ai-pull-request-security-scanning",
+      "name": "Advisory AI pull-request security scanning",
+      "summary": "Model-assisted pull-request scanning supplements deterministic analysis for additional languages and framework patterns.",
+      "why_now": "GitHub's October 15 release documents general availability, exclusions, advisory behavior and usage-based billing.",
+      "practical_value": "Benchmark precision and reviewer effort on known vulnerable changes before enabling organization-wide coverage.",
+      "first_detected": "2026-10-16",
+      "updated_at": "2026-10-16T12:00:00Z",
       "status": "early_signal",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
         {
           "kind": "primary",
-          "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
-          "title": "Reproducible agent workflow dependencies",
+          "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/",
+          "title": "Advisory AI pull-request security scanning",
           "publisher": "github.blog",
-          "publication_date": "2026-10-14",
+          "publication_date": "2026-10-15",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
+          "checked_at": "2026-10-16",
           "development_id": "compiler-new-1"
         }
       ],
@@ -2120,115 +2120,57 @@
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "Workflow lockfiles extend reproducibility from source dependencies to direct, transitive, and reusable automation action references."
+          "reason": "The release extends pull-request security coverage beyond currently supported CodeQL language and framework patterns."
         },
         "evidence": {
           "score": 4,
-          "reason": "The dated GitHub public-preview announcement describes lockfile creation, dependency checking, and proposed update review steps."
+          "reason": "GitHub documents operation, exclusions, advisory status and access, but supplies no independent accuracy benchmark."
         },
         "independence": {
           "score": 1,
-          "reason": "Only the GitHub original announcement is recorded for this specific lockfile feature; no independent confirmation appears here."
+          "reason": "Only GitHub's product announcement supports this exact release; independent production evaluations are not recorded."
         },
         "momentum": {
           "score": null,
-          "reason": "This topic was first recorded today, with no earlier comparable observations establishing a rate of adoption."
+          "reason": "This first general-availability observation provides no comparable historical measurements of adoption or finding quality."
         },
         "relevance": {
           "score": 5,
-          "reason": "Teams can test pinned GitHub Actions dependencies and inspect permission boundaries before approving reproducible CI changes."
+          "reason": "Security teams can test known vulnerable pull requests and measure precision, misses and review effort."
         },
         "durability": {
           "score": 4,
-          "reason": "Reducing mutable dependency references is a continuing build integrity need, regardless of this particular preview."
+          "reason": "Supplemental security analysis for changing language ecosystems addresses a continuing software assurance need."
         }
       },
       "momentum": {
         "classification": "baseline",
         "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
+        "reason": "No comparable observations are available for a numeric momentum assessment."
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
     {
-      "topic_id": "dab-topic-source-grounded-presentation-generation",
-      "name": "Source-grounded presentation generation",
-      "summary": "Retrieval-guided slide workflows transform approved enterprise documents into concise presentation drafts.",
-      "why_now": "AWS detailed the AgentCore supervisor, document retrieval and PowerPoint assembly on October 14.",
-      "practical_value": "Pilot a five-slide briefing with manual number and citation checks before wider use.",
-      "first_detected": "2026-10-15",
-      "updated_at": "2026-10-15T12:00:00Z",
+      "topic_id": "dab-topic-code-scanning-agent-repair-loops",
+      "name": "Code scanning agent repair loops",
+      "summary": "Agentic security repair loops propose code changes, rerun a scanner and open draft pull requests.",
+      "why_now": "The October 15 GitHub release adds general availability, batch assignment and enterprise policy controls.",
+      "practical_value": "Test whether proposed fixes close root causes without regressions, permission expansion or hidden cost growth.",
+      "first_detected": "2026-10-16",
+      "updated_at": "2026-10-16T12:00:00Z",
       "status": "early_signal",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
         {
           "kind": "primary",
-          "url": "https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/",
-          "title": "Source-grounded presentation generation",
-          "publisher": "aws.amazon.com",
-          "publication_date": "2026-10-14",
+          "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
+          "title": "Code scanning agent repair loops",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-15",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
+          "checked_at": "2026-10-16",
           "development_id": "compiler-new-2"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 58,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "This reference architecture assembles known document retrieval and presentation generation components rather than establishing a new foundation capability."
-        },
-        "evidence": {
-          "score": 4,
-          "reason": "An AWS technical walkthrough documents the supervisor, retrieval of approved context, and creation of PowerPoint drafts."
-        },
-        "independence": {
-          "score": 1,
-          "reason": "The Watchlist records one AWS-authored implementation account, not a second independent production evaluation of these results."
-        },
-        "momentum": {
-          "score": null,
-          "reason": "The topic has no comparable earlier observations, so its prevalence or uptake cannot yet be scored responsibly."
-        },
-        "relevance": {
-          "score": 5,
-          "reason": "Knowledge workers can test cited slide decks against approved documents, manually checking quantities and source coverage."
-        },
-        "durability": {
-          "score": 4,
-          "reason": "Source traceability and human review remain valuable safeguards for repeatable presentation workflows beyond one reference design."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-document-extraction-instruction-feedback",
-      "name": "Document extraction instruction feedback",
-      "summary": "Specialized document agents classify inputs, extract fields and refine instructions after failed checks.",
-      "why_now": "The October 14 AWS walkthrough exposes validation stages and an instruction repair loop.",
-      "practical_value": "Assess one invoice template against known labels and prevent unreviewed guidance changes.",
-      "first_detected": "2026-10-15",
-      "updated_at": "2026-10-15T12:00:00Z",
-      "status": "early_signal",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/",
-          "title": "Document extraction instruction feedback",
-          "publisher": "aws.amazon.com",
-          "publication_date": "2026-10-14",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
-          "development_id": "compiler-new-3"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2236,115 +2178,57 @@
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "The described validation path separates new-document instruction refinement from correcting data in known-document processing."
+          "reason": "The workflow joins multi-file agent repair with scanner revalidation and reviewable draft pull requests."
         },
         "evidence": {
           "score": 4,
-          "reason": "AWS supplies a specific October 14 architecture walkthrough describing classification, extraction validation, and instruction repair."
+          "reason": "GitHub specifies the exploration, iteration and CodeQL validation sequence, while broader regression evidence remains absent."
         },
         "independence": {
           "score": 1,
-          "reason": "Only this AWS-authored workflow is cited for the topic; separate validation results have not been established."
+          "reason": "No independent study corroborates the vendor's generally available repair workflow or its production effectiveness."
         },
         "momentum": {
           "score": null,
-          "reason": "One dated architecture report supplies no longitudinal measurements of reliability, deployments, or wider uptake."
+          "reason": "One launch record cannot establish comparable trends in repair success, usage volume or review burden."
         },
         "relevance": {
           "score": 5,
-          "reason": "Teams can compare invoice extraction failures against ground truth while requiring review of any reusable instruction changes."
+          "reason": "Engineering teams can evaluate alert closure, regression safety, approval effort and cost on controlled repositories."
         },
         "durability": {
           "score": 4,
-          "reason": "Separating reusable guidance repair from individual record correction addresses persistent document automation quality risks."
+          "reason": "Reviewable remediation with repeatable validation addresses a persistent security maintenance bottleneck across codebases."
         }
       },
       "momentum": {
         "classification": "baseline",
         "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
+        "reason": "No comparable observations are available for a numeric momentum assessment."
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
     {
-      "topic_id": "dab-topic-permission-filtered-enterprise-conversation-memory",
-      "name": "Permission-filtered enterprise conversation memory",
-      "summary": "Context-aware work agents retrieve permitted historical answers while separating information from actions.",
-      "why_now": "AWS's October 13 ShipStation case adds a distinct confirmation-based Jira escalation pattern.",
-      "practical_value": "Test a private Slack inquiry and require explicit approval before opening support tickets.",
-      "first_detected": "2026-10-13",
-      "updated_at": "2026-10-15T12:00:00Z",
-      "status": "under_research",
+      "topic_id": "dab-topic-curriculum-grounded-professional-assistants",
+      "name": "Curriculum-grounded professional assistants",
+      "summary": "Domain assistants constrain generated work to curated materials, visible sources and professional review boundaries.",
+      "why_now": "AWS's October 15 case study reports staged research and a 1,500-teacher classroom pilot before launch.",
+      "practical_value": "Pilot one cited deliverable with domain experts, separating user satisfaction from independently measured outcomes.",
+      "first_detected": "2026-10-16",
+      "updated_at": "2026-10-16T12:00:00Z",
+      "status": "early_signal",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
         {
           "kind": "primary",
-          "url": "https://aws.amazon.com/blogs/machine-learning/how-shipstation-global-built-an-ai-it-help-desk-on-amazon-bedrock-agentcore/",
-          "title": "Permission-filtered enterprise conversation memory",
+          "url": "https://aws.amazon.com/blogs/publicsector/how-sanoma-learning-built-the-ai-teacher-assistant-sanna-guided-by-teachers-and-supported-by-aws/",
+          "title": "Curriculum-grounded professional assistants",
           "publisher": "aws.amazon.com",
-          "publication_date": "2026-10-13",
+          "publication_date": "2026-10-15",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
-          "development_id": "compiler-updated-1"
-        }
-      ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 55,
-      "rubric": {
-        "novelty": {
-          "score": 3,
-          "reason": "Role-scoped knowledge retrieval with confirmation-based ticket escalation combines established access-control and support workflow concepts."
-        },
-        "evidence": {
-          "score": 4,
-          "reason": "The October 13 AWS ShipStation case describes source-bounded helpdesk retrieval, screenshots, and human-confirmed escalation."
-        },
-        "independence": {
-          "score": 1,
-          "reason": "One vendor-hosted customer implementation is cited; no second independently tested helpdesk implementation is recorded here."
-        },
-        "momentum": {
-          "score": null,
-          "reason": "An additional dated implementation example is not enough to establish a measured growth trajectory for this capability."
-        },
-        "relevance": {
-          "score": 4,
-          "reason": "Internal support teams can test Slack answers against role permissions and require explicit confirmation before ticket creation."
-        },
-        "durability": {
-          "score": 4,
-          "reason": "Authorization boundaries and auditability will continue to matter for assistants using private workplace conversation history."
-        }
-      },
-      "momentum": {
-        "classification": "baseline",
-        "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
-      },
-      "next_action": "Continue monitoring primary evidence and independent developments."
-    },
-    {
-      "topic_id": "dab-topic-audited-long-form-business-reasoning",
-      "name": "Audited long-form business reasoning",
-      "summary": "Complex knowledge-work assistants assemble evidence across documents and produce reviewable business deliverables.",
-      "why_now": "AWS's October 14 article supplies a concrete citation-based presentation architecture to assess.",
-      "practical_value": "Measure unsupported claims, source coverage and numeric consistency in generated client decks.",
-      "first_detected": "2026-10-14",
-      "updated_at": "2026-10-15T12:00:00Z",
-      "status": "under_research",
-      "confidence": "moderate",
-      "audience": "Professionals using generative AI",
-      "evidence": [
-        {
-          "kind": "primary",
-          "url": "https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/",
-          "title": "Audited long-form business reasoning",
-          "publisher": "aws.amazon.com",
-          "publication_date": "2026-10-14",
-          "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
-          "development_id": "compiler-updated-2"
+          "checked_at": "2026-10-16",
+          "development_id": "compiler-new-3"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2352,33 +2236,149 @@
       "rubric": {
         "novelty": {
           "score": 3,
-          "reason": "Cited business-deck drafting extends familiar retrieval and summarization techniques without demonstrating independently verified reasoning advances."
+          "reason": "Curriculum grounding and editable outputs combine established retrieval patterns with deeply integrated domain co-design."
         },
         "evidence": {
           "score": 3,
-          "reason": "The AWS presentation example offers a useful architecture but does not independently benchmark business reasoning accuracy."
+          "reason": "The case study documents a sizable staged pilot and reported metrics, but not independent learning outcomes."
         },
         "independence": {
           "score": 1,
-          "reason": "The Watchlist attaches one AWS source, shared with another topic, so separate corroboration is still missing."
+          "reason": "AWS and its customer provide the same narrative; no separate evaluator verifies the reported results."
         },
         "momentum": {
           "score": null,
-          "reason": "No comparative series of evaluations or documented deployment growth is recorded for this broader reasoning topic."
+          "reason": "Pilot milestones use different activities and measures, preventing a comparable longitudinal momentum calculation."
         },
         "relevance": {
           "score": 5,
-          "reason": "Consultants can measure citation completeness, unsupported numerical claims, and source fidelity in multi-document client deliverables."
+          "reason": "Professional teams can test citations, editability, domain fit and decision boundaries on approved materials."
         },
         "durability": {
           "score": 4,
-          "reason": "Checking long-form analytical claims against source documents remains important even as underlying models and tools change."
+          "reason": "Grounded assistance with expert control addresses enduring needs wherever generated content affects consequential work."
         }
       },
       "momentum": {
         "classification": "baseline",
         "score": null,
-        "reason": "Current edition evidence is preserved without inferring additional momentum."
+        "reason": "No comparable observations are available for a numeric momentum assessment."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-audited-long-form-business-reasoning",
+      "name": "Audited long-form business reasoning",
+      "summary": "Complex knowledge-work assistants assemble evidence across governed data sources and produce reviewable analytical deliverables.",
+      "why_now": "Google's October 15 Lakehouse article documents preview catalog federation and direct natural-language access across platforms.",
+      "practical_value": "Compare generated queries, permissions and totals against an approved cross-cloud report before operational use.",
+      "first_detected": "2026-10-15",
+      "updated_at": "2026-10-16T12:00:00Z",
+      "status": "under_research",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini",
+          "title": "Audited long-form business reasoning",
+          "publisher": "cloud.google.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-16",
+          "development_id": "compiler-updated-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 58,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "Federated catalog access broadens the documented evidence surface for long-form analysis without moving underlying data."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Google describes supported catalogs, preview behavior and infrastructure layers, while answer accuracy remains unbenchmarked."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The updated record relies on one Google product article and lacks independent cross-cloud verification results."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The prior presentation example and current federation preview do not measure one comparable quantity over time."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Analysts can inspect generated queries, access decisions and reconciled totals against an approved business report."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Evidence traceability across heterogeneous enterprise data remains important as models and storage platforms change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "The available developments do not share one comparable numerical measure."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-consumer-agent-task-permissions",
+      "name": "Consumer agent task permissions",
+      "summary": "Task agents need minimum authority, visible identities, enforceable action limits, reconstructable histories and human escalation.",
+      "why_now": "The October 15 AWS article supplies a dated layered framework and states where formal proof cannot apply.",
+      "practical_value": "Test one allowed, denied and ambiguous task before expanding an assistant's access to connected services.",
+      "first_detected": "2026-10-15",
+      "updated_at": "2026-10-16T12:00:00Z",
+      "status": "under_research",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+          "title": "Consumer agent task permissions",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-16",
+          "development_id": "compiler-updated-2"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 59,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The framework organizes agent authority into lifecycle layers and explicitly separates provable rules from judgment."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "AWS provides detailed control reasoning and examples, but no independent comparative deployment evaluation is attached."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "A single AWS-authored framework is the current evidence; cross-vendor corroboration has not been documented."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Earlier product permissions and today's conceptual framework offer no shared numerical observation for trend measurement."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Users can exercise allowed, denied and ambiguous tasks before granting assistants broader connected-service authority."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Scope, identity, action limits, auditability and human escalation remain durable requirements for autonomous systems."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "The available developments do not share one comparable numerical measure."
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
@@ -2386,7 +2386,7 @@
       "topic_id": "dab-topic-cross-language-agent-tool-contracts",
       "name": "Cross-language agent tool contracts",
       "summary": "Multi-language agent runtimes exchange structured tool requests and cross-agent messages through common interfaces.",
-      "why_now": "Google's October 13 ADK explanation remains current without a separately verified later amendment.",
+      "why_now": "Google's October 13 ADK explanation remains current without a separately verified October 15 amendment.",
       "practical_value": "Exercise the same read-only tool call from two SDKs and compare error behavior.",
       "first_detected": "2026-10-13",
       "updated_at": "2026-10-13T12:00:00Z",
@@ -2401,7 +2401,7 @@
           "publisher": "cloud.google.com",
           "publication_date": "2026-10-13",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
+          "checked_at": "2026-10-16",
           "development_id": "compiler-carried_forward-1"
         }
       ],
@@ -2444,7 +2444,7 @@
       "topic_id": "dab-topic-third-party-agent-skill-license-provenance",
       "name": "Third-party Agent Skill license provenance",
       "summary": "SKILL.md package review must distinguish frontmatter license metadata from repository-level licensing documents.",
-      "why_now": "The October 10 SkillMD registry sample still merits follow-up, with its sampling limitations retained.",
+      "why_now": "The October 10 SkillMD sample remains unresolved, with its registry and sampling limitations preserved.",
       "practical_value": "Inspect a candidate Skill's SPDX field, source repository and execution permissions before reuse.",
       "first_detected": "2026-10-10",
       "updated_at": "2026-10-10T12:00:00Z",
@@ -2459,7 +2459,7 @@
           "publisher": "skillmd.com",
           "publication_date": "2026-10-10",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
+          "checked_at": "2026-10-16",
           "development_id": "compiler-carried_forward-2"
         }
       ],
@@ -2499,55 +2499,55 @@
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
     {
-      "topic_id": "dab-topic-rack-scale-agent-orchestration-resources",
-      "name": "Rack-scale agent orchestration resources",
-      "summary": "Rack-scale agent systems balance orchestration CPU demand against accelerator inference and power budgets.",
-      "why_now": "The prior AMD October 12 architecture announcement has no checked new change requiring active placement.",
-      "practical_value": "Retain hardware sizing assumptions for future workload benchmarks rather than infer current capacity gains.",
-      "first_detected": "2026-10-12",
-      "updated_at": "2026-10-15T12:00:00Z",
+      "topic_id": "dab-topic-reproducible-agent-workflow-dependencies",
+      "name": "Reproducible agent workflow dependencies",
+      "summary": "Action lockfiles pin direct and transitive automation dependencies to immutable Git commits.",
+      "why_now": "The October 14 GitHub preview remains the latest checked evidence without a new day-specific change.",
+      "practical_value": "Retain dependency pinning tests and review future adoption evidence before returning the topic to active status.",
+      "first_detected": "2026-10-14",
+      "updated_at": "2026-10-16T12:00:00Z",
       "status": "archived",
-      "archive_reason": "No incremental October 14 dated infrastructure reference was identified; current edition concentrates on verifiable runtime safeguards.",
+      "archive_reason": "No separate October 15 lockfile development was verified, so the October 14 preview moves to monitored history.",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
         {
           "kind": "primary",
-          "url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale",
-          "title": "Rack-scale agent orchestration resources",
-          "publisher": "ir.amd.com",
-          "publication_date": "2026-10-12",
+          "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
+          "title": "Reproducible agent workflow dependencies",
+          "publisher": "github.blog",
+          "publication_date": "2026-10-14",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
+          "checked_at": "2026-10-16",
           "development_id": "compiler-dropped-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 45,
+      "research_score": 62,
       "rubric": {
         "novelty": {
-          "score": 3,
-          "reason": "The proposal highlights splitting agent orchestration CPU workloads from inference acceleration at rack scale."
+          "score": 4,
+          "reason": "Workflow lockfiles extend reproducibility from source dependencies to direct, transitive, and reusable automation action references."
         },
         "evidence": {
-          "score": 3,
-          "reason": "The October 12 AMD announcement describes a planned architecture, without verified deployed capacity or benchmark outcomes."
+          "score": 4,
+          "reason": "The dated GitHub public-preview announcement describes lockfile creation, dependency checking, and proposed update review steps."
         },
         "independence": {
           "score": 1,
-          "reason": "Only the original AMD company announcement is attached; third-party hardware evaluations are not part of this record."
+          "reason": "Only the GitHub original announcement is recorded for this specific lockfile feature; no independent confirmation appears here."
         },
         "momentum": {
           "score": null,
-          "reason": "No qualifying additional infrastructure development was recorded for October 14, and no longitudinal data is available."
+          "reason": "This topic was first recorded today, with no earlier comparable observations establishing a rate of adoption."
         },
         "relevance": {
-          "score": 3,
-          "reason": "Infrastructure planners may model CPU, GPU, networking, power, and cooling budgets, while avoiding unverified performance claims."
+          "score": 5,
+          "reason": "Teams can test pinned GitHub Actions dependencies and inspect permission boundaries before approving reproducible CI changes."
         },
         "durability": {
-          "score": 3,
-          "reason": "Resource orchestration matters over time, though this announced design remains unproven in live deployment."
+          "score": 4,
+          "reason": "Reducing mutable dependency references is a continuing build integrity need, regardless of this particular preview."
         }
       },
       "momentum": {
@@ -2558,55 +2558,55 @@
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
     {
-      "topic_id": "dab-topic-consumer-agent-task-permissions",
-      "name": "Consumer agent task permissions",
-      "summary": "Consumer task agents can trigger connected services only within reviewed authority and approval boundaries.",
-      "why_now": "No distinct post-October 13 primary update was verified to justify today's active Watchlist.",
-      "practical_value": "Keep an approval checklist for personal task automations until a specific permission change appears.",
-      "first_detected": "2026-10-13",
-      "updated_at": "2026-10-15T12:00:00Z",
+      "topic_id": "dab-topic-document-extraction-instruction-feedback",
+      "name": "Document extraction instruction feedback",
+      "summary": "Specialized document agents classify inputs, extract fields and refine instructions after failed validation checks.",
+      "why_now": "The October 14 AWS walkthrough remains the latest source, with no verified independent follow-up today.",
+      "practical_value": "Keep truth-set and approval requirements available for future document-processing evidence rather than infer improvement.",
+      "first_detected": "2026-10-14",
+      "updated_at": "2026-10-16T12:00:00Z",
       "status": "archived",
-      "archive_reason": "Carry forward the October 13 application controls in the archive without a new day-specific product confirmation.",
+      "archive_reason": "No new October 15 implementation evidence was found, while today's edition prioritizes newly documented controls and deployments.",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
         {
           "kind": "primary",
-          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/",
-          "title": "Consumer agent task permissions",
-          "publisher": "blog.google",
-          "publication_date": "2026-10-13",
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/",
+          "title": "Document extraction instruction feedback",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-14",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-15",
+          "checked_at": "2026-10-16",
           "development_id": "compiler-dropped-2"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 50,
+      "research_score": 62,
       "rubric": {
         "novelty": {
-          "score": 3,
-          "reason": "Consumer task permissions adapt established approval and delegation concepts to assistants triggering connected service actions."
+          "score": 4,
+          "reason": "The described validation path separates new-document instruction refinement from correcting data in known-document processing."
         },
         "evidence": {
-          "score": 3,
-          "reason": "A dated Google product announcement supports the discussion, but the record lacks a verified permissions test."
+          "score": 4,
+          "reason": "AWS supplies a specific October 14 architecture walkthrough describing classification, extraction validation, and instruction repair."
         },
         "independence": {
           "score": 1,
-          "reason": "One publisher-authored product reference is recorded with no independent test of end-to-end approval safeguards."
+          "reason": "Only this AWS-authored workflow is cited for the topic; separate validation results have not been established."
         },
         "momentum": {
           "score": null,
-          "reason": "No distinct post-October 13 product change has been verified, so the direction of adoption is unknown."
+          "reason": "One dated architecture report supplies no longitudinal measurements of reliability, deployments, or wider uptake."
         },
         "relevance": {
-          "score": 4,
-          "reason": "Users can prepare an explicit approval and access checklist before allowing assistants to perform personal tasks."
+          "score": 5,
+          "reason": "Teams can compare invoice extraction failures against ground truth while requiring review of any reusable instruction changes."
         },
         "durability": {
           "score": 4,
-          "reason": "Clear consent, revocable authority, and action boundaries remain important as consumer assistants gain more integrations."
+          "reason": "Separating reusable guidance repair from individual record correction addresses persistent document automation quality risks."
         }
       },
       "momentum": {

@@ -4,16 +4,41 @@
   "stories": [
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-10-15-m01",
-      "brief_date": "2026-10-15",
-      "event_date": "2026-10-14",
-      "headline": "GitHub tests multi-model critique and repair in Copilot workflows",
-      "url": "/stories/2026-10-15/t1-hydrafusion-critique/",
+      "story_id": "dab-story-2026-10-16-m01",
+      "brief_date": "2026-10-16",
+      "event_date": "2026-10-15",
+      "headline": "GitHub's AI Scan adds advisory vulnerability findings to pull requests",
+      "url": "/stories/2026-10-16/t1-ai-scan-advisory/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "Multi-model evaluation",
-        "Critique tools",
-        "Agent repair loops"
+        "Advisory security scans",
+        "Pull request review",
+        "CodeQL coverage"
+      ],
+      "companies": [
+        "GitHub Changelog"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
+        "Agent memory and context",
+        "AI-assisted development"
+      ],
+      "summary": "GitHub made AI Scan generally available for pull requests, adding model-generated security findings beside CodeQL results for languages and frameworks outside current CodeQL coverage. Findings can explain risk and suggest a repair, but they remain advisory: they cannot fail the check, block merges, inspect forked contributions, or scan Dependabot pull requests."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-16-m02",
+      "brief_date": "2026-10-16",
+      "event_date": "2026-10-15",
+      "headline": "Agentic autofix couples security repairs with a fresh CodeQL check",
+      "url": "/stories/2026-10-16/t2-agentic-autofix/",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "Security repair loops",
+        "CodeQL validation",
+        "Draft pull requests"
       ],
       "companies": [
         "GitHub Changelog"
@@ -25,97 +50,93 @@
         "AI-assisted development",
         "Accessible agents for knowledge work"
       ],
-      "summary": "GitHub has expanded the HydraFusion research preview across VS Code, Copilot and its command line. Cascade now introduces a judging stage that can request targeted repairs, while Critique uses workspace tools and parallel critics to challenge draft outputs. Medium-effort drafting and higher-effort review are separate choices; these preview controls do not independently demonstrate reliable results."
+      "summary": "GitHub's agentic autofix now explores relevant repository files, proposes a repair, reruns CodeQL, and iterates before opening a draft pull request. Teams may assign one alert or batch up to twenty-five default-branch alerts. The validation confirms that CodeQL closes the original alert, not that the patch preserves every behavior or removes unrelated risks."
     },
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-10-15-m02",
-      "brief_date": "2026-10-15",
-      "event_date": "2026-10-14",
-      "headline": "Workflow lockfiles give agent CI a reproducible dependency boundary",
-      "url": "/stories/2026-10-15/t2-actions-lockfile/",
-      "focus": "technical_ai_engineering",
+      "story_id": "dab-story-2026-10-16-m10",
+      "brief_date": "2026-10-16",
+      "event_date": "2026-10-15",
+      "headline": "Gemini can query federated enterprise catalogs without moving the data",
+      "url": "/stories/2026-10-16/k1-borderless-lakehouse/",
+      "focus": "applied_genai_knowledge_workers",
       "topics": [
-        "Dependency provenance",
-        "Workflow security",
-        "Reproducible CI"
+        "Federated analytics",
+        "Natural language queries",
+        "Data access controls"
       ],
       "companies": [
-        "GitHub Changelog"
+        "Google Cloud Blog"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Google Cloud previewed direct Gemini access to its borderless Lakehouse, including catalog federation with Databricks Unity Catalog and Snowflake Horizon. Business users can ask natural-language questions across configured data sources without first copying records into one store. The architecture expands reach, but permissions, semantic consistency, cross-cloud costs and answer validation still determine whether a report is trustworthy."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-16-m11",
+      "brief_date": "2026-10-16",
+      "event_date": "2026-10-15",
+      "headline": "A curriculum-grounded assistant was shaped through teacher-led pilots",
+      "url": "/stories/2026-10-16/k2-sanna-teacher/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "Curriculum grounding",
+        "Teacher co-design",
+        "Editable lesson materials"
+      ],
+      "companies": [
+        "AWS Public Sector Blog"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
       "trends": [
         "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
+        "Agent memory and context"
       ],
-      "summary": "GitHub introduced public-preview workflow lockfiles that record immutable commit identifiers for Actions dependencies, including reusable workflows. Its gh actions-lock extension can create and check the lockfile, and Dependabot can update pinned entries through reviewable pull requests. For AI-generated code and agent-driven automation, the mechanism narrows unreviewed dependency drift but does not certify that pinned code is safe."
+      "summary": "AWS describes Sanoma Learning's Sanna assistant, which grounds lesson plans, exercises and tests in selected textbooks and exposes source chapters for checking. Sanoma involved teachers through interviews, diary studies and a 1,500-person classroom pilot across seven countries. Reported adoption and quality figures come from the vendor-customer case study, not an independent learning-outcomes evaluation."
     },
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-10-15-m10",
-      "brief_date": "2026-10-15",
-      "event_date": "2026-10-14",
-      "headline": "An AWS reference design turns cited enterprise documents into slide decks",
-      "url": "/stories/2026-10-15/k1-agentcore-presentations/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "Grounded presentations",
-        "Document retrieval",
-        "Slide verification"
-      ],
-      "companies": [
-        "AWS Machine Learning Blog"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "AWS describes an AgentCore reference architecture that ingests enterprise files, retrieves relevant passages, and coordinates summarization with PowerPoint generation. The design uses a supervisor, document embeddings, OpenSearch retrieval and guardrails to build cited slides. An illustrative annual-report test produced a short deck, but the example is not an independently validated business productivity benchmark."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-15-m11",
-      "brief_date": "2026-10-15",
-      "event_date": "2026-10-14",
-      "headline": "A document-processing agent learns from failed extraction checks",
-      "url": "/stories/2026-10-15/k2-adaptive-document-workflow/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "Document extraction",
-        "Validation loops",
-        "Instruction memory"
-      ],
-      "companies": [
-        "AWS Machine Learning Blog"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "An AWS walkthrough coordinates eight specialized agents for document identification, extraction, validation and instruction updates. Textract supplies document content; database checks detect mismatches, while a repair agent revises stored extraction guidance for later examples. Its purchase-order timing comparisons come from illustrative runs, not a representative benchmark, and successful adaptation still depends on reliable rules."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-15-m12",
-      "brief_date": "2026-10-15",
-      "event_date": "2026-10-13",
-      "headline": "Create a reusable Agent Skill to audit app permissions before installation",
-      "url": "/stories/2026-10-15/a1-github-app-skill/",
+      "story_id": "dab-story-2026-10-16-m12",
+      "brief_date": "2026-10-16",
+      "event_date": "2026-10-15",
+      "headline": "Build an Agent Skill that tests autonomy boundaries before deployment",
+      "url": "/stories/2026-10-16/a1-trust-boundary-skill/",
       "focus": "agents_non_technical_people",
       "topics": [
         "Agent Skills",
-        "Least privilege",
-        "Installation review"
+        "Autonomy boundaries",
+        "Human escalation"
       ],
       "companies": [
-        "GitHub Changelog"
+        "AWS Machine Learning Blog"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "AWS proposes five layers for trustworthy agents: scope the job, know the acting identity, bound runtime actions, observe completed work and prove precisely expressible rules. Those layers support a reusable predeployment Agent Skill. The Skill should inventory tools and data, convert boundaries into test cases, identify ambiguous decisions, and produce a human-reviewed autonomy recommendation without changing permissions."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-16-m14",
+      "brief_date": "2026-10-16",
+      "event_date": "2026-10-15",
+      "headline": "Five production lessons turn agent enthusiasm into measurable decisions",
+      "url": "/stories/2026-10-16/a2-production-lessons/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Production readiness",
+        "Agent evaluation",
+        "Phased rollout"
+      ],
+      "companies": [
+        "Google Cloud Transform"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
@@ -124,39 +145,15 @@
         "AI-assisted development",
         "Accessible agents for knowledge work"
       ],
-      "summary": "GitHub added narrower App permissions for repository creation and installation expansion, alongside offline-access credential improvements. Those controls create a useful teaching case for an Agent Skill that inventories requested access without changing settings. The reusable procedure should compare current and proposed scopes, identify owner approvals, document token handling and stop when consequences remain unclear."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-10-15-m14",
-      "brief_date": "2026-10-15",
-      "event_date": "2026-10-13",
-      "headline": "ShipStation's Slack helpdesk shows how agents can escalate safely",
-      "url": "/stories/2026-10-15/a2-helpdesk-agent/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "Helpdesk agents",
-        "Human escalation",
-        "Permission boundaries"
-      ],
-      "companies": [
-        "AWS Machine Learning Blog"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "AWS describes ShipStation Global's Deckhand helpdesk agent in Slack, combining permission-scoped knowledge retrieval, screenshot analysis and Jira ticket escalation. The case study reports message volume and user feedback from an early deployment; a high reply rate must not be mistaken for resolution. Ticket creation requires an explicit user selection and downstream validation."
+      "summary": "Google Cloud Consulting recommends defining production readiness before coding, restricting initial agents to one or two valuable actions, and replacing vague helpfulness goals with measurable task, error and latency criteria. The guidance also budgets time for user acceptance testing, involves employees early, phases sensitive actions behind review, and monitors cost, drift, infrastructure health and fallback behavior."
     },
     {
       "content_type": "Video",
-      "story_id": "dab-video-2026-10-15-general",
-      "brief_date": "2026-10-15",
+      "story_id": "dab-video-2026-10-16-general",
+      "brief_date": "2026-10-16",
       "event_date": "2026-10-08",
       "headline": "Navigating AI automation in Looker: Essential developer tools for agents",
-      "url": "/videos/2026-10-15/general/",
+      "url": "/videos/2026-10-16/general/",
       "focus": "general_video",
       "topics": [],
       "companies": [
@@ -173,11 +170,11 @@
     },
     {
       "content_type": "Video",
-      "story_id": "dab-video-2026-10-15-agent-skills",
-      "brief_date": "2026-10-15",
+      "story_id": "dab-video-2026-10-16-agent-skills",
+      "brief_date": "2026-10-16",
       "event_date": "2026-10-07",
       "headline": "Production Monitoring with Codex: Grafana, Kubernetes, & Security",
-      "url": "/videos/2026-10-15/agent-skills/",
+      "url": "/videos/2026-10-16/agent-skills/",
       "focus": "agents_non_technical_people",
       "topics": [],
       "companies": [
@@ -194,11 +191,11 @@
     },
     {
       "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-10-15-1",
-      "brief_date": "2026-10-15",
+      "story_id": "dab-podcast-2026-10-16-1",
+      "brief_date": "2026-10-16",
       "event_date": "2026-10-14",
       "headline": "Can Open Models Keep Up With the AI Frontier? | Nathan Lambert",
-      "url": "/podcasts/2026-10-15/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/",
+      "url": "/podcasts/2026-10-16/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/",
       "focus": "agents_non_technical_people",
       "topics": [],
       "companies": [
@@ -213,11 +210,11 @@
     },
     {
       "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-10-15-2",
-      "brief_date": "2026-10-15",
+      "story_id": "dab-podcast-2026-10-16-2",
+      "brief_date": "2026-10-16",
       "event_date": "2026-10-14",
       "headline": "The AGORÀ Briefing — Wednesday, October 14, 2026",
-      "url": "/podcasts/2026-10-15/the-agora-briefing-wednesday-october-14-2026/",
+      "url": "/podcasts/2026-10-16/the-agora-briefing-wednesday-october-14-2026/",
       "focus": "agents_non_technical_people",
       "topics": [],
       "companies": [
@@ -3933,186 +3930,6 @@
         "Accessible agents for knowledge work"
       ],
       "summary": "Nathaniel Whittemore examines Jev, a model positioned for fast, inexpensive judgments rather than open-ended generation, and considers how specialized evaluators could change business automation and agent coordination."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-16-9f13a2c7",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-15",
-      "headline": "Google moves agent security from syntax checks to runtime intent controls",
-      "url": "/stories/2026-09-16/google-moves-agent-security-to-runtime-intent-controls/",
-      "focus": "technical_ai_engineering",
-      "topics": [
-        "agent security",
-        "runtime governance",
-        "semantic policy",
-        "anomaly detection"
-      ],
-      "companies": [
-        "Google Cloud"
-      ],
-      "evidence_type": "official_documentation",
-      "availability_status": "general_availability",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Google published a reference architecture for moving agent safeguards outside application code and into the Gemini Enterprise Agent Platform. Agent Gateway combines Model Armor at ingress and egress, natural-language Semantic Governance Policies before tool execution, and Agent Anomaly Detection across sessions; the companion repository includes local simulators and deterministic tests."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-16-c4b86e10",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-15",
-      "headline": "Cloudflare scopes teammate, CI, and agent access to individual Workers",
-      "url": "/stories/2026-09-16/cloudflare-scopes-access-to-individual-workers/",
-      "focus": "technical_ai_engineering",
-      "topics": [
-        "least privilege",
-        "agent deployment",
-        "CI security",
-        "serverless governance"
-      ],
-      "companies": [
-        "Cloudflare"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "general_availability",
-      "trends": [
-        "Agent reliability and governance",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Cloudflare introduced Worker-scoped authorization so account owners can grant a teammate, CI system or AI agent access to specific Workers instead of the whole account. The model separates account-wide and Worker-scoped roles and supports narrower build, deploy and management paths."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-16-2a7d5f91",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-15",
-      "headline": "Gemini 3.8 Live keeps reasoning and using tools while conversation continues",
-      "url": "/stories/2026-09-16/gemini-3-8-live-keeps-reasoning-while-conversation-continues/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "live voice",
-        "multimodal work",
-        "background reasoning",
-        "tool use"
-      ],
-      "companies": [
-        "Google",
-        "Google DeepMind"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "general_availability",
-      "trends": [
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Google released Gemini 3.8 Live for low-latency dialogue and Gemini 3.8 Live Extended Thinking for more complex, multi-step work. The models accept audio, images, video and text; Extended Thinking can continue background reasoning and asynchronous tool calls while maintaining spoken interaction. Google lists API, app, AI Studio, Cloud, Search and Workspace distribution paths."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-16-7e31bc48",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-15",
-      "headline": "Copilot now suggests values for repository governance taxonomies",
-      "url": "/stories/2026-09-16/copilot-suggests-repository-governance-taxonomies/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "metadata governance",
-        "repository rulesets",
-        "taxonomy design",
-        "human review"
-      ],
-      "companies": [
-        "GitHub"
-      ],
-      "evidence_type": "official_changelog",
-      "availability_status": "public_preview",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "GitHub Copilot can now suggest allowed values while enterprise and organization owners define repository custom properties. Accepted values become governance metadata that can scope repository rulesets; owners can control the feature with a dedicated Copilot policy. The feature is a public preview for Copilot Business and Enterprise."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-16-d9a40f62",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-15",
-      "headline": "Salesforce AIforce brings governed data and actions to conversational interfaces",
-      "url": "/stories/2026-09-16/salesforce-aiforce-brings-governed-actions-to-any-interface/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "no-code interfaces",
-        "enterprise context",
-        "permissions",
-        "agent actions"
-      ],
-      "companies": [
-        "Salesforce"
-      ],
-      "evidence_type": "official_announcement",
-      "availability_status": "announced",
-      "trends": [
-        "Agent memory and context",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Salesforce announced AIforce, an interface layer intended to expose Salesforce data, workflows, business logic, semantics, permissions and actions inside Claude, Slack, Lightning and custom interfaces. Users can ask questions, update records, trigger workflows or describe a live interface while requests remain subject to existing Salesforce permissions and rules."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-09-16-5bc218ad",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-16",
-      "headline": "Anthropic’s skills marketplace adds governed Informatica catalog discovery",
-      "url": "/stories/2026-09-16/anthropic-marketplace-adds-informatica-governed-catalog-skill/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "Agent Skills",
-        "catalog grounding",
-        "data governance",
-        "safe use"
-      ],
-      "companies": [
-        "Anthropic",
-        "Informatica",
-        "Salesforce"
-      ],
-      "evidence_type": "official_documentation",
-      "availability_status": "general_availability",
-      "trends": [
-        "Agent reliability and governance",
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "A verified Anthropic repository commit added Informatica’s plugin to the knowledge-work marketplace. The Agent Skill is designed to find tables, columns, files, glossary terms and policies in Informatica’s enterprise catalog, then report ownership, certification, sensitivity and applicable policy before data is queried. It requires an Informatica IDMC tenant and Catalog Discovery connector."
-    },
-    {
-      "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-09-16-frontier-pacing",
-      "brief_date": "2026-09-16",
-      "event_date": "2026-09-14",
-      "headline": "Even Other AI Labs Are Rallying Around Anthropic’s Slowdown Proposal",
-      "url": "/podcasts/2026-09-16/frontier-pacing/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "frontier model pacing",
-        "independent evaluation",
-        "AI governance",
-        "evidence quality"
-      ],
-      "companies": [
-        "The AI Daily Brief"
-      ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Agent reliability and governance"
-      ],
-      "summary": "Nathaniel Whittemore examines the emerging debate over frontier-model pacing and third-party evaluation, including public reactions from major AI leaders and competing safety, competition and incentive arguments."
     }
   ]
 }

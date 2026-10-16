@@ -1,246 +1,246 @@
-# Daily Generative AI Brief — October 15, 2026
+# Daily Generative AI Brief — October 16, 2026
 
-**Published:** October 15, 2026  
-**Coverage period:** October 7–14, 2026
+**Published:** October 16, 2026  
+**Coverage period:** October 7–15, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-15-m12">Create a reusable Agent Skill to audit app permissions before installation</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-15-m14">ShipStation&#39;s Slack helpdesk shows how agents can escalate safely</a><span>Article · about 9 min source read</span></li><li><a href="#reading-dab-story-2026-10-15-m10">An AWS reference design turns cited enterprise documents into slide decks</a><span>Article · about 11 min source read</span></li><li><a href="#reading-dab-story-2026-10-15-m11">A document-processing agent learns from failed extraction checks</a><span>Article · about 12 min source read</span></li><li><a href="#reading-dab-story-2026-10-15-m01">GitHub tests multi-model critique and repair in Copilot workflows</a><span>Article · about 2 min source read</span></li><li><a href="#reading-dab-story-2026-10-15-m02">Workflow lockfiles give agent CI a reproducible dependency boundary</a><span>Article · about 2 min source read</span></li><li><a href="#general">Navigating AI automation in Looker: Essential developer tools for agents</a><span>Video · 5:55</span></li><li><a href="#agents-for-non-technical-people">Production Monitoring with Codex: Grafana, Kubernetes, &amp; Security</a><span>Video · 7:59</span></li><li><a href="#podcast-dab-podcast-2026-10-15-1">Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</a><span>Podcast · 1:00:00</span></li><li><a href="#podcast-dab-podcast-2026-10-15-2">The AGORÀ Briefing — Wednesday, October 14, 2026</a><span>Podcast · 8:00</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-16-m12">Build an Agent Skill that tests autonomy boundaries before deployment</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-16-m14">Five production lessons turn agent enthusiasm into measurable decisions</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-16-m10">Gemini can query federated enterprise catalogs without moving the data</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-16-m11">A curriculum-grounded assistant was shaped through teacher-led pilots</a><span>Article · about 8 min source read</span></li><li><a href="#reading-dab-story-2026-10-16-m01">GitHub&#39;s AI Scan adds advisory vulnerability findings to pull requests</a><span>Article · about 1 min source read</span></li><li><a href="#reading-dab-story-2026-10-16-m02">Agentic autofix couples security repairs with a fresh CodeQL check</a><span>Article · about 2 min source read</span></li><li><a href="#general">Navigating AI automation in Looker: Essential developer tools for agents</a><span>Video · 5:55</span></li><li><a href="#agents-for-non-technical-people">Production Monitoring with Codex: Grafana, Kubernetes, &amp; Security</a><span>Video · 7:59</span></li><li><a href="#podcast-dab-podcast-2026-10-16-1">Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</a><span>Podcast · 1:00:00</span></li><li><a href="#podcast-dab-podcast-2026-10-16-2">The AGORÀ Briefing — Wednesday, October 14, 2026</a><span>Podcast · 8:00</span></li></ol></section>
 <!-- reader-release:end -->
 
-<span id="reading-dab-story-2026-10-15-m12"></span>
+<span id="reading-dab-story-2026-10-16-m12"></span>
 
-## 1. Create a reusable Agent Skill to audit app permissions before installation
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 4 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 13 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/copilot-moves-from-chat-into-desktop-computer-use/" target="_blank" rel="noopener noreferrer">Copilot moves from chat into desktop computer use</a></p><p>2026-10-06 · Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.</p></div></aside>
-<!-- reader-release:end -->
-
-**Focus: Agents for Everyone**
-
-**Date:** October 13, 2026
-
-**Topics:** Agent Skills, Least privilege, Installation review
-
-<span class="story-data" data-story-id="dab-story-2026-10-15-m12" data-story-url="/stories/2026-10-15/a1-github-app-skill/" hidden></span>
-
-<a href="{{ '/stories/2026-10-15/a1-github-app-skill/' | relative_url }}" data-item-id="dab-story-2026-10-15-m12" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Create a reusable Agent Skill to audit app permissions before installation. Planned illustration: Read-only Agent Skill audit of requested app capabilities, least privilege rules, negative test cases and human approval checkpoint.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** GitHub added narrower App permissions for repository creation and installation expansion, alongside offline-access credential improvements. Those controls create a useful teaching case for an Agent Skill that inventories requested access without changing settings. The reusable procedure should compare current and proposed scopes, identify owner approvals, document token handling and stop when consequences remain unclear.
-
-**Why it matters:** Before authorizing any integration, use a read-only permission review that lists data exposure, external actions and approval owners. Test both harmless and excessive requests, retain the report and require human sign-off. A Skill documents checks; it cannot grant assurance automatically.
+## 1. Build an Agent Skill that tests autonomy boundaries before deployment
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable prompt learning and evaluation — Write positive and negative Skill tests with human approval requirements and revision history.</p><p>A read-only SKILL.md permission checker turns integration governance into a repeatable tested lesson.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
-
-**Source:** <a href="https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management/" data-item-id="dab-story-2026-10-15-m12" data-edition-date="2026-10-15" data-action="source_clicks">GitHub App improvements for least privilege and management</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-story-compiler-2026-10-15-oct15-a1-github-app-skill">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-10-15-m14"></span>
-
-## 2. ShipStation's Slack helpdesk shows how agents can escalate safely
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 9 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 13 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/copilot-moves-from-chat-into-desktop-computer-use/" target="_blank" rel="noopener noreferrer">Copilot moves from chat into desktop computer use</a></p><p>2026-10-06 · Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.</p></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 15 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/copilot-moves-from-chat-into-desktop-computer-use/" target="_blank" rel="noopener noreferrer">Copilot moves from chat into desktop computer use</a></p><p>2026-10-06 · Other October 16 edition articles cover complementary evaluation, grounding, access and human-review decisions.</p></div></aside>
 <!-- reader-release:end -->
 
 **Focus: Agents for Everyone**
 
-**Date:** October 13, 2026
+**Date:** October 15, 2026
 
-**Topics:** Helpdesk agents, Human escalation, Permission boundaries
+**Topics:** Agent Skills, Autonomy boundaries, Human escalation
 
-<span class="story-data" data-story-id="dab-story-2026-10-15-m14" data-story-url="/stories/2026-10-15/a2-helpdesk-agent/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-16-m12" data-story-url="/stories/2026-10-16/a1-trust-boundary-skill/" hidden></span>
 
-<a href="{{ '/stories/2026-10-15/a2-helpdesk-agent/' | relative_url }}" data-item-id="dab-story-2026-10-15-m14" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-16/a1-trust-boundary-skill/' | relative_url }}" data-item-id="dab-story-2026-10-16-m12" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for ShipStation's Slack helpdesk shows how agents can escalate safely. Planned illustration: Role-scoped Slack helpdesk retrieval with screenshots, uncertain-answer escalation, human-confirmed Jira ticket and audit receipt.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Build an Agent Skill that tests autonomy boundaries before deployment. Planned illustration: Reusable Agent Skill converts job scope into allowed, denied and ambiguous tests, then routes evidence to proof checks, observation records and human approval.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** AWS describes ShipStation Global's Deckhand helpdesk agent in Slack, combining permission-scoped knowledge retrieval, screenshot analysis and Jira ticket escalation. The case study reports message volume and user feedback from an early deployment; a high reply rate must not be mistaken for resolution. Ticket creation requires an explicit user selection and downstream validation.
+**Summary:** AWS proposes five layers for trustworthy agents: scope the job, know the acting identity, bound runtime actions, observe completed work and prove precisely expressible rules. Those layers support a reusable predeployment Agent Skill. The Skill should inventory tools and data, convert boundaries into test cases, identify ambiguous decisions, and produce a human-reviewed autonomy recommendation without changing permissions.
 
-**Why it matters:** Small teams can adapt this pattern by letting agents answer approved questions while reserving account changes and tickets for confirmation. Test private-document access, unanswered questions and escalation evidence before deployment. Evaluate user outcomes rather than headline response rates.
+**Why it matters:** Run the Skill on one low-risk workflow before granting broader access. Verify an allowed action, a denied action and an ambiguous case requiring escalation. Preserve the evidence and assumptions; formal checks cannot prove subjective rules or incomplete system descriptions.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Bounded execution and escalation — Pilot a permission isolation test and a confirmed incident handoff with observable outcomes.</p><p>Helpdesk agents need permission-scoped retrieval and explicit confirmation before external ticket actions.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Bounded autonomy and human judgment — Create allowed, denied and ambiguous test cases for one low-risk agent workflow.</p><p>Agent reliability depends on explicit scope, identity, action limits, evidence and escalation rather than confidence alone.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/how-shipstation-global-built-an-ai-it-help-desk-on-amazon-bedrock-agentcore/" data-item-id="dab-story-2026-10-15-m14" data-edition-date="2026-10-15" data-action="source_clicks">How ShipStation Global built an AI IT help desk on Amazon Bedrock AgentCore</a>
+**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/" data-item-id="dab-story-2026-10-16-m12" data-edition-date="2026-10-16" data-action="source_clicks">Trust in Depth: Giving agents more autonomy without losing control</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-story-compiler-2026-10-15-oct15-a2-helpdesk-agent">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-story-compiler-2026-10-16-oct16-a1-trust-boundary-skill">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-15-m10"></span>
+<span id="reading-dab-story-2026-10-16-m14"></span>
 
-## 3. An AWS reference design turns cited enterprise documents into slide decks
+## 2. Five production lessons turn agent enthusiasm into measurable decisions
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 11 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 14 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/workspace-turns-prompts-into-images-canvases-and-cross-app-work/" target="_blank" rel="noopener noreferrer">Workspace turns prompts into images, canvases and cross-app work</a></p><p>2026-10-06 · Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.</p></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 5 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 15 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/copilot-moves-from-chat-into-desktop-computer-use/" target="_blank" rel="noopener noreferrer">Copilot moves from chat into desktop computer use</a></p><p>2026-10-06 · Other October 16 edition articles cover complementary evaluation, grounding, access and human-review decisions.</p></div></aside>
+<!-- reader-release:end -->
+
+**Focus: Agents for Everyone**
+
+**Date:** October 15, 2026
+
+**Topics:** Production readiness, Agent evaluation, Phased rollout
+
+<span class="story-data" data-story-id="dab-story-2026-10-16-m14" data-story-url="/stories/2026-10-16/a2-production-lessons/" hidden></span>
+
+<a href="{{ '/stories/2026-10-16/a2-production-lessons/' | relative_url }}" data-item-id="dab-story-2026-10-16-m14" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Five production lessons turn agent enthusiasm into measurable decisions. Planned illustration: Agent rollout funnel moves from defined production criteria through narrow actions, measurable KPIs, user testing, monitored deployment and evidence-based expansion.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Google Cloud Consulting recommends defining production readiness before coding, restricting initial agents to one or two valuable actions, and replacing vague helpfulness goals with measurable task, error and latency criteria. The guidance also budgets time for user acceptance testing, involves employees early, phases sensitive actions behind review, and monitors cost, drift, infrastructure health and fallback behavior.
+
+**Why it matters:** A small team can translate these lessons into a launch scorecard: named users, bounded actions, target completion and error rates, a test calendar, escalation owners and a cost ceiling. Expand autonomy only after observed results meet the agreed thresholds.
+
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Production context and evaluation — Build a launch scorecard with quality, latency, cost, escalation and rollback thresholds.</p><p>Production agents need stable inputs, measurable objectives, user testing, monitoring and controlled fallback paths.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+
+**Source:** <a href="https://cloud.google.com/transform/lessons-from-google-cloud-consulting-for-moving-agents-into-production" data-item-id="dab-story-2026-10-16-m14" data-edition-date="2026-10-16" data-action="source_clicks">Five lessons from Google Cloud Consulting for moving agents into production</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-story-compiler-2026-10-16-oct16-a2-production-lessons">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-10-16-m10"></span>
+
+## 3. Gemini can query federated enterprise catalogs without moving the data
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 7 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 15 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/workspace-turns-prompts-into-images-canvases-and-cross-app-work/" target="_blank" rel="noopener noreferrer">Workspace turns prompts into images, canvases and cross-app work</a></p><p>2026-10-06 · Other October 16 edition articles cover complementary evaluation, grounding, access and human-review decisions.</p></div></aside>
 <!-- reader-release:end -->
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
-**Date:** October 14, 2026
+**Date:** October 15, 2026
 
-**Topics:** Grounded presentations, Document retrieval, Slide verification
+**Topics:** Federated analytics, Natural language queries, Data access controls
 
-<span class="story-data" data-story-id="dab-story-2026-10-15-m10" data-story-url="/stories/2026-10-15/k1-agentcore-presentations/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-16-m10" data-story-url="/stories/2026-10-16/k1-borderless-lakehouse/" hidden></span>
 
-<a href="{{ '/stories/2026-10-15/k1-agentcore-presentations/' | relative_url }}" data-item-id="dab-story-2026-10-15-m10" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-16/k1-borderless-lakehouse/' | relative_url }}" data-item-id="dab-story-2026-10-16-m10" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for An AWS reference design turns cited enterprise documents into slide decks. Planned illustration: Enterprise source documents through retrieval, cited summaries, deck generation and human citation verification.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Gemini can query federated enterprise catalogs without moving the data. Planned illustration: Business question maps through governed Gemini access to BigQuery, Databricks and Snowflake catalogs, with permission filters, query trace and approved-result comparison.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** AWS describes an AgentCore reference architecture that ingests enterprise files, retrieves relevant passages, and coordinates summarization with PowerPoint generation. The design uses a supervisor, document embeddings, OpenSearch retrieval and guardrails to build cited slides. An illustrative annual-report test produced a short deck, but the example is not an independently validated business productivity benchmark.
+**Summary:** Google Cloud previewed direct Gemini access to its borderless Lakehouse, including catalog federation with Databricks Unity Catalog and Snowflake Horizon. Business users can ask natural-language questions across configured data sources without first copying records into one store. The architecture expands reach, but permissions, semantic consistency, cross-cloud costs and answer validation still determine whether a report is trustworthy.
 
-**Why it matters:** For client briefings, start with approved source documents and an explicit slide outline. Verify every headline, number and citation against retrieved pages, then perform human layout and confidentiality review. Treat the sample workflow as an architecture to evaluate, not turnkey accuracy.
+**Why it matters:** Begin with one governed question whose correct result is already known. Limit catalogs and columns, record the generated query, compare totals with an approved report, and test denied access. Federation reduces copying; it does not resolve meaning or authorization automatically.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Evidence-grounded deliverable prompting — Write an auditable board presentation brief with mandatory fact-review criteria.</p><p>A deck-generation prompt should require traceable sources, numbered citations and independent calculation checks.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Grounded analytical prompting — Write a cross-catalog question with an expected answer and explicit reconciliation checks.</p><p>A useful analytics request specifies governed sources, required calculations, denial behavior and verification output.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/" data-item-id="dab-story-2026-10-15-m10" data-edition-date="2026-10-15" data-action="source_clicks">Generate presentations with Amazon Bedrock AgentCore</a>
+**Source:** <a href="https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini" data-item-id="dab-story-2026-10-16-m10" data-edition-date="2026-10-16" data-action="source_clicks">Bringing the borderless Lakehouse into the agentic era with innovations for Gemini</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-story-compiler-2026-10-15-oct15-k1-agentcore-presentations">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-story-compiler-2026-10-16-oct16-k1-borderless-lakehouse">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-15-m11"></span>
+<span id="reading-dab-story-2026-10-16-m11"></span>
 
-## 4. A document-processing agent learns from failed extraction checks
+## 4. A curriculum-grounded assistant was shaped through teacher-led pilots
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 12 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 14 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/workspace-turns-prompts-into-images-canvases-and-cross-app-work/" target="_blank" rel="noopener noreferrer">Workspace turns prompts into images, canvases and cross-app work</a></p><p>2026-10-06 · Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.</p></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 8 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 15 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/workspace-turns-prompts-into-images-canvases-and-cross-app-work/" target="_blank" rel="noopener noreferrer">Workspace turns prompts into images, canvases and cross-app work</a></p><p>2026-10-06 · Other October 16 edition articles cover complementary evaluation, grounding, access and human-review decisions.</p></div></aside>
 <!-- reader-release:end -->
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
-**Date:** October 14, 2026
+**Date:** October 15, 2026
 
-**Topics:** Document extraction, Validation loops, Instruction memory
+**Topics:** Curriculum grounding, Teacher co-design, Editable lesson materials
 
-<span class="story-data" data-story-id="dab-story-2026-10-15-m11" data-story-url="/stories/2026-10-15/k2-adaptive-document-workflow/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-16-m11" data-story-url="/stories/2026-10-16/k2-sanna-teacher/" hidden></span>
 
-<a href="{{ '/stories/2026-10-15/k2-adaptive-document-workflow/' | relative_url }}" data-item-id="dab-story-2026-10-15-m11" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-16/k2-sanna-teacher/' | relative_url }}" data-item-id="dab-story-2026-10-16-m11" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for A document-processing agent learns from failed extraction checks. Planned illustration: Invoice input, extraction agents, schema validation, error-conditioned instruction refinement and approved reusable guidance.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for A curriculum-grounded assistant was shaped through teacher-led pilots. Planned illustration: Approved curriculum chapters feed a grounded assistant, editable lesson materials, visible citations, teacher review, differentiated classroom use and a separate outcomes evaluation.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** An AWS walkthrough coordinates eight specialized agents for document identification, extraction, validation and instruction updates. Textract supplies document content; database checks detect mismatches, while a repair agent revises stored extraction guidance for later examples. Its purchase-order timing comparisons come from illustrative runs, not a representative benchmark, and successful adaptation still depends on reliable rules.
+**Summary:** AWS describes Sanoma Learning's Sanna assistant, which grounds lesson plans, exercises and tests in selected textbooks and exposes source chapters for checking. Sanoma involved teachers through interviews, diary studies and a 1,500-person classroom pilot across seven countries. Reported adoption and quality figures come from the vendor-customer case study, not an independent learning-outcomes evaluation.
 
-**Why it matters:** Finance or operations teams can pilot one recurring document type with a fixed truth set. Track field-level errors, approve instruction changes before reuse, and retain original files for audit. Measure exceptions and regressions, not just faster second-pass processing.
+**Why it matters:** Knowledge teams can borrow the pattern: ground drafts in approved materials, expose citations, make outputs editable and involve users before rollout. Evaluate factual quality and downstream outcomes separately from satisfaction, while keeping consequential judgments with qualified professionals.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Context feedback and controlled memory — Design a versioned extraction rubric and approve every memory update using a truth set.</p><p>Validation feedback can improve stored extraction instructions, but errors and approvals must remain attributable.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Co-designed learning workflows — Design a pilot rubric separating factual quality, usability, satisfaction and downstream outcomes.</p><p>Domain users improve a reusable prompting workflow by testing grounded, editable outputs against real tasks.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/" data-item-id="dab-story-2026-10-15-m11" data-edition-date="2026-10-15" data-action="source_clicks">Build self-improving document processing using Amazon Bedrock AgentCore</a>
+**Source:** <a href="https://aws.amazon.com/blogs/publicsector/how-sanoma-learning-built-the-ai-teacher-assistant-sanna-guided-by-teachers-and-supported-by-aws/" data-item-id="dab-story-2026-10-16-m11" data-edition-date="2026-10-16" data-action="source_clicks">Built with teachers, powered by AWS: How Sanoma Learning created Sanna, its AI teacher assistant</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-story-compiler-2026-10-15-oct15-k2-adaptive-document-workflow">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-story-compiler-2026-10-16-oct16-k2-sanna-teacher">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-15-m01"></span>
+<span id="reading-dab-story-2026-10-16-m01"></span>
 
-## 5. GitHub tests multi-model critique and repair in Copilot workflows
+## 5. GitHub's AI Scan adds advisory vulnerability findings to pull requests
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 2 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 14 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/android-cli-turns-device-access-into-reusable-agent-skills/" target="_blank" rel="noopener noreferrer">Android CLI turns device access into reusable agent skills</a></p><p>2026-10-06 · Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.</p></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 1 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 15 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/android-cli-turns-device-access-into-reusable-agent-skills/" target="_blank" rel="noopener noreferrer">Android CLI turns device access into reusable agent skills</a></p><p>2026-10-06 · Other October 16 edition articles cover complementary evaluation, grounding, access and human-review decisions.</p></div></aside>
 <!-- reader-release:end -->
 
 **Focus: Technical AI Engineering**
 
-**Date:** October 14, 2026
+**Date:** October 15, 2026
 
-**Topics:** Multi-model evaluation, Critique tools, Agent repair loops
+**Topics:** Advisory security scans, Pull request review, CodeQL coverage
 
-<span class="story-data" data-story-id="dab-story-2026-10-15-m01" data-story-url="/stories/2026-10-15/t1-hydrafusion-critique/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-16-m01" data-story-url="/stories/2026-10-16/t1-ai-scan-advisory/" hidden></span>
 
-<a href="{{ '/stories/2026-10-15/t1-hydrafusion-critique/' | relative_url }}" data-item-id="dab-story-2026-10-15-m01" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-16/t1-ai-scan-advisory/' | relative_url }}" data-item-id="dab-story-2026-10-16-m01" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for GitHub tests multi-model critique and repair in Copilot workflows. Planned illustration: Two independent model critics read workspace evidence, pass judgments to targeted repair and a separate regression evaluator.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for GitHub's AI Scan adds advisory vulnerability findings to pull requests. Planned illustration: Pull request changes enter separate CodeQL and advisory AI scanning lanes, then converge at a human security review with blocking and nonblocking outcomes.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** GitHub has expanded the HydraFusion research preview across VS Code, Copilot and its command line. Cascade now introduces a judging stage that can request targeted repairs, while Critique uses workspace tools and parallel critics to challenge draft outputs. Medium-effort drafting and higher-effort review are separate choices; these preview controls do not independently demonstrate reliable results.
+**Summary:** GitHub made AI Scan generally available for pull requests, adding model-generated security findings beside CodeQL results for languages and frameworks outside current CodeQL coverage. Findings can explain risk and suggest a repair, but they remain advisory: they cannot fail the check, block merges, inspect forked contributions, or scan Dependabot pull requests.
 
-**Why it matters:** A second model is not automatically a trustworthy reviewer. Compare its critiques against known failures, capture the evidence behind tool-assisted judgments, and measure whether requested repairs truly improve outcomes before adding this preview to production workflows.
+**Why it matters:** Security teams should measure precision, missed defects and reviewer workload before treating AI Scan as a control. Keep enforceable CodeQL and ruleset gates, label AI findings clearly, and require human verification of every suggested fix before merging.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Harness evaluation and agent review — Construct a regression suite with tool observations, citations and explicit repair acceptance.</p><p>Compare a multi-critic verdict against held-out failure cases before trusting automatic repair.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Layered evaluation and uncertainty — Build a labeled vulnerability set and measure precision, misses and review cost.</p><p>Advisory findings require calibrated measurement alongside deterministic gates and expert review.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/" data-item-id="dab-story-2026-10-15-m01" data-edition-date="2026-10-15" data-action="source_clicks">HydraFusion updates and new Max option</a>
+**Source:** <a href="https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/" data-item-id="dab-story-2026-10-16-m01" data-edition-date="2026-10-16" data-action="source_clicks">AI Scan for pull requests generally available</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-story-compiler-2026-10-15-oct15-t1-hydrafusion-critique">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-story-compiler-2026-10-16-oct16-t1-ai-scan-advisory">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-15-m02"></span>
+<span id="reading-dab-story-2026-10-16-m02"></span>
 
-## 6. Workflow lockfiles give agent CI a reproducible dependency boundary
+## 6. Agentic autofix couples security repairs with a fresh CodeQL check
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 2 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 14 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/android-cli-turns-device-access-into-reusable-agent-skills/" target="_blank" rel="noopener noreferrer">Android CLI turns device access into reusable agent skills</a></p><p>2026-10-06 · Other October 15 edition articles cover related verification methods, responsible tool boundaries, and practical professional evaluations.</p></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 2 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 15 Oct 2026</p><div class="related-coverage"><strong>Earlier Brief</strong><p><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-06/android-cli-turns-device-access-into-reusable-agent-skills/" target="_blank" rel="noopener noreferrer">Android CLI turns device access into reusable agent skills</a></p><p>2026-10-06 · Other October 16 edition articles cover complementary evaluation, grounding, access and human-review decisions.</p></div></aside>
 <!-- reader-release:end -->
 
 **Focus: Technical AI Engineering**
 
-**Date:** October 14, 2026
+**Date:** October 15, 2026
 
-**Topics:** Dependency provenance, Workflow security, Reproducible CI
+**Topics:** Security repair loops, CodeQL validation, Draft pull requests
 
-<span class="story-data" data-story-id="dab-story-2026-10-15-m02" data-story-url="/stories/2026-10-15/t2-actions-lockfile/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-16-m02" data-story-url="/stories/2026-10-16/t2-agentic-autofix/" hidden></span>
 
-<a href="{{ '/stories/2026-10-15/t2-actions-lockfile/' | relative_url }}" data-item-id="dab-story-2026-10-15-m02" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-16/t2-agentic-autofix/' | relative_url }}" data-item-id="dab-story-2026-10-16-m02" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Workflow lockfiles give agent CI a reproducible dependency boundary. Planned illustration: Workflow dependency graph resolving to immutable SHA lockfile, reviewer, update PR and deterministic CI comparison.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-15/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Agentic autofix couples security repairs with a fresh CodeQL check. Planned illustration: Code scanning alert flows through repository exploration, proposed patch, CodeQL rerun, bounded iteration, draft pull request, regression tests and reviewer approval.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-16/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** GitHub introduced public-preview workflow lockfiles that record immutable commit identifiers for Actions dependencies, including reusable workflows. Its gh actions-lock extension can create and check the lockfile, and Dependabot can update pinned entries through reviewable pull requests. For AI-generated code and agent-driven automation, the mechanism narrows unreviewed dependency drift but does not certify that pinned code is safe.
+**Summary:** GitHub's agentic autofix now explores relevant repository files, proposes a repair, reruns CodeQL, and iterates before opening a draft pull request. Teams may assign one alert or batch up to twenty-five default-branch alerts. The validation confirms that CodeQL closes the original alert, not that the patch preserves every behavior or removes unrelated risks.
 
-**Why it matters:** Ask agents to propose dependency upgrades rather than silently changing action versions. Review pinned code and permissions, test the resulting workflow, and require lockfile consistency in continuous integration. Reproducibility helps incident analysis but cannot replace supplier security assessment.
+**Why it matters:** Treat the generated pull request as evidence to review, not a finished remediation. Run regression and abuse-case tests, inspect permission and dependency changes, confirm the alert's root cause, and track AI-credit and Actions-minute costs before scaling.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Trusted tools and provenance — Trace two action dependency changes through approved pinned SHAs and audit logs.</p><p>Lockfile-pinned dependencies preserve the execution provenance of automated retrieval and CI tools.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Tool evidence and repair loops — Trace one alert from evidence through patch, rerun, regression test and approval.</p><p>Repository context, scanner output and regression evidence must stay attributable throughout automated remediation.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/" data-item-id="dab-story-2026-10-15-m02" data-edition-date="2026-10-15" data-action="source_clicks">GitHub Actions workflow lockfiles in public preview</a>
+**Source:** <a href="https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/" data-item-id="dab-story-2026-10-16-m02" data-edition-date="2026-10-16" data-action="source_clicks">Agentic autofix for code scanning alerts general availability</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-story-compiler-2026-10-15-oct15-t2-actions-lockfile">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-story-compiler-2026-10-16-oct16-t2-agentic-autofix">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -255,7 +255,7 @@
 
 ### Navigating AI automation in Looker: Essential developer tools for agents
 
-<a href="{{ '/videos/2026-10-15/general/' | relative_url }}" data-item-id="dab-video-2026-10-15-general" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent video page</a>  
+<a href="{{ '/videos/2026-10-16/general/' | relative_url }}" data-item-id="dab-video-2026-10-16-general" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** Google Cloud Tech official video  
 **Date:** October 8, 2026  
 **Duration:** 5:55  
@@ -267,9 +267,9 @@
 
 
 
-**Source:** <a href="https://www.youtube.com/watch?v=JvASK8qX4hg" data-item-id="dab-video-2026-10-15-general" data-edition-date="2026-10-15" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+**Source:** <a href="https://www.youtube.com/watch?v=JvASK8qX4hg" data-item-id="dab-video-2026-10-16-general" data-edition-date="2026-10-16" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-video-compiler-2026-10-15-general">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-video-compiler-2026-10-16-general">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -282,7 +282,7 @@
 
 ### Production Monitoring with Codex: Grafana, Kubernetes, & Security
 
-<a href="{{ '/videos/2026-10-15/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-15-agent-skills" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent video page</a>  
+<a href="{{ '/videos/2026-10-16/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-16-agent-skills" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** OpenAI official YouTube video  
 **Date:** October 7, 2026  
 **Duration:** 7:59  
@@ -294,9 +294,9 @@
 
 
 
-**Source:** <a href="https://www.youtube.com/watch?v=DmCaBWv5yG8" data-item-id="dab-video-2026-10-15-agent-skills" data-edition-date="2026-10-15" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+**Source:** <a href="https://www.youtube.com/watch?v=DmCaBWv5yG8" data-item-id="dab-video-2026-10-16-agent-skills" data-edition-date="2026-10-16" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-video-compiler-2026-10-15-agent-skills">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-video-compiler-2026-10-16-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -311,9 +311,9 @@
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-15-1" data-podcast-title="Can Open Models Keep Up With the AI Frontier? | Nathan Lambert" data-podcast-url="/podcasts/2026-10-15/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-16-1" data-podcast-title="Can Open Models Keep Up With the AI Frontier? | Nathan Lambert" data-podcast-url="/podcasts/2026-10-16/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/" hidden></span>
 
-<a href="{{ '/podcasts/2026-10-15/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/' | relative_url }}" data-item-id="dab-podcast-2026-10-15-1" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-10-16/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/' | relative_url }}" data-item-id="dab-podcast-2026-10-16-1" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
 **Show:** The a16z Show / Andreessen Horowitz  
 **Host / guest:** Not listed  
@@ -333,9 +333,9 @@
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://podcasts.apple.com/ca/podcast/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/id842818711?i=1000796289780" data-item-id="dab-podcast-2026-10-15-1" data-edition-date="2026-10-15" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The a16z Show / Andreessen Horowitz</a>
+**Listen / watch:** <a href="https://podcasts.apple.com/ca/podcast/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/id842818711?i=1000796289780" data-item-id="dab-podcast-2026-10-16-1" data-edition-date="2026-10-16" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The a16z Show / Andreessen Horowitz</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-podcast-compiler-2026-10-15-1">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-podcast-compiler-2026-10-16-1">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -348,9 +348,9 @@
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-15-2" data-podcast-title="The AGORÀ Briefing — Wednesday, October 14, 2026" data-podcast-url="/podcasts/2026-10-15/the-agora-briefing-wednesday-october-14-2026/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-16-2" data-podcast-title="The AGORÀ Briefing — Wednesday, October 14, 2026" data-podcast-url="/podcasts/2026-10-16/the-agora-briefing-wednesday-october-14-2026/" hidden></span>
 
-<a href="{{ '/podcasts/2026-10-15/the-agora-briefing-wednesday-october-14-2026/' | relative_url }}" data-item-id="dab-podcast-2026-10-15-2" data-edition-date="2026-10-15" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-10-16/the-agora-briefing-wednesday-october-14-2026/' | relative_url }}" data-item-id="dab-podcast-2026-10-16-2" data-edition-date="2026-10-16" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
 **Show:** AGORÀ Intelligence — The Briefing  
 **Host / guest:** Not listed  
@@ -370,9 +370,9 @@
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://podcasts.apple.com/it/podcast/the-agor%C3%A0-briefing-wednesday-october-14-2026/id6804164175?i=1000796259365" data-item-id="dab-podcast-2026-10-15-2" data-edition-date="2026-10-15" data-action="source_clicks" target="_blank" rel="noopener noreferrer">AGORÀ Intelligence — The Briefing</a>
+**Listen / watch:** <a href="https://podcasts.apple.com/it/podcast/the-agor%C3%A0-briefing-wednesday-october-14-2026/id6804164175?i=1000796259365" data-item-id="dab-podcast-2026-10-16-2" data-edition-date="2026-10-16" data-action="source_clicks" target="_blank" rel="noopener noreferrer">AGORÀ Intelligence — The Briefing</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-15" data-feedback-story-id="dab-podcast-compiler-2026-10-15-2">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-16" data-feedback-story-id="dab-podcast-compiler-2026-10-16-2">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -382,14 +382,14 @@
 <!-- reader-release:start -->
 
 
-<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="3 New today · 2 Updated today · 23 Carried forward · 2 Archived / dropped recently"><strong>3 new today · 2 updated · 23 carried forward. 2 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Reproducible agent workflow dependencies</li><li>Source-grounded presentation generation</li><li>Document extraction instruction feedback</li></ul><p><strong>Updated today:</strong> </p><ul class="watchlist-daily-items"><li>Permission-filtered enterprise conversation memory</li><li>Audited long-form business reasoning</li></ul><p><strong>Carried forward:</strong> 23</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Rack-scale agent orchestration resources — No incremental October 14 dated infrastructure reference was identified; current edition concentrates on verifiable runtime safeguards.</li><li>Consumer agent task permissions — Carry forward the October 13 application controls in the archive without a new day-specific product confirmation.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
+<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="3 New today · 2 Updated today · 23 Carried forward · 2 Archived / dropped recently"><strong>3 new today · 2 updated · 23 carried forward. 2 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Advisory AI pull-request security scanning</li><li>Code scanning agent repair loops</li><li>Curriculum-grounded professional assistants</li></ul><p><strong>Updated today:</strong> </p><ul class="watchlist-daily-items"><li>Audited long-form business reasoning</li><li>Consumer agent task permissions</li></ul><p><strong>Carried forward:</strong> 23</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Reproducible agent workflow dependencies — No separate October 15 lockfile development was verified, so the October 14 preview moves to monitored history.</li><li>Document extraction instruction feedback — No new October 15 implementation evidence was found, while today&#39;s edition prioritizes newly documented controls and deployments.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
 
 
 <!-- reader-release:end -->
 
 ## Editorial takeaway
 
-A second model is not automatically a trustworthy reviewer. Compare its critiques against known failures, capture the evidence behind tool-assisted judgments, and measure whether requested repairs truly improve outcomes before adding this preview to production workflows.
+Security teams should measure precision, missed defects and reviewer workload before treating AI Scan as a control. Keep enforceable CodeQL and ruleset gates, label AI findings clearly, and require human verification of every suggested fix before merging.
 
 <!-- reader-release:start -->
 <aside class="series-invitation" id="explore-series"><p class="book-kicker">CONTINUE LEARNING</p><h2>Explore the Generative AI Professional Series</h2><p>Take the next step from today’s developments to deeper professional learning with books on prompting, context, and reliable AI.</p><p><a class="book-cta" href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Explore the books ↗</a></p><p class="small-note">Purchasing a book supports continued development of the series and the Daily Generative AI Brief.</p></aside>
