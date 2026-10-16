@@ -1,4 +1,5 @@
 import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchlist-copy.mjs';
+import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/watchlist.mjs';
 import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading-copy.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -83,6 +84,25 @@ export function verifyBuiltReader({siteDir,sourceDir}){
       const problems=watchlistCopyProblems(topic);
       if(problems.length)fail('published Watchlist '+topic.topic_id+': '+problems.join('; '));
     }
+  }
+  if(manifest.edition_date>='2026-10-17'){
+    const priorIds=manifest.watchlist_continuity?.previous_topic_ids;
+    if(!Array.isArray(priorIds)||priorIds.length<20||
+       manifest.watchlist_continuity.previous_edition>=manifest.edition_date)
+      fail('published Watchlist continuity receipt missing');
+    const topics=watchlistData.topics||[],ids=new Set(topics.map(topic=>topic.topic_id));
+    if(ids.size!==topics.length||priorIds.some(id=>!ids.has(id)))
+      fail('previously published Watchlist topic missing from new edition');
+    for(const topic of topics){
+      let total;
+      try{total=scoreTopic(topic);}catch{fail('Watchlist rubric missing: '+topic.topic_id);}
+      if(!Number.isInteger(topic.research_score)||topic.research_score<0||
+         topic.research_score>100||topic.research_score!==total)
+        fail('Watchlist score missing or inconsistent: '+topic.topic_id);
+    }
+    const research=fs.readFileSync(path.join(siteDir,'watchlist','research','index.html'),'utf8');
+    if(/How the research score works\s*·\s*\/100/.test(research))
+      fail('blank research score in public Watchlist');
   }
   if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').startsWith('dab-topic-compiler-')))fail('Compiler-only Watchlist topic identity leaked into reader');
   if((watchlistData.topics||[]).some(topic=>String(topic.topic_id||'').length>64))fail('Watchlist topic identity exceeds feedback-service contract');
