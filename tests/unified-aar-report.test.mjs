@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {compileDailyReports} from '../scripts/compile-daily-aar.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const script=path.join(root,'scripts/render-unified-production-aar.mjs');
@@ -95,4 +96,65 @@ test('missing auditable image timestamps never fabricates active runtime',()=>{
  assert.match(md,/Image processing stage duration/);
  assert.match(md,/Not independently recorded/);
  assert.doesNotMatch(md,/18m 04s/);
+});
+
+
+const pixelReview={
+  schema_version:'external-image-semantic-pixel-review-v1',
+  edition_date:ed,result:'PASS',
+  evidence_source:{workflow_run_id:12345,artifact_id:999},
+  expected_targets:24,captured_targets:24,reviewed_pass:24,defects:[],
+  targets:imgs.flatMap((im,index)=>['dated_brief','permanent_story'].flatMap(context=>
+    ['desktop','mobile'].map(viewport=>({
+      target_id:im.story_id+':'+context+':'+viewport,
+      story_id:im.story_id,context,viewport,capture_sha256:sha(index+31),capture_bytes:2048,
+      actual_pixels_inspected:true,correct_story_asset_visible:true,full_diagram_visible:true,
+      clipped_or_overlapped:false,placeholder_visible:false,
+      primary_explanatory_labels_recognizable:true,result:'PASS'
+    }))))
+};
+const pixelRelease={...evidence['image-release'],
+  actions_run_url:'https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/12345'};
+test('new exact 24-target saved-pixel review certifies a completed combined AAR',()=>{
+  const {meta,md}=run({'image-release':pixelRelease,'image-context-reviews':pixelReview});
+  assert.equal(meta.result,'COMPLETE');
+  assert.equal(meta.visual_24_pass,true);
+  assert.match(md,/semantic-pixel-review\.json/);
+  assert.match(md,/24\/24 PASS/);
+});
+test('24 screenshots alone do not certify visual success without actual pixel inspection',()=>{
+  const changed={...pixelReview,targets:pixelReview.targets.map((t,i)=>i===0?
+    {...t,actual_pixels_inspected:false}:t)};
+  const {meta}=run({'image-release':pixelRelease,'image-context-reviews':changed});
+  assert.equal(meta.result,'PARTIAL');
+  assert.equal(meta.visual_24_pass,false);
+});
+test('strict per-lane AAR accepts the same live release and real 24-pixel receipt',()=>{
+  const digest='c'.repeat(64);
+  const src='a'.repeat(40),bundleSha='b'.repeat(64);
+  const job={edition_date:ed,source:{commit_sha:src,bundle_sha256:bundleSha}};
+  const release={...pixelRelease,original_source_commit_sha:src,original_bundle_sha256:bundleSha,
+    immutable_job_sha256:digest};
+  const manifest={schema_version:'external-compiler-image-package-v1',edition_date:ed,
+    job_sha256:digest,original_bundle_sha256:bundleSha,original_source_commit_sha:src,
+    images:imgs.map(i=>({...i,accepted_locked:true}))};
+  const compiled=compileDailyReports({cycleDate:cy,evidence:{
+    'image-job':job,'image-release':release,'image-manifest':manifest,
+    'image-context-reviews':pixelReview
+  },hashes:{'image-job':digest,'image-context-reviews':'d'.repeat(64)}});
+  assert.equal(compiled.images.result,'SUCCESS');
+  assert.equal(compiled.images.publication,'VERIFIED');
+  assert.equal(compiled.images.reviewed_24_contexts,24);
+  const incomplete=compileDailyReports({cycleDate:cy,evidence:{
+    'image-job':job,'image-release':release,'image-manifest':manifest,
+    'image-context-reviews':{...pixelReview,targets:pixelReview.targets.slice(1)}
+  },hashes:{'image-job':digest}});
+  assert.equal(incomplete.images.result,'PARTIAL');
+  assert.equal(incomplete.images.reviewed_24_contexts,null);
+});
+test('daily reporting collects and watches both semantic-review schemas without publishing',()=>{
+  const wf=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');
+  assert.match(wf,/reviews\/live\/semantic-pixel-review\.json/);
+  assert.match(wf,/reviews\/live\/image-element24\/semantic-reviews\.json/);
+  assert.doesNotMatch(wf,/uses: actions\/deploy-pages@/);
 });
