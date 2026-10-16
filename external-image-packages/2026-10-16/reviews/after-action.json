@@ -2,13 +2,13 @@
   "schema_version": "external-image-after-action-v8",
   "edition_date": "2026-10-16",
   "cycle_date": "2026-10-15",
-  "status": "PACKAGE_ACCEPTED_PENDING_RELEASE",
+  "status": "PUBLIC_VERIFIED",
   "source": {
     "job_sha256": "aa1c907f810d921ef64a1ee406d93b62ba57e45dfda195ac8517616d8e4e65c4",
     "bundle_sha256": "e9305aa24e759198feffd65e6c842f67748bd78072a26fd5136c187fe98fe36a",
     "source_commit_sha": "5898fd499b9a346eb304f091db9bd0884655f3a3",
     "pages_history_head_before_release": "255e26b7c82c60b1cf13e829cb98dc29551c3098",
-    "pages_history_head_after_release": null
+    "pages_history_head_after_release": "0ad6b209ff89fdda0d31495fed39a4c2cc5344d0"
   },
   "production": {
     "native_generation_executed": true,
@@ -21,32 +21,85 @@
     "dimensions": "1200x630",
     "pixel_format": "8-bit RGB",
     "github_binary_stage_commit": "4879805ec3bb2eaa7ccbba58fd3ff4f575b27caf",
-    "github_package_head_commit": "PENDING",
-    "github_exact_blob_identity_readback": "6_OF_6_PASS_AT_BINARY_COMMIT",
-    "github_sha256_readback": "6_OF_6_PASS_AT_BINARY_COMMIT",
+    "github_package_head_commit": "8ac14e74f4659214e29dc2967ab992acd27a048b",
+    "github_exact_blob_identity_readback": "6_OF_6_PASS_AT_BINARY_AND_PACKAGE_COMMITS",
+    "github_sha256_readback": "6_OF_6_PASS_AT_BINARY_PACKAGE_AND_PUBLIC_BYTES",
     "large_png_fixed_offset_reassembly": "4_OF_4_PASS",
     "accepted_art_regenerated_after_lock": 0
   },
   "release": {
-    "package_pr": null,
-    "package_merge_sha": null,
-    "required_ci": "PENDING",
-    "pages_deployment": "PENDING",
-    "public_status": "PENDING",
-    "live_png_hashes": "PENDING",
-    "story_image_pairings": "PENDING",
-    "visual_context_reviews": "PENDING",
-    "october_8_objects": "PENDING",
+    "package_pr": 199,
+    "package_merge_sha": "9a7850579725186d19b6c4259159f71460d9bac6",
+    "required_ci": "PASS_PUSH_38841965623_AND_PR_38842206054",
+    "pages_deployment": "PASS_RUN_38843902834",
+    "public_status": "RELEASED_VERIFIED_EXACT_HISTORY_0ad6b209ff89fdda0d31495fed39a4c2cc5344d0",
+    "live_png_hashes": "6_OF_6_PASS",
+    "story_image_pairings": "12_OF_12_PASS",
+    "visual_context_reviews": "24_OF_24_PASS",
+    "october_8_objects": "17_OF_17_UNCHANGED_PASS",
     "editorial_text_preserved": true,
-    "daily_ai_brief_repository_modified": false
+    "daily_ai_brief_repository_modified": false,
+    "release_workflow_run": 38843902834,
+    "release_evidence_artifact": 12022068392,
+    "final_verification_receipt": "reviews/live/final-public-verification.json",
+    "semantic_pixel_review": "reviews/live/semantic-pixel-review.json",
+    "cache_observation": "GitHub-hosted verify-only runners twice received a stale dated page immediately after deployment; independent later cache-busted public bytes matched the deployed artifact and finalized history."
   },
   "images": [
-    {"story_id":"oct16-t1-ai-scan-advisory","filename":"oct16-t1-ai-scan-advisory.png","attempts":2,"bytes":653978,"sha256":"b2e3018b0b5a52adedba7d64d15e5cce675a121dd1dd9822749b461314162025","git_blob_sha":"2dee486d05e3c5baf5aa561b3bdff51c8eaeadb2","live_contexts_passed":0},
-    {"story_id":"oct16-t2-agentic-autofix","filename":"oct16-t2-agentic-autofix.png","attempts":2,"bytes":652766,"sha256":"83664039ec57de32174c51cdafac81f8393a90d8701ea74d2c5cfee65590c104","git_blob_sha":"695ece5ad165e97ceba04e1b090bef8f7709e60a","live_contexts_passed":0},
-    {"story_id":"oct16-k1-borderless-lakehouse","filename":"oct16-k1-borderless-lakehouse.png","attempts":2,"bytes":948499,"sha256":"6c3ae8fb23b93dad1c69e8e5a72ad9643ae24bedaf5554708033064778096c08","git_blob_sha":"a529ed5d22c9036df5d9ac569c74caabde7d092f","live_contexts_passed":0},
-    {"story_id":"oct16-k2-sanna-teacher","filename":"oct16-k2-sanna-teacher.png","attempts":2,"bytes":1043158,"sha256":"fcf3aae470554c3b606635d78453e7ae19448c4a282dff2a1496d9227acfb987","git_blob_sha":"b0968bbfe6967f2abe95c652cd2142e23ccf0703","live_contexts_passed":0},
-    {"story_id":"oct16-a1-trust-boundary-skill","filename":"oct16-a1-trust-boundary-skill.png","attempts":2,"bytes":885783,"sha256":"34e38bcae5e953334397e557679a4e1bbbb0f5b28e6622d241cd15f4c2897490","git_blob_sha":"0469a80ef62c30e62cdb9ea8d7f4f3e4d4872128","live_contexts_passed":0},
-    {"story_id":"oct16-a2-production-lessons","filename":"oct16-a2-production-lessons.png","attempts":2,"bytes":875267,"sha256":"3a67a54b323ce9813093c5da8e1643e87b3c8d54ae7762ddd674641bf4aecc10","git_blob_sha":"ea87cb7da8f1c080055359e8f9c6a62dfdecdca0","live_contexts_passed":0}
+    {
+      "story_id": "oct16-t1-ai-scan-advisory",
+      "filename": "oct16-t1-ai-scan-advisory.png",
+      "attempts": 2,
+      "bytes": 653978,
+      "sha256": "b2e3018b0b5a52adedba7d64d15e5cce675a121dd1dd9822749b461314162025",
+      "git_blob_sha": "2dee486d05e3c5baf5aa561b3bdff51c8eaeadb2",
+      "live_contexts_passed": 4
+    },
+    {
+      "story_id": "oct16-t2-agentic-autofix",
+      "filename": "oct16-t2-agentic-autofix.png",
+      "attempts": 2,
+      "bytes": 652766,
+      "sha256": "83664039ec57de32174c51cdafac81f8393a90d8701ea74d2c5cfee65590c104",
+      "git_blob_sha": "695ece5ad165e97ceba04e1b090bef8f7709e60a",
+      "live_contexts_passed": 4
+    },
+    {
+      "story_id": "oct16-k1-borderless-lakehouse",
+      "filename": "oct16-k1-borderless-lakehouse.png",
+      "attempts": 2,
+      "bytes": 948499,
+      "sha256": "6c3ae8fb23b93dad1c69e8e5a72ad9643ae24bedaf5554708033064778096c08",
+      "git_blob_sha": "a529ed5d22c9036df5d9ac569c74caabde7d092f",
+      "live_contexts_passed": 4
+    },
+    {
+      "story_id": "oct16-k2-sanna-teacher",
+      "filename": "oct16-k2-sanna-teacher.png",
+      "attempts": 2,
+      "bytes": 1043158,
+      "sha256": "fcf3aae470554c3b606635d78453e7ae19448c4a282dff2a1496d9227acfb987",
+      "git_blob_sha": "b0968bbfe6967f2abe95c652cd2142e23ccf0703",
+      "live_contexts_passed": 4
+    },
+    {
+      "story_id": "oct16-a1-trust-boundary-skill",
+      "filename": "oct16-a1-trust-boundary-skill.png",
+      "attempts": 2,
+      "bytes": 885783,
+      "sha256": "34e38bcae5e953334397e557679a4e1bbbb0f5b28e6622d241cd15f4c2897490",
+      "git_blob_sha": "0469a80ef62c30e62cdb9ea8d7f4f3e4d4872128",
+      "live_contexts_passed": 4
+    },
+    {
+      "story_id": "oct16-a2-production-lessons",
+      "filename": "oct16-a2-production-lessons.png",
+      "attempts": 2,
+      "bytes": 875267,
+      "sha256": "3a67a54b323ce9813093c5da8e1643e87b3c8d54ae7762ddd674641bf4aecc10",
+      "git_blob_sha": "ea87cb7da8f1c080055359e8f9c6a62dfdecdca0",
+      "live_contexts_passed": 4
+    }
   ],
   "usage": {
     "weekly_usage_measurement": "UNKNOWN",
