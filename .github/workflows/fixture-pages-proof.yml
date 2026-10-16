@@ -29,7 +29,9 @@ jobs:
         run: |
           set -euo pipefail
           test -d build/fixture
-          test -s build/fixture/briefs/2026-10-06/index.html
+          test -s build/fixture/index.md
+          test -s build/fixture/compile-receipt.json
+          test -s build/fixture/verification-receipt.json
           echo 'FIXTURE_LOCAL_VERIFIED; NO LIVE PAGES DEPLOYMENT'
       - name: Preserve standalone local proof for review
         uses: actions/upload-artifact@v4
