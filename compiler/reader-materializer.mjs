@@ -225,7 +225,29 @@ function requiredRoutes(adapted){
   ];
 }
 
-export async function materializeReaderSource({bundle,repoRoot='.',outDir,environment=readerEnvironment}){
+// Future public editions must carry forward the actual last published research ledger,
+// not reset to the static vendored reference corpus. This is read-only.
+export function requirePublishedPriorWatchlist(prior,editionDate,scoreTopic){
+  if(!prior||prior.schema_version!=='1.0.0'||typeof prior.edition_date!=='string'||
+     !/^\d{4}-\d{2}-\d{2}$/.test(prior.edition_date)||prior.edition_date>=editionDate||
+     !Array.isArray(prior.topics)||prior.topics.length<20||prior.topics.length>200)
+    throw new Error('published prior Watchlist identity, date or count invalid');
+  if(typeof scoreTopic!=='function')throw new Error('canonical Watchlist scorer required');
+  const ids=new Set();
+  for(const topic of prior.topics){
+    const id=topic?.topic_id;
+    if(typeof id!=='string'||!/^dab-topic-[a-z0-9-]{3,90}$/.test(id)||ids.has(id))
+      throw new Error('published prior Watchlist has missing or duplicate identity');
+    ids.add(id);
+    const score=scoreTopic(topic);
+    if(!Number.isInteger(topic.research_score)||topic.research_score!==score||
+       score<0||score>100)
+      throw new Error('published prior Watchlist has missing or inconsistent research score: '+id);
+  }
+  return structuredClone(prior);
+}
+
+export async function materializeReaderSource({bundle,repoRoot='.',outDir,environment=readerEnvironment,priorWatchlist=null}){
   if(!outDir)throw new Error('outDir required');
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
@@ -235,9 +257,18 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   suppressRepeatedReaderContext(outDir);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
-  const priorWatchlist=readJson(path.join(outDir,'_data','watchlist.json'));
-  const adapted=adaptCompilerBundle(bundle,{environment,priorWatchlist});
   const watchModule=await import(pathToFileURL(path.join(outDir,'_generator','lib','watchlist.mjs')).href);
+  const baseline=priorWatchlist===null
+    ? readJson(path.join(outDir,'_data','watchlist.json'))
+    : requirePublishedPriorWatchlist(priorWatchlist,bundle.edition_date,watchModule.scoreTopic);
+  const adapted=adaptCompilerBundle(bundle,{environment,priorWatchlist:baseline});
+  if(priorWatchlist!==null){
+    const actual=new Set(adapted.watchlist.topics.map(topic=>topic.topic_id));
+    for(const previous of baseline.topics){
+      if(!actual.has(previous.topic_id))
+        throw new Error('published Watchlist topic silently dropped: '+previous.topic_id);
+    }
+  }
   const watchErrors=watchModule.validateWatchlist(adapted.watchlist);
   if(watchErrors.length)throw new Error('adapted Watchlist invalid: '+watchErrors.join('; '));
   // Score every topic using the same weighted rubric displayed to readers.
@@ -260,6 +291,11 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
     schema_version:'daily-compiler-canonical-reader-source-v1',
     edition_date:bundle.edition_date,
     renderer:'vendored-production-reader',
+    ...(priorWatchlist!==null?{watchlist_continuity:{
+      previous_edition:baseline.edition_date,
+      previous_topic_count:baseline.topics.length,
+      previous_topic_ids:baseline.topics.map(topic=>topic.topic_id)
+    }}:{}),
     production_reader_source_sha:'912248e5add14b2ec08d7a5eefed43cbf3af485f',
     environment:{public_base:environment.publicBase,baseurl:environment.baseurl},
     feedback:{

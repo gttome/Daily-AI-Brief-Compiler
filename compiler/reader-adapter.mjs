@@ -2,7 +2,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {requireWatchlistCopy,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
-import {requireWatchlistRubric,requireWatchlistScoring,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
+import {requireWatchlistRubric,requireWatchlistScoring,WATCHLIST_RUBRIC_EFFECTIVE,WATCHLIST_RUBRIC_KEYS} from './watchlist-rubric.mjs';
 import {PENDING_PLACEHOLDER_ID} from './pending-images.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 
@@ -194,10 +194,29 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
   const rubricLabel='Watchlist '+kind+' '+item.topic;
   // Genuine per-criterion research is mandatory for new/updated topics from
   // October 16. Existing carried topics retain their last reviewed rubric.
-  if(date>=WATCHLIST_RUBRIC_EFFECTIVE&&(kind==='new'||kind==='updated'||!prior))
-    requireWatchlistScoring(item,rubricLabel);
-  else if(item.rubric!=null)requireWatchlistRubric(item.rubric,rubricLabel);
-  const topicRubric=item.rubric||prior?.rubric||legacyRubric(reason);
+  if(date>=WATCHLIST_RUBRIC_EFFECTIVE){
+    if(kind==='new'||kind==='updated'||!prior){
+      requireWatchlistScoring(item,rubricLabel);
+    }else{
+      // Historical carried-forward reviews may predate the new length contract.
+      // Preserve them, but never manufacture or silently replace their assessments.
+      const last=prior.rubric;
+      if(!last||WATCHLIST_RUBRIC_KEYS.some(key=>!last[key]||
+          !(last[key].score===null||(Number.isInteger(last[key].score)&&last[key].score>=0&&last[key].score<=5))||
+          typeof last[key].reason!=='string'||!last[key].reason.trim()))
+        throw new Error(rubricLabel+': last reviewed rubric is missing; research before carrying forward');
+      if(item.rubric&&WATCHLIST_RUBRIC_KEYS.some(key=>
+          item.rubric[key]?.score!==last[key].score||
+          item.rubric[key]?.reason?.trim()!==last[key].reason.trim()))
+        throw new Error(rubricLabel+': rubric changed without Updated classification');
+      const reasons=WATCHLIST_RUBRIC_KEYS.map(key=>last[key].reason.trim().toLowerCase());
+      if(WATCHLIST_RUBRIC_KEYS.every(key=>last[key].score===3)&&
+         new Set(reasons).size===1)
+        throw new Error(rubricLabel+': inherited synthetic 60/100 baseline prohibited');
+    }
+  }else if(item.rubric!=null)requireWatchlistRubric(item.rubric,rubricLabel);
+  const topicRubric=item.rubric||prior?.rubric||
+    (date<WATCHLIST_RUBRIC_EFFECTIVE?legacyRubric(reason):null);
   const evidence=item.evidence||item.previous_evidence||fallbackEvidence||{};
   const evidenceDate=evidence.date||date;
   const archived=kind==='dropped';
