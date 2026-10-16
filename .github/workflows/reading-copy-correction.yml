@@ -63,6 +63,8 @@ jobs:
             throw Error('October 14 text-only integrity invariants failed');
           console.log('TEXT_ONLY_CORRECTION_PREFLIGHT_PASS',r.files_changed,r.repeated_blocks_removed,r.current_image_files_byte_preserved);
           NODE
+      - name: Preserve all previously published accepted images during text corrections
+        run: node scripts/assert-published-image-continuity.mjs history/site build/patched
       - name: Refuse competing history or main changes before deploy
         shell: bash
         run: |
