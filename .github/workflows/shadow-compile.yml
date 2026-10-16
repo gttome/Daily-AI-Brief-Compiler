@@ -70,6 +70,17 @@ jobs:
           if [ -n "$EXPECTED_DIGEST" ]; then
             grep -q "^bundle_digest=$EXPECTED_DIGEST$" ready.txt
           fi
+      - name: Freeze last verified published Watchlist for every new edition
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" > "2026-10-16" ]]; then
+            git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+            PRIOR_WATCHLIST_HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+            git show "$PRIOR_WATCHLIST_HISTORY_HEAD:site/data/watchlist.json" > prior-watchlist.json
+            test -s prior-watchlist.json
+            echo "PRIOR_WATCHLIST_HISTORY_HEAD=$PRIOR_WATCHLIST_HISTORY_HEAD" >> "$GITHUB_ENV"
+          fi
       - name: Materialize canonical production reader from sealed bundle
         run: |
           rm -rf build
@@ -80,6 +91,7 @@ jobs:
             --out build/reader-source \
             --repo-root run \
             --allow-pending-images true \
+            --prior-watchlist prior-watchlist.json \
             --release1-production true
       - id: pages
         uses: actions/configure-pages@v5
@@ -94,6 +106,10 @@ jobs:
         run: |
           if git ls-remote --exit-code --heads origin shadow-pages-history >/dev/null 2>&1; then
             git fetch origin shadow-pages-history:shadow-pages-history
+            if [ -n "${PRIOR_WATCHLIST_HISTORY_HEAD:-}" ]; then
+              test "$(git rev-parse shadow-pages-history)" = "$PRIOR_WATCHLIST_HISTORY_HEAD"
+              test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$PRIOR_WATCHLIST_HISTORY_HEAD"
+            fi
             git worktree add history shadow-pages-history
             echo "HISTORY_EXISTS=true" >> "$GITHUB_ENV"
             echo "HISTORY_DIR=history/site" >> "$GITHUB_ENV"
