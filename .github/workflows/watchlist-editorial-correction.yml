@@ -55,6 +55,8 @@ jobs:
           node scripts/apply-watchlist-editorial-revision.mjs \
             "$REVISION_PATH" history/site build/patched build/watchlist-editorial-correction-receipt.json
           node --input-type=module -e "import fs from 'node:fs';let r=JSON.parse(fs.readFileSync('build/watchlist-editorial-correction-receipt.json'));if(r.result!=='PASS'||r.changed.length!==2||r.current_premium_pngs_preserved!==6)process.exit(1)"
+      - name: Preserve all previously published accepted images during Watchlist corrections
+        run: node scripts/assert-published-image-continuity.mjs history/site build/patched
       - name: Reject stale Pages history and main before deployment
         shell: bash
         run: |
