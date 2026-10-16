@@ -23,7 +23,7 @@ function previous(){
   const initial=read('vendor/production-reader/snapshot/_data/watchlist.json');
   const topic=structuredClone(initial.topics[0]);
   Object.assign(topic,{topic_id:'dab-topic-previous-edition-only',name:'Preserved finding from the previous published edition',
-    first_detected:'2026-10-16',updated_at:'2026-10-16T12:00:00Z',...text,
+    first_detected:'2026-10-16',updated_at:'2026-10-16T12:00:00Z',status:'early_signal',...text,
     rubric:structuredClone(rubric),evidence:[{...topic.evidence[0],url:'https://research.example.org/new'}]});
   return publicWatchlist({...initial,edition_date:'2026-10-16',topics:[...initial.topics,topic]});
 }
