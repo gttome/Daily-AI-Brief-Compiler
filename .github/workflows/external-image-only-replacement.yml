@@ -151,6 +151,8 @@ jobs:
             build/evidence/exact-binary-staging.json \
             history/site build/patched . "$HISTORY_HEAD" \
             build/evidence/only-image-paths-prepared.json
+      - name: Prevent a new image release from losing earlier accepted images
+        run: node scripts/assert-published-image-continuity.mjs history/site build/patched
       - name: Block races with protected main or Pages-history and require real browser
         shell: bash
         run: |
