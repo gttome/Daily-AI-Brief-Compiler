@@ -74,10 +74,24 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
  const packageAt=packageResolved?commitTime(cwd,packageSha,packageSha):null;
  const mergeAt=commitTime(cwd,mergeSha,ref);
  const releaseAt=validRelease?iso(release.verified_at):null;
- const qaPath='external-image-packages/'+edition+'/reviews/live/image-element24/semantic-reviews.json';
- const qa=review?.edition_date===edition&&review?.result==='PASS'&&review?.reviewed_targets===24&&
-   review?.expected_targets===24&&review?.criteria?.semantic_defects===0?
-   firstPathCommit(cwd,ref,qaPath):null;
+ const oldProof=review?.edition_date===edition&&review?.result==='PASS'&&review?.reviewed_targets===24&&
+   review?.expected_targets===24&&review?.criteria?.semantic_defects===0;
+ const expectedTargets=new Set((release?.images||[]).flatMap(i=>['dated_brief','permanent_story'].flatMap(c=>
+   ['desktop','mobile'].map(v=>i.story_id+':'+c+':'+v))));
+ const pixelRows=review?.targets;
+ const pixelProof=validRelease&&review?.schema_version==='external-image-semantic-pixel-review-v1'&&
+   review.edition_date===edition&&review.result==='PASS'&&review.expected_targets===24&&
+   review.captured_targets===24&&review.reviewed_pass===24&&
+   Array.isArray(review.defects)&&review.defects.length===0&&
+   release.actions_run_url==='https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/'+review.evidence_source?.workflow_run_id&&
+   Array.isArray(pixelRows)&&pixelRows.length===24&&new Set(pixelRows.map(x=>x.target_id)).size===24&&
+   pixelRows.every(x=>expectedTargets.has(x.target_id)&&x.target_id===x.story_id+':'+x.context+':'+x.viewport&&
+     x.result==='PASS'&&x.actual_pixels_inspected===true&&x.correct_story_asset_visible===true&&
+     x.full_diagram_visible===true&&x.clipped_or_overlapped===false&&x.placeholder_visible===false&&
+     x.primary_explanatory_labels_recognizable===true&&/^[a-f0-9]{64}$/.test(x.capture_sha256||''));
+ const qaPath='external-image-packages/'+edition+'/reviews/live/'+
+   (pixelProof?'semantic-pixel-review.json':'image-element24/semantic-reviews.json');
+ const qa=(oldProof||pixelProof)?firstPathCommit(cwd,ref,qaPath):null;
  const scheduleAt=start?.cycle_date===cycle&&start?.edition_date===edition&&
    start.host_execution_start_independently_observed===false?iso(start.scheduled_start_at):null;
  const events={
