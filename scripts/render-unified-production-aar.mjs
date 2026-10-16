@@ -13,7 +13,21 @@ function generateUnified(cycle,e) {
   const compilerOk=state?.state==="SHADOW_VERIFIED"&&state?.bundle?.status==="BUNDLE_READY"&&compile?.result==="PASS"&&integrity?.result==="PASS"&&integrity?.oct8_protected_count===17&&Array.isArray(integrity?.live_http_and_sha256)&&integrity.live_http_and_sha256.some(p=>p.url===pub+"briefs/"+edition+"/"&&p.status===200);
   const images=Array.isArray(release?.images)?release.images:[];
   const imagesOk=release?.result==="RELEASED_VERIFIED"&&images.length===6&&new Set(images.map(i=>i.story_id)).size===6&&manifest?.images?.length===6&&manifest.images.every(i=>images.some(v=>v.story_id===i.story_id&&v.sha256===i.sha256));
-  const visualOk=reviews?.result==="PASS"&&reviews.reviewed_targets===24&&reviews.expected_targets===24&&reviews.criteria?.semantic_defects===0&&Array.isArray(reviews.stories)&&reviews.stories.length===6&&reviews.stories.every(i=>i.result==="PASS"&&i.targets?.length===4&&images.some(v=>v.story_id===i.story_id&&v.sha256===i.live_image_sha256)&&i.targets.every(t=>t.result==="PASS"));
+  const oldVisualOk=reviews?.result==="PASS"&&reviews.reviewed_targets===24&&reviews.expected_targets===24&&reviews.criteria?.semantic_defects===0&&Array.isArray(reviews.stories)&&reviews.stories.length===6&&reviews.stories.every(i=>i.result==="PASS"&&i.targets?.length===4&&images.some(v=>v.story_id===i.story_id&&v.sha256===i.live_image_sha256)&&i.targets.every(t=>t.result==="PASS"));
+  // Newer actual-pixel receipts have 24 individually inspected captures rather than six nested story reviews.
+  // Require the same released story identities, all four contexts, and the exact release workflow evidence.
+  const expectedContexts=new Set(images.flatMap(i=>["dated_brief","permanent_story"].flatMap(c=>["desktop","mobile"].map(v=>i.story_id+":"+c+":"+v))));
+  const pixelTargets=reviews?.targets;
+  const pixelVisualOk=imagesOk&&reviews?.schema_version==="external-image-semantic-pixel-review-v1"&&
+    reviews.result==="PASS"&&reviews.expected_targets===24&&reviews.captured_targets===24&&reviews.reviewed_pass===24&&
+    Array.isArray(reviews.defects)&&reviews.defects.length===0&&
+    release?.actions_run_url===gh+"/actions/runs/"+reviews.evidence_source?.workflow_run_id&&
+    Array.isArray(pixelTargets)&&pixelTargets.length===24&&new Set(pixelTargets.map(t=>t.target_id)).size===24&&
+    pixelTargets.every(t=>expectedContexts.has(t.target_id)&&t.target_id===t.story_id+":"+t.context+":"+t.viewport&&
+      t.actual_pixels_inspected===true&&t.correct_story_asset_visible===true&&t.full_diagram_visible===true&&
+      t.clipped_or_overlapped===false&&t.placeholder_visible===false&&t.primary_explanatory_labels_recognizable===true&&
+      t.result==="PASS"&&/^[a-f0-9]{64}$/.test(t.capture_sha256||"")&&Number.isSafeInteger(t.capture_bytes)&&t.capture_bytes>0);
+  const visualOk=!!(oldVisualOk||pixelVisualOk);
   const complete=!!(compilerOk&&imagesOk&&visualOk), badge=complete?"COMPLETE":(compilerOk||imagesOk?"PARTIAL":"NOT_VERIFIED");
   const stateColor=complete?"0b7b57":(badge==="PARTIAL"?"d97706":"64748b");
   const nice=s=>String(s??"Not reported").replace(/\|/g,"/").replace(/\r?\n/g," ");
@@ -42,7 +56,7 @@ function generateUnified(cycle,e) {
   const good="**"+(complete?"🟩":"🟨")+" RELEASE "+badge.replaceAll("_"," ")+"**";
   const indicators="**"+(compilerOk?"🟩":"🟨")+" COMPILER "+(compilerOk?"VERIFIED":"UNVERIFIED")+"** · **"+(imagesOk?"🟦":"🟨")+" IMAGES "+(imagesOk?"6/6 RELEASED":"NOT YET COMPLETE")+"** · **"+(visualOk?"🟪":"🟨")+" VISUAL QA "+(visualOk?"24/24 PASS":"NOT YET VERIFIED")+"**";
   const line=(v)=>v?"✅":"Not yet evidenced";
-  const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/image-element24/semantic-reviews.json`],["Original image AAR",`${gh}/blob/main/external-image-packages/${edition}/reviews/after-action.md`]];
+  const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/${pixelVisualOk?"semantic-pixel-review.json":"image-element24/semantic-reviews.json"}`],["Original image AAR",`${gh}/blob/main/external-image-packages/${edition}/reviews/after-action.md`]];
   const imgCols=imgb.length===6?["<table>"].concat([0,2,4].map(n=>`<tr><td width="50%"><a href="${pub}${imgb[n].route}"><img src="${pub}${imgb[n].route}" alt="Diagram for ${imgb[n].story_id}" width="420"/></a><br/><b>${nice(imgb[n].label)}</b></td><td width="50%"><a href="${pub}${imgb[n+1].route}"><img src="${pub}${imgb[n+1].route}" alt="Diagram for ${imgb[n+1].story_id}" width="420"/></a><br/><b>${nice(imgb[n+1].label)}</b></td></tr>`)).concat(["</table>"]).join("\n"):"No six-image public release gallery available yet.";
   const md=[
 good,
