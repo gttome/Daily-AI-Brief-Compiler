@@ -280,13 +280,16 @@ jobs:
           # Final Pages has identical HTML/PNG bytes plus synchronized release/index.
           result=1
           for attempt in 1 2 3 4 5; do
-            node scripts/verify-external-image-postrelease.mjs \
+            if node scripts/verify-external-image-postrelease.mjs \
               "history/site/image-jobs/$TARGET_DATE/job.json" \
               history/site/image-jobs/index.json \
               "history/site/image-jobs/$TARGET_DATE/release.json" \
               "external-image-packages/$TARGET_DATE/manifest.json" \
-              build/evidence/image-public-status-readback.json
-            if node -e "let a=require('./build/evidence/image-public-status-readback.json');if(a.public_status.result!=='PUBLIC_STATUS_VERIFIED')process.exit(1)"; then result=0; break; fi
+              build/evidence/image-public-status-readback.json \
+              && node -e "let a=require('./build/evidence/image-public-status-readback.json');if(a.public_status.result!=='PUBLIC_STATUS_VERIFIED')process.exit(1)"; then
+              result=0
+              break
+            fi
             sleep 10
           done
           exit "$result"
