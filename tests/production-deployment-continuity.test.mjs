@@ -7,6 +7,7 @@ const protectedPublishers=[
   'shadow-compile.yml',
   'external-image-only-replacement.yml',
   'external-image-postrelease-verify.yml',
+  'premium-social-preview-correction.yml',
   'watchlist-editorial-correction.yml',
   'reading-copy-correction.yml'
 ];

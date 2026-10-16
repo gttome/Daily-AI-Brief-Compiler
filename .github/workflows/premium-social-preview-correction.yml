@@ -1,0 +1,183 @@
+name: premium-social-preview-correction
+# Protected owner-authorized six-page metadata correction; never generates or rebuilds images.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/premium-social-preview-corrections/*.json'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: daily-compiler-pages-deploy
+  cancel-in-progress: false
+jobs:
+  preview-correction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Admit one protected-main owner revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          REVISION_PATH="$(git diff --name-only HEAD^ HEAD -- 'config/premium-social-preview-corrections/*.json')"
+          test -n "$REVISION_PATH"
+          test "$(printf '%s\n' "$REVISION_PATH" | wc -l)" -eq 1
+          test -s "$REVISION_PATH"
+          echo "REVISION_PATH=$REVISION_PATH" >> "$GITHUB_ENV"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+      - name: Pin the exact accepted Pages history
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          test "$HISTORY_HEAD" = "$(node -e "console.log(require('./$REVISION_PATH').expected_history_head)")"
+          echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
+          git worktree add --detach history "$HISTORY_HEAD"
+          test -s history/site/image-jobs/index.json
+          test -s history/site/image-jobs/2026-10-16/job.json
+          test -s history/site/image-jobs/2026-10-16/release.json
+          test -s external-image-packages/2026-10-16/manifest.json
+      - name: Patch exactly 18 metadata fields in six existing illustrated pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/evidence
+          node scripts/correct-premium-social-previews.mjs \
+            "$REVISION_PATH" \
+            history/site/image-jobs/2026-10-16/job.json \
+            history/site/image-jobs/index.json \
+            history/site/image-jobs/2026-10-16/release.json \
+            external-image-packages/2026-10-16/manifest.json \
+            history/site build/patched build/evidence/social-preview-correction.json
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/evidence/social-preview-correction.json','utf8'));
+          if(r.result!=='PASS'||r.html_pages_changed!==6||r.preview_fields_changed!==18||
+             r.accepted_images_preserved!==6||r.accepted_image_regenerations!==0||
+             r.editorial_and_watchlist_preserved!==true)
+            throw Error('metadata-only correction invariants not proved');
+          console.log('SIX_ARTICLES_18_FIELDS_ONLY_PREPARED');
+          NODE
+      - name: Guard all previously published accepted images and October 8 controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/assert-published-image-continuity.mjs history/site build/patched
+          node scripts/audit-oct8-live.mjs build/evidence/oct8-before.json
+      - name: Refuse stale history and protected main before publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$(git rev-parse HEAD)"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/patched
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify all six changed previews against actual public bytes
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const receipt=JSON.parse(fs.readFileSync('build/evidence/social-preview-correction.json','utf8'));
+          const base=process.env.SITE_URL.replace(/\/?$/,'/');
+          const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+          for(const record of receipt.changed){
+            const expected=fs.readFileSync('build/patched/'+record.route);
+            if(sha(expected)!==record.current_sha256)throw Error('staged html changed: '+record.route);
+            let success=false,last='';
+            for(let attempt=0;attempt<9;attempt++){
+              try{
+                const url=new URL(record.route,base);
+                url.searchParams.set('social-preview-revision',process.env.GITHUB_SHA.slice(0,12));
+                const response=await fetch(url,{headers:{'Cache-Control':'no-cache'}});
+                const actual=Buffer.from(await response.arrayBuffer());
+                if(response.status===200&&actual.equals(expected)){success=true;break;}
+                last='HTTP '+response.status+' bytes '+actual.length;
+              }catch(error){last=String(error);}
+              await new Promise(r=>setTimeout(r,3500));
+            }
+            if(!success)throw Error('LIVE_SOCIAL_PREVIEW_MISMATCH '+record.route+' '+last);
+            console.log('LIVE_PREMIUM_SOCIAL_PREVIEW_PASS '+record.story_id+' '+sha(expected));
+          }
+          NODE
+      - name: Verify all six accepted image bytes and twelve visible pairings remain live
+        shell: bash
+        run: |
+          set -euo pipefail
+          result=1
+          for attempt in 1 2 3 4 5; do
+            if node scripts/verify-external-image-postrelease.mjs \
+              history/site/image-jobs/2026-10-16/job.json \
+              history/site/image-jobs/index.json \
+              history/site/image-jobs/2026-10-16/release.json \
+              external-image-packages/2026-10-16/manifest.json \
+              build/evidence/post-preview-live.json; then
+              result=0
+              break
+            fi
+            sleep 10
+          done
+          test "$result" -eq 0
+          node scripts/audit-oct8-live.mjs build/evidence/oct8-after.json
+      - name: Verify unchanged Watchlist exact public bytes
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const expected=fs.readFileSync('history/site/data/watchlist.json');
+          let pass=false;
+          for(let i=0;i<8;i++){
+            const u=new URL('https://gttome.github.io/Daily-AI-Brief-Compiler/data/watchlist.json');
+            u.searchParams.set('social-preview-audit',process.env.GITHUB_SHA.slice(0,12));
+            try{
+              const r=await fetch(u,{headers:{'Cache-Control':'no-cache'}});
+              if(r.status===200&&Buffer.from(await r.arrayBuffer()).equals(expected)){pass=true;break;}
+            }catch{}
+            await new Promise(r=>setTimeout(r,3500));
+          }
+          if(!pass)throw Error('PUBLIC_WATCHLIST_NOT_PRESERVED');
+          console.log('PUBLIC_WATCHLIST_EXACT_BYTES_UNCHANGED');
+          NODE
+      - name: Persist only six verified HTML files to cumulative reader history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          while IFS= read -r route; do
+            test -n "$route"
+            cp "build/patched/$route" "history/site/$route"
+            git -C history add "site/$route"
+          done < <(node -e "const r=require('./build/evidence/social-preview-correction.json');for(const c of r.changed)console.log(c.route)")
+          test "$(git -C history diff --cached --name-only | wc -l)" -eq 6
+          git -C history config user.name 'Daily Compiler'
+          git -C history config user.email 'actions@users.noreply.github.com'
+          git -C history commit -m 'Correct October 16 premium article social previews only'
+          git -C history push origin HEAD:shadow-pages-history
+          echo 'SIX_PREMIUM_SOCIAL_PREVIEWS_LIVE_VERIFIED_AND_PERSISTED'
+      - name: Archive exact postrelease correction evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: premium-social-preview-correction-evidence
+          path: build/evidence/
+          retention-days: 30
+          if-no-files-found: warn
