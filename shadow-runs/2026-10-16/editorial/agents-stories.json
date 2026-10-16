@@ -1,0 +1,48 @@
+{
+  "schema_version": "daily-compiler-oct16-agents-editorial-v1",
+  "edition_date": "2026-10-16",
+  "status": "EVIDENCE_VERIFIED_NOT_SEALED",
+  "stories": [
+    {
+      "id": "oct16-a1-trust-boundary-skill",
+      "focus": "Agents for Everyone",
+      "headline": "Build an Agent Skill that tests autonomy boundaries before deployment",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+      "published_at": "2026-10-15",
+      "publisher": "AWS Machine Learning Blog",
+      "read_scope": "Complete thought-leadership article: scope, identity, runtime bounds, observability, proof limits, automated reasoning assumptions, human judgment and progressive autonomy.",
+      "reading_time_minutes": 6,
+      "topics": [
+        "Agent Skills",
+        "Autonomy boundaries",
+        "Human escalation"
+      ],
+      "agent_skills": true,
+      "summary": "AWS proposes five layers for trustworthy agents: scope the job, know the acting identity, bound runtime actions, observe completed work and prove precisely expressible rules. Those layers support a reusable predeployment Agent Skill. The Skill should inventory tools and data, convert boundaries into test cases, identify ambiguous decisions, and produce a human-reviewed autonomy recommendation without changing permissions.",
+      "why_it_matters": "Run the Skill on one low-risk workflow before granting broader access. Verify an allowed action, a denied action and an ambiguous case requiring escalation. Preserve the evidence and assumptions; formal checks cannot prove subjective rules or incomplete system descriptions.",
+      "agent_skills_evidence": "Reusable SKILL.md procedure derived from AWS's October 15 boundary framework. Inputs are one agent job, proposed tools, accessible data, identities and prohibited outcomes. Step one records the minimum scope and authorization owner. Step two creates three tests: a necessary allowed action, an excessive denied action and an ambiguous judgment case. Step three runs only read-only simulations or existing test fixtures, capturing the requested tool, policy decision and evidence. Step four returns a table covering scope, identity, runtime bounds, observability and proof assumptions with PASS, REVIEW or STOP. A qualified human must approve any permission or deployment change; the Skill never changes access itself.",
+      "image_alt_intent": "Reusable Agent Skill converts job scope into allowed, denied and ambiguous tests, then routes evidence to proof checks, observation records and human approval.",
+      "permanent_route": "/stories/2026-10-16/a1-trust-boundary-skill/"
+    },
+    {
+      "id": "oct16-a2-production-lessons",
+      "focus": "Agents for Everyone",
+      "headline": "Five production lessons turn agent enthusiasm into measurable decisions",
+      "source_url": "https://cloud.google.com/transform/lessons-from-google-cloud-consulting-for-moving-agents-into-production",
+      "published_at": "2026-10-15",
+      "publisher": "Google Cloud Transform",
+      "read_scope": "Complete consulting article: production definitions, narrow scope, objective KPIs, phased rollout, user acceptance testing, early user involvement, evaluation, cost and monitoring.",
+      "reading_time_minutes": 5,
+      "topics": [
+        "Production readiness",
+        "Agent evaluation",
+        "Phased rollout"
+      ],
+      "agent_skills": false,
+      "summary": "Google Cloud Consulting recommends defining production readiness before coding, restricting initial agents to one or two valuable actions, and replacing vague helpfulness goals with measurable task, error and latency criteria. The guidance also budgets time for user acceptance testing, involves employees early, phases sensitive actions behind review, and monitors cost, drift, infrastructure health and fallback behavior.",
+      "why_it_matters": "A small team can translate these lessons into a launch scorecard: named users, bounded actions, target completion and error rates, a test calendar, escalation owners and a cost ceiling. Expand autonomy only after observed results meet the agreed thresholds.",
+      "image_alt_intent": "Agent rollout funnel moves from defined production criteria through narrow actions, measurable KPIs, user testing, monitored deployment and evidence-based expansion.",
+      "permanent_route": "/stories/2026-10-16/a2-production-lessons/"
+    }
+  ]
+}

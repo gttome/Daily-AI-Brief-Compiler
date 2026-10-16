@@ -1,0 +1,47 @@
+{
+  "schema_version": "daily-compiler-oct16-technical-editorial-v1",
+  "edition_date": "2026-10-16",
+  "status": "EVIDENCE_VERIFIED_NOT_SEALED",
+  "stories": [
+    {
+      "id": "oct16-t1-ai-scan-advisory",
+      "focus": "Technical AI Engineering",
+      "headline": "GitHub's AI Scan adds advisory vulnerability findings to pull requests",
+      "source_url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/",
+      "published_at": "2026-10-15",
+      "publisher": "GitHub Changelog",
+      "read_scope": "Complete official release: supported language gaps, pull-request presentation, advisory-only behavior, exclusions, access and billing.",
+      "reading_time_minutes": 1,
+      "topics": [
+        "Advisory security scans",
+        "Pull request review",
+        "CodeQL coverage"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub made AI Scan generally available for pull requests, adding model-generated security findings beside CodeQL results for languages and frameworks outside current CodeQL coverage. Findings can explain risk and suggest a repair, but they remain advisory: they cannot fail the check, block merges, inspect forked contributions, or scan Dependabot pull requests.",
+      "why_it_matters": "Security teams should measure precision, missed defects and reviewer workload before treating AI Scan as a control. Keep enforceable CodeQL and ruleset gates, label AI findings clearly, and require human verification of every suggested fix before merging.",
+      "image_alt_intent": "Pull request changes enter separate CodeQL and advisory AI scanning lanes, then converge at a human security review with blocking and nonblocking outcomes.",
+      "permanent_route": "/stories/2026-10-16/t1-ai-scan-advisory/"
+    },
+    {
+      "id": "oct16-t2-agentic-autofix",
+      "focus": "Technical AI Engineering",
+      "headline": "Agentic autofix couples security repairs with a fresh CodeQL check",
+      "source_url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
+      "published_at": "2026-10-15",
+      "publisher": "GitHub Changelog",
+      "read_scope": "Complete official release: repository exploration, repair generation, CodeQL validation, iteration, draft pull requests, policy controls, supported alerts and billing.",
+      "reading_time_minutes": 2,
+      "topics": [
+        "Security repair loops",
+        "CodeQL validation",
+        "Draft pull requests"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub's agentic autofix now explores relevant repository files, proposes a repair, reruns CodeQL, and iterates before opening a draft pull request. Teams may assign one alert or batch up to twenty-five default-branch alerts. The validation confirms that CodeQL closes the original alert, not that the patch preserves every behavior or removes unrelated risks.",
+      "why_it_matters": "Treat the generated pull request as evidence to review, not a finished remediation. Run regression and abuse-case tests, inspect permission and dependency changes, confirm the alert's root cause, and track AI-credit and Actions-minute costs before scaling.",
+      "image_alt_intent": "Code scanning alert flows through repository exploration, proposed patch, CodeQL rerun, bounded iteration, draft pull request, regression tests and reviewer approval.",
+      "permanent_route": "/stories/2026-10-16/t2-agentic-autofix/"
+    }
+  ]
+}
