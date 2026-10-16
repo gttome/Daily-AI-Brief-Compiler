@@ -6,6 +6,7 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {checkRealPng} from './stage-external-image-package.mjs';
 import {OCT8_LIVE_BASELINE,OCT8_PUBLIC_BASE} from './audit-oct8-live.mjs';
+import {patchPremiumStoryPreview} from '../compiler/premium-social-preview.mjs';
 
 const fail=s=>{throw new Error('external_image_replacement:'+s);};
 const digest=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
@@ -79,11 +80,17 @@ export function replaceSingleTag(document,story,imageUrl,acceptedAlt=story.image
   if(replacements!==1)fail('exactly_one_original_placeholder_per_story:'+story.id+':'+replacements);
   return result;
 }
-function replaceHtml(file,stories,urls,alts){
+function replaceHtml(file,stories,urls,alts,updateSocialPreview=false){
   if(!fs.existsSync(file))fail('reader_html_missing:'+file);
   const original=fs.readFileSync(file,'utf8');
   let next=original;
   for(const story of stories)next=replaceSingleTag(next,story,urls.get(story.id),alts.get(story.id));
+  if(updateSocialPreview){
+    if(stories.length!==1)fail('article_social_preview_requires_one_story');
+    const story=stories[0];
+    next=patchPremiumStoryPreview(next,{permanentUrl:OCT8_PUBLIC_BASE+story.permanent_route.slice(1),
+      imageUrl:urls.get(story.id),imageAlt:alts.get(story.id)}).html;
+  }
   if(next===original)fail('reader_html_unchanged');
   fs.writeFileSync(file,next,'utf8');
 }
@@ -166,7 +173,7 @@ export function prepareExternalImageReplacement({job,jobBytes,bundleBytes,state,
   allowed.add(dated);
   for(const story of bundle.stories){
     const relative=cleanRelative(story.permanent_route,date);
-    replaceHtml(path.join(output,relative),[story],urls,alts);
+    replaceHtml(path.join(output,relative),[story],urls,alts,true);
     allowed.add(relative);
   }
   const home=path.join(output,'index.html');
