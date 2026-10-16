@@ -87,6 +87,52 @@ jobs:
               "external-image-packages/$TARGET_DATE/manifest.json" \
               build/evidence/image-verify-only/image-element24
           fi
+      - name: Verify history contains accepted images before any metadata redeploy
+        if: env.MODE == 'sync_metadata'
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          import {bindAlreadyReleasedJob} from './scripts/verify-external-image-postrelease.mjs';
+          const date=process.env.TARGET_DATE;
+          const base='https://gttome.github.io/Daily-AI-Brief-Compiler/';
+          const history='history/site/';
+          const readJSON=path=>JSON.parse(fs.readFileSync(path,'utf8'));
+          const {stories}=bindAlreadyReleasedJob({
+            jobBytes:fs.readFileSync(history+'image-jobs/'+date+'/job.json'),
+            index:readJSON(history+'image-jobs/index.json'),
+            release:readJSON(history+'image-jobs/'+date+'/release.json'),
+            manifest:readJSON('external-image-packages/'+date+'/manifest.json')
+          });
+          if(stories.length!==6)throw Error('six accepted image bindings required');
+          const relative=url=>{
+            if(!url.startsWith(base))throw Error('untrusted image/page origin');
+            return new URL(url).pathname.replace(/^\/Daily-AI-Brief-Compiler\//,'');
+          };
+          const escape=v=>String(v).replace(/[&<>"']/g,c=>({
+            '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+          }[c]));
+          for(const story of stories){
+            const imagePath=relative(story.image_url);
+            if(!imagePath.startsWith('briefs/images/'+date+'/'))throw Error('image route escape');
+            const bytes=fs.readFileSync(history+imagePath);
+            const actual=crypto.createHash('sha256').update(bytes).digest('hex');
+            if(bytes.length!==story.image_bytes||actual!==story.image_sha256)
+              throw Error('history_image_bytes_not_accepted:'+story.story_id);
+            const pages=['briefs/'+date+'/index.html',relative(story.permanent_url)+'index.html'];
+            for(const page of pages){
+              const html=fs.readFileSync(history+page,'utf8');
+              const tags=[...html.matchAll(/<img\b[^>]*>/g)].map(x=>x[0]);
+              const matching=tags.filter(x=>x.includes('src="'+story.image_url+'"')&&
+                x.includes('alt="'+escape(story.image_alt_text)+'"'));
+              if(matching.length!==1||html.includes('Illustration pending for '+story.headline))
+                throw Error('history_story_pairing_unverified:'+story.story_id+':'+page);
+            }
+          }
+          console.log('HISTORY_SAFE_TO_REDEPLOY: six exact accepted PNGs, 12 pairings');
+          NODE
       - name: Verify history has not changed before optional metadata-only redeploy
         if: env.MODE == 'sync_metadata'
         shell: bash
@@ -114,13 +160,13 @@ jobs:
           set -euo pipefail
           result=1
           for attempt in 1 2 3 4 5; do
-            node scripts/verify-external-image-postrelease.mjs \
+            if node scripts/verify-external-image-postrelease.mjs \
               "history/site/image-jobs/$TARGET_DATE/job.json" \
               history/site/image-jobs/index.json \
               "history/site/image-jobs/$TARGET_DATE/release.json" \
               "external-image-packages/$TARGET_DATE/manifest.json" \
-              build/evidence/image-verify-only/after.json
-            if node -e "let a=require('./build/evidence/image-verify-only/after.json');if(a.public_status.result!=='PUBLIC_STATUS_VERIFIED')process.exit(1)"; then
+              build/evidence/image-verify-only/after.json \
+              && node -e "let a=require('./build/evidence/image-verify-only/after.json');if(a.public_status.result!=='PUBLIC_STATUS_VERIFIED')process.exit(1)"; then
               result=0
               break
             fi
