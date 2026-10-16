@@ -103,6 +103,8 @@ jobs:
           fi
       - name: Preserve missing prior permanent pages without rewriting canonical reader
         run: node scripts/merge-shadow-history.mjs "$HISTORY_DIR" build/current build/shadow "$TARGET_DATE" build/history-merge-receipt.json
+      - name: Preserve every previously accepted premium image and story pairing
+        run: node scripts/assert-published-image-continuity.mjs "$HISTORY_DIR" build/shadow
       - name: Fail closed if October 8 local or currently live historical bytes drift
         run: |
           IMAGE_MODE="$(node -p "require('./build/reader-source/build-manifest.json').image_representation")"
