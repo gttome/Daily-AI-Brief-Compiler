@@ -146,7 +146,20 @@ function imageAar(cycle,date,e,hashes={}){
      Array.isArray(story.targets)&&story.targets.length===4&&
      story.targets.every(t=>t.result==='PASS'&&expectedContexts.has(t.target_id)&&
        /^[a-f0-9]{64}$/.test(t.screenshot_sha256||'')));
- const qa24=real24===true||new24===true;
+ // Current Rev8 direct-pixel certificate: all 24 saved desktop/mobile screenshots
+ // were individually inspected and bound to the same image-release workflow.
+ const pixelTargets=contextReviews?.targets;
+ const pixel24=liveVerified&&contextReviews?.schema_version==='external-image-semantic-pixel-review-v1'&&
+   contextReviews.result==='PASS'&&contextReviews.expected_targets===24&&
+   contextReviews.captured_targets===24&&contextReviews.reviewed_pass===24&&
+   Array.isArray(contextReviews.defects)&&contextReviews.defects.length===0&&
+   release?.actions_run_url==='https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/'+contextReviews.evidence_source?.workflow_run_id&&
+   Array.isArray(pixelTargets)&&pixelTargets.length===24&&new Set(pixelTargets.map(t=>t.target_id)).size===24&&
+   pixelTargets.every(t=>expectedContexts.has(t.target_id)&&t.target_id===t.story_id+':'+t.context+':'+t.viewport&&
+     t.actual_pixels_inspected===true&&t.correct_story_asset_visible===true&&t.full_diagram_visible===true&&
+     t.clipped_or_overlapped===false&&t.placeholder_visible===false&&t.primary_explanatory_labels_recognizable===true&&
+     t.result==='PASS'&&/^[a-f0-9]{64}$/.test(t.capture_sha256||'')&&Number.isSafeInteger(t.capture_bytes)&&t.capture_bytes>0);
+ const qa24=real24===true||new24===true||pixel24===true;
  const defects=[];
  if(!seen)defects.push('No image task execution receipt was found');
  if(seen&&!liveVerified)defects.push('Protected image-only live verification is missing or incomplete');
