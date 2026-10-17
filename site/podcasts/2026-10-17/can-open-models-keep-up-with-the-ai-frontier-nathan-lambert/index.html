@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/Daily-AI-Brief-Compiler/assets/favicon.svg">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Can Open Models Keep Up With the AI Frontier? | Nathan Lambert | Daily Generative AI Brief</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Can Open Models Keep Up With the AI Frontier? | Nathan Lambert" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In a discussion hosted by a16z partner Lisha Li, researcher Nathan Lambert contrasts closed frontier labs&#39; infrastructure and capital advantages with open-model builders&#39; ability to adapt techniques. They examine compute constraints, distillation, reinforcement-learning environments and the changing economics of post-training. Lambert also explains Trillium&#39;s ambition to make training environments and evaluations more accessible, while acknowledging uncertainty about self-improvement. The episode helps practitioners assess customization costs rather than treating open-weight availability as equivalent to frontier reliability; audio was not played." />
+<meta property="og:description" content="In a discussion hosted by a16z partner Lisha Li, researcher Nathan Lambert contrasts closed frontier labs&#39; infrastructure and capital advantages with open-model builders&#39; ability to adapt techniques. They examine compute constraints, distillation, reinforcement-learning environments and the changing economics of post-training. Lambert also explains Trillium&#39;s ambition to make training environments and evaluations more accessible, while acknowledging uncertainty about self-improvement. The episode helps practitioners assess customization costs rather than treating open-weight availability as equivalent to frontier reliability; audio was not played." />
+<link rel="canonical" href="https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-10-17/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/" />
+<meta property="og:url" content="https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-10-17/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/" />
+<meta property="og:site_name" content="Daily Generative AI Brief" />
+<meta property="og:image" content="https://gttome.github.io/Daily-AI-Brief-Compiler" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gttome.github.io/Daily-AI-Brief-Compiler" />
+<meta property="twitter:title" content="Can Open Models Keep Up With the AI Frontier? | Nathan Lambert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"In a discussion hosted by a16z partner Lisha Li, researcher Nathan Lambert contrasts closed frontier labs&#39; infrastructure and capital advantages with open-model builders&#39; ability to adapt techniques. They examine compute constraints, distillation, reinforcement-learning environments and the changing economics of post-training. Lambert also explains Trillium&#39;s ambition to make training environments and evaluations more accessible, while acknowledging uncertainty about self-improvement. The episode helps practitioners assess customization costs rather than treating open-weight availability as equivalent to frontier reliability; audio was not played.","headline":"Can Open Models Keep Up With the AI Frontier? | Nathan Lambert","image":"https://gttome.github.io/Daily-AI-Brief-Compiler","url":"https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-10-17/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Brief — Daily editions" href="https://gttome.github.io/Daily-AI-Brief-Compiler/daily-feed.xml">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f0e8">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/style.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/share.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/archive.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/feedback.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <style>.reader-footer-links{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem}.site-footer-owner{margin:0 0 .6rem}.reader-footer-links a:focus-visible{outline:3px solid #1260b0;outline-offset:4px}</style>
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/watchlist.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/header.css?v=1">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/reader-release.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/premium-image-zoom.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Daily-AI-Brief-Compiler/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link rel="stylesheet" href="/Daily-AI-Brief-Compiler/assets/css/subscription-guidance.css?v=acfbaa6185676ef8587c46111e81b9dd876295e0">
+</head>
+  <body class="reader-release" data-brief-date="2026-10-17" data-story-id="dab-podcast-2026-10-17-1" data-baseurl="/Daily-AI-Brief-Compiler">
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header research-ledger-header" role="banner">
+      <div class="ledger-navigation">
+        <a href="/Daily-AI-Brief-Compiler/" class="ledger-brand">The Daily Generative AI Brief</a>
+        <nav class="ledger-primary-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="/Daily-AI-Brief-Compiler/">Home</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/briefs-archive/">Briefs Archive</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/#subscribe">Subscribe</a></li>
+            <li><a href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Generative AI Professional Series</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/watchlist/">Emerging AI Watchlist</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></li>
+            <li><a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="ledger-masthead">
+        <div class="ledger-title-block">
+          <p class="ledger-kicker">Independent curation · Primary-source evidence</p>
+          <h1 class="project-name">Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</h1>
+          <p class="project-tagline">In a discussion hosted by a16z partner Lisha Li, researcher Nathan Lambert contrasts closed frontier labs' infrastructure and capital advantages with open-model builders' ability to adapt techniques. They examine compute constraints, distillation, reinforcement-learning environments and the changing economics of post-training. Lambert also explains Trillium's ambition to make training environments and evaluations more accessible, while acknowledging uncertainty about self-improvement. The episode helps practitioners assess customization costs rather than treating open-weight availability as equivalent to frontier reliability; audio was not played.</p>
+        </div>
+        <div class="ledger-edition" aria-label="Publication context">
+          
+          <span>Edition date</span>
+          <strong>October 17</strong>
+          <span>2026</span>
+          
+        </div>
+      </div>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p><a href="/Daily-AI-Brief-Compiler/">← Home</a> · <a href="/Daily-AI-Brief-Compiler/briefs/2026-10-17/">Daily Brief</a></p>
+<h1 id="can-open-models-keep-up-with-the-ai-frontier--nathan-lambert">Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</h1>
+<h3 id="can-open-models-keep-up-with-the-ai-frontier--nathan-lambert-1">9. Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</h3>
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
+<!-- reader-release:end -->
+<p><span class="podcast-data" data-podcast-id="dab-podcast-2026-10-17-1" data-podcast-title="Can Open Models Keep Up With the AI Frontier? | Nathan Lambert" data-podcast-url="/podcasts/2026-10-17/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/" hidden></span></p>
+<p><a href="/Daily-AI-Brief-Compiler/podcasts/2026-10-17/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/" data-item-id="dab-podcast-2026-10-17-1" data-edition-date="2026-10-17" data-action="permanent_page_clicks">Open the permanent podcast page</a></p>
+<p><strong>Show:</strong> The a16z Show / Andreessen Horowitz<br />
+<strong>Host / guest:</strong> Not listed<br />
+<strong>Focus:</strong> Agents for Everyone<br />
+<strong>Date:</strong> October 14, 2026<br />
+<strong>Duration:</strong> 1:00:00<br />
+<strong>Topics:</strong></p>
+<p><strong>Summary:</strong> In a discussion hosted by a16z partner Lisha Li, researcher Nathan Lambert contrasts closed frontier labs' infrastructure and capital advantages with open-model builders' ability to adapt techniques. They examine compute constraints, distillation, reinforcement-learning environments and the changing economics of post-training. Lambert also explains Trillium's ambition to make training environments and evaluations more accessible, while acknowledging uncertainty about self-improvement. The episode helps practitioners assess customization costs rather than treating open-weight availability as equivalent to frontier reliability; audio was not played.</p>
+<p><strong>Why it matters:</strong> Frame model choices around compute, maintainability, adaptation budgets and independent task-specific evaluation, not benchmark rankings alone.</p>
+<p><strong>Connection to the brief:</strong> Frame model choices around compute, maintainability, adaptation budgets and independent task-specific evaluation, not benchmark rankings alone.</p>
+<p><strong>Coverage:</strong> Selected for this edition.</p>
+<p><strong>Listen / watch:</strong> <a href="https://podcasts.apple.com/ca/podcast/can-open-models-keep-up-with-the-ai-frontier-nathan-lambert/id842818711?i=1000796289780" data-item-id="dab-podcast-2026-10-17-1" data-edition-date="2026-10-17" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The a16z Show / Andreessen Horowitz</a></p>
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-17" data-feedback-story-id="dab-podcast-compiler-2026-10-17-1">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+<p><a href="/Daily-AI-Brief-Compiler/">← Back to Home</a></p>
+
+
+      <footer class="site-footer">
+        <p class="site-footer-owner">The Daily Generative AI Brief · Curated by George Tome</p>
+        <nav aria-label="Publication footer" class="reader-footer-links">
+          <a href="/Daily-AI-Brief-Compiler/">Today’s Brief</a>
+          <a href="/Daily-AI-Brief-Compiler/briefs-archive/">Browse the Archive</a>
+          <a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>
+          <a href="/Daily-AI-Brief-Compiler/about/">About This Brief</a>
+        </nav>
+      </footer>
+    </main>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/watchlist.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/audience.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/share.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/archive.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/analytics.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/feedback.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/comments.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script type="module" src="/Daily-AI-Brief-Compiler/assets/js/calendar-reminder.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/rss-help.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscriptions.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('#content p').forEach(function (paragraph) {
+          var firstStrong = paragraph.querySelector('strong:first-child');
+          if (!firstStrong || firstStrong.textContent.trim() !== 'Source:') return;
+
+          paragraph.querySelectorAll('a[href]').forEach(function (link) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+          });
+        });
+
+      });
+    </script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/subscription-guidance.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+  <script defer src="/Daily-AI-Brief-Compiler/assets/js/premium-image-zoom.js?v=acfbaa6185676ef8587c46111e81b9dd876295e0"></script>
+</body>
+</html>
