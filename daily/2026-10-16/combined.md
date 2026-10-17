@@ -26,10 +26,10 @@
 | Saved visual contexts | **24 / 24 PASS** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
-| **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
+| **Owner-reported weekly Work usage for this run** | **8%** | User-reported for this cycle only; not account-metered |
 
 > **EFFICIENCY NOTE**
-> **Resource reporting policy:** No usage figure was supplied for this cycle, so none is assumed. Future runs show **Not reported** unless the owner supplies new cycle-specific usage metadata. No approval or extra step is required to generate the AAR.
+> **Resource reporting policy:** The owner reported 8% of weekly Work usage for this run; the internal target is under 5%. This number is not GitHub billing telemetry. Future runs show **Not reported** unless the owner supplies new cycle-specific usage metadata. No approval or extra step is required to generate the AAR.
 
 ## Production architecture and checkpoints
 
@@ -130,7 +130,7 @@ No image-stage correction receipts were available for this cycle.
 
 | Item | Per-cycle value |
 |---|---|
-| **Weekly Work usage reported by owner** | **Not reported** |
+| **Weekly Work usage reported by owner** | **8%** (owner reported) |
 | Internal weekly usage reference | Target under 5% |
 | Genuine image-generation attempts | 6 |
 | Accepted diagrams | 6 |
