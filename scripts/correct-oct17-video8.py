@@ -121,6 +121,33 @@ def patch_text(route, text, revision):
     require(proof == before, 'Unexpected unrelated JSON change')
     return json.dumps(data, ensure_ascii=False, indent=2) + '\n'
 
+def patch_display_text(route, text, revision):
+    """Revision 2 corrects only stale source-classification labels after release."""
+    new = revision['replacement']['video']
+    if route == 'videos/2026-10-17/agent-skills/index.html':
+        require(new['url'] in text and new['summary'] in text, 'Replacement is not already present')
+        replacements = {
+            '<span class="coverage-label">New development</span>': '<span class="coverage-label">Evergreen replacement</span>',
+            '<strong>Topics:</strong><br />': '<strong>Topics:</strong> AI assistants, Agent adoption, Knowledge work<br />',
+            '<strong>Evidence:</strong> Practitioner Analysis': '<strong>Evidence:</strong> Publisher Authored',
+            '<strong>Availability:</strong> Not Applicable': '<strong>Availability:</strong> Public playback verified',
+        }
+        for old, updated in replacements.items():
+            require(text.count(old) == 1, 'Unexpected classification label: ' + old)
+            text = text.replace(old, updated)
+        return text
+    require(route == 'data/archive-index.json', 'Unallowlisted display-label target')
+    data = json.loads(text)
+    before = copy.deepcopy(data)
+    i, record = selected_record(data, 'stories', 'story_id')
+    require(record['headline'] == new['title'] and record['event_date'] == new['original_date'], 'Archive replacement is not current')
+    require(record['evidence_type'] == 'practitioner_analysis' and record['availability_status'] == 'not_applicable', 'Unexpected archive classification')
+    record.update(evidence_type='publisher_authored', availability_status='available')
+    proof = copy.deepcopy(data)
+    proof['stories'][i] = before['stories'][i]
+    require(proof == before, 'Unrelated archive record changed')
+    return json.dumps(data, ensure_ascii=False, indent=2) + '\n'
+
 def correct(source, destination, revision, receipt_path):
     require(revision['schema_version'] == 'daily-compiler-post-publication-correction-v1', 'Invalid revision schema')
     require(revision['correction_type'] == 'replace_video' and revision['edition_date'] == EDITION, 'Invalid correction scope')
@@ -128,18 +155,19 @@ def correct(source, destination, revision, receipt_path):
     require(revision['preserve_original'] is True and revision['new_execution_allowed'] is False, 'Invalid preservation contract')
     require(revision['replacement']['video']['duration_seconds'] == 478, 'Unverified replacement duration')
     require(not destination.exists(), 'Destination must be a fresh output directory')
+    targets = ('videos/2026-10-17/agent-skills/index.html', 'data/archive-index.json') if revision.get('display_label_revision') == 2 else ROUTES
     before = snapshot(source)
-    require(all(p in before for p in ROUTES), 'Missing correction target')
+    require(all(p in before for p in targets), 'Missing correction target')
     shutil.copytree(source, destination)
-    for route in ROUTES:
+    for route in targets:
         original = (source / route).read_text(encoding='utf-8')
-        output = patch_text(route, original, revision)
+        output = (patch_display_text if revision.get('display_label_revision') == 2 else patch_text)(route, original, revision)
         require(output != original, 'Unchanged target ' + route)
         (destination / route).write_text(output, encoding='utf-8')
     after = snapshot(destination)
     require(before.keys() == after.keys(), 'Unexpected file addition/deletion')
     changed = [r for r in before if before[r] != after[r]]
-    require(set(changed) == set(ROUTES), 'Changes escaped exact ten-route allowlist')
+    require(set(changed) == set(targets), 'Changes escaped exact revision allowlist')
     images = [r for r in before if pathlib.Path(r).suffix.lower() in ('.png','.jpg','.jpeg','.webp','.svg','.gif')]
     jobs = [r for r in before if r.startswith('image-jobs/')]
     require(all(before[r] == after[r] for r in images + jobs), 'Image or immutable job changed')
