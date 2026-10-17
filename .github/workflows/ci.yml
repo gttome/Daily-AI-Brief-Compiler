@@ -29,6 +29,10 @@ jobs:
           if [ -f .github/workflows/existing-six-png-github-binary-transport-proof.yml ]; then
             ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/existing-six-png-github-binary-transport-proof.yml
           fi
+      - name: Parse routine media-gated producer and publisher workflows
+        run: |
+          ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/bundle-ready-signal.yml
+          ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/shadow-compile.yml
       - name: Parse nonpublishing operations reporting workflow YAML
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/daily-operations-report.yml
       - name: Parse Watchlist-only correction workflow YAML
