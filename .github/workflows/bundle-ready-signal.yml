@@ -27,6 +27,16 @@ jobs:
           node-version: '20'
       - id: ready
         run: node scripts/check-current-shadow-ready.mjs >> "$GITHUB_OUTPUT"
+      - name: Require two signed-out playable videos before publication signal
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          TARGET_DATE: ${{ steps.ready.outputs.date }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-10-18" ]]; then echo "Historical media gate unaffected"; exit 0; fi
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/verify-selected-video-playback.cjs "shadow-runs/$TARGET_DATE/edition-bundle.json" "build/video-preseal-playback.json"
       - name: Signal protected-main compiler
         if: steps.ready.outputs.ready == 'true'
         env:
