@@ -62,6 +62,13 @@ jobs:
           git worktree add -b "image-package/$TARGET_DATE-ci-admission-$GITHUB_RUN_ATTEMPT" "$WORKTREE" "$CANDIDATE_HEAD"
           (cd "$WORKTREE" && node scripts/preflight-recurring-image-package.mjs "$CYCLE_DATE" .)
       - run: npm test
+      - name: Read-only public-video browser rehearsal for gate introduction
+        if: github.event_name == 'pull_request' && github.head_ref == 'hardening/recurring-public-video-playback-proof'
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/verify-selected-video-playback.cjs tests/fixtures/known-public-video-browser-rehearsal.json build/rehearsal-video-playback.json
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
       - run: npm run reader:parity
