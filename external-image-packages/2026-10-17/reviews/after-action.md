@@ -1,6 +1,6 @@
 # October 17 image-production recovery
 
-Status: six reviewed candidate images preserved; protected release and live verification pending.
+Status: six source-grounded images published and verified; 24 saved desktop/mobile placements inspected. Mobile detail text uses the restored full-resolution viewer.
 
 The initial worker stopped before generation because the requested exact diagram content conflicted with its image-method instructions. This recovery used six genuine native conceptual illustrations, then separately authored every exact label and causal connection. Factual accuracy remains mandatory. The generated artwork is visibly qualified as conceptual and does not encode the precise diagrams.
 
@@ -23,3 +23,13 @@ No public completion is claimed until protected CI, merge, image-only release, l
 ## Improvements
 
 Clarify tool selection in the recurring prompt while retaining factual accuracy, six-image variation, immutable accepted bytes and protected release. Prove the complete rendering and readback route early. Keep a source-backed progress receipt after each image. Future evening runs must select only their own current edition.
+
+## Publication and recovery closeout
+
+Protected PR #210 merged the exact reviewed package after successful push and PR CI. Release run 38996795463 deployed all six PNGs and passed 44 independent HTTP hash checks, including the 17 protected October 8 objects. It then stopped because the fifth general browser DOM capture was empty. The already-public 14 objects were read back, matched to the saved release evidence and preserved in history commit 25045dfcb5340d129300205bb9d981761bb271ac. The existing finalizer generated the release/index records from that actual verification evidence. No placeholder replacement or accepted-image regeneration was repeated.
+
+Postrelease run 38997077305 verified all six live image hashes, 12 article pairings and synchronized public status. All 24 target screenshots from artifact 12086594918 were individually displayed, inspected and hash-checked. Source fidelity, placement and full-image visibility passed. Native 390px preview small-text readability is explicitly not claimed.
+
+The review found a pre-existing viewer defect: materialization doubled the Compiler path in its URL matcher. Protected PR #211 fixed that rewrite and added a passing regression test. The approved viewer asset was restored to history, then the eight October 17 script cache keys were refreshed. Existing synchronization runs 38997392072 and 38997597089 deployed these corrections while preserving PNGs, editorial copy and October 8 bytes. Browser inspection found all six enlarge controls on the dated brief and exercised the Ericsson and wet-lab full-size viewers at 1200px. No mobile click-test claim is made.
+
+The factual-diagram restriction concerns the rendering method. Every final image remains source-grounded: exact labels and causal structure are authored, and conceptual illustration is qualified. The suggested Skill trial is an editorial recommendation, not a publisher-reported experimental outcome.
