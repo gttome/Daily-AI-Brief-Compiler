@@ -1,0 +1,674 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct17-t1-autonomous-wet-lab",
+    "source_url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+    "visual_thesis": "A live state model constrains a proposed laboratory action before execution.",
+    "mechanism_metaphor": "laboratory state-and-control model",
+    "story_anchors": [
+      "Live robot and reagent state",
+      "Simulation and hardware rejection"
+    ],
+    "required_labels": [
+      "PHYSICAL AGENT SAFETY",
+      "Ground each action in live laboratory state",
+      "Conceptual laboratory workcell",
+      "LIVE SEMANTIC TWIN",
+      "Robot geometry",
+      "Well volumes",
+      "Reagent identities",
+      "Pipette tip inventory",
+      "Proposed protocol",
+      "Agent plans laboratory actions",
+      "Virtual dry run",
+      "Check geometry and resources",
+      "Hardware check",
+      "Reject invalid commands",
+      "Execute on robot",
+      "Only valid commands pass",
+      "Block & replan",
+      "Synchronized video + action logs",
+      "Inspect failures · preserve state · support recovery",
+      "Physical measurements remain essential; scientific direction stays human."
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "The twin tracks geometry, volumes, reagents and tips.",
+        "source_url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: The twin tracks geometry, volumes, reagents and tips."
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Dry runs and hardware checks block invalid commands; logs support recovery.",
+        "source_url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Dry runs and hardware checks block invalid commands; logs support recovery."
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Proposed protocol",
+        "to": "Virtual dry run",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Virtual dry run",
+        "to": "Hardware check",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Hardware check",
+        "to": "Execute on robot",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Rejected command",
+        "to": "Proposed protocol",
+        "direction": "feedback_verified",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not imply physical guarantees, autonomous scientific authority, or measured efficacy from the conceptual workcell."
+    ],
+    "composition_signature": {
+      "grammar": "state-and-control cross-section",
+      "metaphor": "laboratory state-and-control model",
+      "layout": "left illustration and right vertical control path",
+      "palette": "teal and copper",
+      "hierarchy": "action spine with subordinate live state",
+      "annotation": "side state inventory and explicit rejection route"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing assistant; owner personal review not claimed",
+      "source_url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "generation_phase": "final deterministic diagram rendering; native conceptual illustration was generated separately beforehand"
+    },
+    "method_disclosure": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+    "recording_note": "Compiled from source review and authored layout. This is not a claim that a complete factual diagram was sent to Image Creation. Art contains no text or encoded factual relationships."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct17-t2-license-aware-dependencies",
+    "source_url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+    "visual_thesis": "Central license policy informs agent screening and constrains pull requests.",
+    "mechanism_metaphor": "policy decision braid",
+    "story_anchors": [
+      "Agent-facing package compliance query",
+      "Enterprise role owns violation closure"
+    ],
+    "required_labels": [
+      "LICENSE-AWARE CODING AGENTS",
+      "Make dependency policy queryable before merge",
+      "Conceptual package assembly",
+      "ONE ENTERPRISE POLICY",
+      "License policy",
+      "Central license rules",
+      "Download / update APIs",
+      "Policy-change audit events",
+      "AGENT PRE-CHECK",
+      "Proposed dependency",
+      "Check package compliance",
+      "Allowed candidate",
+      "Can be recommended",
+      "Disallowed candidate",
+      "Choose another package",
+      "PULL-REQUEST ENFORCEMENT",
+      "New dependencies",
+      "Required ruleset check",
+      "License requirement",
+      "Violation → PR annotation",
+      "Policy satisfied",
+      "Other merge checks apply",
+      "Resolve violation",
+      "REVIEWABLE REMEDIES",
+      "Remove the dependency",
+      "Amend the license policy",
+      "Approve a package exception",
+      "Closure: enterprise license manager",
+      "Agent recommendations and pull requests share centralized license rules."
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Policy APIs and change audit events expose centralized rules.",
+        "source_url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Policy APIs and change audit events expose centralized rules."
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Rulesets annotate violations; removal, policy amendment and exceptions support resolution.",
+        "source_url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Rulesets annotate violations; removal, policy amendment and exceptions support resolution."
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Enterprise policy",
+        "to": "Agent package check",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Enterprise policy",
+        "to": "Ruleset license check",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "License violation",
+        "to": "Resolution review",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not equate a compliant package with a guaranteed merge or legal certification."
+    ],
+    "composition_signature": {
+      "grammar": "policy decision braid",
+      "metaphor": "policy decision braid",
+      "layout": "upper policy query and lower enforcement lane",
+      "palette": "indigo and amber",
+      "hierarchy": "shared policy with dual consumers",
+      "annotation": "branched outcomes and remedy register"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 16,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing assistant; owner personal review not claimed",
+      "source_url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "generation_phase": "final deterministic diagram rendering; native conceptual illustration was generated separately beforehand"
+    },
+    "method_disclosure": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+    "recording_note": "Compiled from source review and authored layout. This is not a claim that a complete factual diagram was sent to Image Creation. Art contains no text or encoded factual relationships."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct17-k1-public-service-workflows",
+    "source_url": "https://news.sap.com/2026/10/next-leap-public-services-behind-the-scenes-spublic-berlin/",
+    "visual_thesis": "Connected public workflows retain an accountable decision boundary.",
+    "mechanism_metaphor": "public-service process map",
+    "story_anchors": [
+      "Maintenance process extends past citizen intake",
+      "Funding checks precede official decisions"
+    ],
+    "required_labels": [
+      "CONNECTED PUBLIC SERVICES",
+      "Keep public authority across the whole process",
+      "MAINTENANCE EXAMPLE",
+      "Citizen",
+      "report",
+      "Assign",
+      "responsibility",
+      "Plan the",
+      "work",
+      "Resources",
+      "and budgets",
+      "Procure",
+      "if needed",
+      "Close",
+      "the case",
+      "Conceptual civic setting",
+      "Sovereignty: data · operational",
+      "technical · legal",
+      "FUNDING APPLICATION EXAMPLE",
+      "Submitted documents",
+      "Eligibility + financial context",
+      "AI-assisted checking",
+      "Completeness + consistency",
+      "Explained recommendation",
+      "Missing information flagged",
+      "Responsible public authority decides",
+      "CONTROL + ACCOUNTABILITY",
+      "Keep data under defined sovereignty controls",
+      "Show employees the reasons for each flag",
+      "Vendor demonstrations; independently measured service outcomes are unproven."
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Maintenance connects responsibility, resources, procurement and closure.",
+        "source_url": "https://news.sap.com/2026/10/next-leap-public-services-behind-the-scenes-spublic-berlin/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Maintenance connects responsibility, resources, procurement and closure."
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Document checks support recommendations; public authorities retain decisions within defined sovereignty controls.",
+        "source_url": "https://news.sap.com/2026/10/next-leap-public-services-behind-the-scenes-spublic-berlin/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Document checks support recommendations; public authorities retain decisions within defined sovereignty controls."
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Citizen report",
+        "to": "Maintenance process",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Submitted documents",
+        "to": "AI-assisted checking",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Explained recommendation",
+        "to": "Public authority decision",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not present demonstrations as measured service outcomes or automated public authority."
+    ],
+    "composition_signature": {
+      "grammar": "public-service process map",
+      "metaphor": "public-service process map",
+      "layout": "wide maintenance sequence above separate funding path",
+      "palette": "forest and ochre",
+      "hierarchy": "two examples under accountability",
+      "annotation": "process ribbon and accountability qualification"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 16,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing assistant; owner personal review not claimed",
+      "source_url": "https://news.sap.com/2026/10/next-leap-public-services-behind-the-scenes-spublic-berlin/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "generation_phase": "final deterministic diagram rendering; native conceptual illustration was generated separately beforehand"
+    },
+    "method_disclosure": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+    "recording_note": "Compiled from source review and authored layout. This is not a claim that a complete factual diagram was sent to Image Creation. Art contains no text or encoded factual relationships."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct17-k2-ericsson-quote-workflow",
+    "source_url": "https://news.sap.com/2026/10/how-ericsson-is-reimagining-b2b-commerce-with-ai/",
+    "visual_thesis": "Existing quoting digitization and exploratory agent capabilities have different evidence status.",
+    "mechanism_metaphor": "commercial evidence comparison",
+    "story_anchors": [
+      "Contract-specific self-service quoting",
+      "Proposed quotes still receive employee review"
+    ],
+    "required_labels": [
+      "CONTRACT-AWARE COMMERCIAL WORK",
+      "Separate digital gains from agent exploration",
+      "EXISTING DIGITAL WORKFLOW",
+      "Vendor-reported implementation",
+      "Framework agreements",
+      "Contract-specific products",
+      "Negotiated pricing",
+      "Customer entitlements",
+      "Conceptual commercial folio",
+      "Self-service storefront",
+      "Generate quote",
+      "Place order",
+      "Some requests: days or weeks",
+      "become minutes or seconds",
+      "EXPLORATORY AGENT ASSISTANCE",
+      "Proposed capabilities under evaluation",
+      "Analyze customer request",
+      "Find relevant contract terms",
+      "Prepare a proposed quote",
+      "Employee review and decision",
+      "Other exploratory uses",
+      "Product descriptions · catalog search",
+      "Reported gains: digitization. Agent benefits remain unproven."
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Agreements, products, pricing and entitlements support digital quotes and orders.",
+        "source_url": "https://news.sap.com/2026/10/how-ericsson-is-reimagining-b2b-commerce-with-ai/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Agreements, products, pricing and entitlements support digital quotes and orders."
+      },
+      {
+        "id": "claim-1",
+        "proposition": "The vendor reports shorter digital turnaround; agent quote and catalog assistance remain exploratory.",
+        "source_url": "https://news.sap.com/2026/10/how-ericsson-is-reimagining-b2b-commerce-with-ai/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: The vendor reports shorter digital turnaround; agent quote and catalog assistance remain exploratory."
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Contract context",
+        "to": "Self-service storefront",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Self-service storefront",
+        "to": "Generate quote",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Generate quote",
+        "to": "Place order",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Proposed quote",
+        "to": "Employee review",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not attribute the reported time gains to a proven agent deployment."
+    ],
+    "composition_signature": {
+      "grammar": "evidence-versus-exploration comparison",
+      "metaphor": "commercial evidence comparison",
+      "layout": "asymmetric side-by-side comparison",
+      "palette": "terracotta and navy",
+      "hierarchy": "implemented versus exploratory evidence",
+      "annotation": "evidence-status headings and qualified time statement"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing assistant; owner personal review not claimed",
+      "source_url": "https://news.sap.com/2026/10/how-ericsson-is-reimagining-b2b-commerce-with-ai/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "generation_phase": "final deterministic diagram rendering; native conceptual illustration was generated separately beforehand"
+    },
+    "method_disclosure": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+    "recording_note": "Compiled from source review and authored layout. This is not a claim that a complete factual diagram was sent to Image Creation. Art contains no text or encoded factual relationships."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct17-a1-quality-check-skill",
+    "source_url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+    "visual_thesis": "A Skill packages a recurring quality procedure without implicitly expanding authority.",
+    "mechanism_metaphor": "inspectable procedure anatomy",
+    "story_anchors": [
+      "Trigger plus trusted test and lint commands",
+      "Meaning of checks and failure guidance"
+    ],
+    "required_labels": [
+      "AGENT SKILLS",
+      "Package one quality procedure as a reviewable Skill",
+      "PROCEDURE CONTENTS",
+      "SUGGESTED READ-ONLY TRIAL",
+      "Trigger",
+      "When this procedure applies",
+      "Test commands",
+      "Existing trusted project scripts",
+      "Lint commands",
+      "Established repository checks",
+      "Evidence meaning",
+      "What each command verifies",
+      "Failure guidance",
+      "Explain common failure modes",
+      "Quality-check Skill",
+      "Conceptual procedure folio",
+      "Known-good case",
+      "Baseline verification",
+      "Controlled failure",
+      "Check error handling",
+      "Record evidence",
+      "Command outputs",
+      "Exit results",
+      "Failure explanations",
+      "PASS · REVIEW · STOP",
+      "Human review before any repair",
+      "Review the evidence and proposed change",
+      "Suggested boundary: existing commands, unchanged permissions, reviewed repairs."
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "The tutorial specifies procedure triggers, scripts, checks and troubleshooting.",
+        "source_url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: The tutorial specifies procedure triggers, scripts, checks and troubleshooting."
+      },
+      {
+        "id": "claim-1",
+        "proposition": "The sealed article proposes read-only success/failure trials and review before repairs.",
+        "source_url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: The sealed article proposes read-only success/failure trials and review before repairs."
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Procedure contents",
+        "to": "Quality-check Skill",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Trial cases",
+        "to": "Recorded evidence",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Recorded evidence",
+        "to": "Proposed verdict",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Evidence and proposed change",
+        "to": "Human review",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not claim a Skill grants permissions, changes code automatically, or that suggested test cases already passed."
+    ],
+    "composition_signature": {
+      "grammar": "procedure anatomy and test matrix",
+      "metaphor": "inspectable procedure anatomy",
+      "layout": "central folio between procedure anatomy and trial evidence",
+      "palette": "violet and jade",
+      "hierarchy": "package contents plus proposed trial",
+      "annotation": "anatomy leader bracket and explicit recommendation labels"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 15,
+      "major_regions": 3,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing assistant; owner personal review not claimed",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "generation_phase": "final deterministic diagram rendering; native conceptual illustration was generated separately beforehand"
+    },
+    "method_disclosure": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+    "recording_note": "Compiled from source review and authored layout. This is not a claim that a complete factual diagram was sent to Image Creation. Art contains no text or encoded factual relationships."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct17-a2-production-scorecard",
+    "source_url": "https://cloud.google.com/transform/lessons-from-google-cloud-consulting-for-moving-agents-into-production",
+    "visual_thesis": "Production decisions require defined stages, narrow scope and measurable evidence.",
+    "mechanism_metaphor": "evidence-based readiness scorecard",
+    "story_anchors": [
+      "Proof, MVP and production have different definitions",
+      "Quality, operations and user testing precede expansion"
+    ],
+    "required_labels": [
+      "AGENT PRODUCTION READINESS",
+      "Define the scorecard before expanding agent authority",
+      "Proof of concept",
+      "Technical feasibility",
+      "Nonsensitive sandbox data",
+      "Minimum viable product",
+      "Core journeys end to end",
+      "Development data + user testing",
+      "Production readiness",
+      "Security + automated tests",
+      "Delivery + financial reviews",
+      "Conceptual staged progression",
+      "START WITH ONE OR TWO ACTIONS",
+      "Set measurable criteria before the pilot",
+      "Quality",
+      "Task completion",
+      "Hallucination rate",
+      "Verified test outcomes",
+      "Operations",
+      "Latency ceilings",
+      "Total ownership cost",
+      "Model drift + health",
+      "People + review",
+      "User acceptance testing",
+      "Time for edge cases",
+      "Sensitive-task review",
+      "Before broader autonomy",
+      "Evaluate continuously · monitor costs · test fallback behavior",
+      "Start narrow; expand only after reviewed evidence."
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Stages distinguish feasibility, end-to-end journeys and operational readiness.",
+        "source_url": "https://cloud.google.com/transform/lessons-from-google-cloud-consulting-for-moving-agents-into-production",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Stages distinguish feasibility, end-to-end journeys and operational readiness."
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Guidance calls for narrow scope, objective measures, UAT, monitoring, cost review and fallbacks.",
+        "source_url": "https://cloud.google.com/transform/lessons-from-google-cloud-consulting-for-moving-agents-into-production",
+        "evidence_kind": "primary_source_fact",
+        "supporting_source_excerpt": "Source-passage paraphrase: Guidance calls for narrow scope, objective measures, UAT, monitoring, cost review and fallbacks."
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Proof of concept",
+        "to": "Minimum viable product",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Minimum viable product",
+        "to": "Production readiness",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reviewed quality and operational evidence",
+        "to": "Broader autonomy",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not invent target values, measured scores, guaranteed readiness or a fixed deployment timeline."
+    ],
+    "composition_signature": {
+      "grammar": "readiness gates and measurement ruler",
+      "metaphor": "evidence-based readiness scorecard",
+      "layout": "stage strip above a three-part criteria comparison",
+      "palette": "slate blue and vermilion",
+      "hierarchy": "readiness definitions over decision evidence",
+      "annotation": "stage definitions and grouped evaluation criteria"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 20,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing assistant; owner personal review not claimed",
+      "source_url": "https://cloud.google.com/transform/lessons-from-google-cloud-consulting-for-moving-agents-into-production",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "generation_phase": "final deterministic diagram rendering; native conceptual illustration was generated separately beforehand"
+    },
+    "method_disclosure": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+    "recording_note": "Compiled from source review and authored layout. This is not a claim that a complete factual diagram was sent to Image Creation. Art contains no text or encoded factual relationships."
+  }
+]
