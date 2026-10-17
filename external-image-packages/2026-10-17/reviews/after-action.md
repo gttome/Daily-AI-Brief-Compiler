@@ -2,6 +2,10 @@
 
 Status: six source-grounded images published and verified; 24 saved desktop/mobile placements inspected. Mobile detail text uses the restored full-resolution viewer.
 
+> **Owner-reported run usage: 8% of the weekly allowance.** This is the owner's run-specific report, not independently measured telemetry. No compiler-versus-image breakdown was supplied. Canonical input: [October 16 production-cycle usage](../../../docs/after-action/usage/2026-10-16.json). Do not carry this percentage into future runs.
+>
+> **Postpublication media defect — OPEN:** The owner reports that item #8, *Production Monitoring with Codex: Grafana, Kubernetes, & Security*, opens as a private video on YouTube. The image-release PASS above does not certify that this external video is publicly playable. See the incident and corrective-action record below.
+
 The initial worker stopped before generation because the requested exact diagram content conflicted with its image-method instructions. This recovery used six genuine native conceptual illustrations, then separately authored every exact label and causal connection. Factual accuracy remains mandatory. The generated artwork is visibly qualified as conceptual and does not encode the precise diagrams.
 
 ## Evidence
@@ -33,3 +37,20 @@ Postrelease run 38997077305 verified all six live image hashes, 12 article pairi
 The review found a pre-existing viewer defect: materialization doubled the Compiler path in its URL matcher. Protected PR #211 fixed that rewrite and added a passing regression test. The approved viewer asset was restored to history, then the eight October 17 script cache keys were refreshed. Existing synchronization runs 38997392072 and 38997597089 deployed these corrections while preserving PNGs, editorial copy and October 8 bytes. Browser inspection found all six enlarge controls on the dated brief and exercised the Ericsson and wet-lab full-size viewers at 1200px. No mobile click-test claim is made.
 
 The factual-diagram restriction concerns the rendering method. Every final image remains source-grounded: exact labels and causal structure are authored, and conceptual illustration is qualified. The suggested Skill trial is an editorial recommendation, not a publisher-reported experimental outcome.
+
+## Owner follow-up — usage and video availability
+
+| Item | Recorded result | Evidence and scope |
+|---|---|---|
+| Weekly allowance consumed for this run | **8% — owner reported** | October 17 edition / October 16 production evening; no independently measured account telemetry |
+| Compiler/image allocation | **Not supplied** | Do not assign the 8% to either component or count it twice |
+| Efficiency target | **Above the under-5% target** | No token counts, paid-API costs or GitHub charges can be inferred from the percentage |
+| Video #8 | **OPEN — owner reports private on YouTube** | *Production Monitoring with Codex: Grafana, Kubernetes, & Security*; YouTube ID `DmCaBWv5yG8` |
+| Independent playback confirmation | **Not obtained** | Direct watch-page retrieval was throttled; the oEmbed retrieval failed. Neither result independently proves the privacy state |
+| Replacement / reader correction | **Not completed by this documentation update** | No verified public replacement has been selected; no claim of repaired playback |
+
+**Reader impact:** Item #8 sends the reader to a video the owner cannot play. Earlier title, runtime and transcript indexing are not proof of current public availability. It is not established whether the video became private after selection or whether the original verification missed its access restriction.
+
+**Required corrective action:** Correct or replace the unavailable video through a bounded, media-only publication change after verifying a publicly playable, relevant source. Until then the listing must not be counted as publicly playable. Preserve the six accepted PNGs, their article bindings, the immutable original bundle, and prior-edition history. This record does not modify the public reader or activate a new publication workflow.
+
+**Prevention proposal — not yet implemented:** Before sealing and again before publication, check each exact YouTube URL as a public/signed-out viewer, record the video ID and check time, and distinguish playback availability from metadata/transcript retrieval. A private, removed, unavailable, or access-restricted item fails public-media acceptance; inconclusive checks remain unverified rather than PASS. Replacement content must have its own verified title, publisher, duration and summary; do not retain the old synopsis under a different video.
