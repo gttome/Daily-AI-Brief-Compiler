@@ -1,0 +1,39 @@
+name: oct17-video8-public-replacement
+on:
+  push:
+    branches: [repair/oct17-video8-replacement]
+    paths: ['.github/workflows/oct17-video8-public-replacement.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    if: github.repository == 'gttome/Daily-AI-Brief-Compiler' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Read current reader and public publisher player without credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin shadow-pages-history
+          git worktree add --detach /tmp/current-reader FETCH_HEAD
+          python3 - <<'PY'
+          import urllib.request, re, pathlib
+          url='https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai'
+          req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'text/html'})
+          with urllib.request.urlopen(req,timeout=40) as r:
+            h=r.read().decode('utf-8'); print('PUBLISHER_HTTP',r.status,'BYTES',len(h),'URL',r.url)
+          terms=['video-id','videoId','entryId','entry-id','kaltura','VideoObject','datePublished','dateCreated','uploadDate','duration']
+          for term in terms:
+            for m in list(re.finditer(re.escape(term),h,re.I))[:8]:
+              print('PUBLISHER_METADATA',term,repr(h[max(0,m.start()-150):m.end()+350]))
+          for p in pathlib.Path('/tmp/current-reader/site').rglob('*'):
+            if not p.is_file() or p.suffix not in ['.html','.json','.xml','.md']: continue
+            t=p.read_text(errors='ignore')
+            if 'DmCaBWv5yG8' in t or 'Production Monitoring with Codex' in t:
+              print('CURRENT_REFERENCE',str(p.relative_to('/tmp/current-reader/site')),'BYTES',len(t.encode()),'OCCURRENCES',t.count('DmCaBWv5yG8'))
+              for m in list(re.finditer('DmCaBWv5yG8',t))[:1]: print('REFERENCE_CONTEXT',repr(t[max(0,m.start()-350):m.end()+250]))
+          PY
