@@ -5,18 +5,18 @@
 | Dimension | Observed evidence |
 |---|---|
 | Execution | START_OBSERVED |
-| Result | PARTIAL |
-| Publication | PARTIAL |
+| Result | SUCCESS |
+| Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | UNKNOWN |
-| Finished | UNKNOWN |
+| Finished | 2026-10-17T03:12:33.000Z |
 | Duration (min) | UNKNOWN |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
 
-- Protected image-only live verification is missing or incomplete
+- No independently recorded defect in the available sources
 
 ## Operational result
 
