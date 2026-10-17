@@ -45,7 +45,17 @@ async function proveVideo(browser, item) {
         const parsed = typeof response === 'string' ? JSON.parse(response) : response;
         return parsed?.playabilityStatus?.status || 'UNOBSERVED';
       }).catch(() => 'UNOBSERVED');
-      if (playerStatus !== 'OK' && playerStatus !== 'UNOBSERVED') throw new Error('YouTube playability status ' + playerStatus);
+      if (playerStatus === 'LOGIN_REQUIRED') {
+        // A signed-out watch URL can be robot-gated despite public playback; try
+        // the official privacy-enhanced YouTube embed in the same empty context.
+        const u = new URL(item.url);
+        const id = u.searchParams.get('v') || u.pathname.split('/').filter(Boolean).pop();
+        if (!/^[A-Za-z0-9_-]{11}$/.test(id || '')) throw new Error('YouTube has no valid public video ID');
+        await page.goto('https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&playsinline=1',{waitUntil:'domcontentloaded',timeout:30000});
+        playerStatus = 'WATCH_LOGIN_REQUIRED_EMBED_ATTEMPTED';
+      } else if (playerStatus !== 'OK' && playerStatus !== 'UNOBSERVED') {
+        throw new Error('YouTube playability status ' + playerStatus);
+      }
       await page.locator('button.ytp-large-play-button').first().click({timeout:4500}).catch(() => {});
     } else {
       // Publisher launch control, e.g. IBM Academy's full-episode player.
