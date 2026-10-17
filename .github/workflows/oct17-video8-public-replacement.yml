@@ -14,26 +14,67 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Read current reader and public publisher player without credentials
+      - name: Verify signed-out public player
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          cat > /tmp/browser/probe.cjs <<'JS'
+          const {chromium}=require('playwright-core');
+          const fs=require('fs');
+          (async()=>{
+            const executablePath=['/usr/bin/google-chrome','/usr/bin/chromium','/usr/bin/chromium-browser'].find(p=>fs.existsSync(p));
+            if(!executablePath)throw Error('No system browser');
+            const browser=await chromium.launch({headless:true,executablePath,args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});
+            const page=await browser.newPage({viewport:{width:1440,height:1000}});
+            page.on('response',r=>{if(/m3u8|\.mp4|playManifest/.test(r.url()))console.log('MEDIA_RESPONSE',r.status(),r.url().split('?')[0]);});
+            await page.goto('https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai',{waitUntil:'domcontentloaded',timeout:60000});
+            await page.waitForTimeout(12000);
+            console.log('PAGE_TITLE',await page.title());
+            console.log('FRAMES',JSON.stringify(page.frames().map(f=>f.url())));
+            for(const frame of page.frames()){
+              console.log('BUTTONS',JSON.stringify(await frame.getByRole('button').evaluateAll(xs=>xs.map(x=>({text:x.innerText,aria:x.getAttribute('aria-label'),title:x.getAttribute('title')}))).catch(()=>[])));
+              const buttons=frame.getByRole('button',{name:/^(play|play video|play video.*)$/i});
+              for(let i=0;i<await buttons.count();i++){if(await buttons.nth(i).isVisible()){await buttons.nth(i).click({timeout:5000}).catch(()=>{});break;}}
+            }
+            for(const frame of page.frames()){
+              const videos=frame.locator('video');
+              for(let i=0;i<await videos.count();i++){
+                const v=videos.nth(i);
+                await v.evaluate(x=>{x.muted=true;return x.play();}).catch(e=>console.log('PLAY_ERROR',String(e)));
+                const before=await v.evaluate(x=>({time:x.currentTime,duration:x.duration,ready:x.readyState,src:x.currentSrc}));
+                await page.waitForTimeout(4000);
+                const after=await v.evaluate(x=>({time:x.currentTime,duration:x.duration,ready:x.readyState,paused:x.paused,error:x.error?.message??null,src:x.currentSrc}));
+                console.log('PLAYBACK_OBSERVATION',JSON.stringify({frame:frame.url(),before,after,passed:after.time>before.time+1&&after.ready>=2&&!after.paused}));
+              }
+            }
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          JS
+          node /tmp/browser/probe.cjs
+      - name: Inspect current edition metadata only
         shell: bash
         run: |
           set -euo pipefail
           git fetch --depth=1 origin shadow-pages-history
           git worktree add --detach /tmp/current-reader FETCH_HEAD
           python3 - <<'PY'
-          import urllib.request, re, pathlib
-          url='https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai'
-          req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'text/html'})
-          with urllib.request.urlopen(req,timeout=40) as r:
-            h=r.read().decode('utf-8'); print('PUBLISHER_HTTP',r.status,'BYTES',len(h),'URL',r.url)
-          terms=['video-id','videoId','entryId','entry-id','kaltura','VideoObject','datePublished','dateCreated','uploadDate','duration']
-          for term in terms:
-            for m in list(re.finditer(re.escape(term),h,re.I))[:8]:
-              print('PUBLISHER_METADATA',term,repr(h[max(0,m.start()-150):m.end()+350]))
-          for p in pathlib.Path('/tmp/current-reader/site').rglob('*'):
-            if not p.is_file() or p.suffix not in ['.html','.json','.xml','.md']: continue
-            t=p.read_text(errors='ignore')
-            if 'DmCaBWv5yG8' in t or 'Production Monitoring with Codex' in t:
-              print('CURRENT_REFERENCE',str(p.relative_to('/tmp/current-reader/site')),'BYTES',len(t.encode()),'OCCURRENCES',t.count('DmCaBWv5yG8'))
-              for m in list(re.finditer('DmCaBWv5yG8',t))[:1]: print('REFERENCE_CONTEXT',repr(t[max(0,m.start()-350):m.end()+250]))
+          import pathlib,re,json
+          root=pathlib.Path('/tmp/current-reader/site')
+          for name in ['feed.xml','feed.json','data/archive-index.json','data/compiler-feedback-registry.json','briefs-archive/index.html']:
+            t=(root/name).read_text();print('TARGET',name)
+            if name.endswith('.json'):
+              def walk(o,loc=''):
+                if isinstance(o,dict):
+                  vals=[v for v in o.values() if isinstance(v,str)]
+                  if any('Production Monitoring with Codex' in v for v in vals):print('JSON_RECORD',loc,json.dumps(o,ensure_ascii=False)[:5000])
+                  else:
+                    for k,v in o.items():walk(v,loc+'/'+str(k))
+                elif isinstance(o,list):
+                  for k,v in enumerate(o):walk(v,loc+'/'+str(k))
+              walk(json.loads(t))
+            else:
+              for m in re.finditer('Production Monitoring with Codex',t):
+                x=t[max(0,m.start()-600):m.end()+850]
+                if '2026-10-17' in x: print('CONTEXT',repr(x))
           PY
