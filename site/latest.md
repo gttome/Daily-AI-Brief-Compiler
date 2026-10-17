@@ -4,7 +4,7 @@
 **Coverage period:** October 7–16, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-17-m12">Package one repository quality procedure as a reviewable Agent Skill</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m14">A narrow scorecard turns an agent pilot into a production decision</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m10">Public-service AI works best when accountability spans the full process</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m11">Ericsson separates proven quote digitization from exploratory agent assistance</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m01">A live laboratory digital twin gives scientific agents physical guardrails</a><span>Article · about 9 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m02">GitHub makes license policy a pre-merge constraint coding agents can query</a><span>Article · about 3 min source read</span></li><li><a href="#general">Navigating AI automation in Looker: Essential developer tools for agents</a><span>Video · 5:55</span></li><li><a href="#agents-for-non-technical-people">Production Monitoring with Codex: Grafana, Kubernetes, &amp; Security</a><span>Video · 7:59</span></li><li><a href="#podcast-dab-podcast-2026-10-17-1">Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</a><span>Podcast · 1:00:00</span></li><li><a href="#podcast-dab-podcast-2026-10-17-2">The AGORÀ Briefing — Wednesday, October 14, 2026</a><span>Podcast · 8:00</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-17-m12">Package one repository quality procedure as a reviewable Agent Skill</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m14">A narrow scorecard turns an agent pilot into a production decision</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m10">Public-service AI works best when accountability spans the full process</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m11">Ericsson separates proven quote digitization from exploratory agent assistance</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m01">A live laboratory digital twin gives scientific agents physical guardrails</a><span>Article · about 9 min source read</span></li><li><a href="#reading-dab-story-2026-10-17-m02">GitHub makes license policy a pre-merge constraint coding agents can query</a><span>Article · about 3 min source read</span></li><li><a href="#general">Navigating AI automation in Looker: Essential developer tools for agents</a><span>Video · 5:55</span></li><li><a href="#agents-for-non-technical-people">Reimagine business productivity with AI agents and assistants</a><span>Video · 7:58</span></li><li><a href="#podcast-dab-podcast-2026-10-17-1">Can Open Models Keep Up With the AI Frontier? | Nathan Lambert</a><span>Podcast · 1:00:00</span></li><li><a href="#podcast-dab-podcast-2026-10-17-2">The AGORÀ Briefing — Wednesday, October 14, 2026</a><span>Podcast · 8:00</span></li></ol></section>
 <!-- reader-release:end -->
 
 <span id="reading-dab-story-2026-10-17-m12"></span>
@@ -280,21 +280,23 @@
 
 ## 8. Agents for Everyone
 
-### Production Monitoring with Codex: Grafana, Kubernetes, & Security
+### Reimagine business productivity with AI agents and assistants
 
 <a href="{{ '/videos/2026-10-17/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-17-agent-skills" data-edition-date="2026-10-17" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** OpenAI official YouTube video  
-**Date:** October 7, 2026  
-**Duration:** 7:59  
+**Channel:** IBM AI Academy  
+**Date:** March 17, 2025  
+**Duration:** 7:58  
 **Format:** Video
 
-**Summary:** OpenAI presenters walk through three bounded production-response scenarios: a checkout failure correlated with Grafana and recent changes, a Kubernetes rollout with out-of-memory restarts, and shared-worker exhaustion treated as an availability issue. The segment emphasizes reconstructing evidence before proposing patches, human review before high-impact changes, and replay-based validation after remediation. These are demonstrations, not independent incident-resolution benchmarks; summary derives from a complete indexed original-language transcript, not watched playback.
+**Summary:** IBM AI Academy presenter Parul Mishra explains how AI assistants differ from AI agents and how both can support enterprise knowledge work. The episode considers choosing the appropriate form of assistance or automation for a business use case. This evergreen educational overview is not an independent productivity benchmark; the synopsis is based on IBM's published episode description.
 
-**Why it matters:** Use telemetry and change history as controlled context, then review and regression-test each suggested operational patch.
+**Why it matters:** Match the level of automation to one clearly defined task before deploying an agent. Use the distinction between assistants and agents to identify where employees need support, where actions require approval, and what outcomes to measure.
+
+**Replacement note:** This evergreen IBM episode replaces an unavailable video. Originally published March 17, 2025; it is not an October 2026 news release.
 
 
 
-**Source:** <a href="https://www.youtube.com/watch?v=DmCaBWv5yG8" data-item-id="dab-video-2026-10-17-agent-skills" data-edition-date="2026-10-17" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai" data-item-id="dab-video-2026-10-17-agent-skills" data-edition-date="2026-10-17" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-17" data-feedback-story-id="dab-video-compiler-2026-10-17-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
