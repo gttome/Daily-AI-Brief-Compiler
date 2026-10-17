@@ -81,16 +81,19 @@ function applyFeedbackIdentities(content,registry){
   return next;
 }
 
-function rewriteReaderEnvironment(root,environment){
+export function rewriteReaderEnvironment(root,environment){
   const absoluteToken='__DAILY_COMPILER_PUBLIC_BASE__';
+  const existingBaseurlToken='__DAILY_COMPILER_EXISTING_BASEURL__';
   for(const file of walk(root)){
     if(!TEXT_EXT.has(path.extname(file).toLowerCase()))continue;
     const text=fs.readFileSync(file,'utf8');
     const next=text
+      .replaceAll(environment.baseurl,existingBaseurlToken)
       .replaceAll(environment.productionReferenceBase,absoluteToken)
       .replaceAll(environment.productionReferenceBaseurl,environment.baseurl)
       .replaceAll('gttome.github.io\\/Daily-AI-Brief\\/','gttome.github.io\\/(?:Daily-AI-Brief|Daily-AI-Brief-Compiler)\\/')
-      .replaceAll(absoluteToken,environment.publicBase);
+      .replaceAll(absoluteToken,environment.publicBase)
+      .replaceAll(existingBaseurlToken,environment.baseurl);
     if(next!==text)fs.writeFileSync(file,next,'utf8');
   }
   const configPath=path.join(root,'_config.yml');
