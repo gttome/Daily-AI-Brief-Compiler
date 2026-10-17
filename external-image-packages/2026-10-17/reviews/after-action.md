@@ -4,7 +4,7 @@ Status: six source-grounded images published and verified; 24 saved desktop/mobi
 
 > **Owner-reported run usage: 8% of the weekly allowance.** This is the owner's run-specific report, not independently measured telemetry. No compiler-versus-image breakdown was supplied. Canonical input: [October 16 production-cycle usage](../../../docs/after-action/usage/2026-10-16.json). Do not carry this percentage into future runs.
 >
-> **Postpublication media defect — OPEN:** The owner reports that item #8, *Production Monitoring with Codex: Grafana, Kubernetes, & Security*, opens as a private video on YouTube. The image-release PASS above does not certify that this external video is publicly playable. See the incident and corrective-action record below.
+> **Postpublication media defect — RESOLVED:** Item #8 now links to the publicly playable IBM AI Academy episode *Reimagine business productivity with AI agents and assistants* (7:58). Protected PR #214 published the replacement and its own metadata, summary and practical interpretation. The original incident record below is retained for audit; see the verified video-replacement closeout at the end of this report.
 
 The initial worker stopped before generation because the requested exact diagram content conflicted with its image-method instructions. This recovery used six genuine native conceptual illustrations, then separately authored every exact label and causal connection. Factual accuracy remains mandatory. The generated artwork is visibly qualified as conceptual and does not encode the precise diagrams.
 
@@ -38,7 +38,9 @@ The review found a pre-existing viewer defect: materialization doubled the Compi
 
 The factual-diagram restriction concerns the rendering method. Every final image remains source-grounded: exact labels and causal structure are authored, and conceptual illustration is qualified. The suggested Skill trial is an editorial recommendation, not a publisher-reported experimental outcome.
 
-## Owner follow-up — usage and video availability
+## Owner follow-up — usage and initial video-availability report
+
+**Historical incident snapshot:** The OPEN and not-completed values in this table describe the original report before PR #214. They are superseded by the verified closeout below, not the current video status.
 
 | Item | Recorded result | Evidence and scope |
 |---|---|---|
@@ -54,3 +56,25 @@ The factual-diagram restriction concerns the rendering method. Every final image
 **Required corrective action:** Correct or replace the unavailable video through a bounded, media-only publication change after verifying a publicly playable, relevant source. Until then the listing must not be counted as publicly playable. Preserve the six accepted PNGs, their article bindings, the immutable original bundle, and prior-edition history. This record does not modify the public reader or activate a new publication workflow.
 
 **Prevention proposal — not yet implemented:** Before sealing and again before publication, check each exact YouTube URL as a public/signed-out viewer, record the video ID and check time, and distinguish playback availability from metadata/transcript retrieval. A private, removed, unavailable, or access-restricted item fails public-media acceptance; inconclusive checks remain unverified rather than PASS. Replacement content must have its own verified title, publisher, duration and summary; do not retain the old synopsis under a different video.
+
+## Video #8 replacement — verified closeout
+
+**Result: RESOLVED / LIVE_REPLACEMENT_VERIFIED.** Protected [PR #214](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/214) merged after both required Compiler validation and the media dry-run succeeded. [Publication run 39000343613](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39000343613) completed the actual deployment, independent live-byte checks and non-force history persistence. Final readback was recorded at **2026-10-17 03:52:02 UTC**.
+
+| Verification | Recorded outcome |
+|---|---|
+| Replacement | [Reimagine business productivity with AI agents and assistants — IBM AI Academy](https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai) |
+| Listed duration | **7:58**; actual full-player duration **478.447 seconds** |
+| Original publication date | **March 17, 2025** from first-party metadata; explicitly marked as an evergreen replacement, not October 2026 news |
+| Public access | Fresh signed-out browser activated the full-episode control; playback advanced **0.487902 → 4.502158 seconds**, readyState 4, no player error |
+| Corrected reader representations | **10/10 live HTTP and SHA-256 checks passed**: dated Brief, homepage, latest HTML/Markdown, permanent video page, Atom/JSON feeds, archive index/page and feedback title registry |
+| Accepted October 17 PNGs | **6/6 live hashes unchanged** |
+| Other published assets | **955 objects unchanged**, including **351 image objects** and **19 immutable image-job objects** |
+| October 8 protected history | **17/17 postdeployment live checks passed** |
+| Owner-reported run usage | **8% unchanged**; no new measured usage or component breakdown was inferred |
+
+The updated [permanent video entry](https://gttome.github.io/Daily-AI-Brief-Compiler/videos/2026-10-17/agent-skills/) retains its original reader slot URL, but now has the replacement's own title, publisher, original date, duration, source link, synopsis and Why it matters. Older dated editions and the original sealed bundle/job were not rewritten. No image generation or production restart occurred.
+
+**Evidence:** [Persisted live verification receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/correction-receipts/2026-10-17-video8.json), [source-bound correction revision](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/config/media-revisions/2026-10-17-video8.json).
+
+**Verification limits and prevention:** This was an actual short playback smoke test of the full-length episode, not full-episode viewing or a transcript review. The synopsis derives from IBM's published description and learning objectives. The 19-second automatic background preview was correctly rejected as insufficient proof. A full-episode, signed-out playback gate is implemented for this bounded correction; the broader daily pre-seal media-check proposal above is not claimed implemented by this repair.
