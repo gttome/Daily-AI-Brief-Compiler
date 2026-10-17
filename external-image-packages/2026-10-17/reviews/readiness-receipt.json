@@ -1,27 +1,23 @@
 {
   "schema_version": "external-image-readiness-receipt-v1",
   "edition_date": "2026-10-17",
-  "status": "BLOCKED_INCOMPLETE",
-  "blocker": {
-    "code": "EXACT_DIAGRAM_GENERATION_RESTRICTION",
-    "category": "output_method_instruction_conflict",
-    "description": "The requested deliverables require native-generated precise factual diagrams with exact explanatory labels and causal relationships. The active image-use instruction disallows generated imagery for precise diagrams or information that must be exact. The native image tool is exposed, but was not called for this prohibited output. No mode, chat-label, scheduler-identity, login, or quota gate was applied.",
-    "resolution": "A compliant authored-diagram route or revised output requirements would need explicit authorization and any required protected contract change. No substitute route or policy change was attempted."
-  },
+  "status": "IN_PROGRESS",
+  "production_started": true,
+  "actual_native_generation_count": 2,
+  "candidate_images_uploaded": 2,
+  "accepted_final_set": 0,
+  "candidate_branch": "image-package/2026-10-17-hybrid-recovery",
+  "candidate_head": "fc0ff9e9cc53783de54b200fa653bc99b2e191ab",
+  "method": "Native art is a clearly conceptual, non-operational illustration only. All factual labels, quantities, causal links and diagram geometry will be authored deterministically in a separate layout. No native artwork will encode a precise factual diagram.",
+  "prior_blocker": "Preserved in parent commit 135f557af6733bf8cad7f961afc8c849babd9bb7. Native artwork is now separate from deterministic factual diagram content.",
   "readiness": {
-    "native_image_tool_exposed": true,
-    "native_generation_executed": false,
-    "saved_pixel_tool_exposed": true,
-    "saved_pixel_inspection_executed": false,
-    "exact_png_export": "NOT_TESTED",
-    "github_authenticated_reads": "PASS",
-    "github_png_binary_upload": "NOT_TESTED",
-    "github_png_exact_commit_readback": "NOT_TESTED",
-    "protected_release": "NOT_ATTEMPTED",
-    "host_mode_gate_applied": false
+    "native_generation_executed": true,
+    "saved_pixel_inspection_executed": true,
+    "exact_png_export": "PASS_TWO_CANDIDATES",
+    "github_png_binary_upload": "PASS_TWO_CANDIDATES",
+    "github_png_exact_commit_readback": "PASS_FIRST_CANDIDATE_SECOND_PENDING",
+    "protected_release": "NOT_ATTEMPTED"
   },
-  "job_sha256": "26c3a0480b33a53a7278325859f95b0c705e18917eb16d9b5913f982680547aa",
-  "bundle_sha256": "272a73e6052986a26af75e0e339f9ce9f5f79490a93539020ad8eb4ef4d10d29",
   "readiness_pass": false,
-  "production_started": false
+  "completion_claimed": false
 }
