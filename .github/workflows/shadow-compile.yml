@@ -102,6 +102,13 @@ jobs:
           destination: ./build/current
       - name: Verify built reader parity surfaces
         run: node scripts/verify-built-reader.mjs build/current build/reader-source build/built-verification.json
+      - name: Require fresh signed-out full-episode playback before deploying Pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-10-18" ]]; then echo "Historical media gate unaffected"; exit 0; fi
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/verify-selected-video-playback.cjs "run/shadow-runs/$TARGET_DATE/edition-bundle.json" build/video-public-playback.json
       - name: Restore previously verified permanent pages
         run: |
           if git ls-remote --exit-code --heads origin shadow-pages-history >/dev/null 2>&1; then
