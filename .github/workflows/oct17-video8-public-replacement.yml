@@ -11,43 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
+      - uses: actions/checkout@v4
       - name: Verify full-length episode signed out
         shell: bash
         run: |
           set -euo pipefail
           npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
-          cat > /tmp/browser/probe.cjs <<'JS'
-          const {chromium}=require('playwright-core');
-          (async()=>{
-            const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});
-            const page=await browser.newPage({viewport:{width:1440,height:1000}});
-            const manifests=[];
-            page.on('response',r=>{if(/playManifest/.test(r.url())){const u=r.url().split('?')[0];manifests.push({url:u,status:r.status()});console.log('MANIFEST',r.status(),u);}});
-            const url='https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai';
-            const response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
-            await page.waitForTimeout(7000);
-            console.log('VIDEO_CTA',JSON.stringify(await page.locator('[video-id]').evaluateAll(xs=>xs.map(x=>({tag:x.tagName,id:x.getAttribute('video-id'),text:x.textContent?.trim().slice(0,100)})))));
-            const play=page.getByRole('button',{name:/This link plays a video/i});
-            console.log('EPISODE_BUTTONS',await play.count());
-            await play.first().click({timeout:10000});
-            await page.waitForTimeout(8000);
-            let passed=false;
-            for(const frame of page.frames()){
-              const videos=frame.locator('video');
-              for(let i=0;i<await videos.count();i++){
-                const v=videos.nth(i);
-                const duration=await v.evaluate(x=>x.duration);
-                if(!(duration>=477&&duration<=480))continue;
-                await v.evaluate(x=>{x.muted=true;return x.play();});
-                const before=await v.evaluate(x=>({time:x.currentTime,duration:x.duration,ready:x.readyState}));
-                await page.waitForTimeout(4000);
-                const after=await v.evaluate(x=>({time:x.currentTime,duration:x.duration,ready:x.readyState,paused:x.paused,error:x.error?.message??null}));
-                passed=after.time>before.time+1&&after.ready>=2&&!after.paused&&!after.error;
-                console.log('FULL_EPISODE_PLAYBACK',JSON.stringify({url,http:response.status(),before,after,passed,manifests,checked_at:new Date().toISOString(),signed_in:false,full_episode_watched:false}));
-              }
-            }
-            await browser.close();
-            if(!passed)throw Error('Full episode playback not established; background-preview playback is insufficient');
-          })().catch(e=>{console.error(e);process.exit(1)});
-          JS
-          node /tmp/browser/probe.cjs
+          node scripts/verify-ibm-episode.cjs build/video-playback.json
