@@ -1,0 +1,47 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-17",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct17-t1-autonomous-wet-lab",
+      "focus": "Technical AI Engineering",
+      "headline": "A live laboratory digital twin gives scientific agents physical guardrails",
+      "source_url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+      "published_at": "2026-10-16",
+      "publisher": "Google Research",
+      "read_scope": "Complete research article: VERID state model, simulation and hardware checks, synchronized evidence, aptamer cycles, measured hit rates, failure modes, protein-binder results and stated limits.",
+      "reading_time_minutes": 9,
+      "topics": [
+        "Physical agent safety",
+        "Laboratory digital twins",
+        "Closed-loop discovery"
+      ],
+      "agent_skills": false,
+      "summary": "Google Research describes VERID, a semantic digital twin that tracks robot geometry, well volumes, reagents and pipette inventory before an AI agent executes laboratory protocols. Virtual dry runs and hardware checks reject impossible commands, while synchronized video and action logs support debugging. Separate closed-loop experiments improved aptamer selection, but physical readouts and human scientific direction remain essential.",
+      "why_it_matters": "Engineering teams can borrow the pattern without operating a lab: represent live system state, simulate proposed actions, block invalid commands and retain synchronized evidence. Evaluate recovery from depleted resources and hardware failures before granting an agent authority over physical or costly workflows.",
+      "image_alt_intent": "Laboratory agent proposes a protocol through a live digital twin, virtual dry run and hardware safety gate before robot execution, with synchronized state, video and result feedback.",
+      "permanent_route": "/stories/2026-10-17/t1-autonomous-wet-lab/"
+    },
+    {
+      "id": "oct17-t2-license-aware-dependencies",
+      "focus": "Technical AI Engineering",
+      "headline": "GitHub makes license policy a pre-merge constraint coding agents can query",
+      "source_url": "https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/",
+      "published_at": "2026-10-16",
+      "publisher": "GitHub Changelog",
+      "read_scope": "Complete release: enterprise ruleset condition, pull-request annotations, exception paths, dedicated reviewer role, audit events, policy APIs, data-residency support and package-compliance endpoint for coding agents.",
+      "reading_time_minutes": 3,
+      "topics": [
+        "License policy APIs",
+        "Dependency review",
+        "Agent tool constraints"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub made enterprise open-source license compliance generally available. Repository rulesets can require license checks before merge, annotate newly added dependencies that violate centralized policy and route exception closures to a dedicated enterprise role. Audit events and policy APIs support external records, while a package-check endpoint lets coding agents avoid recommending disallowed dependencies.",
+      "why_it_matters": "Treat license policy as a machine-readable tool constraint, not a post-review checklist. Test an allowed package, a prohibited package and an approved exception, then confirm the pull request, audit log and agent recommendation all reflect the same decision.",
+      "image_alt_intent": "A dependency proposal passes through enterprise license policy, pull-request annotation, exception review and audit logging before either merge approval or package replacement.",
+      "permanent_route": "/stories/2026-10-17/t2-license-aware-dependencies/"
+    }
+  ]
+}
