@@ -75,7 +75,7 @@ jobs:
           set -euo pipefail
           npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
           node scripts/verify-ibm-episode.cjs build/video-playback.json
-      - name: Patch only current video and its ten reader representations
+      - name: Patch only the exact current-video revision targets
         shell: bash
         run: |
           set -euo pipefail
@@ -94,7 +94,7 @@ jobs:
           path: build/patched
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Verify ten live corrected routes and six unchanged article images
+      - name: Verify all live corrected routes and six unchanged article images
         run: python3 scripts/verify-oct17-video8-release.py build/video-correction.json build/patched history
       - name: Independently confirm all protected October 8 live objects
         run: node scripts/audit-oct8-live.mjs build/oct8-after-video-correction.json
@@ -106,19 +106,27 @@ jobs:
           python3 - <<'PY'
           import json,pathlib,shutil
           r=json.loads(pathlib.Path('build/video-correction.json').read_text())
-          assert r['result']=='LIVE_REPLACEMENT_VERIFIED' and len(r['changed'])==10
+          assert r['result']=='LIVE_REPLACEMENT_VERIFIED' and len(r['changed']) in (2,10)
+          revision=json.loads(pathlib.Path('config/media-revisions/2026-10-17-video8.json').read_text())
+          if revision.get('display_label_revision')==2:
+              assert len(r['changed'])==2 and r['correction_id']=='oct17-video8-ibm-public-replacement-r2'
+              basename='2026-10-17-video8-r2.json'
+          else:
+              assert len(r['changed'])==10 and revision['correction_revision']==1
+              basename='2026-10-17-video8.json'
           r['oct8_postdeploy_audit']=json.loads(pathlib.Path('build/oct8-after-video-correction.json').read_text())
           for item in r['changed']:
             shutil.copyfile('build/patched/'+item['route'],'history/site/'+item['route'])
-          out=pathlib.Path('history/correction-receipts/2026-10-17-video8.json')
-          assert not out.exists(),'Never overwrite the first verification receipt'
+          out=pathlib.Path('history/correction-receipts')/basename
+          assert not out.exists(),'Never overwrite a prior verification receipt'
           out.parent.mkdir(parents=True,exist_ok=True)
           out.write_text(json.dumps(r,indent=2)+'\n')
           PY
-          git -C history add -- site/index.html site/latest.html site/latest.md site/briefs/2026-10-17/index.html site/videos/2026-10-17/agent-skills/index.html site/feed.xml site/feed.json site/data/archive-index.json site/data/compiler-feedback-registry.json site/briefs-archive/index.html correction-receipts/2026-10-17-video8.json
-          test "$(git -C history diff --cached --name-only | wc -l)" -eq 11
+          git -C history add -- site/index.html site/latest.html site/latest.md site/briefs/2026-10-17/index.html site/videos/2026-10-17/agent-skills/index.html site/feed.xml site/feed.json site/data/archive-index.json site/data/compiler-feedback-registry.json site/briefs-archive/index.html correction-receipts/
+          expected="$(python3 -c "import json;print(json.load(open('build/video-correction.json'))['files_changed']+1)")"
+          test "$(git -C history diff --cached --name-only | wc -l)" -eq "$expected"
           git -C history config user.name 'Daily Compiler Media Correction'
           git -C history config user.email 'actions@users.noreply.github.com'
-          git -C history commit -m 'Replace October 17 private video 8 with verified public IBM episode'
+          git -C history commit -m 'Finalize October 17 video 8 public replacement and source labels'
           git -C history push origin HEAD:refs/heads/shadow-pages-history
           echo 'OCT17_VIDEO8_LIVE_REPLACEMENT_VERIFIED_AND_PERSISTED'
