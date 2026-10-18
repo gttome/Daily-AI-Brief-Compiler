@@ -42,6 +42,19 @@ These limits apply to the *reader-facing editorial text*, not full publisher rea
 
 The Release 1 validator enforces word counts and topic cardinality as a hard gate on new editions beginning October 13. The canonical homepage, dated Brief and permanent pages must show equivalent concise copy. The October 8–12 corpus remains unchanged and must never retroactively fail or be republished.
 
+### Prospective article publisher balance — October 19, 2026 onward
+
+The October 18 edition contained three AWS and two SAP articles out of six. This was allowed by the old distinct-URL check, because an AWS blog department and an SAP news page count as different URLs but are **not** independent publishing organizations. The same type of concentration should not recur in new editions.
+
+For each **new** six-article edition, select for depth, factual significance, freshness and relevance while ensuring:
+- **Target six different publishing organizations**, with a **hard minimum of five**. A second story from one other organization is permissible when it adds distinct evidence or substantial reader value, but no organization may supply more than two.
+- **At most one AWS article and at most one SAP article.** Normalize the original source URL to the publishing organization; AWS Machine Learning and AWS Public Sector are both AWS, all SAP News domains are SAP, and Google Research/Google Cloud are Google. Rebranding a source label does not create a different publisher.
+- Before locking a new selection, inspect the **seven most recently published editions** and deliberately prioritize authoritative publishers underrepresented in that period. Record the seven-edition source exposure in the release receipt, including gaps in archived evidence. These rolling counts guide editorial ranking; they never justify invented articles or manipulation of the source identities.
+- Look beyond one vendor's feeds for credible source documents from independent researchers, Microsoft, IBM, NVIDIA, Databricks, Google, GitHub, Anthropic, OpenAI, open research venues and independent practitioners. Publisher-authored claims must still be represented as such; don't invent independent confirmation.
+- Preserve the **2 technical / 2 knowledge-worker / 2 nontechnical-agent** allocation and **exactly one Agent Skills article**. Preserve the 24h/72h/168h freshness ladder and verified full reading evidence. An extra brand is not worth a speculative, old or irrelevant story.
+
+The same prospective diversity check is enforced before new pending-image bundle sealing and independently in the existing bundle-ready and Pages publisher validation flow. On failure, correct only the unsealed future selection; don't relax the rule, borrow an already published article as filler, or touch a historical bundle. No new AI schedules, workflow runners or paid APIs are authorized.
+
 ## Media
 
 - 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
@@ -49,7 +62,7 @@ The Release 1 validator enforces word counts and topic cardinality as a hard gat
 
 ### Prospective media non-repetition — October 19, 2026 onward
 
-For every newly sealed edition, check both video identities and both individual podcast episode identities against the **seven most recently published previous Briefs** (not merely the current candidates). A reused YouTube video, podcast episode URL/Apple episode ID, or identical substantive title is a publication defect even if metadata was rechecked. A different episode from a recurring program is eligible; retain source diversity within each edition and prefer varied publishers from the prior edition. Source verification does not imply actual audiovisual playback. The bundle-ready and Pages workflows independently fail closed when published media history cannot be verified or an exact item is repeated. Previously published October 15–18 bundles remain immutable. Select genuinely new media; never falsify identities or disable the validation gate.
+For every newly sealed edition, check both video identities and both individual podcast episode identities against the **seven most recently published previous Briefs** (not merely the current candidates). A reused YouTube video, podcast episode URL/Apple episode ID, or identical substantive title is a publication defect even if metadata was rechecked. **Program rotation is additional to episode uniqueness.** The two podcasts must be from two different programs, and neither program may have appeared in the **three most recently published previous editions**, even if the episode, URL or display title has changed. Prefer a **seven-edition program gap** when qualifying fresh episodes exist. Match both the normalized program/publisher label and a stable show ID (for example, Apple Podcasts show ID), not just the episode ID. Return to a high-quality program only after the cooldown. If the available pool is insufficient, expand research among verified programs rather than repeat a show by default; preserve source verification and never fabricate an episode. Past October 15–18 editions remain immutable. Source verification does not imply actual audiovisual playback. The bundle-ready and Pages workflows independently fail closed when published media history cannot be verified or an exact item is repeated. Previously published October 15–18 bundles remain immutable. Select genuinely new media; never falsify identities or disable the validation gate.
 - Source links open in a new tab.
 
 ## Watchlist
