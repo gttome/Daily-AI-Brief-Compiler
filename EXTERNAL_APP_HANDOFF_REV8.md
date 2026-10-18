@@ -8,6 +8,8 @@
 
 ## What changes
 
+**Image-output qualification:** Read `docs/external-app/STATIC_EDITORIAL_IMAGE_ADMISSION.md`. Revision 8 creates **finished factual editorial illustrations**; it does not require CAD, dimensionally exact technical source diagrams, machine-readable data or working interactive behavior. Correct labels and factual relationships are enforced by post-generation saved-pixel inspection, not assumed from the prompt. A blanket ban on native image generation because a static illustration contains source facts and exact labels is not a valid readiness finding. Actual tool limitations remain binding and must be recorded truthfully.
+
 Two daily production tasks only: Compiler at 19:15 America/Chicago and native image production at 21:15, both using real available connected GitHub capabilities. **No checks or gates based on ordinary ChatGPT / Work / Codex chat type or scheduler invocation IDs.** The image source selector is the exact new cycle's edition date; missing source yields `WAITING_SOURCE`, not an old-edition fallback. Standing recurring authority begins October 11 evening for October 12. Require actual native images, RGB/RGBA PNG binary exports, saved pixels, GitHub hash readbacks and protected Pages release; do not infer those from any task title. Historical released image packages are immutable.
 
 ## What cannot change

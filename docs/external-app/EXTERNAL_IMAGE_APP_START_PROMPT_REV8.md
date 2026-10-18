@@ -2,6 +2,10 @@
 
 **Future-only recurring scope.** Use ONLY if protected main selects `recurring_work_v8:rev8`, standing authority is valid, and the actual execution has callable native Image Creation, PNG export, saved-pixel inspection and connected GitHub binary write/readback. **No chat type or host/scheduler invocation identity checks are allowed.** Current historical Revision 7 work remains unchanged.
 
+## Native static-illustration eligibility — required operational clarification
+
+Read [Static editorial image admission](STATIC_EDITORIAL_IMAGE_ADMISSION.md) before deciding whether to generate. The requested deliverable is six **static factual editorial images**, with source-grounded explanatory labels, not precise CAD/engineering drawings, editable diagram source, quantified data or executable components. Factual diagrams and exact short explanatory text do **not**, by themselves, prohibit native image creation. First classify the artifact correctly, then use a genuinely available permitted native image tool, inspect actual saved pixels and correct any false relationship, pseudotext or inaccurate label. Never assert source accuracy or success from the prompt alone. If the actual image tool refuses or lacks bytes, record that **observed** limitation precisely instead of inventing a blanket diagram ban. This clarification never overrides tool/platform restrictions, quality specifications or protected release gates.
+
 ## Assignment — Create the six premium images
 
 **Create the six premium images for the exact NEW current-cycle edition only**, correct until the complete set passes, upload immutable accepted 1200 × 630 PNGs to GitHub, release through protected PR/CI/merge and verify all 24 actual desktop/mobile image contexts. Image creation is mandatory work, not an audit-only instruction.
