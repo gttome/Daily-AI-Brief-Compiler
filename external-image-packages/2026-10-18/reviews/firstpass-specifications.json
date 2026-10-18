@@ -1,0 +1,637 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct18-t1-agent-evaluation-loop",
+    "source_url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+    "visual_thesis": "Business-grounded agent evaluation spans design, release gates and production feedback; uptime alone does not detect factual errors.",
+    "mechanism_metaphor": "Three-zone continuous evaluation ribbon with a magnified evaluation stack",
+    "story_anchors": [
+      "wrong units and unsupported calculations",
+      "golden sets across tool, agent and orchestration"
+    ],
+    "required_labels": [
+      "Define failures",
+      "Golden sets",
+      "Experiment",
+      "Merge sentinel",
+      "Full release gate",
+      "Canary",
+      "Adversarial tests",
+      "Drift",
+      "Trace evidence",
+      "Feedback",
+      "Tool checks",
+      "Agent reasoning",
+      "Orchestration",
+      "Safety",
+      "Quality",
+      "Latency",
+      "Cost",
+      "Release thresholds"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "Business failures define evaluators; tests run at tool, agent and orchestration levels.",
+        "supporting_source_excerpt": "tool level",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Merge and deployment gates precede continuous production checks; failure evidence informs golden sets and tested improvements.",
+        "supporting_source_excerpt": "feedback loop",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Define failures",
+        "to": "Golden sets",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Golden sets",
+        "to": "Merge sentinel",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Full release gate",
+        "to": "Canary",
+        "support_claim_id": "claim2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Drift",
+        "to": "Golden sets",
+        "support_claim_id": "claim2",
+        "direction": "feedback_verified",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Trace evidence",
+        "to": "Feedback",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No claim that uptime proves accuracy.",
+      "No guarantee that checks eliminate failures.",
+      "No invented performance statistics."
+    ],
+    "composition_signature": {
+      "grammar": "nested lifecycle ribbon",
+      "metaphor": "Three-zone continuous evaluation ribbon with a magnified evaluation stack",
+      "annotation": "direct stage labels with inset leader lines"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 18,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "conceptual_illustration_not_measured_schematic": true
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct18-t2-open-coding-runtime",
+    "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+    "visual_thesis": "Open weights expose deployment choices; precision, memory and runtime must be pinned and tested.",
+    "mechanism_metaphor": "Exploded deployment chassis with three distinct routes and shared test bench",
+    "story_anchors": [
+      "three deployment routes",
+      "checkpoint precision and memory budgeting"
+    ],
+    "required_labels": [
+      "Open weights",
+      "Pinned checkpoint",
+      "Precision",
+      "GPU memory",
+      "Cache",
+      "Sharding",
+      "Pinned runtime",
+      "Managed endpoint",
+      "Managed cluster",
+      "Custom serving",
+      "Validate",
+      "Smoke test",
+      "Load test",
+      "Quality check",
+      "Latency",
+      "Throughput",
+      "Cleanup"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "The guide offers managed endpoints, managed cluster deployments and custom serving on a cluster.",
+        "supporting_source_excerpt": "deployment options",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Pinned artifacts, configuration checks, smoke and load tests, and cleanup are explicit deployment work.",
+        "supporting_source_excerpt": "memory requirements",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Precision",
+        "to": "GPU memory",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Pinned checkpoint",
+        "to": "Managed endpoint",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Pinned checkpoint",
+        "to": "Managed cluster",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Pinned checkpoint",
+        "to": "Custom serving",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Validate",
+        "to": "Smoke test",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Smoke test",
+        "to": "Load test",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No comparative quality rankings.",
+      "No fabricated hardware capacity or model speed.",
+      "No product logos or brand names."
+    ],
+    "composition_signature": {
+      "grammar": "three-route exploded cross-section",
+      "metaphor": "Exploded deployment chassis with three distinct routes and shared test bench",
+      "annotation": "component tags and shared constraint brace"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 17,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "conceptual_illustration_not_measured_schematic": true
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct18-k1-process-readiness",
+    "source_url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+    "visual_thesis": "Task-level AI use is not end-to-end readiness; connected data and governed processes support controlled workflow trials.",
+    "mechanism_metaphor": "Fragmented task islands connected by a governed process bridge on data foundations",
+    "story_anchors": [
+      "task-level versus operating-model change",
+      "data plus approval and regulatory context"
+    ],
+    "required_labels": [
+      "Isolated tasks",
+      "Connected process",
+      "Trusted data",
+      "Customer",
+      "Contract",
+      "Inventory",
+      "Approval",
+      "Compliance",
+      "Process owner",
+      "Decision",
+      "Exception path",
+      "Outcome measure",
+      "Governance",
+      "Workflow trial"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "The vendor-sponsored survey distinguishes task adoption from fundamental operational adaptation.",
+        "supporting_source_excerpt": "business processes",
+        "source_url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Trusted data, process context and governance are prerequisites argued for scaling AI.",
+        "supporting_source_excerpt": "data and processes",
+        "source_url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Trusted data",
+        "to": "Connected process",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Governance",
+        "to": "Connected process",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Approval",
+        "to": "Decision",
+        "support_claim_id": "claim2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No claim of demonstrated productivity gain.",
+      "No unsourced survey extrapolation.",
+      "Bridge is a conceptual metaphor, not an exact workflow specification."
+    ],
+    "composition_signature": {
+      "grammar": "process bridge foundation cutaway",
+      "metaphor": "Fragmented task islands connected by a governed process bridge on data foundations",
+      "annotation": "layer captions and foundation callouts"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant",
+      "source_url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "conceptual_illustration_not_measured_schematic": true
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct18-k2-board-evidence-pack",
+    "source_url": "https://news.sap.com/2026/10/10-questions-board-members-should-be-asking-about-security-compliance/",
+    "visual_thesis": "Board oversight needs accountable decisions, residual-risk visibility and tested recovery evidence rather than security assurances alone.",
+    "mechanism_metaphor": "An unfolded evidence folio with four distinct document layers and an open-action closure rail",
+    "story_anchors": [
+      "decision rights and residual risk",
+      "combined incident, continuity and recovery exercise"
+    ],
+    "required_labels": [
+      "Decision evidence",
+      "Accountable owner",
+      "Decision rights",
+      "Security review",
+      "Residual risk",
+      "Acceptance period",
+      "Supplier dependencies",
+      "Regulatory change",
+      "Incident plan",
+      "Continuity",
+      "Recovery exercise",
+      "Open actions",
+      "Retest",
+      "Closure evidence"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "Board questions ask for accountable owners, decision rights and residual risks after controls.",
+        "supporting_source_excerpt": "decision rights",
+        "source_url": "https://news.sap.com/2026/10/10-questions-board-members-should-be-asking-about-security-compliance/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Joint incident, continuity and recovery exercises should expose gaps and remediation needs.",
+        "supporting_source_excerpt": "residual risk",
+        "source_url": "https://news.sap.com/2026/10/10-questions-board-members-should-be-asking-about-security-compliance/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Security review",
+        "to": "Decision evidence",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Residual risk",
+        "to": "Decision evidence",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Recovery exercise",
+        "to": "Open actions",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Retest",
+        "to": "Closure evidence",
+        "support_claim_id": "claim2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No claim that an evidence pack guarantees compliance.",
+      "No invented completed exercise result.",
+      "No human silhouettes or corporate branding."
+    ],
+    "composition_signature": {
+      "grammar": "exploded evidence folio",
+      "metaphor": "An unfolded evidence folio with four distinct document layers and an open-action closure rail",
+      "annotation": "document margin annotations"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant",
+      "source_url": "https://news.sap.com/2026/10/10-questions-board-members-should-be-asking-about-security-compliance/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "conceptual_illustration_not_measured_schematic": true
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct18-a1-trust-layers",
+    "source_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+    "visual_thesis": "Bounded autonomy combines scope, identity, external policy and observability; proof applies to stated rules, ambiguity still needs judgment.",
+    "mechanism_metaphor": "Cutaway concentric control membranes surrounding a bounded task with proof and judgment side channels",
+    "story_anchors": [
+      "external enforcement outside agent reasoning",
+      "proof under assumptions versus judgment"
+    ],
+    "required_labels": [
+      "Bounded task",
+      "Scope",
+      "Tools",
+      "Data",
+      "No-go actions",
+      "Identity",
+      "Least privilege",
+      "External policy",
+      "Allow",
+      "Deny",
+      "Run trace",
+      "Context",
+      "Action",
+      "Result",
+      "Rule proof",
+      "Stated assumptions",
+      "Ambiguity",
+      "Human judgment"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "Scope, identity, external policy and run observability reinforce agent control.",
+        "supporting_source_excerpt": "Scope",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Formal verification applies to precisely stated properties under assumptions; contextual ambiguity needs judgment.",
+        "supporting_source_excerpt": "Observe",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "External policy",
+        "to": "Allow",
+        "support_claim_id": "claim1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "External policy",
+        "to": "Deny",
+        "support_claim_id": "claim1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Run trace",
+        "to": "Result",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Stated assumptions",
+        "to": "Rule proof",
+        "support_claim_id": "claim2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Ambiguity",
+        "to": "Human judgment",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No blanket correctness proof.",
+      "No implication proof removes every approval.",
+      "No actual human or humanoid drawing."
+    ],
+    "composition_signature": {
+      "grammar": "concentric control cutaway",
+      "metaphor": "Cutaway concentric control membranes surrounding a bounded task with proof and judgment side channels",
+      "annotation": "radial layer callouts and split reasoning channels"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 18,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "conceptual_illustration_not_measured_schematic": true
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct18-a2-expense-skill",
+    "source_url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+    "visual_thesis": "A portable skill progressively loads instructions and resources; a read-only expense precheck keeps script execution gated and stops before filing.",
+    "mechanism_metaphor": "Exploded skill-folder specimen feeding a gated validation workbench and a no-filing boundary",
+    "story_anchors": [
+      "portable skill folder and progressive loading",
+      "script approval boundary"
+    ],
+    "required_labels": [
+      "Expense precheck",
+      "SKILL.md",
+      "Name",
+      "Description",
+      "Instructions",
+      "Policy reference",
+      "Validation script",
+      "Template",
+      "Load on demand",
+      "Approval first",
+      "Run checks",
+      "PASS",
+      "REVIEW",
+      "STOP",
+      "Findings",
+      "No filing"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "Skills combine named instructions with optional references, scripts and assets, loaded on demand.",
+        "supporting_source_excerpt": "progressive disclosure",
+        "source_url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Script execution requires approval by default; the edition's bounded precheck returns findings without filing.",
+        "supporting_source_excerpt": "require approval by default",
+        "source_url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "SKILL.md",
+        "to": "Load on demand",
+        "support_claim_id": "claim1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Policy reference",
+        "to": "Run checks",
+        "support_claim_id": "claim1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Approval first",
+        "to": "Run checks",
+        "support_claim_id": "claim2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Run checks",
+        "to": "Findings",
+        "support_claim_id": "claim2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No expense submission or reimbursement.",
+      "No claim scripts are safe merely because packaged.",
+      "PASS/REVIEW/STOP are this edition's proposed precheck outcomes, not framework-native enums."
+    ],
+    "composition_signature": {
+      "grammar": "package anatomy plus gated workbench",
+      "metaphor": "Exploded skill-folder specimen feeding a gated validation workbench and a no-filing boundary",
+      "annotation": "exploded part labels and status stamps"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 16,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "OpenAI assistant",
+      "source_url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "conceptual_illustration_not_measured_schematic": true
+  }
+]
+
