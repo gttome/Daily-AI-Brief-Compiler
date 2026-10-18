@@ -23,7 +23,7 @@ test('illustration admission preserves generator eligibility while distinguishin
   const policy=text(policyPath);
   for(const phrase of [
     'static', 'editorial', 'native image creation', 'factual',
-    'CAD', 'machine-readable', 'tool/platform', 'saved pixels',
+    'CAD', 'machine-readable', 'platform/tool', 'saved pixels',
     'exact label', 'GitHub', '2026-10-18', '21:15 America/Chicago',
     'No paid model/image APIs'
   ]) assert.ok(policy.toLowerCase().includes(phrase.toLowerCase()),'policy missing '+phrase);
