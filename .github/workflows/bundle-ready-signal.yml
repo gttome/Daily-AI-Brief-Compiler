@@ -27,6 +27,17 @@ jobs:
           node-version: '20'
       - id: ready
         run: node scripts/check-current-shadow-ready.mjs >> "$GITHUB_OUTPUT"
+      - name: Reject repeated media against last seven published editions (October 19 onward)
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          TARGET_DATE: ${{ steps.ready.outputs.date }}
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-10-19" ]]; then exit 0; fi
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          git worktree add --detach media-history refs/remotes/origin/shadow-pages-history
+          node scripts/verify-media-freshness.mjs \
+            "shadow-runs/$TARGET_DATE/edition-bundle.json" media-history/site
       - name: Signal protected-main compiler
         if: steps.ready.outputs.ready == 'true'
         env:

@@ -46,6 +46,10 @@ The Release 1 validator enforces word counts and topic cardinality as a hard gat
 
 - 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
 - 2 source-diverse podcasts with verified episode identity/date/source.
+
+### Prospective media non-repetition — October 19, 2026 onward
+
+For every newly sealed edition, check both video identities and both individual podcast episode identities against the **seven most recently published previous Briefs** (not merely the current candidates). A reused YouTube video, podcast episode URL/Apple episode ID, or identical substantive title is a publication defect even if metadata was rechecked. A different episode from a recurring program is eligible; retain source diversity within each edition and prefer varied publishers from the prior edition. Source verification does not imply actual audiovisual playback. The bundle-ready and Pages workflows independently fail closed when published media history cannot be verified or an exact item is repeated. Previously published October 15–18 bundles remain immutable. Select genuinely new media; never falsify identities or disable the validation gate.
 - Source links open in a new tab.
 
 ## Watchlist

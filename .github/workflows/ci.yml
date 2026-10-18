@@ -37,6 +37,20 @@ jobs:
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/premium-social-preview-correction.yml
       - name: Parse duplicate-reading-copy correction workflow YAML
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/reading-copy-correction.yml
+      - name: Parse the editorial signal and archive-aware production deploy workflows
+        run: |
+          ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/bundle-ready-signal.yml
+          ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/shadow-compile.yml
+      - name: Rehearse historical archive recovery against actual preserved pages (hardening PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'hardening/media-freshness-and-archive-history'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/full-history-rehearsal
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/full-history-rehearsal
+          node scripts/rebuild-history-discovery.mjs build/full-history-rehearsal/site build/full-history-rehearsal/receipt.json
+          node -e "const r=require('./build/full-history-rehearsal/receipt.json'); if(r.result!=='PASS'||r.edition_count<60||!r.edition_dates.includes('2026-10-17')||!r.edition_dates.includes('2026-10-18'))process.exit(1); console.log('FULL_HISTORY_REHEARSAL_PASS',r.edition_count,r.discovered_item_count)"
       - name: Pre-first-PR image-package gate on push and PR (Rev8 only)
         if: (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/image-package/')) || (github.event_name == 'pull_request' && startsWith(github.head_ref, 'image-package/'))
         env:
