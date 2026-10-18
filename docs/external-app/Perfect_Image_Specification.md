@@ -14,6 +14,10 @@ The default is a detailed textbook/editorial mechanism illustration. **An infogr
 
 A title alone is insufficient. Generic AI art, sparse slides, icon boards, decorative dashboards and repeated boxes with swapped labels fail.
 
+## Static editorial image method — distinguish rendering from engineering source
+
+Read [Static editorial image admission](STATIC_EDITORIAL_IMAGE_ADMISSION.md). These are final, **static editorial illustrations with accurately researched content**, not a demand for machine-readable or dimensionally exact source diagrams. Native image creation may produce conceptual diagrams, annotated mechanisms and infographics when the actual image tool supports that output. The presence of technical facts, causal edges, explanatory labels or source-bound text is not alone a tool-use prohibition. Images are never certified accurate by generation itself: reject/correct incorrect exact words, labels, directions, evidence claims and unsupported shapes during actual saved-pixel review. Never misrepresent editorial geometry as a measured engineering drawing, bypass a real tool restriction or lower any existing quality/transport gate.
+
 ## 2. Current authority and conflict resolution
 
 Apply the owner's current corrections: mandatory text; an app-independent GitHub exchange; and article-fit infographic styling. Use the current Compiler handoff for job and staging locations, and the prompt for the complete production instructions.
