@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-10-17",
-  "updated_at": "2026-10-17T00:34:00.000Z",
+  "edition_date": "2026-10-18",
+  "updated_at": "2026-10-18T00:40:00.000Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -252,27 +252,17 @@
       "topic_id": "dab-topic-adaptive-agent-safeguards",
       "name": "Agent safeguards tailored to the task",
       "audience": "Agent builders and consultants",
-      "summary": "Generate and evaluate protective rules and executable checks for a particular agent deployment.",
-      "why_now": "NVIDIA Open Agent Safety Platform adds a layered software-and-hardware enforcement pattern: sandboxed OpenShell execution, verifiable policy, out-of-band enforcement and contextual monitoring on BlueField.",
-      "practical_value": "Could improve how training materials explain agent permissions, checks and deployment-specific evaluation.",
+      "summary": "Agent governance combines bounded scope, distinct identities, external policy enforcement, reconstructable runs and targeted human escalation.",
+      "why_now": "AWS's October 15 framework supplies a dated control model and identifies where proof cannot replace judgment.",
+      "practical_value": "Classify one task's controls as provable, observable or judgment-based before granting additional tools or access.",
       "limitations": "First-party architecture evidence does not establish complete containment or independent assurance across every agent, runtime and hardware platform.",
       "next_action": "Compare software-only and hardware-assisted enforcement, policy verification, audit coverage and independent bypass testing.",
       "first_detected": "2026-09-12T02:08:04.109758Z",
-      "updated_at": "2026-10-05T02:33:36.000Z",
+      "updated_at": "2026-10-18T12:00:00Z",
       "verification_observed_at": "2026-10-05T02:33:36.000Z",
       "status": "gaining_evidence",
       "confidence": "moderate",
       "evidence": [
-        {
-          "title": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses",
-          "url": "https://arxiv.org/abs/2609.05903",
-          "publisher": "EvoSafeHarness authors",
-          "kind": "primary",
-          "publication_date": "2026-09-05",
-          "checked_at": "2026-09-12T02:08:04.109758Z",
-          "development_id": "2609.05903",
-          "review_depth": "original abstract and source metadata"
-        },
         {
           "title": "Community discussion of EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses",
           "url": "https://huggingface.co/papers/2609.05903",
@@ -352,6 +342,16 @@
           "checked_at": "2026-10-05T02:27:25.000Z",
           "development_id": "nvidia-open-agent-safety-platform-2026-09-28",
           "review_depth": "full first-party technical article"
+        },
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+          "title": "Agent governance and review points",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-18",
+          "development_id": "compiler-updated-2"
         }
       ],
       "external_attention": [
@@ -364,63 +364,41 @@
         }
       ],
       "momentum": {
-        "classification": "gaining_evidence",
+        "classification": "baseline",
         "score": null,
-        "observations": [
-          {
-            "observed_at": "2026-09-14T12:15:00Z",
-            "value": null,
-            "source": "Independent new primary development; comparable public attention metric unavailable."
-          },
-          {
-            "observed_at": "2026-09-17T12:22:20Z",
-            "value": null,
-            "source": "Independent new primary development; comparable public attention metric unavailable."
-          },
-          {
-            "observed_at": "2026-09-19T17:09:07.447Z",
-            "value": null,
-            "source": "New primary research adds a measurable agent-verification failure mode; public popularity is not inferred."
-          },
-          {
-            "observed_at": "2026-10-05T02:33:36.000Z",
-            "value": null,
-            "source": "Current independent primary development reviewed in the October 5 Watchlist sweep."
-          }
-        ],
-        "reason": "A current independent primary development adds evidence to the tracked mechanism."
+        "reason": "Available safeguards lack a shared repeated numerical metric for momentum."
       },
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "EvoSafeHarness studies adapting safety enforcement to a model and domain."
+          "reason": "The five-layer model sharpens earlier task safeguards by explicitly separating proof, observation and contextual human judgment."
         },
         "evidence": {
-          "score": 5,
-          "reason": "Multiple original sources now document runtime safeguards and a standing disclosure process."
+          "score": 3,
+          "reason": "AWS provides detailed control definitions and examples, but no independently measured comparison of deployment failure rates."
         },
         "independence": {
-          "score": 4,
-          "reason": "Two distinct primary developments from different organizations now support the underlying capability."
+          "score": 2,
+          "reason": "AWS's governance model is organizationally separate from prior Google physical-control evidence, though neither has external replication."
         },
         "momentum": {
-          "score": 3,
-          "reason": "Independent new development observed since the baseline; public popularity growth is not inferred."
+          "score": null,
+          "reason": "Earlier safeguards and this conceptual framework use incompatible measures and cannot support a numeric direction of change."
         },
         "relevance": {
           "score": 5,
-          "reason": "Could improve how training materials explain agent permissions, checks and deployment-specific evaluation."
+          "reason": "Teams can map identities, permissions, tool policies, audit evidence and escalation points onto one bounded agent task."
         },
         "durability": {
-          "score": 3,
-          "reason": "Addresses a continuing capability or workflow problem; sustained adoption is unverified."
+          "score": 5,
+          "reason": "Scope, least privilege, external enforcement and accountable judgment are durable control needs across model generations."
         }
       },
       "trial_story_ids": [
         "dab-story-2026-09-13-91c7e2a4",
         "dab-story-2026-09-13-4b8f13d0"
       ],
-      "research_score": 83
+      "research_score": 62
     },
     {
       "topic_id": "dab-topic-concept-level-language-models",
@@ -789,13 +767,13 @@
       "topic_id": "dab-topic-agent-skills-observability",
       "name": "Reusable agent skills become observable",
       "audience": "AI leaders, admins, and agent builders",
-      "summary": "Treat skills, custom agents, MCP servers, commands, and plugins as reusable components whose maintained domain knowledge and actual use can be governed and measured.",
-      "why_now": "AWS released the aws-ai-ml reusable agent skill for MCP-compatible coding agents, with endpoint benchmarking, deployment recommendations, comparison of performance runs, and executable SageMaker SDK code.",
-      "practical_value": "Makes reusable agent know-how easier to govern while traces and spans make tool/model behavior easier to inspect.",
+      "summary": "Reusable Agent Skills package focused instructions, references, scripts and assets that load only when a task matches.",
+      "why_now": "Microsoft Learn's October 15 documentation adds concrete anatomy, discovery behavior, safety warnings and workflow-selection guidance.",
+      "practical_value": "Build a read-only precheck, test accepted and rejected fixtures, and approve each script before execution.",
       "limitations": "The published evaluation is vendor-run on DOCA tasks; independent replication and cross-platform portability remain unverified.",
       "next_action": "Compare SKILL.md portability, versioning, evaluation, permission boundaries and independent performance across platforms.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-06T01:17:05.017Z",
+      "updated_at": "2026-10-18T12:00:00Z",
       "verification_observed_at": "2026-10-06T01:17:05.017Z",
       "status": "gaining_evidence",
       "confidence": "strong",
@@ -919,59 +897,52 @@
           "checked_at": "2026-10-06T01:17:05.017Z",
           "development_id": "aws-sagemaker-agent-skill-2026-10-05",
           "review_depth": "bounded first-party source verification recorded by Task 08"
+        },
+        {
+          "kind": "primary",
+          "url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+          "title": "Reusable agent skills",
+          "publisher": "learn.microsoft.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-18",
+          "development_id": "compiler-updated-1"
         }
       ],
       "external_attention": [],
       "momentum": {
-        "classification": "gaining_evidence",
+        "classification": "baseline",
         "score": null,
-        "observations": [
-          {
-            "observed_at": "2026-10-05T02:33:36.000Z",
-            "value": null,
-            "source": "Current independent primary development reviewed in the October 5 Watchlist sweep."
-          },
-          {
-            "observed_at": "2026-10-06T01:17:05.017Z",
-            "value": null,
-            "source": "Current primary development reviewed in the October 6 Watchlist sweep."
-          },
-          {
-            "observed_at": "2026-10-06T01:17:05.017Z",
-            "value": null,
-            "source": "Current primary development reviewed in the October 6 Watchlist sweep."
-          }
-        ],
-        "reason": "A current primary development adds evidence to the tracked mechanism."
+        "reason": "Available implementations do not publish one comparable repeated outcome measure."
       },
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "Agent Skills and MCP-style customizations are moving from configuration into measurable operations."
+          "reason": "Microsoft adds a portable Skill package and progressive-loading model beyond earlier repository-specific procedural customization."
         },
         "evidence": {
-          "score": 5,
-          "reason": "Direct publisher evidence documents the new usage fields."
+          "score": 4,
+          "reason": "Official documentation specifies required fields, directory anatomy, discovery behavior, an expense example and approval warnings."
         },
         "independence": {
           "score": 2,
-          "reason": "One primary development currently anchors this signal."
+          "reason": "Microsoft's implementation corroborates prior GitHub and AWS procedure packaging, although all evidence remains platform authored."
         },
         "momentum": {
           "score": null,
-          "reason": "No comparable earlier Watchlist observation."
+          "reason": "The different vendor examples report structures rather than one shared outcome measure, so trend scoring is unsupported."
         },
         "relevance": {
           "score": 5,
-          "reason": "Directly relevant to reusable agent skills, governance, and adoption."
+          "reason": "Teams can inspect one bounded package, run deterministic fixtures and keep script execution behind an explicit approval."
         },
         "durability": {
-          "score": 4,
-          "reason": "Observability of agent components is likely to remain useful as agent stacks mature."
+          "score": 5,
+          "reason": "Focused instructions, lazy context loading and reviewable code boundaries remain useful across agent framework implementations."
         }
       },
       "trial_story_ids": [],
-      "research_score": 70
+      "research_score": 67
     },
     {
       "topic_id": "dab-topic-long-horizon-agents",
@@ -2295,7 +2266,7 @@
           "publisher": "cloud.google.com",
           "publication_date": "2026-10-15",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-17",
+          "checked_at": "2026-10-18",
           "development_id": "compiler-carried_forward-1"
         }
       ],
@@ -2363,7 +2334,7 @@
           "publisher": "aws.amazon.com",
           "publication_date": "2026-10-15",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-17",
+          "checked_at": "2026-10-18",
           "development_id": "compiler-carried_forward-2"
         }
       ],
@@ -2766,12 +2737,12 @@
     {
       "topic_id": "dab-topic-governed-public-service-process-agents",
       "name": "Governed public-service process agents",
-      "summary": "Connected public-service workflows combine requests, documents, operational systems and explained recommendations under accountable authority.",
-      "why_now": "SAP's October 16 Berlin feature details funding, maintenance and seaport scenarios inside sovereign controls.",
-      "practical_value": "Map one case end to end, test completeness flags and retain the responsible official's final decision.",
+      "summary": "Connected public-service workflows combine requests, documents and recommendations while preserving accountable official decision authority.",
+      "why_now": "No independent deployment result has appeared since SAP's October 16 demonstration, so the signal is archived.",
+      "practical_value": "Retain the process map and authority boundary as an evaluation checklist, not evidence of proven deployment.",
       "first_detected": "2026-10-17",
-      "updated_at": "2026-10-17T12:00:00Z",
-      "status": "early_signal",
+      "updated_at": "2026-10-18T12:00:00Z",
+      "status": "archived",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
@@ -2784,6 +2755,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-10-17",
           "development_id": "compiler-new-3"
+        },
+        {
+          "kind": "primary",
+          "url": "https://news.sap.com/2026/10/next-leap-public-services-behind-the-scenes-spublic-berlin/",
+          "title": "Governed public-service process agents",
+          "publisher": "news.sap.com",
+          "publication_date": "2026-10-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-18",
+          "development_id": "compiler-dropped-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -2819,7 +2800,8 @@
         "score": null,
         "reason": "No comparable longitudinal metric is established by the source."
       },
-      "next_action": "Continue monitoring primary evidence and independent developments."
+      "next_action": "Continue monitoring primary evidence and independent developments.",
+      "archive_reason": "The topic moves to history because its current support remains a vendor experience-center demonstration without independent operational outcomes."
     },
     {
       "topic_id": "dab-topic-reusable-agent-skills-become-observable",
@@ -2934,6 +2916,180 @@
         "classification": "baseline",
         "score": null,
         "reason": "Available developments lack a shared comparable metric."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
+      "name": "Continuous multi-level agent evaluation",
+      "summary": "Agent evaluation combines business facts, task rubrics and layered tool-to-orchestration tests across the deployment lifecycle.",
+      "why_now": "AWS's October 16 case study adds nine named stages, bounded test sets, canaries and drift checks.",
+      "practical_value": "Design one release gate that catches factual, safety, latency and cost failures before broader traffic.",
+      "first_detected": "2026-10-18",
+      "updated_at": "2026-10-18T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+          "title": "Continuous multi-level agent evaluation",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-18",
+          "development_id": "compiler-new-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 64,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Nine linked evaluation stages extend familiar model testing into an explicit production agent lifecycle."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "AWS provides named stages, test-set sizes, failure examples and reported outcomes, although some numeric examples are illustrative."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The framework and measurements come from one AWS-authored implementation without independent replication or customer audit."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "This first observation supplies no comparable repeated measure collected under the same evaluation protocol."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can directly translate business failure modes into merge gates, release thresholds, canaries and drift alerts."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Continuous evaluation across development and runtime addresses a persistent reliability need beyond any single model."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No two comparable dated numerical observations establish momentum for this framework."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-open-weight-agentic-coding-infrastructure",
+      "name": "Open-weight agentic coding infrastructure",
+      "summary": "Open-weight coding models require explicit checkpoint, precision, sharding, cache, runtime and hardware choices before evaluation.",
+      "why_now": "AWS's October 16 guide documents Reflection Beam deployments through JumpStart, HyperPod, SGLang and vLLM.",
+      "practical_value": "Compare quality, first-token latency, throughput and cost under the exact configuration expected in production.",
+      "first_detected": "2026-10-18",
+      "updated_at": "2026-10-18T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+          "title": "Open-weight agentic coding infrastructure",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-16",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-18",
+          "development_id": "compiler-new-2"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 54,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "A large open-weight model focused on agentic coding adds a configurable alternative to managed proprietary endpoints."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "AWS documents architecture, checkpoints and multiple deployment paths, but supplies no independent task-quality benchmark in this guide."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "Current implementation evidence is entirely AWS and Reflection authored, with no separately operated deployment evaluation reviewed."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One release guide cannot establish directional change in adoption, performance, operating cost or deployment reliability."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Engineering teams can reproduce configuration tests and measure quality, latency, throughput and resource requirements before adoption."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Checkpoint portability and transparent serving choices remain useful even as particular runtimes and accelerator generations change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No repeated comparable deployment observation supports a numeric momentum score."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-process-grounded-ai-readiness",
+      "name": "Process-grounded AI readiness",
+      "summary": "Process-grounded readiness links AI to governed data, operating context, approvals, ownership and measurable end-to-end outcomes.",
+      "why_now": "SAP's October 14 survey article reports broad task use but only nine percent fundamental business adaptation.",
+      "practical_value": "Audit one workflow's data, controls, exceptions and outcome measure before purchasing broader assistant access.",
+      "first_detected": "2026-10-18",
+      "updated_at": "2026-10-18T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+          "title": "Process-grounded AI readiness",
+          "publisher": "news.sap.com",
+          "publication_date": "2026-10-14",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-18",
+          "development_id": "compiler-new-3"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 55,
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "The topic reframes familiar AI readiness around complete processes rather than counts of deployed assistants or pilots."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "SAP cites Oxford Economics survey findings and explicit percentages, while the underlying questionnaire and sample are not reproduced."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The accessible evidence is vendor-sponsored research presented by SAP without an independent survey replication reviewed here."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "This single survey publication provides no comparable prior observation using the same readiness definition and sample."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Knowledge-work leaders can test data, ownership, approvals, exceptions and outcomes on one process before scaling spend."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Process integration, governed data and accountable operating change remain durable constraints across changing AI products."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No comparable longitudinal survey observation is available for momentum scoring."
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     }
