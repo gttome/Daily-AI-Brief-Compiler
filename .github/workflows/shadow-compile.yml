@@ -117,6 +117,11 @@ jobs:
             echo "HISTORY_EXISTS=false" >> "$GITHUB_ENV"
             echo "HISTORY_DIR=-" >> "$GITHUB_ENV"
           fi
+      - name: Enforce published media non-repetition before deployment
+        run: |
+          node scripts/verify-media-freshness.mjs \
+            "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
+            "$HISTORY_DIR" build/media-freshness-receipt.json
       - name: Preserve missing prior permanent pages without rewriting canonical reader
         run: node scripts/merge-shadow-history.mjs "$HISTORY_DIR" build/current build/shadow "$TARGET_DATE" build/history-merge-receipt.json
       - name: Preserve every previously accepted premium image and story pairing
