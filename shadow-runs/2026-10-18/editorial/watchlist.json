@@ -1,0 +1,344 @@
+{
+  "schema_version": "daily-compiler-watchlist-v1",
+  "target_edition_date": "2026-10-18",
+  "refreshed_at": "2026-10-18T00:40:00.000Z",
+  "new": [
+    {
+      "topic": "Continuous multi-level agent evaluation",
+      "why": "AWS documented a production evaluation lifecycle that spans development, release, runtime and feedback stages.",
+      "summary": "Agent evaluation combines business facts, task rubrics and layered tool-to-orchestration tests across the deployment lifecycle.",
+      "why_now": "AWS's October 16 case study adds nine named stages, bounded test sets, canaries and drift checks.",
+      "practical_value": "Design one release gate that catches factual, safety, latency and cost failures before broader traffic.",
+      "evidence": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+        "date": "2026-10-16"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Nine linked evaluation stages extend familiar model testing into an explicit production agent lifecycle."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "AWS provides named stages, test-set sizes, failure examples and reported outcomes, although some numeric examples are illustrative."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The framework and measurements come from one AWS-authored implementation without independent replication or customer audit."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "This first observation supplies no comparable repeated measure collected under the same evaluation protocol."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can directly translate business failure modes into merge gates, release thresholds, canaries and drift alerts."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Continuous evaluation across development and runtime addresses a persistent reliability need beyond any single model."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No two comparable dated numerical observations establish momentum for this framework."
+      }
+    },
+    {
+      "topic": "Open-weight agentic coding infrastructure",
+      "why": "AWS exposed the serving and hardware decisions required to evaluate a large open-weight coding model.",
+      "summary": "Open-weight coding models require explicit checkpoint, precision, sharding, cache, runtime and hardware choices before evaluation.",
+      "why_now": "AWS's October 16 guide documents Reflection Beam deployments through JumpStart, HyperPod, SGLang and vLLM.",
+      "practical_value": "Compare quality, first-token latency, throughput and cost under the exact configuration expected in production.",
+      "evidence": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+        "date": "2026-10-16"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "A large open-weight model focused on agentic coding adds a configurable alternative to managed proprietary endpoints."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "AWS documents architecture, checkpoints and multiple deployment paths, but supplies no independent task-quality benchmark in this guide."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "Current implementation evidence is entirely AWS and Reflection authored, with no separately operated deployment evaluation reviewed."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One release guide cannot establish directional change in adoption, performance, operating cost or deployment reliability."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Engineering teams can reproduce configuration tests and measure quality, latency, throughput and resource requirements before adoption."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Checkpoint portability and transparent serving choices remain useful even as particular runtimes and accelerator generations change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No repeated comparable deployment observation supports a numeric momentum score."
+      }
+    },
+    {
+      "topic": "Process-grounded AI readiness",
+      "why": "SAP's research separates task-level AI use from the operating changes needed for connected business outcomes.",
+      "summary": "Process-grounded readiness links AI to governed data, operating context, approvals, ownership and measurable end-to-end outcomes.",
+      "why_now": "SAP's October 14 survey article reports broad task use but only nine percent fundamental business adaptation.",
+      "practical_value": "Audit one workflow's data, controls, exceptions and outcome measure before purchasing broader assistant access.",
+      "evidence": {
+        "url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+        "date": "2026-10-14"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "The topic reframes familiar AI readiness around complete processes rather than counts of deployed assistants or pilots."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "SAP cites Oxford Economics survey findings and explicit percentages, while the underlying questionnaire and sample are not reproduced."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The accessible evidence is vendor-sponsored research presented by SAP without an independent survey replication reviewed here."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "This single survey publication provides no comparable prior observation using the same readiness definition and sample."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Knowledge-work leaders can test data, ownership, approvals, exceptions and outcomes on one process before scaling spend."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Process integration, governed data and accountable operating change remain durable constraints across changing AI products."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No comparable longitudinal survey observation is available for momentum scoring."
+      }
+    }
+  ],
+  "updated": [
+    {
+      "topic": "Reusable agent skills",
+      "what_changed": "Microsoft documented a portable Skill structure, progressive loading pattern, expense example and explicit script-approval boundary.",
+      "summary": "Reusable Agent Skills package focused instructions, references, scripts and assets that load only when a task matches.",
+      "why_now": "Microsoft Learn's October 15 documentation adds concrete anatomy, discovery behavior, safety warnings and workflow-selection guidance.",
+      "practical_value": "Build a read-only precheck, test accepted and rejected fixtures, and approve each script before execution.",
+      "evidence": {
+        "url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+        "date": "2026-10-15"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Microsoft adds a portable Skill package and progressive-loading model beyond earlier repository-specific procedural customization."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Official documentation specifies required fields, directory anatomy, discovery behavior, an expense example and approval warnings."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Microsoft's implementation corroborates prior GitHub and AWS procedure packaging, although all evidence remains platform authored."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The different vendor examples report structures rather than one shared outcome measure, so trend scoring is unsupported."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can inspect one bounded package, run deterministic fixtures and keep script execution behind an explicit approval."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Focused instructions, lazy context loading and reviewable code boundaries remain useful across agent framework implementations."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Available implementations do not publish one comparable repeated outcome measure."
+      }
+    },
+    {
+      "topic": "Agent governance and review points",
+      "what_changed": "AWS organized agent governance into five layers and separated formally provable rules from decisions requiring contextual judgment.",
+      "summary": "Agent governance combines bounded scope, distinct identities, external policy enforcement, reconstructable runs and targeted human escalation.",
+      "why_now": "AWS's October 15 framework supplies a dated control model and identifies where proof cannot replace judgment.",
+      "practical_value": "Classify one task's controls as provable, observable or judgment-based before granting additional tools or access.",
+      "evidence": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+        "date": "2026-10-15"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The five-layer model sharpens earlier task safeguards by explicitly separating proof, observation and contextual human judgment."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "AWS provides detailed control definitions and examples, but no independently measured comparison of deployment failure rates."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "AWS's governance model is organizationally separate from prior Google physical-control evidence, though neither has external replication."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Earlier safeguards and this conceptual framework use incompatible measures and cannot support a numeric direction of change."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can map identities, permissions, tool policies, audit evidence and escalation points onto one bounded agent task."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Scope, least privilege, external enforcement and accountable judgment are durable control needs across model generations."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Available safeguards lack a shared repeated numerical metric for momentum."
+      }
+    }
+  ],
+  "carried_forward": [
+    {
+      "topic": "Audited long-form business reasoning",
+      "summary": "Complex knowledge-work assistants assemble evidence across governed data sources and produce reviewable analytical deliverables.",
+      "why_now": "Google's October 15 Lakehouse article documents preview catalog federation and direct natural-language access across platforms.",
+      "practical_value": "Compare generated queries, permissions and totals against an approved cross-cloud report before operational use.",
+      "evidence": {
+        "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini",
+        "date": "2026-10-15"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "Federated catalog access broadens the documented evidence surface for long-form analysis without moving underlying data."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Google describes supported catalogs, preview behavior and infrastructure layers, while answer accuracy remains unbenchmarked."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The updated record relies on one Google product article and lacks independent cross-cloud verification results."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The prior presentation example and current federation preview do not measure one comparable quantity over time."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Analysts can inspect generated queries, access decisions and reconciled totals against an approved business report."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Evidence traceability across heterogeneous enterprise data remains important as models and storage platforms change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "The available developments do not share one comparable numerical measure."
+      },
+      "why": "No separate material development was verified after October 15, so the topic remains under active monitoring."
+    },
+    {
+      "topic": "Consumer agent task permissions",
+      "summary": "Task agents need minimum authority, visible identities, enforceable action limits, reconstructable histories and human escalation.",
+      "why_now": "The October 15 AWS article supplies a dated layered framework and states where formal proof cannot apply.",
+      "practical_value": "Test one allowed, denied and ambiguous task before expanding an assistant's access to connected services.",
+      "evidence": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+        "date": "2026-10-15"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The framework organizes agent authority into lifecycle layers and explicitly separates provable rules from judgment."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "AWS provides detailed control reasoning and examples, but no independent comparative deployment evaluation is attached."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "A single AWS-authored framework is the current evidence; cross-vendor corroboration has not been documented."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Earlier product permissions and today's conceptual framework offer no shared numerical observation for trend measurement."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Users can exercise allowed, denied and ambiguous tasks before granting assistants broader connected-service authority."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Scope, identity, action limits, auditability and human escalation remain durable requirements for autonomous systems."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "The available developments do not share one comparable numerical measure."
+      },
+      "why": "The October 15 control framework remains the latest verified evidence and is carried without implying new momentum."
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "Governed public-service process agents",
+      "reason": "The topic moves to history because its current support remains a vendor experience-center demonstration without independent operational outcomes.",
+      "summary": "Connected public-service workflows combine requests, documents and recommendations while preserving accountable official decision authority.",
+      "why_now": "No independent deployment result has appeared since SAP's October 16 demonstration, so the signal is archived.",
+      "practical_value": "Retain the process map and authority boundary as an evaluation checklist, not evidence of proven deployment.",
+      "previous_evidence": {
+        "url": "https://news.sap.com/2026/10/next-leap-public-services-behind-the-scenes-spublic-berlin/",
+        "date": "2026-10-16"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The scenarios connect AI recommendations to end-to-end administrative processes rather than isolated citizen-facing chat interfaces."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "SAP gives detailed demonstrations and control boundaries, but reports no independent accuracy or service-outcome evaluation."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The evidence is a single vendor-authored account from its own experience center without external operational corroboration."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Demonstration scenarios provide no repeated comparable measure of deployments, accuracy, processing time or public outcomes."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Public teams can test document completeness, cross-system handoffs, explanation quality and retained human authority."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Sovereignty, transparency and accountable final decisions are durable requirements for administrative automation."
+        }
+      }
+    }
+  ]
+}

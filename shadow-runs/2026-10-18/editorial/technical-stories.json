@@ -1,0 +1,47 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-18",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct18-t1-agent-evaluation-loop",
+      "focus": "Technical AI Engineering",
+      "headline": "A nine-stage evaluation loop catches silent agent failures",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+      "published_at": "2026-10-16",
+      "publisher": "AWS Machine Learning Blog",
+      "read_scope": "Complete production case study: business failure definition, evaluator design, nine-stage lifecycle, 15-case sentinel, 200-case gate, tool/agent/multi-agent levels, canary windows, adversarial tests, drift, feedback and stated illustrative metrics.",
+      "reading_time_minutes": 26,
+      "topics": [
+        "Agent evaluation",
+        "Release gates",
+        "Quality drift"
+      ],
+      "agent_skills": false,
+      "summary": "An AWS production team describes a nine-stage evaluation loop for multi-agent sales analytics, spanning golden sets, merge gates, full release gates, canaries, adversarial tests, drift monitoring and feedback. The team reports that ordinary uptime monitoring missed fluent factual errors, including wrong units, swapped metrics and unsupported calculations, while staged evaluators exposed them before or after release.",
+      "why_it_matters": "Define business failures before choosing evaluators. Build deterministic checks for known facts, task-specific rubrics for ambiguous reasoning and separate tool, agent and orchestration test sets; then block releases when safety, quality, latency or cost crosses an agreed threshold.",
+      "image_alt_intent": "A multi-agent release pipeline moves from golden-set checks through merge and deployment gates to canary, adversarial, drift and feedback stages, with factual errors stopped before wider traffic.",
+      "permanent_route": "/stories/2026-10-18/t1-agent-evaluation-loop/"
+    },
+    {
+      "id": "oct18-t2-open-coding-runtime",
+      "focus": "Technical AI Engineering",
+      "headline": "Open-weight coding models make infrastructure choices explicit",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+      "published_at": "2026-10-16",
+      "publisher": "AWS Machine Learning Blog",
+      "read_scope": "Complete deployment guide: model architecture and license claims, BF16/FP8/NVFP4 checkpoints, JumpStart and HyperPod paths, SGLang and vLLM serving, configuration validation, pinned revisions, smoke tests, latency and throughput measures, troubleshooting and cleanup.",
+      "reading_time_minutes": 13,
+      "topics": [
+        "Open-weight models",
+        "Inference infrastructure",
+        "Load testing"
+      ],
+      "agent_skills": false,
+      "summary": "AWS documents three deployment paths for Reflection Beam, an open-weight mixture-of-experts model intended for coding and long-horizon tool use. The guide connects checkpoint precision, GPU memory, sharding and runtime choice to managed JumpStart endpoints or Kubernetes-based HyperPod deployments, then requires pinned artifacts, configuration validation, smoke tests, performance measurement and resource cleanup.",
+      "why_it_matters": "Treat model availability as the start of engineering, not proof of suitability. Record checkpoint, image, precision, hardware, cache and parallelism; load-test expected concurrency, recheck output quality after quantization changes and delete costly resources when evaluation ends.",
+      "image_alt_intent": "An open-weight coding model branches into managed and Kubernetes deployment paths, with checkpoint precision, GPU memory, sharding, cache and runtime choices feeding a common validation and load-test scorecard.",
+      "permanent_route": "/stories/2026-10-18/t2-open-coding-runtime/"
+    }
+  ]
+}
