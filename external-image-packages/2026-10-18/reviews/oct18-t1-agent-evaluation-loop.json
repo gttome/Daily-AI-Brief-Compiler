@@ -1,0 +1,68 @@
+{
+  "schema_version": "external-image-acceptance-review-v8",
+  "edition_date": "2026-10-18",
+  "story_id": "oct18-t1-agent-evaluation-loop",
+  "result": "PASS",
+  "set_differentiation_status": "PENDING_REVIEW_OF_COMPLETE_SET",
+  "inspected_saved_png_sha256": "5203ca38daaa2cdbbff2682850effcca76dcf2811cbcd450b96698fa7022a013",
+  "bytes": 920388,
+  "width": 1200,
+  "height": 630,
+  "bit_depth": 8,
+  "color_type": "RGB",
+  "interlace": "none",
+  "verified_original_source_url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+  "mechanism_notes": "Saved pixels show a continuous lifecycle with two promotion gates, parallel factual/rubric evaluation, a versioned test set, and regression evidence returning from production. Tool, agent, and orchestration are separate evaluation scopes. No unsupported training loop or performance values are shown.",
+  "required_labels": [
+    "Agent quality is a continuous loop",
+    "Define",
+    "Compare",
+    "Merge checks",
+    "Release checks",
+    "Canary",
+    "Adversarial tests",
+    "Drift watch",
+    "Live health",
+    "Regression feedback",
+    "Known facts",
+    "Reasoning rubric",
+    "Versioned test set",
+    "Tool",
+    "Agent",
+    "Orchestration",
+    "Failing checks block release",
+    "Observed failures become regression cases",
+    "Uptime alone misses factual errors"
+  ],
+  "factual_fidelity_verified": true,
+  "quality_and_visual_text_verified": true,
+  "distinct_from_other_five_verified": false,
+  "no_people_humanoids_faces": true,
+  "no_logos_brands": true,
+  "no_photorealism": true,
+  "no_pseudo_writing": true,
+  "no_clipped_labels": true,
+  "safe_margins_verified": true,
+  "pixel_inspection_method": "persisted_local_png_pending_git_readback",
+  "native_generation_count": 3,
+  "attempts": [
+    {
+      "attempt": 1,
+      "result": "REJECTED",
+      "source_png": "exec-0096fde8-2f2b-4e37-8dc4-f8d7f4d58647.png",
+      "reason": "Tight title margin, placeholder strokes, serial evaluation geometry."
+    },
+    {
+      "attempt": 2,
+      "result": "REJECTED",
+      "source_png": "exec-f35a4ea1-7cc7-4169-9cc2-3a87aa0b4a26.png",
+      "reason": "Evaluation checks remained serial."
+    },
+    {
+      "attempt": 3,
+      "result": "INDIVIDUAL_PASS",
+      "source_png": "exec-96ac81a1-afe1-483a-b8a9-23e0c8e28a30.png",
+      "export": "Size-only proportional PNG export to 1200x630; no labels or artwork redrawn."
+    }
+  ]
+}
