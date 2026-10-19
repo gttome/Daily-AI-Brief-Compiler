@@ -1,3 +1,7 @@
+# October 19, 2026 scheduler migration
+
+For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d0f1b46bffc9` (**Daily Brief Images — Fresh Work**), configured in the actual scheduler as **New chat for every run**, daily at **21:15 America/Chicago**. It replaces `6acac88cff048191ba02e5b2bcb3becb`; pause the old task before enabling the replacement. The owner authorized this replacement after the autonomous GitHub/native-image test. Historical assignments and accepted PNGs retain their original task identity. No extra daily producer, chat-mode admission gate, quality relaxation or owner daily setup is introduced.
+
 # Daily AI Brief Compiler — Two Primary Tasks Operating Runbook
 
 **October 20+ image ownership:** follow [Image worker ownership](../external-app/IMAGE_WORKER_OWNERSHIP.md). Both the scheduled image worker and any recovery session atomically claim `image-package/YYYY-MM-DD-native-primary`, persist/read back the owner receipt before image generation, and use expected-head updates. Status checks are read-only. Missing outputs do not prove a missing invocation or missing tools, and do not authorize a competing producer. The existing same-chat Work/image/GitHub execution setup and both production schedules remain unchanged.
@@ -9,7 +13,7 @@
 | Lane | Saved task ID | Daily local time | Required abilities |
 | --- | --- | --- | --- |
 | Compiler | `6ac9868490b88191ac91f84d5f555994` | 19:15 | Genuine source research, connected GitHub branch/file create/update/readback, complete six-story editorial bundle |
-| Premium Images | `6acac88cff048191ba02e5b2bcb3becb` | 21:15 | Native generation, actual saved-pixel inspection, 1200×630 8-bit RGB/RGBA PNG export, exact GitHub bytes/sha and protected publishing |
+| Premium Images | `6ad6310597b0819096a8d0f1b46bffc9` | 21:15 | Native generation, actual saved-pixel inspection, 1200×630 8-bit RGB/RGBA PNG export, exact GitHub bytes/sha and protected publishing |
 | Deterministic reports | `.github/workflows/daily-operations-report.yml` | Morning | Read-only-source reconciliation of receipts on `operations-reports`; no AI generation, image creation or publishing |
 
 **CHAT-TYPE ADMISSION REMOVED:** Ordinary / Work / Codex / other mode labels, host execution-mode attestation, invocation IDs, C2/C3/C5 proof branches, mode-dependent bans and synthetic diagnostic GitHub writes are NOT preconditions to start, write, compile, create images or publish. Never fabricate those identities. A future diagnostic may record UNKNOWN but must not stop the real production run. Actual availability of substantive research, image and connected GitHub tools is still necessary; unsuccessful writes and absent capabilities must be reported truthfully. No paid model APIs, TinyFish, alternate provider, owner login/file transfer or additional ChatGPT recovery schedules.
