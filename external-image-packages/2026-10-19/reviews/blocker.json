@@ -1,0 +1,32 @@
+{
+  "schema_version": "external-image-readiness-receipt-v8",
+  "status": "BLOCKED_INCOMPLETE",
+  "edition_date": "2026-10-19",
+  "blocker_code": "CONCURRENT_SAME_EDITION_IMAGE_WRITER",
+  "competing_branch": "image-package/2026-10-19-native-production",
+  "competing_commit": "72f86e0c10e6b8e85b3f2bc61e0ddd639e6280f4",
+  "competing_commit_time": "2026-10-19T02:40:04Z",
+  "competing_png": {
+    "story_id": "oct19-t1-provider-failover",
+    "bytes": 831153,
+    "git_blob_sha": "98388d12e172f9ddb5f77c8010c534b4a3d62cb1"
+  },
+  "own_branch": "image-package/2026-10-19-native-primary",
+  "accepted_count": 6,
+  "actual_generation_count": 12,
+  "exact_binary_readback_commit": "1028d74dbc45e79221e9e46d7b5fd6ecdafe19fb",
+  "manifest_sha256": "9c065ae31f92b078185ec81ce3541accecd8157b60086609010d5fca50ef63f3",
+  "initial_push_ci": {
+    "run_id": 39191170975,
+    "conclusion": "failure",
+    "reason": "First manifest image missing width/height; corrected from actual PNG metadata, no artwork change."
+  },
+  "no_competing_pr_created": true,
+  "production_changes_by_this_run": false,
+  "public_completion": false,
+  "live_hashes_verified": 0,
+  "actual_live_contexts_reviewed": 0,
+  "task_or_schedule_modified": false,
+  "next_action": "Resolve which existing same-edition package is the sole authorized writer before opening any image PR. Do not regenerate this accepted set. Next recurring cycle must select its new edition, not retry an old pending job.",
+  "usage_measurement": "UNKNOWN; no authoritative quota telemetry exposed"
+}

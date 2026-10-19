@@ -1,4 +1,8 @@
-# October 19 image after-action — pre-release checkpoint
+# October 19 image after-action — BLOCKED_INCOMPLETE
+
+Publication stopped because a concurrent same-edition writer appeared: branch `image-package/2026-10-19-native-production`, commit `72f86e0c10e6b8e85b3f2bc61e0ddd639e6280f4`, authored 2026-10-19T02:40:04Z, contains a different first-story PNG (831153 bytes, Git blob `98388d12e172f9ddb5f77c8010c534b4a3d62cb1`). Earlier branch/PR checks showed only the source branch and no open image PR. This run detected the new branch during its package fetch. No competing PR, merge, Pages deployment or production edit was performed.
+
+Initial package push CI failed because first-image width and height were omitted from its manifest metadata despite the exact PNG being verified1200×630. Corrected metadata and rebound manifest SHA-256; accepted bytes unchanged. Initial failed CI: https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39191170975. The package remains on a non-main branch for durable handoff; writer selection must be resolved before release.
 
 Six native-generated static editorial illustrations are accepted and locked. Twelve actual generation/edit calls produced six rejected first candidates and six accepted corrections. Every exported PNG is 1200×630, 8-bit RGB, and independently fetched from immutable commit `1028d74dbc45e79221e9e46d7b5fd6ecdafe19fb` with exact byte, SHA-256 and Git blob agreement. Those fetched pixels were inspected again.
 
