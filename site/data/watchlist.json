@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-10-18",
-  "updated_at": "2026-10-18T00:40:00.000Z",
+  "edition_date": "2026-10-19",
+  "updated_at": "2026-10-19T00:58:00.000Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -253,12 +253,12 @@
       "name": "Agent safeguards tailored to the task",
       "audience": "Agent builders and consultants",
       "summary": "Agent governance combines bounded scope, distinct identities, external policy enforcement, reconstructable runs and targeted human escalation.",
-      "why_now": "AWS's October 15 framework supplies a dated control model and identifies where proof cannot replace judgment.",
-      "practical_value": "Classify one task's controls as provable, observable or judgment-based before granting additional tools or access.",
+      "why_now": "No newer independent deployment outcome displaced the October 15 layered control model, so the topic remains under observation.",
+      "practical_value": "Classify one task’s controls as provable, observable or judgment-based before granting additional tools or access.",
       "limitations": "First-party architecture evidence does not establish complete containment or independent assurance across every agent, runtime and hardware platform.",
       "next_action": "Compare software-only and hardware-assisted enforcement, policy verification, audit coverage and independent bypass testing.",
       "first_detected": "2026-09-12T02:08:04.109758Z",
-      "updated_at": "2026-10-18T12:00:00Z",
+      "updated_at": "2026-10-15T12:00:00Z",
       "verification_observed_at": "2026-10-05T02:33:36.000Z",
       "status": "gaining_evidence",
       "confidence": "moderate",
@@ -352,6 +352,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-10-18",
           "development_id": "compiler-updated-2"
+        },
+        {
+          "kind": "primary",
+          "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+          "title": "Agent governance and review points",
+          "publisher": "aws.amazon.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-19",
+          "development_id": "compiler-carried_forward-1"
         }
       ],
       "external_attention": [
@@ -767,13 +777,13 @@
       "topic_id": "dab-topic-agent-skills-observability",
       "name": "Reusable agent skills become observable",
       "audience": "AI leaders, admins, and agent builders",
-      "summary": "Reusable Agent Skills package focused instructions, references, scripts and assets that load only when a task matches.",
-      "why_now": "Microsoft Learn's October 15 documentation adds concrete anatomy, discovery behavior, safety warnings and workflow-selection guidance.",
-      "practical_value": "Build a read-only precheck, test accepted and rejected fixtures, and approve each script before execution.",
+      "summary": "Reusable Agent Skills package focused procedures in versioned SKILL.md folders that agents discover and load only when relevant.",
+      "why_now": "OpenCode’s October 17 documentation adds compatible search paths, manual-only selection and allow, deny or ask permission patterns.",
+      "practical_value": "Build a read-only release-note skill, fixture-test discovery and output, then require approval before any publishing command.",
       "limitations": "The published evaluation is vendor-run on DOCA tasks; independent replication and cross-platform portability remain unverified.",
       "next_action": "Compare SKILL.md portability, versioning, evaluation, permission boundaries and independent performance across platforms.",
       "first_detected": "2026-09-19T17:09:07.447Z",
-      "updated_at": "2026-10-18T12:00:00Z",
+      "updated_at": "2026-10-19T12:00:00Z",
       "verification_observed_at": "2026-10-06T01:17:05.017Z",
       "status": "gaining_evidence",
       "confidence": "strong",
@@ -900,12 +910,12 @@
         },
         {
           "kind": "primary",
-          "url": "https://learn.microsoft.com/en-us/agent-framework/agents/skills",
+          "url": "https://opencode.ai/docs/skills/",
           "title": "Reusable agent skills",
-          "publisher": "learn.microsoft.com",
-          "publication_date": "2026-10-15",
+          "publisher": "opencode.ai",
+          "publication_date": "2026-10-17",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-18",
+          "checked_at": "2026-10-19",
           "development_id": "compiler-updated-1"
         }
       ],
@@ -913,36 +923,36 @@
       "momentum": {
         "classification": "baseline",
         "score": null,
-        "reason": "Available implementations do not publish one comparable repeated outcome measure."
+        "reason": "Available implementations lack a shared repeated numerical outcome measure."
       },
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "Microsoft adds a portable Skill package and progressive-loading model beyond earlier repository-specific procedural customization."
+          "reason": "OpenCode adds cross-client discovery and explicit permission patterns to the established portable SKILL.md procedure format."
         },
         "evidence": {
           "score": 4,
-          "reason": "Official documentation specifies required fields, directory anatomy, discovery behavior, an expense example and approval warnings."
+          "reason": "Official documentation specifies paths, schema rules, a complete release example, tool behavior and permission configuration."
         },
         "independence": {
-          "score": 2,
-          "reason": "Microsoft's implementation corroborates prior GitHub and AWS procedure packaging, although all evidence remains platform authored."
+          "score": 3,
+          "reason": "OpenCode independently implements the shared format alongside Microsoft and Anthropic ecosystems, though evidence remains platform-authored."
         },
         "momentum": {
           "score": null,
-          "reason": "The different vendor examples report structures rather than one shared outcome measure, so trend scoring is unsupported."
+          "reason": "Different implementations publish structures rather than one repeated outcome measure, so momentum cannot be scored numerically."
         },
         "relevance": {
           "score": 5,
-          "reason": "Teams can inspect one bounded package, run deterministic fixtures and keep script execution behind an explicit approval."
+          "reason": "Teams can immediately create, discover, restrict and fixture-test one bounded procedure before granting side effects."
         },
         "durability": {
           "score": 5,
-          "reason": "Focused instructions, lazy context loading and reviewable code boundaries remain useful across agent framework implementations."
+          "reason": "Portable instructions, lazy loading and explicit permission boundaries remain useful across agent clients and changing models."
         }
       },
       "trial_story_ids": [],
-      "research_score": 67
+      "research_score": 70
     },
     {
       "topic_id": "dab-topic-long-horizon-agents",
@@ -2241,7 +2251,7 @@
       "topic_id": "dab-topic-audited-long-form-business-reasoning",
       "name": "Audited long-form business reasoning",
       "summary": "Complex knowledge-work assistants assemble evidence across governed data sources and produce reviewable analytical deliverables.",
-      "why_now": "Google's October 15 Lakehouse article documents preview catalog federation and direct natural-language access across platforms.",
+      "why_now": "No material post-October 15 outcome evidence changed the federation preview, so the topic remains active but unchanged.",
       "practical_value": "Compare generated queries, permissions and totals against an approved cross-cloud report before operational use.",
       "first_detected": "2026-10-15",
       "updated_at": "2026-10-15T12:00:00Z",
@@ -2268,6 +2278,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-10-18",
           "development_id": "compiler-carried_forward-1"
+        },
+        {
+          "kind": "primary",
+          "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini",
+          "title": "Audited long-form business reasoning",
+          "publisher": "cloud.google.com",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-19",
+          "development_id": "compiler-carried_forward-2"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3039,11 +3059,11 @@
       "topic_id": "dab-topic-process-grounded-ai-readiness",
       "name": "Process-grounded AI readiness",
       "summary": "Process-grounded readiness links AI to governed data, operating context, approvals, ownership and measurable end-to-end outcomes.",
-      "why_now": "SAP's October 14 survey article reports broad task use but only nine percent fundamental business adaptation.",
-      "practical_value": "Audit one workflow's data, controls, exceptions and outcome measure before purchasing broader assistant access.",
+      "why_now": "No independent comparable survey has appeared since SAP’s October 14 report, so the signal is archived rather than carried.",
+      "practical_value": "Retain the workflow audit method, but do not use the prior percentages as a general market baseline.",
       "first_detected": "2026-10-18",
-      "updated_at": "2026-10-18T12:00:00Z",
-      "status": "early_signal",
+      "updated_at": "2026-10-19T12:00:00Z",
+      "status": "archived",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
@@ -3056,6 +3076,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-10-18",
           "development_id": "compiler-new-3"
+        },
+        {
+          "kind": "primary",
+          "url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+          "title": "Process-grounded AI readiness",
+          "publisher": "news.sap.com",
+          "publication_date": "2026-10-14",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-19",
+          "development_id": "compiler-dropped-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -3090,6 +3120,123 @@
         "classification": "baseline",
         "score": null,
         "reason": "No comparable longitudinal survey observation is available for momentum scoring."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments.",
+      "archive_reason": "The topic moves to history because no comparable independent survey has validated the vendor-sponsored readiness percentages."
+    },
+    {
+      "topic_id": "dab-topic-provider-aware-ai-failover",
+      "name": "Provider-aware AI failover",
+      "summary": "Provider-aware failover routes only repeatable AI operations to an approved secondary while preserving deadlines, controls and recovery ownership.",
+      "why_now": "OpenAI’s October 14 guide supplies explicit eligible and blocked failure classes, retry budgets and gradual failback guidance.",
+      "practical_value": "Test one read-only inference step across both routes and document exactly when to retry, queue, degrade or stop.",
+      "first_detected": "2026-10-19",
+      "updated_at": "2026-10-19T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+          "title": "Provider-aware AI failover",
+          "publisher": "developers.openai.com",
+          "publication_date": "2026-10-14",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-19",
+          "development_id": "compiler-new-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 64,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The guide moves multi-provider resilience from generic routing into explicit per-operation replay and recovery decisions."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "OpenAI provides failure classes, implementation constraints, test cases and operational measures, though no independent outage study."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The guidance is authored by one model provider and lacks independent comparative validation across production gateways."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "This first policy observation offers no repeated comparable outcome measure for adoption, recovery time or errors."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Platform and application teams can directly map retryability, deadlines, route approval and duplicate-action protection."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Safe retries, bounded failover and explicit recovery ownership remain necessary across providers and model generations."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No two comparable dated numerical observations establish momentum for this policy."
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-composable-decision-adapters",
+      "name": "Composable decision adapters",
+      "summary": "Composable decision adapters activate specialized classification and safety functions beside a general chat model while reusing cached context.",
+      "why_now": "IBM’s October 15 Granite Switch 4.1 release adds decision, guardian and speech components to 8B and 30B checkpoints.",
+      "practical_value": "Benchmark routing, accuracy, speech quality, latency and memory on identical fixtures before replacing separate services.",
+      "first_detected": "2026-10-19",
+      "updated_at": "2026-10-19T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+          "title": "Composable decision adapters",
+          "publisher": "huggingface.co",
+          "publication_date": "2026-10-15",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-19",
+          "development_id": "compiler-new-2"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 57,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Combining speech, general decisions and guardian adapters in one checkpoint extends modular inference beyond chat-only composition."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Model cards, code and demonstrations are available, but several performance comparisons remain publisher-reported and incomplete."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Open artifacts permit external testing, yet the reviewed release evidence and headline comparisons originate from IBM Granite."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Release-day model cards provide no two comparable observations collected under one stable deployment or adoption metric."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Teams can test whether one composed endpoint simplifies specialized decisions without sacrificing measurable workload quality."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Modular adapters and shared caches are durable engineering ideas even as specific checkpoints and runtimes change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No repeated comparable deployment measure supports a numeric momentum score."
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     }
