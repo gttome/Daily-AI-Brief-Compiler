@@ -1,3 +1,7 @@
+# October 19, 2026 scheduler migration
+
+For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d0f1b46bffc9` (**Daily Brief Images — Fresh Work**), configured in the actual scheduler as **New chat for every run**, daily at **21:15 America/Chicago**. It replaces `6acac88cff048191ba02e5b2bcb3becb`; pause the old task before enabling the replacement. The owner authorized this replacement after the autonomous GitHub/native-image test. Historical assignments and accepted PNGs retain their original task identity. No extra daily producer, chat-mode admission gate, quality relaxation or owner daily setup is introduced.
+
 # Daily AI Brief — Complete Recurring Premium Image Production Contract
 
 **Mandatory ownership, October 20 onward:** read [Image worker ownership](IMAGE_WORKER_OWNERSHIP.md). Claim the one canonical current-edition image branch and commit/read back the owner receipt before generation. Every scheduled/recovery worker follows the same claim and expected-head updates; losing the claim means yield without generating or creating an alternate suffix. Status checks do not allocate image workers. Existing quality, source and protected release gates remain unchanged.
@@ -25,7 +29,7 @@ Resolve `cycle_date` from the known Chicago evening calendar date and `edition_d
 Owner standing authority is in `contracts/automation/recurring-image-authorization.json`. No new daily manual GO and no fabricated owner artwork review. Persist `external-image-packages/YYYY-MM-DD/recurring-assignment.json` with:
 - `schema_version = external-compiler-recurring-assignment-v8`
 - `prompt_version = rev8`, `scope = image_only_postpublication`
-- `task_id = 6acac88cff048191ba02e5b2bcb3becb`, `cycle_date`, `edition_date`, `execution_id`
+- `task_id = 6ad6310597b0819096a8d0f1b46bffc9`, `cycle_date`, `edition_date`, `execution_id`
 - `job_sha256`, `manifest_sha256`, `original_source_commit_sha`, `original_bundle_sha256`
 - `image_execution_evidence = {actual_generation_count:<genuine integer >= 6>, exact_png_1200x630_export_observed:true, github_binary_sha256_readback_observed:true, original_manifest_sha256:<exact manifest SHA-256>, six_actual_saved_pixel_reviews_passed:true}`
 - `accepted_images`: all six exact source-bound story-ID and accepted SHA-256 pairs; `owner_personal_artwork_review_claimed:false`.

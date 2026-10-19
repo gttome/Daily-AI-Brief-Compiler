@@ -10,7 +10,8 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
  const policy=authorization??JSON.parse(fs.readFileSync(authPath,'utf8'));
  if(policy?.schema_version!=='external-image-recurring-authorization-v1'||
    policy.owner_identity!=='gttome'||policy.decision!=='STANDING_FUTURE_ONLY'||
-   policy.repository!=='gttome/Daily-AI-Brief-Compiler'||policy.task_id!=='6acac88cff048191ba02e5b2bcb3becb'||
+   policy.repository!=='gttome/Daily-AI-Brief-Compiler'||policy.task_id!=='6ad6310597b0819096a8d0f1b46bffc9'||
+   policy.previous_task_id!=='6acac88cff048191ba02e5b2bcb3becb'||policy.task_transition_edition_date!=='2026-10-20'||
    policy.active_when_selected!==true||policy.revocation?.enabled!==false||
    policy.requires_scheduled_work_mode!==false||policy.requires_actual_image_creation!==true||
    policy.requires_same_invocation_connected_github!==true||
@@ -19,10 +20,11 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
  let job,manifest;
  try{job=JSON.parse(jobBytes);manifest=JSON.parse(manifestBytes);}catch{fail('INVALID_JOB_OR_PACKAGE_JSON');}
  const date=job.edition_date,jobHash=hash(jobBytes),manifestHash=hash(manifestBytes);
+ const expectedTask=date<policy.task_transition_edition_date?policy.previous_task_id:policy.task_id;
  const a=assignment;
  if(a?.schema_version!=='external-compiler-recurring-assignment-v8'||a.prompt_version!=='rev8'||
     a.scope!=='image_only_postpublication'||a.owner_personal_artwork_review_claimed!==false||
-    a.task_id!==policy.task_id||a.edition_date!==date||a.execution_id!==job.execution_id||
+    a.task_id!==expectedTask||a.edition_date!==date||a.execution_id!==job.execution_id||
     a.job_sha256!==jobHash||a.manifest_sha256!==manifestHash||
     a.original_source_commit_sha!==job.source?.commit_sha||
     a.original_bundle_sha256!==job.source?.bundle_sha256)fail('CURRENT_CYCLE_ASSIGNMENT_BINDING_MISSING');
@@ -81,7 +83,7 @@ export function verifyRecurringImageReleaseAdmission({jobBytes,index,manifestByt
   schema_version:'external-compiler-image-release-admission-v8',
   result:'STANDING_CURRENT_CYCLE_AUTHORIZED_NOT_DEPLOYED',
   cycle_date:a.cycle_date,edition_date:date,
-  task_id:policy.task_id,job_sha256:jobHash,manifest_sha256:manifestHash,
+  task_id:expectedTask,job_sha256:jobHash,manifest_sha256:manifestHash,
   original_source_commit_sha:job.source.commit_sha,
   original_bundle_sha256:job.source.bundle_sha256,
   accepted_images:manifest.images.map(x=>({story_id:x.story_id,sha256:x.sha256})),
