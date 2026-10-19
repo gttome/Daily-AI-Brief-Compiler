@@ -1,6 +1,6 @@
 # Image worker ownership and execution setup
 
-Effective for the October 20, 2026 edition and later. Repository: `gttome/Daily-AI-Brief-Compiler`. This is a coordination correction within the existing image task, not a new scheduler, image provider, permission grant or quality exception.
+Effective for the October 20, 2026 edition and later. Repository: `gttome/Daily-AI-Brief-Compiler`. The October 19 owner-authorized scheduler replacement changes only the daily chat destination; one image producer, provider, permission scope and quality requirements remain.
 
 ## Verified incident
 
@@ -10,9 +10,9 @@ It stopped publication after finding a competing recovery package. The recovery 
 
 Do not claim this evidence proves the exact start time, all future scheduler launches, or a missing capability in any unobserved run.
 
-## Keep the existing execution setup
+## Current execution setup — October 19 owner update
 
-Keep this same task, attached chat, enabled state, and 21:15 America/Chicago schedule. Keep connected GitHub and native Image Creation available in that chat. Explicitly invoke the imagegen skill for rendering when available; use the connected GitHub tools for repository work. A skill mention or task title does not enable a missing tool.
+For the October 20 edition onward, use replacement task `6ad6310597b0819096a8d0f1b46bffc9` (Daily Brief Images — Fresh Work), daily at 21:15 America/Chicago, with the actual scheduler setting **New chat for every run**. Pause the previous same-chat task `6acac88cff048191ba02e5b2bcb3becb` before enabling the replacement. The old task and conversation in the incident section are historical evidence, not current setup instructions. Keep connected GitHub and native Image Creation available in each run. Read current GitHub instructions and accepted progress afresh. Explicitly invoke the imagegen skill for rendering when available; use the connected GitHub tools for repository work. A skill mention or task title does not enable a missing tool.
 
 No chat-type, scheduler-ID, synthetic host-attestation or proof-branch gates are introduced. If the actual invocation lacks a required capability, record the precise missing callable operation, preserve work and report it honestly. Never substitute a paid API, add another AI task, or ask the owner to routinely start another chat.
 
