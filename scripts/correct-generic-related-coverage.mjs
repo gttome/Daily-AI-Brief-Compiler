@@ -31,7 +31,7 @@ function readRevision(revisionFile){
   const revision=JSON.parse(read(revisionFile));
   if(revision.schema_version!=='daily-compiler-reading-copy-correction-v1'||
      revision.correction_type!=='UNVERIFIED_EARLIER_BRIEF_TEXT_ONLY'||
-     revision.correction_id!=='DAB-READER-EARLIER-20261019-001'||
+     !['DAB-READER-EARLIER-20261019-001','DAB-READER-EARLIER-20261019-002'].includes(revision.correction_id)||
      JSON.stringify(revision.edition_dates)!==JSON.stringify(DATES)||
      !revision.reason||revision.scope!=='UNVERIFIED_HISTORICAL_LINKS_ONLY')
     fail('reader earlier-brief correction authorization does not match the exact approved scope');

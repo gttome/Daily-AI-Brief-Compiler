@@ -97,37 +97,14 @@ jobs:
           path: build/patched
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Independently read back each of 13 live corrected routes
+      - name: Verify every changed live route with bounded CDN-propagation retries
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         shell: bash
         run: |
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          import crypto from 'node:crypto';
-          const receipt=JSON.parse(fs.readFileSync('build/reading-copy-receipt.json','utf8'));
-          const base=process.env.SITE_URL.replace(/\/?$/,'/');
-          for(const entry of receipt.changed){
-            const expected=fs.readFileSync('build/patched/'+entry.route);
-            const sha=crypto.createHash('sha256').update(expected).digest('hex');
-            if(sha!==entry.current_sha256)throw Error('local staged file changed: '+entry.route);
-            let ok=false,detail='';
-            for(let retry=0;retry<8;retry++){
-              const url=new URL(entry.route,base);
-              url.searchParams.set('reading-copy-revision',process.env.GITHUB_SHA.slice(0,12));
-              try{
-                const response=await fetch(url,{headers:{'Cache-Control':'no-cache'}});
-                const actual=Buffer.from(await response.arrayBuffer());
-                if(response.status===200&&actual.equals(expected)){ok=true;break;}
-                detail='HTTP '+response.status+', bytes '+actual.length;
-              }catch(e){detail=String(e);}
-              await new Promise(r=>setTimeout(r,3500));
-            }
-            if(!ok)throw Error('live byte-for-byte reader verification failed: '+entry.route+' '+detail);
-            console.log('LIVE_CORRECTED_READER_PASS',entry.route,sha);
-          }
-          console.log('ALL_13_READER_ROUTES_VERIFIED',receipt.repeated_blocks_removed);
-          NODE
+          set -euo pipefail
+          node scripts/verify-reader-live-readback.mjs build/patched build/reading-copy-receipt.json "$SITE_URL" "$GITHUB_SHA" build/reader-live-verification.json
+          node --input-type=module -e "import fs from 'node:fs';const r=JSON.parse(fs.readFileSync('build/reader-live-verification.json'));if(r.result!=='PASS'||r.all_staged_bytes_verified!==true||r.all_live_bytes_verified!==true)process.exit(1)"
       - name: Persist verified correction to cumulative reader history
         shell: bash
         run: |
