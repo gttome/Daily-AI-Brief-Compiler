@@ -192,7 +192,9 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
   if(continuityRequired&&!priorWatchlistPath)
     fail('new production edition requires last published Watchlist from Pages history');
   const priorWatchlist=continuityRequired?readJson(priorWatchlistPath):null;
-  const priorArchive=priorArchivePath?readJson(priorArchivePath):null;
+  // Pre-October-17 historical rebuilds have no separately frozen archive file.
+  // Future production still fails closed on a missing supplied archive.
+  const priorArchive=priorArchivePath&&(continuityRequired||fs.existsSync(priorArchivePath))?readJson(priorArchivePath):null;
   const parity=await checkGoldenReaderParity();
   const built=await buildSite({validation,outDir,repoRoot,priorWatchlist,priorArchive});
   // No first-party scheduled host adapter is supplied by this deterministic workflow.
