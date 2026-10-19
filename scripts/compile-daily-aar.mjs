@@ -169,7 +169,7 @@ function imageAar(cycle,date,e,hashes={}){
    'CLAIMED_IN_BOUND_RUNTIME_RECEIPT_NOT_INDEPENDENTLY_ATTESTED':'UNPROVEN';
  return {
   schema_version:'daily-compiler-lane-aar-v1',lane:'images',cycle_date:cycle,edition_date:date,
-  task_id:TASKS.images,expected_local_start:'21:15 America/Chicago',
+  task_id:recurring?.task_id??(date>='2026-10-20'?'6ad6310597b0819096a8d0f1b46bffc9':TASKS.images),expected_local_start:'21:15 America/Chicago',
   execution:seen?'START_OBSERVED':'NO_START_RECEIPT',
   scheduled_host_mode:mode,
   same_invocation_connected_github:'UNPROVEN',
