@@ -1,0 +1,110 @@
+{
+  "schema_version": "daily-compiler-full-source-evidence-v1",
+  "edition_date": "2026-10-19",
+  "recorded_at": "2026-10-19T00:58:00.000Z",
+  "method": "publisher_main_text",
+  "no_fabricated_playback": true,
+  "source_evidence": [
+    {
+      "id": "oct19-t1-provider-failover",
+      "publisher": "OpenAI Developers",
+      "original_date": "2026-10-14",
+      "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+      "scope": "Complete production-routing guide: first- and third-party routes, private connectivity, route qualification, retry classes, deadlines, circuit breaking, gradual failback, ownership and a disabled-by-default implementation prompt.",
+      "main_facts": [
+        "OpenAI’s production-routing guide separates multi-provider availability from safe workflow recovery. Using a read-only fraud assessment, it permits failover only when retries are repeatable, deadlines remain, the secondary is approved and healthy, and features plus data controls match. Stateful sessions, partial outputs, unknown errors and uncertain actions require reconciliation or a safe stop.",
+        "Start with one read-only inference step. Centralize retry budgets, test both routes under load, block ambiguous replays and define queue, degraded or manual paths so an outage does not become duplicate work, policy drift or an uncontrolled provider switch.",
+        "Reader copy records 52 summary words and 39 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 132-hour primary engineering guide is the freshest verified source found that supplies an end-to-end, testable provider-failover policy and remains within the allowed 168-hour extended fallback."
+    },
+    {
+      "id": "oct19-t2-granite-switch",
+      "publisher": "IBM Granite on Hugging Face",
+      "original_date": "2026-10-15",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+      "scope": "Complete IBM Granite launch article: 8B and 30B configurations, decision and guardian Activated LoRAs, co-located speech encoder, shared KV cache, reported comparisons, composition workflow, runtimes and stated limitations.",
+      "main_facts": [
+        "IBM Granite’s 8B and 30B Switch 4.1 checkpoints combine a general decision adapter, a guardian adapter and a speech encoder with the base chat model. Activated LoRAs reuse the base model’s KV cache, while the project supports vLLM and llama.cpp. Reported speed and benchmark claims remain publisher-produced and need workload-specific replication.",
+        "Evaluate the composed checkpoint as a system: verify adapter routing, classification quality, speech accuracy, cache behavior, memory use and latency on your own traffic. Treat publisher comparisons as hypotheses until identical fixtures reproduce them under the intended runtime.",
+        "Reader copy records 53 summary words and 38 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 108-hour release remains within the permitted 168-hour window and is the freshest verified primary technical source found on composable decision, safety and speech adapters in one checkpoint."
+    },
+    {
+      "id": "oct19-k1-governed-context",
+      "publisher": "Stack Overflow",
+      "original_date": "2026-10-15",
+      "url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+      "scope": "Complete product-analysis article: capture, validation, organization, governance and delivery stages; connector upkeep, provenance, ownership, trust scoring, expert escalation, auditability, MCP delivery and vendor-interest caveats.",
+      "main_facts": [
+        "Stack Overflow divides an enterprise AI context layer into capture, validation, organization, governance and delivery. Its argument is that connectors and retrieval are only the beginning: teams must preserve provenance, ownership, permissions, audit history and changing trust. The article promotes Stack Internal, so its build-versus-buy conclusion should be tested against internal costs and alternatives.",
+        "Inventory one knowledge workflow across all five stages before funding a platform. Measure connector upkeep, stale-answer handling, expert review, permission enforcement and audit needs; then compare those recurring costs with vendor lock-in, migration effort and evidence portability.",
+        "Reader copy records 54 summary words and 37 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 108-hour source is the freshest verified primary product analysis found that decomposes operational knowledge governance into concrete lifecycle responsibilities, within the 168-hour limit."
+    },
+    {
+      "id": "oct19-k2-independent-risk-evidence",
+      "publisher": "METR",
+      "original_date": "2026-10-14",
+      "url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+      "scope": "Complete policy statement: goals, project scope, access and resource limits, redactions, informal pressure, conflicts, financial independence, confidentiality, public methods, iterative reporting, comparability and historical collaborations.",
+      "main_facts": [
+        "METR explains how external AI-risk work can inform the public without pretending to certify deployment decisions. It commits to disclose project scope, access limits, redactions, constraints and conflicts, while protecting confidential material. The organization also aims to publish evidence and methods for outside analysis, acknowledge scientific uncertainty and issue iterative findings rather than closed-door assurance.",
+        "When reading an AI safety assessment, check who paid, what evaluators could access, which evidence was removed, how methods can be challenged and whether conclusions exceed the scope. These disclosures help leaders distinguish independent evidence from a broad safety endorsement.",
+        "Reader copy records 55 summary words and 40 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 132-hour source is the freshest verified primary statement found that makes independence, redactions and assessment limitations explicit for public AI-risk evidence, within the 168-hour limit."
+    },
+    {
+      "id": "oct19-a1-recoverable-agent-memory",
+      "publisher": "LangChain",
+      "original_date": "2026-10-14",
+      "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+      "scope": "Complete conceptual guide: context rot, tool-result offloading, recoverable summarization, on-demand skills, subagent isolation, long-term Markdown memory, provider switching, middleware defaults and customization limits.",
+      "main_facts": [
+        "LangChain describes five Deep Agents mechanisms for limiting context rot: offload large inputs to files, summarize older turns, load skills only when relevant, isolate noisy work in subagents and persist selected knowledge as plain Markdown. Summaries remain recoverable, and user-controlled storage lets memory survive a model or provider change instead of remaining trapped in one service.",
+        "Keep active context small without deleting evidence. Store raw outputs behind previews, preserve summarized history for retrieval, separate exploratory work and review persistent memory edits. This makes long-running agents easier to audit, migrate and correct when their retained assumptions become stale.",
+        "Reader copy records 56 summary words and 41 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 132-hour source is the freshest verified primary guide found that explains five recoverable context-management mechanisms together, and it remains within the permitted 168-hour fallback."
+    },
+    {
+      "id": "oct19-a2-release-skill",
+      "publisher": "OpenCode",
+      "original_date": "2026-10-17",
+      "url": "https://opencode.ai/docs/skills/",
+      "scope": "Complete Agent Skills documentation: search paths, upward discovery, required frontmatter, naming and description rules, release-note example, tool exposure, manual selection, wildcard permissions, per-agent overrides and troubleshooting.",
+      "main_facts": [
+        "OpenCode documents portable SKILL.md discovery across project, global, Claude-compatible and agent-compatible paths. Its git-release example pairs strict frontmatter with bounded instructions for drafting release notes, proposing a version bump and returning a copyable command. Pattern permissions can allow, deny or require approval, while manual-only metadata prevents accidental automatic selection.",
+        "Create a read-only release skill, test its name and discovery, deny unrelated internal skills and require approval before any publishing command. Compare generated notes with merged pull requests, keep version choice human-owned and never let the procedure push tags automatically.",
+        "Reader copy records 50 summary words and 40 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ]
+    }
+  ]
+}

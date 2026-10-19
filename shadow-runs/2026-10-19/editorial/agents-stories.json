@@ -1,0 +1,48 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-19",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct19-a1-recoverable-agent-memory",
+      "focus": "Agents for Everyone",
+      "headline": "Deep Agents keeps long-run context recoverable and inspectable",
+      "source_url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+      "published_at": "2026-10-14",
+      "publisher": "LangChain",
+      "read_scope": "Complete conceptual guide: context rot, tool-result offloading, recoverable summarization, on-demand skills, subagent isolation, long-term Markdown memory, provider switching, middleware defaults and customization limits.",
+      "reading_time_minutes": 11,
+      "topics": [
+        "Context rot",
+        "Recoverable memory",
+        "Subagent isolation"
+      ],
+      "agent_skills": false,
+      "summary": "LangChain describes five Deep Agents mechanisms for limiting context rot: offload large inputs to files, summarize older turns, load skills only when relevant, isolate noisy work in subagents and persist selected knowledge as plain Markdown. Summaries remain recoverable, and user-controlled storage lets memory survive a model or provider change instead of remaining trapped in one service.",
+      "why_it_matters": "Keep active context small without deleting evidence. Store raw outputs behind previews, preserve summarized history for retrieval, separate exploratory work and review persistent memory edits. This makes long-running agents easier to audit, migrate and correct when their retained assumptions become stale.",
+      "image_alt_intent": "A long-running agent moves bulky tool output into files, condenses old turns, loads skills on demand and delegates noisy research, while a recoverable memory ledger remains under user control.",
+      "permanent_route": "/stories/2026-10-19/a1-recoverable-agent-memory/"
+    },
+    {
+      "id": "oct19-a2-release-skill",
+      "focus": "Agents for Everyone",
+      "headline": "Build a permission-bounded release-note Agent Skill",
+      "source_url": "https://opencode.ai/docs/skills/",
+      "published_at": "2026-10-17",
+      "publisher": "OpenCode",
+      "read_scope": "Complete Agent Skills documentation: search paths, upward discovery, required frontmatter, naming and description rules, release-note example, tool exposure, manual selection, wildcard permissions, per-agent overrides and troubleshooting.",
+      "reading_time_minutes": 10,
+      "topics": [
+        "Agent Skills",
+        "Release notes",
+        "Permission boundaries"
+      ],
+      "agent_skills": true,
+      "summary": "OpenCode documents portable SKILL.md discovery across project, global, Claude-compatible and agent-compatible paths. Its git-release example pairs strict frontmatter with bounded instructions for drafting release notes, proposing a version bump and returning a copyable command. Pattern permissions can allow, deny or require approval, while manual-only metadata prevents accidental automatic selection.",
+      "why_it_matters": "Create a read-only release skill, test its name and discovery, deny unrelated internal skills and require approval before any publishing command. Compare generated notes with merged pull requests, keep version choice human-owned and never let the procedure push tags automatically.",
+      "image_alt_intent": "A git-release SKILL.md with validated frontmatter feeds a read-only draft-and-compare workflow, while permission patterns block unrelated skills and a human approval gate prevents tag publication.",
+      "permanent_route": "/stories/2026-10-19/a2-release-skill/",
+      "agent_skills_evidence": "Reusable read-only release-note procedure grounded in OpenCode’s October 17 Agent Skills documentation. Create `.opencode/skills/git-release/SKILL.md` with matching lowercase-hyphenated name, a precise description, manual-only metadata and instructions limited to drafting notes, proposing a version and returning a copyable command. Set unrelated `internal-*` skills to deny and the release skill to ask. Test discovery plus one repository fixture; compare notes with merged pull requests. Return DRAFT, REVIEW or STOP, never execute a tag, release or push. Require explicit human approval for any later publishing command."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-19",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct19-t1-provider-failover",
+      "focus": "Technical AI Engineering",
+      "headline": "Safe model failover starts with replay boundaries",
+      "source_url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+      "published_at": "2026-10-14",
+      "publisher": "OpenAI Developers",
+      "read_scope": "Complete production-routing guide: first- and third-party routes, private connectivity, route qualification, retry classes, deadlines, circuit breaking, gradual failback, ownership and a disabled-by-default implementation prompt.",
+      "reading_time_minutes": 22,
+      "topics": [
+        "Provider failover",
+        "Retry safety",
+        "Recovery ownership"
+      ],
+      "agent_skills": false,
+      "summary": "OpenAI’s production-routing guide separates multi-provider availability from safe workflow recovery. Using a read-only fraud assessment, it permits failover only when retries are repeatable, deadlines remain, the secondary is approved and healthy, and features plus data controls match. Stateful sessions, partial outputs, unknown errors and uncertain actions require reconciliation or a safe stop.",
+      "why_it_matters": "Start with one read-only inference step. Centralize retry budgets, test both routes under load, block ambiguous replays and define queue, degraded or manual paths so an outage does not become duplicate work, policy drift or an uncontrolled provider switch.",
+      "image_alt_intent": "Two approved model-provider routes sit behind one retry controller, while read-only requests pass a replay-safety gate and stateful or uncertain actions divert to reconciliation and human recovery.",
+      "permanent_route": "/stories/2026-10-19/t1-provider-failover/"
+    },
+    {
+      "id": "oct19-t2-granite-switch",
+      "focus": "Technical AI Engineering",
+      "headline": "Granite Switch composes chat, decisions and speech in one model",
+      "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+      "published_at": "2026-10-15",
+      "publisher": "IBM Granite on Hugging Face",
+      "read_scope": "Complete IBM Granite launch article: 8B and 30B configurations, decision and guardian Activated LoRAs, co-located speech encoder, shared KV cache, reported comparisons, composition workflow, runtimes and stated limitations.",
+      "reading_time_minutes": 9,
+      "topics": [
+        "Activated LoRAs",
+        "Shared KV cache",
+        "Modular inference"
+      ],
+      "agent_skills": false,
+      "summary": "IBM Granite’s 8B and 30B Switch 4.1 checkpoints combine a general decision adapter, a guardian adapter and a speech encoder with the base chat model. Activated LoRAs reuse the base model’s KV cache, while the project supports vLLM and llama.cpp. Reported speed and benchmark claims remain publisher-produced and need workload-specific replication.",
+      "why_it_matters": "Evaluate the composed checkpoint as a system: verify adapter routing, classification quality, speech accuracy, cache behavior, memory use and latency on your own traffic. Treat publisher comparisons as hypotheses until identical fixtures reproduce them under the intended runtime.",
+      "image_alt_intent": "A single Granite checkpoint contains a chat base, decision and guardian adapters, plus a speech encoder, with one shared KV cache feeding workload-specific evaluation lanes.",
+      "permanent_route": "/stories/2026-10-19/t2-granite-switch/"
+    }
+  ]
+}

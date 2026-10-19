@@ -1,0 +1,766 @@
+{
+  "schema_version": "daily-compiler-edition-bundle-v1",
+  "edition_date": "2026-10-19",
+  "status": "BUNDLE_READY",
+  "editorial_contract_version": "daily-compiler-editorial-contract-v1",
+  "stories": [
+    {
+      "id": "oct19-t1-provider-failover",
+      "headline": "Safe model failover starts with replay boundaries",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+        "title": "Designing failover across OpenAI model providers",
+        "publisher": "OpenAI Developers",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-19T00:58:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-19T00:58:00.000Z",
+          "scope": "Complete production-routing guide: first- and third-party routes, private connectivity, route qualification, retry classes, deadlines, circuit breaking, gradual failback, ownership and a disabled-by-default implementation prompt."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 4300,
+          "source_word_count_method": "editorial original main-text approximation"
+        },
+        "freshness_reason": "This 132-hour primary engineering guide is the freshest verified source found that supplies an end-to-end, testable provider-failover policy and remains within the allowed 168-hour extended fallback."
+      },
+      "reading_time_minutes": 22,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 4300,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-19T00:58:00.000Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Provider failover",
+        "Retry safety",
+        "Recovery ownership"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Technical AI Engineering",
+        "October 19 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "OpenAI’s production-routing guide separates multi-provider availability from safe workflow recovery. Using a read-only fraud assessment, it permits failover only when retries are repeatable, deadlines remain, the secondary is approved and healthy, and features plus data controls match. Stateful sessions, partial outputs, unknown errors and uncertain actions require reconciliation or a safe stop.",
+      "why_it_matters": "Start with one read-only inference step. Centralize retry budgets, test both routes under load, block ambiguous replays and define queue, degraded or manual paths so an outage does not become duplicate work, policy drift or an uncontrolled provider switch.",
+      "related_coverage": "Other October 19 stories examine modular models, governed knowledge, independent evidence, agent memory and reusable procedures.",
+      "image_alt_intent": "Two approved model-provider routes sit behind one retry controller, while read-only requests pass a replay-safety gate and stateful or uncertain actions divert to reconciliation and human recovery.",
+      "permanent_route": "/stories/2026-10-19/t1-provider-failover/"
+    },
+    {
+      "id": "oct19-t2-granite-switch",
+      "headline": "Granite Switch composes chat, decisions and speech in one model",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+        "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
+        "publisher": "IBM Granite on Hugging Face",
+        "published_at": "2026-10-15",
+        "retrieved_at": "2026-10-19T00:58:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-19T00:58:00.000Z",
+          "scope": "Complete IBM Granite launch article: 8B and 30B configurations, decision and guardian Activated LoRAs, co-located speech encoder, shared KV cache, reported comparisons, composition workflow, runtimes and stated limitations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1700,
+          "source_word_count_method": "editorial original main-text approximation"
+        },
+        "freshness_reason": "This 108-hour release remains within the permitted 168-hour window and is the freshest verified primary technical source found on composable decision, safety and speech adapters in one checkpoint."
+      },
+      "reading_time_minutes": 9,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1700,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-19T00:58:00.000Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Activated LoRAs",
+        "Shared KV cache",
+        "Modular inference"
+      ],
+      "coverage_labels": [
+        "2026-10-15 original publisher article",
+        "Technical AI Engineering",
+        "October 19 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "IBM Granite’s 8B and 30B Switch 4.1 checkpoints combine a general decision adapter, a guardian adapter and a speech encoder with the base chat model. Activated LoRAs reuse the base model’s KV cache, while the project supports vLLM and llama.cpp. Reported speed and benchmark claims remain publisher-produced and need workload-specific replication.",
+      "why_it_matters": "Evaluate the composed checkpoint as a system: verify adapter routing, classification quality, speech accuracy, cache behavior, memory use and latency on your own traffic. Treat publisher comparisons as hypotheses until identical fixtures reproduce them under the intended runtime.",
+      "related_coverage": "Other October 19 stories examine failover, governed knowledge, independent evidence, agent memory and reusable procedures.",
+      "image_alt_intent": "A single Granite checkpoint contains a chat base, decision and guardian adapters, plus a speech encoder, with one shared KV cache feeding workload-specific evaluation lanes.",
+      "permanent_route": "/stories/2026-10-19/t2-granite-switch/"
+    },
+    {
+      "id": "oct19-k1-governed-context",
+      "headline": "A governed context layer is more than a vector database",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+        "title": "Why your platform team shouldn’t build an AI context layer (even though they probably could)",
+        "publisher": "Stack Overflow",
+        "published_at": "2026-10-15",
+        "retrieved_at": "2026-10-19T00:58:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-19T00:58:00.000Z",
+          "scope": "Complete product-analysis article: capture, validation, organization, governance and delivery stages; connector upkeep, provenance, ownership, trust scoring, expert escalation, auditability, MCP delivery and vendor-interest caveats."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 2600,
+          "source_word_count_method": "editorial original main-text approximation"
+        },
+        "freshness_reason": "This 108-hour source is the freshest verified primary product analysis found that decomposes operational knowledge governance into concrete lifecycle responsibilities, within the 168-hour limit."
+      },
+      "reading_time_minutes": 13,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 2600,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-19T00:58:00.000Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Knowledge governance",
+        "Context pipelines",
+        "Build versus buy"
+      ],
+      "coverage_labels": [
+        "2026-10-15 original publisher article",
+        "Applied Generative AI for Knowledge Workers",
+        "October 19 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "Stack Overflow divides an enterprise AI context layer into capture, validation, organization, governance and delivery. Its argument is that connectors and retrieval are only the beginning: teams must preserve provenance, ownership, permissions, audit history and changing trust. The article promotes Stack Internal, so its build-versus-buy conclusion should be tested against internal costs and alternatives.",
+      "why_it_matters": "Inventory one knowledge workflow across all five stages before funding a platform. Measure connector upkeep, stale-answer handling, expert review, permission enforcement and audit needs; then compare those recurring costs with vendor lock-in, migration effort and evidence portability.",
+      "related_coverage": "Other October 19 stories examine failover, modular models, independent evidence, agent memory and reusable procedures.",
+      "image_alt_intent": "A five-stage enterprise knowledge pipeline moves from capture through validation, organization and governance to delivery, with provenance, permissions and expert review visible at every handoff.",
+      "permanent_route": "/stories/2026-10-19/k1-governed-context/"
+    },
+    {
+      "id": "oct19-k2-independent-risk-evidence",
+      "headline": "Independent AI assurance needs visible constraints",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "source": {
+        "url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+        "title": "Our approach to working with AI companies",
+        "publisher": "METR",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-19T00:58:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-19T00:58:00.000Z",
+          "scope": "Complete policy statement: goals, project scope, access and resource limits, redactions, informal pressure, conflicts, financial independence, confidentiality, public methods, iterative reporting, comparability and historical collaborations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 3000,
+          "source_word_count_method": "editorial original main-text approximation"
+        },
+        "freshness_reason": "This 132-hour source is the freshest verified primary statement found that makes independence, redactions and assessment limitations explicit for public AI-risk evidence, within the 168-hour limit."
+      },
+      "reading_time_minutes": 15,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 3000,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-19T00:58:00.000Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Independent assurance",
+        "Evidence limits",
+        "Process transparency"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Applied Generative AI for Knowledge Workers",
+        "October 19 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "METR explains how external AI-risk work can inform the public without pretending to certify deployment decisions. It commits to disclose project scope, access limits, redactions, constraints and conflicts, while protecting confidential material. The organization also aims to publish evidence and methods for outside analysis, acknowledge scientific uncertainty and issue iterative findings rather than closed-door assurance.",
+      "why_it_matters": "When reading an AI safety assessment, check who paid, what evaluators could access, which evidence was removed, how methods can be challenged and whether conclusions exceed the scope. These disclosures help leaders distinguish independent evidence from a broad safety endorsement.",
+      "related_coverage": "Other October 19 stories examine failover, modular models, governed knowledge, agent memory and reusable procedures.",
+      "image_alt_intent": "An external AI assessment report opens into transparent layers for scope, access, redactions, conflicts, methods and uncertainty, allowing readers to trace how each conclusion was produced.",
+      "permanent_route": "/stories/2026-10-19/k2-independent-risk-evidence/"
+    },
+    {
+      "id": "oct19-a1-recoverable-agent-memory",
+      "headline": "Deep Agents keeps long-run context recoverable and inspectable",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+        "title": "Context Engineering: How Deep Agents Remember",
+        "publisher": "LangChain",
+        "published_at": "2026-10-14",
+        "retrieved_at": "2026-10-19T00:58:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-19T00:58:00.000Z",
+          "scope": "Complete conceptual guide: context rot, tool-result offloading, recoverable summarization, on-demand skills, subagent isolation, long-term Markdown memory, provider switching, middleware defaults and customization limits."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 2200,
+          "source_word_count_method": "editorial original main-text approximation"
+        },
+        "freshness_reason": "This 132-hour source is the freshest verified primary guide found that explains five recoverable context-management mechanisms together, and it remains within the permitted 168-hour fallback."
+      },
+      "reading_time_minutes": 11,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 2200,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-19T00:58:00.000Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Context rot",
+        "Recoverable memory",
+        "Subagent isolation"
+      ],
+      "coverage_labels": [
+        "2026-10-14 original publisher article",
+        "Agents for Everyone",
+        "October 19 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "LangChain describes five Deep Agents mechanisms for limiting context rot: offload large inputs to files, summarize older turns, load skills only when relevant, isolate noisy work in subagents and persist selected knowledge as plain Markdown. Summaries remain recoverable, and user-controlled storage lets memory survive a model or provider change instead of remaining trapped in one service.",
+      "why_it_matters": "Keep active context small without deleting evidence. Store raw outputs behind previews, preserve summarized history for retrieval, separate exploratory work and review persistent memory edits. This makes long-running agents easier to audit, migrate and correct when their retained assumptions become stale.",
+      "related_coverage": "Other October 19 stories examine failover, modular models, governed knowledge, independent evidence and reusable procedures.",
+      "image_alt_intent": "A long-running agent moves bulky tool output into files, condenses old turns, loads skills on demand and delegates noisy research, while a recoverable memory ledger remains under user control.",
+      "permanent_route": "/stories/2026-10-19/a1-recoverable-agent-memory/"
+    },
+    {
+      "id": "oct19-a2-release-skill",
+      "headline": "Build a permission-bounded release-note Agent Skill",
+      "focus": "Agents for Everyone",
+      "source": {
+        "url": "https://opencode.ai/docs/skills/",
+        "title": "Agent Skills",
+        "publisher": "OpenCode",
+        "published_at": "2026-10-17",
+        "retrieved_at": "2026-10-19T00:58:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-19T00:58:00.000Z",
+          "scope": "Complete Agent Skills documentation: search paths, upward discovery, required frontmatter, naming and description rules, release-note example, tool exposure, manual selection, wildcard permissions, per-agent overrides and troubleshooting."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 1900,
+          "source_word_count_method": "editorial original main-text approximation"
+        }
+      },
+      "reading_time_minutes": 10,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 1900,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-19T00:58:00.000Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Agent Skills",
+        "Release notes",
+        "Permission boundaries"
+      ],
+      "coverage_labels": [
+        "2026-10-17 original publisher documentation",
+        "Agents for Everyone",
+        "October 19 verified source coverage"
+      ],
+      "agent_skills": true,
+      "summary": "OpenCode documents portable SKILL.md discovery across project, global, Claude-compatible and agent-compatible paths. Its git-release example pairs strict frontmatter with bounded instructions for drafting release notes, proposing a version bump and returning a copyable command. Pattern permissions can allow, deny or require approval, while manual-only metadata prevents accidental automatic selection.",
+      "why_it_matters": "Create a read-only release skill, test its name and discovery, deny unrelated internal skills and require approval before any publishing command. Compare generated notes with merged pull requests, keep version choice human-owned and never let the procedure push tags automatically.",
+      "related_coverage": "Other October 19 stories examine failover, modular models, governed knowledge, independent evidence and agent memory.",
+      "image_alt_intent": "A git-release SKILL.md with validated frontmatter feeds a read-only draft-and-compare workflow, while permission patterns block unrelated skills and a human approval gate prevents tag publication.",
+      "permanent_route": "/stories/2026-10-19/a2-release-skill/",
+      "agent_skills_evidence": "Reusable read-only release-note procedure grounded in OpenCode’s October 17 Agent Skills documentation. Create `.opencode/skills/git-release/SKILL.md` with matching lowercase-hyphenated name, a precise description, manual-only metadata and instructions limited to drafting notes, proposing a version and returning a copyable command. Set unrelated `internal-*` skills to deny and the release skill to ask. Test discovery plus one repository fixture; compare notes with merged pull requests. Return DRAFT, REVIEW or STOP, never execute a tag, release or push. Require explicit human approval for any later publishing command."
+    }
+  ],
+  "videos": [
+    {
+      "title": "Put your dot on call",
+      "source": "OpenAI official YouTube video",
+      "url": "https://www.youtube.com/watch?v=GBOZIRK1ujw",
+      "original_date": "2026-10-16",
+      "duration_minutes": 2.63,
+      "focus": "Technical AI Engineering",
+      "summary": "An OpenAI engineer demonstrates a bounded incident-response handoff: a persistent dot watches an on-call channel, investigates a 3 a.m. alert, starts a Codex thread and lets the engineer steer from a phone. The short product demonstration is useful for identifying the coordination pattern, but it is not an independent reliability benchmark. This synopsis relies on creator metadata and indexed scene descriptions, not playback.",
+      "why_it_matters": "Separate alert detection, evidence gathering and code changes, then keep incident ownership and high-impact approvals with the on-call engineer.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-19T00:58:00.000Z",
+      "verified_method": "official_creator_identity_and_independent_runtime_catalog",
+      "verification_method": "official_creator_identity_and_independent_runtime_catalog",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-19T00:58:00.000Z",
+        "runtime_source_url": "https://open.subsub.io/channels/openai/view/content?page=1&perPage=15&sortBy=date",
+        "method": "official_OpenAI_listing_plus_independent_2min38sec_catalog",
+        "verification_scope": "OpenAI YouTube identity, October 16 creator date and 2:38 runtime were cross-checked against independent current video catalogs; no playback.",
+        "audiovisual_playback_claimed": false
+      }
+    },
+    {
+      "title": "How To Actually Automate Your Company w Claude (Seriously)",
+      "source": "Nick Saraev official YouTube video",
+      "url": "https://www.youtube.com/watch?v=rvkjS3YoVio",
+      "original_date": "2026-10-13",
+      "duration_minutes": 6.9,
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "summary": "Nick Saraev presents a repeatable automation triage: observe real work, inventory tasks, run each candidate ten times, score the outputs, improve weak procedures, package only passing workflows as skills and schedule only low-risk work. His revenue and automation figures are self-reported, and screen capture can expose secrets. The synopsis uses the creator listing plus a chaptered independent summary, not playback.",
+      "why_it_matters": "Measure repeatability before scheduling automation, protect captured work data and preserve human review for client-facing or high-impact deliverables.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-19T00:58:00.000Z",
+      "verified_method": "creator_listing_and_independent_chapter_summary",
+      "verification_method": "creator_listing_and_independent_chapter_summary",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-19T00:58:00.000Z",
+        "runtime_source_url": "https://openclawdatabase.com/news/videos/2026-10-16-automate-knowledge-work-claude-audit-evals-skills-schedule/",
+        "method": "creator_video_identity_with_complete_0min00sec_to_6min36sec_chapter_index",
+        "verification_scope": "The creator feed identifies the October 13 video; the independent chaptered source covers the complete short program through its 6:36 wrap-up, supporting an approximately 6.9-minute runtime. No playback.",
+        "audiovisual_playback_claimed": false
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Le Chonk! Also: Espionage at OpenAI",
+      "source": "AI Agents Hour by Mastra",
+      "url": "https://mastra.ai/podcasts/le-chonk-also-espionage-at-openai",
+      "original_date": "2026-10-16",
+      "duration_minutes": 30,
+      "summary": "Mastra cofounders Shane Thomas and Abhi Aiyer survey new models, decision systems, Anthropic’s source-control work, a reported agent disclosure of personal finances and open agent protocols. The publisher page and independent index provide detailed chapters through 28:44. Treat the program as practitioner commentary: use its map to locate primary evidence before relying on release, funding or incident claims. Audio was not played.",
+      "why_it_matters": "Use the chapter map to prioritize primary-source checks on agent security, decision models and protocol changes instead of treating a news discussion as verification.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-19T00:58:00.000Z",
+      "verified_method": "publisher_episode_page_and_independent_chapter_index",
+      "verification_method": "publisher_episode_page_and_independent_chapter_index",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-19T00:58:00.000Z",
+        "runtime_source_url": "https://podscan.fm/podcasts/0c38834e",
+        "method": "publisher_identity_plus_chapters_through_28min44sec_and_closing_discussion",
+        "verification_scope": "Mastra identifies episode 122 on October 16; the independent index supplies chapters through 28:44 and the publisher supplies episode notes. Runtime rounded to 30 minutes; audio not played.",
+        "audiovisual_playback_claimed": false
+      },
+      "written_reading_time_minutes": 6
+    },
+    {
+      "title": "Predicted: How AI Is Restructuring Social Life with Mona Sloane",
+      "source": "New Books Network — New Books in Sociology",
+      "url": "https://podcasts.apple.com/ca/podcast/predicted-how-ai-is-restructuring-social-life-with/id477719156?i=1000796621065",
+      "original_date": "2026-10-16",
+      "duration_minutes": 40.77,
+      "summary": "Host Pete Kunze interviews sociologist Mona Sloane about treating AI as social infrastructure rather than a detached technological force. They discuss prediction, classification, institutional authority, technological determinism and public agency. A complete indexed transcript grounds the synopsis, while the publisher listing and independent catalog establish identity, date and runtime. The conversation helps leaders examine who defines predictive categories and who can challenge them; audio was not played.",
+      "why_it_matters": "Ask which institutional assumptions an AI workflow encodes, whose authority it changes and what meaningful route exists for affected people to contest predictions.",
+      "verified": true,
+      "content_retrieved_at": "2026-10-19T00:58:00.000Z",
+      "verified_method": "Apple_publisher_listing_and_complete_independent_transcript",
+      "verification_method": "Apple_publisher_listing_and_complete_independent_transcript",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-19T00:58:00.000Z",
+        "runtime_source_url": "https://podcastrex.com/shows/new-books-in-sociology/predicted-how-ai-is-restructuring-social-life-with-mona-sloane-u-california-press-2026",
+        "method": "Apple_episode_identity_plus_independent_40min46sec_transcript_index",
+        "verification_scope": "Apple identifies the October 16 episode; independent catalogs report 40:46 and provide a complete timestamped transcript. Transcript read; audio not played.",
+        "audiovisual_playback_claimed": false
+      },
+      "written_reading_time_minutes": 9
+    }
+  ],
+  "watchlist": {
+    "schema_version": "daily-compiler-watchlist-v1",
+    "target_edition_date": "2026-10-19",
+    "refreshed_at": "2026-10-19T00:58:00.000Z",
+    "new": [
+      {
+        "topic": "Provider-aware AI failover",
+        "why": "OpenAI published a conservative routing policy that treats replay safety as a workflow property.",
+        "summary": "Provider-aware failover routes only repeatable AI operations to an approved secondary while preserving deadlines, controls and recovery ownership.",
+        "why_now": "OpenAI’s October 14 guide supplies explicit eligible and blocked failure classes, retry budgets and gradual failback guidance.",
+        "practical_value": "Test one read-only inference step across both routes and document exactly when to retry, queue, degrade or stop.",
+        "evidence": {
+          "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+          "date": "2026-10-14"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The guide moves multi-provider resilience from generic routing into explicit per-operation replay and recovery decisions."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "OpenAI provides failure classes, implementation constraints, test cases and operational measures, though no independent outage study."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The guidance is authored by one model provider and lacks independent comparative validation across production gateways."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "This first policy observation offers no repeated comparable outcome measure for adoption, recovery time or errors."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Platform and application teams can directly map retryability, deadlines, route approval and duplicate-action protection."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Safe retries, bounded failover and explicit recovery ownership remain necessary across providers and model generations."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No two comparable dated numerical observations establish momentum for this policy."
+        }
+      },
+      {
+        "topic": "Composable decision adapters",
+        "why": "IBM Granite combined chat, decision, guardian and speech components within one deployable checkpoint.",
+        "summary": "Composable decision adapters activate specialized classification and safety functions beside a general chat model while reusing cached context.",
+        "why_now": "IBM’s October 15 Granite Switch 4.1 release adds decision, guardian and speech components to 8B and 30B checkpoints.",
+        "practical_value": "Benchmark routing, accuracy, speech quality, latency and memory on identical fixtures before replacing separate services.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+          "date": "2026-10-15"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Combining speech, general decisions and guardian adapters in one checkpoint extends modular inference beyond chat-only composition."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Model cards, code and demonstrations are available, but several performance comparisons remain publisher-reported and incomplete."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Open artifacts permit external testing, yet the reviewed release evidence and headline comparisons originate from IBM Granite."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "Release-day model cards provide no two comparable observations collected under one stable deployment or adoption metric."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Teams can test whether one composed endpoint simplifies specialized decisions without sacrificing measurable workload quality."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Modular adapters and shared caches are durable engineering ideas even as specific checkpoints and runtimes change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No repeated comparable deployment measure supports a numeric momentum score."
+        }
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Reusable agent skills",
+        "what_changed": "OpenCode documented cross-tool discovery paths, strict portable frontmatter and wildcard permission rules for Agent Skills.",
+        "summary": "Reusable Agent Skills package focused procedures in versioned SKILL.md folders that agents discover and load only when relevant.",
+        "why_now": "OpenCode’s October 17 documentation adds compatible search paths, manual-only selection and allow, deny or ask permission patterns.",
+        "practical_value": "Build a read-only release-note skill, fixture-test discovery and output, then require approval before any publishing command.",
+        "evidence": {
+          "url": "https://opencode.ai/docs/skills/",
+          "date": "2026-10-17"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "OpenCode adds cross-client discovery and explicit permission patterns to the established portable SKILL.md procedure format."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "Official documentation specifies paths, schema rules, a complete release example, tool behavior and permission configuration."
+          },
+          "independence": {
+            "score": 3,
+            "reason": "OpenCode independently implements the shared format alongside Microsoft and Anthropic ecosystems, though evidence remains platform-authored."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "Different implementations publish structures rather than one repeated outcome measure, so momentum cannot be scored numerically."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can immediately create, discover, restrict and fixture-test one bounded procedure before granting side effects."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Portable instructions, lazy loading and explicit permission boundaries remain useful across agent clients and changing models."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "Available implementations lack a shared repeated numerical outcome measure."
+        }
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Agent governance and review points",
+        "summary": "Agent governance combines bounded scope, distinct identities, external policy enforcement, reconstructable runs and targeted human escalation.",
+        "why_now": "No newer independent deployment outcome displaced the October 15 layered control model, so the topic remains under observation.",
+        "practical_value": "Classify one task’s controls as provable, observable or judgment-based before granting additional tools or access.",
+        "evidence": {
+          "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+          "date": "2026-10-15"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The five-layer model sharpens earlier task safeguards by explicitly separating proof, observation and contextual human judgment."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "AWS provides detailed control definitions and examples, but no independently measured comparison of deployment failure rates."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "AWS’s governance model is organizationally separate from prior Google physical-control evidence, though neither has external replication."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "Earlier safeguards and this conceptual framework use incompatible measures and cannot support a numeric direction of change."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can map identities, permissions, tool policies, audit evidence and escalation points onto one bounded agent task."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Scope, least privilege, external enforcement and accountable judgment are durable control needs across model generations."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "Available safeguards lack a shared repeated numerical metric for momentum."
+        },
+        "why": "No material new operational evidence was verified, so the prior reviewed rubric is carried without claiming change."
+      },
+      {
+        "topic": "Audited long-form business reasoning",
+        "summary": "Complex knowledge-work assistants assemble evidence across governed data sources and produce reviewable analytical deliverables.",
+        "why_now": "No material post-October 15 outcome evidence changed the federation preview, so the topic remains active but unchanged.",
+        "practical_value": "Compare generated queries, permissions and totals against an approved cross-cloud report before operational use.",
+        "evidence": {
+          "url": "https://cloud.google.com/blog/products/data-analytics/borderless-lakehouse-integrates-with-gemini",
+          "date": "2026-10-15"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 3,
+            "reason": "Federated catalog access broadens the documented evidence surface for long-form analysis without moving underlying data."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "Google describes supported catalogs, preview behavior and infrastructure layers, while answer accuracy remains unbenchmarked."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The updated record relies on one Google product article and lacks independent cross-cloud verification results."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The prior presentation example and current federation preview do not measure one comparable quantity over time."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Analysts can inspect generated queries, access decisions and reconciled totals against an approved business report."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Evidence traceability across heterogeneous enterprise data remains important as models and storage platforms change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "The available developments do not share one comparable numerical measure."
+        },
+        "why": "No separate material development was verified after October 15, so the topic remains under active monitoring."
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Process-grounded AI readiness",
+        "reason": "The topic moves to history because no comparable independent survey has validated the vendor-sponsored readiness percentages.",
+        "summary": "Process-grounded readiness links AI to governed data, operating context, approvals, ownership and measurable end-to-end outcomes.",
+        "why_now": "No independent comparable survey has appeared since SAP’s October 14 report, so the signal is archived rather than carried.",
+        "practical_value": "Retain the workflow audit method, but do not use the prior percentages as a general market baseline.",
+        "previous_evidence": {
+          "url": "https://news.sap.com/2026/10/fast-growth-companies-biggest-ai-opportunity-few-capturing/",
+          "date": "2026-10-14"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 3,
+            "reason": "The topic reframes familiar AI readiness around complete processes rather than counts of deployed assistants or pilots."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "SAP cites Oxford Economics survey findings and explicit percentages, while the underlying questionnaire and sample are not reproduced."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The accessible evidence is vendor-sponsored research presented by SAP without an independent survey replication reviewed here."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "This single survey publication provides no comparable prior observation using the same readiness definition and sample."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Knowledge-work leaders can test data, ownership, approvals, exceptions and outcomes on one process before scaling spend."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Process integration, governed data and accountable operating change remain durable constraints across changing AI products."
+          }
+        }
+      }
+    ]
+  },
+  "book_mappings": [
+    {
+      "story_id": "oct19-t1-provider-failover",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Failure recovery contracts",
+      "connection": "Reliability includes knowing which operations are safe to repeat and which stateful actions require reconciliation.",
+      "what_to_study_next": "Write eligibility and stop rules for one read-only production inference step."
+    },
+    {
+      "story_id": "oct19-t2-granite-switch",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Composable runtime context",
+      "connection": "Adapters, caches and routing become part of the evaluated context that shapes one model endpoint’s behavior.",
+      "what_to_study_next": "Build identical fixtures for base chat, decision, guardian and speech paths."
+    },
+    {
+      "story_id": "oct19-k1-governed-context",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Trusted source contracts",
+      "connection": "A useful prompt depends on provenance, ownership, permission and freshness rules around the supplied knowledge.",
+      "what_to_study_next": "Define an evidence contract for one recurring internal answer."
+    },
+    {
+      "story_id": "oct19-k2-independent-risk-evidence",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Assurance limitations",
+      "connection": "Reliable decisions require visible scope, access, conflicts, redactions and uncertainty behind each assessment conclusion.",
+      "what_to_study_next": "Annotate one vendor assessment with what was tested, withheld and inferred."
+    },
+    {
+      "story_id": "oct19-a1-recoverable-agent-memory",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Inspectable learning loops",
+      "connection": "Recoverable summaries and editable memory files let teams examine how an agent’s retained context changes over time.",
+      "what_to_study_next": "Review one memory update for evidence, usefulness and expiration."
+    },
+    {
+      "story_id": "oct19-a2-release-skill",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Progressive procedural context",
+      "connection": "The release procedure loads only when selected and keeps permissions plus side-effect boundaries outside the instruction text.",
+      "what_to_study_next": "Fixture-test a read-only release skill before allowing any publish command."
+    }
+  ],
+  "images": [
+    {
+      "story_id": "oct19-t1-provider-failover",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Two approved model-provider routes sit behind one retry controller, while read-only requests pass a replay-safety gate and stateful or uncertain actions divert to reconciliation and human recovery."
+    },
+    {
+      "story_id": "oct19-t2-granite-switch",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A single Granite checkpoint contains a chat base, decision and guardian adapters, plus a speech encoder, with one shared KV cache feeding workload-specific evaluation lanes."
+    },
+    {
+      "story_id": "oct19-k1-governed-context",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A five-stage enterprise knowledge pipeline moves from capture through validation, organization and governance to delivery, with provenance, permissions and expert review visible at every handoff."
+    },
+    {
+      "story_id": "oct19-k2-independent-risk-evidence",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "An external AI assessment report opens into transparent layers for scope, access, redactions, conflicts, methods and uncertainty, allowing readers to trace how each conclusion was produced."
+    },
+    {
+      "story_id": "oct19-a1-recoverable-agent-memory",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A long-running agent moves bulky tool output into files, condenses old turns, loads skills on demand and delegates noisy research, while a recoverable memory ledger remains under user control."
+    },
+    {
+      "story_id": "oct19-a2-release-skill",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A git-release SKILL.md with validated frontmatter feeds a read-only draft-and-compare workflow, while permission patterns block unrelated skills and a human approval gate prevents tag publication."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "producer_receipt": {
+    "schema_version": "daily-compiler-release1-editorial-producer-v1",
+    "result": "PASS",
+    "edition_date": "2026-10-19",
+    "execution_id": "daily-compiler-shadow-2026-10-19",
+    "owner_intervention": false,
+    "work_used": false,
+    "codex_used": false,
+    "paid_model_api_used": false,
+    "local_computer_used": false,
+    "accepted_image_regenerations": 0,
+    "editorial_selection_path": "shadow-runs/2026-10-19/editorial/locked-selection.json",
+    "editorial_source_evidence_path": "shadow-runs/2026-10-19/editorial/full-source-evidence.json",
+    "semantic_content_path": "shadow-runs/2026-10-19/content/semantic-content.json",
+    "media_evidence_path": "shadow-runs/2026-10-19/content/media-evidence.json",
+    "image_representation": "one_shared_illustration_placeholder_for_six_stories",
+    "no_premium_image_generation": true,
+    "media_playback_claimed": false,
+    "provenance_note": "Six distinct original primary publishers were substantively read. Media identities, dates and runtimes were independently reverified without claiming audiovisual playback. Protected receipt work/codex fields denote excluded producer paths; no paid model API or local computer workflow was used."
+  }
+}

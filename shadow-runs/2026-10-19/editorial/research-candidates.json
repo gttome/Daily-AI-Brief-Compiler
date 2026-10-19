@@ -1,0 +1,134 @@
+{
+  "schema_version": "daily-compiler-research-candidates-v1",
+  "edition_date": "2026-10-19",
+  "cycle_date": "2026-10-18",
+  "status": "selection_locked",
+  "recorded_at": "2026-10-19T00:58:00.000Z",
+  "policy": "Nine credible publishing organizations were screened. Primary sources were read substantively; selection prioritizes current evidence while using justified extended fallback only within 168 hours.",
+  "source_organizations_screened": [
+    "OpenAI Developers",
+    "IBM Granite on Hugging Face",
+    "Stack Overflow",
+    "METR",
+    "LangChain",
+    "OpenCode",
+    "Arcade.dev",
+    "Dataiku",
+    "Google Research"
+  ],
+  "source_candidates": [
+    {
+      "focus": "Technical AI Engineering",
+      "publisher": "OpenAI Developers",
+      "title": "Designing failover across OpenAI model providers",
+      "published_at": "2026-10-14",
+      "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+      "verified_facts": [
+        "OpenAI’s production-routing guide separates multi-provider availability from safe workflow recovery.",
+        "Start with one read-only inference step."
+      ],
+      "reading_time_minutes": 22,
+      "full_main_text_read": true,
+      "freshness_reason": "This 132-hour primary engineering guide is the freshest verified source found that supplies an end-to-end, testable provider-failover policy and remains within the allowed 168-hour extended fallback."
+    },
+    {
+      "focus": "Technical AI Engineering",
+      "publisher": "IBM Granite on Hugging Face",
+      "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
+      "published_at": "2026-10-15",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+      "verified_facts": [
+        "IBM Granite’s 8B and 30B Switch 4.1 checkpoints combine a general decision adapter, a guardian adapter and a speech encoder with the base chat model.",
+        "Evaluate the composed checkpoint as a system: verify adapter routing, classification quality, speech accuracy, cache behavior, memory use and latency on your own traffic."
+      ],
+      "reading_time_minutes": 9,
+      "full_main_text_read": true,
+      "freshness_reason": "This 108-hour release remains within the permitted 168-hour window and is the freshest verified primary technical source found on composable decision, safety and speech adapters in one checkpoint."
+    },
+    {
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "publisher": "Stack Overflow",
+      "title": "Why your platform team shouldn’t build an AI context layer (even though they probably could)",
+      "published_at": "2026-10-15",
+      "url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+      "verified_facts": [
+        "Stack Overflow divides an enterprise AI context layer into capture, validation, organization, governance and delivery.",
+        "Inventory one knowledge workflow across all five stages before funding a platform."
+      ],
+      "reading_time_minutes": 13,
+      "full_main_text_read": true,
+      "freshness_reason": "This 108-hour source is the freshest verified primary product analysis found that decomposes operational knowledge governance into concrete lifecycle responsibilities, within the 168-hour limit."
+    },
+    {
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "publisher": "METR",
+      "title": "Our approach to working with AI companies",
+      "published_at": "2026-10-14",
+      "url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+      "verified_facts": [
+        "METR explains how external AI-risk work can inform the public without pretending to certify deployment decisions.",
+        "When reading an AI safety assessment, check who paid, what evaluators could access, which evidence was removed, how methods can be challenged and whether conclusions exceed the scope."
+      ],
+      "reading_time_minutes": 15,
+      "full_main_text_read": true,
+      "freshness_reason": "This 132-hour source is the freshest verified primary statement found that makes independence, redactions and assessment limitations explicit for public AI-risk evidence, within the 168-hour limit."
+    },
+    {
+      "focus": "Agents for Everyone",
+      "publisher": "LangChain",
+      "title": "Context Engineering: How Deep Agents Remember",
+      "published_at": "2026-10-14",
+      "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+      "verified_facts": [
+        "LangChain describes five Deep Agents mechanisms for limiting context rot: offload large inputs to files, summarize older turns, load skills only when relevant, isolate noisy work in subagents and persist selected knowledge as plain Markdown.",
+        "Keep active context small without deleting evidence."
+      ],
+      "reading_time_minutes": 11,
+      "full_main_text_read": true,
+      "freshness_reason": "This 132-hour source is the freshest verified primary guide found that explains five recoverable context-management mechanisms together, and it remains within the permitted 168-hour fallback."
+    },
+    {
+      "focus": "Agents for Everyone",
+      "publisher": "OpenCode",
+      "title": "Agent Skills",
+      "published_at": "2026-10-17",
+      "url": "https://opencode.ai/docs/skills/",
+      "verified_facts": [
+        "OpenCode documents portable SKILL.md discovery across project, global, Claude-compatible and agent-compatible paths.",
+        "Create a read-only release skill, test its name and discovery, deny unrelated internal skills and require approval before any publishing command."
+      ],
+      "reading_time_minutes": 10,
+      "full_main_text_read": true
+    },
+    {
+      "focus": "Technical AI Engineering",
+      "publisher": "Arcade.dev",
+      "title": "Introducing Tool Recommendation",
+      "published_at": "2026-10-15",
+      "url": "https://www.arcade.dev/blog/",
+      "selection_note": "Credible product release reviewed but not selected because its performance claims lacked enough independent detail for this edition."
+    },
+    {
+      "focus": "Agents for Everyone",
+      "publisher": "Dataiku",
+      "title": "Best AI agent authentication platforms 2026: an expert guide",
+      "published_at": "2026-10-15",
+      "url": "https://www.dataiku.com/blog/best-ai-agent-authentication-platforms",
+      "selection_note": "Useful market guide reviewed but not selected because it is comparative vendor analysis rather than a focused original implementation record."
+    },
+    {
+      "focus": "Technical AI Engineering",
+      "publisher": "Google Research",
+      "title": "Grounding AI agents in biological reality: Building blocks for autonomous wet labs",
+      "published_at": "2026-10-16",
+      "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/",
+      "selection_note": "Strong primary research was reviewed but excluded to avoid repeating the prior edition’s story and publisher exposure."
+    }
+  ],
+  "publication_ready": true,
+  "gates_pending": [
+    "protected GitHub validation",
+    "shadow compilation",
+    "independent live verification"
+  ]
+}
