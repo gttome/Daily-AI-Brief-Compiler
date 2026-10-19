@@ -4,7 +4,7 @@ For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d
 
 # Daily AI Brief Compiler — Two Primary Tasks Operating Runbook
 
-**October 20+ image ownership:** follow [Image worker ownership](../external-app/IMAGE_WORKER_OWNERSHIP.md). Both the scheduled image worker and any recovery session atomically claim `image-package/YYYY-MM-DD-native-primary`, persist/read back the owner receipt before image generation, and use expected-head updates. Status checks are read-only. Missing outputs do not prove a missing invocation or missing tools, and do not authorize a competing producer. The existing same-chat Work/image/GitHub execution setup and both production schedules remain unchanged.
+**October 20+ image ownership:** follow [Image worker ownership](../external-app/IMAGE_WORKER_OWNERSHIP.md). Both the scheduled image worker and any recovery session atomically claim `image-package/YYYY-MM-DD-native-primary`, persist/read back the owner receipt before image generation, and use expected-head updates. Status checks are read-only. Missing outputs do not prove a missing invocation or missing tools, and do not authorize a competing producer. The replacement image task uses a fresh Work chat for every run with GitHub and native Image Creation; both production times remain unchanged.
 
 **Operational policy revised October 11, 2026 by owner.** Scope: `gttome/Daily-AI-Brief-Compiler` ONLY; never modify retired `gttome/Daily-AI-Brief`. Timezone America/Chicago.
 
