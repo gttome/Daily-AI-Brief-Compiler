@@ -1,5 +1,5 @@
 name: reading-copy-correction
-# Repair the published October 14 reader without rebuilding any edition bundle or images.
+# Existing protected Pages deploy lane for independently audited reader-only copy corrections.
 on:
   push:
     branches: [main]
@@ -48,20 +48,40 @@ jobs:
           echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
           git worktree add --detach history "$HISTORY_HEAD"
           test -s history/site/briefs/2026-10-14/index.html
-      - name: Remove only confirmed duplicate reading-support HTML
+          test -s history/site/briefs/2026-10-19/index.html
+      - name: Apply only the selected independently audited reader copy correction
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p build
-          node scripts/correct-reading-duplication.mjs \
-            "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+          REVISION_KIND="$(node -e 'console.log(require("./"+process.env.REVISION_PATH).correction_type)')"
+          case "$REVISION_KIND" in
+            DUPLICATED_READING_SUPPORT_TEXT_ONLY)
+              node scripts/correct-reading-duplication.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
+            UNVERIFIED_EARLIER_BRIEF_TEXT_ONLY)
+              node scripts/correct-generic-related-coverage.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
+            *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
+          esac
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
           const r=JSON.parse(fs.readFileSync('build/reading-copy-receipt.json','utf8'));
-          if(r.result!=='PASS'||r.files_changed!==13||r.repeated_blocks_removed!==34||
-              r.current_image_files_byte_preserved<1||r.canonical_summary_why_unchanged!==true)
-            throw Error('October 14 text-only integrity invariants failed');
-          console.log('TEXT_ONLY_CORRECTION_PREFLIGHT_PASS',r.files_changed,r.repeated_blocks_removed,r.current_image_files_byte_preserved);
+          if(r.result!=='PASS')throw Error('reader copy correction failed');
+          if(r.schema_version==='daily-compiler-reading-copy-correction-receipt-v1'){
+            if(r.files_changed!==13||r.repeated_blocks_removed!==34||
+                r.current_image_files_byte_preserved<1||r.canonical_summary_why_unchanged!==true)
+              throw Error('October 14 text-only integrity invariants failed');
+          }else if(r.schema_version==='daily-compiler-generic-related-reader-correction-v1'){
+            const expected=r.homepage_latest_changed?52:49;
+            if(r.files_changed!==expected||r.panels_removed!==(r.homepage_latest_changed?102:84)||
+                r.editions_corrected!==7||r.accepted_png_files_byte_preserved<6||
+                r.original_articles_images_media_watchlist_unchanged!==true)
+              throw Error('October 13–19 history-link integrity invariants failed');
+          }else throw Error('Unexpected correction receipt version');
+          console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
           NODE
       - name: Preserve all previously published accepted images during text corrections
         run: node scripts/assert-published-image-continuity.mjs history/site build/patched
@@ -118,9 +138,10 @@ jobs:
             cp "build/patched/$route" "history/site/$route"
             git -C history add "site/$route"
           done < <(node -e "const r=require('./build/reading-copy-receipt.json');for(const f of r.changed)console.log(f.route)")
-          test "$(git -C history diff --cached --name-only | wc -l)" -eq 13
+          EXPECTED_FILES="$(node -p "require('./build/reading-copy-receipt.json').files_changed")"
+          test "$(git -C history diff --cached --name-only | wc -l)" -eq "$EXPECTED_FILES"
           git -C history config user.name 'Daily Compiler'
           git -C history config user.email 'actions@users.noreply.github.com'
-          git -C history commit -m 'Publish October 14 reader copy-only deduplication'
+          git -C history commit -m 'Publish verified reader-only copy correction'
           git -C history push origin HEAD:shadow-pages-history
           echo 'READING_COPY_CORRECTION_LIVE_VERIFIED_AND_PERSISTED'
