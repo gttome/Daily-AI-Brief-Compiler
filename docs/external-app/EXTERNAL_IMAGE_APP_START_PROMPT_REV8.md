@@ -1,5 +1,7 @@
 # External Image App — Recurring Starter (Revision 8)
 
+**Before generation: read [Image worker ownership](IMAGE_WORKER_OWNERSHIP.md).** From the October 20 edition onward, the scheduled worker and every recovery session must atomically claim the single `image-package/YYYY-MM-DD-native-primary` branch and persist/read back its owner receipt before the first image call. A status check is read-only; missing artifacts alone do not authorize another producer. Reuse the existing Work conversation and actual GitHub/native-image tools; no new task or mode-attestation gate.
+
 **Future-only recurring scope.** Use ONLY if protected main selects `recurring_work_v8:rev8`, standing authority is valid, and the actual execution has callable native Image Creation, PNG export, saved-pixel inspection and connected GitHub binary write/readback. **No chat type or host/scheduler invocation identity checks are allowed.** Current historical Revision 7 work remains unchanged.
 
 ## Native static-illustration eligibility — required operational clarification

@@ -1,5 +1,7 @@
 # Daily AI Brief — Complete Recurring Premium Image Production Contract
 
+**Mandatory ownership, October 20 onward:** read [Image worker ownership](IMAGE_WORKER_OWNERSHIP.md). Claim the one canonical current-edition image branch and commit/read back the owner receipt before generation. Every scheduled/recovery worker follows the same claim and expected-head updates; losing the claim means yield without generating or creating an alternate suffix. Status checks do not allocate image workers. Existing quality, source and protected release gates remain unchanged.
+
 **Revision 8 — October 10, 2026.**  
 **Scope:** `gttome/Daily-AI-Brief-Compiler` only.  
 **Starter:** `docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV8.md`.  
