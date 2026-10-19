@@ -79,6 +79,8 @@ jobs:
             PRIOR_WATCHLIST_HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
             git show "$PRIOR_WATCHLIST_HISTORY_HEAD:site/data/watchlist.json" > prior-watchlist.json
             test -s prior-watchlist.json
+            git show "$PRIOR_WATCHLIST_HISTORY_HEAD:site/data/archive-index.json" > prior-archive.json
+            test -s prior-archive.json
             echo "PRIOR_WATCHLIST_HISTORY_HEAD=$PRIOR_WATCHLIST_HISTORY_HEAD" >> "$GITHUB_ENV"
           fi
       - name: Materialize canonical production reader from sealed bundle
@@ -92,6 +94,7 @@ jobs:
             --repo-root run \
             --allow-pending-images true \
             --prior-watchlist prior-watchlist.json \
+            --prior-archive prior-archive.json \
             --release1-production true
       - id: pages
         uses: actions/configure-pages@v5

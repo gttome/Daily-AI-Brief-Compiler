@@ -51,6 +51,23 @@ jobs:
           git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/full-history-rehearsal
           node scripts/rebuild-history-discovery.mjs build/full-history-rehearsal/site build/full-history-rehearsal/receipt.json
           node -e "const r=require('./build/full-history-rehearsal/receipt.json'); if(r.result!=='PASS'||r.edition_count<60||!r.edition_dates.includes('2026-10-17')||!r.edition_dates.includes('2026-10-18'))process.exit(1); console.log('FULL_HISTORY_REHEARSAL_PASS',r.edition_count,r.discovered_item_count)"
+      - name: Rehearse October 13–19 historical link correction against actual published Pages history
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/verified-earlier-brief-links-20261019'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/generic-related-history-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/generic-related-history-proof
+          node scripts/correct-generic-related-coverage.mjs \
+            config/reading-copy-revisions/2026-10-19-earlier-brief.json \
+            build/generic-related-history-proof/site \
+            build/generic-related-history-proof/patched \
+            build/generic-related-history-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/generic-related-history-proof/site \
+            build/generic-related-history-proof/patched
+          node -e "const r=require('./build/generic-related-history-proof/receipt.json');const changed=r.homepage_latest_changed?52:49;const removed=r.homepage_latest_changed?102:84;if(r.result!=='PASS'||r.files_changed!==changed||r.panels_removed!==removed||r.accepted_png_files_byte_preserved<6)process.exit(1);console.log('ACTUAL_PUBLISHED_READER_PATCH_REHEARSAL_PASS',changed,removed)"
       - name: Pre-first-PR image-package gate on push and PR (Rev8 only)
         if: (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/image-package/')) || (github.event_name == 'pull_request' && startsWith(github.head_ref, 'image-package/'))
         env:

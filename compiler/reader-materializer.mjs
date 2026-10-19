@@ -4,6 +4,7 @@ import {pathToFileURL,fileURLToPath} from 'node:url';
 import {adaptCompilerBundle} from './reader-adapter.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
+import {verifiedHistoricalRelation} from './historical-related.mjs';
 
 const compilerRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshotRoot=path.join(compilerRoot,'vendor','production-reader','snapshot');
@@ -117,20 +118,14 @@ function coverageLabel(story){
   if(story.freshness?.tier==='fallback')return story.freshness?.fallback_band==='extended'?'Extended recency fallback':'Recency fallback';
   return 'New development';
 }
-function latestPreviousEdition(root,date){
-  const dir=path.join(root,'_data','editions');
-  const names=fs.readdirSync(dir).filter(n=>/^\d{4}-\d{2}-\d{2}\.json$/.test(n)&&n.slice(0,10)<date).sort();
-  return names.length?readJson(path.join(dir,names.at(-1))):null;
-}
-function mergeReadingSupport(root,bundle,edition,environment){
+function mergeReadingSupport(root,bundle,edition,environment,priorArchive){
   const file=path.join(root,'_data','reading-support.json');
   const data=readJson(file);
-  const prior=latestPreviousEdition(root,edition.brief_date);
   const originalById=new Map(bundle.stories.map(s=>[s.id,s]));
   const entries=[];
   for(const story of edition.stories){
     const original=originalById.get(story.compiler_story_id);
-    const priorStory=(prior?.stories||[]).find(s=>s.focus===story.focus) || prior?.stories?.[0] || null;
+    const verifiedRelated=verifiedHistoricalRelation({candidate:original?.historical_related,editionDate:edition.brief_date,archive:priorArchive,publicBase:environment.publicBase});
     const row={
       item_id:story.story_id,
       coverage_label:coverageLabel(story),
@@ -139,15 +134,7 @@ function mergeReadingSupport(root,bundle,edition,environment){
       context_term:story.topics?.[0]||'Context',
       context:story.summary
     };
-    if(priorStory){
-      row.related={
-        label:'Earlier Brief',
-        title:priorStory.headline,
-        brief_date:prior.brief_date,
-        url:environment.publicBase+priorStory.permanent_url,
-        connection:original?.related_coverage||'Earlier coverage provides useful context for this development.'
-      };
-    }
+    if(verifiedRelated)row.related=verifiedRelated;
     entries.push(row);
   }
   for(const pair of [['general','general'],['agents_non_technical_people','agent-skills']]){
@@ -250,7 +237,7 @@ export function requirePublishedPriorWatchlist(prior,editionDate,scoreTopic){
   return structuredClone(prior);
 }
 
-export async function materializeReaderSource({bundle,repoRoot='.',outDir,environment=readerEnvironment,priorWatchlist=null}){
+export async function materializeReaderSource({bundle,repoRoot='.',outDir,environment=readerEnvironment,priorWatchlist=null,priorArchive=null}){
   if(!outDir)throw new Error('outDir required');
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
@@ -279,7 +266,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   adapted.watchlist=watchModule.publicWatchlist(adapted.watchlist);
   const feedbackRegistry=compilerFeedbackRegistry(bundle,adapted.edition,adapted.watchlist);
   mergeBookOverlay(outDir,bundle.edition_date,adapted.bookOverlay);
-  mergeReadingSupport(outDir,bundle,adapted.edition,environment);
+  mergeReadingSupport(outDir,bundle,adapted.edition,environment,priorArchive);
   writeWatchlistData(outDir,adapted.watchlist);
   copyCurrentImages(outDir,repoRoot,adapted.imageBindings,bundle.edition_date);
   writeText(path.join(outDir,'_data','editions',bundle.edition_date+'.json'),JSON.stringify(adapted.edition,null,2));
