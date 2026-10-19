@@ -6,8 +6,8 @@ import {verifyRecurringImageReleaseAdmission} from '../scripts/recurring-image-a
 import {imageReleaseCompatibility,readImageProcessVersions} from '../scripts/image-process-versions.mjs';
 import {selectExternalImageAppDocuments} from '../scripts/select-image-app-contracts.mjs';
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
-function f(){
- const date='2026-10-12',source={commit_sha:'c'.repeat(40),bundle_sha256:'b'.repeat(64)};
+function f(date='2026-10-12',task='6acac88cff048191ba02e5b2bcb3becb',cycle='2026-10-11'){
+ const source={commit_sha:'c'.repeat(40),bundle_sha256:'b'.repeat(64)};
  const job={schema_version:'external-compiler-image-job-v1',edition_date:date,lifecycle:'PUBLISHED_PENDING',
    execution_id:'new-'+date,source,stories:Array.from({length:6},(_,i)=>({story_id:'new-'+i}))};
  const jobBytes=Buffer.from(JSON.stringify(job)+'\n');
@@ -26,7 +26,7 @@ function f(){
  }]};
  const assignment={schema_version:'external-compiler-recurring-assignment-v8',prompt_version:'rev8',
    scope:'image_only_postpublication',owner_personal_artwork_review_claimed:false,
-   task_id:'6acac88cff048191ba02e5b2bcb3becb',cycle_date:'2026-10-11',
+   task_id:task,cycle_date:cycle,
    edition_date:date,execution_id:job.execution_id,job_sha256:hash(jobBytes),
    manifest_sha256:hash(manifestBytes),original_source_commit_sha:source.commit_sha,
    original_bundle_sha256:source.bundle_sha256,
@@ -84,4 +84,12 @@ test('Standing current-date image release uses actual image/GitHub proof, never 
   ...d.assignment,manifest_sha256:hash(badBytes),
   image_execution_evidence:{...d.assignment.image_execution_evidence,original_manifest_sha256:hash(badBytes)}
  }}),/IMAGE_SOURCE/);
+});
+
+test('Fresh-chat migration admits the replacement only from October 20 and preserves historical bindings',()=>{
+ const newTask='6ad6310597b0819096a8d0f1b46bffc9',oldTask='6acac88cff048191ba02e5b2bcb3becb';
+ assert.equal(verifyRecurringImageReleaseAdmission(f('2026-10-19',oldTask,'2026-10-18')).task_id,oldTask);
+ assert.equal(verifyRecurringImageReleaseAdmission(f('2026-10-20',newTask,'2026-10-19')).task_id,newTask);
+ assert.throws(()=>verifyRecurringImageReleaseAdmission(f('2026-10-20',oldTask,'2026-10-19')),/CURRENT_CYCLE_ASSIGNMENT_BINDING_MISSING/);
+ assert.throws(()=>verifyRecurringImageReleaseAdmission(f('2026-10-19',newTask,'2026-10-18')),/CURRENT_CYCLE_ASSIGNMENT_BINDING_MISSING/);
 });
