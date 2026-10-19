@@ -1,5 +1,7 @@
 # External Premium Images Handoff — Revision 8
 
+**Execution and ownership correction, October 20 onward:** read `docs/external-app/IMAGE_WORKER_OWNERSHIP.md` before generating. The existing scheduled chat demonstrated Work, native Image Creation and GitHub on October 19; competing production sessions caused its publication stop. Require one canonical edition branch and a persisted owner receipt before any image call; status-only sessions must not launch another producer. No new task, chat-type gate or image regeneration of released editions.
+
 **Revision 8**, future-only authorized recurring image lane. Chat-type checks withdrawn by owner October 11, 2026.  
 **Starter:** `docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV8.md`.  
 **Full prompt:** `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV8.md`.  
