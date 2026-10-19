@@ -180,11 +180,11 @@ export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendi
   return {state,bundle,bundleDigest:digest,stateSha256:sha256(Buffer.from(stateText,'utf8')),imageEvidence,pendingImageEvidence,imagesPending:pendingImages,d0ImageGate,d1ImageGate};
 }
 
-export async function buildSite({validation, outDir, repoRoot='.', priorWatchlist=null}) {
-  return materializeReaderSource({bundle:validation.bundle,outDir,repoRoot,priorWatchlist});
+export async function buildSite({validation, outDir, repoRoot='.', priorWatchlist=null, priorArchive=null}) {
+  return materializeReaderSource({bundle:validation.bundle,outDir,repoRoot,priorWatchlist,priorArchive});
 }
 
-export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',allowPendingImages=false,release1Production=false,priorWatchlistPath=null}) {
+export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',allowPendingImages=false,release1Production=false,priorWatchlistPath=null,priorArchivePath=null}) {
   const validation=validateEdition({statePath,bundlePath,repoRoot,allowPendingImages,release1Production});
   // New editions use the previous published site's exact Git-history Watchlist.
   // Fixture/older-edition compilation preserves its existing static baseline.
@@ -192,8 +192,9 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
   if(continuityRequired&&!priorWatchlistPath)
     fail('new production edition requires last published Watchlist from Pages history');
   const priorWatchlist=continuityRequired?readJson(priorWatchlistPath):null;
+  const priorArchive=priorArchivePath?readJson(priorArchivePath):null;
   const parity=await checkGoldenReaderParity();
-  const built=await buildSite({validation,outDir,repoRoot,priorWatchlist});
+  const built=await buildSite({validation,outDir,repoRoot,priorWatchlist,priorArchive});
   // No first-party scheduled host adapter is supplied by this deterministic workflow.
   // Producer receipts alone cannot certify an unattended invocation.
   const unattended=assessUnattendedCertification(validation.bundle.producer_receipt);
@@ -249,6 +250,6 @@ export async function compileShadow({statePath,bundlePath,outDir,repoRoot='.',al
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args=Object.fromEntries(process.argv.slice(2).reduce((a,v,i,arr)=>{ if(v.startsWith('--')) a.push([v.slice(2),arr[i+1]]); return a; },[]));
   if (!args.state || !args.bundle || !args.out) fail('usage: node compiler/compile.mjs --state <file> --bundle <file> --out <dir> [--repo-root <dir>]');
-  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',allowPendingImages:args['allow-pending-images']==='true',release1Production:args['release1-production']==='true',priorWatchlistPath:args['prior-watchlist']||null});
+  const receipt=await compileShadow({statePath:args.state,bundlePath:args.bundle,outDir:args.out,repoRoot:args['repo-root']||'.',allowPendingImages:args['allow-pending-images']==='true',release1Production:args['release1-production']==='true',priorWatchlistPath:args['prior-watchlist']||null,priorArchivePath:args['prior-archive']||null});
   console.log(JSON.stringify(receipt,null,2));
 }

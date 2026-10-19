@@ -55,6 +55,15 @@ For each **new** six-article edition, select for depth, factual significance, fr
 
 The same prospective diversity check is enforced before new pending-image bundle sealing and independently in the existing bundle-ready and Pages publisher validation flow. On failure, correct only the unsealed future selection; don't relax the rule, borrow an already published article as filler, or touch a historical bundle. No new AI schedules, workflow runners or paid APIs are authorized.
 
+
+### Historical article links — October 20, 2026 onward
+
+The `Earlier Brief` panel is **opt-in, never inferred**. Do not select a prior article by category, date, or the original reader's frozen October 6 snapshot. The story-level `related_coverage` field describes the current edition and **must never be reinterpreted as evidence of a historical connection**. Without a verified historical reference, omit the panel entirely.
+
+An optional story-level `historical_related` object may contain `url` (an exact prior `/stories/YYYY-MM-DD/slug/` route), `headline` (exact historical headline), `relationship` (`builds_on`, `contrasts`, `updates`, or `applies`), and `connection` (at least 16 meaningful words specifically explaining what the earlier article contributes). The deterministic reader verifies that the link, headline, availability and date appear in the actual prior published `data/archive-index.json` from the same Pages-history revision as the prior Watchlist. Reject a current/future link, missing archive evidence, mismatched headline, generic companion-story inventory or empty explanation. Do not invent a link to fill space; editorial review remains responsible for checking factual relevance.
+
+Historical editions and accepted image assets stay immutable except for narrowly scoped, explicitly audited reader-text corrections. No production AI usage, new scheduler or external paid service is required.
+
 ## Media
 
 - 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
