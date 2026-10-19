@@ -1,0 +1,66 @@
+{
+  "schema_version": "external-image-acceptance-review-v8",
+  "edition_date": "2026-10-19",
+  "story_id": "oct19-t1-provider-failover",
+  "result": "PASS",
+  "inspected_saved_png_sha256": "12d542071f4cddbf29be14ead880acdf50adb3390cb335cbbbc82dc2d8125e68",
+  "bytes": 774319,
+  "width": 1200,
+  "height": 630,
+  "bit_depth": 8,
+  "color_type": "RGB",
+  "interlace": "none",
+  "verified_original_source_url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+  "mechanism_notes": "Actual final saved pixels inspected: all14labels exact, combined replay/deadline/budget gate has no bypass; secondary prerequisites clearly grouped. Uncertain actions separated to reconciliation. First candidate rejected for bypass arrows and extra Approval label; corrected candidate removes both. Plain document silhouettes contain no fake prose.",
+  "required_labels": [
+    "Safe provider failover",
+    "Read-only request",
+    "Primary route",
+    "Transient failure",
+    "Replay safe?",
+    "Deadline remains",
+    "Retry budget",
+    "Approved secondary",
+    "Features match",
+    "Data controls match",
+    "Healthy capacity",
+    "One accepted result",
+    "Uncertain action",
+    "Reconcile or stop"
+  ],
+  "factual_fidelity_verified": true,
+  "quality_and_visual_text_verified": true,
+  "distinct_from_other_five_verified": true,
+  "no_people_humanoids_faces": true,
+  "no_logos_brands": true,
+  "no_photorealism": true,
+  "no_pseudo_writing": true,
+  "no_clipped_labels": true,
+  "safe_margins_verified": true,
+  "actual_generation_count": 2,
+  "exact_binary_readback_commit": "1028d74dbc45e79221e9e46d7b5fd6ecdafe19fb",
+  "accepted_original": {
+    "path": "production/oct19/final/oct19-t1-provider-failover.png",
+    "bytes": 774319,
+    "sha256": "12d542071f4cddbf29be14ead880acdf50adb3390cb335cbbbc82dc2d8125e68",
+    "git_blob_sha": "b5a7d58673532a32f7320f46f34cf917c10d4988",
+    "attempts": 2,
+    "notes": "Actual final saved pixels inspected: all14labels exact, combined replay/deadline/budget gate has no bypass; secondary prerequisites clearly grouped. Uncertain actions separated to reconciliation. First candidate rejected for bypass arrows and extra Approval label; corrected candidate removes both. Plain document silhouettes contain no fake prose."
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "prompt": "Create ONE finished static factual editorial mechanism illustration, not a CAD or engineering source diagram. Premium textbook quality, white background, landscape 1200x630 intended final size. Rich but clear composition with about 85% useful occupancy, safe 32px margins, crisp large navy explanatory typography; no people, humanoids, faces, brands, logos, photography, dashboards, fake prose, invented numbers or unlisted text.\nVisual thesis: Only replay-safe operations may use a qualified secondary route.\nSource-supported facts: The guide permits eligible transient failures to retry a self-contained operation only when replay is safe and route prerequisites hold. A partial response or uncertain action must not be blindly replayed; recovery must reconcile outcomes.\nComposition: Design a refined illustrated routing junction. Top main path request to primary. On transient failure, route descends through replay-safe gate then turns to secondary; deadline and retry budget constrain gate. Secondary has four attached prerequisite tabs features/data controls/healthy capacity and approval. Output one accepted result. Bottom uncertain action goes ONLY to reconcile or stop; no link to secondary.\nPalette: ink navy and copper with restrained teal.\nRender EVERY one of these labels exactly and no other text: \"Safe provider failover\", \"Read-only request\", \"Primary route\", \"Transient failure\", \"Replay safe?\", \"Deadline remains\", \"Retry budget\", \"Approved secondary\", \"Features match\", \"Data controls match\", \"Healthy capacity\", \"One accepted result\", \"Uncertain action\", \"Reconcile or stop\".\nShow the actual conditional relations, with clearly separated exception path, legible typesetting and beautiful disciplined editorial illustration. No guarantee or numerical engineering claim.",
+      "result": "REJECTED",
+      "output": "Generated images are saved to /workspace/scratch/690b98b137cb/generated_images as /workspace/scratch/690b98b137cb/generated_images/exec-0a4a1b11-8dc9-4655-97c9-16b99ab43077.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    },
+    {
+      "attempt": 2,
+      "prompt": "Edit this static editorial illustration. Preserve the white background, navy/copper/teal palette, professional illustrated routing concept and separate bottom uncertain-action path. Correct three defects:\n1. Replace the three individually branching diamonds by ONE large admission gate labeled \"Replay safe?\" containing two clearly subordinate condition tabs \"Deadline remains\" and \"Retry budget\". Exactly ONE arrow enters the gate from \"Transient failure\", and exactly ONE arrow exits the complete gate to \"Approved secondary\". NO bypass branches from condition tabs.\n2. Remove the \"Approval\" card entirely (unapproved extra word). Keep only \"Features match\", \"Data controls match\", \"Healthy capacity\" as attached requirement tabs connected to the secondary by NON-ARROW leader lines. \"Approved secondary\" already expresses approval.\n3. Leave at least 32px safe white border all around at final 1200x630; reduce title size modestly; all labels large and crisp. Fill the left center gap with expanded admission gate, not filler.\nOnly these exact14 labels appear: \"Safe provider failover\", \"Read-only request\", \"Primary route\", \"Transient failure\", \"Replay safe?\", \"Deadline remains\", \"Retry budget\", \"Approved secondary\", \"Features match\", \"Data controls match\", \"Healthy capacity\", \"One accepted result\", \"Uncertain action\", \"Reconcile or stop\". No decorative simulated prose strokes on document icons; plain documents instead. No other text/numbers. No people or logos. Keep result meaning one accepted response, not guaranteed accuracy.",
+      "result": "ACCEPTED",
+      "output": "Generated images are saved to /workspace/scratch/690b98b137cb/generated_images as /workspace/scratch/690b98b137cb/generated_images/exec-10909e1b-020a-43ce-806d-2d01379f3fa0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    }
+  ],
+  "saved_pixel_review_method": "semantic visual inspection of native candidate, final exported PNG and independent exact-commit PNG"
+}
+

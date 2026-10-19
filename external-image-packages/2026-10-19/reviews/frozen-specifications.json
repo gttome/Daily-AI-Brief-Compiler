@@ -1,0 +1,659 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct19-t1-provider-failover",
+    "source_url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+    "visual_thesis": "Only replay-safe operations may use a qualified secondary route.",
+    "story_anchors": [
+      "One shared retry budget and both deadlines",
+      "Partial output and uncertain actions need reconciliation"
+    ],
+    "required_labels": [
+      "Safe provider failover",
+      "Read-only request",
+      "Primary route",
+      "Transient failure",
+      "Replay safe?",
+      "Deadline remains",
+      "Retry budget",
+      "Approved secondary",
+      "Features match",
+      "Data controls match",
+      "Healthy capacity",
+      "One accepted result",
+      "Uncertain action",
+      "Reconcile or stop"
+    ],
+    "mechanism_metaphor": "dual-track switch with admission gate",
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "The guide permits eligible transient failures to retry a self-contained operation only when replay is safe and route prerequisites hold.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: The guide permits eligible transient failures to retry a self-contained operation only when replay is safe and route prerequisites hold.",
+        "source_url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "A partial response or uncertain action must not be blindly replayed; recovery must reconcile outcomes.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: A partial response or uncertain action must not be blindly replayed; recovery must reconcile outcomes.",
+        "source_url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Read-only request",
+        "to": "Primary route",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Transient failure",
+        "to": "Replay safe?",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Replay safe?",
+        "to": "Approved secondary",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Approved secondary",
+        "to": "One accepted result",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Uncertain action",
+        "to": "Reconcile or stop",
+        "direction": "conditional",
+        "support_claim_id": "claim2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported metrics, guarantees, automatic approvals or invented product architecture",
+      "No people, logos, photography, fake prose or unlabeled causal shortcuts"
+    ],
+    "composition_signature": {
+      "grammar": "conditional routing fork",
+      "metaphor": "dual-track switch with admission gate",
+      "layout": "broad upper route with lower exception branch",
+      "palette": "ink navy and copper with restrained teal",
+      "annotation": "gate-linked condition tabs"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "assistant source reviewer",
+      "source_url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Design a refined illustrated routing junction. Top main path request to primary. On transient failure, route descends through replay-safe gate then turns to secondary; deadline and retry budget constrain gate. Secondary has four attached prerequisite tabs features/data controls/healthy capacity and approval. Output one accepted result. Bottom uncertain action goes ONLY to reconcile or stop; no link to secondary."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct19-t2-granite-switch",
+    "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+    "visual_thesis": "A shared base and cache support modular chat, decision and speech capabilities.",
+    "story_anchors": [
+      "Activated LoRAs reuse base KV cache",
+      "Speech encoder co-located with base and adapters"
+    ],
+    "required_labels": [
+      "Composable inference",
+      "Chat base",
+      "Shared KV cache",
+      "Decision adapter",
+      "Guardian adapter",
+      "Speech encoder",
+      "Text request",
+      "Audio input",
+      "Chat response",
+      "Decision output",
+      "Safety assessment",
+      "Transcription",
+      "Evaluate on your workload"
+    ],
+    "mechanism_metaphor": "shared foundation with interchangeable modules",
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "The composed checkpoint includes a chat base, a decision aLoRA, a guardian aLoRA and a co-located speech encoder.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: The composed checkpoint includes a chat base, a decision aLoRA, a guardian aLoRA and a co-located speech encoder.",
+        "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Subsequent adapter decisions can reuse the base-generated KV cache; release comparisons need workload testing.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: Subsequent adapter decisions can reuse the base-generated KV cache; release comparisons need workload testing.",
+        "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Text request",
+        "to": "Chat base",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Audio input",
+        "to": "Speech encoder",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Shared KV cache",
+        "to": "Decision adapter",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Shared KV cache",
+        "to": "Guardian adapter",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Speech encoder",
+        "to": "Transcription",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported metrics, guarantees, automatic approvals or invented product architecture",
+      "No people, logos, photography, fake prose or unlabeled causal shortcuts"
+    ],
+    "composition_signature": {
+      "grammar": "exploded modular anatomy",
+      "metaphor": "shared foundation with interchangeable modules",
+      "layout": "center exploded assembly and outward capability leaves",
+      "palette": "plum and muted gold",
+      "annotation": "fine leader lines to assembly layers"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "assistant source reviewer",
+      "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Show an exploded conceptual layered assembly, NOT literal hardware. A large chat base supports shared cache and two visibly distinct activated adapter modules. Audio passes through separate co-located speech encoder to transcription. Text path gives chat response. Cache has reuse links to decision/guardian modules, never to audio encoder. Each adapter its appropriate output. Bottom evaluation bracket applies to all capabilities; no speed or superiority claims."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct19-k1-governed-context",
+    "source_url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+    "visual_thesis": "Governed context needs ongoing validation and permission-aware delivery, not retrieval alone.",
+    "story_anchors": [
+      "Capture, Validate, Organize, Govern, Deliver",
+      "Trust decay leads to owner revalidation"
+    ],
+    "required_labels": [
+      "Governed knowledge",
+      "Capture",
+      "Provenance",
+      "Named owner",
+      "Validate",
+      "Trust signals",
+      "Expert review",
+      "Organize",
+      "Personal",
+      "Team",
+      "Organization",
+      "Govern",
+      "Permissions",
+      "Audit trail",
+      "Deliver",
+      "Current answers"
+    ],
+    "mechanism_metaphor": "five-tier annotated knowledge strata",
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "The article describes capture, validation, organization, governance and delivery as distinct lifecycle responsibilities.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: The article describes capture, validation, organization, governance and delivery as distinct lifecycle responsibilities.",
+        "source_url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Trust can decay and require owner review; scopes govern sharing and permissions while audit history traces changes.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: Trust can decay and require owner review; scopes govern sharing and permissions while audit history traces changes.",
+        "source_url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Capture",
+        "to": "Validate",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Validate",
+        "to": "Organize",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Organize",
+        "to": "Govern",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Govern",
+        "to": "Deliver",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Trust signals",
+        "to": "Expert review",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported metrics, guarantees, automatic approvals or invented product architecture",
+      "No people, logos, photography, fake prose or unlabeled causal shortcuts"
+    ],
+    "composition_signature": {
+      "grammar": "terraced knowledge lifecycle",
+      "metaphor": "five-tier annotated knowledge strata",
+      "layout": "descending stepped ribbons with nested scopes inset",
+      "palette": "forest and ochre",
+      "annotation": "embedded cross-section captions"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 15,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "assistant source reviewer",
+      "source_url": "https://stackoverflow.blog/2026/10/15/your-team-shouldnt-build-an-ai-context-layer/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Create a rich paper-cut terraced knowledge landscape of five connected stages. Capture displays a provenance-bearing knowledge tile with named owner. Validate exposes trust-signal layers plus expert-review side path, not automatic certainty. Organize shows three nested scope bands personal/team/organization, with closed boundary marks not automatic promotion arrows. Govern shows permission boundary and audit ledger. Deliver presents current answer carrying provenance. No vendor sales claim or trust score number."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct19-k2-independent-risk-evidence",
+    "source_url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+    "visual_thesis": "Public risk evidence is interpretable only when its limitations and independence are visible.",
+    "story_anchors": [
+      "Scope/access/redactions/constraints disclosures",
+      "Evidence informs decisions, not deployment certification"
+    ],
+    "required_labels": [
+      "Interpreting risk evidence",
+      "Scope",
+      "Access limits",
+      "Redactions",
+      "Constraints",
+      "Conflicts",
+      "Independence",
+      "Evidence",
+      "Methods",
+      "Uncertainty",
+      "Public report",
+      "Outside analysis",
+      "Iterative findings",
+      "Not deployment certification"
+    ],
+    "mechanism_metaphor": "opened layered report with disclosure lenses",
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "METR commits to disclose process limitations and conflicts while protecting confidential information.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: METR commits to disclose process limitations and conflicts while protecting confidential information.",
+        "source_url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "It aims to publish evidence and methods for external analysis with uncertainty; it does not decide company deployment.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: It aims to publish evidence and methods for external analysis with uncertainty; it does not decide company deployment.",
+        "source_url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Evidence",
+        "to": "Public report",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Methods",
+        "to": "Public report",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Public report",
+        "to": "Outside analysis",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Iterative findings",
+        "to": "Public report",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported metrics, guarantees, automatic approvals or invented product architecture",
+      "No people, logos, photography, fake prose or unlabeled causal shortcuts"
+    ],
+    "composition_signature": {
+      "grammar": "transparent evidence folio",
+      "metaphor": "opened layered report with disclosure lenses",
+      "layout": "large central folio with surrounding evidence brackets",
+      "palette": "burgundy and slate",
+      "annotation": "margin callouts and transparent overlays"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "assistant source reviewer",
+      "source_url": "https://metr.org/blog/2026-10-14-our-approach-to-risk-assessment/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Show a sophisticated nonphotoreal exploded report folio. Two evidence/method sheets enter report; six disclosure lenses around it reveal scope/access/redactions/constraints/conflicts/independence. Uncertainty is a visible bounded region, not a guarantee check. Public report leads to outside analysis. Iterative findings are a sequence of layered report edges feeding revised report. Bottom clear boundary states not deployment certification. No fake prose, no approval badge."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct19-a1-recoverable-agent-memory",
+    "source_url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+    "visual_thesis": "Long-running agents keep context compact while preserving recoverable information.",
+    "story_anchors": [
+      "Offload large results with previews",
+      "User-controlled Markdown memory survives model changes"
+    ],
+    "required_labels": [
+      "Recoverable context",
+      "Active window",
+      "Large results",
+      "Stored files",
+      "Short preview",
+      "Older turns",
+      "Summary",
+      "Recover history",
+      "Skill menu",
+      "Load when relevant",
+      "Isolated research",
+      "Final result",
+      "Persistent memory",
+      "User-controlled storage"
+    ],
+    "mechanism_metaphor": "compact center surrounded by recoverable stores",
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "The harness offloads bulky outputs, summarizes older turns with recoverable history, loads skills on demand and isolates noisy work.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: The harness offloads bulky outputs, summarizes older turns with recoverable history, loads skills on demand and isolates noisy work.",
+        "source_url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "Selected memory is persisted as plain files in user-controlled storage and can survive a model/provider switch.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: Selected memory is persisted as plain files in user-controlled storage and can survive a model/provider switch.",
+        "source_url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Large results",
+        "to": "Stored files",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Stored files",
+        "to": "Short preview",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Older turns",
+        "to": "Summary",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Skill menu",
+        "to": "Load when relevant",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Isolated research",
+        "to": "Final result",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Persistent memory",
+        "to": "User-controlled storage",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported metrics, guarantees, automatic approvals or invented product architecture",
+      "No people, logos, photography, fake prose or unlabeled causal shortcuts"
+    ],
+    "composition_signature": {
+      "grammar": "radial context reservoir",
+      "metaphor": "compact center surrounded by recoverable stores",
+      "layout": "asymmetric radial hub with five distinct branches",
+      "palette": "teal and coral",
+      "annotation": "paired before-after branch labels"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "assistant source reviewer",
+      "source_url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Show central active context window as clean open aperture, with five distinct surrounding mechanisms. Large results stored in files only short preview enters; older turns become summary with preserved history retrieval; skill menu loads full instructions only when relevant; isolated research returns final result only; persistent memory in user-controlled store retained across runs. Use distinct incoming and retrieval arrows, NO arrows dumping full raw files into active context. No human icons or invented memory capacity."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "story_id": "oct19-a2-release-skill",
+    "source_url": "https://opencode.ai/docs/skills/",
+    "visual_thesis": "A reusable release-note skill can remain read-only and require explicit permission.",
+    "story_anchors": [
+      "Validated name and description permit discovery",
+      "Allow/deny/ask controls loading; no automatic publication"
+    ],
+    "required_labels": [
+      "Bounded release skill",
+      "Skill file",
+      "Name",
+      "Description",
+      "Manual selection",
+      "Ask before loading",
+      "Merged changes",
+      "Draft notes",
+      "Compare evidence",
+      "Propose version",
+      "Copyable command",
+      "Human approval",
+      "No automatic publish",
+      "Deny unrelated skills"
+    ],
+    "mechanism_metaphor": "annotated instruction booklet and gated output",
+    "source_claim_map": [
+      {
+        "id": "claim1",
+        "proposition": "OpenCode discovers skill files with required name and description; manual-only metadata prevents automatic selection and ask permission requires approval before loading.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: OpenCode discovers skill files with required name and description; manual-only metadata prevents automatic selection and ask permission requires approval before loading.",
+        "source_url": "https://opencode.ai/docs/skills/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim2",
+        "proposition": "The release example drafts notes, proposes a version and returns a command. The compiler recommends keeping it read-only and requiring explicit approval for later publishing.",
+        "supporting_source_excerpt": "Source-grounded paraphrase: The release example drafts notes, proposes a version and returns a command. The compiler recommends keeping it read-only and requiring explicit approval for later publishing.",
+        "source_url": "https://opencode.ai/docs/skills/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Manual selection",
+        "to": "Ask before loading",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Ask before loading",
+        "to": "Skill file",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Merged changes",
+        "to": "Draft notes",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Draft notes",
+        "to": "Compare evidence",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Compare evidence",
+        "to": "Propose version",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Propose version",
+        "to": "Copyable command",
+        "direction": "conditional",
+        "support_claim_id": "claim1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported metrics, guarantees, automatic approvals or invented product architecture",
+      "No people, logos, photography, fake prose or unlabeled causal shortcuts"
+    ],
+    "composition_signature": {
+      "grammar": "bounded procedure storyboard",
+      "metaphor": "annotated instruction booklet and gated output",
+      "layout": "left booklet and ascending read-only workflow right",
+      "palette": "cobalt and lemon",
+      "annotation": "step captions with explicit stop boundary"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "assistant source reviewer",
+      "source_url": "https://opencode.ai/docs/skills/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Instruction booklet at left with name and description. Manual selection passes ask-before-loading gate BEFORE booklet opens. Merged changes feed drafting then comparison, then version proposal and copyable command. Final command stops at explicit human approval boundary; no arrow to published outcome. Separate deny-unrelated-skills blocked branch. No person or hand icon. Larger main labels and readable explanatory type."
+  }
+]
+
