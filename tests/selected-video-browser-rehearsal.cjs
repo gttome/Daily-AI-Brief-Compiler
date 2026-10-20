@@ -16,7 +16,7 @@ function makeClip(dir,name,seconds) {
     '-t',String(seconds),'-c:v','libx264','-preset','ultrafast','-pix_fmt','yuv420p',
     '-movflags','+faststart','-y',target
   ],{encoding:'utf8'});
-  if(proc.status!==0)throw new Error('Synthetic video creation failed: '+(proc.stderr||'').slice(0,500));
+  if(proc.status!==0)throw new Error('Synthetic video creation failed: status='+proc.status+' system='+proc.error?.message+' stderr='+(proc.stderr||'').slice(0,500));
   return fs.readFileSync(target);
 }
 
