@@ -54,7 +54,12 @@ async function proveVideo(browser, item, opts={}) {
         const u = new URL(item.url);
         const id = u.searchParams.get('v') || u.pathname.split('/').filter(Boolean).pop();
         if (!/^[A-Za-z0-9_-]{11}$/.test(id || '')) throw new Error('YouTube has no valid public video ID');
-        await page.goto('https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&playsinline=1',{waitUntil:'domcontentloaded',timeout:30000});
+        await page.goto('https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&playsinline=1',{
+          waitUntil:'domcontentloaded',timeout:30000,
+          // YouTube embeds require an HTTP Referer; direct navigation without one
+          // can produce player error 153 even for a public video.
+          referer:'https://gttome.github.io/Daily-AI-Brief-Compiler/'
+        });
         playerStatus = 'WATCH_LOGIN_REQUIRED_EMBED_ATTEMPTED';
       } else if (playerStatus !== 'OK' && playerStatus !== 'UNOBSERVED') {
         throw new Error('YouTube playability status ' + playerStatus);
