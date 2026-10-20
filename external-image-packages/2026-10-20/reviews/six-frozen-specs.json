@@ -1,0 +1,783 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-20",
+    "story_id": "oct20-a1-editor-handoff",
+    "recipe_version": "2026-10-20-v1",
+    "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+    "primary_source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+    "visual_thesis": "A session carries task conversation, plan and code changes into the same worktree in VS Code, followed by diff inspection, prompting/manual changes, local validation and update to its existing pull request.",
+    "composition_signature": {
+      "grammar": "Continuous session bridge and editor review staircase",
+      "metaphor": "Continuous session bridge and editor review staircase",
+      "layout": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+      "palette": "teal and indigo",
+      "hierarchy": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+      "annotation": "Bridge and review steps"
+    },
+    "palette": "teal and indigo",
+    "layout": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+    "required_labels": [
+      "Agent session \u2192 editor",
+      "Conversation",
+      "Plan",
+      "Code changes",
+      "Same worktree",
+      "Open in VS Code",
+      "Review every changed file",
+      "Continue prompting",
+      "Manual edits",
+      "Run local checks",
+      "Final diff review",
+      "Update the same pull request",
+      "Context supports review; it does not replace it"
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Open input",
+        "to": "Open in VS Code preserves conversation, changes and worktree",
+        "direction": "forward",
+        "support_claim_id": "claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Diff input",
+        "to": "Diff review and manual edits occur in existing worktree",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Local input",
+        "to": "Local checks precede final diff review and push",
+        "direction": "forward",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Push input",
+        "to": "Push updates existing session pull request",
+        "direction": "forward",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No automatic approval or merge",
+      "No branch switch invented",
+      "No guarantee tests pass",
+      "No copying to a disconnected session"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Open in VS Code preserves conversation, changes and worktree",
+        "supporting_source_excerpt": "Open in VS Code preserves conversation, changes and worktree",
+        "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Diff review and manual edits occur in existing worktree",
+        "supporting_source_excerpt": "Diff review and manual edits occur in existing worktree",
+        "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Local checks precede final diff review and push",
+        "supporting_source_excerpt": "Local checks precede final diff review and push",
+        "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Push updates existing session pull request",
+        "supporting_source_excerpt": "Push updates existing session pull request",
+        "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "saved_pixels_required": true
+    },
+    "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+    "mechanism_metaphor": "Continuous session bridge and editor review staircase",
+    "story_anchors": [
+      "Open in VS Code preserves conversation, changes and worktree",
+      "Diff review and manual edits occur in existing worktree"
+    ]
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-20",
+    "story_id": "oct20-a2-agent-action-review-skill",
+    "recipe_version": "2026-10-20-v1",
+    "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+    "primary_source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+    "visual_thesis": "The Brief proposes a read-only skill gathering six cross-layer signals and comparing proposed action with task intent and permissions, returning ALLOW/CONTAIN/ESCALATE for external enforcement; ambiguous risk needs practitioner judgment.",
+    "composition_signature": {
+      "grammar": "Pre-action evidence lattice and external enforcement gate",
+      "metaphor": "Pre-action evidence lattice and external enforcement gate",
+      "layout": "Six-source evidence lattice above a read-only review, divergent decisions and separate enforcement boundary",
+      "palette": "slate and amber",
+      "hierarchy": "Six-source evidence lattice above a read-only review, divergent decisions and separate enforcement boundary",
+      "annotation": "Signal lattice and decision labels"
+    },
+    "palette": "slate and amber",
+    "layout": "Six-source evidence lattice above a read-only review, divergent decisions and separate enforcement boundary",
+    "required_labels": [
+      "Pre-action review Agent Skill",
+      "Identity",
+      "Data",
+      "Endpoint",
+      "Network",
+      "Cloud",
+      "Runtime",
+      "Task intent",
+      "Proposed action",
+      "Permission scope",
+      "Read-only risk review",
+      "ALLOW",
+      "CONTAIN",
+      "ESCALATE",
+      "External deterministic enforcement",
+      "Practitioner judgment",
+      "Proposed workflow; no outcome guarantee"
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Six input",
+        "to": "Six signals inform risk review",
+        "direction": "forward",
+        "support_claim_id": "claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Task input",
+        "to": "Task intent, action and permission scope are compared before execution",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Read-only input",
+        "to": "Read-only skill returns decision without executing",
+        "direction": "forward",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "External input",
+        "to": "External enforcement acts on decision",
+        "direction": "forward",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Escalation input",
+        "to": "Escalation requires practitioner judgment",
+        "direction": "forward",
+        "support_claim_id": "claim-4",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No skill self-enforcement",
+      "No action before review",
+      "No automatic permission changes",
+      "No measured product outcome or universal containment guarantee"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Six signals inform risk review",
+        "supporting_source_excerpt": "Six signals inform risk review",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Task intent, action and permission scope are compared before execution",
+        "supporting_source_excerpt": "Task intent, action and permission scope are compared before execution",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Read-only skill returns decision without executing",
+        "supporting_source_excerpt": "Read-only skill returns decision without executing",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "External enforcement acts on decision",
+        "supporting_source_excerpt": "External enforcement acts on decision",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "Escalation requires practitioner judgment",
+        "supporting_source_excerpt": "Escalation requires practitioner judgment",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "saved_pixels_required": true
+    },
+    "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+    "mechanism_metaphor": "Pre-action evidence lattice and external enforcement gate",
+    "story_anchors": [
+      "Six signals inform risk review",
+      "Task intent, action and permission scope are compared before execution"
+    ]
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-20",
+    "story_id": "oct20-k1-predictive-ai-functions",
+    "recipe_version": "2026-10-20-v1",
+    "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+    "primary_source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+    "visual_thesis": "Five beta SQL-native functions support distinct prediction tasks; holidays and covariates feed forecast; local validation is the Brief recommendation, while Genie availability differs by function.",
+    "composition_signature": {
+      "grammar": "Predictive SQL annotated fan with validation margin",
+      "metaphor": "Predictive SQL annotated fan with validation margin",
+      "layout": "Five distinct analytical glyphs radiate from a governed data spine; bottom review boundary",
+      "palette": "forest green and ochre",
+      "hierarchy": "Five distinct analytical glyphs radiate from a governed data spine; bottom review boundary",
+      "annotation": "Analytical glyph callouts"
+    },
+    "palette": "forest green and ochre",
+    "layout": "Five distinct analytical glyphs radiate from a governed data spine; bottom review boundary",
+    "required_labels": [
+      "Predictive AI Functions",
+      "Beta SQL functions",
+      "Governed data",
+      "Forecast",
+      "Top drivers",
+      "Anomalies",
+      "Predict value",
+      "Predict class",
+      "Holidays and covariates",
+      "Local backtests",
+      "Baseline comparison",
+      "Uncertainty review",
+      "Review before business use",
+      "Genie: top drivers available",
+      "Other Genie functions coming soon"
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Data input",
+        "to": "Data supports five separate SQL predictive functions",
+        "direction": "forward",
+        "support_claim_id": "claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Holidays/covariates input",
+        "to": "Holidays/covariates condition forecast only",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Local input",
+        "to": "Local backtests, baseline and uncertainty review are recommended before use",
+        "direction": "forward",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Genie input",
+        "to": "Genie currently top drivers; other functions future",
+        "direction": "forward",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No universal Genie availability",
+      "No fabricated time-series measurements",
+      "No claim prediction proves causation",
+      "No automatic business decision"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Data supports five separate SQL predictive functions",
+        "supporting_source_excerpt": "Data supports five separate SQL predictive functions",
+        "source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Holidays/covariates condition forecast only",
+        "supporting_source_excerpt": "Holidays/covariates condition forecast only",
+        "source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Local backtests, baseline and uncertainty review are recommended before use",
+        "supporting_source_excerpt": "Local backtests, baseline and uncertainty review are recommended before use",
+        "source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Genie currently top drivers; other functions future",
+        "supporting_source_excerpt": "Genie currently top drivers; other functions future",
+        "source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant",
+      "source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "saved_pixels_required": true
+    },
+    "source_url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+    "mechanism_metaphor": "Predictive SQL annotated fan with validation margin",
+    "story_anchors": [
+      "Data supports five separate SQL predictive functions",
+      "Holidays/covariates condition forecast only"
+    ]
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-20",
+    "story_id": "oct20-k2-ai-record-provenance",
+    "recipe_version": "2026-10-20-v1",
+    "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+    "primary_source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+    "visual_thesis": "A consequential record is linked to contemporaneous origin evidence and downstream edits/actions; retention is proportional, legal holds and vendor exports must account for that evidence.",
+    "composition_signature": {
+      "grammar": "Radial provenance dossier with retention boundary",
+      "metaphor": "Radial provenance dossier with retention boundary",
+      "layout": "Central consequential record with outward trace tabs and proportional-retention perimeter",
+      "palette": "sepia and burgundy",
+      "hierarchy": "Central consequential record with outward trace tabs and proportional-retention perimeter",
+      "annotation": "Radial dossier tabs"
+    },
+    "palette": "sepia and burgundy",
+    "layout": "Central consequential record with outward trace tabs and proportional-retention perimeter",
+    "required_labels": [
+      "Preserve the origin of consequential records",
+      "AI business record",
+      "Prompts and revisions",
+      "Source versions",
+      "Model identifiers",
+      "System instructions",
+      "Original outputs",
+      "Human edits",
+      "Approvals",
+      "Triggered actions",
+      "Timestamps",
+      "Risk-based preservation",
+      "Legal holds",
+      "Vendor export capability",
+      "Rerunning cannot reliably reconstruct history"
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Prompts, input",
+        "to": "Prompts, sources, model and instructions explain record origin",
+        "direction": "forward",
+        "support_claim_id": "claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Outputs, input",
+        "to": "Outputs, edits, approvals and triggered actions extend trace",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Risk input",
+        "to": "Risk and legal hold govern preservation scope",
+        "direction": "forward",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Vendor input",
+        "to": "Vendor export capability supports preservation",
+        "direction": "forward",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No blanket unlimited retention mandate",
+      "No guarantee legal admissibility",
+      "No claims that rerun reconstructs historical state",
+      "No mandatory retention duration"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Prompts, sources, model and instructions explain record origin",
+        "supporting_source_excerpt": "Prompts, sources, model and instructions explain record origin",
+        "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Outputs, edits, approvals and triggered actions extend trace",
+        "supporting_source_excerpt": "Outputs, edits, approvals and triggered actions extend trace",
+        "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Risk and legal hold govern preservation scope",
+        "supporting_source_excerpt": "Risk and legal hold govern preservation scope",
+        "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Vendor export capability supports preservation",
+        "supporting_source_excerpt": "Vendor export capability supports preservation",
+        "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant",
+      "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "saved_pixels_required": true
+    },
+    "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+    "mechanism_metaphor": "Radial provenance dossier with retention boundary",
+    "story_anchors": [
+      "Prompts, sources, model and instructions explain record origin",
+      "Outputs, edits, approvals and triggered actions extend trace"
+    ]
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-20",
+    "story_id": "oct20-t1-inference-review-economics",
+    "recipe_version": "2026-10-20-v1",
+    "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+    "primary_source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+    "visual_thesis": "Context and call reductions plus model/effort choices support lower reported cost and median latency; a separate quality ledger qualifies those savings, rather than automatically certifying quality.",
+    "composition_signature": {
+      "grammar": "Dual-rail optimization and quality ledger",
+      "metaphor": "Dual-rail optimization and quality ledger",
+      "layout": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+      "palette": "navy and copper",
+      "hierarchy": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+      "annotation": "Dual evidence rails"
+    },
+    "palette": "navy and copper",
+    "layout": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+    "required_labels": [
+      "Cheaper review needs quality evidence",
+      "Shared context prefix",
+      "Remove repeated context",
+      "Fewer model calls",
+      "Model and effort choices",
+      "Cost per review: $2.43 \u2192 $0.77",
+      "Median latency: 4:09 \u2192 1:32",
+      "Quality ledger",
+      "Acted-on findings",
+      "Blinded importance review",
+      "Code quality: high effort",
+      "Performance findings declined at medium effort",
+      "Publisher-reported results"
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Context input",
+        "to": "Context prefix separation enables cache reuse",
+        "direction": "forward",
+        "support_claim_id": "claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reduced input",
+        "to": "Reduced repeated context and fewer calls reduce token work",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Model/effort input",
+        "to": "Model/effort choices affect cost and findings",
+        "direction": "forward",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Acted-on input",
+        "to": "Acted-on and blinded reviews inform quality assessment",
+        "direction": "forward",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No all-reviewer quality guarantee",
+      "No invented intermediate numbers",
+      "Do not imply security findings definitively declined",
+      "No machine-generated approval or merge"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Context prefix separation enables cache reuse",
+        "supporting_source_excerpt": "Context prefix separation enables cache reuse",
+        "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Reduced repeated context and fewer calls reduce token work",
+        "supporting_source_excerpt": "Reduced repeated context and fewer calls reduce token work",
+        "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Model/effort choices affect cost and findings",
+        "supporting_source_excerpt": "Model/effort choices affect cost and findings",
+        "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Acted-on and blinded reviews inform quality assessment",
+        "supporting_source_excerpt": "Acted-on and blinded reviews inform quality assessment",
+        "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant",
+      "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "saved_pixels_required": true
+    },
+    "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+    "mechanism_metaphor": "Dual-rail optimization and quality ledger",
+    "story_anchors": [
+      "Context prefix separation enables cache reuse",
+      "Reduced repeated context and fewer calls reduce token work"
+    ]
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-20",
+    "story_id": "oct20-t2-graft-reward-hacking",
+    "recipe_version": "2026-10-20-v1",
+    "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+    "primary_source_url": "https://alignment.anthropic.com/2026/graft/",
+    "visual_thesis": "Flagged trajectories update FORGET while RETAIN gradients are masked; unflagged update both; anchor training enables only RETAIN; remove FORGET before deployment and evaluate task performance and held-out hacks.",
+    "composition_signature": {
+      "grammar": "Gradient-routing split with removable adapter",
+      "metaphor": "Gradient-routing split with removable adapter",
+      "layout": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+      "palette": "violet and coral",
+      "hierarchy": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+      "annotation": "Training state cutaway"
+    },
+    "palette": "violet and coral",
+    "layout": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+    "required_labels": [
+      "GRAFT: route learning, then remove",
+      "Target training",
+      "Monitor",
+      "Unflagged: update both adapters",
+      "Flagged: update FORGET only",
+      "RETAIN",
+      "FORGET",
+      "Anchor environment",
+      "Train RETAIN without FORGET",
+      "Remove FORGET after training",
+      "Deployment: RETAIN only",
+      "Held-out hack tests",
+      "Task performance",
+      "Preliminary small-model research"
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Unflagged input",
+        "to": "Unflagged target trajectories update RETAIN and FORGET",
+        "direction": "forward",
+        "support_claim_id": "claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Flagged input",
+        "to": "Flagged trajectories update only FORGET, with RETAIN masked",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Anchor input",
+        "to": "Anchor environment enables and updates only RETAIN",
+        "direction": "forward",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "After input",
+        "to": "After training ablate FORGET",
+        "direction": "forward",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Deployment input",
+        "to": "Deployment evaluated on task and held-out hack tests",
+        "direction": "forward",
+        "support_claim_id": "claim-4",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No clean-only RETAIN routing",
+      "No assertion monitor detects every hack",
+      "No reward penalty mechanism",
+      "No production-scale safety guarantee"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-0",
+        "proposition": "Unflagged target trajectories update RETAIN and FORGET",
+        "supporting_source_excerpt": "Unflagged target trajectories update RETAIN and FORGET",
+        "source_url": "https://alignment.anthropic.com/2026/graft/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-1",
+        "proposition": "Flagged trajectories update only FORGET, with RETAIN masked",
+        "supporting_source_excerpt": "Flagged trajectories update only FORGET, with RETAIN masked",
+        "source_url": "https://alignment.anthropic.com/2026/graft/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Anchor environment enables and updates only RETAIN",
+        "supporting_source_excerpt": "Anchor environment enables and updates only RETAIN",
+        "source_url": "https://alignment.anthropic.com/2026/graft/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "After training ablate FORGET",
+        "supporting_source_excerpt": "After training ablate FORGET",
+        "source_url": "https://alignment.anthropic.com/2026/graft/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "Deployment evaluated on task and held-out hack tests",
+        "supporting_source_excerpt": "Deployment evaluated on task and held-out hack tests",
+        "source_url": "https://alignment.anthropic.com/2026/graft/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "saved_pixels_required": true
+    },
+    "source_url": "https://alignment.anthropic.com/2026/graft/",
+    "mechanism_metaphor": "Gradient-routing split with removable adapter",
+    "story_anchors": [
+      "Unflagged target trajectories update RETAIN and FORGET",
+      "Flagged trajectories update only FORGET, with RETAIN masked"
+    ]
+  }
+]

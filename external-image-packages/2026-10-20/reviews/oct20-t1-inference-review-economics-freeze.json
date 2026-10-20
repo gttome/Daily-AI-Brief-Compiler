@@ -1,0 +1,124 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-t1-inference-review-economics",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+  "visual_thesis": "Context and call reductions plus model/effort choices support lower reported cost and median latency; a separate quality ledger qualifies those savings, rather than automatically certifying quality.",
+  "composition_signature": {
+    "grammar": "Dual-rail optimization and quality ledger",
+    "metaphor": "Dual-rail optimization and quality ledger",
+    "layout": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+    "palette": "navy and copper",
+    "hierarchy": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+    "annotation": "Dual evidence rails"
+  },
+  "palette": "navy and copper",
+  "layout": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+  "required_labels": [
+    "Cheaper review needs quality evidence",
+    "Shared context prefix",
+    "Remove repeated context",
+    "Fewer model calls",
+    "Model and effort choices",
+    "Cost per review: $2.43 \u2192 $0.77",
+    "Median latency: 4:09 \u2192 1:32",
+    "Quality ledger",
+    "Acted-on findings",
+    "Blinded importance review",
+    "Code quality: high effort",
+    "Performance findings declined at medium effort",
+    "Publisher-reported results"
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Context input",
+      "to": "Context prefix separation enables cache reuse",
+      "direction": "forward",
+      "support_claim_id": "claim-0",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Reduced input",
+      "to": "Reduced repeated context and fewer calls reduce token work",
+      "direction": "forward",
+      "support_claim_id": "claim-1",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Model/effort input",
+      "to": "Model/effort choices affect cost and findings",
+      "direction": "forward",
+      "support_claim_id": "claim-2",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Acted-on input",
+      "to": "Acted-on and blinded reviews inform quality assessment",
+      "direction": "forward",
+      "support_claim_id": "claim-3",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No all-reviewer quality guarantee",
+    "No invented intermediate numbers",
+    "Do not imply security findings definitively declined",
+    "No machine-generated approval or merge"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-0",
+      "proposition": "Context prefix separation enables cache reuse",
+      "supporting_source_excerpt": "Context prefix separation enables cache reuse",
+      "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-1",
+      "proposition": "Reduced repeated context and fewer calls reduce token work",
+      "supporting_source_excerpt": "Reduced repeated context and fewer calls reduce token work",
+      "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "Model/effort choices affect cost and findings",
+      "supporting_source_excerpt": "Model/effort choices affect cost and findings",
+      "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-3",
+      "proposition": "Acted-on and blinded reviews inform quality assessment",
+      "supporting_source_excerpt": "Acted-on and blinded reviews inform quality assessment",
+      "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing assistant",
+    "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "saved_pixels_required": true
+  },
+  "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+  "mechanism_metaphor": "Dual-rail optimization and quality ledger",
+  "story_anchors": [
+    "Context prefix separation enables cache reuse",
+    "Reduced repeated context and fewer calls reduce token work"
+  ]
+}
