@@ -105,6 +105,13 @@ jobs:
           destination: ./build/current
       - name: Verify built reader parity surfaces
         run: node scripts/verify-built-reader.mjs build/current build/reader-source build/built-verification.json
+      - name: Recheck evidence-backed public video availability before Pages deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-10-21" ]]; then echo "Historical video unchanged"; exit 0; fi
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/verify-selected-video-playback.cjs "run/shadow-runs/$TARGET_DATE/edition-bundle.json" build/video-public-playback.json
       - name: Restore previously verified permanent pages
         run: |
           if git ls-remote --exit-code --heads origin shadow-pages-history >/dev/null 2>&1; then

@@ -29,6 +29,10 @@ jobs:
           if [ -f .github/workflows/existing-six-png-github-binary-transport-proof.yml ]; then
             ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/existing-six-png-github-binary-transport-proof.yml
           fi
+      - name: Parse media-gated producer and publisher workflows
+        run: |
+          ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/bundle-ready-signal.yml
+          ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/shadow-compile.yml
       - name: Parse nonpublishing operations reporting workflow YAML
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/daily-operations-report.yml
       - name: Parse Watchlist-only correction workflow YAML
@@ -89,6 +93,13 @@ jobs:
           git worktree add -b "image-package/$TARGET_DATE-ci-admission-$GITHUB_RUN_ATTEMPT" "$WORKTREE" "$CANDIDATE_HEAD"
           (cd "$WORKTREE" && node scripts/preflight-recurring-image-package.mjs "$CYCLE_DATE" .)
       - run: npm test
+      - name: Rehearse public-video playback logic in an isolated real browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; fi
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node tests/selected-video-browser-rehearsal.cjs
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
       - run: npm run reader:parity
