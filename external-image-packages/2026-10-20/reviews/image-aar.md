@@ -96,3 +96,19 @@ The single current replacement task is enabled; the previous same-chat task is d
 | Usage target cannot be evaluated | No authoritative weekly telemetry is exposed | Keep UNKNOWN, record real attempts and duration, and avoid claiming savings without measurements |
 
 These are AAR lessons. No workflow, release gate, reader CSS, production schedule or historical artifact was changed to implement them during this image-only run.
+
+
+## Published reader links
+
+[October 20 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-20/)
+
+| Permanent story | Live PNG | Saved pixels / GitHub readback / live hash |
+|---|---|---|
+| [Cheaper AI review needs a quality ledger](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-20/t1-inference-review-economics/) | [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-20/dab-edition-2026-10-20-m01.png?v=5d700901727d) | PASS / PASS / PASS |
+| [GRAFT routes bad behavior into removable parameters](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-20/t2-graft-reward-hacking/) | [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-20/dab-edition-2026-10-20-m02.png?v=a367a3ddaead) | PASS / PASS / PASS |
+| [Predictive functions move model judgment into SQL](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-20/k1-predictive-ai-functions/) | [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-20/dab-edition-2026-10-20-m10.png?v=42b0ef9a57d4) | PASS / PASS / PASS |
+| [An AI business record needs its origin trail](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-20/k2-ai-record-provenance/) | [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-20/dab-edition-2026-10-20-m11.png?v=47db05dcbc4b) | PASS / PASS / PASS |
+| [Move an agent session into the editor without losing context](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-20/a1-editor-handoff/) | [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-20/dab-edition-2026-10-20-m12.png?v=90d5065cfcc6) | PASS / PASS / PASS |
+| [Build a pre-action review Agent Skill for internal agents](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-20/a2-agent-action-review-skill/) | [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-20/dab-edition-2026-10-20-m14.png?v=529c0c8bc94f) | PASS / PASS / PASS |
+
+The full accepted SHA-256s are in the six-originals table above. Desktop context review is PASS for each story; phone-width small-text review is FAIL for each, as explicitly recorded in the twenty-four review receipts.
