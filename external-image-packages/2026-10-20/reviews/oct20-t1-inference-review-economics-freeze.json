@@ -1,0 +1,71 @@
+{
+  "schema_version": "article-image-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-t1-inference-review-economics",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+  "visual_thesis": "Context and call reductions plus model/effort choices support lower reported cost and median latency; a separate quality ledger qualifies those savings, rather than automatically certifying quality.",
+  "composition_signature": "Dual-rail optimization and quality ledger",
+  "palette": "navy and copper",
+  "layout": "Two orthogonal evidence rails with exposed context layers and a separate comparison ledger",
+  "required_labels": [
+    "Cheaper review needs quality evidence",
+    "Shared context prefix",
+    "Remove repeated context",
+    "Fewer model calls",
+    "Model and effort choices",
+    "Cost per review: $2.43 \u2192 $0.77",
+    "Median latency: 4:09 \u2192 1:32",
+    "Quality ledger",
+    "Acted-on findings",
+    "Blinded importance review",
+    "Code quality: high effort",
+    "Performance findings declined at medium effort",
+    "Publisher-reported results"
+  ],
+  "allowed_causal_edges": [
+    "Context prefix separation enables cache reuse",
+    "Reduced repeated context and fewer calls reduce token work",
+    "Model/effort choices affect cost and findings",
+    "Acted-on and blinded reviews inform quality assessment"
+  ],
+  "excluded_claims": [
+    "No all-reviewer quality guarantee",
+    "No invented intermediate numbers",
+    "Do not imply security findings definitively declined",
+    "No machine-generated approval or merge"
+  ],
+  "source_claim_map": [
+    {
+      "claim": "Context prefix separation enables cache reuse",
+      "evidence": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "source_scope": "Complete engineering report: cost history, context and cache accounting, code-level reductions, model and effort experiments, shadow migration, latency percentiles, acted-on findings, blinded review methodology and acknowledged regressions."
+    },
+    {
+      "claim": "Reduced repeated context and fewer calls reduce token work",
+      "evidence": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "source_scope": "Complete engineering report: cost history, context and cache accounting, code-level reductions, model and effort experiments, shadow migration, latency percentiles, acted-on findings, blinded review methodology and acknowledged regressions."
+    },
+    {
+      "claim": "Model/effort choices affect cost and findings",
+      "evidence": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "source_scope": "Complete engineering report: cost history, context and cache accounting, code-level reductions, model and effort experiments, shadow migration, latency percentiles, acted-on findings, blinded review methodology and acknowledged regressions."
+    },
+    {
+      "claim": "Acted-on and blinded reviews inform quality assessment",
+      "evidence": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "source_scope": "Complete engineering report: cost history, context and cache accounting, code-level reductions, model and effort experiments, shadow migration, latency percentiles, acted-on findings, blinded review methodology and acknowledged regressions."
+    }
+  ],
+  "editorial_semantic_review": {
+    "reviewed": true,
+    "note": "Compared full publisher text with complete immutable story. Recommendations are explicitly marked. GRAFT unflagged updates both adapters; Genie launch timing preserved."
+  },
+  "quality_review_plan": {
+    "meaningful_components_target": 12,
+    "major_regions": "3\u20135",
+    "text": "Exact allowlist only, safely spaced, readable at display size",
+    "review": "Inspect exact exported saved PNG and committed readback; no prompt-derived PASS"
+  }
+}

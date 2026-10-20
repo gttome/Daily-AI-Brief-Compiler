@@ -1,0 +1,73 @@
+{
+  "schema_version": "article-image-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-k2-ai-record-provenance",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+  "visual_thesis": "A consequential record is linked to contemporaneous origin evidence and downstream edits/actions; retention is proportional, legal holds and vendor exports must account for that evidence.",
+  "composition_signature": "Radial provenance dossier with retention boundary",
+  "palette": "sepia and burgundy",
+  "layout": "Central consequential record with outward trace tabs and proportional-retention perimeter",
+  "required_labels": [
+    "Preserve the origin of consequential records",
+    "AI business record",
+    "Prompts and revisions",
+    "Source versions",
+    "Model identifiers",
+    "System instructions",
+    "Original outputs",
+    "Human edits",
+    "Approvals",
+    "Triggered actions",
+    "Timestamps",
+    "Risk-based preservation",
+    "Legal holds",
+    "Vendor export capability",
+    "Rerunning cannot reliably reconstruct history"
+  ],
+  "allowed_causal_edges": [
+    "Prompts, sources, model and instructions explain record origin",
+    "Outputs, edits, approvals and triggered actions extend trace",
+    "Risk and legal hold govern preservation scope",
+    "Vendor export capability supports preservation"
+  ],
+  "excluded_claims": [
+    "No blanket unlimited retention mandate",
+    "No guarantee legal admissibility",
+    "No claims that rerun reconstructs historical state",
+    "No mandatory retention duration"
+  ],
+  "source_claim_map": [
+    {
+      "claim": "Prompts, sources, model and instructions explain record origin",
+      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+    },
+    {
+      "claim": "Outputs, edits, approvals and triggered actions extend trace",
+      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+    },
+    {
+      "claim": "Risk and legal hold govern preservation scope",
+      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+    },
+    {
+      "claim": "Vendor export capability supports preservation",
+      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+    }
+  ],
+  "editorial_semantic_review": {
+    "reviewed": true,
+    "note": "Compared full publisher text with complete immutable story. Recommendations are explicitly marked. GRAFT unflagged updates both adapters; Genie launch timing preserved."
+  },
+  "quality_review_plan": {
+    "meaningful_components_target": 12,
+    "major_regions": "3\u20135",
+    "text": "Exact allowlist only, safely spaced, readable at display size",
+    "review": "Inspect exact exported saved PNG and committed readback; no prompt-derived PASS"
+  }
+}

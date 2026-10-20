@@ -1,0 +1,78 @@
+{
+  "schema_version": "article-image-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-t2-graft-reward-hacking",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://alignment.anthropic.com/2026/graft/",
+  "visual_thesis": "Flagged trajectories update FORGET while RETAIN gradients are masked; unflagged update both; anchor training enables only RETAIN; remove FORGET before deployment and evaluate task performance and held-out hacks.",
+  "composition_signature": "Gradient-routing split with removable adapter",
+  "palette": "violet and coral",
+  "layout": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+  "required_labels": [
+    "GRAFT: route learning, then remove",
+    "Target training",
+    "Monitor",
+    "Unflagged: update both adapters",
+    "Flagged: update FORGET only",
+    "RETAIN",
+    "FORGET",
+    "Anchor environment",
+    "Train RETAIN without FORGET",
+    "Remove FORGET after training",
+    "Deployment: RETAIN only",
+    "Held-out hack tests",
+    "Task performance",
+    "Preliminary small-model research"
+  ],
+  "allowed_causal_edges": [
+    "Unflagged target trajectories update RETAIN and FORGET",
+    "Flagged trajectories update only FORGET, with RETAIN masked",
+    "Anchor environment enables and updates only RETAIN",
+    "After training ablate FORGET",
+    "Deployment evaluated on task and held-out hack tests"
+  ],
+  "excluded_claims": [
+    "No clean-only RETAIN routing",
+    "No assertion monitor detects every hack",
+    "No reward penalty mechanism",
+    "No production-scale safety guarantee"
+  ],
+  "source_claim_map": [
+    {
+      "claim": "Unflagged target trajectories update RETAIN and FORGET",
+      "evidence": "https://alignment.anthropic.com/2026/graft/",
+      "source_scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations."
+    },
+    {
+      "claim": "Flagged trajectories update only FORGET, with RETAIN masked",
+      "evidence": "https://alignment.anthropic.com/2026/graft/",
+      "source_scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations."
+    },
+    {
+      "claim": "Anchor environment enables and updates only RETAIN",
+      "evidence": "https://alignment.anthropic.com/2026/graft/",
+      "source_scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations."
+    },
+    {
+      "claim": "After training ablate FORGET",
+      "evidence": "https://alignment.anthropic.com/2026/graft/",
+      "source_scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations."
+    },
+    {
+      "claim": "Deployment evaluated on task and held-out hack tests",
+      "evidence": "https://alignment.anthropic.com/2026/graft/",
+      "source_scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations."
+    }
+  ],
+  "editorial_semantic_review": {
+    "reviewed": true,
+    "note": "Compared full publisher text with complete immutable story. Recommendations are explicitly marked. GRAFT unflagged updates both adapters; Genie launch timing preserved."
+  },
+  "quality_review_plan": {
+    "meaningful_components_target": 12,
+    "major_regions": "3\u20135",
+    "text": "Exact allowlist only, safely spaced, readable at display size",
+    "review": "Inspect exact exported saved PNG and committed readback; no prompt-derived PASS"
+  }
+}

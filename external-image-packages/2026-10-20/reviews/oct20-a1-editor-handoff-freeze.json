@@ -1,0 +1,71 @@
+{
+  "schema_version": "article-image-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-a1-editor-handoff",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+  "visual_thesis": "A session carries task conversation, plan and code changes into the same worktree in VS Code, followed by diff inspection, prompting/manual changes, local validation and update to its existing pull request.",
+  "composition_signature": "Continuous session bridge and editor review staircase",
+  "palette": "teal and indigo",
+  "layout": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+  "required_labels": [
+    "Agent session \u2192 editor",
+    "Conversation",
+    "Plan",
+    "Code changes",
+    "Same worktree",
+    "Open in VS Code",
+    "Review every changed file",
+    "Continue prompting",
+    "Manual edits",
+    "Run local checks",
+    "Final diff review",
+    "Update the same pull request",
+    "Context supports review; it does not replace it"
+  ],
+  "allowed_causal_edges": [
+    "Open in VS Code preserves conversation, changes and worktree",
+    "Diff review and manual edits occur in existing worktree",
+    "Local checks precede final diff review and push",
+    "Push updates existing session pull request"
+  ],
+  "excluded_claims": [
+    "No automatic approval or merge",
+    "No branch switch invented",
+    "No guarantee tests pass",
+    "No copying to a disconnected session"
+  ],
+  "source_claim_map": [
+    {
+      "claim": "Open in VS Code preserves conversation, changes and worktree",
+      "evidence": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "source_scope": "Complete six-minute tutorial: session transfer, preserved conversation and worktree, line-by-line diff review, continued prompting, manual edits, local testing and pull-request update."
+    },
+    {
+      "claim": "Diff review and manual edits occur in existing worktree",
+      "evidence": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "source_scope": "Complete six-minute tutorial: session transfer, preserved conversation and worktree, line-by-line diff review, continued prompting, manual edits, local testing and pull-request update."
+    },
+    {
+      "claim": "Local checks precede final diff review and push",
+      "evidence": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "source_scope": "Complete six-minute tutorial: session transfer, preserved conversation and worktree, line-by-line diff review, continued prompting, manual edits, local testing and pull-request update."
+    },
+    {
+      "claim": "Push updates existing session pull request",
+      "evidence": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "source_scope": "Complete six-minute tutorial: session transfer, preserved conversation and worktree, line-by-line diff review, continued prompting, manual edits, local testing and pull-request update."
+    }
+  ],
+  "editorial_semantic_review": {
+    "reviewed": true,
+    "note": "Compared full publisher text with complete immutable story. Recommendations are explicitly marked. GRAFT unflagged updates both adapters; Genie launch timing preserved."
+  },
+  "quality_review_plan": {
+    "meaningful_components_target": 12,
+    "major_regions": "3\u20135",
+    "text": "Exact allowlist only, safely spaced, readable at display size",
+    "review": "Inspect exact exported saved PNG and committed readback; no prompt-derived PASS"
+  }
+}
