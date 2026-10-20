@@ -42,10 +42,36 @@ These limits apply to the *reader-facing editorial text*, not full publisher rea
 
 The Release 1 validator enforces word counts and topic cardinality as a hard gate on new editions beginning October 13. The canonical homepage, dated Brief and permanent pages must show equivalent concise copy. The October 8–12 corpus remains unchanged and must never retroactively fail or be republished.
 
+### Prospective article publisher balance — October 19, 2026 onward
+
+The October 18 edition contained three AWS and two SAP articles out of six. This was allowed by the old distinct-URL check, because an AWS blog department and an SAP news page count as different URLs but are **not** independent publishing organizations. The same type of concentration should not recur in new editions.
+
+For each **new** six-article edition, select for depth, factual significance, freshness and relevance while ensuring:
+- **Target six different publishing organizations**, with a **hard minimum of five**. A second story from one other organization is permissible when it adds distinct evidence or substantial reader value, but no organization may supply more than two.
+- **At most one AWS article and at most one SAP article.** Normalize the original source URL to the publishing organization; AWS Machine Learning and AWS Public Sector are both AWS, all SAP News domains are SAP, and Google Research/Google Cloud are Google. Rebranding a source label does not create a different publisher.
+- Before locking a new selection, inspect the **seven most recently published editions** and deliberately prioritize authoritative publishers underrepresented in that period. Record the seven-edition source exposure in the release receipt, including gaps in archived evidence. These rolling counts guide editorial ranking; they never justify invented articles or manipulation of the source identities.
+- Look beyond one vendor's feeds for credible source documents from independent researchers, Microsoft, IBM, NVIDIA, Databricks, Google, GitHub, Anthropic, OpenAI, open research venues and independent practitioners. Publisher-authored claims must still be represented as such; don't invent independent confirmation.
+- Preserve the **2 technical / 2 knowledge-worker / 2 nontechnical-agent** allocation and **exactly one Agent Skills article**. Preserve the 24h/72h/168h freshness ladder and verified full reading evidence. An extra brand is not worth a speculative, old or irrelevant story.
+
+The same prospective diversity check is enforced before new pending-image bundle sealing and independently in the existing bundle-ready and Pages publisher validation flow. On failure, correct only the unsealed future selection; don't relax the rule, borrow an already published article as filler, or touch a historical bundle. No new AI schedules, workflow runners or paid APIs are authorized.
+
+
+### Historical article links — October 20, 2026 onward
+
+The `Earlier Brief` panel is **opt-in, never inferred**. Do not select a prior article by category, date, or the original reader's frozen October 6 snapshot. The story-level `related_coverage` field describes the current edition and **must never be reinterpreted as evidence of a historical connection**. Without a verified historical reference, omit the panel entirely.
+
+An optional story-level `historical_related` object may contain `url` (an exact prior `/stories/YYYY-MM-DD/slug/` route), `headline` (exact historical headline), `relationship` (`builds_on`, `contrasts`, `updates`, or `applies`), and `connection` (at least 16 meaningful words specifically explaining what the earlier article contributes). The deterministic reader verifies that the link, headline, availability and date appear in the actual prior published `data/archive-index.json` from the same Pages-history revision as the prior Watchlist. Reject a current/future link, missing archive evidence, mismatched headline, generic companion-story inventory or empty explanation. Do not invent a link to fill space; editorial review remains responsible for checking factual relevance.
+
+Historical editions and accepted image assets stay immutable except for narrowly scoped, explicitly audited reader-text corrections. No production AI usage, new scheduler or external paid service is required.
+
 ## Media
 
 - 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
 - 2 source-diverse podcasts with verified episode identity/date/source.
+
+### Prospective media non-repetition — October 19, 2026 onward
+
+For every newly sealed edition, check both video identities and both individual podcast episode identities against the **seven most recently published previous Briefs** (not merely the current candidates). A reused YouTube video, podcast episode URL/Apple episode ID, or identical substantive title is a publication defect even if metadata was rechecked. **Program rotation is additional to episode uniqueness.** The two podcasts must be from two different programs, and neither program may have appeared in the **three most recently published previous editions**, even if the episode, URL or display title has changed. Prefer a **seven-edition program gap** when qualifying fresh episodes exist. Match both the normalized program/publisher label and a stable show ID (for example, Apple Podcasts show ID), not just the episode ID. Return to a high-quality program only after the cooldown. If the available pool is insufficient, expand research among verified programs rather than repeat a show by default; preserve source verification and never fabricate an episode. Past October 15–18 editions remain immutable. Source verification does not imply actual audiovisual playback. The bundle-ready and Pages workflows independently fail closed when published media history cannot be verified or an exact item is repeated. Previously published October 15–18 bundles remain immutable. Select genuinely new media; never falsify identities or disable the validation gate.
 - Source links open in a new tab.
 
 ## Watchlist
@@ -96,3 +122,8 @@ Each of the six stories requires one professional explanatory diagram:
 ## Simplicity invariant
 
 Reader quality may not be reduced to simplify production. Conversely, reader requirements may not be used as justification to reintroduce a Supervisor, Watchdog Ring, leases, 30-task orchestration, continuous AI polling, wake PRs, or runtime repair loops.
+
+
+## October 20 owner-approved improvements — October 21 onward
+
+Read and apply [the six approved production improvements](automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.

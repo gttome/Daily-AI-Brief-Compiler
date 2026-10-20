@@ -1,0 +1,139 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-t2-graft-reward-hacking",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://alignment.anthropic.com/2026/graft/",
+  "visual_thesis": "Flagged trajectories update FORGET while RETAIN gradients are masked; unflagged update both; anchor training enables only RETAIN; remove FORGET before deployment and evaluate task performance and held-out hacks.",
+  "composition_signature": {
+    "grammar": "Gradient-routing split with removable adapter",
+    "metaphor": "Gradient-routing split with removable adapter",
+    "layout": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+    "palette": "violet and coral",
+    "hierarchy": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+    "annotation": "Training state cutaway"
+  },
+  "palette": "violet and coral",
+  "layout": "Top target-training bifurcation, lower anchor training and detached deployment cutaway",
+  "required_labels": [
+    "GRAFT: route learning, then remove",
+    "Target training",
+    "Monitor",
+    "Unflagged: update both adapters",
+    "Flagged: update FORGET only",
+    "RETAIN",
+    "FORGET",
+    "Anchor environment",
+    "Train RETAIN without FORGET",
+    "Remove FORGET after training",
+    "Deployment: RETAIN only",
+    "Held-out hack tests",
+    "Task performance",
+    "Preliminary small-model research"
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Unflagged input",
+      "to": "Unflagged target trajectories update RETAIN and FORGET",
+      "direction": "forward",
+      "support_claim_id": "claim-0",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Flagged input",
+      "to": "Flagged trajectories update only FORGET, with RETAIN masked",
+      "direction": "forward",
+      "support_claim_id": "claim-1",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Anchor input",
+      "to": "Anchor environment enables and updates only RETAIN",
+      "direction": "forward",
+      "support_claim_id": "claim-2",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "After input",
+      "to": "After training ablate FORGET",
+      "direction": "forward",
+      "support_claim_id": "claim-3",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Deployment input",
+      "to": "Deployment evaluated on task and held-out hack tests",
+      "direction": "forward",
+      "support_claim_id": "claim-4",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No clean-only RETAIN routing",
+    "No assertion monitor detects every hack",
+    "No reward penalty mechanism",
+    "No production-scale safety guarantee"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-0",
+      "proposition": "Unflagged target trajectories update RETAIN and FORGET",
+      "supporting_source_excerpt": "Unflagged target trajectories update RETAIN and FORGET",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-1",
+      "proposition": "Flagged trajectories update only FORGET, with RETAIN masked",
+      "supporting_source_excerpt": "Flagged trajectories update only FORGET, with RETAIN masked",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "Anchor environment enables and updates only RETAIN",
+      "supporting_source_excerpt": "Anchor environment enables and updates only RETAIN",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-3",
+      "proposition": "After training ablate FORGET",
+      "supporting_source_excerpt": "After training ablate FORGET",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-4",
+      "proposition": "Deployment evaluated on task and held-out hack tests",
+      "supporting_source_excerpt": "Deployment evaluated on task and held-out hack tests",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing assistant",
+    "source_url": "https://alignment.anthropic.com/2026/graft/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "saved_pixels_required": true
+  },
+  "source_url": "https://alignment.anthropic.com/2026/graft/",
+  "mechanism_metaphor": "Gradient-routing split with removable adapter",
+  "story_anchors": [
+    "Unflagged target trajectories update RETAIN and FORGET",
+    "Flagged trajectories update only FORGET, with RETAIN masked"
+  ]
+}

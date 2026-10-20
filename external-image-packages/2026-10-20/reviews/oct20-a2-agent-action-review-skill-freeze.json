@@ -1,0 +1,142 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-a2-agent-action-review-skill",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+  "visual_thesis": "The Brief proposes a read-only skill gathering six cross-layer signals and comparing proposed action with task intent and permissions, returning ALLOW/CONTAIN/ESCALATE for external enforcement; ambiguous risk needs practitioner judgment.",
+  "composition_signature": {
+    "grammar": "Pre-action evidence lattice and external enforcement gate",
+    "metaphor": "Pre-action evidence lattice and external enforcement gate",
+    "layout": "Six-source evidence lattice above a read-only review, divergent decisions and separate enforcement boundary",
+    "palette": "slate and amber",
+    "hierarchy": "Six-source evidence lattice above a read-only review, divergent decisions and separate enforcement boundary",
+    "annotation": "Signal lattice and decision labels"
+  },
+  "palette": "slate and amber",
+  "layout": "Six-source evidence lattice above a read-only review, divergent decisions and separate enforcement boundary",
+  "required_labels": [
+    "Pre-action review Agent Skill",
+    "Identity",
+    "Data",
+    "Endpoint",
+    "Network",
+    "Cloud",
+    "Runtime",
+    "Task intent",
+    "Proposed action",
+    "Permission scope",
+    "Read-only risk review",
+    "ALLOW",
+    "CONTAIN",
+    "ESCALATE",
+    "External deterministic enforcement",
+    "Practitioner judgment",
+    "Proposed workflow; no outcome guarantee"
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Six input",
+      "to": "Six signals inform risk review",
+      "direction": "forward",
+      "support_claim_id": "claim-0",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Task input",
+      "to": "Task intent, action and permission scope are compared before execution",
+      "direction": "forward",
+      "support_claim_id": "claim-1",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Read-only input",
+      "to": "Read-only skill returns decision without executing",
+      "direction": "forward",
+      "support_claim_id": "claim-2",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "External input",
+      "to": "External enforcement acts on decision",
+      "direction": "forward",
+      "support_claim_id": "claim-3",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Escalation input",
+      "to": "Escalation requires practitioner judgment",
+      "direction": "forward",
+      "support_claim_id": "claim-4",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No skill self-enforcement",
+    "No action before review",
+    "No automatic permission changes",
+    "No measured product outcome or universal containment guarantee"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-0",
+      "proposition": "Six signals inform risk review",
+      "supporting_source_excerpt": "Six signals inform risk review",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-1",
+      "proposition": "Task intent, action and permission scope are compared before execution",
+      "supporting_source_excerpt": "Task intent, action and permission scope are compared before execution",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "Read-only skill returns decision without executing",
+      "supporting_source_excerpt": "Read-only skill returns decision without executing",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-3",
+      "proposition": "External enforcement acts on decision",
+      "supporting_source_excerpt": "External enforcement acts on decision",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-4",
+      "proposition": "Escalation requires practitioner judgment",
+      "supporting_source_excerpt": "Escalation requires practitioner judgment",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing assistant",
+    "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "saved_pixels_required": true
+  },
+  "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+  "mechanism_metaphor": "Pre-action evidence lattice and external enforcement gate",
+  "story_anchors": [
+    "Six signals inform risk review",
+    "Task intent, action and permission scope are compared before execution"
+  ]
+}

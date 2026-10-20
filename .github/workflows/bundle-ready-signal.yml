@@ -27,16 +27,27 @@ jobs:
           node-version: '20'
       - id: ready
         run: node scripts/check-current-shadow-ready.mjs >> "$GITHUB_OUTPUT"
-      - name: Require two signed-out playable videos before publication signal
+      - name: Reject repeated media against last seven published editions (October 19 onward)
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          TARGET_DATE: ${{ steps.ready.outputs.date }}
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-10-19" ]]; then exit 0; fi
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          git worktree add --detach media-history refs/remotes/origin/shadow-pages-history
+          node scripts/verify-media-freshness.mjs \
+            "shadow-runs/$TARGET_DATE/edition-bundle.json" media-history/site
+      - name: Verify signed-out playable full-length videos before publication signal
         if: steps.ready.outputs.ready == 'true'
         env:
           TARGET_DATE: ${{ steps.ready.outputs.date }}
         shell: bash
         run: |
           set -euo pipefail
-          if [[ "$TARGET_DATE" < "2026-10-18" ]]; then echo "Historical media gate unaffected"; exit 0; fi
+          if [[ "$TARGET_DATE" < "2026-10-21" ]]; then echo "Historical video unchanged"; exit 0; fi
           npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
-          node scripts/verify-selected-video-playback.cjs "shadow-runs/$TARGET_DATE/edition-bundle.json" "build/video-preseal-playback.json"
+          node scripts/verify-selected-video-playback.cjs "shadow-runs/$TARGET_DATE/edition-bundle.json" build/video-prepublish-playback.json
       - name: Signal protected-main compiler
         if: steps.ready.outputs.ready == 'true'
         env:

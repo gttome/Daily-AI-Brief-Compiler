@@ -1,0 +1,124 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-20",
+  "story_id": "oct20-a1-editor-handoff",
+  "recipe_version": "2026-10-20-v1",
+  "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
+  "primary_source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+  "visual_thesis": "A session carries task conversation, plan and code changes into the same worktree in VS Code, followed by diff inspection, prompting/manual changes, local validation and update to its existing pull request.",
+  "composition_signature": {
+    "grammar": "Continuous session bridge and editor review staircase",
+    "metaphor": "Continuous session bridge and editor review staircase",
+    "layout": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+    "palette": "teal and indigo",
+    "hierarchy": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+    "annotation": "Bridge and review steps"
+  },
+  "palette": "teal and indigo",
+  "layout": "Three-part context bridge into a stepped local review sequence and same-PR destination",
+  "required_labels": [
+    "Agent session \u2192 editor",
+    "Conversation",
+    "Plan",
+    "Code changes",
+    "Same worktree",
+    "Open in VS Code",
+    "Review every changed file",
+    "Continue prompting",
+    "Manual edits",
+    "Run local checks",
+    "Final diff review",
+    "Update the same pull request",
+    "Context supports review; it does not replace it"
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Open input",
+      "to": "Open in VS Code preserves conversation, changes and worktree",
+      "direction": "forward",
+      "support_claim_id": "claim-0",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Diff input",
+      "to": "Diff review and manual edits occur in existing worktree",
+      "direction": "forward",
+      "support_claim_id": "claim-1",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Local input",
+      "to": "Local checks precede final diff review and push",
+      "direction": "forward",
+      "support_claim_id": "claim-2",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Push input",
+      "to": "Push updates existing session pull request",
+      "direction": "forward",
+      "support_claim_id": "claim-3",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No automatic approval or merge",
+    "No branch switch invented",
+    "No guarantee tests pass",
+    "No copying to a disconnected session"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-0",
+      "proposition": "Open in VS Code preserves conversation, changes and worktree",
+      "supporting_source_excerpt": "Open in VS Code preserves conversation, changes and worktree",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-1",
+      "proposition": "Diff review and manual edits occur in existing worktree",
+      "supporting_source_excerpt": "Diff review and manual edits occur in existing worktree",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "Local checks precede final diff review and push",
+      "supporting_source_excerpt": "Local checks precede final diff review and push",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-3",
+      "proposition": "Push updates existing session pull request",
+      "supporting_source_excerpt": "Push updates existing session pull request",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing assistant",
+    "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "saved_pixels_required": true
+  },
+  "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+  "mechanism_metaphor": "Continuous session bridge and editor review staircase",
+  "story_anchors": [
+    "Open in VS Code preserves conversation, changes and worktree",
+    "Diff review and manual edits occur in existing worktree"
+  ]
+}

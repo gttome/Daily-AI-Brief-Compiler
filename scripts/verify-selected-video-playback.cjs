@@ -29,7 +29,10 @@ function validateBundle(bundle) {
   if (new Set(items.map(x=>x.url)).size !== 2) throw new Error('Selected videos must be distinct');
   return items;
 }
-async function proveVideo(browser, item) {
+async function proveVideo(browser, item, opts={}) {
+  const maxAttempts = opts.maxAttempts ?? 28;
+  const pollingMs = opts.pollingMs ?? 1100;
+  if (!Number.isInteger(maxAttempts) || maxAttempts < 1 || !Number.isInteger(pollingMs) || pollingMs < 100) throw new Error('Invalid probe bounds');
   // No existing sign-in, persisted profile, cookies, credentials or extensions.
   const context = await browser.newContext({viewport:{width:1365,height:850},acceptDownloads:false});
   const page = await context.newPage();
@@ -62,8 +65,8 @@ async function proveVideo(browser, item) {
       await page.getByText(/Watch this episode/i).first().click({timeout:6500}).catch(() => {});
     }
     let proof = null;
-    for (let attempt=0; attempt<28 && !proof; attempt++) {
-      await page.waitForTimeout(1100);
+    for (let attempt=0; attempt<maxAttempts && !proof; attempt++) {
+      await page.waitForTimeout(pollingMs);
       for (const frame of page.frames()) {
         const nodes = frame.locator('video');
         const count = await nodes.count().catch(() => 0);
