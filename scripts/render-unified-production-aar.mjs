@@ -1,3 +1,4 @@
+import {validateImageAfterAction} from './image-aar-contract.mjs';
 import fs from "node:fs";
 import path from "node:path";
 
@@ -28,7 +29,21 @@ function generateUnified(cycle,e) {
       t.clipped_or_overlapped===false&&t.placeholder_visible===false&&t.primary_explanatory_labels_recognizable===true&&
       t.result==="PASS"&&/^[a-f0-9]{64}$/.test(t.capture_sha256||"")&&Number.isSafeInteger(t.capture_bytes)&&t.capture_bytes>0);
   const visualOk=!!(oldVisualOk||pixelVisualOk);
-  const complete=!!(compilerOk&&imagesOk&&visualOk), badge=complete?"COMPLETE":(compilerOk||imagesOk?"PARTIAL":"NOT_VERIFIED");
+  const worker=obj('image-worker-state');
+  const workerClosed=edition<'2026-10-21'||(worker?.phase==='PUBLISHED_COMPLETE'&&worker.lease_status==='RELEASED'&&
+    worker.job_sha256===manifest?.job_sha256&&worker.accepted_hashes?.length===6&&
+    new Set(worker.accepted_hashes).size===6&&images.every(i=>worker.accepted_hashes.includes(i.sha256)));
+  const provenanceWarnings=[];
+  const end=Date.parse(state?.updated_at||'');
+  for(const story of bundle?.stories||[]){
+    for(const key of [story.source?.retrieved_at,story.source?.read_evidence?.read_at])
+      if(Number.isFinite(end)&&Date.parse(key)>end)provenanceWarnings.push('Source evidence timestamp follows recorded publication: '+story.id);
+  }
+  let aarWarning=null;
+  if(edition>='2026-10-21'){
+    try{validateImageAfterAction({aar:imageAar,job,manifest});}catch(error){aarWarning=String(error.message);}
+  }
+  const complete=!!(compilerOk&&imagesOk&&visualOk&&workerClosed&&!provenanceWarnings.length&&!aarWarning), badge=complete?"COMPLETE":(compilerOk||imagesOk?"PARTIAL":"NOT_VERIFIED");
   const stateColor=complete?"0b7b57":(badge==="PARTIAL"?"d97706":"64748b");
   const nice=s=>String(s??"Not reported").replace(/\|/g,"/").replace(/\r?\n/g," ");
   const dateString=new Date(edition+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"});
@@ -56,7 +71,10 @@ function generateUnified(cycle,e) {
   const good="**"+(complete?"🟩":"🟨")+" RELEASE "+badge.replaceAll("_"," ")+"**";
   const indicators="**"+(compilerOk?"🟩":"🟨")+" COMPILER "+(compilerOk?"VERIFIED":"UNVERIFIED")+"** · **"+(imagesOk?"🟦":"🟨")+" IMAGES "+(imagesOk?"6/6 RELEASED":"NOT YET COMPLETE")+"** · **"+(visualOk?"🟪":"🟨")+" VISUAL QA "+(visualOk?"24/24 PASS":"NOT YET VERIFIED")+"**";
   const line=(v)=>v?"✅":"Not yet evidenced";
-  const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/${pixelVisualOk?"semantic-pixel-review.json":"image-element24/semantic-reviews.json"}`],["Original image AAR",`${gh}/blob/main/external-image-packages/${edition}/reviews/after-action.md`]];
+  const requestedAarPath=imageAar?.human_readable_path||manifest?.after_action_path;
+  const aarPath=typeof requestedAarPath==='string'&&requestedAarPath.startsWith('external-image-packages/'+edition+'/reviews/')&&
+    !requestedAarPath.split('/').includes('..')?requestedAarPath:'external-image-packages/'+edition+'/reviews/after-action.md';
+  const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/${pixelVisualOk?"semantic-pixel-review.json":"image-element24/semantic-reviews.json"}`],["Original image AAR",`${gh}/blob/main/${aarPath}`]];
   const imgCols=imgb.length===6?["<table>"].concat([0,2,4].map(n=>`<tr><td width="50%"><a href="${pub}${imgb[n].route}"><img src="${pub}${imgb[n].route}" alt="Diagram for ${imgb[n].story_id}" width="420"/></a><br/><b>${nice(imgb[n].label)}</b></td><td width="50%"><a href="${pub}${imgb[n+1].route}"><img src="${pub}${imgb[n+1].route}" alt="Diagram for ${imgb[n+1].story_id}" width="420"/></a><br/><b>${nice(imgb[n+1].label)}</b></td></tr>`)).concat(["</table>"]).join("\n"):"No six-image public release gallery available yet.";
   const md=[
 good,
@@ -71,6 +89,9 @@ indicators,
 "",
 `**🕒 Production stage durations:** **Compiler ${compilerStageDuration}** · **Premium Images ${imageStageDuration}** (evidence-bounded elapsed times; the start/end events differ).`,
 "",
+...(provenanceWarnings.length?["> **PROVENANCE WARNING:** Source-reading timestamps follow the recorded publication verification time. The original evidence is preserved; exact historical reading times are not reconstructed. Publication/image success does not resolve this audit discrepancy.",""]:[]),
+...(aarWarning?["> **AAR SCHEMA WARNING:** "+aarWarning,""]:[]),
+...(!workerClosed?["> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.",""]:[]),
 "## Performance dashboard",
 "",
 "| Measure | Recorded result | Source / caveat |",
@@ -216,13 +237,13 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","owner-usage"];
+const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage"];
 const ev={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;try{ev[k]=JSON.parse(fs.readFileSync(p,"utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev);
 fs.mkdirSync(outDir,{recursive:true});

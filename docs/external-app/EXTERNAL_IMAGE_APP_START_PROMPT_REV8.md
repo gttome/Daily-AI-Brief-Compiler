@@ -27,3 +27,8 @@ Owner standing image authority is `contracts/automation/recurring-image-authoriz
 Use exact binary GitHub readback, existing protected package-merge auto-release, October 8 17-object integrity and all source/image validation gates. Six source-bound advanced textbook diagrams, mandatory readable explanatory text, genuine image differentiation, correcting failed elements, preserving accepted PNGs, 12 page pairings and actual visual inspection of 24 contexts remain mandatory. A screenshot count alone is never PASS.
 
 Write an honest best-effort Image AAR and readiness receipt even when blocked. The deterministic daily reporter backfills no-start or missing AAR outcomes independently. Never modify `gttome/Daily-AI-Brief`, schedule additional AI recoveries, require a routine owner login, substitute fake/palette-mode images or claim quota resets nightly. 
+
+
+## October 20 owner-approved improvements — October 21 onward
+
+Read and apply [the six approved production improvements](../automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.

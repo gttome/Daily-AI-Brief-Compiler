@@ -158,3 +158,9 @@ test('daily reporting collects and watches both semantic-review schemas without 
   assert.match(wf,/reviews\/live\/image-element24\/semantic-reviews\.json/);
   assert.doesNotMatch(wf,/uses: actions\/deploy-pages@/);
 });
+test('contradictory source chronology is visible and cannot become full COMPLETE',()=>{
+ const b=structuredClone(evidence['edition-bundle']);b.stories[0].source={retrieved_at:'2026-10-13T01:12:00Z',read_evidence:{read_at:'2026-10-13T01:12:00Z'}};
+ const {meta,md}=run({'edition-bundle':b});
+ assert.equal(meta.result,'PARTIAL');assert.equal(meta.publication_and_visual_complete,true);
+ assert.ok(meta.provenance_warnings.length);assert.match(md,/PROVENANCE WARNING/);
+});

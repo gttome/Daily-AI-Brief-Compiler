@@ -1,3 +1,4 @@
+import {validateMediaPrecision,validateNontechnicalAudience} from '../compiler/production-evidence.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -85,6 +86,8 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   if(date<EFFECTIVE_DATE)return {result:'SKIPPED_HISTORICAL',date,duplicates:[],checked_dates:[]};
   // Reuse the same protected signal and Pages gate for editorial selection.
   const articleDiversity=validateArticleSourceDiversity(bundle);
+  validateMediaPrecision(bundle);
+  validateNontechnicalAudience(bundle);
   if(!historyRoot||!fs.existsSync(path.join(historyRoot,'briefs')))
     throw new Error('media history unavailable: cannot certify freshness');
   const historyDates=fs.readdirSync(path.join(historyRoot,'briefs'),{withFileTypes:true})

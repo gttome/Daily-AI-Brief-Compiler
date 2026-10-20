@@ -1,0 +1,16 @@
+{
+  "schema_version": "daily-compiler-provenance-correction-v1",
+  "edition_date": "2026-10-20",
+  "result": "HISTORICAL_TIMESTAMP_DISCREPANCY_DOCUMENTED",
+  "original_bundle_sha256": "1698e07967826dc45b9bb38d8a965ece1d4c0aaf114bc89cb3dc6b842d7a50e5",
+  "first_bundle_commit": "7d11cb2",
+  "bundle_first_git_commit_at": "2026-10-20T00:26:23Z",
+  "recorded_public_integrity_at": "2026-10-20T00:31:17.138Z",
+  "claimed_source_and_lock_at": "2026-10-20T01:12:00Z",
+  "finding": "Claimed source/selection times occur after the Git commit already containing those records and after public verification. The fields cannot be treated as reliable original-event times.",
+  "exact_original_read_times": null,
+  "root_cause": "Not independently established; metadata clock/assignment discrepancy. No inference that reading occurred at the later claimed time.",
+  "correction": "Keep original records and content immutable. Report the discrepancy and enforce true event ordering prospectively from October 21. Do not backdate replacement source evidence.",
+  "semantic_bundle_resealed": false,
+  "accepted_images_changed": false
+}
