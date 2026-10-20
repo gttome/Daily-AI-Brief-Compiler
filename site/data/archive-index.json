@@ -4,19 +4,65 @@
   "stories": [
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-10-19-m01",
-      "brief_date": "2026-10-19",
-      "event_date": "2026-10-14",
-      "headline": "Safe model failover starts with replay boundaries",
-      "url": "/stories/2026-10-19/t1-provider-failover/",
+      "story_id": "dab-story-2026-10-20-m01",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-19",
+      "headline": "Cheaper AI review needs a quality ledger",
+      "url": "/stories/2026-10-20/t1-inference-review-economics/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "Provider failover",
-        "Retry safety",
-        "Recovery ownership"
+        "Inference economics",
+        "Review quality",
+        "Context budgets"
       ],
       "companies": [
-        "OpenAI Developers"
+        "Cloudflare"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
+        "Agent memory and context",
+        "AI-assisted development"
+      ],
+      "summary": "Cloudflare cut average AI code-review cost from $2.43 to $0.77 and median latency from 4:09 to 1:32 by trimming duplicate context, reducing model calls, changing model and effort choices, and simplifying reviewer code. Blinded checks found important code-quality findings held roughly steady, while medium-effort security and performance reviewers still lost useful findings."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-20-m02",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-19",
+      "headline": "GRAFT routes bad behavior into removable parameters",
+      "url": "/stories/2026-10-20/t2-graft-reward-hacking/",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "Reward hacking",
+        "Gradient routing",
+        "Training safeguards"
+      ],
+      "companies": [
+        "Anthropic Alignment Science"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "Anthropic-affiliated researchers propose GRAFT, which routes gradients from monitor-flagged behavior into a FORGET adapter removed after training instead of penalizing detected hacks. In a Qwen3-8B arithmetic environment, ablation nearly eliminated measured hacking while preserving gains. The study remains preliminary: monitors were simple, tasks small, and suitable anchor environments may be difficult to construct."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-20-m10",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-14",
+      "headline": "Predictive functions move model judgment into SQL",
+      "url": "/stories/2026-10-20/k1-predictive-ai-functions/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "Predictive SQL",
+        "Forecast evaluation",
+        "Analyst workflows"
+      ],
+      "companies": [
+        "Databricks"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
@@ -24,6 +70,175 @@
         "Agent reliability and governance",
         "Accessible agents for knowledge work"
       ],
+      "summary": "Databricks introduced beta SQL functions for forecasting, driver analysis, anomaly detection, regression and classification, with results usable in queries, dashboards and Genie. Its examples show holidays and business covariates informing forecasts. Accuracy comparisons use a named benchmark, but the platform maintains the models and reports the results, so teams still need local baselines and error review."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-20-m11",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-15",
+      "headline": "An AI business record needs its origin trail",
+      "url": "/stories/2026-10-20/k2-ai-record-provenance/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "Record provenance",
+        "Legal holds",
+        "Risk-based retention"
+      ],
+      "companies": [
+        "Reuters Legal Commentary"
+      ],
+      "evidence_type": "independent_reporting",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Reuters Legal commentary argues that consequential AI-generated business records may require more than the final document. Prompts, retrieved source versions, model identifiers, system instructions, intermediate outputs, human edits, approvals and triggered actions can determine whether a record is explainable or defensible. The author recommends proportional preservation, updated legal holds and vendor checks rather than retaining every interaction indefinitely."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-20-m12",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-19",
+      "headline": "Move an agent session into the editor without losing context",
+      "url": "/stories/2026-10-20/a1-editor-handoff/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Session handoff",
+        "Diff review",
+        "Local validation"
+      ],
+      "companies": [
+        "GitHub"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent memory and context",
+        "AI-assisted development",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "GitHub’s tutorial shows how to open a Copilot app session in VS Code while retaining its conversation, code changes and working context. The handoff lets an agent complete broad work remotely before a developer inspects the diff, continues the discussion, edits files and runs local tests. Pushing remains tied to the session’s pull request."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-20-m14",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-19",
+      "headline": "Build a pre-action review Agent Skill for internal agents",
+      "url": "/stories/2026-10-20/a2-agent-action-review-skill/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Agent Skills",
+        "Pre-action review",
+        "Containment rules"
+      ],
+      "companies": [
+        "Microsoft"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Microsoft frames internally deployed agents as active enterprise participants that need identities, containers, permissions and continuous cross-layer observation. Its Project Perception vision combines signals from identity, data, endpoint, network, cloud and runtime to assess risk before actions, contain behavior and preserve traceability. The article describes an approach, not independently measured deployment outcomes or universal controls."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-10-20-1",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-19",
+      "headline": "JB Pritzker thinks AI could help us live to 100 — or threaten us like nukes",
+      "url": "/podcasts/2026-10-20/jb-pritzker-thinks-ai-could-help-us-live-to-100-or-threaten-us-like-nukes/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "Decoder with Nilay Patel — The Verge"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent reliability and governance"
+      ],
+      "summary": "Nilay Patel interviews Illinois Governor JB Pritzker about AI, privacy, data centers, regulation and government’s role in collective-action problems. The conversation is useful for comparing state experimentation with demands for federal rules, while separating a policymaker’s positions from empirical evidence. The Verge page and Apple’s current episode listing establish identity and date; Apple reports 59 minutes. Audio was not played."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-10-20-2",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-17",
+      "headline": "Talking with the dead",
+      "url": "/podcasts/2026-10-20/talking-with-the-dead/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "Unexplainable — Vox"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent memory and context"
+      ],
+      "summary": "Vox’s Unexplainable examines “deadbots,” AI replicas built from a deceased person’s messages or voice, with Cambridge researchers Katarzyna Nowaczyk-Basińska and Tomasz Hollanek plus psycholinguist Julie Sedivy. The discussion surfaces consent, grief, detachment and commercialization questions without presenting simulation as resurrection. Vox supplies the episode context and transcript access; Apple confirms a 36-minute runtime. Audio was not played."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-10-20-agent-skills",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-16",
+      "headline": "Bank of England urges banks to prepare for AI cyberattacks",
+      "url": "/videos/2026-10-20/agent-skills/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "ABC News video"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent reliability and governance"
+      ],
+      "summary": "ABC News contributor and Google tech-policy fellow Mike Muse discusses a Bank of England warning that banks should prepare for AI-enabled cyberattacks. The short segment offers a professional briefing prompt for risk teams, but readers should consult the regulator’s underlying material for operative expectations. Identity, date and 4:15 runtime were verified from ABC’s item page and index; playback is not claimed."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-10-20-general",
+      "brief_date": "2026-10-20",
+      "event_date": "2026-10-19",
+      "headline": "What to know about McDonald's federal lawsuit over AI",
+      "url": "/videos/2026-10-20/general/",
+      "focus": "general_video",
+      "topics": [],
+      "companies": [
+        "ABC News video"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent reliability and governance"
+      ],
+      "summary": "ABC News legal contributor Brian Buckmire outlines allegations in a federal lawsuit involving McDonald’s and AI, while food-industry analyst Phil Lempert discusses how technology is changing dining. The concise segment is useful as a current issue map, not as legal advice or independent verification of disputed claims. Identity, date and 6:53 runtime were verified from ABC’s item page and current video index; playback is not claimed."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-10-19-m01",
+      "brief_date": "2026-10-19",
+      "event_date": "2026-10-14",
+      "headline": "Safe model failover starts with replay boundaries",
+      "url": "/stories/2026-10-19/t1-provider-failover/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Provider failover",
+        "Retry safety",
+        "Recovery ownership"
+      ],
+      "companies": [
+        "Designing failover across OpenAI model providers"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "OpenAI’s production-routing guide separates multi-provider availability from safe workflow recovery. Using a read-only fraud assessment, it permits failover only when retries are repeatable, deadlines remain, the secondary is approved and healthy, and features plus data controls match. Stateful sessions, partial outputs, unknown errors and uncertain actions require reconciliation or a safe stop."
     },
     {
@@ -33,20 +248,18 @@
       "event_date": "2026-10-15",
       "headline": "Granite Switch composes chat, decisions and speech in one model",
       "url": "/stories/2026-10-19/t2-granite-switch/",
-      "focus": "technical_ai_engineering",
+      "focus": "historical_unspecified",
       "topics": [
         "Activated LoRAs",
         "Shared KV cache",
         "Modular inference"
       ],
       "companies": [
-        "IBM Granite on Hugging Face"
+        "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "AI-assisted development"
-      ],
+      "trends": [],
       "summary": "IBM Granite’s 8B and 30B Switch 4.1 checkpoints combine a general decision adapter, a guardian adapter and a speech encoder with the base chat model. Activated LoRAs reuse the base model’s KV cache, while the project supports vLLM and llama.cpp. Reported speed and benchmark claims remain publisher-produced and need workload-specific replication."
     },
     {
@@ -56,21 +269,18 @@
       "event_date": "2026-10-15",
       "headline": "A governed context layer is more than a vector database",
       "url": "/stories/2026-10-19/k1-governed-context/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "Knowledge governance",
         "Context pipelines",
         "Build versus buy"
       ],
       "companies": [
-        "Stack Overflow"
+        "Why your platform team shouldn’t build an AI context layer (even though they probably could)"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Agent memory and context"
-      ],
+      "trends": [],
       "summary": "Stack Overflow divides an enterprise AI context layer into capture, validation, organization, governance and delivery. Its argument is that connectors and retrieval are only the beginning: teams must preserve provenance, ownership, permissions, audit history and changing trust. The article promotes Stack Internal, so its build-versus-buy conclusion should be tested against internal costs and alternatives."
     },
     {
@@ -80,16 +290,16 @@
       "event_date": "2026-10-14",
       "headline": "Independent AI assurance needs visible constraints",
       "url": "/stories/2026-10-19/k2-independent-risk-evidence/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "Independent assurance",
         "Evidence limits",
         "Process transparency"
       ],
       "companies": [
-        "METR"
+        "Our approach to working with AI companies"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
       "trends": [],
       "summary": "METR explains how external AI-risk work can inform the public without pretending to certify deployment decisions. It commits to disclose project scope, access limits, redactions, constraints and conflicts, while protecting confidential material. The organization also aims to publish evidence and methods for outside analysis, acknowledge scientific uncertainty and issue iterative findings rather than closed-door assurance."
@@ -101,21 +311,18 @@
       "event_date": "2026-10-14",
       "headline": "Deep Agents keeps long-run context recoverable and inspectable",
       "url": "/stories/2026-10-19/a1-recoverable-agent-memory/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [
         "Context rot",
         "Recoverable memory",
         "Subagent isolation"
       ],
       "companies": [
-        "LangChain"
+        "Context Engineering: How Deep Agents Remember"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
-      ],
+      "trends": [],
       "summary": "LangChain describes five Deep Agents mechanisms for limiting context rot: offload large inputs to files, summarize older turns, load skills only when relevant, isolate noisy work in subagents and persist selected knowledge as plain Markdown. Summaries remain recoverable, and user-controlled storage lets memory survive a model or provider change instead of remaining trapped in one service."
     },
     {
@@ -125,22 +332,18 @@
       "event_date": "2026-10-17",
       "headline": "Build a permission-bounded release-note Agent Skill",
       "url": "/stories/2026-10-19/a2-release-skill/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [
         "Agent Skills",
         "Release notes",
         "Permission boundaries"
       ],
       "companies": [
-        "OpenCode"
+        "Agent Skills"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
+      "trends": [],
       "summary": "OpenCode documents portable SKILL.md discovery across project, global, Claude-compatible and agent-compatible paths. Its git-release example pairs strict frontmatter with bounded instructions for drafting release notes, proposing a version bump and returning a copyable command. Pattern permissions can allow, deny or require approval, while manual-only metadata prevents accidental automatic selection."
     },
     {
@@ -150,16 +353,14 @@
       "event_date": "2026-10-16",
       "headline": "Le Chonk! Also: Espionage at OpenAI",
       "url": "/podcasts/2026-10-19/le-chonk-also-espionage-at-openai/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "AI Agents Hour by Mastra"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Accessible agents for knowledge work"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "Mastra cofounders Shane Thomas and Abhi Aiyer survey new models, decision systems, Anthropic’s source-control work, a reported agent disclosure of personal finances and open agent protocols. The publisher page and independent index provide detailed chapters through 28:44. Treat the program as practitioner commentary: use its map to locate primary evidence before relying on release, funding or incident claims. Audio was not played."
     },
     {
@@ -169,13 +370,13 @@
       "event_date": "2026-10-16",
       "headline": "Predicted: How AI Is Restructuring Social Life with Mona Sloane",
       "url": "/podcasts/2026-10-19/predicted-how-ai-is-restructuring-social-life-with-mona-sloane/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "New Books Network — New Books in Sociology"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
       "trends": [],
       "summary": "Host Pete Kunze interviews sociologist Mona Sloane about treating AI as social infrastructure rather than a detached technological force. They discuss prediction, classification, institutional authority, technological determinism and public agency. A complete indexed transcript grounds the synopsis, while the publisher listing and independent catalog establish identity, date and runtime. The conversation helps leaders examine who defines predictive categories and who can challenge them; audio was not played."
     },
@@ -186,16 +387,14 @@
       "event_date": "2026-10-13",
       "headline": "How To Actually Automate Your Company w Claude (Seriously)",
       "url": "/videos/2026-10-19/agent-skills/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "Nick Saraev official YouTube video"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Accessible agents for knowledge work"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "Nick Saraev presents a repeatable automation triage: observe real work, inventory tasks, run each candidate ten times, score the outputs, improve weak procedures, package only passing workflows as skills and schedule only low-risk work. His revenue and automation figures are self-reported, and screen capture can expose secrets. The synopsis uses the creator listing plus a chaptered independent summary, not playback."
     },
     {
@@ -205,17 +404,14 @@
       "event_date": "2026-10-16",
       "headline": "Put your dot on call",
       "url": "/videos/2026-10-19/general/",
-      "focus": "general_video",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "OpenAI official YouTube video"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "An OpenAI engineer demonstrates a bounded incident-response handoff: a persistent dot watches an on-call channel, investigates a 3 a.m. alert, starts a Codex thread and lets the engineer steer from a phone. The short product demonstration is useful for identifying the coordination pattern, but it is not an independent reliability benchmark. This synopsis relies on creator metadata and indexed scene descriptions, not playback."
     },
     {
@@ -5501,20 +5697,19 @@
       "event_date": "2026-09-18",
       "headline": "Gemini in Workspace connects directly to more business tools through MCP",
       "url": "/stories/2026-09-20/gemini-in-workspace-connects-directly-to-more-business-tools-through-mcp/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "Gemini",
         "Google Workspace",
         "MCP",
         "knowledge work"
       ],
-      "companies": [],
-      "evidence_type": "official_announcement",
-      "availability_status": "published",
-      "trends": [
-        "Agent memory and context",
-        "Accessible agents for knowledge work"
+      "companies": [
+        "Google Workspace Weekly Recap - September 18, 2026"
       ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "Google’s September 18 Workspace recap says Gemini in Workspace can directly interact with services including Asana, Atlassian Rovo, HubSpot, Mailchimp, QuickBooks, Monday, and Salesforce through Model Context Protocol integrations."
     },
     {
@@ -5524,19 +5719,18 @@
       "event_date": "2026-09-18",
       "headline": "GitHub Copilot weekly releases expand the engineering surface",
       "url": "/stories/2026-09-20/github-copilot-weekly-releases-expand-the-engineering-surface/",
-      "focus": "technical_ai_engineering",
+      "focus": "historical_unspecified",
       "topics": [
         "Copilot",
         "developer workflow",
         "release management"
       ],
-      "companies": [],
-      "evidence_type": "official_announcement",
-      "availability_status": "published",
-      "trends": [
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
+      "companies": [
+        "GitHub Copilot weekly releases — September 14"
       ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "GitHub’s September 14 weekly Copilot release roundup groups several developer-facing changes across Copilot experiences and VS Code, giving engineering teams a compact view of the latest product surface they need to evaluate."
     },
     {
@@ -5546,16 +5740,18 @@
       "event_date": "2026-09-18",
       "headline": "Atlassian treats content systems as an AI-quality control layer",
       "url": "/stories/2026-09-20/atlassian-treats-content-systems-as-an-ai-quality-control-layer/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "AI quality",
         "content systems",
         "knowledge management",
         "enterprise AI"
       ],
-      "companies": [],
-      "evidence_type": "official_announcement",
-      "availability_status": "published",
+      "companies": [
+        "How Content Technology is powering Atlassian’s AI quality"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
       "trends": [],
       "summary": "Atlassian describes Content Technologists as building systems, standards, and information structures that help its AI products produce better outputs instead of relying on model capability alone."
     },
@@ -5566,15 +5762,17 @@
       "event_date": "2026-09-18",
       "headline": "NVIDIA AIPerf targets LLM benchmarking bottlenecks at high concurrency",
       "url": "/stories/2026-09-20/nvidia-aiperf-targets-llm-benchmarking-bottlenecks-at-high-concurrency/",
-      "focus": "technical_ai_engineering",
+      "focus": "historical_unspecified",
       "topics": [
         "LLM inference",
         "benchmarking",
         "performance engineering"
       ],
-      "companies": [],
-      "evidence_type": "official_announcement",
-      "availability_status": "published",
+      "companies": [
+        "Benchmarking LLM Inference at Scale with AIPerf"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
       "trends": [],
       "summary": "NVIDIA introduced AIPerf as the successor to GenAI-Perf, using a multiprocess architecture intended to prevent the benchmark client itself from becoming the bottleneck during high-concurrency LLM inference tests."
     },
@@ -5585,20 +5783,19 @@
       "event_date": "2026-09-18",
       "headline": "AWS shows Agent Skills packaging reusable SageMaker deployment work",
       "url": "/stories/2026-09-20/aws-shows-agent-skills-packaging-reusable-sagemaker-deployment-work/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [
         "Agent Skills",
         "reusable workflows",
         "SageMaker",
         "coding agents"
       ],
-      "companies": [],
-      "evidence_type": "official_announcement",
-      "availability_status": "published",
-      "trends": [
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
+      "companies": [
+        "Deploy Hugging Face models on Amazon SageMaker AI with coding agents"
       ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "AWS demonstrates six reusable skills from the Hugging Face Skills repository that coding agents can apply when deploying production-ready Hugging Face models on Amazon SageMaker AI."
     },
     {
@@ -5608,19 +5805,19 @@
       "event_date": "2026-09-18",
       "headline": "AWS shows how existing multi-model agents can move into a managed runtime",
       "url": "/stories/2026-09-20/aws-shows-how-existing-multi-model-agents-can-move-into-a-managed-runtime/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [
         "agents",
         "managed runtime",
         "AgentCore",
         "operations"
       ],
-      "companies": [],
-      "evidence_type": "official_announcement",
-      "availability_status": "published",
-      "trends": [
-        "Accessible agents for knowledge work"
+      "companies": [
+        "Migrating multi-model AI agents to Amazon Bedrock AgentCore runtime"
       ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "AWS describes migrating a multi-model healthcare AI agent to Amazon Bedrock AgentCore runtime while preserving the agent’s model choices and behavior and moving execution into managed agent infrastructure."
     },
     {
@@ -5630,7 +5827,7 @@
       "event_date": "2026-09-19",
       "headline": "AI Doom Backlash Arrives, Anthropic & OpenAI IPO Outlook, Frontier Business Momentum Slows",
       "url": "/podcasts/2026-09-20/ai-doom-backlash/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "AI safety",
         "frontier labs",
@@ -5638,14 +5835,11 @@
         "governance"
       ],
       "companies": [
-        "Big Technology Podcast"
+        "Tapesearch"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Agent reliability and governance",
-        "Accessible agents for knowledge work"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "Alex Kantrowitz and Ranjan Roy discuss the backlash to recent AI-risk claims, frontier-lab economics, IPO expectations, transparency, and signs that AI business momentum may be changing."
     },
     {
@@ -5655,7 +5849,7 @@
       "event_date": "2026-09-19",
       "headline": "Inside China's AI race",
       "url": "/podcasts/2026-09-20/inside-chinas-ai-race/",
-      "focus": "technical_ai_engineering",
+      "focus": "historical_unspecified",
       "topics": [
         "AI competition",
         "chips",
@@ -5663,10 +5857,10 @@
         "AI safeguards"
       ],
       "companies": [
-        "Reuters On Assignment"
+        "Reuters"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
       "trends": [],
       "summary": "Reuters correspondents examine China’s AI industry, including deployment strategy, chip access, distillation, export controls, and the difficulty of comparing national AI progress."
     },
@@ -5677,17 +5871,14 @@
       "event_date": "2026-09-20",
       "headline": "Anthropic’s CEO: How to Build a 1 Person Business with Claude",
       "url": "/videos/2026-09-20/agent-skills/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "Nate Herk | AI Automation"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "A practical 11-minute look at how Claude can support a highly automated one-person business, including where AI can absorb repeatable work around software, sales, and support."
     },
     {
@@ -5697,16 +5888,14 @@
       "event_date": "2026-09-20",
       "headline": "NVIDIA PAIR Connects Your Computers for Local AI",
       "url": "/videos/2026-09-20/general/",
-      "focus": "general_video",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "Matthew Berman"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "AI-assisted development"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "A one-minute look at software that links multiple local computers so AI workloads can share compute across machines."
     },
     {
