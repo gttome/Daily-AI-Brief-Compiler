@@ -1,3 +1,6 @@
+import {renderImageAar} from './render-image-aar.mjs';
+import {verifySixFrozenImageSpecifications} from './preflight-image-firstpass.mjs';
+import {validateImageAfterAction,IMAGE_AAR_EFFECTIVE} from './image-aar-contract.mjs';
 // Exact-current-cycle, pre-FIRST-image-PR admission. Run on a pushed candidate
 // branch with current origin/main, origin/shadow-pages-history and source fetched.
 // This is deterministic receipt and byte validation, NOT a semantic pixel review.
@@ -139,6 +142,19 @@ export async function preflightRecurringImagePackage({
   if(admission.edition_date!==date||assignment.cycle_date!==cycle)
     fail('ASSIGNMENT_NOT_CURRENT_CHICAGO_CYCLE');
   verifyReviewFiles(root,manifest,job);
+  if(date>=IMAGE_AAR_EFFECTIVE){
+    verifySixFrozenImageSpecifications({job,specifications:readJson(committedFile(root,prefix+'reviews/six-frozen-specs.json'),'FROZEN_SPECS')});
+    const aarPath=prefix+'reviews/after-action.json';
+    const aar=readJson(committedFile(root,aarPath),'AFTER_ACTION');
+    validateImageAfterAction({aar,job,manifest});
+    git(root,['merge-base','--is-ancestor',aar.production.github_binary_stage_commit,'HEAD']);
+    if(!manifest.images.some(img=>{
+      try{return hash(readGit(root,aar.production.github_binary_stage_commit+':'+img.path))===img.sha256;}
+      catch{return false;}
+    }))fail('FIRST_BINARY_CHECKPOINT_HAS_NO_ACCEPTED_PNG');
+    if(committedFile(root,prefix+'reviews/after-action.md').toString('utf8')!==renderImageAar({aar,job,manifest}))fail('HUMAN_AAR_DIFFERS_FROM_STRUCTURED_FACTS');
+    if(manifest.after_action_path!==prefix+'reviews/after-action.md')fail('CANONICAL_AFTER_ACTION_PATH_REQUIRED');
+  }
   const staged=validateExternalImagePackage({job,jobBytes,manifest,repoRoot:root});
   if(staged.package_head_sha!==head||staged.exact_git_readback!==true)
     fail('NOT_EXACT_CANDIDATE_COMMIT');

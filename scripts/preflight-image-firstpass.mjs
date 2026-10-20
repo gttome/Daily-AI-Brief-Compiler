@@ -49,6 +49,16 @@ export function validateFrozenImageSpecification({spec,story}){
      edge.relation_supported_by_semantic_review!==true)
      fail('unsupported_causal_edge:'+spec.story_id);
  }
+ if(spec.edition_date>='2026-10-21'){
+   const qc=spec.pre_generation_checks;
+   if(!qc||!Array.isArray(qc.label_layout)||qc.label_layout.length!==spec.required_labels.length||
+     new Set(qc.label_layout.map(x=>x.label)).size!==spec.required_labels.length||
+     qc.label_layout.some(x=>!spec.required_labels.includes(x.label)||!clean(x.region)||!Number.isFinite(x.minimum_font_px)||x.minimum_font_px<18)||
+     !Number.isFinite(qc.safe_margin_px)||qc.safe_margin_px<40||qc.no_simulated_writing!==true||qc.no_false_success_symbols!==true||qc.no_decorative_scenery!==true||
+     !clean(qc.source_caveat)||!Array.isArray(qc.causal_state_checks)||!qc.causal_state_checks.length||
+     qc.causal_state_checks.some(x=>!clean(x.condition)||!clean(x.allowed_path)||!clean(x.blocked_path)||!claims.has(x.support_claim_id)))
+     fail('story_specific_text_geometry_and_causal_state_preflight_required:'+spec.story_id);
+ }
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||
    !clean(review.reviewer)||review.source_url!==spec.source_url||
@@ -68,12 +78,14 @@ export function verifySixFrozenImageSpecifications({job,specifications}){
  for(const s of specifications){
    if(!sources.has(s.story_id)||done.has(s.story_id))fail('duplicate_or_wrong_story');
    done.add(s.story_id);
+   if(job.edition_date>='2026-10-21'&&s.edition_date!==job.edition_date)fail('current_edition_spec_required');
    results.push(validateFrozenImageSpecification({spec:s,story:sources.get(s.story_id)}));
    const comp=s.composition_signature;
    grammars.set(comp.grammar,(grammars.get(comp.grammar)||0)+1);
    metaphors.add(comp.metaphor);
    annotations.add(comp.annotation);
  }
+ if(job.edition_date>='2026-10-21'&&grammars.size!==6)fail('six_distinct_story_compositions_required');
  if(done.size!==6||grammars.size<4||metaphors.size<4||annotations.size<3||
    Math.max(...grammars.values())>2)fail('six_set_visual_convergence');
  return {schema_version:'external-image-firstpass-set-v1',

@@ -122,3 +122,8 @@ Each of the six stories requires one professional explanatory diagram:
 ## Simplicity invariant
 
 Reader quality may not be reduced to simplify production. Conversely, reader requirements may not be used as justification to reintroduce a Supervisor, Watchdog Ring, leases, 30-task orchestration, continuous AI polling, wake PRs, or runtime repair loops.
+
+
+## October 20 owner-approved improvements — October 21 onward
+
+Read and apply [the six approved production improvements](automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.

@@ -1,3 +1,4 @@
+import {validateEditorialChronology,validateNontechnicalAudience,validateMediaPrecision} from './production-evidence.mjs';
 import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
 import {watchlistScoringProblems,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
 import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
@@ -44,6 +45,9 @@ export function validateNewPendingEditorial({bundle,state}){
   if(bundle.stories.length!==6)fail('six stories required');
   // Prospective source diversity is checked before sealing, not retroactively.
   validateArticleSourceDiversity(bundle);
+  validateEditorialChronology({bundle,state});
+  validateNontechnicalAudience(bundle);
+  validateMediaPrecision(bundle);
   const ids=new Set(),sources=new Set();
   const noon=time(bundle.edition_date+'T12:00:00Z','edition date');
   for(const [i,story] of bundle.stories.entries()){

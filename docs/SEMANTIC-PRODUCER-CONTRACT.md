@@ -112,3 +112,8 @@ The producer and delegated cloud stages record structured timing/usage events. E
 The producer reads the extensible resource registry and records source observations for articles, videos, podcasts, Watchlist and general research. The producer also reads the future-Brief suggestion inbox before research/selection and records a resolution for each eligible suggestion.
 
 Post-publication corrections are additive protected revisions. They do not allocate a new execution for the published edition and must preserve superseded historical artifacts.
+
+
+## October 20 owner-approved improvements — October 21 onward
+
+Read and apply [the six approved production improvements](automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.

@@ -47,3 +47,8 @@ Create a single current-edition protected package PR; keep main protection and e
 ## 5. Reporting and failure policy
 
 Persist a source-backed Image AAR and readiness report when possible. Use `NO_START_RECEIPT` rather than claiming `DID_NOT_START` from missing artifacts; deterministic GitHub reconciler independently reports missed/unknown invocations. A failed old cycle cannot hijack tomorrow; no platform quota reset is implied. Keep Compiler publication independent using its own connected GitHub; no chat-type admission check. Do not touch `gttome/Daily-AI-Brief`; do not create extra AI schedules, ask for per-edition owner actions, use paid image APIs or pretend tools were available when they were not.
+
+
+## October 20 owner-approved improvements — October 21 onward
+
+Read and apply [the six approved production improvements](../automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.

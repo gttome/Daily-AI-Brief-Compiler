@@ -23,3 +23,8 @@ Two daily production tasks only: Compiler at 19:15 America/Chicago and native im
 After the current job and complete image reviews, persist `external-image-packages/YYYY-MM-DD/recurring-assignment.json` per the full Revision 8 contract. Ensure `scripts/check-external-image-release-gates.mjs` selects the standing-current-cycle gate only when `recurring_work_v8:rev8` is active. Existing protected image-only workflow is unchanged except its assignment-file selection for rev8. Document exact gate/PR/CI/merge/pages/hash/context evidence and image AAR; incomplete stages are precisely `BLOCKED_INCOMPLETE`, not successful closeout. Next evening always targets a newly bound edition, not backlog/recovery.
 
 **Activation:** Protected main already selects `recurring_work_v8:rev8`, and both recurring tasks are enabled. Mode/scheduler-identity qualification is not an admission requirement. Actual generation, exact image/GitHub/pixel evidence and protected CI are still mandatory.
+
+
+## October 20 owner-approved improvements — October 21 onward
+
+Read and apply [the six approved production improvements](docs/automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.
