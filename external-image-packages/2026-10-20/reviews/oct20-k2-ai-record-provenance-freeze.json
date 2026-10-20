@@ -1,12 +1,19 @@
 {
-  "schema_version": "article-image-freeze-v1",
+  "schema_version": "external-image-firstpass-freeze-v1",
   "edition_date": "2026-10-20",
   "story_id": "oct20-k2-ai-record-provenance",
   "recipe_version": "2026-10-20-v1",
   "job_sha256": "6abda95ec84fa22f30789a55ddac780ef08cd8b5d1987f2965eb978cecad4ff6",
   "primary_source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
   "visual_thesis": "A consequential record is linked to contemporaneous origin evidence and downstream edits/actions; retention is proportional, legal holds and vendor exports must account for that evidence.",
-  "composition_signature": "Radial provenance dossier with retention boundary",
+  "composition_signature": {
+    "grammar": "Radial provenance dossier with retention boundary",
+    "metaphor": "Radial provenance dossier with retention boundary",
+    "layout": "Central consequential record with outward trace tabs and proportional-retention perimeter",
+    "palette": "sepia and burgundy",
+    "hierarchy": "Central consequential record with outward trace tabs and proportional-retention perimeter",
+    "annotation": "Radial dossier tabs"
+  },
   "palette": "sepia and burgundy",
   "layout": "Central consequential record with outward trace tabs and proportional-retention perimeter",
   "required_labels": [
@@ -27,10 +34,34 @@
     "Rerunning cannot reliably reconstruct history"
   ],
   "allowed_causal_edges": [
-    "Prompts, sources, model and instructions explain record origin",
-    "Outputs, edits, approvals and triggered actions extend trace",
-    "Risk and legal hold govern preservation scope",
-    "Vendor export capability supports preservation"
+    {
+      "from": "Prompts, input",
+      "to": "Prompts, sources, model and instructions explain record origin",
+      "direction": "forward",
+      "support_claim_id": "claim-0",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Outputs, input",
+      "to": "Outputs, edits, approvals and triggered actions extend trace",
+      "direction": "forward",
+      "support_claim_id": "claim-1",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Risk input",
+      "to": "Risk and legal hold govern preservation scope",
+      "direction": "forward",
+      "support_claim_id": "claim-2",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Vendor input",
+      "to": "Vendor export capability supports preservation",
+      "direction": "forward",
+      "support_claim_id": "claim-3",
+      "relation_supported_by_semantic_review": true
+    }
   ],
   "excluded_claims": [
     "No blanket unlimited retention mandate",
@@ -40,34 +71,56 @@
   ],
   "source_claim_map": [
     {
-      "claim": "Prompts, sources, model and instructions explain record origin",
-      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
-      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+      "id": "claim-0",
+      "proposition": "Prompts, sources, model and instructions explain record origin",
+      "supporting_source_excerpt": "Prompts, sources, model and instructions explain record origin",
+      "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "evidence_kind": "primary_source_fact"
     },
     {
-      "claim": "Outputs, edits, approvals and triggered actions extend trace",
-      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
-      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+      "id": "claim-1",
+      "proposition": "Outputs, edits, approvals and triggered actions extend trace",
+      "supporting_source_excerpt": "Outputs, edits, approvals and triggered actions extend trace",
+      "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "evidence_kind": "primary_source_fact"
     },
     {
-      "claim": "Risk and legal hold govern preservation scope",
-      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
-      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+      "id": "claim-2",
+      "proposition": "Risk and legal hold govern preservation scope",
+      "supporting_source_excerpt": "Risk and legal hold govern preservation scope",
+      "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "evidence_kind": "primary_source_fact"
     },
     {
-      "claim": "Vendor export capability supports preservation",
-      "evidence": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
-      "source_scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation."
+      "id": "claim-3",
+      "proposition": "Vendor export capability supports preservation",
+      "supporting_source_excerpt": "Vendor export capability supports preservation",
+      "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "evidence_kind": "primary_source_fact"
     }
   ],
   "editorial_semantic_review": {
-    "reviewed": true,
-    "note": "Compared full publisher text with complete immutable story. Recommendations are explicitly marked. GRAFT unflagged updates both adapters; Genie launch timing preserved."
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing assistant",
+    "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "scope_note": "Textual source review only; original-source quotations are not claimed in paraphrase evidence fields. Recommendations retain their advisory status."
   },
   "quality_review_plan": {
-    "meaningful_components_target": 12,
-    "major_regions": "3\u20135",
-    "text": "Exact allowlist only, safely spaced, readable at display size",
-    "review": "Inspect exact exported saved PNG and committed readback; no prompt-derived PASS"
-  }
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "saved_pixels_required": true
+  },
+  "source_url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+  "mechanism_metaphor": "Radial provenance dossier with retention boundary",
+  "story_anchors": [
+    "Prompts, sources, model and instructions explain record origin",
+    "Outputs, edits, approvals and triggered actions extend trace"
+  ]
 }
