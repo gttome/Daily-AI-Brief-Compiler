@@ -10,6 +10,8 @@
 
 **🕒 Production stage durations:** **Compiler 11m 49s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
+> **PROVENANCE WARNING:** Source-reading timestamps follow the recorded publication verification time. The original evidence is preserved; exact historical reading times are not reconstructed. Publication/image success does not resolve this audit discrepancy.
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |
@@ -161,7 +163,7 @@ No image-stage correction receipts were available for this cycle.
 | Compiler public integrity | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-10-19/shadow-runs/2026-10-19/compiler/postpublish-integrity.json) |
 | Image release receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-10-19/release.json) |
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-19/reviews/live/image-element24/semantic-reviews.json) |
-| Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-19/reviews/after-action.md) |
+| Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-19/reviews/after-action.json) |
 
 **Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39192115907).
 

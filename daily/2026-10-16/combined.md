@@ -1,4 +1,4 @@
-**🟩 RELEASE COMPLETE**
+**🟨 RELEASE PARTIAL**
 **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟪 VISUAL QA 24/24 PASS**
 
 # Daily AI Brief — Unified Production After-Action Report
@@ -6,9 +6,11 @@
 **Primary public reader:** [Open 2026-10-17 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-17/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: COMPLETE.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 13m 39s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
+
+> **PROVENANCE WARNING:** Source-reading timestamps follow the recorded publication verification time. The original evidence is preserved; exact historical reading times are not reconstructed. Publication/image success does not resolve this audit discrepancy.
 
 ## Performance dashboard
 
