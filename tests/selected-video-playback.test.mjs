@@ -26,3 +26,21 @@ test('Exactly two distinct valid candidate identities',()=>{
  assert.throws(()=>validateBundle({...base,videos:[base.videos[0],{...base.videos[1],duration_minutes:28}]}));
  assert.throws(()=>validateBundle({...base,videos:[base.videos[0],{...base.videos[0]}]}));
 });
+
+test('Official YouTube public existence is not mislabeled as playback; private is rejected',async()=>{
+ const {officialYouTubePublicEvidence}=require('../scripts/verify-selected-video-playback.cjs');
+ const item={index:1,title:'Rehearsal',url:'https://www.youtube.com/watch?v=JvASK8qX4hg',
+   expected_seconds:355,original_duration_verified:true,original_identity_verified:true};
+ const good=async()=>({ok:true,status:200,json:async()=>({type:'video',title:'Navigating AI automation in Looker',
+   author_name:'Verified source',html:'<iframe src="https://www.youtube.com/embed/JvASK8qX4hg"></iframe>'})});
+ const r=await officialYouTubePublicEvidence(item,new Error('bot challenge'),good);
+ assert.equal(r.result,'PUBLIC_YOUTUBE_IDENTITY_PASS_PLAYBACK_UNVERIFIED');
+ assert.equal(r.playback_verified,false);
+ assert.equal(r.full_episode_watched,false);
+ await assert.rejects(()=>officialYouTubePublicEvidence(item,new Error('bot challenge'),
+   async()=>({ok:false,status:401})),/rejected video/);
+ await assert.rejects(()=>officialYouTubePublicEvidence(item,new Error('YouTube playability status UNPLAYABLE'),good),
+   /UNPLAYABLE/);
+ await assert.rejects(()=>officialYouTubePublicEvidence({...item,original_duration_verified:false},
+   new Error('bot challenge'),good),/independently verified/);
+});

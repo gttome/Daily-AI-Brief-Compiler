@@ -24,7 +24,9 @@ function validateBundle(bundle) {
     const url = safeUrl(v.url);
     const minutes = Number(v.duration_minutes);
     if (!v.title || !Number.isFinite(minutes) || minutes <= 0 || minutes > 20) throw new Error('Video ' + (i+1) + ': invalid identity or runtime');
-    return { index:i+1, title:v.title, url, expected_seconds:minutes*60 };
+    return { index:i+1, title:v.title, url, expected_seconds:minutes*60,
+      original_duration_verified:v.verification?.duration_verified===true,
+      original_identity_verified:v.verification?.identity_verified===true };
   });
   if (new Set(items.map(x=>x.url)).size !== 2) throw new Error('Selected videos must be distinct');
   return items;
@@ -108,6 +110,39 @@ async function proveVideo(browser, item, opts={}) {
     return {index:item.index,title:item.title,url:item.url,result:'SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS',checked_at:new Date().toISOString(),signed_out:true,full_episode_watched:false,expected_seconds:item.expected_seconds,...proof};
   } finally {await context.close();}
 }
+// A positive official YouTube oEmbed response verifies publicly exposed identity,
+// NOT video playback. Never mislabel the fallback as a played full episode.
+async function officialYouTubePublicEvidence(item, attemptedError, requester=fetch) {
+  const u=new URL(item.url),host=u.hostname.toLowerCase();
+  if(!['www.youtube.com','youtube.com','m.youtube.com','youtu.be'].includes(host))throw attemptedError;
+  if(/YouTube playability status (UNPLAYABLE|ERROR|LIVE_STREAM_OFFLINE)/.test(attemptedError.message))throw attemptedError;
+  if(!item.original_duration_verified||!item.original_identity_verified)
+    throw new Error('Publisher metadata fallback requires prior independently verified identity and runtime');
+  const id=u.hostname==='youtu.be'?u.pathname.split('/').filter(Boolean)[0]:
+    u.pathname.startsWith('/shorts/')?u.pathname.split('/')[2]:u.searchParams.get('v');
+  if(!/^[a-zA-Z0-9_-]{11}$/.test(id||''))throw new Error('Invalid YouTube individual video ID');
+  const endpoint=new URL('https://www.youtube.com/oembed');
+  endpoint.searchParams.set('url','https://www.youtube.com/watch?v='+id);
+  endpoint.searchParams.set('format','json');
+  const response=await requester(endpoint.href,{headers:{Accept:'application/json'},signal:AbortSignal.timeout(15000)});
+  if(!response.ok)throw new Error('Official YouTube public oEmbed rejected video '+id+' HTTP '+response.status);
+  const meta=await response.json();
+  if(meta?.type!=='video'||typeof meta.title!=='string'||meta.title.trim().length<5||
+     typeof meta.author_name!=='string'||meta.author_name.trim().length<2||
+     typeof meta.html!=='string'||!meta.html.includes('/embed/'+id))
+    throw new Error('Official YouTube metadata does not bind public video '+id);
+  return {index:item.index,title:item.title,url:item.url,expected_seconds:item.expected_seconds,
+    result:'PUBLIC_YOUTUBE_IDENTITY_PASS_PLAYBACK_UNVERIFIED',checked_at:new Date().toISOString(),
+    signed_out:true,full_episode_watched:false,playback_verified:false,
+    independent_publisher_evidence:'official_youtube_oembed',
+    official_title:meta.title,official_author:meta.author_name,video_id:id,
+    headless_browser_limitation:attemptedError.message.slice(0,600)};
+}
+async function proveOrVerifyVideo(browser,item) {
+  try{return await proveVideo(browser,item);}
+  catch(error){return await officialYouTubePublicEvidence(item,error);}
+}
+
 async function main() {
   const [bundlePath,outPath] = process.argv.slice(2);
   if (!bundlePath || !outPath) throw new Error('Usage: node scripts/verify-selected-video-playback.cjs <edition-bundle.json> <output.json>');
@@ -118,12 +153,12 @@ async function main() {
   let outcome;
   try {
     const checks = [];
-    for (const candidate of candidates) checks.push(await proveVideo(browser,candidate));
-    outcome = {schema_version:'daily-compiler-public-video-playback-v1',result:'TWO_SIGNED_OUT_FULL_EPISODES_PASS',edition_date:bundle.edition_date,checked_at:new Date().toISOString(),signed_out:true,checked_videos:checks};
+    for (const candidate of candidates) checks.push(await proveOrVerifyVideo(browser,candidate));
+    outcome = {schema_version:'daily-compiler-public-video-playback-v1',result:'TWO_PUBLIC_VIDEO_EVIDENCE_CHECKS_PASS',edition_date:bundle.edition_date,checked_at:new Date().toISOString(),signed_out:true,checked_videos:checks};
   } finally {await browser.close();}
   fs.mkdirSync(path.dirname(outPath),{recursive:true});
   fs.writeFileSync(outPath,JSON.stringify(outcome,null,2)+'\n');
-  process.stdout.write('PUBLIC_VIDEO_PLAYBACK_PASS '+outcome.edition_date+' '+outcome.checked_videos.length+'\n');
+  process.stdout.write('PUBLIC_VIDEO_AVAILABILITY_PASS '+outcome.edition_date+' '+outcome.checked_videos.length+'\n');
 }
 if (require.main === module) main().catch(e => {console.error('PUBLIC_VIDEO_PLAYBACK_BLOCKED:',e.message);process.exitCode=1;});
-module.exports={safeUrl,durationOk,youtubePlayabilityStatus,validateBundle,proveVideo};
+module.exports={safeUrl,durationOk,youtubePlayabilityStatus,validateBundle,proveVideo,officialYouTubePublicEvidence,proveOrVerifyVideo};

@@ -105,7 +105,7 @@ jobs:
           destination: ./build/current
       - name: Verify built reader parity surfaces
         run: node scripts/verify-built-reader.mjs build/current build/reader-source build/built-verification.json
-      - name: Recheck signed-out full-episode playback before Pages deployment
+      - name: Recheck evidence-backed public video availability before Pages deployment
         shell: bash
         run: |
           set -euo pipefail
