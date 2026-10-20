@@ -1,0 +1,48 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-20",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct20-a1-editor-handoff",
+      "focus": "Agents for Everyone",
+      "headline": "Move an agent session into the editor without losing context",
+      "source_url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "published_at": "2026-10-19",
+      "publisher": "GitHub",
+      "read_scope": "Complete six-minute tutorial: session transfer, preserved conversation and worktree, line-by-line diff review, continued prompting, manual edits, local testing and pull-request update.",
+      "reading_time_minutes": 6,
+      "topics": [
+        "Session handoff",
+        "Diff review",
+        "Local validation"
+      ],
+      "agent_skills": false,
+      "summary": "GitHub’s tutorial shows how to open a Copilot app session in VS Code while retaining its conversation, code changes and working context. The handoff lets an agent complete broad work remotely before a developer inspects the diff, continues the discussion, edits files and runs local tests. Pushing remains tied to the session’s pull request.",
+      "why_it_matters": "Use session transfer as a review boundary. Confirm the expected branch and worktree, inspect every changed file, rerun project checks and make manual corrections before updating the pull request; preserved context should accelerate review, not substitute for it.",
+      "image_alt_intent": "A remote agent session carrying conversation, plan and worktree passes into an editor where a developer reviews the diff, runs tests and decides whether to update the pull request.",
+      "permanent_route": "/stories/2026-10-20/a1-editor-handoff/"
+    },
+    {
+      "id": "oct20-a2-agent-action-review-skill",
+      "focus": "Agents for Everyone",
+      "headline": "Build a pre-action review Agent Skill for internal agents",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "published_at": "2026-10-19",
+      "publisher": "Microsoft",
+      "read_scope": "Complete official essay: agent identities and permissions, cross-layer signals, dynamic risk context, supervision before action, deterministic containment, traceability and practitioner judgment, with product-vision limitations.",
+      "reading_time_minutes": 4,
+      "topics": [
+        "Agent Skills",
+        "Pre-action review",
+        "Containment rules"
+      ],
+      "agent_skills": true,
+      "summary": "Microsoft frames internally deployed agents as active enterprise participants that need identities, containers, permissions and continuous cross-layer observation. Its Project Perception vision combines signals from identity, data, endpoint, network, cloud and runtime to assess risk before actions, contain behavior and preserve traceability. The article describes an approach, not independently measured deployment outcomes or universal controls.",
+      "why_it_matters": "Turn the control sequence into a read-only review skill: identify the agent and intended task, gather current signals, compare proposed action with permissions, and return allow, contain or escalate. Keep enforcement external and require practitioner judgment for ambiguous risk.",
+      "image_alt_intent": "A pre-action review skill collects identity, data, endpoint, network, cloud and runtime signals, compares intent with permissions, then returns allow, contain or escalate to an external control.",
+      "permanent_route": "/stories/2026-10-20/a2-agent-action-review-skill/",
+      "agent_skills_evidence": "Reusable, read-only pre-action review procedure grounded in Microsoft’s October 19 agentic-insider control sequence. Create a skill named `agent-action-review` that accepts agent identity, intended task, proposed action, target resource and current cross-layer signals. Verify identity and permission scope; compare the action with task intent; record relevant identity, data, endpoint, network, cloud and runtime evidence; classify the result as ALLOW, CONTAIN or ESCALATE with reasons. The skill never changes permissions or executes the action. Test three fixtures covering an allowed read, an overprivileged write and ambiguous intent. Require external deterministic enforcement and named practitioner approval for every ESCALATE result."
+    }
+  ]
+}

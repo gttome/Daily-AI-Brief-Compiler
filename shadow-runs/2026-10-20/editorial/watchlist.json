@@ -1,0 +1,258 @@
+{
+  "refreshed_at": "2026-10-20T01:12:00.000Z",
+  "new": [
+    {
+      "topic": "Localized reward-hack removal",
+      "why": "GRAFT isolates monitor-flagged learning in parameters removed before deployment instead of shaping reward with an imperfect monitor.",
+      "summary": "Localized reward-hack removal routes learning from detected cheating into a removable parameter set while retaining intended task capability elsewhere.",
+      "why_now": "The October 19 GRAFT study reports nearly eliminated measured hacking after adapter ablation in limited Qwen3-8B and toy environments.",
+      "practical_value": "Researchers can run bounded replications with held-out hacks, baseline mitigations and explicit task-performance checks before considering larger models.",
+      "evidence": {
+        "url": "https://alignment.anthropic.com/2026/graft/",
+        "date": "2026-10-19"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 5,
+          "reason": "GRAFT changes monitor use from reward shaping to gradient routing and removable parameter localization."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The October 19 article provides code, a paper, controlled comparisons and explicit quantitative results across several small environments."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Authors span MATS, Stanford, FAR AI and Anthropic, but the reviewed results remain one collaborating research effort."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No comparable repeated observation across dated production-scale deployments establishes a defensible momentum direction."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Training teams can directly test whether adapter ablation reduces held-out hacks without erasing target-task gains."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "The gradient-routing idea may endure, although anchor-environment requirements and larger-scale behavior remain unresolved."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One research release lacks two comparable dated observations under a stable metric."
+      }
+    },
+    {
+      "topic": "SQL-native predictive workflows",
+      "why": "Built-in functions expose forecasting, anomaly, driver and prediction tasks through governed SQL and conversational analyst surfaces.",
+      "summary": "SQL-native predictive workflows place maintained forecasting and classification models inside queries, dashboards and plain-language analytics tools.",
+      "why_now": "Databricks announced five beta Predictive AI Functions on October 14, including four new functions and an upgraded forecasting function.",
+      "practical_value": "Analysts can compare built-in outputs with approved baselines using backtests, error review and visible uncertainty before operational adoption.",
+      "evidence": {
+        "url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+        "date": "2026-10-14"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "The release packages familiar predictive methods into consistent SQL, dashboard and conversational interfaces for non-specialists."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Databricks documents functions, examples and a named forecasting benchmark, while detailed reproducibility remains limited."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Benchmark and product evidence originate from Databricks, with no independent workload replication reviewed for this release."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The beta launch supplies no two comparable dated adoption or outcome observations under one stable measure."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Knowledge teams can evaluate forecasts, anomalies and drivers directly inside governed data workflows they already use."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Accessible predictive analytics is durable, though specific beta functions and vendor-maintained models will change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "A single beta announcement cannot establish comparable numerical momentum over time."
+      }
+    }
+  ],
+  "updated": [
+    {
+      "topic": "Agent governance and review points",
+      "what_changed": "Microsoft added a cross-layer pre-action supervision model with dynamic risk context, containment and practitioner traceability for internal agents.",
+      "summary": "Agent governance combines bounded identity, permissions, cross-layer observation, deterministic containment and accountable human review before consequential actions.",
+      "why_now": "Microsoft’s October 19 agentic-insider essay adds dynamic risk assessment and guardian supervision to the previously reviewed layered control model.",
+      "practical_value": "Teams can fixture-test a read-only action-review skill while keeping permission changes, containment and final approval in external controls.",
+      "evidence": {
+        "url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+        "date": "2026-10-19"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Pre-action guardian supervision extends prior governance layers with dynamic intent checks and real-time containment decisions."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Microsoft describes concrete signals, decision stages and traceability goals, but supplies no measured deployment outcomes."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Microsoft adds an independently authored architecture to prior AWS guidance, though both sources promote their own platforms."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The two governance publications use conceptual stages rather than comparable numerical observations collected at distinct times."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Organizations can map identity, permission, intent, signals and escalation onto one bounded agent action today."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "External enforcement, least privilege, traceability and accountable judgment remain durable across models and agent frameworks."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Conceptual publications do not provide one repeated numerical control-effectiveness metric."
+      }
+    }
+  ],
+  "carried_forward": [
+    {
+      "topic": "Reusable agent skills",
+      "summary": "Reusable Agent Skills package focused procedures in versioned SKILL.md folders that agents discover and load only when relevant.",
+      "why_now": "No newer independent outcome study changed the October 17 portable skill evidence, so the topic remains active without a material update.",
+      "practical_value": "Continue fixture-testing one bounded read-only procedure and require approval before granting any consequential side effect.",
+      "evidence": {
+        "url": "https://opencode.ai/docs/skills/",
+        "date": "2026-10-17"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "OpenCode adds cross-client discovery and explicit permission patterns to the established portable SKILL.md procedure format."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Official documentation specifies paths, schema rules, a complete release example, tool behavior and permission configuration."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "OpenCode independently implements the shared format alongside Microsoft and Anthropic ecosystems, though evidence remains platform-authored."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Different implementations publish structures rather than one repeated outcome measure, so momentum cannot be scored numerically."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can immediately create, discover, restrict and fixture-test one bounded procedure before granting side effects."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Portable instructions, lazy loading and explicit permission boundaries remain useful across agent clients and changing models."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Available implementations lack a shared repeated numerical outcome measure."
+      },
+      "why": "No material new outcome evidence was verified, so the prior reviewed rubric is carried without claiming change."
+    },
+    {
+      "topic": "Provider-aware AI failover",
+      "summary": "Provider-aware failover routes repeatable inference work across qualified models while stopping ambiguous or stateful replays for reconciliation.",
+      "why_now": "No newer end-to-end recovery guide displaced the October 14 policy, so the topic remains active without a material evidence change.",
+      "practical_value": "Teams can keep testing one read-only inference step with central retry budgets, degraded paths and explicit replay-stop rules.",
+      "evidence": {
+        "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+        "date": "2026-10-14"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The guide combines replay safety, provider qualification, feature parity and recovery ownership in one implementable policy."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The primary engineering guide supplies concrete retry classes, deadlines, failback stages, observability and a safe implementation prompt."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The guidance includes third-party routes but remains authored by one provider without reviewed independent outcome replication."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No two comparable dated production observations use one stable availability or duplicate-action metric across the proposed policy."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can apply the decision tree immediately to one read-only inference step and test controlled provider outages."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Idempotency, deadlines, reconciliation and explicit recovery ownership remain necessary across providers and model generations."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No two comparable dated numerical observations establish momentum for this policy."
+      },
+      "why": "No material new recovery evidence was verified, so the prior reviewed rubric is carried without claiming change."
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "Composable decision adapters",
+      "reason": "The topic moves to history because no independent deployment evaluation has followed the October 15 publisher release.",
+      "summary": "Composable decision adapters activate specialized classification, safety and speech functions beside a shared general chat checkpoint.",
+      "why_now": "No independent post-release evaluation has appeared since October 15, so the launch signal is archived rather than carried.",
+      "practical_value": "Retain the evaluation checklist, but avoid treating publisher benchmarks as evidence that one composed endpoint improves production outcomes.",
+      "previous_evidence": {
+        "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+        "date": "2026-10-15"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Combining speech, general decisions and guardian adapters in one checkpoint extends modular inference beyond chat-only composition."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Model cards, code and demonstrations are available, but several performance comparisons remain publisher-reported and incomplete."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Open artifacts permit external testing, yet the reviewed release evidence and headline comparisons originate from IBM Granite."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Release-day model cards provide no two comparable observations collected under one stable deployment or adoption metric."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Teams can test whether one composed endpoint simplifies specialized decisions without sacrificing measurable workload quality."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Modular adapters and shared caches are durable engineering ideas even as specific checkpoints and runtimes change."
+        }
+      }
+    }
+  ]
+}

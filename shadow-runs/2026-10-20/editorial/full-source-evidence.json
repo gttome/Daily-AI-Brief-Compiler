@@ -1,0 +1,107 @@
+{
+  "schema_version": "daily-compiler-full-source-evidence-v1",
+  "edition_date": "2026-10-20",
+  "recorded_at": "2026-10-20T01:12:00.000Z",
+  "method": "publisher_main_text",
+  "no_fabricated_playback": true,
+  "source_evidence": [
+    {
+      "id": "oct20-t1-inference-review-economics",
+      "publisher": "Cloudflare",
+      "original_date": "2026-10-19",
+      "url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "scope": "Complete engineering report: cost history, context and cache accounting, code-level reductions, model and effort experiments, shadow migration, latency percentiles, acted-on findings, blinded review methodology and acknowledged regressions.",
+      "main_facts": [
+        "Cloudflare cut average AI code-review cost from $2.43 to $0.77 and median latency from 4:09 to 1:32 by trimming duplicate context, reducing model calls, changing model and effort choices, and simplifying reviewer code. Blinded checks found important code-quality findings held roughly steady, while medium-effort security and performance reviewers still lost useful findings.",
+        "Treat token cost, latency and review quality as one evaluation. Replay identical repositories across model, effort and context changes; track acted-on findings and blinded importance ratings, then reject savings that merely suppress valuable security or performance feedback.",
+        "Reader copy records 56 summary words and 37 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ]
+    },
+    {
+      "id": "oct20-t2-graft-reward-hacking",
+      "publisher": "Anthropic Alignment Science",
+      "original_date": "2026-10-19",
+      "url": "https://alignment.anthropic.com/2026/graft/",
+      "scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations.",
+      "main_facts": [
+        "Anthropic-affiliated researchers propose GRAFT, which routes gradients from monitor-flagged behavior into a FORGET adapter removed after training instead of penalizing detected hacks. In a Qwen3-8B arithmetic environment, ablation nearly eliminated measured hacking while preserving gains. The study remains preliminary: monitors were simple, tasks small, and suitable anchor environments may be difficult to construct.",
+        "Replicate GRAFT only in a contained training study. Predefine held-out hack tests, compare penalties and prompting baselines, measure task loss after ablation, and document whether the monitor, anchor environment and model scale resemble the intended deployment.",
+        "Reader copy records 53 summary words and 36 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ]
+    },
+    {
+      "id": "oct20-k1-predictive-ai-functions",
+      "publisher": "Databricks",
+      "original_date": "2026-10-14",
+      "url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+      "scope": "Complete launch article: five beta SQL functions, dashboard and Genie surfaces, taxi-data examples, holiday and covariate support, fev-bench comparison and publisher-controlled quality claims.",
+      "main_facts": [
+        "Databricks introduced beta SQL functions for forecasting, driver analysis, anomaly detection, regression and classification, with results usable in queries, dashboards and Genie. Its examples show holidays and business covariates informing forecasts. Accuracy comparisons use a named benchmark, but the platform maintains the models and reports the results, so teams still need local baselines and error review.",
+        "Give analysts one governed dataset and prediction question, then compare the built-in function with an approved baseline across backtests, missing data and business shocks. Require visible inputs, uncertainty, refresh rules and an escalation path before decisions depend on results.",
+        "Reader copy records 56 summary words and 39 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 144-hour primary product release is within the permitted 168-hour extended fallback and was selected because no fresher verified source offered comparable, testable analyst workflow detail."
+    },
+    {
+      "id": "oct20-k2-ai-record-provenance",
+      "publisher": "Reuters Legal Commentary",
+      "original_date": "2026-10-15",
+      "url": "https://www.reuters.com/legal/legalindustry/missing-chain-custody-enterprise-ai-why-organizations-must-preserve-inputs--pracin-2026-10-15/",
+      "scope": "Complete attorney analysis: AI records as ESI, Rule 37(e), prompts and source versions, model and system instructions, human revisions, legal holds, vendor retention, reconstruction limits and proportional preservation.",
+      "main_facts": [
+        "Reuters Legal commentary argues that consequential AI-generated business records may require more than the final document. Prompts, retrieved source versions, model identifiers, system instructions, intermediate outputs, human edits, approvals and triggered actions can determine whether a record is explainable or defensible. The author recommends proportional preservation, updated legal holds and vendor checks rather than retaining every interaction indefinitely.",
+        "Classify AI uses by consequence, then preserve the minimum origin package for high-risk records: inputs, versions, outputs, edits, approvals and actions. Test whether vendors can export that package before procurement, because rerunning a prompt cannot reconstruct historical context reliably.",
+        "Reader copy records 58 summary words and 39 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ],
+      "freshness_reason": "This 120-hour expert analysis remains within the permitted 168-hour window and was selected for its concrete, source-specific governance checklist after fresher sources lacked equivalent preservation detail."
+    },
+    {
+      "id": "oct20-a1-editor-handoff",
+      "publisher": "GitHub",
+      "original_date": "2026-10-19",
+      "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "scope": "Complete six-minute tutorial: session transfer, preserved conversation and worktree, line-by-line diff review, continued prompting, manual edits, local testing and pull-request update.",
+      "main_facts": [
+        "GitHub’s tutorial shows how to open a Copilot app session in VS Code while retaining its conversation, code changes and working context. The handoff lets an agent complete broad work remotely before a developer inspects the diff, continues the discussion, edits files and runs local tests. Pushing remains tied to the session’s pull request.",
+        "Use session transfer as a review boundary. Confirm the expected branch and worktree, inspect every changed file, rerun project checks and make manual corrections before updating the pull request; preserved context should accelerate review, not substitute for it.",
+        "Reader copy records 54 summary words and 38 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ]
+    },
+    {
+      "id": "oct20-a2-agent-action-review-skill",
+      "publisher": "Microsoft",
+      "original_date": "2026-10-19",
+      "url": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "scope": "Complete official essay: agent identities and permissions, cross-layer signals, dynamic risk context, supervision before action, deterministic containment, traceability and practitioner judgment, with product-vision limitations.",
+      "main_facts": [
+        "Microsoft frames internally deployed agents as active enterprise participants that need identities, containers, permissions and continuous cross-layer observation. Its Project Perception vision combines signals from identity, data, endpoint, network, cloud and runtime to assess risk before actions, contain behavior and preserve traceability. The article describes an approach, not independently measured deployment outcomes or universal controls.",
+        "Turn the control sequence into a read-only review skill: identify the agent and intended task, gather current signals, compare proposed action with permissions, and return allow, contain or escalate. Keep enforcement external and require practitioner judgment for ambiguous risk.",
+        "Reader copy records 55 summary words and 39 practical words."
+      ],
+      "limitations": [
+        "Source-reported evidence was not independently replicated unless explicitly stated.",
+        "No media playback or unstated outcome verification is claimed."
+      ]
+    }
+  ]
+}

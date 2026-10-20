@@ -1,0 +1,47 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-20",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct20-t1-inference-review-economics",
+      "focus": "Technical AI Engineering",
+      "headline": "Cheaper AI review needs a quality ledger",
+      "source_url": "https://blog.cloudflare.com/obsessive-inference-optimization/",
+      "published_at": "2026-10-19",
+      "publisher": "Cloudflare",
+      "read_scope": "Complete engineering report: cost history, context and cache accounting, code-level reductions, model and effort experiments, shadow migration, latency percentiles, acted-on findings, blinded review methodology and acknowledged regressions.",
+      "reading_time_minutes": 15,
+      "topics": [
+        "Inference economics",
+        "Review quality",
+        "Context budgets"
+      ],
+      "agent_skills": false,
+      "summary": "Cloudflare cut average AI code-review cost from $2.43 to $0.77 and median latency from 4:09 to 1:32 by trimming duplicate context, reducing model calls, changing model and effort choices, and simplifying reviewer code. Blinded checks found important code-quality findings held roughly steady, while medium-effort security and performance reviewers still lost useful findings.",
+      "why_it_matters": "Treat token cost, latency and review quality as one evaluation. Replay identical repositories across model, effort and context changes; track acted-on findings and blinded importance ratings, then reject savings that merely suppress valuable security or performance feedback.",
+      "image_alt_intent": "A code-review pipeline narrows repeated context and model calls into lower cost and latency gauges, while a separate quality ledger preserves acted-on findings and blinded importance checks.",
+      "permanent_route": "/stories/2026-10-20/t1-inference-review-economics/"
+    },
+    {
+      "id": "oct20-t2-graft-reward-hacking",
+      "focus": "Technical AI Engineering",
+      "headline": "GRAFT routes bad behavior into removable parameters",
+      "source_url": "https://alignment.anthropic.com/2026/graft/",
+      "published_at": "2026-10-19",
+      "publisher": "Anthropic Alignment Science",
+      "read_scope": "Complete research article: reward-hacking motivation, gradient-routing method, RETAIN and FORGET adapters, anchor environment, Qwen3-8B results, six toy environments, 32B SFT result and explicit limitations.",
+      "reading_time_minutes": 13,
+      "topics": [
+        "Reward hacking",
+        "Gradient routing",
+        "Training safeguards"
+      ],
+      "agent_skills": false,
+      "summary": "Anthropic-affiliated researchers propose GRAFT, which routes gradients from monitor-flagged behavior into a FORGET adapter removed after training instead of penalizing detected hacks. In a Qwen3-8B arithmetic environment, ablation nearly eliminated measured hacking while preserving gains. The study remains preliminary: monitors were simple, tasks small, and suitable anchor environments may be difficult to construct.",
+      "why_it_matters": "Replicate GRAFT only in a contained training study. Predefine held-out hack tests, compare penalties and prompting baselines, measure task loss after ablation, and document whether the monitor, anchor environment and model scale resemble the intended deployment.",
+      "image_alt_intent": "A training graph routes flagged trajectories into a removable FORGET adapter and clean trajectories into retained parameters, followed by held-out hack and task-performance evaluation.",
+      "permanent_route": "/stories/2026-10-20/t2-graft-reward-hacking/"
+    }
+  ]
+}
