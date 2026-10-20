@@ -35,13 +35,19 @@ const evidence={
       scheduled_start_to_final_review:2289}},
   'owner-usage':{cycle_date:cy,edition_date:ed,work_usage_percent:2,source:'owner_reported_in_chat'}
 };
-function run(overrides={}){
+function run(overrides={},relocated=false){
  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'combined-aar-test-'));
  const input=path.join(tmp,'in'),output=path.join(tmp,'out');
  fs.mkdirSync(input,{recursive:true});
  const items={...evidence,...overrides};
  for(const [key,value] of Object.entries(items))if(value!==null)fs.writeFileSync(path.join(input,key+'.json'),JSON.stringify(value));
- const res=spawnSync(process.execPath,[script,cy,input,output],{encoding:'utf8'});
+ let executable=script;
+ if(relocated){
+  executable=path.join(tmp,'render-unified-production-aar.mjs');
+  fs.copyFileSync(script,executable);
+  fs.copyFileSync(path.join(root,'scripts/image-aar-contract.mjs'),path.join(tmp,'image-aar-contract.mjs'));
+ }
+ const res=spawnSync(process.execPath,[executable,cy,input,output],{encoding:'utf8'});
  assert.equal(res.status,0,res.stderr||res.stdout);
  const meta=JSON.parse(fs.readFileSync(path.join(output,'combined.json'),'utf8'));
  const md=fs.readFileSync(path.join(output,'combined.md'),'utf8');
@@ -163,4 +169,10 @@ test('contradictory source chronology is visible and cannot become full COMPLETE
  const {meta,md}=run({'edition-bundle':b});
  assert.equal(meta.result,'PARTIAL');assert.equal(meta.publication_and_visual_complete,true);
  assert.ok(meta.provenance_warnings.length);assert.match(md,/PROVENANCE WARNING/);
+});
+
+test('report renderer runs from the workflow temporary directory with its copied dependency',()=>{
+ const {meta}=run({},true);assert.equal(meta.result,'COMPLETE');
+ const workflow=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');
+ assert.match(workflow,/cp scripts\/image-aar-contract\.mjs/);
 });
