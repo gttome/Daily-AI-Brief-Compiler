@@ -83,7 +83,20 @@ async function proveVideo(browser, item) {
         if (proof) break;
       }
     }
-    if (!proof) throw new Error('No advancing duration-matched full episode; background preview and metadata are insufficient');
+    if (!proof) {
+      const contexts = [];
+      for (const frame of page.frames().slice(0,12)) {
+        const found = await frame.locator('video').evaluateAll(nodes => nodes.slice(0,8).map(v => ({
+          duration: Number.isFinite(v.duration) ? Math.round(v.duration*10)/10 : String(v.duration),
+          currentTime: v.currentTime, readyState: v.readyState, paused: v.paused,
+          errorCode: v.error?.code ?? null, networkState: v.networkState
+        }))).catch(() => []);
+        contexts.push({host:(()=>{try{return new URL(frame.url()).hostname}catch{return 'invalid-frame-url'}})(),players:found});
+      }
+      throw new Error('Video '+item.index+' ('+item.title+'): full-episode playback UNVERIFIED; status='+playerStatus+
+        '; player_evidence='+JSON.stringify(contexts).slice(0,3000)+
+        '; no observed advancing duration-matched HTML5 episode; previews and metadata insufficient');
+    }
     return {index:item.index,title:item.title,url:item.url,result:'SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS',checked_at:new Date().toISOString(),signed_out:true,full_episode_watched:false,expected_seconds:item.expected_seconds,...proof};
   } finally {await context.close();}
 }
