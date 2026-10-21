@@ -61,7 +61,7 @@ class MediaValueCorrectionTests(unittest.TestCase):
             self.assertEqual(out[collection][0],other)
             for x in REV["items"]:
                 record=next(z for z in out[collection] if z[key]==x["reader_id"])
-                self.assertNotEqual(record.get("title",record.get("headline")),x["old"]["title"])
+                self.assertNotEqual(record["headline"] if route == "data/archive-index.json" else record["title"], x["old"]["title"])
 
     def test_requires_unique_selected_feed_entries(self):
         with self.assertRaises(ValueError):
