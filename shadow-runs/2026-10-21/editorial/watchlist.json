@@ -1,0 +1,259 @@
+{
+  "refreshed_at": "2026-10-21T00:25:55.916Z",
+  "new": [
+    {
+      "topic": "Priority-aware inference operations",
+      "why": "Shared inference fleets now expose priority, fairness and cache behavior as explicit production policies rather than hidden scheduler details.",
+      "summary": "Priority-aware inference operations coordinate queueing, cache use and service isolation so shared model fleets honor differentiated workload objectives.",
+      "why_now": "llm-d v1.0 on October 20 added multi-tenant fairness, priority-aware scheduling and zero-downtime operations with a reported deployment cache improvement.",
+      "practical_value": "Platform teams can replay mixed-priority traffic and measure latency, starvation, cache hits and rollout disruption before enabling production policies.",
+      "evidence": {
+        "url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "date": "2026-10-20"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The release combines explicit workload priority, fairness and cache-aware routing within one operational inference framework."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The October 20 release documents mechanisms and one cache result, while detailed independent reproduction remains unavailable."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The evidence comes from project maintainers and participating vendors, without an independent comparative production study."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One release observation provides no repeated comparable service metric at distinct valid observation times."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Inference operators can directly test latency, starvation, cache effectiveness and rollout continuity under mixed-priority traffic."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Queue fairness, cache placement and safe rollouts remain durable concerns across models, accelerators and serving stacks."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No two comparable dated numerical observations establish momentum for this operational approach."
+      }
+    },
+    {
+      "topic": "Thin orchestration boundaries",
+      "why": "A small coordinator can preserve specialist context and tool boundaries while making routing and handoffs inspectable.",
+      "summary": "Thin orchestration boundaries keep central agents focused on routing and typed handoffs while specialists retain narrow context and tools.",
+      "why_now": "Meta’s October 19 engineering report describes a 1,300-line orchestrator serving more than 20 workflows through 14 isolated specialists.",
+      "practical_value": "Engineering teams can compare one broad agent with explicit routing, typed handoffs and revision-rate measurements on representative internal tasks.",
+      "evidence": {
+        "url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+        "date": "2026-10-19"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The architecture sharply limits the orchestrator to deterministic routing and typed coordination instead of generalized execution."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Meta supplies architecture details, workflow counts and internal delivery observations, but not a reproducible external benchmark."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "All measured results originate from Meta’s internal environment and lack independent replication across another organization."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Reported outcomes do not form two comparable observations under one stable measure at distinct timestamps."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams facing context collisions can directly test route clarity, handoff completeness, revisions and specialist tool boundaries."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Separation of coordination and execution should persist, although optimal specialist granularity will vary by workflow."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "A single internal case study cannot establish numerical momentum over time."
+      }
+    }
+  ],
+  "updated": [
+    {
+      "topic": "Reusable agent skills",
+      "why": "Plaud extends reusable skills into a noncoding meeting workspace with reviewed drafts, automatic invocation and explicit limits.",
+      "what_changed": "The October 20 Plaud procedure adds five noncoding creation paths, pre-save review, Work-mode credit costs and a 100-skill workspace limit.",
+      "summary": "Reusable agent skills package repeatable instructions that assistants can discover, invoke and apply to bounded work without restating every step.",
+      "why_now": "Plaud’s October 20 documentation provides a new noncoding implementation with draft review, automatic invocation and concrete operating limits.",
+      "practical_value": "Knowledge workers can fixture-test one meeting procedure, verify evidence links and costs, then approve the reusable instruction set before distribution.",
+      "evidence": {
+        "url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+        "date": "2026-10-20"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Plaud brings saved agent procedures into recorded-work workflows with several creation paths and automatic invocation."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The official procedure specifies creation, review, invocation, editing, cost and workspace-limit behavior in operational detail."
+        },
+        "independence": {
+          "score": 4,
+          "reason": "Plaud independently implements reusable skills beyond coding clients, although the reviewed behavior remains publisher-documented."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Different skill implementations publish features rather than one comparable outcome metric observed at distinct times."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Meeting-heavy teams can immediately test a bounded decision-brief procedure against transcripts and human review criteria."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Versioned reusable instructions and explicit approval remain useful even as assistants, interfaces and billing models change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable repeated numerical outcome measure supports a momentum score for reusable skills."
+      }
+    }
+  ],
+  "carried_forward": [
+    {
+      "topic": "Localized reward-hack removal",
+      "why": "No material new independent evidence changed the October 19 GRAFT assessment, so its prior reviewed rubric is carried.",
+      "summary": "Localized reward-hack removal routes learning from detected cheating into a removable parameter set while retaining intended task capability elsewhere.",
+      "why_now": "No newer independent replication changed the October 19 GRAFT evidence, so the topic remains active without a material update.",
+      "practical_value": "Researchers can continue bounded replications with held-out hacks, baseline mitigations and explicit task-performance checks before larger-model trials.",
+      "evidence": {
+        "url": "https://alignment.anthropic.com/2026/graft/",
+        "date": "2026-10-19"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 5,
+          "reason": "GRAFT changes monitor use from reward shaping to gradient routing and removable parameter localization."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The October 19 article provides code, a paper, controlled comparisons and explicit quantitative results across several small environments."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Authors span MATS, Stanford, FAR AI and Anthropic, but the reviewed results remain one collaborating research effort."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No comparable repeated observation across dated production-scale deployments establishes a defensible momentum direction."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Training teams can directly test whether adapter ablation reduces held-out hacks without erasing target-task gains."
+        },
+        "durability": {
+          "score": 3,
+          "reason": "The gradient-routing idea may endure, although anchor-environment requirements and larger-scale behavior remain unresolved."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One research release lacks two comparable dated observations under a stable metric."
+      }
+    },
+    {
+      "topic": "Provider-aware AI failover",
+      "why": "No material new recovery evidence displaced the October 14 guide, so its prior reviewed rubric is carried.",
+      "summary": "Provider-aware failover routes repeatable inference work across qualified models while stopping ambiguous or stateful replays for reconciliation.",
+      "why_now": "No newer end-to-end recovery guide displaced the October 14 policy, so the topic remains active without a material evidence change.",
+      "practical_value": "Teams can keep testing one read-only inference step with central retry budgets, degraded paths and explicit replay-stop rules.",
+      "evidence": {
+        "url": "https://developers.openai.com/blog/designing-failover-across-openai-model-providers",
+        "date": "2026-10-14"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The guide moves multi-provider resilience from generic routing into explicit per-operation replay and recovery decisions."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "OpenAI provides failure classes, implementation constraints, test cases and operational measures, though no independent outage study."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The guidance is authored by one model provider and lacks independent comparative validation across production gateways."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "This first policy observation offers no repeated comparable outcome measure for adoption, recovery time or errors."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Platform and application teams can directly map retryability, deadlines, route approval and duplicate-action protection."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Safe retries, bounded failover and explicit recovery ownership remain necessary across providers and model generations."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No two comparable dated numerical observations establish momentum for this policy."
+      }
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "SQL-native predictive workflows",
+      "reason": "The topic moves to history because no independent workload evaluation has followed the October 14 beta release.",
+      "summary": "SQL-native predictive workflows place maintained forecasting and classification models inside queries, dashboards and plain-language analytics tools.",
+      "why_now": "No independent workload evaluation appeared after the October 14 beta, so the release signal is archived rather than carried.",
+      "practical_value": "Retain the backtest checklist, but avoid treating vendor examples as evidence that built-in functions improve production decisions.",
+      "previous_evidence": {
+        "url": "https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions",
+        "date": "2026-10-14"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 3,
+          "reason": "The release packages familiar predictive methods into consistent SQL, dashboard and conversational interfaces for non-specialists."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Databricks documents functions, examples and a named forecasting benchmark, while detailed reproducibility remains limited."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Benchmark and product evidence originate from Databricks, with no independent workload replication reviewed for this release."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The beta launch supplies no two comparable dated adoption or outcome observations under one stable measure."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Knowledge teams can evaluate forecasts, anomalies and drivers directly inside governed data workflows they already use."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Accessible predictive analytics is durable, though specific beta functions and vendor-maintained models will change."
+        }
+      }
+    }
+  ]
+}

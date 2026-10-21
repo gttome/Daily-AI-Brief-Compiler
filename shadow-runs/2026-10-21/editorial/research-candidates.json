@@ -1,0 +1,108 @@
+{
+  "schema_version": "daily-compiler-research-candidates-v1",
+  "cycle_date": "2026-10-20",
+  "edition_date": "2026-10-21",
+  "recorded_at": "2026-10-21T00:25:59.097Z",
+  "status": "locked",
+  "policy": {
+    "primary_sources": true,
+    "preferred_window_hours": 24,
+    "normal_fallback_hours": 72,
+    "extended_fallback_hours": 168
+  },
+  "source_organizations_screened": 10,
+  "source_candidates": [
+    {
+      "focus": "Technical AI Engineering",
+      "publisher": "llm-d community",
+      "title": "llm-d v1.0: State-of-the-Art Inference Ready for Day 2",
+      "published_at": "2026-10-20",
+      "url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+      "verified_facts": [
+        "llm-d v1.0 packages distributed inference for operational use with priority-aware scheduling, multi-tenant fairness, cache-aware routing and zero-downtime updates. The project reports cache-hit improvements from 35% to 70% in one large-scale deployment, while its day-two features focus on predictable service behavior. The figures remain publisher-reported and workload-specific.",
+        "Use the release as an operations checklist: test priority fairness, cache routing, rollout safety and failure recovery against your own traffic. Treat the reported cache gains as a hypothesis until reproduced under comparable prompts, hardware and service-level objectives."
+      ],
+      "reading_time_minutes": 14,
+      "full_main_text_read": true,
+      "retrieved_at": "2026-10-21T00:22:45.248Z",
+      "read_at": "2026-10-21T00:22:46.924Z"
+    },
+    {
+      "focus": "Technical AI Engineering",
+      "publisher": "Meta Engineering",
+      "title": "Thin Orchestrator: The AI agent architecture that made our internal tools more reliable",
+      "published_at": "2026-10-19",
+      "url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+      "verified_facts": [
+        "Meta describes replacing a broad agent with a roughly 1,300-line orchestrator that routes requests to 14 context-isolated specialists across more than 20 workflows. The design uses deterministic routing, typed handoffs and narrow tool access. Meta reports much faster delivery and fewer edits, but the results come from its internal engineering environment.",
+        "Separate coordination from domain work when one agent’s context becomes noisy. Define explicit routes, minimal handoff fields and bounded tools, then compare completion quality and human revision rates before assuming that additional specialists improve reliability."
+      ],
+      "reading_time_minutes": 12,
+      "full_main_text_read": true,
+      "retrieved_at": "2026-10-21T00:22:46.924Z",
+      "read_at": "2026-10-21T00:22:48.453Z"
+    },
+    {
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "publisher": "Zoom",
+      "title": "Zoom advances its AI strategy with a new Unified Context Layer that helps turn meeting conversations into completed work",
+      "published_at": "2026-10-20",
+      "url": "https://news.zoom.com/zoomtopia-2026-news/",
+      "verified_facts": [
+        "Zoom’s Unified Context Layer is designed to connect meeting, chat, document and third-party records so people and agents can retrieve the thread behind a decision. Announced capabilities include Search & Ask APIs, configurable access and My Notes workflows. Availability varies by feature, and productivity claims are not independent outcome evidence.",
+        "Before adopting a conversation layer, inventory which records may be joined, who can retrieve them and how corrections propagate. Pilot one meeting-to-action workflow with permission checks, source links and human review instead of granting broad cross-system context."
+      ],
+      "reading_time_minutes": 13,
+      "full_main_text_read": true,
+      "retrieved_at": "2026-10-21T00:22:48.453Z",
+      "read_at": "2026-10-21T00:22:49.812Z"
+    },
+    {
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "publisher": "Google Public Sector",
+      "title": "Google Public Sector Launches Gemini for Government Services",
+      "published_at": "2026-10-20",
+      "url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+      "verified_facts": [
+        "Google Public Sector introduced Gemini for Government Services in preview, combining prebuilt public-sector skills, connectors and cited answers with existing identity controls. Examples include document review, procurement analysis and freedom-of-information redaction. The release describes page-and-paragraph grounding and audit logging, but performance and adoption claims are supplied by Google and early partners.",
+        "Use the preview to build an evaluation rubric, not a procurement shortcut. Require citation accuracy, inherited permissions, complete audit trails and human approval for redaction or policy decisions, then test against representative records before expanding access."
+      ],
+      "reading_time_minutes": 7,
+      "full_main_text_read": true,
+      "retrieved_at": "2026-10-21T00:22:49.812Z",
+      "read_at": "2026-10-21T00:22:51.123Z"
+    },
+    {
+      "focus": "Agents for Everyone",
+      "publisher": "OpenAI",
+      "title": "OpenAI to acquire Orchestra Bio",
+      "published_at": "2026-10-20",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+      "verified_facts": [
+        "OpenAI agreed to acquire Orchestra Bio, whose agents coordinate evidence across studies, manufacturing dependencies and drug-program timelines. The system is intended to surface downstream effects and response options while program leaders retain decisions. OpenAI did not disclose transaction terms or independent outcome measurements, so the announcement establishes direction rather than demonstrated benefit.",
+        "Program leaders can evaluate this pattern without coding: choose one disruption, ask for affected studies, milestones and response options, then verify every source and accountable owner. Keep final schedule or manufacturing changes behind named human approval."
+      ],
+      "reading_time_minutes": 4,
+      "full_main_text_read": true,
+      "retrieved_at": "2026-10-21T00:22:51.124Z",
+      "read_at": "2026-10-21T00:22:52.638Z"
+    },
+    {
+      "focus": "Agents for Everyone",
+      "publisher": "Plaud",
+      "title": "Skills: save your workflows for reuse (for v4.0.x or later)",
+      "published_at": "2026-10-20",
+      "url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+      "verified_facts": [
+        "Plaud’s Skills feature saves reusable instruction sets that can be created from templates, conversations, files, forms or artifacts, then invoked automatically in Work mode. Users review a draft before saving, and the platform limits each workspace to 100 skills. Usage consumes Plaud Credits, so repeatability still needs cost and quality checks.",
+        "Create one meeting-decision skill that extracts decisions, owners, deadlines and open questions with transcript evidence. Test it on three varied recordings, compare every claim with the source, and require human approval before saving the skill or sharing its brief."
+      ],
+      "reading_time_minutes": 7,
+      "full_main_text_read": true,
+      "retrieved_at": "2026-10-21T00:22:52.638Z",
+      "read_at": "2026-10-21T00:22:54.043Z"
+    }
+  ],
+  "gates_pending": [],
+  "publication_ready": true
+}

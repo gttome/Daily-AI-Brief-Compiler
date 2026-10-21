@@ -1,0 +1,101 @@
+{
+  "schema_version": "daily-compiler-editorial-section-v1",
+  "edition_date": "2026-10-21",
+  "status": "locked",
+  "stories": [
+    {
+      "id": "oct21-t1-priority-inference",
+      "headline": "llm-d v1.0 makes inference operations the product",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "title": "llm-d v1.0: State-of-the-Art Inference Ready for Day 2",
+        "publisher": "llm-d community",
+        "published_at": "2026-10-20",
+        "retrieved_at": "2026-10-21T00:22:45.248Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-21T00:22:46.924Z",
+          "scope": "Complete project release: contributor and organization scale, multi-tenant priority and fairness controls, cache-aware routing, no-regret scheduling, zero-downtime operations, reported cache-hit change, day-two deployment claims and workload-specific limitations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 2800,
+          "source_word_count_method": "editorial original main-text approximation"
+        }
+      },
+      "reading_time_minutes": 14,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 2800,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-21T00:22:46.924Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Inference operations",
+        "KV cache routing",
+        "Day-two reliability"
+      ],
+      "coverage_labels": [
+        "2026-10-20 original publisher article",
+        "Technical AI Engineering",
+        "October 21 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "llm-d v1.0 packages distributed inference for operational use with priority-aware scheduling, multi-tenant fairness, cache-aware routing and zero-downtime updates. The project reports cache-hit improvements from 35% to 70% in one large-scale deployment, while its day-two features focus on predictable service behavior. The figures remain publisher-reported and workload-specific.",
+      "why_it_matters": "Use the release as an operations checklist: test priority fairness, cache routing, rollout safety and failure recovery against your own traffic. Treat the reported cache gains as a hypothesis until reproduced under comparable prompts, hardware and service-level objectives.",
+      "related_coverage": "Other October 21 stories cover inference operations, orchestration boundaries, workplace context, public-sector review, biopharma coordination and reusable meeting skills.",
+      "image_alt_intent": "A shared inference fleet routes high- and normal-priority requests through fair queues and cache-aware workers while a zero-downtime rollout preserves active service.",
+      "permanent_route": "/stories/2026-10-21/t1-priority-inference/"
+    },
+    {
+      "id": "oct21-t2-thin-orchestrator",
+      "headline": "Meta narrows the agent orchestrator to routing and handoffs",
+      "focus": "Technical AI Engineering",
+      "source": {
+        "url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+        "title": "Thin Orchestrator: The AI agent architecture that made our internal tools more reliable",
+        "publisher": "Meta Engineering",
+        "published_at": "2026-10-19",
+        "retrieved_at": "2026-10-21T00:22:46.924Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-21T00:22:48.453Z",
+          "scope": "Complete engineering article: earlier broad-agent failure modes, approximately 1,300-line orchestrator, deterministic routing, more than 20 workflows, 14 specialists, context isolation, typed handoffs, bounded tools, internal speed and revision results, and publisher-reported limitations."
+        },
+        "reading_estimation_basis": {
+          "source_word_count_estimate": 2400,
+          "source_word_count_method": "editorial original main-text approximation"
+        }
+      },
+      "reading_time_minutes": 12,
+      "reading_time_evidence": {
+        "method": "original_publisher_main_text_estimate",
+        "estimated_original_word_count": 2400,
+        "assumed_wpm": 200,
+        "assessed_at": "2026-10-21T00:22:48.453Z",
+        "caveat": "Approximate publisher reading time; no individual reading session measured."
+      },
+      "topics": [
+        "Thin orchestration",
+        "Context isolation",
+        "Typed handoffs"
+      ],
+      "coverage_labels": [
+        "2026-10-19 original publisher article",
+        "Technical AI Engineering",
+        "October 21 verified source coverage"
+      ],
+      "agent_skills": false,
+      "summary": "Meta describes replacing a broad agent with a roughly 1,300-line orchestrator that routes requests to 14 context-isolated specialists across more than 20 workflows. The design uses deterministic routing, typed handoffs and narrow tool access. Meta reports much faster delivery and fewer edits, but the results come from its internal engineering environment.",
+      "why_it_matters": "Separate coordination from domain work when one agent’s context becomes noisy. Define explicit routes, minimal handoff fields and bounded tools, then compare completion quality and human revision rates before assuming that additional specialists improve reliability.",
+      "related_coverage": "Other October 21 stories cover inference operations, orchestration boundaries, workplace context, public-sector review, biopharma coordination and reusable meeting skills.",
+      "image_alt_intent": "A compact routing layer directs requests into fourteen isolated specialist lanes, with typed handoff cards and narrow tool permissions at each boundary.",
+      "permanent_route": "/stories/2026-10-21/t2-thin-orchestrator/"
+    }
+  ]
+}
