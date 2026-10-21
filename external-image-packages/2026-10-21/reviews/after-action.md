@@ -1,6 +1,6 @@
 # 2026-10-21 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -9,9 +9,9 @@
 | Rejected candidates | 4 |
 | Accepted-image regeneration | 0 |
 | First accepted binary commit | 14ec939527cfe738db45e9eca478358339eecd50 |
-| Public release | NOT_DEPLOYED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_DEPLOYMENT; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-21T03:22:52.885Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -54,5 +54,11 @@ Two first-pass acceptances out of six; all four rejected candidates corrected wi
 All six exact committed binaries independently matched local accepted bytes and decoded PNG checks. No accepted art regenerated for transport.
 
 Final desktop/mobile live review and release remain pending. Never infer a semantic PASS from capture counts or CI.
+
+All 24 exact-release dated/permanent desktop/mobile captures inspected individually; each capture digest matched captures.json and accepted asset binding. Original release artifact digest verified; no release was rerun for QA.
+
+Independent local HTTP validation matched all six live PNG hashes and 12 exact story/alt/image pairings; the separate 17-object October 8 live audit passed.
+
+Original checkpoint-after-action.json and .md, manifest and six accepted PNGs remain unchanged. Final closeout changes only reporting/review/worker evidence and learning ledger.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
