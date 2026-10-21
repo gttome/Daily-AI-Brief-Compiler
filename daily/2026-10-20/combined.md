@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** October 21, 2026 · **Production evening:** 2026-10-20 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-10-21 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-21/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 15m 50s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -22,11 +22,11 @@
 | **Compiler stage duration** | **15m 50s (15.8 min)** | First persisted Compiler state → verified public reader; not a host scheduler attestation |
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **10** | Image worker AAR; no estimation |
 | Rejected candidates | **4** | Image worker AAR |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -74,7 +74,7 @@ flowchart LR
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 10 · **Rejected candidates:** 4.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 10 · **Rejected candidates:** 4.
 
 ### Image production duration — Git-verified milestones
 
@@ -95,21 +95,31 @@ flowchart LR
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| llm-d v1.0 makes inference operations the product | 2 | 0.59 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m01.png) |
+| Meta narrows the agent orchestrator to routing and handoffs | 2 | 0.78 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m02.png) |
+| Zoom proposes a governed context layer for conversation work | 2 | 0.65 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m10.png) |
+| Gemini for Government Services centers citations and controls | 1 | 0.54 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m11.png) |
+| Orchestra Bio brings agent coordination to drug programs | 2 | 0.50 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m12.png) |
+| Turn meeting review into one reusable Plaud Skill | 1 | 0.58 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m01.png" alt="Diagram for oct21-t1-priority-inference" width="420"/></a><br/><b>llm-d v1.0 makes inference operations the product</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m02.png" alt="Diagram for oct21-t2-thin-orchestrator" width="420"/></a><br/><b>Meta narrows the agent orchestrator to routing and handoffs</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m10.png" alt="Diagram for oct21-k1-unified-context" width="420"/></a><br/><b>Zoom proposes a governed context layer for conversation work</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m11.png" alt="Diagram for oct21-k2-government-services" width="420"/></a><br/><b>Gemini for Government Services centers citations and controls</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m12.png" alt="Diagram for oct21-a1-biopharma-coordination" width="420"/></a><br/><b>Orchestra Bio brings agent coordination to drug programs</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-21/dab-edition-2026-10-21-m14.png" alt="Diagram for oct21-a2-meeting-decision-skill" width="420"/></a><br/><b>Turn meeting review into one reusable Plaud Skill</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -163,7 +173,7 @@ No six-image public release gallery available yet.
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-21/reviews/live/image-element24/semantic-reviews.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-21/reviews/after-action.md) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39538176754).
 
 ---
 
