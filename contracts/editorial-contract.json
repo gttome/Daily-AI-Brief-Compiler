@@ -67,6 +67,19 @@
         "evidence_quality_and_freshness_required": true,
         "historical_editions_immutable": true
       }
+    },
+    "quality_admission": {
+      "effective_edition_date": "2026-10-22",
+      "validator": "compiler/media-quality.mjs",
+      "video_teaching_points_minimum": 3,
+      "video_reproducible_procedure_alternative": true,
+      "video_min_duration_seconds": 180,
+      "podcast_minimum_ai_editorial_fraction": 0.75,
+      "podcast_runtime_coverage_fraction_minimum": 0.9,
+      "podcast_ad_seconds_excluded": true,
+      "public_video_player_must_advance": true,
+      "metadata_only_playback_fallback_allowed": false,
+      "historical_editions_immutable": true
     }
   },
   "watchlist": {
@@ -215,7 +228,18 @@
     "post_run_analysis_required": true,
     "dashboard_snapshot_required": true,
     "dot_work_time_tracking": true,
-    "monetary_charge_inference_forbidden_without_rate_card": true
+    "monetary_charge_inference_forbidden_without_rate_card": true,
+    "image_generation_clock": {
+      "effective_edition_date": "2026-10-22",
+      "executor_observed_only": true,
+      "scheduler_start_not_inferred": true
+    },
+    "owner_work_usage": {
+      "effective_edition_date": "2026-10-22",
+      "source_only": "owner_reported_in_chat",
+      "per_cycle_required": true,
+      "missing": "Not reported"
+    }
   },
   "approved_oct20_improvements": {
     "effective_edition_date": "2026-10-21",
