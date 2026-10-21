@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import {ownerReportedWorkUsage} from './owner-usage.mjs';
 import {fileURLToPath} from 'node:url';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
@@ -93,7 +94,7 @@ function imageAar(cycle,date,e,hashes={}){
  const imageAfterAction=validFor(e['image-after-action'],date)?e['image-after-action']:null;
  const imageTiming=validFor(e['image-timing'],date)?e['image-timing']:null;
  const ownerUsage=e['owner-usage']?.cycle_date===cycle&&e['owner-usage']?.edition_date===date?e['owner-usage']:null;
- const ownerUsagePercent=typeof ownerUsage?.work_usage_percent==='number'&&Number.isFinite(ownerUsage.work_usage_percent)&&ownerUsage.work_usage_percent>=0&&ownerUsage.work_usage_percent<=100?ownerUsage.work_usage_percent:null;
+ const ownerUsagePercent=ownerReportedWorkUsage(ownerUsage,cycle,date);
  const seen=!!(release||manifest||recurring);
  const jobHash=hashes['image-job']??null;
  const sourceBound=!!(release&&job&&release.original_source_commit_sha===job.source?.commit_sha&&
@@ -185,6 +186,8 @@ function imageAar(cycle,date,e,hashes={}){
     Number.isFinite(imageTiming?.durations_seconds?.scheduled_start_to_final_review)?
       Number((imageTiming.durations_seconds.scheduled_start_to_final_review/60).toFixed(2)):null,
   timing_basis:'First persisted accepted image Git bytes to first merged 24-context review; scheduled window is separate and not exact generator runtime.',
+  executor_observed_generation_start_at:safeTime(imageTiming?.events?.native_generation_first_observed_at),
+  scheduler_actual_invocation_attested:false,
   publication:liveVerified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
   result:liveVerified&&qa24?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
   aar_status:'BACKFILLED',
