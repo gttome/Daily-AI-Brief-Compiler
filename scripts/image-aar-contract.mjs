@@ -16,5 +16,19 @@ export function validateImageAfterAction({aar,job,manifest}){
    !Array.isArray(aar.errors)||aar.errors.some(x=>!['phase','issue','correction'].every(k=>typeof x[k]==='string'&&x[k].length>=10))||
    aar.human_readable_path!==`external-image-packages/${job.edition_date}/reviews/after-action.md`)
    fail('missing_or_inconsistent_source_bound_facts');
+ // Prospective first-party task evidence: actual clock observations must be
+ // recorded by the executing image session, never inferred from schedule or Git.
+ if(job.edition_date>='2026-10-22'){
+   const iso=x=>typeof x==='string'&&
+     /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?(?:Z|[+-]\d\d:\d\d)$/.test(x)&&
+     Number.isFinite(Date.parse(x));
+   const host=p.host_execution_observed_at,gen=p.generation_started_at;
+   if(!iso(host)||!iso(gen)||
+     p.host_execution_observation_source!=='executor_observed_in_same_invocation'||
+     p.generation_start_source!=='executor_observed_before_first_native_call'||
+     Date.parse(host)>Date.parse(gen)||
+     Date.parse(gen)>Date.now()+60000)
+     fail('genuine_forward_only_execution_and_generation_start_observations_required');
+ }
  return {result:'PASS',actual_generation_count:p.actual_generation_count,accepted_count:6,rejected_count:p.rejected_count,visual_qa_not_inferred:true};
 }

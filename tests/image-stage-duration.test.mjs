@@ -115,3 +115,29 @@ test('read-only cloned main retrieves exact date-bound original package commit a
   assert.equal(rec.durations_seconds.scheduled_start_to_final_review,2289);
  }finally{fs.rmSync(ctx.d,{force:true,recursive:true});}
 });
+
+test('source-bound, executor-reported generation clock is separate from planned schedule and checkpoint',()=>{
+ const ctx=setup();
+ try {
+  ctx.input('image-after-action',{edition_date:edition,production:{
+   github_binary_stage_commit:ctx.first,
+   host_execution_observed_at:'2026-10-13T01:33:50Z',
+   host_execution_observation_source:'executor_observed_in_same_invocation',
+   generation_started_at:'2026-10-13T01:34:15Z',
+   generation_start_source:'executor_observed_before_first_native_call'
+  }});
+  ctx.input('image-worker-state',{edition_date:edition,claimed_at:'2026-10-13T01:33:55Z'});
+  const x=ctx.run();
+  assert.equal(x.actual_generation_start_attested,true);
+  assert.equal(x.scheduler_actual_invocation_attested,false);
+  assert.equal(x.events.host_execution_first_observed_at,'2026-10-13T01:33:50.000Z');
+  assert.equal(x.events.native_generation_first_observed_at,'2026-10-13T01:34:15.000Z');
+  assert.equal(x.durations_seconds.executor_observed_generation_to_first_binary,50);
+  const aar=JSON.parse(fs.readFileSync(path.join(ctx.evidence,'image-after-action.json')));
+  aar.production.generation_started_at='2026-10-13T01:36:00Z';
+  ctx.input('image-after-action',aar);
+  const invalid=ctx.run();
+  assert.equal(invalid.actual_generation_start_attested,false);
+  assert.equal(invalid.durations_seconds.executor_observed_generation_to_final_review,null);
+ }finally{fs.rmSync(ctx.d,{force:true,recursive:true});}
+});

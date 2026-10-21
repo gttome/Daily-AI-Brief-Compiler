@@ -117,3 +117,12 @@ Post-publication corrections are additive protected revisions. They do not alloc
 ## October 20 owner-approved improvements — October 21 onward
 
 Read and apply [the six approved production improvements](automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.
+
+
+## October 21 owner-approved AAR hardening — mandatory for October 22+ editions
+
+Before new source selection, read [October 21 permanent improvements](automation/OCT21_AAR_IMPROVEMENTS.md) and current compiler/media-quality.mjs alongside the editorial contract. Candidate videos now require real instructional quality_review evidence and three concrete transferable teaching points or a reproducible procedure. Candidate podcasts require timecoded editorial_segments covering >=90% of episode runtime and >=75% substantive AI share after excluding ads. The same prospective deterministic admission runs in the existing bundle-ready and Pages gates; do not borrow metadata-only evidence or invent transcripts.
+
+The existing public browser video gate must observe both public full-program-duration players advancing for new editions; oEmbed identity-only fallback is NOT accepted after October 21. When no suitable playable educational video exists, research different candidates, preserve the last-good public Brief and keep failed admission evidence. Do not claim an unseen video was fully watched.
+
+The image worker must record truthful UTC task-first-observed and pre-first-native-call timestamps with the exact declared observation sources in the canonical image AAR for October 22+, without inferring actual scheduler invocation time. Existing 24 actual pixel reviews remain mandatory. Both AAR renderers must report cycle-specific owner usage only with its provenance fields; otherwise display Not reported. Maintain zero added-cost production and the current 19:15/21:15 schedule.
