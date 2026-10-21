@@ -1,6 +1,6 @@
 # October 21, 2026 — Media Editorial Quality After-Action Review
 
-**Incident:** DAB-MEDIA-20261021-001 · **Status:** Owner-confirmed editorial-value defect; replacements selected; publication not yet verified.
+**Incident:** DAB-MEDIA-20261021-001 · **Status: LIVE_MEDIA_CORRECTION_VERIFIED** — all three replacements deployed, 12 public routes independently hashed; media playback not independently established.
 
 ## Owner-observed failure
 
@@ -10,7 +10,7 @@ The owner opened both videos and assessed them as advertisements with very littl
 
 The admission process checked names, stable source identity, duration, current episode links, publisher/channel rotation and evidence scope, but did not require sufficient **teaching value** from the actual video content or an **AI-majority episode**. A 32-second launch montage, a 96-second product demo and a general-news podcast met structural criteria but failed the publication's reader-value intent. These are independent failures from the October 17 private-video defect.
 
-## Replacement selections (pending protected release)
+## Published replacement selections
 
 | Slot | Remove | Replacement / sources | Publication and content evidence |
 |---|---|---|---|
@@ -32,4 +32,14 @@ Reader use: 3Blue1Brown establishes the underlying LLM mental model. IBM disting
 
 Original editorial bundle SHA-256: `eb89487277260254468b9dfce91d91736cfcb072893bf772e7ccf3b48e1d438f`. October 21 image job SHA-256: `a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134`. Corrections must not rewrite either, rerun research, redo or replace six story images, or touch the retired Brief repository. Image worker and protected Pages publishing must not conflict. Preserve the six articles, other podcast, Watchlist, books, and original readers' ratings under stable IDs.
 
-**Verification state:** Replacement links researched; GitHub release, exact route diff, protected CI, image/preservation tests and live final readback are separate mandatory acceptance gates. Do not declare fixed from this report alone. No weekly usage percentage was supplied for this correction.
+**Verification state:** All three media substitutions are now published and independently verified on the reader, archive, feeds and permanent pages. This verifies correct published links and bytes, **not full video/audio playback or absence of YouTube platform advertising**. No weekly usage percentage was supplied for this correction.
+
+## Verified release closeout (October 20, 2026, 20:38 CDT)
+
+- [Protected PR #230](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/230) merged as `f5358ac28e2b9123f0e07133bb79bec12588fce7` after successful [exact-source correction preview](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39528234292) and [protected repository CI](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39528234293).
+- [Actual Pages release workflow](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39528416834) completed **SUCCESS**; [independent receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/correction-receipts/2026-10-21-media-value.json) records `LIVE_MEDIA_CORRECTION_VERIFIED` at `2026-10-21T01:38:19.415230Z`.
+- **12/12** corrected public route HTTP 200 and SHA-256: current homepage, latest HTML/Markdown, dated Oct21 Brief, two permanent video pages, podcast #2 permanent page, XML/JSON feeds, archive index/cards and feedback registry.
+- **373** existing image objects unchanged; **26** immutable image-job objects unchanged; original sealed bundle and all six articles intact; **17/17** protected Oct8 public assets independently verified.
+- Three replaced items retain their established permanent routes and feedback identities, with original media dates, truthful explanatory summaries and clear evergreen labels on older educational videos.
+- **Audience-value issue resolved in the Oct21 reader.** The **future qualitative media-admission rule** is documented in `docs/EDITORIAL-CONTRACT.md` for Oct22+ producer reviews. This is not represented as an enforced automatic transcript/AI-share scorer; follow-up quality reviews must inspect actual program substance.
+- **Scope limit:** Neither YouTube video's full playback nor the full podcast audio was observed in this correction run; a public metadata identity is not playback proof. Platform-inserted ads are not controlled by the Brief.
