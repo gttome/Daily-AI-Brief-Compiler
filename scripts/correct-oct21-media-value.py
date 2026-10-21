@@ -122,10 +122,16 @@ def patch_display(route, source, revision):
                           '<span class="coverage-label">' +
                           ('Evergreen educational replacement' if item["media_kind"] == "video" else 'AI-focused educational replacement') +
                           '</span>', route + " correction disclosure")
-            txt = literal(txt, "<strong>Evidence:</strong> Practitioner Analysis",
-                          "<strong>Evidence:</strong> Publisher Authored", route + " truthful evidence class")
-            txt = literal(txt, "<strong>Availability:</strong> Not Applicable",
-                          "<strong>Availability:</strong> Source available; playback unverified", route + " playback disclosure")
+            if item["media_kind"] == "video":
+                txt = literal(txt, "<strong>Evidence:</strong> Practitioner Analysis",
+                              "<strong>Evidence:</strong> Publisher Authored", route + " truthful evidence class")
+                txt = literal(txt, "<strong>Availability:</strong> Not Applicable",
+                              "<strong>Availability:</strong> Source available; playback unverified", route + " playback disclosure")
+            else:
+                # The podcast permanent page has no Evidence/Availability fields.
+                require("<strong>Evidence:</strong>" not in txt and
+                        "<strong>Availability:</strong>" not in txt,
+                        "Unexpected podcast evidence/availability schema")
     return txt
 
 def patch_feed_xml(source, revision):
