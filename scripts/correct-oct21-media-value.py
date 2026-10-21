@@ -96,14 +96,14 @@ def patch_display(route, source, revision):
                 selected_header = '<h3 id="' + item["old_slug"] + '">'
                 start = txt.find(selected_header)
                 if start != -1:
-                    stop = txt.find('<div class="story-feedback"', start)
+                    stop = txt.find('<div class="story-feedback', start)
                     require(stop > start, "Incomplete podcast reader panel")
                     panel = txt[start:stop].replace('<span class="coverage-label">New development</span>',
                                                     '<span class="coverage-label">AI-focused educational replacement</span>')
                     txt = txt[:start] + panel + txt[stop:]
             elif item["slot"] == "podcast-2" and route == "latest.md":
                 start = txt.find("### 10. " + new["title"])
-                stop = txt.find('<div class="story-feedback"', start)
+                stop = txt.find('<div class="story-feedback', start)
                 require(start >= 0 and stop > start, "Missing Markdown podcast panel")
                 panel = txt[start:stop].replace('<span class="coverage-label">New development</span>',
                                                 '<span class="coverage-label">AI-focused educational replacement</span>')
