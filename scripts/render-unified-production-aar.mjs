@@ -1,5 +1,6 @@
 import {validateImageAfterAction} from './image-aar-contract.mjs';
 import fs from "node:fs";
+import {ownerReportedWorkUsage} from "./owner-usage.mjs";
 import path from "node:path";
 
 function generateUnified(cycle,e) {
@@ -9,7 +10,7 @@ function generateUnified(cycle,e) {
   const state=obj("compiler-state"),compile=obj("compile-receipt"),integrity=obj("postpublish-integrity"),bundle=obj("edition-bundle");
   const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews"),imageTiming=obj("image-timing");
   const usage=e["owner-usage"]&&e["owner-usage"].cycle_date===cycle&&e["owner-usage"].edition_date===edition?e["owner-usage"]:null;
-  const amount=usage&&typeof usage.work_usage_percent==="number"&&Number.isFinite(usage.work_usage_percent)&&usage.work_usage_percent>=0&&usage.work_usage_percent<=100?usage.work_usage_percent:null;
+  const amount=ownerReportedWorkUsage(usage,cycle,edition);
   const usageDisplay=amount===null?"**Not reported**":`**${amount}%** (owner reported)`;
   const compilerOk=state?.state==="SHADOW_VERIFIED"&&state?.bundle?.status==="BUNDLE_READY"&&compile?.result==="PASS"&&integrity?.result==="PASS"&&integrity?.oct8_protected_count===17&&Array.isArray(integrity?.live_http_and_sha256)&&integrity.live_http_and_sha256.some(p=>p.url===pub+"briefs/"+edition+"/"&&p.status===200);
   const images=Array.isArray(release?.images)?release.images:[];
@@ -62,6 +63,7 @@ function generateUnified(cycle,e) {
   const imageStageDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_final_review);
   const imageScheduleWindow=seconds(timeEvidence?.durations_seconds?.scheduled_start_to_final_review);
   const imageReleaseDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_public_release);
+  const observedGenerationDuration=seconds(timeEvidence?.durations_seconds?.executor_observed_generation_to_final_review);
   const timingEvents=timeEvidence?.events??{};
   const attempts=imageAar?.production?.actual_generation_count;
   const rejected=imageAar?.production?.rejected_count;
@@ -102,6 +104,7 @@ indicators,
 `| **Compiler stage duration** | **${compilerStageDuration} (${elapsed})** | First persisted Compiler state → verified public reader; not a host scheduler attestation |`,
 `| **Image processing stage duration** | **${imageStageDuration}** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |`,
 `| Image scheduled-to-final-review window | **${imageScheduleWindow}** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |`,
+`| Executor-observed generation-to-final-review | **${observedGenerationDuration}** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |`,
 `| Accepted premium PNGs | **${imagesOk?6:"Not complete"} / 6** | Exact package and public release hashes |`,
 `| Native image generation attempts | **${typeof attempts==="number"?attempts:"Not reported"}** | Image worker AAR; no estimation |`,
 `| Rejected candidates | **${typeof rejected==="number"?rejected:"Not reported"}** | Image worker AAR |`,
@@ -159,6 +162,8 @@ indicators,
 "| Production milestone | Chicago local time | Evidence |",
 "|---|---|---|",
 `| Scheduled image start (if exact-date record exists) | ${chicago(timingEvents.scheduled_image_task_start)} | Time planned, not actual execution start |`,
+`| First executor-observed start | ${chicago(timingEvents.host_execution_first_observed_at)} | Worker self-attestation, not a first-party scheduler event |`,
+`| First native generation observation | ${chicago(timingEvents.native_generation_first_observed_at)} | Worker clock recorded immediately before first native call, not model-provider telemetry |`,
 `| First accepted PNG bytes saved to Git | ${chicago(timingEvents.first_accepted_binary_commit)} | Immutable binary-stage commit |`,
 `| Six-image package / reviews committed | ${chicago(timingEvents.six_image_package_commit)} | Exact-head PR source commit |`,
 `| Protected package merged | ${chicago(timingEvents.protected_image_merge_commit)} | Merge SHA and required CI |`,
@@ -237,7 +242,7 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
