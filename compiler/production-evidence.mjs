@@ -1,5 +1,6 @@
 // Forward-only October 21 hardening. Immutable older bundles remain replayable.
 import {articlePublisherKey} from './source-diversity.mjs';
+import {validateMediaEducationalValue,MEDIA_QUALITY_EFFECTIVE} from './media-quality.mjs';
 export const PRODUCTION_EVIDENCE_EFFECTIVE='2026-10-21';
 const fail=s=>{throw Error('production_evidence:'+s);};
 const text=(s,n=30)=>typeof s==='string'&&s.trim().length>=n;
@@ -23,6 +24,10 @@ export function validateEditorialChronology({bundle,state,now=new Date()}){
   const retrieved=at(s.content_retrieved_at,'media:retrieved'),checked=at(s.verification?.checked_at,'media:checked');
   if(retrieved>checked||checked>locked)fail('media_verification_after_selection_or_before_retrieval');
   observations.push(checked);
+  if(bundle.edition_date>=MEDIA_QUALITY_EFFECTIVE){
+   const reviewed=at(s.quality_review?.reviewed_at,'media:quality_reviewed');
+   if(reviewed<checked||reviewed>locked)fail('media_quality_review_not_between_verification_and_selection');
+  }
  }
  if(at(bundle.watchlist?.refreshed_at,'watchlist')>locked)fail('watchlist_after_selection');
  return {result:'PASS',selection_locked_at:p.selection_locked_at,sealed_at:p.sealed_at,observations:observations.length,clock_tolerance_seconds:60};
@@ -80,5 +85,6 @@ export function validateMediaPrecision(bundle){
   if(v.playback_verified===true&&(!text(v.playback_evidence?.method,10)||!text(v.playback_evidence?.result,10)||
     !Number.isFinite(Date.parse(v.playback_evidence?.checked_at))))fail('playback_evidence_required');
  }
- return {result:'PASS',video_publishers:[...publishers],video_diversity_exception:publishers.size<2,playback_not_inferred:true};
+ const educational_value=validateMediaEducationalValue(bundle);
+ return {result:'PASS',video_publishers:[...publishers],video_diversity_exception:publishers.size<2,playback_not_inferred:true,educational_value};
 }
