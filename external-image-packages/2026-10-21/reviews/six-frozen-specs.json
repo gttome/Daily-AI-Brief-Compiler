@@ -1,0 +1,1683 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-21",
+    "story_id": "oct21-t1-priority-inference",
+    "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+    "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+    "visual_thesis": "Priority first, fairness within a priority band, and compatible rollout pairs govern an inference fleet.",
+    "mechanism_metaphor": "traffic admission manifold",
+    "story_anchors": [
+      "Separate queues per tenant and priority band",
+      "Readiness gates both compatible prefill and decode revisions",
+      "Hot standby router and cache-local routing"
+    ],
+    "required_labels": [
+      "Inference under shared load",
+      "Priority bands",
+      "Fairness within each band",
+      "Hold when saturated",
+      "Cache-aware routing",
+      "Prefill",
+      "Decode",
+      "Compatible pair only",
+      "Hot standby",
+      "Publisher claims; test your workload"
+    ],
+    "source_claim_map": [
+      {
+        "id": "flow",
+        "proposition": "Priority wins between bands; tenants cycle fairly inside a band.",
+        "supporting_source_excerpt": "dispatches by priority first, then cycles fairly across tenants within a band.",
+        "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "saturation",
+        "proposition": "Saturated backends leave requests held at the router.",
+        "supporting_source_excerpt": "it holds requests in the router rather than committing them to already-overloaded backend queues",
+        "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "pair",
+        "proposition": "A request reaches a pair only when both rollout halves are compatible.",
+        "supporting_source_excerpt": "requests reach a prefill/decode pair only once both sides are fully rolled out and compatible.",
+        "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "standby",
+        "proposition": "A standby replaces an unavailable active router.",
+        "supporting_source_excerpt": "a hot standby that takes over scheduling if the active instance is replaced or fails",
+        "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "cache",
+        "proposition": "Cache locality guides request placement.",
+        "supporting_source_excerpt": "Session-aware routing keeps a multi-turn conversation pinned to the replica that already holds its KV cache",
+        "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Fairness within each band",
+        "direction": "conditional",
+        "support_claim_id": "flow",
+        "relation_supported_by_semantic_review": true,
+        "from": "Priority bands"
+      },
+      {
+        "to": "Compatible pair only",
+        "direction": "conditional",
+        "support_claim_id": "pair",
+        "relation_supported_by_semantic_review": true,
+        "from": "Cache-aware routing"
+      },
+      {
+        "to": "Decode",
+        "direction": "conditional",
+        "support_claim_id": "pair",
+        "relation_supported_by_semantic_review": true,
+        "from": "Prefill"
+      }
+    ],
+    "excluded_claims": [
+      "Publisher-reported operations; no universal latency or uptime guarantee. Active-active routing remains future work.",
+      "No people, logos, decorative scenery, false success symbols, dashboard UI, invented figures or extra writing."
+    ],
+    "composition_signature": {
+      "grammar": "sectioned queue-and-pair cutaway",
+      "metaphor": "traffic admission manifold",
+      "layout": "two-tier horizontal engineering section",
+      "palette": "deep navy and copper",
+      "annotation": "bracketed operating constraints",
+      "hierarchy": "queue hierarchy above paired serving sections"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "detail_plan": "Detailed two-level textbook cutaway: upper left two priority bands, each with two visibly separate tenant queues, alternating dispatch within each band. Copper held tokens stay beside the saturated branch. Lower right two linked prefill/decode sections inside one compatibility brace, with one incomplete rollout pair outside the admitted path. Cache tiles bind to the chosen backend. A thin dashed standby control connection enters the router, never a second concurrent active stream. No numeric benchmarks."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Inference under shared load",
+          "region": "two-tier horizontal engineering section: assigned label slot 1",
+          "minimum_font_px": 32,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 48,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Priority bands",
+          "region": "two-tier horizontal engineering section: assigned label slot 2",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 65,
+          "y": 135,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Fairness within each band",
+          "region": "two-tier horizontal engineering section: assigned label slot 3",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 65,
+          "y": 205,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Hold when saturated",
+          "region": "two-tier horizontal engineering section: assigned label slot 4",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 65,
+          "y": 330,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Cache-aware routing",
+          "region": "two-tier horizontal engineering section: assigned label slot 5",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 470,
+          "y": 135,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Prefill",
+          "region": "two-tier horizontal engineering section: assigned label slot 6",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 760,
+          "y": 240,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Decode",
+          "region": "two-tier horizontal engineering section: assigned label slot 7",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 980,
+          "y": 240,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 180,
+          "alignment": "left"
+        },
+        {
+          "label": "Compatible pair only",
+          "region": "two-tier horizontal engineering section: assigned label slot 8",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 765,
+          "y": 365,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Hot standby",
+          "region": "two-tier horizontal engineering section: assigned label slot 9",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 440,
+          "y": 475,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Publisher claims; test your workload",
+          "region": "two-tier horizontal engineering section: assigned label slot 10",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 80,
+          "y": 565,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher-reported operations; no universal latency or uptime guarantee. Active-active routing remains future work.",
+      "causal_state_checks": [
+        {
+          "condition": "Backend is saturated",
+          "allowed_path": "Hold request in router",
+          "blocked_path": "Do not enqueue into overloaded backend",
+          "support_claim_id": "saturation"
+        },
+        {
+          "condition": "Both revisions are ready and compatible",
+          "allowed_path": "Route to paired prefill and decode",
+          "blocked_path": "No traffic to mismatched or incomplete pair",
+          "support_claim_id": "pair"
+        },
+        {
+          "condition": "Active router fails",
+          "allowed_path": "Hot standby takes scheduling role",
+          "blocked_path": "Do not depict active-active routing as released",
+          "support_claim_id": "standby"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "ChatGPT source and composition reviewer",
+      "source_url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "review_notes": "Publisher-reported operations; no universal latency or uptime guarantee. Active-active routing remains future work."
+    },
+    "generator_composition": "Detailed two-level textbook cutaway: upper left two priority bands, each with two visibly separate tenant queues, alternating dispatch within each band. Copper held tokens stay beside the saturated branch. Lower right two linked prefill/decode sections inside one compatibility brace, with one incomplete rollout pair outside the admitted path. Cache tiles bind to the chosen backend. A thin dashed standby control connection enters the router, never a second concurrent active stream. No numeric benchmarks."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-21",
+    "story_id": "oct21-t2-thin-orchestrator",
+    "source_url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+    "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+    "visual_thesis": "A deterministic thin router sequences reliability gates and hands domain reasoning to isolated specialists.",
+    "mechanism_metaphor": "narrow routing spine and sealed work cells",
+    "story_anchors": [
+      "Router performs zero domain work",
+      "Isolated domain context loaded on demand",
+      "Workflow templates sequence existing specialists"
+    ],
+    "required_labels": [
+      "Thin Orchestrator",
+      "Read instructions",
+      "Check duplicates",
+      "Gather fields",
+      "Discover context",
+      "Reliability gate",
+      "Typed handoff",
+      "Isolated specialists",
+      "Domain knowledge",
+      "Bounded tools",
+      "Results or escalation",
+      "Router performs no domain work"
+    ],
+    "source_claim_map": [
+      {
+        "id": "router",
+        "proposition": "The router gathers fields and runs checks before specialist delegation.",
+        "supporting_source_excerpt": "It classifies intent, gathers required fields, runs reliability checks, and delegates to the right specialist.",
+        "source_url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "isolation",
+        "proposition": "Domain experts use isolated context.",
+        "supporting_source_excerpt": "Fourteen specialized subagents, each a complete domain expert with isolated context.",
+        "source_url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "failure",
+        "proposition": "Failures return for retry or escalation.",
+        "supporting_source_excerpt": "If a subagent fails, the orchestrator retries or escalates.",
+        "source_url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "knowledge",
+        "proposition": "Knowledge loads at specialist execution time.",
+        "supporting_source_excerpt": "Knowledge files are loaded on demand at subagent execution time, not embedded in the orchestrator.",
+        "source_url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Typed handoff",
+        "direction": "conditional",
+        "support_claim_id": "router",
+        "relation_supported_by_semantic_review": true,
+        "from": "Reliability gate"
+      },
+      {
+        "to": "Isolated specialists",
+        "direction": "conditional",
+        "support_claim_id": "isolation",
+        "relation_supported_by_semantic_review": true,
+        "from": "Typed handoff"
+      },
+      {
+        "to": "Results or escalation",
+        "direction": "conditional",
+        "support_claim_id": "failure",
+        "relation_supported_by_semantic_review": true,
+        "from": "Isolated specialists"
+      },
+      {
+        "to": "Isolated specialists",
+        "direction": "conditional",
+        "support_claim_id": "knowledge",
+        "relation_supported_by_semantic_review": true,
+        "from": "Domain knowledge"
+      }
+    ],
+    "excluded_claims": [
+      "Three illustrative specialist sections represent a larger pool; no measured reliability guarantee is implied.",
+      "No people, logos, decorative scenery, false success symbols, dashboard UI, invented figures or extra writing."
+    ],
+    "composition_signature": {
+      "grammar": "branching responsibility-boundary tree",
+      "metaphor": "narrow routing spine and sealed work cells",
+      "layout": "top control spine with three downward specialist sections",
+      "palette": "indigo and muted amber",
+      "annotation": "boundary-callout leader lines",
+      "hierarchy": "thin deterministic rail over deep specialist layers"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "detail_plan": "A deliberately thin top rail with five exact procedural labels placed in ordered compartments; reliability gate visibly precedes downward typed handoff. Three deeply sectioned specialist cells below separated by opaque walls, each containing a domain knowledge layer and bounded tool port; shared group labels use braces instead of repeating words. Distinct upward result path to Results or escalation. No cross-cell context wires, no human symbols. Draw a boundary between deterministic routing and reasoning. Three examples are conceptual, do not imply three total specialists."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Thin Orchestrator",
+          "region": "top control spine with three downward specialist sections: assigned label slot 1",
+          "minimum_font_px": 32,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 45,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Read instructions",
+          "region": "top control spine with three downward specialist sections: assigned label slot 2",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 115,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Check duplicates",
+          "region": "top control spine with three downward specialist sections: assigned label slot 3",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 250,
+          "y": 115,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Gather fields",
+          "region": "top control spine with three downward specialist sections: assigned label slot 4",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 445,
+          "y": 115,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Discover context",
+          "region": "top control spine with three downward specialist sections: assigned label slot 5",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 630,
+          "y": 115,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Reliability gate",
+          "region": "top control spine with three downward specialist sections: assigned label slot 6",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 820,
+          "y": 115,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 340,
+          "alignment": "left"
+        },
+        {
+          "label": "Typed handoff",
+          "region": "top control spine with three downward specialist sections: assigned label slot 7",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 485,
+          "y": 205,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Isolated specialists",
+          "region": "top control spine with three downward specialist sections: assigned label slot 8",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 430,
+          "y": 275,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Domain knowledge",
+          "region": "top control spine with three downward specialist sections: assigned label slot 9",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 90,
+          "y": 390,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Bounded tools",
+          "region": "top control spine with three downward specialist sections: assigned label slot 10",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 90,
+          "y": 455,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Results or escalation",
+          "region": "top control spine with three downward specialist sections: assigned label slot 11",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 790,
+          "y": 505,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Router performs no domain work",
+          "region": "top control spine with three downward specialist sections: assigned label slot 12",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 565,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Three illustrative specialist sections represent a larger pool; no measured reliability guarantee is implied.",
+      "causal_state_checks": [
+        {
+          "condition": "Required fields and reliability gate satisfied",
+          "allowed_path": "Delegate typed domain context",
+          "blocked_path": "No domain reasoning inside router",
+          "support_claim_id": "router"
+        },
+        {
+          "condition": "Specialist fails",
+          "allowed_path": "Return error for retry or escalation",
+          "blocked_path": "No error marked as successful result",
+          "support_claim_id": "failure"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "ChatGPT source and composition reviewer",
+      "source_url": "https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "review_notes": "Three illustrative specialist sections represent a larger pool; no measured reliability guarantee is implied."
+    },
+    "generator_composition": "A deliberately thin top rail with five exact procedural labels placed in ordered compartments; reliability gate visibly precedes downward typed handoff. Three deeply sectioned specialist cells below separated by opaque walls, each containing a domain knowledge layer and bounded tool port; shared group labels use braces instead of repeating words. Distinct upward result path to Results or escalation. No cross-cell context wires, no human symbols. Draw a boundary between deterministic routing and reasoning. Three examples are conceptual, do not imply three total specialists."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-21",
+    "story_id": "oct21-k1-unified-context",
+    "source_url": "https://news.zoom.com/zoomtopia-2026-news/",
+    "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+    "visual_thesis": "Conversation and document context can be joined under access controls before search and review.",
+    "mechanism_metaphor": "layered information lens",
+    "story_anchors": [
+      "Connects conversations and third-party records",
+      "Configurable access controls",
+      "Search and Ask APIs are available; other features differ"
+    ],
+    "required_labels": [
+      "Unified conversation context",
+      "Meetings",
+      "Chat",
+      "Documents",
+      "Connected records",
+      "Access controls",
+      "Unified Context Layer",
+      "Search and Ask",
+      "Linked decisions",
+      "Human review",
+      "Availability varies by feature"
+    ],
+    "source_claim_map": [
+      {
+        "id": "join",
+        "proposition": "Context joins conversations with relevant records.",
+        "supporting_source_excerpt": "linking conversation history with relevant documents and data.",
+        "source_url": "https://news.zoom.com/zoomtopia-2026-news/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "access",
+        "proposition": "Configuration controls manage access.",
+        "supporting_source_excerpt": "Configurable settings and controls help manage access",
+        "source_url": "https://news.zoom.com/zoomtopia-2026-news/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "query",
+        "proposition": "Search and Ask can query the context layer.",
+        "supporting_source_excerpt": "Query Zoom\u2019s Unified Context Layer directly",
+        "source_url": "https://news.zoom.com/zoomtopia-2026-news/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "review",
+        "proposition": "Human review is an editorial pilot safeguard, not a guaranteed built-in step.",
+        "supporting_source_excerpt": "Editorial Why it matters recommends permission checks, source links and human review.",
+        "source_url": "https://news.zoom.com/zoomtopia-2026-news/",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Unified Context Layer",
+        "direction": "conditional",
+        "support_claim_id": "join",
+        "relation_supported_by_semantic_review": true,
+        "from": "Meetings"
+      },
+      {
+        "to": "Access controls",
+        "direction": "conditional",
+        "support_claim_id": "access",
+        "relation_supported_by_semantic_review": true,
+        "from": "Connected records"
+      },
+      {
+        "to": "Search and Ask",
+        "direction": "conditional",
+        "support_claim_id": "query",
+        "relation_supported_by_semantic_review": true,
+        "from": "Unified Context Layer"
+      },
+      {
+        "to": "Human review",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true,
+        "from": "Linked decisions"
+      }
+    ],
+    "excluded_claims": [
+      "Announced feature availability varies; review is an editorial pilot safeguard, not a product guarantee.",
+      "No people, logos, decorative scenery, false success symbols, dashboard UI, invented figures or extra writing."
+    ],
+    "composition_signature": {
+      "grammar": "concentric permission-filtered context lattice",
+      "metaphor": "layered information lens",
+      "layout": "radial sources surrounding a layered elliptical center",
+      "palette": "teal and charcoal",
+      "annotation": "radial leaders with perimeter caveat",
+      "hierarchy": "concentric filtering layers and subordinate result shelf"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "detail_plan": "Four source shapes positioned around a central stacked elliptical lattice, meetings on upper left, chat lower left, documents upper right, connected records lower right. An access-control rim filters connections before the center. Inner source-linked strands are conceptual, never contain writing strokes. A lower compact result shelf links Search and Ask to linked decisions and a clearly separate human-review recommendation. Strong teal with graphite, no padlock security-success badges; no automatic execution arrow."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Unified conversation context",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 1",
+          "minimum_font_px": 32,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 45,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Meetings",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 2",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 145,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Chat",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 3",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 375,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Documents",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 4",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 930,
+          "y": 145,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 230,
+          "alignment": "left"
+        },
+        {
+          "label": "Connected records",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 5",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 930,
+          "y": 375,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 230,
+          "alignment": "left"
+        },
+        {
+          "label": "Access controls",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 6",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 435,
+          "y": 160,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Unified Context Layer",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 7",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 410,
+          "y": 280,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Search and Ask",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 8",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 495,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Linked decisions",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 9",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 455,
+          "y": 495,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Human review",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 10",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 850,
+          "y": 495,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 310,
+          "alignment": "left"
+        },
+        {
+          "label": "Availability varies by feature",
+          "region": "radial sources surrounding a layered elliptical center: assigned label slot 11",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 570,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Announced feature availability varies; review is an editorial pilot safeguard, not a product guarantee.",
+      "causal_state_checks": [
+        {
+          "condition": "Record is permitted by configured access",
+          "allowed_path": "Include it in queryable context",
+          "blocked_path": "No unrestricted access across all sources",
+          "support_claim_id": "access"
+        },
+        {
+          "condition": "A capability is announced for later availability",
+          "allowed_path": "Show as planned, not universally available",
+          "blocked_path": "Do not imply all announced features are live",
+          "support_claim_id": "query"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "ChatGPT source and composition reviewer",
+      "source_url": "https://news.zoom.com/zoomtopia-2026-news/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "review_notes": "Announced feature availability varies; review is an editorial pilot safeguard, not a product guarantee."
+    },
+    "generator_composition": "Four source shapes positioned around a central stacked elliptical lattice, meetings on upper left, chat lower left, documents upper right, connected records lower right. An access-control rim filters connections before the center. Inner source-linked strands are conceptual, never contain writing strokes. A lower compact result shelf links Search and Ask to linked decisions and a clearly separate human-review recommendation. Strong teal with graphite, no padlock security-success badges; no automatic execution arrow."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-21",
+    "story_id": "oct21-k2-government-services",
+    "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+    "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+    "visual_thesis": "Government answers should retain page-and-paragraph evidence, inherited identity controls and auditability.",
+    "mechanism_metaphor": "source-to-claim registration plate",
+    "story_anchors": [
+      "Preview public-sector product",
+      "Pinpoint page and paragraph citations",
+      "Identity inheritance and native audit logging"
+    ],
+    "required_labels": [
+      "Government services preview",
+      "Official records",
+      "Inherited access",
+      "Purpose-built skills",
+      "Cited answer",
+      "Page and paragraph",
+      "Evidence check",
+      "Audit trail",
+      "Human decision",
+      "No independent outcome proof"
+    ],
+    "source_claim_map": [
+      {
+        "id": "records",
+        "proposition": "Answers link to official regulations and agency files.",
+        "supporting_source_excerpt": "pulls answers directly from official regulations and the agency\u2019s actual files, linking back to the exact source",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "citations",
+        "proposition": "Synthesized answers include pinpoint citations.",
+        "supporting_source_excerpt": "grounded, synthesized answers complete with pinpoint page and paragraph citations",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "identity",
+        "proposition": "Existing identity controls are inherited.",
+        "supporting_source_excerpt": "existing identity and access management controls are automatically inherited",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "audit",
+        "proposition": "Native platform includes audit logging.",
+        "supporting_source_excerpt": "Risk management, audit logging, and governance are built natively into the platform architecture.",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "human",
+        "proposition": "Personnel double-check facts before decisions.",
+        "supporting_source_excerpt": "personnel can easily double-check the facts before making a decision.",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Cited answer",
+        "direction": "conditional",
+        "support_claim_id": "records",
+        "relation_supported_by_semantic_review": true,
+        "from": "Official records"
+      },
+      {
+        "to": "Evidence check",
+        "direction": "conditional",
+        "support_claim_id": "citations",
+        "relation_supported_by_semantic_review": true,
+        "from": "Page and paragraph"
+      },
+      {
+        "to": "Human decision",
+        "direction": "conditional",
+        "support_claim_id": "human",
+        "relation_supported_by_semantic_review": true,
+        "from": "Evidence check"
+      }
+    ],
+    "excluded_claims": [
+      "Preview and publisher claims; citations and controls do not establish independent performance or guaranteed correctness.",
+      "No people, logos, decorative scenery, false success symbols, dashboard UI, invented figures or extra writing."
+    ],
+    "composition_signature": {
+      "grammar": "annotated evidence cross-section",
+      "metaphor": "source-to-claim registration plate",
+      "layout": "large document section left and aligned citation examination right",
+      "palette": "burgundy and warm graphite",
+      "annotation": "aligned evidence brackets and audit rail",
+      "hierarchy": "dominant source-proof relationship with subordinate controls"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "detail_plan": "A large burgundy-edged official-record cross-section with clean blank page surfaces and one outlined paragraph region, no text-like strokes. Source-specific bracket ties that region to an answer section on right and Page and paragraph label. Inherited-access boundary encloses source and retrieval section; purpose-built skills sit between source and proposed answer. Evidence check precedes human decision through explicit gated space. Separate bottom audit rail records retrieval and answer stages via branches, no guaranteed-compliance shields, no faces, no made-up redacted writing."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Government services preview",
+          "region": "large document section left and aligned citation examination right: assigned label slot 1",
+          "minimum_font_px": 32,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 45,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Official records",
+          "region": "large document section left and aligned citation examination right: assigned label slot 2",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 135,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Inherited access",
+          "region": "large document section left and aligned citation examination right: assigned label slot 3",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 65,
+          "y": 470,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Purpose-built skills",
+          "region": "large document section left and aligned citation examination right: assigned label slot 4",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 460,
+          "y": 135,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Cited answer",
+          "region": "large document section left and aligned citation examination right: assigned label slot 5",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 800,
+          "y": 185,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Page and paragraph",
+          "region": "large document section left and aligned citation examination right: assigned label slot 6",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 390,
+          "y": 310,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Evidence check",
+          "region": "large document section left and aligned citation examination right: assigned label slot 7",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 820,
+          "y": 345,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 340,
+          "alignment": "left"
+        },
+        {
+          "label": "Audit trail",
+          "region": "large document section left and aligned citation examination right: assigned label slot 8",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 460,
+          "y": 510,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Human decision",
+          "region": "large document section left and aligned citation examination right: assigned label slot 9",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 840,
+          "y": 465,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 320,
+          "alignment": "left"
+        },
+        {
+          "label": "No independent outcome proof",
+          "region": "large document section left and aligned citation examination right: assigned label slot 10",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 65,
+          "y": 570,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Preview and publisher claims; citations and controls do not establish independent performance or guaranteed correctness.",
+      "causal_state_checks": [
+        {
+          "condition": "Identity permits access to record",
+          "allowed_path": "Retrieve within inherited access scope",
+          "blocked_path": "No access widening or universal authorization",
+          "support_claim_id": "identity"
+        },
+        {
+          "condition": "A cited answer is proposed",
+          "allowed_path": "Check evidence before human decision",
+          "blocked_path": "No automatic approval from presence of citation",
+          "support_claim_id": "human"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "ChatGPT source and composition reviewer",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-10-20-Google-Public-Sector-Launches-Gemini-for-Government-Services",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "review_notes": "Preview and publisher claims; citations and controls do not establish independent performance or guaranteed correctness."
+    },
+    "generator_composition": "A large burgundy-edged official-record cross-section with clean blank page surfaces and one outlined paragraph region, no text-like strokes. Source-specific bracket ties that region to an answer section on right and Page and paragraph label. Inherited-access boundary encloses source and retrieval section; purpose-built skills sit between source and proposed answer. Evidence check precedes human decision through explicit gated space. Separate bottom audit rail records retrieval and answer stages via branches, no guaranteed-compliance shields, no faces, no made-up redacted writing."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-21",
+    "story_id": "oct21-a1-biopharma-coordination",
+    "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+    "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+    "visual_thesis": "A manufacturing disruption can affect trial timing; agents gather dependencies and options for program leaders.",
+    "mechanism_metaphor": "perturbation map",
+    "story_anchors": [
+      "Failed manufacturing batch can delay clinical trial start",
+      "Agents gather relevant information and compare responses",
+      "Scientists and program leaders decide what next"
+    ],
+    "required_labels": [
+      "Drug program dependencies",
+      "Manufacturing batch fails",
+      "Clinical trial may slip",
+      "Affected activities",
+      "Timeline impact",
+      "Gather evidence",
+      "Compare responses",
+      "Program leader decides",
+      "No measured benefit claimed"
+    ],
+    "source_claim_map": [
+      {
+        "id": "delay",
+        "proposition": "Failed batch can delay clinical trial start.",
+        "supporting_source_excerpt": "A failed manufacturing batch, for example, can delay the start of a clinical trial.",
+        "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "impact",
+        "proposition": "Agents identify activities and timelines affected.",
+        "supporting_source_excerpt": "agents help teams identify which activities and timelines are affected",
+        "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "options",
+        "proposition": "Information gathering and response comparison support human decisions.",
+        "supporting_source_excerpt": "gather the relevant information, and compare ways to respond.",
+        "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "decision",
+        "proposition": "Program leaders decide next steps.",
+        "supporting_source_excerpt": "Scientists and program leaders can then use that analysis to decide what to do next.",
+        "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Clinical trial may slip",
+        "direction": "conditional",
+        "support_claim_id": "delay",
+        "relation_supported_by_semantic_review": true,
+        "from": "Manufacturing batch fails"
+      },
+      {
+        "to": "Gather evidence",
+        "direction": "conditional",
+        "support_claim_id": "impact",
+        "relation_supported_by_semantic_review": true,
+        "from": "Affected activities"
+      },
+      {
+        "to": "Compare responses",
+        "direction": "conditional",
+        "support_claim_id": "options",
+        "relation_supported_by_semantic_review": true,
+        "from": "Gather evidence"
+      },
+      {
+        "to": "Program leader decides",
+        "direction": "conditional",
+        "support_claim_id": "decision",
+        "relation_supported_by_semantic_review": true,
+        "from": "Compare responses"
+      }
+    ],
+    "excluded_claims": [
+      "Illustrative dependency geometry; no invented dates, medical outcomes, measured benefit or automatic execution.",
+      "No people, logos, decorative scenery, false success symbols, dashboard UI, invented figures or extra writing."
+    ],
+    "composition_signature": {
+      "grammar": "dependency fan-out and response comparison",
+      "metaphor": "perturbation map",
+      "layout": "diagonal causal network with response fork ending at decision",
+      "palette": "olive and rust",
+      "annotation": "conditional link labels and grouped option brackets",
+      "hierarchy": "disruption origin with expanding dependent branches"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "detail_plan": "Olive-and-rust dependency map centered on a failed batch represented by a simple segmented production-lot tile, not laboratory scenery. A dashed conditional edge reaches a shifted unnumbered clinical trial milestone. Two subordinate affected-activity and timeline-impact strands join evidence gathering. A small comparison fork shows two unlabeled alternative response paths in parallel, both converge at an abstract program-leader decision aperture. Stop there, no success mark, patient figure, drug approval endpoint, calendar dates or claim of actual schedule optimization."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Drug program dependencies",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 1",
+          "minimum_font_px": 32,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 45,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Manufacturing batch fails",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 2",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 145,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Clinical trial may slip",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 3",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 350,
+          "y": 215,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Affected activities",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 4",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 355,
+          "y": 350,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Timeline impact",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 5",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 355,
+          "y": 460,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Gather evidence",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 6",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 650,
+          "y": 270,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Compare responses",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 7",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 860,
+          "y": 185,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 300,
+          "alignment": "left"
+        },
+        {
+          "label": "Program leader decides",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 8",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 850,
+          "y": 465,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 310,
+          "alignment": "left"
+        },
+        {
+          "label": "No measured benefit claimed",
+          "region": "diagonal causal network with response fork ending at decision: assigned label slot 9",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 570,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Illustrative dependency geometry; no invented dates, medical outcomes, measured benefit or automatic execution.",
+      "causal_state_checks": [
+        {
+          "condition": "Manufacturing batch fails",
+          "allowed_path": "Show possible delay to clinical trial start",
+          "blocked_path": "No claim that every batch failure causes fixed delay",
+          "support_claim_id": "delay"
+        },
+        {
+          "condition": "Agents compare responses",
+          "allowed_path": "Offer analysis to program leader",
+          "blocked_path": "No autonomous schedule or manufacturing change",
+          "support_claim_id": "decision"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "ChatGPT source and composition reviewer",
+      "source_url": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "review_notes": "Illustrative dependency geometry; no invented dates, medical outcomes, measured benefit or automatic execution."
+    },
+    "generator_composition": "Olive-and-rust dependency map centered on a failed batch represented by a simple segmented production-lot tile, not laboratory scenery. A dashed conditional edge reaches a shifted unnumbered clinical trial milestone. Two subordinate affected-activity and timeline-impact strands join evidence gathering. A small comparison fork shows two unlabeled alternative response paths in parallel, both converge at an abstract program-leader decision aperture. Stop there, no success mark, patient figure, drug approval endpoint, calendar dates or claim of actual schedule optimization."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-21",
+    "story_id": "oct21-a2-meeting-decision-skill",
+    "source_url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+    "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+    "visual_thesis": "Review a reusable skill before saving, then invoke it in Work mode and verify a meeting decision brief.",
+    "mechanism_metaphor": "reusable instruction folio",
+    "story_anchors": [
+      "Four source creation paths",
+      "Draft review before save",
+      "Work mode consumes Credits"
+    ],
+    "required_labels": [
+      "Reusable meeting-decision Skill",
+      "Template or conversation",
+      "Form or artifact",
+      "Review draft",
+      "Save Skill",
+      "Work mode",
+      "Transcript evidence",
+      "Decisions and owners",
+      "Deadlines and open questions",
+      "Review before sharing",
+      "Uses Plaud Credits"
+    ],
+    "source_claim_map": [
+      {
+        "id": "create",
+        "proposition": "Templates, conversation, forms or artifacts create drafts.",
+        "supporting_source_excerpt": "There are four ways to create a Skill",
+        "source_url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "save",
+        "proposition": "Review draft before saving.",
+        "supporting_source_excerpt": "Whichever way you start, review the draft",
+        "source_url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "invoke",
+        "proposition": "Saved skills invoke in Work mode.",
+        "supporting_source_excerpt": "Skills run only in Work mode, which uses Plaud Credits.",
+        "source_url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "brief",
+        "proposition": "Decision extraction and human comparison are the story\u2019s proposed meeting workflow.",
+        "supporting_source_excerpt": "Editorial agent_skills_evidence proposes decisions, owners, deadlines, open questions with evidence and human approval.",
+        "source_url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Review draft",
+        "direction": "conditional",
+        "support_claim_id": "create",
+        "relation_supported_by_semantic_review": true,
+        "from": "Template or conversation"
+      },
+      {
+        "to": "Save Skill",
+        "direction": "conditional",
+        "support_claim_id": "save",
+        "relation_supported_by_semantic_review": true,
+        "from": "Review draft"
+      },
+      {
+        "to": "Work mode",
+        "direction": "conditional",
+        "support_claim_id": "invoke",
+        "relation_supported_by_semantic_review": true,
+        "from": "Save Skill"
+      },
+      {
+        "to": "Decisions and owners",
+        "direction": "conditional",
+        "support_claim_id": "brief",
+        "relation_supported_by_semantic_review": true,
+        "from": "Transcript evidence"
+      },
+      {
+        "to": "Review before sharing",
+        "direction": "conditional",
+        "support_claim_id": "brief",
+        "relation_supported_by_semantic_review": true,
+        "from": "Deadlines and open questions"
+      }
+    ],
+    "excluded_claims": [
+      "Meeting-decision workflow is an editorial application; review every source item. Skills consume Credits.",
+      "No people, logos, decorative scenery, false success symbols, dashboard UI, invented figures or extra writing."
+    ],
+    "composition_signature": {
+      "grammar": "folded instruction lifecycle with evidence alignment",
+      "metaphor": "reusable instruction folio",
+      "layout": "left lifecycle folded into right evidence-linked extraction",
+      "palette": "cobalt and burnt sienna",
+      "annotation": "fold-edge labels and evidence tether lines",
+      "hierarchy": "saved instruction folio above evidence-output alignment"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "detail_plan": "A blue folded instruction folio dominates left, two creation paths labeled Template or conversation and Form or artifact feed the Review draft fold, followed by Save Skill. No loop from extraction results edits the saved instructions. Right Work mode bracket holds transcript evidence and two structured content bands with Decisions and owners and Deadlines and open questions; use clean geometric evidence anchors, no pseudo-writing. Fine evidence tethers associate source segments with output groups. Human review gate precedes sharing; no outgoing send arrow. Bottom Credits qualifier prominent. No device photograph or app screenshot."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Reusable meeting-decision Skill",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 1",
+          "minimum_font_px": 32,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 45,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Template or conversation",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 2",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 125,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Form or artifact",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 3",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 210,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Review draft",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 4",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 290,
+          "y": 165,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Save Skill",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 5",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 310,
+          "y": 365,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Work mode",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 6",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 650,
+          "y": 130,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Transcript evidence",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 7",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 615,
+          "y": 225,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Decisions and owners",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 8",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 880,
+          "y": 245,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 280,
+          "alignment": "left"
+        },
+        {
+          "label": "Deadlines and open questions",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 9",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 850,
+          "y": 365,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 310,
+          "alignment": "left"
+        },
+        {
+          "label": "Review before sharing",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 10",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 810,
+          "y": 485,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        },
+        {
+          "label": "Uses Plaud Credits",
+          "region": "left lifecycle folded into right evidence-linked extraction: assigned label slot 11",
+          "minimum_font_px": 22,
+          "placement": "Dedicated whitespace aligned to labeled mechanism; no connector crossing",
+          "max_lines": 2,
+          "x": 60,
+          "y": 565,
+          "font_family": "clean humanist sans-serif",
+          "font_weight": 600,
+          "maximum_width_px": 350,
+          "alignment": "left"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Meeting-decision workflow is an editorial application; review every source item. Skills consume Credits.",
+      "causal_state_checks": [
+        {
+          "condition": "Draft not reviewed",
+          "allowed_path": "Keep in draft until review",
+          "blocked_path": "No direct creation-to-saved bypass",
+          "support_claim_id": "save"
+        },
+        {
+          "condition": "Skill invoked",
+          "allowed_path": "Work mode uses Credits",
+          "blocked_path": "No Chat-mode or free-use claim",
+          "support_claim_id": "invoke"
+        },
+        {
+          "condition": "Meeting facts uncertain or absent",
+          "allowed_path": "Keep uncertainty in open questions",
+          "blocked_path": "No guessed owners or deadlines; no automatic sending",
+          "support_claim_id": "brief"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "ChatGPT source and composition reviewer",
+      "source_url": "https://support.plaud.ai/hc/en-us/articles/63429926356761-Skills-save-your-workflows-for-reuse-for-v4-0-x-or-later",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "review_notes": "Meeting-decision workflow is an editorial application; review every source item. Skills consume Credits."
+    },
+    "generator_composition": "A blue folded instruction folio dominates left, two creation paths labeled Template or conversation and Form or artifact feed the Review draft fold, followed by Save Skill. No loop from extraction results edits the saved instructions. Right Work mode bracket holds transcript evidence and two structured content bands with Decisions and owners and Deadlines and open questions; use clean geometric evidence anchors, no pseudo-writing. Fine evidence tethers associate source segments with output groups. Human review gate precedes sharing; no outgoing send arrow. Bottom Credits qualifier prominent. No device photograph or app screenshot."
+  }
+]
