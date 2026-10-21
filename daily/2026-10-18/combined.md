@@ -22,6 +22,7 @@
 | **Compiler stage duration** | **11m 49s (11.8 min)** | First persisted Compiler state → verified public reader; not a host scheduler attestation |
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
+| Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **Not reported** | Image worker AAR; no estimation |
 | Rejected candidates | **Not reported** | Image worker AAR |
@@ -84,6 +85,8 @@ flowchart LR
 | Production milestone | Chicago local time | Evidence |
 |---|---|---|
 | Scheduled image start (if exact-date record exists) | Not independently recorded | Time planned, not actual execution start |
+| First executor-observed start | Not independently recorded | Worker self-attestation, not a first-party scheduler event |
+| First native generation observation | Not independently recorded | Worker clock recorded immediately before first native call, not model-provider telemetry |
 | First accepted PNG bytes saved to Git | Not independently recorded | Immutable binary-stage commit |
 | Six-image package / reviews committed | Not independently recorded | Exact-head PR source commit |
 | Protected package merged | Not independently recorded | Merge SHA and required CI |
