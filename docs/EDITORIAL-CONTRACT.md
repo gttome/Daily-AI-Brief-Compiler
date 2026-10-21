@@ -139,3 +139,10 @@ Reader quality may not be reduced to simplify production. Conversely, reader req
 ## October 20 owner-approved improvements — October 21 onward
 
 Read and apply [the six approved production improvements](automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.
+
+
+## October 21 AAR corrective controls — effective October 22 onward
+
+The previous subsection describes human editorial objectives; the actual new-edition deterministic schema and percentage checks are now provided by compiler/media-quality.mjs through validateMediaPrecision. Read [October 21 permanent safeguards](automation/OCT21_AAR_IMPROVEMENTS.md) for the required quality_review, substantive video evidence, three teaching points/reproducible procedure, podcast near-complete timestamp coverage and >=75% AI editorial share. These deterministic checks validate evidence structure and the declared source coverage, not the intrinsic truth of a review. The existing public video gate independently requires a duration-matched player to advance, not just metadata. Preserve both verification scopes and all already-published editions.
+
+Image admission continues to require six accepted, hashed professional PNGs and actual 24-context pixel inspection. New image package AARs must carry executor-observed first-entry and immediately pre-generation UTC instants, not invented scheduled execution or native-provider times. Owner weekly Work usage is optional, source-bound per cycle, never estimated or carried forward. No new AI schedulers or paid workflows.
