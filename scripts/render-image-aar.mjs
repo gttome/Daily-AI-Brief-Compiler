@@ -14,8 +14,10 @@ export function renderImageAar({aar,job,manifest}){
  '| Accepted images | '+p.accepted_count+' |','| Rejected candidates | '+p.rejected_count+' |',
  '| Accepted-image regeneration | '+p.accepted_art_regenerated_after_lock+' |',
  '| First accepted binary commit | '+p.github_binary_stage_commit+' |',
- '| Executor observed run start | '+cell(p.host_execution_observed_at)+' (self-attested, not scheduler telemetry) |',
- '| First native generation clock | '+cell(p.generation_started_at)+' (observed before tool call) |',
+ ...(job.edition_date>='2026-10-22'?[
+  '| Executor observed run start | '+cell(p.host_execution_observed_at)+' (self-attested, not scheduler telemetry) |',
+  '| First native generation clock | '+cell(p.generation_started_at)+' (observed before tool call) |'
+ ]:[]),
  '| Public release | '+cell(aar.publication?.result)+' |',
  '| Public verified time | '+cell(aar.publication?.verified_at)+' |',
  '| Final saved-context review | '+cell(aar.visual_review?.result)+'; '+cell(aar.visual_review?.reviewed_targets)+' targets |',
