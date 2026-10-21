@@ -2,12 +2,12 @@
   "schema_version": "external-image-after-action-v1",
   "edition_date": "2026-10-21",
   "cycle_date": "2026-10-20",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
   "original_source_commit_sha": "d30c06dd307a99a1ec11ee552baf5aa883220bc1",
   "original_bundle_sha256": "eb89487277260254468b9dfce91d91736cfcb072893bf772e7ccf3b48e1d438f",
   "human_readable_path": "external-image-packages/2026-10-21/reviews/after-action.md",
-  "recorded_at": "2026-10-21T03:17:20.481032+00:00",
+  "recorded_at": "2026-10-21T03:26:34.549549+00:00",
   "production": {
     "actual_generation_count": 10,
     "accepted_count": 6,
@@ -88,17 +88,26 @@
     }
   ],
   "visual_review": {
-    "result": "PENDING_DEPLOYMENT",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-10-21/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "review_path": "external-image-packages/2026-10-21/reviews/live/semantic-pixel-review.json",
+    "mobile_fine_text_requires_full_size": true
   },
   "usage": {
     "work_usage_percent": null,
     "source": "UNKNOWN"
   },
   "publication": {
-    "result": "NOT_DEPLOYED",
-    "verified_at": null
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-21T03:22:52.885Z",
+    "workflow_run_id": 39538176754,
+    "protected_merge_sha": "1e21504504db6dcbc93ab77eeea3377126b56523",
+    "independent_http_checks_recorded": 44,
+    "historical_objects_verified": 17,
+    "package_pr": 232,
+    "exact_head_ci_sha": "8b03efbedb1f4eaa15caf7431a6dac1f1c8d518a",
+    "push_ci_run_id": 39537842071,
+    "pr_ci_run_id": 39538043041
   },
   "owner_personal_artwork_review_claimed": false,
   "notes": [
@@ -106,6 +115,9 @@
     "Current OpenAI page says acquired and Plaud lists four creation paths; frozen story says agreed and separates template/file paths. No acquisition-status or creation-count assertion is included in the art.",
     "Two first-pass acceptances out of six; all four rejected candidates corrected with targeted edits. Genuine attempt counts include edits.",
     "All six exact committed binaries independently matched local accepted bytes and decoded PNG checks. No accepted art regenerated for transport.",
-    "Final desktop/mobile live review and release remain pending. Never infer a semantic PASS from capture counts or CI."
+    "Final desktop/mobile live review and release remain pending. Never infer a semantic PASS from capture counts or CI.",
+    "All 24 exact-release dated/permanent desktop/mobile captures inspected individually; each capture digest matched captures.json and accepted asset binding. Original release artifact digest verified; no release was rerun for QA.",
+    "Independent local HTTP validation matched all six live PNG hashes and 12 exact story/alt/image pairings; the separate 17-object October 8 live audit passed.",
+    "Original checkpoint-after-action.json and .md, manifest and six accepted PNGs remain unchanged. Final closeout changes only reporting/review/worker evidence and learning ledger."
   ]
 }
