@@ -28,3 +28,11 @@ The owner extended the image assignment through publication. Revision 6 uses the
 | Developer article in nontechnical lane | Numeric allocation did not establish user prerequisites | Two substantive audience_fit records with noncoding actions | Worktree/pull-request actions rejected despite category label |
 
 Operational instructions: docs/automation/OCT20_APPROVED_IMPROVEMENTS.md. Effective for new October 21+ content; original October 20 bundle, image manifest and all accepted PNGs are preserved. No new producer task or paid API was added. Historical chronology remains explicitly unresolved rather than rewritten as a fabricated success.
+
+## October 21 — media educational value and AI relevance (DAB-MEDIA-20261021-001)
+
+| Observed failure | Root cause | Prospective prevention | Correction / status |
+|---|---|---|---|
+| Owner found both videos ad-like and low value, and podcast #2 mostly unrelated to AI | Identity, runtime, publisher/channel diversity and source metadata were checked without substantive instructional-content scoring or full-episode AI proportion | October 22+ selection must reject promotional trailers and thin demos; verify >=3 transferable instructional lessons or usable procedure, require AI-centered podcasts with >=75% relevant non-ad duration supported by transcript/chapters, and record honest playback vs content evidence | October 21 three-media replacement sources frozen in [revision](../config/media-revisions/2026-10-21-media-value.json), with original bundle/job and images untouched. Protected live correction must independently pass CI, route hashes and Oct8 preservation; do not declare publication before receipt |
+
+The [dedicated October 21 editorial media AAR](after-action/2026-10-21-media-quality-aar.md) records the owner report, candidate evidence, trade-offs and regression examples. This is separate from and does not overwrite the image worker's AAR, generation logs or image acceptance. Editorial recommendations and workflow tests are not proof that someone has watched the replacement videos or listened to the full podcast.

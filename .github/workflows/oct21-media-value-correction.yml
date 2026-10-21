@@ -1,0 +1,135 @@
+name: oct21-media-value-correction
+# One-time exact-edition, media-only repair; no new AI producer.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/oct21-media-value-correction.yml'
+      - 'config/media-revisions/2026-10-21-media-value.json'
+      - 'scripts/correct-oct21-media-value.py'
+      - 'scripts/test-oct21-media-value.py'
+      - 'scripts/verify-oct21-media-value-release.py'
+  push:
+    branches: [main]
+    paths:
+      - 'config/media-revisions/2026-10-21-media-value.json'
+permissions:
+  contents: read
+jobs:
+  preview:
+    if: ${{ github.event_name == 'pull_request' && github.repository == 'gttome/Daily-AI-Brief-Compiler' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests for the three exact media changes
+        run: python3 scripts/test-oct21-media-value.py
+      - name: Stage against latest actually published history
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin shadow-pages-history
+          git worktree add --detach history FETCH_HEAD
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          r=json.loads(pathlib.Path('config/media-revisions/2026-10-21-media-value.json').read_text())
+          b=pathlib.Path('history/site/image-jobs/2026-10-21/job.json').read_bytes()
+          assert hashlib.sha256(b).hexdigest()==r['original_immutable_image_job_sha256']
+          PY
+          python3 scripts/correct-oct21-media-value.py config/media-revisions/2026-10-21-media-value.json history/site build/corrected build/media-stage.json
+          python3 - <<'PY'
+          import json,pathlib
+          r=json.loads(pathlib.Path('build/media-stage.json').read_text())
+          assert r['result']=='STAGED_VALIDATED_NOT_LIVE' and len(r['changed'])==12
+          assert r['image_generation_count']==0 and r['source_bundle_modified'] is False
+          PY
+  publish:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'gttome/Daily-AI-Brief-Compiler' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    concurrency:
+      group: daily-compiler-pages-deploy
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+      - name: Admit original protected-main correction only
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          git diff --name-only HEAD^ HEAD -- config/media-revisions/2026-10-21-media-value.json | grep -qx 'config/media-revisions/2026-10-21-media-value.json'
+          python3 scripts/test-oct21-media-value.py
+          git fetch --depth=1 origin shadow-pages-history
+          HISTORY_HEAD="$(git rev-parse FETCH_HEAD)"
+          echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
+          git worktree add --detach history "$HISTORY_HEAD"
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          r=json.loads(pathlib.Path('config/media-revisions/2026-10-21-media-value.json').read_text())
+          job=pathlib.Path('history/site/image-jobs/2026-10-21/job.json').read_bytes()
+          assert hashlib.sha256(job).hexdigest()==r['original_immutable_image_job_sha256'], 'Sealed image job changed'
+          assert r['original_bundle_sha256']=='eb89487277260254468b9dfce91d91736cfcb072893bf772e7ccf3b48e1d438f'
+          PY
+      - name: Stage the media-only edit, preserving all existing images and protected history
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/correct-oct21-media-value.py config/media-revisions/2026-10-21-media-value.json history/site build/corrected build/media-stage.json
+          python3 - <<'PY'
+          import json,pathlib
+          s=json.loads(pathlib.Path('build/media-stage.json').read_text())
+          assert len(s['changed'])==12 and s['image_generation_count']==0
+          assert s['source_bundle_modified'] is False
+          PY
+      - name: Refuse concurrent main or Pages-history changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/corrected
+      - id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Verify all twelve actual public corrected bytes
+        run: python3 scripts/verify-oct21-media-value-release.py build/media-stage.json build/media-live.json
+      - name: Independently audit the seventeen protected October 8 public objects
+        run: node scripts/audit-oct8-live.mjs build/oct8-audit-after-media.json
+      - name: Persist exact corrected routes and verified AAR receipt to history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          python3 - <<'PY'
+          import json,pathlib,shutil
+          r=json.loads(pathlib.Path('build/media-live.json').read_text())
+          s=json.loads(pathlib.Path('build/media-stage.json').read_text())
+          assert r['result']=='LIVE_MEDIA_CORRECTION_VERIFIED'
+          assert len(r['verified_routes'])==len(s['changed'])==12
+          for item in s['changed']:
+              path=pathlib.Path(item['route'])
+              shutil.copyfile(pathlib.Path('build/corrected')/path,pathlib.Path('history/site')/path)
+          r['oct8_live_audit']=json.loads(pathlib.Path('build/oct8-audit-after-media.json').read_text())
+          out=pathlib.Path('history/correction-receipts/2026-10-21-media-value.json')
+          assert not out.exists(), 'Do not overwrite published correction receipt'
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+          PY
+          git -C history config user.name "Daily Brief Corrections"
+          git -C history config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C history add -- site correction-receipts/2026-10-21-media-value.json
+          git -C history commit -m "Record verified October 21 three-item media value correction"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          git -C history push origin HEAD:refs/heads/shadow-pages-history

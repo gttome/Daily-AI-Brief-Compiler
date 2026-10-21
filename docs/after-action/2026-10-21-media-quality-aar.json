@@ -1,0 +1,77 @@
+{
+  "schema_version": "daily-compiler-editorial-quality-aar-v1",
+  "edition_date": "2026-10-21",
+  "incident_id": "DAB-MEDIA-20261021-001",
+  "scope": "two videos and podcast slot 2 only",
+  "owner_feedback_date": "2026-10-20",
+  "source": "Owner firsthand media usefulness feedback in ChatGPT",
+  "classification": "EDITORIAL_VALUE_FAILURE",
+  "status": "CORRECTION_SELECTED_PUBLICATION_UNVERIFIED",
+  "compiler_original_state": "SHADOW_VERIFIED",
+  "original_bundle_sha256": "eb89487277260254468b9dfce91d91736cfcb072893bf772e7ccf3b48e1d438f",
+  "immutable_image_job_sha256": "a023a981fce77b06546441515df4d0408077e669e551bffaf15bd0e252a8a134",
+  "verified_audiovisual_playback": false,
+  "failed_slots": [
+    {
+      "slot": "video-general",
+      "reader_id": "dab-video-2026-10-21-general",
+      "old_title": "VideoGen Model 1 launch film",
+      "defect": "Owner reports promotional advertisement with minimal learning value; 32-second launch film, publisher-authored launch copy.",
+      "new_title": "Large Language Models explained briefly",
+      "new_source": "3Blue1Brown",
+      "new_url": "https://www.youtube.com/watch?v=LPZh9BOjkQs",
+      "original_date": "2024-11-20",
+      "duration_seconds": 478,
+      "source_evidence": "https://www.3blue1brown.com/lessons/mini-llm/",
+      "content_reviewed": true,
+      "playback_verified": false,
+      "status": "SELECTED_NOT_YET_PUBLISHED"
+    },
+    {
+      "slot": "video-agent-skills",
+      "reader_id": "dab-video-2026-10-21-agent-skills",
+      "old_title": "Keep Your Glean Skills Up to Date with Skill Reflection",
+      "defect": "Owner reports product advertisement and little instructional value; 96-second branded product demonstration.",
+      "new_title": "RAG vs Fine-Tuning vs Prompt Engineering: Optimizing AI Models",
+      "new_source": "IBM Technology",
+      "new_url": "https://www.youtube.com/watch?v=zYGDpG-pTho",
+      "original_date": "2025-04-14",
+      "duration_seconds": 790,
+      "source_evidence": "https://mediacenter.ibm.com/media/RAG%2Bvs%2BFine-Tuning%2Bvs%2BPrompt%2BEngineering%3A%2BOptimizing%2BAI%2BModels/1_0r35dbjl",
+      "content_reviewed": true,
+      "playback_verified": false,
+      "status": "SELECTED_NOT_YET_PUBLISHED"
+    },
+    {
+      "slot": "podcast-2",
+      "reader_id": "dab-podcast-2026-10-21-2",
+      "old_title": "Macron’s twilight, Sudan market strike, Alberta vote (Updated)",
+      "defect": "Owner reports only a small fraction of a general-news episode covers AI, despite AI being the stated recommendation rationale.",
+      "new_title": "Is Education Failing our Students in this AI-Driven World?",
+      "new_source": "Practical AI",
+      "new_url": "https://practicalai.show/376",
+      "original_date": "2026-10-15",
+      "duration_seconds": 2631,
+      "source_evidence": "https://practicalai.show/376/transcript",
+      "content_reviewed": true,
+      "playback_verified": false,
+      "status": "SELECTED_NOT_YET_PUBLISHED"
+    }
+  ],
+  "root_cause": "Media identity, duration, URL, freshness and channel rotation checks did not establish pedagogical substance or proportion of AI content. Publisher promotional content and tangentially AI-related general news could qualify.",
+  "prevention": {
+    "effective_new_editions": "2026-10-22",
+    "video": "Reject product launch films, trailers, product advertisements and marketing demonstrations with insufficient transferable teaching. Require source-grounded learning objectives, at least three concrete independently useful substantive ideas or a demonstrated reusable procedure, and a usefulness review based on timestamped content/transcript/chapter evidence (not product-page copy alone). Favor short 5-10 minute explainers; 10-20 minute fallback needs explicit justification.",
+    "podcast": "At least 75% of substantive editorial episode runtime must be AI or practical AI workflow discussion, supported by whole-episode agenda/transcript/timestamps; exclude ad reads from numerator. Multi-topic general-news digests containing a brief AI segment are rejected.",
+    "verification": "Content-reviewed and playback-verified remain separate booleans; metadata/channel/episode facts never substitute for usefulness evidence. No claim of complete viewing/listening without such evidence.",
+    "constraints": "Preserve 2 videos, 2 podcasts, category diversity, historical uniqueness, exact URLs, sealed original source bundle, source job, approved PNGs, Oct8 objects and zero paid API. Corrections require protected PR and actual live verification."
+  },
+  "publication": {
+    "corrected_reader_live": false,
+    "corrected_feeds_live": false,
+    "protected_correction_ci_verified": false,
+    "source_bundle_preserved": true,
+    "images_preserved": true
+  },
+  "usage": "UNKNOWN — no inferred tool/model usage."
+}
