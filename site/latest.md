@@ -4,7 +4,7 @@
 **Coverage period:** October 15–20, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-21-m12">Orchestra Bio brings agent coordination to drug programs</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m14">Turn meeting review into one reusable Plaud Skill</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m10">Zoom proposes a governed context layer for conversation work</a><span>Article · about 13 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m11">Gemini for Government Services centers citations and controls</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m01">llm-d v1.0 makes inference operations the product</a><span>Article · about 14 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m02">Meta narrows the agent orchestrator to routing and handoffs</a><span>Article · about 12 min source read</span></li><li><a href="#general">VideoGen Model 1 launch film</a><span>Video · 0:32</span></li><li><a href="#agents-for-non-technical-people">Keep Your Glean Skills Up to Date with Skill Reflection</a><span>Video · 1:36</span></li><li><a href="#podcast-dab-podcast-2026-10-21-1">Report: AI agents helped breach 100+ websites — how?</a><span>Podcast · 7:00</span></li><li><a href="#podcast-dab-podcast-2026-10-21-2">Macron’s twilight, Sudan market strike, Alberta vote (Updated)</a><span>Podcast · 13:16</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-21-m12">Orchestra Bio brings agent coordination to drug programs</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m14">Turn meeting review into one reusable Plaud Skill</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m10">Zoom proposes a governed context layer for conversation work</a><span>Article · about 13 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m11">Gemini for Government Services centers citations and controls</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m01">llm-d v1.0 makes inference operations the product</a><span>Article · about 14 min source read</span></li><li><a href="#reading-dab-story-2026-10-21-m02">Meta narrows the agent orchestrator to routing and handoffs</a><span>Article · about 12 min source read</span></li><li><a href="#general">Large Language Models explained briefly</a><span>Video · 7:58</span></li><li><a href="#agents-for-non-technical-people">RAG vs Fine-Tuning vs Prompt Engineering: Optimizing AI Models</a><span>Video · 13:10</span></li><li><a href="#podcast-dab-podcast-2026-10-21-1">Report: AI agents helped breach 100+ websites — how?</a><span>Podcast · 7:00</span></li><li><a href="#podcast-dab-podcast-2026-10-21-2">Is Education Failing our Students in this AI-Driven World?</a><span>Podcast · 43:51</span></li></ol></section>
 <!-- reader-release:end -->
 
 <span id="reading-dab-story-2026-10-21-m12"></span>
@@ -253,21 +253,21 @@
 
 ## 7. General
 
-### VideoGen Model 1 launch film
+### Large Language Models explained briefly
 
 <a href="{{ '/videos/2026-10-21/general/' | relative_url }}" data-item-id="dab-video-2026-10-21-general" data-edition-date="2026-10-21" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** VideoGen  
-**Date:** October 20, 2026  
-**Duration:** 0:32  
+**Channel:** 3Blue1Brown  
+**Date:** November 20, 2024  
+**Duration:** 7:58  
 **Format:** Video
 
-**Summary:** VideoGen’s official Model 1 page labels a 32-second launch film and explains a prompt-to-finished-video workflow that plans screenplay, dialogue, shots and pacing. The page also distinguishes the launch film from longer generated examples. This is useful as a compact product orientation; claims and examples remain publisher-controlled. The page and text were reviewed, but playback was not performed.
+**Summary:** Grant Sanderson visually explains next-token prediction, model parameters, pretraining, human-feedback tuning and the transformer attention mechanism. The lesson shows how language models produce fluent output without independently checking facts. A detailed companion lesson supports these concepts; this is an evergreen explanation, not a current product launch or October 2026 news clip.
 
-**Why it matters:** Use the clip and page to define a pilot brief, then compare narrative consistency, correction effort, provenance and cost across several prompts instead of treating one launch montage as performance evidence.
+**Why it matters:** Use the explanation to distinguish fluent text generation from reliable evidence. Ask how an answer was grounded and checked instead of treating confident or plausible wording as proof of correctness.
 
 
 
-**Source:** <a href="https://www.youtube.com/watch?v=eEA6w7pX5LI" data-item-id="dab-video-2026-10-21-general" data-edition-date="2026-10-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+**Source:** <a href="https://www.youtube.com/watch?v=LPZh9BOjkQs" data-item-id="dab-video-2026-10-21-general" data-edition-date="2026-10-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-21" data-feedback-story-id="dab-video-compiler-2026-10-21-general">
   <span class="feedback-prompt">How useful was this?</span>
@@ -280,21 +280,21 @@
 
 ## 8. Agents for Everyone
 
-### Keep Your Glean Skills Up to Date with Skill Reflection
+### RAG vs Fine-Tuning vs Prompt Engineering: Optimizing AI Models
 
 <a href="{{ '/videos/2026-10-21/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-21-agent-skills" data-edition-date="2026-10-21" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** Glean  
-**Date:** October 15, 2026  
-**Duration:** 1:36  
+**Channel:** IBM Technology  
+**Date:** April 14, 2025  
+**Duration:** 13:10  
 **Format:** Video
 
-**Summary:** Glean’s original product-video page identifies a short Skill Reflection demonstration; its companion product article explains that accumulated feedback becomes a proposed skill update which a user must approve. An independent index reports a 1:36 runtime. The material offers a concrete governance pattern for maintaining reusable procedures. Page content was reviewed, but playback was not performed.
+**Summary:** Martin Keen compares three ways to improve AI responses: clearer prompting, retrieval-augmented generation and fine-tuning. The lesson distinguishes situations needing up-to-date or proprietary facts from those needing better instructions or more specialized model behavior. It explains the different infrastructure, latency and training implications; this is an evergreen methods lesson, not an independent vendor benchmark.
 
-**Why it matters:** Use the demonstration as a review pattern: collect repeated corrections, inspect the supporting feedback and approve only durable changes, keeping one-off project preferences out of a shared skill.
+**Why it matters:** Diagnose the failure before selecting a tool. Start with clearer instructions, retrieve trusted current documents when knowledge is missing, and only consider fine-tuning when a measured specialization problem justifies its training cost.
 
 
 
-**Source:** <a href="https://www.youtube.com/watch?v=gspob_KFGUA" data-item-id="dab-video-2026-10-21-agent-skills" data-edition-date="2026-10-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+**Source:** <a href="https://www.youtube.com/watch?v=zYGDpG-pTho" data-item-id="dab-video-2026-10-21-agent-skills" data-edition-date="2026-10-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-21" data-feedback-story-id="dab-video-compiler-2026-10-21-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
@@ -342,35 +342,35 @@
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-### 10. Macron’s twilight, Sudan market strike, Alberta vote (Updated)
+### 10. Is Education Failing our Students in this AI-Driven World?
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">AI-focused educational replacement</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-21-2" data-podcast-title="Macron’s twilight, Sudan market strike, Alberta vote (Updated)" data-podcast-url="/podcasts/2026-10-21/macron-s-twilight-sudan-market-strike-alberta-vote-updated/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-21-2" data-podcast-title="Is Education Failing our Students in this AI-Driven World?" data-podcast-url="/podcasts/2026-10-21/macron-s-twilight-sudan-market-strike-alberta-vote-updated/" hidden></span>
 
 <a href="{{ '/podcasts/2026-10-21/macron-s-twilight-sudan-market-strike-alberta-vote-updated/' | relative_url }}" data-item-id="dab-podcast-2026-10-21-2" data-edition-date="2026-10-21" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** Reuters World News  
-**Host / guest:** Not listed  
+**Show:** Practical AI  
+**Host / guest:** Daniel Whitenack and Chris Benson  
 **Focus:** Agents for Everyone  
-**Date:** October 20, 2026  
-**Duration:** 13:16  
+**Date:** October 15, 2026  
+**Duration:** 43:51  
 **Topics:** 
 
-**Summary:** Reuters World News devotes part of its October 20 briefing to reporting that a hacker used teams of AI agents against more than 100 sites. The full publisher transcript describes the orchestration platform, autonomous probing and important uncertainty about data extraction. Reuters provides the exact episode page and transcript; an external index reports 13:16. Audio was not played.
+**Summary:** Daniel Whitenack and Chris Benson discuss how pervasive AI changes the foundational knowledge students need, how personalized learning might work, and why schools struggle to adapt. They explore opportunities for educators while preserving critical thinking, creativity and problem-solving skills. The publisher's episode-specific transcript establishes that AI, rather than general world news, is the sustained subject. Audio playback was not performed.
 
-**Why it matters:** Read the transcript to distinguish observed agent behavior from unverified breach impact, then convert the account into controls for autonomous probing, credential access, logging and rapid containment.
+**Why it matters:** Apply the discussion to professional AI education: teach verification, judgment and problem framing alongside tool proficiency. Pilot AI-supported learning with human oversight, and measure learner understanding rather than merely completed assignments.
 
-**Connection to the brief:** Read the transcript to distinguish observed agent behavior from unverified breach impact, then convert the account into controls for autonomous probing, credential access, logging and rapid containment.
+**Connection to the brief:** Apply the discussion to professional AI education: teach verification, judgment and problem framing alongside tool proficiency. Pilot AI-supported learning with human oversight, and measure learner understanding rather than merely completed assignments.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://www.reuters.com/podcasts/macrons-twilight-trumps-approval-ai-hacking-2026-10-20/" data-item-id="dab-podcast-2026-10-21-2" data-edition-date="2026-10-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Reuters World News</a>
+**Listen / watch:** <a href="https://practicalai.show/376" data-item-id="dab-podcast-2026-10-21-2" data-edition-date="2026-10-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Practical AI</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-21" data-feedback-story-id="dab-podcast-compiler-2026-10-21-2">
   <span class="feedback-prompt">How useful was this?</span>
