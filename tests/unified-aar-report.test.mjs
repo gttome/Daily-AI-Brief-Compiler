@@ -46,6 +46,7 @@ function run(overrides={},relocated=false){
   executable=path.join(tmp,'render-unified-production-aar.mjs');
   fs.copyFileSync(script,executable);
   fs.copyFileSync(path.join(root,'scripts/image-aar-contract.mjs'),path.join(tmp,'image-aar-contract.mjs'));
+  fs.copyFileSync(path.join(root,'scripts/owner-usage.mjs'),path.join(tmp,'owner-usage.mjs'));
  }
  const res=spawnSync(process.execPath,[executable,cy,input,output],{encoding:'utf8'});
  assert.equal(res.status,0,res.stderr||res.stdout);
