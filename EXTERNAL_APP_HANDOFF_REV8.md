@@ -28,3 +28,8 @@ After the current job and complete image reviews, persist `external-image-packag
 ## October 20 owner-approved improvements — October 21 onward
 
 Read and apply [the six approved production improvements](docs/automation/OCT20_APPROVED_IMPROVEMENTS.md). New editorial bundles require real chronology, nontechnical audience-fit evidence, video publisher variety and exact podcast episode links. New image packages require story-specific label/causal-state preflight plus canonical reviews/after-action.json and after-action.md. Preserve historical bundles and accepted PNGs. Complete actual 24-context visual QA and terminal closeout after release; never infer semantic PASS from screenshots or CI. Keep existing schedules and one worker per lane.
+
+
+## October 21 AAR precision fix — effective October 22 edition
+
+Read [October 21 permanent improvements](docs/automation/OCT21_AAR_IMPROVEMENTS.md) and scripts/image-aar-contract.mjs. In the existing image session record genuine UTC host_execution_observed_at at the first observable in-session clock and generation_started_at immediately before the first native image invocation; set the exact approved observation-source fields. These are executor clock observations, not proof of the scheduler fire or model provider runtime. For new image packages the canonical after-action pre-PR gate rejects missing, reversed, future or inferred timestamps. Preserve six authentic image quality gates, final 24 actual live semantic-pixel checks, accepted bytes, protected PR, and current recurrence.
