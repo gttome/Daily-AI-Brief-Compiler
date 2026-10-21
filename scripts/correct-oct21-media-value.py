@@ -181,13 +181,11 @@ def patch_json(route, source, revision):
             record = one_record(data[collection],key,item["reader_id"])
             require(record["title"] == old["title"], "Stale feedback registry")
             record["title"] = new["title"]
-        proof = copy.deepcopy(data)
-        for entry in proof[collection]:
-            if entry[key] == item["reader_id"]:
-                original_record = one_record(previous[collection], key, item["reader_id"])
-                entry.clear()
-                entry.update(original_record)
-        require(proof == previous, "Unrelated JSON records changed: " + route)
+        original_ids = {x["reader_id"] for x in revision["items"]}
+        original_others = [entry for entry in previous[collection] if entry[key] not in original_ids]
+        actual_others = [entry for entry in data[collection] if entry[key] not in original_ids]
+        require(original_others == actual_others,
+                "Unrelated JSON records changed: " + route)
     return json.dumps(data,ensure_ascii=False,indent=2) + "\n"
 
 def patch_archive(source, revision):
