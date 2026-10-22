@@ -2,12 +2,12 @@
   "schema_version": "external-image-after-action-v1",
   "edition_date": "2026-10-22",
   "cycle_date": "2026-10-21",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "job_sha256": "12c6c003ccd7304b9fd3ebcb80c0ea57ff8eb18072df65c174f37fc33a249f7b",
   "original_source_commit_sha": "493574e6ded1587ef8c8dc287a5bd4f3326cf8d1",
   "original_bundle_sha256": "db3104affb77236f06fa2c89f6219a3beb7b41b580d2409d774eac4d37554316",
   "human_readable_path": "external-image-packages/2026-10-22/reviews/after-action.md",
-  "recorded_at": "2026-10-22T02:43:45Z",
+  "recorded_at": "2026-10-22T03:12:58.047329+00:00",
   "production": {
     "actual_generation_count": 14,
     "accepted_count": 6,
@@ -112,11 +112,16 @@
       "phase": "Rejected-original evidence transport",
       "issue": "A large native PNG base64 JSON output was truncated by the local command output limit before upload.",
       "correction": "Read bounded slices, checked complete encoded length and matched returned Git blob SHA for all eight preserved rejected originals."
+    },
+    {
+      "phase": "Combined report convergence",
+      "issue": "Initial terminal receipt used custom lease-release fields that the existing combined reporter did not recognize.",
+      "correction": "Added canonical lease_status RELEASED and all six accepted_hashes without changing accepted PNGs or manifest."
     }
   ],
   "visual_review": {
-    "result": "PENDING_DEPLOYMENT",
-    "reviewed_targets": 0,
+    "result": "PASS",
+    "reviewed_targets": 24,
     "review_path": "external-image-packages/2026-10-22/reviews/live/semantic-pixel-review.json",
     "mobile_fine_text_requires_full_size": true
   },
@@ -125,15 +130,80 @@
     "source": "UNKNOWN"
   },
   "publication": {
-    "result": "PENDING_PROTECTED_PR"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-22T03:00:18.045Z",
+    "workflow_run_id": 39714386655,
+    "protected_merge_sha": "634db354868c77ce9f207e586a631ddbdf19d4c9",
+    "package_pr": 235,
+    "exact_head_ci_sha": "cd0b2bb8a9e7d50cfd1af12b38957a4630448585",
+    "push_ci_run_id": 39713488666,
+    "pr_ci_run_id": 39713851663,
+    "independent_live_image_hashes": 6,
+    "story_image_pairings": 12,
+    "historical_objects_verified": 17
   },
   "owner_personal_artwork_review_claimed": false,
   "notes": [
     "All six complete compiler stories and original primary-source evidence reviewed; Salesforce release renderer returned a shell, so exact indexed publisher release and Help text supplied source evidence.",
     "No source or editorial, Watchlist, historical accepted PNG or protected October8 object was edited.",
     "Native artwork required targeted corrections for faux writing, causal routing, small export labels and invented UI chrome; no arbitrary attempt cap was used.",
-    "Final source-grounded six-set review passed. Full-size viewing may be needed for fine text on mobile; live contextual QA is still pending.",
     "Host and generation clocks are genuine observations from this invocation, not scheduler fire or provider-runtime telemetry. Usage remains UNKNOWN.",
-    "Formal capability-route receipt was written after image production; it describes observed callable operations and existing capture/release routes, not a retrospectively timed pre-generation script execution. Current live review remains pending."
+    "All24 actual dated/permanent desktop/mobile captures were inspected individually from the exact original release artifact. Artifact and capture SHA-256s matched, and every target matched its accepted image binding. No publication was rerun to obtain capture evidence.",
+    "Independent post-release checks matched six live PNGs, all12 story/alt/image pairings, public release status and all17 protected October8 objects.",
+    "Known separate reader defect: six article dates and four media dates render NaN. This image-only release preserves editorial HTML and does not claim that issue is repaired.",
+    "Original manifest, recurring assignment, checkpoint AARs and six accepted PNGs remain immutable. The final protected closeout changes only review/reporting/worker evidence and the existing learning ledger.",
+    "Dated Brief: https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-22/",
+    "oct22-t1-multimodal-retrieval: [Story](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-t1-multimodal-retrieval/) \u00b7 [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png?v=0068776cbf36) \u00b7 SHA-256 0068776cbf36d269370085357cc6d6ce55db851963a8589dfad2a8e4f21b29ac.",
+    "oct22-t2-agentic-threat-campaigns: [Story](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-t2-agentic-threat-campaigns/) \u00b7 [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png?v=6535e696ef70) \u00b7 SHA-256 6535e696ef700f10053b6590f7a67513cfbb60e2b7d0b00dd6943f4d8b76c640.",
+    "oct22-k1-nhs-admin-copilot: [Story](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-k1-nhs-admin-copilot/) \u00b7 [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png?v=6c74b0ccd722) \u00b7 SHA-256 6c74b0ccd7226cd67e83f3d79d504a97a7325819c79882df40232ee1f7728a51.",
+    "oct22-k2-asana-ai-teammates: [Story](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-k2-asana-ai-teammates/) \u00b7 [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png?v=9d71bc72065a) \u00b7 SHA-256 9d71bc72065a48c0c0aae3fd058679e66cc4a52187ec446ff8802a9d6683c6f6.",
+    "oct22-a1-claude-duet: [Story](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-a1-claude-duet/) \u00b7 [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png?v=544f232c5915) \u00b7 SHA-256 544f232c5915c99700761b14aa911718933beb038427583fcc0d4dc6e92edb4a.",
+    "oct22-a2-salesforce-skills: [Story](https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-a2-salesforce-skills/) \u00b7 [PNG](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png?v=8ad4c408d1ca) \u00b7 SHA-256 8ad4c408d1ca7e66080d743ca6bc5e12c918880d5e59348a3409b92405bdcf6c."
+  ],
+  "known_remaining_issues": [
+    {
+      "issue": "Invalid rendered date text",
+      "evidence": "The live reader renders six story dates and four media dates with NaN as the day.",
+      "status": "OPEN_SEPARATE_EDITORIAL_REPAIR_REQUIRED",
+      "root_cause": "Not diagnosed in this image-only run; original editorial bytes intentionally preserved."
+    }
+  ],
+  "published_story_images": [
+    {
+      "story_id": "oct22-t1-multimodal-retrieval",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-t1-multimodal-retrieval/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png?v=0068776cbf36",
+      "sha256": "0068776cbf36d269370085357cc6d6ce55db851963a8589dfad2a8e4f21b29ac"
+    },
+    {
+      "story_id": "oct22-t2-agentic-threat-campaigns",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-t2-agentic-threat-campaigns/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png?v=6535e696ef70",
+      "sha256": "6535e696ef700f10053b6590f7a67513cfbb60e2b7d0b00dd6943f4d8b76c640"
+    },
+    {
+      "story_id": "oct22-k1-nhs-admin-copilot",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-k1-nhs-admin-copilot/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png?v=6c74b0ccd722",
+      "sha256": "6c74b0ccd7226cd67e83f3d79d504a97a7325819c79882df40232ee1f7728a51"
+    },
+    {
+      "story_id": "oct22-k2-asana-ai-teammates",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-k2-asana-ai-teammates/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png?v=9d71bc72065a",
+      "sha256": "9d71bc72065a48c0c0aae3fd058679e66cc4a52187ec446ff8802a9d6683c6f6"
+    },
+    {
+      "story_id": "oct22-a1-claude-duet",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-a1-claude-duet/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png?v=544f232c5915",
+      "sha256": "544f232c5915c99700761b14aa911718933beb038427583fcc0d4dc6e92edb4a"
+    },
+    {
+      "story_id": "oct22-a2-salesforce-skills",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-22/oct22-a2-salesforce-skills/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png?v=8ad4c408d1ca",
+      "sha256": "8ad4c408d1ca7e66080d743ca6bc5e12c918880d5e59348a3409b92405bdcf6c"
+    }
   ]
 }
