@@ -30,7 +30,16 @@ const BOOK_URL=Object.freeze({
   'Generative AI Prompt Engineering Learning Ecosystem':'https://leanpub.com/GenAILearn'
 });
 const slugify=value=>String(value||'item').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,90)||'item';
-const dateAtNoon=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')?value+'T12:00:00.000Z':value;
+// Canonical reader dates are calendar-only. Publisher source evidence retains full UTC clocks.
+export function canonicalReaderDate(value){
+  if(typeof value!=='string')throw new Error('reader calendar date missing');
+  const match=value.match(/^(\d{4}-\d{2}-\d{2})(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2}))?$/);
+  if(!match||!Number.isFinite(Date.parse(value))||
+     new Date(match[1]+'T12:00:00Z').toISOString().slice(0,10)!==match[1])
+    throw new Error('reader calendar date invalid: '+value);
+  return match[1];
+}
+const dateAtNoon=value=>canonicalReaderDate(value)+'T12:00:00.000Z';
 const dayAge=(edition,event)=>Math.max(0,Math.floor((Date.parse(edition+'T12:00:00Z')-Date.parse(event+'T12:00:00Z'))/86400000));
 const focus=value=>{
   const mapped=FOCUS[value];
@@ -84,7 +93,7 @@ function adaptStory(bundle,story,environment){
     permanent_url:story.permanent_route,
     focus:focus(story.focus),
     headline:story.headline,
-    event_date:story.source.published_at,
+    event_date:canonicalReaderDate(story.source.published_at),
     image:{
       path:`briefs/images/${bundle.edition_date}/${filename}`,
       public_url:`${environment.publicBase}/briefs/images/${bundle.edition_date}/${filename}?v=${imageHash.slice(0,12)}`,
@@ -101,7 +110,7 @@ function adaptStory(bundle,story,environment){
       title:story.source.title,
       organization:story.source.publisher,
       url:story.source.url,
-      publication_date:story.source.published_at,
+      publication_date:canonicalReaderDate(story.source.published_at),
       reading_evidence:isPending(bundle)?{
         status:'verified',
         reading_minutes:story.reading_time_minutes,
@@ -123,7 +132,7 @@ function adaptStory(bundle,story,environment){
     },
     topics:[...story.topics],
     companies:[story.source.publisher],
-    freshness:freshness(bundle.edition_date,story.source.published_at),
+    freshness:freshness(bundle.edition_date,canonicalReaderDate(story.source.published_at)),
     selection_rationale:story.why_it_matters,
     editorial_limitation:'See the linked source for scope and limitations.',
     social_description:story.summary
@@ -135,7 +144,7 @@ function adaptVideo(bundle,video){
     status:'included',
     title:video.title,
     channel:video.source,
-    upload_date:video.original_date,
+    upload_date:canonicalReaderDate(video.original_date),
     runtime_seconds:durationSeconds(video.duration_minutes),
     url:video.url,
     verification_note:'Verified media identity and duration preserved from the edition bundle.',
@@ -155,7 +164,7 @@ function adaptPodcast(bundle,podcast,index){
     title:podcast.title,
     show:podcast.source,
     host:'Not listed',
-    publication_date:podcast.original_date,
+    publication_date:canonicalReaderDate(podcast.original_date),
     runtime_seconds:durationSeconds(podcast.duration_minutes),
     url:podcast.url,
     permanent_url:`/podcasts/${bundle.edition_date}/${slug}/`,
@@ -322,7 +331,8 @@ export function adaptCompilerBundle(bundle,{environment=readerEnvironment,priorW
   const stories=bundle.stories.map(story=>adaptStory(bundle,story,environment));
   const videos=bundle.videos.map(video=>adaptVideo(bundle,video));
   const podcasts=bundle.podcasts.map((podcast,index)=>adaptPodcast(bundle,podcast,index));
-  const dates=[...stories.map(x=>x.event_date),...videos.map(x=>x.upload_date),...podcasts.map(x=>x.publication_date)].sort();
+  // Coverage describes current edition ARTICLE sources, not years-old evergreen lessons.
+  const dates=stories.map(x=>x.event_date).sort();
   const edition={
     schema_version:'1.0.0',
     edition_id:`dab-edition-${bundle.edition_date}`,

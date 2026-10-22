@@ -1,6 +1,7 @@
 import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchlist-copy.mjs';
 import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/watchlist.mjs';
 import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading-copy.mjs';
+import {assertPublishedReaderQuality} from '../compiler/reader-quality.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -76,6 +77,8 @@ export function verifyBuiltReader({siteDir,sourceDir}){
       if(html.split('<strong>Summary:</strong>').length-1!==expected||html.split('<strong>Why it matters:</strong>').length-1!==expected)
         fail('Summary or Why it matters missing/repeated in '+route);
       if(!html.includes('class="reading-context"'))fail('reading-time and coverage context removed from '+route);
+      if(date>='2026-10-22')
+        assertPublishedReaderQuality(html,{route,expectedDates:expected});
     }
   }
   const watchlistData=JSON.parse(fs.readFileSync(path.join(sourceDir,'data','watchlist.json'),'utf8'));

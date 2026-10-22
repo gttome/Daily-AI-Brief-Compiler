@@ -64,6 +64,10 @@ jobs:
               node scripts/correct-generic-related-coverage.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            OCT22_READER_DATES_MEDIA_COPY_ONLY)
+              node scripts/correct-oct22-reader-dates.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -80,6 +84,13 @@ jobs:
                 r.editions_corrected!==7||r.accepted_png_files_byte_preserved<6||
                 r.original_articles_images_media_watchlist_unchanged!==true)
               throw Error('October 13–19 history-link integrity invariants failed');
+          }else if(r.schema_version==='daily-compiler-oct22-reader-correction-v1'){
+            if(r.edition_date!=='2026-10-22'||r.files_changed!==(r.homepage_latest_changed?14:11)||
+               r.dates_repaired!==(r.homepage_latest_changed?50:20)||
+               r.accepted_png_files_byte_preserved<6||
+               r.no_editorial_reseal!==true||
+               (r.homepage_latest_changed && (r.markdown_accepted_images_corrected!==6||r.html_accepted_images_corrected!==6)))
+              throw Error('October 22 reader/date/Markdown integrity invariants failed');
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
           NODE

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import {assertPublishedReaderQuality} from '../compiler/reader-quality.mjs';
 
 const baseUrl=process.argv[2];
 const editionDate=process.argv[3];
@@ -72,6 +73,8 @@ async function verifyOnce(){
   const editionUrl=new URL('briefs/'+editionDate+'/',baseUrl).href;
   const edition=await (await fetchOk(editionUrl)).text();
   if(!edition.includes('research-ledger-header'))throw new Error('canonical production reader header missing');
+  if(editionDate>='2026-10-22')
+    assertPublishedReaderQuality(edition,{route:'briefs/'+editionDate+'/',expectedDates:10});
   if((edition.match(/class="story-feedback story-feedback-compact star-feedback"/g)||[]).length!==10)throw new Error('live rating surfaces mismatch');
   if((edition.match(/data-feedback-rating="[1-5]"/g)||[]).length!==50)throw new Error('live five-star controls mismatch');
   const feedbackRegistry=JSON.parse(fs.readFileSync(sourceDir+'/'+manifest.feedback.registry_route,'utf8'));
