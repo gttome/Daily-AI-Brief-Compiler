@@ -1,7 +1,7 @@
 # Daily Generative AI Brief — October 22, 2026
 
 **Published:** October 22, 2026  
-**Coverage period:** October 22, 2026
+**Coverage period:** October 19–22, 2026
 
 <!-- reader-release:start -->
 <section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-22-m12">Claude Duet tests proactive briefs with approval gates for consequential actions</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m14">Salesforce turns a repeated office workflow into a reviewable reusable Skill</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m10">Yorkshire Ambulance Service keeps Copilot on the administrative side of care</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m11">Asana puts prebuilt AI Teammates inside ordinary project handoffs</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m01">NVIDIA splits agent retrieval into embedding, reranking and document parsing</a><span>Article · about 10 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m02">CrowdStrike documents threat actors experimenting with agentic attack workflows</a><span>Article · about 8 min source read</span></li><li><a href="#general">Why foundation models are a paradigm shift for AI</a><span>Video · 8:29</span></li><li><a href="#agents-for-non-technical-people">Choose the right AI model for your use case</a><span>Video · 4:14</span></li><li><a href="#podcast-dab-podcast-2026-10-22-1">Tool Integration Triggers Severe Safety Refusal Degradation</a><span>Podcast · 3:57</span></li><li><a href="#podcast-dab-podcast-2026-10-22-2">AI in the AM: Where’s the Steering Wheel?</a><span>Podcast · 1:25:09</span></li></ol></section>
@@ -17,7 +17,7 @@
 
 **Focus: Agents for Everyone**
 
-**Date:** October NaN, 2026
+**Date:** October 21, 2026
 
 **Topics:** Proactive assistants, Approval gates, Daily briefs
 
@@ -28,7 +28,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Claude Duet tests proactive briefs with approval gates for consequential actions. Planned illustration: An accessible illustration of a small-business owner reviewing a morning brief while four consequential actions—message, payment, signature and deletion—wait behind explicit approval gates.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/illustration-pending.svg?v=fe54b845623b)
+![Connected-app reading and brief preparation remain separate from a common approval boundary with four closed channels before messaging, payment, signature or deletion; preview judgment may err.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png?v=544f232c5915)
 
 **Summary:** Anthropic introduced Claude Duet as a research-preview proactive assistant that prepares briefs and can work across connected services in a managed virtual environment. The company says it asks approval before messaging, paying, signing or deleting. Access is limited to a US Pro and Max waitlist, and its recommendations may still be miscalibrated.
 
@@ -57,7 +57,7 @@
 
 **Focus: Agents for Everyone**
 
-**Date:** October NaN, 2026
+**Date:** October 19, 2026
 
 **Topics:** Reusable Skills, Skill Builder, Workflow review
 
@@ -68,7 +68,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Salesforce turns a repeated office workflow into a reviewable reusable Skill. Planned illustration: A clear five-stage office workflow showing a sales-operations manager drafting, inspecting, permission-checking, safely testing and approving a reusable Skill before team publication.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/illustration-pending.svg?v=fe54b845623b)
+![An exploded instruction-context-tool Skill package is drafted, inspected and tested; a manual correction loop returns to review, and publication follows an explicit decision before reuse. Permissions and rollout apply.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png?v=8ad4c408d1ca)
 
 **Summary:** Salesforce’s Winter ’27 release adds reusable Skills that package instructions, context and tools for agent workflows. Official help describes drafting a skill through Coworker, reviewing it in Skill Builder, testing its behavior and publishing it for reuse. Availability is rolling, and the reviewed documentation provides no independent effectiveness comparison.
 
@@ -97,7 +97,7 @@
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
-**Date:** October NaN, 2026
+**Date:** October 21, 2026
 
 **Topics:** Administrative AI, Human review, Healthcare governance
 
@@ -108,7 +108,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Yorkshire Ambulance Service keeps Copilot on the administrative side of care. Planned illustration: A professional workflow scene with ambulance-service staff reviewing an AI-organized operations brief at a desk, separated by a clear boundary from clinical decisions and patient-care actions.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/illustration-pending.svg?v=fe54b845623b)
+![Operational reports and guidance enter administrative organization, drafting and theme grouping before staff review and audience adaptation; clinical work is excluded.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png?v=6c74b0ccd722)
 
 **Summary:** Yorkshire Ambulance Service staff use Microsoft Copilot to organize reports, draft communications and surface themes from operational data, while retaining human review. Microsoft says NHS safeguards limit the tool to administrative rather than clinical work. The account includes staff experiences and reported trial savings, but it is a vendor-authored case study.
 
@@ -137,7 +137,7 @@
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
-**Date:** October NaN, 2026
+**Date:** October 22, 2026
 
 **Topics:** AI teammates, Workflow handoffs, Shared context
 
@@ -148,7 +148,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Asana puts prebuilt AI Teammates inside ordinary project handoffs. Planned illustration: A polished project-board illustration showing a human team assigning one bounded handoff to an AI teammate, with source inputs, permission boundaries, a review checkpoint and a returned work item.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/illustration-pending.svg?v=fe54b845623b)
+![Shared plan context links briefs, decision logs, prebuilt AI roles and authorized tools across nested task, project and portfolio scopes; these are vendor capability claims.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png?v=9d71bc72065a)
 
 **Summary:** Asana’s third-quarter release adds more than 30 prebuilt AI Teammates, shared context, connectors and a visual automation builder inside work-management flows. Teams can assign bounded roles and route work without building a separate agent stack. The announcement describes product capabilities, not independently measured productivity or quality gains.
 
@@ -175,7 +175,7 @@
 
 **Focus: Technical AI Engineering**
 
-**Date:** October NaN, 2026
+**Date:** October 21, 2026
 
 **Topics:** Multimodal retrieval, Evidence reranking, Document parsing
 
@@ -186,7 +186,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for NVIDIA splits agent retrieval into embedding, reranking and document parsing. Planned illustration: A clean technical diagram showing a mixed PDF collection flowing through embedding, reranking and parsing into a grounded agent answer, with separate evaluation gauges for relevance, token use and throughput.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/illustration-pending.svg?v=fe54b845623b)
+![Document images follow parallel direct-embedding and parsing paths; candidate evidence is jointly compared with a query before a ranked subset enters agent context. Vendor results vary.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png?v=0068776cbf36)
 
 **Summary:** NVIDIA released open Nemotron 3.5 models for embedding, reranking and document parsing across text and images. The publisher reports that adding its reranker cut agent inference tokens by about 13–14 percent in controlled tasks, while the parser converts document images into structured content. Results remain vendor-reported and workload-dependent.
 
@@ -215,7 +215,7 @@
 
 **Focus: Technical AI Engineering**
 
-**Date:** October NaN, 2026
+**Date:** October 21, 2026
 
 **Topics:** Agentic threats, Tool permissions, Attack harnesses
 
@@ -226,7 +226,7 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for CrowdStrike documents threat actors experimenting with agentic attack workflows. Planned illustration: A restrained security architecture illustration showing an exposed agent console, deterministic reconnaissance steps and specialist agents approaching protected systems, with permission gates and audit logs visibly interrupting the paths.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/illustration-pending.svg?v=fe54b845623b)
+![A limited vendor investigation compares supervisor-state-executor orchestration with deterministic routing and specialist delegation. The observed cases do not establish prevalence.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png?v=6535e696ef70)
 
 **Summary:** CrowdStrike describes four newly observed threat actors using exposed agent frameworks for reconnaissance and offensive workflows. The campaigns combined deterministic steps with model-selected actions or specialist agents, according to the vendor’s incident analysis. The evidence shows concrete attacker experimentation, but it comes from one security company and does not establish prevalence.
 
@@ -253,7 +253,7 @@
 
 <a href="{{ '/videos/2026-10-22/general/' | relative_url }}" data-item-id="dab-video-2026-10-22-general" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** IBM AI Academy  
-**Date:** November NaN, 2023  
+**Date:** November 9, 2023  
 **Duration:** 8:29  
 **Format:** Video
 
@@ -280,7 +280,7 @@
 
 <a href="{{ '/videos/2026-10-22/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-22-agent-skills" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** IBM AI Academy  
-**Date:** May NaN, 2024  
+**Date:** May 17, 2024  
 **Duration:** 4:14  
 **Format:** Video
 
@@ -314,15 +314,12 @@
 **Show:** The Observability Layer  
 **Host / guest:** Not listed  
 **Focus:** Agents for Everyone  
-**Date:** October NaN, 2026  
+**Date:** October 20, 2026  
 **Duration:** 3:57  
-**Topics:** 
 
 **Summary:** This complete transcript reviews evidence that tool access changes agent safety behavior, then connects monitoring limits, capability boundaries, policy and evaluation fragility into a compact governance briefing.
 
 **Why it matters:** Readers can translate the episode into a test plan that evaluates prompts, tools, permissions and monitoring together instead of assuming model-only safety transfers unchanged.
-
-**Connection to the brief:** Readers can translate the episode into a test plan that evaluates prompts, tools, permissions and monitoring together instead of assuming model-only safety transfers unchanged.
 
 
 
@@ -351,15 +348,12 @@
 **Show:** The Cognitive Revolution  
 **Host / guest:** Not listed  
 **Focus:** Agents for Everyone  
-**Date:** October NaN, 2026  
+**Date:** October 17, 2026  
 **Duration:** 1:25:09  
-**Topics:** 
 
 **Summary:** The full transcript examines control over connected agents, evaluation-aware models, hidden internal signals, formal verification, training data provenance and adoption trust, with clearly marked sponsor breaks.
 
 **Why it matters:** Readers can compare several control layers and extract a practical rule: preserve human steering, fallback access and verifiable evidence as agents gain more operational authority.
-
-**Connection to the brief:** Readers can compare several control layers and extract a practical rule: preserve human steering, fallback access and verifiable evidence as agents gain more operational authority.
 
 
 
