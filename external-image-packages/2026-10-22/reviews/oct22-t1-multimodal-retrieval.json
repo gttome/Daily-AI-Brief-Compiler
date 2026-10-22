@@ -1,0 +1,54 @@
+{
+  "schema_version": "external-image-acceptance-review-v8",
+  "edition_date": "2026-10-22",
+  "story_id": "oct22-t1-multimodal-retrieval",
+  "result": "PASS",
+  "inspected_saved_png_sha256": "0068776cbf36d269370085357cc6d6ce55db851963a8589dfad2a8e4f21b29ac",
+  "bytes": 504960,
+  "width": 1200,
+  "height": 630,
+  "bit_depth": 8,
+  "color_type": "RGB",
+  "interlace": "none",
+  "verified_original_source_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+  "generation_attempts": 3,
+  "inspection_method": "persisted_git_binary",
+  "reviewed_at": "2026-10-22T02:25:51Z",
+  "mechanism_notes": "Saved export inspected at 1200x630. Direct document-image embedding path bypasses the separate Parse/structure path. Text/image candidates converge into query-conditioned relevance comparison before agent context; vendor-dependent outcomes remain qualified. All twelve labels are legible, surfaces are blank rather than simulated text, and no scenic or numerical chart content remains. Final committed bytes will be rechecked before package admission.",
+  "required_labels": [
+    "Multimodal evidence retrieval",
+    "Document images",
+    "Text and images",
+    "Parse",
+    "Structure and reading order",
+    "Embed",
+    "Candidate evidence",
+    "Query",
+    "Rerank",
+    "Query-document relevance",
+    "Agent context",
+    "Vendor-reported results vary"
+  ],
+  "factual_fidelity_verified": true,
+  "quality_and_visual_text_verified": true,
+  "distinct_from_other_five_verified": true,
+  "no_people_humanoids_faces": true,
+  "no_logos_brands": true,
+  "no_photorealism": true,
+  "no_pseudo_writing": true,
+  "no_clipped_labels": true,
+  "safe_margins_verified": true,
+  "rejected_candidates": [
+    {
+      "attempt": 1,
+      "issue": "Simulated writing, landscape icons and quantitative-looking bars.",
+      "correction": "Replaced all unsupported marks with blank geometric evidence patches."
+    },
+    {
+      "attempt": 2,
+      "issue": "Parse arrow attached to wrong path.",
+      "correction": "Moved Parse to structure branch and separated direct image embedding."
+    }
+  ],
+  "set_comparison_status": "Reserved signature distinct; final six-set review remains required"
+}
