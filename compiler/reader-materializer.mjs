@@ -77,7 +77,8 @@ function restrictCoveragePeriodToArticles(root){
 export function removeEmptyAndRepeatedMediaCopy(value){
   return String(value)
     .replace(/^\*\*Topics:\*\*[ \t]*\r?\n/gm,'')
-    .replace(/<p><strong>Topics:<\/strong><\/p>\s*/g,'')
+    .replace(/<p><strong>Topics:<\/strong>\s*<\/p>\s*/g,'')
+    .replace(/<br\s*\/>\s*<strong>Topics:<\/strong>\s*(?=<\/p>)/g,'')
     .replace(/<strong>Topics:<\/strong><br \/>/g,'')
     .replace(/(\*\*Why it matters:\*\* ([^\r\n]+))\r?\n(?:\r?\n){1,3}\*\*Connection to the brief:\*\* \2(?=\r?\n|$)/g,'$1')
     .replace(/(<p><strong>Why it matters:<\/strong> ([^<]+)<\/p>)\s*<p><strong>Connection to the brief:<\/strong> \2<\/p>/g,'$1');

@@ -40,6 +40,8 @@ test('only blank topics and exactly duplicated podcast explanation are removed',
    '<p><strong>Connection to the brief:</strong> Test permissions and review.</p>';
  const fixed=removeEmptyAndRepeatedMediaCopy(original);
  assert.doesNotMatch(fixed,/Topics|Connection to the brief/);
+ const inline='<p><strong>Duration:</strong> 3:57<br />\n<strong>Topics:</strong></p>';
+ assert.equal(removeEmptyAndRepeatedMediaCopy(inline),'<p><strong>Duration:</strong> 3:57</p>');
  assertPublishedReaderQuality(fixed,{route:'podcast',expectedDates:1});
  assert.throws(()=>assertPublishedReaderQuality(original,{route:'original',expectedDates:1}),/empty_topics/);
  const unique='<p><strong>Connection to the brief:</strong> Separate source-grounded relation.</p>';

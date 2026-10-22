@@ -88,7 +88,8 @@ jobs:
             if(r.edition_date!=='2026-10-22'||r.files_changed!==(r.homepage_latest_changed?14:11)||
                r.dates_repaired!==(r.homepage_latest_changed?50:20)||
                r.accepted_png_files_byte_preserved<6||
-               r.no_editorial_reseal!==true)
+               r.no_editorial_reseal!==true||
+               (r.homepage_latest_changed && (r.markdown_accepted_images_corrected!==6||r.html_accepted_images_corrected!==6)))
               throw Error('October 22 reader/date/Markdown integrity invariants failed');
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);

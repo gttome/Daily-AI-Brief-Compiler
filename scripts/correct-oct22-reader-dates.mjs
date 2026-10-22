@@ -65,6 +65,18 @@ function imageFromPublishedStory(site,route,slot){
   if(matching.length!==1)throw Error('accepted image binding unavailable for '+route);
   return {url:matching[0][1],alt:matching[0][2]};
 }
+function fixHtmlImageParity(html,site){
+  const accepted=ORDER.filter(x=>x[2]).map(([route,_,slot])=>imageFromPublishedStory(site,route,slot));
+  const pattern=/<img src="https:\/\/gttome\.github\.io\/Daily-AI-Brief-Compiler\/briefs\/images\/2026-10-22\/illustration-pending\.svg\?v=[a-f0-9]{12}" alt="Illustration pending for [^"]+" \/>/g;
+  let count=0;
+  const result=html.replace(pattern,()=>{
+    const selected=accepted[count++];
+    if(!selected)throw Error('unexpected seventh pending illustration in latest HTML');
+    return '<img src="'+selected.url+'" alt="'+selected.alt+'" />';
+  });
+  if(count!==6)throw Error('six accepted latest HTML figures required; found '+count);
+  return result;
+}
 function fixMarkdownImageParity(md,site){
   const accepted=ORDER.filter(x=>x[2]).map(([route,_,slot])=>imageFromPublishedStory(site,route,slot));
   const pattern=/!\[Illustration pending for [^\]]+\]\(https:\/\/gttome\.github\.io\/Daily-AI-Brief-Compiler\/briefs\/images\/2026-10-22\/illustration-pending\.svg\?v=[a-f0-9]{12}\)/g;
@@ -102,6 +114,7 @@ export function correctOct22Reader({revisionFile,siteDir,outDir,receiptFile}){
     after=removeEmptyAndRepeatedMediaCopy(after);
     if(!selection)after=fixCoverage(after);
     if(route==='latest.md')after=fixMarkdownImageParity(after,siteDir);
+    if(route==='latest.html')after=fixHtmlImageParity(after,siteDir);
     if(after===before)throw Error('expected reader correction had no change: '+route);
     if(route.endsWith('.html'))assertPublishedReaderQuality(after,{route,expectedDates:expected.length});
     fs.writeFileSync(path.join(outDir,route),after);
@@ -125,6 +138,7 @@ export function correctOct22Reader({revisionFile,siteDir,outDir,receiptFile}){
     accepted_png_files_byte_preserved:pngCount,
     unrelated_files_byte_preserved:preserved.length,no_editorial_reseal:true,
     markdown_accepted_images_corrected:includeLatest?6:0,
+    html_accepted_images_corrected:includeLatest?6:0,
     changed
   };
   fs.mkdirSync(path.dirname(receiptFile),{recursive:true});
