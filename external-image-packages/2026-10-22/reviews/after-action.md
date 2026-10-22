@@ -42,6 +42,7 @@
 | Initial repository discovery | History branch name was initially used as a directory path; several referenced documents were first tried at incorrect locations. | Read exact shadow-pages-history ref and canonical root/docs paths; current immutable job and source bundle hashes matched. |
 | Connected binary transport | Local Git push had no credentials; generic fetch_blob attempted UTF-8 decoding of PNG bytes and failed. | Used connected GitHub create_blob, expected-head tree/commit/ref writes and base64 fetch_file readback; all six bytes matched. |
 | Saved image readback timing | One image-open attempt raced an unfinished local lazy Git blob download. | Waited for completion and matched SHA-256; later verified all six through connected base64 readback and Git objects. |
+| Rejected-original evidence transport | A large native PNG base64 JSON output was truncated by the local command output limit before upload. | Read bounded slices, checked complete encoded length and matched returned Git blob SHA for all eight preserved rejected originals. |
 
 ## Evidence and limitations
 
@@ -60,5 +61,7 @@ Native artwork required targeted corrections for faux writing, causal routing, s
 Final source-grounded six-set review passed. Full-size viewing may be needed for fine text on mobile; live contextual QA is still pending.
 
 Host and generation clocks are genuine observations from this invocation, not scheduler fire or provider-runtime telemetry. Usage remains UNKNOWN.
+
+Formal capability-route receipt was written after image production; it describes observed callable operations and existing capture/release routes, not a retrospectively timed pre-generation script execution. Current live review remains pending.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
