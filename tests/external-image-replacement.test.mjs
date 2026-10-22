@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {
-  slotsFor,replaceSingleTag,verifyNoOtherChanges,prepareExternalImageReplacement
+  slotsFor,replaceSingleTag,replaceMarkdownFigure,verifyNoOtherChanges,prepareExternalImageReplacement
 } from '../scripts/prepare-external-image-replacement.mjs';
 
 const DATE='2026-10-11';
@@ -75,4 +75,16 @@ test('preparation does not touch October 8 or page history for an unpublished or
     manifest:{job_sha256:'0'.repeat(64)},stagingReceipt:null,historyRoot:'/nonexistent/history',
     outputRoot:'/nonexistent/new',repoRoot:'/nonexistent/repo',historyHead:'f'.repeat(40)};
   assert.throws(()=>prepareExternalImageReplacement(args),/unqualified_stale_or_unpublished_source/);
+});
+
+test('future image release patches source-bound latest Markdown rather than regenerating accepted art',()=>{
+ const old='Before\n!['+'Illustration pending for '+story.headline+'. Planned illustration: '+story.image_alt_intent+
+   ']('+base+'briefs/images/'+DATE+'/illustration-pending.svg?v=fe54b845623b)\nAfter';
+ const patched=replaceMarkdownFigure(old,story,image,'Reviewed exact causal diagram');
+ assert.match(patched,/Reviewed exact causal diagram/);
+ assert.match(patched,/dab-edition-2026-10-11-m01.png/);
+ assert.ok(patched.startsWith('Before\n')&&patched.endsWith('\nAfter'));
+ assert.throws(()=>replaceMarkdownFigure(patched,story,image),/exactly_one_original_markdown_placeholder/);
+ assert.throws(()=>replaceMarkdownFigure(old+old,story,image),/exactly_one_original_markdown_placeholder/);
+ assert.throws(()=>replaceMarkdownFigure(old.replace('illustration-pending.svg','wrong.png'),story,image),/not_exact_original_markdown_image/);
 });

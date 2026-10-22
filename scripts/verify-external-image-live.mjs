@@ -44,13 +44,20 @@ export async function verifyExternalImageLive({receipt,stagedSiteRoot,priorHisto
   if(receipt?.schema_version!=='external-compiler-image-only-replacement-preparation-v1'||
     receipt.result!=='PREPARED_ONLY'||receipt.publication_verified!==false||
     receipt.images?.length!==6||receipt.oct8_pinned_count!==17||
-    receipt.changed_paths?.length<13||receipt.changed_paths.length>14||
+    receipt.changed_paths?.length<13||receipt.changed_paths.length>16||
     receipt.changed_count!==receipt.changed_paths.length||receipt.semantic_rework!==0||
     receipt.accepted_image_regenerations!==0)fail('unqualified_preparation');
   if(baseUrl!==OCT8_PUBLIC_BASE)fail('wrong_public_repository');
   const date=receipt.edition_date;
   if(!/^\d{4}-\d{2}-\d{2}$/.test(date||'')||date<='2026-10-08')fail('invalid_edition');
   const changed=new Map(receipt.changed_paths.map(row=>[row.route,row]));
+  if(date>='2026-10-23'){
+    const expected=receipt.homepage_changed?16:13;
+    if(changed.size!==expected ||
+       (receipt.homepage_changed&&(receipt.latest_reader_accepted_image_parity!==true||
+        !changed.has('latest.html')||!changed.has('latest.md'))))
+      fail('future_image_release_must_update_all_current_reader_surfaces');
+  }
   if(changed.size!==receipt.changed_paths.length)fail('duplicate_changed_file');
   const images=receipt.images;
   for(const img of images){
@@ -62,7 +69,8 @@ export async function verifyExternalImageLive({receipt,stagedSiteRoot,priorHisto
   const pageRoutes=new Set([dated,...images.map(img=>'stories/'+date+'/')]); // matched exactly below
   const stories=receipt.changed_paths.filter(row=>row.route.startsWith('stories/'+date+'/')&&row.route.endsWith('/index.html'));
   if(stories.length!==6||new Set(stories.map(s=>s.route)).size!==6)fail('six_story_page_routes');
-  const allowed=new Set([dated,'index.html',...stories.map(x=>x.route),...images.map(x=>x.route)]);
+  const allowed=new Set([dated,'index.html',...stories.map(x=>x.route),...images.map(x=>x.route),
+    ...(date>='2026-10-23'?['latest.html','latest.md']:[])]);
   if([...changed.keys()].some(x=>!allowed.has(x)))fail('unapproved_route_in_patch');
   const controls=essentialControls(priorHistoryRoot,date,new Set(changed.keys()));
   const required=[...receipt.changed_paths,...controls.map(route=>localHash(priorHistoryRoot,route))];
