@@ -14,6 +14,20 @@ export const MANDATORY_FLOOR=Object.freeze({
   no_unsupported_causal_claims:true,no_low_quality_fallback:true,
   corrections_until_pass:true,accepted_images_immutable:true
 });
+
+// Pre-generation risk ledger: these warnings never substitute for saved pixels.
+export function detectVisualFirstPassRisks(spec){
+  const risks=[],checks=spec?.pre_generation_checks||{};
+  if(checks.label_layout?.some(x=>x.minimum_font_px<=20))
+    risks.push('EXPORT_FONT_NEAR_FLOOR: enlarge labels at 1200x630 when practical');
+  if(checks.label_layout?.some(x=>x.label?.length>30))
+    risks.push('LONG_LABEL_FIT: wrap before first native call');
+  if(spec?.allowed_causal_edges?.some(x=>x.direction==='conditional'))
+    risks.push('CONDITIONAL_ROUTING: inspect arrow anchors and blocked paths');
+  if(/\b(?:dashboard|fake screen|window chrome|quantitative bars)\b/i.test(spec?.visual_thesis||''))
+    risks.push('INVENTED_UI_OR_NUMBERS: do not invent interfaces or graphs');
+  return risks;
+}
 export function validateFrozenImageSpecification({spec,story}){
  if(spec?.schema_version!=='external-image-firstpass-freeze-v1'||!story||
    spec.story_id!==story.story_id||spec.source_url!==story.primary_source?.url||
@@ -56,7 +70,8 @@ export function validateFrozenImageSpecification({spec,story}){
      qc.label_layout.some(x=>!spec.required_labels.includes(x.label)||!clean(x.region)||!Number.isFinite(x.minimum_font_px)||x.minimum_font_px<18)||
      !Number.isFinite(qc.safe_margin_px)||qc.safe_margin_px<40||qc.no_simulated_writing!==true||qc.no_false_success_symbols!==true||qc.no_decorative_scenery!==true||
      !clean(qc.source_caveat)||!Array.isArray(qc.causal_state_checks)||!qc.causal_state_checks.length||
-     qc.causal_state_checks.some(x=>!clean(x.condition)||!clean(x.allowed_path)||!clean(x.blocked_path)||!claims.has(x.support_claim_id)))
+     qc.causal_state_checks.some(x=>!clean(x.condition)||!clean(x.allowed_path)||!clean(x.blocked_path)||
+       x.allowed_path.trim().toLowerCase()===x.blocked_path.trim().toLowerCase()||!claims.has(x.support_claim_id)))
      fail('story_specific_text_geometry_and_causal_state_preflight_required:'+spec.story_id);
  }
  const review=spec.editorial_semantic_review;
@@ -65,8 +80,9 @@ export function validateFrozenImageSpecification({spec,story}){
    review.labels_verified!==true||review.causal_edges_verified!==true||
    review.unsupported_claims_excluded!==true||review.approved_before_generation!==true)
    fail('independent_semantic_review_not_proven:'+spec.story_id);
+ const risks=spec.edition_date>='2026-10-23'?detectVisualFirstPassRisks(spec):[];
  return {story_id:spec.story_id,result:'FROZEN_PREGENERATION_SPEC_PASS',
-   required_labels:spec.required_labels.length,
+   required_labels:spec.required_labels.length,first_pass_risks:risks,
    allowed_edges:spec.allowed_causal_edges.length,
    textual_review_only_not_saved_pixel_acceptance:true};
 }
@@ -104,7 +120,8 @@ export function routeImageCorrection({candidate,defects,transportFailure=false})
  if(transportFailure)return {action:'RETRY_TRANSPORT_SAME_BYTES',regeneration_allowed:false};
  if(!Array.isArray(defects)||!defects.length)return {action:'VERIFY_SAVED_PIXELS_BEFORE_ACCEPTANCE',regeneration_allowed:false};
  const allowed=new Set(['pseudotext','wrong_relation','unsupported_claim','mobile_legibility','generic_layout',
-   'clipping','wrong_source_metric','reversed_gate','alt_text','six_set_similarity']);
+   'clipping','wrong_source_metric','reversed_gate','alt_text','six_set_similarity',
+   'invented_ui_chrome','false_quantitative_graph','wrong_arrow_anchor','microtext_at_export']);
  if(defects.some(d=>!allowed.has(d.category)||!clean(d.region||'')||!clean(d.evidence||'')))
    fail('unclassified_quality_defect');
  return {action:'REPAIR_FAILED_REGION_AND_REVIEW_UNTIL_PASS',regions:[...new Set(defects.map(d=>d.region))],

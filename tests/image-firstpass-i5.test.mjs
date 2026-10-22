@@ -65,3 +65,17 @@ test('I5 historic October10 rendered apostrophe/entity HTML cannot be reprocesse
  const simulated={...s,permanent_route:'/stories/2026-10-10/'+s.permanent_route.split('/')[3]+'/'};
  assert.throws(()=>replaceSingleTag(accepted,simulated,'https://example.org/wrong.png'),/exactly_one_original_placeholder/);
 });
+
+test('Oct22 saved-pixel failure taxonomy maps to targeted region repair without relaxing quality',async()=>{
+ const {detectVisualFirstPassRisks}=await import('../scripts/preflight-image-firstpass.mjs');
+ const spec={visual_thesis:'Conditional mechanism with no invented dashboard',
+   allowed_causal_edges:[{direction:'conditional'}],
+   pre_generation_checks:{label_layout:[{label:'Long explanatory label requiring wrap and review',minimum_font_px:18}]}};
+ const risks=detectVisualFirstPassRisks(spec);
+ for(const term of ['EXPORT_FONT','CONDITIONAL','LONG_LABEL'])assert.ok(risks.some(x=>x.includes(term)));
+ for(const category of ['invented_ui_chrome','false_quantitative_graph','wrong_arrow_anchor','microtext_at_export']){
+   const fixed=routeImageCorrection({candidate:{accepted_locked:false},
+     defects:[{category,region:'specific label or edge',evidence:'Saved PNG had an inspected error'}]});
+   assert.equal(fixed.action,'REPAIR_FAILED_REGION_AND_REVIEW_UNTIL_PASS');
+ }
+});
