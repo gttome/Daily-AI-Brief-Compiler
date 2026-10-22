@@ -1,0 +1,1692 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-22",
+    "story_id": "oct22-t1-multimodal-retrieval",
+    "source_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+    "visual_thesis": "Separate parsing, multimodal candidate retrieval and query-conditioned reranking before evidence reaches an agent.",
+    "story_anchors": [
+      "Document images become structured content with preserved locations and reading order.",
+      "Embeddings retrieve text and image candidates; a cross-encoder ranks query-document pairs."
+    ],
+    "mechanism_metaphor": "layered evidence sieve",
+    "required_labels": [
+      "Multimodal evidence retrieval",
+      "Document images",
+      "Text and images",
+      "Parse",
+      "Structure and reading order",
+      "Embed",
+      "Candidate evidence",
+      "Query",
+      "Rerank",
+      "Query-document relevance",
+      "Agent context",
+      "Vendor-reported results vary"
+    ],
+    "source_claim_map": [
+      {
+        "id": "parse",
+        "proposition": "Parser extracts structure and reading order from document images.",
+        "supporting_source_excerpt": "preserving the structure that gives the content meaning",
+        "source_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "rank",
+        "proposition": "Reranker evaluates each retrieved candidate against the query.",
+        "supporting_source_excerpt": "evaluates each candidate against the query",
+        "source_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Parse",
+        "direction": "forward",
+        "support_claim_id": "parse",
+        "relation_supported_by_semantic_review": true,
+        "from": "Document images"
+      },
+      {
+        "to": "Rerank",
+        "direction": "forward",
+        "support_claim_id": "rank",
+        "relation_supported_by_semantic_review": true,
+        "from": "Candidate evidence"
+      },
+      {
+        "to": "Rerank",
+        "direction": "forward",
+        "support_claim_id": "rank",
+        "relation_supported_by_semantic_review": true,
+        "from": "Query"
+      }
+    ],
+    "excluded_claims": [
+      "Do not imply guaranteed correct answers or universal token savings.",
+      "No people, logos, scenery, simulated writing, success badges or unlisted metrics."
+    ],
+    "composition_signature": {
+      "grammar": "converging evidence lattice",
+      "metaphor": "layered evidence sieve",
+      "layout": "wide stepped cutaway",
+      "palette": "indigo and amber",
+      "annotation": "leader lines with aligned labels",
+      "hierarchy": "wide stepped cutaway"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "component_roles": [
+        "document image",
+        "table region",
+        "chart region",
+        "text region",
+        "parse stage",
+        "structure layer",
+        "reading order",
+        "embedding text input",
+        "embedding image input",
+        "candidate lattice",
+        "query branch",
+        "joint relevance comparison",
+        "ranked subset",
+        "agent context"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Multimodal evidence retrieval",
+          "region": "canvas rectangle x=44 y=36 width=1112 height=48",
+          "minimum_font_px": 30,
+          "bounds_px": [
+            44,
+            36,
+            1112,
+            48
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Document images",
+          "region": "canvas rectangle x=60 y=115 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            60,
+            115,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Text and images",
+          "region": "canvas rectangle x=330 y=115 width=200 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            330,
+            115,
+            200,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Parse",
+          "region": "canvas rectangle x=70 y=215 width=180 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            70,
+            215,
+            180,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Structure and reading order",
+          "region": "canvas rectangle x=44 y=330 width=290 height=50",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            330,
+            290,
+            50
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Embed",
+          "region": "canvas rectangle x=340 y=215 width=160 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            340,
+            215,
+            160,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Candidate evidence",
+          "region": "canvas rectangle x=530 y=300 width=225 height=45",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            530,
+            300,
+            225,
+            45
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Query",
+          "region": "canvas rectangle x=800 y=130 width=130 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            800,
+            130,
+            130,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Rerank",
+          "region": "canvas rectangle x=800 y=265 width=150 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            800,
+            265,
+            150,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Query-document relevance",
+          "region": "canvas rectangle x=720 y=370 width=300 height=45",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            720,
+            370,
+            300,
+            45
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Agent context",
+          "region": "canvas rectangle x=930 y=460 width=220 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            930,
+            460,
+            220,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Vendor-reported results vary",
+          "region": "canvas rectangle x=44 y=552 width=1112 height=36",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            552,
+            1112,
+            36
+          ],
+          "font_family": "clear sans-serif"
+        }
+      ],
+      "safe_margin_px": 44,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor-reported controlled evaluations; no unlisted outcome is implied.",
+      "causal_state_checks": [
+        {
+          "condition": "After embedding retrieval returns candidates",
+          "allowed_path": "Query-conditioned reranking orders candidates before agent context.",
+          "blocked_path": "Do not imply guaranteed correct answers or universal token savings.",
+          "support_claim_id": "rank"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker; reviewed retrieved primary-source text and complete assigned story",
+      "source_url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-22",
+    "story_id": "oct22-t2-agentic-threat-campaigns",
+    "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+    "visual_thesis": "Distinguish observed state-machine selection from specialist delegation without depicting an actionable attack recipe.",
+    "story_anchors": [
+      "The report describes four actors with exposed offensive agent frameworks.",
+      "One observed architecture separates supervisor task selection from execution."
+    ],
+    "mechanism_metaphor": "forensic comparison plate",
+    "required_labels": [
+      "Observed agentic threat campaigns",
+      "Exposed frameworks",
+      "Vendor investigation",
+      "Supervisor",
+      "State selection",
+      "Executor",
+      "Reported actions",
+      "Deterministic routing",
+      "Model-selected actions",
+      "Specialist delegation",
+      "Observed cases",
+      "Prevalence not established"
+    ],
+    "source_claim_map": [
+      {
+        "id": "cases",
+        "proposition": "The vendor investigated four exposed frameworks; case evidence does not establish prevalence.",
+        "supporting_source_excerpt": "four previously unreported threat actors",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "super",
+        "proposition": "A supervisor selects a task and an executor performs it.",
+        "supporting_source_excerpt": "a \u201cSupervisor\u201d Claude Code agent selects the next task",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "route",
+        "proposition": "Other harnesses mix deterministic routing and model-selected specialist actions.",
+        "supporting_source_excerpt": "deterministically routed to the appropriate agent",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "State selection",
+        "direction": "forward",
+        "support_claim_id": "super",
+        "relation_supported_by_semantic_review": true,
+        "from": "Supervisor"
+      },
+      {
+        "to": "Executor",
+        "direction": "forward",
+        "support_claim_id": "super",
+        "relation_supported_by_semantic_review": true,
+        "from": "State selection"
+      },
+      {
+        "to": "Deterministic routing",
+        "direction": "forward",
+        "support_claim_id": "route",
+        "relation_supported_by_semantic_review": true,
+        "from": "Model-selected actions"
+      }
+    ],
+    "excluded_claims": [
+      "No merged universal attack pipeline, commands, targets, exploitation steps or guaranteed compromise.",
+      "No people, logos, scenery, simulated writing, success badges or unlisted metrics."
+    ],
+    "composition_signature": {
+      "grammar": "comparative orchestration anatomy",
+      "metaphor": "forensic comparison plate",
+      "layout": "asymmetric paired sections",
+      "palette": "burgundy and slate",
+      "annotation": "bracketed contrasts",
+      "hierarchy": "asymmetric paired sections"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "component_roles": [
+        "exposed framework evidence",
+        "investigation lens",
+        "case boundary",
+        "supervisor",
+        "state selector",
+        "executor",
+        "reported action",
+        "deterministic branch",
+        "model-selection branch",
+        "routing junction",
+        "specialist branch",
+        "comparison divider",
+        "observed-case frame",
+        "prevalence limit"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Observed agentic threat campaigns",
+          "region": "canvas rectangle x=44 y=36 width=1112 height=48",
+          "minimum_font_px": 30,
+          "bounds_px": [
+            44,
+            36,
+            1112,
+            48
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Exposed frameworks",
+          "region": "canvas rectangle x=44 y=122 width=260 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            122,
+            260,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Vendor investigation",
+          "region": "canvas rectangle x=44 y=180 width=260 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            180,
+            260,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Supervisor",
+          "region": "canvas rectangle x=360 y=130 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            360,
+            130,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "State selection",
+          "region": "canvas rectangle x=360 y=240 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            360,
+            240,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Executor",
+          "region": "canvas rectangle x=360 y=350 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            360,
+            350,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Reported actions",
+          "region": "canvas rectangle x=360 y=455 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            360,
+            455,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Deterministic routing",
+          "region": "canvas rectangle x=710 y=150 width=350 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            710,
+            150,
+            350,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Model-selected actions",
+          "region": "canvas rectangle x=710 y=250 width=350 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            710,
+            250,
+            350,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Specialist delegation",
+          "region": "canvas rectangle x=710 y=375 width=350 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            710,
+            375,
+            350,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Observed cases",
+          "region": "canvas rectangle x=44 y=455 width=260 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            455,
+            260,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Prevalence not established",
+          "region": "canvas rectangle x=44 y=552 width=1112 height=36",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            552,
+            1112,
+            36
+          ],
+          "font_family": "clear sans-serif"
+        }
+      ],
+      "safe_margin_px": 44,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Single-vendor incident evidence; population prevalence is not established.",
+      "causal_state_checks": [
+        {
+          "condition": "Comparison across observed frameworks",
+          "allowed_path": "Keep supervisor/executor architecture separate from alternative routing/delegation architecture.",
+          "blocked_path": "No merged universal attack pipeline, commands, targets, exploitation steps or guaranteed compromise.",
+          "support_claim_id": "super"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker; reviewed retrieved primary-source text and complete assigned story",
+      "source_url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-22",
+    "story_id": "oct22-k1-nhs-admin-copilot",
+    "source_url": "https://news.microsoft.com/source/emea/features/before-the-ambulance-arrives-how-ai-is-helping-the-nhs-rethink-patient-care/",
+    "visual_thesis": "Administrative information can be organized and drafted with Copilot while staff retain review and clinical work remains outside scope.",
+    "story_anchors": [
+      "Yorkshire Ambulance Service staff organize reports and draft communications.",
+      "NHS safeguards limit Copilot use to administration rather than clinical work."
+    ],
+    "mechanism_metaphor": "open editorial folio",
+    "required_labels": [
+      "Administrative support with human review",
+      "Operational reports",
+      "National guidance",
+      "Copilot",
+      "Organize information",
+      "Draft communications",
+      "Surface themes",
+      "Staff review",
+      "Adapt for audience",
+      "Administrative use only",
+      "Clinical work excluded",
+      "Vendor-authored case study"
+    ],
+    "source_claim_map": [
+      {
+        "id": "admin",
+        "proposition": "Staff review organized information and adapt draft communications.",
+        "supporting_source_excerpt": "review and adapt for the intended audience",
+        "source_url": "https://news.microsoft.com/source/emea/features/before-the-ambulance-arrives-how-ai-is-helping-the-nhs-rethink-patient-care/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "limit",
+        "proposition": "The described NHS policy limits use to administrative tasks.",
+        "supporting_source_excerpt": "only for administrative tasks, not clinical work",
+        "source_url": "https://news.microsoft.com/source/emea/features/before-the-ambulance-arrives-how-ai-is-helping-the-nhs-rethink-patient-care/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Copilot",
+        "direction": "forward",
+        "support_claim_id": "admin",
+        "relation_supported_by_semantic_review": true,
+        "from": "Operational reports"
+      },
+      {
+        "to": "Staff review",
+        "direction": "forward",
+        "support_claim_id": "admin",
+        "relation_supported_by_semantic_review": true,
+        "from": "Copilot"
+      },
+      {
+        "to": "Adapt for audience",
+        "direction": "forward",
+        "support_claim_id": "admin",
+        "relation_supported_by_semantic_review": true,
+        "from": "Staff review"
+      }
+    ],
+    "excluded_claims": [
+      "No arrow into diagnosis, treatment or autonomous clinical decisions.",
+      "No people, logos, scenery, simulated writing, success badges or unlisted metrics."
+    ],
+    "composition_signature": {
+      "grammar": "bounded administrative transformation",
+      "metaphor": "open editorial folio",
+      "layout": "offset vertical layers with side boundary",
+      "palette": "teal and ochre",
+      "annotation": "margin callouts",
+      "hierarchy": "offset vertical layers with side boundary"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "component_roles": [
+        "operational report inputs",
+        "guidance input",
+        "information grouping",
+        "Copilot transformation",
+        "organized information",
+        "communication draft",
+        "theme clusters",
+        "review boundary",
+        "staff decision node",
+        "audience adaptation",
+        "admin scope rail",
+        "clinical exclusion barrier",
+        "source caveat"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Administrative support with human review",
+          "region": "canvas rectangle x=44 y=36 width=1112 height=48",
+          "minimum_font_px": 30,
+          "bounds_px": [
+            44,
+            36,
+            1112,
+            48
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Operational reports",
+          "region": "canvas rectangle x=44 y=135 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            135,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "National guidance",
+          "region": "canvas rectangle x=44 y=285 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            285,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Copilot",
+          "region": "canvas rectangle x=355 y=175 width=170 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            355,
+            175,
+            170,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Organize information",
+          "region": "canvas rectangle x=310 y=280 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            310,
+            280,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Draft communications",
+          "region": "canvas rectangle x=580 y=160 width=300 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            580,
+            160,
+            300,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Surface themes",
+          "region": "canvas rectangle x=580 y=290 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            580,
+            290,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Staff review",
+          "region": "canvas rectangle x=890 y=245 width=240 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            890,
+            245,
+            240,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Adapt for audience",
+          "region": "canvas rectangle x=850 y=365 width=305 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            850,
+            365,
+            305,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Administrative use only",
+          "region": "canvas rectangle x=310 y=450 width=360 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            310,
+            450,
+            360,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Clinical work excluded",
+          "region": "canvas rectangle x=770 y=450 width=360 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            770,
+            450,
+            360,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Vendor-authored case study",
+          "region": "canvas rectangle x=44 y=552 width=1112 height=36",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            552,
+            1112,
+            36
+          ],
+          "font_family": "clear sans-serif"
+        }
+      ],
+      "safe_margin_px": 44,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor-authored staff case study; no causal productivity or clinical outcome claim.",
+      "causal_state_checks": [
+        {
+          "condition": "Administrative drafting and analysis",
+          "allowed_path": "Information organization and draft preparation feed staff review.",
+          "blocked_path": "No arrow into diagnosis, treatment or autonomous clinical decisions.",
+          "support_claim_id": "limit"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker; reviewed retrieved primary-source text and complete assigned story",
+      "source_url": "https://news.microsoft.com/source/emea/features/before-the-ambulance-arrives-how-ai-is-helping-the-nhs-rethink-patient-care/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-22",
+    "story_id": "oct22-k2-asana-ai-teammates",
+    "source_url": "https://asana.com/inside-asana/asana-q3-2026-release-ai-teammates",
+    "visual_thesis": "Prebuilt AI Teammates draw from shared project context and authorized connected tools inside work-management handoffs.",
+    "story_anchors": [
+      "Asana describes prebuilt AI Teammates and shared plan context.",
+      "Integrations and a vertical automation builder connect tasks, projects and portfolios."
+    ],
+    "mechanism_metaphor": "woven coordination map",
+    "required_labels": [
+      "Shared context for AI Teammates",
+      "Shared plan",
+      "Briefs",
+      "Decision log",
+      "Prebuilt roles",
+      "AI Teammate",
+      "Connected tools",
+      "Authorized access",
+      "Tasks",
+      "Projects",
+      "Portfolios",
+      "Vendor capability claims"
+    ],
+    "source_claim_map": [
+      {
+        "id": "context",
+        "proposition": "Shared pages centralize campaign briefs, specifications and decision logs.",
+        "supporting_source_excerpt": "a shared foundation of context",
+        "source_url": "https://asana.com/inside-asana/asana-q3-2026-release-ai-teammates",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "tools",
+        "proposition": "Teammate integrations connect tools; cross-app access is authorized.",
+        "supporting_source_excerpt": "across authorized tools",
+        "source_url": "https://asana.com/inside-asana/asana-q3-2026-release-ai-teammates",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "auto",
+        "proposition": "Automation spans tasks, projects and portfolios.",
+        "supporting_source_excerpt": "span tasks, projects, and portfolios",
+        "source_url": "https://asana.com/inside-asana/asana-q3-2026-release-ai-teammates",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "AI Teammate",
+        "direction": "forward",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true,
+        "from": "Shared plan"
+      },
+      {
+        "to": "AI Teammate",
+        "direction": "forward",
+        "support_claim_id": "tools",
+        "relation_supported_by_semantic_review": true,
+        "from": "Connected tools"
+      },
+      {
+        "to": "Projects",
+        "direction": "forward",
+        "support_claim_id": "auto",
+        "relation_supported_by_semantic_review": true,
+        "from": "Tasks"
+      },
+      {
+        "to": "Portfolios",
+        "direction": "forward",
+        "support_claim_id": "auto",
+        "relation_supported_by_semantic_review": true,
+        "from": "Projects"
+      }
+    ],
+    "excluded_claims": [
+      "No implication of unrestricted cross-app access, independent outcome evidence or guaranteed error elimination.",
+      "No people, logos, scenery, simulated writing, success badges or unlisted metrics."
+    ],
+    "composition_signature": {
+      "grammar": "radial shared-context fabric",
+      "metaphor": "woven coordination map",
+      "layout": "central shared-plan hub with differentiated arcs",
+      "palette": "terracotta and navy",
+      "annotation": "radial direct labeling",
+      "hierarchy": "central shared-plan hub with differentiated arcs"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "component_roles": [
+        "shared plan",
+        "brief context",
+        "decision log context",
+        "prebuilt role collection",
+        "selected AI role",
+        "context association",
+        "tool connection",
+        "access boundary",
+        "task scope",
+        "project scope",
+        "portfolio scope",
+        "automation span",
+        "source caveat"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Shared context for AI Teammates",
+          "region": "canvas rectangle x=44 y=36 width=1112 height=48",
+          "minimum_font_px": 30,
+          "bounds_px": [
+            44,
+            36,
+            1112,
+            48
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Shared plan",
+          "region": "canvas rectangle x=450 y=245 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            450,
+            245,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Briefs",
+          "region": "canvas rectangle x=250 y=145 width=160 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            250,
+            145,
+            160,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Decision log",
+          "region": "canvas rectangle x=600 y=125 width=210 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            600,
+            125,
+            210,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Prebuilt roles",
+          "region": "canvas rectangle x=44 y=310 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            310,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "AI Teammate",
+          "region": "canvas rectangle x=450 y=365 width=260 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            450,
+            365,
+            260,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Connected tools",
+          "region": "canvas rectangle x=900 y=225 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            900,
+            225,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Authorized access",
+          "region": "canvas rectangle x=900 y=320 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            900,
+            320,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Tasks",
+          "region": "canvas rectangle x=140 y=460 width=170 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            140,
+            460,
+            170,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Projects",
+          "region": "canvas rectangle x=470 y=465 width=200 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            470,
+            465,
+            200,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Portfolios",
+          "region": "canvas rectangle x=820 y=460 width=200 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            820,
+            460,
+            200,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Vendor capability claims",
+          "region": "canvas rectangle x=44 y=552 width=1112 height=36",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            552,
+            1112,
+            36
+          ],
+          "font_family": "clear sans-serif"
+        }
+      ],
+      "safe_margin_px": 44,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Product announcement describes capabilities, not independently measured effectiveness.",
+      "causal_state_checks": [
+        {
+          "condition": "Teammate work within configured context and authorized tools",
+          "allowed_path": "Shared context supports role work; authorized tool connections support handoffs.",
+          "blocked_path": "No implication of unrestricted cross-app access, independent outcome evidence or guaranteed error elimination.",
+          "support_claim_id": "tools"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker; reviewed retrieved primary-source text and complete assigned story",
+      "source_url": "https://asana.com/inside-asana/asana-q3-2026-release-ai-teammates",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-22",
+    "story_id": "oct22-a1-claude-duet",
+    "source_url": "https://claude.com/resources/articles/claude-duet",
+    "visual_thesis": "Proactive reading and preparation remain distinct from four consequential actions that await explicit approval.",
+    "story_anchors": [
+      "Claude Duet can prepare briefs from connected apps in a managed virtual environment.",
+      "Messaging, payment, signature and deletion wait for approval; some financial actions remain off-limits."
+    ],
+    "mechanism_metaphor": "four-channel approval lock",
+    "required_labels": [
+      "Proactive preparation, explicit approval",
+      "Connected apps",
+      "Read and prepare",
+      "Daily brief",
+      "Review priorities",
+      "Approval required",
+      "Send message",
+      "Make payment",
+      "Sign document",
+      "Delete item",
+      "No approval: no action",
+      "Research preview; judgment may err"
+    ],
+    "source_claim_map": [
+      {
+        "id": "prepare",
+        "proposition": "Duet prepares work from connected apps and presents daily briefs.",
+        "supporting_source_excerpt": "reads, drafts, and prepares work on its own",
+        "source_url": "https://claude.com/resources/articles/claude-duet",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "approve",
+        "proposition": "Four consequential action categories wait for approval.",
+        "supporting_source_excerpt": "waits for your approval",
+        "source_url": "https://claude.com/resources/articles/claude-duet",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "preview",
+        "proposition": "The research preview can misread context and miscalibrate urgency.",
+        "supporting_source_excerpt": "misread a thread or miscalibrate what\u2019s urgent",
+        "source_url": "https://claude.com/resources/articles/claude-duet",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Read and prepare",
+        "direction": "forward",
+        "support_claim_id": "prepare",
+        "relation_supported_by_semantic_review": true,
+        "from": "Connected apps"
+      },
+      {
+        "to": "Daily brief",
+        "direction": "forward",
+        "support_claim_id": "prepare",
+        "relation_supported_by_semantic_review": true,
+        "from": "Read and prepare"
+      },
+      {
+        "to": "Send message",
+        "direction": "conditional",
+        "support_claim_id": "approve",
+        "relation_supported_by_semantic_review": true,
+        "from": "Approval required"
+      },
+      {
+        "to": "Make payment",
+        "direction": "conditional",
+        "support_claim_id": "approve",
+        "relation_supported_by_semantic_review": true,
+        "from": "Approval required"
+      },
+      {
+        "to": "Sign document",
+        "direction": "conditional",
+        "support_claim_id": "approve",
+        "relation_supported_by_semantic_review": true,
+        "from": "Approval required"
+      },
+      {
+        "to": "Delete item",
+        "direction": "conditional",
+        "support_claim_id": "approve",
+        "relation_supported_by_semantic_review": true,
+        "from": "Approval required"
+      }
+    ],
+    "excluded_claims": [
+      "Without approval all four actions remain blocked; no approved-action shortcut for securities trading or account transfers.",
+      "No people, logos, scenery, simulated writing, success badges or unlisted metrics."
+    ],
+    "composition_signature": {
+      "grammar": "permission boundary cross-section",
+      "metaphor": "four-channel approval lock",
+      "layout": "upper preparation arc above lower parallel gates",
+      "palette": "violet and gold",
+      "annotation": "boundary-aligned gate labels",
+      "hierarchy": "upper preparation arc above lower parallel gates"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 16,
+      "component_roles": [
+        "connected apps",
+        "reading stage",
+        "preparation stage",
+        "daily brief",
+        "priority review",
+        "permission boundary",
+        "message gate",
+        "payment gate",
+        "signature gate",
+        "deletion gate",
+        "pending message",
+        "pending payment",
+        "pending signature",
+        "pending deletion",
+        "no-approval stop rail",
+        "preview caveat"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Proactive preparation, explicit approval",
+          "region": "canvas rectangle x=44 y=36 width=1112 height=48",
+          "minimum_font_px": 30,
+          "bounds_px": [
+            44,
+            36,
+            1112,
+            48
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Connected apps",
+          "region": "canvas rectangle x=44 y=130 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            130,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Read and prepare",
+          "region": "canvas rectangle x=330 y=130 width=280 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            330,
+            130,
+            280,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Daily brief",
+          "region": "canvas rectangle x=730 y=130 width=180 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            730,
+            130,
+            180,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Review priorities",
+          "region": "canvas rectangle x=900 y=210 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            900,
+            210,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Approval required",
+          "region": "canvas rectangle x=390 y=285 width=430 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            390,
+            285,
+            430,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Send message",
+          "region": "canvas rectangle x=80 y=410 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            80,
+            410,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Make payment",
+          "region": "canvas rectangle x=350 y=410 width=240 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            350,
+            410,
+            240,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Sign document",
+          "region": "canvas rectangle x=640 y=410 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            640,
+            410,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Delete item",
+          "region": "canvas rectangle x=920 y=410 width=220 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            920,
+            410,
+            220,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "No approval: no action",
+          "region": "canvas rectangle x=44 y=495 width=1100 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            495,
+            1100,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Research preview; judgment may err",
+          "region": "canvas rectangle x=44 y=552 width=1112 height=36",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            552,
+            1112,
+            36
+          ],
+          "font_family": "clear sans-serif"
+        }
+      ],
+      "safe_margin_px": 44,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Research preview with limited access; no claim of reliable judgment or universal availability.",
+      "causal_state_checks": [
+        {
+          "condition": "Before sending, paying, signing or deleting",
+          "allowed_path": "Each consequential path crosses explicit approval before action.",
+          "blocked_path": "Without approval all four actions remain blocked; no approved-action shortcut for securities trading or account transfers.",
+          "support_claim_id": "approve"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker; reviewed retrieved primary-source text and complete assigned story",
+      "source_url": "https://claude.com/resources/articles/claude-duet",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-22",
+    "story_id": "oct22-a2-salesforce-skills",
+    "source_url": "https://help.salesforce.com/s/articleView?id=release-notes.rn_agentforce_skills.htm&language=en_US&release=264&type=5",
+    "visual_thesis": "A reusable Skill packages instructions, context and tools; drafting, inspection, testing and approved publication form a bounded recommended workflow.",
+    "story_anchors": [
+      "Coworker drafts a Skill from a task description.",
+      "Skill Builder supports instructions, resources, testing and publication; permissions and availability apply."
+    ],
+    "mechanism_metaphor": "exploded reusable procedure",
+    "required_labels": [
+      "A reviewable reusable Skill",
+      "Describe routine",
+      "Coworker draft",
+      "Instructions",
+      "Context",
+      "Tools",
+      "Skill Builder review",
+      "Safe sample test",
+      "Correct failures",
+      "Approve publication",
+      "Publish for reuse",
+      "Permissions and rollout apply"
+    ],
+    "source_claim_map": [
+      {
+        "id": "package",
+        "proposition": "A Skill packages reusable instructions, context and tools.",
+        "supporting_source_excerpt": "packages instructions, context, and tools",
+        "source_url": "https://help.salesforce.com/s/articleView?id=release-notes.rn_agentforce_skills.htm&language=en_US&release=264&type=5",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "draft",
+        "proposition": "Coworker can draft a Skill in Ask mode from a described task.",
+        "supporting_source_excerpt": "describing it in Ask mode",
+        "source_url": "https://help.salesforce.com/s/articleView?id=release-notes.rn_agentforce_skills.htm&language=en_US&release=264&type=5",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "publish",
+        "proposition": "Skill Builder supports testing, publishing and sharing.",
+        "supporting_source_excerpt": "Create, test, publish, and share skills",
+        "source_url": "https://help.salesforce.com/s/articleView?id=release-notes.rn_agentforce_skills.htm&language=en_US&release=264&type=5",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Coworker draft",
+        "direction": "forward",
+        "support_claim_id": "draft",
+        "relation_supported_by_semantic_review": true,
+        "from": "Describe routine"
+      },
+      {
+        "to": "Skill Builder review",
+        "direction": "forward",
+        "support_claim_id": "draft",
+        "relation_supported_by_semantic_review": true,
+        "from": "Coworker draft"
+      },
+      {
+        "to": "Safe sample test",
+        "direction": "forward",
+        "support_claim_id": "publish",
+        "relation_supported_by_semantic_review": true,
+        "from": "Skill Builder review"
+      },
+      {
+        "to": "Correct failures",
+        "direction": "forward",
+        "support_claim_id": "publish",
+        "relation_supported_by_semantic_review": true,
+        "from": "Safe sample test"
+      },
+      {
+        "to": "Publish for reuse",
+        "direction": "forward",
+        "support_claim_id": "publish",
+        "relation_supported_by_semantic_review": true,
+        "from": "Approve publication"
+      }
+    ],
+    "excluded_claims": [
+      "No automatic publishing on test success, no automatic rewriting from test results and no guaranteed effectiveness.",
+      "No people, logos, scenery, simulated writing, success badges or unlisted metrics."
+    ],
+    "composition_signature": {
+      "grammar": "package anatomy with review spiral",
+      "metaphor": "exploded reusable procedure",
+      "layout": "left exploded package and right ascending review path",
+      "palette": "olive and warm charcoal",
+      "annotation": "numberless stage bands",
+      "hierarchy": "left exploded package and right ascending review path"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "component_roles": [
+        "routine definition",
+        "draft",
+        "instruction layer",
+        "context layer",
+        "tool layer",
+        "input slot",
+        "builder inspection",
+        "permission check",
+        "safe sample",
+        "test comparison",
+        "correction loop",
+        "approval decision",
+        "published version",
+        "reuse branch"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "A reviewable reusable Skill",
+          "region": "canvas rectangle x=44 y=36 width=1112 height=48",
+          "minimum_font_px": 30,
+          "bounds_px": [
+            44,
+            36,
+            1112,
+            48
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Describe routine",
+          "region": "canvas rectangle x=44 y=125 width=250 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            125,
+            250,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Coworker draft",
+          "region": "canvas rectangle x=330 y=125 width=230 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            330,
+            125,
+            230,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Instructions",
+          "region": "canvas rectangle x=44 y=265 width=190 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            265,
+            190,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Context",
+          "region": "canvas rectangle x=44 y=360 width=190 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            360,
+            190,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Tools",
+          "region": "canvas rectangle x=44 y=455 width=190 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            455,
+            190,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Skill Builder review",
+          "region": "canvas rectangle x=650 y=140 width=480 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            650,
+            140,
+            480,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Safe sample test",
+          "region": "canvas rectangle x=650 y=250 width=400 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            650,
+            250,
+            400,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Correct failures",
+          "region": "canvas rectangle x=650 y=360 width=400 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            650,
+            360,
+            400,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Approve publication",
+          "region": "canvas rectangle x=650 y=450 width=400 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            650,
+            450,
+            400,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Publish for reuse",
+          "region": "canvas rectangle x=330 y=475 width=260 height=40",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            330,
+            475,
+            260,
+            40
+          ],
+          "font_family": "clear sans-serif"
+        },
+        {
+          "label": "Permissions and rollout apply",
+          "region": "canvas rectangle x=44 y=552 width=1112 height=36",
+          "minimum_font_px": 20,
+          "bounds_px": [
+            44,
+            552,
+            1112,
+            36
+          ],
+          "font_family": "clear sans-serif"
+        }
+      ],
+      "safe_margin_px": 44,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Indexed official Help supports mechanics; safe-sample review and approval are editorial recommendations. Availability and permissions apply.",
+      "causal_state_checks": [
+        {
+          "condition": "Recommended safe review procedure before organizational reuse",
+          "allowed_path": "Inspect draft, test safe samples and correct failures before owner-approved publication.",
+          "blocked_path": "No automatic publishing on test success, no automatic rewriting from test results and no guaranteed effectiveness.",
+          "support_claim_id": "draft"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker; reviewed retrieved primary-source text and complete assigned story",
+      "source_url": "https://help.salesforce.com/s/articleView?id=release-notes.rn_agentforce_skills.htm&language=en_US&release=264&type=5",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  }
+]
