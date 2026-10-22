@@ -80,9 +80,47 @@ export function removeEmptyAndRepeatedMediaCopy(value){
     .replace(/<p><strong>Topics:<\/strong>\s*<\/p>\s*/g,'')
     .replace(/<br\s*\/>\s*<strong>Topics:<\/strong>\s*(?=<\/p>)/g,'')
     .replace(/<strong>Topics:<\/strong><br \/>/g,'')
+    .replace(/^\*\*Connection to the brief:\*\*[ \t]*\r?\n/gm,'')
+    .replace(/<p><strong>Connection to the brief:<\/strong>\s*<\/p>\s*/g,'')
     .replace(/(\*\*Why it matters:\*\* ([^\r\n]+))\r?\n(?:\r?\n){1,3}\*\*Connection to the brief:\*\* \2(?=\r?\n|$)/g,'$1')
     .replace(/(<p><strong>Why it matters:<\/strong> ([^<]+)<\/p>)\s*<p><strong>Connection to the brief:<\/strong> \2<\/p>/g,'$1');
 }
+
+// Chapters are sourced from the publisher transcript/agenda, not inferred audio.
+export function podcastChapterGuide(item){
+  const seconds=Math.round(Number(item?.duration_minutes)*60),q=item?.quality_review;
+  if(!Number.isFinite(seconds)||seconds<3600||!q)return '';
+  if(!['whole_episode_transcript','timecoded_agenda','full_listening'].includes(q.content_evidence?.kind)||
+     !Array.isArray(q.editorial_segments)||q.editorial_segments.length<2)return '';
+  const entries=[...q.editorial_segments].sort((a,b)=>a.start_seconds-b.start_seconds);
+  if(entries.some((x,i)=>!Number.isFinite(x.start_seconds)||x.start_seconds<0||
+     !Number.isFinite(x.end_seconds)||x.end_seconds<=x.start_seconds||
+     x.end_seconds>seconds+5||(i>0&&x.start_seconds<entries[i-1].end_seconds)||
+     !['ai','other','advertisement'].includes(x.kind)||typeof x.topic!=='string'||
+     x.topic.trim().length<25))return '';
+  const stamp=n=>{
+    n=Math.floor(n);
+    const h=Math.floor(n/3600),m=String(Math.floor((n%3600)/60)).padStart(2,'0');
+    return h?h+':'+m+':'+String(n%60).padStart(2,'0'):Math.floor(n/60)+':'+String(n%60).padStart(2,'0');
+  };
+  return '\n\n### Episode chapter guide\n\n'+
+    'Publisher-transcript/agenda segments, not independently observed audio playback.\n\n'+
+    entries.map(e=>'- '+stamp(e.start_seconds)+' — '+
+     (e.kind==='advertisement'?'Sponsor break':e.kind==='other'?'Other editorial topic':'AI discussion')+
+     ': '+e.topic.trim().replace(/[\r\n]+/g,' ')).join('\n')+'\n\n';
+}
+function addPublisherChapterGuide(name,source,bundle){
+  if(!name.startsWith('podcasts/'+bundle.edition_date+'/')||!name.endsWith('.md'))return source;
+  const slug=value=>String(value).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,90);
+  const original=(bundle.podcasts||[]).find(p=>
+    name==='podcasts/'+bundle.edition_date+'/'+slug(p.title)+'.md');
+  const guide=podcastChapterGuide(original);
+  if(!guide)return source;
+  const i=source.indexOf('**Summary:**');
+  if(i<0)throw Error('podcast chapter guide needs original Summary');
+  return source.slice(0,i)+guide+source.slice(i);
+}
+
 function suppressRepeatedReaderContext(root){
   // Preserve the upstream vendor snapshot and its strict reading-support validation.
   // The generated reader already has canonical Summary and Why it matters sections.
@@ -165,8 +203,11 @@ function mergeReadingSupport(root,bundle,edition,environment,priorArchive){
     if(slot?.status!=='included')continue;
     entries.push({
       item_id:'dab-video-'+edition.brief_date+'-'+suffix,
-      coverage_label:'New development',
-      label_reason:'Verified media selection preserved from the edition bundle.',
+      coverage_label:edition.brief_date>='2026-10-23' &&
+        Number.isFinite(Date.parse(slot.upload_date)) &&
+        Date.parse(edition.brief_date+'T00:00:00Z')-Date.parse(slot.upload_date+'T00:00:00Z')>7*86400000?
+        'Background':'New development',
+      label_reason:'Video publication date retained; older verified instructional videos are background lessons, not breaking news.',
       learning_outcome:slot.connection,
       context_term:'Video context',
       context:slot.why_useful
@@ -296,7 +337,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
 
   const render=await import(pathToFileURL(path.join(outDir,'_generator','lib','render.mjs')).href);
   const generated=render.generatedFiles(adapted.edition,outDir,{watchlist:adapted.watchlist});
-  for(const [name,content] of generated)writeText(path.join(outDir,name),removeEmptyAndRepeatedMediaCopy(applyFeedbackIdentities(content,feedbackRegistry)));
+  for(const [name,content] of generated)writeText(path.join(outDir,name),removeEmptyAndRepeatedMediaCopy(addPublisherChapterGuide(name,applyFeedbackIdentities(content,feedbackRegistry),bundle)));
   await writeWatchlistResearch(outDir,adapted.watchlist);
   writeText(path.join(outDir,'data','compiler-feedback-registry.json'),JSON.stringify(feedbackRegistry,null,2));
 

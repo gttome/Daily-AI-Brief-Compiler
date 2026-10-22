@@ -169,10 +169,14 @@ function adaptPodcast(bundle,podcast,index){
     url:podcast.url,
     permanent_url:`/podcasts/${bundle.edition_date}/${slug}/`,
     focus:'agents_non_technical_people',
-    topics:[],
+    topics:Array.isArray(podcast.topics)?
+      podcast.topics.filter(x=>typeof x==='string'&&x.trim().length>=3).slice(0,6):[],
     summary:podcast.summary,
     why_useful:podcast.why_it_matters,
-    connection:podcast.why_it_matters,
+    // Distinct editorial connection requires independent story-bound copy.
+    connection:typeof podcast.connection_to_brief==='string' &&
+      podcast.connection_to_brief.trim()!==podcast.why_it_matters.trim()?
+      podcast.connection_to_brief.trim():'',
     selection_rationale:podcast.why_it_matters,
     verification_note:'Verified media identity and duration preserved from the edition bundle.',
     coverage_note:'Selected for this edition.',

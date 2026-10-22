@@ -1,4 +1,4 @@
-import {validateMediaPrecision,validateNontechnicalAudience} from '../compiler/production-evidence.mjs';
+import {validateMediaPrecision,validateNontechnicalAudience,videoPublisherKey} from '../compiler/production-evidence.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -100,6 +100,13 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   ];
   if(bundle.videos?.length!==2||bundle.podcasts?.length!==2||selected.some(x=>!x.title||!x.url))
     throw new Error('media freshness requires exactly two videos and two podcasts with identities');
+  // Prior URL hosts are publisher-exposure hints, never verified YouTube channel IDs.
+  const currentVideoPublishers=bundle.videos.map(videoPublisherKey);
+  const priorVideoHosts={};
+  for(const item of historyDates.flatMap(d=>previousItems(historyRoot,d,'video'))){
+    let host;try{host=new URL(item.url).hostname.toLowerCase().replace(/^www\./,'');}catch{continue;}
+    priorVideoHosts[host]=(priorVideoHosts[host]||0)+1;
+  }
   const selectedPodcasts=selected.filter(x=>x.type==='podcast');
   if(selectedPodcasts.some(x=>!x.source||!podcastShowKeys(x).length))
     throw new Error('PODCAST_SHOW_IDENTITY_REQUIRED: each selection needs a verified program identity');
@@ -148,6 +155,14 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
     previous_count:past.length,duplicates:[],article_diversity:articleDiversity,
     podcast_show_cooldown_editions:3,podcast_show_history_dates:showDates,
     selected_podcast_shows:selectedPodcasts.map(x=>({source:x.source,identity:podcastShowKeys(x)})),
+    video_publisher_review:{
+      distinct_selected_publishers:new Set(currentVideoPublishers).size,
+      selected_publisher_keys:currentVideoPublishers,
+      reviewed_diversity_exception:new Set(currentVideoPublishers).size<2 &&
+        bundle.video_diversity_exception?.alternatives_reviewed?.length>=2,
+      previous_video_host_exposure:priorVideoHosts,
+      prior_host_identity_is_not_verified_channel_identity:true
+    },
     seven_edition_article_publisher_counts:Object.fromEntries(
       Object.entries(publisherHistory).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))),
     seven_edition_article_pages_identified:identified,
