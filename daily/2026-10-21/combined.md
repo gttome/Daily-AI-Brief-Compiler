@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** October 22, 2026 · **Production evening:** 2026-10-21 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-10-22 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-22/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 42m 01s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -23,11 +23,11 @@
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **14** | Image worker AAR; no estimation |
 | Rejected candidates | **8** | Image worker AAR |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -75,7 +75,7 @@ flowchart LR
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
 
 ### Image production duration — Git-verified milestones
 
@@ -98,21 +98,31 @@ flowchart LR
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| NVIDIA splits agent retrieval into embedding, reranking and document parsing | 3 | 0.48 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png) |
+| CrowdStrike documents threat actors experimenting with agentic attack workflows | 2 | 0.59 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png) |
+| Yorkshire Ambulance Service keeps Copilot on the administrative side of care | 3 | 0.55 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png) |
+| Asana puts prebuilt AI Teammates inside ordinary project handoffs | 1 | 0.65 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png) |
+| Claude Duet tests proactive briefs with approval gates for consequential actions | 3 | 0.64 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png) |
+| Salesforce turns a repeated office workflow into a reviewable reusable Skill | 2 | 0.48 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png" alt="Diagram for oct22-t1-multimodal-retrieval" width="420"/></a><br/><b>NVIDIA splits agent retrieval into embedding, reranking and document parsing</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png" alt="Diagram for oct22-t2-agentic-threat-campaigns" width="420"/></a><br/><b>CrowdStrike documents threat actors experimenting with agentic attack workflows</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png" alt="Diagram for oct22-k1-nhs-admin-copilot" width="420"/></a><br/><b>Yorkshire Ambulance Service keeps Copilot on the administrative side of care</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png" alt="Diagram for oct22-k2-asana-ai-teammates" width="420"/></a><br/><b>Asana puts prebuilt AI Teammates inside ordinary project handoffs</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png" alt="Diagram for oct22-a1-claude-duet" width="420"/></a><br/><b>Claude Duet tests proactive briefs with approval gates for consequential actions</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png" alt="Diagram for oct22-a2-salesforce-skills" width="420"/></a><br/><b>Salesforce turns a repeated office workflow into a reviewable reusable Skill</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -171,7 +181,7 @@ No six-image public release gallery available yet.
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-22/reviews/live/image-element24/semantic-reviews.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-22/reviews/after-action.md) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39714386655).
 
 ---
 
