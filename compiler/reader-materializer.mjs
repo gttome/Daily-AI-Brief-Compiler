@@ -61,6 +61,27 @@ function patchFeedbackRuntime(root,environment){
   fs.writeFileSync(feedbackPage,page,'utf8');
 }
 
+
+// Preserve the vendored reader source: apply only targeted, reversible rendering overlays.
+function restrictCoveragePeriodToArticles(root){
+  const file=path.join(root,'_generator','lib','render.mjs');
+  const content=fs.readFileSync(file,'utf8');
+  const video="  for(const slot of Object.values(edition.worth_watching||{}))if(slot?.status==='included'&&/^\\d{4}-\\d{2}-\\d{2}$/.test(slot.upload_date||''))dates.push(slot.upload_date);";
+  const audio="  for(const slot of podcasts)if(slot?.status==='included'&&/^\\d{4}-\\d{2}-\\d{2}$/.test(slot.publication_date||''))dates.push(slot.publication_date);";
+  if(content.split(video).length!==2||content.split(audio).length!==2)
+    throw Error('upstream coverage renderer changed: review date-range overlay');
+  fs.writeFileSync(file,content.replace(video,'  // Older evergreen media are excluded from article coverage dates.')
+    .replace(audio,'  // Podcast dates stay in media metadata, not article coverage period.'));
+}
+// Remove only demonstrably empty metadata and exact duplicated podcast explanations.
+export function removeEmptyAndRepeatedMediaCopy(value){
+  return String(value)
+    .replace(/^\\*\\*Topics:\\*\\*[ \\t]*\\r?\\n/gm,'')
+    .replace(/<p><strong>Topics:<\\/strong><\\/p>\\s*/g,'')
+    .replace(/<strong>Topics:<\\/strong><br \\/>/g,'')
+    .replace(/(\\*\\*Why it matters:\\*\\* ([^\\r\\n]+))\\r?\\n(?:\\r?\\n){1,3}\\*\\*Connection to the brief:\\*\\* \\2(?=\\r?\\n|$)/g,'$1')
+    .replace(/(<p><strong>Why it matters:<\\/strong> ([^<]+)<\\/p>)\\s*<p><strong>Connection to the brief:<\\/strong> \\2<\\/p>/g,'$1');
+}
 function suppressRepeatedReaderContext(root){
   // Preserve the upstream vendor snapshot and its strict reading-support validation.
   // The generated reader already has canonical Summary and Why it matters sections.
@@ -245,6 +266,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   patchWatchlistImmediateSelection(outDir);
   patchFeedbackRuntime(outDir,environment);
   suppressRepeatedReaderContext(outDir);
+  restrictCoveragePeriodToArticles(outDir);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
   const watchModule=await import(pathToFileURL(path.join(outDir,'_generator','lib','watchlist.mjs')).href);
@@ -273,7 +295,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
 
   const render=await import(pathToFileURL(path.join(outDir,'_generator','lib','render.mjs')).href);
   const generated=render.generatedFiles(adapted.edition,outDir,{watchlist:adapted.watchlist});
-  for(const [name,content] of generated)writeText(path.join(outDir,name),applyFeedbackIdentities(content,feedbackRegistry));
+  for(const [name,content] of generated)writeText(path.join(outDir,name),removeEmptyAndRepeatedMediaCopy(applyFeedbackIdentities(content,feedbackRegistry)));
   await writeWatchlistResearch(outDir,adapted.watchlist);
   writeText(path.join(outDir,'data','compiler-feedback-registry.json'),JSON.stringify(feedbackRegistry,null,2));
 
