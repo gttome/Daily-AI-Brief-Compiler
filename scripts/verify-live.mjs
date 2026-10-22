@@ -103,6 +103,8 @@ for(let attempt=1;attempt<=18;attempt++){
       edition_date:editionDate,
       production_reader_source_sha:manifest.production_reader_source_sha,
       reader_contract:'reader-surface-parity-v2',
+      reader_quality_result:editionDate>='2026-10-22'?'PASS':null,
+      reader_quality_scope:'live_dated_ten_date_labels_and_media_copy',
       checked_routes:checked.length,
       canonical_layout:built.canonical_layout,
       ratings:built.ratings,

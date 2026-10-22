@@ -8,7 +8,7 @@ const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
  'image-job','image-release','image-manifest','image-recurring-assignment',
- 'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage'];
+ 'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage','live-verification'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -42,6 +42,7 @@ function compilerAar(cycle,date,e){
  const compile=validFor(e['compile-receipt'],date)?e['compile-receipt']:null;
  const integrity=validFor(e['postpublish-integrity'],date)?e['postpublish-integrity']:null;
  const job=validFor(e['image-job'],date)?e['image-job']:null;
+ const reader=validFor(e['live-verification'],date)?e['live-verification']:null;
  const seen=!!(state||producer||compile);
  const publicChecks=integrity?.live_http_and_sha256;
  const datedUrl='https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/'+date+'/';
@@ -75,6 +76,7 @@ function compilerAar(cycle,date,e){
   oct8_protected_objects_verified:integrity?.oct8_protected_count??null,
   articles_total:verified?6:null,
   articles_focus_mix_verified:verified?'SOURCE_RECEIPT_ONLY':null,
+  reader_semantic_quality:reader?.result==='PASS'&&reader.reader_quality_result==='PASS'?'PASS':null,
   videos_required:2,podcasts_required:2,
   source_job_exists:!!job,
   editorial_source_detail_available:!!producer,
@@ -203,6 +205,8 @@ function imageAar(cycle,date,e,hashes={}){
   generation_attempts:imageAfterAction?.production?.actual_generation_count??null,
   weekly_work_usage_percent:ownerUsagePercent,
   weekly_work_usage_source:ownerUsagePercent===null?null:'owner_reported',
+  image_first_pass_count:Number.isSafeInteger(imageAfterAction?.production?.first_pass_accepted_count)?imageAfterAction.production.first_pass_accepted_count:null,
+  image_rejected_count:Number.isSafeInteger(imageAfterAction?.production?.rejected_count)?imageAfterAction.production.rejected_count:null,
   defects,
   next_run:'UNKNOWN',
   next_run_reason:'Next natural Work/Image Creation/GitHub availability and task enablement are not observable from repository records'

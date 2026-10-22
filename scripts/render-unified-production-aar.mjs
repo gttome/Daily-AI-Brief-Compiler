@@ -7,7 +7,7 @@ function generateUnified(cycle,e) {
   const d = new Date(cycle+"T00:00:00Z"); if(!Number.isFinite(d.getTime())||d.toISOString().slice(0,10)!==cycle)throw Error("invalid-cycle-date");d.setUTCDate(d.getUTCDate()+1);
   const edition=d.toISOString().slice(0,10), gh="https://github.com/gttome/Daily-AI-Brief-Compiler", pub="https://gttome.github.io/Daily-AI-Brief-Compiler/";
   const obj=k=>e[k]&&e[k].edition_date===edition?e[k]:null;
-  const state=obj("compiler-state"),compile=obj("compile-receipt"),integrity=obj("postpublish-integrity"),bundle=obj("edition-bundle");
+  const state=obj("compiler-state"),compile=obj("compile-receipt"),integrity=obj("postpublish-integrity"),bundle=obj("edition-bundle"),reader=obj("live-verification");
   const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews"),imageTiming=obj("image-timing");
   const usage=e["owner-usage"]&&e["owner-usage"].cycle_date===cycle&&e["owner-usage"].edition_date===edition?e["owner-usage"]:null;
   const amount=ownerReportedWorkUsage(usage,cycle,edition);
@@ -68,6 +68,10 @@ function generateUnified(cycle,e) {
   const attempts=imageAar?.production?.actual_generation_count;
   const rejected=imageAar?.production?.rejected_count;
   const accepted=imageAar?.production?.accepted_count;
+  const firstPass=imageAar?.production?.first_pass_accepted_count;
+  const firstPassCount=Number.isInteger(firstPass)&&firstPass>=0&&firstPass<=6?firstPass:null;
+  const videoPublishers=Array.isArray(bundle?.videos)?new Set(bundle.videos.map(v=>v.source).filter(Boolean)).size:null;
+  const readerQuality=reader?.result==='PASS'&&reader.reader_quality_result==='PASS'?'PASS':'Not reported';
   const imgb=imagesOk?images.map((i,idx)=>({label:stories.find(s=>s.id===i.story_id)?.headline||i.story_id,...i,attempts:imageAar?.images?.find(a=>a.story_id===i.story_id)?.generation_attempts})): [];
   // Text and Unicode status colors render without third-party image downloads in Typora and GitHub.
   const good="**"+(complete?"🟩":"🟨")+" RELEASE "+badge.replaceAll("_"," ")+"**";
@@ -107,6 +111,10 @@ indicators,
 `| Executor-observed generation-to-final-review | **${observedGenerationDuration}** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |`,
 `| Accepted premium PNGs | **${imagesOk?6:"Not complete"} / 6** | Exact package and public release hashes |`,
 `| Native image generation attempts | **${typeof attempts==="number"?attempts:"Not reported"}** | Image worker AAR; no estimation |`,
+`| Image first-pass yield | **${firstPassCount===null?"Not reported":firstPassCount+"/6 ("+Math.round(100*firstPassCount/6)+"%)"}** | Genuine first-pass count, not pixel approval by itself |`,
+`| Selected video publisher diversity | **${videoPublishers===null?"Not reported":videoPublishers+"/2"}** | Sealed publisher labels; evidenced exception permitted |`,
+`| Reader semantic quality | **${readerQuality}** | Live reader receipt, not inferred from HTTP 200 |`,
+`| Intermediate failed CI runs | **Not reported** | No complete edition-scoped CI-attempt ledger |`,
 `| Rejected candidates | **${typeof rejected==="number"?rejected:"Not reported"}** | Image worker AAR |`,
 `| Saved visual contexts | **${visualOk?"24 / 24 PASS":"Unverified"}** | Dated/permanent desktop/mobile review |`,
 `| Public SHA-256 checks | **${release?.independent_http_sha256_checks??"Not recorded"}** | Image release receipt |`,
@@ -242,13 +250,17 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,
+  reader_semantic_quality:readerQuality==='PASS'?'PASS':null,image_first_pass_count:firstPassCount,
+  image_rejected_count:Number.isInteger(rejected)?rejected:null,
+  selected_video_publisher_count:videoPublishers,ci_intermediate_failure_count:null,
+  work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage"];
+const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","live-verification"];
 const ev={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;try{ev[k]=JSON.parse(fs.readFileSync(p,"utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev);
 fs.mkdirSync(outDir,{recursive:true});
