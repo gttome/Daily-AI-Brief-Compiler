@@ -86,7 +86,7 @@ jobs:
               throw Error('October 13–19 history-link integrity invariants failed');
           }else if(r.schema_version==='daily-compiler-oct22-reader-correction-v1'){
             if(r.edition_date!=='2026-10-22'||r.files_changed!==(r.homepage_latest_changed?14:11)||
-               r.dates_repaired!==(r.homepage_latest_changed?40:10)||
+               r.dates_repaired!==(r.homepage_latest_changed?50:20)||
                r.accepted_png_files_byte_preserved<6||
                r.no_editorial_reseal!==true)
               throw Error('October 22 reader/date/Markdown integrity invariants failed');
