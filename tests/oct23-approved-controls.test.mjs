@@ -57,7 +57,7 @@ const podcast={
  learning_objective:'Understand grounded governance and measurable agent evaluation practices.',
  practical_action:'Compare one real workflow with formal permission and human review boundaries.',
  selected_over_alternatives:'The interview provides more original source context than the competing general news recap.',
- content_evidence:{url:'https://example.org/episode/transcript',kind:'whole_episode_transcript',scope:'Full forty-minute episode reviewed with original time-coded editorial segments.'},
+ content_evidence:{url:'https://openai.com/research/ai-governance/episode-transcript',kind:'whole_episode_transcript',scope:'Full forty-minute episode reviewed with original time-coded editorial segments.'},
  is_advertisement:false,promotional_risk:'low',promotional_assessment:'This episode provides original educational substance without brand sales pitches.',
  editorial_segments:editorialSegments,estimated_editorial_ai_fraction:.75,
  editorial_form:'original_interview',
