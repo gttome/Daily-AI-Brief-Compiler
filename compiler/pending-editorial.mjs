@@ -3,6 +3,7 @@ import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.m
 import {watchlistScoringProblems,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
 import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
 import {validateArticleSourceDiversity} from './source-diversity.mjs';
+import {validateRecentSourceDiscovery} from './recent-source-discovery.mjs';
 // Strict evidence gate for a NEW unattended Release 1 pending-figure edition.
 // This is not invoked by fixture/reader preview compilation or legacy illustrated editions.
 const fail=s=>{throw new Error('Release 1 editorial evidence: '+s);};
@@ -45,6 +46,7 @@ export function validateNewPendingEditorial({bundle,state}){
   if(bundle.stories.length!==6)fail('six stories required');
   // Prospective source diversity is checked before sealing, not retroactively.
   validateArticleSourceDiversity(bundle);
+  validateRecentSourceDiscovery(bundle);
   validateEditorialChronology({bundle,state});
   validateNontechnicalAudience(bundle);
   validateMediaPrecision(bundle);
