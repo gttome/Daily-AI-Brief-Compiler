@@ -1,0 +1,245 @@
+{
+  "refreshed_at": "2026-10-23T00:22:33.101Z",
+  "new": [
+    {
+      "topic": "Desktop-scale frontier model clusters",
+      "topic_id": "dab-topic-desktop-frontier-model-clusters",
+      "why": "NVIDIA’s October 22 article supplies the first dated Watchlist baseline for coordinating eight compact systems on a frontier-scale model.",
+      "summary": "Desktop-scale model clusters join compact AI workstations so their combined memory and interconnect can serve models that exceed one node.",
+      "why_now": "NVIDIA published an eight-node configuration, full-model run and topology measurements on October 22, creating a concrete baseline for evaluation.",
+      "practical_value": "Infrastructure teams can reproduce a bounded cluster test and compare throughput, synchronization cost, network load, memory headroom and failures.",
+      "evidence": {
+        "url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+        "date": "2026-10-22",
+        "publisher": "NVIDIA",
+        "title": "Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes",
+        "checked_at": "2026-10-23T00:20:38.888Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The article demonstrates a coordinated eight-node desktop cluster serving a frontier-scale model without datacenter-class chassis."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "NVIDIA publishes topology, memory, model, throughput and scaling details, although the complete evaluation remains vendor-operated."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The configuration is reproducible in principle, but no independently operated eight-node comparison was reviewed for this release."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated benchmark supplies no comparable second observation under a stable deployment or adoption measure."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Small infrastructure teams can reproduce a bounded topology trial and measure throughput, overhead, memory pressure and resilience."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Topology-aware distributed inference remains useful even as workstation hardware, interconnects and frontier model sizes change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated benchmark supplies no comparable second observation under a stable deployment or adoption measure.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "updated": [
+    {
+      "topic": "Reusable agent skills become observable",
+      "topic_id": "dab-topic-agent-skills-observability",
+      "what_changed": "Metis adds a product-independent authoring, evaluation, ownership and registry procedure to the prior product-specific implementations.",
+      "summary": "Reusable agent Skills package instructions, standards and supporting assets so assistants can apply a reviewed procedure to repeated work.",
+      "why_now": "Metis Strategy’s October 21 article adds dated evidence for baselines, edge-case testing, version ownership, review dates and registries.",
+      "practical_value": "Operations leaders can pilot one Skill against the existing workflow, correct failures and approve a version before broader reuse.",
+      "evidence": {
+        "url": "https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/",
+        "date": "2026-10-21",
+        "publisher": "Metis Strategy",
+        "title": "AI agent skills: Beyond the platform",
+        "checked_at": "2026-10-23T00:20:38.899Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Metis combines concise Skill authoring with baseline comparison, registry governance and lifecycle ownership in one operating procedure."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "The article provides concrete structure and evaluation guidance, but reports no controlled cross-platform effectiveness measurements."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Metis adds an advisory perspective beyond product vendors, while the reviewed procedure still lacks independent outcome replication."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "Available publications describe unlike implementations without two comparable numerical observations under one stable metric."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Nontechnical operations leaders can immediately pilot one repeated workflow using templates, edge cases and explicit approval gates."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Concise instructions, representative tests, ownership, versions and registries remain durable across assistant vendors and interfaces."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "Available publications describe unlike implementations without two comparable numerical observations under one stable metric.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "carried_forward": [
+    {
+      "topic": "Multimodal evidence retrieval for agents",
+      "topic_id": "dab-topic-multimodal-agent-retrieval",
+      "why": "NVIDIA’s October 21 release remains the latest primary baseline, and the refresh found no independent replication requiring a status change.",
+      "summary": "Multimodal agent retrieval combines visual-text embedding, relevance reranking and structured document parsing so agents can locate evidence across charts, tables and scans.",
+      "why_now": "The topic is carried while teams still need independent evaluation of retrieval relevance, task success, token use and throughput.",
+      "practical_value": "Teams can benchmark each stage separately on their own documents, measuring relevance, downstream task success, token use and serving throughput.",
+      "evidence": {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "date": "2026-10-21",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+        "checked_at": "2026-10-23T00:22:33.101Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The release unifies multimodal embedding, reranking and structured parsing as separately deployable components for agent evidence pipelines."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "NVIDIA publishes model variants, evaluation methods, benchmark tables and throughput figures, although all headline results remain publisher-run."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Public benchmarks enable outside testing, but the reviewed release and its measured claims originate from NVIDIA and collaborators."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can directly benchmark relevance, task success, token cost and throughput on their own visually rich document collections."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Separating retrieval, reranking and parsing remains useful even as particular models, indexes and accelerator generations change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished.",
+        "metric": null,
+        "observations": []
+      }
+    },
+    {
+      "topic": "Consumer agent task permissions",
+      "topic_id": "dab-topic-consumer-agent-task-permissions",
+      "what_changed": "Anthropic moves permission boundaries into a proactive assistant preview that names actions requiring confirmation before execution.",
+      "summary": "Consumer task agents need minimum authority, visible connected sources, enforceable action limits, reconstructable histories and human escalation for consequential work.",
+      "why_now": "The topic is carried because approval boundaries remain important while external evidence on real-world miscalibration and intervention is absent.",
+      "practical_value": "Individuals can write allowed, confirmation-required and prohibited actions before connecting an assistant, then audit briefs and execution histories.",
+      "evidence": {
+        "url": "https://claude.com/resources/articles/claude-duet",
+        "date": "2026-10-21",
+        "publisher": "Anthropic",
+        "title": "Introducing Claude Duet",
+        "checked_at": "2026-10-23T00:22:33.101Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Claude Duet applies familiar permission ideas to proactive daily briefs and consequential consumer actions in a managed environment."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Anthropic specifies approval categories, access limits and known miscalibration risk, but the preview lacks independent outcome evaluation."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Anthropic provides a second publisher implementation alongside the earlier AWS control framework, though both remain publisher-authored evidence."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The sources describe different controls without two comparable numerical observations, so a directional momentum score is unsupported."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Ordinary users can convert the named approval boundaries into a concrete checklist before connecting a proactive assistant."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Least authority, confirmation for consequential actions and reviewable histories remain durable regardless of assistant branding or model."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "The sources describe different controls without two comparable numerical observations, so a directional momentum score is unsupported.",
+        "metric": null,
+        "observations": []
+      },
+      "why": "Anthropic’s October 21 preview remains the newest concrete implementation, with no later independent permission-outcome study found."
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "Priority-aware inference operations",
+      "topic_id": "dab-topic-priority-aware-inference-operations",
+      "why": "The October 20 llm-d release remains useful reference evidence but no longer warrants an active daily Watchlist position.",
+      "summary": "Priority-aware inference operations coordinate queueing, cache placement and service isolation so shared model fleets can honor differentiated workload objectives.",
+      "why_now": "The topic is dropped because no second operator supplied comparable fairness, cache or rollout measurements during the review window.",
+      "practical_value": "Readers can retain the mixed-priority replay checklist without treating one project release as evidence of broader production momentum.",
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The release combines explicit workload priority, fairness and cache-aware routing within one operational inference framework."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The October 20 release documents mechanisms and one cache result, while detailed independent reproduction remains unavailable."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The evidence comes from project maintainers and participating vendors, without an independent comparative production study."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One release observation provides no repeated comparable service metric at distinct valid observation times."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Inference operators can directly test latency, starvation, cache effectiveness and rollout continuity under mixed-priority traffic."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Queue fairness, cache placement and safe rollouts remain durable concerns across models, accelerators and serving stacks."
+        }
+      },
+      "reason": "Archived after two daily reviews found no independent reproduction, while newer evidence offers more immediate reader decisions.",
+      "previous_evidence": {
+        "url": "https://llm-d.ai/blog/llm-d-v1.0-state-of-the-art-inference-ready-for-day-2",
+        "date": "2026-10-20",
+        "publisher": "llm-d",
+        "title": "llm-d v1.0: State-of-the-Art Inference Ready for Day 2"
+      }
+    }
+  ]
+}
