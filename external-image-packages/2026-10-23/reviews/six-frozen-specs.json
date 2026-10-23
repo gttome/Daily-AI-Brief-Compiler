@@ -1,0 +1,1288 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-23",
+    "story_id": "oct23-t1-dgx-spark-cluster",
+    "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+    "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+    "recipe_version": "rev8-enriched-v1",
+    "visual_thesis": "An eight-node cluster combines memory to fit a large model, while switch and ring connectivity impose different communication constraints.",
+    "mechanism_metaphor": "memory archipelago",
+    "story_anchors": [
+      "Eight 128 GB nodes combine 1 TB of memory; full GLM 5.3 has 753B parameters.",
+      "RoCEnante relies on direct peer exchange and applies only to switch connectivity."
+    ],
+    "required_labels": [
+      "Eight DGX Spark nodes",
+      "128 GB per node",
+      "1 TB combined memory",
+      "Full GLM 5.3: 753B parameters",
+      "Switched peer exchange",
+      "Exchange then local reduction",
+      "Ring neighbor forwarding",
+      "Multiple communication rounds",
+      "RoCEnante requires a switch",
+      "Latency versus traffic",
+      "Vendor-run workload-specific evidence"
+    ],
+    "source_claim_map": [
+      {
+        "id": "memory",
+        "proposition": "Eight 128 GB systems provide 1 TB and run the full GLM 5.3 checkpoint.",
+        "supporting_source_excerpt": "eight nodes reach 1 TB",
+        "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "exchange",
+        "proposition": "RoCEnante exchanges all peer inputs then reduces locally, restricted to a switched network.",
+        "supporting_source_excerpt": "all-to-all exchange followed by local reduction",
+        "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "tradeoff",
+        "proposition": "Ring forwards through neighbors; direct exchange adds traffic and favors modest ranks.",
+        "supporting_source_excerpt": "The tradeoff is more data movement.",
+        "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Eight nodes",
+        "to": "Combined model memory",
+        "support_claim_id": "memory",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Switch-connected ranks",
+        "to": "Exchange then local reduction",
+        "support_claim_id": "exchange",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Neighboring ring ranks",
+        "to": "Multiple forwarding rounds",
+        "support_claim_id": "tradeoff",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No throughput chart or unqualified scaling numbers.",
+      "No logos, office scenery, product rendering or implied single shared physical RAM."
+    ],
+    "composition_signature": {
+      "grammar": "paired topology cutaway",
+      "metaphor": "memory archipelago",
+      "layout": "Upper left memory architecture occupying two thirds; lower right contrasting ring inset",
+      "palette": "navy and warm copper",
+      "annotation": "bracketed engineering callouts",
+      "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+      "perspective": "conceptual isometric"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Eight DGX Spark nodes",
+          "region": "top title",
+          "minimum_font_px": 30,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "128 GB per node",
+          "region": "mechanism region 1 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "1 TB combined memory",
+          "region": "mechanism region 1 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Full GLM 5.3: 753B parameters",
+          "region": "mechanism region 1 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Switched peer exchange",
+          "region": "mechanism region 2 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Exchange then local reduction",
+          "region": "mechanism region 2 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Ring neighbor forwarding",
+          "region": "mechanism region 2 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Multiple communication rounds",
+          "region": "mechanism region 3 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "RoCEnante requires a switch",
+          "region": "mechanism region 3 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Latency versus traffic",
+          "region": "mechanism region 3 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Vendor-run workload-specific evidence",
+          "region": "bottom caveat",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor-run and workload-specific; memory capacity does not imply identical throughput for GLM and Qwen.",
+      "causal_state_checks": [
+        {
+          "condition": "Switched direct peer connectivity",
+          "allowed_path": "RoCEnante exchange then local reduction",
+          "blocked_path": "No RoCEnante path on physical ring",
+          "support_claim_id": "exchange"
+        },
+        {
+          "condition": "High concurrency or larger messages",
+          "allowed_path": "Compare NCCL bandwidth efficiency",
+          "blocked_path": "Never imply RoCEnante universally wins",
+          "support_claim_id": "tradeoff"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker source comparison",
+      "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-23",
+    "story_id": "oct23-t2-rerank-5",
+    "source_url": "https://cohere.com/blog/rerank-5",
+    "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+    "recipe_version": "rev8-enriched-v1",
+    "visual_thesis": "Document ranking and passage selection jointly govern which evidence reaches the language model, with a quality versus speed serving choice.",
+    "mechanism_metaphor": "evidence sieve",
+    "story_anchors": [
+      "Both Pro and Fast offer optional Context Focus, returning scored spans with document scores.",
+      "A configurable threshold trades context reduction against evidence retention."
+    ],
+    "required_labels": [
+      "Rerank 5",
+      "Query and candidate documents",
+      "Pro: ranking quality priority",
+      "Fast: latency priority",
+      "Document relevance scores",
+      "Context Focus: optional",
+      "Scored relevant passages",
+      "Configurable threshold",
+      "Evidence retained",
+      "Irrelevant context withheld",
+      "Test answer quality",
+      "Publisher-developed evaluation"
+    ],
+    "source_claim_map": [
+      {
+        "id": "tiers",
+        "proposition": "Pro prioritizes ranking quality and Fast prioritizes latency and throughput.",
+        "supporting_source_excerpt": "available in Pro and Fast tiers",
+        "source_url": "https://cohere.com/blog/rerank-5",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "spans",
+        "proposition": "Context Focus is optional and returns document scores plus scored text spans.",
+        "supporting_source_excerpt": "returns both document-level relevance scores and scored text spans",
+        "source_url": "https://cohere.com/blog/rerank-5",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "threshold",
+        "proposition": "Configurable thresholds balance context reduction with evidence retention.",
+        "supporting_source_excerpt": "Configurable thresholds",
+        "source_url": "https://cohere.com/blog/rerank-5",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Query and candidates",
+        "to": "Document relevance scores",
+        "support_claim_id": "tiers",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Optional Context Focus",
+        "to": "Scored passages",
+        "support_claim_id": "spans",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Threshold",
+        "to": "Evidence retained or withheld",
+        "support_claim_id": "threshold",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No fabricated document prose, scores, token percentages or guaranteed answers.",
+      "No native PDF vision claim; parsed content is not raw-page visual processing."
+    ],
+    "composition_signature": {
+      "grammar": "document cross-section with selective ribbons",
+      "metaphor": "evidence sieve",
+      "layout": "Tall document cross section left; parallel Pro/Fast selector above center; selective ribbons converge right",
+      "palette": "deep emerald and lime",
+      "annotation": "inline span brackets",
+      "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+      "perspective": "editorial planar"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Rerank 5",
+          "region": "top title",
+          "minimum_font_px": 30,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Query and candidate documents",
+          "region": "mechanism region 1 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Pro: ranking quality priority",
+          "region": "mechanism region 1 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Fast: latency priority",
+          "region": "mechanism region 1 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Document relevance scores",
+          "region": "mechanism region 2 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Context Focus: optional",
+          "region": "mechanism region 2 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Scored relevant passages",
+          "region": "mechanism region 2 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Configurable threshold",
+          "region": "mechanism region 3 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Evidence retained",
+          "region": "mechanism region 3 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Irrelevant context withheld",
+          "region": "mechanism region 3 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Test answer quality",
+          "region": "mechanism region 4 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Publisher-developed evaluation",
+          "region": "bottom caveat",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher-developed evaluations; relevance scores and smaller context are not guarantees of answer correctness.",
+      "causal_state_checks": [
+        {
+          "condition": "Context Focus enabled",
+          "allowed_path": "Return document scores and scored spans",
+          "blocked_path": "Do not show span selection as mandatory default",
+          "support_claim_id": "spans"
+        },
+        {
+          "condition": "No evidence clears chosen threshold",
+          "allowed_path": "Withhold evidence and reassess query",
+          "blocked_path": "No automatic correct answer from top-ranked material",
+          "support_claim_id": "threshold"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker source comparison",
+      "source_url": "https://cohere.com/blog/rerank-5",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-23",
+    "story_id": "oct23-k1-biological-agents",
+    "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+    "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+    "recipe_version": "rev8-enriched-v1",
+    "visual_thesis": "Parallel analysis connects perturbation data to literature and a traceable reasoning atlas; expert interpretation still leads to experiments rather than established mechanisms.",
+    "mechanism_metaphor": "research evidence constellation",
+    "story_anchors": [
+      "Agents analyze existing mouse whole-brain CRISPR atlas data and literature.",
+      "Reports become an open reasoning atlas; laboratory follow-up remains necessary."
+    ],
+    "required_labels": [
+      "Mouse whole-brain CRISPR atlas",
+      "Gene disruptions",
+      "Cellular responses",
+      "Parallel analysis agents",
+      "Literature evidence",
+      "Source-linked reports",
+      "Open reasoning atlas",
+      "Expert review",
+      "Testable hypotheses",
+      "Laboratory follow-up required",
+      "Single-agent comparison",
+      "Research leads, not validated mechanisms"
+    ],
+    "source_claim_map": [
+      {
+        "id": "analysis",
+        "proposition": "Each agent studies perturbations, cellular responses and literature.",
+        "supporting_source_excerpt": "Each agent investigated a gene disruption",
+        "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "atlas",
+        "proposition": "Reports link genes, cellular effects, publications and possible mechanisms.",
+        "supporting_source_excerpt": "Their reports were combined into a reasoning atlas",
+        "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "validation",
+        "proposition": "Expert comparison prioritizes leads for experiments rather than validating biological causation.",
+        "supporting_source_excerpt": "further experiments needed to test",
+        "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Perturbations and cellular responses",
+        "to": "Source-linked reports",
+        "support_claim_id": "analysis",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Literature",
+        "to": "Source-linked reports",
+        "support_claim_id": "analysis",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Source-linked reports",
+        "to": "Reasoning atlas",
+        "support_claim_id": "atlas",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Expert review",
+        "to": "Testable hypotheses requiring experiments",
+        "support_claim_id": "validation",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people, brain illustration, humanoid agents, cell editing instructions or disease cure claim.",
+      "No unqualified speedup or artificial success checks."
+    ],
+    "composition_signature": {
+      "grammar": "radial evidence convergence with validation boundary",
+      "metaphor": "research evidence constellation",
+      "layout": "Data and literature arcs feed separate distributed report nodes around a central atlas; lower validation boundary",
+      "palette": "violet and muted gold",
+      "annotation": "radial leaders and boundary caption",
+      "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+      "perspective": "editorial planar"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Mouse whole-brain CRISPR atlas",
+          "region": "top title",
+          "minimum_font_px": 30,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Gene disruptions",
+          "region": "mechanism region 1 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Cellular responses",
+          "region": "mechanism region 1 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Parallel analysis agents",
+          "region": "mechanism region 1 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Literature evidence",
+          "region": "mechanism region 2 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Source-linked reports",
+          "region": "mechanism region 2 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Open reasoning atlas",
+          "region": "mechanism region 2 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Expert review",
+          "region": "mechanism region 3 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Testable hypotheses",
+          "region": "mechanism region 3 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Laboratory follow-up required",
+          "region": "mechanism region 3 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Single-agent comparison",
+          "region": "mechanism region 4 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Research leads, not validated mechanisms",
+          "region": "bottom caveat",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Existing mouse data and publisher-reported evaluation; hypotheses need experiments and are not validated human treatments.",
+      "causal_state_checks": [
+        {
+          "condition": "Synthesis from experimental data and literature",
+          "allowed_path": "Generate traceable candidate explanations",
+          "blocked_path": "No arrow directly to proven biological mechanism",
+          "support_claim_id": "atlas"
+        },
+        {
+          "condition": "Expert preference in comparison",
+          "allowed_path": "Prioritize testable hypotheses",
+          "blocked_path": "No clinical efficacy or validated treatment conclusion",
+          "support_claim_id": "validation"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker source comparison",
+      "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-23",
+    "story_id": "oct23-k2-vw-copilot",
+    "source_url": "https://news.microsoft.com/source/2026/10/21/microsoft-empowers-more-than-330000-volkswagen-group-employees-with-copilot/",
+    "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+    "recipe_version": "rev8-enriched-v1",
+    "visual_thesis": "A phased enterprise rollout expands access and activity across functions; these adoption measures remain distinct from demonstrated productivity outcomes.",
+    "mechanism_metaphor": "enterprise adoption strata",
+    "story_anchors": [
+      "More than 330,000 employees have access; upwards of 300,000 monthly chat users and more than 26,000 active agents are reported.",
+      "Microsoft Fabric data-foundation expansion is planned, not complete."
+    ],
+    "required_labels": [
+      "Volkswagen Copilot rollout",
+      "Access: more than 330,000 employees",
+      "Chat: over 300,000 monthly users",
+      "Over 26,000 active agents last month",
+      "Engineering",
+      "Production",
+      "Procurement",
+      "Sales",
+      "Fabric expansion: planned",
+      "Adoption is not productivity proof",
+      "Vendor and customer reported",
+      "Evaluate workflow outcomes separately"
+    ],
+    "source_claim_map": [
+      {
+        "id": "access",
+        "proposition": "Copilot access exceeds 330,000 employees, with more than 300,000 monthly chat users.",
+        "supporting_source_excerpt": "more than 330,000 employees",
+        "source_url": "https://news.microsoft.com/source/2026/10/21/microsoft-empowers-more-than-330000-volkswagen-group-employees-with-copilot/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "activity",
+        "proposition": "More than 26,000 agents were active in the prior month across four named business functions.",
+        "supporting_source_excerpt": "more than 26,000 agents have been active",
+        "source_url": "https://news.microsoft.com/source/2026/10/21/microsoft-empowers-more-than-330000-volkswagen-group-employees-with-copilot/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "future",
+        "proposition": "Fabric data foundation is an intended expansion, not a completed outcome.",
+        "supporting_source_excerpt": "intend to expand their collaboration",
+        "source_url": "https://news.microsoft.com/source/2026/10/21/microsoft-empowers-more-than-330000-volkswagen-group-employees-with-copilot/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Phased rollout",
+        "to": "Broad chat access",
+        "support_claim_id": "access",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Copilot with Work IQ",
+        "to": "Four business functions",
+        "support_claim_id": "activity",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Planned collaboration",
+        "to": "Fabric expansion",
+        "support_claim_id": "future",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people, automotive scenery, car logos, bar chart or added adoption populations.",
+      "No performance gain or verified productivity badge."
+    ],
+    "composition_signature": {
+      "grammar": "layered adoption terrace with evidence separation",
+      "metaphor": "enterprise adoption strata",
+      "layout": "Three nonproportional labeled terraces left, four functional branches right, planned foundation under dashed boundary",
+      "palette": "burnt orange and slate",
+      "annotation": "layer labels and dashed future scope",
+      "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+      "perspective": "editorial planar"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Volkswagen Copilot rollout",
+          "region": "top title",
+          "minimum_font_px": 30,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Access: more than 330,000 employees",
+          "region": "mechanism region 1 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Chat: over 300,000 monthly users",
+          "region": "mechanism region 1 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Over 26,000 active agents last month",
+          "region": "mechanism region 1 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Engineering",
+          "region": "mechanism region 2 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Production",
+          "region": "mechanism region 2 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Procurement",
+          "region": "mechanism region 2 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Sales",
+          "region": "mechanism region 3 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Fabric expansion: planned",
+          "region": "mechanism region 3 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Adoption is not productivity proof",
+          "region": "mechanism region 3 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Vendor and customer reported",
+          "region": "mechanism region 4 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Evaluate workflow outcomes separately",
+          "region": "bottom caveat",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Counts are Microsoft/customer statements, not independent outcome measures; shapes are nonproportional and agents are not people.",
+      "causal_state_checks": [
+        {
+          "condition": "Counts describe access or activity",
+          "allowed_path": "Keep each count attached to its distinct population",
+          "blocked_path": "No stacked total or productivity percentage",
+          "support_claim_id": "access"
+        },
+        {
+          "condition": "Fabric collaboration intended",
+          "allowed_path": "Dashed future foundation",
+          "blocked_path": "Never connect as already deployed complete foundation",
+          "support_claim_id": "future"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker source comparison",
+      "source_url": "https://news.microsoft.com/source/2026/10/21/microsoft-empowers-more-than-330000-volkswagen-group-employees-with-copilot/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-23",
+    "story_id": "oct23-a1-servicenow-arc",
+    "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+    "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+    "recipe_version": "rev8-enriched-v1",
+    "visual_thesis": "A personal enterprise agent plans and checks work across familiar apps while runtime policy controls distinguish permitted from prohibited actions; forthcoming controls stay outside the present boundary.",
+    "mechanism_metaphor": "governed work enclosure",
+    "story_anchors": [
+      "Arc is generally available on Mac and works through ServiceNow, email and Teams.",
+      "Control Tower governs and OpenShell enforces runtime; AI Passport/hardware enforcement integrations are forthcoming."
+    ],
+    "required_labels": [
+      "Arc personal enterprise agent",
+      "Plan",
+      "Check",
+      "Adjust",
+      "ServiceNow",
+      "Email",
+      "Teams",
+      "Control Tower policies",
+      "OpenShell runtime enforcement",
+      "Permitted actions",
+      "Prohibited actions blocked",
+      "AI Passport integration: forthcoming",
+      "Mac available; Windows forthcoming"
+    ],
+    "source_claim_map": [
+      {
+        "id": "work",
+        "proposition": "Arc plans, checks and adjusts work across ServiceNow, email and Teams.",
+        "supporting_source_excerpt": "Arc is generally available today on Mac",
+        "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "govern",
+        "proposition": "Control Tower policies restrict behavior and OpenShell enforces runtime actions.",
+        "supporting_source_excerpt": "restricts Arc’s behavior at runtime",
+        "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "future",
+        "proposition": "Windows and passport/hardware integrations are future availability, not current guarantees.",
+        "supporting_source_excerpt": "will be able to read",
+        "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Control Tower policies",
+        "to": "OpenShell runtime enforcement",
+        "support_claim_id": "govern",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Arc plan check adjust",
+        "to": "Permitted application work",
+        "support_claim_id": "work",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Runtime policy denial",
+        "to": "Blocked prohibited action",
+        "support_claim_id": "govern",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No person, hand, screen screenshot, logos, security seal or universal safety claim.",
+      "No AI Passport shown as deployed runtime dependency."
+    ],
+    "composition_signature": {
+      "grammar": "nested policy boundary with task loop",
+      "metaphor": "governed work enclosure",
+      "layout": "Task loop inside a wide nested runtime boundary; policy enters from above; three apps on right; future controls detached below",
+      "palette": "teal and coral",
+      "annotation": "boundary gates and detached future note",
+      "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+      "perspective": "editorial planar"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Arc personal enterprise agent",
+          "region": "top title",
+          "minimum_font_px": 30,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Plan",
+          "region": "mechanism region 1 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Check",
+          "region": "mechanism region 1 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Adjust",
+          "region": "mechanism region 1 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "ServiceNow",
+          "region": "mechanism region 2 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Email",
+          "region": "mechanism region 2 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Teams",
+          "region": "mechanism region 2 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Control Tower policies",
+          "region": "mechanism region 3 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "OpenShell runtime enforcement",
+          "region": "mechanism region 3 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Permitted actions",
+          "region": "mechanism region 3 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Prohibited actions blocked",
+          "region": "mechanism region 4 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "AI Passport integration: forthcoming",
+          "region": "mechanism region 4 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Mac available; Windows forthcoming",
+          "region": "bottom caveat",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "ServiceNow announcement, not independent security validation; forthcoming integration must not appear active.",
+      "causal_state_checks": [
+        {
+          "condition": "Runtime action permitted under policy",
+          "allowed_path": "Allow action into named application",
+          "blocked_path": "No route for prohibited action past enforcement boundary",
+          "support_claim_id": "govern"
+        },
+        {
+          "condition": "AI Passport/hardware integration forthcoming",
+          "allowed_path": "Detached future annotation only",
+          "blocked_path": "No active enforcement path through forthcoming hardware",
+          "support_claim_id": "future"
+        },
+        {
+          "condition": "Mac available and Windows forthcoming",
+          "allowed_path": "Label availability explicitly",
+          "blocked_path": "No Windows general availability claim",
+          "support_claim_id": "work"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker source comparison",
+      "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-23",
+    "story_id": "oct23-a2-agent-skills-procedure",
+    "source_url": "https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/",
+    "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+    "recipe_version": "rev8-enriched-v1",
+    "visual_thesis": "A concise task-specific Skill combines instructions and assets, is compared against a baseline, corrected, owned and registered; portability requires platform validation.",
+    "mechanism_metaphor": "procedure folio and review circuit",
+    "story_anchors": [
+      "SKILL.md defines naming, applicability and concise procedure with supporting assets.",
+      "Representative and awkward tests precede ownership and registry, and platform behavior must be validated."
+    ],
+    "required_labels": [
+      "Reusable agent Skill",
+      "Precise name and description",
+      "Concise instructions",
+      "Approved templates",
+      "Required output standards",
+      "Workflow baseline",
+      "Representative and awkward cases",
+      "Compare results",
+      "Correct failed behavior",
+      "Owner, version, review date",
+      "Internal registry",
+      "Validate on each platform"
+    ],
+    "source_claim_map": [
+      {
+        "id": "anatomy",
+        "proposition": "Skill instructions define applicability, method, standards and output; references and assets support it.",
+        "supporting_source_excerpt": "A skill is a folder.",
+        "source_url": "https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "test",
+        "proposition": "Representative tasks and baselines support evaluation and correction.",
+        "supporting_source_excerpt": "Writing, Evaluating, and Governing Skills",
+        "source_url": "https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "govern",
+        "proposition": "Govern through version ownership and registry; validate behavior per platform.",
+        "supporting_source_excerpt": "budget a small per-platform validation step",
+        "source_url": "https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Instructions and assets",
+        "to": "Reusable procedure",
+        "support_claim_id": "anatomy",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Baseline and test cases",
+        "to": "Result comparison and correction",
+        "support_claim_id": "test",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reviewed procedure",
+        "to": "Ownership and registry",
+        "support_claim_id": "govern",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Registry entry",
+        "to": "Per-platform validation",
+        "support_claim_id": "govern",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No faux writing, code blocks, fake filenames or automatic model-training feedback.",
+      "No people, vendor icons or universal portability success badge."
+    ],
+    "composition_signature": {
+      "grammar": "exploded skill anatomy joined to evaluation lifecycle",
+      "metaphor": "procedure folio and review circuit",
+      "layout": "Exploded three-layer folio left; baseline/test comparison fork center; correction loop and ownership registry right",
+      "palette": "indigo and rose",
+      "annotation": "exploded layer callouts and loop captions",
+      "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+      "perspective": "exploded orthographic"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Reusable agent Skill",
+          "region": "top title",
+          "minimum_font_px": 30,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Precise name and description",
+          "region": "mechanism region 1 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Concise instructions",
+          "region": "mechanism region 1 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Approved templates",
+          "region": "mechanism region 1 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Required output standards",
+          "region": "mechanism region 2 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Workflow baseline",
+          "region": "mechanism region 2 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Representative and awkward cases",
+          "region": "mechanism region 2 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Compare results",
+          "region": "mechanism region 3 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Correct failed behavior",
+          "region": "mechanism region 3 callout 2",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Owner, version, review date",
+          "region": "mechanism region 3 callout 3",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Internal registry",
+          "region": "mechanism region 4 callout 1",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        },
+        {
+          "label": "Validate on each platform",
+          "region": "bottom caveat",
+          "minimum_font_px": 20,
+          "font": "plain sans serif",
+          "target_safe_area": "x40..1160, y40..590"
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Portable file format does not ensure identical behavior or general availability on every platform.",
+      "causal_state_checks": [
+        {
+          "condition": "Tests reveal failed behavior",
+          "allowed_path": "Correct procedure then retest",
+          "blocked_path": "No failed-test path directly to approved registry",
+          "support_claim_id": "test"
+        },
+        {
+          "condition": "Skill moves to another platform",
+          "allowed_path": "Validate discovery and execution behavior",
+          "blocked_path": "No zero-touch compatibility guarantee",
+          "support_claim_id": "govern"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker source comparison",
+      "source_url": "https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true,
+      "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+    }
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "schema_version": "external-image-acceptance-review-v8",
+  "edition_date": "2026-10-23",
+  "story_id": "oct23-t2-rerank-5",
+  "result": "PASS",
+  "inspected_saved_png_sha256": "c9ba977f4ba6825dd27eea13f289886c992472a9b9f41b8807d250c504f0d922",
+  "bytes": 542593,
+  "width": 1200,
+  "height": 630,
+  "bit_depth": 8,
+  "color_type": "RGB",
+  "interlace": "none",
+  "verified_original_source_url": "https://cohere.com/blog/rerank-5",
+  "generation_attempts": 4,
+  "inspection_method": "persisted_git_binary",
+  "reviewed_at": "2026-10-23T03:00:00Z",
+  "mechanism_notes": "Exact saved 1200x630 PNG inspected. Query/candidate evidence enters document scoring; Pro and Fast are alternatives. Saturated scored spans lead directly to retained evidence, while separate gray excluded context routes only to withheld output. Context Focus is explicitly optional and evaluation is publisher-developed. Twelve labels are legible after correction; blank surfaces replace writing. The layout uses a passage cross-section rather than a hardware topology.",
+  "required_labels": [
+    "Rerank 5",
+    "Query and candidate documents",
+    "Pro: ranking quality priority",
+    "Fast: latency priority",
+    "Document relevance scores",
+    "Context Focus: optional",
+    "Scored relevant passages",
+    "Configurable threshold",
+    "Evidence retained",
+    "Irrelevant context withheld",
+    "Test answer quality",
+    "Publisher-developed evaluation"
+  ],
+  "factual_fidelity_verified": true,
+  "quality_and_visual_text_verified": true,
+  "distinct_from_other_five_verified": true,
+  "no_people_humanoids_faces": true,
+  "no_logos_brands": true,
+  "no_photorealism": true,
+  "no_pseudo_writing": true,
+  "no_clipped_labels": true,
+  "safe_margins_verified": true,
+  "rejected_candidates": [
+    {
+      "story_id": "oct23-t2-rerank-5",
+      "attempt": 1,
+      "defects": [
+        "Unlisted expanded title.",
+        "Writing-like strokes in documents and tier icons.",
+        "Unsupported decorative lightning, magnifier, scales, and question mark."
+      ],
+      "path": "generated_images/exec-216caecf-8ec5-4884-bb61-a55d6f562230.png"
+    },
+    {
+      "story_id": "oct23-t2-rerank-5",
+      "attempt": 2,
+      "defects": [
+        "Retained-evidence arrows originate from muted excluded spans rather than highlighted relevant spans.",
+        "Bottom bidirectional connector could imply unsupported feedback."
+      ],
+      "path": "generated_images/exec-8f433dea-c91e-4b83-baae-b3d4c9e68c77.png"
+    },
+    {
+      "story_id": "oct23-t2-rerank-5",
+      "attempt": 3,
+      "defects": [
+        "Central and right captions too small in exact-size saved PNG despite corrected routing."
+      ],
+      "path": "generated_images/exec-bcbb8e6a-559f-4dca-9b11-9d8b89231e37.png"
+    }
+  ],
+  "exact_commit_binary_readback": {
+    "commit": "3b73d596c6a2e3ed29776c73997346bff3543918",
+    "byte_identical": true,
+    "git_blob_sha": "534ac4f857d0b4c7fd5b8101b9564ef4c392379c",
+    "method": "connected_github_fetch_file_base64_and_git_object_readback"
+  },
+  "final_set_review_at": "2026-10-23T03:00:00Z"
+}
