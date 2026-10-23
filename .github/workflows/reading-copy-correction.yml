@@ -68,6 +68,10 @@ jobs:
               node scripts/correct-oct22-reader-dates.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            OCT23_MEDIA_AGE_AND_METADATA_ONLY)
+              node scripts/correct-oct23-media-metadata.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -91,6 +95,14 @@ jobs:
                r.no_editorial_reseal!==true||
                (r.homepage_latest_changed && (r.markdown_accepted_images_corrected!==6||r.html_accepted_images_corrected!==6)))
               throw Error('October 22 reader/date/Markdown integrity invariants failed');
+          }else if(r.schema_version==='daily-compiler-oct23-media-metadata-correction-v1'){
+            if(r.edition_date!=='2026-10-23'||r.files_changed!==(r.homepage_latest_changed?8:5)||
+               r.misleading_media_labels_repaired!==(r.homepage_latest_changed?12:6)||
+               r.unverified_host_fields_removed!==(r.homepage_latest_changed?10:4)||
+               r.accepted_png_files_byte_preserved!==6||
+               r.no_source_bundle_resealed!==true)
+               throw Error('Oct23 original-date media metadata and immutable-image invariants failed');
+
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
           NODE
