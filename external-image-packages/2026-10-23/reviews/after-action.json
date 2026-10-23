@@ -122,6 +122,11 @@
       "phase": "Protected merge configuration",
       "issue": "Repository auto-merge feature is disabled; the enable-auto-merge operation returned an error.",
       "correction": "Waited for successful exact-head PR CI and merged with the expected head through the normal protected PR API; no bypass."
+    },
+    {
+      "phase": "Combined AAR compatibility",
+      "issue": "Initial closeout accepted_hashes contained story/hash objects, while the existing combined reporter requires six bare SHA-256 strings.",
+      "correction": "Corrected the field before protected merge, preserved accepted_images bindings, and checked the reporter contract; no PNG or manifest changes."
     }
   ],
   "visual_review": {

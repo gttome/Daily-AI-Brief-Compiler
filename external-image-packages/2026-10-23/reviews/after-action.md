@@ -45,6 +45,7 @@
 | Large binary transport | Whole-file command output truncated one accepted PNG's base64 before upload. | Used bounded base64 slices, exact returned Git blob identity, original fixed-offset reassembly and identical connected commit readback. |
 | Capability evidence persistence | Callable image/export/GitHub/release operations were inspected, but a standalone route-preflight receipt was not persisted before the first native call. | Do not retrospectively claim pre-generation route-receipt execution. Preserve genuine generation/export/GitHub evidence and require the full package and protected release gates. |
 | Protected merge configuration | Repository auto-merge feature is disabled; the enable-auto-merge operation returned an error. | Waited for successful exact-head PR CI and merged with the expected head through the normal protected PR API; no bypass. |
+| Combined AAR compatibility | Initial closeout accepted_hashes contained story/hash objects, while the existing combined reporter requires six bare SHA-256 strings. | Corrected the field before protected merge, preserved accepted_images bindings, and checked the reporter contract; no PNG or manifest changes. |
 
 ## Evidence and limitations
 
