@@ -81,6 +81,8 @@ export function removeEmptyAndRepeatedMediaCopy(value){
     .replace(/<p><strong>Topics:<\/strong>\s*<\/p>\s*/g,'')
     .replace(/<br\s*\/>\s*<strong>Topics:<\/strong>\s*(?=<\/p>)/g,'')
     .replace(/<strong>Topics:<\/strong><br \/>/g,'')
+    .replace(/(?:<br\s*\/?>\s*)?<strong>Host \/ guest:<\/strong>\s*Not listed(?:<br\s*\/?>)?/gi,'')
+    .replace(/^.*\*\*Host \/ guest:\*\*\s*Not listed.*$/gm,'')
     .replace(/(\*\*Why it matters:\*\* ([^\r\n]+))\r?\n(?:\r?\n){1,3}\*\*Connection to the brief:\*\* \2(?=\r?\n|$)/g,'$1')
     .replace(/(<p><strong>Why it matters:<\/strong> ([^<]+)<\/p>)\s*<p><strong>Connection to the brief:<\/strong> \2<\/p>/g,'$1');
 }
@@ -141,6 +143,17 @@ function coverageLabel(story){
   if(story.freshness?.tier==='fallback')return story.freshness?.fallback_band==='extended'?'Extended recency fallback':'Recency fallback';
   return 'New development';
 }
+// Media labels reflect the original program date, not the Brief's current date.
+export function mediaCoverageLabel(editionDate,originalDate,type){
+  if(editionDate<'2026-10-23')return 'New development'; // Historical snapshots replay unchanged.
+  const day=String(originalDate??'').slice(0,10);
+  const parsed=Date.parse(day+'T12:00:00Z'),published=Date.parse(editionDate+'T12:00:00Z');
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(day)||!Number.isFinite(parsed)||!Number.isFinite(published)||parsed>published)
+    throw Error('media_original_date_invalid:'+type+':'+originalDate);
+  const age=Math.floor((published-parsed)/86400000);
+  const noun=type==='video'?'instructional video':'AI podcast episode';
+  return age<=1?'New '+noun:age<=7?'Recent '+noun+' fallback':'Evergreen '+noun;
+}
 function mergeReadingSupport(root,bundle,edition,environment,priorArchive){
   const file=path.join(root,'_data','reading-support.json');
   const data=readJson(file);
@@ -166,8 +179,8 @@ function mergeReadingSupport(root,bundle,edition,environment,priorArchive){
     if(slot?.status!=='included')continue;
     entries.push({
       item_id:'dab-video-'+edition.brief_date+'-'+suffix,
-      coverage_label:'New development',
-      label_reason:'Verified media selection preserved from the edition bundle.',
+      coverage_label:mediaCoverageLabel(edition.brief_date,slot.upload_date,'video'),
+      label_reason:'Original video publication date determines the age label.',
       learning_outcome:slot.connection,
       context_term:'Video context',
       context:slot.why_useful
@@ -176,8 +189,8 @@ function mergeReadingSupport(root,bundle,edition,environment,priorArchive){
   for(const podcast of edition.podcasts||[]){
     entries.push({
       item_id:podcast.item_id,
-      coverage_label:'New development',
-      label_reason:'Verified podcast selection preserved from the edition bundle.',
+      coverage_label:mediaCoverageLabel(edition.brief_date,podcast.publication_date,'podcast'),
+      label_reason:'Original podcast episode date determines the age label.',
       learning_outcome:podcast.why_useful,
       context_term:'Podcast context',
       context:podcast.summary
