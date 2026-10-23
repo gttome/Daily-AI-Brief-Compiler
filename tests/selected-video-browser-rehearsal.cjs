@@ -3,21 +3,29 @@
 // tokens, accounts, or remote network. Runtime production check remains strict.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const os = require('node:os');
 const path = require('node:path');
-const {spawnSync} = require('node:child_process');
+const zlib = require('node:zlib');
 const {chromium} = require('/tmp/browser/node_modules/playwright-core');
 const {proveVideo} = require('../scripts/verify-selected-video-playback.cjs');
 
-function makeClip(dir,name,seconds) {
-  const target=path.join(dir,name+'.mp4');
-  const proc=spawnSync('ffmpeg',[
-    '-hide_banner','-loglevel','error','-f','lavfi','-i','color=c=black:s=160x90:r=5',
-    '-t',String(seconds),'-c:v','libx264','-preset','ultrafast','-pix_fmt','yuv420p',
-    '-movflags','+faststart','-y',target
-  ],{encoding:'utf8'});
-  if(proc.status!==0)throw new Error('Synthetic video creation failed: status='+proc.status+' system='+proc.error?.message+' stderr='+(proc.stderr||'').slice(0,500));
-  return fs.readFileSync(target);
+// Three genuine H.264 black MP4s (24s, 26s, 2s), generated once offline.
+// The real signed-out Chrome player must still advance; no fake player results.
+function loadFixtureClips() {
+  const source=fs.readFileSync(path.join(__dirname,'fixtures','hermetic-video-clips.deflate.b64'),'utf8').trim();
+  const buf=zlib.inflateSync(Buffer.from(source,'base64'));
+  const clips={};
+  let offset=0;
+  for(const [key,expected] of [['fullone',3180],['fulltwo',3320],['preview',1640]]) {
+    assert.ok(offset+4<=buf.length,'fixture length header required');
+    const length=buf.readUInt32BE(offset);
+    offset+=4;
+    assert.equal(length,expected,'exact offline fixture bytes');
+    assert.ok(offset+length<=buf.length,'nontruncated MP4 fixture');
+    clips[key]=buf.subarray(offset,offset+length);
+    offset+=length;
+  }
+  assert.equal(offset,buf.length,'no unclaimed fixture bytes');
+  return clips;
 }
 
 function playbackFixtureBrowser(realBrowser,clips) {
@@ -47,12 +55,7 @@ function playbackFixtureBrowser(realBrowser,clips) {
 }
 
 async function main() {
-  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'video-gate-rehearsal-'));
-  const clips={
-    fullone:makeClip(dir,'fullone',24),
-    fulltwo:makeClip(dir,'fulltwo',26),
-    preview:makeClip(dir,'preview',2)
-  };
+  const clips=loadFixtureClips();
   const actual=await chromium.launch({
     headless:true,executablePath:'/usr/bin/google-chrome',
     args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']
@@ -80,7 +83,7 @@ async function main() {
     process.stdout.write('HERMETIC_SIGNED_OUT_CHROME_VIDEO_PROOF_PASS: 2 full clips, preview rejected, access error rejected\n');
   } finally {
     await actual.close();
-    fs.rmSync(dir,{recursive:true,force:true});
+
   }
 }
 main().catch(e=>{console.error('HERMETIC_VIDEO_REHEARSAL_FAILED',e.stack||e);process.exitCode=1});
