@@ -304,7 +304,7 @@
 ### 9. OpenAI’s Jalapeño chip, NVIDIA’s $279B push and Anthropic’s Claude Duet
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New AI podcast episode</span></div></aside>
 <!-- reader-release:end -->
 
 <span class="podcast-data" data-podcast-id="dab-podcast-2026-10-23-1" data-podcast-title="OpenAI’s Jalapeño chip, NVIDIA’s $279B push and Anthropic’s Claude Duet" data-podcast-url="/podcasts/2026-10-23/openai-s-jalapen-o-chip-nvidia-s-279b-push-and-anthropic-s-claude-duet/" hidden></span>
@@ -312,7 +312,6 @@
 <a href="{{ '/podcasts/2026-10-23/openai-s-jalapen-o-chip-nvidia-s-279b-push-and-anthropic-s-claude-duet/' | relative_url }}" data-item-id="dab-podcast-2026-10-23-1" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
 **Show:** AIskimIQ Daily Brief  
-**Host / guest:** Not listed  
 **Focus:** Agents for Everyone  
 **Date:** October 22, 2026  
 **Duration:** 8:16  
@@ -338,7 +337,7 @@
 ### 10. Sundar Pichai: Google’s Frontier Imperative, Compute Scarcity Dilemmas, Future AI Products and Businesses
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI podcast episode fallback</span></div></aside>
 <!-- reader-release:end -->
 
 <span class="podcast-data" data-podcast-id="dab-podcast-2026-10-23-2" data-podcast-title="Sundar Pichai: Google’s Frontier Imperative, Compute Scarcity Dilemmas, Future AI Products and Businesses" data-podcast-url="/podcasts/2026-10-23/sundar-pichai-google-s-frontier-imperative-compute-scarcity-dilemmas-future-ai-products-an/" hidden></span>
@@ -346,7 +345,6 @@
 <a href="{{ '/podcasts/2026-10-23/sundar-pichai-google-s-frontier-imperative-compute-scarcity-dilemmas-future-ai-products-an/' | relative_url }}" data-item-id="dab-podcast-2026-10-23-2" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
 **Show:** Big Technology Podcast  
-**Host / guest:** Not listed  
 **Focus:** Agents for Everyone  
 **Date:** October 20, 2026  
 **Duration:** 46:59  
