@@ -5,6 +5,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {requireWatchlistCopy} from '../compiler/watchlist-copy.mjs';
+import {requireDistinctWatchlistTitles} from '../compiler/watchlist-identity.mjs';
 import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/watchlist.mjs';
 import {renderWatchlistEvidence} from '../vendor/production-reader/snapshot/assets/js/watchlist-evidence.js';
 import {isSyntheticSixty,requireWatchlistRubric} from '../compiler/watchlist-rubric.mjs';
@@ -29,7 +30,8 @@ function walk(root){
 export function applyWatchlistRevision({revision,historySite,outSite}){
   const scoreOnly=revision?.scope==='watchlist_score_only';
   const rubricOnly=revision?.scope==='watchlist_rubric_correction';
-  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||(!scoreOnly&&!rubricOnly&&revision.scope!=='watchlist_copy_only')||revision.requested_by!=='owner')fail('unsupported revision authorization');
+  const identityOnly=revision?.scope==='watchlist_identity_titles_only';
+  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||(!scoreOnly&&!rubricOnly&&!identityOnly&&revision.scope!=='watchlist_copy_only')||revision.requested_by!=='owner')fail('unsupported revision authorization');
   if(!/^20\d\d-\d\d-\d\d$/.test(revision.edition_date))fail('invalid target date');
   if(scoreOnly){
     if(revision.items!==undefined||!Number.isInteger(revision.expected_topic_count)||!Number.isInteger(revision.expected_missing_score_count))fail('score-only correction requires an exact data audit and no editorial changes');
@@ -38,6 +40,9 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
       !Number.isInteger(revision.expected_generic_score_count)||
       !Array.isArray(revision.items)||revision.items.length!==revision.expected_generic_score_count)
       fail('rubric correction requires exact existing-topic and synthetic-score counts');
+  }else if(identityOnly){
+    if(!Number.isInteger(revision.expected_topic_count)||!Array.isArray(revision.items)||revision.items.length!==2)
+      fail('identity repair requires exactly two proven topic title decisions');
   }else if(!Array.isArray(revision.items)||!revision.items.length)fail('no editorial fixes supplied');
   if(!fs.existsSync(historySite)||fs.existsSync(outSite))fail('missing input or output already exists');
   const jsonRoute='data/watchlist.json',htmlRoute='watchlist/research/index.html';
@@ -45,7 +50,28 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
   if(watch.edition_date!==revision.edition_date)fail('latest published Watchlist date differs from target; do not overwrite a newer edition');
   let html=fs.readFileSync(textFile(historySite,htmlRoute),'utf8');
   const seen=new Set();
-  if(scoreOnly){
+  if(identityOnly){
+    if(watch.topics.length!==revision.expected_topic_count)fail('concurrent Watchlist count changed');
+    for(const item of revision.items){
+      if(!/^dab-topic-[a-z0-9-]+$/.test(item.topic_id)||seen.has(item.topic_id)||
+        typeof item.expected_name!=='string'||typeof item.corrected_name!=='string'||
+        item.corrected_name.trim().length<24||typeof item.reason!=='string'||item.reason.length<60)
+        fail('identity resolution requires precise supported title, ID and scope distinction');
+      const topic=watch.topics.find(t=>t.topic_id===item.topic_id);
+      if(!topic||topic.status==='archived'||topic.name!==item.expected_name||
+        !topic.evidence?.some(e=>e.url===item.expected_primary_url))
+        fail('stale or unsupported topic title: '+item.topic_id);
+      const before='<section class="wl-card" id="'+esc(topic.topic_id)+'"><h2>'+esc(topic.name)+'</h2>';
+      const after='<section class="wl-card" id="'+esc(topic.topic_id)+'"><h2>'+esc(item.corrected_name)+'</h2>';
+      if(html.split(before).length!==2)fail('exact published research heading not found once: '+item.topic_id);
+      html=html.replace(before,after);
+      topic.name_aliases=[...new Set([...(topic.name_aliases||[]),topic.name])];
+      topic.name=item.corrected_name;
+      topic.title_disambiguation_reason=item.reason;
+      seen.add(item.topic_id);
+    }
+    requireDistinctWatchlistTitles(watch.topics);
+  }else if(scoreOnly){
     const missing=watch.topics.filter(t=>!Number.isInteger(t.research_score)).length;
     if(watch.topics.length!==revision.expected_topic_count||missing!==revision.expected_missing_score_count)
       fail('Watchlist score audit mismatch; refuse to patch changed or already-corrected data');

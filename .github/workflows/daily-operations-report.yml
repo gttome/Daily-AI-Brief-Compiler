@@ -64,6 +64,7 @@ jobs:
           tmp="$(mktemp -d)"
           # Use protected main report renderers even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
+          cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
           cp scripts/image-aar-contract.mjs "$tmp/image-aar-contract.mjs"
           cp scripts/owner-usage.mjs "$tmp/owner-usage.mjs"
@@ -92,6 +93,7 @@ jobs:
             git show "$ref:shadow-runs/$edition/compiler-state.json" > "$in/compiler-state.json" 2>/dev/null || rm -f "$in/compiler-state.json"
             git show "$ref:shadow-runs/$edition/edition-bundle.json" > "$in/edition-bundle.json" 2>/dev/null || rm -f "$in/edition-bundle.json"
             git show "$ref:shadow-runs/$edition/producer-receipt.json" > "$in/producer-receipt.json" 2>/dev/null || rm -f "$in/producer-receipt.json"
+            git show "$ref:shadow-runs/$edition/producer/task-origin.json" > "$in/compiler-task-origin.json" 2>/dev/null || rm -f "$in/compiler-task-origin.json"
             git show "$ref:shadow-runs/$edition/compiler/compile-receipt.json" > "$in/compile-receipt.json" 2>/dev/null || rm -f "$in/compile-receipt.json"
             git show "$ref:shadow-runs/$edition/compiler/postpublish-integrity.json" > "$in/postpublish-integrity.json" 2>/dev/null || rm -f "$in/postpublish-integrity.json"
             git show "refs/remotes/origin/shadow-pages-history:site/image-jobs/$edition/job.json" > "$in/image-job.json" 2>/dev/null || rm -f "$in/image-job.json"
@@ -100,6 +102,8 @@ jobs:
             git show "refs/remotes/origin/main:external-image-packages/$edition/recurring-assignment.json" > "$in/image-recurring-assignment.json" 2>/dev/null || rm -f "$in/image-recurring-assignment.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/after-action.json" > "$in/image-after-action.json" 2>/dev/null || rm -f "$in/image-after-action.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/worker-state.json" > "$in/image-worker-state.json" 2>/dev/null || rm -f "$in/image-worker-state.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/task-origin.json" > "$in/image-task-origin.json" 2>/dev/null || rm -f "$in/image-task-origin.json"
+            git show "refs/remotes/origin/shadow-pages-history:site/data/watchlist.json" > "$in/published-watchlist.json" 2>/dev/null || rm -f "$in/published-watchlist.json"
             # Exception-only per-cycle schedule anchor; missing is normal.
             git show "refs/remotes/origin/main:docs/after-action/timing/$cycle.json" > "$in/image-scheduled-start.json" 2>/dev/null || rm -f "$in/image-scheduled-start.json"
             # Owner usage is a per-cycle optional input; a missing record is normal.

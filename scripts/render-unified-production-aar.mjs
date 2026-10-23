@@ -51,6 +51,30 @@ function generateUnified(cycle,e) {
   const started=Date.parse(state?.started_at||"");const ended=Date.parse(state?.updated_at||"");
   const elapsed=Number.isFinite(started)&&Number.isFinite(ended)&&ended>=started?((ended-started)/60000).toFixed(1)+" min":"Not recorded";
   const stories=Array.isArray(bundle?.stories)?bundle.stories:[];
+  const watch=e["published-watchlist"]?.edition_date===edition?e["published-watchlist"]:null;
+  const watchActive=(watch?.topics||[]).filter(t=>t.status!=="archived");
+  const normalizeTitle=v=>String(v??"").toLowerCase().normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").trim();
+  const seenTitles=new Map(),watchCollisions=[];
+  for(const t of watchActive){
+    const key=normalizeTitle(t.name);
+    if(seenTitles.has(key))watchCollisions.push([seenTitles.get(key),t.topic_id]);
+    else seenTitles.set(key,t.topic_id);
+  }
+  const publishedNoon=Date.parse(edition+"T12:00:00Z");
+  const withinOneDay=stories.filter(t=>{
+    const published=Date.parse(t.source?.published_at||"");
+    return Number.isFinite(published)&&publishedNoon-published<=86400000&&published<=publishedNoon;
+  }).length;
+  const distinctArticlePublishers=new Set(stories.map(t=>t.source?.publisher).filter(Boolean)).size;
+  const mediaOld=(bundle?.videos||[]).filter(t=>{
+    const published=Date.parse(t.original_date||"");
+    return Number.isFinite(published)&&publishedNoon-published>7*86400000;
+  }).length;
+  const selectedVideoPublishers=new Set((bundle?.videos||[])
+    .map(t=>t.verification?.publisher_channel_id||t.source).filter(Boolean)).size;
+  const originImages=e["image-task-origin"]?.edition_date===edition?e["image-task-origin"]:null;
+
   const durations=bundle?.videos?.length===2&&bundle?.podcasts?.length===2?"2 videos + 2 podcasts":"Source receipt incomplete";
   // Image timeline uses persisted first-accepted-binary and approved 24-context review Git events.
   const seconds=n=>typeof n==='number'&&Number.isFinite(n)&&n>=0?
@@ -100,6 +124,13 @@ indicators,
 "|:--|:--:|:--|",
 `| Editorial publication | **${compilerOk?"PASS":"NOT VERIFIED"}** | State and public reader integrity receipt |`,
 `| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
+`| Verified original sources within preceding 24 hours | **${withinOneDay} / ${stories.length}** | Original publisher dates only; other sources require a documented fallback rationale |`,
+`| Distinct selected article publishers | **${distinctArticlePublishers}** | Six different primary organizations preferred |`,
+`| Videos over seven days old | **${mediaOld}** | Must be labeled evergreen, not a new development |`,
+`| Distinct selected video publishers | **${selectedVideoPublishers}** | One channel is one publisher even across multiple videos |`,
+`| Duplicate active Watchlist display titles | **${watch?watchCollisions.length:"Not recorded"}** | Published canonical Watchlist only; historical evidence retained |`,
+`| Recorded scheduler capability route | **${originImages?.capability_preflight?.result??"UNPROVEN"}** | GitHub receipt is not a first-party scheduler attestation |`,
+`| Avoidable incomplete-staging CI failures | **Not recorded** | Do not guess from Git commit count; attach genuine workflow audit |`,
 `| Media | **${durations}** | Sealed bundle |`,
 `| **Compiler stage duration** | **${compilerStageDuration} (${elapsed})** | First persisted Compiler state → verified public reader; not a host scheduler attestation |`,
 `| **Image processing stage duration** | **${imageStageDuration}** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |`,

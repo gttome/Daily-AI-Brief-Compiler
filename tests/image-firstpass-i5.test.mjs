@@ -65,3 +65,28 @@ test('I5 historic October10 rendered apostrophe/entity HTML cannot be reprocesse
  const simulated={...s,permanent_route:'/stories/2026-10-10/'+s.permanent_route.split('/')[3]+'/'};
  assert.throws(()=>replaceSingleTag(accepted,simulated,'https://example.org/wrong.png'),/exactly_one_original_placeholder/);
 });
+
+
+test('October 24 pre-generation geometry requires export-safe readable text and supported connector origins',()=>{
+ const s=freeze(original[0]),story=source.get(s.story_id);
+ s.edition_date='2026-10-24';
+ s.pre_generation_checks={
+  label_layout:s.required_labels.map((label,i)=>({label,region:'mechanism label '+i,
+    minimum_font_px:24,bounding_box_px:{x:52,y:62+i*30,width:220,height:25}})),
+  safe_margin_px:40,no_simulated_writing:true,no_false_success_symbols:true,
+  no_decorative_scenery:true,source_caveat:'The diagram never implies a verified outcome not supported by the source.',
+  causal_state_checks:[{condition:'This specific route is bounded by source evidence.',
+    allowed_path:'Verified supported transition',blocked_path:'Unverified transition blocked',
+    support_claim_id:'claim-0'}],
+  native_export_legibility_plan:{canvas_width:1200,canvas_height:630,
+    mobile_fullsize_review_planned:true,thumbnail_readability_check_planned:true},
+  connector_origin_reviews:s.allowed_causal_edges.map(edge=>({
+    from:edge.from,to:edge.to,support_claim_id:edge.support_claim_id,
+    origin_region:'supported relevant evidence',target_region:'approved mechanism output',
+    disallowed_paths_visually_blocked:true
+  }))
+ };
+ assert.equal(validateFrozenImageSpecification({spec:s,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
+ s.pre_generation_checks.label_layout[0].bounding_box_px.x=20;
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),/label_export_safe_bounds_or_effective_font_insufficient/);
+});

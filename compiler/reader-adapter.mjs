@@ -21,7 +21,10 @@ const WATCHLIST_TOPIC_ALIASES=Object.freeze({
   'persistent-personal-agents':'dab-topic-long-horizon-agents',
   'reusable-agent-skills':'dab-topic-agent-skills-observability',
   'agent-governance-and-review-points':'dab-topic-adaptive-agent-safeguards',
-  'inference-latency-as-agent-ux':'dab-topic-agentic-edge-inference'
+  'inference-latency-as-agent-ux':'dab-topic-agentic-edge-inference',
+  // October 23 preserved distinct evidence histories; new names reuse existing IDs.
+  'governed-agent-skills-require-ownership-and-review-cycles':'dab-topic-reusable-agent-skills-become-observable',
+  'autonomous-wet-lab-agents-require-physical-safety-controls':'dab-topic-agent-safeguards-tailored-to-the-task'
 });
 const BOOK_URL=Object.freeze({
   'Reliable Generative AI':'https://leanpub.com/reliablegenerativeai',
@@ -163,7 +166,9 @@ function adaptPodcast(bundle,podcast,index){
     item_id:`dab-podcast-${bundle.edition_date}-${index+1}`,
     title:podcast.title,
     show:podcast.source,
-    host:'Not listed',
+    // Missing host identity is not evidence; omit unverified metadata.
+    host:podcast.verification?.host_guest_verified===true&&typeof podcast.host_guest==='string'
+      ?podcast.host_guest.trim():'',
     publication_date:canonicalReaderDate(podcast.original_date),
     runtime_seconds:durationSeconds(podcast.duration_minutes),
     url:podcast.url,

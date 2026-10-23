@@ -56,10 +56,38 @@ export function videoPublisherKey(item){
  }
  return articlePublisherKey(item.url);
 }
+// Reviewed alternatives are retained as evidence, not inferred from the two winners.
+export function validateVideoPrequalification(bundle){
+ if(bundle?.edition_date<'2026-10-24')return {result:'SKIPPED_HISTORICAL'};
+ const candidates=bundle.video_prequalification?.candidates;
+ if(!Array.isArray(candidates)||candidates.length<6)
+   fail('six_prequalified_substantive_video_candidates_required');
+ const urls=new Set(),publishers=new Set();
+ for(const [index,item] of candidates.entries()){
+   let url;
+   try{url=new URL(item?.url);}catch{fail('video_candidate_invalid_url:'+index);}
+   if(url.protocol!=='https:'||urls.has(url.href)||!text(item.title,8)||
+     !text(item.teaching_evidence,45)||!text(item.research_disposition,35)||
+     item.content_reviewed!==true||item.public_player_checked!==true||
+     !Number.isFinite(item.duration_minutes)||item.duration_minutes<3||item.duration_minutes>20||
+     !Number.isFinite(Date.parse(item.checked_at||'')))
+     fail('video_candidate_review_incomplete:'+index);
+   urls.add(url.href);
+   publishers.add(videoPublisherKey(item));
+ }
+ if(publishers.size<3)fail('video_candidate_publishers_three_required');
+ for(const selected of bundle.videos||[]){
+   if(!urls.has(new URL(selected.url).href))
+     fail('selected_video_missing_from_prequalification:'+selected.title);
+ }
+ return {result:'PASS',substantive_candidates:urls.size,independent_publishers:publishers.size,
+   actual_public_playback_still_required:true,qualitative_content_review_not_inferred:true};
+}
 export function validateMediaPrecision(bundle){
  if(!active(bundle))return {result:'SKIPPED_HISTORICAL'};
  if(bundle.videos?.length!==2||bundle.podcasts?.length!==2)fail('two_videos_two_podcasts_required');
  const publishers=new Set(bundle.videos.map(videoPublisherKey));
+ const prequalification=validateVideoPrequalification(bundle);
  if(publishers.size<2){
   const e=bundle.video_diversity_exception;
   if(!text(e?.reason,80)||!text(e?.reviewer,3)||!Array.isArray(e?.alternatives_reviewed)||e.alternatives_reviewed.length<2||
@@ -86,5 +114,5 @@ export function validateMediaPrecision(bundle){
     !Number.isFinite(Date.parse(v.playback_evidence?.checked_at))))fail('playback_evidence_required');
  }
  const educational_value=validateMediaEducationalValue(bundle);
- return {result:'PASS',video_publishers:[...publishers],video_diversity_exception:publishers.size<2,playback_not_inferred:true,educational_value};
+ return {result:'PASS',video_publishers:[...publishers],video_diversity_exception:publishers.size<2,prequalification,playback_not_inferred:true,educational_value};
 }

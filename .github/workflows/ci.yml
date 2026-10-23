@@ -7,7 +7,6 @@ on:
       - main
       - 'implementation/**'
       - 'proof/**'
-      - 'image-package/**'
 
 permissions:
   contents: read
@@ -72,8 +71,8 @@ jobs:
             build/generic-related-history-proof/site \
             build/generic-related-history-proof/patched
           node -e "const r=require('./build/generic-related-history-proof/receipt.json');const changed=r.homepage_latest_changed?52:49;const removed=r.homepage_latest_changed?102:84;if(r.result!=='PASS'||r.files_changed!==changed||r.panels_removed!==removed||r.accepted_png_files_byte_preserved<6)process.exit(1);console.log('ACTUAL_PUBLISHED_READER_PATCH_REHEARSAL_PASS',changed,removed)"
-      - name: Pre-first-PR image-package gate on push and PR (Rev8 only)
-        if: (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/image-package/')) || (github.event_name == 'pull_request' && startsWith(github.head_ref, 'image-package/'))
+      - name: Protected PR image-package admission (Rev8, no incomplete-checkpoint push runs)
+        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'image-package/')
         env:
           CANDIDATE_BRANCH: ${{ github.head_ref || github.ref_name }}
           CANDIDATE_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
