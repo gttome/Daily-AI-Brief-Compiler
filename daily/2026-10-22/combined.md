@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** October 23, 2026 · **Production evening:** 2026-10-22 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-10-23 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-23/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 17m 02s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -23,11 +23,11 @@
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **16** | Image worker AAR; no estimation |
 | Rejected candidates | **10** | Image worker AAR |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -75,7 +75,7 @@ flowchart LR
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 16 · **Rejected candidates:** 10.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 16 · **Rejected candidates:** 10.
 
 ### Image production duration — Git-verified milestones
 
@@ -98,21 +98,31 @@ flowchart LR
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| Eight DGX Spark nodes run a 753-billion-parameter model with measured topology trade-offs | 3 | 0.73 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m01.png) |
+| Cohere Rerank 5 adds passage-level context focus and two serving tiers | 4 | 0.52 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m02.png) |
+| OpenAI coordinates thousands of agents across a whole-brain CRISPR atlas | 2 | 0.80 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m10.png) |
+| Volkswagen expands Copilot access across 330,000 employees and tracks active agent use | 1 | 0.57 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m11.png) |
+| ServiceNow Arc brings a governed personal enterprise agent to ordinary office work | 4 | 0.59 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m12.png) |
+| Metis turns an agent Skill into a short, testable and governed work procedure | 2 | 0.59 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m01.png" alt="Diagram for oct23-t1-dgx-spark-cluster" width="420"/></a><br/><b>Eight DGX Spark nodes run a 753-billion-parameter model with measured topology trade-offs</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m02.png" alt="Diagram for oct23-t2-rerank-5" width="420"/></a><br/><b>Cohere Rerank 5 adds passage-level context focus and two serving tiers</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m10.png" alt="Diagram for oct23-k1-biological-agents" width="420"/></a><br/><b>OpenAI coordinates thousands of agents across a whole-brain CRISPR atlas</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m11.png" alt="Diagram for oct23-k2-vw-copilot" width="420"/></a><br/><b>Volkswagen expands Copilot access across 330,000 employees and tracks active agent use</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m12.png" alt="Diagram for oct23-a1-servicenow-arc" width="420"/></a><br/><b>ServiceNow Arc brings a governed personal enterprise agent to ordinary office work</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m14.png" alt="Diagram for oct23-a2-agent-skills-procedure" width="420"/></a><br/><b>Metis turns an agent Skill into a short, testable and governed work procedure</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -172,7 +182,7 @@ No six-image public release gallery available yet.
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-23/reviews/live/image-element24/semantic-reviews.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-23/reviews/after-action.md) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/39893417717).
 
 ---
 
