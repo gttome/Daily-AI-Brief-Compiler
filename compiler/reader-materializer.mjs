@@ -81,8 +81,9 @@ export function removeEmptyAndRepeatedMediaCopy(value){
     .replace(/<p><strong>Topics:<\/strong>\s*<\/p>\s*/g,'')
     .replace(/<br\s*\/>\s*<strong>Topics:<\/strong>\s*(?=<\/p>)/g,'')
     .replace(/<strong>Topics:<\/strong><br \/>/g,'')
-    .replace(/(?:<br\s*\/?>\s*)?<strong>Host \/ guest:<\/strong>\s*Not listed(?:<br\s*\/?>)?/gi,'')
-    .replace(/^.*\*\*Host \/ guest:\*\*\s*Not listed.*$/gm,'')
+    // Keep the preceding Show line break so Show and Focus never run together.
+    .replace(/<strong>Host \/ guest:<\/strong>[ \t]*(?:Not listed)?[ \t]*<br\s*\/?>[ \t]*(?:\r?\n)?/gi,'')
+    .replace(/^[ \t]*\*\*Host \/ guest:\*\*[ \t]*(?:Not listed)?[ \t]*(?:\r?\n)/gm,'')
     .replace(/(\*\*Why it matters:\*\* ([^\r\n]+))\r?\n(?:\r?\n){1,3}\*\*Connection to the brief:\*\* \2(?=\r?\n|$)/g,'$1')
     .replace(/(<p><strong>Why it matters:<\/strong> ([^<]+)<\/p>)\s*<p><strong>Connection to the brief:<\/strong> \2<\/p>/g,'$1');
 }
