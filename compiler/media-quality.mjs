@@ -57,7 +57,7 @@ function checkVideo(item,index) {
   return {index,mode:q.content_evidence.kind,transferable_value_reviewed:true,
     playback_verified:item.verification?.playback_verified===true};
 }
-function checkPodcast(item,index) {
+function checkPodcast(item,index,editionDate) {
   const q=shared(item,index,'podcast');
   if(!['whole_episode_transcript','timecoded_agenda','full_listening']
     .includes(q.content_evidence.kind))
@@ -92,6 +92,18 @@ function checkPodcast(item,index) {
      (!Number.isFinite(q.estimated_editorial_ai_fraction) ||
       Math.abs(q.estimated_editorial_ai_fraction-fraction)>.03))
     fail('podcast_'+index+':ai_fraction_claim_disagrees_with_segments');
+  if(editionDate>='2026-10-24'){
+    if(!['original_reporting','original_interview','expert_analysis','synthetic_roundup'].includes(q.editorial_form)||
+       !prose(q.editorial_form_rationale,55))
+      fail('podcast_'+index+':originality_and_source_character_review_required');
+    const aiTopics=ordered.filter(x=>x.kind==='ai').map(x=>clean(x.topic));
+    if(seconds>=1800&&(ordered.length<4||aiTopics.length<2||new Set(aiTopics).size<2))
+      fail('podcast_'+index+':long_episode_requires_multiple_distinct_timecoded_topics');
+    if(q.editorial_form==='synthetic_roundup'&&
+       (!Array.isArray(q.independently_verified_sources)||q.independently_verified_sources.length<2||
+        q.independently_verified_sources.some(u=>!publicUrl(u))))
+      fail('podcast_'+index+':synthetic_roundup_requires_verifiable_source_analysis');
+  }
   return {index,ai_editorial_fraction:Number(fraction.toFixed(4)),
     measured_editorial_seconds:Number(editorial.toFixed(2)),
     advertising_seconds:Number(ads.toFixed(2)),whole_episode_coverage_verified:true};
@@ -103,7 +115,7 @@ export function validateMediaEducationalValue(bundle) {
      !Array.isArray(bundle?.podcasts)||bundle.podcasts.length!==2)
     fail('exactly_two_videos_and_two_podcasts_required');
   const videos=bundle.videos.map((i,n)=>checkVideo(i,n+1));
-  const podcasts=bundle.podcasts.map((i,n)=>checkPodcast(i,n+1));
+  const podcasts=bundle.podcasts.map((i,n)=>checkPodcast(i,n+1,bundle.edition_date));
   return {result:'PASS',videos,podcasts,editorial_value_attested_by_reviewer:true,
     full_av_playback_not_inferred:true};
 }
