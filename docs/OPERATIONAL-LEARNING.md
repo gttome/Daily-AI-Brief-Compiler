@@ -40,6 +40,13 @@ The [dedicated October 21 editorial media AAR](after-action/2026-10-21-media-qua
 
 ## October22 — premium image outcome and remaining reader defect
 
-Fourteen native calls produced six accepted images and eight preserved rejected originals. Repeated failure modes were simulated writing, causal routing, exported caption size and invented UI. Targeted corrections and exact-size saved-pixel reviews resolved those defects; all24 exact-release desktop/mobile captures were inspected, six live hashes and12 pairings matched, and all17 protected October8 objects remained unchanged. Mobile fine text needs full-size viewing. No accepted image was regenerated for transport; usage is UNKNOWN. See the current image AAR and structured learning ledger for evidence.
+Fourteen native calls produced six accepted images and eight preserved rejected originals. Repeated failure modes were simulated writing, causal routing, exported caption size and invented UI. Targeted corrections and exact-size saved-pixel reviews resolved those defects; all24 exact-release desktop/mobile captures were inspected, six live hashes and 12 pairings matched, and all17 protected October8 objects remained unchanged. Mobile fine text needs full-size viewing. No accepted image was regenerated for transport; usage is UNKNOWN. See the current image AAR and structured learning ledger for evidence.
 
 The live reader still renders six story dates and four media dates with NaN as the day. This remains open for a separate editorial renderer repair. It was not concealed by image-lane completion or changed by this image-only release.
+
+
+## October 23 — premium image publication and actual visual closeout
+
+Six accepted images required 16 native calls and 10 preserved rejected originals. Corrections removed simulated writing, unlisted headings, small exported captions, wrong retained/blocked/registry paths and opaque task boxes. All 24 genuine release captures were inspected individually, six live hashes and12 pairings matched, public status converged, and 17 October 8 objects were preserved. Mobile fine text needs the original/full-size view. Accepted images and manifest remain unchanged; usage is UNKNOWN.
+
+A standalone capability-route preflight receipt was not saved before the first call. The AAR records that gap explicitly; genuine firstpass execution, observed clocks, generated/exported bytes, protected CI/release and actual pixel reviews are retained without backfilling false pre-generation evidence. Future cycles should persist that route receipt before generation. See [the October23 image AAR](../external-image-packages/2026-10-23/reviews/after-action.md).

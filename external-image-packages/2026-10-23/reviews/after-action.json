@@ -2,12 +2,12 @@
   "schema_version": "external-image-after-action-v1",
   "edition_date": "2026-10-23",
   "cycle_date": "2026-10-22",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
   "original_source_commit_sha": "04a8b355fafb0239c9250941da9ec8edda59fc80",
   "original_bundle_sha256": "9ddd5e9e563f7e7672bfdb5dbc6b2b2faf2393868d16aa4e7a7c39a00aca467d",
   "human_readable_path": "external-image-packages/2026-10-23/reviews/after-action.md",
-  "recorded_at": "2026-10-23T03:00:00Z",
+  "recorded_at": "2026-10-23T03:15:16Z",
   "production": {
     "actual_generation_count": 16,
     "accepted_count": 6,
@@ -117,11 +117,21 @@
       "phase": "Capability evidence persistence",
       "issue": "Callable image/export/GitHub/release operations were inspected, but a standalone route-preflight receipt was not persisted before the first native call.",
       "correction": "Do not retrospectively claim pre-generation route-receipt execution. Preserve genuine generation/export/GitHub evidence and require the full package and protected release gates."
+    },
+    {
+      "phase": "Protected merge configuration",
+      "issue": "Repository auto-merge feature is disabled; the enable-auto-merge operation returned an error.",
+      "correction": "Waited for successful exact-head PR CI and merged with the expected head through the normal protected PR API; no bypass."
+    },
+    {
+      "phase": "Combined AAR compatibility",
+      "issue": "Initial closeout accepted_hashes contained story/hash objects, while the existing combined reporter requires six bare SHA-256 strings.",
+      "correction": "Corrected the field before protected merge, preserved accepted_images bindings, and checked the reporter contract; no PNG or manifest changes."
     }
   ],
   "visual_review": {
-    "result": "PENDING_DEPLOYMENT",
-    "reviewed_targets": 0,
+    "result": "PASS",
+    "reviewed_targets": 24,
     "review_path": "external-image-packages/2026-10-23/reviews/live/semantic-pixel-review.json",
     "mobile_fine_text_requires_full_size": true
   },
@@ -130,15 +140,77 @@
     "source": "UNKNOWN"
   },
   "publication": {
-    "result": "PENDING_PROTECTED_PACKAGE_GATE"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-23T03:09:28.608Z",
+    "workflow_run_id": 39893417717,
+    "protected_merge_sha": "18eb2ed2191216440aa051b7ac670bc85e438334",
+    "package_pr": 238,
+    "exact_head_ci_sha": "5395f1ef5e9a9377c18de362516ebcb67488927c",
+    "push_ci_run_id": 39892993118,
+    "pr_ci_run_id": 39893180558,
+    "independent_live_image_hashes": 6,
+    "story_image_pairings": 12,
+    "historical_objects_verified": 17
   },
   "owner_personal_artwork_review_claimed": false,
   "notes": [
     "All six complete compiler stories and primary publisher articles were read. Genuine local first-pass validation passed for all six frozen specifications before native generation.",
     "Six immutable RGB 1200x630 PNGs passed individual saved-pixel review and exact connected GitHub commit-byte readback; actual set plate was inspected for differentiation.",
     "Native files were exported to exact canvas with a white safe border before final acceptance. No accepted PNG was regenerated for transport, reporting, CI or publication.",
-    "Fine explanatory text requires the full-size viewer on narrow mobile thumbnails; actual live-context inspection remains pending.",
     "Actual host and first-generation clocks are observed instants, not inferred scheduler fire or provider runtime. Usage is UNKNOWN.",
-    "All ten genuine rejected native originals are preserved under reviews/rejected-*.png with their original hashes and defects; rejected candidates were never substituted for accepted artwork."
-  ]
+    "All ten genuine rejected native originals are preserved under reviews/rejected-*.png with their original hashes and defects; rejected candidates were never substituted for accepted artwork.",
+    "All 24 dated/permanent desktop/mobile captures were inspected individually from exact artifact 12476016073, whose ZIP SHA-256 and each capture hash matched. No duplicate publication was run.",
+    "Independent public network reads matched six exact PNG hashes and all twelve article/alt/image bindings. Release evidence confirms 44 network checks including all 17 pinned October 8 objects. Public index and release status converge.",
+    "Mobile fine text needs the existing full-size image view. The dated October 23 HTML check found zero October NaN date occurrences; no editorial fix is claimed by this image-only run.",
+    "Final review/reporting/worker evidence is persisted by a separate reporting-only protected PR. Manifest, recurring assignment and accepted PNGs stay immutable."
+  ],
+  "published_story_images": [
+    {
+      "story_id": "oct23-t1-dgx-spark-cluster",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-23/oct23-t1-dgx-spark-cluster/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m01.png?v=6b1e283173c1",
+      "sha256": "6b1e283173c191ee15b17b11c641078e72eb2aa1d0588d961420c74b642ad94c"
+    },
+    {
+      "story_id": "oct23-t2-rerank-5",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-23/oct23-t2-rerank-5/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m02.png?v=c9ba977f4ba6",
+      "sha256": "c9ba977f4ba6825dd27eea13f289886c992472a9b9f41b8807d250c504f0d922"
+    },
+    {
+      "story_id": "oct23-k1-biological-agents",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-23/oct23-k1-biological-agents/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m10.png?v=08aaa7298e43",
+      "sha256": "08aaa7298e43945b3e96c6c98571e78678ce49f26112537f43265d7ce36711d0"
+    },
+    {
+      "story_id": "oct23-k2-vw-copilot",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-23/oct23-k2-vw-copilot/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m11.png?v=09ddd89ca33b",
+      "sha256": "09ddd89ca33b29fc85ff7e9eae866749dbb1e17c57c2d80aa3ef10d9f04d24fa"
+    },
+    {
+      "story_id": "oct23-a1-servicenow-arc",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-23/oct23-a1-servicenow-arc/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m12.png?v=149e8166e010",
+      "sha256": "149e8166e0107614a836a9fe7e71829bc2d0cd752377d5c303cca951555546a5"
+    },
+    {
+      "story_id": "oct23-a2-agent-skills-procedure",
+      "story_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-10-23/oct23-a2-agent-skills-procedure/",
+      "image_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/dab-edition-2026-10-23-m14.png?v=7a9f9dd33f0e",
+      "sha256": "7a9f9dd33f0e005ace9719f481f5669c1f80d973c371d5485532ee1513c7a1b0"
+    }
+  ],
+  "timings": {
+    "host_observed_at": "2026-10-23T02:19:54Z",
+    "first_native_generation_observed_at": "2026-10-23T02:24:35Z",
+    "first_accepted_git_commit_at": "2026-10-23T02:31:13Z",
+    "all_six_accepted_git_commit_at": "2026-10-23T02:57:43Z",
+    "public_release_verified_at": "2026-10-23T03:09:28.608Z",
+    "final_pixel_review_at": "2026-10-23T03:15:16Z",
+    "observed_host_to_pixel_review_seconds": 3322,
+    "observed_generation_start_to_six_saved_seconds": 1988,
+    "notes": "Git commit times denote durable checkpoints, not provider active generation time. No precise scheduler trigger or provider runtime is claimed."
+  }
 }
