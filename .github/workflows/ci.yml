@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install --no-save sharp@0.34.4
+      - run: npm install --no-save --no-audit --no-fund --fetch-retries=1 --fetch-timeout=20000 sharp@0.34.4 playwright-core@1.51.1
       - name: Parse real image-release workflow YAML before protected validation
         run: ruby -rpsych -e 'Psych.parse_file(ARGV.fetch(0))' .github/workflows/external-image-only-replacement.yml
       - name: Parse optional real six-binary transport proof workflow YAML
@@ -96,8 +96,17 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if ! command -v ffmpeg >/dev/null 2>&1; then sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; fi
-          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          # One dependency install shared with the existing validated test harness.
+          # Bound the previously silent apt operation; a missing dependency must
+          # fail clearly instead of spending the full job timeout on a network stall.
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            timeout 75s sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 update -qq
+            timeout 75s sudo apt-get -o Dpkg::Use-Pty=0 install -y -qq ffmpeg >/dev/null
+          fi
+          test -x /usr/bin/google-chrome
+          test -d node_modules/playwright-core
+          mkdir -p /tmp/browser/node_modules
+          ln -s "$GITHUB_WORKSPACE/node_modules/playwright-core" /tmp/browser/node_modules/playwright-core
           node tests/selected-video-browser-rehearsal.cjs
       - run: npm run validate:bootstrap
       - run: npm run fixture:e2e
