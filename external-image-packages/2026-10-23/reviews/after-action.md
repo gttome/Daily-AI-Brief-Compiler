@@ -63,4 +63,6 @@ Fine explanatory text requires the full-size viewer on narrow mobile thumbnails;
 
 Actual host and first-generation clocks are observed instants, not inferred scheduler fire or provider runtime. Usage is UNKNOWN.
 
+All ten genuine rejected native originals are preserved under reviews/rejected-*.png with their original hashes and defects; rejected candidates were never substituted for accepted artwork.
+
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
