@@ -1,6 +1,6 @@
 # 2026-10-23 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 393827c1354fc620489586353c03dc4f317ce5a3 |
 | Executor observed run start | 2026-10-23T02:19:54Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-23T02:24:35Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PACKAGE_GATE |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_DEPLOYMENT; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-23T03:09:28.608Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -44,6 +44,7 @@
 | Repository contract discovery | The history branch name was initially treated as a directory; one workflow-name endpoint was rejected. | Read the exact shadow-pages-history ref and approved actions/runs endpoint; original job hash matched. |
 | Large binary transport | Whole-file command output truncated one accepted PNG's base64 before upload. | Used bounded base64 slices, exact returned Git blob identity, original fixed-offset reassembly and identical connected commit readback. |
 | Capability evidence persistence | Callable image/export/GitHub/release operations were inspected, but a standalone route-preflight receipt was not persisted before the first native call. | Do not retrospectively claim pre-generation route-receipt execution. Preserve genuine generation/export/GitHub evidence and require the full package and protected release gates. |
+| Protected merge configuration | Repository auto-merge feature is disabled; the enable-auto-merge operation returned an error. | Waited for successful exact-head PR CI and merged with the expected head through the normal protected PR API; no bypass. |
 
 ## Evidence and limitations
 
@@ -59,10 +60,16 @@ Six immutable RGB 1200x630 PNGs passed individual saved-pixel review and exact c
 
 Native files were exported to exact canvas with a white safe border before final acceptance. No accepted PNG was regenerated for transport, reporting, CI or publication.
 
-Fine explanatory text requires the full-size viewer on narrow mobile thumbnails; actual live-context inspection remains pending.
-
 Actual host and first-generation clocks are observed instants, not inferred scheduler fire or provider runtime. Usage is UNKNOWN.
 
 All ten genuine rejected native originals are preserved under reviews/rejected-*.png with their original hashes and defects; rejected candidates were never substituted for accepted artwork.
+
+All 24 dated/permanent desktop/mobile captures were inspected individually from exact artifact 12476016073, whose ZIP SHA-256 and each capture hash matched. No duplicate publication was run.
+
+Independent public network reads matched six exact PNG hashes and all twelve article/alt/image bindings. Release evidence confirms 44 network checks including all 17 pinned October 8 objects. Public index and release status converge.
+
+Mobile fine text needs the existing full-size image view. The dated October 23 HTML check found zero October NaN date occurrences; no editorial fix is claimed by this image-only run.
+
+Final review/reporting/worker evidence is persisted by a separate reporting-only protected PR. Manifest, recurring assignment and accepted PNGs stay immutable.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
