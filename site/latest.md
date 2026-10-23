@@ -1,242 +1,242 @@
-# Daily Generative AI Brief — October 22, 2026
+# Daily Generative AI Brief — October 23, 2026
 
-**Published:** October 22, 2026  
-**Coverage period:** October 19–22, 2026
+**Published:** October 23, 2026  
+**Coverage period:** October 21–22, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-22-m12">Claude Duet tests proactive briefs with approval gates for consequential actions</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m14">Salesforce turns a repeated office workflow into a reviewable reusable Skill</a><span>Article · about 4 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m10">Yorkshire Ambulance Service keeps Copilot on the administrative side of care</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m11">Asana puts prebuilt AI Teammates inside ordinary project handoffs</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m01">NVIDIA splits agent retrieval into embedding, reranking and document parsing</a><span>Article · about 10 min source read</span></li><li><a href="#reading-dab-story-2026-10-22-m02">CrowdStrike documents threat actors experimenting with agentic attack workflows</a><span>Article · about 8 min source read</span></li><li><a href="#general">Why foundation models are a paradigm shift for AI</a><span>Video · 8:29</span></li><li><a href="#agents-for-non-technical-people">Choose the right AI model for your use case</a><span>Video · 4:14</span></li><li><a href="#podcast-dab-podcast-2026-10-22-1">Tool Integration Triggers Severe Safety Refusal Degradation</a><span>Podcast · 3:57</span></li><li><a href="#podcast-dab-podcast-2026-10-22-2">AI in the AM: Where’s the Steering Wheel?</a><span>Podcast · 1:25:09</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-23-m12">ServiceNow Arc brings a governed personal enterprise agent to ordinary office work</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-23-m14">Metis turns an agent Skill into a short, testable and governed work procedure</a><span>Article · about 9 min source read</span></li><li><a href="#reading-dab-story-2026-10-23-m10">OpenAI coordinates thousands of agents across a whole-brain CRISPR atlas</a><span>Article · about 10 min source read</span></li><li><a href="#reading-dab-story-2026-10-23-m11">Volkswagen expands Copilot access across 330,000 employees and tracks active agent use</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-23-m01">Eight DGX Spark nodes run a 753-billion-parameter model with measured topology trade-offs</a><span>Article · about 12 min source read</span></li><li><a href="#reading-dab-story-2026-10-23-m02">Cohere Rerank 5 adds passage-level context focus and two serving tiers</a><span>Article · about 8 min source read</span></li><li><a href="#general">Trust, transparency and governance in AI</a><span>Video · 9:38</span></li><li><a href="#agents-for-non-technical-people">Select the right AI use case for your business</a><span>Video · 3:50</span></li><li><a href="#podcast-dab-podcast-2026-10-23-1">OpenAI’s Jalapeño chip, NVIDIA’s $279B push and Anthropic’s Claude Duet</a><span>Podcast · 8:16</span></li><li><a href="#podcast-dab-podcast-2026-10-23-2">Sundar Pichai: Google’s Frontier Imperative, Compute Scarcity Dilemmas, Future AI Products and Businesses</a><span>Podcast · 46:59</span></li></ol></section>
 <!-- reader-release:end -->
 
-<span id="reading-dab-story-2026-10-22-m12"></span>
+<span id="reading-dab-story-2026-10-23-m12"></span>
 
-## 1. Claude Duet tests proactive briefs with approval gates for consequential actions
+## 1. ServiceNow Arc brings a governed personal enterprise agent to ordinary office work
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 5 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 7 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Agents for Everyone**
 
 **Date:** October 21, 2026
 
-**Topics:** Proactive assistants, Approval gates, Daily briefs
+**Topics:** Personal enterprise agents, Policy enforcement, Office workflows
 
-<span class="story-data" data-story-id="dab-story-2026-10-22-m12" data-story-url="/stories/2026-10-22/oct22-a1-claude-duet/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-23-m12" data-story-url="/stories/2026-10-23/oct23-a1-servicenow-arc/" hidden></span>
 
-<a href="{{ '/stories/2026-10-22/oct22-a1-claude-duet/' | relative_url }}" data-item-id="dab-story-2026-10-22-m12" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-23/oct23-a1-servicenow-arc/' | relative_url }}" data-item-id="dab-story-2026-10-23-m12" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Connected-app reading and brief preparation remain separate from a common approval boundary with four closed channels before messaging, payment, signature or deletion; preview judgment may err.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m12.png?v=544f232c5915)
+![Illustration pending for ServiceNow Arc brings a governed personal enterprise agent to ordinary office work. Planned illustration: An operations manager reviewing a cross-application task plan spanning email, Teams and ServiceNow, with visible policy gates, an audit trail and a human approval handoff.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Anthropic introduced Claude Duet as a research-preview proactive assistant that prepares briefs and can work across connected services in a managed virtual environment. The company says it asks approval before messaging, paying, signing or deleting. Access is limited to a US Pro and Max waitlist, and its recommendations may still be miscalibrated.
+**Summary:** ServiceNow announced general availability of Arc, a personal enterprise agent that works across ServiceNow, email and Teams and can plan, check and adjust tasks. The company describes policy enforcement through Control Tower and NVIDIA OpenShell, while several passport and hardware controls remain forthcoming. Availability starts on Mac, with Windows promised within weeks.
 
-**Why it matters:** Small-business owners can use the preview’s approval boundaries as a checklist for any proactive assistant: specify allowed sources, require confirmation for consequential actions, and review daily briefs for omissions. Readers gain a noncoding framework for testing initiative without surrendering control.
+**Why it matters:** Operations managers can pilot one low-risk coordination task by naming allowed sources, approval points and prohibited actions before connecting the agent. Readers gain a noncoding test for whether policy controls, audit history and human handoffs remain visible across familiar workplace applications.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Instructions, boundaries and approval prompts — Study prompt patterns that distinguish information gathering from consequential action authorization.</p><p>Proactive assistants need explicit allowed sources, prohibited actions and confirmation points rather than a single broad request.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Permissions, confirmations and bounded delegation — Study prompt patterns that separate research, drafting and consequential action authorization.</p><p>A personal enterprise agent needs explicit source, action and approval instructions before it crosses workplace applications.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://claude.com/resources/articles/claude-duet" data-item-id="dab-story-2026-10-22-m12" data-edition-date="2026-10-22" data-action="source_clicks">Introducing Claude Duet</a>
+**Source:** <a href="https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx" data-item-id="dab-story-2026-10-23-m12" data-edition-date="2026-10-23" data-action="source_clicks">ServiceNow delivers industry-first personal enterprise agent and policy enforcement with NVIDIA, extending AI governance across software and silicon</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-story-compiler-2026-10-22-oct22-a1-claude-duet">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-story-compiler-2026-10-23-oct23-a1-servicenow-arc">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-22-m14"></span>
+<span id="reading-dab-story-2026-10-23-m14"></span>
 
-## 2. Salesforce turns a repeated office workflow into a reviewable reusable Skill
+## 2. Metis turns an agent Skill into a short, testable and governed work procedure
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 4 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Oct 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 9 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Agents for Everyone**
 
-**Date:** October 19, 2026
+**Date:** October 21, 2026
 
-**Topics:** Reusable Skills, Skill Builder, Workflow review
+**Topics:** Agent Skills, Workflow testing, Skill governance
 
-<span class="story-data" data-story-id="dab-story-2026-10-22-m14" data-story-url="/stories/2026-10-22/oct22-a2-salesforce-skills/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-23-m14" data-story-url="/stories/2026-10-23/oct23-a2-agent-skills-procedure/" hidden></span>
 
-<a href="{{ '/stories/2026-10-22/oct22-a2-salesforce-skills/' | relative_url }}" data-item-id="dab-story-2026-10-22-m14" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-23/oct23-a2-agent-skills-procedure/' | relative_url }}" data-item-id="dab-story-2026-10-23-m14" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![An exploded instruction-context-tool Skill package is drafted, inspected and tested; a manual correction loop returns to review, and publication follows an explicit decision before reuse. Permissions and rollout apply.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m14.png?v=8ad4c408d1ca)
+![Illustration pending for Metis turns an agent Skill into a short, testable and governed work procedure. Planned illustration: A proposal operations leader moving one recurring review routine through seven labeled stages: baseline, concise Skill, templates, edge cases, comparison, ownership and registry approval.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Salesforce’s Winter ’27 release adds reusable Skills that package instructions, context and tools for agent workflows. Official help describes drafting a skill through Coworker, reviewing it in Skill Builder, testing its behavior and publishing it for reuse. Availability is rolling, and the reviewed documentation provides no independent effectiveness comparison.
+**Summary:** Metis Strategy explains how organizations can package a repeated workflow as a portable agent Skill using a concise SKILL.md, supporting templates and explicit output standards. The procedure emphasizes precise naming, minimal instructions, representative tests, version ownership and a registry. Portability still requires platform-specific validation, and enterprise surfaces are at different maturity levels.
 
-**Why it matters:** Sales operations managers can turn one repeated account-review routine into a draft Skill, inspect every instruction and tool, test it on a safe record set, then publish only after human approval. Readers receive a reusable noncoding procedure with explicit review gates.
+**Why it matters:** Proposal leaders can convert one recurring review routine into a reusable Skill without programming: define the baseline, write concise instructions, attach approved templates, test normal and awkward cases, compare results, assign an owner and review date, then register the approved version.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable procedures and feedback loops — Study how versioned procedures, safe fixtures and human review create a reusable learning loop.</p><p>A Skill turns a repeated procedure into an inspectable learning artifact that can be tested, corrected and shared.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable procedures and evaluation loops — Study how templates, fixtures, versions and review dates sustain procedural quality over time.</p><p>A governed Skill becomes a reusable learning artifact only after baseline comparison, edge-case testing and ownership.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://help.salesforce.com/s/articleView?id=release-notes.rn_agentforce_skills.htm&amp;language=en_US&amp;release=264&amp;type=5" data-item-id="dab-story-2026-10-22-m14" data-edition-date="2026-10-22" data-action="source_clicks">Build and Use Reusable Agentforce Skills</a>
+**Source:** <a href="https://www.metisstrategy.com/ai-agent-skills-beyond-the-platform/" data-item-id="dab-story-2026-10-23-m14" data-edition-date="2026-10-23" data-action="source_clicks">AI agent skills: Beyond the platform</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-story-compiler-2026-10-22-oct22-a2-salesforce-skills">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-story-compiler-2026-10-23-oct23-a2-agent-skills-procedure">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-22-m10"></span>
+<span id="reading-dab-story-2026-10-23-m10"></span>
 
-## 3. Yorkshire Ambulance Service keeps Copilot on the administrative side of care
+## 3. OpenAI coordinates thousands of agents across a whole-brain CRISPR atlas
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 10 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
 **Date:** October 21, 2026
 
-**Topics:** Administrative AI, Human review, Healthcare governance
+**Topics:** Distributed research, CRISPR atlas, Expert validation
 
-<span class="story-data" data-story-id="dab-story-2026-10-22-m10" data-story-url="/stories/2026-10-22/oct22-k1-nhs-admin-copilot/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-23-m10" data-story-url="/stories/2026-10-23/oct23-k1-biological-agents/" hidden></span>
 
-<a href="{{ '/stories/2026-10-22/oct22-k1-nhs-admin-copilot/' | relative_url }}" data-item-id="dab-story-2026-10-22-m10" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-23/oct23-k1-biological-agents/' | relative_url }}" data-item-id="dab-story-2026-10-23-m10" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Operational reports and guidance enter administrative organization, drafting and theme grouping before staff review and audience adaptation; clinical work is excluded.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m10.png?v=6c74b0ccd722)
+![Illustration pending for OpenAI coordinates thousands of agents across a whole-brain CRISPR atlas. Planned illustration: A scientific workflow with many small analysis agents examining a brain-cell atlas and literature library, converging on a review table where human researchers mark hypotheses for laboratory validation.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Yorkshire Ambulance Service staff use Microsoft Copilot to organize reports, draft communications and surface themes from operational data, while retaining human review. Microsoft says NHS safeguards limit the tool to administrative rather than clinical work. The account includes staff experiences and reported trial savings, but it is a vendor-authored case study.
+**Summary:** OpenAI reports that thousands of distributed agents analyzed millions of cells in a whole-brain CRISPR atlas in 32 minutes, linking gene disruptions with literature and producing an open reasoning atlas. Human experts preferred distributed interpretations to a single-agent baseline. The results generate research leads, not validated biological conclusions, and require laboratory follow-up.
 
-**Why it matters:** Knowledge-work leaders can pilot one bounded administrative workflow, define prohibited clinical or consequential uses, and require source review before sharing outputs. Readers get a concrete pattern for pairing time-saving drafts with governance, accessibility needs and accountable human judgment.
+**Why it matters:** Research teams can study the workflow as a pattern for dividing evidence-heavy analysis into traceable subtasks, then requiring expert review. Readers should preserve source links, compare against a single-agent baseline and label every synthesized mechanism as a hypothesis awaiting experimental validation.
 
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Bounded context and operational scope — Study how access controls, source boundaries and human review keep operational context useful without crossing into clinical decisions.</p><p>The ambulance-service rollout limits Copilot to administrative work, showing how source access and task boundaries define safer context for knowledge workflows.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
 
-**Source:** <a href="https://news.microsoft.com/source/emea/features/before-the-ambulance-arrives-how-ai-is-helping-the-nhs-rethink-patient-care/" data-item-id="dab-story-2026-10-22-m10" data-edition-date="2026-10-22" data-action="source_clicks">Before the ambulance arrives: How AI is helping the NHS rethink patient care</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-story-compiler-2026-10-22-oct22-k1-nhs-admin-copilot">
+**Source:** <a href="https://openai.com/index/scaling-ai-research-for-complex-biological-data/" data-item-id="dab-story-2026-10-23-m10" data-edition-date="2026-10-23" data-action="source_clicks">Using thousands of AI agents to uncover new leads in biological data</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-story-compiler-2026-10-23-oct23-k1-biological-agents">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-22-m11"></span>
+<span id="reading-dab-story-2026-10-23-m11"></span>
 
-## 4. Asana puts prebuilt AI Teammates inside ordinary project handoffs
+## 4. Volkswagen expands Copilot access across 330,000 employees and tracks active agent use
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 5 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 22 Oct 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Applied Generative AI for Knowledge Workers**
+
+**Date:** October 21, 2026
+
+**Topics:** Enterprise adoption, Agent usage, Phased rollout
+
+<span class="story-data" data-story-id="dab-story-2026-10-23-m11" data-story-url="/stories/2026-10-23/oct23-k2-vw-copilot/" hidden></span>
+
+<a href="{{ '/stories/2026-10-23/oct23-k2-vw-copilot/' | relative_url }}" data-item-id="dab-story-2026-10-23-m11" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Volkswagen expands Copilot access across 330,000 employees and tracks active agent use. Planned illustration: A global automotive organization map connecting engineering, production, procurement and sales teams to Copilot, with separate counters for access, monthly chat use and active agents beside an outcome-measure checklist.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Microsoft says Volkswagen Group has made Copilot available to more than 330,000 employees, with 300,000 monthly active chat users and 26,000 agents active in the prior month. The phased program spans engineering, production, procurement and sales, with a planned Fabric data foundation. All adoption and workflow claims are vendor-and-customer reported.
+
+**Why it matters:** Enterprise leaders can borrow the phased rollout pattern without treating access counts as productivity proof. Readers should pair adoption metrics with workflow-level measures such as review time, error rates, source quality, user retention and escalation frequency before expanding agents across additional functions.
+
+
+
+**Source:** <a href="https://news.microsoft.com/source/2026/10/21/microsoft-empowers-more-than-330000-volkswagen-group-employees-with-copilot/" data-item-id="dab-story-2026-10-23-m11" data-edition-date="2026-10-23" data-action="source_clicks">Microsoft empowers more than 330,000 Volkswagen Group employees with Copilot</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-story-compiler-2026-10-23-oct23-k2-vw-copilot">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-10-23-m01"></span>
+
+## 5. Eight DGX Spark nodes run a 753-billion-parameter model with measured topology trade-offs
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 12 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 22 Oct 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Technical AI Engineering**
 
 **Date:** October 22, 2026
 
-**Topics:** AI teammates, Workflow handoffs, Shared context
+**Topics:** Desktop AI clusters, Distributed inference, Network topology
 
-<span class="story-data" data-story-id="dab-story-2026-10-22-m11" data-story-url="/stories/2026-10-22/oct22-k2-asana-ai-teammates/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-23-m01" data-story-url="/stories/2026-10-23/oct23-t1-dgx-spark-cluster/" hidden></span>
 
-<a href="{{ '/stories/2026-10-22/oct22-k2-asana-ai-teammates/' | relative_url }}" data-item-id="dab-story-2026-10-22-m11" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-23/oct23-t1-dgx-spark-cluster/' | relative_url }}" data-item-id="dab-story-2026-10-23-m01" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Shared plan context links briefs, decision logs, prebuilt AI roles and authorized tools across nested task, project and portfolio scopes; these are vendor capability claims.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m11.png?v=9d71bc72065a)
+![Illustration pending for Eight DGX Spark nodes run a 753-billion-parameter model with measured topology trade-offs. Planned illustration: Eight compact AI workstations connected through a high-speed switch, with one large model distributed across them and side-by-side gauges comparing ring and switched decode throughput.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Asana’s third-quarter release adds more than 30 prebuilt AI Teammates, shared context, connectors and a visual automation builder inside work-management flows. Teams can assign bounded roles and route work without building a separate agent stack. The announcement describes product capabilities, not independently measured productivity or quality gains.
+**Summary:** NVIDIA linked eight DGX Spark systems into a one-terabyte-memory cluster and ran the full 753-billion-parameter GLM 5.3 model. Its published tests show multi-node decode gains and different scaling for switch and ring topologies. The measurements are vendor-run, workload-specific and accompanied by networking, synchronization and memory caveats.
 
-**Why it matters:** Operations teams can compare one existing handoff with a narrowly configured AI Teammate, documenting inputs, permissions, review points and failure cases. Readers can test whether embedded agents reduce coordination work without assuming that vendor-described automation produces better outcomes.
+**Why it matters:** Engineering teams can use the disclosed topology and measurements to design a bounded cluster trial. Readers should compare switch and ring layouts on their own model, recording decode throughput, synchronization overhead, network utilization, memory headroom and failure behavior.
 
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Capacity, performance and failure testing — Study acceptance tests that compare topologies under realistic load and node-failure conditions.</p><p>The cluster case turns model serving into measurable throughput, memory, synchronization and resilience decisions.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
 
+**Source:** <a href="https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/" data-item-id="dab-story-2026-10-23-m01" data-edition-date="2026-10-23" data-action="source_clicks">Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes</a>
 
-**Source:** <a href="https://asana.com/inside-asana/asana-q3-2026-release-ai-teammates" data-item-id="dab-story-2026-10-22-m11" data-edition-date="2026-10-22" data-action="source_clicks">Asana Q3 2026 Release: AI Built Into Your Workflow</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-story-compiler-2026-10-22-oct22-k2-asana-ai-teammates">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-story-compiler-2026-10-23-oct23-t1-dgx-spark-cluster">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-10-22-m01"></span>
+<span id="reading-dab-story-2026-10-23-m02"></span>
 
-## 5. NVIDIA splits agent retrieval into embedding, reranking and document parsing
+## 6. Cohere Rerank 5 adds passage-level context focus and two serving tiers
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 10 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 8 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Technical AI Engineering**
 
 **Date:** October 21, 2026
 
-**Topics:** Multimodal retrieval, Evidence reranking, Document parsing
+**Topics:** Passage reranking, Context Focus, Retrieval throughput
 
-<span class="story-data" data-story-id="dab-story-2026-10-22-m01" data-story-url="/stories/2026-10-22/oct22-t1-multimodal-retrieval/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-10-23-m02" data-story-url="/stories/2026-10-23/oct23-t2-rerank-5/" hidden></span>
 
-<a href="{{ '/stories/2026-10-22/oct22-t1-multimodal-retrieval/' | relative_url }}" data-item-id="dab-story-2026-10-22-m01" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Document images follow parallel direct-embedding and parsing paths; candidate evidence is jointly compared with a query before a ranked subset enters agent context. Vendor results vary.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m01.png?v=0068776cbf36)
-
-**Summary:** NVIDIA released open Nemotron 3.5 models for embedding, reranking and document parsing across text and images. The publisher reports that adding its reranker cut agent inference tokens by about 13–14 percent in controlled tasks, while the parser converts document images into structured content. Results remain vendor-reported and workload-dependent.
-
-**Why it matters:** Readers can separate retrieval, reranking and parsing responsibilities, then benchmark each stage on their own charts, tables and scanned documents. The useful takeaway is an evaluation plan: measure evidence relevance, task success, token use and throughput together.
-
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Evidence quality and measurable reliability — Study acceptance tests that compare retrieval quality with grounded task outcomes on representative documents.</p><p>The retrieval stack makes evidence relevance, task success and resource cost testable as separate reliability dimensions.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
-
-**Source:** <a href="https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval" data-item-id="dab-story-2026-10-22-m01" data-edition-date="2026-10-22" data-action="source_clicks">NVIDIA Nemotron 3.5 Embed, Rerank, and Parse: Advancing Agents with World-Class Retrieval Models</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-story-compiler-2026-10-22-oct22-t1-multimodal-retrieval">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-10-22-m02"></span>
-
-## 6. CrowdStrike documents threat actors experimenting with agentic attack workflows
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 8 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Oct 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Technical AI Engineering**
-
-**Date:** October 21, 2026
-
-**Topics:** Agentic threats, Tool permissions, Attack harnesses
-
-<span class="story-data" data-story-id="dab-story-2026-10-22-m02" data-story-url="/stories/2026-10-22/oct22-t2-agentic-threat-campaigns/" hidden></span>
-
-<a href="{{ '/stories/2026-10-22/oct22-t2-agentic-threat-campaigns/' | relative_url }}" data-item-id="dab-story-2026-10-22-m02" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-10-23/oct23-t2-rerank-5/' | relative_url }}" data-item-id="dab-story-2026-10-23-m02" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![A limited vendor investigation compares supervisor-state-executor orchestration with deterministic routing and specialist delegation. The observed cases do not establish prevalence.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-22/dab-edition-2026-10-22-m02.png?v=6535e696ef70)
+![Illustration pending for Cohere Rerank 5 adds passage-level context focus and two serving tiers. Planned illustration: A long enterprise document entering a reranker that highlights only supported passages, with separate Pro and Fast lanes and gauges for relevance, latency and token use.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-23/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** CrowdStrike describes four newly observed threat actors using exposed agent frameworks for reconnaissance and offensive workflows. The campaigns combined deterministic steps with model-selected actions or specialist agents, according to the vendor’s incident analysis. The evidence shows concrete attacker experimentation, but it comes from one security company and does not establish prevalence.
+**Summary:** Cohere introduced Rerank 5 Pro and Fast for enterprise retrieval, including Context Focus output that returns relevant passages from long documents. The company reports leading composite results across 39 of 46 datasets and 187 one-thousand-token documents per second for Fast on an A100. These evaluations and the RCP-nDCG metric are publisher-developed.
 
-**Why it matters:** Security teams can inventory exposed agent interfaces, restrict tool permissions and log every action before testing detection rules against the described patterns. The practical lesson is to evaluate an agent’s surrounding harness and access paths, not only its language model.
+**Why it matters:** Retrieval teams can test whether passage-level output reduces downstream context without losing answer quality. Readers should compare Pro and Fast on representative documents, measuring ranking relevance, passage coverage, latency, throughput, token consumption and performance on parsed tables or scanned pages.
 
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Evidence ranking and context budgets — Study candidate recall, reranking precision, passage coverage and token-budget trade-offs together.</p><p>Passage-level reranking controls which evidence enters limited model context and how much downstream work it creates.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
 
+**Source:** <a href="https://cohere.com/blog/rerank-5" data-item-id="dab-story-2026-10-23-m02" data-edition-date="2026-10-23" data-action="source_clicks">Introducing Rerank 5: precise, efficient enterprise document retrieval</a>
 
-**Source:** <a href="https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/" data-item-id="dab-story-2026-10-22-m02" data-edition-date="2026-10-22" data-action="source_clicks">CrowdStrike Uncovers New Agentic AI Campaigns</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-story-compiler-2026-10-22-oct22-t2-agentic-threat-campaigns">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-story-compiler-2026-10-23-oct23-t2-rerank-5">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -249,23 +249,23 @@
 
 ## 7. General
 
-### Why foundation models are a paradigm shift for AI
+### Trust, transparency and governance in AI
 
-<a href="{{ '/videos/2026-10-22/general/' | relative_url }}" data-item-id="dab-video-2026-10-22-general" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent video page</a>  
+<a href="{{ '/videos/2026-10-23/general/' | relative_url }}" data-item-id="dab-video-2026-10-23-general" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** IBM AI Academy  
 **Date:** November 9, 2023  
-**Duration:** 8:29  
+**Duration:** 9:38  
 **Format:** Video
 
-**Summary:** IBM AI Academy contrasts task-specific machine learning with flexible foundation models, then explains reuse, adaptation and the platform choices needed to manage them. Its chaptered companion material gives readers a concise vocabulary for discussing where a broad pretrained model helps and where selection still depends on the business task.
+**Summary:** IBM AI Academy explains how hallucination, bias and unmanaged risk affect enterprise AI, then connects transparency, ethics, guardrails and accountable governance to trustworthy use.
 
-**Why it matters:** Readers can classify one proposed AI workflow, decide whether a reusable foundation model fits, and document the data, governance and platform criteria that should drive selection rather than defaulting to scale.
+**Why it matters:** Readers can map one proposed AI workflow to its evidence, foreseeable harms, responsible owner, review controls and escalation path before approval.
 
 
 
-**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/foundation-models-paradigm-shift" data-item-id="dab-video-2026-10-22-general" data-edition-date="2026-10-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
+**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/generative-ai-governance" data-item-id="dab-video-2026-10-23-general" data-edition-date="2026-10-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-video-compiler-2026-10-22-general">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-video-compiler-2026-10-23-general">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -276,23 +276,23 @@
 
 ## 8. Agents for Everyone
 
-### Choose the right AI model for your use case
+### Select the right AI use case for your business
 
-<a href="{{ '/videos/2026-10-22/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-22-agent-skills" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent video page</a>  
+<a href="{{ '/videos/2026-10-23/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-23-agent-skills" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** IBM AI Academy  
-**Date:** May 17, 2024  
-**Duration:** 4:14  
+**Date:** February 23, 2024  
+**Duration:** 3:50  
 **Format:** Video
 
-**Summary:** IBM AI Academy presents a compact model-selection framework that compares use-case fit, performance, risk and deployment constraints instead of treating the largest model as the automatic choice.
+**Summary:** IBM AI Academy offers four considerations for deciding whether a business problem fits generative AI, another machine-learning method or a non-AI approach, while accounting for total cost and integration.
 
-**Why it matters:** Readers can turn the lesson into a short candidate scorecard and test smaller and larger models against the same task before committing budget or infrastructure.
+**Why it matters:** Readers can score one proposed workflow against fit, cost, existing systems and measurable outcomes before choosing a model or agent.
 
 
 
-**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/choose-ai-model-for-use-case" data-item-id="dab-video-2026-10-22-agent-skills" data-edition-date="2026-10-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
+**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/select-ai-use-case-for-business" data-item-id="dab-video-2026-10-23-agent-skills" data-edition-date="2026-10-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-video-compiler-2026-10-22-agent-skills">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-video-compiler-2026-10-23-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -301,68 +301,68 @@
 
 ## Worth Listening — Podcasts
 
-### 9. Tool Integration Triggers Severe Safety Refusal Degradation
+### 9. OpenAI’s Jalapeño chip, NVIDIA’s $279B push and Anthropic’s Claude Duet
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-22-1" data-podcast-title="Tool Integration Triggers Severe Safety Refusal Degradation" data-podcast-url="/podcasts/2026-10-22/tool-integration-triggers-severe-safety-refusal-degradation/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-23-1" data-podcast-title="OpenAI’s Jalapeño chip, NVIDIA’s $279B push and Anthropic’s Claude Duet" data-podcast-url="/podcasts/2026-10-23/openai-s-jalapen-o-chip-nvidia-s-279b-push-and-anthropic-s-claude-duet/" hidden></span>
 
-<a href="{{ '/podcasts/2026-10-22/tool-integration-triggers-severe-safety-refusal-degradation/' | relative_url }}" data-item-id="dab-podcast-2026-10-22-1" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-10-23/openai-s-jalapen-o-chip-nvidia-s-279b-push-and-anthropic-s-claude-duet/' | relative_url }}" data-item-id="dab-podcast-2026-10-23-1" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** The Observability Layer  
+**Show:** AIskimIQ Daily Brief  
+**Host / guest:** Not listed  
+**Focus:** Agents for Everyone  
+**Date:** October 22, 2026  
+**Duration:** 8:16  
+
+**Summary:** AIskimIQ’s complete timecoded transcript surveys agent hijacking, evaluation tooling, model routing costs, workplace and retail agents, safety controls, real-time generation monitoring, enterprise adoption and compute investment. The publisher clearly discloses synthetic narration and links the discussion as a daily editorial digest rather than original primary evidence.
+
+**Why it matters:** Readers can use the episode as a compact discovery map, then follow its underlying primary sources before acting. The practical lesson is to separate the digest’s connective analysis from verified claims about security incidents, product availability, adoption, funding and hardware capacity.
+
+
+
+**Coverage:** Selected for this edition.
+
+
+**Listen / watch:** <a href="https://aiskimiq.com/en/podcast/2026-10-22" data-item-id="dab-podcast-2026-10-23-1" data-edition-date="2026-10-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">AIskimIQ Daily Brief</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-podcast-compiler-2026-10-23-1">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+### 10. Sundar Pichai: Google’s Frontier Imperative, Compute Scarcity Dilemmas, Future AI Products and Businesses
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
+<!-- reader-release:end -->
+
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-23-2" data-podcast-title="Sundar Pichai: Google’s Frontier Imperative, Compute Scarcity Dilemmas, Future AI Products and Businesses" data-podcast-url="/podcasts/2026-10-23/sundar-pichai-google-s-frontier-imperative-compute-scarcity-dilemmas-future-ai-products-an/" hidden></span>
+
+<a href="{{ '/podcasts/2026-10-23/sundar-pichai-google-s-frontier-imperative-compute-scarcity-dilemmas-future-ai-products-an/' | relative_url }}" data-item-id="dab-podcast-2026-10-23-2" data-edition-date="2026-10-23" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+
+**Show:** Big Technology Podcast  
 **Host / guest:** Not listed  
 **Focus:** Agents for Everyone  
 **Date:** October 20, 2026  
-**Duration:** 3:57  
+**Duration:** 46:59  
 
-**Summary:** This complete transcript reviews evidence that tool access changes agent safety behavior, then connects monitoring limits, capability boundaries, policy and evaluation fragility into a compact governance briefing.
+**Summary:** Big Technology’s complete publisher transcript covers Google’s frontier-model strategy, compute allocation, safety monitoring, world models, personal agents, product interfaces and long-horizon infrastructure. Pichai’s claims are primary executive perspective rather than independent validation, and the exact episode runtime is confirmed by its Apple distribution page.
 
-**Why it matters:** Readers can translate the episode into a test plan that evaluates prompts, tools, permissions and monitoring together instead of assuming model-only safety transfers unchanged.
-
-
-
-**Coverage:** Selected for this edition.
-
-
-**Listen / watch:** <a href="https://theobservabilitylayer.com/podcast/2026-10-20" data-item-id="dab-podcast-2026-10-22-1" data-edition-date="2026-10-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The Observability Layer</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-podcast-compiler-2026-10-22-1">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-### 10. AI in the AM: Where’s the Steering Wheel?
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span></div></aside>
-<!-- reader-release:end -->
-
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-10-22-2" data-podcast-title="AI in the AM: Where’s the Steering Wheel?" data-podcast-url="/podcasts/2026-10-22/ai-in-the-am-where-s-the-steering-wheel/" hidden></span>
-
-<a href="{{ '/podcasts/2026-10-22/ai-in-the-am-where-s-the-steering-wheel/' | relative_url }}" data-item-id="dab-podcast-2026-10-22-2" data-edition-date="2026-10-22" data-action="permanent_page_clicks">Open the permanent podcast page</a>
-
-**Show:** The Cognitive Revolution  
-**Host / guest:** Not listed  
-**Focus:** Agents for Everyone  
-**Date:** October 17, 2026  
-**Duration:** 1:25:09  
-
-**Summary:** The full transcript examines control over connected agents, evaluation-aware models, hidden internal signals, formal verification, training data provenance and adoption trust, with clearly marked sponsor breaks.
-
-**Why it matters:** Readers can compare several control layers and extract a practical rule: preserve human steering, fallback access and verifiable evidence as agents gain more operational authority.
+**Why it matters:** Readers can compare model ambition with operational constraints and extract decision questions about compute allocation, monitoring, independent evaluation and agent authority. The episode is most useful as a strategy case, not neutral proof of Google’s benchmark, adoption or productivity claims.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://www.cognitiverevolution.ai/ai-am-where-s-the-steering-wheel-my-agent-set-the-password-hidden-valence-proofs-find-linux-bugs/" data-item-id="dab-podcast-2026-10-22-2" data-edition-date="2026-10-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The Cognitive Revolution</a>
+**Listen / watch:** <a href="https://www.bigtechnology.com/p/sundar-pichai-googles-frontier-imperative" data-item-id="dab-podcast-2026-10-23-2" data-edition-date="2026-10-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Big Technology Podcast</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-22" data-feedback-story-id="dab-podcast-compiler-2026-10-22-2">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-23" data-feedback-story-id="dab-podcast-compiler-2026-10-23-2">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -372,14 +372,14 @@
 <!-- reader-release:start -->
 
 
-<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="1 New today · 2 Updated today · 34 Carried forward · 2 Archived / dropped recently"><strong>1 new today · 2 updated · 34 carried forward. 2 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Multimodal evidence retrieval for agents</li></ul><p><strong>Updated today:</strong> </p><ul class="watchlist-daily-items"><li>Consumer agent task permissions</li><li>Reusable agent skills become observable</li></ul><p><strong>Carried forward:</strong> 34</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Open-weight agentic coding infrastructure — The single October 16 AWS deployment guide remains useful reference material but no longer warrants an active daily Watchlist position.</li><li>SQL-native predictive workflows — The topic moves to history because no independent workload evaluation has followed the October 14 beta release.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
+<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="1 New today · 1 Updated today · 35 Carried forward · 2 Archived / dropped recently"><strong>1 new today · 1 updated · 35 carried forward. 2 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Desktop-scale frontier model clusters</li></ul><p><strong>Updated today:</strong> </p><ul class="watchlist-daily-items"><li>Reusable agent skills become observable</li></ul><p><strong>Carried forward:</strong> 35</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Open-weight agentic coding infrastructure — The single October 16 AWS deployment guide remains useful reference material but no longer warrants an active daily Watchlist position.</li><li>Priority-aware inference operations — The October 20 llm-d release remains useful reference evidence but no longer warrants an active daily Watchlist position.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
 
 
 <!-- reader-release:end -->
 
 ## Editorial takeaway
 
-Readers can separate retrieval, reranking and parsing responsibilities, then benchmark each stage on their own charts, tables and scanned documents. The useful takeaway is an evaluation plan: measure evidence relevance, task success, token use and throughput together.
+Engineering teams can use the disclosed topology and measurements to design a bounded cluster trial. Readers should compare switch and ring layouts on their own model, recording decode throughput, synchronization overhead, network utilization, memory headroom and failure behavior.
 
 <!-- reader-release:start -->
 <aside class="series-invitation" id="explore-series"><p class="book-kicker">CONTINUE LEARNING</p><h2>Explore the Generative AI Professional Series</h2><p>Take the next step from today’s developments to deeper professional learning with books on prompting, context, and reliable AI.</p><p><a class="book-cta" href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Explore the books ↗</a></p><p class="small-note">Purchasing a book supports continued development of the series and the Daily Generative AI Brief.</p></aside>
