@@ -96,13 +96,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # One dependency install shared with the existing validated test harness.
-          # Bound the previously silent apt operation; a missing dependency must
-          # fail clearly instead of spending the full job timeout on a network stall.
-          if ! command -v ffmpeg >/dev/null 2>&1; then
-            timeout 75s sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=15 update -qq
-            timeout 75s sudo apt-get -o Dpkg::Use-Pty=0 install -y -qq ffmpeg >/dev/null
-          fi
+          # Real 24s/26s/2s H.264 video fixtures are committed as a tiny
+          # deterministic compressed test asset. No apt or FFmpeg download.
+          # This still exercises signed-out Chrome playback and preview rejection.
           test -x /usr/bin/google-chrome
           test -d node_modules/playwright-core
           mkdir -p /tmp/browser/node_modules
