@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {requireDistinctWatchlistTitles} from './watchlist-identity.mjs';
 import path from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
 import {adaptCompilerBundle} from './reader-adapter.mjs';
@@ -282,6 +283,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
         throw new Error('published Watchlist topic silently dropped: '+previous.topic_id);
     }
   }
+  if(bundle.edition_date>='2026-10-24')requireDistinctWatchlistTitles(adapted.watchlist.topics);
   const watchErrors=watchModule.validateWatchlist(adapted.watchlist);
   if(watchErrors.length)throw new Error('adapted Watchlist invalid: '+watchErrors.join('; '));
   // Score every topic using the same weighted rubric displayed to readers.
