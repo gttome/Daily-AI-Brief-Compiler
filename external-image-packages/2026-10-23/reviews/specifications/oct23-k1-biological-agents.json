@@ -1,0 +1,218 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-23",
+  "story_id": "oct23-k1-biological-agents",
+  "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+  "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+  "recipe_version": "rev8-enriched-v1",
+  "visual_thesis": "Parallel analysis connects perturbation data to literature and a traceable reasoning atlas; expert interpretation still leads to experiments rather than established mechanisms.",
+  "mechanism_metaphor": "research evidence constellation",
+  "story_anchors": [
+    "Agents analyze existing mouse whole-brain CRISPR atlas data and literature.",
+    "Reports become an open reasoning atlas; laboratory follow-up remains necessary."
+  ],
+  "required_labels": [
+    "Mouse whole-brain CRISPR atlas",
+    "Gene disruptions",
+    "Cellular responses",
+    "Parallel analysis agents",
+    "Literature evidence",
+    "Source-linked reports",
+    "Open reasoning atlas",
+    "Expert review",
+    "Testable hypotheses",
+    "Laboratory follow-up required",
+    "Single-agent comparison",
+    "Research leads, not validated mechanisms"
+  ],
+  "source_claim_map": [
+    {
+      "id": "analysis",
+      "proposition": "Each agent studies perturbations, cellular responses and literature.",
+      "supporting_source_excerpt": "Each agent investigated a gene disruption",
+      "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "atlas",
+      "proposition": "Reports link genes, cellular effects, publications and possible mechanisms.",
+      "supporting_source_excerpt": "Their reports were combined into a reasoning atlas",
+      "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "validation",
+      "proposition": "Expert comparison prioritizes leads for experiments rather than validating biological causation.",
+      "supporting_source_excerpt": "further experiments needed to test",
+      "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Perturbations and cellular responses",
+      "to": "Source-linked reports",
+      "support_claim_id": "analysis",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Literature",
+      "to": "Source-linked reports",
+      "support_claim_id": "analysis",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Source-linked reports",
+      "to": "Reasoning atlas",
+      "support_claim_id": "atlas",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Expert review",
+      "to": "Testable hypotheses requiring experiments",
+      "support_claim_id": "validation",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No people, brain illustration, humanoid agents, cell editing instructions or disease cure claim.",
+    "No unqualified speedup or artificial success checks."
+  ],
+  "composition_signature": {
+    "grammar": "radial evidence convergence with validation boundary",
+    "metaphor": "research evidence constellation",
+    "layout": "Data and literature arcs feed separate distributed report nodes around a central atlas; lower validation boundary",
+    "palette": "violet and muted gold",
+    "annotation": "radial leaders and boundary caption",
+    "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+    "perspective": "editorial planar"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Mouse whole-brain CRISPR atlas",
+        "region": "top title",
+        "minimum_font_px": 30,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Gene disruptions",
+        "region": "mechanism region 1 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Cellular responses",
+        "region": "mechanism region 1 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Parallel analysis agents",
+        "region": "mechanism region 1 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Literature evidence",
+        "region": "mechanism region 2 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Source-linked reports",
+        "region": "mechanism region 2 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Open reasoning atlas",
+        "region": "mechanism region 2 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Expert review",
+        "region": "mechanism region 3 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Testable hypotheses",
+        "region": "mechanism region 3 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Laboratory follow-up required",
+        "region": "mechanism region 3 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Single-agent comparison",
+        "region": "mechanism region 4 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Research leads, not validated mechanisms",
+        "region": "bottom caveat",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Existing mouse data and publisher-reported evaluation; hypotheses need experiments and are not validated human treatments.",
+    "causal_state_checks": [
+      {
+        "condition": "Synthesis from experimental data and literature",
+        "allowed_path": "Generate traceable candidate explanations",
+        "blocked_path": "No arrow directly to proven biological mechanism",
+        "support_claim_id": "atlas"
+      },
+      {
+        "condition": "Expert preference in comparison",
+        "allowed_path": "Prioritize testable hypotheses",
+        "blocked_path": "No clinical efficacy or validated treatment conclusion",
+        "support_claim_id": "validation"
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker source comparison",
+    "source_url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-23",
+  "story_id": "oct23-t1-dgx-spark-cluster",
+  "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+  "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+  "recipe_version": "rev8-enriched-v1",
+  "visual_thesis": "An eight-node cluster combines memory to fit a large model, while switch and ring connectivity impose different communication constraints.",
+  "mechanism_metaphor": "memory archipelago",
+  "story_anchors": [
+    "Eight 128 GB nodes combine 1 TB of memory; full GLM 5.3 has 753B parameters.",
+    "RoCEnante relies on direct peer exchange and applies only to switch connectivity."
+  ],
+  "required_labels": [
+    "Eight DGX Spark nodes",
+    "128 GB per node",
+    "1 TB combined memory",
+    "Full GLM 5.3: 753B parameters",
+    "Switched peer exchange",
+    "Exchange then local reduction",
+    "Ring neighbor forwarding",
+    "Multiple communication rounds",
+    "RoCEnante requires a switch",
+    "Latency versus traffic",
+    "Vendor-run workload-specific evidence"
+  ],
+  "source_claim_map": [
+    {
+      "id": "memory",
+      "proposition": "Eight 128 GB systems provide 1 TB and run the full GLM 5.3 checkpoint.",
+      "supporting_source_excerpt": "eight nodes reach 1 TB",
+      "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "exchange",
+      "proposition": "RoCEnante exchanges all peer inputs then reduces locally, restricted to a switched network.",
+      "supporting_source_excerpt": "all-to-all exchange followed by local reduction",
+      "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "tradeoff",
+      "proposition": "Ring forwards through neighbors; direct exchange adds traffic and favors modest ranks.",
+      "supporting_source_excerpt": "The tradeoff is more data movement.",
+      "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Eight nodes",
+      "to": "Combined model memory",
+      "support_claim_id": "memory",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Switch-connected ranks",
+      "to": "Exchange then local reduction",
+      "support_claim_id": "exchange",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Neighboring ring ranks",
+      "to": "Multiple forwarding rounds",
+      "support_claim_id": "tradeoff",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No throughput chart or unqualified scaling numbers.",
+    "No logos, office scenery, product rendering or implied single shared physical RAM."
+  ],
+  "composition_signature": {
+    "grammar": "paired topology cutaway",
+    "metaphor": "memory archipelago",
+    "layout": "Upper left memory architecture occupying two thirds; lower right contrasting ring inset",
+    "palette": "navy and warm copper",
+    "annotation": "bracketed engineering callouts",
+    "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+    "perspective": "conceptual isometric"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Eight DGX Spark nodes",
+        "region": "top title",
+        "minimum_font_px": 30,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "128 GB per node",
+        "region": "mechanism region 1 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "1 TB combined memory",
+        "region": "mechanism region 1 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Full GLM 5.3: 753B parameters",
+        "region": "mechanism region 1 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Switched peer exchange",
+        "region": "mechanism region 2 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Exchange then local reduction",
+        "region": "mechanism region 2 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Ring neighbor forwarding",
+        "region": "mechanism region 2 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Multiple communication rounds",
+        "region": "mechanism region 3 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "RoCEnante requires a switch",
+        "region": "mechanism region 3 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Latency versus traffic",
+        "region": "mechanism region 3 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Vendor-run workload-specific evidence",
+        "region": "bottom caveat",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Vendor-run and workload-specific; memory capacity does not imply identical throughput for GLM and Qwen.",
+    "causal_state_checks": [
+      {
+        "condition": "Switched direct peer connectivity",
+        "allowed_path": "RoCEnante exchange then local reduction",
+        "blocked_path": "No RoCEnante path on physical ring",
+        "support_claim_id": "exchange"
+      },
+      {
+        "condition": "High concurrency or larger messages",
+        "allowed_path": "Compare NCCL bandwidth efficiency",
+        "blocked_path": "Never imply RoCEnante universally wins",
+        "support_claim_id": "tradeoff"
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker source comparison",
+    "source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+  }
+}

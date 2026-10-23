@@ -1,0 +1,225 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-10-23",
+  "story_id": "oct23-a1-servicenow-arc",
+  "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+  "job_sha256": "b7eb6d18556c18fcaf1c6c71dd00c8ff66ca88144e66d79b8a77d1c54f31d09a",
+  "recipe_version": "rev8-enriched-v1",
+  "visual_thesis": "A personal enterprise agent plans and checks work across familiar apps while runtime policy controls distinguish permitted from prohibited actions; forthcoming controls stay outside the present boundary.",
+  "mechanism_metaphor": "governed work enclosure",
+  "story_anchors": [
+    "Arc is generally available on Mac and works through ServiceNow, email and Teams.",
+    "Control Tower governs and OpenShell enforces runtime; AI Passport/hardware enforcement integrations are forthcoming."
+  ],
+  "required_labels": [
+    "Arc personal enterprise agent",
+    "Plan",
+    "Check",
+    "Adjust",
+    "ServiceNow",
+    "Email",
+    "Teams",
+    "Control Tower policies",
+    "OpenShell runtime enforcement",
+    "Permitted actions",
+    "Prohibited actions blocked",
+    "AI Passport integration: forthcoming",
+    "Mac available; Windows forthcoming"
+  ],
+  "source_claim_map": [
+    {
+      "id": "work",
+      "proposition": "Arc plans, checks and adjusts work across ServiceNow, email and Teams.",
+      "supporting_source_excerpt": "Arc is generally available today on Mac",
+      "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "govern",
+      "proposition": "Control Tower policies restrict behavior and OpenShell enforces runtime actions.",
+      "supporting_source_excerpt": "restricts Arc’s behavior at runtime",
+      "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "future",
+      "proposition": "Windows and passport/hardware integrations are future availability, not current guarantees.",
+      "supporting_source_excerpt": "will be able to read",
+      "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Control Tower policies",
+      "to": "OpenShell runtime enforcement",
+      "support_claim_id": "govern",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Arc plan check adjust",
+      "to": "Permitted application work",
+      "support_claim_id": "work",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Runtime policy denial",
+      "to": "Blocked prohibited action",
+      "support_claim_id": "govern",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No person, hand, screen screenshot, logos, security seal or universal safety claim.",
+    "No AI Passport shown as deployed runtime dependency."
+  ],
+  "composition_signature": {
+    "grammar": "nested policy boundary with task loop",
+    "metaphor": "governed work enclosure",
+    "layout": "Task loop inside a wide nested runtime boundary; policy enters from above; three apps on right; future controls detached below",
+    "palette": "teal and coral",
+    "annotation": "boundary gates and detached future note",
+    "hierarchy": "Headline, dominant mechanism, subordinate constraints",
+    "perspective": "editorial planar"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Arc personal enterprise agent",
+        "region": "top title",
+        "minimum_font_px": 30,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Plan",
+        "region": "mechanism region 1 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Check",
+        "region": "mechanism region 1 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Adjust",
+        "region": "mechanism region 1 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "ServiceNow",
+        "region": "mechanism region 2 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Email",
+        "region": "mechanism region 2 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Teams",
+        "region": "mechanism region 2 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Control Tower policies",
+        "region": "mechanism region 3 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "OpenShell runtime enforcement",
+        "region": "mechanism region 3 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Permitted actions",
+        "region": "mechanism region 3 callout 3",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Prohibited actions blocked",
+        "region": "mechanism region 4 callout 1",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "AI Passport integration: forthcoming",
+        "region": "mechanism region 4 callout 2",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      },
+      {
+        "label": "Mac available; Windows forthcoming",
+        "region": "bottom caveat",
+        "minimum_font_px": 20,
+        "font": "plain sans serif",
+        "target_safe_area": "x40..1160, y40..590"
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "ServiceNow announcement, not independent security validation; forthcoming integration must not appear active.",
+    "causal_state_checks": [
+      {
+        "condition": "Runtime action permitted under policy",
+        "allowed_path": "Allow action into named application",
+        "blocked_path": "No route for prohibited action past enforcement boundary",
+        "support_claim_id": "govern"
+      },
+      {
+        "condition": "AI Passport/hardware integration forthcoming",
+        "allowed_path": "Detached future annotation only",
+        "blocked_path": "No active enforcement path through forthcoming hardware",
+        "support_claim_id": "future"
+      },
+      {
+        "condition": "Mac available and Windows forthcoming",
+        "allowed_path": "Label availability explicitly",
+        "blocked_path": "No Windows general availability claim",
+        "support_claim_id": "work"
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker source comparison",
+    "source_url": "https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-delivers-industry-first-personal-enterprise-agent-and-policy-enforcement-with-NVIDIA-extending-AI-governance-across-software-and-silicon/default.aspx",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true,
+    "notes": "Reviewed complete sealed story and publisher article. Caveats and excluded paths retain the reported scope; no quantitative chart or claim of independent validation."
+  }
+}
