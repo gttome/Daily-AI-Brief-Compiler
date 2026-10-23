@@ -166,7 +166,9 @@ function adaptPodcast(bundle,podcast,index){
     item_id:`dab-podcast-${bundle.edition_date}-${index+1}`,
     title:podcast.title,
     show:podcast.source,
-    host:'Not listed',
+    // Missing host identity is not evidence; omit unverified metadata.
+    host:podcast.verification?.host_guest_verified===true&&typeof podcast.host_guest==='string'
+      ?podcast.host_guest.trim():'',
     publication_date:canonicalReaderDate(podcast.original_date),
     runtime_seconds:durationSeconds(podcast.duration_minutes),
     url:podcast.url,
