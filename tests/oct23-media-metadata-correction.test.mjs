@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {correctAgeBadges,removeUnverifiedHost} from '../scripts/correct-oct23-media-metadata.mjs';
+import {removeEmptyAndRepeatedMediaCopy} from '../compiler/reader-materializer.mjs';
 
 const badge=s=>'<span class="coverage-label">'+s+'</span>';
 const video='<h1>AI Academy</h1>'+badge('New development')+
@@ -39,4 +40,21 @@ test('unsupported host placeholder is removed without deleting verified show/dat
  assert.ok(markdown.text.includes('**Show:** Original podcast'));
  assert.ok(markdown.text.includes('**Date:** October 22, 2026'));
  assert.ok(!markdown.text.includes('Not listed'));
+});
+
+test('future generated media removes empty or unverified host without joining other labels',()=>{
+ for(const value of ['Not listed','']){
+   const original='<strong>Show:</strong> Test source<br />\n'+
+     '<strong>Host / guest:</strong> '+value+'<br />\n'+
+     '<strong>Focus:</strong> Agents for Everyone';
+   const cleaned=removeEmptyAndRepeatedMediaCopy(original);
+   assert.ok(cleaned.includes('<strong>Show:</strong> Test source<br />'));
+   assert.ok(cleaned.includes('<strong>Focus:</strong> Agents for Everyone'));
+   assert.ok(!cleaned.includes('<strong>Host / guest:'));
+ }
+ const md='**Show:** One show  \n**Host / guest:** Not listed  \n**Focus:** Agents  \n';
+ const cleaned=removeEmptyAndRepeatedMediaCopy(md);
+ assert.ok(cleaned.includes('**Show:** One show'));
+ assert.ok(cleaned.includes('**Focus:** Agents'));
+ assert.ok(!cleaned.includes('**Host / guest:**'));
 });
