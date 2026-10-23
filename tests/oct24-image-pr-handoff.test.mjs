@@ -18,6 +18,11 @@ test('October 24 Rev8 handoff uses protected PR head admission, not retired push
     const body=fs.readFileSync(path,'utf8');
     assert.match(body,/PRE_PR_PACKAGE_PASS/);
     assert.match(body,/(?:PR.head|pull.request|pull-request).*?(?:CI|job|gate)/i);
-    assert.doesNotMatch(body,/(?:require|wait for).*?(?:package|compiler-validation).*?push check.*?(?:before|open).*?PR/i);
+    // Catch only the retired affirmative push-gate instructions, not text explaining
+    // why the worker must *not* wait for a removed push workflow.
+    assert.doesNotMatch(body,/Require the existing \`compiler-validation\` push check to produce \`PRE_PR_PACKAGE_PASS\`/i);
+    assert.doesNotMatch(body,/require the existing \`compiler-validation\` image-package \\*\\*push\\*\\* check/i);
+    assert.doesNotMatch(body,/require the existing \`compiler-validation\` push check's deterministic \`PRE_PR_PACKAGE_PASS\`/i);
+    assert.doesNotMatch(body,/otherwise the pushed branch CI performs that same code/i);
   }
 });
