@@ -12,6 +12,9 @@
 | Started | UNKNOWN |
 | Finished | UNKNOWN |
 | Duration (min) | UNKNOWN |
+| Task origin | UNPROVEN |
+| First-party scheduler | UNPROVEN |
+| Same-invocation route preflight | NOT_RECORDED |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations

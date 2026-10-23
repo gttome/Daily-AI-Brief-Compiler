@@ -12,6 +12,9 @@
 | Started | 2026-10-13T01:35:05.000Z |
 | Finished | 2026-10-13T01:53:09.000Z |
 | Duration (min) | 18.07 |
+| Task origin | UNPROVEN |
+| First-party scheduler | UNPROVEN |
+| Same-invocation route preflight | NOT_RECORDED |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations

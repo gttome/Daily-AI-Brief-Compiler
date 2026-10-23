@@ -16,6 +16,13 @@
 |:--|:--:|:--|
 | Editorial publication | **PASS** | State and public reader integrity receipt |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
+| Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
+| Distinct selected article publishers | **6** | Six different primary organizations preferred |
+| Videos over seven days old | **1** | Must be labeled evergreen, not a new development |
+| Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
+| Recorded scheduler capability route | **UNPROVEN** | GitHub receipt is not a first-party scheduler attestation |
+| Avoidable incomplete-staging CI failures | **Not recorded** | Do not guess from Git commit count; attach genuine workflow audit |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
 | **Compiler stage duration** | **18m 02s (18.0 min)** | First persisted Compiler state → verified public reader; not a host scheduler attestation |
 | **Image processing stage duration** | **18m 04s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
