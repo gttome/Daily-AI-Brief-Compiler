@@ -57,7 +57,7 @@ function checkVideo(item,index) {
   return {index,mode:q.content_evidence.kind,transferable_value_reviewed:true,
     playback_verified:item.verification?.playback_verified===true};
 }
-function checkPodcast(item,index,editionDate) {
+export function checkPodcast(item,index,editionDate) {
   const q=shared(item,index,'podcast');
   if(!['whole_episode_transcript','timecoded_agenda','full_listening']
     .includes(q.content_evidence.kind))
