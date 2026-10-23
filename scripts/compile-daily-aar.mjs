@@ -3,12 +3,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {ownerReportedWorkUsage} from './owner-usage.mjs';
+import {summarizeTaskOriginEvidence} from './task-origin-evidence.mjs';
 import {fileURLToPath} from 'node:url';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
  'image-job','image-release','image-manifest','image-recurring-assignment',
- 'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage'];
+ 'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
+ 'compiler-task-origin','image-task-origin'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -61,6 +63,7 @@ function compilerAar(cycle,date,e){
   task_id:TASKS.compiler,expected_local_start:'19:15 America/Chicago',
   execution:seen?'START_OBSERVED':'NO_START_RECEIPT',
   scheduled_host_mode:'UNPROVEN',
+  task_origin_observation:summarizeTaskOriginEvidence(e['compiler-task-origin'],date,'compiler'),
   same_invocation_connected_github:'UNPROVEN',
   execution_id:state?.execution_id??producer?.execution_id??null,
   started_at:safeTime(state?.started_at),finished_at:safeTime(state?.updated_at),
@@ -188,6 +191,7 @@ function imageAar(cycle,date,e,hashes={}){
   timing_basis:'First persisted accepted image Git bytes to first merged 24-context review; scheduled window is separate and not exact generator runtime.',
   executor_observed_generation_start_at:safeTime(imageTiming?.events?.native_generation_first_observed_at),
   scheduler_actual_invocation_attested:false,
+  task_origin_observation:summarizeTaskOriginEvidence(e['image-task-origin'],date,'images'),
   publication:liveVerified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
   result:liveVerified&&qa24?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
   aar_status:'BACKFILLED',
@@ -238,6 +242,9 @@ export function renderMarkdown(report){
   [['Execution',report.execution],['Result',report.result],['Publication',report.publication],
    ['Scheduled runtime',report.scheduled_host_mode],['GitHub capability',report.same_invocation_connected_github],
    ['Started',report.started_at],['Finished',report.finished_at],['Duration (min)',report.elapsed_minutes],
+   ['Task origin',report.task_origin_observation?.status??'UNPROVEN'],
+   ['First-party scheduler',report.task_origin_observation?.scheduler??'UNPROVEN'],
+   ['Same-invocation route preflight',report.task_origin_observation?.route_preflight??'UNPROVEN'],
    ['Next run readiness',report.next_run]];
  const defects=(report.defects||[]).map(x=>'- '+x).join('\n')||'- No independently recorded defect in the available sources';
  return '# Daily AI Brief — '+name+' AAR\n\n'+
