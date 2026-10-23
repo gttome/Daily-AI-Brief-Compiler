@@ -1,0 +1,75 @@
+{
+  "schema_version": "external-image-acceptance-review-v8",
+  "edition_date": "2026-10-23",
+  "story_id": "oct23-t1-dgx-spark-cluster",
+  "result": "PASS",
+  "inspected_saved_png_sha256": "6b1e283173c191ee15b17b11c641078e72eb2aa1d0588d961420c74b642ad94c",
+  "bytes": 762644,
+  "width": 1200,
+  "height": 630,
+  "bit_depth": 8,
+  "color_type": "RGB",
+  "interlace": "none",
+  "verified_original_source_url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+  "generation_attempts": 3,
+  "inspection_method": "persisted_git_binary",
+  "reviewed_at": "2026-10-23T03:00:00Z",
+  "mechanism_notes": "Exact saved 1200x630 PNG inspected. Eight node modules and their memory layers are bracketed as 1 TB combined, with GLM 5.3 capacity distinct from the topology inset. Switched exchange then local reduction is contrasted with ring forwarding; no throughput chart conflates GLM and Qwen. All eleven labels are visible; faux writing and decorative document icon removed. White export margins are preserved.",
+  "required_labels": [
+    "Eight DGX Spark nodes",
+    "128 GB per node",
+    "1 TB combined memory",
+    "Full GLM 5.3: 753B parameters",
+    "Switched peer exchange",
+    "Exchange then local reduction",
+    "Ring neighbor forwarding",
+    "Multiple communication rounds",
+    "RoCEnante requires a switch",
+    "Latency versus traffic",
+    "Vendor-run workload-specific evidence"
+  ],
+  "factual_fidelity_verified": true,
+  "quality_and_visual_text_verified": true,
+  "distinct_from_other_five_verified": true,
+  "no_people_humanoids_faces": true,
+  "no_logos_brands": true,
+  "no_photorealism": true,
+  "no_pseudo_writing": true,
+  "no_clipped_labels": true,
+  "safe_margins_verified": true,
+  "rejected_candidates": [
+    {
+      "story_id": "oct23-t1-dgx-spark-cluster",
+      "attempt": 1,
+      "defects": [
+        "Bottom document icon contains faux writing strokes.",
+        "Outer title and lower band violate the frozen 40px export-safe margin."
+      ],
+      "path": "generated_images/exec-ead7ab8a-13bb-4ea8-972b-84eae52b0cc4.png",
+      "persisted_candidate_path": "external-image-packages/2026-10-23/reviews/rejected-oct23-t1-dgx-spark-cluster-attempt1.png",
+      "sha256": "df2097e016e68e75e1966add7dde7904827de677e73fe32abd9b7a950512d8fb",
+      "bytes": 2135756,
+      "git_blob_sha": "107128e6c8cf95c59e43e4aeade7c4d9393ee89e"
+    },
+    {
+      "story_id": "oct23-t1-dgx-spark-cluster",
+      "attempt": 2,
+      "defects": [
+        "Correction removed faux writing but lower labels remain too small after 1200x630 export.",
+        "Native layout still extends into export-safe border."
+      ],
+      "path": "generated_images/exec-f3ed31bb-d522-4ce1-b9d4-576280a9285c.png",
+      "persisted_candidate_path": "external-image-packages/2026-10-23/reviews/rejected-oct23-t1-dgx-spark-cluster-attempt2.png",
+      "sha256": "f4d7b4679fccdd92fd26c6459e8178d9505dd6e074f4b5bd30e3317bec7db2cd",
+      "bytes": 2025664,
+      "git_blob_sha": "7b1572d2b43d693715f0f51a62e787e2181532c8"
+    }
+  ],
+  "exact_commit_binary_readback": {
+    "commit": "393827c1354fc620489586353c03dc4f317ce5a3",
+    "byte_identical": true,
+    "git_blob_sha": "3710b6533ab4c39fec87676cc8fcf35ea821c47d",
+    "method": "connected_github_fetch_file_base64_and_git_object_readback"
+  },
+  "final_set_review_at": "2026-10-23T03:00:00Z"
+}
