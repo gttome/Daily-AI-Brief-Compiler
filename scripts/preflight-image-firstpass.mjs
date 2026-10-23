@@ -59,6 +59,31 @@ export function validateFrozenImageSpecification({spec,story}){
      qc.causal_state_checks.some(x=>!clean(x.condition)||!clean(x.allowed_path)||!clean(x.blocked_path)||!claims.has(x.support_claim_id)))
      fail('story_specific_text_geometry_and_causal_state_preflight_required:'+spec.story_id);
  }
+ // October 24+: prevent the exact export-size and edge-direction defects observed
+ // on October 21–23 before consuming a native generation attempt. This is
+ // only a planning gate; real saved-pixel and 24-context QA remain mandatory.
+ if(spec.edition_date>='2026-10-24'){
+   const qc=spec.pre_generation_checks,exportPlan=qc?.native_export_legibility_plan;
+   if(exportPlan?.canvas_width!==1200||exportPlan?.canvas_height!==630||
+      exportPlan?.mobile_fullsize_review_planned!==true||
+      exportPlan?.thumbnail_readability_check_planned!==true)
+     fail('native_export_and_mobile_preview_plan_required:'+spec.story_id);
+   const bounds=qc.label_layout;
+   if(bounds.some(l=>{
+     const b=l.bounding_box_px;
+     return l.minimum_font_px<22||!b||![b.x,b.y,b.width,b.height].every(Number.isFinite)||
+       b.x<40||b.y<40||b.width<=0||b.height<=0||
+       b.x+b.width>1160||b.y+b.height>590;
+   }))fail('label_export_safe_bounds_or_effective_font_insufficient:'+spec.story_id);
+   const reviewed=qc.connector_origin_reviews;
+   if(!Array.isArray(reviewed)||reviewed.length!==spec.allowed_causal_edges.length)
+     fail('connector_origin_review_per_causal_edge_required:'+spec.story_id);
+   for(const edge of spec.allowed_causal_edges){
+     if(!reviewed.some(r=>r.from===edge.from&&r.to===edge.to&&r.support_claim_id===edge.support_claim_id&&
+        clean(r.origin_region)&&clean(r.target_region)&&r.disallowed_paths_visually_blocked===true))
+       fail('unsupported_or_unreviewed_connector_origin:'+spec.story_id);
+   }
+ }
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||
    !clean(review.reviewer)||review.source_url!==spec.source_url||
