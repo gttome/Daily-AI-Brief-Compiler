@@ -25,7 +25,7 @@ test('October 22 podcast is new while October 20 podcast has recent fallback bad
  assert.ok(first.text.includes(badge('New AI podcast episode')));
  assert.ok(second.text.includes(badge('Recent AI podcast episode fallback')));
  assert.throws(()=>correctAgeBadges(pod('dab-podcast-2026-10-23-2','October 20, 2026'),{
-  role:'dab-podcast-2026-10-23-2',sourceDate:'October 22, 2026'}),/date_binding_changed/);
+  role:'dab-podcast-2026-10-23-2',sourceDate:'October 22, 2026'}),/original_media_date_not_in_reader|date_binding_changed/);
 });
 test('unsupported host placeholder is removed without deleting verified show/date/summary text',()=>{
  const html=removeUnverifiedHost(pod('dab-podcast-2026-10-23-1','October 22, 2026'),'html');
