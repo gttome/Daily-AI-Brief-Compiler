@@ -76,7 +76,8 @@ export function validateReadingSupport(edition,data=catalog){
   const mediaLabel=edition.brief_date>='2026-10-23'?
     videoDates.has(x.item_id)?expectedMediaCoverageLabel(edition.brief_date,videoDates.get(x.item_id),'video'):
     podcastDates.has(x.item_id)?expectedMediaCoverageLabel(edition.brief_date,podcastDates.get(x.item_id),'podcast'):null:null;
-  const labelOk=mediaLabel===null?LEGACY_COVERAGE_LABELS.includes(x.coverage_label):x.coverage_label===mediaLabel;
+  const datedMedia=edition.brief_date>='2026-10-23'&&(videoDates.has(x.item_id)||podcastDates.has(x.item_id));
+  const labelOk=datedMedia?(mediaLabel!==null&&x.coverage_label===mediaLabel):LEGACY_COVERAGE_LABELS.includes(x.coverage_label);
   if(!labelOk||!x.label_reason||!x.learning_outcome?.trim()||!x.context_term||!x.context)throw Error('Reading support requires reviewed labels, learning outcomes and context');
   const story=stories.get(x.item_id);
   if(edition.brief_date>='2026-09-16'&&story?.freshness?.tier==='fallback'&&x.coverage_label!==(edition.article_freshness_policy===ARTICLE_FRESHNESS_POLICY?articleFallbackLabel(story.freshness):'Recency fallback'))throw Error(`${x.item_id}: fallback stories must use the Recency fallback label matching their actual freshness band`);
