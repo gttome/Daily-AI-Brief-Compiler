@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "callable_native_tool",
+    "evidence_ref": "image_gen.imagegen exposed in this invocation; no API key"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "local_view_image",
+    "evidence_ref": "tools.view_image exposed; local Pillow 12.3.0 confirmed"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "local_pillow_export",
+    "evidence_ref": "Pillow 12.3.0 available for exact RGB PNG export and inspection"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_github_create_blob",
+    "evidence_ref": "Connected GitHub create_blob supports base64; authenticated claim commit 9f7455e22e2b7fa4b1e1cf8e8ddc8df673c5ca9b"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_github_fetch_file",
+    "evidence_ref": "Connected fetch_file exposes exact ref and base64; native PNG contents can also be checked through local git fetch"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_protected_pr",
+    "evidence_ref": "Connected create/merge tools exposed; ruleset 24610983 active with no bypass and required validate"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_release_capture_artifact",
+    "evidence_ref": "Reviewed exact protected-main workflow capture-image-element24.mjs at desktop 1440x1000; connected download_workflow_artifact available"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_release_capture_artifact",
+    "evidence_ref": "Reviewed exact protected-main workflow capture-image-element24.mjs at mobile 390x844; connected download_workflow_artifact available"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml",
+    "evidence_ref": "Protected-main e46f1aaa6c437d2a4b4249fdf3129a691f3f645a workflow push main paths manifest.json; required exact-head CI and ruleset checked"
+  }
+}
