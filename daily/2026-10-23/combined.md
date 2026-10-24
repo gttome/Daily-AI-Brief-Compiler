@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** October 24, 2026 · **Production evening:** 2026-10-23 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-10-24 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-24/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 33m 01s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -30,11 +30,11 @@
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **14** | Image worker AAR; no estimation |
 | Rejected candidates | **8** | Image worker AAR |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -82,7 +82,7 @@ flowchart LR
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
 
 ### Image production duration — Git-verified milestones
 
@@ -105,21 +105,31 @@ flowchart LR
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| AWS publishes a complete multi-turn reinforcement-learning pipeline for agents | 3 | 0.67 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m01.png) |
+| IBM keeps interpretability hooks compatible with high-performance vLLM execution | 2 | 0.62 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m02.png) |
+| Google Cloud splits Claude deployment between managed features and stricter platform control | 3 | 0.65 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m10.png) |
+| Uber takes ChatGPT Work from a 1,000-person pilot to more than 30,000 employees | 2 | 0.60 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m11.png) |
+| Anthropic moves the Agent Skills standard into neutral Linux Foundation governance | 2 | 0.59 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m12.png) |
+| TK Elevator puts an evidence-grounded mobile agent beside 25,000 service technicians | 2 | 0.60 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m01.png" alt="Diagram for oct24-t1-sagemaker-multi-turn-rl" width="420"/></a><br/><b>AWS publishes a complete multi-turn reinforcement-learning pipeline for agents</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m02.png" alt="Diagram for oct24-t2-vllm-hook" width="420"/></a><br/><b>IBM keeps interpretability hooks compatible with high-performance vLLM execution</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m10.png" alt="Diagram for oct24-k1-claude-deployment-choice" width="420"/></a><br/><b>Google Cloud splits Claude deployment between managed features and stricter platform control</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m11.png" alt="Diagram for oct24-k2-uber-chatgpt-work" width="420"/></a><br/><b>Uber takes ChatGPT Work from a 1,000-person pilot to more than 30,000 employees</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m12.png" alt="Diagram for oct24-a1-agent-skills-foundation" width="420"/></a><br/><b>Anthropic moves the Agent Skills standard into neutral Linux Foundation governance</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-24/dab-edition-2026-10-24-m14.png" alt="Diagram for oct24-a2-tk-elevator-field-agent" width="420"/></a><br/><b>TK Elevator puts an evidence-grounded mobile agent beside 25,000 service technicians</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -176,7 +186,7 @@ No six-image public release gallery available yet.
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-24/reviews/live/image-element24/semantic-reviews.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-24/reviews/after-action.md) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40055805969).
 
 ---
 
