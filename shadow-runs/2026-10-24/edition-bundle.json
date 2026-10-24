@@ -1,0 +1,1037 @@
+{
+  "schema_version": "daily-compiler-edition-bundle-v1",
+  "edition_date": "2026-10-24",
+  "status": "BUNDLE_READY",
+  "editorial_contract_version": "daily-compiler-editorial-contract-v1",
+  "editorial_provenance": {
+    "selection_locked_at": "2026-10-24T00:21:50.931Z",
+    "sealed_at": "2026-10-24T00:21:53.931Z"
+  },
+  "stories": [
+    {
+      "id": "oct24-t1-sagemaker-multi-turn-rl",
+      "headline": "AWS publishes a complete multi-turn reinforcement-learning pipeline for agents",
+      "focus": "Technical AI Engineering",
+      "summary": "AWS shows a complete multi-turn reinforcement-learning pipeline for teaching GPT-OSS-20B to play Wordle on SageMaker AI. Its reported solve rate rose from 61% to 84% at default reasoning effort and from 15% to 69% at low effort, using outcome rewards, AgentCore execution and iterative rollout training.",
+      "why_it_matters": "You will learn how to frame an agent task, define outcome rewards, collect multi-turn rollouts and compare pretraining with post-training. The cost breakdown and failure modes help teams decide whether a bounded RL experiment is worth running.",
+      "source": {
+        "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
+        "publisher": "AWS",
+        "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "published_at": "2026-10-23T00:00:00Z",
+        "retrieved_at": "2026-10-24T00:21:24.931Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-24T00:21:25.231Z",
+          "scope": "Reviewed the complete AWS technical guide, Wordle task environment, GPT-OSS-20B baseline and trained solve rates, AgentCore runtime, outcome-dominant reward design, training sequence, estimated costs, failure analysis and stated limitations."
+        }
+      },
+      "reading_time_minutes": 12,
+      "agent_skills": false,
+      "topics": [
+        "Multi-turn RL",
+        "Outcome rewards",
+        "SageMaker training"
+      ],
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Reinforcement learning",
+        "Agent evaluation"
+      ],
+      "related_coverage": "Adds an end-to-end, costed procedure for post-training a multi-turn agent and measuring task success.",
+      "image_alt_intent": "A multi-turn agent repeatedly solving Wordle inside a reinforcement-learning loop, with before-and-after solve-rate gauges and separate cost labels for training and execution.",
+      "permanent_route": "/stories/2026-10-24/oct24-t1-sagemaker-multi-turn-rl/"
+    },
+    {
+      "id": "oct24-t2-vllm-hook",
+      "headline": "IBM keeps interpretability hooks compatible with high-performance vLLM execution",
+      "focus": "Technical AI Engineering",
+      "summary": "IBM Research introduces vLLM-Hook, a model-internals access layer that preserves vLLM graph replay while supporting activation inspection and steering. In publisher-run experiments, the team reports up to 20× lower instrumentation overhead than its predecessor, with roughly 2% overhead on small models and 6% on a 70-billion-parameter model.",
+      "why_it_matters": "You will learn where interpretability tooling can distort production inference and how graph-aware hooks reduce that penalty. The reported overhead ranges also provide a practical benchmark for deciding whether observability experiments belong in a serving-path evaluation.",
+      "source": {
+        "title": "Toward fast AI interpretability and control",
+        "publisher": "IBM Research",
+        "url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+        "published_at": "2026-10-21T00:00:00Z",
+        "retrieved_at": "2026-10-24T00:21:25.831Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-24T00:21:26.131Z",
+          "scope": "Reviewed the complete IBM Research article, the Model Instrumentation Architecture plugin, graph-replay compatibility, activation inspection and steering workflow, comparative speed claims, 2% and 6% overhead reports, experimental setup and publisher-evidence limitations."
+        },
+        "freshness_reason": "Extended fallback is justified because IBM’s October 21 post provides the only reviewed graph-replay-compatible interpretability measurements, and no newer primary source covered the same serving-path decision."
+      },
+      "reading_time_minutes": 7,
+      "agent_skills": false,
+      "topics": [
+        "Runtime interpretability",
+        "Graph replay",
+        "Inference overhead"
+      ],
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Interpretability",
+        "Inference systems"
+      ],
+      "related_coverage": "Extends model observability coverage with a serving-path implementation and explicit overhead measurements.",
+      "image_alt_intent": "A high-throughput inference engine retaining graph replay while transparent hooks inspect and steer internal activations, beside gauges showing reported overhead across small and 70-billion-parameter models.",
+      "permanent_route": "/stories/2026-10-24/oct24-t2-vllm-hook/"
+    },
+    {
+      "id": "oct24-k1-claude-deployment-choice",
+      "headline": "Google Cloud splits Claude deployment between managed features and stricter platform control",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "summary": "Google Cloud now offers Claude through two deployment paths: an Anthropic-managed experience with early access to agents, skills and code execution, and a Google-managed path with Vertex AI controls such as CMEK and data residency. Google says the same frontier models and pricing apply, while processors, terms and feature timing differ.",
+      "why_it_matters": "You will learn how to compare processor roles, contract terms, regional controls and feature cadence before choosing a deployment path. That checklist helps procurement, security and operations teams avoid treating identical model names as identical governance choices.",
+      "source": {
+        "title": "Expanding Claude availability and deployment choice on Google Cloud",
+        "publisher": "Google Cloud",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "published_at": "2026-10-23T00:00:00Z",
+        "retrieved_at": "2026-10-24T00:21:26.731Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-24T00:21:27.031Z",
+          "scope": "Reviewed the complete Google Cloud announcement, Anthropic-managed and Google-managed deployment paths, processor roles, contract differences, day-zero managed features, Vertex controls, CMEK, data residency, pricing statement and availability caveats."
+        }
+      },
+      "reading_time_minutes": 5,
+      "agent_skills": false,
+      "topics": [
+        "Claude deployment",
+        "Processor choice",
+        "Vertex governance"
+      ],
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Cloud governance",
+        "Procurement"
+      ],
+      "related_coverage": "Gives workplace AI buyers a concrete comparison between feature velocity and Google-managed governance controls.",
+      "image_alt_intent": "Two deployment lanes for the same Claude models: one emphasizing early managed-agent features and another emphasizing Vertex controls, with a decision checklist for processor, terms, regions and feature cadence.",
+      "permanent_route": "/stories/2026-10-24/oct24-k1-claude-deployment-choice/"
+    },
+    {
+      "id": "oct24-k2-uber-chatgpt-work",
+      "headline": "Uber takes ChatGPT Work from a 1,000-person pilot to more than 30,000 employees",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "summary": "Uber is rolling ChatGPT Work out to more than 30,000 employees after a 1,000-person pilot. The deployment connects workplace tools including Google Drive, Gmail, Calendar and Slack, and supports research, briefs, presentations and data work. Uber is also building an internal skills library and role-specific training, while measurable outcome data remains forthcoming.",
+      "why_it_matters": "You will learn how a large employer moved from pilot access to organization-wide enablement using connectors, reusable skills and training. The account also highlights the missing measurement layer, giving leaders a concrete agenda for adoption, governance and outcome tracking.",
+      "source": {
+        "title": "Uber brings ChatGPT Work to all employees with OpenAI",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+        "published_at": "2026-10-22T00:00:00Z",
+        "retrieved_at": "2026-10-24T00:21:27.631Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-24T00:21:27.931Z",
+          "scope": "Reviewed the complete OpenAI and Uber case study, pilot and rollout sizes, named workplace connectors, research and presentation workflows, internal skills library, role-specific training, stated future plans and absence of published outcome measurements."
+        }
+      },
+      "reading_time_minutes": 5,
+      "agent_skills": false,
+      "topics": [
+        "Enterprise rollout",
+        "Workplace connectors",
+        "Adoption metrics"
+      ],
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Enterprise adoption",
+        "Case study"
+      ],
+      "related_coverage": "Provides a large-scale knowledge-work rollout while distinguishing access and enablement from independently measured outcomes.",
+      "image_alt_intent": "A workplace rollout expanding from a 1,000-person pilot to more than 30,000 employees, with connected-tool icons, an internal skills library and a blank measurement panel awaiting outcome evidence.",
+      "permanent_route": "/stories/2026-10-24/oct24-k2-uber-chatgpt-work/"
+    },
+    {
+      "id": "oct24-a1-agent-skills-foundation",
+      "headline": "Anthropic moves the Agent Skills standard into neutral Linux Foundation governance",
+      "focus": "Agents for Everyone",
+      "summary": "Anthropic has donated the Agent Skills specification, reference SDKs and repositories to the Linux Foundation’s Agentic AI Foundation. A Skill is a folder built around a plain-language SKILL.md file, with optional templates and references. Anthropic says more than 70 platforms support the format, while neutral governance will address versioning, security and interoperability.",
+      "why_it_matters": "You will learn a noncoding method for turning one repeated office workflow into a reviewed Skill: document instructions and outputs, test normal and adverse cases, assign ownership and a review date, then approve a version before reuse.",
+      "source": {
+        "title": "Donating Agent Skills to the Agentic AI Foundation",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "published_at": "2026-10-22T00:00:00Z",
+        "retrieved_at": "2026-10-24T00:21:28.531Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-24T00:21:28.831Z",
+          "scope": "Reviewed the complete Anthropic announcement, donation scope, SKILL.md structure, optional scripts and references, stated support across more than 70 platforms, adoption claims, Linux Foundation governance role, versioning and security roadmap, and publisher-claim limitations."
+        }
+      },
+      "reading_time_minutes": 5,
+      "agent_skills": true,
+      "topics": [
+        "Agent Skills",
+        "Open governance",
+        "Workflow templates"
+      ],
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Agent Skills",
+        "Open standards"
+      ],
+      "related_coverage": "Updates reusable-Skills coverage with neutral governance and a portable, noncoding office-workflow procedure.",
+      "image_alt_intent": "A plain-language SKILL.md folder moving from one vendor into neutral foundation governance, with a seven-step office-workflow review path and badges for ownership, versioning and approval.",
+      "permanent_route": "/stories/2026-10-24/oct24-a1-agent-skills-foundation/",
+      "agent_skills_evidence": "Reusable noncoding procedure: choose one repeated office review workflow; describe its purpose, inputs, output standards and approved templates in plain-language SKILL.md instructions; test normal and adverse examples on two compatible assistants; compare results with the current process; correct failures; assign an owner, version and review date; then approve the bounded Skill before team reuse.",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "An operations leader who maintains recurring review workflows, approved templates and quality standards in ordinary office tools.",
+        "practical_action": "Choose one repeated review task and write plain-language instructions, required inputs, output standards and approved templates in a Skill folder.",
+        "review_action": "Test normal and adverse examples on two compatible assistants, compare results with the current workflow and correct failures before approval.",
+        "usable_outcome": "A versioned, owner-assigned and review-dated Skill approved for a bounded team pilot without requiring programming work."
+      }
+    },
+    {
+      "id": "oct24-a2-tk-elevator-field-agent",
+      "headline": "TK Elevator puts an evidence-grounded mobile agent beside 25,000 service technicians",
+      "focus": "Agents for Everyone",
+      "summary": "Microsoft and TK Elevator describe a mobile AI assistant for 25,000 service technicians maintaining 1.4 million units. Before a visit, it assembles tools, location details and likely issues from IoT data, manuals and notes. Afterward, a voice debrief gathers missing facts, while technicians retain responsibility for diagnosis and action.",
+      "why_it_matters": "You will learn how to structure a field-service workflow around pre-visit briefs, evidence retrieval, voice debriefs and human decision authority. The pattern helps operations leaders evaluate assistance that reduces search and documentation work without delegating safety-critical judgment.",
+      "source": {
+        "title": "Data and AI agents give a lift to TK Elevator service technicians",
+        "publisher": "Microsoft Source",
+        "url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+        "published_at": "2026-10-22T00:00:00Z",
+        "retrieved_at": "2026-10-24T00:21:29.431Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-10-24T00:21:29.731Z",
+          "scope": "Reviewed the complete Microsoft and TK Elevator feature, 25,000-technician and 1.4-million-unit scope, pre-visit brief, IoT and manual retrieval, mobile access, voice debrief, follow-up questions, human responsibility, vendor-case-study framing and limitations."
+        }
+      },
+      "reading_time_minutes": 7,
+      "agent_skills": false,
+      "topics": [
+        "Field service",
+        "Mobile agents",
+        "Human oversight"
+      ],
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Field operations",
+        "Human oversight"
+      ],
+      "related_coverage": "Shows a noncoding frontline workflow in which an agent assembles evidence and documentation while technicians retain decision authority.",
+      "image_alt_intent": "A service technician using a phone beside an elevator, with an agent brief assembling tools, IoT signals, manuals and prior notes before a human-approved repair and voice debrief.",
+      "permanent_route": "/stories/2026-10-24/oct24-a2-tk-elevator-field-agent/",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "A field-service operations leader who manages technician preparation, evidence access, debrief quality and human accountability.",
+        "practical_action": "Select one recurring service visit and define the pre-visit facts, approved evidence sources, debrief questions and decisions reserved for technicians.",
+        "review_action": "Compare agent briefs and voice debriefs with completed work orders, then record omissions, unsupported suggestions and technician corrections.",
+        "usable_outcome": "A bounded field-service pilot with a source checklist, human decision boundary, debrief template and measurable documentation-quality review."
+      }
+    }
+  ],
+  "videos": [
+    {
+      "title": "How to Use Hermes AI Agent",
+      "source": "Kevin Stratvert",
+      "url": "https://www.youtube.com/watch?v=wETSpF4ef6E",
+      "duration_minutes": 10.2333,
+      "verified_at": "2026-10-24T00:21:41.931Z",
+      "content_retrieved_at": "2026-10-24T00:21:39.931Z",
+      "original_date": "2026-10-23T00:00:00Z",
+      "focus": "A no-code desktop agent workflow using memory, reusable skills and scheduled tasks",
+      "summary": "Kevin Stratvert demonstrates installing Hermes, connecting a browser, reviewing comments, publishing an approved reply, saving preferences as memory, creating a reusable skill and scheduling a follow-up job.",
+      "why_it_matters": "The chaptered walkthrough gives nontechnical readers a concrete sequence for testing an agent on a bounded communication workflow while keeping approval, memory checks and scheduled-task review visible.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "runtime_source_url": "https://www.youtube.com/watch?v=wETSpF4ef6E",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the complete chapter sequence, exact 10:14 runtime, channel identity and lesson description; the signed-out player did not advance, so no playback claim is made.",
+        "publisher_channel_id": "UCfJT_eYDTmDE-ovKaxVE1ig",
+        "publisher_channel_url": "https://www.youtube.com/channel/UCfJT_eYDTmDE-ovKaxVE1ig",
+        "publisher_channel_verified": true
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-24T00:21:45.931Z",
+        "learning_objective": "Build and review a bounded no-code agent workflow that uses browser access, memory, a reusable skill and scheduling.",
+        "practical_action": "Pilot comment triage with approval required before any public reply, then test memory in a fresh session and inspect the scheduled-job result.",
+        "selected_over_alternatives": "Selected for its current, chaptered, end-to-end procedure and nontechnical workflow; unlike promotional shorts, it exposes setup, approval, memory, skill reuse and scheduling in one lesson.",
+        "content_evidence": {
+          "kind": "timestamped_chapters",
+          "url": "https://www.youtube.com/watch?v=wETSpF4ef6E",
+          "scope": "Reviewed chapters from installation and local-model setup through browser connection, comment review, approved reply, memory test, reusable-skill creation, skill use, scheduled jobs and messaging connections."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The description contains affiliate and newsletter links, but the lesson itself is a step-by-step product workflow with transferable approval and review practices rather than a purchase-only pitch.",
+        "transferable_takeaways": [
+          "Require human approval before an agent posts or sends a public response.",
+          "Retest stored preferences in a fresh session before relying on agent memory.",
+          "Convert a completed bounded task into a reusable skill only after reviewing its outputs."
+        ]
+      }
+    },
+    {
+      "title": "What Is LLM Inference? How AI Models Generate Responses",
+      "source": "IBM Technology",
+      "url": "https://www.youtube.com/watch?v=615-yWyS1n0",
+      "duration_minutes": 7.75,
+      "verified_at": "2026-10-24T00:21:41.931Z",
+      "content_retrieved_at": "2026-10-24T00:21:40.431Z",
+      "original_date": "2026-10-22T00:00:00Z",
+      "focus": "Tokenization, prefill, decoding, batching and the KV cache in production inference",
+      "summary": "IBM Technology explains the inference path from tokenization through prefill and autoregressive decoding, then connects batching, GPU work and KV-cache reuse to latency, throughput and serving cost.",
+      "why_it_matters": "The concise lesson gives engineers a shared vocabulary for locating inference bottlenecks and choosing measurements before evaluating serving optimizations such as batching, cache management, quantization or parallelism.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "runtime_source_url": "https://www.youtube.com/watch?v=615-yWyS1n0",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the complete 7:45 chapter structure, publisher description and substantive IBM companion lesson; the signed-out player did not produce advancing frames, so playback remains unclaimed.",
+        "publisher_channel_id": "UCKWaEZ-_VweaEx1j62do_vQ",
+        "publisher_channel_url": "https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ",
+        "publisher_channel_verified": true
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-24T00:21:45.931Z",
+        "learning_objective": "Explain tokenization, prefill, decoding and KV-cache behavior well enough to select useful inference performance measurements.",
+        "practical_action": "Draw one request path from input tokens through prefill and decode, then mark where latency, throughput and GPU-memory measurements should be collected.",
+        "selected_over_alternatives": "Selected because its current lesson is short, technically focused and supported by a detailed companion article, while the alternative multi-GPU lesson duplicated today’s systems coverage.",
+        "content_evidence": {
+          "kind": "substantive_companion_lesson",
+          "url": "https://www.ibm.com/think/topics/llm-inference",
+          "scope": "Reviewed the complete IBM companion lesson covering tokenization, transformer prefill, sequential decoding, KV-cache reuse, batching, GPU-memory limits, latency, throughput, quantization, parallelism and measurement trade-offs."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "IBM links related learning resources, but the lesson teaches vendor-neutral inference concepts and measurement trade-offs rather than presenting a purchase-only call to action.",
+        "transferable_takeaways": [
+          "Separate prefill latency from sequential decode behavior when diagnosing a slow response.",
+          "Track KV-cache memory alongside throughput because higher concurrency can exhaust accelerator memory.",
+          "Benchmark task-shaped requests rather than relying on one aggregate tokens-per-second number."
+        ]
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Exploit Development, Agentic Vulnerability Discovery, and Fake PoCs",
+      "source": "Practical AI",
+      "url": "https://practicalai.show/377",
+      "duration_minutes": 45.2167,
+      "verified_at": "2026-10-24T00:21:42.931Z",
+      "content_retrieved_at": "2026-10-24T00:21:40.931Z",
+      "original_date": "2026-10-22T00:00:00Z",
+      "written_reading_time_minutes": 14,
+      "summary": "Daniel Whitenack and Chris Benson interview VulnCheck’s Spencer McIntyre about the difference between finding a vulnerability and proving attacker utility, AI-assisted exploit workflows, model guardrails, self-hosting decisions and the rising share of broken or misleading proof-of-concept code.",
+      "why_it_matters": "Security and AI leaders get a practical framework for separating vulnerability discovery from validated exploitability, prioritizing remediation with business context and treating generated proof-of-concept code as evidence that still requires expert verification.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-24T00:21:42.931Z",
+        "runtime_source_url": "https://practicalai.show/377",
+        "episode_url": "https://practicalai.show/377",
+        "episode_identifier": "practical-ai-e377",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Read the complete publisher transcript from 00:01 through 45:13 and reviewed the episode-specific show notes; no audio-playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-24T00:21:46.931Z",
+        "learning_objective": "Distinguish AI-found vulnerabilities, validated proof of attacker utility and operational remediation priority using expert security evidence.",
+        "practical_action": "For one reported vulnerability, record affected assets, exploit constraints, verified proof, business impact and patch decision before escalating urgency.",
+        "selected_over_alternatives": "Selected as a current original expert interview with a complete publisher transcript, exact episode identity and distinct program outside the recent three-edition cooldown.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://practicalai.show/377/transcript",
+          "scope": "Read the full timecoded transcript covering definitions, exploit validation, AI-assisted workflows, guardrail limits, self-hosting choices, proof-of-concept quality, attacker utility and threat-intelligence implications, excluding the identified sponsor interval."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "One clearly identified sponsor interval is excluded from editorial scope; the remaining episode is an original expert interview about AI-assisted vulnerability research and verification.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 900,
+            "kind": "ai",
+            "topic": "Vulnerability versus exploit evidence, AI discovery claims and risk prioritization"
+          },
+          {
+            "start_seconds": 900,
+            "end_seconds": 1003,
+            "kind": "advertisement",
+            "topic": "Hostinger website-builder sponsor message and discount code"
+          },
+          {
+            "start_seconds": 1003,
+            "end_seconds": 1660,
+            "kind": "ai",
+            "topic": "AI-assisted exploit workflows, model limitations, guardrails and self-hosting choices"
+          },
+          {
+            "start_seconds": 1660,
+            "end_seconds": 2713,
+            "kind": "ai",
+            "topic": "Proof-of-concept reliability, agent-generated noise and threat-intelligence decisions"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "The hosts question a named exploit-development practitioner about first-hand workflows, limitations and verification practices rather than synthesizing anonymous news items."
+      }
+    },
+    {
+      "title": "The Recommendation Engine for Commodity Traders — Anekha Sokhal, Moshi",
+      "source": "Latent Space",
+      "url": "https://www.latent.space/p/moshi",
+      "duration_minutes": 27,
+      "verified_at": "2026-10-24T00:21:42.931Z",
+      "content_retrieved_at": "2026-10-24T00:21:41.431Z",
+      "original_date": "2026-10-22T00:00:00Z",
+      "written_reading_time_minutes": 8,
+      "summary": "Anekha Sokhal explains Moshi’s attempt to turn fragmented commodity-market data and analyst routines into source-aware recommendations. The interview covers Bloomberg workflows, document extraction, trusted-source selection, task-oriented dashboards, customer discovery and the limits of automating decisions in high-stakes trading contexts.",
+      "why_it_matters": "Knowledge-work teams can borrow the source-selection and workflow-discovery method without copying the product claim: observe real decisions, identify trusted inputs, extract bounded evidence and keep a human accountable for consequential recommendations.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-24T00:21:42.931Z",
+        "runtime_source_url": "https://www.latent.space/p/moshi",
+        "episode_url": "https://www.latent.space/p/moshi",
+        "episode_identifier": "latent-space-moshi-2026-10-22",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the complete publisher page and chronological agenda from 00:00 through 25:55, with the listed 27-minute runtime; no audio-playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-24T00:21:46.931Z",
+        "learning_objective": "Translate a specialist recommendation workflow into trusted sources, extraction steps, review points and a human-owned decision boundary.",
+        "practical_action": "Shadow one analyst decision, list the sources actually trusted, prototype a cited recommendation and document where a person must accept or reject it.",
+        "selected_over_alternatives": "Selected for a current original founder interview, exact episode page, detailed chronology and a noncoding knowledge-work use case from a program not used in the recent seven-edition window.",
+        "content_evidence": {
+          "kind": "timecoded_agenda",
+          "url": "https://www.latent.space/p/moshi",
+          "scope": "Reviewed the full publisher agenda covering commodity derivatives, market data, Bloomberg workflows, document extraction, trusted sources, workflow design, customer meetings, hiring and the concluding discussion."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The founder discusses her company and hiring, but the interview supplies transferable workflow, source-selection and customer-discovery lessons rather than a short promotional announcement.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 360,
+            "kind": "ai",
+            "topic": "Founder context, commodity derivatives and the recommendation workflow problem"
+          },
+          {
+            "start_seconds": 360,
+            "end_seconds": 720,
+            "kind": "ai",
+            "topic": "Market-data sources, Bloomberg routines and current analyst decision steps"
+          },
+          {
+            "start_seconds": 720,
+            "end_seconds": 1080,
+            "kind": "ai",
+            "topic": "Workflow interfaces, trusted evidence and model-assisted document extraction"
+          },
+          {
+            "start_seconds": 1080,
+            "end_seconds": 1620,
+            "kind": "ai",
+            "topic": "Customer discovery, adoption limits, hiring and accountable recommendation design"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "The publisher presents a direct interview with the founder about observed customer workflows, source selection and product limitations, not a synthetic summary assembled from outside reports."
+      }
+    }
+  ],
+  "video_prequalification": {
+    "candidates": [
+      {
+        "title": "How to Use Hermes AI Agent",
+        "url": "https://www.youtube.com/watch?v=wETSpF4ef6E",
+        "duration_minutes": 10.2333,
+        "teaching_evidence": "Reviewed the chaptered sequence from installation through browser approval, memory testing, reusable skill creation and scheduled jobs.",
+        "research_disposition": "Selected because it provides a current end-to-end noncoding workflow with visible approval and review points.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "verification": {
+          "publisher_channel_id": "UCfJT_eYDTmDE-ovKaxVE1ig",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCfJT_eYDTmDE-ovKaxVE1ig",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "How to Use ChatGPT dots (Step-by-Step Tutorial)",
+        "url": "https://www.youtube.com/watch?v=-I9Csc3khis",
+        "duration_minutes": 8.8,
+        "teaching_evidence": "Reviewed the lesson outline covering dot creation, app connection, planning, Spaces, Pages, voice feedback and the next-day update.",
+        "research_disposition": "Not selected because the episode is explicitly sponsored and overlaps the broader workplace-assistant rollout story.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "verification": {
+          "publisher_channel_id": "UCfJT_eYDTmDE-ovKaxVE1ig",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCfJT_eYDTmDE-ovKaxVE1ig",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "What Is LLM Inference? How AI Models Generate Responses",
+        "url": "https://www.youtube.com/watch?v=615-yWyS1n0",
+        "duration_minutes": 7.75,
+        "teaching_evidence": "Reviewed the full companion lesson on tokenization, prefill, decode, batching, KV cache, latency and GPU-memory trade-offs.",
+        "research_disposition": "Selected for concise vendor-neutral systems teaching supported by a substantive first-party companion article.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "verification": {
+          "publisher_channel_id": "UCKWaEZ-_VweaEx1j62do_vQ",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "How AI Models Scale Beyond a Single GPU Across LLM Workloads",
+        "url": "https://www.youtube.com/watch?v=qZBibWYcKH4",
+        "duration_minutes": 9.0667,
+        "teaching_evidence": "Reviewed the publisher lesson description on distributing model workloads across GPUs through data, tensor and pipeline parallelism.",
+        "research_disposition": "Not selected because its multi-GPU systems lesson would duplicate today’s technical engineering coverage.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "verification": {
+          "publisher_channel_id": "UCKWaEZ-_VweaEx1j62do_vQ",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCKWaEZ-_VweaEx1j62do_vQ",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Find Root Causes Faster with AI (Part 1)",
+        "url": "https://www.youtube.com/watch?v=eNuyyBJwOEw",
+        "duration_minutes": 3.1,
+        "teaching_evidence": "Reviewed all three chapters on manufacturing root-cause delay, cross-system signal correlation and evidence-ranked likely causes.",
+        "research_disposition": "Not selected because the three-minute overview is useful but materially shallower than the two chosen instructional lessons.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "verification": {
+          "publisher_channel_id": "UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "When prompting is not enough for your agent",
+        "url": "https://www.youtube.com/watch?v=raSYE1Axnok",
+        "duration_minutes": 8.1667,
+        "teaching_evidence": "Reviewed the current Microsoft Developer lesson framing for moving from prompting to tool-connected, governed agent behavior.",
+        "research_disposition": "Not selected because its portal-linked overview supplied less concrete transferable procedure than the chosen lessons.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-24T00:21:41.931Z",
+        "verification": {
+          "publisher_channel_id": "UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_verified": true
+        }
+      }
+    ]
+  },
+  "source_discovery_audit": {
+    "reviewed_at": "2026-10-24T00:21:47.931Z",
+    "candidates": [
+      {
+        "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "publisher": "AWS",
+        "original_date": "2026-10-23T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:30.931Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full primary-source review because it supplies distinct, decision-relevant evidence for the required editorial allocation."
+      },
+      {
+        "url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+        "publisher": "IBM Research",
+        "original_date": "2026-10-21T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:30.931Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full primary-source review because it supplies distinct, decision-relevant evidence for the required editorial allocation."
+      },
+      {
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "publisher": "Google Cloud",
+        "original_date": "2026-10-23T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:30.931Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full primary-source review because it supplies distinct, decision-relevant evidence for the required editorial allocation."
+      },
+      {
+        "url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+        "publisher": "OpenAI",
+        "original_date": "2026-10-22T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:30.931Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full primary-source review because it supplies distinct, decision-relevant evidence for the required editorial allocation."
+      },
+      {
+        "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "publisher": "Anthropic",
+        "original_date": "2026-10-22T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:30.931Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full primary-source review because it supplies distinct, decision-relevant evidence for the required editorial allocation."
+      },
+      {
+        "url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+        "publisher": "Microsoft Source",
+        "original_date": "2026-10-22T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:30.931Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full primary-source review because it supplies distinct, decision-relevant evidence for the required editorial allocation."
+      },
+      {
+        "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+        "publisher": "OpenAI",
+        "original_date": "2026-10-23T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:31.931Z",
+        "disposition": "considered",
+        "disposition_reason": "Reviewed as current technical infrastructure evidence, but it concerns storage scaling rather than the selected agent-training and interpretability decisions."
+      },
+      {
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "publisher": "OpenAI",
+        "original_date": "2026-10-23T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:32.931Z",
+        "disposition": "considered",
+        "disposition_reason": "Reviewed as current agent-security evidence, but its frontier training containment scope would displace the more directly reusable six-story balance."
+      },
+      {
+        "url": "https://www.microsoft.com/en-us/research/event/advancing-the-science-of-ai-agent-evaluation/",
+        "publisher": "Microsoft Research",
+        "original_date": "2026-10-22T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:33.931Z",
+        "disposition": "rejected",
+        "disposition_reason": "The workshop agenda identifies important evaluation gaps, but public synthesis results are still forthcoming and provide less complete evidence today."
+      },
+      {
+        "url": "https://www.databricks.com/blog/ai-bill-coming",
+        "publisher": "Databricks",
+        "original_date": "2026-10-22T00:00:00Z",
+        "checked_at": "2026-10-24T00:21:34.931Z",
+        "disposition": "rejected",
+        "disposition_reason": "The cost-control interview is substantive, but its coding-agent focus would overconcentrate engineering coverage and weaken the noncoding agent allocation."
+      }
+    ],
+    "fallback_decisions": [
+      {
+        "story_id": "oct24-t1-sagemaker-multi-turn-rl",
+        "why_selected_over_recent_options": "Selected because the October 23 primary source provides the strongest task-specific implementation and measured outcome evidence; newer reviewed items addressed different infrastructure or security decisions.",
+        "newer_sources_considered": [
+          "https://openai.com/index/securing-our-frontier-model-training-environment/"
+        ]
+      },
+      {
+        "story_id": "oct24-t2-vllm-hook",
+        "why_selected_over_recent_options": "Selected because the October 21 research post supplies unique serving-path interpretability measurements; newer reviewed sources did not cover graph-compatible model-internals access.",
+        "newer_sources_considered": [
+          "https://openai.com/index/securing-our-frontier-model-training-environment/"
+        ]
+      },
+      {
+        "story_id": "oct24-k1-claude-deployment-choice",
+        "why_selected_over_recent_options": "Selected because the October 23 announcement gives a uniquely concrete deployment-governance comparison; other current candidates addressed storage, containment or cost controls.",
+        "newer_sources_considered": [
+          "https://openai.com/index/scaling-storage-one-billion-users-part-two/"
+        ]
+      },
+      {
+        "story_id": "oct24-k2-uber-chatgpt-work",
+        "why_selected_over_recent_options": "Selected because the October 22 case documents a large workplace rollout, connectors, training and a skills library; newer technical sources did not answer the adoption question.",
+        "newer_sources_considered": [
+          "https://openai.com/index/scaling-storage-one-billion-users-part-two/"
+        ]
+      },
+      {
+        "story_id": "oct24-a1-agent-skills-foundation",
+        "why_selected_over_recent_options": "Selected because the October 22 foundation donation materially changes cross-platform governance and enables the edition’s one reusable noncoding Skill procedure.",
+        "newer_sources_considered": [
+          "https://openai.com/index/scaling-storage-one-billion-users-part-two/"
+        ]
+      },
+      {
+        "story_id": "oct24-a2-tk-elevator-field-agent",
+        "why_selected_over_recent_options": "Selected because the October 22 field-service case supplies a genuinely noncoding workflow with evidence retrieval, voice debriefs and explicit human decision authority.",
+        "newer_sources_considered": [
+          "https://openai.com/index/scaling-storage-one-billion-users-part-two/"
+        ]
+      }
+    ]
+  },
+  "watchlist": {
+    "refreshed_at": "2026-10-24T00:21:48.931Z",
+    "new": [
+      {
+        "topic": "Multi-turn outcome-trained agents",
+        "topic_id": "dab-topic-multi-turn-outcome-training",
+        "why": "AWS’s October 23 guide supplies a first dated, costed baseline for outcome-reward training across complete agent conversations.",
+        "summary": "Multi-turn outcome training improves an agent by scoring complete task trajectories and updating behavior from repeated conversations rather than isolated responses.",
+        "why_now": "AWS published an end-to-end SageMaker pipeline, Wordle baseline, trained solve rates, cost estimates and reward-design failures on October 23.",
+        "practical_value": "Teams can reproduce a bounded task trial and compare success rate, reward leakage, inference cost and failure patterns before wider post-training.",
+        "evidence": {
+          "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+          "date": "2026-10-23",
+          "publisher": "AWS",
+          "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
+          "checked_at": "2026-10-24T00:21:48.931Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The guide applies outcome-reward post-training to complete multi-turn agent trajectories with a fully disclosed teaching example."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "AWS reports baselines, trained solve rates, reward design, costs and failure cases, although all measurements remain publisher-run."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from one AWS implementation without an independent reproduction under the same task and model."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "One dated experiment provides no comparable second observation under a stable task-success or deployment metric."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Agent teams can reproduce a bounded task and measure solve rate, reward leakage, cost and operational failure behavior."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Trajectory rewards, representative tasks and held-out evaluation remain useful as models and training infrastructure change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "One dated experiment provides no comparable second observation under a stable task-success or deployment metric.",
+          "metric": null,
+          "observations": []
+        }
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Reusable agent skills become observable",
+        "topic_id": "dab-topic-agent-skills-observability",
+        "what_changed": "Anthropic’s foundation donation adds neutral governance, cross-platform stewardship and an explicit versioning and security roadmap to earlier implementation evidence.",
+        "summary": "Reusable Agent Skills package plain-language instructions, output standards and supporting references so assistants can apply a reviewed procedure across repeated work.",
+        "why_now": "Anthropic donated the specification and reference repositories to the Linux Foundation’s Agentic AI Foundation on October 22.",
+        "practical_value": "Operations leaders can pilot one Skill across two compatible assistants, compare outputs, correct failures and approve an owner-assigned version.",
+        "evidence": {
+          "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+          "date": "2026-10-22",
+          "publisher": "Anthropic",
+          "title": "Donating Agent Skills to the Agentic AI Foundation",
+          "checked_at": "2026-10-24T00:21:48.931Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Neutral foundation governance changes Agent Skills from a vendor-led format into a shared standardization process."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "Anthropic identifies donated specifications, SDKs, repositories and governance scope, while adoption totals remain publisher-reported claims."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The foundation structure broadens stewardship, but today’s dated evidence and platform-count claim still originate from Anthropic."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable adoption measure has two source-linked observations at distinct valid times for this topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Nontechnical teams can immediately test one plain-language workflow across assistants with explicit ownership and review gates."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Portable instructions, version ownership, security review and neutral governance remain durable across assistant vendors and interfaces."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable adoption measure has two source-linked observations at distinct valid times for this topic.",
+          "metric": null,
+          "observations": []
+        }
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Desktop-scale frontier model clusters",
+        "topic_id": "dab-topic-desktop-frontier-model-clusters",
+        "why": "NVIDIA’s October 22 cluster evidence remains the current technical baseline, with no independent replication reviewed during this refresh.",
+        "summary": "Desktop-scale model clusters join compact AI workstations so their combined memory and interconnect can serve models that exceed one node.",
+        "why_now": "The topic is carried while independent operators have not yet published comparable throughput, topology overhead or failure measurements.",
+        "practical_value": "Infrastructure teams can reproduce a bounded cluster test and compare throughput, synchronization cost, network load, memory headroom and failures.",
+        "evidence": {
+          "url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+          "date": "2026-10-22",
+          "publisher": "NVIDIA",
+          "title": "Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes",
+          "checked_at": "2026-10-24T00:21:48.931Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The article demonstrates a coordinated eight-node desktop cluster serving a frontier-scale model without datacenter-class chassis."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "NVIDIA publishes topology, memory, model, throughput and scaling details, although the complete evaluation remains vendor-operated."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The configuration is reproducible in principle, but no independently operated eight-node comparison was reviewed for this release."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "One dated benchmark supplies no comparable second observation under a stable deployment or adoption measure."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Small infrastructure teams can reproduce a bounded topology trial and measure throughput, overhead, memory pressure and resilience."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Topology-aware distributed inference remains useful even as workstation hardware, interconnects and frontier model sizes change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "One dated benchmark supplies no comparable second observation under a stable deployment or adoption measure.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Multimodal evidence retrieval for agents",
+        "topic_id": "dab-topic-multimodal-agent-retrieval",
+        "why": "NVIDIA’s October 21 multimodal retrieval release remains the latest primary baseline, and no independent replication changed its status today.",
+        "summary": "Multimodal agent retrieval combines visual-text embedding, relevance reranking and structured document parsing so agents can locate evidence across charts, tables and scans.",
+        "why_now": "The topic is carried while teams still need independent evaluation of retrieval relevance, task success, token use and throughput.",
+        "practical_value": "Teams can benchmark each stage separately on their own documents, measuring relevance, downstream task success, token use and serving throughput.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+          "date": "2026-10-21",
+          "publisher": "NVIDIA",
+          "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+          "checked_at": "2026-10-24T00:21:48.931Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The release unifies multimodal embedding, reranking and structured parsing as separately deployable components for agent evidence pipelines."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "NVIDIA publishes model variants, evaluation methods, benchmark tables and throughput figures, although all headline results remain publisher-run."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Public benchmarks enable outside testing, but the reviewed release and its measured claims originate from NVIDIA and collaborators."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can directly benchmark relevance, task success, token cost and throughput on their own visually rich document collections."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Separating retrieval, reranking and parsing remains useful even as particular models, indexes and accelerator generations change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Consumer agent task permissions",
+        "topic_id": "dab-topic-consumer-agent-task-permissions",
+        "why": "The October 21 preview remains useful permission-design evidence but no longer warrants an active daily Watchlist position.",
+        "summary": "Consumer task agents need minimum authority, visible connected sources, enforceable action limits, reconstructable histories and human escalation for consequential work.",
+        "why_now": "The topic is dropped after this refresh found no independent real-world permission or intervention outcomes beyond the original preview.",
+        "practical_value": "Readers can retain the allowed, confirmation-required and prohibited action checklist without treating a preview as deployment evidence.",
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Claude Duet applies familiar permission ideas to proactive daily briefs and consequential consumer actions in a managed environment."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Anthropic specifies approval categories, access limits and known miscalibration risk, but the preview lacks independent outcome evaluation."
+          },
+          "independence": {
+            "score": 3,
+            "reason": "Anthropic provides a second publisher implementation alongside the earlier AWS control framework, though both remain publisher-authored evidence."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The sources describe different controls without two comparable numerical observations, so a directional momentum score is unsupported."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Ordinary users can convert the named approval boundaries into a concrete checklist before connecting a proactive assistant."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Least authority, confirmation for consequential actions and reviewable histories remain durable regardless of assistant branding or model."
+          }
+        },
+        "reason": "Archived because no later independent outcome evidence changed the baseline, while newer topics provide clearer current evaluation decisions.",
+        "previous_evidence": {
+          "url": "https://claude.com/resources/articles/claude-duet",
+          "date": "2026-10-21",
+          "publisher": "Anthropic",
+          "title": "Introducing Claude Duet"
+        }
+      }
+    ]
+  },
+  "book_mappings": [
+    {
+      "story_id": "oct24-t1-sagemaker-multi-turn-rl",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Evaluation-driven reliability",
+      "connection": "Outcome rewards, baselines and held-out task success turn post-training into a measurable reliability exercise.",
+      "what_to_study_next": "Study reward design, failure analysis and evaluation splits before adapting the pipeline to another multi-turn task."
+    },
+    {
+      "story_id": "oct24-t2-vllm-hook",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Observable model behavior",
+      "connection": "Graph-compatible activation hooks show how internal evidence can be collected without abandoning production-style serving paths.",
+      "what_to_study_next": "Compare activation evidence with latency, throughput and downstream quality before adopting an intervention in production."
+    },
+    {
+      "story_id": "oct24-a2-tk-elevator-field-agent",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Structured human-agent handoffs",
+      "connection": "Pre-visit briefs and voice debriefs demonstrate how prompts can define evidence, questions and decisions reserved for people.",
+      "what_to_study_next": "Design a field-service prompt that cites approved sources, requests missing facts and stops before safety-critical action."
+    },
+    {
+      "story_id": "oct24-a1-agent-skills-foundation",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable learning procedures",
+      "connection": "A reviewed Skill turns one working prompt sequence into a versioned, teachable procedure with tests and ownership.",
+      "what_to_study_next": "Build a small Skill curriculum with normal and adverse examples, review rubrics and a scheduled owner check."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "images": [
+    {
+      "story_id": "oct24-t1-sagemaker-multi-turn-rl",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A multi-turn agent repeatedly solving Wordle inside a reinforcement-learning loop, with before-and-after solve-rate gauges and separate cost labels for training and execution."
+    },
+    {
+      "story_id": "oct24-t2-vllm-hook",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A high-throughput inference engine retaining graph replay while transparent hooks inspect and steer internal activations, beside gauges showing reported overhead across small and 70-billion-parameter models."
+    },
+    {
+      "story_id": "oct24-k1-claude-deployment-choice",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Two deployment lanes for the same Claude models: one emphasizing early managed-agent features and another emphasizing Vertex controls, with a decision checklist for processor, terms, regions and feature cadence."
+    },
+    {
+      "story_id": "oct24-k2-uber-chatgpt-work",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A workplace rollout expanding from a 1,000-person pilot to more than 30,000 employees, with connected-tool icons, an internal skills library and a blank measurement panel awaiting outcome evidence."
+    },
+    {
+      "story_id": "oct24-a1-agent-skills-foundation",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A plain-language SKILL.md folder moving from one vendor into neutral foundation governance, with a seven-step office-workflow review path and badges for ownership, versioning and approval."
+    },
+    {
+      "story_id": "oct24-a2-tk-elevator-field-agent",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A service technician using a phone beside an elevator, with an agent brief assembling tools, IoT signals, manuals and prior notes before a human-approved repair and voice debrief."
+    }
+  ],
+  "producer_receipt": {
+    "result": "PASS",
+    "owner_intervention": false,
+    "work_used": false,
+    "codex_used": false,
+    "paid_model_api_used": false,
+    "local_computer_used": false,
+    "accepted_image_regenerations": 0,
+    "semantic_stages_complete": [
+      "EDITORIAL",
+      "CONTENT",
+      "BUNDLE"
+    ]
+  }
+}
