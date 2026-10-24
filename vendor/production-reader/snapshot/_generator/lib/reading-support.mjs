@@ -32,6 +32,18 @@ function verifiedFullSourceEvidence(item,id,data){
  const evidence=data.source_reading?.[id];
  return evidence?.source_url===sourceUrl&&evidence.status==='verified'&&Boolean(evidence.verified_at)&&Boolean(evidence.method)&&(evidence.full_source_read===true||(Number.isInteger(evidence.word_count)&&evidence.word_count>0));
 }
+// The October 23+ reader publishes age-accurate media labels. Validate them
+// against the item's ORIGINAL date without changing historical article labels.
+function expectedMediaCoverageLabel(editionDate,originalDate,type){
+ const day=String(originalDate??'').slice(0,10);
+ const published=Date.parse(editionDate+'T12:00:00Z'),source=Date.parse(day+'T12:00:00Z');
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(day)||!Number.isFinite(source)||!Number.isFinite(published)||source>published)
+   return null;
+ const age=Math.floor((published-source)/86400000);
+ const noun=type==='video'?'instructional video':'AI podcast episode';
+ return age<=1?'New '+noun:age<=7?'Recent '+noun+' fallback':'Evergreen '+noun;
+}
+const LEGACY_COVERAGE_LABELS=Object.freeze(['New development','Update','Background','Recency fallback','Extended recency fallback']);
 export function validateReadingSupport(edition,data=catalog){
  const stories=new Map(edition.stories.map(x=>[x.story_id,x]));
  // Recovery handoffs must carry the same full-source counts as normal research.
@@ -42,9 +54,18 @@ export function validateReadingSupport(edition,data=catalog){
  if(edition.brief_date>='2026-10-04')for(const story of stories.values()){
   if(!sourceReadingMinutes(story,story.story_id,data))throw Error(`${story.story_id}: verified source reading time required`);
  }
- const ids=new Set(stories.keys());
- for(const [key,suffix] of [['general','general'],['agents_non_technical_people','agent-skills']])if(edition.worth_watching?.[key]?.status==='included')ids.add(`dab-video-${edition.brief_date}-${suffix}`);
- for(const podcast of editionPodcasts(edition))ids.add(podcast.item_id);
+ const ids=new Set(stories.keys()),videoDates=new Map(),podcastDates=new Map();
+ for(const [key,suffix] of [['general','general'],['agents_non_technical_people','agent-skills']]){
+  const video=edition.worth_watching?.[key];
+  if(video?.status!=='included')continue;
+  const id=`dab-video-${edition.brief_date}-${suffix}`;
+  ids.add(id);
+  videoDates.set(id,video.upload_date);
+ }
+ for(const podcast of editionPodcasts(edition)){
+  ids.add(podcast.item_id);
+  podcastDates.set(podcast.item_id,podcast.publication_date);
+ }
  const seen=new Set();
  for(const x of data.editions[edition.brief_date]||[]){
   if(!ids.has(x.item_id)){
@@ -52,7 +73,12 @@ export function validateReadingSupport(edition,data=catalog){
    throw Error('Reading support has unknown or duplicate item');
   }
   if(seen.has(x.item_id))throw Error('Reading support has unknown or duplicate item');seen.add(x.item_id);
-  if(!['New development','Update','Background','Recency fallback','Extended recency fallback'].includes(x.coverage_label)||!x.label_reason||!x.learning_outcome?.trim()||!x.context_term||!x.context)throw Error('Reading support requires reviewed labels, learning outcomes and context');
+  const mediaLabel=edition.brief_date>='2026-10-23'?
+    videoDates.has(x.item_id)?expectedMediaCoverageLabel(edition.brief_date,videoDates.get(x.item_id),'video'):
+    podcastDates.has(x.item_id)?expectedMediaCoverageLabel(edition.brief_date,podcastDates.get(x.item_id),'podcast'):null:null;
+  const datedMedia=edition.brief_date>='2026-10-23'&&(videoDates.has(x.item_id)||podcastDates.has(x.item_id));
+  const labelOk=datedMedia?(mediaLabel!==null&&x.coverage_label===mediaLabel):LEGACY_COVERAGE_LABELS.includes(x.coverage_label);
+  if(!labelOk||!x.label_reason||!x.learning_outcome?.trim()||!x.context_term||!x.context)throw Error('Reading support requires reviewed labels, learning outcomes and context');
   const story=stories.get(x.item_id);
   if(edition.brief_date>='2026-09-16'&&story?.freshness?.tier==='fallback'&&x.coverage_label!==(edition.article_freshness_policy===ARTICLE_FRESHNESS_POLICY?articleFallbackLabel(story.freshness):'Recency fallback'))throw Error(`${x.item_id}: fallback stories must use the Recency fallback label matching their actual freshness band`);
   if(edition.brief_date>='2026-09-16'&&story?.freshness?.tier==='primary'&&/recency fallback/i.test(x.coverage_label))throw Error(`${x.item_id}: primary-window stories cannot use the Recency fallback label`);
