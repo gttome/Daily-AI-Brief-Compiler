@@ -1,0 +1,244 @@
+{
+  "refreshed_at": "2026-10-24T00:21:48.931Z",
+  "new": [
+    {
+      "topic": "Multi-turn outcome-trained agents",
+      "topic_id": "dab-topic-multi-turn-outcome-training",
+      "why": "AWS’s October 23 guide supplies a first dated, costed baseline for outcome-reward training across complete agent conversations.",
+      "summary": "Multi-turn outcome training improves an agent by scoring complete task trajectories and updating behavior from repeated conversations rather than isolated responses.",
+      "why_now": "AWS published an end-to-end SageMaker pipeline, Wordle baseline, trained solve rates, cost estimates and reward-design failures on October 23.",
+      "practical_value": "Teams can reproduce a bounded task trial and compare success rate, reward leakage, inference cost and failure patterns before wider post-training.",
+      "evidence": {
+        "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "date": "2026-10-23",
+        "publisher": "AWS",
+        "title": "Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide",
+        "checked_at": "2026-10-24T00:21:48.931Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The guide applies outcome-reward post-training to complete multi-turn agent trajectories with a fully disclosed teaching example."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "AWS reports baselines, trained solve rates, reward design, costs and failure cases, although all measurements remain publisher-run."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The reviewed evidence comes from one AWS implementation without an independent reproduction under the same task and model."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated experiment provides no comparable second observation under a stable task-success or deployment metric."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Agent teams can reproduce a bounded task and measure solve rate, reward leakage, cost and operational failure behavior."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Trajectory rewards, representative tasks and held-out evaluation remain useful as models and training infrastructure change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated experiment provides no comparable second observation under a stable task-success or deployment metric.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "updated": [
+    {
+      "topic": "Reusable agent skills become observable",
+      "topic_id": "dab-topic-agent-skills-observability",
+      "what_changed": "Anthropic’s foundation donation adds neutral governance, cross-platform stewardship and an explicit versioning and security roadmap to earlier implementation evidence.",
+      "summary": "Reusable Agent Skills package plain-language instructions, output standards and supporting references so assistants can apply a reviewed procedure across repeated work.",
+      "why_now": "Anthropic donated the specification and reference repositories to the Linux Foundation’s Agentic AI Foundation on October 22.",
+      "practical_value": "Operations leaders can pilot one Skill across two compatible assistants, compare outputs, correct failures and approve an owner-assigned version.",
+      "evidence": {
+        "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "date": "2026-10-22",
+        "publisher": "Anthropic",
+        "title": "Donating Agent Skills to the Agentic AI Foundation",
+        "checked_at": "2026-10-24T00:21:48.931Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Neutral foundation governance changes Agent Skills from a vendor-led format into a shared standardization process."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Anthropic identifies donated specifications, SDKs, repositories and governance scope, while adoption totals remain publisher-reported claims."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The foundation structure broadens stewardship, but today’s dated evidence and platform-count claim still originate from Anthropic."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable adoption measure has two source-linked observations at distinct valid times for this topic."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Nontechnical teams can immediately test one plain-language workflow across assistants with explicit ownership and review gates."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Portable instructions, version ownership, security review and neutral governance remain durable across assistant vendors and interfaces."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable adoption measure has two source-linked observations at distinct valid times for this topic.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "carried_forward": [
+    {
+      "topic": "Desktop-scale frontier model clusters",
+      "topic_id": "dab-topic-desktop-frontier-model-clusters",
+      "why": "NVIDIA’s October 22 cluster evidence remains the current technical baseline, with no independent replication reviewed during this refresh.",
+      "summary": "Desktop-scale model clusters join compact AI workstations so their combined memory and interconnect can serve models that exceed one node.",
+      "why_now": "The topic is carried while independent operators have not yet published comparable throughput, topology overhead or failure measurements.",
+      "practical_value": "Infrastructure teams can reproduce a bounded cluster test and compare throughput, synchronization cost, network load, memory headroom and failures.",
+      "evidence": {
+        "url": "https://developer.nvidia.com/blog/running-frontier-class-ai-models-across-8-nvidia-dgx-spark-nodes/",
+        "date": "2026-10-22",
+        "publisher": "NVIDIA",
+        "title": "Running Frontier-Class AI Models Across 8 NVIDIA DGX Spark Nodes",
+        "checked_at": "2026-10-24T00:21:48.931Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The article demonstrates a coordinated eight-node desktop cluster serving a frontier-scale model without datacenter-class chassis."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "NVIDIA publishes topology, memory, model, throughput and scaling details, although the complete evaluation remains vendor-operated."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The configuration is reproducible in principle, but no independently operated eight-node comparison was reviewed for this release."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated benchmark supplies no comparable second observation under a stable deployment or adoption measure."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Small infrastructure teams can reproduce a bounded topology trial and measure throughput, overhead, memory pressure and resilience."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Topology-aware distributed inference remains useful even as workstation hardware, interconnects and frontier model sizes change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated benchmark supplies no comparable second observation under a stable deployment or adoption measure.",
+        "metric": null,
+        "observations": []
+      }
+    },
+    {
+      "topic": "Multimodal evidence retrieval for agents",
+      "topic_id": "dab-topic-multimodal-agent-retrieval",
+      "why": "NVIDIA’s October 21 multimodal retrieval release remains the latest primary baseline, and no independent replication changed its status today.",
+      "summary": "Multimodal agent retrieval combines visual-text embedding, relevance reranking and structured document parsing so agents can locate evidence across charts, tables and scans.",
+      "why_now": "The topic is carried while teams still need independent evaluation of retrieval relevance, task success, token use and throughput.",
+      "practical_value": "Teams can benchmark each stage separately on their own documents, measuring relevance, downstream task success, token use and serving throughput.",
+      "evidence": {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "date": "2026-10-21",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+        "checked_at": "2026-10-24T00:21:48.931Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The release unifies multimodal embedding, reranking and structured parsing as separately deployable components for agent evidence pipelines."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "NVIDIA publishes model variants, evaluation methods, benchmark tables and throughput figures, although all headline results remain publisher-run."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Public benchmarks enable outside testing, but the reviewed release and its measured claims originate from NVIDIA and collaborators."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can directly benchmark relevance, task success, token cost and throughput on their own visually rich document collections."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Separating retrieval, reranking and parsing remains useful even as particular models, indexes and accelerator generations change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "Consumer agent task permissions",
+      "topic_id": "dab-topic-consumer-agent-task-permissions",
+      "why": "The October 21 preview remains useful permission-design evidence but no longer warrants an active daily Watchlist position.",
+      "summary": "Consumer task agents need minimum authority, visible connected sources, enforceable action limits, reconstructable histories and human escalation for consequential work.",
+      "why_now": "The topic is dropped after this refresh found no independent real-world permission or intervention outcomes beyond the original preview.",
+      "practical_value": "Readers can retain the allowed, confirmation-required and prohibited action checklist without treating a preview as deployment evidence.",
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Claude Duet applies familiar permission ideas to proactive daily briefs and consequential consumer actions in a managed environment."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Anthropic specifies approval categories, access limits and known miscalibration risk, but the preview lacks independent outcome evaluation."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Anthropic provides a second publisher implementation alongside the earlier AWS control framework, though both remain publisher-authored evidence."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The sources describe different controls without two comparable numerical observations, so a directional momentum score is unsupported."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Ordinary users can convert the named approval boundaries into a concrete checklist before connecting a proactive assistant."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Least authority, confirmation for consequential actions and reviewable histories remain durable regardless of assistant branding or model."
+        }
+      },
+      "reason": "Archived because no later independent outcome evidence changed the baseline, while newer topics provide clearer current evaluation decisions.",
+      "previous_evidence": {
+        "url": "https://claude.com/resources/articles/claude-duet",
+        "date": "2026-10-21",
+        "publisher": "Anthropic",
+        "title": "Introducing Claude Duet"
+      }
+    }
+  ]
+}
