@@ -1,0 +1,1964 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-24",
+    "story_id": "oct24-t1-sagemaker-multi-turn-rl",
+    "source_url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+    "job_sha256": "9199ea548ee67384a03e972322e14451455bab631acafee16466c149f80f65c9",
+    "recipe_version": "oct24-native-r1",
+    "visual_thesis": "Outcome rewards update a LoRA adapter through repeated multi-turn Wordle rollouts; evaluation is separate from training.",
+    "mechanism_metaphor": "two nested learning circuits",
+    "story_anchors": [
+      "GPT-OSS-20B policy with LoRA adaptation",
+      "Wordle feedback during play; outcome reward after game"
+    ],
+    "required_labels": [
+      "Multi-turn reinforcement learning",
+      "Task row",
+      "AgentCore runtime",
+      "Policy model",
+      "Guess",
+      "Letter feedback",
+      "Outcome reward",
+      "Grouped rollouts",
+      "LoRA update",
+      "Held-out evaluation",
+      "Training and evaluation differ",
+      "Publisher-run Wordle experiment"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "AgentCore hosts the agent, environment and reward while SageMaker owns the training job and policy model.",
+        "supporting_source_excerpt": "AgentCore hosts the agent, environment and reward while SageMaker owns the training job and policy model.",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "During play the model guesses and the environment supplies per-letter feedback.",
+        "supporting_source_excerpt": "During play the model guesses and the environment supplies per-letter feedback.",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "After the game an outcome reward supports GRPO updates to the LoRA adapter.",
+        "supporting_source_excerpt": "After the game an outcome reward supports GRPO updates to the LoRA adapter.",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "Held-out evaluation uses separate words and results depend on decoding settings.",
+        "supporting_source_excerpt": "Held-out evaluation uses separate words and results depend on decoding settings.",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Letter feedback",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "condition": "within a game",
+        "relation_supported_by_semantic_review": true,
+        "from": "Guess"
+      },
+      {
+        "to": "Policy model",
+        "support_claim_id": "claim-2",
+        "direction": "feedback_verified",
+        "condition": "next guess in same game",
+        "relation_supported_by_semantic_review": true,
+        "from": "Letter feedback"
+      },
+      {
+        "to": "LoRA update",
+        "support_claim_id": "claim-3",
+        "direction": "conditional",
+        "condition": "after grouped rollouts",
+        "relation_supported_by_semantic_review": true,
+        "from": "Outcome reward"
+      }
+    ],
+    "excluded_claims": [
+      "Secret answer must not flow to policy; feedback must not directly update weights; no invented solve-rate chart."
+    ],
+    "composition_signature": {
+      "grammar": "nested rollout and optimizer circuit",
+      "metaphor": "two nested learning circuits",
+      "layout": "Navy central rollout loop on left; copper optimizer arc below; separate evaluation boundary right",
+      "palette": "navy and copper",
+      "annotation": "nested circuit leaders",
+      "hierarchy": "dominant rollout ring and subordinate evaluation lane",
+      "perspective": "shallow isometric engineering cutaway"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Multi-turn reinforcement learning",
+          "region": "nested rollout and optimizer circuit label region 1",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 45
+          }
+        },
+        {
+          "label": "Task row",
+          "region": "nested rollout and optimizer circuit label region 2",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "AgentCore runtime",
+          "region": "nested rollout and optimizer circuit label region 3",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Policy model",
+          "region": "nested rollout and optimizer circuit label region 4",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Guess",
+          "region": "nested rollout and optimizer circuit label region 5",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Letter feedback",
+          "region": "nested rollout and optimizer circuit label region 6",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Outcome reward",
+          "region": "nested rollout and optimizer circuit label region 7",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Grouped rollouts",
+          "region": "nested rollout and optimizer circuit label region 8",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "LoRA update",
+          "region": "nested rollout and optimizer circuit label region 9",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Held-out evaluation",
+          "region": "nested rollout and optimizer circuit label region 10",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Training and evaluation differ",
+          "region": "nested rollout and optimizer circuit label region 11",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 412,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Publisher-run Wordle experiment",
+          "region": "nested rollout and optimizer circuit label region 12",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 548,
+            "width": 1120,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher-run Wordle experiment; task-specific results do not establish general agent reliability.",
+      "causal_state_checks": [
+        {
+          "condition": "within a game",
+          "allowed_path": "Guess to Letter feedback",
+          "blocked_path": "Secret answer must not flow to policy; feedback must not directly update weights; no invented solve-rate chart.",
+          "support_claim_id": "claim-2"
+        },
+        {
+          "condition": "next guess in same game",
+          "allowed_path": "Letter feedback to Policy model",
+          "blocked_path": "Secret answer must not flow to policy; feedback must not directly update weights; no invented solve-rate chart.",
+          "support_claim_id": "claim-2"
+        },
+        {
+          "condition": "after grouped rollouts",
+          "allowed_path": "Outcome reward to LoRA update",
+          "blocked_path": "Secret answer must not flow to policy; feedback must not directly update weights; no invented solve-rate chart.",
+          "support_claim_id": "claim-3"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Letter feedback",
+          "support_claim_id": "claim-2",
+          "origin_region": "Guess mechanism region",
+          "target_region": "Letter feedback mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Guess"
+        },
+        {
+          "to": "Policy model",
+          "support_claim_id": "claim-2",
+          "origin_region": "Letter feedback mechanism region",
+          "target_region": "Policy model mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Letter feedback"
+        },
+        {
+          "to": "LoRA update",
+          "support_claim_id": "claim-3",
+          "origin_region": "Outcome reward mechanism region",
+          "target_region": "LoRA update mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Outcome reward"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-24",
+    "story_id": "oct24-t2-vllm-hook",
+    "source_url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+    "job_sha256": "9199ea548ee67384a03e972322e14451455bab631acafee16466c149f80f65c9",
+    "recipe_version": "oct24-native-r1",
+    "visual_thesis": "Graph-aware GPU hooks expose and steer model activations while preserving graph replay; routing and data delivery are distinct.",
+    "mechanism_metaphor": "transparent inference aperture",
+    "story_anchors": [
+      "Scheduler uses fixed GPU-memory routing entries",
+      "Courier transfers captured data to CPU output"
+    ],
+    "required_labels": [
+      "vLLM-Hook MIA",
+      "Graph replay preserved",
+      "Developer selection",
+      "Scheduler",
+      "Fixed GPU routing",
+      "GPU operators",
+      "Model activations",
+      "Capture",
+      "Steer",
+      "Courier",
+      "CPU inspection",
+      "Publisher-run experiments"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "GPU operators capture and steer model internals before the graph is recorded.",
+        "supporting_source_excerpt": "GPU operators capture and steer model internals before the graph is recorded.",
+        "source_url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The scheduler translates developer selections into routing entries at fixed GPU memory addresses.",
+        "supporting_source_excerpt": "The scheduler translates developer selections into routing entries at fixed GPU memory addresses.",
+        "source_url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "During graph replay the GPU uses those entries to act on the request.",
+        "supporting_source_excerpt": "During graph replay the GPU uses those entries to act on the request.",
+        "source_url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "The courier moves captured data to CPU memory for delivery with the model output.",
+        "supporting_source_excerpt": "The courier moves captured data to CPU memory for delivery with the model output.",
+        "source_url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Scheduler",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "condition": "selected internals",
+        "relation_supported_by_semantic_review": true,
+        "from": "Developer selection"
+      },
+      {
+        "to": "Fixed GPU routing",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "condition": "before replay",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scheduler"
+      },
+      {
+        "to": "GPU operators",
+        "support_claim_id": "claim-3",
+        "direction": "conditional",
+        "condition": "during replay",
+        "relation_supported_by_semantic_review": true,
+        "from": "Fixed GPU routing"
+      },
+      {
+        "to": "Courier",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "captured activation data",
+        "relation_supported_by_semantic_review": true,
+        "from": "Capture"
+      },
+      {
+        "to": "CPU inspection",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "delivery",
+        "relation_supported_by_semantic_review": true,
+        "from": "Courier"
+      }
+    ],
+    "excluded_claims": [
+      "No guarantee of safety; no CPU Python hook inside captured graph; no capture-data arrow into automatic weight training."
+    ],
+    "composition_signature": {
+      "grammar": "graph replay cross-section with side-channel taps",
+      "metaphor": "transparent inference aperture",
+      "layout": "Emerald horizontal graph-replay band; scheduler above and courier below; CPU inspection on right",
+      "palette": "emerald and graphite",
+      "annotation": "cross-section tap annotations",
+      "hierarchy": "wide graph band with narrow upper control and lower capture lanes",
+      "perspective": "layered technical cutaway"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "vLLM-Hook MIA",
+          "region": "graph replay cross-section with side-channel taps label region 1",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 45
+          }
+        },
+        {
+          "label": "Graph replay preserved",
+          "region": "graph replay cross-section with side-channel taps label region 2",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Developer selection",
+          "region": "graph replay cross-section with side-channel taps label region 3",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Scheduler",
+          "region": "graph replay cross-section with side-channel taps label region 4",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Fixed GPU routing",
+          "region": "graph replay cross-section with side-channel taps label region 5",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "GPU operators",
+          "region": "graph replay cross-section with side-channel taps label region 6",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Model activations",
+          "region": "graph replay cross-section with side-channel taps label region 7",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Capture",
+          "region": "graph replay cross-section with side-channel taps label region 8",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Steer",
+          "region": "graph replay cross-section with side-channel taps label region 9",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Courier",
+          "region": "graph replay cross-section with side-channel taps label region 10",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "CPU inspection",
+          "region": "graph replay cross-section with side-channel taps label region 11",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 412,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Publisher-run experiments",
+          "region": "graph replay cross-section with side-channel taps label region 12",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 548,
+            "width": 1120,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher-run experiments; monitoring and steering do not guarantee safe or accurate output.",
+      "causal_state_checks": [
+        {
+          "condition": "selected internals",
+          "allowed_path": "Developer selection to Scheduler",
+          "blocked_path": "No guarantee of safety; no CPU Python hook inside captured graph; no capture-data arrow into automatic weight training.",
+          "support_claim_id": "claim-2"
+        },
+        {
+          "condition": "before replay",
+          "allowed_path": "Scheduler to Fixed GPU routing",
+          "blocked_path": "No guarantee of safety; no CPU Python hook inside captured graph; no capture-data arrow into automatic weight training.",
+          "support_claim_id": "claim-2"
+        },
+        {
+          "condition": "during replay",
+          "allowed_path": "Fixed GPU routing to GPU operators",
+          "blocked_path": "No guarantee of safety; no CPU Python hook inside captured graph; no capture-data arrow into automatic weight training.",
+          "support_claim_id": "claim-3"
+        },
+        {
+          "condition": "captured activation data",
+          "allowed_path": "Capture to Courier",
+          "blocked_path": "No guarantee of safety; no CPU Python hook inside captured graph; no capture-data arrow into automatic weight training.",
+          "support_claim_id": "claim-4"
+        },
+        {
+          "condition": "delivery",
+          "allowed_path": "Courier to CPU inspection",
+          "blocked_path": "No guarantee of safety; no CPU Python hook inside captured graph; no capture-data arrow into automatic weight training.",
+          "support_claim_id": "claim-4"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Scheduler",
+          "support_claim_id": "claim-2",
+          "origin_region": "Developer selection mechanism region",
+          "target_region": "Scheduler mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Developer selection"
+        },
+        {
+          "to": "Fixed GPU routing",
+          "support_claim_id": "claim-2",
+          "origin_region": "Scheduler mechanism region",
+          "target_region": "Fixed GPU routing mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Scheduler"
+        },
+        {
+          "to": "GPU operators",
+          "support_claim_id": "claim-3",
+          "origin_region": "Fixed GPU routing mechanism region",
+          "target_region": "GPU operators mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Fixed GPU routing"
+        },
+        {
+          "to": "Courier",
+          "support_claim_id": "claim-4",
+          "origin_region": "Capture mechanism region",
+          "target_region": "Courier mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Capture"
+        },
+        {
+          "to": "CPU inspection",
+          "support_claim_id": "claim-4",
+          "origin_region": "Courier mechanism region",
+          "target_region": "CPU inspection mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Courier"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://research.ibm.com/blog/fast-interpretability-plugin-vllm",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-24",
+    "story_id": "oct24-k1-claude-deployment-choice",
+    "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+    "job_sha256": "9199ea548ee67384a03e972322e14451455bab631acafee16466c149f80f65c9",
+    "recipe_version": "oct24-native-r1",
+    "visual_thesis": "The same Claude models can run in two alternative managed deployments with different processors, contracts and feature timing.",
+    "mechanism_metaphor": "two alternative governance sections",
+    "story_anchors": [
+      "Both options have day-zero models and same pricing",
+      "Anthropic-managed platform features versus Google-managed Vertex controls"
+    ],
+    "required_labels": [
+      "Claude deployment choice",
+      "Same models and pricing",
+      "Anthropic-managed",
+      "Anthropic processor and terms",
+      "Day-zero platform features",
+      "Agents, skills, code execution",
+      "Google-managed",
+      "Google processor and agreements",
+      "Vertex governance controls",
+      "CMEK and data residency",
+      "Features after integration",
+      "Compare terms, regions, cadence"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Both deployment options deliver the same frontier models on day zero with the same pricing and Google Cloud billing.",
+        "supporting_source_excerpt": "Both deployment options deliver the same frontier models on day zero with the same pricing and Google Cloud billing.",
+        "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Anthropic-managed deployment uses Anthropic as processor under its terms and offers day-zero Claude platform features.",
+        "supporting_source_excerpt": "Anthropic-managed deployment uses Anthropic as processor under its terms and offers day-zero Claude platform features.",
+        "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Google-managed deployment uses Google Cloud as processor under existing customer agreements.",
+        "supporting_source_excerpt": "Google-managed deployment uses Google Cloud as processor under existing customer agreements.",
+        "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "Google-managed deployment provides Vertex controls including CMEK and regional residency; platform features follow integration.",
+        "supporting_source_excerpt": "Google-managed deployment provides Vertex controls including CMEK and regional residency; platform features follow integration.",
+        "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Day-zero platform features",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "condition": "choose Anthropic-managed path",
+        "relation_supported_by_semantic_review": true,
+        "from": "Anthropic-managed"
+      },
+      {
+        "to": "Vertex governance controls",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "choose Google-managed path",
+        "relation_supported_by_semantic_review": true,
+        "from": "Google-managed"
+      },
+      {
+        "to": "Features after integration",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "after integration",
+        "relation_supported_by_semantic_review": true,
+        "from": "Google-managed"
+      }
+    ],
+    "excluded_claims": [
+      "Never imply both processors operate one request or platform-feature parity on day zero; no universal compliance certification."
+    ],
+    "composition_signature": {
+      "grammar": "paired governance section comparison",
+      "metaphor": "two alternative governance sections",
+      "layout": "Violet versus ochre parallel vertical sections beneath a shared model-and-price header; bottom procurement criteria",
+      "palette": "violet and muted ochre",
+      "annotation": "aligned comparison brackets",
+      "hierarchy": "shared header over paired equivalent-weight sections",
+      "perspective": "planar architectural comparison"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Claude deployment choice",
+          "region": "paired governance section comparison label region 1",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 45
+          }
+        },
+        {
+          "label": "Same models and pricing",
+          "region": "paired governance section comparison label region 2",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Anthropic-managed",
+          "region": "paired governance section comparison label region 3",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Anthropic processor and terms",
+          "region": "paired governance section comparison label region 4",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Day-zero platform features",
+          "region": "paired governance section comparison label region 5",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Agents, skills, code execution",
+          "region": "paired governance section comparison label region 6",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Google-managed",
+          "region": "paired governance section comparison label region 7",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Google processor and agreements",
+          "region": "paired governance section comparison label region 8",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Vertex governance controls",
+          "region": "paired governance section comparison label region 9",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "CMEK and data residency",
+          "region": "paired governance section comparison label region 10",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Features after integration",
+          "region": "paired governance section comparison label region 11",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 412,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Compare terms, regions, cadence",
+          "region": "paired governance section comparison label region 12",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 548,
+            "width": 1120,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Alternative deployments; feature availability and contractual details require checking the chosen path.",
+      "causal_state_checks": [
+        {
+          "condition": "choose Anthropic-managed path",
+          "allowed_path": "Anthropic-managed to Day-zero platform features",
+          "blocked_path": "Never imply both processors operate one request or platform-feature parity on day zero; no universal compliance certification.",
+          "support_claim_id": "claim-2"
+        },
+        {
+          "condition": "choose Google-managed path",
+          "allowed_path": "Google-managed to Vertex governance controls",
+          "blocked_path": "Never imply both processors operate one request or platform-feature parity on day zero; no universal compliance certification.",
+          "support_claim_id": "claim-4"
+        },
+        {
+          "condition": "after integration",
+          "allowed_path": "Google-managed to Features after integration",
+          "blocked_path": "Never imply both processors operate one request or platform-feature parity on day zero; no universal compliance certification.",
+          "support_claim_id": "claim-4"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Day-zero platform features",
+          "support_claim_id": "claim-2",
+          "origin_region": "Anthropic-managed mechanism region",
+          "target_region": "Day-zero platform features mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Anthropic-managed"
+        },
+        {
+          "to": "Vertex governance controls",
+          "support_claim_id": "claim-4",
+          "origin_region": "Google-managed mechanism region",
+          "target_region": "Vertex governance controls mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Google-managed"
+        },
+        {
+          "to": "Features after integration",
+          "support_claim_id": "claim-4",
+          "origin_region": "Google-managed mechanism region",
+          "target_region": "Features after integration mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Google-managed"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-24",
+    "story_id": "oct24-k2-uber-chatgpt-work",
+    "source_url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+    "job_sha256": "9199ea548ee67384a03e972322e14451455bab631acafee16466c149f80f65c9",
+    "recipe_version": "oct24-native-r1",
+    "visual_thesis": "Uber expands employee access with connectors and enablement; rollout scale remains separate from unreported outcome measurements.",
+    "mechanism_metaphor": "workplace enablement canopy",
+    "story_anchors": [
+      "Pilot of 1,000 expands toward more than 30,000 employees",
+      "Internal skills library and training accompany approved integrations"
+    ],
+    "required_labels": [
+      "Uber workplace rollout",
+      "1,000-person pilot",
+      "30,000+ employees",
+      "ChatGPT Work",
+      "Google Drive",
+      "Gmail",
+      "Google Calendar",
+      "Slack",
+      "Research and meeting briefs",
+      "Presentations and data work",
+      "Skills library and training",
+      "Measured outcomes forthcoming"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Uber is expanding from a 1,000-employee pilot to access for more than 30,000 employees.",
+        "supporting_source_excerpt": "Uber is expanding from a 1,000-employee pilot to access for more than 30,000 employees.",
+        "source_url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "ChatGPT Work connects Google Drive, Gmail, Google Calendar and Slack.",
+        "supporting_source_excerpt": "ChatGPT Work connects Google Drive, Gmail, Google Calendar and Slack.",
+        "source_url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Supported work includes research, meeting briefs, presentations and data analysis.",
+        "supporting_source_excerpt": "Supported work includes research, meeting briefs, presentations and data analysis.",
+        "source_url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "The rollout includes internal skills, approved integrations and training; measurable outcomes will be shared later.",
+        "supporting_source_excerpt": "The rollout includes internal skills, approved integrations and training; measurable outcomes will be shared later.",
+        "source_url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "30,000+ employees",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "condition": "announced rollout",
+        "relation_supported_by_semantic_review": true,
+        "from": "1,000-person pilot"
+      },
+      {
+        "to": "Research and meeting briefs",
+        "support_claim_id": "claim-3",
+        "direction": "conditional",
+        "condition": "connected workplace tasks",
+        "relation_supported_by_semantic_review": true,
+        "from": "ChatGPT Work"
+      },
+      {
+        "to": "Presentations and data work",
+        "support_claim_id": "claim-3",
+        "direction": "conditional",
+        "condition": "connected workplace tasks",
+        "relation_supported_by_semantic_review": true,
+        "from": "ChatGPT Work"
+      }
+    ],
+    "excluded_claims": [
+      "No productivity percentage, cost savings or adoption success badge; no scaling from access directly into measured benefits."
+    ],
+    "composition_signature": {
+      "grammar": "expanding enablement fan with outcome evidence boundary",
+      "metaphor": "workplace enablement canopy",
+      "layout": "Burnt-orange access expansion left; four application spokes center; supporting skill/training foundation; detached evidence boundary right",
+      "palette": "burnt orange and slate blue",
+      "annotation": "scope brackets and evidence boundary",
+      "hierarchy": "pilot-to-rollout expansion dominates above supporting enablement",
+      "perspective": "layered editorial axonometric"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Uber workplace rollout",
+          "region": "expanding enablement fan with outcome evidence boundary label region 1",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 45
+          }
+        },
+        {
+          "label": "1,000-person pilot",
+          "region": "expanding enablement fan with outcome evidence boundary label region 2",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "30,000+ employees",
+          "region": "expanding enablement fan with outcome evidence boundary label region 3",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "ChatGPT Work",
+          "region": "expanding enablement fan with outcome evidence boundary label region 4",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Google Drive",
+          "region": "expanding enablement fan with outcome evidence boundary label region 5",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Gmail",
+          "region": "expanding enablement fan with outcome evidence boundary label region 6",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Google Calendar",
+          "region": "expanding enablement fan with outcome evidence boundary label region 7",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Slack",
+          "region": "expanding enablement fan with outcome evidence boundary label region 8",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Research and meeting briefs",
+          "region": "expanding enablement fan with outcome evidence boundary label region 9",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Presentations and data work",
+          "region": "expanding enablement fan with outcome evidence boundary label region 10",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Skills library and training",
+          "region": "expanding enablement fan with outcome evidence boundary label region 11",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 412,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Measured outcomes forthcoming",
+          "region": "expanding enablement fan with outcome evidence boundary label region 12",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 548,
+            "width": 1120,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Announced access and enablement, not independently measured productivity gains.",
+      "causal_state_checks": [
+        {
+          "condition": "announced rollout",
+          "allowed_path": "1,000-person pilot to 30,000+ employees",
+          "blocked_path": "No productivity percentage, cost savings or adoption success badge; no scaling from access directly into measured benefits.",
+          "support_claim_id": "claim-1"
+        },
+        {
+          "condition": "connected workplace tasks",
+          "allowed_path": "ChatGPT Work to Research and meeting briefs",
+          "blocked_path": "No productivity percentage, cost savings or adoption success badge; no scaling from access directly into measured benefits.",
+          "support_claim_id": "claim-3"
+        },
+        {
+          "condition": "connected workplace tasks",
+          "allowed_path": "ChatGPT Work to Presentations and data work",
+          "blocked_path": "No productivity percentage, cost savings or adoption success badge; no scaling from access directly into measured benefits.",
+          "support_claim_id": "claim-3"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "30,000+ employees",
+          "support_claim_id": "claim-1",
+          "origin_region": "1,000-person pilot mechanism region",
+          "target_region": "30,000+ employees mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "1,000-person pilot"
+        },
+        {
+          "to": "Research and meeting briefs",
+          "support_claim_id": "claim-3",
+          "origin_region": "ChatGPT Work mechanism region",
+          "target_region": "Research and meeting briefs mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "ChatGPT Work"
+        },
+        {
+          "to": "Presentations and data work",
+          "support_claim_id": "claim-3",
+          "origin_region": "ChatGPT Work mechanism region",
+          "target_region": "Presentations and data work mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "ChatGPT Work"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://openai.com/index/uber-chatgpt-work-rollout/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-24",
+    "story_id": "oct24-a1-agent-skills-foundation",
+    "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+    "job_sha256": "9199ea548ee67384a03e972322e14451455bab631acafee16466c149f80f65c9",
+    "recipe_version": "oct24-native-r1",
+    "visual_thesis": "A portable Skill folder is distinct from neutral standards governance and a proposed versioning/security roadmap.",
+    "mechanism_metaphor": "portable folio in neutral stewardship",
+    "story_anchors": [
+      "SKILL.md with optional references and scripts",
+      "Standard moves to AAIF under Linux Foundation"
+    ],
+    "required_labels": [
+      "Agent Skills, neutral stewardship",
+      "Skill folder",
+      "SKILL.md instructions",
+      "Optional references",
+      "Optional scripts",
+      "Portable task knowledge",
+      "AAIF / Linux Foundation",
+      "Community maintainers",
+      "Open contribution",
+      "Proposed roadmap",
+      "Versioned releases",
+      "Security guidance"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "A Skill is a folder containing SKILL.md plus optional scripts and reference material.",
+        "supporting_source_excerpt": "A Skill is a folder containing SKILL.md plus optional scripts and reference material.",
+        "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The open standard gives compatible agents specialized task knowledge and workflows.",
+        "supporting_source_excerpt": "The open standard gives compatible agents specialized task knowledge and workflows.",
+        "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Anthropic is donating the standard to AAIF under the Linux Foundation, with individual community maintainers.",
+        "supporting_source_excerpt": "Anthropic is donating the standard to AAIF under the Linux Foundation, with individual community maintainers.",
+        "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "Versioned releases, a formal proposal process and security guidance are proposed roadmap work.",
+        "supporting_source_excerpt": "Versioned releases, a formal proposal process and security guidance are proposed roadmap work.",
+        "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Portable task knowledge",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "condition": "loaded by a compatible agent",
+        "relation_supported_by_semantic_review": true,
+        "from": "SKILL.md instructions"
+      },
+      {
+        "to": "Open contribution",
+        "support_claim_id": "claim-3",
+        "direction": "conditional",
+        "condition": "neutral open stewardship",
+        "relation_supported_by_semantic_review": true,
+        "from": "AAIF / Linux Foundation"
+      },
+      {
+        "to": "Versioned releases",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "proposed future work",
+        "relation_supported_by_semantic_review": true,
+        "from": "Proposed roadmap"
+      },
+      {
+        "to": "Security guidance",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "proposed future work",
+        "relation_supported_by_semantic_review": true,
+        "from": "Proposed roadmap"
+      }
+    ],
+    "excluded_claims": [
+      "No security certification or automatic compatibility guarantee; no roadmap rendered as completed features; no faux writing on folios."
+    ],
+    "composition_signature": {
+      "grammar": "exploded skill folio and open-governance orbit",
+      "metaphor": "portable folio in neutral stewardship",
+      "layout": "Indigo exploded Skill folder left; neutral governance orbit center-right; explicitly proposed roadmap at bottom",
+      "palette": "indigo and rose",
+      "annotation": "exploded layer callouts and roadmap boundary",
+      "hierarchy": "anatomy object paired with governance orbit and lower future strip",
+      "perspective": "exploded orthographic"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Agent Skills, neutral stewardship",
+          "region": "exploded skill folio and open-governance orbit label region 1",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 45
+          }
+        },
+        {
+          "label": "Skill folder",
+          "region": "exploded skill folio and open-governance orbit label region 2",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "SKILL.md instructions",
+          "region": "exploded skill folio and open-governance orbit label region 3",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Optional references",
+          "region": "exploded skill folio and open-governance orbit label region 4",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Optional scripts",
+          "region": "exploded skill folio and open-governance orbit label region 5",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Portable task knowledge",
+          "region": "exploded skill folio and open-governance orbit label region 6",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "AAIF / Linux Foundation",
+          "region": "exploded skill folio and open-governance orbit label region 7",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Community maintainers",
+          "region": "exploded skill folio and open-governance orbit label region 8",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Open contribution",
+          "region": "exploded skill folio and open-governance orbit label region 9",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Proposed roadmap",
+          "region": "exploded skill folio and open-governance orbit label region 10",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Versioned releases",
+          "region": "exploded skill folio and open-governance orbit label region 11",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 412,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Security guidance",
+          "region": "exploded skill folio and open-governance orbit label region 12",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 548,
+            "width": 1120,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Governance and roadmap do not certify every Skill as secure or interoperable.",
+      "causal_state_checks": [
+        {
+          "condition": "loaded by a compatible agent",
+          "allowed_path": "SKILL.md instructions to Portable task knowledge",
+          "blocked_path": "No security certification or automatic compatibility guarantee; no roadmap rendered as completed features; no faux writing on folios.",
+          "support_claim_id": "claim-1"
+        },
+        {
+          "condition": "neutral open stewardship",
+          "allowed_path": "AAIF / Linux Foundation to Open contribution",
+          "blocked_path": "No security certification or automatic compatibility guarantee; no roadmap rendered as completed features; no faux writing on folios.",
+          "support_claim_id": "claim-3"
+        },
+        {
+          "condition": "proposed future work",
+          "allowed_path": "Proposed roadmap to Versioned releases",
+          "blocked_path": "No security certification or automatic compatibility guarantee; no roadmap rendered as completed features; no faux writing on folios.",
+          "support_claim_id": "claim-4"
+        },
+        {
+          "condition": "proposed future work",
+          "allowed_path": "Proposed roadmap to Security guidance",
+          "blocked_path": "No security certification or automatic compatibility guarantee; no roadmap rendered as completed features; no faux writing on folios.",
+          "support_claim_id": "claim-4"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Portable task knowledge",
+          "support_claim_id": "claim-1",
+          "origin_region": "SKILL.md instructions mechanism region",
+          "target_region": "Portable task knowledge mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "SKILL.md instructions"
+        },
+        {
+          "to": "Open contribution",
+          "support_claim_id": "claim-3",
+          "origin_region": "AAIF / Linux Foundation mechanism region",
+          "target_region": "Open contribution mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "AAIF / Linux Foundation"
+        },
+        {
+          "to": "Versioned releases",
+          "support_claim_id": "claim-4",
+          "origin_region": "Proposed roadmap mechanism region",
+          "target_region": "Versioned releases mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Proposed roadmap"
+        },
+        {
+          "to": "Security guidance",
+          "support_claim_id": "claim-4",
+          "origin_region": "Proposed roadmap mechanism region",
+          "target_region": "Security guidance mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Proposed roadmap"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-24",
+    "story_id": "oct24-a2-tk-elevator-field-agent",
+    "source_url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+    "job_sha256": "9199ea548ee67384a03e972322e14451455bab631acafee16466c149f80f65c9",
+    "recipe_version": "oct24-native-r1",
+    "visual_thesis": "Field-service evidence informs a pre-visit brief; technicians decide actions and voice debriefs enrich future service records.",
+    "mechanism_metaphor": "service evidence braid",
+    "story_anchors": [
+      "IoT, manuals and prior notes are joined as evidence",
+      "Technician authority is retained; debrief asks missing-detail questions"
+    ],
+    "required_labels": [
+      "Field-service assistance",
+      "IoT signals",
+      "Manuals",
+      "Service notes",
+      "Pre-visit brief",
+      "Tools and location",
+      "Technician judgment",
+      "Diagnosis and action",
+      "Voice debrief",
+      "Follow-up questions",
+      "Updated service record",
+      "Advice does not authorize repair"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "The mobile agent combines connected-equipment data, manuals and service notes to brief technicians before visits.",
+        "supporting_source_excerpt": "The mobile agent combines connected-equipment data, manuals and service notes to brief technicians before visits.",
+        "source_url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The pre-visit brief includes tools, location and issue context.",
+        "supporting_source_excerpt": "The pre-visit brief includes tools, location and issue context.",
+        "source_url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Technicians inspect equipment and use training and judgment to decide action.",
+        "supporting_source_excerpt": "Technicians inspect equipment and use training and judgment to decide action.",
+        "source_url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-4",
+        "proposition": "Voice debrief gathers answers and follow-up details; records support later visits.",
+        "supporting_source_excerpt": "Voice debrief gathers answers and follow-up details; records support later visits.",
+        "source_url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Pre-visit brief",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "condition": "evidence assembly",
+        "relation_supported_by_semantic_review": true,
+        "from": "IoT signals"
+      },
+      {
+        "to": "Pre-visit brief",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "condition": "evidence retrieval",
+        "relation_supported_by_semantic_review": true,
+        "from": "Manuals"
+      },
+      {
+        "to": "Pre-visit brief",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "condition": "prior visits",
+        "relation_supported_by_semantic_review": true,
+        "from": "Service notes"
+      },
+      {
+        "to": "Diagnosis and action",
+        "support_claim_id": "claim-3",
+        "direction": "conditional",
+        "condition": "technician decides",
+        "relation_supported_by_semantic_review": true,
+        "from": "Technician judgment"
+      },
+      {
+        "to": "Updated service record",
+        "support_claim_id": "claim-4",
+        "direction": "conditional",
+        "condition": "after visit",
+        "relation_supported_by_semantic_review": true,
+        "from": "Voice debrief"
+      },
+      {
+        "to": "Service notes",
+        "support_claim_id": "claim-4",
+        "direction": "feedback_verified",
+        "condition": "future visits",
+        "relation_supported_by_semantic_review": true,
+        "from": "Updated service record"
+      }
+    ],
+    "excluded_claims": [
+      "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery."
+    ],
+    "composition_signature": {
+      "grammar": "evidence braid with human authority gate and debrief return",
+      "metaphor": "service evidence braid",
+      "layout": "Teal evidence strands upper left converge into pre-visit brief; amber decision boundary center; debrief return runs below",
+      "palette": "teal and amber",
+      "annotation": "braided provenance leaders and authority boundary",
+      "hierarchy": "central decision gate separates advice from action; lower record feedback",
+      "perspective": "conceptual planar service circuit"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Field-service assistance",
+          "region": "evidence braid with human authority gate and debrief return label region 1",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 45
+          }
+        },
+        {
+          "label": "IoT signals",
+          "region": "evidence braid with human authority gate and debrief return label region 2",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Manuals",
+          "region": "evidence braid with human authority gate and debrief return label region 3",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Service notes",
+          "region": "evidence braid with human authority gate and debrief return label region 4",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 112,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Pre-visit brief",
+          "region": "evidence braid with human authority gate and debrief return label region 5",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Tools and location",
+          "region": "evidence braid with human authority gate and debrief return label region 6",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Technician judgment",
+          "region": "evidence braid with human authority gate and debrief return label region 7",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 212,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Diagnosis and action",
+          "region": "evidence braid with human authority gate and debrief return label region 8",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Voice debrief",
+          "region": "evidence braid with human authority gate and debrief return label region 9",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Follow-up questions",
+          "region": "evidence braid with human authority gate and debrief return label region 10",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 312,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Updated service record",
+          "region": "evidence braid with human authority gate and debrief return label region 11",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 412,
+            "width": 360,
+            "height": 55
+          }
+        },
+        {
+          "label": "Advice does not authorize repair",
+          "region": "evidence braid with human authority gate and debrief return label region 12",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 548,
+            "width": 1120,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor/customer case study; suggestions are advisory and do not replace safety-critical technician judgment.",
+      "causal_state_checks": [
+        {
+          "condition": "evidence assembly",
+          "allowed_path": "IoT signals to Pre-visit brief",
+          "blocked_path": "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery.",
+          "support_claim_id": "claim-1"
+        },
+        {
+          "condition": "evidence retrieval",
+          "allowed_path": "Manuals to Pre-visit brief",
+          "blocked_path": "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery.",
+          "support_claim_id": "claim-1"
+        },
+        {
+          "condition": "prior visits",
+          "allowed_path": "Service notes to Pre-visit brief",
+          "blocked_path": "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery.",
+          "support_claim_id": "claim-1"
+        },
+        {
+          "condition": "technician decides",
+          "allowed_path": "Technician judgment to Diagnosis and action",
+          "blocked_path": "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery.",
+          "support_claim_id": "claim-3"
+        },
+        {
+          "condition": "after visit",
+          "allowed_path": "Voice debrief to Updated service record",
+          "blocked_path": "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery.",
+          "support_claim_id": "claim-4"
+        },
+        {
+          "condition": "future visits",
+          "allowed_path": "Updated service record to Service notes",
+          "blocked_path": "No agent-to-repair bypass, no autonomous safety-critical diagnosis, no guaranteed uptime improvement, no people or elevator scenery.",
+          "support_claim_id": "claim-4"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Pre-visit brief",
+          "support_claim_id": "claim-1",
+          "origin_region": "IoT signals mechanism region",
+          "target_region": "Pre-visit brief mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "IoT signals"
+        },
+        {
+          "to": "Pre-visit brief",
+          "support_claim_id": "claim-1",
+          "origin_region": "Manuals mechanism region",
+          "target_region": "Pre-visit brief mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Manuals"
+        },
+        {
+          "to": "Pre-visit brief",
+          "support_claim_id": "claim-1",
+          "origin_region": "Service notes mechanism region",
+          "target_region": "Pre-visit brief mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Service notes"
+        },
+        {
+          "to": "Diagnosis and action",
+          "support_claim_id": "claim-3",
+          "origin_region": "Technician judgment mechanism region",
+          "target_region": "Diagnosis and action mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Technician judgment"
+        },
+        {
+          "to": "Updated service record",
+          "support_claim_id": "claim-4",
+          "origin_region": "Voice debrief mechanism region",
+          "target_region": "Updated service record mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Voice debrief"
+        },
+        {
+          "to": "Service notes",
+          "support_claim_id": "claim-4",
+          "origin_region": "Updated service record mechanism region",
+          "target_region": "Service notes mechanism region",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Updated service record"
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://news.microsoft.com/source/emea/features/data-and-ai-agents-give-a-lift-to-tk-elevator-service-technicians/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  }
+]
