@@ -40,6 +40,7 @@
 | Native saved-pixel review: oct24-a1-agent-skills-foundation attempt 1 | Simulated writing strokes on the instructions folio. | Targeted native correction followed by complete saved-export pixel reinspection before acceptance. |
 | Native saved-pixel review: oct24-a2-tk-elevator-field-agent attempt 1 | Simulated record writing and unlisted question-mark glyph. | Targeted native correction followed by complete saved-export pixel reinspection before acceptance. |
 | Exact job-byte verification | Scratch job copy gained one trailing newline; its content was unchanged but the scratch-computed frozen-spec hash differed. | Recovered exact immutable bytes from the Git history object, matched index SHA-256, and corrected only the spec binding in canonical six-frozen-specs.json; original frozen file retained. |
+| Rejected evidence binary transport | Whole-file tool output truncated PNG evidence at about one MiB of encoded output; the first segment join also retained per-segment base64 padding. | Read fixed 256-KiB byte offsets, decoded segments before exact base64 re-encoding, and matched all nine original Git blob identities before committing repairs; accepted PNGs unchanged. |
 
 ## Evidence and limitations
 

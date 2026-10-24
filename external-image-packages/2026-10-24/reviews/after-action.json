@@ -97,6 +97,11 @@
       "phase": "Exact job-byte verification",
       "issue": "Scratch job copy gained one trailing newline; its content was unchanged but the scratch-computed frozen-spec hash differed.",
       "correction": "Recovered exact immutable bytes from the Git history object, matched index SHA-256, and corrected only the spec binding in canonical six-frozen-specs.json; original frozen file retained."
+    },
+    {
+      "phase": "Rejected evidence binary transport",
+      "issue": "Whole-file tool output truncated PNG evidence at about one MiB of encoded output; the first segment join also retained per-segment base64 padding.",
+      "correction": "Read fixed 256-KiB byte offsets, decoded segments before exact base64 re-encoding, and matched all nine original Git blob identities before committing repairs; accepted PNGs unchanged."
     }
   ],
   "visual_review": {
