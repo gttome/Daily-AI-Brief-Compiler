@@ -94,6 +94,18 @@ export function validateMediaPrecision(bundle){
     e.alternatives_reviewed.some(s=>!text(s.reason,40)))fail('distinct_video_publishers_or_reviewed_exception_required');
   const alternatives=new Set(e.alternatives_reviewed.map(videoPublisherKey));
   if(alternatives.size<2||[...alternatives].some(p=>publishers.has(p)))fail('independent_video_alternatives_required');
+  // Forward-only: a diversity exception cannot cite unreviewed or invented
+  // alternatives. The existing six-candidate pool must substantiate each one.
+  if(bundle.edition_date>='2026-10-25'){
+   const pool=new Map(bundle.video_prequalification.candidates.map(c=>[new URL(c.url).href,c]));
+   const chosen=new Set(bundle.videos.map(v=>new URL(v.url).href));
+   for(const alt of e.alternatives_reviewed){
+    const url=new URL(alt.url).href,candidate=pool.get(url);
+    if(chosen.has(url)||!candidate||candidate.content_reviewed!==true||
+       candidate.public_player_checked!==true||!text(candidate.research_disposition,35))
+      fail('video_diversity_exception_alternative_not_prequalified');
+   }
+  }
  }
  for(const item of bundle.podcasts){
   let u;try{u=new URL(item.url);}catch{fail('episode_link_required');}

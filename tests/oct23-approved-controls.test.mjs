@@ -101,3 +101,21 @@ test('P1 schedule and GitHub capability identity is UNPROVEN absent first-party 
  assert.equal(evidence.route_preflight,'SAME_INVOCATION_ROUTE_RECORDED');
  assert.equal(evidence.scheduler,'UNPROVEN');
 });
+
+test('Oct25 older article selections must compare actually researched recent candidates',()=>{
+ const domains=['openai.com','ibm.com','microsoft.com','nvidia.com','cohere.com','anthropic.com','deepmind.google','research.google'];
+ const stories=domains.slice(0,6).map((d,i)=>({id:'article-'+i,
+  source:{url:'https://'+d+'/research/item-'+i,published_at:'2026-10-23T00:00:00Z'}}));
+ const candidates=domains.map((d,i)=>({url:'https://'+d+'/research/item-'+i,
+  publisher:'Publisher '+d,original_date:i===7?'2026-10-25T01:00:00Z':'2026-10-23T00:00:00Z',
+  checked_at:'2026-10-25T03:00:00Z',disposition:i<6?'selected':'considered',
+  disposition_reason:'A real original-source candidate was compared for article relevance, source credibility and novelty.'}));
+ const decisions=stories.map(s=>({story_id:s.id,newer_sources_considered:[],
+  why_selected_over_recent_options:'This primary source is the stronger complete and relevant causal mechanism for the intended audience after comparing newsworthy competing items.'}));
+ const b={edition_date:'2026-10-25',stories,source_discovery_audit:{reviewed_at:'2026-10-25T03:30:00Z',candidates,fallback_decisions:decisions}};
+ assert.throws(()=>validateRecentSourceDiscovery(b),/older_story_must_compare_authentic_recent_candidates/);
+ for(const d of decisions)d.newer_sources_considered=[candidates[7].url];
+ const proof=validateRecentSourceDiscovery(b);
+ assert.equal(proof.independently_recorded_within_24h,1);
+ assert.equal(proof.selected_within_24h,0);
+});
