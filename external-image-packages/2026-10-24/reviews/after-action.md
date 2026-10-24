@@ -1,6 +1,6 @@
 # 2026-10-24 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | e9fb815e26b183c33c9835e434848828db5b5e90 |
 | Executor observed run start | 2026-10-24T02:16:11Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-24T02:19:47Z (observed before tool call) |
-| Public release | NOT_YET_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_DEPLOYMENT; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-24T02:50:46.793Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -41,6 +41,8 @@
 | Native saved-pixel review: oct24-a2-tk-elevator-field-agent attempt 1 | Simulated record writing and unlisted question-mark glyph. | Targeted native correction followed by complete saved-export pixel reinspection before acceptance. |
 | Exact job-byte verification | Scratch job copy gained one trailing newline; its content was unchanged but the scratch-computed frozen-spec hash differed. | Recovered exact immutable bytes from the Git history object, matched index SHA-256, and corrected only the spec binding in canonical six-frozen-specs.json; original frozen file retained. |
 | Rejected evidence binary transport | Whole-file tool output truncated PNG evidence at about one MiB of encoded output; the first segment join also retained per-segment base64 padding. | Read fixed 256-KiB byte offsets, decoded segments before exact base64 re-encoding, and matched all nine original Git blob identities before committing repairs; accepted PNGs unchanged. |
+| Worker checkpoint reconciliation | Intermediate receipt summaries remained stale while the genuine PNG commits and readbacks advanced; the checkpoint showed one accepted image until reconciliation. | Reconciled14 attempts and all six accepted hashes before merge, read back the corrected receipt, and reran required exact-head protected PR validation without changing accepted images. |
+| Protected merge connector binding | The tool description named repo_full_name while the merge action required repository_full_name; initial argument binding was rejected. | Used the required repository argument with the same exact expected PR head; the normal protected merge succeeded without bypass. |
 
 ## Evidence and limitations
 
@@ -58,8 +60,14 @@ Fourteen native calls produced six accepted and eight rejected candidates; rejec
 
 All six exact RGB 1200x630 PNGs match connected GitHub commit-byte readbacks and full PNG structure checks. Actual individual images and the full six-set comparison plate were inspected.
 
-Protected PR CI, merge, image-only release and actual final 24-context semantic review remain pending. No workflow or screenshot count is treated as semantic PASS.
-
 Usage is UNKNOWN; no inferred percentage or monetary charge is claimed.
+
+All24 dated/permanent desktop/mobile captures were inspected individually from exact release artifact12545770473; artifact digest and every capture SHA-256 matched. No duplicate deployment was run.
+
+Release evidence independently checks44 public byte/hash targets including17 pinned October8 objects. Six published image hashes and12 story-image bindings match accepted originals; public release/index status converges.
+
+Final review, AAR, lease closeout and learning record are persisted through a reporting-only protected PR; manifest, assignment and accepted PNGs remain unchanged. Mobile fine text requires the existing full-size image viewer.
+
+First-pass acceptance was0/6. The14-call total exceeds the12-attempt efficiency goal; premium correctness remained mandatory and no attempt cap was imposed.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
