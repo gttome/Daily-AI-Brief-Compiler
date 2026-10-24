@@ -1,4 +1,5 @@
 import {validateImageAfterAction} from './image-aar-contract.mjs';
+import {verifyFinalImageCheckpoint} from './worker-checkpoint-consistency.mjs';
 import fs from "node:fs";
 import {ownerReportedWorkUsage} from "./owner-usage.mjs";
 import path from "node:path";
@@ -31,9 +32,11 @@ function generateUnified(cycle,e) {
       t.result==="PASS"&&/^[a-f0-9]{64}$/.test(t.capture_sha256||"")&&Number.isSafeInteger(t.capture_bytes)&&t.capture_bytes>0);
   const visualOk=!!(oldVisualOk||pixelVisualOk);
   const worker=obj('image-worker-state');
+  const checkpoint=verifyFinalImageCheckpoint({edition,worker,release,manifest,aar:imageAar});
   const workerClosed=edition<'2026-10-21'||(worker?.phase==='PUBLISHED_COMPLETE'&&worker.lease_status==='RELEASED'&&
     worker.job_sha256===manifest?.job_sha256&&worker.accepted_hashes?.length===6&&
-    new Set(worker.accepted_hashes).size===6&&images.every(i=>worker.accepted_hashes.includes(i.sha256)));
+    new Set(worker.accepted_hashes).size===6&&images.every(i=>worker.accepted_hashes.includes(i.sha256))&&
+    (edition<'2026-10-25'||checkpoint.result==='PASS'));
   const provenanceWarnings=[];
   const end=Date.parse(state?.updated_at||'');
   for(const story of bundle?.stories||[]){
@@ -129,8 +132,8 @@ indicators,
 `| Videos over seven days old | **${mediaOld}** | Must be labeled evergreen, not a new development |`,
 `| Distinct selected video publishers | **${selectedVideoPublishers}** | One channel is one publisher even across multiple videos |`,
 `| Duplicate active Watchlist display titles | **${watch?watchCollisions.length:"Not recorded"}** | Published canonical Watchlist only; historical evidence retained |`,
-`| Recorded scheduler capability route | **${originImages?.capability_preflight?.result??"UNPROVEN"}** | GitHub receipt is not a first-party scheduler attestation |`,
-`| Avoidable incomplete-staging CI failures | **Not recorded** | Do not guess from Git commit count; attach genuine workflow audit |`,
+`| Recorded scheduler capability route | **${originImages?.capability_preflight?.result??"UNPROVEN"}** | Same-invocation route receipt only; GitHub is not scheduler authentication |`,
+`| Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |`,
 `| Media | **${durations}** | Sealed bundle |`,
 `| **Compiler stage duration** | **${compilerStageDuration} (${elapsed})** | First persisted Compiler state → verified public reader; not a host scheduler attestation |`,
 `| **Image processing stage duration** | **${imageStageDuration}** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |`,
@@ -139,6 +142,7 @@ indicators,
 `| Accepted premium PNGs | **${imagesOk?6:"Not complete"} / 6** | Exact package and public release hashes |`,
 `| Native image generation attempts | **${typeof attempts==="number"?attempts:"Not reported"}** | Image worker AAR; no estimation |`,
 `| Rejected candidates | **${typeof rejected==="number"?rejected:"Not reported"}** | Image worker AAR |`,
+`| Final worker checkpoint reconciliation | **${checkpoint.result}** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |`,
 `| Saved visual contexts | **${visualOk?"24 / 24 PASS":"Unverified"}** | Dated/permanent desktop/mobile review |`,
 `| Public SHA-256 checks | **${release?.independent_http_sha256_checks??"Not recorded"}** | Image release receipt |`,
 `| October 8 immutable history | **${release?.protected_oct8_objects_verified??integrity?.oct8_protected_count??"Not recorded"} / 17** | Independent content-preservation checks |`,
@@ -273,13 +277,13 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage"];
+const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist"];
 const ev={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;try{ev[k]=JSON.parse(fs.readFileSync(p,"utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev);
 fs.mkdirSync(outDir,{recursive:true});

@@ -46,6 +46,7 @@ function run(overrides={},relocated=false){
   executable=path.join(tmp,'render-unified-production-aar.mjs');
   fs.copyFileSync(script,executable);
   fs.copyFileSync(path.join(root,'scripts/image-aar-contract.mjs'),path.join(tmp,'image-aar-contract.mjs'));
+  fs.copyFileSync(path.join(root,'scripts/worker-checkpoint-consistency.mjs'),path.join(tmp,'worker-checkpoint-consistency.mjs'));
   fs.copyFileSync(path.join(root,'scripts/owner-usage.mjs'),path.join(tmp,'owner-usage.mjs'));
  }
  const res=spawnSync(process.execPath,[executable,cy,input,output],{encoding:'utf8'});
@@ -176,4 +177,20 @@ test('report renderer runs from the workflow temporary directory with its copied
  const {meta}=run({},true);assert.equal(meta.result,'COMPLETE');
  const workflow=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');
  assert.match(workflow,/cp scripts\/image-aar-contract\.mjs/);
+});
+
+test('the unified AAR consumes already-collected current-edition Watchlist and image-route receipts',()=>{
+ const {meta,md}=run({
+  'published-watchlist':{edition_date:ed,topics:[
+    {topic_id:'topic-one',name:'Governed agent practices',status:'gaining_evidence'},
+    {topic_id:'topic-two',name:'Governed agent practices',status:'under_research'}]},
+  'image-task-origin':{edition_date:ed,capability_preflight:{result:'CAPABILITY_ROUTE_PROVEN'}}
+ });
+ assert.equal(meta.watchlist_title_collisions,1);
+ assert.equal(meta.image_route_preflight_recorded,true);
+ assert.equal(meta.scheduler_start_attested,false);
+ assert.match(md,/Duplicate active Watchlist display titles \| \*\*1\*\*/);
+ assert.match(md,/Recorded scheduler capability route \| \*\*CAPABILITY_ROUTE_PROVEN\*\*/);
+ const stale=run({'published-watchlist':{edition_date:'2026-10-12',topics:[]}});
+ assert.equal(stale.meta.watchlist_title_collisions,null);
 });

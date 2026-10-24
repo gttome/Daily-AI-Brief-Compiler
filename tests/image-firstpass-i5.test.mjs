@@ -89,4 +89,11 @@ test('October 24 pre-generation geometry requires export-safe readable text and 
  assert.equal(validateFrozenImageSpecification({spec:s,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
  s.pre_generation_checks.label_layout[0].bounding_box_px.x=20;
  assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),/label_export_safe_bounds_or_effective_font_insufficient/);
+ s.pre_generation_checks.label_layout[0].bounding_box_px.x=52;
+ s.edition_date='2026-10-25';
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),/thumbnail_priority_labels_need_30px_effective_font/);
+ s.pre_generation_checks.thumbnail_priority_labels=s.required_labels.slice(0,2);
+ s.pre_generation_checks.label_layout[0].minimum_font_px=30;
+ s.pre_generation_checks.label_layout[1].minimum_font_px=30;
+ assert.equal(validateFrozenImageSpecification({spec:s,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
 });

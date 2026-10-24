@@ -83,6 +83,17 @@ export function validateFrozenImageSpecification({spec,story}){
         clean(r.origin_region)&&clean(r.target_region)&&r.disallowed_paths_visually_blocked===true))
        fail('unsupported_or_unreviewed_connector_origin:'+spec.story_id);
    }
+   // Oct25+: prioritize two or three source-approved explanatory labels at
+   // thumbnail scale. This is a geometry plan, not a claim of actual legibility.
+   if(spec.edition_date>='2026-10-25'){
+     const priorities=qc.thumbnail_priority_labels;
+     const byLabel=new Map(bounds.map(l=>[l.label,l]));
+     if(!Array.isArray(priorities)||priorities.length<2||priorities.length>3||
+        new Set(priorities).size!==priorities.length||
+        priorities.some(label=>!spec.required_labels.includes(label)||
+          (byLabel.get(label)?.minimum_font_px??0)<30))
+       fail('thumbnail_priority_labels_need_30px_effective_font:'+spec.story_id);
+   }
  }
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||

@@ -16,6 +16,7 @@ on:
       - 'docs/after-action/timing/*.json'
       - 'scripts/derive-image-stage-timing.mjs'
       - 'scripts/render-unified-production-aar.mjs'
+      - 'scripts/worker-checkpoint-consistency.mjs'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
     workflows: [external-image-only-replacement]
@@ -67,6 +68,7 @@ jobs:
           cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
           cp scripts/image-aar-contract.mjs "$tmp/image-aar-contract.mjs"
+          cp scripts/worker-checkpoint-consistency.mjs "$tmp/worker-checkpoint-consistency.mjs"
           cp scripts/owner-usage.mjs "$tmp/owner-usage.mjs"
           cp scripts/derive-image-stage-timing.mjs "$tmp/derive-image-stage-timing.mjs"
           cp scripts/package-offline-unified-aar.mjs "$tmp/package-offline-unified-aar.mjs"
