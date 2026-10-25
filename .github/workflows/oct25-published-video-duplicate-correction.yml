@@ -1,0 +1,144 @@
+name: oct25-published-video-duplicate-correction
+# Narrow immutable-media correction; never alters the sealed editorial or image package.
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/oct25-published-video-duplicate-correction.yml'
+      - 'config/media-revisions/2026-10-25-video-duplicate.json'
+      - 'scripts/correct-oct25-video-duplicate.py'
+      - 'scripts/test-oct25-video-duplicate.py'
+      - 'scripts/verify-oct25-video-duplicate-live.py'
+  push:
+    branches: [main]
+    paths:
+      - 'config/media-revisions/2026-10-25-video-duplicate.json'
+permissions:
+  contents: read
+jobs:
+  preview:
+    if: ${{ github.event_name == 'pull_request' && github.repository == 'gttome/Daily-AI-Brief-Compiler' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Test exact-one-video correction and immutable identifiers
+        run: |
+          python3 -m py_compile scripts/correct-oct25-video-duplicate.py scripts/verify-oct25-video-duplicate-live.py
+          python3 scripts/test-oct25-video-duplicate.py
+      - name: Verify real public playback of both October 25 video slots
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,pathlib
+          r=json.loads(pathlib.Path('config/media-revisions/2026-10-25-video-duplicate.json').read_text())
+          p={'edition_date':r['edition_date'],'videos':[
+              {'title':r['new']['title'],'url':r['new']['url'],
+               'duration_minutes':r['new']['duration_seconds']/60,
+               'verification':{'identity_verified':True,'duration_verified':True}},
+              {'title':'Building a data strategy for enterprise AI',
+               'url':'https://www.ibm.com/think/videos/ai-academy/building-data-strategy-enterprise-ai',
+               'duration_minutes':501/60,
+               'verification':{'identity_verified':True,'duration_verified':True}}]}
+          pathlib.Path('video-preview.json').write_text(json.dumps(p))
+          PY
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/verify-selected-video-playback.cjs video-preview.json build/verified-oct25-video-player.json
+      - name: Stage against complete newest verified published archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin shadow-pages-history
+          git worktree add --detach history FETCH_HEAD
+          python3 scripts/correct-oct25-video-duplicate.py config/media-revisions/2026-10-25-video-duplicate.json history/site build/corrected build/correction-preview.json
+          python3 - <<'PY'
+          import json,pathlib
+          j=json.loads(pathlib.Path('build/correction-preview.json').read_text())
+          assert j['result']=='STAGED_VALIDATED_NOT_LIVE' and len(j['changed'])==10
+          assert j['image_generation_count']==0 and j['source_bundle_modified'] is False
+          PY
+  publish:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'gttome/Daily-AI-Brief-Compiler' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    concurrency:
+      group: daily-compiler-pages-deploy
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+      - name: Require exact authorized protected-main correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          git diff --name-only HEAD^ HEAD -- config/media-revisions/2026-10-25-video-duplicate.json | grep -qx 'config/media-revisions/2026-10-25-video-duplicate.json'
+          python3 scripts/test-oct25-video-duplicate.py
+          git fetch --depth=1 origin shadow-pages-history
+          HEAD_BEFORE="$(git rev-parse FETCH_HEAD)"
+          echo "HISTORY_HEAD=$HEAD_BEFORE" >> "$GITHUB_ENV"
+          git worktree add --detach history "$HEAD_BEFORE"
+      - name: Stage one video change with ten exact routes and unchanged six-image job
+        run: |
+          python3 scripts/correct-oct25-video-duplicate.py config/media-revisions/2026-10-25-video-duplicate.json history/site build/corrected build/correction-stage.json
+          python3 - <<'PY'
+          import json,pathlib
+          j=json.loads(pathlib.Path('build/correction-stage.json').read_text())
+          assert len(j['changed'])==10 and j['source_bundle_modified'] is False
+          assert j['image_generation_count']==0
+          PY
+      - name: Refuse concurrent history or main mutation before publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/corrected
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Independently verify ten live routes and preserved October 8 history
+        run: |
+          python3 scripts/verify-oct25-video-duplicate-live.py build/correction-stage.json build/correction-live.json
+          node scripts/audit-oct8-live.mjs build/oct8-after-oct25-media.json
+      - name: Record verified route hashes and restore exact corrected search/feed/reader history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          python3 - <<'PY'
+          import json,pathlib,shutil
+          result=json.loads(pathlib.Path('build/correction-live.json').read_text())
+          stage=json.loads(pathlib.Path('build/correction-stage.json').read_text())
+          assert result['result']=='LIVE_VIDEO_CORRECTION_VERIFIED'
+          assert len(result['verified_routes'])==len(stage['changed'])==10
+          for x in stage['changed']:
+              route=pathlib.Path(x['route'])
+              shutil.copyfile(pathlib.Path('build/corrected')/route,pathlib.Path('history/site')/route)
+          result['oct8_live_audit']=json.loads(pathlib.Path('build/oct8-after-oct25-media.json').read_text())
+          p=pathlib.Path('history/correction-receipts/2026-10-25-video-duplicate.json')
+          assert not p.exists(),'Correction already persisted; never overwrite'
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+          PY
+          git -C history config user.name 'Daily Brief Corrections'
+          git -C history config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C history add -- site correction-receipts/2026-10-25-video-duplicate.json
+          git -C history commit -m 'Record October 25 unique instructional video and validated reader correction'
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          git -C history push origin HEAD:refs/heads/shadow-pages-history
