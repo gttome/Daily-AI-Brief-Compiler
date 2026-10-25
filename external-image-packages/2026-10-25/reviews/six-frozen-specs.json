@@ -1,0 +1,2156 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-25",
+    "story_id": "oct25-t1-frontier-training-containment",
+    "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+    "job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "visual_thesis": "Containment is layered, tested adversarially and reassessed before training resumes.",
+    "story_anchors": [
+      "September 20 limited internet path via DNS misconfiguration triggered a pause.",
+      "October 1 resumption followed fixes, red-team testing and improved monitoring."
+    ],
+    "mechanism_metaphor": "overlapping security envelopes",
+    "required_labels": [
+      "Frontier training containment",
+      "September 20: unexpected DNS path",
+      "Pause training and evaluation",
+      "Sandbox inside microVM",
+      "Network and cloud perimeter",
+      "Offline cached resources",
+      "Red-team isolated copies",
+      "Reproduce and repair weaknesses",
+      "Monitor unauthorized activity",
+      "Test stopping systems",
+      "October 1: training resumes",
+      "No permanent security guarantee"
+    ],
+    "source_claim_map": [
+      {
+        "id": "oct25-t1-frontier-training-containment-claim-0",
+        "proposition": "The DNS incident prompted a pause, remediation and adversarial tests before resumption.",
+        "supporting_source_excerpt": "We paused training and evaluation",
+        "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "oct25-t1-frontier-training-containment-claim-1",
+        "proposition": "Restricted containers inside microVMs plus network/cloud controls overlap; offline caches permit tasks without arbitrary live internet.",
+        "supporting_source_excerpt": "sandboxes that restrict what our agents can access and execute",
+        "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "September 20: unexpected DNS path",
+        "to": "Pause training and evaluation",
+        "direction": "forward",
+        "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Pause training and evaluation",
+        "to": "Red-team isolated copies",
+        "direction": "forward",
+        "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Red-team isolated copies",
+        "to": "Reproduce and repair weaknesses",
+        "direction": "forward",
+        "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reproduce and repair weaknesses",
+        "to": "October 1: training resumes",
+        "direction": "forward",
+        "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Monitor unauthorized activity",
+        "to": "Test stopping systems",
+        "direction": "forward",
+        "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Offline cached resources",
+        "to": "Sandbox inside microVM",
+        "direction": "forward",
+        "support_claim_id": "oct25-t1-frontier-training-containment-claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Publisher incident account; layered controls reduce risk but do not prove permanent security.",
+      "No people, logos, photography, simulated writing, invented glyphs, fabricated outcomes, quantitative graphs, dashboards or success trophies."
+    ],
+    "composition_signature": {
+      "grammar": "nested containment cutaway with incident timeline",
+      "metaphor": "overlapping security envelopes",
+      "annotation": "radial boundary callouts and bottom chronology",
+      "layout": "Large nested cutaway on the left, separate red-team test-copy section upper right, incident-to-resumption chronology along bottom. No bypass arrow crosses the perimeter in the hardened present state.",
+      "palette": "slate teal with rust incident accent"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Frontier training containment",
+          "region": "label region 0: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 46
+          }
+        },
+        {
+          "label": "September 20: unexpected DNS path",
+          "region": "label region 1: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Pause training and evaluation",
+          "region": "label region 2: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Sandbox inside microVM",
+          "region": "label region 3: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Network and cloud perimeter",
+          "region": "label region 4: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Offline cached resources",
+          "region": "label region 5: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Red-team isolated copies",
+          "region": "label region 6: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Reproduce and repair weaknesses",
+          "region": "label region 7: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Monitor unauthorized activity",
+          "region": "label region 8: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Test stopping systems",
+          "region": "label region 9: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "October 1: training resumes",
+          "region": "label region 10: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "No permanent security guarantee",
+          "region": "label region 11: radial boundary callouts and bottom chronology",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 540,
+            "width": 1090,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher incident account; layered controls reduce risk but do not prove permanent security.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported processing within this story's stated conditions.",
+          "allowed_path": "September 20: unexpected DNS path -> Pause training and evaluation; Pause training and evaluation -> Red-team isolated copies; Red-team isolated copies -> Reproduce and repair weaknesses; Reproduce and repair weaknesses -> October 1: training resumes; Monitor unauthorized activity -> Test stopping systems",
+          "blocked_path": "Publisher incident account; layered controls reduce risk but do not prove permanent security.",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-0"
+        },
+        {
+          "condition": "Secondary evidence and review are constraints, never automatic proof of outcome.",
+          "allowed_path": "Offline cached resources -> Sandbox inside microVM",
+          "blocked_path": "Publisher incident account; layered controls reduce risk but do not prove permanent security.",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "September 20: unexpected DNS path",
+          "to": "Pause training and evaluation",
+          "direction": "forward",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "September 20: unexpected DNS path",
+          "target_region": "Pause training and evaluation",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Pause training and evaluation",
+          "to": "Red-team isolated copies",
+          "direction": "forward",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Pause training and evaluation",
+          "target_region": "Red-team isolated copies",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Red-team isolated copies",
+          "to": "Reproduce and repair weaknesses",
+          "direction": "forward",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Red-team isolated copies",
+          "target_region": "Reproduce and repair weaknesses",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reproduce and repair weaknesses",
+          "to": "October 1: training resumes",
+          "direction": "forward",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Reproduce and repair weaknesses",
+          "target_region": "October 1: training resumes",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Monitor unauthorized activity",
+          "to": "Test stopping systems",
+          "direction": "forward",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Monitor unauthorized activity",
+          "target_region": "Test stopping systems",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Offline cached resources",
+          "to": "Sandbox inside microVM",
+          "direction": "forward",
+          "support_claim_id": "oct25-t1-frontier-training-containment-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Offline cached resources",
+          "target_region": "Sandbox inside microVM",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Frontier training containment",
+        "Pause training and evaluation"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source reviewer",
+      "source_url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "source_caveats": "Publisher incident account; layered controls reduce risk but do not prove permanent security."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-25",
+    "story_id": "oct25-t2-tensorrt-global-tuner",
+    "source_url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
+    "job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "visual_thesis": "Search candidate build routes and select by full-engine timing only among those meeting the configured accuracy constraint.",
+    "story_anchors": [
+      "Build routes vary compiler choices rather than training model weights.",
+      "Accuracy validation constrains engine selection; cached iterations support resumed tuning."
+    ],
+    "mechanism_metaphor": "multiple compilation tracks through a feasibility sieve",
+    "required_labels": [
+      "Accuracy-aware build-route search",
+      "One model, several build routes",
+      "Graph transformations",
+      "Fusion and kernel choices",
+      "Candidate engines",
+      "End-to-end inference timing",
+      "Reference output comparison",
+      "Accuracy threshold",
+      "Reject failing candidates",
+      "Fastest feasible engine",
+      "Reusable measurement cache",
+      "Gains depend on model and hardware"
+    ],
+    "source_claim_map": [
+      {
+        "id": "oct25-t2-tensorrt-global-tuner-claim-0",
+        "proposition": "Customizable compiler routes expand the candidate engine set and end-to-end timing evaluates the resulting engines.",
+        "supporting_source_excerpt": "customizable build routes",
+        "source_url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "oct25-t2-tensorrt-global-tuner-claim-1",
+        "proposition": "Accuracy-aware tuning validates reference outputs and excludes failed candidates; measurements may be cached and resumed.",
+        "supporting_source_excerpt": "measures end-to-end inference performance",
+        "source_url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "One model, several build routes",
+        "to": "Candidate engines",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Candidate engines",
+        "to": "End-to-end inference timing",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Candidate engines",
+        "to": "Reference output comparison",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reference output comparison",
+        "to": "Accuracy threshold",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Accuracy threshold",
+        "to": "Reject failing candidates",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Accuracy threshold",
+        "to": "Fastest feasible engine",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "End-to-end inference timing",
+        "to": "Reusable measurement cache",
+        "direction": "conditional",
+        "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Accuracy checks require reference outputs and thresholds; fastest feasible is limited to explored routes, with no guaranteed speedup.",
+      "No people, logos, photography, simulated writing, invented glyphs, fabricated outcomes, quantitative graphs, dashboards or success trophies."
+    ],
+    "composition_signature": {
+      "grammar": "braided compiler-route tournament",
+      "metaphor": "multiple compilation tracks through a feasibility sieve",
+      "annotation": "track labels with inset accuracy boundary",
+      "layout": "Three distinct sweeping build tracks across left and center; timing above and reference-output accuracy gate below; rejected route ends before output. Cache sits separately below tracks. No invented numeric benchmark chart.",
+      "palette": "ochre graphite with restrained green eligible paths"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Accuracy-aware build-route search",
+          "region": "label region 0: track labels with inset accuracy boundary",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 46
+          }
+        },
+        {
+          "label": "One model, several build routes",
+          "region": "label region 1: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Graph transformations",
+          "region": "label region 2: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Fusion and kernel choices",
+          "region": "label region 3: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Candidate engines",
+          "region": "label region 4: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "End-to-end inference timing",
+          "region": "label region 5: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Reference output comparison",
+          "region": "label region 6: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Accuracy threshold",
+          "region": "label region 7: track labels with inset accuracy boundary",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Reject failing candidates",
+          "region": "label region 8: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Fastest feasible engine",
+          "region": "label region 9: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Reusable measurement cache",
+          "region": "label region 10: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Gains depend on model and hardware",
+          "region": "label region 11: track labels with inset accuracy boundary",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 540,
+            "width": 1090,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Accuracy checks require reference outputs and thresholds; fastest feasible is limited to explored routes, with no guaranteed speedup.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported processing within this story's stated conditions.",
+          "allowed_path": "One model, several build routes -> Candidate engines; Candidate engines -> End-to-end inference timing",
+          "blocked_path": "Accuracy checks require reference outputs and thresholds; fastest feasible is limited to explored routes, with no guaranteed speedup.",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-0"
+        },
+        {
+          "condition": "Secondary evidence and review are constraints, never automatic proof of outcome.",
+          "allowed_path": "Candidate engines -> Reference output comparison; Reference output comparison -> Accuracy threshold; Accuracy threshold -> Reject failing candidates; Accuracy threshold -> Fastest feasible engine; End-to-end inference timing -> Reusable measurement cache",
+          "blocked_path": "Accuracy checks require reference outputs and thresholds; fastest feasible is limited to explored routes, with no guaranteed speedup.",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "One model, several build routes",
+          "to": "Candidate engines",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "One model, several build routes",
+          "target_region": "Candidate engines",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Candidate engines",
+          "to": "End-to-end inference timing",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Candidate engines",
+          "target_region": "End-to-end inference timing",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Candidate engines",
+          "to": "Reference output comparison",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Candidate engines",
+          "target_region": "Reference output comparison",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reference output comparison",
+          "to": "Accuracy threshold",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Reference output comparison",
+          "target_region": "Accuracy threshold",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Accuracy threshold",
+          "to": "Reject failing candidates",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Accuracy threshold",
+          "target_region": "Reject failing candidates",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Accuracy threshold",
+          "to": "Fastest feasible engine",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Accuracy threshold",
+          "target_region": "Fastest feasible engine",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "End-to-end inference timing",
+          "to": "Reusable measurement cache",
+          "direction": "conditional",
+          "support_claim_id": "oct25-t2-tensorrt-global-tuner-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "End-to-end inference timing",
+          "target_region": "Reusable measurement cache",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Accuracy-aware build-route search",
+        "Accuracy threshold"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source reviewer",
+      "source_url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "source_caveats": "Accuracy checks require reference outputs and thresholds; fastest feasible is limited to explored routes, with no guaranteed speedup."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-25",
+    "story_id": "oct25-k1-flint-interactive",
+    "source_url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+    "job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "visual_thesis": "A compiler converts raw interactions into meaningful events, while explicit interaction logic maps those events to updates.",
+    "story_anchors": [
+      "Visual logic resolves triggers into semantic events identifying chart elements and data.",
+      "Interaction logic maps events to style, annotation or viewport updates."
+    ],
+    "mechanism_metaphor": "separated interaction and rendering layers",
+    "required_labels": [
+      "Flint-interactive",
+      "User selection",
+      "Raw click or drag",
+      "Semantic event",
+      "Chart elements and data",
+      "Interaction specification",
+      "Update operators",
+      "Set style",
+      "Set annotation",
+      "Set viewport",
+      "Rendered canvas changes",
+      "Generation reliability remains a challenge"
+    ],
+    "source_claim_map": [
+      {
+        "id": "oct25-k1-flint-interactive-claim-0",
+        "proposition": "The compiler turns clicks and drags into semantic events identifying chart elements and underlying data.",
+        "supporting_source_excerpt": "semantic events",
+        "source_url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "oct25-k1-flint-interactive-claim-1",
+        "proposition": "User-authored interaction logic maps semantic events to update operators, while the compiler handles rendering changes.",
+        "supporting_source_excerpt": "high-level operators",
+        "source_url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Raw click or drag",
+        "to": "Semantic event",
+        "direction": "forward",
+        "support_claim_id": "oct25-k1-flint-interactive-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Semantic event",
+        "to": "Chart elements and data",
+        "direction": "forward",
+        "support_claim_id": "oct25-k1-flint-interactive-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Semantic event",
+        "to": "Interaction specification",
+        "direction": "forward",
+        "support_claim_id": "oct25-k1-flint-interactive-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Interaction specification",
+        "to": "Update operators",
+        "direction": "forward",
+        "support_claim_id": "oct25-k1-flint-interactive-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Update operators",
+        "to": "Rendered canvas changes",
+        "direction": "forward",
+        "support_claim_id": "oct25-k1-flint-interactive-claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Conceptual interaction-language explanation, not an invented product screen or quantitative chart; reliable generation and cost remain challenges.",
+      "No people, logos, photography, simulated writing, invented glyphs, fabricated outcomes, quantitative graphs, dashboards or success trophies."
+    ],
+    "composition_signature": {
+      "grammar": "event-to-update two-plane mapping anatomy",
+      "metaphor": "separated interaction and rendering layers",
+      "annotation": "aligned bracketed mapping lanes",
+      "layout": "Two offset horizontal strata, event resolution at upper left and explicit update mapping lower center, three operator branches on right returning to rendered changes. Use abstract selected marks only, no fabricated data, axes or dashboard.",
+      "palette": "violet indigo with amber event accents"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Flint-interactive",
+          "region": "label region 0: aligned bracketed mapping lanes",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 46
+          }
+        },
+        {
+          "label": "User selection",
+          "region": "label region 1: aligned bracketed mapping lanes",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Raw click or drag",
+          "region": "label region 2: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Semantic event",
+          "region": "label region 3: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Chart elements and data",
+          "region": "label region 4: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Interaction specification",
+          "region": "label region 5: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Update operators",
+          "region": "label region 6: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Set style",
+          "region": "label region 7: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Set annotation",
+          "region": "label region 8: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Set viewport",
+          "region": "label region 9: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Rendered canvas changes",
+          "region": "label region 10: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Generation reliability remains a challenge",
+          "region": "label region 11: aligned bracketed mapping lanes",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 540,
+            "width": 1090,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Conceptual interaction-language explanation, not an invented product screen or quantitative chart; reliable generation and cost remain challenges.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported processing within this story's stated conditions.",
+          "allowed_path": "Raw click or drag -> Semantic event; Semantic event -> Chart elements and data",
+          "blocked_path": "Conceptual interaction-language explanation, not an invented product screen or quantitative chart; reliable generation and cost remain challenges.",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-0"
+        },
+        {
+          "condition": "Secondary evidence and review are constraints, never automatic proof of outcome.",
+          "allowed_path": "Semantic event -> Interaction specification; Interaction specification -> Update operators; Update operators -> Rendered canvas changes",
+          "blocked_path": "Conceptual interaction-language explanation, not an invented product screen or quantitative chart; reliable generation and cost remain challenges.",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Raw click or drag",
+          "to": "Semantic event",
+          "direction": "forward",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Raw click or drag",
+          "target_region": "Semantic event",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Semantic event",
+          "to": "Chart elements and data",
+          "direction": "forward",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Semantic event",
+          "target_region": "Chart elements and data",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Semantic event",
+          "to": "Interaction specification",
+          "direction": "forward",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Semantic event",
+          "target_region": "Interaction specification",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Interaction specification",
+          "to": "Update operators",
+          "direction": "forward",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Interaction specification",
+          "target_region": "Update operators",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Update operators",
+          "to": "Rendered canvas changes",
+          "direction": "forward",
+          "support_claim_id": "oct25-k1-flint-interactive-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Update operators",
+          "target_region": "Rendered canvas changes",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Flint-interactive",
+        "User selection"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source reviewer",
+      "source_url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "source_caveats": "Conceptual interaction-language explanation, not an invented product screen or quantitative chart; reliable generation and cost remain challenges."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-25",
+    "story_id": "oct25-k2-tb-screening-foundation-models",
+    "source_url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+    "job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "visual_thesis": "Offline screening assists clinician-led triage; open foundation-model work is a separate source-described lane.",
+    "story_anchors": [
+      "Nexus deployment supports local offline screening and referral for confirmatory tests.",
+      "MedSigLIP and MedGemma are open foundations described separately from the deployment case."
+    ],
+    "mechanism_metaphor": "clinical triage lane with separate research shelf",
+    "required_labels": [
+      "Offline TB screening and review",
+      "Chest X-ray input",
+      "Local Nexus screening",
+      "Findings for clinical review",
+      "Clinician makes final decision",
+      "Confirmatory molecular testing",
+      "Independent clinical validation",
+      "Certified deployment",
+      "Open foundation-model work",
+      "MedSigLIP: images and text",
+      "MedGemma: multimodal reasoning",
+      "Screening does not confirm diagnosis"
+    ],
+    "source_claim_map": [
+      {
+        "id": "oct25-k2-tb-screening-foundation-models-claim-0",
+        "proposition": "Offline Nexus screening evaluates chest X-rays and supports clinician review and referral for confirmatory testing.",
+        "supporting_source_excerpt": "healthcare professionals to make final clinical decisions",
+        "source_url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "oct25-k2-tb-screening-foundation-models-claim-1",
+        "proposition": "Clinical validation and certification support deployment; open MedSigLIP and MedGemma work is distinct and does not establish that these models are the certified Nexus engine.",
+        "supporting_source_excerpt": "runs locally on-device without internet access",
+        "source_url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Chest X-ray input",
+        "to": "Local Nexus screening",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Local Nexus screening",
+        "to": "Findings for clinical review",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Findings for clinical review",
+        "to": "Clinician makes final decision",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Clinician makes final decision",
+        "to": "Confirmatory molecular testing",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Independent clinical validation",
+        "to": "Certified deployment",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Open foundation-model work",
+        "to": "MedSigLIP: images and text",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Open foundation-model work",
+        "to": "MedGemma: multimodal reasoning",
+        "direction": "conditional",
+        "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No autonomous diagnosis, improved-outcome claim or assertion that MedGemma/MedSigLIP are the certified Nexus engine; referral is conditional on clinician review.",
+      "No people, logos, photography, simulated writing, invented glyphs, fabricated outcomes, quantitative graphs, dashboards or success trophies."
+    ],
+    "composition_signature": {
+      "grammar": "parallel clinical workflow and foundation research atlas",
+      "metaphor": "clinical triage lane with separate research shelf",
+      "annotation": "swimlane separation with qualification footer",
+      "layout": "Upper broad clinical lane with local processing boundary and review/referral sequence; lower left validation/certification; lower right entirely separate foundation-model comparison, no connecting arrow into Nexus. No anatomical people, chest silhouettes, fake medical screen or diagnosis badge.",
+      "palette": "deep teal blue with muted coral referral"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Offline TB screening and review",
+          "region": "label region 0: swimlane separation with qualification footer",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 46
+          }
+        },
+        {
+          "label": "Chest X-ray input",
+          "region": "label region 1: swimlane separation with qualification footer",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Local Nexus screening",
+          "region": "label region 2: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Findings for clinical review",
+          "region": "label region 3: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Clinician makes final decision",
+          "region": "label region 4: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Confirmatory molecular testing",
+          "region": "label region 5: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Independent clinical validation",
+          "region": "label region 6: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Certified deployment",
+          "region": "label region 7: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Open foundation-model work",
+          "region": "label region 8: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "MedSigLIP: images and text",
+          "region": "label region 9: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "MedGemma: multimodal reasoning",
+          "region": "label region 10: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Screening does not confirm diagnosis",
+          "region": "label region 11: swimlane separation with qualification footer",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 540,
+            "width": 1090,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "No autonomous diagnosis, improved-outcome claim or assertion that MedGemma/MedSigLIP are the certified Nexus engine; referral is conditional on clinician review.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported processing within this story's stated conditions.",
+          "allowed_path": "Chest X-ray input -> Local Nexus screening; Local Nexus screening -> Findings for clinical review; Findings for clinical review -> Clinician makes final decision; Clinician makes final decision -> Confirmatory molecular testing",
+          "blocked_path": "No autonomous diagnosis, improved-outcome claim or assertion that MedGemma/MedSigLIP are the certified Nexus engine; referral is conditional on clinician review.",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0"
+        },
+        {
+          "condition": "Secondary evidence and review are constraints, never automatic proof of outcome.",
+          "allowed_path": "Independent clinical validation -> Certified deployment; Open foundation-model work -> MedSigLIP: images and text; Open foundation-model work -> MedGemma: multimodal reasoning",
+          "blocked_path": "No autonomous diagnosis, improved-outcome claim or assertion that MedGemma/MedSigLIP are the certified Nexus engine; referral is conditional on clinician review.",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Chest X-ray input",
+          "to": "Local Nexus screening",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Chest X-ray input",
+          "target_region": "Local Nexus screening",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Local Nexus screening",
+          "to": "Findings for clinical review",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Local Nexus screening",
+          "target_region": "Findings for clinical review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Findings for clinical review",
+          "to": "Clinician makes final decision",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Findings for clinical review",
+          "target_region": "Clinician makes final decision",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Clinician makes final decision",
+          "to": "Confirmatory molecular testing",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Clinician makes final decision",
+          "target_region": "Confirmatory molecular testing",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Independent clinical validation",
+          "to": "Certified deployment",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Independent clinical validation",
+          "target_region": "Certified deployment",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Open foundation-model work",
+          "to": "MedSigLIP: images and text",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Open foundation-model work",
+          "target_region": "MedSigLIP: images and text",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Open foundation-model work",
+          "to": "MedGemma: multimodal reasoning",
+          "direction": "conditional",
+          "support_claim_id": "oct25-k2-tb-screening-foundation-models-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Open foundation-model work",
+          "target_region": "MedGemma: multimodal reasoning",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Offline TB screening and review",
+        "Chest X-ray input"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source reviewer",
+      "source_url": "https://research.google/blog/bringing-foundational-models-to-the-front-lines-of-tb-screening/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "source_caveats": "No autonomous diagnosis, improved-outcome claim or assertion that MedGemma/MedSigLIP are the certified Nexus engine; referral is conditional on clinician review."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-25",
+    "story_id": "oct25-a1-plaud-reusable-skills",
+    "source_url": "https://www.plaud.ai/blogs/news/meet-new-plaud-intelligence",
+    "job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "visual_thesis": "Reusable instructions guide task work over scoped recordings, retaining source links and confirmation before connected-app sending.",
+    "story_anchors": [
+      "Skills can be created from documents, conversations, forms or prior artifacts.",
+      "Claims link to transcript moments and sending/posting requires confirmation."
+    ],
+    "mechanism_metaphor": "reusable instruction core with evidence tethers",
+    "required_labels": [
+      "Reusable Plaud meeting Skills",
+      "Scoped recording folder",
+      "Chat: quick answers",
+      "Work: task execution",
+      "Reusable instructions",
+      "Documents or prior artifacts",
+      "Transcript-linked claims",
+      "Visible editable memory",
+      "Review generated output",
+      "Confirmation before sending",
+      "Connected-app action",
+      "Product announcement, verify outcomes"
+    ],
+    "source_claim_map": [
+      {
+        "id": "oct25-a1-plaud-reusable-skills-claim-0",
+        "proposition": "Scoped recording folders bound sources; Chat answers questions while Work executes tasks using reusable Skills.",
+        "supporting_source_excerpt": "Skills are reusable Agent playbooks",
+        "source_url": "https://www.plaud.ai/blogs/news/meet-new-plaud-intelligence",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "oct25-a1-plaud-reusable-skills-claim-1",
+        "proposition": "Source-linked artifacts and visible editable memory support review; connected-app sends/posts require confirmation.",
+        "supporting_source_excerpt": "Your confirmation is required before anything is sent or posted",
+        "source_url": "https://www.plaud.ai/blogs/news/meet-new-plaud-intelligence",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Scoped recording folder",
+        "to": "Chat: quick answers",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Scoped recording folder",
+        "to": "Work: task execution",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Documents or prior artifacts",
+        "to": "Reusable instructions",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reusable instructions",
+        "to": "Work: task execution",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Work: task execution",
+        "to": "Transcript-linked claims",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Transcript-linked claims",
+        "to": "Review generated output",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Review generated output",
+        "to": "Confirmation before sending",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Confirmation before sending",
+        "to": "Connected-app action",
+        "direction": "forward",
+        "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Vendor product announcement; no guaranteed correctness, automatic external sending or claim that testing retrains the model.",
+      "No people, logos, photography, simulated writing, invented glyphs, fabricated outcomes, quantitative graphs, dashboards or success trophies."
+    ],
+    "composition_signature": {
+      "grammar": "scoped skill assembly with evidence tether and action gate",
+      "metaphor": "reusable instruction core with evidence tethers",
+      "annotation": "package anatomy callouts plus gated action spine",
+      "layout": "Large instruction-core anatomy at center left, scoped folder boundary at far left, source-evidence tether below, editable memory side module, explicit confirmation gate on right before external action. Empty surfaces stay smooth; no fake documents with lines.",
+      "palette": "terracotta maroon with sand and neutral ink"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Reusable Plaud meeting Skills",
+          "region": "label region 0: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 46
+          }
+        },
+        {
+          "label": "Scoped recording folder",
+          "region": "label region 1: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Chat: quick answers",
+          "region": "label region 2: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Work: task execution",
+          "region": "label region 3: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Reusable instructions",
+          "region": "label region 4: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Documents or prior artifacts",
+          "region": "label region 5: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Transcript-linked claims",
+          "region": "label region 6: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Visible editable memory",
+          "region": "label region 7: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Review generated output",
+          "region": "label region 8: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Confirmation before sending",
+          "region": "label region 9: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Connected-app action",
+          "region": "label region 10: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Product announcement, verify outcomes",
+          "region": "label region 11: package anatomy callouts plus gated action spine",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 540,
+            "width": 1090,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor product announcement; no guaranteed correctness, automatic external sending or claim that testing retrains the model.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported processing within this story's stated conditions.",
+          "allowed_path": "Scoped recording folder -> Chat: quick answers; Scoped recording folder -> Work: task execution; Documents or prior artifacts -> Reusable instructions; Reusable instructions -> Work: task execution",
+          "blocked_path": "Vendor product announcement; no guaranteed correctness, automatic external sending or claim that testing retrains the model.",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0"
+        },
+        {
+          "condition": "Secondary evidence and review are constraints, never automatic proof of outcome.",
+          "allowed_path": "Work: task execution -> Transcript-linked claims; Transcript-linked claims -> Review generated output; Review generated output -> Confirmation before sending; Confirmation before sending -> Connected-app action",
+          "blocked_path": "Vendor product announcement; no guaranteed correctness, automatic external sending or claim that testing retrains the model.",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Scoped recording folder",
+          "to": "Chat: quick answers",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Scoped recording folder",
+          "target_region": "Chat: quick answers",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Scoped recording folder",
+          "to": "Work: task execution",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Scoped recording folder",
+          "target_region": "Work: task execution",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Documents or prior artifacts",
+          "to": "Reusable instructions",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Documents or prior artifacts",
+          "target_region": "Reusable instructions",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reusable instructions",
+          "to": "Work: task execution",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Reusable instructions",
+          "target_region": "Work: task execution",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Work: task execution",
+          "to": "Transcript-linked claims",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Work: task execution",
+          "target_region": "Transcript-linked claims",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Transcript-linked claims",
+          "to": "Review generated output",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Transcript-linked claims",
+          "target_region": "Review generated output",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Review generated output",
+          "to": "Confirmation before sending",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Review generated output",
+          "target_region": "Confirmation before sending",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Confirmation before sending",
+          "to": "Connected-app action",
+          "direction": "forward",
+          "support_claim_id": "oct25-a1-plaud-reusable-skills-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Confirmation before sending",
+          "target_region": "Connected-app action",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Reusable Plaud meeting Skills",
+        "Scoped recording folder"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source reviewer",
+      "source_url": "https://www.plaud.ai/blogs/news/meet-new-plaud-intelligence",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "source_caveats": "Vendor product announcement; no guaranteed correctness, automatic external sending or claim that testing retrains the model."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-25",
+    "story_id": "oct25-a2-headless-employee-support",
+    "source_url": "https://www.salesforce.com/blog/salesforce-headless-use-cases/",
+    "job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "visual_thesis": "Different support surfaces reuse governed logic, with permission requests routed through approval rather than independently granted.",
+    "story_anchors": [
+      "Slack and portal surface shared support logic, monitoring and governance.",
+      "Permission requests are interpreted against governance rules and routed for approvals."
+    ],
+    "mechanism_metaphor": "shared policy junction and approval boundary",
+    "required_labels": [
+      "One governed support workflow",
+      "Slack intake",
+      "Portal intake",
+      "Shared agent logic",
+      "Business context",
+      "Interpret request",
+      "Cross-reference access policy",
+      "Gather missing context",
+      "Route required approvals",
+      "Human approval decision",
+      "Consistent cross-channel governance",
+      "Observe and review outcomes"
+    ],
+    "source_claim_map": [
+      {
+        "id": "oct25-a2-headless-employee-support-claim-0",
+        "proposition": "Employee IT support in Slack and a self-service portal shares Flows, monitoring and governance.",
+        "supporting_source_excerpt": "we built the logic once",
+        "source_url": "https://www.salesforce.com/blog/salesforce-headless-use-cases/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "oct25-a2-headless-employee-support-claim-1",
+        "proposition": "Permission-request assistance checks business context and policy and routes necessary approvals; no independent access grant is implied.",
+        "supporting_source_excerpt": "automatically routes and manages the necessary approvals",
+        "source_url": "https://www.salesforce.com/blog/salesforce-headless-use-cases/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Slack intake",
+        "to": "Shared agent logic",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Portal intake",
+        "to": "Shared agent logic",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Business context",
+        "to": "Interpret request",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Shared agent logic",
+        "to": "Interpret request",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Interpret request",
+        "to": "Cross-reference access policy",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Cross-reference access policy",
+        "to": "Route required approvals",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Gather missing context",
+        "to": "Route required approvals",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Route required approvals",
+        "to": "Human approval decision",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Shared agent logic",
+        "to": "Observe and review outcomes",
+        "direction": "conditional",
+        "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Vendor internal case study; illustrative missing-context review is a workflow recommendation, not a claimed independent automatic access grant.",
+      "No people, logos, photography, simulated writing, invented glyphs, fabricated outcomes, quantitative graphs, dashboards or success trophies."
+    ],
+    "composition_signature": {
+      "grammar": "dual-surface fan-in with governed approval spine",
+      "metaphor": "shared policy junction and approval boundary",
+      "annotation": "symmetric channel labels and vertical approval callouts",
+      "layout": "Two distinct input surfaces at upper corners converge on common governed logic in central tall spine; context/policy branch joins from left, approval boundary at lower right, monitoring rail runs parallel. No interface screenshot, human icon, guarantee badge or direct portal-to-access arrow.",
+      "palette": "olive ink with restrained cyan intake"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "One governed support workflow",
+          "region": "label region 0: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 1120,
+            "height": 46
+          }
+        },
+        {
+          "label": "Slack intake",
+          "region": "label region 1: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Portal intake",
+          "region": "label region 2: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 110,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Shared agent logic",
+          "region": "label region 3: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Business context",
+          "region": "label region 4: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 190,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Interpret request",
+          "region": "label region 5: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Cross-reference access policy",
+          "region": "label region 6: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 270,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Gather missing context",
+          "region": "label region 7: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Route required approvals",
+          "region": "label region 8: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 350,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Human approval decision",
+          "region": "label region 9: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Consistent cross-channel governance",
+          "region": "label region 10: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 630,
+            "y": 430,
+            "width": 510,
+            "height": 44
+          }
+        },
+        {
+          "label": "Observe and review outcomes",
+          "region": "label region 11: symmetric channel labels and vertical approval callouts",
+          "minimum_font_px": 22,
+          "bounding_box_px": {
+            "x": 50,
+            "y": 540,
+            "width": 1090,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor internal case study; illustrative missing-context review is a workflow recommendation, not a claimed independent automatic access grant.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported processing within this story's stated conditions.",
+          "allowed_path": "Slack intake -> Shared agent logic; Portal intake -> Shared agent logic; Shared agent logic -> Interpret request; Shared agent logic -> Observe and review outcomes",
+          "blocked_path": "Vendor internal case study; illustrative missing-context review is a workflow recommendation, not a claimed independent automatic access grant.",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-0"
+        },
+        {
+          "condition": "Secondary evidence and review are constraints, never automatic proof of outcome.",
+          "allowed_path": "Business context -> Interpret request; Interpret request -> Cross-reference access policy; Cross-reference access policy -> Route required approvals; Gather missing context -> Route required approvals; Route required approvals -> Human approval decision",
+          "blocked_path": "Vendor internal case study; illustrative missing-context review is a workflow recommendation, not a claimed independent automatic access grant.",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Slack intake",
+          "to": "Shared agent logic",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Slack intake",
+          "target_region": "Shared agent logic",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Portal intake",
+          "to": "Shared agent logic",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Portal intake",
+          "target_region": "Shared agent logic",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Business context",
+          "to": "Interpret request",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Business context",
+          "target_region": "Interpret request",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Shared agent logic",
+          "to": "Interpret request",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Shared agent logic",
+          "target_region": "Interpret request",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Interpret request",
+          "to": "Cross-reference access policy",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Interpret request",
+          "target_region": "Cross-reference access policy",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Cross-reference access policy",
+          "to": "Route required approvals",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Cross-reference access policy",
+          "target_region": "Route required approvals",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Gather missing context",
+          "to": "Route required approvals",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Gather missing context",
+          "target_region": "Route required approvals",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Route required approvals",
+          "to": "Human approval decision",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Route required approvals",
+          "target_region": "Human approval decision",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Shared agent logic",
+          "to": "Observe and review outcomes",
+          "direction": "conditional",
+          "support_claim_id": "oct25-a2-headless-employee-support-claim-0",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Shared agent logic",
+          "target_region": "Observe and review outcomes",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "One governed support workflow",
+        "Slack intake"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source reviewer",
+      "source_url": "https://www.salesforce.com/blog/salesforce-headless-use-cases/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "source_caveats": "Vendor internal case study; illustrative missing-context review is a workflow recommendation, not a claimed independent automatic access grant."
+  }
+]
