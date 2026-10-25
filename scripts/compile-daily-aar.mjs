@@ -10,7 +10,7 @@ const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
- 'compiler-task-origin','image-task-origin'];
+ 'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -44,6 +44,16 @@ function compilerAar(cycle,date,e){
  const compile=validFor(e['compile-receipt'],date)?e['compile-receipt']:null;
  const integrity=validFor(e['postpublish-integrity'],date)?e['postpublish-integrity']:null;
  const job=validFor(e['image-job'],date)?e['image-job']:null;
+ const health=validFor(e['publication-health'],date)?e['publication-health']:null;
+ const incident=validFor(e['owner-intervention-incident'],date)?e['owner-intervention-incident']:null;
+ const ownerRequired=incident?.owner_intervention?.required_in_observed_sequence===true||
+   incident?.unattended_autonomy_result==='FAIL_OWNER_TRIGGER_REQUIRED'||
+   producer?.owner_intervention===true||compile?.owner_intervention===true;
+ const blockerEvents=Array.isArray(health?.events)?health.events.filter(x=>x.status==='BLOCKED_PUBLICATION'):[];
+ const autonomy=ownerRequired?'FAIL_OWNER_RECOVERY':
+   (state?.state==='SHADOW_VERIFIED'&&producer?.scheduled_execution===true&&
+    producer?.first_party_scheduler_attested===true&&blockerEvents.length===0)?
+     'UNATTENDED_SOURCE_ATTESTED':'UNPROVEN';
  const seen=!!(state||producer||compile);
  const publicChecks=integrity?.live_http_and_sha256;
  const datedUrl='https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/'+date+'/';
@@ -69,6 +79,12 @@ function compilerAar(cycle,date,e){
   started_at:safeTime(state?.started_at),finished_at:safeTime(state?.updated_at),
   elapsed_minutes:minutes(state?.started_at,state?.updated_at),
   publication:verified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
+  autonomy_status:autonomy,
+  owner_intervention_required:ownerRequired?true:null,
+  publication_health_status:health?.status??null,
+  prior_failed_protected_gate_count:blockerEvents.length,
+  last_failed_gate:health?.last_recorded_blocker?.stage??null,
+  last_failed_gate_url:health?.last_recorded_blocker?.run_url??null,
   result:verified?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
   aar_status:'BACKFILLED',
   original_source_receipt:producer?.result??null,
@@ -220,7 +236,8 @@ export function compileDailyReports({cycleDate,evidence={},hashes={}}){
  const rollup={
   schema_version:'daily-compiler-rollup-v1',cycle_date:cycleDate,edition_date:date,
   evidence_digest:sha(JSON.stringify(Object.entries(hashes).sort())),
-  compiler:{execution:compiler.execution,result:compiler.result,publication:compiler.publication},
+  compiler:{execution:compiler.execution,result:compiler.result,publication:compiler.publication,
+    autonomy_status:compiler.autonomy_status,owner_intervention_required:compiler.owner_intervention_required},
   images:{execution:images.execution,result:images.result,publication:images.publication},
   combined_result:compiler.result==='SUCCESS'&&images.result==='SUCCESS'?'SUCCESS':
     (compiler.result==='NOT_OBSERVED'&&images.result==='NOT_OBSERVED'?'NOT_OBSERVED':'PARTIAL'),
@@ -242,6 +259,10 @@ export function renderMarkdown(report){
   [['Execution',report.execution],['Result',report.result],['Publication',report.publication],
    ['Scheduled runtime',report.scheduled_host_mode],['GitHub capability',report.same_invocation_connected_github],
    ['Started',report.started_at],['Finished',report.finished_at],['Duration (min)',report.elapsed_minutes],
+   ['Autonomy independent of publication',report.autonomy_status??'UNPROVEN'],
+   ['Owner intervention required',report.owner_intervention_required===true?'YES':report.owner_intervention_required===false?'NO_ATTESTED':'UNKNOWN'],
+   ['Prior protected gate failures recorded',report.prior_failed_protected_gate_count??'NOT_RECORDED'],
+   ['Last failing stage',report.last_failed_gate??'NONE_RECORDED'],
    ['Task origin',report.task_origin_observation?.status??'UNPROVEN'],
    ['First-party scheduler',report.task_origin_observation?.scheduler??'UNPROVEN'],
    ['Same-invocation route preflight',report.task_origin_observation?.route_preflight??'UNPROVEN'],
