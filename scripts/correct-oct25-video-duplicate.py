@@ -149,6 +149,9 @@ def correct(rev,source,destination,receipt):
     require(bound["source"]["bundle_sha256"]==rev["source_bundle_sha256"],
             "immutable source bundle changed")
     require(old["url"]!=new["url"],"cannot reuse original source")
+    for page in (source/"briefs").glob("*/index.html"):
+        if page.parent.name<DATE and new["url"] in page.read_text(encoding="utf-8"):
+            raise ValueError("replacement video source URL already published in "+page.parent.name)
     archive=json.loads((source/"data/archive-index.json").read_text())
     require(not any(x.get("headline","").strip().casefold()==new["title"].casefold()
                     for x in archive["stories"] if x.get("brief_date","")<DATE),
