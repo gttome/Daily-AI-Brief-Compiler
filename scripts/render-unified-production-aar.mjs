@@ -10,6 +10,14 @@ function generateUnified(cycle,e) {
   const obj=k=>e[k]&&e[k].edition_date===edition?e[k]:null;
   const state=obj("compiler-state"),compile=obj("compile-receipt"),integrity=obj("postpublish-integrity"),bundle=obj("edition-bundle");
   const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews"),imageTiming=obj("image-timing");
+  const publicationHealth=obj("publication-health");
+  const ownerIncident=obj("owner-intervention-incident");
+  const confirmedOwnerRecovery=ownerIncident?.owner_intervention?.required_in_observed_sequence===true||
+    ownerIncident?.unattended_autonomy_result==="FAIL_OWNER_TRIGGER_REQUIRED"||
+    compile?.owner_intervention===true;
+  const autonomy=confirmedOwnerRecovery?"FAIL_OWNER_RECOVERY":"UNPROVEN";
+  const protectionEvents=Array.isArray(publicationHealth?.events)?
+    publicationHealth.events.filter(x=>x.status==="BLOCKED_PUBLICATION"):[];
   const usage=e["owner-usage"]&&e["owner-usage"].cycle_date===cycle&&e["owner-usage"].edition_date===edition?e["owner-usage"]:null;
   const amount=ownerReportedWorkUsage(usage,cycle,edition);
   const usageDisplay=amount===null?"**Not reported**":`**${amount}%** (owner reported)`;
@@ -114,7 +122,7 @@ indicators,
 `**Primary public reader:** [Open ${edition} Brief](${pub}briefs/${edition}/) · **Repository:** [Daily-AI-Brief-Compiler](${gh})`,
 "",
 "> **IMPORTANT — VERIFIED PRODUCTION RESULT**",
-`> **Executive result: ${badge.replace("_"," ")}.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **${compilerOk?"VERIFIED":"NOT VERIFIED"}**. Image release: **${imagesOk?"RELEASED_VERIFIED":"not complete"}**. Direct 24-context visual quality: **${visualOk?"24/24 PASS":"not yet evidenced"}**. Missing evidence must not be promoted to a success claim.`,
+`> **Executive result: ${badge.replace("_"," ")}.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **${compilerOk?"VERIFIED":"NOT VERIFIED"}**. Image release: **${imagesOk?"RELEASED_VERIFIED":"not complete"}**. Direct 24-context visual quality: **${visualOk?"24/24 PASS":"not yet evidenced"}**. Autonomous completion: **${autonomy}**. Missing evidence must not be promoted to a success claim.`,
 "",
 `**🕒 Production stage durations:** **Compiler ${compilerStageDuration}** · **Premium Images ${imageStageDuration}** (evidence-bounded elapsed times; the start/end events differ).`,
 "",
@@ -126,6 +134,8 @@ indicators,
 "| Measure | Recorded result | Source / caveat |",
 "|:--|:--:|:--|",
 `| Editorial publication | **${compilerOk?"PASS":"NOT VERIFIED"}** | State and public reader integrity receipt |`,
+`| **Unattended autonomy (separate from publication)** | **${autonomy}** | Owner incident receipt takes precedence over unverified producer self-attestation |`,
+`| Recorded protected publishing gate failures | **${protectionEvents.length}** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |`,
 `| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
 `| Verified original sources within preceding 24 hours | **${withinOneDay} / ${stories.length}** | Original publisher dates only; other sources require a documented fallback rationale |`,
 `| Distinct selected article publishers | **${distinctArticlePublishers}** | Six different primary organizations preferred |`,
@@ -229,6 +239,9 @@ imgCols,
 "",
 "## Incidents, corrections and learning",
 "",
+`**Editor recovery classification:** ${autonomy}. **Owner intervention:** ${confirmedOwnerRecovery?"Documented and required":"Unproven either way"}. **Protected same-edition failures recorded:** ${protectionEvents.length}. ${publicationHealth?.status==="BLOCKED_PUBLICATION"?"Latest recorded publishing step was blocked; public release status must be evaluated separately.":""}`,
+`**Latest failed protected stage:** ${publicationHealth?.last_recorded_blocker?.stage??"Not in same-edition receipts"}; [Action evidence](${publicationHealth?.last_recorded_blocker?.run_url??gh+"/actions"}). Exact stage durations are available only where real source timestamps exist.`,
+"",
 ...(Array.isArray(imageAar?.errors)&&imageAar.errors.length?[
 "| Stage | Verified issue | Corrective action |",
 "|---|---|---|",
@@ -277,13 +290,13 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist"];
+const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident"];
 const ev={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;try{ev[k]=JSON.parse(fs.readFileSync(p,"utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev);
 fs.mkdirSync(outDir,{recursive:true});
