@@ -16,7 +16,7 @@ class VideoCorrectionTests(unittest.TestCase):
         self.assertEqual(REV["reader_id"],mod.ID)
         self.assertEqual(REV["edition_date"],mod.DATE)
         self.assertNotEqual(REV["old"]["url"],REV["new"]["url"])
-        self.assertTrue(REV["new"]["publication_evidence"].startswith("https://community.ibm.com/"))
+        self.assertTrue(REV["new"]["publication_evidence"].startswith("https://www.linkedin.com/pulse/putting-ai-work-across-industries-ibm-"))
         self.assertTrue(3<=REV["new"]["duration_seconds"]/60<=20)
     def test_atom_changes_only_canonical_id(self):
         o=REV["old"];n=REV["new"]
