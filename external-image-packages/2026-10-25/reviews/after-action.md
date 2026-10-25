@@ -1,6 +1,6 @@
 # 2026-10-25 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | db4cdf1a715096d0f7cf3c8046bf87e693dd3296 |
 | Executor observed run start | 2026-10-25T02:11:17Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-25T02:16:28Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_CI_AND_RELEASE |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXT_REVIEW; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-25T02:54:43.134Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -40,6 +40,7 @@
 | Support artwork | Initial candidate included fake portal UI, policy writing icon, outcome chart and approval shield. | One native correction replaced these with smooth source surfaces, exposed constraints, missing-context structure, trace nodes and a plain approval decision boundary. |
 | PNG binary transport | A temporary TB export became truncated between initial saved-pixel inspection and upload; the first committed transport blob was invalid. Cause is not independently established. | Re-exported the identical native artwork deterministically to recover the originally reviewed 631958-byte PNG and SHA f8e70949702239c8c1612866722f2588f47db653f01406b67711e6d2a8033754; exact committed base64 readback matched. No native regeneration. |
 | Exact GitHub readback | Generic fetch_blob attempted UTF-8 decoding of PNG binary; local job text export had an extra newline. | Used connected fetch_file encoding base64 with exact commit/length/blob/hash comparison; recovered original immutable job bytes with git show before package hashing. |
+| Protected package preflight | Local validation first used a stale Pages-history tracking ref, then protected main advanced twice during final package admission. | Refreshed authoritative refs and merged the two concurrent protected-main changes onto the same candidate without changing PNGs. Exact-head PR admission and validate passed before permitted merge. |
 
 ## Evidence and limitations
 
@@ -60,5 +61,7 @@ All twelve labels per image were inspected at full size; dense body text require
 First-party scheduler origin is UNPROVEN; observed executor and pre-generation clocks are not scheduler telemetry. Usage remains UNKNOWN.
 
 No additional schedules, paid APIs, metered services, editorial changes, Watchlist changes, historical replacements or acceptance claims by the owner were made.
+
+Final actual pixel inspection covered all 24 exact-release captures. Artifact ZIP digest and each capture hash were verified; no publication or screenshot rerun was used.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
