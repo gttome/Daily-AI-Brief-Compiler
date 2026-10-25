@@ -1,0 +1,119 @@
+{
+  "schema_version": "daily-compiler-owner-triggered-incident-aar-v1",
+  "incident_id": "DAB-COMPILER-20261025-OWNER-RECOVERY-001",
+  "edition_date": "2026-10-25",
+  "cycle_date": "2026-10-24",
+  "timezone": "America/Chicago",
+  "report_created_at": "2026-10-25T02:49:11.025Z",
+  "type": "compiler_publication_autonomous_recovery_failure",
+  "publication_result": "PUBLISHED_VERIFIED_AFTER_OWNER_INTERVENTION",
+  "unattended_autonomy_result": "FAIL_OWNER_TRIGGER_REQUIRED",
+  "counterfactual": {
+    "classification": "LIKELY_WOULD_REMAIN_BLOCKED_UNTIL_OTHER_INTERVENTION",
+    "certainty": "inference_not_observed_alternate_timeline",
+    "basis": "No successful same-edition self-healing step appeared between the second failed video gate and owner-triggered corrective GitHub writes; initial signal skipped protected compiler dispatch",
+    "image_handoff_would_lack_published_job": true
+  },
+  "owner_intervention": {
+    "required_in_observed_sequence": true,
+    "first_action": "owner asked for status; assistant diagnosed but did not repair",
+    "second_action": "owner asked why the assistant was not fixing the problem; corrective action then began",
+    "message_timestamps": "not attested by GitHub; only order is grounded in current chat"
+  },
+  "failure_causes": [
+    {
+      "stage": "prepublish_video",
+      "code": "PUBLIC_VIDEO_PLAYBACK_BLOCKED",
+      "failed_runs": [
+        40146759003,
+        40146922674
+      ],
+      "autonomous_recovery_proven": false
+    },
+    {
+      "stage": "protected_reader_compile",
+      "code": "WATCHLIST_CARRIED_FORWARD_WHY_MISSING",
+      "failed_run": 40150868041,
+      "autonomous_recovery_proven": false
+    },
+    {
+      "stage": "oversight",
+      "code": "STATUS_RESPONSE_DIAGNOSED_WITHOUT_ACTION"
+    },
+    {
+      "stage": "repetition_prevention",
+      "code": "SEVEN_EDITION_LOOKBACK_MISSED_OCT17_VIDEO",
+      "corrected_pr": 247
+    }
+  ],
+  "recovery": {
+    "video_signal_run": 40150806771,
+    "watchlist_signal_run": 40151052386,
+    "reader_release_run": 40151113071,
+    "reader_release_conclusion": "success",
+    "media_correction_pr": 247,
+    "media_correction_run": 40154655969,
+    "media_correction_receipt": "correction-receipts/2026-10-25-video-duplicate.json",
+    "historical_oct8_preserved": true,
+    "source_bundle_and_image_job_preserved": true
+  },
+  "image_lifecycle": {
+    "source_immutable_job_sha256": "0556cbb9d985e3b6dcacb591e8db6758bfb109811e3a20765e7c6871bdc40b80",
+    "accepted_images_observed": 6,
+    "observation_time_utc": "2026-10-25T02:46:10Z",
+    "final_live_release_verified": false
+  },
+  "metrics": {
+    "weekly_usage_percent": null,
+    "weekly_usage_source": "UNKNOWN",
+    "automated_recovery_elapsed_seconds": null,
+    "notes": "No authoritative weekly usage percentage or independent autonomous recovery evidence supplied"
+  },
+  "corrective_actions": [
+    {
+      "priority": "P0",
+      "item": "same-edition automatic recovery within existing authorized producer",
+      "status": "OPEN"
+    },
+    {
+      "priority": "P0",
+      "item": "persist actual failed workflow state, blocker and next action",
+      "status": "OPEN"
+    },
+    {
+      "priority": "P0",
+      "item": "verified video playback and reselection path without owner input",
+      "status": "OPEN"
+    },
+    {
+      "priority": "P0",
+      "item": "pre-21:15 public job handoff readiness and safe action",
+      "status": "OPEN"
+    },
+    {
+      "priority": "P1",
+      "item": "preseal reader legacy schema compatibility",
+      "status": "OPEN"
+    },
+    {
+      "priority": "P1",
+      "item": "archive-wide media episode identity uniqueness",
+      "status": "OPEN"
+    },
+    {
+      "priority": "P1",
+      "item": "report autonomy separately from recovered publication",
+      "status": "OPEN"
+    }
+  ],
+  "sources": [
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40146759003",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40146922674",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40150806771",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40150868041",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40151113071",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/247",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40154655969",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/correction-receipts/2026-10-25-video-duplicate.json"
+  ]
+}
