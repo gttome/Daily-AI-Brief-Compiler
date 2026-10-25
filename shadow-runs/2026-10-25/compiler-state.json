@@ -6,15 +6,15 @@
   "state": "BUNDLE_READY",
   "stage": "BUNDLE",
   "started_at": "2026-10-25T00:21:13.592Z",
-  "updated_at": "2026-10-25T01:28:57.352Z",
+  "updated_at": "2026-10-25T01:32:33.360Z",
   "editorial_bundle": {
     "status": "complete",
     "stories": 6,
     "videos": 2,
     "podcasts": 2,
     "watchlist_refreshed": true,
-    "selection_locked_at": "2026-10-25T01:28:57.352Z",
-    "sealed_at": "2026-10-25T01:28:57.352Z"
+    "selection_locked_at": "2026-10-25T01:32:33.360Z",
+    "sealed_at": "2026-10-25T01:32:33.360Z"
   },
   "images": {
     "required": 6,
@@ -24,7 +24,7 @@
   },
   "bundle": {
     "status": "BUNDLE_READY",
-    "digest": "6112dbf0daf231ce2cd5b3e045fb9e94da232fe9d70eb4c38f2e48a44a6ac890"
+    "digest": "166e3f24a6ffd6593150df152509af7715e9de8b8928474e72ae07732164867e"
   },
   "last_error": null,
   "retryable": false,
@@ -35,10 +35,10 @@
     "clock_basis": "genuine UTC event observations from this execution",
     "validation": {
       "result": "PENDING_PROTECTED_REVALIDATION",
-      "checked_at": "2026-10-25T01:28:57.352Z",
-      "validator": "video-only recovery on immutable six-story edition",
-      "note": "Do not assert PASS until GitHub's existing signed-out full-player playback and Pages gates succeed.",
-      "bundle_digest": "6112dbf0daf231ce2cd5b3e045fb9e94da232fe9d70eb4c38f2e48a44a6ac890"
+      "checked_at": "2026-10-25T01:32:33.360Z",
+      "validator": "exact one-field Watchlist schema compatibility repair after observed reader compile failure",
+      "note": "No changed story selection, media item, podcast, rubric, scoring, image, or Watchlist factual claim beyond a reason populated from existing facts.",
+      "bundle_digest": "166e3f24a6ffd6593150df152509af7715e9de8b8928474e72ae07732164867e"
     }
   },
   "preview": {
@@ -79,5 +79,11 @@
       "https://www.youtube.com/watch?v=i0gaHvT6iWQ"
     ],
     "comment": "Original video alternatives were prequalified before the original editorial lock; this video-only recovery preserves six stories, Watchlist, podcasts and six pending illustration records. No full-playback claim yet."
+  },
+  "watchlist_recovery": {
+    "fault": "carried_forward[0].why missing at compiler/compile.mjs:102",
+    "remedy": "Populate legacy-compatible why from independently existing what_changed and why_now without altering scores, sources, status or editorial topic",
+    "recorded_at": "2026-10-25T01:32:33.360Z",
+    "failed_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40150868041"
   }
 }
