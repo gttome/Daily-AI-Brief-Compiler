@@ -5,13 +5,13 @@
 | Dimension | Observed evidence |
 |---|---|
 | Execution | START_OBSERVED |
-| Result | PARTIAL |
+| Result | SUCCESS |
 | Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | 2026-10-25T02:22:36.000Z |
-| Finished | UNKNOWN |
-| Duration (min) | UNKNOWN |
+| Finished | 2026-10-25T03:01:45.000Z |
+| Duration (min) | 39.15 |
 | Task origin | TASK_ENTRY_RECORDED |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | SAME_INVOCATION_ROUTE_RECORDED |
@@ -19,7 +19,7 @@
 
 ## Evidence and limitations
 
-- 24 semantic desktop/mobile context reviews not independently evidenced in this report input
+- No independently recorded defect in the available sources
 
 ## Operational result
 
