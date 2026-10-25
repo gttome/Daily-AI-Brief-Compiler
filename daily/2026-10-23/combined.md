@@ -20,7 +20,7 @@
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **1** | One channel is one publisher even across multiple videos |
-| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Recorded scheduler capability route | **CAPABILITY_ROUTE_PROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
