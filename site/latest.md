@@ -4,7 +4,7 @@
 **Coverage period:** October 22–23, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-25-m12">Plaud turns reviewed meeting routines into reusable, editable Skills</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m14">Salesforce moves employee support agents across Slack and internal portals</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m10">Microsoft Research gives AI-authored charts a declarative interaction layer</a><span>Article · about 8 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m11">Google documents an offline, clinician-reviewed path for AI-assisted TB screening</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m01">OpenAI details a pause-and-test response after a frontier-training security incident</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m02">NVIDIA expands TensorRT optimization beyond a single build route</a><span>Article · about 9 min source read</span></li><li><a href="#general">Building a data strategy for enterprise AI</a><span>Video · 8:21</span></li><li><a href="#agents-for-non-technical-people">Reimagine business productivity with AI agents and assistants</a><span>Video · 7:58</span></li><li><a href="#podcast-dab-podcast-2026-10-25-1">Is AI Deep Research Worth the Wait?</a><span>Podcast · 27:44</span></li><li><a href="#podcast-dab-podcast-2026-10-25-2">What Will A.I. Do to (and for) Human Creativity?</a><span>Podcast · 59:09</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-25-m12">Plaud turns reviewed meeting routines into reusable, editable Skills</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m14">Salesforce moves employee support agents across Slack and internal portals</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m10">Microsoft Research gives AI-authored charts a declarative interaction layer</a><span>Article · about 8 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m11">Google documents an offline, clinician-reviewed path for AI-assisted TB screening</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m01">OpenAI details a pause-and-test response after a frontier-training security incident</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-25-m02">NVIDIA expands TensorRT optimization beyond a single build route</a><span>Article · about 9 min source read</span></li><li><a href="#general">Building a data strategy for enterprise AI</a><span>Video · 8:21</span></li><li><a href="#agents-for-non-technical-people">Putting AI to work for talent</a><span>Video · 8:16</span></li><li><a href="#podcast-dab-podcast-2026-10-25-1">Is AI Deep Research Worth the Wait?</a><span>Podcast · 27:44</span></li><li><a href="#podcast-dab-podcast-2026-10-25-2">What Will A.I. Do to (and for) Human Creativity?</a><span>Podcast · 59:09</span></li></ol></section>
 <!-- reader-release:end -->
 
 <span id="reading-dab-story-2026-10-25-m12"></span>
@@ -276,21 +276,21 @@
 
 ## 8. Agents for Everyone
 
-### Reimagine business productivity with AI agents and assistants
+### Putting AI to work for talent
 
 <a href="{{ '/videos/2026-10-25/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-25-agent-skills" data-edition-date="2026-10-25" data-action="permanent_page_clicks">Open the permanent video page</a>  
 **Channel:** IBM AI Academy  
-**Date:** March 18, 2025  
-**Duration:** 7:58  
+**Date:** May 1, 2024  
+**Duration:** 8:16  
 **Format:** Video
 
-**Summary:** IBM AI Academy instructor Parul Mishra explains the difference between a human-directed AI assistant and an agent capable of carrying out workflows. The 7:58 lesson examines how both can improve employee productivity and how teams should decide which type of assistance fits a business task. This is an evergreen March 2025 instructional overview.
+**Summary:** IBM AI Academy instructor Kim Morick explains how generative AI can help HR teams improve recruiting, employee skill development and daily service workflows. The 8:16 lesson shows practical ways AI may improve employee experiences and reduce administrative work while people retain responsibility for decisions. This is an evergreen May 2024 instructional episode, not an October 2026 launch.
 
-**Why it matters:** Knowledge workers can avoid confusing fluent chat with delegated autonomy by mapping a real workflow and identifying which steps need assistance, which merit permitted automation and where human review remains essential.
+**Why it matters:** Choose a recurring employee-support or recruiting task, assess sensitive data and human-review needs, then pilot AI assistance with measurable quality, time and employee-experience outcomes. Preserve human judgment on hiring and other consequential decisions.
 
 
 
-**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai" data-item-id="dab-video-2026-10-25-agent-skills" data-edition-date="2026-10-25" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
+**Source:** <a href="https://www.ibm.com/think/videos/ai-academy/generative-ai-for-talent" data-item-id="dab-video-2026-10-25-agent-skills" data-edition-date="2026-10-25" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on IBM AI Academy</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-25" data-feedback-story-id="dab-video-compiler-2026-10-25-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
