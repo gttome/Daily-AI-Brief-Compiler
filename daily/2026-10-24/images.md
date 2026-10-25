@@ -6,10 +6,10 @@
 |---|---|
 | Execution | START_OBSERVED |
 | Result | PARTIAL |
-| Publication | PARTIAL |
+| Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
-| Started | UNKNOWN |
+| Started | 2026-10-25T02:22:36.000Z |
 | Finished | UNKNOWN |
 | Duration (min) | UNKNOWN |
 | Task origin | TASK_ENTRY_RECORDED |
@@ -19,7 +19,7 @@
 
 ## Evidence and limitations
 
-- Protected image-only live verification is missing or incomplete
+- 24 semantic desktop/mobile context reviews not independently evidenced in this report input
 
 ## Operational result
 
