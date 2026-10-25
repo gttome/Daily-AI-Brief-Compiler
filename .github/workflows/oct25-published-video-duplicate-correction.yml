@@ -46,6 +46,7 @@ jobs:
           pathlib.Path('video-preview.json').write_text(json.dumps(p))
           PY
           npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/diagnose-oct25-publisher-videos.cjs
           node scripts/verify-selected-video-playback.cjs video-preview.json build/verified-oct25-video-player.json
       - name: Stage against complete newest verified published archive
         shell: bash
