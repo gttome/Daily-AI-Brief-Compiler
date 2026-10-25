@@ -83,7 +83,8 @@ jobs:
             test -s prior-archive.json
             echo "PRIOR_WATCHLIST_HISTORY_HEAD=$PRIOR_WATCHLIST_HISTORY_HEAD" >> "$GITHUB_ENV"
           fi
-      - name: Materialize canonical production reader from sealed bundle
+      - id: reader_materialize
+        name: Materialize canonical production reader from sealed bundle
         run: |
           rm -rf build
           mkdir -p build
@@ -105,7 +106,8 @@ jobs:
           destination: ./build/current
       - name: Verify built reader parity surfaces
         run: node scripts/verify-built-reader.mjs build/current build/reader-source build/built-verification.json
-      - name: Recheck evidence-backed public video availability before Pages deployment
+      - id: video_playback
+        name: Recheck evidence-backed public video availability before Pages deployment
         shell: bash
         run: |
           set -euo pipefail
@@ -127,7 +129,8 @@ jobs:
             echo "HISTORY_EXISTS=false" >> "$GITHUB_ENV"
             echo "HISTORY_DIR=-" >> "$GITHUB_ENV"
           fi
-      - name: Enforce published media non-repetition before deployment
+      - id: media_history
+        name: Enforce published media non-repetition before deployment
         run: |
           node scripts/verify-media-freshness.mjs \
             "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
@@ -165,6 +168,10 @@ jobs:
       - name: Persist parity receipts on the same semantic execution
         run: |
           node scripts/finalize-shadow-state.mjs run "$TARGET_DATE" "${{ steps.deployment.outputs.page_url }}"
+          node scripts/record-publication-health.mjs \
+            "run/shadow-runs/$TARGET_DATE/publication-health.json" \
+            "$TARGET_DATE" READER_VERIFIED READER_PUBLICATION \
+            "https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
           git -C run config user.name "Daily Compiler"
           git -C run config user.email "actions@users.noreply.github.com"
           git -C run add "shadow-runs/$TARGET_DATE"
@@ -198,6 +205,18 @@ jobs:
           test -s "build/external-work-postverify/image-jobs/$TARGET_DATE/job.json"
           cp -a build/external-work-postverify/image-jobs build/shadow/
           echo "PUBLIC_SAFE_IMAGE_JOB_PREPARED_AFTER_VERIFIED_RELEASE $TARGET_DATE $SOURCE_COMMIT"
+      - id: image_handoff
+        name: Require Oct 26+ exact six-image source job before declaring ready for 21:15
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-10-26" ]]; then exit 0; fi
+          test -s "build/shadow/briefs/$TARGET_DATE/index.html"
+          node scripts/verify-pending-image-handoff.mjs \
+            "$TARGET_DATE" \
+            build/shadow/image-jobs/index.json \
+            "build/shadow/image-jobs/$TARGET_DATE/job.json" \
+            "run/shadow-runs/$TARGET_DATE/edition-bundle.json"
       - name: Persist cumulative verified reader history
         run: |
           if [ "$HISTORY_EXISTS" = "true" ]; then
@@ -220,3 +239,26 @@ jobs:
           fi
           git -C history commit -m "Preserve canonical shadow reader through $TARGET_DATE"
           git -C history push origin HEAD:shadow-pages-history
+      - name: Record actual blocked reader or image-handoff gate on same semantic branch
+        if: ${{ failure() }}
+        shell: bash
+        env:
+          FAILED_STAGE: ${{ steps.image_handoff.outcome == 'failure' && 'IMAGE_HANDOFF' || steps.video_playback.outcome == 'failure' && 'VIDEO_PLAYBACK' || steps.media_history.outcome == 'failure' && 'MEDIA_HISTORY' || steps.reader_materialize.outcome == 'failure' && 'READER_COMPATIBILITY' || 'PUBLICATION_PIPELINE' }}
+        run: |
+          set -euo pipefail
+          case "${TARGET_BRANCH:-}" in shadow/20??-??-??) ;; *) exit 0 ;; esac
+          if [ ! -e run/.git ]; then
+            echo "PUBLICATION_BLOCKED: no semantic worktree to preserve failure evidence"
+            exit 1
+          fi
+          node scripts/record-publication-health.mjs \
+            "run/shadow-runs/$TARGET_DATE/publication-health.json" \
+            "$TARGET_DATE" BLOCKED_PUBLICATION "$FAILED_STAGE" \
+            "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          git -C run config user.name "Daily Brief Publication Health"
+          git -C run config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C run add "shadow-runs/$TARGET_DATE/publication-health.json"
+          if ! git -C run diff --cached --quiet; then
+            git -C run commit -m "Record authentic blocked protected publishing stage $FAILED_STAGE"
+            git -C run push origin "HEAD:refs/heads/$TARGET_BRANCH"
+          fi
