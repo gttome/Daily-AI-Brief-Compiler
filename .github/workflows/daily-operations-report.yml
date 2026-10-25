@@ -93,6 +93,8 @@ jobs:
             # Source trust: immutable protected branch, exact edition-scoped paths, no cross-date fallback.
             ref="refs/remotes/origin/shadow/$edition"
             git show "$ref:shadow-runs/$edition/compiler-state.json" > "$in/compiler-state.json" 2>/dev/null || rm -f "$in/compiler-state.json"
+            git show "$ref:shadow-runs/$edition/publication-health.json" > "$in/publication-health.json" 2>/dev/null || rm -f "$in/publication-health.json"
+            git show "refs/remotes/origin/main:docs/after-action/$edition-compiler-production-aar.json" > "$in/owner-intervention-incident.json" 2>/dev/null || rm -f "$in/owner-intervention-incident.json"
             git show "$ref:shadow-runs/$edition/edition-bundle.json" > "$in/edition-bundle.json" 2>/dev/null || rm -f "$in/edition-bundle.json"
             git show "$ref:shadow-runs/$edition/producer-receipt.json" > "$in/producer-receipt.json" 2>/dev/null || rm -f "$in/producer-receipt.json"
             git show "$ref:shadow-runs/$edition/producer/task-origin.json" > "$in/compiler-task-origin.json" 2>/dev/null || rm -f "$in/compiler-task-origin.json"
