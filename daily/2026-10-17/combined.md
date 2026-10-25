@@ -6,7 +6,7 @@
 **Primary public reader:** [Open 2026-10-18 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-18/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 13m 48s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -17,6 +17,8 @@
 | Measure | Recorded result | Source / caveat |
 |:--|:--:|:--|
 | Editorial publication | **PASS** | State and public reader integrity receipt |
+| **Unattended autonomy (separate from publication)** | **UNPROVEN** | Owner incident receipt takes precedence over unverified producer self-attestation |
+| Recorded protected publishing gate failures | **0** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
 | Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
 | Distinct selected article publishers | **3** | Six different primary organizations preferred |
@@ -133,6 +135,9 @@ flowchart LR
 </table>
 
 ## Incidents, corrections and learning
+
+**Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 0. 
+**Latest failed protected stage:** Not in same-edition receipts; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions). Exact stage durations are available only where real source timestamps exist.
 
 No image-stage correction receipts were available for this cycle.
 

@@ -6,7 +6,7 @@
 **Primary public reader:** [Open 2026-10-25 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-25/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: COMPLETE.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Missing evidence must not be promoted to a success claim.
+> **Executive result: COMPLETE.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 73m 54s** · **Premium Images 39m 09s** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -15,6 +15,8 @@
 | Measure | Recorded result | Source / caveat |
 |:--|:--:|:--|
 | Editorial publication | **PASS** | State and public reader integrity receipt |
+| **Unattended autonomy (separate from publication)** | **FAIL_OWNER_RECOVERY** | Owner incident receipt takes precedence over unverified producer self-attestation |
+| Recorded protected publishing gate failures | **0** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
 | Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
@@ -131,6 +133,9 @@ flowchart LR
 </table>
 
 ## Incidents, corrections and learning
+
+**Editor recovery classification:** FAIL_OWNER_RECOVERY. **Owner intervention:** Documented and required. **Protected same-edition failures recorded:** 0. 
+**Latest failed protected stage:** Not in same-edition receipts; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions). Exact stage durations are available only where real source timestamps exist.
 
 | Stage | Verified issue | Corrective action |
 |---|---|---|

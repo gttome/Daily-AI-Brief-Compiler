@@ -12,6 +12,10 @@
 | Started | 2026-10-24T02:24:51.000Z |
 | Finished | 2026-10-24T02:58:19.000Z |
 | Duration (min) | 33.47 |
+| Autonomy independent of publication | UNPROVEN |
+| Owner intervention required | UNKNOWN |
+| Prior protected gate failures recorded | NOT_RECORDED |
+| Last failing stage | NONE_RECORDED |
 | Task origin | TASK_ENTRY_RECORDED |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | SAME_INVOCATION_ROUTE_RECORDED |

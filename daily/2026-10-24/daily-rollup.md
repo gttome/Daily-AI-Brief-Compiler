@@ -4,7 +4,7 @@
 
 | Dimension | Observed evidence |
 |---|---|
-| Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED"} |
+| Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"FAIL_OWNER_RECOVERY","owner_intervention_required":true} |
 | Images | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED"} |
 | Combined result | SUCCESS |
 | Next run readiness | UNKNOWN |
