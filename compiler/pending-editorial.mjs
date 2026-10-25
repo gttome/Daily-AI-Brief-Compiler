@@ -1,5 +1,5 @@
 import {validateEditorialChronology,validateNontechnicalAudience,validateMediaPrecision} from './production-evidence.mjs';
-import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
+import {watchlistCopyProblems,watchlistLegacyProblems,WATCHLIST_COPY_EFFECTIVE} from './watchlist-copy.mjs';
 import {watchlistScoringProblems,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-rubric.mjs';
 import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
 import {validateArticleSourceDiversity} from './source-diversity.mjs';
@@ -89,6 +89,16 @@ export function validateNewPendingEditorial({bundle,state}){
   }
   const wl=bundle.watchlist;
   time(wl?.refreshed_at,'Watchlist refresh timestamp');
+  // Oct 25 downstream reader compile failed because carried_forward[0].why was
+  // absent; catch new editions at the first semantic validation stage.
+  if(bundle.edition_date>='2026-10-26'){
+    for(const kind of ['new','updated','carried_forward','dropped']){
+      for(const entry of wl[kind]||[]){
+        const issues=watchlistLegacyProblems(entry,kind);
+        if(issues.length)fail('Watchlist '+kind+' '+entry?.topic+': '+issues.join('; '));
+      }
+    }
+  }
   if(bundle.edition_date>=WATCHLIST_COPY_EFFECTIVE){
     for(const kind of ['new','updated','carried_forward','dropped']){
       for(const item of wl[kind]||[]){

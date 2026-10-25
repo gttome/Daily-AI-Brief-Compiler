@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {watchlistCopyProblems,requireWatchlistCopy,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchlist-copy.mjs';
+import {watchlistCopyProblems,watchlistLegacyProblems,requireWatchlistCopy,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchlist-copy.mjs';
 import {adaptCompilerBundle} from '../compiler/reader-adapter.mjs';
 
 const good={
@@ -50,4 +50,27 @@ test('Dropped-topic evidence uses its own previous source before unrelated artic
  b.watchlist.dropped[0].previous_evidence={url:'https://publisher.example.org/previous',date:'2026-10-04'};
  const topic=adaptCompilerBundle(b).watchlist.topics.find(x=>x.name==='Fixture Dropped Signal');
  assert.equal(topic.evidence.at(-1).url,'https://publisher.example.org/previous');
+});
+
+test('legacy Watchlist fields are checked before publication on new editions',()=>{
+  const goodLegacy={...good,topic:'Reusable audited procedures',
+    why:'This signal remains active while the source is applicable.',
+    what_changed:'Recent authoritative documentation describes an updated mechanism.',
+    reason:'This topic is superseded by stronger verifiable coverage.'};
+  for(const kind of ['new','updated','carried_forward','dropped'])
+    assert.deepEqual(watchlistLegacyProblems(goodLegacy,kind),[]);
+  const carried={...goodLegacy};delete carried.why;
+  assert.match(watchlistLegacyProblems(carried,'carried_forward').join('; '),/why/);
+  const changed={...goodLegacy};delete changed.what_changed;
+  assert.match(watchlistLegacyProblems(changed,'updated').join('; '),/what_changed/);
+  const fresh={...goodLegacy};delete fresh.why;
+  assert.match(watchlistLegacyProblems(fresh,'new').join('; '),/why/);
+  const dropped={...goodLegacy};delete dropped.reason;delete dropped.why;
+  assert.match(watchlistLegacyProblems(dropped,'dropped').join('; '),/reason\/why/);
+  assert.throws(()=>watchlistLegacyProblems(goodLegacy,'unknown'),/Unknown Watchlist/);
+});
+test('prospective validator checks reader legacy Watchlist fields before seal',()=>{
+  const src=fs.readFileSync('compiler/pending-editorial.mjs','utf8');
+  assert.match(src,/bundle.edition_date>='2026-10-26'/);
+  assert.match(src,/watchlistLegacyProblems\(entry,kind\)/);
 });

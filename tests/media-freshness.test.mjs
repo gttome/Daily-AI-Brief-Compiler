@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {validateMediaFreshness,sameMedia,samePodcastShow,podcastShowKeys} from '../scripts/verify-media-freshness.mjs';
+import {validateMediaFreshness,sameMedia,samePodcastShow,podcastShowKeys,findFullArchiveRepeats} from '../scripts/verify-media-freshness.mjs';
 
 const root=()=>fs.mkdtempSync(path.join(os.tmpdir(),'media-freshness-'));
 function makeHistory(root,date,shows=[
@@ -104,4 +104,55 @@ test('October 18 and earlier published editions are never revalidated by this ne
 });
 test('missing real predecessor evidence is not silently treated as variety',()=>{
   assert.throws(()=>validateMediaFreshness({bundle:fresh,historyRoot:root()}),/media history unavailable/);
+});
+
+test('Oct 26 forward-only entire archive catches media from October 17 beyond seven editions',()=>{
+  const h=root();
+  makeHistory(h,'2026-10-17');
+  for(let day=18;day<=25;day++){
+    const d='2026-10-'+day;
+    fs.mkdirSync(path.join(h,'briefs',d),{recursive:true});
+    fs.writeFileSync(path.join(h,'briefs',d,'index.html'),'Published edition');
+    for(const [slot,title] of [['general','Unique video '+day],['agent-skills','Another unique video '+day]]){
+      const dir=path.join(h,'videos',d,slot);
+      fs.mkdirSync(dir,{recursive:true});
+      fs.writeFileSync(path.join(dir,'index.html'),
+        '<html><meta property="og:title" content="'+title+'"/><strong>Source:</strong> <a href="https://publisher.test/watch/'+day+'/'+slot+'">Publisher</a></html>');
+    }
+  }
+  const dates=fs.readdirSync(path.join(h,'briefs')).sort().reverse();
+  const b=structuredClone(fresh);
+  b.edition_date='2026-10-26';
+  b.videos[0]={title:'Prior video one',url:'https://youtu.be/ABCDEFGHIJK?feature=shared'};
+  let x=findFullArchiveRepeats({bundle:b,historyRoot:h,dates});
+  assert.equal(x.checked_dates,9);
+  assert.ok(x.media_duplicates.some(a=>a.prior_date==='2026-10-17'&&a.type==='video'));
+  assert.ok(!x.media_duplicates.some(a=>a.prior_date>='2026-10-18'));
+  b.videos[0]={title:'New unique video lesson',url:'https://publisher.test/watch/brand-new'};
+  b.podcasts[0]={...b.podcasts[0],title:'Rehosted older episode',
+    url:'https://podcasts.apple.com/us/podcast/rehosted/id1668002681?i=1000500000001'};
+  x=findFullArchiveRepeats({bundle:b,historyRoot:h,dates});
+  assert.ok(x.media_duplicates.some(a=>a.prior_date==='2026-10-17'&&a.type==='podcast'));
+});
+test('Oct 26 full-archive scan rejects prior article source with a new headline',()=>{
+  const h=root(),date='2026-10-17';
+  makeHistory(h,date);
+  const dir=path.join(h,'stories',date,'item');
+  fs.mkdirSync(dir,{recursive:true});
+  fs.writeFileSync(path.join(dir,'index.html'),
+    '<html><meta property="og:title" content="Old research covered previously"/><strong>Source:</strong> <a href="https://publisher.test/research-record?campaign=old">Publisher</a></html>');
+  const b=structuredClone(fresh);
+  b.stories[0]={headline:'Same source rewritten under another headline',
+    source:{url:'https://publisher.test/research-record'}};
+  const old=findFullArchiveRepeats({bundle:b,historyRoot:h,dates:[date]});
+  assert.equal(old.article_pages,1);
+  assert.deepEqual(old.article_duplicates.map(x=>x.reason),['same_source_url']);
+  b.stories[0]={headline:'New primary research',source:{url:'https://publisher.test/new-record'}};
+  assert.deepEqual(findFullArchiveRepeats({bundle:b,historyRoot:h,dates:[date]}).article_duplicates,[]);
+});
+test('media-uniqueness expansion is forward-only and preserves show cooldown',()=>{
+  const src=fs.readFileSync('scripts/verify-media-freshness.mjs','utf8');
+  assert.match(src,/FULL_ARCHIVE_UNIQUENESS_EFFECTIVE='2026-10-26'/);
+  assert.match(src,/date>=FULL_ARCHIVE_UNIQUENESS_EFFECTIVE\?/);
+  assert.match(src,/const showDates=historyDates.slice\(0,3\)/);
 });
