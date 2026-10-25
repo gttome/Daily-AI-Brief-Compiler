@@ -5,6 +5,8 @@ import {pathToFileURL} from 'node:url';
 import {articlePublisherKey,validateArticleSourceDiversity} from '../compiler/source-diversity.mjs';
 
 const EFFECTIVE_DATE='2026-10-19';
+// Oct 26 onward: whole preserved archive, not only the seven latest editions.
+const FULL_ARCHIVE_UNIQUENESS_EFFECTIVE='2026-10-26';
 const DATE=/^\d{4}-\d{2}-\d{2}$/;
 const decode=s=>String(s??'').replace(/&(?:amp|quot|apos|lt|gt|#39);/g,x=>({'&amp;':'&','&quot;':'"','&apos;':"'",'&lt;':'<','&gt;':'>','&#39;':"'"}[x]));
 const normalText=s=>decode(s).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
@@ -80,6 +82,43 @@ export function samePodcastShow(a,b){
   const first=podcastShowKeys(a),second=new Set(podcastShowKeys(b));
   return first.some(x=>second.has(x));
 }
+
+/**
+ * Read all prior permanent pages; never rewrite their accepted article/media
+ * history. Compare exact canonical source identity and substantive item titles.
+ */
+export function findFullArchiveRepeats({bundle,historyRoot,dates}){
+  const media=dates.flatMap(d=>[
+    ...previousItems(historyRoot,d,'video'),
+    ...previousItems(historyRoot,d,'podcast')
+  ]);
+  const articles=dates.flatMap(d=>previousItems(historyRoot,d,'article'));
+  const selected=[
+    ...(bundle.videos||[]).map(x=>({type:'video',title:x.title,url:x.url})),
+    ...(bundle.podcasts||[]).map(x=>({type:'podcast',title:x.title,url:x.url}))
+  ];
+  const media_duplicates=[],article_duplicates=[];
+  for(const item of selected){
+    for(const old of media)if(sameMedia(item,old))
+      media_duplicates.push({item:item.title,prior_title:old.title,type:item.type,
+        prior_date:old.date,prior_page:old.file});
+  }
+  for(const item of bundle.stories||[]){
+    const source=urlIdentity(item.source?.url);
+    const title=normalText(item.headline);
+    for(const old of articles){
+      const exactSource=Boolean(source&&source===urlIdentity(old.url));
+      const exactTitle=Boolean(title.length>15&&title===normalText(old.title));
+      if(exactSource||exactTitle)
+        article_duplicates.push({item:item.headline,prior_title:old.title,
+          prior_date:old.date,prior_page:old.file,
+          reason:exactSource?'same_source_url':'same_headline'});
+    }
+  }
+  return {checked_dates:dates.length,media_pages:media.length,
+    article_pages:articles.length,media_duplicates,article_duplicates};
+}
+
 export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   const date=bundle?.edition_date;
   if(typeof date!=='string'||!DATE.test(date))throw new Error('media freshness requires a dated sealed bundle');
@@ -90,9 +129,10 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   validateNontechnicalAudience(bundle);
   if(!historyRoot||!fs.existsSync(path.join(historyRoot,'briefs')))
     throw new Error('media history unavailable: cannot certify freshness');
-  const historyDates=fs.readdirSync(path.join(historyRoot,'briefs'),{withFileTypes:true})
+  const publishedDates=fs.readdirSync(path.join(historyRoot,'briefs'),{withFileTypes:true})
     .filter(x=>x.isDirectory()&&DATE.test(x.name)&&x.name<date&&fs.existsSync(path.join(historyRoot,'briefs',x.name,'index.html')))
-    .map(x=>x.name).sort().reverse().slice(0,lookback);
+    .map(x=>x.name).sort().reverse();
+  const historyDates=publishedDates.slice(0,lookback);
   if(!historyDates.length)throw new Error('no published predecessor to check for media repeats');
   const selected=[
     ...(bundle.videos||[]).map(x=>({type:'video',title:x.title,url:x.url,date})),
@@ -117,6 +157,14 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
       duplicateMatches.push({item:selected[i].title,type:selected[i].type,prior_date:old.date,reason:'reused published media'});
   }
   if(duplicateMatches.length)throw new Error('MEDIA_REUSE_VIOLATION '+JSON.stringify(duplicateMatches));
+  // Forward-only, because immutable Oct25 source bundles may still contain an
+  // earlier superseded media selection. Do not retroactively invalidate them.
+  const archiveUniqueness=date>=FULL_ARCHIVE_UNIQUENESS_EFFECTIVE?
+    findFullArchiveRepeats({bundle,historyRoot,dates:publishedDates}):null;
+  if(archiveUniqueness?.media_duplicates.length)
+    throw new Error('MEDIA_REUSE_VIOLATION '+JSON.stringify(archiveUniqueness.media_duplicates));
+  if(archiveUniqueness?.article_duplicates.length)
+    throw new Error('ARTICLE_REUSE_VIOLATION '+JSON.stringify(archiveUniqueness.article_duplicates));
   // Three *previous published editions* are the hard show cooldown; aim for seven
   // when qualified fresh content exists. Missing source history cannot silently pass.
   const showDates=historyDates.slice(0,3);
@@ -146,6 +194,11 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   }
   return {result:'PASS',date,checked_dates:historyDates,selected_count:selected.length,
     previous_count:past.length,duplicates:[],article_diversity:articleDiversity,
+    full_archive_uniqueness:archiveUniqueness?{
+      result:'PASS',checked_dates:archiveUniqueness.checked_dates,
+      media_pages:archiveUniqueness.media_pages,
+      article_pages:archiveUniqueness.article_pages
+    }:null,
     podcast_show_cooldown_editions:3,podcast_show_history_dates:showDates,
     selected_podcast_shows:selectedPodcasts.map(x=>({source:x.source,identity:podcastShowKeys(x)})),
     seven_edition_article_publisher_counts:Object.fromEntries(

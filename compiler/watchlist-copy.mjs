@@ -34,3 +34,23 @@ export function requireWatchlistCopy(entry,label='Watchlist topic'){
   const issues=watchlistCopyProblems(entry);
   if(issues.length)throw new Error(label+': '+issues.join('; '));
 }
+
+/**
+ * The current Jekyll reader still consumes legacy fields in addition to
+ * modern independent Watchlist summary, why_now, and practical_value.
+ */
+export function watchlistLegacyProblems(entry,kind){
+  if(!['new','updated','carried_forward','dropped'].includes(kind))
+    throw new Error('Unknown Watchlist status '+kind);
+  const problems=[];
+  const present=v=>typeof v==='string'&&Boolean(v.trim());
+  if(!present(entry?.topic))problems.push('topic: missing legacy identity');
+  if(kind==='new'||kind==='carried_forward'){
+    if(!present(entry?.why))problems.push('why: missing legacy '+kind+' rationale');
+  }else if(kind==='updated'){
+    if(!present(entry?.what_changed))problems.push('what_changed: missing legacy update');
+  }else if(!present(entry?.reason)&&!present(entry?.why)){
+    problems.push('reason/why: missing legacy drop rationale');
+  }
+  return problems;
+}
