@@ -6,15 +6,15 @@
   "state": "BUNDLE_READY",
   "stage": "BUNDLE",
   "started_at": "2026-10-25T00:21:13.592Z",
-  "updated_at": "2026-10-25T00:29:45.586Z",
+  "updated_at": "2026-10-25T01:28:57.352Z",
   "editorial_bundle": {
     "status": "complete",
     "stories": 6,
     "videos": 2,
     "podcasts": 2,
     "watchlist_refreshed": true,
-    "selection_locked_at": "2026-10-25T00:26:29.031Z",
-    "sealed_at": "2026-10-25T00:29:38.430Z"
+    "selection_locked_at": "2026-10-25T01:28:57.352Z",
+    "sealed_at": "2026-10-25T01:28:57.352Z"
   },
   "images": {
     "required": 6,
@@ -24,7 +24,7 @@
   },
   "bundle": {
     "status": "BUNDLE_READY",
-    "digest": "3c717ca9dee0ffc94b6ffdfe2495d24d5fa057f7050b6701b561a6db6f0f58a3"
+    "digest": "6112dbf0daf231ce2cd5b3e045fb9e94da232fe9d70eb4c38f2e48a44a6ac890"
   },
   "last_error": null,
   "retryable": false,
@@ -34,11 +34,11 @@
     "watchlist_refresh_at": "2026-10-25T00:25:05.384Z",
     "clock_basis": "genuine UTC event observations from this execution",
     "validation": {
-      "result": "PASS",
-      "validator": "validateNewPendingEditorial with current protected production modules",
-      "checked_at": "2026-10-25T00:29:45.586Z",
-      "bundle_digest": "3c717ca9dee0ffc94b6ffdfe2495d24d5fa057f7050b6701b561a6db6f0f58a3",
-      "note": "Complete sealed bundle passed current protected gates; resealed once for an idempotent BUNDLE_READY connector signal retry after no Actions run appeared for the initial valid commit."
+      "result": "PENDING_PROTECTED_REVALIDATION",
+      "checked_at": "2026-10-25T01:28:57.352Z",
+      "validator": "video-only recovery on immutable six-story edition",
+      "note": "Do not assert PASS until GitHub's existing signed-out full-player playback and Pages gates succeed.",
+      "bundle_digest": "6112dbf0daf231ce2cd5b3e045fb9e94da232fe9d70eb4c38f2e48a44a6ac890"
     }
   },
   "preview": {
@@ -53,5 +53,31 @@
     "production_reader_source_sha": "2ac859d81be8559926a7eca9626e8641b2af37fe",
     "semantic_rework": 0,
     "accepted_image_regenerations": 0
+  },
+  "media_recovery": {
+    "incident": "OCT25_VIDEO_PLAYBACK_UNVERIFIED",
+    "requested_by_owner": true,
+    "recovery_scope": "TWO_VIDEO_ONLY",
+    "old_state_digest": "3c717ca9dee0ffc94b6ffdfe2495d24d5fa057f7050b6701b561a6db6f0f58a3",
+    "old_raw_bundle_sha256": "9bcd742d6606aade242465d0cb890e80462d0df53f7c77c4bec47135c4999864",
+    "original_video_urls": [
+      "https://www.youtube.com/watch?v=raSYE1Axnok",
+      "https://www.youtube.com/watch?v=Mzr7byMFy_4"
+    ],
+    "new_video_urls": [
+      "https://www.ibm.com/think/videos/ai-academy/building-data-strategy-enterprise-ai",
+      "https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai"
+    ],
+    "original_failures": [
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40146759003",
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40146922674"
+    ],
+    "new_selected_at": "2026-10-25T01:28:57.352Z",
+    "publication_admission": "PENDING_FULL_PLAYER_PLAYBACK_PROOF",
+    "dates": [
+      "https://community.ibm.com/community/user/blogs/sheila-zegarra/2025/06/02/building-a-data-strategy-for-ai",
+      "https://www.youtube.com/watch?v=i0gaHvT6iWQ"
+    ],
+    "comment": "Original video alternatives were prequalified before the original editorial lock; this video-only recovery preserves six stories, Watchlist, podcasts and six pending illustration records. No full-playback claim yet."
   }
 }
