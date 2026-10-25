@@ -1,0 +1,344 @@
+{
+  "schema_version": "daily-compiler-media-selection-v1",
+  "edition_date": "2026-10-25",
+  "locked_at": "2026-10-25T00:26:29.031Z",
+  "videos": [
+    {
+      "title": "When prompting is not enough for your agent",
+      "source": "Microsoft Developer",
+      "url": "https://www.youtube.com/watch?v=raSYE1Axnok",
+      "duration_minutes": 8.1667,
+      "verified_at": "2026-10-25T00:25:05.384Z",
+      "content_retrieved_at": "2026-10-25T00:25:05.384Z",
+      "original_date": "2026-10-22T00:00:00Z",
+      "focus": "Using evaluation data, baselines and held-out checks to optimize an agent instead of repeatedly rewriting prompts",
+      "summary": "Microsoft Developer demonstrates Agent Optimizer as a measured loop: build an evaluation set, score the current agent, generate candidate instructions, compare quality and latency, inspect safety failures and validate the strongest option on held-out cases before releasing a new version.",
+      "why_it_matters": "Teams get a compact alternative to prompt guesswork: preserve a baseline, define success, compare candidates, inspect sensitive-information failures and ship only after held-out evaluation confirms that gains survive outside the optimization set.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "runtime_source_url": "https://www.youtube.com/watch?v=raSYE1Axnok",
+        "publisher_channel_id": "UCsMica-v34Irf9KVTh6xx-g",
+        "publisher_channel_url": "https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g",
+        "publisher_channel_verified": true,
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the complete published chapter sequence from baseline creation through held-out validation, plus stable Microsoft Developer channel identity and exact 8:10 runtime; no audiovisual playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-25T00:25:05.384Z",
+        "learning_objective": "Replace repeated manual prompt edits with an evaluation-driven optimization loop that checks quality, latency and safety before deployment.",
+        "practical_action": "Build a representative evaluation set for one agent, score its baseline, compare candidate instructions and retest the winner on held-out examples.",
+        "selected_over_alternatives": "Selected because the current first-party lesson supplies a complete eight-minute procedure, exact chapters, verified publisher identity and a bounded evaluation exercise.",
+        "content_evidence": {
+          "kind": "timestamped_chapters",
+          "url": "https://www.youtube.com/watch?v=raSYE1Axnok",
+          "scope": "Reviewed the full 0:00–8:10 chapter sequence covering inconsistent behavior, evaluation data, optimization configuration, candidate and evaluator models, production traces, cost review, baseline comparison, quality and latency, safety disclosures, held-out checks and release guidance."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The lesson demonstrates Microsoft Agent Optimizer, but its baseline, candidate-comparison, safety-review and held-out-validation procedure is transferable beyond a product purchase.",
+        "transferable_takeaways": [
+          "Start optimization with representative evaluation cases and explicit success criteria, not a rewritten prompt chosen by intuition.",
+          "Compare candidate instructions against the same baseline for quality, latency, cost and sensitive-information failures.",
+          "Retest the strongest candidate on held-out cases before creating a new agent version or widening access."
+        ]
+      }
+    },
+    {
+      "title": "Graph Engineering with ADK",
+      "source": "Google Cloud Tech",
+      "url": "https://www.youtube.com/watch?v=Mzr7byMFy_4",
+      "duration_minutes": 6.1667,
+      "verified_at": "2026-10-25T00:25:05.384Z",
+      "content_retrieved_at": "2026-10-25T00:25:05.384Z",
+      "original_date": "2026-09-10T00:00:00Z",
+      "focus": "Separating deterministic work from model reasoning with fan-out, joins and routing in agent graphs",
+      "summary": "Google Cloud Tech demonstrates a small graph workflow that separates deterministic data retrieval from model reasoning, then adds parallel fan-out, a join node and router choices. The lesson ends with a decision rule for static graphs, dynamic workflows and autonomous agents while keeping the example to one model call.",
+      "why_it_matters": "Engineers get a compact architecture test: draw the workflow, make predictable steps deterministic, parallelize independent retrieval, join results explicitly and reserve model routing for ambiguous choices. That structure reduces hidden orchestration and makes failures easier to locate.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "runtime_source_url": "https://www.youtube.com/watch?v=Mzr7byMFy_4",
+        "publisher_channel_id": "UCJS9pqu9BzkAMNTmzNMNhvg",
+        "publisher_channel_url": "https://www.youtube.com/channel/UCJS9pqu9BzkAMNTmzNMNhvg",
+        "publisher_channel_verified": true,
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the complete six-minute chapter sequence and first-party companion lesson, verified the stable Google Cloud Tech channel identity, September 10 date and 6:10 runtime; no audiovisual playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-25T00:25:05.384Z",
+        "learning_objective": "Choose between static graphs, dynamic workflows and autonomous agents while keeping deterministic retrieval separate from model reasoning.",
+        "practical_action": "Draw one workflow as nodes and edges, mark independent fetches for fan-out, add an explicit join and use code routing for closed choices.",
+        "selected_over_alternatives": "Selected because its first-party six-minute lesson, exact chapters and companion article provide a complete architecture procedure from failure example to decision rule.",
+        "content_evidence": {
+          "kind": "timestamped_chapters",
+          "url": "https://www.youtube.com/watch?v=Mzr7byMFy_4",
+          "scope": "Reviewed the full 0:00–6:10 lesson covering a hallucinating monolithic prompt, a two-node function-and-agent graph, fan-out, join nodes, deterministic versus model routers, one-call architecture and static-versus-dynamic workflow selection."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The tutorial uses Google ADK, yet its separation of deterministic work, fan-out, joins and routing decisions remains a reusable architecture method.",
+        "transferable_takeaways": [
+          "Move predictable data retrieval into deterministic functions and reserve language models for reasoning that actually needs them.",
+          "Run independent lookups in parallel, then join their outputs explicitly before downstream reasoning begins.",
+          "Use code routers for closed structured choices, dynamic graphs for runtime-dependent paths and autonomy only when no stable path exists."
+        ]
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Is AI Deep Research Worth the Wait?",
+      "source": "Hands-On AI",
+      "url": "https://twit.tv/shows/hands-on-ai/episodes/4?autostart=false",
+      "duration_minutes": 27.7333,
+      "verified_at": "2026-10-25T00:25:05.384Z",
+      "content_retrieved_at": "2026-10-25T00:25:05.384Z",
+      "original_date": "2026-10-22T00:00:00Z",
+      "written_reading_time_minutes": 14,
+      "summary": "Mikah Sargent gives four deep-research systems and a standard web-search control the same home-energy question, times each run and checks claims against an official-source answer key. The complete transcript shows that longer research did not consistently improve accuracy and turns citation checking into a repeatable reader exercise.",
+      "why_it_matters": "Listeners get a practical evaluation method for high-stakes research: create an answer key, record time and source quality, inspect omissions, open citations behind key claims and compare a slower research mode with a simpler control before trusting either.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "runtime_source_url": "https://twit.tv/posts/transcripts/hands-ai-4-transcript",
+        "episode_url": "https://twit.tv/shows/hands-on-ai/episodes/4?autostart=false",
+        "episode_identifier": "hands-on-ai-4-deep-research",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Read the complete publisher transcript from 00:00 through 27:44, verified the dated episode identity and timecoded conclusion; no audio or video playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-25T00:25:05.384Z",
+        "learning_objective": "Compare deep-research tools with a simple control using timing, source quality, omissions, cleanup burden and an independently built answer key.",
+        "practical_action": "Run one consequential question through a research mode and a standard search, then open citations behind every claim that changes the decision.",
+        "selected_over_alternatives": "Selected for its current exact episode page, complete publisher transcript, explicit control group and reproducible scoring procedure from a show absent from recent editions.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://twit.tv/posts/transcripts/hands-ai-4-transcript",
+          "scope": "Read the complete publisher transcript from the research-mode explanation and test design through all five runs, timing and source comparisons, official-source answer key, citation failures, cleanup judgments and closing verification checklist."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "The episode names paid research services but compares several tools, uses a control and official-source answer key, and does not present a purchase-only pitch.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 360,
+            "kind": "ai",
+            "topic": "Deep-research workflow, research plans, tool access and control design"
+          },
+          {
+            "start_seconds": 360,
+            "end_seconds": 720,
+            "kind": "ai",
+            "topic": "Home-energy prompt, official answer key and scoring criteria"
+          },
+          {
+            "start_seconds": 720,
+            "end_seconds": 1080,
+            "kind": "ai",
+            "topic": "Timed tool results, source counts, omissions and cleanup burden"
+          },
+          {
+            "start_seconds": 1080,
+            "end_seconds": 1380,
+            "kind": "ai",
+            "topic": "Citation checking, stale rules, unsupported links and comparative accuracy"
+          },
+          {
+            "start_seconds": 1380,
+            "end_seconds": 1664,
+            "kind": "ai",
+            "topic": "Decision summary and a repeatable source-verification homework procedure"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "expert_analysis",
+        "editorial_form_rationale": "The host designs and executes a first-hand comparative test, explains the control and answer key, and evaluates observed source and accuracy failures rather than summarizing outside reports."
+      }
+    },
+    {
+      "title": "What Will A.I. Do to (and for) Human Creativity?",
+      "source": "Freakonomics Radio",
+      "url": "https://freakonomics.com/podcast/what-will-a-i-do-to-and-for-human-creativity/",
+      "duration_minutes": 59.15,
+      "verified_at": "2026-10-25T00:25:05.384Z",
+      "content_retrieved_at": "2026-10-25T00:25:05.384Z",
+      "original_date": "2026-10-23T00:00:00Z",
+      "written_reading_time_minutes": 22,
+      "summary": "Stephen Dubner interviews Kevin Kelly, Eline Van der Velden, Ethan Mollick and SAG-AFTRA president Sean Astin about AI and creativity. The publisher transcript contrasts always-on exoselves, synthetic performers, evidence on idea generation and diversity, human expertise and agency, job displacement, consent and compensation rather than forcing one conclusion.",
+      "why_it_matters": "Knowledge workers can use the episode to separate ideation volume from creative diversity, decide where expertise and selection remain human responsibilities, and document consent, labor and accountability questions before adopting synthetic performers or always-on assistants.",
+      "verified": true,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "runtime_source_url": "https://freakonomics.com/what-will-a-i-do-to-and-for-human-creativity/",
+        "episode_url": "https://freakonomics.com/podcast/what-will-a-i-do-to-and-for-human-creativity/",
+        "episode_identifier": "freakonomics-radio-692-ai-creativity",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Read the complete publisher transcript for episode 692, verified the October 23 identity and 59:09 runtime, and reviewed the named interviews and source list; no audio-playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-10-25T00:25:05.384Z",
+        "learning_objective": "Distinguish AI-assisted idea generation from creative diversity, human selection, labor effects, consent and accountability in professional creative work.",
+        "practical_action": "For one creative workflow, mark where AI generates options, where a named person selects and edits, and where consent or compensation must be resolved.",
+        "selected_over_alternatives": "Selected because this current publisher transcript presents multiple first-hand expert and labor perspectives, exact episode identity and a clear workflow-review exercise.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://freakonomics.com/podcast/what-will-a-i-do-to-and-for-human-creativity/",
+          "scope": "Read the complete publisher transcript covering Kevin Kelly’s exoself, Eline Van der Velden’s synthetic performer, Ethan Mollick’s adoption and creativity research, Sean Astin’s labor and consent concerns, plus the publisher’s sources and resources."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "The episode discusses books, companies and a synthetic performer, but balances booster, researcher and labor perspectives and provides a detailed publisher source list.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 940,
+            "kind": "ai",
+            "topic": "Exoself relationships, creative development and the risks of assistant substitution"
+          },
+          {
+            "start_seconds": 940,
+            "end_seconds": 1790,
+            "kind": "ai",
+            "topic": "Synthetic performer design, human authorship and creative-calculator claims"
+          },
+          {
+            "start_seconds": 1790,
+            "end_seconds": 1960,
+            "kind": "advertisement",
+            "topic": "Publisher advertisement and membership interval outside editorial analysis"
+          },
+          {
+            "start_seconds": 1960,
+            "end_seconds": 2760,
+            "kind": "ai",
+            "topic": "AI adoption, human expertise, agency and creativity-diversity research"
+          },
+          {
+            "start_seconds": 2760,
+            "end_seconds": 3204,
+            "kind": "ai",
+            "topic": "Creative-industry use, repetitive outputs and limits of generated variety"
+          },
+          {
+            "start_seconds": 3204,
+            "end_seconds": 3340,
+            "kind": "advertisement",
+            "topic": "Publisher advertisement interval outside the episode’s editorial analysis"
+          },
+          {
+            "start_seconds": 3340,
+            "end_seconds": 3549,
+            "kind": "ai",
+            "topic": "Performer labor, consent, compensation and accountable production boundaries"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "The publisher records direct interviews with a technologist, creator, researcher and labor representative, then presents their conflicting evidence and judgments in a fully sourced original episode."
+      }
+    }
+  ],
+  "video_prequalification": {
+    "candidates": [
+      {
+        "title": "When prompting is not enough for your agent",
+        "url": "https://www.youtube.com/watch?v=raSYE1Axnok",
+        "duration_minutes": 8.1667,
+        "teaching_evidence": "Reviewed the full timestamped optimization loop from evaluation data and baseline scoring through safety review and held-out validation.",
+        "research_disposition": "Selected for its current first-party identity, exact runtime, complete chapters and transferable evaluation procedure.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "verification": {
+          "publisher_channel_id": "UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Find Root Causes Faster with AI (Part 1)",
+        "url": "https://www.youtube.com/watch?v=eNuyyBJwOEw",
+        "duration_minutes": 3.1,
+        "teaching_evidence": "Reviewed all three chapters on manufacturing root-cause delay, cross-system signal correlation and evidence-ranked likely causes.",
+        "research_disposition": "Not selected because the three-minute overview is materially shallower than the chosen optimization and graph-design lessons.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "verification": {
+          "publisher_channel_id": "UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Graph Engineering with ADK",
+        "url": "https://www.youtube.com/watch?v=Mzr7byMFy_4",
+        "duration_minutes": 6.1667,
+        "teaching_evidence": "Reviewed the full chaptered lesson covering deterministic functions, fan-out, joins, routers and static-versus-dynamic workflow selection.",
+        "research_disposition": "Selected for its exact runtime, stable first-party channel identity, companion article and concise architecture procedure.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "verification": {
+          "publisher_channel_id": "UCJS9pqu9BzkAMNTmzNMNhvg",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCJS9pqu9BzkAMNTmzNMNhvg",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "How to Use Hermes AI Agent",
+        "url": "https://www.youtube.com/watch?v=wETSpF4ef6E",
+        "duration_minutes": 10.2333,
+        "teaching_evidence": "Reviewed the chaptered sequence from installation through browser approval, memory testing, reusable skill creation and scheduled jobs.",
+        "research_disposition": "Not selected because it repeats a recent candidate and offers weaker provenance than the two first-party professional lessons.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-25T00:25:05.384Z",
+        "verification": {
+          "publisher_channel_id": "UCfJT_eYDTmDE-ovKaxVE1ig",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCfJT_eYDTmDE-ovKaxVE1ig",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Building a data strategy for enterprise AI",
+        "url": "https://www.ibm.com/think/videos/ai-academy/building-data-strategy-enterprise-ai",
+        "duration_minutes": 8.35,
+        "teaching_evidence": "Reviewed the complete companion lesson on changing data-quality requirements, readiness barriers and building an AI-ready data roadmap.",
+        "research_disposition": "Not selected because the strong evergreen lesson is older and less directly connected to the edition’s current engineering decisions.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-25T00:25:05.384Z"
+      },
+      {
+        "title": "Reimagine business productivity with AI agents and assistants",
+        "url": "https://www.ibm.com/think/videos/ai-academy/reimagine-business-productivity-with-ai",
+        "duration_minutes": 7.9667,
+        "teaching_evidence": "Reviewed the full companion lesson differentiating assistants from agents and framing how enterprises should choose between them.",
+        "research_disposition": "Not selected because its conceptual buyer framing is less procedural than the chosen evaluation and graph-engineering lessons.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-25T00:25:05.384Z"
+      }
+    ]
+  },
+  "review_notes": "Selected two current first-party instructional videos from distinct verified YouTube publishers and two source-diverse exact podcast episodes with whole-episode text evidence. Content review and playback verification are separately scoped; no audiovisual playback is claimed."
+}
