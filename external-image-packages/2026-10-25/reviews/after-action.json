@@ -6,7 +6,7 @@
   "original_source_commit_sha": "8db7ed2fe929ba406352c2c927767434d8ebe0b1",
   "original_bundle_sha256": "166e3f24a6ffd6593150df152509af7715e9de8b8928474e72ae07732164867e",
   "human_readable_path": "external-image-packages/2026-10-25/reviews/after-action.md",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "production": {
     "actual_generation_count": 19,
     "accepted_count": 6,
@@ -96,15 +96,32 @@
       "phase": "Exact GitHub readback",
       "issue": "Generic fetch_blob attempted UTF-8 decoding of PNG binary; local job text export had an extra newline.",
       "correction": "Used connected fetch_file encoding base64 with exact commit/length/blob/hash comparison; recovered original immutable job bytes with git show before package hashing."
+    },
+    {
+      "phase": "Protected package preflight",
+      "issue": "Local validation first used a stale Pages-history tracking ref, then protected main advanced twice during final package admission.",
+      "correction": "Refreshed authoritative refs and merged the two concurrent protected-main changes onto the same candidate without changing PNGs. Exact-head PR admission and validate passed before permitted merge."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PR_CI_AND_RELEASE"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-25T02:54:43.134Z",
+    "package_pr": 249,
+    "exact_head_ci_sha": "c93137d2fd629aa8721c9523e869cd2ab71ad1e4",
+    "protected_main_commit": "5cf5636c54b69a868ffd14c6590b4312efb0edbf",
+    "workflow_run_id": 40156193898,
+    "live_image_hashes": 6,
+    "story_image_pairings": 12,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "protected_oct8_objects": 17
   },
   "visual_review": {
-    "result": "PENDING_LIVE_CONTEXT_REVIEW",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-10-25/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "reviewed_at": "2026-10-25T02:58:00Z",
+    "review_path": "external-image-packages/2026-10-25/reviews/live/semantic-pixel-review.json",
+    "artifact_id": 12584850443,
+    "mobile_fine_text_requires_full_size": true
   },
   "usage": {
     "work_usage_percent": null,
@@ -117,6 +134,7 @@
     "The >750KiB containment PNG used fixed 256KiB-offset reconstruction with PNG/hash/blob verification. Smaller accepted PNGs used exact base64 transport and committed readback.",
     "All twelve labels per image were inspected at full size; dense body text requires full-size mobile opening. Final 24 dated/permanent desktop/mobile captures remain unreviewed until actual deployment.",
     "First-party scheduler origin is UNPROVEN; observed executor and pre-generation clocks are not scheduler telemetry. Usage remains UNKNOWN.",
-    "No additional schedules, paid APIs, metered services, editorial changes, Watchlist changes, historical replacements or acceptance claims by the owner were made."
+    "No additional schedules, paid APIs, metered services, editorial changes, Watchlist changes, historical replacements or acceptance claims by the owner were made.",
+    "Final actual pixel inspection covered all 24 exact-release captures. Artifact ZIP digest and each capture hash were verified; no publication or screenshot rerun was used."
   ]
 }
