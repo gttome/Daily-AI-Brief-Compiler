@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {buildExternalImageJob,writeExternalImageJob} from '../scripts/external-image-jobs.mjs';
+import {verifyPendingImageHandoff} from '../scripts/verify-pending-image-handoff.mjs';
 
 const digest=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const DATE='2026-10-11';
@@ -126,3 +127,40 @@ test('publication workflow generates optional index only AFTER live proof and ve
   assert.doesNotMatch(scope,/image_gen|render-shadow-images|workflow_dispatch|create_task|schedule:/);
 });
 
+
+test('Oct 26 regression: the REAL image job generator, serialized index and handoff verifier agree on story_id',t=>{
+  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'generated-handoff-integration-'));
+  t.after(()=>fs.rmSync(tmp,{recursive:true,force:true}));
+  const f=fixture();
+  const job=buildExternalImageJob(f);
+  const output=path.join(tmp,'output','image-jobs');
+  const history=path.join(tmp,'prior-history');
+  fs.mkdirSync(history,{recursive:true});
+  const written=writeExternalImageJob({job,historyRoot:history,outputRoot:output});
+  const jobBytes=fs.readFileSync(path.join(output,DATE,'job.json'));
+  const index=JSON.parse(fs.readFileSync(path.join(output,'index.json'),'utf8'));
+  const serializedJob=JSON.parse(jobBytes);
+  const input={editionDate:DATE,index,job:serializedJob,
+    bundle:f.bundle,bundleBytes:f.bundleBytes,jobBytes};
+  assert.equal(written.index.latest_eligible_date,DATE);
+  assert.equal(verifyPendingImageHandoff(input).result,'PENDING_IMAGE_HANDOFF_VERIFIED');
+  assert.deepEqual(serializedJob.stories.map(s=>s.story_id),f.bundle.stories.map(s=>s.id));
+  assert.ok(serializedJob.stories.every(s=>!Object.hasOwn(s,'id')));
+  // Reproduce the real Oct26 failure: rewriting an otherwise correctly SHA-bound
+  // job with the WRONG property name must fail even when hashes are recomputed.
+  const broken={...serializedJob,stories:serializedJob.stories.map(s=>{
+    const {story_id,...fields}=s;return {...fields,id:story_id};
+  })};
+  const brokenBytes=Buffer.from(JSON.stringify(broken,null,2)+'\n');
+  const brokenIndex={...index,editions:index.editions.map(entry=>({
+    ...entry,job_sha256:digest(brokenBytes)
+  }))};
+  assert.throws(()=>verifyPendingImageHandoff({...input,job:broken,jobBytes:brokenBytes,
+    index:brokenIndex}),/source\/job story IDs differ/);
+  // A valid ID set must still be bound to exactly the original signed bytes.
+  assert.throws(()=>verifyPendingImageHandoff({...input,bundleBytes:Buffer.concat([
+    f.bundleBytes,Buffer.from(' ')])}),/SHA256/);
+  assert.throws(()=>verifyPendingImageHandoff({...input,job:{
+    ...serializedJob,source:{...serializedJob.source,verified_reader_url:'https://example.com/'}
+  }}),/dated public reader URL/);
+});

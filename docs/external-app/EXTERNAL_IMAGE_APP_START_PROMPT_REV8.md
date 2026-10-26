@@ -14,6 +14,19 @@ Read [Static editorial image admission](STATIC_EDITORIAL_IMAGE_ADMISSION.md) bef
 
 First read `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV8.md` (full Revision 8 contract), `EXTERNAL_APP_HANDOFF_REV8.md` (Revision 8 handoff), `docs/external-app/Brief_Compiler_Image_App_GitHub_Prompt_REV7.md`, `docs/external-app/Perfect_Image_Specification.md` and `docs/external-app/Image_Variation_After_Action.md`. Revision 7 quality and protected release safeguards remain in force unless the future-only recurring source-selection/authorization rule explicitly supersedes them.
 
+## October 26 image AAR corrective preflight — effective October 27
+
+The existing source-frozen quality preflight already requires explanatory labels, allowed causal edges, safe margins, 12 meaningful components and real saved-pixel review. **Do not rebuild or relax it.** October 26 still required 16 true native image attempts to accept six images. For the **next and future** original six-source images only, populate the additional fields in `pre_generation_checks` before the first native call:
+
+- `source_caveat_detached:true`: put source limitations in a physically separate note, never as an input or output of a process arrow.
+- `no_simulated_document_strokes:true` and `no_unsupported_chart_or_score_marks:true`: prohibit faux writing, fake chart bars and simulated ranked scores anywhere, not just in headings.
+- `mechanism_canvas_percent` between 55 and 85 and `explanatory_substage_labels` containing at least two **distinct existing approved labels**: reserve meaningful visual room for internal mechanism detail, not decorative gears, shields or empty boxes.
+- Specify export-effective font sizes at **at least 26px for every secondary label**, and **at least 32px for the existing 2–3 priority labels** at the actual final 1200×630 resolution.
+
+The existing `scripts/preflight-image-firstpass.mjs` now enforces these typed future-only preparations. A syntactically passing plan is not pixel evidence: inspect the actual saved final-size pixels, check arrow origins/destinations, exact label bytes, mobile rendering and causal qualifications, then reject/correct until all six pass. Accepted original PNGs remain immutable; no extra AI worker or paid APIs.
+
+**Transport/pre-PR reuse of proven recovery:** For connected GitHub PNG readback use `fetch_file` **with `encoding:"base64"` at the exact immutable commit**, decode bytes, and compare SHA-256, Git blob identity, length and PNG structure. Never try to UTF-8 decode binary PNG through `fetch_blob`. Before invoking the existing `preflight-recurring-image-package.mjs`, fetch current `origin/main`, `origin/shadow-pages-history` and the exact `origin/shadow/YYYY-MM-DD` source ref, and obtain complete ancestry if the checkout is shallow. Confirm them with `git rev-parse` and `git merge-base --is-ancestor` before claiming `PRE_PR_PACKAGE_PASS`. Do not alter accepted hashes or open a second package PR for an infrastructure failure.
+
 ## Exact new job selection
 
 Bind `cycle_date` to the real America/Chicago evening of this production cycle; 21:15 targets the **next local calendar date**, regardless of chat/runtime labels. Select only `shadow-pages-history/site/image-jobs/index.json` entry for that exact edition. Do NOT use `latest_eligible_date` or resume older `PUBLISHED_PENDING` jobs. If absent: `WAITING_SOURCE` with no generation. If `RELEASED_VERIFIED`: no generation or repeat replacement. An old job is historical, not a retry queue.

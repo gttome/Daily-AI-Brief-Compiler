@@ -124,6 +124,12 @@ For October 27 onward the **existing** bundle-ready and protected reader publish
 
 Do not weaken 2/2/2, the mandatory single Agent Skills item, source reading, freshness, preservation, protected CI, or the zero-charge unattended production policy. Do not add a worker/schedule, paid semantic embedding API, image generation dependency, or changes to completed editions.
 
+### Oct27+ research and video variety incremental controls
+
+The October 26 unified AAR found **0/6 selected articles published within 24h** and **two evergreen videos from the same educational publisher**. Neither is automatically a policy violation: factual original publisher dates, verifiable teaching value and source-justified 72h/168h fallback outrank recency padding or promotional videos. The preexisting current source discovery, broad candidate pool, seven-edition publisher history, verified video prequalification and publisher exceptions remain in force.
+
+New editions must document separate, source-specific freshness comparisons rather than repeating a generic fallback rationale across six different stories. A same-publisher video pair still requires the previously implemented independent cross-publisher candidate reviews and now, for October 27+, distinct substantive educational objectives and distinct comparative selection reasons for each chosen video. Two genuinely different publishers remain preferred. Preserve age-accurate **Evergreen instructional video** labels already verified on the original October 26 pages. Read [approved October 26 incremental implementation register](automation/OCT26_APPROVED_UNIFIED_AAR_INCREMENTAL.md); no additional worker, paid API, weakening of existing player checks or edits to published October 26 content.
+
 ## Images
 
 Each of the six stories requires one professional explanatory diagram:

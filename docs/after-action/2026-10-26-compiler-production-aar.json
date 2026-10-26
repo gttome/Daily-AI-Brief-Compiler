@@ -1,0 +1,42 @@
+{
+  "schema_version": "daily-compiler-owner-triggered-incident-aar-v1",
+  "incident_id": "DAB-COMPILER-20261026-IMAGE-HANDOFF-001",
+  "edition_date": "2026-10-26",
+  "cycle_date": "2026-10-25",
+  "timezone": "America/Chicago",
+  "issue": "Protected reader image-handoff gate initially rejected the genuine generated six-story job because it compared job.stories[].id rather than the actual schema field job.stories[].story_id.",
+  "first_failure": {
+    "stage": "IMAGE_HANDOFF",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40248965568",
+    "observed_at": "2026-10-26T00:23:13.683Z",
+    "error": "IMAGE_HANDOFF_BLOCKED: source/job story IDs differ"
+  },
+  "owner_intervention": {
+    "required_in_observed_sequence": true,
+    "observed_sequence": "The owner initiated a status inquiry in this conversation after the failed protected gate. During that owner-initiated session the assistant investigated GitHub, identified the schema mismatch, merged the narrow PR and observed the successful retry. No self-initiated same-edition remedy independent of that status conversation is proved.",
+    "owner_message_timestamp": "NOT_INDEPENDENTLY_ATTESTED_BY_GITHUB",
+    "counterfactual_without_owner_message": "UNKNOWN; no alternate future or unseen background repair can be proven"
+  },
+  "unattended_autonomy_result": "FAIL_OWNER_TRIGGER_REQUIRED",
+  "autonomy_claim_scope": "Observed owner-initiated recovery, not proof an independent scheduled producer would never have corrected the error; scheduler identity and task host liveness remain unproven.",
+  "recovery": {
+    "correcting_pr": 253,
+    "protected_merge_commit": "0e78d0ba46177877259b3e67cef50d21d0d189f3",
+    "rerun_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40249635589",
+    "reader_verified_at": "2026-10-26T00:31:43.082Z",
+    "image_job_prepared": true,
+    "image_worker_release_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40261305734",
+    "images_released_verified": 6,
+    "original_source_and_bundle_unchanged": true,
+    "accepted_png_regenerations": 0
+  },
+  "safeguards_to_preserve": [
+    "original immutable six-story editorial digest",
+    "single 19:15 editorial producer",
+    "single 21:15 premium image producer",
+    "protected main PR plus exact-head CI",
+    "real signed-out video player check",
+    "full historical preservation and SHA256-bound job"
+  ],
+  "prevention_recommendation": "Integrate actual buildExternalImageJob and writeExternalImageJob output with verifyPendingImageHandoff in existing protected CI; retain actionable failure receipts and same-session safe retries. Full automatic semantic ChatGPT recovery after the producer invocation ends remains unproven without a supported authorized executor."
+}

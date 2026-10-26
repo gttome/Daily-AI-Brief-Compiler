@@ -25,6 +25,10 @@ export function validateRecentSourceDiscovery(bundle){
  }
  if(domains.size<5||outside<2||[...selected].some(u=>!urls.has(u)))
     fail('publisher_range_or_competing_sources_not_documented');
+ // Oct 27+: an identical fallback explanation repeated across six different
+ // articles does not demonstrate an individualized freshness/value decision.
+ // Distinct factual reasons remain an editorial duty; this catches only copy/paste.
+ const fallbackReasons=new Set();
  for(const story of bundle.stories||[]){
    const original=Date.parse(story.source?.published_at||'');
    if(!Number.isFinite(original))fail('story_original_date_missing:'+story.id);
@@ -34,6 +38,13 @@ export function validateRecentSourceDiscovery(bundle){
       !Array.isArray(matches[0].newer_sources_considered)||
       matches[0].newer_sources_considered.some(u=>!urls.has(u)))
       fail('older_than_24h_source_requires_explicit_reason:'+story.id);
+   if(bundle.edition_date>='2026-10-27'){
+     const rationale=matches[0].why_selected_over_recent_options
+       .normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();
+     if(fallbackReasons.has(rationale))
+       fail('duplicated_non_specific_fallback_rationale:'+story.id);
+     fallbackReasons.add(rationale);
+   }
    // Forward-only: an older selection must demonstrably compare at least one real
    // recent item if any was researched. Relevance still overrides a fake quota.
    if(bundle.edition_date>='2026-10-25'&&recentUrls.size>0&&
@@ -43,5 +54,6 @@ export function validateRecentSourceDiscovery(bundle){
  return {result:'PASS',candidates_considered:urls.size,distinct_domains:domains.size,
    independently_recorded_within_24h:newer,selected_within_24h:[...selected].filter(u=>recentUrls.has(u)).length,
    additional_alternatives:outside,
+   distinct_older_story_fallback_explanations:fallbackReasons.size,
    source_dates_not_synthesized:true,editorial_relevance_still_required:true};
 }

@@ -47,15 +47,33 @@ test('unified AAR also labels owner-assisted release separately from public imag
   const input=path.join(dir,'in'),output=path.join(dir,'out');
   fs.mkdirSync(input);
   const e=publicEvidence();
-  e['owner-intervention-incident']={edition_date:date,
+  e['owner-intervention-incident']={edition_date:date,incident_id:'TEST-SAME-DATE-REPAIR',
    unattended_autonomy_result:'FAIL_OWNER_TRIGGER_REQUIRED',
-   owner_intervention:{required_in_observed_sequence:true}};
+   owner_intervention:{required_in_observed_sequence:true},
+   recovery:{correcting_pr:253}};
   for(const [k,v] of Object.entries(e))fs.writeFileSync(path.join(input,k+'.json'),JSON.stringify(v));
   execFileSync(process.execPath,['scripts/render-unified-production-aar.mjs',cycle,input,output],{encoding:'utf8'});
   const j=JSON.parse(fs.readFileSync(path.join(output,'combined.json'),'utf8'));
   const md=fs.readFileSync(path.join(output,'combined.md'),'utf8');
   assert.equal(j.autonomy_status,'FAIL_OWNER_RECOVERY');
   assert.equal(j.confirmed_owner_intervention,true);
+  assert.equal(j.owner_intervention_incident_id,'TEST-SAME-DATE-REPAIR');
+  assert.equal(j.owner_assisted_correction_pr,253);
+  assert.match(md,/Owner-initiated recovery record/);
+  assert.match(md,/PR #253/);
   assert.match(md,/Unattended autonomy/);
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
+});
+
+test('October 26 owner-initiated handoff recovery cannot be misreported as unattended',()=>{
+ const incident=JSON.parse(fs.readFileSync('docs/after-action/2026-10-26-compiler-production-aar.json','utf8'));
+ assert.equal(incident.edition_date,'2026-10-26');
+ assert.equal(incident.owner_intervention.required_in_observed_sequence,true);
+ assert.equal(incident.unattended_autonomy_result,'FAIL_OWNER_TRIGGER_REQUIRED');
+ assert.equal(incident.first_failure.stage,'IMAGE_HANDOFF');
+ assert.equal(incident.recovery.correcting_pr,253);
+ assert.equal(incident.recovery.images_released_verified,6);
+ const wf=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');
+ assert.match(wf,/owner-intervention-incident\.json/);
+ assert.match(wf,/\$edition-compiler-production-aar\.json/);
 });

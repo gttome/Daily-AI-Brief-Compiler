@@ -28,6 +28,14 @@ The external app does not need the older production repository's executor, Work 
 
 The existing Compiler richness target remains **12 meaningful components**, despite the historical specification's lower eight-component floor. Use the stronger six-composition variation target below. No density target authorizes fabricated facts or decorative filler.
 
+### October 27 and later: prevent October 26 first-pass failures
+
+The October 26 AAR recorded **zero of six first-pass acceptances**: false causal connectors, fake writing/chart signals, weak internal mechanism detail and undersized export labels caused ten rejected native candidates. Retain all existing source reading and exact 12-component quality floors; the improvement is to prepare the first prompt and drawing geometry more precisely.
+
+Before native generation, declare `pre_generation_checks.source_caveat_detached:true`, `no_simulated_document_strokes:true`, `no_unsupported_chart_or_score_marks:true`, `mechanism_canvas_percent` in **55–85**, and two distinct existing `explanatory_substage_labels` from the source-approved label allowlist. Use at least **26px** effective font size for every non-priority explanatory label and at least **32px** for the two or three priority labels, measured at the FINAL 1200×630 output. Do not connect the source caveat as a process input, rejection path, success condition or output. No invented scores, arbitrary tiny figure captions, decorative gears/controls, fake writing or unsupported arrows. Keep reliable source-backed alternatives to claims you cannot honestly visualize.
+
+These prospective typed checks run in the current `scripts/preflight-image-firstpass.mjs`. They validate the plan, not the rendered artwork. Actual visual inspection and correction until source-factual, legible, distinct full-size PNGs PASS remains mandatory, without changing previously accepted assets or introducing more schedules/services.
+
 ## 3. Article-to-image specification
 
 Read the assigned complete article and relevant verified primary-source evidence before generation. Build one specification per story containing:

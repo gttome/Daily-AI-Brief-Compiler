@@ -96,4 +96,26 @@ test('October 24 pre-generation geometry requires export-safe readable text and 
  s.pre_generation_checks.label_layout[0].minimum_font_px=30;
  s.pre_generation_checks.label_layout[1].minimum_font_px=30;
  assert.equal(validateFrozenImageSpecification({spec:s,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
+ // Oct27 keeps all prior rules and adds concrete first-export quality checks.
+ s.edition_date='2026-10-27';
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),
+   /oct27_final_export_secondary_or_priority_font_too_small/);
+ for(const label of s.pre_generation_checks.label_layout)
+   label.minimum_font_px=s.pre_generation_checks.thumbnail_priority_labels.includes(label.label)?32:26;
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),
+   /oct27_caveat_text_and_explanatory_mechanism_layout_required/);
+ Object.assign(s.pre_generation_checks,{
+   source_caveat_detached:true,no_simulated_document_strokes:true,
+   no_unsupported_chart_or_score_marks:true,
+   mechanism_canvas_percent:65,
+   explanatory_substage_labels:s.required_labels.slice(2,4)
+ });
+ assert.equal(validateFrozenImageSpecification({spec:s,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
+ s.pre_generation_checks.source_caveat_detached=false;
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),
+   /oct27_caveat_text_and_explanatory_mechanism_layout_required/);
+ s.pre_generation_checks.source_caveat_detached=true;
+ s.pre_generation_checks.explanatory_substage_labels=['Imaginary unapproved text','Another label'];
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),
+   /oct27_caveat_text_and_explanatory_mechanism_layout_required/);
 });
