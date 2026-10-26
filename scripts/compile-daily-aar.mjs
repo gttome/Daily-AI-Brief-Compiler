@@ -4,13 +4,15 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {ownerReportedWorkUsage} from './owner-usage.mjs';
 import {summarizeTaskOriginEvidence} from './task-origin-evidence.mjs';
+import {oct27SourceReadiness,renderOct27SourceSection} from './oct27-source-readiness.mjs';
 import {fileURLToPath} from 'node:url';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
- 'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident'];
+ 'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
+ 'source-route-coverage','source-item-census','source-qualification'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -97,6 +99,8 @@ function compilerAar(cycle,date,e){
   videos_required:2,podcasts_required:2,
   source_job_exists:!!job,
   editorial_source_detail_available:!!producer,
+  oct28_source_readiness:oct27SourceReadiness(date,{routeCoverage:e['source-route-coverage'],
+    itemCensus:e['source-item-census'],qualifications:e['source-qualification']}),
   usage_percent:null,model_calls:null,work_invocations:null,
   claims_not_promoted:claims,defects,
   next_run:'UNKNOWN',
@@ -244,7 +248,8 @@ export function compileDailyReports({cycleDate,evidence={},hashes={}}){
   next_run:'UNKNOWN',
   note:'A previous-cycle outcome or absent report alone does not block a new current-date Primary; current scheduled host/tool availability requires separate genuine proof.',
   independent_aar_reconciliation:true,reader_or_images_republished:false,
-  source_evidence_hashes:hashes
+  source_evidence_hashes:hashes,
+  oct28_source_readiness:compiler.oct28_source_readiness
  };
  return {compiler,images,'daily-rollup':rollup};
 }
@@ -273,6 +278,7 @@ export function renderMarkdown(report){
   '| Dimension | Observed evidence |\n|---|---|\n'+
   rows.map(([k,v])=>'| '+k+' | '+String(v??'UNKNOWN').replace(/\|/g,'/')+' |').join('\n')+
   '\n\n## Evidence and limitations\n\n'+defects+'\n\n'+
+  (report.oct28_source_readiness?renderOct27SourceSection(report.oct28_source_readiness)+'\n\n':'')+
   '## Operational result\n\n'+
   (isRoll?report.note:
    'This is a strictly evidence-derived report. Missing runtime receipts are NO_START_RECEIPT, not proof the scheduler never fired. Prior-day defects do not automatically block the next edition. Account usage and host execution mode remain UNKNOWN unless independently observed.')+
