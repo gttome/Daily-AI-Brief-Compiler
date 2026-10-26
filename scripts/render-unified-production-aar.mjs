@@ -16,6 +16,11 @@ function generateUnified(cycle,e) {
     ownerIncident?.unattended_autonomy_result==="FAIL_OWNER_TRIGGER_REQUIRED"||
     compile?.owner_intervention===true;
   const autonomy=confirmedOwnerRecovery?"FAIL_OWNER_RECOVERY":"UNPROVEN";
+  // Preserve separately grounded owner-assisted recovery evidence.
+  const ownerIncidentId=typeof ownerIncident?.incident_id==='string'?
+    ownerIncident.incident_id:null;
+  const recoveryPr=Number.isSafeInteger(ownerIncident?.recovery?.correcting_pr)?
+    ownerIncident.recovery.correcting_pr:null;
   const protectionEvents=Array.isArray(publicationHealth?.events)?
     publicationHealth.events.filter(x=>x.status==="BLOCKED_PUBLICATION"):[];
   const usage=e["owner-usage"]&&e["owner-usage"].cycle_date===cycle&&e["owner-usage"].edition_date===edition?e["owner-usage"]:null;
@@ -241,6 +246,7 @@ imgCols,
 "",
 `**Editor recovery classification:** ${autonomy}. **Owner intervention:** ${confirmedOwnerRecovery?"Documented and required":"Unproven either way"}. **Protected same-edition failures recorded:** ${protectionEvents.length}. ${publicationHealth?.status==="BLOCKED_PUBLICATION"?"Latest recorded publishing step was blocked; public release status must be evaluated separately.":""}`,
 `**Latest failed protected stage:** ${publicationHealth?.last_recorded_blocker?.stage??"Not in same-edition receipts"}; [Action evidence](${publicationHealth?.last_recorded_blocker?.run_url??gh+"/actions"}). Exact stage durations are available only where real source timestamps exist.`,
+ ...(ownerIncidentId?[`**Owner-initiated recovery record:** [${nice(ownerIncidentId)}](${gh}/blob/main/docs/after-action/${edition}-compiler-production-aar.json).${recoveryPr?` Corrected in [PR #${recoveryPr}](${gh}/pull/${recoveryPr}).`:""} Owner-message timing and independent scheduler identity remain unproven.`]:[]),
 "",
 ...(Array.isArray(imageAar?.errors)&&imageAar.errors.length?[
 "| Stage | Verified issue | Corrective action |",
@@ -290,7 +296,7 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",cycle_date:cycle,edition_date:edition,result:badge,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
