@@ -98,6 +98,10 @@ jobs:
             git show "refs/remotes/origin/main:docs/after-action/$edition-compiler-production-aar.json" > "$in/owner-intervention-incident.json" 2>/dev/null || rm -f "$in/owner-intervention-incident.json"
             git show "$ref:shadow-runs/$edition/edition-bundle.json" > "$in/edition-bundle.json" 2>/dev/null || rm -f "$in/edition-bundle.json"
             git show "$ref:shadow-runs/$edition/producer-receipt.json" > "$in/producer-receipt.json" 2>/dev/null || rm -f "$in/producer-receipt.json"
+            # Optional edition-scoped source qualification receipts; absence is NOT OBSERVED, never PASS.
+            git show "$ref:shadow-runs/$edition/editorial/source-route-coverage.json" > "$in/source-route-coverage.json" 2>/dev/null || rm -f "$in/source-route-coverage.json"
+            git show "$ref:shadow-runs/$edition/editorial/source-item-census.json" > "$in/source-item-census.json" 2>/dev/null || rm -f "$in/source-item-census.json"
+            git show "$ref:shadow-runs/$edition/editorial/source-qualification.json" > "$in/source-qualification.json" 2>/dev/null || rm -f "$in/source-qualification.json"
             git show "$ref:shadow-runs/$edition/producer/task-origin.json" > "$in/compiler-task-origin.json" 2>/dev/null || rm -f "$in/compiler-task-origin.json"
             git show "$ref:shadow-runs/$edition/compiler/compile-receipt.json" > "$in/compile-receipt.json" 2>/dev/null || rm -f "$in/compile-receipt.json"
             git show "$ref:shadow-runs/$edition/compiler/postpublish-integrity.json" > "$in/postpublish-integrity.json" 2>/dev/null || rm -f "$in/postpublish-integrity.json"
