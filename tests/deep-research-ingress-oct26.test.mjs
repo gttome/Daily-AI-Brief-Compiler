@@ -49,12 +49,14 @@ test('13 Deep Research results: 5 existing URLs reused, 8 catalogued, only 5 ena
 
 test('read-only editorial source discovery admits only matching enabled roles',()=>{
   const before=JSON.stringify(registry);
+  const byRole={
+    article:admitted.filter(id=>id.startsWith('deep-20261026-a')),
+    video:admitted.filter(id=>id.startsWith('deep-20261026-v')),
+    podcast:admitted.filter(id=>id.startsWith('deep-20261026-p'))
+  };
   for(const [role,count] of [['article',3],['video',1],['podcast',1]]){
     const visible=activeDiscoveryResources(registry,role);
-    assert.deepEqual(visible.filter(isDeep).map(r=>r.resource_id).sort(),
-      admitted.filter(id=>id.includes('-'+role[0]) ||
-        role==='video'&&id.includes('-v01-') ||
-        role==='podcast'&&id.includes('-p02-')).sort());
+    assert.deepEqual(visible.filter(isDeep).map(r=>r.resource_id).sort(),byRole[role].slice().sort());
     assert.equal(visible.filter(isDeep).length,count);
     assert.ok(visible.every(r=>r.enabled&&r.content_types.includes(role)));
   }
