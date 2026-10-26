@@ -56,6 +56,24 @@ export function videoPublisherKey(item){
  }
  return articlePublisherKey(item.url);
 }
+// Oct27+ a single publisher is an exception, never a shortcut for two
+// videos teaching essentially the same lesson. This uses existing evidence
+// fields rather than inventing new playback proof or a mechanical age quota.
+export function validateSamePublisherLearningObjectives(bundle){
+ if(bundle?.edition_date<'2026-10-27')return {result:'SKIPPED_HISTORICAL'};
+ if(!Array.isArray(bundle?.videos)||bundle.videos.length!==2)
+   fail('two_videos_required_for_same_publisher_review');
+ const normalize=s=>String(s??'').normalize('NFKC').toLowerCase()
+   .replace(/[^a-z0-9]+/g,' ').trim();
+ const objectives=bundle.videos.map(v=>v.quality_review?.learning_objective);
+ const reasons=bundle.videos.map(v=>v.quality_review?.selected_over_alternatives);
+ if(objectives.some(x=>!text(x,50))||reasons.some(x=>!text(x,50))||
+   new Set(objectives.map(normalize)).size!==2||
+   new Set(reasons.map(normalize)).size!==2)
+   fail('same_publisher_videos_need_distinct_transferable_objectives_and_selection_reasons');
+ return {result:'PASS',distinct_teaching_objectives:2,
+   independent_audiovisual_player_verification_still_required:true};
+}
 // Reviewed alternatives are retained as evidence, not inferred from the two winners.
 export function validateVideoPrequalification(bundle){
  if(bundle?.edition_date<'2026-10-24')return {result:'SKIPPED_HISTORICAL'};
@@ -92,6 +110,7 @@ export function validateMediaPrecision(bundle){
   const e=bundle.video_diversity_exception;
   if(!text(e?.reason,80)||!text(e?.reviewer,3)||!Array.isArray(e?.alternatives_reviewed)||e.alternatives_reviewed.length<2||
     e.alternatives_reviewed.some(s=>!text(s.reason,40)))fail('distinct_video_publishers_or_reviewed_exception_required');
+  validateSamePublisherLearningObjectives(bundle);
   const alternatives=new Set(e.alternatives_reviewed.map(videoPublisherKey));
   if(alternatives.size<2||[...alternatives].some(p=>publishers.has(p)))fail('independent_video_alternatives_required');
   // Forward-only: a diversity exception cannot cite unreviewed or invented
