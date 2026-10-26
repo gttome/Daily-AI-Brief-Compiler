@@ -8,7 +8,7 @@ const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'
 const meta={edition_date:'2026-10-27',execution_id:'compiler-2026-10-27-r1',
  created_at:'2026-10-26T23:14:00Z'};
 const observation=(resource_id,extra={})=>({resource_id,outcome:'NO_ELIGIBLE_ITEMS',
- checked_at:'2026-10-26T23:14:32Z',source_index_url:'https://example.ai/latest',
+ checked_at:'2026-10-26T23:14:32Z',source_index_url:registry.resources.find(r=>r.resource_id===resource_id)?.url,
  evidence_method:'publisher_index',items:[],
  reason:'Index checked but no qualifying recent original dated source items found.',...extra});
 
@@ -79,4 +79,13 @@ test('candidates without exact dated identity and non-HTTPS indexes cannot pass'
  assert.throws(()=>recordEditorialSourceObservation(p,observation(id,{
   reason:'No'
  })),/MISSING_VISIT_EVIDENCE/);
+ assert.throws(()=>recordEditorialSourceObservation(p,observation(id,{
+  source_index_url:'https://unrelated.example/latest'
+ })),/UNBOUND_PUBLISHER_INDEX/);
+ assert.throws(()=>recordEditorialSourceObservation(p,observation(id,{
+  outcome:'CANDIDATES_FOUND',items:[{
+   title:'Future item absent at the recorded research time',
+   url:'https://publisher.example/post',original_date:'2028-10-26T15:00:00Z'
+  }]
+ })),/CANDIDATE_ORIGINAL_EVIDENCE/);
 });
