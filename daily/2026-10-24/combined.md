@@ -136,6 +136,7 @@ flowchart LR
 
 **Editor recovery classification:** FAIL_OWNER_RECOVERY. **Owner intervention:** Documented and required. **Protected same-edition failures recorded:** 0. 
 **Latest failed protected stage:** Not in same-edition receipts; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions). Exact stage durations are available only where real source timestamps exist.
+**Owner-initiated recovery record:** [DAB-COMPILER-20261025-OWNER-RECOVERY-001](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/2026-10-25-compiler-production-aar.json). Owner-message timing and independent scheduler identity remain unproven.
 
 | Stage | Verified issue | Corrective action |
 |---|---|---|

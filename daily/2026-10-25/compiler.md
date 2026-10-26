@@ -12,8 +12,8 @@
 | Started | 2026-10-26T00:16:09.635Z |
 | Finished | 2026-10-26T00:31:43.052Z |
 | Duration (min) | 15.56 |
-| Autonomy independent of publication | UNPROVEN |
-| Owner intervention required | UNKNOWN |
+| Autonomy independent of publication | FAIL_OWNER_RECOVERY |
+| Owner intervention required | YES |
 | Prior protected gate failures recorded | 1 |
 | Last failing stage | IMAGE_HANDOFF |
 | Task origin | UNPROVEN |

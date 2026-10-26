@@ -6,7 +6,7 @@
 **Primary public reader:** [Open 2026-10-26 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-26/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: COMPLETE.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive result: COMPLETE.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 15m 33s** · **Premium Images 32m 11s** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -15,7 +15,7 @@
 | Measure | Recorded result | Source / caveat |
 |:--|:--:|:--|
 | Editorial publication | **PASS** | State and public reader integrity receipt |
-| **Unattended autonomy (separate from publication)** | **UNPROVEN** | Owner incident receipt takes precedence over unverified producer self-attestation |
+| **Unattended autonomy (separate from publication)** | **FAIL_OWNER_RECOVERY** | Owner incident receipt takes precedence over unverified producer self-attestation |
 | Recorded protected publishing gate failures | **1** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
 | Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
@@ -134,8 +134,9 @@ flowchart LR
 
 ## Incidents, corrections and learning
 
-**Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 1. 
+**Editor recovery classification:** FAIL_OWNER_RECOVERY. **Owner intervention:** Documented and required. **Protected same-edition failures recorded:** 1. 
 **Latest failed protected stage:** IMAGE_HANDOFF; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40248965568). Exact stage durations are available only where real source timestamps exist.
+**Owner-initiated recovery record:** [DAB-COMPILER-20261026-IMAGE-HANDOFF-001](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/2026-10-26-compiler-production-aar.json). Corrected in [PR #253](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/253). Owner-message timing and independent scheduler identity remain unproven.
 
 | Stage | Verified issue | Corrective action |
 |---|---|---|
