@@ -75,7 +75,7 @@ export function renderOct27SourceSection(report){
  ];
  return ['## Required October 27 AAR improvement: Full source qualification before October 28',
  '',
- '**Owner-approved deadline:** '+report.must_complete_before+'. **Next edition:** '+report.target_edition+'.',
+ '**Owner-approved deadline:** '+report.must_complete_before+'. **Next edition:** '+report.target_edition+'. These five actions must be completed before the October 28 run.',
  '',
  'These actions are mandatory AAR follow-ups; the AAR does not claim that any source was successfully checked or qualified without live independent evidence.',
  '',
