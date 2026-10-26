@@ -7,7 +7,7 @@ const TERMINAL=new Set(['CANDIDATES_FOUND','NO_ELIGIBLE_ITEMS','ACCESS_BLOCKED',
 const fail=s=>{throw new Error('EDITORIAL_SOURCE_CENSUS_'+s);};
 const okDate=s=>typeof s==='string'&&Number.isFinite(Date.parse(s))&&/\d{4}-\d{2}-\d{2}T/.test(s);
 const https=s=>{try{return new URL(s).protocol==='https:';}catch{return false;}};
-const hostname=u=>new URL(u).hostname.toLowerCase().replace(/^www\\./,'');
+const hostname=u=>new URL(u).hostname.toLowerCase().replace(/^www\./,'');
 const digest=r=>crypto.createHash('sha256').update(JSON.stringify(r)).digest('hex');
 export function itemCensusCounts(ledger){
  const list=ledger.resources||[];
