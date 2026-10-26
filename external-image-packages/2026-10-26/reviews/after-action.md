@@ -1,6 +1,6 @@
 # 2026-10-26 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 09dbbea44cfa0fc23d1df778600f46a234b7004f |
 | Executor observed run start | 2026-10-26T02:16:47Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-26T02:21:45Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXTS; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-26T02:54:00.143Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -42,6 +42,7 @@
 | Native saved-pixel review | oct26-a1-copilot-skill-authoring attempt 1: Insufficient exposed target-testing and evidence-comparison detail; Caveat dominates composition and adds unlisted period | Corrected only rejected candidate with native image editing; exported and inspected saved pixels again before locking. |
 | Native saved-pixel review | oct26-a2-oracle-recruiting-command attempt 1: Simulated writing inside interview/feedback symbols; Size-graded recommendation tokens may imply unsupported scores | Corrected only rejected candidate with native image editing; exported and inspected saved pixels again before locking. |
 | GitHub binary readback | fetch_blob tried UTF-8 decoding of PNG and raised UnicodeDecodeError | Used connected fetch_file encoding base64 at exact image commit; verified complete base64 bytes equal local accepted PNG. |
+| Local package preflight | Single-branch shallow checkout initially lacked remote main/source refs and ancestry proof. | Fetched exact main/history/source refs and full ancestry, then obtained PRE_PR_PACKAGE_PASS before opening PR #255. |
 
 ## Evidence and limitations
 
@@ -60,5 +61,13 @@ Source limitations: publisher-run results, capacity-limited storage, prospective
 Native source renders were larger than target; aspect-preserving export onto white 1200x630 canvas completed before acceptance. Fine labels require full-size viewing on mobile.
 
 Scheduler identity remains UNPROVEN; observed executor clocks do not establish scheduler firing or provider active runtime.
+
+Release workflow completed successfully; independent local verification confirmed all six live PNG hashes, 12 article-image pairings and public status parity. Separate pinned audit confirmed all 17 October 8 objects.
+
+All 24 exact-release desktop/mobile captures were individually inspected; exact archive digest and per-capture SHA-256 were checked before saving reviews. No publication rerun acquired these captures.
+
+First-pass quality remains the main improvement opportunity: 10 rejected candidates involved causal arrows, faux writing, density and final-export label size. Future prompts should reserve mechanism space first, explicitly ban caveat connectors and request large secondary type before the first render.
+
+No accepted PNG or manifest changed during reporting-only closeout; unknown usage remains UNKNOWN. Existing daily recurrence is unchanged.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
