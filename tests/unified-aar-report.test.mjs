@@ -48,6 +48,7 @@ function run(overrides={},relocated=false){
   fs.copyFileSync(path.join(root,'scripts/image-aar-contract.mjs'),path.join(tmp,'image-aar-contract.mjs'));
   fs.copyFileSync(path.join(root,'scripts/worker-checkpoint-consistency.mjs'),path.join(tmp,'worker-checkpoint-consistency.mjs'));
   fs.copyFileSync(path.join(root,'scripts/owner-usage.mjs'),path.join(tmp,'owner-usage.mjs'));
+  fs.copyFileSync(path.join(root,'scripts/oct27-source-readiness.mjs'),path.join(tmp,'oct27-source-readiness.mjs'));
  }
  const res=spawnSync(process.execPath,[executable,cy,input,output],{encoding:'utf8'});
  assert.equal(res.status,0,res.stderr||res.stdout);
