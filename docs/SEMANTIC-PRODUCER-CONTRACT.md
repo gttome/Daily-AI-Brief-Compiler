@@ -127,7 +127,16 @@ Forbidden: Supervisor, Watchdog Ring, writer/recovery leases, worker pools, wake
 
 The producer and delegated cloud stages record structured timing/usage events. Every material problem is persisted as a problem-learning record with root cause, attempted fixes, actual fix, outcome, timing impact, Work/Dot impact, recurrence, permanent action and regression test. Run close produces metrics plus a post-run analysis of speed, reliability, source yield, image attempts, Work time, Dot time, CI/deploy latency and improvement opportunities.
 
-The producer reads the extensible resource registry and records source observations for articles, videos, podcasts, Watchlist and general research. The producer also reads the future-Brief suggestion inbox before research/selection and records a resolution for each eligible suggestion.
+The producer reads the extensible resource registry and records source observations for articles, videos, podcasts, Watchlist and general research.
+
+### October 26 source-only registry expansion — forward-looking discovery
+
+Before EDITORIAL candidate research, inspect **current protected `config/resource-registry.json`**. For each article, video or podcast discovery pass, admit a registry row only if `enabled === true` **and** `content_types` contains the requested role; preserve its exact `resource_id`, canonical `url`, publisher/show identity and original dated item URL in the research evidence. `operations/resources.mjs:activeDiscoveryResources` exposes this same deterministic filter for local fixture validation. Rows marked `enabled:false` are **review leads, never automatic inputs** to unattended research. Do not infer health=healthy from a web-index lookup.
+
+The October 26 bounded source addition activates three article discovery routes and one podcast discovery route on the strength of an original publisher page plus a dated sample. It activates **no new video routes** without dated, playable, independently assessed instructional items. A registry entry authorizes discovering and evaluating a candidate, **not** including that candidate in the edition. The existing article original-date/24–72–168-hour, publisher-diversity, novelty and full-archive checks, verified video/full-playback/education requirements, and podcast episode date, show-cooldown, identity and AI-content minimum continue to govern final selection without exemption. Apply existing 2/2/2 and Agent Skills quotas unchanged.
+
+Keep normal source inspections bounded: prioritize the four newly verified routes alongside previously productive existing resources; sample relevant dated items and stop querying a source once it is empty or unproductive for the edition. Record attempted source IDs and observed outcomes using existing resource observation facilities. Do not query all disabled leads, create a crawler/schedule/paid dependency, or count a promotional library listing as an accepted video or episode. The first naturally scheduled compiler run alone can establish real unattended yield; this change does not start a run or modify either the 19:15 compiler or 21:15 image process.
+ The producer also reads the future-Brief suggestion inbox before research/selection and records a resolution for each eligible suggestion.
 
 Post-publication corrections are additive protected revisions. They do not allocate a new execution for the published edition and must preserve superseded historical artifacts.
 
