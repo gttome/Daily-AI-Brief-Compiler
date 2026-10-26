@@ -6,7 +6,7 @@
   "original_source_commit_sha": "17d8ad2b0ea2e0639d13a9d7c41e152ca307593e",
   "original_bundle_sha256": "1c887456dba8b8fcdc8ea9bdecb66951381b79088d87bf58eaaa070783fcf9c0",
   "human_readable_path": "external-image-packages/2026-10-26/reviews/after-action.md",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "production": {
     "actual_generation_count": 16,
     "accepted_count": 6,
@@ -105,15 +105,34 @@
       "phase": "GitHub binary readback",
       "issue": "fetch_blob tried UTF-8 decoding of PNG and raised UnicodeDecodeError",
       "correction": "Used connected fetch_file encoding base64 at exact image commit; verified complete base64 bytes equal local accepted PNG."
+    },
+    {
+      "phase": "Local package preflight",
+      "issue": "Single-branch shallow checkout initially lacked remote main/source refs and ancestry proof.",
+      "correction": "Fetched exact main/history/source refs and full ancestry, then obtained PRE_PR_PACKAGE_PASS before opening PR #255."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PR"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-26T02:54:00.143Z",
+    "workflow_run_id": 40261305734,
+    "package_pr": 255,
+    "protected_main_commit": "eec9175272fa3f9634f1be86fb3bb23fbad59a9f",
+    "exact_head_ci_sha": "5b3e67250853125205c1a13a32bbcf138c99b002",
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "six_live_image_hashes_verified": 6,
+    "article_pairings_verified": 12,
+    "protected_oct8_objects_verified": 17
   },
   "visual_review": {
-    "result": "PENDING_LIVE_CONTEXTS",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-10-26/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "reviewed_at": "2026-10-26T02:57:17Z",
+    "review_path": "external-image-packages/2026-10-26/reviews/live/semantic-pixel-review.json",
+    "workflow_run_id": 40261305734,
+    "artifact_id": 12624444265,
+    "exact_release_artifact_bytes_reused": true,
+    "fine_text_requires_mobile_full_size": true
   },
   "usage": {
     "work_usage_percent": null,
@@ -124,6 +143,10 @@
     "Generation counts are observed tool calls, not an estimate. First-pass acceptance 0 of 6; quality corrections continued without a cap.",
     "Source limitations: publisher-run results, capacity-limited storage, prospective Bevo benefits, vendor hardware/HR scenarios, and non-guaranteed Skill behavior remain explicit.",
     "Native source renders were larger than target; aspect-preserving export onto white 1200x630 canvas completed before acceptance. Fine labels require full-size viewing on mobile.",
-    "Scheduler identity remains UNPROVEN; observed executor clocks do not establish scheduler firing or provider active runtime."
+    "Scheduler identity remains UNPROVEN; observed executor clocks do not establish scheduler firing or provider active runtime.",
+    "Release workflow completed successfully; independent local verification confirmed all six live PNG hashes, 12 article-image pairings and public status parity. Separate pinned audit confirmed all 17 October 8 objects.",
+    "All 24 exact-release desktop/mobile captures were individually inspected; exact archive digest and per-capture SHA-256 were checked before saving reviews. No publication rerun acquired these captures.",
+    "First-pass quality remains the main improvement opportunity: 10 rejected candidates involved causal arrows, faux writing, density and final-export label size. Future prompts should reserve mechanism space first, explicitly ban caveat connectors and request large secondary type before the first render.",
+    "No accepted PNG or manifest changed during reporting-only closeout; unknown usage remains UNKNOWN. Existing daily recurrence is unchanged."
   ]
 }
