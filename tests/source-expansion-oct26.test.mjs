@@ -5,8 +5,7 @@ import {activeDiscoveryResources,validateResourceRegistry} from '../operations/r
 
 const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
 const newSources=registry.resources.filter(r=>r.resource_id.startsWith('research-20261026-'));
-const oldSources=registry.resources.filter(r=>!r.resource_id.startsWith('research-20261026-') &&
-  !r.resource_id.startsWith('deep-20261026-'));
+const oldSources=registry.resources.slice(0,69); // immutable original baseline; later import waves append
 const enabled=['research-20261026-a01','research-20261026-a04',
   'research-20261026-a12','research-20261026-p03'];
 
@@ -55,7 +54,9 @@ test('EDITORIAL ingress admits qualified sources with exact ID and excludes disa
     const visible=activeDiscoveryResources(registry,type);
     const expectedLegacy={article:33,video:3,podcast:17}[type];
     const expectedNew={article:3,video:0,podcast:1}[type];
-    const firstWave=visible.filter(r=>!r.resource_id.startsWith('deep-20261026-'));
+    const firstWave=visible.filter(r=>!r.resource_id.startsWith('deep-20261026-') &&
+      !r.resource_id.startsWith('directory-') &&
+      !r.resource_id.startsWith('universe-20261026-'));
     assert.equal(firstWave.length,expectedLegacy+expectedNew);
     assert.ok(visible.every(r=>r.enabled && r.content_types.includes(type)));
     for(const row of visible.filter(r=>r.resource_id.startsWith('research-20261026-'))){

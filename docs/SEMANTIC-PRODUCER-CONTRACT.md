@@ -129,6 +129,10 @@ The producer and delegated cloud stages record structured timing/usage events. E
 
 The producer reads the extensible resource registry and records source observations for articles, videos, podcasts, Watchlist and general research.
 
+### Full source portfolio for the next existing EDITORIAL cycle
+
+Read the current full `config/resource-registry.json` before selecting Article, Video, and Podcast discovery routes. The October 26 reconciliation restores 204 historical role memberships and increases the v1 registry to 208 resources, of which 94 have `enabled:true`. Use the complete enabled role-matched pool as potential candidate sources, not only the five examples below. Prioritize a bounded diverse shortlist rather than mechanically fetching every publisher each night. Preserve every existing original-date, publisher-diversity, video full-playback, podcast program-reuse and editorial-value gate. The mapping and qualification receipts are in `docs/source-expansion/OCT26_FULL_SOURCE_UNIVERSE_RECONCILIATION.json`. Catalogued disabled entries remain unavailable to unattended research.
+
 ### October 26 Deep Research — existing 19:15 source sampling
 
 The protected registry now has a **second, bounded source-discovery cohort**; see `docs/source-expansion/OCT26_DEEP_RESEARCH_1915_ADMISSION.md`. The next **already scheduled 19:15 America/Chicago EDITORIAL** invocation should read current `config/resource-registry.json` and, without creating another task, sample at most one original dated candidate item each from the five newly enabled IDs: `deep-20261026-a01-google-research`, `deep-20261026-a02-microsoft-ai`, `deep-20261026-a03-nvidia-news`, `deep-20261026-p02-data-skeptic` and `deep-20261026-v01-two-minute-papers`. Compare them with the normal incumbent shortlist, record route/item checks and honest source-observation yield, and stop investigating a route when it has no useful eligible candidate. Never force a source into the final six stories/two videos/two podcasts to make this trial look successful.
