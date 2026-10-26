@@ -5,7 +5,7 @@ import {activeDiscoveryResources,validateResourceRegistry} from '../operations/r
 
 const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
 const newSources=registry.resources.filter(r=>r.resource_id.startsWith('research-20261026-'));
-const oldSources=registry.resources.slice(0,69); // immutable original baseline; later import waves append
+const oldSources=registry.resources.slice(0,69); // preserved original IDs; six historical role assignments now reconciled
 const enabled=['research-20261026-a01','research-20261026-a04',
   'research-20261026-a12','research-20261026-p03'];
 
@@ -17,7 +17,7 @@ test('source expansion retains every legacy resource and current v1 schema',()=>
   assert.ok(registry.resources.length>=97);
   assert.equal(new Set(registry.resources.map(r=>r.resource_id)).size,registry.resources.length);
   for(const type of ['article','video','podcast']){
-    const expected={article:33,video:3,podcast:17}[type];
+    const expected={article:38,video:3,podcast:17}[type];
     assert.equal(oldSources.filter(r=>r.content_types.includes(type)).length,expected);
   }
 });
@@ -52,7 +52,7 @@ test('new source URLs unique without squashing different original publisher rout
 test('EDITORIAL ingress admits qualified sources with exact ID and excludes disabled leads',()=>{
   for(const type of ['article','video','podcast']){
     const visible=activeDiscoveryResources(registry,type);
-    const expectedLegacy={article:33,video:3,podcast:17}[type];
+    const expectedLegacy={article:38,video:3,podcast:17}[type];
     const expectedNew={article:3,video:0,podcast:1}[type];
     const firstWave=visible.filter(r=>!r.resource_id.startsWith('deep-20261026-') &&
       !r.resource_id.startsWith('directory-') &&
