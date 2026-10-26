@@ -95,6 +95,27 @@ export function validateFrozenImageSpecification({spec,story}){
        fail('thumbnail_priority_labels_need_30px_effective_font:'+spec.story_id);
    }
  }
+ // Oct27+ strengthen the existing I5 plan at the points that caused ten
+ // rejected Oct26 drafts. This only validates FROZEN pre-generation claims;
+ // saved RGB PNG pixels still need genuine visual review, not inferred PASS.
+ if(spec.edition_date>='2026-10-27'){
+   const qc=spec.pre_generation_checks;
+   const bounds=qc.label_layout;
+   const priorities=new Set(qc.thumbnail_priority_labels);
+   if(bounds.some(l=>l.minimum_font_px<(priorities.has(l.label)?32:26)))
+     fail('oct27_final_export_secondary_or_priority_font_too_small:'+spec.story_id);
+   if(qc.source_caveat_detached!==true||
+      qc.no_simulated_document_strokes!==true||
+      qc.no_unsupported_chart_or_score_marks!==true||
+      !Number.isFinite(qc.mechanism_canvas_percent)||
+      qc.mechanism_canvas_percent<55||qc.mechanism_canvas_percent>85||
+      !Array.isArray(qc.explanatory_substage_labels)||
+      new Set(qc.explanatory_substage_labels).size<2||
+      qc.explanatory_substage_labels.some(label=>!spec.required_labels.includes(label))||
+      spec.allowed_causal_edges.some(edge=>
+        edge.from===qc.source_caveat||edge.to===qc.source_caveat))
+     fail('oct27_caveat_text_and_explanatory_mechanism_layout_required:'+spec.story_id);
+ }
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||
    !clean(review.reviewer)||review.source_url!==spec.source_url||
