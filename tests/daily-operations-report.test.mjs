@@ -102,4 +102,6 @@ test('temp-staged source AAR helper stays present in the existing nonpublishing 
  assert.match(yaml,/cp scripts\/oct27-source-readiness\.mjs "\$tmp\/oct27-source-readiness\.mjs"/);
  assert.match(yaml,/cp scripts\/compile-daily-aar\.mjs/);
  assert.match(yaml,/cp scripts\/render-unified-production-aar\.mjs/);
+ for(const name of ['source-route-coverage','source-item-census','source-qualification'])
+   assert.ok(yaml.includes('shadow-runs/$edition/editorial/'+name+'.json'),name);
 });
