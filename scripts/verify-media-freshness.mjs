@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {articlePublisherKey,validateArticleSourceDiversity} from '../compiler/source-diversity.mjs';
+import {findEditorialValueOverlap,EDITORIAL_NOVELTY_EFFECTIVE} from '../compiler/editorial-novelty.mjs';
 
 const EFFECTIVE_DATE='2026-10-19';
 // Oct 26 onward: whole preserved archive, not only the seven latest editions.
@@ -165,6 +166,22 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
     throw new Error('MEDIA_REUSE_VIOLATION '+JSON.stringify(archiveUniqueness.media_duplicates));
   if(archiveUniqueness?.article_duplicates.length)
     throw new Error('ARTICLE_REUSE_VIOLATION '+JSON.stringify(archiveUniqueness.article_duplicates));
+  // Oct 27+: reader learning value can repeat even with distinct original URLs.
+  // Canonical archive summaries are compared at the existing two publish gates.
+  // The machine hard stop is intentionally narrow; the editor also reviews
+  // topical candidates whose meaning cannot be adjudicated by keywords.
+  let editorialNovelty=null;
+  if(date>=EDITORIAL_NOVELTY_EFFECTIVE){
+    const archiveFile=path.join(historyRoot,'data','archive-index.json');
+    if(!fs.existsSync(archiveFile))
+      throw new Error('EDITORIAL_NOVELTY_HISTORY_REQUIRED: published archive-index.json missing');
+    editorialNovelty=findEditorialValueOverlap({bundle,
+      archive:JSON.parse(fs.readFileSync(archiveFile,'utf8')),
+      priorEditionDates:historyDates});
+    if(editorialNovelty.violations.length)
+      throw new Error('EDITORIAL_NEAR_DUPLICATE_REQUIRES_RESELECTION '+
+        JSON.stringify(editorialNovelty.violations));
+  }
   // Three *previous published editions* are the hard show cooldown; aim for seven
   // when qualified fresh content exists. Missing source history cannot silently pass.
   const showDates=historyDates.slice(0,3);
@@ -204,7 +221,8 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
     seven_edition_article_publisher_counts:Object.fromEntries(
       Object.entries(publisherHistory).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))),
     seven_edition_article_pages_identified:identified,
-    seven_edition_article_history_complete:identified===historyDates.length*6};
+    seven_edition_article_history_complete:identified===historyDates.length*6,
+    editorial_novelty:editorialNovelty};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
   const [bundleFile,historyRoot,receiptFile]=process.argv.slice(2);

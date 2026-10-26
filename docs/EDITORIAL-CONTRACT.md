@@ -114,6 +114,16 @@ For corrections to an already illustrated published edition, change only the ver
 
 Mappings are for reader value, should draw across the required Generative AI Professional Series, and must contain no run/control-plane language.
 
+## Editorial learning-value novelty — new editions from October 27, 2026
+
+**Different publication is not necessarily different instruction.** Before selecting, compare all six reader outcomes with the last seven actual published editions, in addition to the full-history exact URL/episode/headline check. For each story assess source-backed new development, concrete new reader action, what differs from the closest earlier article, and the evidence and uncertainty behind that distinction. A vendor change, different noun in the headline, or product walkthrough repeating *create Skill → review/test → reuse* is insufficient. When marginal value is weak, choose a substantively different verified item before sealing—not a cosmetic rewrite.
+
+The October 26 Microsoft business Skill-authoring lab overlaps the instructional value of the October 25 Plaud, October 23 Metis and October 22 Salesforce Skills stories. It is retained as an honest historical observation; no edited October 26 article/image digest, archive page, or image-job handoff is authorized by this forward-only rule.
+
+For October 27 onward the **existing** bundle-ready and protected reader publishing workflows both run the narrowly scoped deterministic `editorial_novelty` validator inside `scripts/verify-media-freshness.mjs`. It compares against the published archive, produces auditable candidate links, and rejects high-confidence copied explanations or a generic Skill-authoring lesson taught in at least two of the past seven published editions. A keyword or topical match alone is a research lead, not proof of duplication. The actual editorial producer must still review all six individual outcomes; deterministic similarity is not an AI judgment and cannot guarantee semantic uniqueness.
+
+Do not weaken 2/2/2, the mandatory single Agent Skills item, source reading, freshness, preservation, protected CI, or the zero-charge unattended production policy. Do not add a worker/schedule, paid semantic embedding API, image generation dependency, or changes to completed editions.
+
 ## Images
 
 Each of the six stories requires one professional explanatory diagram:
