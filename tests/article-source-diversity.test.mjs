@@ -28,6 +28,8 @@ test('AWS and SAP news subdomains and blog departments do not count as new publi
   assert.equal(articlePublisherKey({url:'https://blog.google/ai/c'}),'google');
   assert.equal(articlePublisherKey({url:'https://github.blog/changelog/abc'}),'github');
   assert.equal(articlePublisherKey({url:'https://learn.microsoft.com/agent-framework'}),'microsoft');
+  assert.equal(articlePublisherKey({url:'https://microsoft.ai/blog/'}),'microsoft');
+  assert.equal(articlePublisherKey({url:'https://www.microsoft.ai/news/frontier-pre-training-at-microsoft-ai/'}),'microsoft');
 });
 test('even two AWS stories fail: changing blog department or publisher display name cannot bypass it',()=>{
   const stories=[...six];
@@ -60,4 +62,16 @@ test('old published editions remain exempt and unknown future URLs fail closed',
   assert.equal(validateArticleSourceDiversity(b([], '2026-10-18')).result,'SKIPPED_HISTORICAL');
   const stories=[...six];stories[5]=story('not-a-real-source');
   assert.throws(()=>validateArticleSourceDiversity(b(stories)),/ARTICLE_SOURCE_IDENTITY_UNVERIFIED/);
+});
+
+test('Microsoft AI blog and Microsoft Learn are one organization, not independent publishers',()=>{
+  const stories=[...six];
+  stories[4]=story('https://microsoft.ai/news/frontier-pre-training-at-microsoft-ai/');
+  stories[5]=story('https://learn.microsoft.com/en-us/ai/agent-development');
+  const r=validateArticleSourceDiversity(b(stories));
+  assert.equal(r.distinct_publishers,5);
+  assert.equal(r.publisher_counts.microsoft,2);
+  stories[3]=story('https://microsoft.ai/blog/second-post');
+  assert.throws(()=>validateArticleSourceDiversity(b(stories)),
+    /ARTICLE_PUBLISHER_DIVERSITY_VIOLATION/);
 });
