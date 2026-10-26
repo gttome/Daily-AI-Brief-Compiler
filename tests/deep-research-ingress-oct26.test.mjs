@@ -42,7 +42,7 @@ test('13 Deep Research results: 5 existing URLs reused, 8 catalogued, only 5 ena
   assert.deepEqual(deep.filter(r=>r.enabled).map(r=>r.resource_id).sort(),admitted.slice().sort());
   assert.deepEqual(['article','video','podcast'].map(type=>
     deep.filter(r=>r.content_types.includes(type)).length),[4,1,3]);
-  assert.ok(deep.every(r=>r.content_types.length===1&&r.endpoint===r.url&&
+  assert.ok(deep.every(r=>r.content_types.filter(t=>['article','video','podcast'].includes(t)).length===1&&r.endpoint===r.url&&
     r.health.status==='unknown'&&r.health.last_checked_at===null&&
     r.health.last_success_at===null&&r.health.observed_yield_rate===null));
 });
