@@ -100,7 +100,7 @@ test('video and podcast sources are discovery leads, not falsely approved items'
     assert.match(r.source_evidence_or_blocker,/(listening|75% AI fraction).*NOT VERIFIED/i);
   const show=current.get('directory-54d90ff964a74ff98851ae11');
   assert.equal(show.name,'The Every Podcast (formerly AI & I)');
-  assert.ok(!current.has('directory-6a6f2329446088f00c16886a'));
+  assert.ok(!current.has('directory-aa01371eb16566ea93240822')); // Apple Podcasts platform index, not a show
 });
 
 test('source-universe reconciliation is idempotent, deterministic and read-only',()=>{
