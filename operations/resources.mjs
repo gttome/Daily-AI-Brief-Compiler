@@ -51,3 +51,17 @@ export function applyResourceObservation(registry,observation){
   reg.updated_at=observation.checked_at;
   return reg;
 }
+
+/**
+ * Narrow, read-only ingress for the existing EDITORIAL source registry.
+ * Registry admission is discovery eligibility, never article/media item approval.
+ * Keep the original source ID and URL for downstream evidence/auditing.
+ */
+export function activeDiscoveryResources(registry,contentType){
+  if(!['article','video','podcast'].includes(contentType))
+    throw new Error('unsupported_discovery_content_type');
+  const errors=validateResourceRegistry(registry);
+  if(errors.length)throw new Error('invalid_resource_registry: '+errors.join(','));
+  return registry.resources.filter(r=>
+    r.enabled===true && r.content_types.includes(contentType));
+}
