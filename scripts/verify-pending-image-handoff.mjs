@@ -20,7 +20,7 @@ export function verifyPendingImageHandoff({editionDate,index,job,bundle,bundleBy
    fail('six article sources are required');
  const expected=new Set(bundle.stories.map(s=>s.id));
  if(expected.size!==6||!Array.isArray(job.stories)||job.stories.length!==6||
-    !job.stories.every(s=>expected.has(s.id))||new Set(job.stories.map(s=>s.id)).size!==6)
+    !job.stories.every(s=>expected.has(s.story_id))||new Set(job.stories.map(s=>s.story_id)).size!==6)
    fail('source/job story IDs differ');
  const source=job.source||{};
  if(!SHA.test(source.commit_sha||'')||row.source_commit_sha!==source.commit_sha||
