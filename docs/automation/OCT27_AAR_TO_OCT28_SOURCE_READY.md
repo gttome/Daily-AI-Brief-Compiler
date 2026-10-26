@@ -18,6 +18,10 @@ The October 27 Compiler and combined production AARs **must explicitly contain**
 | **SOURCE-04** | **Merge and independently read back all needed source-only changes.** | Exact-head protected CI, accepted PR merge, main-readback, updated role counts, safe 2/2/2 six stories/one Agent Skills and two videos/two podcasts invariants; do not touch image or scheduling. | Owner approved. **Future qualification PRs and their results not yet observed.** |
 | **SOURCE-05** | **Verify real pre–October 28 editorial readiness.** | Before the already scheduled 19:15 CT Oct 27 Compiler starts, check saved task still enabled with full-registry instructions, read current main, compare actual source attempt/quality receipts, confirm successful qualifying PRs, and preserve the 21:15 image handoff. Report honest GO, CONDITIONAL GO, or NO-GO for *source expansion* separately from publishing readiness. | Owner approved. **Pending actual evidence.** |
 
+## Pre-seeded disabled-source worklist — October 26
+
+The full [114-source qualification worklist](../source-expansion/OCT27_DISABLED_SOURCE_114_REVIEW_WORKLIST.json) is already checked in, **with every row marked `UNREVIEWED` and zero claims of live checking**. It includes exact canonical `resource_id`, URL and content roles, so the scheduled producer **does not need a Node shell just to enumerate 114 candidates**. Review this existing worklist rather than making another copy or using the older catalogue as an active source pool. Move a row from `UNREVIEWED` only with genuine dated original item evidence or a supported negative disposition, and persist changed review receipts through the normal protected branch/PR. The available worklist is **preparation**, not validation or activation; do not report 114/114 reviewed simply because this file exists.
+
 ## What is already implemented, avoid rework
 
 - Historical source universe: **208 catalogued**, **94 enabled**, **114 disabled/unqualified**, including **83 enabled Article/Video/Podcast source IDs** (56 Article, 6 Video, 21 Podcast). Existing protected PRs #258, #259, #260 and #261 restored the source registry and historical role mapping, without new schedules.
