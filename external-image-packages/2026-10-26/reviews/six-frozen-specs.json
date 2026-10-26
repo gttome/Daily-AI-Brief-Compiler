@@ -1,0 +1,1916 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-26",
+    "story_id": "oct26-t1-declarative-agent-pipelines",
+    "source_url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines",
+    "job_sha256": "74c6b584ea44b7c23dc682d6054c2e5f602e34c705497a8f1928f93053ea7789",
+    "visual_thesis": "Separate structural validation from execution while retaining output tests for silent errors.",
+    "mechanism_metaphor": "inspection sieve",
+    "story_anchors": [
+      "Structural checks precede declarative execution",
+      "Logic errors still require output tests"
+    ],
+    "required_labels": [
+      "Validate before execution",
+      "Declarative pipeline",
+      "Schema checks",
+      "Dependency checks",
+      "Ordering checks",
+      "Structural error: revise",
+      "Engine-managed execution",
+      "Test output logic",
+      "Publisher-run benchmark"
+    ],
+    "source_claim_map": [
+      {
+        "id": "dryrun",
+        "proposition": "A declarative description can be structurally checked before execution.",
+        "supporting_source_excerpt": "Every column reference is resolved against the schema",
+        "source_url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "logic",
+        "proposition": "A dry run cannot establish semantic output correctness.",
+        "supporting_source_excerpt": "It cannot catch a silent one",
+        "source_url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Declarative pipeline",
+        "to": "Schema checks",
+        "direction": "forward",
+        "support_claim_id": "dryrun",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Schema checks",
+        "to": "Dependency checks",
+        "direction": "forward",
+        "support_claim_id": "dryrun",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Dependency checks",
+        "to": "Ordering checks",
+        "direction": "forward",
+        "support_claim_id": "dryrun",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Ordering checks",
+        "to": "Engine-managed execution",
+        "direction": "forward",
+        "support_claim_id": "dryrun",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Engine-managed execution",
+        "to": "Test output logic",
+        "direction": "forward",
+        "support_claim_id": "logic",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No guarantee of correct outputs",
+      "No fabricated code, timing chart or successful badge"
+    ],
+    "composition_signature": {
+      "grammar": "bifurcated-validation-cutaway",
+      "metaphor": "inspection sieve",
+      "layout": "two tier comparison with exposed validation chambers",
+      "palette": "deep teal and copper",
+      "annotation": "side braces"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Validate before execution",
+          "region": "reserved region 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Declarative pipeline",
+          "region": "reserved region 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Schema checks",
+          "region": "reserved region 3",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Dependency checks",
+          "region": "reserved region 4",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Ordering checks",
+          "region": "reserved region 5",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Structural error: revise",
+          "region": "reserved region 6",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Engine-managed execution",
+          "region": "reserved region 7",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Test output logic",
+          "region": "reserved region 8",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Publisher-run benchmark",
+          "region": "reserved region 9",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher-run benchmark; structural validation does not prove logical correctness.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported conditions permit downstream action",
+          "allowed_path": "Separate structural validation from execution while retaining output tests for silent errors.",
+          "blocked_path": "No guarantee of correct outputs",
+          "support_claim_id": "dryrun"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Validate before execution",
+        "Declarative pipeline",
+        "Schema checks"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Declarative pipeline",
+          "to": "Schema checks",
+          "direction": "forward",
+          "support_claim_id": "dryrun",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Declarative pipeline boundary",
+          "target_region": "Schema checks inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Schema checks",
+          "to": "Dependency checks",
+          "direction": "forward",
+          "support_claim_id": "dryrun",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Schema checks boundary",
+          "target_region": "Dependency checks inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Dependency checks",
+          "to": "Ordering checks",
+          "direction": "forward",
+          "support_claim_id": "dryrun",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Dependency checks boundary",
+          "target_region": "Ordering checks inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Ordering checks",
+          "to": "Engine-managed execution",
+          "direction": "forward",
+          "support_claim_id": "dryrun",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Ordering checks boundary",
+          "target_region": "Engine-managed execution inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Engine-managed execution",
+          "to": "Test output logic",
+          "direction": "forward",
+          "support_claim_id": "logic",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Engine-managed execution boundary",
+          "target_region": "Test output logic inlet",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant source comparison",
+      "source_url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Top dark-teal title. Center large open cutaway of a declarative graph with three exposed teeth/check layers named Schema checks, Dependency checks, Ordering checks; copper rejection side spur ending at Structural error: revise, not flowing to execution. Valid descriptions continue downward to Engine-managed execution then separate Test output logic. Use 12 meaningful source-bound graph nodes/constraint relations, not fake documents. Bottom publisher-run qualification."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-26",
+    "story_id": "oct26-t2-habitat-cosmos-scaling",
+    "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+    "job_sha256": "74c6b584ea44b7c23dc682d6054c2e5f602e34c705497a8f1928f93053ea7789",
+    "visual_thesis": "Combine shared tenancy safeguards with selective geographic placement and caching.",
+    "mechanism_metaphor": "movable partition shelves",
+    "story_anchors": [
+      "Hot keys and background requests are throttled separately",
+      "Change data capture invalidates nearby caches"
+    ],
+    "required_labels": [
+      "Movable tenant boundaries",
+      "Habitat",
+      "Shared storage",
+      "Hot-key throttling",
+      "Request priorities",
+      "Selective replication",
+      "Nearby cache",
+      "Change-feed invalidation",
+      "Rust proxy",
+      "Capacity constrains placement"
+    ],
+    "source_claim_map": [
+      {
+        "id": "tenancy",
+        "proposition": "Shared tenancy uses hot-key throttling and request tiering.",
+        "supporting_source_excerpt": "Throttling the hottest keys first",
+        "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "placement",
+        "proposition": "Selective replication and cache invalidation reduce read latency within capacity limits.",
+        "supporting_source_excerpt": "limited to a few hand-selected datasets",
+        "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "cache",
+        "proposition": "Database changes invalidate cached data through the change feed.",
+        "supporting_source_excerpt": "propagate invalidations globally within seconds",
+        "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Hot-key throttling",
+        "to": "Shared storage",
+        "direction": "forward",
+        "support_claim_id": "tenancy",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Request priorities",
+        "to": "Shared storage",
+        "direction": "forward",
+        "support_claim_id": "tenancy",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Shared storage",
+        "to": "Selective replication",
+        "direction": "forward",
+        "support_claim_id": "placement",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Change-feed invalidation",
+        "to": "Nearby cache",
+        "direction": "forward",
+        "support_claim_id": "cache",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Rust proxy",
+        "to": "Habitat",
+        "direction": "forward",
+        "support_claim_id": "placement",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No actual geographic location map",
+      "No all-data replication or zero-latency implication"
+    ],
+    "composition_signature": {
+      "grammar": "layered-regional-storage-section",
+      "metaphor": "movable partition shelves",
+      "layout": "wide sectional storage architecture",
+      "palette": "indigo and ice blue",
+      "annotation": "attached sectional leaders"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Movable tenant boundaries",
+          "region": "reserved region 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Habitat",
+          "region": "reserved region 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Shared storage",
+          "region": "reserved region 3",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Hot-key throttling",
+          "region": "reserved region 4",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Request priorities",
+          "region": "reserved region 5",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Selective replication",
+          "region": "reserved region 6",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Nearby cache",
+          "region": "reserved region 7",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Change-feed invalidation",
+          "region": "reserved region 8",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Rust proxy",
+          "region": "reserved region 9",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Capacity constrains placement",
+          "region": "reserved region 10",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher account; capacity limits constrain placement and replication; no universal blueprint.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported conditions permit downstream action",
+          "allowed_path": "Combine shared tenancy safeguards with selective geographic placement and caching.",
+          "blocked_path": "No actual geographic location map",
+          "support_claim_id": "tenancy"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Movable tenant boundaries",
+        "Habitat",
+        "Shared storage"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Hot-key throttling",
+          "to": "Shared storage",
+          "direction": "forward",
+          "support_claim_id": "tenancy",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Hot-key throttling boundary",
+          "target_region": "Shared storage inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Request priorities",
+          "to": "Shared storage",
+          "direction": "forward",
+          "support_claim_id": "tenancy",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Request priorities boundary",
+          "target_region": "Shared storage inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Shared storage",
+          "to": "Selective replication",
+          "direction": "forward",
+          "support_claim_id": "placement",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Shared storage boundary",
+          "target_region": "Selective replication inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Change-feed invalidation",
+          "to": "Nearby cache",
+          "direction": "forward",
+          "support_claim_id": "cache",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Change-feed invalidation boundary",
+          "target_region": "Nearby cache inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Rust proxy",
+          "to": "Habitat",
+          "direction": "forward",
+          "support_claim_id": "placement",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Rust proxy boundary",
+          "target_region": "Habitat inlet",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant source comparison",
+      "source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Architectural cross-section, not left-input-engine-output. Indigo Habitat band atop shared Cosmos storage partition shelves. Several distinct tenant slabs movable between shelves, labelled boundary only. Hot-key and priority shaping enter storage from distinct upper-edge constraint inlets. Right spatial branch separates selected small replicas from nearby cache. Change-feed line originates at storage and ends in cache invalidation. Rust proxy above. Bottom clear capacity qualification. No global globe, fake plots or UI."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-26",
+    "story_id": "oct26-k1-bevo-sports-analytics",
+    "source_url": "https://cloud.google.com/transform/bevo-lab-u-texas-best-sports-analytics-gen-ai",
+    "job_sha256": "74c6b584ea44b7c23dc682d6054c2e5f602e34c705497a8f1928f93053ea7789",
+    "visual_thesis": "Build the data foundation and APIs before domain models while treating sensitive medical data separately.",
+    "mechanism_metaphor": "connected research terraces",
+    "story_anchors": [
+      "Data lake precedes APIs and downstream models",
+      "Medical data requires separate sensitive treatment"
+    ],
+    "required_labels": [
+      "Bevo Lab: planned architecture",
+      "Siloed athletics data",
+      "Shared data lake",
+      "Connecting APIs",
+      "Student-built models",
+      "Strategy and scouting",
+      "Role-specific applications",
+      "Sensitive medical data",
+      "Separate treatment",
+      "Benefits remain prospective"
+    ],
+    "source_claim_map": [
+      {
+        "id": "foundation",
+        "proposition": "The lab plans a shared data lake followed by connecting APIs and models.",
+        "supporting_source_excerpt": "We'll start with building the biggest data lake",
+        "source_url": "https://cloud.google.com/transform/bevo-lab-u-texas-best-sports-analytics-gen-ai",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "sensitive",
+        "proposition": "Medical data is highly sensitive and requires separate treatment.",
+        "supporting_source_excerpt": "Medical is its own thing",
+        "source_url": "https://cloud.google.com/transform/bevo-lab-u-texas-best-sports-analytics-gen-ai",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Siloed athletics data",
+        "to": "Shared data lake",
+        "direction": "forward",
+        "support_claim_id": "foundation",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Shared data lake",
+        "to": "Connecting APIs",
+        "direction": "forward",
+        "support_claim_id": "foundation",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Connecting APIs",
+        "to": "Student-built models",
+        "direction": "forward",
+        "support_claim_id": "foundation",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Student-built models",
+        "to": "Strategy and scouting",
+        "direction": "forward",
+        "support_claim_id": "foundation",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Student-built models",
+        "to": "Role-specific applications",
+        "direction": "forward",
+        "support_claim_id": "foundation",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Sensitive medical data",
+        "to": "Separate treatment",
+        "direction": "forward",
+        "support_claim_id": "sensitive",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No medical data flowing into general lake",
+      "No actual dashboard or fabricated performance chart",
+      "No trophies, people or sports scenery"
+    ],
+    "composition_signature": {
+      "grammar": "federated-data-terraces",
+      "metaphor": "connected research terraces",
+      "layout": "rising terraces with isolated sensitive island",
+      "palette": "burnt orange and charcoal",
+      "annotation": "dotted planning brackets"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Bevo Lab: planned architecture",
+          "region": "reserved region 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Siloed athletics data",
+          "region": "reserved region 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Shared data lake",
+          "region": "reserved region 3",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Connecting APIs",
+          "region": "reserved region 4",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Student-built models",
+          "region": "reserved region 5",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Strategy and scouting",
+          "region": "reserved region 6",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Role-specific applications",
+          "region": "reserved region 7",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Sensitive medical data",
+          "region": "reserved region 8",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Separate treatment",
+          "region": "reserved region 9",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Benefits remain prospective",
+          "region": "reserved region 10",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Planned architecture and publisher interview; no measured general operational benefit is implied.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported conditions permit downstream action",
+          "allowed_path": "Build the data foundation and APIs before domain models while treating sensitive medical data separately.",
+          "blocked_path": "No medical data flowing into general lake",
+          "support_claim_id": "foundation"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Bevo Lab: planned architecture",
+        "Siloed athletics data",
+        "Shared data lake"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Siloed athletics data",
+          "to": "Shared data lake",
+          "direction": "forward",
+          "support_claim_id": "foundation",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Siloed athletics data boundary",
+          "target_region": "Shared data lake inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Shared data lake",
+          "to": "Connecting APIs",
+          "direction": "forward",
+          "support_claim_id": "foundation",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Shared data lake boundary",
+          "target_region": "Connecting APIs inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Connecting APIs",
+          "to": "Student-built models",
+          "direction": "forward",
+          "support_claim_id": "foundation",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Connecting APIs boundary",
+          "target_region": "Student-built models inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Student-built models",
+          "to": "Strategy and scouting",
+          "direction": "forward",
+          "support_claim_id": "foundation",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Student-built models boundary",
+          "target_region": "Strategy and scouting inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Student-built models",
+          "to": "Role-specific applications",
+          "direction": "forward",
+          "support_claim_id": "foundation",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Student-built models boundary",
+          "target_region": "Role-specific applications inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Sensitive medical data",
+          "to": "Separate treatment",
+          "direction": "forward",
+          "support_claim_id": "sensitive",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Sensitive medical data boundary",
+          "target_region": "Separate treatment inlet",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant source comparison",
+      "source_url": "https://cloud.google.com/transform/bevo-lab-u-texas-best-sports-analytics-gen-ai",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Burnt-orange ascending conceptual data terraces: three distinct silo inlets connect into a broad common lake layer, then exposed API bridge, then differentiated model layers, finishing two branches for strategy/scouting and role-specific applications. A disconnected medical-data enclave bottom right is visibly separate, no joining arrow. Dotted planning bracket ties main terraces to planned heading; bottom caveat remains clear. Meaningful source-based components include silo separation, consolidation, API links, student model work, strategy, scouting, role differentiation, sensitive-data domain, boundary and planning qualification."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-26",
+    "story_id": "oct26-k2-agentic-hardware-assets",
+    "source_url": "https://www.salesforce.com/blog/hardware-asset-management/?bc=OTH",
+    "job_sha256": "74c6b584ea44b7c23dc682d6054c2e5f602e34c705497a8f1928f93053ea7789",
+    "visual_thesis": "Conversational intent becomes a checked and approved hardware workflow with exception review.",
+    "mechanism_metaphor": "lifecycle rail",
+    "story_anchors": [
+      "Incident, eligibility and inventory checks precede request preparation",
+      "Manager approval precedes shipment"
+    ],
+    "required_labels": [
+      "Hardware requests with approval",
+      "Conversational request",
+      "Incident history",
+      "Refresh eligibility",
+      "Available inventory",
+      "Prepare request",
+      "Manager approval",
+      "Shipment tracking",
+      "Policy and exceptions",
+      "Vendor scenarios, not independent results"
+    ],
+    "source_claim_map": [
+      {
+        "id": "checks",
+        "proposition": "Requests draw on incident history, eligibility and inventory before routing approval.",
+        "supporting_source_excerpt": "checks their incident history, checks refresh eligibility",
+        "source_url": "https://www.salesforce.com/blog/hardware-asset-management/?bc=OTH",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "approval",
+        "proposition": "A manager approves before hardware ships.",
+        "supporting_source_excerpt": "Once approved",
+        "source_url": "https://www.salesforce.com/blog/hardware-asset-management/?bc=OTH",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "exceptions",
+        "proposition": "Managers govern policies and exceptions rather than every interaction.",
+        "supporting_source_excerpt": "setting policies and reviewing outcomes",
+        "source_url": "https://www.salesforce.com/blog/hardware-asset-management/?bc=OTH",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Conversational request",
+        "to": "Prepare request",
+        "direction": "forward",
+        "support_claim_id": "checks",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Incident history",
+        "to": "Prepare request",
+        "direction": "forward",
+        "support_claim_id": "checks",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Refresh eligibility",
+        "to": "Prepare request",
+        "direction": "forward",
+        "support_claim_id": "checks",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Available inventory",
+        "to": "Prepare request",
+        "direction": "forward",
+        "support_claim_id": "checks",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Prepare request",
+        "to": "Manager approval",
+        "direction": "conditional",
+        "support_claim_id": "approval",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Manager approval",
+        "to": "Shipment tracking",
+        "direction": "conditional",
+        "support_claim_id": "approval",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Prepare request",
+        "to": "Policy and exceptions",
+        "direction": "forward",
+        "support_claim_id": "exceptions",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No automatic approval or shipment bypass",
+      "No compliance guarantee",
+      "No fictitious order records or vendor-reported counts drawn as measured outcomes"
+    ],
+    "composition_signature": {
+      "grammar": "approval-spine-with-record-tethers",
+      "metaphor": "lifecycle rail",
+      "layout": "diagonal lifecycle spine with lateral evidence tethers",
+      "palette": "plum and warm gray",
+      "annotation": "numberless checkpoint tabs"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Hardware requests with approval",
+          "region": "reserved region 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Conversational request",
+          "region": "reserved region 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Incident history",
+          "region": "reserved region 3",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Refresh eligibility",
+          "region": "reserved region 4",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Available inventory",
+          "region": "reserved region 5",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Prepare request",
+          "region": "reserved region 6",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Manager approval",
+          "region": "reserved region 7",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Shipment tracking",
+          "region": "reserved region 8",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Policy and exceptions",
+          "region": "reserved region 9",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Vendor scenarios, not independent results",
+          "region": "reserved region 10",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor scenarios; reported autonomous completion counts are not independently verified.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported conditions permit downstream action",
+          "allowed_path": "Conversational intent becomes a checked and approved hardware workflow with exception review.",
+          "blocked_path": "No automatic approval or shipment bypass",
+          "support_claim_id": "checks"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Hardware requests with approval",
+        "Conversational request",
+        "Incident history"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Conversational request",
+          "to": "Prepare request",
+          "direction": "forward",
+          "support_claim_id": "checks",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Conversational request boundary",
+          "target_region": "Prepare request inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Incident history",
+          "to": "Prepare request",
+          "direction": "forward",
+          "support_claim_id": "checks",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Incident history boundary",
+          "target_region": "Prepare request inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Refresh eligibility",
+          "to": "Prepare request",
+          "direction": "forward",
+          "support_claim_id": "checks",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Refresh eligibility boundary",
+          "target_region": "Prepare request inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Available inventory",
+          "to": "Prepare request",
+          "direction": "forward",
+          "support_claim_id": "checks",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Available inventory boundary",
+          "target_region": "Prepare request inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Prepare request",
+          "to": "Manager approval",
+          "direction": "conditional",
+          "support_claim_id": "approval",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Prepare request boundary",
+          "target_region": "Manager approval inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Manager approval",
+          "to": "Shipment tracking",
+          "direction": "conditional",
+          "support_claim_id": "approval",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Manager approval boundary",
+          "target_region": "Shipment tracking inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Prepare request",
+          "to": "Policy and exceptions",
+          "direction": "forward",
+          "support_claim_id": "exceptions",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Prepare request boundary",
+          "target_region": "Policy and exceptions inlet",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant source comparison",
+      "source_url": "https://www.salesforce.com/blog/hardware-asset-management/?bc=OTH",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Plum diagonal lifecycle rail with clearly separated stations from conversational request to prepare request, manager approval barrier, shipment tracking after barrier. Three thin evidence tethers originate at incident-history, eligibility and inventory abstract records with smooth blank surfaces; do not simulate documents. Side branch ends at policy and exceptions, not shipment. Twelve meaningful components from request, intent, three check sources, preparation, approval gate, gated path, tracking, policies, exceptions and caveat. No checkmark."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-26",
+    "story_id": "oct26-a1-copilot-skill-authoring",
+    "source_url": "https://microsoft.github.io/mcs-labs/labs/mcs-skills-authoring/",
+    "job_sha256": "74c6b584ea44b7c23dc682d6054c2e5f602e34c705497a8f1928f93053ea7789",
+    "visual_thesis": "A generated Skill is a draft package that must be inspected and tested in its target agent, then refined on actual failures.",
+    "mechanism_metaphor": "reusable playbook assembly",
+    "story_anchors": [
+      "Skill contains description, instructions and reference material",
+      "Generation is not proof that the uploaded Skill works"
+    ],
+    "required_labels": [
+      "Author, inspect, test, refine",
+      "Business process",
+      "Approved examples",
+      "Draft Skill package",
+      "Description",
+      "Instructions",
+      "Reference files",
+      "Test in target agent",
+      "Inspect source fidelity",
+      "Revise failed behavior",
+      "No guaranteed behavior"
+    ],
+    "source_claim_map": [
+      {
+        "id": "package",
+        "proposition": "A Skill packages when to apply, procedure and reference material.",
+        "supporting_source_excerpt": "a description that tells the orchestrator when the Skill applies",
+        "source_url": "https://microsoft.github.io/mcs-labs/labs/mcs-skills-authoring/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "testing",
+        "proposition": "Review the generated package, upload it and test actual target behavior.",
+        "supporting_source_excerpt": "Generation is a starting point, not proof",
+        "source_url": "https://microsoft.github.io/mcs-labs/labs/mcs-skills-authoring/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "revision",
+        "proposition": "Failure findings drive a revised package that must be replaced and retested.",
+        "supporting_source_excerpt": "Every revision needs a new ZIP",
+        "source_url": "https://microsoft.github.io/mcs-labs/labs/mcs-skills-authoring/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Business process",
+        "to": "Draft Skill package",
+        "direction": "forward",
+        "support_claim_id": "package",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Approved examples",
+        "to": "Draft Skill package",
+        "direction": "forward",
+        "support_claim_id": "package",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Draft Skill package",
+        "to": "Test in target agent",
+        "direction": "forward",
+        "support_claim_id": "testing",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Test in target agent",
+        "to": "Inspect source fidelity",
+        "direction": "forward",
+        "support_claim_id": "testing",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Inspect source fidelity",
+        "to": "Revise failed behavior",
+        "direction": "feedback_verified",
+        "support_claim_id": "revision",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Revise failed behavior",
+        "to": "Draft Skill package",
+        "direction": "feedback_verified",
+        "support_claim_id": "revision",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No time or model version claims",
+      "No automatic publication, approval or test-to-training arrows",
+      "No fake document writing"
+    ],
+    "composition_signature": {
+      "grammar": "exploded-skill-anatomy-with-test-return",
+      "metaphor": "reusable playbook assembly",
+      "layout": "central exploded anatomy with lower test-return arc",
+      "palette": "olive and ochre",
+      "annotation": "anatomical callout brackets"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Author, inspect, test, refine",
+          "region": "reserved region 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Business process",
+          "region": "reserved region 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Approved examples",
+          "region": "reserved region 3",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Draft Skill package",
+          "region": "reserved region 4",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Description",
+          "region": "reserved region 5",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Instructions",
+          "region": "reserved region 6",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Reference files",
+          "region": "reserved region 7",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Test in target agent",
+          "region": "reserved region 8",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Inspect source fidelity",
+          "region": "reserved region 9",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Revise failed behavior",
+          "region": "reserved region 10",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "No guaranteed behavior",
+          "region": "reserved region 11",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Preview capabilities vary; a Skill guides behavior without guaranteeing exact ordering or validation.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported conditions permit downstream action",
+          "allowed_path": "A generated Skill is a draft package that must be inspected and tested in its target agent, then refined on actual failures.",
+          "blocked_path": "No time or model version claims",
+          "support_claim_id": "package"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Author, inspect, test, refine",
+        "Business process",
+        "Approved examples"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Business process",
+          "to": "Draft Skill package",
+          "direction": "forward",
+          "support_claim_id": "package",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Business process boundary",
+          "target_region": "Draft Skill package inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Approved examples",
+          "to": "Draft Skill package",
+          "direction": "forward",
+          "support_claim_id": "package",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Approved examples boundary",
+          "target_region": "Draft Skill package inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Draft Skill package",
+          "to": "Test in target agent",
+          "direction": "forward",
+          "support_claim_id": "testing",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Draft Skill package boundary",
+          "target_region": "Test in target agent inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Test in target agent",
+          "to": "Inspect source fidelity",
+          "direction": "forward",
+          "support_claim_id": "testing",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Test in target agent boundary",
+          "target_region": "Inspect source fidelity inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Inspect source fidelity",
+          "to": "Revise failed behavior",
+          "direction": "feedback_verified",
+          "support_claim_id": "revision",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Inspect source fidelity boundary",
+          "target_region": "Revise failed behavior inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Revise failed behavior",
+          "to": "Draft Skill package",
+          "direction": "feedback_verified",
+          "support_claim_id": "revision",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Revise failed behavior boundary",
+          "target_region": "Draft Skill package inlet",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant source comparison",
+      "source_url": "https://microsoft.github.io/mcs-labs/labs/mcs-skills-authoring/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Olive exploded anatomy in upper center: a thick reusable package spine with three separated bound layers Description, Instructions, Reference files; no fake writing. Left business process and approved examples flow into draft Skill package. Lower right test cradle labelled Test in target agent leads to Inspect source fidelity, failed findings alone arc back via Revise failed behavior to draft package. Successful test terminates without trophy. No auto-sync implied. Bottom prominent No guaranteed behavior. Internal elements derive from applicability, procedural scope, bundled references, packaging, upload boundary, target test, source comparison, failure diagnosis, refinement, replacement and retest."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-26",
+    "story_id": "oct26-a2-oracle-recruiting-command",
+    "source_url": "https://www.oracle.com/news/announcement/oracle-introduces-claw-powered-fusion-agentic-applications-for-hr-2026-10-20/",
+    "job_sha256": "74c6b584ea44b7c23dc682d6054c2e5f602e34c705497a8f1928f93053ea7789",
+    "visual_thesis": "Recruiting data supports recommendations but recruiter approval governs candidate advancement.",
+    "mechanism_metaphor": "decision lens and stopped action path",
+    "story_anchors": [
+      "Six types of hiring context feed recommended next steps",
+      "Recruiter consideration and approval precede action"
+    ],
+    "required_labels": [
+      "Recruiter retains decision authority",
+      "Jobs and demand",
+      "Candidate records",
+      "Interviews and feedback",
+      "Offers",
+      "Evidence and context",
+      "Recommended next steps",
+      "Recruiter approval",
+      "Authorized action",
+      "No automatic advancement",
+      "Vendor announcement"
+    ],
+    "source_claim_map": [
+      {
+        "id": "context",
+        "proposition": "Recruiting Command Center combines job, candidate, interview, feedback, offer and demand data.",
+        "supporting_source_excerpt": "bringing together job, candidate, interview, feedback, offer, and demand data",
+        "source_url": "https://www.oracle.com/news/announcement/oracle-introduces-claw-powered-fusion-agentic-applications-for-hr-2026-10-20/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "authority",
+        "proposition": "Next steps are prepared for recruiter consideration and approval.",
+        "supporting_source_excerpt": "preparing next steps for recruiter consideration and approval",
+        "source_url": "https://www.oracle.com/news/announcement/oracle-introduces-claw-powered-fusion-agentic-applications-for-hr-2026-10-20/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Jobs and demand",
+        "to": "Evidence and context",
+        "direction": "forward",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Candidate records",
+        "to": "Evidence and context",
+        "direction": "forward",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Interviews and feedback",
+        "to": "Evidence and context",
+        "direction": "forward",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Offers",
+        "to": "Evidence and context",
+        "direction": "forward",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Evidence and context",
+        "to": "Recommended next steps",
+        "direction": "forward",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Recommended next steps",
+        "to": "Recruiter approval",
+        "direction": "conditional",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Recruiter approval",
+        "to": "Authorized action",
+        "direction": "conditional",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No autonomous candidate advancement",
+      "No people, resumes with simulated writing, UI dashboard or invented hiring scores"
+    ],
+    "composition_signature": {
+      "grammar": "evidence-fan-in-and-authority-boundary",
+      "metaphor": "decision lens and stopped action path",
+      "layout": "fan-in evidence left and vertically split authority boundary right",
+      "palette": "brick red and navy",
+      "annotation": "underlined authority labels"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Recruiter retains decision authority",
+          "region": "reserved region 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Jobs and demand",
+          "region": "reserved region 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Candidate records",
+          "region": "reserved region 3",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 40,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Interviews and feedback",
+          "region": "reserved region 4",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Offers",
+          "region": "reserved region 5",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Evidence and context",
+          "region": "reserved region 6",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 172,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Recommended next steps",
+          "region": "reserved region 7",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Recruiter approval",
+          "region": "reserved region 8",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Authorized action",
+          "region": "reserved region 9",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 780,
+            "y": 304,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "No automatic advancement",
+          "region": "reserved region 10",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Vendor announcement",
+          "region": "reserved region 11",
+          "minimum_font_px": 23,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 436,
+            "width": 360,
+            "height": 100
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor announcement; organizational oversight and employment-decision responsibility remain with the organization.",
+      "causal_state_checks": [
+        {
+          "condition": "Only source-supported conditions permit downstream action",
+          "allowed_path": "Recruiting data supports recommendations but recruiter approval governs candidate advancement.",
+          "blocked_path": "No autonomous candidate advancement",
+          "support_claim_id": "context"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Recruiter retains decision authority",
+        "Jobs and demand",
+        "Candidate records"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Jobs and demand",
+          "to": "Evidence and context",
+          "direction": "forward",
+          "support_claim_id": "context",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Jobs and demand boundary",
+          "target_region": "Evidence and context inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Candidate records",
+          "to": "Evidence and context",
+          "direction": "forward",
+          "support_claim_id": "context",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Candidate records boundary",
+          "target_region": "Evidence and context inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Interviews and feedback",
+          "to": "Evidence and context",
+          "direction": "forward",
+          "support_claim_id": "context",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Interviews and feedback boundary",
+          "target_region": "Evidence and context inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Offers",
+          "to": "Evidence and context",
+          "direction": "forward",
+          "support_claim_id": "context",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Offers boundary",
+          "target_region": "Evidence and context inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Evidence and context",
+          "to": "Recommended next steps",
+          "direction": "forward",
+          "support_claim_id": "context",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Evidence and context boundary",
+          "target_region": "Recommended next steps inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Recommended next steps",
+          "to": "Recruiter approval",
+          "direction": "conditional",
+          "support_claim_id": "authority",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Recommended next steps boundary",
+          "target_region": "Recruiter approval inlet",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Recruiter approval",
+          "to": "Authorized action",
+          "direction": "conditional",
+          "support_claim_id": "authority",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Recruiter approval boundary",
+          "target_region": "Authorized action inlet",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing assistant source comparison",
+      "source_url": "https://www.oracle.com/news/announcement/oracle-introduces-claw-powered-fusion-agentic-applications-for-hr-2026-10-20/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "art_direction": "Brick-red fan-in of four labelled source domains, with Jobs and demand / Candidate records / Interviews and feedback / Offers. Each two-part source domain exposes subdivisions as meaningful planes without extra words. Connections converge on evidence/context lens and then recommended next steps. Large navy authority divider contains Recruiter approval; only approved output crosses to Authorized action. Ungated path visibly ends before divider and is labelled No automatic advancement. Vendor announcement bottom. No approval checkmarks or fairness guarantee."
+  }
+]

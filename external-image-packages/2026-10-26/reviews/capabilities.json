@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "native_imagegen",
+    "evidence_ref": "callable tools.image_gen__imagegen in this invocation"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "view_saved_png",
+    "evidence_ref": "callable tools.view_image and actual image outputs"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "local_png_export",
+    "evidence_ref": "Pillow runtime and PNG validation scripts in checkout"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "github_create_blob_base64",
+    "evidence_ref": "callable connected GitHub create_blob encoding base64"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "github_fetch_blob",
+    "evidence_ref": "callable connected GitHub fetch_blob and exact commit contents"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_pull_request",
+    "evidence_ref": "connected GitHub create_pull_request, merge_pull_request and exact-head CI; safeguards retained"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_release_workflow",
+    "evidence_ref": "existing external-image-only-replacement.yml I3 capture-image-element24.mjs"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_release_workflow",
+    "evidence_ref": "existing external-image-only-replacement.yml I3 capture-image-element24.mjs"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "evidence_ref": "Checked current protected workflow push/main trigger and existing October25 release artifact in checkout",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml"
+  }
+}
