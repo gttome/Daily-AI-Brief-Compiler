@@ -39,7 +39,7 @@ test('handoff enforces exactly six aligned stories, job/index SHA and public rea
  const commit='a'.repeat(40);
  const job={schema_version:'external-compiler-image-job-v1',edition_date:edition,
    lifecycle:'PUBLISHED_PENDING',accepted_images:0,execution_id:'daily-compiler-test',
-   stories:stories.map(x=>({id:x.id})),source:{commit_sha:commit,bundle_sha256:digest,
+   stories:stories.map(x=>({story_id:x.id})),source:{commit_sha:commit,bundle_sha256:digest,
     verified_reader_url:'https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/'+edition+'/'}};
  const jobBytes=Buffer.from(JSON.stringify(job));
  const index={latest_eligible_date:edition,editions:[{edition_date:edition,status:'PUBLISHED_PENDING',
