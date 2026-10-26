@@ -16,8 +16,8 @@ The owner requested **all historically catalogued Article, Video and Podcast sou
 | Unique v1 registry records | 105 | **208** |
 | Enabled source records | 78 | **94** |
 | Disabled, not unattended qualified | 27 | **114** |
-| Registered Article role entries | 51 | **111** |
-| Enabled Article role entries | 39 | **51** |
+| Registered Article role entries | 51 | **116** |
+| Enabled Article role entries | 39 | **56** |
 | Registered Video role entries | 11 | **29** |
 | Enabled Video role entries | 4 | **6** |
 | Registered Podcast role entries | 27 | **40** |
@@ -37,7 +37,7 @@ Original owner-provided September directory: **204 role memberships** comprising
 | Previously missing, now catalogued **disabled pending qualification** | 87 |
 | **Total historical source records reconciled** | **169** |
 
-One additional new Article source (Every AI editorial) is enabled, for **103 records appended**. The **original 105 source objects remain identical**; old records are not silently changed. All newly appended health observations remain `unknown`; source route verification is not proof of production success.
+One additional new Article source (Every AI editorial) is enabled, for **103 records appended**. All **105 original source identities and URLs remain preserved**. A follow-up source-only PR explicitly restores six historical role memberships to pre-existing records: five additional Article roles and one Research role. No existing resource is removed, disabled, or given synthetic health evidence. All newly appended health observations remain `unknown`; source route verification is not proof of production success.
 
 ## Newly enabled discovery sources
 
@@ -63,6 +63,21 @@ These 16 new routes have a source-owned dated sample or current verified editori
 | Podcast | [AI in Business](https://emerj.com/ai-in-business-podcast/) | Original publisher index has Oct 21 field-service AI and Oct 20 enterprise ROI episodes; **individual playback and runtime not verified** |
 
 **Publisher identity caveat:** Google Workspace, Google Research and DeepMind remain **one Google publishing organization**; NVIDIA Developer and NVIDIA News remain **one NVIDIA organization**; GitHub site sections remain one GitHub organization. The six deduped historical show/channel aliases are recorded by ID and source route in the JSON ledger. The Every Podcast is **the renamed AI & I show**, not another independent audio publisher.
+
+### Six historic role memberships recovered after the main import
+
+The 204-row audit identified six entries whose canonical publishers were correctly matched but whose historic `content_types` role had not yet been registered. Add the role **to the existing canonical resource**, never by creating a duplicate publisher URL:
+
+| Existing resource | Added role | Publisher item evidence / freshness limitation |
+|---|---|---|
+| `anthropic` — Anthropic Engineering | Article | [Oct 13 original technical article](https://www.anthropic.com/engineering/redesigning-source-control); an older item cannot itself satisfy October 27 freshness |
+| `stanford-hai` — Stanford HAI | Article | [Oct 21 original labor-market AI analysis](https://hai.stanford.edu/news); must verify exact article before selection |
+| `berkeley-bair` — Berkeley BAIR | Article | [Official dated research archive](https://bair.berkeley.edu/blog/archive/) latest visible Jul 29; valid long-lived academic source, **no currently fresh article proven** |
+| `mit-csail` — MIT CSAIL | Article | [Oct 20 research article](https://cap.csail.mit.edu/research); not automatically an eligible generative-AI story |
+| `the-batch` — The Batch | Article | [Official weekly AI newsletter](https://www.deeplearning.ai/the-batch); latest directly verified public index Jun 19, so **do not claim fresh Oct 2026 issue** |
+| `deep-20261026-a01-google-research` — Google Research | Research | [Original Google Research publisher page](https://research.google/blog/); already admitted for Articles, adding historical general research role |
+
+This completes all non-platform source-role memberships from the reconciled **204 historical rows**. The five new Article roles are available for discovery because their canonical sources were already enabled for research/Watchlist. Historical membership does not establish fresh article eligibility; the normal article 168-hour ceiling and independent evidence checks remain blocking selection gates.
 
 ## How today's cycle will use the expanded inventory
 
