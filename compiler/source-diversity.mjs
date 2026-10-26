@@ -16,7 +16,8 @@ export function articlePublisherKey(source){
   if(host==='github.blog'||host==='github.com'||host.endsWith('.github.com'))return 'github';
   if(host==='google.com'||host.endsWith('.google.com')||host==='blog.google'||
     host==='research.google'||host==='deepmind.google'||host.endsWith('.googleblog.com'))return 'google';
-  if(host==='microsoft.com'||host.endsWith('.microsoft.com'))return 'microsoft';
+  if(host==='microsoft.com'||host.endsWith('.microsoft.com')||
+    host==='microsoft.ai'||host.endsWith('.microsoft.ai'))return 'microsoft';
   if(host==='openai.com'||host.endsWith('.openai.com'))return 'openai';
   if(host==='anthropic.com'||host.endsWith('.anthropic.com'))return 'anthropic';
   if(host==='meta.com'||host.endsWith('.meta.com')||host==='about.fb.com')return 'meta';

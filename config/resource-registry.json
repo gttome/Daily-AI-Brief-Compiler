@@ -1,6 +1,6 @@
 {
   "schema_version": "daily-compiler-resource-registry-v1",
-  "updated_at": "2026-10-26T19:45:49.287Z",
+  "updated_at": "2026-10-26T21:22:08.416Z",
   "resources": [
     {
       "resource_id": "acl-anthology",
@@ -2229,6 +2229,182 @@
       "endpoint": "https://artificialintelligencepod.com/",
       "publisher": "jonathan-green-ai",
       "notes": "2026-10-26 lead only; original publisher route and exact dated item/identity not jointly qualified. Keep disabled for unattended discovery.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-a01-google-research",
+      "name": "Google Research Blog",
+      "url": "https://research.google/blog/",
+      "enabled": true,
+      "content_types": [
+        "article"
+      ],
+      "priority": "primary",
+      "search_mode": "page",
+      "endpoint": "https://research.google/blog/",
+      "publisher": "Google Research",
+      "notes": "DISCOVERY ONLY, checked 2026-10-26: original Google Research index https://research.google/blog/ lists Oct 23 'Bringing foundational models to the front lines of TB screening' and original Oct 14 article https://research.google/blog/research-2026-10-ways-were-amplifying-human-ingenuity/. Distinct editorial route from DeepMind, but SAME Google publishing organization for diversity. Verify original date, source novelty and practical reader value before any story selection.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-a02-microsoft-ai",
+      "name": "Microsoft AI Research and Model Blog",
+      "url": "https://microsoft.ai/blog/",
+      "enabled": true,
+      "content_types": [
+        "article"
+      ],
+      "priority": "primary",
+      "search_mode": "page",
+      "endpoint": "https://microsoft.ai/blog/",
+      "publisher": "Microsoft AI",
+      "notes": "DISCOVERY ONLY, checked 2026-10-26: original Microsoft AI news/blog index https://microsoft.ai/blog/ lists 'Frontier Pre-training at Microsoft AI' with original Oct 15 2026 date on https://microsoft.ai/?post_type=new, plus MAI model and applied AI articles. Microsoft is one corporate publisher, regardless of subsidiary/blog paths. Do not treat a model marketing claim as independent evidence. Item-level date and content gates still apply.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-a03-nvidia-news",
+      "name": "NVIDIA News Blog — AI and Agentic Systems",
+      "url": "https://blogs.nvidia.com/",
+      "enabled": true,
+      "content_types": [
+        "article"
+      ],
+      "priority": "secondary",
+      "search_mode": "page",
+      "endpoint": "https://blogs.nvidia.com/",
+      "publisher": "NVIDIA",
+      "notes": "DISCOVERY ONLY, checked 2026-10-26: original NVIDIA blog https://blogs.nvidia.com/ lists Oct 15 2026 Nemotron models article https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/ and Oct 12 GTC Berlin update. This is a NEWS route distinct from existing NVIDIA developer technical blog, NOT a second independent NVIDIA publisher. Exclude unrelated gaming posts and vendor claims without original technical evidence.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-a04-synced",
+      "name": "Synced AI Technology & Industry Review",
+      "url": "https://syncedreview.com/",
+      "enabled": false,
+      "content_types": [
+        "article"
+      ],
+      "priority": "fallback",
+      "search_mode": "site_search",
+      "endpoint": "https://syncedreview.com/",
+      "publisher": "Synced",
+      "notes": "DISABLED: independent recheck 2026-10-26 found latest visible original article dated 2025-08-14 on https://syncedreview.com/, outside 168-hour article freshness and not suitable for tonight. The Deep Research report incorrectly inferred ongoing 2026 publication. Secondary commentary, not first-party evidence. Re-qualify only with an original fresh dated item.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-p01-lex",
+      "name": "Lex Fridman Podcast",
+      "url": "https://lexfridman.com/podcast/",
+      "enabled": false,
+      "content_types": [
+        "podcast"
+      ],
+      "priority": "fallback",
+      "search_mode": "site_search",
+      "endpoint": "https://lexfridman.com/podcast/",
+      "publisher": "Lex Fridman",
+      "notes": "DISABLED for unattended podcast discovery: original https://lexfridman.com/dhh-2 is 2026-08-26 (#501) and covers agentic engineering but is over five hours with substantial non-AI segments; latest listed #502 https://lexfridman.com/andrew-scull/ is 2026-09-16 and primarily psychiatry, not AI. Original episode identities are verified; no current fresh >75%-AI episode verified. No podcast cooldown or item approval implied.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-p02-data-skeptic",
+      "name": "Data Skeptic Podcast",
+      "url": "https://dataskeptic.com/podcast",
+      "enabled": true,
+      "content_types": [
+        "podcast"
+      ],
+      "priority": "secondary",
+      "search_mode": "site_search",
+      "endpoint": "https://dataskeptic.com/podcast",
+      "publisher": "Data Skeptic",
+      "notes": "DISCOVERY ONLY, checked 2026-10-26: original https://dataskeptic.com/podcast lists 2026-10-18 'Gestures Around the Ear' at https://dataskeptic.com/blog/episodes/2026/gestures-around-the-ear. That HCI episode is NOT verified as >=75% generative-AI editorial content and is NOT approved for selection. Show also covers machine intelligence, interpretability and AI; evaluate fresh specific episode, duration, accessible playback, show cooldown and full-content AI fraction before selection.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-p03-talking-machines",
+      "name": "Talking Machines Podcast (Historical)",
+      "url": "https://www.thetalkingmachines.com/home/",
+      "enabled": false,
+      "content_types": [
+        "podcast"
+      ],
+      "priority": "fallback",
+      "search_mode": "site_search",
+      "endpoint": "https://www.thetalkingmachines.com/home/",
+      "publisher": "Tote Bag Productions",
+      "notes": "DISABLED as stale: Apple Podcasts stable show ID 955198749 https://podcasts.apple.com/us/podcast/talking-machines/id955198749 lists latest original episode 'Gods and Robots' dated 2021-09-09, 40 minutes; years active 2015–2021. The Deep Research report's claim of active 2026 episodes was not supported. Preserve only as historical reference; never auto-discover for a current edition.",
+      "health": {
+        "status": "unknown",
+        "last_checked_at": null,
+        "last_success_at": null,
+        "consecutive_failures": 0,
+        "observed_yield_rate": null,
+        "freshness_hit_rate": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-v01-two-minute-papers",
+      "name": "Two Minute Papers — AI Research Explainers",
+      "url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+      "enabled": true,
+      "content_types": [
+        "video"
+      ],
+      "priority": "secondary",
+      "search_mode": "site_search",
+      "endpoint": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+      "publisher": "Two Minute Papers",
+      "notes": "DISCOVERY ONLY, checked 2026-10-26: official YouTube channel ID UCbfYPyITQ-7l4upoX8nvctg and exact 2026-10-19 video https://www.youtube.com/watch?v=LWxX6vvHfrc ('Gemini 4 Argon Is Not What I Expected', about 6m49s), independently indexed with a source-linked educational summary. Video watch URL, date and runtime have third-party corroboration; signed-out FULL PLAYBACK WAS NOT VERIFIED by this research. Before selection the existing playback and educational-value gates must independently pass. Channel membership never substitutes for item acceptance.",
       "health": {
         "status": "unknown",
         "last_checked_at": null,

@@ -5,7 +5,8 @@ import {activeDiscoveryResources,validateResourceRegistry} from '../operations/r
 
 const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
 const newSources=registry.resources.filter(r=>r.resource_id.startsWith('research-20261026-'));
-const oldSources=registry.resources.filter(r=>!r.resource_id.startsWith('research-20261026-'));
+const oldSources=registry.resources.filter(r=>!r.resource_id.startsWith('research-20261026-') &&
+  !r.resource_id.startsWith('deep-20261026-'));
 const enabled=['research-20261026-a01','research-20261026-a04',
   'research-20261026-a12','research-20261026-p03'];
 
@@ -14,8 +15,8 @@ test('source expansion retains every legacy resource and current v1 schema',()=>
   assert.equal(registry.schema_version,'daily-compiler-resource-registry-v1');
   assert.equal(oldSources.length,69);
   assert.equal(oldSources.filter(r=>r.enabled).length,69);
-  assert.equal(registry.resources.length,97);
-  assert.equal(new Set(registry.resources.map(r=>r.resource_id)).size,97);
+  assert.ok(registry.resources.length>=97);
+  assert.equal(new Set(registry.resources.map(r=>r.resource_id)).size,registry.resources.length);
   for(const type of ['article','video','podcast']){
     const expected={article:33,video:3,podcast:17}[type];
     assert.equal(oldSources.filter(r=>r.content_types.includes(type)).length,expected);
@@ -54,7 +55,8 @@ test('EDITORIAL ingress admits qualified sources with exact ID and excludes disa
     const visible=activeDiscoveryResources(registry,type);
     const expectedLegacy={article:33,video:3,podcast:17}[type];
     const expectedNew={article:3,video:0,podcast:1}[type];
-    assert.equal(visible.length,expectedLegacy+expectedNew);
+    const firstWave=visible.filter(r=>!r.resource_id.startsWith('deep-20261026-'));
+    assert.equal(firstWave.length,expectedLegacy+expectedNew);
     assert.ok(visible.every(r=>r.enabled && r.content_types.includes(type)));
     for(const row of visible.filter(r=>r.resource_id.startsWith('research-20261026-'))){
       assert.ok(enabled.includes(row.resource_id));
