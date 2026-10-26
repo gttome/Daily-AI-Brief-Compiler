@@ -92,3 +92,16 @@ test('workflow cannot trigger publisher, generate content, enable AI tasks, or t
  assert.doesNotMatch(withoutInboundTrigger,/\b(?:repository_dispatch|actions\/deploy-pages|render-shadow-images|image-only-replacement)\b/);
  assert.doesNotMatch(w,/\b(?:openai|codex|work-execution|genai)\b/i);
 });
+
+test('temp-staged source AAR helper stays present in the existing nonpublishing operations reporter',()=>{
+ const yaml=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');
+ const compiler=fs.readFileSync('scripts/compile-daily-aar.mjs','utf8');
+ const combined=fs.readFileSync('scripts/render-unified-production-aar.mjs','utf8');
+ assert.match(compiler,/from '.\/oct27-source-readiness\.mjs'/);
+ assert.match(combined,/from '.\/oct27-source-readiness\.mjs'/);
+ assert.match(yaml,/cp scripts\/oct27-source-readiness\.mjs "\$tmp\/oct27-source-readiness\.mjs"/);
+ assert.match(yaml,/cp scripts\/compile-daily-aar\.mjs/);
+ assert.match(yaml,/cp scripts\/render-unified-production-aar\.mjs/);
+ for(const name of ['source-route-coverage','source-item-census','source-qualification'])
+   assert.ok(yaml.includes('shadow-runs/$edition/editorial/'+name+'.json'),name);
+});
