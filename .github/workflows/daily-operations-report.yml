@@ -65,6 +65,7 @@ jobs:
           tmp="$(mktemp -d)"
           # Use protected main report renderers even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
+          cp scripts/oct27-source-readiness.mjs "$tmp/oct27-source-readiness.mjs"
           cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
           cp scripts/image-aar-contract.mjs "$tmp/image-aar-contract.mjs"
