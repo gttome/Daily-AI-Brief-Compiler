@@ -78,7 +78,7 @@ test('103 new records comprise 102 historical routes plus one new applied AI pub
 });
 
 test('discovery sees all enabled roles but never unqualified historical records',()=>{
-  const totals={article:[111,51],video:[29,6],podcast:[40,21]};
+  const totals={article:[116,56],video:[29,6],podcast:[40,21]};
   assert.equal(registry.resources.filter(r=>r.enabled).length,94);
   for(const [type,[total,active]] of Object.entries(totals)){
     assert.equal(registry.resources.filter(r=>r.content_types.includes(type)).length,total);
@@ -122,4 +122,20 @@ test('no new billed retrievers or production workflow requirements',()=>{
   assert.match(prod,/signed-out/i);
   assert.match(prod,/24\/72\/168-hour/);
   assert.match(prod,/No Work\/Codex\/TinyFish/);
+});
+
+test('all eligible historic role memberships appear on their existing canonical source IDs',()=>{
+  const roles=inventory.exact_204_historical_membership_reconciliation;
+  for(const row of roles.filter(x=>x.canonical_registry_id)){
+    const source=current.get(row.canonical_registry_id);
+    assert.ok(source.content_types.includes(row.item_type),
+      row.row_id+' missing '+row.item_type+' role for '+row.canonical_registry_id);
+  }
+  const expected={
+    anthropic:'article','stanford-hai':'article','berkeley-bair':'article',
+    'mit-csail':'article','the-batch':'article',
+    'deep-20261026-a01-google-research':'research'
+  };
+  for(const [id,type] of Object.entries(expected))
+    assert.ok(current.get(id).content_types.includes(type),id);
 });
