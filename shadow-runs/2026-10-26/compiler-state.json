@@ -3,10 +3,10 @@
   "edition_date": "2026-10-26",
   "execution_id": "daily-compiler-2026-10-26-primary",
   "branch": "shadow/2026-10-26",
-  "state": "SHADOW_VERIFIED",
-  "stage": "VERIFY",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "started_at": "2026-10-26T00:16:09.635Z",
-  "updated_at": "2026-10-26T00:23:11.884Z",
+  "updated_at": "2026-10-26T00:19:41.955Z",
   "editorial_bundle": {
     "status": "complete",
     "stories": 6,
@@ -34,10 +34,10 @@
     "watchlist_refresh_at": "2026-10-26T00:16:09.635Z",
     "clock_basis": "genuine UTC event observations from this execution",
     "validation": {
-      "result": "LOCAL_SEMANTIC_REVIEW_PENDING",
+      "result": "PASS",
       "checked_at": "2026-10-26T00:19:41.955Z",
       "validator": "scripts/validate-semantic-bundle.mjs",
-      "note": "Complete bundle assembled; exact deterministic validation and GitHub readback required before publication.",
+      "note": "Exact deterministic validator passed; same-edition protected replay follows merged PR #253 correcting the image-job story_id verifier mismatch.",
       "bundle_digest": "1c887456dba8b8fcdc8ea9bdecb66951381b79088d87bf58eaaa070783fcf9c0"
     }
   },
@@ -51,6 +51,14 @@
     "october8_public_objects_preserved": 17,
     "contract": "reader-surface-parity-v2",
     "production_reader_source_sha": "912248e5add14b2ec08d7a5eefed43cbf3af485f",
+    "semantic_rework": 0,
+    "accepted_image_regenerations": 0
+  },
+  "recovery": {
+    "stage": "IMAGE_HANDOFF",
+    "failed_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40248965568",
+    "protected_fix_pr": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/253",
+    "preserves_bundle_digest": true,
     "semantic_rework": 0,
     "accepted_image_regenerations": 0
   }
