@@ -7,6 +7,7 @@ const TERMINAL=new Set(['CANDIDATES_FOUND','NO_ELIGIBLE_ITEMS','ACCESS_BLOCKED',
 const fail=s=>{throw new Error('EDITORIAL_SOURCE_CENSUS_'+s);};
 const okDate=s=>typeof s==='string'&&Number.isFinite(Date.parse(s))&&/\d{4}-\d{2}-\d{2}T/.test(s);
 const https=s=>{try{return new URL(s).protocol==='https:';}catch{return false;}};
+const hostname=u=>new URL(u).hostname.toLowerCase().replace(/^www\\./,'');
 const digest=r=>crypto.createHash('sha256').update(JSON.stringify(r)).digest('hex');
 export function itemCensusCounts(ledger){
  const list=ledger.resources||[];
@@ -45,11 +46,15 @@ export function recordEditorialSourceObservation(ledger,o){
   !['publisher_index','publisher_article','rss_or_atom','video_channel','podcast_show','independent_source_index'].includes(o.evidence_method)||
   !Array.isArray(o.items)||typeof o.reason!=='string'||o.reason.length<25)
   fail('MISSING_VISIT_EVIDENCE');
+ // A different publisher/index hostname needs an independently verified index
+ // receipt; it cannot silently be accepted as a visit to this original source.
+ if(hostname(o.source_index_url)!==hostname(r.url)&&
+    o.evidence_method!=='independent_source_index')fail('UNBOUND_PUBLISHER_INDEX');
  if(o.outcome==='CANDIDATES_FOUND'){
   if(o.items.length===0||o.items.length>15)fail('CANDIDATE_COUNT_INVALID');
   for(const item of o.items){
    if(!https(item.url)||!item.title||typeof item.title!=='string'||item.title.length<8||
-      !okDate(item.original_date))fail('CANDIDATE_ORIGINAL_EVIDENCE');
+      !okDate(item.original_date)||Date.parse(item.original_date)>Date.parse(o.checked_at)+86400000)fail('CANDIDATE_ORIGINAL_EVIDENCE');
   }
  }else if(o.items.length)fail('NO_ELIGIBLE_BUT_HAS_ITEMS');
  Object.assign(r,{outcome:o.outcome,checked_at:o.checked_at,
