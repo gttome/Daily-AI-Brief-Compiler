@@ -77,7 +77,7 @@ The 204-row audit identified six entries whose canonical publishers were correct
 | `the-batch` — The Batch | Article | [Official weekly AI newsletter](https://www.deeplearning.ai/the-batch); latest directly verified public index Jun 19, so **do not claim fresh Oct 2026 issue** |
 | `deep-20261026-a01-google-research` — Google Research | Research | [Original Google Research publisher page](https://research.google/blog/); already admitted for Articles, adding historical general research role |
 
-This completes all non-platform source-role memberships from the reconciled **204 historical rows**. The five new Article roles are available for discovery because their canonical sources were already enabled for research/Watchlist. Historical membership does not establish fresh article eligibility; the normal article 168-hour ceiling and independent evidence checks remain blocking selection gates.
+This completes all non-platform source-role memberships from the reconciled **204 historical rows**. The separately versioned [six-role completion receipt](OCT26_HISTORICAL_ROLE_COMPLETION.json) supplements the original 208-entry reconciliation snapshot, without overwriting historical audit counts. The five new Article roles are available for discovery because their canonical sources were already enabled for research/Watchlist. Historical membership does not establish fresh article eligibility; the normal article 168-hour ceiling and independent evidence checks remain blocking selection gates.
 
 ## How today's cycle will use the expanded inventory
 
