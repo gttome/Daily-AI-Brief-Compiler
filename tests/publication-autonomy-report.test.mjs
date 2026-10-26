@@ -59,3 +59,16 @@ test('unified AAR also labels owner-assisted release separately from public imag
   assert.match(md,/Unattended autonomy/);
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+
+test('October 26 owner-initiated handoff recovery cannot be misreported as unattended',()=>{
+ const incident=JSON.parse(fs.readFileSync('docs/after-action/2026-10-26-compiler-production-aar.json','utf8'));
+ assert.equal(incident.edition_date,'2026-10-26');
+ assert.equal(incident.owner_intervention.required_in_observed_sequence,true);
+ assert.equal(incident.unattended_autonomy_result,'FAIL_OWNER_TRIGGER_REQUIRED');
+ assert.equal(incident.first_failure.stage,'IMAGE_HANDOFF');
+ assert.equal(incident.recovery.correcting_pr,253);
+ assert.equal(incident.recovery.images_released_verified,6);
+ const wf=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');
+ assert.match(wf,/owner-intervention-incident\.json/);
+ assert.match(wf,/\$edition-compiler-production-aar\.json/);
+});
