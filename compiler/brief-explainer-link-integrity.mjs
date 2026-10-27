@@ -59,6 +59,7 @@ export function tailorBriefExplainerJekyllLayout(layout){
  const onlyOther="{% unless page.permalink == '/sources/' or page.permalink == '/build-your-own-brief-compiler/' %}";
  const onlyNotSources="{% unless page.permalink == '/sources/' %}";
  let text=String(layout);
+ if(text.includes(onlyOther))fail('layout_already_tailored');
  const oldHome="<li><a href=\"{{ '/' | relative_url }}\">Home</a></li>";
  text=uniqueReplace(text,oldHome,onlyOther+'\n            '+oldHome+'\n            {% endunless %}','jekyll_home_duplicate');
  const oldBuilder="<li><a href=\"{{ '/build-your-own-brief-compiler/' | relative_url }}\">Build Your Own Brief</a></li>";
