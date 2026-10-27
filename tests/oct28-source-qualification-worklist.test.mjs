@@ -16,12 +16,12 @@ const decision=(resource_id,status='VERIFIED_ACTIVE')=>({
  why:'Publisher original index and dated source item inspected with relevance and precise provenance; source discovery only.'
 });
 
-test('entire disabled historical portfolio is present without autoactivation',()=>{
+test('all currently disabled sources are present without autoactivation',()=>{
  const q=data();
- assert.equal(q.resources.length,114);
- assert.equal(q.disabled_sources_total,114);
+ assert.equal(q.resources.length,110);
+ assert.equal(q.disabled_sources_total,110);
  assert.equal(q.reviewed_disabled_count,0);
- assert.equal(q.unreviewed_disabled_count,114);
+ assert.equal(q.unreviewed_disabled_count,110);
  assert.deepEqual(q.verified_source_ids,[]);
  assert.ok(q.resources.every(x=>x.status==='UNREVIEWED'));
  const x=validateDisabledSourceWorklist(registry,q);
@@ -30,12 +30,12 @@ test('entire disabled historical portfolio is present without autoactivation',()
   /SOURCE_QUALIFICATION_DISABLED_SOURCES_UNREVIEWED/);
 });
 
-test('one real-evidence disposition does not imply 114 were reviewed or automatically enabled',()=>{
+test('one real-evidence disposition does not imply 110 were reviewed or automatically enabled',()=>{
  const q=data(),id=q.resources[0].resource_id;
  recordDisabledSourceDisposition(q,decision(id));
  const report=validateDisabledSourceWorklist(registry,q);
  assert.equal(report.reviewed,1);
- assert.equal(report.pending,113);
+ assert.equal(report.pending,109);
  assert.equal(report.verified,1);
  assert.deepEqual(q.verified_source_ids,[id]);
  assert.equal(registry.resources.find(r=>r.resource_id===id).enabled,false);

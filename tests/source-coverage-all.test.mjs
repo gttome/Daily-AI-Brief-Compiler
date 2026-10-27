@@ -13,17 +13,17 @@ const fakeProbe=(resource_id,extra={})=>({resource_id,status:'ROUTE_REACHABLE',
   attempted_at:'2026-10-26T23:15:40Z',method:'HEAD',http_status:200,
   final_url:'https://source.test/index',elapsed_ms:31,error_code:null,...extra});
 
-test('complete source census enumerates 208 including all 94 enabled, not just a shortlist',()=>{
+test('complete source census enumerates all 208 with 98 now enabled, not a shortlist',()=>{
  const plan=buildSourceCoveragePlan(liveRegistry,meta);
  assert.equal(plan.resources.length,208);
  assert.equal(plan.counts.registered,208);
- assert.equal(plan.counts.enabled,94);
- assert.equal(plan.counts.disabled,114);
+ assert.equal(plan.counts.enabled,98);
+ assert.equal(plan.counts.disabled,110);
  assert.equal(plan.counts.attempted,0);
- assert.equal(plan.counts.remaining,94);
+ assert.equal(plan.counts.remaining,98);
  assert.equal(plan.counts.all_enabled_attempted,false);
  assert.deepEqual(plan.counts.enabled_by_role,{
-  article:56,video:6,podcast:21,research:71,watchlist:55});
+  article:60,video:6,podcast:21,research:71,watchlist:57});
  const report=validateSourceCoverageReceipt(liveRegistry,plan);
  assert.equal(report.result,'INCOMPLETE');
  assert.throws(()=>validateSourceCoverageReceipt(liveRegistry,plan,
@@ -42,7 +42,7 @@ test('only observed HTTPS attempts count: successful, blocked, rate-limited and 
  assert.equal(report.reachable,1);
  assert.equal(report.blocked,2);
  assert.equal(report.failures,1);
- assert.equal(report.remaining,90);
+ assert.equal(report.remaining,94);
  assert.equal(report.item_discovery_not_certified,true);
  assert.equal(report.result,'INCOMPLETE');
 });
@@ -54,9 +54,9 @@ test('a full real-format attempt census can pass accounting but never certifies 
      final_url:row.url,http_status:403,status:'HTTP_BLOCKED'}));
  const result=validateSourceCoverageReceipt(liveRegistry,plan,{requireAllAttempts:true});
  assert.equal(result.result,'ALL_ATTEMPTS_ACCOUNTED');
- assert.equal(result.attempted,94);
+ assert.equal(result.attempted,98);
  assert.equal(result.reachable,0);
- assert.equal(result.blocked,94);
+ assert.equal(result.blocked,98);
  assert.equal(result.route_reachability_only,true);
  assert.equal(result.item_discovery_not_certified,true);
  // These are deliberately test fixtures; no HTTP requests were made here.
@@ -73,7 +73,7 @@ test('coverage integrity rejects omitted sources, corrupted identity and fabrica
  assert.throws(()=>validateSourceCoverageReceipt(liveRegistry,falsified),/INVALID_PROBE_EVIDENCE/);
  const wrong=structuredClone(base);wrong.registry_digest='0'.repeat(64);
  assert.throws(()=>validateSourceCoverageReceipt(liveRegistry,wrong),/STALE_REGISTRY/);
- const fakeCount=structuredClone(base);fakeCount.counts.attempted=94;
+ const fakeCount=structuredClone(base);fakeCount.counts.attempted=98;
  assert.throws(()=>validateSourceCoverageReceipt(liveRegistry,fakeCount),/INCONSISTENT_COUNTS/);
 });
 

@@ -16,15 +16,15 @@ const proof=(id,overrides={})=>({resource_id:id,result:'REACHABLE',
 test('the Oct28-only full universe includes 208 original IDs and disabled leads',()=>{
  const p=create();
  assert.equal(p.counts.registered,208);
- assert.equal(p.counts.enabled,94);
- assert.equal(p.counts.qualification_only,114);
+ assert.equal(p.counts.enabled,98);
+ assert.equal(p.counts.qualification_only,110);
  assert.equal(p.counts.attempted,0);
  assert.equal(p.counts.not_attempted,208);
  assert.equal(p.counts.complete,false);
  assert.deepEqual(p.rows.map(r=>r.resource_id),
   registry.resources.map(r=>r.resource_id));
- assert.equal(p.rows.filter(r=>!r.enabled&&r.scope==='QUALIFICATION_ONLY').length,114);
- assert.equal(p.rows.filter(r=>r.enabled&&r.scope==='DISCOVERY_CANDIDATE').length,94);
+ assert.equal(p.rows.filter(r=>!r.enabled&&r.scope==='QUALIFICATION_ONLY').length,110);
+ assert.equal(p.rows.filter(r=>r.enabled&&r.scope==='DISCOVERY_CANDIDATE').length,98);
  assert.throws(()=>validateOct28Plan(registry,p,{requireAll:true}),/208_SOURCE_SWEEP_INCOMPLETE/);
 });
 
@@ -54,12 +54,12 @@ test('test-only synthetic full receipt proves bookkeeping, not real HTTP or edit
  const v=validateOct28Plan(registry,p,{requireAll:true});
  assert.equal(v.result,'ALL_ROUTE_ATTEMPTS_ACCOUNTED');
  assert.equal(v.registered,208);
- assert.equal(v.qualification_only,114);
+ assert.equal(v.qualification_only,110);
  assert.equal(v.reachable,0);
  assert.equal(v.source_content_verified,false);
  assert.equal(v.disabled_autoenabled,false);
- assert.equal(registry.resources.filter(r=>r.enabled).length,94);
- assert.equal(activeDiscoveryResources(registry,'article').length,56);
+ assert.equal(registry.resources.filter(r=>r.enabled).length,98);
+ assert.equal(activeDiscoveryResources(registry,'article').length,60);
 });
 
 test('source identity, enablement and counts cannot be altered in receipts',()=>{
