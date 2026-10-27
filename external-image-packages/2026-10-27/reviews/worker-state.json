@@ -8,12 +8,12 @@
   "original_bundle_sha256": "a70a104a807060b65dc9479d2ceb8083cf3be99daf9a9f77246706b048e84e1d",
   "owner_token": "e70c9d6332b0769362b45822ab6fdc80ecb65717c163ae5d",
   "claimed_at": "2026-10-27T02:12:58Z",
-  "updated_at": "2026-10-27T02:22:10Z",
-  "lease_expires_at": "2026-10-27T02:42:10Z",
+  "updated_at": "2026-10-27T02:24:26Z",
+  "lease_expires_at": "2026-10-27T02:44:26Z",
   "phase": "CORRECTING",
-  "actual_generation_count": 1,
+  "actual_generation_count": 2,
   "accepted_count": 0,
-  "rejected_count": 1,
+  "rejected_count": 2,
   "accepted_images": [],
   "next_action": "Correct story 1 alternate-route origin and final-export safe margins; preserve rejected candidate.",
   "production": {
@@ -24,13 +24,18 @@
   },
   "usage": "UNKNOWN",
   "per_story_attempts": {
-    "oct27-t1-terra-warning-boundaries": 1
+    "oct27-t1-terra-warning-boundaries": 2
   },
   "errors": [
     {
       "phase": "Native saved-pixel review",
       "issue": "First story attempt 1: alternate route begins behind barrier, obscuring its pre-warning origin; title and caveat violate 40px margins; unlisted warning and cross symbols.",
       "correction": "Native edit requested on rejected candidate; remove extra glyphs and connect alternate route visibly from pre-barrier junction."
+    },
+    {
+      "phase": "Native saved-pixel review",
+      "issue": "Story 1 native edit removed extra glyphs but did not repair the alternate-route origin or final safe margins.",
+      "correction": "Rejected edit preserved; next correction uses a clear top-down route view to expose the common origin."
     }
   ]
 }
