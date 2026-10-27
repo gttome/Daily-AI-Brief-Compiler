@@ -75,7 +75,8 @@ export function updatePublicBriefExplainers({revisionFile,historySite,compiledPa
  }
  let newBuilder=fs.readFileSync(compiledPage,'utf8');
  assertBuiltBriefPage(newBuilder);
- newBuilder=normalizeBriefExplainerPage(newBuilder,{page:'builder'});
+ // The Jekyll layout already applies the unique-link rule on this route.
+ assertUniqueBriefInternalLinks(newBuilder,{page:'builder'});
  if(!newBuilder.includes('How the Brief stays current: a governed self-evolving loop')||
     !newBuilder.includes('Home gardening: a personal growing-intelligence')||
     !newBuilder.includes('href="https://www.rhs.org.uk/about-us/what-we-do/publications/podcasts"'))
