@@ -39,15 +39,21 @@ export function normalizeBriefExplainerPage(html,{page}){
  text=text.replace(FOOTER,'');
  if(page==='sources'){
   text=uniqueReplace(text,HEADER_BUILDER,'','source_page_has_builder_cta');
-  // This original callout duplicates existing primary navigation URLs.
-  // Retain its substantive message, not redundant buttons to the same pages.
+  // The same Watchlist URL also exists in primary nav. Edit only the
+  // specific explanatory callout so essential primary navigation is preserved.
+  const startMarker='<div class="src-callout"><strong>For readers:</strong>';
+  const start=text.indexOf(startMarker),end=text.indexOf('</div>',start);
+  if(start<0||end<=start||text.indexOf(startMarker,start+1)>=0)
+    fail('sources_reader_callout_changed');
+  let callout=text.slice(start,end+'</div>'.length);
   for(const [before,after] of [
    ['<a href="'+BASE+'">today’s Brief</a>','today’s Brief'],
    ['<a href="'+BASE+'watchlist/">Emerging AI Watchlist</a>','the Emerging AI Watchlist'],
    ['<a href="'+BASE+'briefs-archive/">dated archive</a>','the dated archive']
   ]){
-   text=uniqueReplace(text,before,after,'repeated_source_exploration_link');
+   callout=uniqueReplace(callout,before,after,'repeated_source_exploration_link');
   }
+  text=text.slice(0,start)+callout+text.slice(end+'</div>'.length);
  }
  assertUniqueBriefInternalLinks(text,{page});
  return text;
