@@ -70,7 +70,7 @@ test('Sources summary explains coherent media and human-approved learning update
  assert.ok(section.includes('editorial coherence'));
  assert.ok(section.includes('author-reviewable proposals'));
  assert.ok(section.includes('Generative AI Professional Series'));
- assert.ok(section.includes('build-your-own-brief-compiler/'));
+ assert.ok(section.includes('Build Your Own Brief Compiler'));
  const updated=insertBuilderIntoSources(fakeSources);
  assert.equal(updated.split('id="source-builder"').length,2);
  assert.ok(updated.includes('id="source-accountability"'));

@@ -17,6 +17,8 @@ They explain the **transferable editorial system**, not merely the daily AI news
 | Source directory and summary | [Sources renderer](../../compiler/source-transparency.mjs) | [Sources](https://gttome.github.io/Daily-AI-Brief-Compiler/sources/) |
 | Site route and navigation contracts | [Brief page contract](../../compiler/brief-builder-pages.mjs) | Both pages |
 | Once-only destination policy | [Link integrity rule](../../compiler/brief-explainer-link-integrity.mjs) | Both pages |
+| Builder-only CSS in the HTML head | [Page-scoped CSS](../../site-content/brief-builder-styles.css) and [head injection contract](../../compiler/brief-builder-style.mjs) | Build Your Own Brief Compiler |
+| Historical and current shared header link | [Navigation script overlay](../../compiler/global-brief-navigation.mjs) | All dated and permanent Brief pages |
 | Future daily materialization | [Reader materializer](../../compiler/reader-materializer.mjs) | Both pages |
 | Protected current-site patch | [Two-route page update](../../scripts/update-brief-explainer-webpages.mjs) | Both pages |
 
@@ -54,9 +56,19 @@ A proposal should contain **observation → dated source → affected knowledge 
 - Require authoritative evidence. For home gardening, local Cooperative Extension planting windows outrank a generic overseas calendar; a podcast adds perspective, not proof of regional suitability.
 - Distinguish today's working Brief Compiler from a future multi-tenant self-service application, which would need its own software, data rights, privacy, hosting and operations.
 - Use descriptive headings, a six-use-case jump menu, readable/scannable sections and mobile-friendly tables; test at **320px** minimum.
-- **Each link to another Brief page may occur only once per explainer page.** Keep the brand as the homepage link, retain the necessary main navigation, place the Builder CTA once in Sources, and suppress redundant footer/header links on these two pages only.
+- **Put Sources and Build Your Own Brief links in the primary header near each page title.** On the two explainer pages, link each site destination only once. The brand already links home, the Builder CTA belongs in top navigation, and duplicate footer/body destinations should be text or omitted.
 - Preserve the original 208-record source directory unless the registry is separately updated; never invent source health or imply every route was checked.
 - Do not rewrite any already published Brief, accepted image, feed, Watchlist, engagement data or schedule.
+
+## Repairing a visible CSS block or a missing archived header link
+
+Never paste a raw `<style>` block into `site-content/build-your-own-brief-compiler.md`. The production Jekyll Markdown engine can escape the opening tag into visible `&lt;style...` text. Put CSS in [the dedicated stylesheet](../../site-content/brief-builder-styles.css). The [head-style helper](../../compiler/brief-builder-style.mjs) injects it **inside the real HTML `<head>`**, guarded to the Builder permalink only. Tests require the style to exist once and forbid the escaped text.
+
+All dated and permanent Brief HTML pages already load the shared `assets/js/audience.js` path. To avoid rewriting hundreds of archived pages (including historically pinned October 8 bytes), [the global navigation overlay](../../compiler/global-brief-navigation.mjs) adds a single **Build Your Own Brief** link after **Sources** in the top navigation. It does not call an external service, does not affect ratings or analytics, and ignores pages without the canonical header. It is idempotent and removes redundant Builder footer/CTA links when appropriate. A page retaining only the nav links is more useful than repeating the same destination.
+
+**Future editions:** The materializer overlays the global navigation into its temporary copy of the reader runtime, adds both primary navigation links via the temporary Jekyll layout, and injects the same Builder CSS into the head; the original vendored reader remains unchanged.
+
+**Verification before merge:** Audit actual Pages history to prove every page with the standard header loads the shared runtime; render the Builder page with Jekyll and assert real head styles and absence of printed code; validate no repeated Builder links on the two explainer pages; verify that all accepted images and unrelated HTML bytes stay identical. When the shared script URL remains the same, browsers may retain the previous cached JavaScript until their cache expires; a hard refresh is an appropriate spot check.
 
 ## Adding another hobby or sector
 
@@ -79,4 +91,4 @@ A proposal should contain **observation → dated source → affected knowledge 
 - All other public reader and image files remain byte-identical; no new paid API, schedule or platform change.
 - Final status reports show **live website links**, not Word/ZIP downloads.
 
-**Release scope:** This enhancement changes only Sources and Build Your Own Brief Compiler informational pages. Future editions continue to derive both pages from their canonical GitHub source and existing Reader/Jekyll build.
+**Release scope:** The current header/CSS correction updates two informational HTML routes and one existing shared JavaScript asset. The other dated and permanent HTML routes, accepted images, and their editorial content remain byte-identical. Future editions continue to derive the pages from canonical GitHub source and the existing Reader/Jekyll build.

@@ -4,6 +4,7 @@ import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading
 import {assertPublishedReaderQuality} from '../compiler/reader-quality.mjs';
 import {sourceRegistrySummary} from '../compiler/source-transparency.mjs';
 import {assertBuiltBriefPage} from './stage-brief-builder-pages.mjs';
+import {validateBuiltBuilderHead} from '../compiler/brief-builder-style.mjs';
 import {assertUniqueBriefInternalLinks} from '../compiler/brief-explainer-link-integrity.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -111,6 +112,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   if(manifest.edition_date>='2026-10-28'){
     const page=fs.readFileSync(path.join(siteDir,'build-your-own-brief-compiler','index.html'),'utf8');
     assertBuiltBriefPage(page);
+    validateBuiltBuilderHead(page);
     assertUniqueBriefInternalLinks(page,{page:'builder'});
     const sources=fs.readFileSync(path.join(siteDir,'sources','index.html'),'utf8');
     assertUniqueBriefInternalLinks(sources,{page:'sources'});

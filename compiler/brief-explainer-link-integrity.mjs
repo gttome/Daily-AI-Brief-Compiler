@@ -38,7 +38,14 @@ export function normalizeBriefExplainerPage(html,{page}){
    fail('footer_nav_cannot_be_deduplicated');
  text=text.replace(FOOTER,'');
  if(page==='sources'){
-  text=uniqueReplace(text,HEADER_BUILDER,'','source_page_has_builder_cta');
+  // When the Builder link lives in the primary header, neutralize any old
+  // Sources body CTA that would otherwise repeat the same destination.
+  // Older verified pages may have the CTA but no Builder header.
+  if(text.includes(HEADER_BUILDER)){
+    const cta='<a href="'+BASE+'build-your-own-brief-compiler/">Build Your Own Brief Compiler — from information to a living knowledge system</a>';
+    if(text.includes(cta))
+      text=text.replace(cta,'<strong>Build Your Own Brief Compiler — from information to a living knowledge system</strong>');
+  }
   // The same Watchlist URL also exists in primary nav. Edit only the
   // specific explanatory callout so essential primary navigation is preserved.
   const startMarker='<div class="src-callout"><strong>For readers:</strong>';
@@ -63,13 +70,13 @@ export function normalizeBriefExplainerPage(html,{page}){
 // /sources/ and /build-your-own-brief-compiler/. Other pages keep their layout.
 export function tailorBriefExplainerJekyllLayout(layout){
  const onlyOther="{% unless page.permalink == '/sources/' or page.permalink == '/build-your-own-brief-compiler/' %}";
- const onlyNotSources="{% unless page.permalink == '/sources/' %}";
+
  let text=String(layout);
  if(text.includes(onlyOther))fail('layout_already_tailored');
  const oldHome="<li><a href=\"{{ '/' | relative_url }}\">Home</a></li>";
  text=uniqueReplace(text,oldHome,onlyOther+'\n            '+oldHome+'\n            {% endunless %}','jekyll_home_duplicate');
  const oldBuilder="<li><a href=\"{{ '/build-your-own-brief-compiler/' | relative_url }}\">Build Your Own Brief</a></li>";
- text=uniqueReplace(text,oldBuilder,onlyNotSources+'\n            '+oldBuilder+'\n            {% endunless %}','jekyll_builder_source_cta_duplicate');
+ if(text.split(oldBuilder).length!==2)fail('jekyll_builder_link_missing');
  const footer='<nav aria-label="Publication footer" class="reader-footer-links">';
  const footerIndex=text.indexOf(footer),footerEnd=text.indexOf('</nav>',footerIndex);
  if(footerIndex<0||footerEnd<footerIndex||text.indexOf(footer,footerIndex+1)>=0)

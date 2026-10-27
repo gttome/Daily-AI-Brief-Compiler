@@ -94,7 +94,8 @@ test('future Jekyll layout hides duplicate header and footer links on only the t
  const layout=fs.readFileSync('vendor/production-reader/snapshot/_layouts/default.html','utf8');
  const version=addBuilderToJekyllLayout(layout);
  assert.ok(version.includes("{% unless page.permalink == '/sources/' or page.permalink == '/build-your-own-brief-compiler/' %}"));
- assert.ok(version.includes("{% unless page.permalink == '/sources/' %}"));
+ assert.equal(version.includes("{% unless page.permalink == '/sources/' %}"),false);
+ assert.ok(version.includes("Build Your Own Brief"));
  assert.ok(version.includes("Build Your Own Brief"));
  assert.throws(()=>tailorBriefExplainerJekyllLayout(version),/layout_already_tailored/);
 });

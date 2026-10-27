@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {BRIEF_BUILDER_MD,addBuilderToJekyllLayout,assertBuilderMarkdown} from '../compiler/brief-builder-pages.mjs';
+import {BUILDER_CSS_PATH,styleBuilderJekyllLayout} from '../compiler/brief-builder-style.mjs';
 
 export function prepareBuilderJekyllSource({outRoot}){
   if(!outRoot||fs.existsSync(outRoot))throw Error('jekyll_preview_output_must_be_new');
@@ -16,7 +17,8 @@ export function prepareBuilderJekyllSource({outRoot}){
   fs.mkdirSync(path.join(outRoot,'_layouts'),{recursive:true});
   // Same site shell. Add the new link in both top navigation and footer.
   fs.writeFileSync(path.join(outRoot,'_layouts/default.html'),
-    addBuilderToJekyllLayout(layout),'utf8');
+    styleBuilderJekyllLayout(addBuilderToJekyllLayout(layout),
+      fs.readFileSync(BUILDER_CSS_PATH,'utf8')),'utf8');
   // Absolute public routes remain on the established repository GitHub Pages base.
   fs.writeFileSync(path.join(outRoot,'_config.yml'),
     config+'\nurl: "https://gttome.github.io"\nbaseurl: "/Daily-AI-Brief-Compiler"\n','utf8');
