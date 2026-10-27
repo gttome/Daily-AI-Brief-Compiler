@@ -5,7 +5,9 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 export const OCT8_PUBLIC_BASE='https://gttome.github.io/Daily-AI-Brief-Compiler/';
-export const OCT8_LIVE_BASELINE=Object.freeze({
+// Original content pins remain retained. Protected owner-requested PR #269
+// inserted exactly two missing podcast navigation spans into one dated page.
+export const OCT8_ORIGINAL_BASELINE=Object.freeze({
   'briefs/2026-10-08/index.html':['9ee91bbd9799bf03665b266cc90fd8e6e2ae6d32706c0b89f1b435ef51e8da84',63781],
   'stories/2026-10-08/cisco-webex-agentic-collaboration/index.html':['328af67f1f18ae5b40937c8223e6f82e2e4c45293702f4b546f99ea06c5daeee',16054],
   'stories/2026-10-08/github-agent-scale-git-infrastructure/index.html':['efddc36039fed475be323c639b5276b9aa1040e755e42069d355d6c9216101cd',16080],
@@ -24,6 +26,46 @@ export const OCT8_LIVE_BASELINE=Object.freeze({
   'briefs/images/2026-10-08/dab-edition-2026-10-08-m12.png':['0dad7a6a1592cb28bd4ff7c0c686f1a08a92de62557c2559a8387f1bbfcebeb4',1010181],
   'briefs/images/2026-10-08/dab-edition-2026-10-08-m14.png':['28b12f2a682f071bdba33fdcb4719afb193e8e7da7e760371f9668c32b1ef768',877437]
 });
+export const OCT8_PODCAST_ANCHOR_REVISION=Object.freeze({
+  route:'briefs/2026-10-08/index.html',
+  authorization:'https://github.com/gttome/Daily-AI-Brief-Compiler/pull/269',
+  protected_merge_sha:'7aea9c0f4a5f16d2fe3317f92aef61d241c6ae47',
+  original_history_sha:'68f75996a8a5ad038303f5eadb21878b71e10fe1',
+  corrected_history_sha:'2ea7878e5578900fda4d7895f786cdee096f5da6',
+  sha256:'b86117555b389d9f56eb3fca7138203dae605c98fb614859f0c4dd650ad2916d',
+  bytes:63885,
+  insertions:Object.freeze([
+    '<span id="podcast-dab-podcast-2026-10-08-1"></span>\n',
+    '<span id="podcast-dab-podcast-2026-10-08-2"></span>\n'
+  ])
+});
+// Exactly one already-approved HTML revision; the other 16 pins, including
+// every original PNG, are unchanged. No wildcard normalization or broad waiver.
+export const OCT8_LIVE_BASELINE=Object.freeze({
+  ...OCT8_ORIGINAL_BASELINE,
+  [OCT8_PODCAST_ANCHOR_REVISION.route]:Object.freeze([
+    OCT8_PODCAST_ANCHOR_REVISION.sha256,OCT8_PODCAST_ANCHOR_REVISION.bytes
+  ])
+});
+export function proveApprovedOct8ReaderRevision(bytes){
+  const revision=OCT8_PODCAST_ANCHOR_REVISION;
+  if(bytes.length!==revision.bytes||
+     crypto.createHash('sha256').update(bytes).digest('hex')!==revision.sha256)
+    throw new Error('oct8_approved_reader_revision_hash_mismatch');
+  let restored=bytes.toString('utf8');
+  for(const insertion of revision.insertions){
+    if(restored.split(insertion).length!==2)
+      throw new Error('oct8_approved_reader_revision_anchor_mismatch');
+    restored=restored.replace(insertion,'');
+  }
+  const original=Buffer.from(restored,'utf8');
+  const [sha256,length]=OCT8_ORIGINAL_BASELINE[revision.route];
+  if(original.length!==length||crypto.createHash('sha256').update(original).digest('hex')!==sha256)
+    throw new Error('oct8_approved_reader_revision_changed_original_content');
+  return {result:'EXACT_OWNER_APPROVED_ANCHOR_REVISION',
+    original_sha256:sha256,original_bytes:length,insertions:2,
+    authorization:revision.authorization};
+}
 export function auditOct8Response(relative,status,bytes){
   const expected=OCT8_LIVE_BASELINE[relative];
   if(!expected)throw new Error('unrecognized_oct8_route:'+relative);
@@ -31,7 +73,10 @@ export function auditOct8Response(relative,status,bytes){
   const actual=crypto.createHash('sha256').update(bytes).digest('hex');
   if(bytes.length!==expected[1]||actual!==expected[0])
     throw new Error('live_oct8_hash_or_byte_drift:'+relative);
-  return {route:relative,url:new URL(relative,OCT8_PUBLIC_BASE).href,http:200,bytes:bytes.length,sha256:actual};
+  const approved_reader_revision=relative===OCT8_PODCAST_ANCHOR_REVISION.route?
+    proveApprovedOct8ReaderRevision(bytes):null;
+  return {route:relative,url:new URL(relative,OCT8_PUBLIC_BASE).href,http:200,bytes:bytes.length,sha256:actual,
+    ...(approved_reader_revision?{approved_reader_revision}:{})};
 }
 export async function auditOct8Live({fetchImpl=fetch,outputPath=null}={}){
   const entries=Object.keys(OCT8_LIVE_BASELINE);

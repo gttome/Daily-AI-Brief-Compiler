@@ -53,6 +53,7 @@
 | Local validation checkout | Automatic approval review rejected a hard reset because uncommitted artifacts could be discarded. | Preserved the first checkout intact and created a separate validation checkout; no destructive reset was performed. |
 | Progress timestamp precision | Two early checkpoint updated_at values were entered approximately rather than captured by the clock tool. | Preserved historical commits and disclose those checkpoint times as approximate; production start observations and later acceptance clocks remain the genuine recorded tool observations. |
 | Primary source access | Direct Google article retrieval redirected to a blocking page; the Nature version-of-record body required subscription. | Used indexed complete first-party Google article/archive and Nature abstract, accessible author manuscript and published supplement; kept qualifications and omitted unsupported quantitative artwork. |
+| Protected preservation audit | Image PR270 passed exact-head package admission and all544tests, but normal validate rejected the Oct8 HTML pin after the owner-approved two-anchor repair PR269. | Protected PR271 reconciled only the exact104-byte approved revision, retained all original pins and added reverse-proof to the original HTML hash. Other16objects and six PNG pins unchanged; independent17-object audit and protected CI passed. |
 
 ## Evidence and limitations
 
@@ -79,5 +80,7 @@ Actual first observable executor clock and pre-first-native-call clock are retai
 PR admission, protected merge, image-only release, six live hashes, twelve pairings, twenty-four real semantic context reviews and all seventeen October8 protected objects remain required after this checkpoint.
 
 No accepted PNG or manifest will be changed solely to trigger reporting closeout. Unknown weekly usage remains UNKNOWN. No new recurring task, paid API, TinyFish or metered service was used.
+
+Preservation compatibility repair PR271 merged at3c116af35e924af6dcd242bd8fa130826c0cd595. No reader bytes, accepted images, source bundle or manifest changed. Image PR270 is rebased by non-force ancestry-preserving merge and must pass its own exact-head CI again.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
