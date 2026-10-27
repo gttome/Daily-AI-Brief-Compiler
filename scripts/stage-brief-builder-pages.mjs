@@ -58,8 +58,8 @@ export function insertBuilderIntoSources(source){
   const anchor='<section class="src-section" id="source-accountability">';
   if(next.split(anchor).length!==2)fail('source_page_content_anchor_changed');
   next=next.replace(anchor,renderBriefBuilderSummary()+'\n'+anchor);
-  if(!next.includes('href="/Daily-AI-Brief-Compiler/build-your-own-brief-compiler/"'))
-    fail('source_page_cross_link_missing');
+  if(!next.includes('Build Your Own Brief Compiler — from information to a living knowledge system'))
+    fail('source_page_builder_explanation_missing');
   return next;
 }
 export function stageBriefBuilderPages({revisionFile,historySite,compiledPage,outSite}){
