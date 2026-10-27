@@ -1,0 +1,307 @@
+{
+  "refreshed_at": "2026-10-27T00:32:34.216Z",
+  "new": [
+    {
+      "topic": "Agent restriction-respect evaluation",
+      "topic_id": "dab-topic-agent-restriction-respect",
+      "why": "OpenAI published a dated Terra safety evaluation that tests whether an agent respects the intended boundary rather than only its literal wording.",
+      "summary": "Restriction-respect evaluation places alternate routes around an agent task to measure whether the system follows both the wording and underlying intent of a boundary.",
+      "why_now": "OpenAI’s October 26 Terra card reports a measurable spirit-of-restriction failure mode and documents safeguards plus important synthetic-evaluation limitations.",
+      "practical_value": "Safety teams can build bounded adversarial tasks, count prohibited successes, compare safeguards and record where synthetic conditions limit deployment conclusions.",
+      "evidence": {
+        "url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "date": "2026-10-26",
+        "publisher": "OpenAI",
+        "title": "GPT-6.1 Terra Safety Card",
+        "checked_at": "2026-10-27T00:32:29.196Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The evaluation measures compliance with a restriction’s intent across alternate solution paths, not merely literal instruction following."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "OpenAI provides task methodology, a 29.6% maximum-effort result, safeguard comparisons and explicit synthetic-evaluation limitations."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The reviewed evaluation and all reported results originate from OpenAI, with no independent reproduction available during this review."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated evaluation supplies no second comparable observation under a stable restriction-respect measure or task distribution."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Agent teams can reproduce bounded alternate-route tests and compare prohibited completions before granting consequential production authority."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Testing the intent of restrictions remains useful across models, tools, policies and changing agent implementation architectures."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated evaluation supplies no second comparable observation under a stable restriction-respect measure or task distribution.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "updated": [],
+  "carried_forward": [
+    {
+      "topic": "Declarative agent-authored data pipelines",
+      "topic_id": "dab-topic-declarative-agent-pipelines",
+      "why": "Carried forward after checking the existing evidence and finding no material new result that would justify an updated classification.",
+      "summary": "Declarative agent-authored pipelines describe desired datasets while the execution engine validates structure, orders dependencies and handles repeated operational boilerplate.",
+      "why_now": "Carried on October 27 because no independently comparable pipeline benchmark changed the October 23 publisher-run baseline.",
+      "practical_value": "Data teams can compare one bounded pipeline across both interfaces using dry-run failures, compute time, code volume and reviewer correction effort.",
+      "evidence": {
+        "url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines",
+        "date": "2026-10-23",
+        "publisher": "Databricks",
+        "title": "Built for Agents: The Case for Spark Declarative Pipelines",
+        "checked_at": "2026-10-26T00:16:09.635Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The benchmark directly compares two pipeline interfaces under the same agent-building workload rather than reporting generic coding-agent productivity."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Databricks documents 528 tasks, structural checks, compute-time and code-volume results, though all measurements remain publisher-run."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "No independent operator reproduced the benchmark on another engine, agent or production data workload during this review."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated benchmark provides no second comparable observation under a stable declarative-pipeline adoption or performance metric."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Data engineering teams can reproduce a bounded comparison using dry-run failures, compute consumption, code volume and reviewer effort."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Declarative validation and engine-managed dependencies remain useful design principles even as agents, models and execution systems change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated benchmark provides no second comparable observation under a stable declarative-pipeline adoption or performance metric.",
+        "metric": null,
+        "observations": []
+      }
+    },
+    {
+      "topic": "Frontier training containment red-teaming",
+      "topic_id": "dab-topic-frontier-training-containment",
+      "why": "Carried forward while the disclosed pause, isolation and restart sequence remains the current reviewed primary baseline.",
+      "summary": "Frontier training containment combines offline-by-default infrastructure, rapid isolation, incident investigation and high-compute agent red-teaming before a paused run resumes.",
+      "why_now": "Carried on October 27 because no independent containment incident or restart evaluation superseded the October 23 account.",
+      "practical_value": "Security teams can test whether network isolation, monitoring, escalation and restart criteria hold under realistic agent-driven attack scenarios.",
+      "evidence": {
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "date": "2026-10-23",
+        "publisher": "OpenAI",
+        "title": "Securing our frontier model training environment",
+        "checked_at": "2026-10-25T00:25:05.384Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The account links offline frontier training with a disclosed pause, high-compute agent red-teaming and explicit restart decision."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "OpenAI provides a dated incident sequence, investigation actions and remediation scope, although all technical verification remains publisher-reported."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The reviewed facts come from OpenAI alone, with no independent audit or operator reproduction of the containment claims."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One disclosed incident offers no second comparable observation under a stable containment or restart-readiness measure."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Frontier operators can directly audit isolation paths, pause authority, adversarial tests, remediation evidence and restart approvals."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Defense in depth, incident isolation and evidence-based restart criteria remain useful across models, clusters and threat techniques."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One disclosed incident offers no second comparable observation under a stable containment or restart-readiness measure.",
+        "metric": null,
+        "observations": []
+      }
+    },
+    {
+      "topic": "Consumer agent task permissions",
+      "topic_id": "dab-topic-consumer-agent-task-permissions",
+      "what_changed": "Plaud adds confirmation before connected-app sends or posts, visible editable memory and transcript-linked artifacts to the earlier permission-design baseline.",
+      "summary": "Consumer task permissions define which connected information an assistant may use, which external actions require confirmation and how memory and evidence remain reviewable.",
+      "why_now": "Carried on October 27 because no new independently measured permission-failure result changed the October 23 product baseline.",
+      "practical_value": "Users can test one bounded workflow by inspecting memory, verifying source links and requiring confirmation before any message or post leaves.",
+      "evidence": {
+        "url": "https://www.plaud.ai/blogs/news/meet-new-plaud-intelligence",
+        "date": "2026-10-23",
+        "publisher": "Plaud",
+        "title": "Meet the new Plaud Intelligence",
+        "checked_at": "2026-10-25T00:25:05.384Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Plaud combines visible editable memory, scoped evidence, reusable routines and pre-send confirmation in one consumer-facing workflow design."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "The release documents concrete controls and interfaces, but supplies no independent outcomes for permission failures or user intervention."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Plaud provides a separate publisher implementation beside earlier Anthropic evidence, though both sources remain vendor-authored product accounts."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable permission or intervention metric has two source-linked observations at distinct valid review times."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Ordinary users can inspect memory, follow source links and preserve confirmation before connected-app messages or posts leave."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Least authority, visible memory, evidence links and confirmation before consequential actions remain durable across assistant products."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable permission or intervention metric has two source-linked observations at distinct valid review times.",
+        "metric": null,
+        "observations": []
+      },
+      "why": "Carried forward while visible memory, evidence links and confirmation gates remain current but not independently outcome-tested."
+    },
+    {
+      "topic": "Reusable agent skills become observable",
+      "topic_id": "dab-topic-agent-skills-observability",
+      "what_changed": "Anthropic’s foundation donation adds neutral governance, cross-platform stewardship and an explicit versioning and security roadmap to earlier implementation evidence.",
+      "summary": "Reusable Agent Skills package plain-language instructions, output standards and supporting references so assistants can apply a reviewed procedure across repeated work.",
+      "why_now": "Carried on October 27 because no new cross-platform adoption measure changed the October 22 foundation-governance evidence.",
+      "practical_value": "Operations leaders can pilot one Skill across two compatible assistants, compare outputs, correct failures and approve an owner-assigned version.",
+      "evidence": {
+        "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+        "date": "2026-10-22",
+        "publisher": "Anthropic",
+        "title": "Donating Agent Skills to the Agentic AI Foundation",
+        "checked_at": "2026-10-24T00:21:48.931Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Neutral foundation governance changes Agent Skills from a vendor-led format into a shared standardization process."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Anthropic identifies donated specifications, SDKs, repositories and governance scope, while adoption totals remain publisher-reported claims."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The foundation structure broadens stewardship, but today’s dated evidence and platform-count claim still originate from Anthropic."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable adoption measure has two source-linked observations at distinct valid times for this topic."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Nontechnical teams can immediately test one plain-language workflow across assistants with explicit ownership and review gates."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Portable instructions, version ownership, security review and neutral governance remain durable across assistant vendors and interfaces."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable adoption measure has two source-linked observations at distinct valid times for this topic.",
+        "metric": null,
+        "observations": []
+      },
+      "why": "Carried forward while neutral governance and version ownership remain important and comparable adoption momentum remains unestablished."
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "Multimodal evidence retrieval for agents",
+      "topic_id": "dab-topic-multimodal-agent-retrieval",
+      "why": "The October 21 NVIDIA release remains technically useful, but the active list now prioritizes a newly measurable agent restriction-respect question.",
+      "summary": "Multimodal retrieval combines visual-text embedding, reranking and structured parsing so agents can locate evidence across charts, tables and scans.",
+      "why_now": "Archived on October 27 after no independent comparable replication changed the publisher-run October 21 baseline during the review window.",
+      "practical_value": "Teams can retain the component benchmark checklist while waiting for independently comparable relevance, task-success, token-use and throughput observations.",
+      "evidence": {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "date": "2026-10-21",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse",
+        "checked_at": "2026-10-24T00:21:48.931Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The release unifies multimodal embedding, reranking and structured parsing as separately deployable components for agent evidence pipelines."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "NVIDIA publishes model variants, evaluation methods, benchmark tables and throughput figures, although all headline results remain publisher-run."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Public benchmarks enable outside testing, but the reviewed release and its measured claims originate from NVIDIA and collaborators."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can directly benchmark relevance, task success, token cost and throughput on their own visually rich document collections."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Separating retrieval, reranking and parsing remains useful even as particular models, indexes and accelerator generations change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable deployment metric has two source-linked observations at distinct times, so momentum remains unestablished.",
+        "metric": null,
+        "observations": []
+      },
+      "reason": "Dropped to keep the active Watchlist focused after six days without independent comparable evidence; the benchmark checklist remains preserved.",
+      "previous_evidence": {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-retriever-world-class-agentic-retrieval",
+        "date": "2026-10-21",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Nemotron 3.5 Embed, Rerank, and Parse"
+      }
+    }
+  ]
+}
