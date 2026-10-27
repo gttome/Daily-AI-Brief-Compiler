@@ -25,7 +25,7 @@ permalink: /build-your-own-brief-compiler/
 </style>
 
 
-# Build your own Brief Compiler
+## From information to a living knowledge system
 
 *From scattered information to a coherent briefing—and from a briefing to a continually improving body of knowledge.*
 
