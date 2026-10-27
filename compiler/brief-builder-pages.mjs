@@ -64,6 +64,8 @@ export function assertBuilderMarkdown(markdown){
   for(const book of ['genaipromptingguide','genaipro','GenAILearn','reliable-context-engineering'])
     if(!text.includes('https://leanpub.com/'+book))
       throw Error('brief_builder_book_mapping_missing_'+book);
+  if(text.includes('<style id="brief-compiler-builder-style">')||
+     text.includes('/* Local page styling only'))throw Error('raw_css_must_not_appear_in_markdown');
   if(text.includes('sandbox:/')||text.includes('file:///'))
     throw Error('brief_builder_document_links_not_for_website');
   return {result:'PASS',scenarios:6};
