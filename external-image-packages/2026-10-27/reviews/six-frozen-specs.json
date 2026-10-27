@@ -293,7 +293,11 @@
       "Protected branch",
       "No shell, HTTP or eval",
       "Untrusted input stays data",
-      "Publisher architecture report"
+      "Publisher architecture report",
+      "Ticket identity",
+      "Allowed repositories",
+      "Path blocklist",
+      "Raw evidence"
     ],
     "source_claim_map": [
       {
@@ -321,6 +325,13 @@
         "id": "approval",
         "proposition": "Human review and Git-host branch protection govern changes.",
         "supporting_source_excerpt": "Written changes open as PRs and external protections control the merge.",
+        "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "wrapper_checks",
+        "proposition": "Policy dispatcher checks ticket identity, allowed repositories and a path blocklist for every tool call.",
+        "supporting_source_excerpt": "Every tool call checks the ticket identity, allowed repositories and path blocklist.",
         "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
         "evidence_kind": "primary_source_fact"
       }
@@ -515,6 +526,50 @@
             "width": 1104,
             "height": 44
           }
+        },
+        {
+          "label": "Ticket identity",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 210,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Allowed repositories",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 210,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Path blocklist",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 210,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Raw evidence",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 314,
+            "width": 350,
+            "height": 98
+          }
         }
       ],
       "safe_margin_px": 40,
@@ -603,7 +658,9 @@
       "approved_before_generation": true
     },
     "drawing_plan": "White-background sectional run capsule on the left exposes scoped credential, agent loop and wrapped-tool layers. Policy dispatcher is at its only exit. Outside the capsule show independent risk assessment receiving a distinct raw-evidence rail, never agent-written conclusions. A conditional review route meets an external branch-protection wall. A crossed closed escape opening denotes absent generic shell/HTTP/eval; no route to protected branch through it. Mark untrusted input at the capsule entrance as data. Show real compartments and boundary faces rather than opaque generic cards. Detached publisher caveat at bottom with no arrows.",
-    "source_review_limitations": "Published primary source reviewed; no independent replication claimed."
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed.",
+    "revision": 2,
+    "correction_reason": "Two rejected renders obscured real policy substages with opaque containers; add exact existing primary-source check names before next render."
   },
   {
     "schema_version": "external-image-firstpass-freeze-v1",
