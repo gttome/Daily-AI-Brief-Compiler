@@ -6,6 +6,7 @@ import {adaptCompilerBundle} from './reader-adapter.mjs';
 import {readerEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 import {verifiedHistoricalRelation} from './historical-related.mjs';
+import {renderSourcesMarkdown} from './source-transparency.mjs';
 
 const compilerRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshotRoot=path.join(compilerRoot,'vendor','production-reader','snapshot');
@@ -295,6 +296,12 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
   if(bundle.edition_date>='2026-10-28')patchPodcastNavigationTargets(outDir);
+  // Only Oct28+ compilations regenerate this informational page from the
+  // protected Compiler registry. The frozen reader snapshot stays immutable.
+  if(bundle.edition_date>='2026-10-28'){
+    const registry=readJson(path.join(compilerRoot,'config','resource-registry.json'));
+    writeText(path.join(outDir,'sources.md'),renderSourcesMarkdown(registry));
+  }
   rewriteReaderEnvironment(outDir,environment);
   patchWatchlistImmediateSelection(outDir);
   patchFeedbackRuntime(outDir,environment);
