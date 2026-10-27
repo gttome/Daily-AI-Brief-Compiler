@@ -58,3 +58,10 @@ Nineteen genuine native candidates produced six accepted PNGs and thirteen rejec
 A temporary TB export became truncated between inspection and transport; the cause remains unknown. Deterministic export recovered the exact originally reviewed hash from the same native artwork. Exact PNG decode, Git blob and committed base64 readback then passed; no accepted image was natively regenerated. Preserve the invalid intermediate Git object as history rather than concealing the correction.
 
 Local package admission required refreshed Pages history and two concurrent protected-main merges. The single package PR #249 subsequently passed exact-head PRE_PR_PACKAGE_PASS and required validate, merged and released through workflow 40156193898. All six live hashes, twelve pairings and seventeen October 8 objects passed independent readback. All twenty-four actual exact-release captures were individually inspected and their bytes/hashes preserved. Mobile fine text requires the original/full-size viewer. Canonical AAR records 19/6/13 and usage UNKNOWN. The existing task recurrence and all accepted PNG/manifest bytes remain unchanged.
+
+
+## October27 premium images
+
+24 genuine native generations produced6 accepted images and18 rejected candidates (3/4/7/4/3/3 attempts). No first-pass candidate passed. Source routing, unsupported icons/faux writing and final-export label size required actual pixel corrections; provider-internal cause remains UNKNOWN. Preserve blank surfaces, source-bound arrows and real typography space before generation.
+
+Protected PR271 reconciled only the exact approved PR269 reader-anchor revision with a reverse proof of the original Oct8 hash, retaining16 other pins and six accepted PNGs. PR270 then passed PRE_PR_PACKAGE_PASS and547 tests. Release40445410158 and its exact artifact12708615390 supplied all24 genuine semantic context reviews; no republish or accepted-image regeneration. Six live hashes,12 pairings and17 historical objects verified. Mobile fine text requires full-size viewing. Usage UNKNOWN; task and recurrence unchanged.
