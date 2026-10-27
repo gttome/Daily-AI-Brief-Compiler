@@ -113,6 +113,10 @@ jobs:
                 build/brief-builder-built/build-your-own-brief-compiler/index.html \
                 build/patched build/reading-copy-receipt.json
               ;;
+            GLOBAL_BRIEF_HEADER_AND_BUILDER_CSS)
+              node scripts/stage-global-brief-header-css.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -200,6 +204,21 @@ jobs:
                r.all_previous_reader_and_media_bytes_preserved!==true||
                r.new_schedules!==0||r.new_paid_apis!==0)
               throw Error('Gardening, feedback, unique-link and accepted-image invariants failed');
+
+          }else if(r.schema_version==='daily-compiler-global-brief-header-css-repair-v1'){
+            if(r.edition_date!=='2026-10-27'||r.files_changed!==3||
+               JSON.stringify(r.changed.map(c=>c.route))!==
+                 JSON.stringify(['assets/js/audience.js','build-your-own-brief-compiler/index.html','sources/index.html'])||
+               !r.shared_navigation||r.shared_navigation.eligible_header_pages<300||
+               r.shared_navigation.common_audience_js_present!==r.shared_navigation.eligible_header_pages||
+               r.shared_navigation.sources_links!==r.shared_navigation.eligible_header_pages||
+               r.browser_header_has_sources_and_builder!==true||
+               r.builder_style_in_head_not_body!==true||
+               r.no_duplicate_explainer_brief_links!==true||
+               r.all_historical_html_except_two_informational_pages_unchanged!==true||
+               r.all_accepted_pngs_unchanged!==true||
+               r.no_editorial_reseal!==true||r.no_paid_apis!==true)
+              throw Error('Global navigation / CSS repair violates historical publication safeguards');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
