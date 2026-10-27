@@ -10,7 +10,7 @@ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const read=(root,route)=>fs.readFileSync(path.join(root,route));
 const fail=why=>{throw Error('podcast_overview_anchor_correction:'+why);};
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
-const OVERVIEW=/<section class="edition-overview"\b[^>]*>[\s\S]*?<\/section>/;
+const OVERVIEW=/<section class="edition-overview"[^>]*>[\s\S]*?<\/section>/;
 function inventory(root,relative=''){
   const result=[];
   for(const e of fs.readdirSync(path.join(root,relative),{withFileTypes:true})){
