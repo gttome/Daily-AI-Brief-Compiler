@@ -674,16 +674,17 @@
     ],
     "required_labels": [
       "A broader work activity mix",
-      "Q1 2025",
-      "Top ten: 56.0%",
-      "Other activities: 44.0%",
-      "Q3 2026",
-      "Top ten: 51.1%",
-      "Other activities: 48.9%",
-      "74 continuously observed countries",
       "Individual-plan work messages",
+      "Automated classification",
+      "Work activity categories",
+      "Country-level comparison",
+      "Earlier activity mix",
+      "Later activity mix",
+      "Ten leading activities",
+      "Other work activities",
+      "Aggregate privacy protections",
       "Enterprise and Codex excluded",
-      "Message share is not business value"
+      "Usage is not productivity"
     ],
     "source_claim_map": [
       {
@@ -710,18 +711,25 @@
     ],
     "allowed_causal_edges": [
       {
-        "to": "Q1 2025",
-        "support_claim_id": "scope",
+        "from": "Individual-plan work messages",
+        "to": "Automated classification",
+        "support_claim_id": "privacy",
         "direction": "forward",
-        "relation_supported_by_semantic_review": true,
-        "from": "Individual-plan work messages"
+        "relation_supported_by_semantic_review": true
       },
       {
-        "to": "Q3 2026",
-        "support_claim_id": "scope",
+        "from": "Automated classification",
+        "to": "Work activity categories",
+        "support_claim_id": "privacy",
         "direction": "forward",
-        "relation_supported_by_semantic_review": true,
-        "from": "Individual-plan work messages"
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Work activity categories",
+        "to": "Country-level comparison",
+        "support_claim_id": "sample",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
       }
     ],
     "excluded_claims": [
@@ -730,8 +738,8 @@
     ],
     "mechanism_metaphor": "activity mix cross-sections",
     "composition_signature": {
-      "grammar": "paired proportion plate",
-      "metaphor": "activity mix cross-sections",
+      "grammar": "qualitative classification lattice and activity fans",
+      "metaphor": "message-to-category lens with unscaled activity fans",
       "layout": "two exact complementary horizontal proportions",
       "palette": "indigo and cool gray",
       "hierarchy": "paired numeric anchors then scope strip",
@@ -748,7 +756,7 @@
       "label_layout": [
         {
           "label": "A broader work activity mix",
-          "region": "two exact complementary horizontal proportions: label 1",
+          "region": "Classification plate",
           "minimum_font_px": 34,
           "bounding_box_px": {
             "x": 48,
@@ -758,8 +766,8 @@
           }
         },
         {
-          "label": "Q1 2025",
-          "region": "two exact complementary horizontal proportions: label 2",
+          "label": "Individual-plan work messages",
+          "region": "Classification plate",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
@@ -769,9 +777,9 @@
           }
         },
         {
-          "label": "Top ten: 56.0%",
-          "region": "two exact complementary horizontal proportions: label 3",
-          "minimum_font_px": 34,
+          "label": "Automated classification",
+          "region": "Classification plate",
+          "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 420,
             "y": 108,
@@ -780,8 +788,8 @@
           }
         },
         {
-          "label": "Other activities: 44.0%",
-          "region": "two exact complementary horizontal proportions: label 4",
+          "label": "Work activity categories",
+          "region": "Classification plate",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 792,
@@ -791,8 +799,8 @@
           }
         },
         {
-          "label": "Q3 2026",
-          "region": "two exact complementary horizontal proportions: label 5",
+          "label": "Country-level comparison",
+          "region": "Classification plate",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
@@ -802,9 +810,9 @@
           }
         },
         {
-          "label": "Top ten: 51.1%",
-          "region": "two exact complementary horizontal proportions: label 6",
-          "minimum_font_px": 34,
+          "label": "Earlier activity mix",
+          "region": "Unscaled paired activity fan",
+          "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 420,
             "y": 212,
@@ -813,8 +821,8 @@
           }
         },
         {
-          "label": "Other activities: 48.9%",
-          "region": "two exact complementary horizontal proportions: label 7",
+          "label": "Later activity mix",
+          "region": "Unscaled paired activity fan",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 792,
@@ -824,9 +832,9 @@
           }
         },
         {
-          "label": "74 continuously observed countries",
-          "region": "two exact complementary horizontal proportions: label 8",
-          "minimum_font_px": 28,
+          "label": "Ten leading activities",
+          "region": "Unscaled paired activity fan",
+          "minimum_font_px": 34,
           "bounding_box_px": {
             "x": 48,
             "y": 316,
@@ -835,11 +843,22 @@
           }
         },
         {
-          "label": "Individual-plan work messages",
-          "region": "two exact complementary horizontal proportions: label 9",
+          "label": "Other work activities",
+          "region": "Unscaled paired activity fan",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Aggregate privacy protections",
+          "region": "Detached scope notes",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
             "y": 316,
             "width": 350,
             "height": 98
@@ -847,24 +866,24 @@
         },
         {
           "label": "Enterprise and Codex excluded",
-          "region": "two exact complementary horizontal proportions: label 10",
+          "region": "Detached scope notes",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 792,
-            "y": 316,
+            "x": 48,
+            "y": 420,
             "width": 350,
             "height": 98
           }
         },
         {
-          "label": "Message share is not business value",
-          "region": "two exact complementary horizontal proportions: label 11",
-          "minimum_font_px": 28,
+          "label": "Usage is not productivity",
+          "region": "Detached scope notes",
+          "minimum_font_px": 34,
           "bounding_box_px": {
             "x": 48,
             "y": 544,
             "width": 1104,
-            "height": 44
+            "height": 48
           }
         }
       ],
@@ -890,33 +909,41 @@
       "connector_origin_reviews": [
         {
           "from": "Individual-plan work messages",
-          "to": "Q1 2025",
-          "support_claim_id": "scope",
+          "to": "Automated classification",
+          "support_claim_id": "privacy",
           "origin_region": "Individual-plan work messages",
-          "target_region": "Q1 2025",
+          "target_region": "Automated classification",
           "disallowed_paths_visually_blocked": true
         },
         {
-          "from": "Individual-plan work messages",
-          "to": "Q3 2026",
-          "support_claim_id": "scope",
-          "origin_region": "Individual-plan work messages",
-          "target_region": "Q3 2026",
+          "from": "Automated classification",
+          "to": "Work activity categories",
+          "support_claim_id": "privacy",
+          "origin_region": "Automated classification",
+          "target_region": "Work activity categories",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Work activity categories",
+          "to": "Country-level comparison",
+          "support_claim_id": "sample",
+          "origin_region": "Work activity categories",
+          "target_region": "Country-level comparison",
           "disallowed_paths_visually_blocked": true
         }
       ],
       "thumbnail_priority_labels": [
         "A broader work activity mix",
-        "Top ten: 56.0%",
-        "Top ten: 51.1%"
+        "Ten leading activities",
+        "Usage is not productivity"
       ],
       "source_caveat_detached": true,
       "no_simulated_document_strokes": true,
       "no_unsupported_chart_or_score_marks": true,
       "mechanism_canvas_percent": 72,
       "explanatory_substage_labels": [
-        "Q1 2025",
-        "Top ten: 56.0%"
+        "Individual-plan work messages",
+        "Automated classification"
       ]
     },
     "editorial_semantic_review": {
@@ -929,8 +956,10 @@
       "unsupported_claims_excluded": true,
       "approved_before_generation": true
     },
-    "drawing_plan": "Two large precisely proportioned horizontal stacked strips compare the reported top-ten mean shares: 56.0 versus complementary 44.0, then 51.1 versus complementary 48.9. No invented intermediate periods or activity values. Thin category dividers may denote ten ranked categories but must not imply individual shares; better use one continuous top-ten segment. Beneath, a scope rail identifies the individual-plan sample and 74 matched countries. A disconnected gray exclusion region contains enterprise/Codex; no connector implies inclusion. Distinct privacy boundary and detached interpretation caveat. All numbers are exactly allowlisted; no invented chart ticks, axes, scores or icons.",
-    "source_review_limitations": "Published primary source reviewed; no independent replication claimed."
+    "drawing_plan": "An unscaled editorial classification lattice and two qualitative activity fans illustrate broader use. No bars, axes, percent-sized segments or numeric data encoding. Country-level comparison is observational, not causal. Privacy scope and exclusions stay detached. Equal-size activity tokens are conceptual categories, not measured counts.",
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed.",
+    "revision": 2,
+    "correction_reason": "Before first k1 generation, remove precision-chart encoding; use conceptual category mixture and source scope instead."
   },
   {
     "schema_version": "external-image-firstpass-freeze-v1",
