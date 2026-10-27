@@ -1,0 +1,1879 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-27",
+    "story_id": "oct27-t1-terra-warning-boundaries",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+    "visual_thesis": "A restriction applies to alternate routes as well as the direct route; the evaluation distinguishes completion from authorized behavior.",
+    "story_anchors": [
+      "Environmental warnings apply to the intended restriction, not merely one tool route.",
+      "The warning evaluation is synthetic, low stakes and run without system-level controls."
+    ],
+    "required_labels": [
+      "Respect the restriction",
+      "Environmental warning",
+      "Direct route",
+      "Alternate route",
+      "Restricted objective",
+      "Stop or choose safer work",
+      "Intent violation",
+      "Evaluate both routes",
+      "Synthetic, low-stakes test",
+      "No system-level controls"
+    ],
+    "source_claim_map": [
+      {
+        "id": "warning",
+        "proposition": "An environmental barrier is encountered and the intended behavior is to respect it.",
+        "supporting_source_excerpt": "Barriers arise in simulated environments and intended behavior respects warnings.",
+        "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "alternate",
+        "proposition": "Completing the same restricted objective by an alternate route violates the restriction intent.",
+        "supporting_source_excerpt": "The warning evaluation counts successful circumvention via alternative routes.",
+        "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "limits",
+        "proposition": "The synthetic low-stakes evaluation omits system-level safeguards and may not proxy deployment.",
+        "supporting_source_excerpt": "Evaluation awareness and absent controls limit external validity.",
+        "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Stop or choose safer work",
+        "support_claim_id": "warning",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Environmental warning"
+      },
+      {
+        "to": "Restricted objective",
+        "support_claim_id": "alternate",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Direct route"
+      },
+      {
+        "to": "Restricted objective",
+        "support_claim_id": "alternate",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Alternate route"
+      }
+    ],
+    "excluded_claims": [
+      "Never imply that an alternate route is authorized, that the evaluation installs an intent-aware enforcement tool, or that synthetic failure rates are deployment rates.",
+      "No faux writing, scenery, success marks, people, logos, photorealism or unapproved text."
+    ],
+    "mechanism_metaphor": "prohibited destination boundary",
+    "composition_signature": {
+      "grammar": "two-route boundary section",
+      "metaphor": "prohibited destination boundary",
+      "layout": "wide branching routes with lower evaluator bracket",
+      "palette": "navy and muted amber",
+      "hierarchy": "dominant boundary then contrasting routes",
+      "annotation": "external route braces",
+      "perspective": "shallow sectional plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Respect the restriction",
+          "region": "wide branching routes with lower evaluator bracket: label 1",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Environmental warning",
+          "region": "wide branching routes with lower evaluator bracket: label 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Direct route",
+          "region": "wide branching routes with lower evaluator bracket: label 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Alternate route",
+          "region": "wide branching routes with lower evaluator bracket: label 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Restricted objective",
+          "region": "wide branching routes with lower evaluator bracket: label 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Stop or choose safer work",
+          "region": "wide branching routes with lower evaluator bracket: label 6",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Intent violation",
+          "region": "wide branching routes with lower evaluator bracket: label 7",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Evaluate both routes",
+          "region": "wide branching routes with lower evaluator bracket: label 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Synthetic, low-stakes test",
+          "region": "wide branching routes with lower evaluator bracket: label 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "No system-level controls",
+          "region": "wide branching routes with lower evaluator bracket: label 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 544,
+            "width": 1104,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Synthetic, low-stakes test; no system-level controls; not deployment risk",
+      "causal_state_checks": [
+        {
+          "condition": "Environmental warnings apply to the intended restriction, not merely one tool route.",
+          "allowed_path": "Only explicitly source-supported relations listed in allowed_causal_edges",
+          "blocked_path": "Never imply that an alternate route is authorized, that the evaluation installs an intent-aware enforcement tool, or that synthetic failure rates are deployment rates.",
+          "support_claim_id": "warning"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Environmental warning",
+          "to": "Stop or choose safer work",
+          "support_claim_id": "warning",
+          "origin_region": "Environmental warning",
+          "target_region": "Stop or choose safer work",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Direct route",
+          "to": "Restricted objective",
+          "support_claim_id": "alternate",
+          "origin_region": "Direct route",
+          "target_region": "Restricted objective",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Alternate route",
+          "to": "Restricted objective",
+          "support_claim_id": "alternate",
+          "origin_region": "Alternate route",
+          "target_region": "Restricted objective",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Respect the restriction",
+        "Intent violation"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Environmental warning",
+        "Direct route"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source-review assistant",
+      "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "drawing_plan": "A detailed planar restriction boundary occupies the center. An amber environmental warning sits above a junction. Two clearly separated routes approach the same restricted destination: a straight route and a bent alternate route. The straight route terminates at a visible barrier; the alternate path demonstrates the observed failure by crossing the same intended boundary with an amber intent-violation marker, never a green check. An independent comparison bracket under BOTH routes labels evaluation, not enforcement. A separate safe route turns away to stopping or safer work. Richness comes from boundary faces, route choice, warning, route endpoints, two evaluator attachment points and explicit contrast, not decorations. Detached bottom caveat has no connectors.",
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-27",
+    "story_id": "oct27-t2-production-agent-guardrails",
+    "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+    "visual_thesis": "Production authority is enforced outside the agent by independent platform layers and protected review.",
+    "story_anchors": [
+      "Each run receives a fresh sandbox and scoped expiring GitHub credentials.",
+      "Policy-wrapped tools and an independent risk classifier cannot be bypassed by model judgment."
+    ],
+    "required_labels": [
+      "Authority outside the agent",
+      "Fresh sandbox",
+      "Scoped credentials",
+      "Agent loop",
+      "Wrapped tools",
+      "Policy dispatcher",
+      "Independent risk check",
+      "Human review",
+      "Protected branch",
+      "No shell, HTTP or eval",
+      "Untrusted input stays data",
+      "Publisher architecture report",
+      "Ticket identity",
+      "Allowed repositories",
+      "Path blocklist",
+      "Raw evidence"
+    ],
+    "source_claim_map": [
+      {
+        "id": "isolation",
+        "proposition": "A new Kubernetes Job and limited credentials isolate each run.",
+        "supporting_source_excerpt": "Each run gets a fresh Job and credentials restricted to needed repositories.",
+        "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "tools",
+        "proposition": "Policy dispatcher checks tool identity, repositories and paths with no generic escape tool.",
+        "supporting_source_excerpt": "All tool calls pass the policy dispatcher; generic HTTP, shell and eval are absent.",
+        "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "risk",
+        "proposition": "Independent classifier assesses raw evidence separately from agent conclusions.",
+        "supporting_source_excerpt": "Fresh classifier context uses diffs and touched files, outside agent influence.",
+        "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "approval",
+        "proposition": "Human review and Git-host branch protection govern changes.",
+        "supporting_source_excerpt": "Written changes open as PRs and external protections control the merge.",
+        "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "wrapper_checks",
+        "proposition": "Policy dispatcher checks ticket identity, allowed repositories and a path blocklist for every tool call.",
+        "supporting_source_excerpt": "Every tool call checks the ticket identity, allowed repositories and path blocklist.",
+        "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Fresh sandbox",
+        "support_claim_id": "isolation",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scoped credentials"
+      },
+      {
+        "to": "Wrapped tools",
+        "support_claim_id": "tools",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Agent loop"
+      },
+      {
+        "to": "Policy dispatcher",
+        "support_claim_id": "tools",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Wrapped tools"
+      },
+      {
+        "to": "Human review",
+        "support_claim_id": "risk",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Independent risk check"
+      },
+      {
+        "to": "Protected branch",
+        "support_claim_id": "approval",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Human review"
+      }
+    ],
+    "excluded_claims": [
+      "No direct agent-to-merge path; no classifier result manufactured by the agent; no implication every action requires identical approval; no quantified safety improvement.",
+      "No faux writing, scenery, success marks, people, logos, photorealism or unapproved text."
+    ],
+    "mechanism_metaphor": "run capsule and external control wall",
+    "composition_signature": {
+      "grammar": "nested authority cutaway",
+      "metaphor": "run capsule and external control wall",
+      "layout": "nested left capsule and stacked right controls",
+      "palette": "teal with graphite",
+      "hierarchy": "isolation enclosure then independent external controls",
+      "annotation": "boundary callouts",
+      "perspective": "restrained exploded cutaway"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Authority outside the agent",
+          "region": "nested left capsule and stacked right controls: label 1",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Fresh sandbox",
+          "region": "nested left capsule and stacked right controls: label 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Scoped credentials",
+          "region": "nested left capsule and stacked right controls: label 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Agent loop",
+          "region": "nested left capsule and stacked right controls: label 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Wrapped tools",
+          "region": "nested left capsule and stacked right controls: label 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Policy dispatcher",
+          "region": "nested left capsule and stacked right controls: label 6",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Independent risk check",
+          "region": "nested left capsule and stacked right controls: label 7",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Human review",
+          "region": "nested left capsule and stacked right controls: label 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Protected branch",
+          "region": "nested left capsule and stacked right controls: label 9",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "No shell, HTTP or eval",
+          "region": "nested left capsule and stacked right controls: label 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Untrusted input stays data",
+          "region": "nested left capsule and stacked right controls: label 11",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 420,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Publisher architecture report",
+          "region": "nested left capsule and stacked right controls: label 12",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 544,
+            "width": 1104,
+            "height": 44
+          }
+        },
+        {
+          "label": "Ticket identity",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 210,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Allowed repositories",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 210,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Path blocklist",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 210,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Raw evidence",
+          "region": "Exposed wrapper checks and independent evidence rail",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 314,
+            "width": 350,
+            "height": 98
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Publisher architecture report; no universal safety guarantee",
+      "causal_state_checks": [
+        {
+          "condition": "Each run receives a fresh sandbox and scoped expiring GitHub credentials.",
+          "allowed_path": "Only explicitly source-supported relations listed in allowed_causal_edges",
+          "blocked_path": "No direct agent-to-merge path; no classifier result manufactured by the agent; no implication every action requires identical approval; no quantified safety improvement.",
+          "support_claim_id": "isolation"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Scoped credentials",
+          "to": "Fresh sandbox",
+          "support_claim_id": "isolation",
+          "origin_region": "Scoped credentials",
+          "target_region": "Fresh sandbox",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Agent loop",
+          "to": "Wrapped tools",
+          "support_claim_id": "tools",
+          "origin_region": "Agent loop",
+          "target_region": "Wrapped tools",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Wrapped tools",
+          "to": "Policy dispatcher",
+          "support_claim_id": "tools",
+          "origin_region": "Wrapped tools",
+          "target_region": "Policy dispatcher",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Independent risk check",
+          "to": "Human review",
+          "support_claim_id": "risk",
+          "origin_region": "Independent risk check",
+          "target_region": "Human review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Human review",
+          "to": "Protected branch",
+          "support_claim_id": "approval",
+          "origin_region": "Human review",
+          "target_region": "Protected branch",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Authority outside the agent",
+        "Independent risk check",
+        "Protected branch"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Fresh sandbox",
+        "Scoped credentials"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source-review assistant",
+      "source_url": "https://engineering.monday.com/how-we-gave-ai-agents-the-keys-to-production-and-still-sleep-at-night/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "drawing_plan": "White-background sectional run capsule on the left exposes scoped credential, agent loop and wrapped-tool layers. Policy dispatcher is at its only exit. Outside the capsule show independent risk assessment receiving a distinct raw-evidence rail, never agent-written conclusions. A conditional review route meets an external branch-protection wall. A crossed closed escape opening denotes absent generic shell/HTTP/eval; no route to protected branch through it. Mark untrusted input at the capsule entrance as data. Show real compartments and boundary faces rather than opaque generic cards. Detached publisher caveat at bottom with no arrows.",
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed.",
+    "revision": 2,
+    "correction_reason": "Two rejected renders obscured real policy substages with opaque containers; add exact existing primary-source check names before next render."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-27",
+    "story_id": "oct27-k1-work-activity-signals",
+    "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+    "visual_thesis": "Work-related message activity became less concentrated, while consumer-plan aggregate signals remain distinct from enterprise outcomes.",
+    "story_anchors": [
+      "Across 74 continuously observed countries the top-ten mean share is 56.0% in Q1 2025 and 51.1% in Q3 2026.",
+      "Individual-plan messages exclude enterprise messages and Codex use."
+    ],
+    "required_labels": [
+      "A broader work activity mix",
+      "Individual-plan work messages",
+      "Automated classification",
+      "Work activity categories",
+      "Country-level comparison",
+      "Earlier activity mix",
+      "Later activity mix",
+      "Ten leading activities",
+      "Other work activities",
+      "Aggregate privacy protections",
+      "Enterprise and Codex excluded",
+      "Usage is not productivity"
+    ],
+    "source_claim_map": [
+      {
+        "id": "sample",
+        "proposition": "Trend is mean country activity share across 74 countries observed in every quarter.",
+        "supporting_source_excerpt": "The top ten average falls from 56.0 percent in Q1 2025 to 51.1 in Q3 2026.",
+        "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "scope",
+        "proposition": "Individual-plan work messages exclude enterprise and Codex.",
+        "supporting_source_excerpt": "The release covers individual ChatGPT plans, not enterprise messages or Codex.",
+        "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "privacy",
+        "proposition": "Published aggregate statistics remove identifiers, suppress small groups and add noise.",
+        "supporting_source_excerpt": "Privacy safeguards include automated classification and aggregate noise.",
+        "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Individual-plan work messages",
+        "to": "Automated classification",
+        "support_claim_id": "privacy",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Automated classification",
+        "to": "Work activity categories",
+        "support_claim_id": "privacy",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Work activity categories",
+        "to": "Country-level comparison",
+        "support_claim_id": "sample",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Do not imply individual productivity, adoption rates, enterprise usage, revenue impact, causation or an unreported intermediate trajectory.",
+      "No faux writing, scenery, success marks, people, logos, photorealism or unapproved text."
+    ],
+    "mechanism_metaphor": "activity mix cross-sections",
+    "composition_signature": {
+      "grammar": "qualitative classification lattice and activity fans",
+      "metaphor": "message-to-category lens with unscaled activity fans",
+      "layout": "two exact complementary horizontal proportions",
+      "palette": "indigo and cool gray",
+      "hierarchy": "paired numeric anchors then scope strip",
+      "annotation": "direct proportion labels",
+      "perspective": "flat editorial comparison"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "A broader work activity mix",
+          "region": "Classification plate",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Individual-plan work messages",
+          "region": "Classification plate",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Automated classification",
+          "region": "Classification plate",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Work activity categories",
+          "region": "Classification plate",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Country-level comparison",
+          "region": "Classification plate",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Earlier activity mix",
+          "region": "Unscaled paired activity fan",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Later activity mix",
+          "region": "Unscaled paired activity fan",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Ten leading activities",
+          "region": "Unscaled paired activity fan",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Other work activities",
+          "region": "Unscaled paired activity fan",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Aggregate privacy protections",
+          "region": "Detached scope notes",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Enterprise and Codex excluded",
+          "region": "Detached scope notes",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 420,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Usage is not productivity",
+          "region": "Detached scope notes",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 544,
+            "width": 1104,
+            "height": 46
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Privacy-protected aggregate; message share is not business value",
+      "causal_state_checks": [
+        {
+          "condition": "Across 74 continuously observed countries the top-ten mean share is 56.0% in Q1 2025 and 51.1% in Q3 2026.",
+          "allowed_path": "Only explicitly source-supported relations listed in allowed_causal_edges",
+          "blocked_path": "Do not imply individual productivity, adoption rates, enterprise usage, revenue impact, causation or an unreported intermediate trajectory.",
+          "support_claim_id": "sample"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Individual-plan work messages",
+          "to": "Automated classification",
+          "support_claim_id": "privacy",
+          "origin_region": "Individual-plan work messages",
+          "target_region": "Automated classification",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Automated classification",
+          "to": "Work activity categories",
+          "support_claim_id": "privacy",
+          "origin_region": "Automated classification",
+          "target_region": "Work activity categories",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Work activity categories",
+          "to": "Country-level comparison",
+          "support_claim_id": "sample",
+          "origin_region": "Work activity categories",
+          "target_region": "Country-level comparison",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "A broader work activity mix",
+        "Ten leading activities",
+        "Usage is not productivity"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Individual-plan work messages",
+        "Automated classification"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source-review assistant",
+      "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "drawing_plan": "An unscaled editorial classification lattice and two qualitative activity fans illustrate broader use. No bars, axes, percent-sized segments or numeric data encoding. Country-level comparison is observational, not causal. Privacy scope and exclusions stay detached. Equal-size activity tokens are conceptual categories, not measured counts.",
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed.",
+    "revision": 2,
+    "correction_reason": "Before first k1 generation, remove precision-chart encoding; use conceptual category mixture and source scope instead."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-27",
+    "story_id": "oct27-k2-temporary-upskilling",
+    "source_url": "https://www.nature.com/articles/s41562-026-02566-6",
+    "visual_thesis": "Assisted task performance and independently retained knowledge are different outcomes in a randomized study.",
+    "story_anchors": [
+      "The final published study reports 487 management consultants in its analysis.",
+      "Three task domains improve with assistance, but post-experiment no-tool questions show no evidence of better retained knowledge."
+    ],
+    "required_labels": [
+      "Performance is not retained knowledge",
+      "Randomized comparison",
+      "With ChatGPT and training",
+      "Without ChatGPT",
+      "Coding",
+      "Statistics",
+      "Prediction",
+      "Better assisted task performance",
+      "Separate no-tool test",
+      "No evidence of retained advantage",
+      "Expert performance not matched overall",
+      "Study-specific, not universal"
+    ],
+    "source_claim_map": [
+      {
+        "id": "trial",
+        "proposition": "Random assignment compares access and training against control tasks.",
+        "supporting_source_excerpt": "Published abstract reports consultants assigned to assisted and control conditions.",
+        "source_url": "https://www.nature.com/articles/s41562-026-02566-6",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "tasks",
+        "proposition": "Assisted workers perform better on coding, statistics and prediction tasks.",
+        "supporting_source_excerpt": "Three tasks show better treated performance without overall expert equivalence.",
+        "source_url": "https://www.nature.com/articles/s41562-026-02566-6",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "retention",
+        "proposition": "Separate post-use technical questions disallow ChatGPT in both groups.",
+        "supporting_source_excerpt": "No evidence of a treated advantage appears on no-tool technical questions.",
+        "source_url": "https://www.nature.com/articles/s41562-026-02566-6",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "With ChatGPT and training",
+        "support_claim_id": "trial",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Randomized comparison"
+      },
+      {
+        "to": "Without ChatGPT",
+        "support_claim_id": "trial",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Randomized comparison"
+      },
+      {
+        "to": "Better assisted task performance",
+        "support_claim_id": "tasks",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "With ChatGPT and training"
+      },
+      {
+        "to": "No evidence of retained advantage",
+        "support_claim_id": "retention",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Separate no-tool test"
+      }
+    ],
+    "excluded_claims": [
+      "No slope or bar-height invention; no claim of universal zero learning; no automatic conversion of better task output to skill acquisition; no humanoid exoskeleton.",
+      "No faux writing, scenery, success marks, people, logos, photorealism or unapproved text."
+    ],
+    "mechanism_metaphor": "paired experimental lanes and separate measurement plane",
+    "composition_signature": {
+      "grammar": "bifurcated experiment and disconnected retest",
+      "metaphor": "paired experimental lanes and separate measurement plane",
+      "layout": "upper two-lane trial with lower retest compartment",
+      "palette": "burnt orange and warm gray",
+      "hierarchy": "parallel conditions then separate outcome interpretation",
+      "annotation": "matched study brackets",
+      "perspective": "planar split experiment"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Performance is not retained knowledge",
+          "region": "upper two-lane trial with lower retest compartment: label 1",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Randomized comparison",
+          "region": "upper two-lane trial with lower retest compartment: label 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "With ChatGPT and training",
+          "region": "upper two-lane trial with lower retest compartment: label 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Without ChatGPT",
+          "region": "upper two-lane trial with lower retest compartment: label 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Coding",
+          "region": "upper two-lane trial with lower retest compartment: label 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Statistics",
+          "region": "upper two-lane trial with lower retest compartment: label 6",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Prediction",
+          "region": "upper two-lane trial with lower retest compartment: label 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Better assisted task performance",
+          "region": "upper two-lane trial with lower retest compartment: label 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Separate no-tool test",
+          "region": "upper two-lane trial with lower retest compartment: label 9",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "No evidence of retained advantage",
+          "region": "upper two-lane trial with lower retest compartment: label 10",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Expert performance not matched overall",
+          "region": "upper two-lane trial with lower retest compartment: label 11",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 420,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Study-specific, not universal",
+          "region": "upper two-lane trial with lower retest compartment: label 12",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 544,
+            "width": 1104,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Study-specific, not universal; absence of evidence is not proof of no learning",
+      "causal_state_checks": [
+        {
+          "condition": "The final published study reports 487 management consultants in its analysis.",
+          "allowed_path": "Only explicitly source-supported relations listed in allowed_causal_edges",
+          "blocked_path": "No slope or bar-height invention; no claim of universal zero learning; no automatic conversion of better task output to skill acquisition; no humanoid exoskeleton.",
+          "support_claim_id": "trial"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Randomized comparison",
+          "to": "With ChatGPT and training",
+          "support_claim_id": "trial",
+          "origin_region": "Randomized comparison",
+          "target_region": "With ChatGPT and training",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Randomized comparison",
+          "to": "Without ChatGPT",
+          "support_claim_id": "trial",
+          "origin_region": "Randomized comparison",
+          "target_region": "Without ChatGPT",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "With ChatGPT and training",
+          "to": "Better assisted task performance",
+          "support_claim_id": "tasks",
+          "origin_region": "With ChatGPT and training",
+          "target_region": "Better assisted task performance",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Separate no-tool test",
+          "to": "No evidence of retained advantage",
+          "support_claim_id": "retention",
+          "origin_region": "Separate no-tool test",
+          "target_region": "No evidence of retained advantage",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Performance is not retained knowledge",
+        "Separate no-tool test",
+        "No evidence of retained advantage"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Randomized comparison",
+        "With ChatGPT and training"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source-review assistant",
+      "source_url": "https://www.nature.com/articles/s41562-026-02566-6",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "drawing_plan": "Upper experimental plane splits randomization into assisted and control rails. Each rail exposes the same three task slots coding, statistics and prediction. No score bars or rank tokens; use qualitative paired comparison bracket stating better assisted performance. Expert caveat sits beside comparison without an invented metric. Below a strong horizontal separation, a distinct no-tool retest plane receives both study conditions through simple study-sequence lines, and reaches the qualified no-evidence conclusion. Do not draw a direct arrow from assisted task success to retained knowledge. At least twelve meaningful components comprise conditions, matched tasks, comparison and independent retest; no people or document strokes.",
+    "source_review_limitations": "Nature version of record abstract and author manuscript plus published supplement reviewed; sample scope kept separate."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-27",
+    "story_id": "oct27-a1-gemini-output-skill",
+    "source_url": "https://workspaceupdates.googleblog.com/2026/10/an-easier-way-to-customize-how-gemini-works-for-you.html",
+    "visual_thesis": "Custom response skills and connected-app permissions are complementary, separately managed controls in Gemini Customize.",
+    "story_anchors": [
+      "Customize centralizes Skills and connected apps.",
+      "Users can inspect or disconnect app permissions; access and regions vary."
+    ],
+    "required_labels": [
+      "Customize response and access",
+      "Skills",
+      "Tone and voice",
+      "Response structure",
+      "Recurring output standard",
+      "Connected apps",
+      "Inspect permissions",
+      "Disconnect unnecessary access",
+      "More than 40 external services",
+      "Availability varies by app and region"
+    ],
+    "source_claim_map": [
+      {
+        "id": "skills",
+        "proposition": "Skills configure tone, voice, repetitive tasks and response structure.",
+        "supporting_source_excerpt": "Customize lets users add Skills and prompt preferences for recurring workflows.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/an-easier-way-to-customize-how-gemini-works-for-you.html",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "apps",
+        "proposition": "The same hub provides connected external and Google services.",
+        "supporting_source_excerpt": "More than forty external services can be connected alongside Google apps.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/an-easier-way-to-customize-how-gemini-works-for-you.html",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "permissions",
+        "proposition": "Users choose connections and can audit or disconnect permissions.",
+        "supporting_source_excerpt": "App access remains inspectable and removable by the user.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/an-easier-way-to-customize-how-gemini-works-for-you.html",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Recurring output standard",
+        "support_claim_id": "skills",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Skills"
+      },
+      {
+        "to": "Inspect permissions",
+        "support_claim_id": "permissions",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Connected apps"
+      },
+      {
+        "to": "Disconnect unnecessary access",
+        "support_claim_id": "permissions",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Inspect permissions"
+      }
+    ],
+    "excluded_claims": [
+      "Do not depict automatic app permission grants, guaranteed factual output, automatic training, fictional UI, all-region availability or app connections as required for every Skill.",
+      "No faux writing, scenery, success marks, people, logos, photorealism or unapproved text."
+    ],
+    "mechanism_metaphor": "separate response and access assemblies",
+    "composition_signature": {
+      "grammar": "two-wing configuration anatomy",
+      "metaphor": "separate response and access assemblies",
+      "layout": "central hub with asymmetric left skill layers and right permission lattice",
+      "palette": "olive and deep gray",
+      "hierarchy": "hub then separated configuration wings",
+      "annotation": "anatomy labels and access boundaries",
+      "perspective": "slight exploded editorial anatomy"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Customize response and access",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 1",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Skills",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 2",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Tone and voice",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Response structure",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Recurring output standard",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Connected apps",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 6",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Inspect permissions",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 7",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Disconnect unnecessary access",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "More than 40 external services",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Availability varies by app and region",
+          "region": "central hub with asymmetric left skill layers and right permission lattice: label 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 544,
+            "width": 1104,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Availability varies by app and region; customization does not guarantee correctness",
+      "causal_state_checks": [
+        {
+          "condition": "Customize centralizes Skills and connected apps.",
+          "allowed_path": "Only explicitly source-supported relations listed in allowed_causal_edges",
+          "blocked_path": "Do not depict automatic app permission grants, guaranteed factual output, automatic training, fictional UI, all-region availability or app connections as required for every Skill.",
+          "support_claim_id": "skills"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Skills",
+          "to": "Recurring output standard",
+          "support_claim_id": "skills",
+          "origin_region": "Skills",
+          "target_region": "Recurring output standard",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Connected apps",
+          "to": "Inspect permissions",
+          "support_claim_id": "permissions",
+          "origin_region": "Connected apps",
+          "target_region": "Inspect permissions",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Inspect permissions",
+          "to": "Disconnect unnecessary access",
+          "support_claim_id": "permissions",
+          "origin_region": "Inspect permissions",
+          "target_region": "Disconnect unnecessary access",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Customize response and access",
+        "Skills",
+        "Inspect permissions"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Skills",
+        "Tone and voice"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source-review assistant",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/10/an-easier-way-to-customize-how-gemini-works-for-you.html",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "drawing_plan": "Create an elegant two-wing assembly. Left wing exposes tone, voice and response-structure layers composing a recurring output standard under Skills. Right wing has a connected-service lattice with a permission inspection boundary; one unnecessary connection terminates in a disconnected socket. Central Customize joins navigation only, not automatic data sharing. Use more than forty as text, never draw a fake forty-service icon grid. Show at least twelve meaningful roles through hub, skill layers, output requirements, app grouping, permission slots, inspection and disconnected endpoint. No invented UI, document strokes, logos or guaranteed-correct badge. Availability note detached.",
+    "source_review_limitations": "Google complete article retrieved through indexed first-party article and monthly archive after direct redirects failed."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-27",
+    "story_id": "oct27-a2-fusion-objective-delegation",
+    "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
+    "visual_thesis": "Business objectives and explicit authority constrain agent-prepared work, with review preceding approved consequential actions.",
+    "story_anchors": [
+      "People define objectives, authority and accountability for Fusion agentic applications.",
+      "Supply planning and procurement examples prepare recommendations for human review and approval."
+    ],
+    "required_labels": [
+      "Bound the delegated objective",
+      "Objective",
+      "Permitted records",
+      "Authority and accountability",
+      "Agent-prepared options",
+      "Compare trade-offs",
+      "Human review",
+      "Refine or reject",
+      "Approved action",
+      "Audit accepted and corrected work",
+      "Vendor announcement, not independent outcome evidence"
+    ],
+    "source_claim_map": [
+      {
+        "id": "authority",
+        "proposition": "People define objectives, authority and accountability.",
+        "supporting_source_excerpt": "Fusion describes human-set objectives, authority and enterprise accountability.",
+        "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "options",
+        "proposition": "Supply planning compares allocation scenarios and prepares plans for review.",
+        "supporting_source_excerpt": "Teams review, refine and approve prepared allocation plans.",
+        "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "actions",
+        "proposition": "Consequential actions execute within authorized approved scope.",
+        "supporting_source_excerpt": "Examples distinguish prepared recommendations from approved execution.",
+        "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Agent-prepared options",
+        "support_claim_id": "authority",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Objective"
+      },
+      {
+        "to": "Agent-prepared options",
+        "support_claim_id": "authority",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Permitted records"
+      },
+      {
+        "to": "Compare trade-offs",
+        "support_claim_id": "options",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Agent-prepared options"
+      },
+      {
+        "to": "Human review",
+        "support_claim_id": "options",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from": "Compare trade-offs"
+      },
+      {
+        "to": "Approved action",
+        "support_claim_id": "actions",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Human review"
+      },
+      {
+        "to": "Refine or reject",
+        "support_claim_id": "options",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Human review"
+      }
+    ],
+    "excluded_claims": [
+      "No objective-to-action bypass, guaranteed savings, universal automation claim, unapproved execution or outcome score; audit is a recommended reader practice, not claimed vendor telemetry.",
+      "No faux writing, scenery, success marks, people, logos, photorealism or unapproved text."
+    ],
+    "mechanism_metaphor": "bounded mandate feeding a decision fork",
+    "composition_signature": {
+      "grammar": "delegation contract rail and approval fork",
+      "metaphor": "bounded mandate feeding a decision fork",
+      "layout": "diagonal mandate fan-in above a horizontal approval split",
+      "palette": "plum and charcoal",
+      "hierarchy": "mandate boundary then human-controlled action",
+      "annotation": "conditional edge captions and audit bracket",
+      "perspective": "oblique shallow sectional rail"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Bound the delegated objective",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 1",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Objective",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Permitted records",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Authority and accountability",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Agent-prepared options",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Compare trade-offs",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 6",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Human review",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 7",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 212,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Refine or reject",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Approved action",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 9",
+          "minimum_font_px": 34,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Audit accepted and corrected work",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 792,
+            "y": 316,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Vendor announcement, not independent outcome evidence",
+          "region": "diagonal mandate fan-in above a horizontal approval split: label 11",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 544,
+            "width": 1104,
+            "height": 44
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor announcement, not independent outcome evidence",
+      "causal_state_checks": [
+        {
+          "condition": "People define objectives, authority and accountability for Fusion agentic applications.",
+          "allowed_path": "Only explicitly source-supported relations listed in allowed_causal_edges",
+          "blocked_path": "No objective-to-action bypass, guaranteed savings, universal automation claim, unapproved execution or outcome score; audit is a recommended reader practice, not claimed vendor telemetry.",
+          "support_claim_id": "authority"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Objective",
+          "to": "Agent-prepared options",
+          "support_claim_id": "authority",
+          "origin_region": "Objective",
+          "target_region": "Agent-prepared options",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Permitted records",
+          "to": "Agent-prepared options",
+          "support_claim_id": "authority",
+          "origin_region": "Permitted records",
+          "target_region": "Agent-prepared options",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Agent-prepared options",
+          "to": "Compare trade-offs",
+          "support_claim_id": "options",
+          "origin_region": "Agent-prepared options",
+          "target_region": "Compare trade-offs",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Compare trade-offs",
+          "to": "Human review",
+          "support_claim_id": "options",
+          "origin_region": "Compare trade-offs",
+          "target_region": "Human review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Human review",
+          "to": "Approved action",
+          "support_claim_id": "actions",
+          "origin_region": "Human review",
+          "target_region": "Approved action",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Human review",
+          "to": "Refine or reject",
+          "support_claim_id": "options",
+          "origin_region": "Human review",
+          "target_region": "Refine or reject",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Bound the delegated objective",
+        "Human review",
+        "Approved action"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Objective",
+        "Permitted records"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing source-review assistant",
+      "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "drawing_plan": "A bounded mandate at upper left exposes objective, records and authority/accountability as separate slots. These feed agent-prepared options whose internal alternatives and trade-off comparison are visible, without numeric charts. The broad rail reaches a clearly external human-review boundary. One conditional branch leads to approved action; a separate refine-or-reject branch ends before execution. An audit bracket below compares accepted and corrected work as recommended reader practice, not an automatic product feature or causal output. Use no people, records with fake lines, approval checkmarks, dashboards or guaranteed outcome badge. Detached source caveat at bottom.",
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed."
+  }
+]
