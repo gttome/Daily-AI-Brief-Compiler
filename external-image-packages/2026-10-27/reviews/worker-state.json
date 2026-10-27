@@ -8,12 +8,12 @@
   "original_bundle_sha256": "a70a104a807060b65dc9479d2ceb8083cf3be99daf9a9f77246706b048e84e1d",
   "owner_token": "e70c9d6332b0769362b45822ab6fdc80ecb65717c163ae5d",
   "claimed_at": "2026-10-27T02:12:58Z",
-  "updated_at": "2026-10-27T03:01:26Z",
-  "lease_expires_at": "2026-10-27T03:21:26.000Z",
+  "updated_at": "2026-10-27T03:03:12Z",
+  "lease_expires_at": "2026-10-27T03:23:12.000Z",
   "phase": "GENERATING",
-  "actual_generation_count": 19,
+  "actual_generation_count": 20,
   "accepted_count": 4,
-  "rejected_count": 15,
+  "rejected_count": 16,
   "accepted_images": [
     {
       "story_id": "oct27-t1-terra-warning-boundaries",
@@ -45,7 +45,7 @@
     "oct27-t2-production-agent-guardrails": 4,
     "oct27-k1-work-activity-signals": 7,
     "oct27-k2-temporary-upskilling": 4,
-    "oct27-a1-gemini-output-skill": 1
+    "oct27-a1-gemini-output-skill": 2
   },
   "errors": [
     {
@@ -122,6 +122,11 @@
       "phase": "Native saved-pixel review",
       "issue": "Gemini attempt 1 drew response-format bars resembling faux writing and secondary labels too small for final export.",
       "correction": "Replace faux writing with smooth abstract response partitions, enlarge secondary text and preserve separate customization/access wings."
+    },
+    {
+      "phase": "Native final-label review",
+      "issue": "Gemini attempt 2 removed faux writing and preserved independent access controls; unnecessary-access caption still has a smaller second line.",
+      "correction": "Wrap the disconnect caption into three equal-size large lines without changing artwork or permissions logic."
     }
   ]
 }
