@@ -32,11 +32,12 @@ export function assertBuiltBriefPage(page){
     'From information to a living knowledge system',
     'The difference: connected intelligence, not a topic checklist',
     'The second product: a living knowledge system',
+    'How the Brief stays current: a governed self-evolving loop',
     'How to start with a Brief Compiler for your own field',
     'The Generative AI Professional', 'id="brief-compiler-builder-style"',
     'class="brief-builder-jump"'
   ])if(!text.includes(mark))fail('built_page_missing:'+mark);
-  for(const sector of ['manufacturing','healthcare','cybersecurity','education','government']){
+  for(const sector of ['manufacturing','healthcare','cybersecurity','education','government','gardening']){
     const marker='id="use-case-'+sector+'"';
     if(text.split(marker).length!==2)fail('use_case_anchor_missing_or_duplicate:'+sector);
   }

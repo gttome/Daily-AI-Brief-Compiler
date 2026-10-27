@@ -53,10 +53,10 @@ jobs:
           test -s history/site/briefs/2026-10-19/index.html
 
       - name: Prepare five-scenario website page using existing Jekyll layout
-        if: env.REVISION_KIND == 'BRIEF_BUILDER_SITE_PAGES'
+        if: env.REVISION_KIND == 'BRIEF_BUILDER_SITE_PAGES' || env.REVISION_KIND == 'BRIEF_BUILDER_HOBBY_EVOLUTION_AND_LINK_HYGIENE'
         run: node scripts/prepare-brief-builder-jekyll.mjs build/brief-builder-source
       - name: Render new public website page with GitHub Pages Jekyll
-        if: env.REVISION_KIND == 'BRIEF_BUILDER_SITE_PAGES'
+        if: env.REVISION_KIND == 'BRIEF_BUILDER_SITE_PAGES' || env.REVISION_KIND == 'BRIEF_BUILDER_HOBBY_EVOLUTION_AND_LINK_HYGIENE'
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./build/brief-builder-source
@@ -106,6 +106,12 @@ jobs:
             BRIEF_BUILDER_HISTORY_PERSIST_ONLY)
               node scripts/recover-brief-builder-history.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
+            BRIEF_BUILDER_HOBBY_EVOLUTION_AND_LINK_HYGIENE)
+              node scripts/update-brief-explainer-webpages.mjs \
+                "$REVISION_PATH" history/site \
+                build/brief-builder-built/build-your-own-brief-compiler/index.html \
+                build/patched build/reading-copy-receipt.json
               ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
@@ -182,6 +188,18 @@ jobs:
                r.new_pages_deployed!==0||r.previous_editions_and_accepted_images_unchanged!==true||
                r.semantic_rework!==0||r.additional_image_generation!==0)
                throw Error('Already-verified website history recovery invariants failed');
+
+          }else if(r.schema_version==='daily-compiler-brief-explainer-hobby-evolution-v1'){
+            if(r.edition_date!=='2026-10-27'||r.files_changed!==2||
+               JSON.stringify(r.changed.map(c=>c.route))!==JSON.stringify([
+                 'sources/index.html','build-your-own-brief-compiler/index.html'])||
+               r.documented_hobby_use_cases!==6||r.hobby!=='home gardening'||
+               r.feedback_sources_watchlist_learning_loop!==true||
+               r.duplicate_internal_links!==0||r.registry_directory_preserved!==true||
+               r.accepted_images_reencoded!==0||
+               r.all_previous_reader_and_media_bytes_preserved!==true||
+               r.new_schedules!==0||r.new_paid_apis!==0)
+              throw Error('Gardening, feedback, unique-link and accepted-image invariants failed');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);

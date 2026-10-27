@@ -19,13 +19,14 @@ const footer='<a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>';
 const fakeShell='<nav>'+header+'</nav><footer>'+footer+'</footer>';
 const fakeSources=fakeShell+'<nav class="src-nav"><a href="#source-accountability">Our commitments</a></nav>'+
   '<section class="src-section" id="source-accountability">Public commitments</section>';
-const caseIds=['manufacturing','healthcare','cybersecurity','education','government'];
+const caseIds=['manufacturing','healthcare','cybersecurity','education','government','gardening'];
 function fakeCompiled(){
   return '<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"></head>'+
     '<body><main id="content">'+
     '<h1>From information to a living knowledge system</h1>'+
     '<h2>The difference: connected intelligence, not a topic checklist</h2>'+
     '<h2>The second product: a living knowledge system</h2>'+
+    '<h2>How the Brief stays current: a governed self-evolving loop</h2>'+
     '<p>The Generative AI Professional Series</p>'+
     '<h2>How to start with a Brief Compiler for your own field</h2>'+
     '<style id="brief-compiler-builder-style">@media(max-width:480px){.main-content{padding:1em}}</style>'+
@@ -37,13 +38,14 @@ function fakeCompiled(){
 }
 test('the full website page includes five distinct real scenarios and the four real book links',()=>{
   const markdown=fs.readFileSync(BRIEF_BUILDER_MD,'utf8');
-  assert.equal(assertBuilderMarkdown(markdown).scenarios,5);
+  assert.equal(assertBuilderMarkdown(markdown).scenarios,6);
   for(const title of [
     'Precision manufacturing: a reliability and field-service intelligence brief',
     'Hospital network: evidence-to-practice and clinical training',
     'Security operations: an intelligence-to-defense and playbook brief',
     'University, training company, or professional author: a living curriculum',
-    'City or regional government: a climate, infrastructure, and emergency-readiness brief'
+    'City or regional government: a climate, infrastructure, and emergency-readiness brief',
+    'Home gardening: a personal growing-intelligence and garden-journal brief'
   ])assert.ok(markdown.includes(title),title);
   assert.ok(markdown.includes('not a ready-made, one-click platform'));
   assert.ok(markdown.includes('accepts, revises, defers, or rejects'));
@@ -55,7 +57,8 @@ test('Jekyll source builder uses established site layout with top nav/footer and
   const receipt=prepareBuilderJekyllSource({outRoot:out});
   assert.equal(receipt.result,'PASS');
   const layout=fs.readFileSync(path.join(out,'_layouts/default.html'),'utf8');
-  assert.equal(layout.split("'/build-your-own-brief-compiler/'").length-1,2);
+  assert.ok(layout.includes("'/build-your-own-brief-compiler/'"));
+  assert.ok(layout.includes("{% unless page.permalink == '/sources/'"));
   assert.ok(fs.readFileSync(path.join(out,'_config.yml'),'utf8').includes('baseurl: "/Daily-AI-Brief-Compiler"'));
   assert.ok(fs.readFileSync(path.join(out,'build-your-own-brief-compiler.md'),'utf8').includes('use-case-manufacturing'));
   assert.throws(()=>prepareBuilderJekyllSource({outRoot:out}),/must_be_new/);
@@ -80,7 +83,8 @@ test('home page navigation only adds the new site link without deleting sources'
  assert.throws(()=>addBuilderToPublishedNavigation(updated),/already_added/);
  const jekyll=fs.readFileSync('vendor/production-reader/snapshot/_layouts/default.html','utf8');
  const future=addBuilderToJekyllLayout(jekyll);
- assert.equal(future.split("'/build-your-own-brief-compiler/'").length-1,2);
+ assert.ok(future.includes("'/build-your-own-brief-compiler/'"));
+ assert.ok(future.includes("{% unless page.permalink == '/sources/'"));
  assert.throws(()=>addBuilderToJekyllLayout(future),/already_added/);
 });
 test('new website route requires Jekyll HTML, 5 valid jump IDs, book links and responsive CSS',()=>{
