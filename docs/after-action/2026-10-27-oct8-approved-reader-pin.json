@@ -1,0 +1,29 @@
+{
+  "schema_version": "oct8-protected-reader-pin-reconciliation-v1",
+  "problem": "Owner-approved podcast anchor repair PR #269 changed one pinned HTML page, while the independent audit still expected its pre-repair byte hash.",
+  "authorization": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/269",
+  "authorized_revision": "config/reading-copy-revisions/2026-10-27-podcast-overview-anchors.json",
+  "protected_main_merge_sha": "7aea9c0f4a5f16d2fe3317f92aef61d241c6ae47",
+  "route": "briefs/2026-10-08/index.html",
+  "original": {
+    "history_sha": "68f75996a8a5ad038303f5eadb21878b71e10fe1",
+    "sha256": "9ee91bbd9799bf03665b266cc90fd8e6e2ae6d32706c0b89f1b435ef51e8da84",
+    "bytes": 63781
+  },
+  "approved_current": {
+    "history_sha": "2ea7878e5578900fda4d7895f786cdee096f5da6",
+    "sha256": "b86117555b389d9f56eb3fca7138203dae605c98fb614859f0c4dd650ad2916d",
+    "bytes": 63885
+  },
+  "proof": "Removing exactly the two known podcast-1 and podcast-2 span insertions reproduces the complete original 63781-byte content and original SHA-256. No arbitrary HTML normalization or alternate image hash is allowed.",
+  "other_original_pins_unchanged": 16,
+  "original_png_pins_unchanged": 6,
+  "live_audit": {
+    "observed_at": "2026-10-27T03:33:19.245Z",
+    "result": "PASS",
+    "objects_verified": 17,
+    "immutable_pngs_verified": 6
+  },
+  "validation": "13 targeted tests passed, including altered content, missing/duplicate/wrong anchor refusal, old-content proof, source-bound PNG staging, rollback isolation and mobile viewer preservation. Protected exact-head CI remains required before merge.",
+  "publication": "No reader, source bundle, Watchlist, image asset, manifest, schedule or deployed page is changed by this guard reconciliation. It recognizes the existing protected owner-requested correction while retaining original-content proof."
+}
