@@ -96,7 +96,7 @@ test('future Jekyll layout hides duplicate header and footer links on only the t
  assert.ok(version.includes("{% unless page.permalink == '/sources/' or page.permalink == '/build-your-own-brief-compiler/' %}"));
  assert.ok(version.includes("{% unless page.permalink == '/sources/' %}"));
  assert.ok(version.includes("Build Your Own Brief"));
- assert.throws(()=>tailorBriefExplainerJekyllLayout(version),/layout_or_markup_drift/);
+ assert.throws(()=>tailorBriefExplainerJekyllLayout(version),/layout_already_tailored/);
 });
 test('six-case built page has exactly one link to each other Brief section and rejects duplicates',()=>{
  const page=compiledBuilder();
