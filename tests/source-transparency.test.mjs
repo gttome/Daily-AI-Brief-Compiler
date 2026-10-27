@@ -23,8 +23,8 @@ test('public registry totals expose discovery eligibility without pretending all
  assert.equal(counts.roles.podcast.registered,40);
  const copy=renderSourcesExperience(registry);
  assert.equal((copy.match(/class="src-source-card"/g)||[]).length,208);
- assert.equal((copy.match(/data-enabled="true"/g)||[]).length,98);
- assert.equal((copy.match(/data-enabled="false"/g)||[]).length,110);
+ assert.equal((copy.match(/<article class="src-source-card"[^>]+data-enabled="true"/g)||[]).length,98);
+ assert.equal((copy.match(/<article class="src-source-card"[^>]+data-enabled="false"/g)||[]).length,110);
  assert.match(copy,/Counts are generated from the current protected source registry/);
  assert.match(copy,/not that a website was reached/);
  assert.match(copy,/Unknown measurements remain unknown/);
@@ -94,7 +94,7 @@ test('live correction has a single legal route; all other mock public and image 
  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'sources-transparency-'));
  const history=path.join(tmp,'history'),out=path.join(tmp,'out');
  const rev=JSON.parse(fs.readFileSync(revisionPath,'utf8'));
- const oldPage='<main id="content" class="main-content" role="main">'+
+ const oldPage='    <main id="content" class="main-content" role="main">'+
   '<h2>Old sources</h2>\n      <footer class="site-footer">Original footer</footer></main>';
  try{
   fs.mkdirSync(path.join(history,'sources'),{recursive:true});
