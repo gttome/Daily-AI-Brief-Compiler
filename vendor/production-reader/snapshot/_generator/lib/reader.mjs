@@ -357,9 +357,7 @@ export function podcastStory(slot, edition, ordinal=slot.ordinal||9) {
 export function renderPodcastItem(slot, briefDate, ordinal=slot?.ordinal||9) {
   if (!slot || slot.status !== 'included') return '';
   const readingSupport=briefDate>='2026-09-12'?renderReadingSupport(slot,slot.item_id,briefDate,'Podcast'):'';
-  return `<span id="podcast-${xml(slot.item_id)}"></span>
-
-### ${ordinal}. ${slot.title}
+  return `### ${ordinal}. ${slot.title}
 
 ${readingSupport?readingSupport+"\n\n":""}<span class="podcast-data" data-podcast-id="${slot.item_id}" data-podcast-title="${xml(slot.title)}" data-podcast-url="${slot.permanent_url}" hidden></span>
 
