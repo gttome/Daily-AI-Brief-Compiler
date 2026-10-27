@@ -301,6 +301,8 @@
 
 ## Worth Listening — Podcasts
 
+<span id="podcast-dab-podcast-2026-10-27-1"></span>
+
 ### 9. Daily AI Briefing — October 26, 2026
 
 <!-- reader-release:start -->
@@ -333,6 +335,8 @@
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
+
+<span id="podcast-dab-podcast-2026-10-27-2"></span>
 
 ### 10. Nearly 100 GEO Audits Later: What Big Brands Still Miss
 
