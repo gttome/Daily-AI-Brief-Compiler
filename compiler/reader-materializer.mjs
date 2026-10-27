@@ -30,7 +30,7 @@ function readJson(file){return JSON.parse(fs.readFileSync(file,'utf8'));}
 // podcast heading in the temporary compilation copy, never in the immutable vendor.
 export function podcastNavigationRendererOverlay(source){
   const before='  return `### ${ordinal}. ${slot.title}';
-  const after='  return `<span id="podcast-${xml(slot.item_id)}"></span>\\n\\n### ${ordinal}. ${slot.title}';
+  const after='  return `<span id="podcast-${xml(slot.item_id)}"></span>\n\n### ${ordinal}. ${slot.title}';
   if(source.split(before).length!==2||source.includes('<span id="podcast-${xml(slot.item_id)}"></span>'))
     throw Error('podcast navigation renderer contract changed: review anchor overlay');
   return source.replace(before,()=>after);
