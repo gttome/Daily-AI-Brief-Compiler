@@ -174,6 +174,31 @@ jobs:
             throw Error('NOT_SAFE_TO_PUBLISH_BUILDER_SITE');
           console.log('REAL_BRIEF_WEBSITE_3_ROUTE_PRESERVATION_PASS');
           NODE
+      - name: Prove exact previously published site bytes before history-only closeout
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/brief-builder-history-only-closeout-20261027'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          export HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          mkdir -p build/brief-builder-recovery-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/brief-builder-recovery-proof
+          node scripts/recover-brief-builder-history.mjs \
+            config/reading-copy-revisions/2026-10-27-brief-builder-history-recovery.json \
+            build/brief-builder-recovery-proof/site \
+            build/brief-builder-recovery-proof/patched \
+            build/brief-builder-recovery-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/brief-builder-recovery-proof/site build/brief-builder-recovery-proof/patched
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/brief-builder-recovery-proof/receipt.json','utf8'));
+          if(r.result!=='PASS'||r.files_changed!==3||r.new_pages_deployed!==0||
+             r.exact_already_live_bytes_preserved!==true||
+             r.previous_editions_and_accepted_images_unchanged!==true)
+            throw Error('LIVE_HISTORY_RECOVERY_NOT_SAFE');
+          console.log('THREE_EXISTING_LIVE_WEB_PAGES_HISTORY_RECOVERY_PASS',r.original_deployment_run);
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
