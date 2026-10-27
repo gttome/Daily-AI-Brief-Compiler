@@ -37,7 +37,7 @@ That underlying concept can be adapted to manufacturing, healthcare, cybersecuri
 
 > **What this page is:** a design blueprint and set of illustrative applications. The current Daily AI Brief Compiler is a working example, not a ready-made, one-click platform for deploying a different industry brief. A tailored implementation requires configuration, engineering, source permissions, review policies, and organizational ownership.
 
-[Explore the current Brief]({{ '/' | relative_url }}) · [Review its Sources and editorial standards]({{ '/sources/' | relative_url }})
+The main website navigation links to the current Brief, the Sources methodology and the Emerging AI Watchlist.
 
 ## The difference: connected intelligence, not a topic checklist
 
@@ -89,6 +89,35 @@ Each proposal should identify the **new evidence and its original URL; the affec
 
 That closed loop can be repeated with any organization's knowledge assets: field-service manuals, clinical protocols, cybersecurity runbooks, internal courses, sales playbooks, standards, and more.
 
+## How the Brief stays current: a governed self-evolving loop
+
+The most valuable part of the Compiler is not a static list of feeds, prompts or topics. It is a **feedback-driven editorial system** that can improve its source portfolio, notice emerging concepts, learn from readers and propose refinements to the next edition or to the knowledge assets it supports.
+
+**Self-evolving does not mean self-authorizing.** The system can collect signals, detect patterns, recommend changes and record evidence. Changes to selection rules, source eligibility, book content, sensitive guidance and publication policies remain subject to validation and accountable human approval. A meaningful feedback loop is **observe → assess → propose → review → test → apply → measure**, not “collect clicks → automatically rewrite everything.”
+
+### Four inputs that make the Brief evolve
+
+| Signal | What changes over time | How it informs the next cycle | What must not be inferred |
+|---|---|---|---|
+| **Source portfolio** | New publishers, research groups, journals, creators and podcasts emerge; others stop publishing, change ownership, become inaccessible, or produce repetitive material. | Maintain an auditable registry of enabled discovery routes and unqualified candidates. Check original dates, reliability, independence, topical yield and recent publisher diversity. Recommend admitting, reprioritizing, pausing or retiring a source with reasons and an owner. | A listed URL does **not** prove it was visited; an HTTP 200 is not proof of a new, credible item. A source is not disabled solely because one request fails. |
+| **Emerging-topic Watchlist** | New ideas gain evidence; some mature into actionable guidance, others remain speculative, stall or become irrelevant. | Track **New, Updated, Carried forward and Dropped** topics with dated evidence. The current research rubric weighs novelty (20%), evidence (25%), independence (15%), momentum (15%), relevance (15%) and durability (10%). Qualified developments may graduate to a future edition or generate a knowledge-update proposal. | An isolated vendor announcement is not independent confirmation; popularity or a generic score cannot replace a real assessment. |
+| **Item-level reader signals** | Each article, video and podcast can receive a **1–5-star usefulness rating**, share activity and optional written comments. | Look at patterns by audience, topic, source, format and learning objective. Comments may identify missing context, outdated examples, poor demonstrations or important questions worth investigating. Compare useful and less useful items across several editions, rather than chasing one unusually popular headline. | A share initiation is **not** proof someone read the item or received a link. Ratings are preferences, not scientific validation, and comments are suggestions rather than verified facts. |
+| **Editorial and publication evidence** | Repetition, source failures, weak media, broken links, failed image reviews and rejected proposals reveal process gaps. | Use archived issues, quality-gate results and after-action reviews to propose better selection rules, clearer explanations, alternative sources, revised media choices and new safeguards. Record what changed and whether it worked. | A passing unit test alone is not a verified public release. A human-readable improvement proposal is not an automatically approved change. |
+
+### What a responsible improvement cycle looks like
+
+1. **Observe the whole system.** Preserve each edition's source evidence, complementary article/video/podcast roles, Watchlist status, per-item usefulness signals, share initiations, comments and operational exceptions. Explicitly mark unavailable, unmeasured or unvisited sources.
+2. **Identify a meaningful pattern.** For example, several readers may rate technical articles highly but comment that they cannot implement the associated method. That suggests a missing demonstration or practice exercise—not necessarily that the science articles should be abandoned.
+3. **Propose bounded changes.** The editorial ledger records the source IDs or specific items involved, the observed evidence, a hypothesis, the suggested adjustment, likely benefits, risks, owner and proposed evaluation. It may recommend a new verified video source, an additional explanatory diagram, an updated teaching example, or review of a chapter in the four-book series.
+4. **Review before changing policy or content.** Human editors or subject-matter owners decide whether to accept, revise, defer or reject each proposal. A new source needs qualification; medical, safety or regulatory content needs the appropriate specialist review; manuscript changes require the author.
+5. **Test and compare subsequent editions.** Check whether the selected media now reinforces the edition's central question, ratings and comments show better comprehension, the source mix is less repetitive, and the proposed knowledge updates were genuinely useful. Keep safeguards for citations, history, accepted images and source dates intact.
+
+**A worked learning-loop example:** Readers repeatedly appreciate coverage of agent permissions but comment that the practical examples are difficult to reproduce. The Watchlist also records improved evidence about scoped credentials. The Compiler could propose a better instructional video, a permission-boundary checklist and a reviewed addition to the *Reliable Generative AI Context Engineering* book. The editor assesses the supporting evidence and approves or rejects each change separately. Future editions can then evaluate whether the new instructional material is actually more useful.
+
+**A worked gardening-loop example:** A gardening Watchlist starts tracking a locally relevant pest, while several readers request clearer low-cost prevention advice in comments. The Compiler seeks evidence from the appropriate regional extension service, drops an inactive gardening feed from its *proposed* source shortlist, recommends a credible integrated-pest-management demonstration and flags a specific page in the reader's garden guide for review. The gardener may accept the calendar reminder but defer any treatment recommendation pending correct pest identification. The personal garden record is not silently rewritten.
+
+This is how a brief becomes **both a publication and a continuously reviewed knowledge-maintenance process**, while remaining clear about what has genuinely been observed, what is only proposed and what has been approved.
+
 ## The adaptable Brief Compiler architecture
 
 **Curated sources → Verified evidence → Connected editorial edition → Complementary media → Actionable explanations → Emerging-issues Watchlist → Proposed knowledge updates → Human review → Improved next edition.**
@@ -107,7 +136,7 @@ The amount of automation should match the domain. A marketing team's public brie
 
 ---
 
-# Five substantially different ways to use the concept
+## Six substantially different ways to use the concept
 
 <nav class="brief-builder-jump" aria-label="Jump to five example applications">
 <a href="#use-case-manufacturing">Manufacturing</a>
@@ -115,6 +144,7 @@ The amount of automation should match the domain. A marketing team's public brie
 <a href="#use-case-cybersecurity">Cybersecurity</a>
 <a href="#use-case-education">Education &amp; Publishing</a>
 <a href="#use-case-government">Government</a>
+<a href="#use-case-gardening">Home Gardening</a>
 </nav>
 
 
@@ -128,6 +158,7 @@ The amount of automation should match the domain. A marketing team's public brie
 | Cybersecurity | Which threats justify new defensive detection or response steps? | Incident runbooks, detection standards, analyst training. |
 | Education and publishing | What new evidence should change how professionals learn? | Books, chapter examples, lessons, templates and assessments. |
 | City and regional government | Which observations should change seasonal readiness planning? | Emergency plans, infrastructure checks, public communications. |
+| Home gardening | What new evidence deserves a trial in my garden this season? | Personal growing guide, planting calendar, garden journal, soil tests and seed records. |
 
 <span id="use-case-manufacturing" class="brief-builder-anchor"></span>
 
@@ -276,6 +307,56 @@ The Watchlist tracks evolving flood mapping methods, heat-response protocols, se
 
 **Why the connected format matters:** Science, engineering, operational training, and resident communication support the **same local readiness decision**, not just a list of environmental news.
 
+<span id="use-case-gardening" class="brief-builder-anchor"></span>
+
+## 6. Home gardening: a personal growing-intelligence and garden-journal brief
+
+**Audience:** Vegetable and flower gardeners, allotment growers, container gardeners, community-garden volunteers and Master Gardener learners—from curious beginners to experienced hobbyists.
+
+**Why this hobby fits:** Gardening is widely practiced and has a deep body of evolving knowledge: horticultural research, new varieties, weather and water-use conditions, local pest pressures, pollinator science, soil-management approaches and seasonal experiments. The National Recreation and Park Association reported that **74% of U.S. adults had gardened at some point** in its 2024 survey; that is lifetime participation, not a count of active gardeners today. It also has abundant original instructional media and longstanding podcasts. An individual gardener can benefit from having the new evidence tied to **their own records**, rather than yet another generic “ten gardening tips” feed.
+
+**Purpose of the brief:** Help someone decide **what is worth trying in their garden this season, why, and which of their existing plans or notes should be revised**—with recommendations adapted to climate, space, plants, experience and available time.
+
+### Example edition: “How should I improve next season’s vegetable beds without overwatering or worsening soil health?”
+
+- **Two science articles:** Research-grounded guidance on soil testing and nutrient use; and a reputable horticultural extension explanation of water retention, mulching, cover crops or soil disturbance. Identify study or guidance limitations instead of claiming every practice improves every soil.
+- **Two practical articles:** A locally relevant crop/seed-variety or planting-window guide and a tested small-space irrigation or raised-bed technique, each with the inputs, tools and conditions needed to try it.
+- **Two conditions-and-risks articles:** A current seasonal pest/disease advisory from a suitable regional extension program, and a weather, pollinator or water-availability development that could affect the planned crops. Distinguish actual local alerts from general examples.
+- **Video 1:** A trusted demonstration of collecting a soil sample and interpreting a lab report before adding amendments.
+- **Video 2:** An instructional walk-through of mulch placement, irrigation checks or a crop-rotation layout that directly reinforces the selected growing evidence.
+- **Podcasts:** An expert horticulture conversation about soil and seasonal trade-offs, paired with a grower's documented experience of testing changes across several growing seasons. Neither should be selected just because the word *gardening* appears in its description.
+- **Editorial synthesis:** “Test first, match the advice to this garden's conditions, change one variable where practical, and record the results.” The articles explain the evidence, videos show the techniques and podcasts explain real-world trade-offs; all support **one coherent gardening decision**.
+
+### Trustworthy source and media candidates
+
+The following are **examples to qualify for a personal gardening Compiler**, not claims that the existing AI Brief actively monitors or licenses them:
+
+- **Evidence and regional practice:** [University of Maryland Extension — Vegetable Gardening](https://extension.umd.edu/resource/vegetables-home-garden) for structured growing advice; [University of Minnesota Extension — soil testing](https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/soil-testing-for-lawns-and-gardens) for testing and interpretation; and the gardener's **own regional Cooperative Extension** service for planting windows, pests and localized conditions.
+- **Instructional videos:** [Royal Horticultural Society — Get Set, Grow!](https://www.rhs.org.uk/advice/grow-your-own/get-set-grow), a multi-part growing-season demonstration series. A UK demonstration is useful for learning a technique but is **not** an automatic substitute for regionally appropriate planting dates or product guidance.
+- **Expert conversation:** [Gardening with the RHS podcast](https://www.rhs.org.uk/about-us/what-we-do/publications/podcasts) and [the joe gardener Show](https://joegardener.com/podcasts/). Evaluate each **specific episode** for relevance, evidence quality, freshness and distinct learning value; do not treat the show as blanket approval.
+- **Owner evidence:** A garden journal, bed map, dated plant photos, soil-lab reports, seed packets, planting calendar, variety trial notes, watering log and actual harvest results. Private records require explicit permission and should remain private.
+
+### What happens beyond the newsletter
+
+The **personal Watchlist** might track locally reported insect or plant diseases, new region-suitable varieties, changing last-frost patterns, peat-free mixes, water-wise practices, pollinator habitat and new evidence about gardening myths. Items can be New, Updated, Carried forward or Dropped as credible observations change; a trend in social videos alone is not proof that a technique works.
+
+The private update queue maps verified findings to a **versioned personal garden knowledge base**. Concrete proposals could include:
+
+| Personal knowledge asset | Example proposed improvement | Human verification before acceptance |
+|---|---|---|
+| **Seasonal planting calendar** | Consider moving the sowing window for a particular crop after reviewing updated regional extension advice and the gardener's recorded frost observations. | Confirm local weather patterns and the actual seed variety, without pretending to predict the next frost date. |
+| **Garden journal and bed map** | Add a field recording mulch depth, watering frequency or soil moisture beside a specific bed's planting outcome. | Confirm the measurement is feasible and that historical notes are retained unchanged. |
+| **Personal growing guide** | Replace a generic soil-amendment recommendation with a decision tree that starts with soil-test results. | Use the actual laboratory report; avoid unnecessary fertilizer or chemical applications. |
+| **Pest identification checklist** | Add distinguishing photographs, host-plant signs and an escalation step for an emerging local pest. | Confirm identification through a credible local service before proposing treatment. |
+| **Seed inventory and yearly lessons learned** | Flag varieties that repeatedly underperform in the owner's records and suggest a small, measured trial of an alternative. | Account for weather and cultivation conditions; past yield alone does not establish a causal advantage. |
+
+**Approval and privacy boundaries:** The gardener approves every change to personal records. No automatic overwriting of previous seasons, no fabricated weather forecast or soil-test value, and no pest-treatment recommendation without trustworthy identification and local legal/safety guidance. Owner-specific home location or private photographs are not published by default.
+
+**Measures of value:** Fewer missed planting windows, documented trials completed, fewer duplicate purchases, changes in water use where actually measured, and the gardener's assessment of clarity and usefulness. Harvest comparisons need weather, variety and other context—not just headline yield numbers.
+
+**Why the connected format matters:** New science, practical demonstration, expert experience and the gardener's own notes all reinforce the **same seasonal decision**. Each edition can help the gardener learn something useful today while improving the next version of their personal growing reference guide.
+
+
 ---
 
 ## How to start with a Brief Compiler for your own field
@@ -335,7 +416,3 @@ The public Daily Generative AI Brief demonstrates a repeatable approach to sourc
 A new organization's implementation would need its **own** source and rights analysis, taxonomy, editorial-coherence criteria, knowledge-asset mappings, prompts/selection rules, security and privacy controls, review workflow, hosting, distribution, and test evidence. A specialized internal brief could run manually or semi-automatically while those foundations are developed. An enterprise product would additionally need tenant isolation, support arrangements, and production operations.
 
 **The big opportunity is not to produce more information. It is to connect information, learning, action, and responsible knowledge maintenance in a way that fits one specific audience.**
-
-## Explore the working example
-
-[Read the Daily Generative AI Brief]({{ '/' | relative_url }}) · [Explore the sources and evidence policy]({{ '/sources/' | relative_url }}) · [Browse the Emerging AI Watchlist]({{ '/watchlist/' | relative_url }}) · [View the Generative AI Professional Series](https://leanpub.com/u/george-tome)
