@@ -56,7 +56,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     const pages=['index.html','latest.html','briefs/'+manifest.edition_date+'/index.html'];
     for(const route of pages){
       const current=fs.readFileSync(path.join(siteDir,route),'utf8');
-      const overview=current.match(/<section class="edition-overview"\b[^>]*>[\s\S]*?<\/section>/);
+      const overview=current.match(/<section class="edition-overview"[^>]*>[\s\S]*?<\/section>/);
       if(!overview)fail('edition overview missing in '+route);
       const links=[...overview[0].matchAll(/<a href="#([^"]+)"/g)].map(x=>x[1]);
       if(links.length!==10||new Set(links).size!==10||
