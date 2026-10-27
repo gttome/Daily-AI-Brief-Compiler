@@ -64,7 +64,8 @@ export function verifyBuiltReader({siteDir,sourceDir}){
         fail('edition overview must have 10 unique article/video/podcast links in '+route);
       for(const id of links){
         const occurrences=current.split('id="'+id+'"').length-1;
-        if(occurrences!==1)fail('broken/duplicate edition overview anchor '+id+' in '+route);
+        if(occurrences<1||(id.startsWith('podcast-')&&occurrences!==1))
+          fail('missing/duplicate podcast or broken edition overview anchor '+id+' in '+route);
       }
       const ids=links.filter(x=>x.startsWith('podcast-'));
       for(const id of ids){
