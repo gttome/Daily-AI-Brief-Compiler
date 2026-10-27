@@ -8,6 +8,8 @@ import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 import {verifiedHistoricalRelation} from './historical-related.mjs';
 import {renderSourcesMarkdown} from './source-transparency.mjs';
 import {BRIEF_BUILDER_MD,addBuilderToJekyllLayout,assertBuilderMarkdown} from './brief-builder-pages.mjs';
+import {BUILDER_CSS_PATH,styleBuilderJekyllLayout} from './brief-builder-style.mjs';
+import {appendGlobalBriefNavigation} from './global-brief-navigation.mjs';
 
 const compilerRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshotRoot=path.join(compilerRoot,'vendor','production-reader','snapshot');
@@ -305,13 +307,23 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
     assertBuilderMarkdown(md);
     writeText(path.join(outDir,'build-your-own-brief-compiler.md'),md);
     const layout=path.join(outDir,'_layouts','default.html');
-    fs.writeFileSync(layout,addBuilderToJekyllLayout(fs.readFileSync(layout,'utf8')),'utf8');
+    fs.writeFileSync(layout,
+      styleBuilderJekyllLayout(
+        addBuilderToJekyllLayout(fs.readFileSync(layout,'utf8')),
+        fs.readFileSync(path.join(compilerRoot,BUILDER_CSS_PATH),'utf8')),'utf8');
   }
   // Only Oct28+ compilations regenerate this informational page from the
   // protected Compiler registry. The frozen reader snapshot stays immutable.
   if(bundle.edition_date>='2026-10-28'){
     const registry=readJson(path.join(compilerRoot,'config','resource-registry.json'));
     writeText(path.join(outDir,'sources.md'),renderSourcesMarkdown(registry));
+  }
+  // New editions keep the immutable vendor snapshot and add the same shared
+  // header navigation enhancement used by historical Pages.
+  if(bundle.edition_date>='2026-10-28'){
+    const audience=path.join(outDir,'assets','js','audience.js');
+    fs.writeFileSync(audience,
+      appendGlobalBriefNavigation(fs.readFileSync(audience,'utf8')),'utf8');
   }
   rewriteReaderEnvironment(outDir,environment);
   patchWatchlistImmediateSelection(outDir);
