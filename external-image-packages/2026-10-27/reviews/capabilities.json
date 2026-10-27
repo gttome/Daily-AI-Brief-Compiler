@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "image_gen.imagegen",
+    "evidence_ref": "Native image tool callable in this invocation; imagegen skill loaded"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "view_image",
+    "evidence_ref": "view_image callable for exact local PNG pixels"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "Pillow RGB PNG export",
+    "evidence_ref": "Pillow import passed in this invocation"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "connected create_blob base64",
+    "evidence_ref": "Authenticated base64 blob bca9e11342df2991fbbb9e72c5d6bf86e7addf18 created"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "connected fetch_file base64",
+    "evidence_ref": "fetch_file supports base64 with exact commit ref; owner receipt read back at 84d43f9"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "connected protected PR tools",
+    "evidence_ref": "create_pull_request and expected-head merge tools callable; required CI preserved"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "exact-release workflow artifact",
+    "evidence_ref": "Read existing external-image-only-replacement workflow and capture-image-element24.mjs desktop route"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "exact-release workflow artifact",
+    "evidence_ref": "Read existing external-image-only-replacement workflow and capture-image-element24.mjs mobile route"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml",
+    "evidence_ref": "Read current protected main workflow push manifest trigger and derive-protected-image-package-release step"
+  }
+}
