@@ -12,13 +12,13 @@ const observation=(resource_id,extra={})=>({resource_id,outcome:'NO_ELIGIBLE_ITE
  evidence_method:'publisher_index',items:[],
  reason:'Index checked but no qualifying recent original dated source items found.',...extra});
 
-test('all 83 enabled editorial publishers/channels/shows enumerated, no hidden shortlist',()=>{
+test('all 87 enabled editorial publishers/channels/shows enumerated, no hidden shortlist',()=>{
  const p=buildEditorialSourceCensus(registry,meta);
- assert.equal(p.counts.eligible,83);
+ assert.equal(p.counts.eligible,87);
  assert.equal(p.counts.attempted,0);
- assert.equal(p.counts.not_attempted,83);
+ assert.equal(p.counts.not_attempted,87);
  assert.deepEqual(p.counts.role_counts,{
-  article:{eligible:56,attempted:0},video:{eligible:6,attempted:0},
+  article:{eligible:60,attempted:0},video:{eligible:6,attempted:0},
   podcast:{eligible:21,attempted:0}});
  assert.throws(()=>validateEditorialSourceCensus(registry,p,{requireAllVisited:true}),
   /EDITORIAL_SOURCE_CENSUS_SOURCES_NOT_ALL_ATTEMPTED/);
@@ -50,8 +50,8 @@ test('every source can be accounted for without claiming all produced candidates
    source_index_url:row.url
   }));
  const r=validateEditorialSourceCensus(registry,p,{requireAllVisited:true});
- assert.equal(r.attempted,83);
- assert.equal(r.no_eligible_items,83);
+ assert.equal(r.attempted,87);
+ assert.equal(r.no_eligible_items,87);
  assert.equal(r.candidates_found,0);
  assert.equal(r.result,'ALL_SOURCES_ACCOUNTED');
 });

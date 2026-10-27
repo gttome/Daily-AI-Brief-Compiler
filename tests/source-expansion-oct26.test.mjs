@@ -7,7 +7,7 @@ const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'
 const newSources=registry.resources.filter(r=>r.resource_id.startsWith('research-20261026-'));
 const oldSources=registry.resources.slice(0,69); // preserved original IDs; six historical role assignments now reconciled
 const enabled=['research-20261026-a01','research-20261026-a04',
-  'research-20261026-a12','research-20261026-p03'];
+  'research-20261026-a05','research-20261026-a12','research-20261026-p03'];
 
 test('source expansion retains every legacy resource and current v1 schema',()=>{
   assert.deepEqual(validateResourceRegistry(registry),[]);
@@ -22,7 +22,7 @@ test('source expansion retains every legacy resource and current v1 schema',()=>
   }
 });
 
-test('exact 28 new leads: 14 articles, 7 videos, 7 podcasts with four admitted discovery routes',()=>{
+test('exact 28 new leads with five currently admitted after four baseline admissions',()=>{
   assert.equal(newSources.length,28);
   const expected=[...Array.from({length:14},(_,i)=>'a'+String(i+1).padStart(2,'0')),
     ...Array.from({length:7},(_,i)=>'v'+String(i+1).padStart(2,'0')),
@@ -53,7 +53,7 @@ test('EDITORIAL ingress admits qualified sources with exact ID and excludes disa
   for(const type of ['article','video','podcast']){
     const visible=activeDiscoveryResources(registry,type);
     const expectedLegacy={article:38,video:3,podcast:17}[type];
-    const expectedNew={article:3,video:0,podcast:1}[type];
+    const expectedNew={article:4,video:0,podcast:1}[type];
     const firstWave=visible.filter(r=>!r.resource_id.startsWith('deep-20261026-') &&
       !r.resource_id.startsWith('directory-') &&
       !r.resource_id.startsWith('universe-20261026-'));
