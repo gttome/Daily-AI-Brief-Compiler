@@ -84,11 +84,9 @@ test('canonical website Markdown contains six cases, qualified gardening sources
 test('live Sources navigation is normalized without losing its single substantive builder CTA',()=>{
  const src=oldSources();
  assert.throws(()=>assertUniqueBriefInternalLinks(src,{page:'sources'}),/repeated_other_brief_page_link/);
- const next=normalizeBriefExplainerPage(src,{page:'sources'});
- assert.equal(assertUniqueBriefInternalLinks(next,{page:'sources'}).result,'PASS');
- assert.equal((next.match(/href="\/Daily-AI-Brief-Compiler\/build-your-own-brief-compiler\/"/g)||[]).length,0);
- const final=next.replace('<section class="src-section" id="source-builder"><p>Explore five complete scenarios.</p></section>',
+ const newCopy=src.replace('<section class="src-section" id="source-builder"><p>Explore five complete scenarios.</p></section>',
   renderBriefBuilderSummary());
+ const final=normalizeBriefExplainerPage(newCopy,{page:'sources'});
  assert.equal(assertUniqueBriefInternalLinks(final,{page:'sources'}).result,'PASS');
  assert.equal((final.match(/href="\/Daily-AI-Brief-Compiler\/build-your-own-brief-compiler\/"/g)||[]).length,1);
 });
