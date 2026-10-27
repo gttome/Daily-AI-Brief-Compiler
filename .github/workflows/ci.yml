@@ -234,6 +234,53 @@ jobs:
             throw Error('GARDENING_BRIEF_SITE_TWO_PAGE_SAFETY_FAILURE');
           console.log('REAL_GARDENING_BRIEF_SITE_TWO_PAGE_SAFE_PASS',r.hobby,r.files_changed);
           NODE
+      - name: Prepare Builder with page-scoped head CSS (this PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/sitewide-header-brief-links-and-builder-css-20261027'
+        run: node scripts/prepare-brief-builder-jekyll.mjs build/global-nav-style-proof-source
+      - name: Jekyll-build the real Builder page and CSS (this PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/sitewide-header-brief-links-and-builder-css-20261027'
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/global-nav-style-proof-source
+          destination: ./build/global-nav-style-proof-html
+      - name: Verify Builder head styling and all existing top-nav delivery (this PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/sitewide-header-brief-links-and-builder-css-20261027'
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import {validateBuiltBuilderHead} from './compiler/brief-builder-style.mjs';
+          const html=fs.readFileSync('build/global-nav-style-proof-html/build-your-own-brief-compiler/index.html','utf8');
+          if(!validateBuiltBuilderHead(html)||
+             !html.includes('From information to a living knowledge system')||
+             html.includes('&lt;style id="brief-compiler-builder-style">'))
+            throw Error('Jekyll still prints CSS or lost Builder content');
+          console.log('REAL_JEKYLL_BUILDER_HEAD_STYLE_PASS');
+          NODE
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/global-nav-history-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/global-nav-history-proof
+          node scripts/stage-global-brief-header-css.mjs \
+            config/reading-copy-revisions/2026-10-27-global-brief-header-css.json \
+            build/global-nav-history-proof/site \
+            build/global-nav-history-proof/patched \
+            build/global-nav-history-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/global-nav-history-proof/site \
+            build/global-nav-history-proof/patched
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/global-nav-history-proof/receipt.json','utf8'));
+          if(r.result!=='PASS'||r.files_changed!==3||
+             r.shared_navigation.eligible_header_pages<300||
+             r.shared_navigation.common_audience_js_present!==r.shared_navigation.eligible_header_pages||
+             r.browser_header_has_sources_and_builder!==true||
+             !r.builder_style_in_head_not_body||
+             !r.all_historical_html_except_two_informational_pages_unchanged)
+            throw Error('UNSAFE_GLOBAL_NAVIGATION_OR_BUILDER_STYLE_CHANGE');
+          console.log('HISTORICAL_BRIEF_HEADER_GLOBAL_SCRIPT_COVERAGE_PASS',r.shared_navigation);
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
