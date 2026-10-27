@@ -3,6 +3,7 @@ import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/wa
 import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading-copy.mjs';
 import {assertPublishedReaderQuality} from '../compiler/reader-quality.mjs';
 import {sourceRegistrySummary} from '../compiler/source-transparency.mjs';
+import {assertBuiltBriefPage} from './stage-brief-builder-pages.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -104,6 +105,17 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     if(enabled!==stats.enabled)fail('source directory enabled count mismatches protected registry');
     if(!sourcePage.includes('6 + 2 + 2')||!sourcePage.includes('Source records are not unique publishers'))
       fail('source transparency must distinguish curated edition from source inventory');
+  }
+
+  if(manifest.edition_date>='2026-10-28'){
+    const page=fs.readFileSync(path.join(siteDir,'build-your-own-brief-compiler','index.html'),'utf8');
+    assertBuiltBriefPage(page);
+    const sources=fs.readFileSync(path.join(siteDir,'sources','index.html'),'utf8');
+    if(!sources.includes('id="source-builder"')||
+       !sources.includes('href="/Daily-AI-Brief-Compiler/build-your-own-brief-compiler/"'))
+      fail('Sources overview does not introduce or link to dedicated Brief Builder page');
+    if(!home.includes('href="/Daily-AI-Brief-Compiler/build-your-own-brief-compiler/"'))
+      fail('homepage main navigation must offer dedicated Brief Builder page');
   }
   const feedbackRegistry=JSON.parse(fs.readFileSync(path.join(sourceDir,manifest.feedback.registry_route),'utf8'));
   if(feedbackRegistry.items.length!==10)fail('Compiler feedback registry must contain 10 reader items');
