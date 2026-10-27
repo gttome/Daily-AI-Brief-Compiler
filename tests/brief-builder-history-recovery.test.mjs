@@ -13,12 +13,12 @@ const shell='<nav><li><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></l
  '<footer><a href="/Daily-AI-Brief-Compiler/sources/">Sources</a></footer>';
 const src=shell+'<div class="src-nav"><a href="#source-accountability">Our commitments</a></div>'+
  '<section class="src-section" id="source-accountability">What we guarantee</section>';
-const sectors=['manufacturing','healthcare','cybersecurity','education','government'];
+const sectors=['manufacturing','healthcare','cybersecurity','education','government','gardening'];
 const books=['genaipromptingguide','genaipro','GenAILearn','reliable-context-engineering'];
 const page='<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"></head>'+
  '<body><main id="content"><h1>From information to a living knowledge system</h1>'+
  '<h2>The difference: connected intelligence, not a topic checklist</h2>'+
- '<h2>The second product: a living knowledge system</h2>'+
+ '<h2>The second product: a living knowledge system</h2>'+ '<h2>How the Brief stays current: a governed self-evolving loop</h2>'+
  '<p>The Generative AI Professional Series</p>'+
  '<h2>How to start with a Brief Compiler for your own field</h2>'+
  '<style id="brief-compiler-builder-style">@media(max-width:480px){.main-content{padding:1em}}</style>'+
