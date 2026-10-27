@@ -1,3 +1,4 @@
+import {tailorBriefExplainerJekyllLayout} from './brief-explainer-link-integrity.mjs';
 // Pure, bounded website navigation and content changes.
 // The underlying editorial edition and all accepted images remain immutable.
 export const BRIEF_BUILDER_URL='/Daily-AI-Brief-Compiler/build-your-own-brief-compiler/';
@@ -32,9 +33,9 @@ export function addBuilderToJekyllLayout(layout){
   if(layout.includes("'/build-your-own-brief-compiler/'"))throw Error('brief_builder_nav_already_added');
   const newHeader='<li><a href="{{ \'/build-your-own-brief-compiler/\' | relative_url }}">'+TARGET+'</a></li>';
   const newFooter='<a href="{{ \'/build-your-own-brief-compiler/\' | relative_url }}">'+TARGET+'</a>';
-  return appendToLastNavigationLink(
+  return tailorBriefExplainerJekyllLayout(appendToLastNavigationLink(
     replaceUnique(layout,header,'\n            '+newHeader,'jekyll_header'),
-    footer,'\n          '+newFooter,'jekyll_footer');
+    footer,'\n          '+newFooter,'jekyll_footer'));
 }
 export function assertBuilderMarkdown(markdown){
   const text=String(markdown);
@@ -43,14 +44,27 @@ export function assertBuilderMarkdown(markdown){
      !text.includes('## The second product: a living knowledge system')||
      !text.includes('Generative AI Professional Series')||
      !text.includes('## How to start with a Brief Compiler for your own field')||
-     (text.match(/class="brief-builder-anchor"/g)||[]).length!==5)
+     (text.match(/class="brief-builder-anchor"/g)||[]).length!==6)
     throw Error('brief_builder_web_content_incomplete');
-  for(const sector of ['manufacturing','healthcare','cybersecurity','education','government'])
+  for(const sector of ['manufacturing','healthcare','cybersecurity','education','government','gardening'])
     if(!text.includes('id="use-case-'+sector+'"'))throw Error('brief_builder_missing_'+sector);
+  for(const statement of [
+    '## How the Brief stays current: a governed self-evolving loop',
+    '## 6. Home gardening:',
+    'Gardening with the RHS podcast',
+    'soil-testing',
+    'share initiations',
+    'comments',
+    'Source portfolio',
+    'Emerging-topic Watchlist',
+    'the joe gardener Show'
+  ])if(!text.includes(statement))throw Error('brief_builder_evolution_or_hobby_missing:'+statement);
+  if(text.includes("{{ '/' | relative_url }}")||text.includes("{{ '/sources/' | relative_url }}"))
+    throw Error('brief_builder_duplicate_internal_navigation_in_markdown');
   for(const book of ['genaipromptingguide','genaipro','GenAILearn','reliable-context-engineering'])
     if(!text.includes('https://leanpub.com/'+book))
       throw Error('brief_builder_book_mapping_missing_'+book);
   if(text.includes('sandbox:/')||text.includes('file:///'))
     throw Error('brief_builder_document_links_not_for_website');
-  return {result:'PASS',scenarios:5};
+  return {result:'PASS',scenarios:6};
 }
