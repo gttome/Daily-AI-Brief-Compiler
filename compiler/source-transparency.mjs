@@ -10,7 +10,7 @@ const interaction="\n(function(){\n  var root=document.querySelector('#sources-t
 export const SOURCES_TRANSPARENCY_REVISION='2026-10-27-expanded-portfolio-v1';
 
 export function sourceRegistrySummary(registry){
-  if(registry?.schema_version!=='resource-registry-v1'&&!Array.isArray(registry?.resources))
+  if(registry?.schema_version!=='daily-compiler-resource-registry-v1'||!Array.isArray(registry?.resources))
     throw Error('source_registry_invalid_schema');
   const records=registry.resources;
   if(!Array.isArray(records)||records.length<20||new Set(records.map(r=>r.resource_id)).size!==records.length)
