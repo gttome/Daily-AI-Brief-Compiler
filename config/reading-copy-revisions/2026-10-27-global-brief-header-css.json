@@ -1,0 +1,22 @@
+{
+  "schema_version": "daily-compiler-reading-copy-correction-v1",
+  "correction_type": "GLOBAL_BRIEF_HEADER_AND_BUILDER_CSS",
+  "scope": "SHARED_NAV_JS_BUILDER_HTML_SOURCES_HTML_ONLY",
+  "requested_by": "owner",
+  "edition_date": "2026-10-27",
+  "expected_previous_pages": {
+    "assets/js/audience.js": "a3c13aca1cf8d8661e8918c40ae1cfa5f4c8c96d",
+    "build-your-own-brief-compiler/index.html": "beab6c5fd103f4974374225ec1b3de1e7ab18f03",
+    "sources/index.html": "3257ca2be08b7c44639c1c56e003c62930d5ae8e"
+  },
+  "expected_css_blob_sha": "21587f8fc8858c6f25c89e4b847522fbfa5d8dc1",
+  "expected_markdown_blob_sha": "59d885694d8b9419cc044b0c76d09743a5feaf76",
+  "reason": "Ensure Sources and Build Your Own Brief appear in the top header on every dated/permanent Brief page using shared JS (protect immutable historical HTML), including the full archive. Move visibly escaped raw CSS from Builder main body into a proper page-scoped <style> tag in HTML head, and avoid repeating Builder destinations on the Sources page. All future builds use canonical Markdown without raw style markup plus head-only CSS.",
+  "constraints": [
+    "Exactly three public files changed, not 672 historical HTML files",
+    "Audited historic page script coverage",
+    "No accepted image mutations",
+    "No new paid APIs/schedules",
+    "Protected CI and exact-live readback"
+  ]
+}
