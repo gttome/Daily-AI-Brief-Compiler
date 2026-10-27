@@ -73,9 +73,18 @@ jobs:
           node scripts/record-publication-health.mjs \
             "shadow-runs/$date/publication-health.json" "$date" BLOCKED_PUBLICATION \
             "$FAILED_STAGE" "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          if [ "$FAILED_STAGE" = VIDEO_PLAYBACK ] && test -s build/video-prepublish-playback.json; then
+            node scripts/record-video-playback-failure.mjs \
+              build/video-prepublish-playback.json "$date" \
+              "shadow-runs/$date/editorial/video-playback-failure.json" PREPUBLISH_SIGNAL || \
+              echo "Video diagnostic unavailable; original failed gate is still recorded"
+          fi
           git config user.name "Daily Brief Publication Health"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "shadow-runs/$date/publication-health.json"
+          if test -s "shadow-runs/$date/editorial/video-playback-failure.json"; then
+            git add "shadow-runs/$date/editorial/video-playback-failure.json"
+          fi
           if ! git diff --cached --quiet; then
             git commit -m "Record actual blocked publishing gate $FAILED_STAGE"
             git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"

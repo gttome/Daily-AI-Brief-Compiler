@@ -118,4 +118,11 @@ test('October 24 pre-generation geometry requires export-safe readable text and 
  s.pre_generation_checks.explanatory_substage_labels=['Imaginary unapproved text','Another label'];
  assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),
    /oct27_caveat_text_and_explanatory_mechanism_layout_required/);
+ s.pre_generation_checks.explanatory_substage_labels=s.required_labels.slice(2,4);
+ s.edition_date='2026-10-28';
+ assert.equal(validateFrozenImageSpecification({spec:s,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
+ s.pre_generation_checks.label_layout[1].bounding_box_px.y=
+   s.pre_generation_checks.label_layout[0].bounding_box_px.y+3;
+ assert.throws(()=>validateFrozenImageSpecification({spec:s,story}),
+   /oct28_required_label_rectangles_overlap/);
 });

@@ -255,9 +255,18 @@ jobs:
             "run/shadow-runs/$TARGET_DATE/publication-health.json" \
             "$TARGET_DATE" BLOCKED_PUBLICATION "$FAILED_STAGE" \
             "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          if [ "$FAILED_STAGE" = VIDEO_PLAYBACK ] && test -s build/video-public-playback.json; then
+            node scripts/record-video-playback-failure.mjs \
+              build/video-public-playback.json "$TARGET_DATE" \
+              "run/shadow-runs/$TARGET_DATE/editorial/video-playback-failure.json" READER_DEPLOY || \
+              echo "Video diagnostic unavailable; original failed gate is still recorded"
+          fi
           git -C run config user.name "Daily Brief Publication Health"
           git -C run config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git -C run add "shadow-runs/$TARGET_DATE/publication-health.json"
+          if test -s "run/shadow-runs/$TARGET_DATE/editorial/video-playback-failure.json"; then
+            git -C run add "shadow-runs/$TARGET_DATE/editorial/video-playback-failure.json"
+          fi
           if ! git -C run diff --cached --quiet; then
             git -C run commit -m "Record authentic blocked protected publishing stage $FAILED_STAGE"
             git -C run push origin "HEAD:refs/heads/$TARGET_BRANCH"

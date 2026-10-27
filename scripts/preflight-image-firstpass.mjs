@@ -116,6 +116,18 @@ export function validateFrozenImageSpecification({spec,story}){
         edge.from===qc.source_caveat||edge.to===qc.source_caveat))
      fail('oct27_caveat_text_and_explanatory_mechanism_layout_required:'+spec.story_id);
  }
+ // October 28+: a pre-generation geometry plan must not reserve the same
+ // saved-canvas pixels for two different explanatory labels. This planning
+ // test does not replace actual exported-pixel or mobile review.
+ if(spec.edition_date>='2026-10-28'){
+   const boxes=spec.pre_generation_checks.label_layout.map(x=>x.bounding_box_px);
+   for(let i=0;i<boxes.length;i++)for(let j=i+1;j<boxes.length;j++){
+     const a=boxes[i],b=boxes[j];
+     if(Math.max(a.x,b.x)<Math.min(a.x+a.width,b.x+b.width)&&
+        Math.max(a.y,b.y)<Math.min(a.y+a.height,b.y+b.height))
+       fail('oct28_required_label_rectangles_overlap:'+spec.story_id);
+   }
+ }
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||
    !clean(review.reviewer)||review.source_url!==spec.source_url||
