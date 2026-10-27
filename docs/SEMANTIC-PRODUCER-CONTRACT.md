@@ -10,6 +10,14 @@ Read `docs/source-expansion/OCT26_ALL_SOURCE_COVERAGE_RUNBOOK.md` and the two pu
 
 **Publication-preserving pilot gate:** Do not add extra AI schedules, GitHub jobs, paid providers or open-ended polling to finish this census; do not impose a new production publication blocker until actual same-runtime exhaustive route+item coverage is rehearsed. If capability/time makes full coverage infeasible, persist the incomplete IDs, an honest `INCOMPLETE/UNKNOWN` outcome, source-yield counts actually observed and the reason; then continue the existing validated editorial publication and 21:15 image handoff without claiming all sources were examined. The owner requested complete coverage; full retrieval is **not yet proven by the registry or source-specific unit tests**. Preserve all existing 24/72/168-hour article freshness, 2/2/2 allocation and Agent Skills, video educational playback, podcast content/cooldown, full archive, publisher diversity, Watchlist and cost rules.
 
+## October 28 full-universe source review (prospective only)
+
+**Effective solely when `bundle.edition_date >= 2026-10-28`.** This entire section is **not operative for the October 27 edition**. Before source selection, enumerate every record in current `config/resource-registry.json` (208 as of October 26, including 114 disabled) and create a separate, truthful source-by-source coverage ledger using `operations/oct28-full-universe.mjs`. Every source must be included in the audit; disabled sources may receive research/qualification checks but are NOT authorized as publication candidates until individually admitted through normal protected source updates. Report actually attempted, blocked, unavailable and untouched IDs separately; do not turn registry membership into claimed website access.
+
+If permitted runtime capabilities exist, attempt the public original index/route for every source and record genuine timestamps and outcomes. This is not merely the previous 83/94-source limited enabled set. Preserve article freshness, original dates, 2/2/2 allocation with one Agent Skills, real video playback, podcast program rotation/content verification and full archive reuse prohibitions. If 208 live checks cannot be made in time, report incomplete coverage honestly and continue safe eligible-source publication; do not invent success, introduce metered services, delay images or run a competing editor.
+
+The existing October 27 run must use **unchanged** source and publication behavior. No October 27 shadow branch, previously sealed bundle, scheduled-task time or image work is changed by this prospective instruction.
+
 ## Primary and recovery behavior
 
 For target date `YYYY-MM-DD`, inspect Compiler state first and reuse the existing execution. Recovery never allocates a duplicate execution and never redoes valid completed editorial/content work.
