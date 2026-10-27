@@ -9,6 +9,11 @@ function replaceUnique(value,existing,addition,label){
   if(value.split(existing).length!==2)throw Error('brief_builder_template_'+label+'_changed');
   return value.replace(existing,existing+addition);
 }
+function appendToLastNavigationLink(value,existing,addition,label){
+  if(value.split(existing).length!==3)throw Error('brief_builder_template_'+label+'_changed');
+  const last=value.lastIndexOf(existing);
+  return value.slice(0,last+existing.length)+addition+value.slice(last+existing.length);
+}
 export function addBuilderToPublishedNavigation(html,{requireBoth=true}={}){
   const link='<li><a href="'+BRIEF_BUILDER_URL+'">'+TARGET+'</a></li>';
   const footer='<a href="'+BRIEF_BUILDER_URL+'">'+TARGET+'</a>';
@@ -17,7 +22,7 @@ export function addBuilderToPublishedNavigation(html,{requireBoth=true}={}){
   let output=replaceUnique(html,header,'\n            '+link,'public_header');
   if(requireBoth){
     const oldFooter='<a href="/Daily-AI-Brief-Compiler/sources/">Sources</a>';
-    output=replaceUnique(output,oldFooter,'\n          '+footer,'public_footer');
+    output=appendToLastNavigationLink(output,oldFooter,'\n          '+footer,'public_footer');
   }
   return output;
 }
@@ -27,7 +32,8 @@ export function addBuilderToJekyllLayout(layout){
   if(layout.includes("'/build-your-own-brief-compiler/'"))throw Error('brief_builder_nav_already_added');
   const newHeader='<li><a href="{{ \'/build-your-own-brief-compiler/\' | relative_url }}">'+TARGET+'</a></li>';
   const newFooter='<a href="{{ \'/build-your-own-brief-compiler/\' | relative_url }}">'+TARGET+'</a>';
-  return replaceUnique(replaceUnique(layout,header,'\n            '+newHeader,'jekyll_header'),
+  return appendToLastNavigationLink(
+    replaceUnique(layout,header,'\n            '+newHeader,'jekyll_header'),
     footer,'\n          '+newFooter,'jekyll_footer');
 }
 export function assertBuilderMarkdown(markdown){
