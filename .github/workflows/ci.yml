@@ -114,6 +114,33 @@ jobs:
             throw Error('Published podcast navigation repair proof failed');
           console.log('ARCHIVED_PODCAST_NAVIGATION_REPAIR_PASS',r.affected_editions,r.links_fixed,r.files_changed);
           NODE
+      - name: Rehearse complete public Sources redesign with image preservation
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/sources-transparency-and-compiler-differentiation-20261027'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/sources-transparency-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/sources-transparency-proof
+          node scripts/correct-sources-transparency.mjs \
+            config/reading-copy-revisions/2026-10-27-sources-transparency.json \
+            build/sources-transparency-proof/site \
+            build/sources-transparency-proof/patched \
+            build/sources-transparency-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/sources-transparency-proof/site \
+            build/sources-transparency-proof/patched
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/sources-transparency-proof/receipt.json','utf8'));
+          if(r.result!=='PASS'||r.files_changed!==1||
+             r.changed?.[0]?.route!=='sources/index.html'||
+             r.source_records!==208||r.enabled_routes!==98||
+             r.pending_qualification!==110||
+             !r.all_earlier_editions_and_accepted_images_unchanged)
+            throw Error('Sources transparency publication rehearsal failed');
+          console.log('REAL_PUBLISHED_SOURCES_PROOF_PASS',r.source_records,r.enabled_routes,r.pending_qualification);
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash

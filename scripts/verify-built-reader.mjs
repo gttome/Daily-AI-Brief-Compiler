@@ -2,6 +2,7 @@ import {watchlistCopyProblems,WATCHLIST_COPY_EFFECTIVE} from '../compiler/watchl
 import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/watchlist.mjs';
 import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading-copy.mjs';
 import {assertPublishedReaderQuality} from '../compiler/reader-quality.mjs';
+import {sourceRegistrySummary} from '../compiler/source-transparency.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -75,6 +76,34 @@ export function verifyBuiltReader({siteDir,sourceDir}){
           fail('podcast overview anchor must precede its matching podcast details: '+id);
       }
     }
+  }
+  if(manifest.edition_date>='2026-10-28'){
+    const registry=JSON.parse(fs.readFileSync(new URL('../config/resource-registry.json',import.meta.url),'utf8'));
+    const stats=sourceRegistrySummary(registry);
+    const sourcePage=fs.readFileSync(path.join(siteDir,'sources','index.html'),'utf8');
+    for(const marker of [
+      'id="sources-transparency"',
+      'data-source-registry-count="'+stats.registered+'"',
+      'data-source-enabled-count="'+stats.enabled+'"',
+      'data-source-pending-count="'+stats.pending+'"',
+      'id="source-method"',
+      'id="source-featured"',
+      'id="source-directory"',
+      'id="source-difference"',
+      'id="source-accountability"',
+      'id="src-search"',
+      'id="src-role"',
+      'id="src-state"',
+      'id="src-show-more"'
+    ])if(!sourcePage.includes(marker))fail('source transparency page missing: '+marker);
+    const ids=[...sourcePage.matchAll(/data-source-id="([^"]+)"/g)].map(m=>m[1]);
+    if(ids.length!==stats.registered||new Set(ids).size!==ids.length||
+       registry.resources.some(r=>!ids.includes(r.resource_id)))
+       fail('source transparency page does not include all registered source IDs');
+    const enabled=(sourcePage.match(/data-source-id="[^"]+" data-enabled="true"/g)||[]).length;
+    if(enabled!==stats.enabled)fail('source directory enabled count mismatches protected registry');
+    if(!sourcePage.includes('6 + 2 + 2')||!sourcePage.includes('Source records are not unique publishers'))
+      fail('source transparency must distinguish curated edition from source inventory');
   }
   const feedbackRegistry=JSON.parse(fs.readFileSync(path.join(sourceDir,manifest.feedback.registry_route),'utf8'));
   if(feedbackRegistry.items.length!==10)fail('Compiler feedback registry must contain 10 reader items');
