@@ -38,7 +38,14 @@ export function normalizeBriefExplainerPage(html,{page}){
    fail('footer_nav_cannot_be_deduplicated');
  text=text.replace(FOOTER,'');
  if(page==='sources'){
-  text=uniqueReplace(text,HEADER_BUILDER,'','source_page_has_builder_cta');
+  // When the Builder link lives in the primary header, neutralize any old
+  // Sources body CTA that would otherwise repeat the same destination.
+  // Older verified pages may have the CTA but no Builder header.
+  if(text.includes(HEADER_BUILDER)){
+    const cta='<a href="'+BASE+'build-your-own-brief-compiler/">Build Your Own Brief Compiler — from information to a living knowledge system</a>';
+    if(text.includes(cta))
+      text=text.replace(cta,'<strong>Build Your Own Brief Compiler — from information to a living knowledge system</strong>');
+  }
   // The same Watchlist URL also exists in primary nav. Edit only the
   // specific explanatory callout so essential primary navigation is preserved.
   const startMarker='<div class="src-callout"><strong>For readers:</strong>';
