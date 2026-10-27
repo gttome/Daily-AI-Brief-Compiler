@@ -126,6 +126,12 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   const watchlistCss=fs.readFileSync(path.join(siteDir,'assets','css','watchlist.css'),'utf8');
   if(!watchlistRuntime.includes("b.setAttribute('aria-pressed',String(b.dataset.choice===choice))"))fail('watchlist interest selection is not visually immediate');
   if(!watchlistCss.includes('.wl-votes button[aria-pressed=true]'))fail('watchlist selected-interest styling missing');
+  if(manifest.edition_date>='2026-10-27'&&(
+    !watchlistRuntime.includes('function researchScore(t)')||
+    !watchlistRuntime.includes('${renderWatchlistEvidence(t)}${researchScore(t)}<fieldset')||
+    !watchlistRuntime.includes('Research score: ')||
+    !watchlistRuntime.includes('/watchlist/research/#')))
+    fail('main Watchlist voting cards must display the rubric-derived research score for every topic');
   if(!edition.includes('id="skip-to-content"')||!edition.includes('aria-label="Primary navigation"'))fail('accessibility navigation missing');
   if(/<img[^>]+alt=""/i.test(edition))fail('empty image alt text');
   if(!/<meta name="viewport"/i.test(edition))fail('responsive viewport missing');

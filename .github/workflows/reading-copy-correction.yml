@@ -72,6 +72,10 @@ jobs:
               node scripts/correct-oct23-media-metadata.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            WATCHLIST_RESEARCH_SCORE_DISPLAY_ONLY)
+              node scripts/correct-watchlist-score-visibility.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -102,6 +106,12 @@ jobs:
                r.accepted_png_files_byte_preserved!==6||
                r.no_source_bundle_resealed!==true)
                throw Error('Oct23 original-date media metadata and immutable-image invariants failed');
+          }else if(r.schema_version==='daily-compiler-watchlist-score-display-correction-v1'){
+            if(r.edition_date!=='2026-10-27'||r.files_changed!==1||
+               r.changed?.[0]?.route!=='assets/js/watchlist.js'||
+               r.watchlist_topic_count!==50||r.graded_topic_count!==50||
+               r.no_watchlist_content_change!==true||r.no_editorial_reseal!==true)
+              throw Error('Watchlist rubric-score display-only correction invariants failed');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
