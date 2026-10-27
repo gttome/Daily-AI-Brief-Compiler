@@ -43,7 +43,7 @@ const sourcePage='<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>
 test('CSS extraction renders a real Builder-only head style and rejects escaped visible code',()=>{
  const fixed=repairPublishedBuilderStyle(builderPage,css);
  assert.equal(validateBuiltBuilderHead(fixed),true);
- assert.ok(fixed.includes('<head>')&&fixed.indexOf('<style id="brief-compiler-builder-style">')<fixed.indexOf('</head>')));
+ assert.ok(fixed.includes('<head>')&&fixed.indexOf('<style id="brief-compiler-builder-style">')<fixed.indexOf('</head>'));
  assert.ok(!fixed.includes('&lt;style id='));
  assert.ok(!fixed.includes('/* Local page styling only; no change to published article CSS. */\n</main>'));
  assert.throws(()=>repairPublishedBuilderStyle(fixed,css),/already_repaired/);
