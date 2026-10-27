@@ -8,17 +8,29 @@
   "original_bundle_sha256": "a70a104a807060b65dc9479d2ceb8083cf3be99daf9a9f77246706b048e84e1d",
   "owner_token": "e70c9d6332b0769362b45822ab6fdc80ecb65717c163ae5d",
   "claimed_at": "2026-10-27T02:12:58Z",
-  "updated_at": "2026-10-27T02:20:16Z",
-  "lease_expires_at": "2026-10-27T02:40:16Z",
-  "phase": "PREPARATION",
-  "actual_generation_count": 0,
+  "updated_at": "2026-10-27T02:22:10Z",
+  "lease_expires_at": "2026-10-27T02:42:10Z",
+  "phase": "CORRECTING",
+  "actual_generation_count": 1,
   "accepted_count": 0,
-  "rejected_count": 0,
+  "rejected_count": 1,
   "accepted_images": [],
-  "next_action": "Read back frozen specs and route receipts, then native-generate story 1 after final ownership check.",
+  "next_action": "Correct story 1 alternate-route origin and final-export safe margins; preserve rejected candidate.",
   "production": {
     "host_execution_observed_at": "2026-10-27T02:12:14Z",
-    "host_execution_observation_source": "executor_observed_in_same_invocation"
+    "host_execution_observation_source": "executor_observed_in_same_invocation",
+    "generation_started_at": "2026-10-27T02:20:52Z",
+    "generation_start_source": "executor_observed_before_first_native_call"
   },
-  "usage": "UNKNOWN"
+  "usage": "UNKNOWN",
+  "per_story_attempts": {
+    "oct27-t1-terra-warning-boundaries": 1
+  },
+  "errors": [
+    {
+      "phase": "Native saved-pixel review",
+      "issue": "First story attempt 1: alternate route begins behind barrier, obscuring its pre-warning origin; title and caveat violate 40px margins; unlisted warning and cross symbols.",
+      "correction": "Native edit requested on rejected candidate; remove extra glyphs and connect alternate route visibly from pre-barrier junction."
+    }
+  ]
 }
