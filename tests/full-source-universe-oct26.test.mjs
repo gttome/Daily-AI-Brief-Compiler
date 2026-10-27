@@ -60,7 +60,12 @@ test('103 new records comprise 102 historical routes plus one new applied AI pub
     const saved=current.get(r.resource_id);
     assert.ok(saved,r.resource_id);
     assert.equal(saved.url,r.url);
-    assert.equal(saved.enabled,r.enabled || r.resource_id==='research-20261026-a05');
+    // Inventory records original enablement; exactly four separately qualified
+    // October 27 leads may transition to current active discovery.
+    const oct27Qualified=new Set(['research-20261026-a05',
+      'directory-935fbe5ba89ff5f91fc8c69b','directory-411bf5f837e28f35220736eb',
+      'directory-3ccc18a956cae0b1e24b5968']);
+    assert.equal(saved.enabled,r.enabled || oct27Qualified.has(r.resource_id));
     assert.deepEqual(saved.content_types,r.content_types);
     assert.equal(saved.health.status,'unknown');
     assert.equal(saved.health.last_checked_at,null);
