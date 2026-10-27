@@ -73,7 +73,7 @@ export function renderBriefBuilderSummary(){
     '<p>That architecture can be configured for an organization’s own trusted sources, decisions, knowledge assets and approval chain: a field-service manual, a hospital protocol, a cybersecurity runbook, a training curriculum or an emergency-readiness plan. The published Brief is a working example of the approach, not a turnkey multi-tenant software product.</p>',
     '<div class="src-callout"><strong>Explore five complete scenarios and a practical setup blueprint:</strong> <a href="/Daily-AI-Brief-Compiler/build-your-own-brief-compiler/">Build Your Own Brief Compiler — from information to a living knowledge system</a>.</div>',
     '</section>'
-  ].join('\\n');
+  ].join('\n');
 }
 
 export function renderSourcesExperience(registry){
