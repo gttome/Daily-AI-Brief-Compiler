@@ -80,6 +80,10 @@ jobs:
               node scripts/correct-podcast-overview-anchors.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            SOURCES_TRANSPARENCY_ENHANCEMENT_ONLY)
+              node scripts/correct-sources-transparency.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -125,6 +129,14 @@ jobs:
                r.editorial_bundles_unchanged!==true||r.media_sources_unchanged!==true||
                r.accepted_images_regenerated!==0||r.all_other_site_bytes_preserved!==true)
               throw Error('Multi-edition podcast overview anchor correction invariants failed');
+
+          }else if(r.schema_version==='daily-compiler-sources-transparency-correction-v1'){
+            if(r.edition_date!=='2026-10-27'||r.files_changed!==1||
+               r.changed?.length!==1||r.changed[0].route!=='sources/index.html'||
+               r.source_records!==208||r.enabled_routes!==98||r.pending_qualification!==110||
+               r.all_earlier_editions_and_accepted_images_unchanged!==true||
+               r.story_count_changed!==0||r.new_paid_dependencies!==0)
+               throw Error('Source transparency correction violates one-page and inventory scope');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
