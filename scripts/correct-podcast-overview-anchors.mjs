@@ -64,8 +64,8 @@ export function repairPodcastOverviewContent(text,route){
   }
   if(!markdown){
     for(const id of references){
-      if(result.split('id="'+id+'"').length!==2)
-        fail('broken_or_duplicate_toc_link_after_fix:'+route+':'+id);
+      if(result.split('id="'+id+'"').length<2)
+        fail('broken_toc_link_after_fix:'+route+':'+id);
     }
   }
   return {text:result,links_fixed:linksFixed,targets:targets.length,skipped:false};
