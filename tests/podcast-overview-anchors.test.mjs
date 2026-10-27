@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {renderPodcastItem} from '../vendor/production-reader/snapshot/_generator/lib/reader.mjs';
+import {pathToFileURL} from 'node:url';
+import {podcastNavigationRendererOverlay} from '../compiler/reader-materializer.mjs';
 import {renderEditionOverview} from '../vendor/production-reader/snapshot/_generator/lib/book-reading.mjs';
 import {overviewTargets,repairPodcastOverviewContent,correctPodcastOverviewAnchors} from '../scripts/correct-podcast-overview-anchors.mjs';
 
@@ -27,21 +28,33 @@ function page(date,markdown=false){
    '<p><span class="podcast-data" data-podcast-id="'+p.item_id+'" hidden></span></p>').join('\n');
  return overview+'\n'+(markdown?'':anchors)+'\n'+body;
 }
-test('new generator includes unique podcast targets with titles before metadata',()=>{
- const date='2026-10-28';
- const podcasts=[slot(date,1),slot(date,2)];
- for(const [i,p] of podcasts.entries()){
-   const html=renderPodcastItem(p,date,i+9);
-   const anchor='<span id="podcast-'+p.item_id+'"></span>';
-   assert.ok(html.includes(anchor));
-   assert.ok(html.indexOf(anchor)<html.indexOf('### '+(i+9)+'. '));
-   assert.ok(html.indexOf(anchor)<html.indexOf('data-podcast-id="'+p.item_id+'"'));
- }
- const overview=renderEditionOverview({
-   brief_date:date,stories:[],podcasts,
-   worth_watching:{general:{status:'empty'},agents_non_technical_people:{status:'empty'}}
- });
- for(const p of podcasts)assert.ok(overview.includes('href="#podcast-'+p.item_id+'"'));
+test('future-only renderer overlay emits podcast TOC targets and preserves the frozen snapshot',async()=>{
+ const date='2026-10-28',podcasts=[slot(date,1),slot(date,2)];
+ const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'dab-podcast-renderer-'));
+ try{
+   fs.cpSync('vendor/production-reader/snapshot',tmp,{recursive:true});
+   const readerFile=path.join(tmp,'_generator/lib/reader.mjs');
+   const original=fs.readFileSync(readerFile,'utf8');
+   const signature='<span id="podcast-'+'$'+'{xml(slot.item_id)}"></span>';
+   assert.ok(!original.includes(signature));
+   const patched=podcastNavigationRendererOverlay(original);
+   assert.ok(patched.includes(signature));
+   assert.throws(()=>podcastNavigationRendererOverlay(patched),/podcast navigation renderer contract changed/);
+   fs.writeFileSync(readerFile,patched);
+   const {renderPodcastItem}=await import(pathToFileURL(readerFile).href);
+   for(const [i,p] of podcasts.entries()){
+     const html=renderPodcastItem(p,date,i+9);
+     const anchor='<span id="podcast-'+p.item_id+'"></span>';
+     assert.ok(html.includes(anchor));
+     assert.ok(html.indexOf(anchor)<html.indexOf('### '+(i+9)+'. '));
+     assert.ok(html.indexOf(anchor)<html.indexOf('data-podcast-id="'+p.item_id+'"'));
+   }
+   const overview=renderEditionOverview({
+     brief_date:date,stories:[],podcasts,
+     worth_watching:{general:{status:'empty'},agents_non_technical_people:{status:'empty'}}
+   });
+   for(const p of podcasts)assert.ok(overview.includes('href="#podcast-'+p.item_id+'"'));
+ }finally{fs.rmSync(tmp,{recursive:true,force:true});}
 });
 test('HTML and Markdown repair creates matching anchors for both podcast links only',()=>{
  const date='2026-10-27';
