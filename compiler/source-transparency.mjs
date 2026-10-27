@@ -170,6 +170,12 @@ export function replacePublishedSourcesPage(htmlContent,registry){
     '<h1 class="project-name">Sources, evidence &amp; the Brief Compiler</h1>');
   updated=updated.replace('<p class="project-tagline">Where the Daily AI Brief and Emerging AI Watch look first.</p>',
     '<p class="project-tagline">A transparent look at the source portfolio, editorial standards and what makes this Brief different.</p>');
+  // Keep the published canonical URL and shared shell, but make SEO/social
+  // metadata accurately describe the upgraded evidence and directory page.
+  updated=updated.replaceAll('Sources and early-signal monitoring',
+    'Sources, evidence and the Brief Compiler')
+    .replaceAll('Where the Daily AI Brief and Emerging AI Watch look first.',
+      'Explore verified source roles, the editorial evidence method and the Brief Compiler’s distinguishing workflow.');
   if(updated===source||!updated.includes('id="sources-transparency"'))
     throw Error('source_page_not_updated');
   return updated;
