@@ -64,6 +64,18 @@ function directoryEntry(row){
     +(urlLabel?'<p class="src-publisher">Publisher / group: '+html(urlLabel)+'</p>':'')
     +'</article>';
 }
+export function renderBriefBuilderSummary(){
+  return [
+    '<section class="src-section" id="source-builder"><p class="src-kicker">From a Brief to a connected knowledge system</p>',
+    '<h2>Build your own purpose-built Brief Compiler</h2>',
+    '<p class="src-proposition">The most important advantage is <strong>editorial coherence, not topic-box coverage</strong>. Instead of assembling generic summaries, the editor selects original articles, instructional videos and substantive podcast discussions that illuminate related questions for one well-defined audience. The formats are complementary: evidence, demonstrations and informed experience.</p>',
+    '<p>The Daily Generative AI Brief also connects selected developments to concepts and practices across the four books of the <strong>Generative AI Professional Series</strong>. Behind the public Brief, relevant evidence can lead to <strong>author-reviewable proposals</strong> to refresh book chapters, examples, infographics, exercises, video lessons and templates. Those proposals do not automatically edit or release books.</p>',
+    '<p>That architecture can be configured for an organization’s own trusted sources, decisions, knowledge assets and approval chain: a field-service manual, a hospital protocol, a cybersecurity runbook, a training curriculum or an emergency-readiness plan. The published Brief is a working example of the approach, not a turnkey multi-tenant software product.</p>',
+    '<div class="src-callout"><strong>Explore five complete scenarios and a practical setup blueprint:</strong> <a href="/Daily-AI-Brief-Compiler/build-your-own-brief-compiler/">Build Your Own Brief Compiler — from information to a living knowledge system</a>.</div>',
+    '</section>'
+  ].join('\\n');
+}
+
 export function renderSourcesExperience(registry){
   const s=sourceRegistrySummary(registry);
   const directory=[...registry.resources].sort((a,b)=>a.name.localeCompare(b.name,'en',{sensitivity:'base'})||a.resource_id.localeCompare(b.resource_id))
@@ -97,7 +109,7 @@ export function renderSourcesExperience(registry){
   '<p class="src-lead">The Daily Generative AI Brief is not a live feed of everything mentioning AI. It is an evidence-led editorial product: a carefully chosen daily set of developments, grounded in original sources and translated into decisions, experiments and clearer mental models for working professionals.</p>',
   '<div class="src-stats" aria-label="Current source registry statistics">'+metrics+'</div>',
   '<p class="src-fine"><strong>How to read these numbers:</strong> Source records are not unique publishers, and the article, video, podcast, research and Watchlist roles overlap. <strong>Enabled</strong> means eligible for source discovery, not that a website was reached, read, or approved for a specific edition. Pending sources remain research leads only until independently qualified. Counts are generated from the current protected source registry, not marketing estimates.</p>',
-  '<nav class="src-nav" aria-label="On this page"><a href="#source-method">Editorial method</a><a href="#source-featured">What is new</a><a href="#source-directory">Full source directory</a><a href="#source-difference">How we compare</a><a href="#source-accountability">Our commitments</a></nav></section>',
+  '<nav class="src-nav" aria-label="On this page"><a href="#source-method">Editorial method</a><a href="#source-featured">What is new</a><a href="#source-directory">Full source directory</a><a href="#source-difference">How we compare</a><a href="#source-builder">Build your own Brief</a><a href="#source-accountability">Our commitments</a></nav></section>',
 
   '<section class="src-section" id="source-method"><p class="src-kicker">The Compiler method</p><h2>Six steps from a lead to a published Brief</h2>',
   '<p class="src-proposition">The editorial contract is designed to prevent a familiar failure of automated news roundups: mistaking a retrieved item, attention spike or polished summary for independently useful and trustworthy evidence.</p>',
@@ -133,6 +145,7 @@ export function renderSourcesExperience(registry){
   '<article><h3>Visible operational evidence</h3><p>Protected GitHub changes, acceptance gates, source and image manifests, corrective-action reports and release receipts. We distinguish validated code from a verified live publication.</p></article>',
   '</div></section>',
 
+  renderBriefBuilderSummary(),
   '<section class="src-section" id="source-accountability"><p class="src-kicker">Public accountability</p><h2>What this methodology does—and does not—promise</h2>',
   '<p>AI-assisted research and editorial judgment are imperfect. A listed source can be unavailable, promotional, stale or not independently corroborated; a first-party release is evidence of what its publisher says, not proof of a universal result. A successful automated check is not a substitute for personally verifying consequential claims.</p>',
   '<p>New source records are admitted for <em>discovery</em>; individual items still face the normal factual, recency, instructional, media-identity and source-diversity gates. The Compiler has publication safeguards and incident evidence, but that does not mean every run is error-free or completely unattended. We preserve the original source links so readers can verify claims for themselves.</p>',
