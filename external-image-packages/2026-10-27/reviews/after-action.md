@@ -1,6 +1,6 @@
 # 2026-10-27 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 843b218a5d9c44870969f06214ca48f9078f7772 |
 | Executor observed run start | 2026-10-27T02:12:14Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-27T02:20:52Z (observed before tool call) |
-| Public release | NOT_YET_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_ACTUAL_RELEASE_CAPTURES; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-27T03:40:46.774Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -77,10 +77,16 @@ Source caveats remain detached; no guarantee of safety, learning, productivity o
 
 Actual first observable executor clock and pre-first-native-call clock are retained. These do not establish authenticated scheduler firing, provider active runtime or account usage. Two approximate early progress checkpoints are disclosed in corrections.
 
-PR admission, protected merge, image-only release, six live hashes, twelve pairings, twenty-four real semantic context reviews and all seventeen October8 protected objects remain required after this checkpoint.
-
 No accepted PNG or manifest will be changed solely to trigger reporting closeout. Unknown weekly usage remains UNKNOWN. No new recurring task, paid API, TinyFish or metered service was used.
 
-Preservation compatibility repair PR271 merged at3c116af35e924af6dcd242bd8fa130826c0cd595. No reader bytes, accepted images, source bundle or manifest changed. Image PR270 is rebased by non-force ancestry-preserving merge and must pass its own exact-head CI again.
+Protected PR270 passed exact-head package admission and validate (547 tests, zero failures) after protected preservation compatibility PR271; merged at 6c302bd34812cf3ce835bc1ab2829f543f8636c1. All 17 preservation objects passed the strict current-reader and reverse-original-byte proof.
+
+Image-only release run40445410158 succeeded. Independent HTTP readback verifies all six exact accepted hashes and twelve dated/permanent story pairings. Public status is PUBLIC_STATUS_VERIFIED.
+
+All24 actual desktop/mobile dated/permanent captures were individually inspected from the exact release artifact12708615390; its SHA256 is bf4937b67cbc1248e99a9576ef2f3603d50998390b230ef2b7a9d0f2e7fbac63. No publication rerun was used. Semantic PASS follows actual pixel inspection, not workflow completion or capture counts.
+
+Mobile compositions and primary labels are recognizable; fine explanatory text requires the existing full-size viewer. This is not a claim that every body label is readable at thumbnail scale.
+
+The sole recurring task remains enabled with its existing recurrence unchanged. Unknown usage remains UNKNOWN; authenticated unattended scheduler provenance remains UNPROVEN.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
