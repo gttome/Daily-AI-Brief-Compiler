@@ -59,3 +59,12 @@ Read [October 23 implementation contract](../automation/OCT23_APPROVED_IMPROVEME
 ## October 24 owner-approved forward-only hardening (Oct25+)
 
 Read [the deduplicated October 24 improvement contract](../automation/OCT24_APPROVED_DEDUP_IMPROVEMENTS.md). Do **not** redo existing protections or regenerate accepted published images. For each Oct25+ pre-generation frozen spec, name **two or three existing source-approved explanatory labels** under `pre_generation_checks.thumbnail_priority_labels` and plan these labels at **>=30 px effective size** in the original 1200x630 image (remaining labels retain >=22px and the 40px safe zone). Review the source-supported origin/destination of every causal connector; visually separate training versus use-time, evidence versus model output, and conditional versus guaranteed results. Reject invented dashboards, success trophies, speculative quantitative charts, pseudo-writing, unapproved glyphs and person-like decorative shapes. Actual saved-pixel and all 24 desktop/mobile reviews—not the preflight text—determine final acceptance. Always preserve published PNG bytes and the existing schedule, PR/CI and zero-paid-service constraints.
+
+
+## October 27 image AAR: first-pass spatial correction (for Oct28+ editions only)
+
+The October 27 image run used 24 actual native attempts to accept six images; none passed on the first attempt. The existing source-bound causal, 40px margins, 26px/32px text-size, immutable accepted PNG, and actual saved-pixel review safeguards remain mandatory and unchanged.
+
+For Oct28+ jobs, before the FIRST native generation, reserve separate bounding rectangles for every required explanatory label on the actual 1200x630 canvas. Planned explanatory label rectangles must NOT intersect one another. The future-only image first-pass preflight rejects intersections; it is a planning check, not a substitute for actual exported 1200x630 pixel inspection.
+
+After each real export, check origin and destination of each supported causal connector, positive and blocked paths, absence of simulated writing or unsupported quantitative marks, and final-size readable explanatory labels. Correct rejected regions until passing; preserve genuinely passing components. Never regenerate locked accepted PNG bytes solely to repair transport, GitHub validation, release, or reporting.
