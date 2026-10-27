@@ -667,22 +667,22 @@
     "edition_date": "2026-10-27",
     "story_id": "oct27-k1-work-activity-signals",
     "source_url": "https://openai.com/index/chatgpt-expanding-world-of-work/",
-    "visual_thesis": "Work-related message activity became less concentrated, while consumer-plan aggregate signals remain distinct from enterprise outcomes.",
+    "visual_thesis": "Privacy-protected individual-plan message classification supports aggregate activity comparisons, while excluding enterprise/Codex use and productivity conclusions.",
     "story_anchors": [
       "Across 74 continuously observed countries the top-ten mean share is 56.0% in Q1 2025 and 51.1% in Q3 2026.",
       "Individual-plan messages exclude enterprise messages and Codex use."
     ],
     "required_labels": [
-      "A broader work activity mix",
+      "Work activity signals have limits",
       "Individual-plan work messages",
+      "Remove identifying information",
       "Automated classification",
       "Work activity categories",
       "Country-level comparison",
-      "Earlier activity mix",
-      "Later activity mix",
-      "Ten leading activities",
-      "Other work activities",
-      "Aggregate privacy protections",
+      "Withhold small groups",
+      "Add statistical noise",
+      "Publish aggregate statistics",
+      "Broader activity coverage",
       "Enterprise and Codex excluded",
       "Usage is not productivity"
     ],
@@ -712,6 +712,13 @@
     "allowed_causal_edges": [
       {
         "from": "Individual-plan work messages",
+        "to": "Remove identifying information",
+        "support_claim_id": "privacy",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Remove identifying information",
         "to": "Automated classification",
         "support_claim_id": "privacy",
         "direction": "forward",
@@ -730,6 +737,20 @@
         "support_claim_id": "sample",
         "direction": "forward",
         "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Withhold small groups",
+        "to": "Publish aggregate statistics",
+        "support_claim_id": "privacy",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Add statistical noise",
+        "to": "Publish aggregate statistics",
+        "support_claim_id": "privacy",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
       }
     ],
     "excluded_claims": [
@@ -738,13 +759,13 @@
     ],
     "mechanism_metaphor": "activity mix cross-sections",
     "composition_signature": {
-      "grammar": "qualitative classification lattice and activity fans",
-      "metaphor": "message-to-category lens with unscaled activity fans",
-      "layout": "two exact complementary horizontal proportions",
+      "grammar": "privacy-aware classification lattice",
+      "metaphor": "exposed classification filters and aggregate evidence lattice",
+      "layout": "offset classification filters with separate aggregate release constraints",
       "palette": "indigo and cool gray",
-      "hierarchy": "paired numeric anchors then scope strip",
-      "annotation": "direct proportion labels",
-      "perspective": "flat editorial comparison"
+      "hierarchy": "private input then classification then constrained public aggregate",
+      "annotation": "direct boundary labels",
+      "perspective": "layered planar lattice"
     },
     "quality_review_plan": {
       "explanatory_components": 12,
@@ -755,22 +776,33 @@
     "pre_generation_checks": {
       "label_layout": [
         {
-          "label": "A broader work activity mix",
-          "region": "Classification plate",
+          "label": "Work activity signals have limits",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 34,
           "bounding_box_px": {
             "x": 48,
             "y": 42,
             "width": 1104,
-            "height": 48
+            "height": 46
           }
         },
         {
           "label": "Individual-plan work messages",
-          "region": "Classification plate",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
+            "y": 108,
+            "width": 350,
+            "height": 98
+          }
+        },
+        {
+          "label": "Remove identifying information",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 420,
             "y": 108,
             "width": 350,
             "height": 98
@@ -778,10 +810,10 @@
         },
         {
           "label": "Automated classification",
-          "region": "Classification plate",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 420,
+            "x": 792,
             "y": 108,
             "width": 350,
             "height": 98
@@ -789,29 +821,18 @@
         },
         {
           "label": "Work activity categories",
-          "region": "Classification plate",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 792,
-            "y": 108,
+            "x": 48,
+            "y": 212,
             "width": 350,
             "height": 98
           }
         },
         {
           "label": "Country-level comparison",
-          "region": "Classification plate",
-          "minimum_font_px": 28,
-          "bounding_box_px": {
-            "x": 48,
-            "y": 212,
-            "width": 350,
-            "height": 98
-          }
-        },
-        {
-          "label": "Earlier activity mix",
-          "region": "Unscaled paired activity fan",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 420,
@@ -821,8 +842,8 @@
           }
         },
         {
-          "label": "Later activity mix",
-          "region": "Unscaled paired activity fan",
+          "label": "Withhold small groups",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 792,
@@ -832,9 +853,9 @@
           }
         },
         {
-          "label": "Ten leading activities",
-          "region": "Unscaled paired activity fan",
-          "minimum_font_px": 34,
+          "label": "Add statistical noise",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
+          "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
             "y": 316,
@@ -843,8 +864,8 @@
           }
         },
         {
-          "label": "Other work activities",
-          "region": "Unscaled paired activity fan",
+          "label": "Publish aggregate statistics",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 420,
@@ -854,8 +875,8 @@
           }
         },
         {
-          "label": "Aggregate privacy protections",
-          "region": "Detached scope notes",
+          "label": "Broader activity coverage",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 792,
@@ -866,7 +887,7 @@
         },
         {
           "label": "Enterprise and Codex excluded",
-          "region": "Detached scope notes",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
@@ -877,7 +898,7 @@
         },
         {
           "label": "Usage is not productivity",
-          "region": "Detached scope notes",
+          "region": "Privacy-aware classification and aggregate evidence lattice",
           "minimum_font_px": 34,
           "bounding_box_px": {
             "x": 48,
@@ -909,9 +930,17 @@
       "connector_origin_reviews": [
         {
           "from": "Individual-plan work messages",
-          "to": "Automated classification",
+          "to": "Remove identifying information",
           "support_claim_id": "privacy",
           "origin_region": "Individual-plan work messages",
+          "target_region": "Remove identifying information",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Remove identifying information",
+          "to": "Automated classification",
+          "support_claim_id": "privacy",
+          "origin_region": "Remove identifying information",
           "target_region": "Automated classification",
           "disallowed_paths_visually_blocked": true
         },
@@ -930,11 +959,26 @@
           "origin_region": "Work activity categories",
           "target_region": "Country-level comparison",
           "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Withhold small groups",
+          "to": "Publish aggregate statistics",
+          "support_claim_id": "privacy",
+          "origin_region": "Withhold small groups",
+          "target_region": "Publish aggregate statistics",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Add statistical noise",
+          "to": "Publish aggregate statistics",
+          "support_claim_id": "privacy",
+          "origin_region": "Add statistical noise",
+          "target_region": "Publish aggregate statistics",
+          "disallowed_paths_visually_blocked": true
         }
       ],
       "thumbnail_priority_labels": [
-        "A broader work activity mix",
-        "Ten leading activities",
+        "Work activity signals have limits",
         "Usage is not productivity"
       ],
       "source_caveat_detached": true,
@@ -942,7 +986,7 @@
       "no_unsupported_chart_or_score_marks": true,
       "mechanism_canvas_percent": 72,
       "explanatory_substage_labels": [
-        "Individual-plan work messages",
+        "Remove identifying information",
         "Automated classification"
       ]
     },
@@ -956,10 +1000,10 @@
       "unsupported_claims_excluded": true,
       "approved_before_generation": true
     },
-    "drawing_plan": "An unscaled editorial classification lattice and two qualitative activity fans illustrate broader use. No bars, axes, percent-sized segments or numeric data encoding. Country-level comparison is observational, not causal. Privacy scope and exclusions stay detached. Equal-size activity tokens are conceptual categories, not measured counts.",
+    "drawing_plan": "A privacy-aware classification lattice exposes identity removal before automated classification, work categories and country-level aggregation. Small-group suppression and statistical noise constrain published aggregate statistics. Detached interpretation and excluded products do not receive process arrows. No chart, time-series shape, geographic map or category-count encoding.",
     "source_review_limitations": "Published primary source reviewed; no independent replication claimed.",
-    "revision": 2,
-    "correction_reason": "Before first k1 generation, remove precision-chart encoding; use conceptual category mixture and source scope instead."
+    "revision": 3,
+    "correction_reason": "Four rejected comparative renders repeatedly misrepresented categories or temporal associations. Explain the directly sourced measurement mechanism instead, without quantitative or temporal chart geometry."
   },
   {
     "schema_version": "external-image-firstpass-freeze-v1",
