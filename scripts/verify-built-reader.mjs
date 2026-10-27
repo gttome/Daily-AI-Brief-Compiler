@@ -50,6 +50,32 @@ export function verifyBuiltReader({siteDir,sourceDir}){
   }
   if((edition.match(/class="story-feedback story-feedback-compact star-feedback"/g)||[]).length!==10)fail('expected ratings on 6 articles, 2 videos, and 2 podcasts');
   if((edition.match(/data-feedback-rating="[1-5]"/g)||[]).length!==50)fail('five-star rating controls incomplete');
+  // Check actual Jekyll output: every table-of-contents fragment needs an existing
+  // unique target in the same page. Covers podcast links as well as other reader items.
+  if(manifest.edition_date>='2026-10-28'){
+    const pages=['index.html','latest.html','briefs/'+manifest.edition_date+'/index.html'];
+    for(const route of pages){
+      const current=fs.readFileSync(path.join(siteDir,route),'utf8');
+      const overview=current.match(/<section class="edition-overview"[^>]*>[\s\S]*?<\/section>/);
+      if(!overview)fail('edition overview missing in '+route);
+      const links=[...overview[0].matchAll(/<a href="#([^"]+)"/g)].map(x=>x[1]);
+      if(links.length!==10||new Set(links).size!==10||
+         links.filter(x=>x.startsWith('podcast-')).length!==2)
+        fail('edition overview must have 10 unique article/video/podcast links in '+route);
+      for(const id of links){
+        const occurrences=current.split('id="'+id+'"').length-1;
+        if(occurrences<1||(id.startsWith('podcast-')&&occurrences!==1))
+          fail('missing/duplicate podcast or broken edition overview anchor '+id+' in '+route);
+      }
+      const ids=links.filter(x=>x.startsWith('podcast-'));
+      for(const id of ids){
+        const pos=current.indexOf('id="'+id+'"');
+        const metadata=current.indexOf('data-podcast-id="'+id.slice('podcast-'.length)+'"',pos);
+        if(metadata<=pos||metadata-pos>3000)
+          fail('podcast overview anchor must precede its matching podcast details: '+id);
+      }
+    }
+  }
   const feedbackRegistry=JSON.parse(fs.readFileSync(path.join(sourceDir,manifest.feedback.registry_route),'utf8'));
   if(feedbackRegistry.items.length!==10)fail('Compiler feedback registry must contain 10 reader items');
   for(const item of feedbackRegistry.items){

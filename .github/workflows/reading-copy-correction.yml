@@ -76,6 +76,10 @@ jobs:
               node scripts/correct-watchlist-score-visibility.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            PODCAST_OVERVIEW_ANCHORS_ONLY)
+              node scripts/correct-podcast-overview-anchors.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -112,6 +116,15 @@ jobs:
                r.watchlist_topic_count!==50||r.graded_topic_count!==50||
                r.no_watchlist_content_change!==true||r.no_editorial_reseal!==true)
               throw Error('Watchlist rubric-score display-only correction invariants failed');
+
+          }else if(r.schema_version==='daily-compiler-podcast-overview-anchor-correction-v1'){
+            if(r.edition_date!=='2026-10-27'||r.first_affected_edition!=='2026-09-18'||
+               r.affected_editions<25||r.latest_variants_changed!==3||
+               r.links_fixed!==2*(r.affected_editions+3)||r.files_changed!==r.affected_editions+3||
+               r.files_changed>150||r.changed.length!==r.files_changed||
+               r.editorial_bundles_unchanged!==true||r.media_sources_unchanged!==true||
+               r.accepted_images_regenerated!==0||r.all_other_site_bytes_preserved!==true)
+              throw Error('Multi-edition podcast overview anchor correction invariants failed');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);

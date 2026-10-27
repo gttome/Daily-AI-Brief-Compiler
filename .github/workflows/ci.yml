@@ -91,6 +91,29 @@ jobs:
           WORKTREE="$RUNNER_TEMP/image-prepr-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           git worktree add -b "image-package/$TARGET_DATE-ci-admission-$GITHUB_RUN_ATTEMPT" "$WORKTREE" "$CANDIDATE_HEAD"
           (cd "$WORKTREE" && node scripts/preflight-recurring-image-package.mjs "$CYCLE_DATE" .)
+      - name: Rehearse complete published podcast anchor correction with image continuity
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct27-podcast-overview-anchors-20261026'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/podcast-navigation-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/podcast-navigation-proof
+          node scripts/correct-podcast-overview-anchors.mjs \
+            config/reading-copy-revisions/2026-10-27-podcast-overview-anchors.json \
+            build/podcast-navigation-proof/site \
+            build/podcast-navigation-proof/patched \
+            build/podcast-navigation-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/podcast-navigation-proof/site build/podcast-navigation-proof/patched
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/podcast-navigation-proof/receipt.json','utf8'));
+          if(r.result!=='PASS'||r.affected_editions<25||r.links_fixed!==2*(r.affected_editions+3)||
+             r.files_changed!==r.affected_editions+3||r.all_other_site_bytes_preserved!==true)
+            throw Error('Published podcast navigation repair proof failed');
+          console.log('ARCHIVED_PODCAST_NAVIGATION_REPAIR_PASS',r.affected_editions,r.links_fixed,r.files_changed);
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
