@@ -25,6 +25,22 @@ function writeText(file,content){
 }
 function readJson(file){return JSON.parse(fs.readFileSync(file,'utf8'));}
 
+// Future-only overlay: the frozen vendored production renderer stays byte-identical.
+// Insert the exact fragment ID advertised by renderEditionOverview above each
+// podcast heading in the temporary compilation copy, never in the immutable vendor.
+export function podcastNavigationRendererOverlay(source){
+  const before='  return `### ${ordinal}. ${slot.title}';
+  const after='  return `<span id="podcast-${xml(slot.item_id)}"></span>\\n\\n### ${ordinal}. ${slot.title}';
+  if(source.split(before).length!==2||source.includes('<span id="podcast-${xml(slot.item_id)}"></span>'))
+    throw Error('podcast navigation renderer contract changed: review anchor overlay');
+  return source.replace(before,()=>after);
+}
+function patchPodcastNavigationTargets(root){
+  const file=path.join(root,'_generator','lib','reader.mjs');
+  const source=fs.readFileSync(file,'utf8');
+  fs.writeFileSync(file,podcastNavigationRendererOverlay(source),'utf8');
+}
+
 function patchWatchlistImmediateSelection(root){
   const file=path.join(root,'assets','js','watchlist.js');
   const source=fs.readFileSync(file,'utf8');
@@ -278,6 +294,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   if(!outDir)throw new Error('outDir required');
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
+  if(bundle.edition_date>='2026-10-28')patchPodcastNavigationTargets(outDir);
   rewriteReaderEnvironment(outDir,environment);
   patchWatchlistImmediateSelection(outDir);
   patchFeedbackRuntime(outDir,environment);
