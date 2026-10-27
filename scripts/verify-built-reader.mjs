@@ -63,8 +63,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
          links.filter(x=>x.startsWith('podcast-')).length!==2)
         fail('edition overview must have 10 unique article/video/podcast links in '+route);
       for(const id of links){
-        const escaped=id.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\  if((edition.match(/data-feedback-rating="[1-5]"/g)||[]).length!==50)fail('five-star rating controls incomplete');');
-        const occurrences=[...current.matchAll(new RegExp('id="'+escaped+'"','g'))].length;
+        const occurrences=current.split('id="'+id+'"').length-1;
         if(occurrences!==1)fail('broken/duplicate edition overview anchor '+id+' in '+route);
       }
       const ids=links.filter(x=>x.startsWith('podcast-'));
