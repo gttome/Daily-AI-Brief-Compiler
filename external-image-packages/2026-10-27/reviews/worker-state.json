@@ -8,12 +8,12 @@
   "original_bundle_sha256": "a70a104a807060b65dc9479d2ceb8083cf3be99daf9a9f77246706b048e84e1d",
   "owner_token": "e70c9d6332b0769362b45822ab6fdc80ecb65717c163ae5d",
   "claimed_at": "2026-10-27T02:12:58Z",
-  "updated_at": "2026-10-27T02:31:44Z",
-  "lease_expires_at": "2026-10-27T02:51:44Z",
+  "updated_at": "2026-10-27T02:33:40Z",
+  "lease_expires_at": "2026-10-27T02:53:40Z",
   "phase": "CORRECTING",
-  "actual_generation_count": 5,
+  "actual_generation_count": 6,
   "accepted_count": 1,
-  "rejected_count": 4,
+  "rejected_count": 5,
   "accepted_images": [
     {
       "story_id": "oct27-t1-terra-warning-boundaries",
@@ -30,7 +30,7 @@
   "usage": "UNKNOWN",
   "per_story_attempts": {
     "oct27-t1-terra-warning-boundaries": 3,
-    "oct27-t2-production-agent-guardrails": 2
+    "oct27-t2-production-agent-guardrails": 3
   },
   "errors": [
     {
@@ -52,6 +52,11 @@
       "phase": "Native saved-pixel review",
       "issue": "Story 2 edit removed false writing but still routed untrusted input through credentials and hid actual policy checks behind opaque containers.",
       "correction": "Preserved initial freeze and created source-grounded revision 2 naming ticket identity, repository and path checks; reran six-spec preflight before further correction."
+    },
+    {
+      "phase": "Final exported saved-pixel review",
+      "issue": "Story 2 attempt 3 corrected source logic but final 1200x630 export left policy substage text and priority branch label too small.",
+      "correction": "Preserve corrected geometry; enlarge text and arrange the three dispatcher checks vertically to reserve real label width."
     }
   ]
 }
