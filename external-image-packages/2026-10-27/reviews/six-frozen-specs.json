@@ -1611,7 +1611,11 @@
       "Refine or reject",
       "Approved action",
       "Audit accepted and corrected work",
-      "Vendor announcement, not independent outcome evidence"
+      "Vendor announcement, not independent outcome evidence",
+      "Supply allocation example",
+      "Materials and capacity",
+      "Competing demand",
+      "Allocation scenarios"
     ],
     "source_claim_map": [
       {
@@ -1632,6 +1636,13 @@
         "id": "actions",
         "proposition": "Consequential actions execute within authorized approved scope.",
         "supporting_source_excerpt": "Examples distinguish prepared recommendations from approved execution.",
+        "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "allocation",
+        "proposition": "Supply planning allocation evaluates scarce materials and capacity against competing demand, compares scenarios and prepares allocation plans for team review, refinement and approval.",
+        "supporting_source_excerpt": "Allocation considers materials, capacity and competing demand, then prepares scenarios for review.",
         "source_url": "https://www.oracle.com/news/announcement/ai-world-oracle-advances-outcome-driven-ai-across-fusion-applications-2026-10-26/",
         "evidence_kind": "primary_source_fact"
       }
@@ -1678,6 +1689,20 @@
         "direction": "conditional",
         "relation_supported_by_semantic_review": true,
         "from": "Human review"
+      },
+      {
+        "from": "Materials and capacity",
+        "to": "Allocation scenarios",
+        "support_claim_id": "allocation",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Competing demand",
+        "to": "Allocation scenarios",
+        "support_claim_id": "allocation",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
       }
     ],
     "excluded_claims": [
@@ -1704,123 +1729,167 @@
       "label_layout": [
         {
           "label": "Bound the delegated objective",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 1",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 34,
           "bounding_box_px": {
             "x": 48,
             "y": 42,
             "width": 1104,
-            "height": 48
+            "height": 46
           }
         },
         {
           "label": "Objective",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 2",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
             "y": 108,
-            "width": 350,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Permitted records",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 3",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 420,
+            "x": 326,
             "y": 108,
-            "width": 350,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Authority and accountability",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 4",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 792,
+            "x": 604,
             "y": 108,
-            "width": 350,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Agent-prepared options",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 5",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 48,
-            "y": 212,
-            "width": 350,
+            "x": 882,
+            "y": 108,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Compare trade-offs",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 6",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 420,
+            "x": 48,
             "y": 212,
-            "width": 350,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Human review",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 7",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 34,
           "bounding_box_px": {
-            "x": 792,
+            "x": 326,
             "y": 212,
-            "width": 350,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Refine or reject",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 8",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 48,
-            "y": 316,
-            "width": 350,
+            "x": 604,
+            "y": 212,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Approved action",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 9",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 34,
           "bounding_box_px": {
-            "x": 420,
-            "y": 316,
-            "width": 350,
+            "x": 882,
+            "y": 212,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Audit accepted and corrected work",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 10",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
-            "x": 792,
+            "x": 48,
             "y": 316,
-            "width": 350,
+            "width": 266,
             "height": 98
           }
         },
         {
           "label": "Vendor announcement, not independent outcome evidence",
-          "region": "diagonal mandate fan-in above a horizontal approval split: label 11",
+          "region": "Source-worked supply-allocation mandate and review fork",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 48,
             "y": 544,
             "width": 1104,
-            "height": 44
+            "height": 46
+          }
+        },
+        {
+          "label": "Supply allocation example",
+          "region": "Source-worked supply-allocation mandate and review fork",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 326,
+            "y": 316,
+            "width": 266,
+            "height": 98
+          }
+        },
+        {
+          "label": "Materials and capacity",
+          "region": "Source-worked supply-allocation mandate and review fork",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 604,
+            "y": 316,
+            "width": 266,
+            "height": 98
+          }
+        },
+        {
+          "label": "Competing demand",
+          "region": "Source-worked supply-allocation mandate and review fork",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 882,
+            "y": 316,
+            "width": 266,
+            "height": 98
+          }
+        },
+        {
+          "label": "Allocation scenarios",
+          "region": "Source-worked supply-allocation mandate and review fork",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 420,
+            "width": 266,
+            "height": 98
           }
         }
       ],
@@ -1891,6 +1960,22 @@
           "origin_region": "Human review",
           "target_region": "Refine or reject",
           "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Materials and capacity",
+          "to": "Allocation scenarios",
+          "support_claim_id": "allocation",
+          "origin_region": "Materials and capacity",
+          "target_region": "Allocation scenarios",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Competing demand",
+          "to": "Allocation scenarios",
+          "support_claim_id": "allocation",
+          "origin_region": "Competing demand",
+          "target_region": "Allocation scenarios",
+          "disallowed_paths_visually_blocked": true
         }
       ],
       "thumbnail_priority_labels": [
@@ -1918,6 +2003,8 @@
       "approved_before_generation": true
     },
     "drawing_plan": "A bounded mandate at upper left exposes objective, records and authority/accountability as separate slots. These feed agent-prepared options whose internal alternatives and trade-off comparison are visible, without numeric charts. The broad rail reaches a clearly external human-review boundary. One conditional branch leads to approved action; a separate refine-or-reject branch ends before execution. An audit bracket below compares accepted and corrected work as recommended reader practice, not an automatic product feature or causal output. Use no people, records with fake lines, approval checkmarks, dashboards or guaranteed outcome badge. Detached source caveat at bottom.",
-    "source_review_limitations": "Published primary source reviewed; no independent replication claimed."
+    "source_review_limitations": "Published primary source reviewed; no independent replication claimed.",
+    "revision": 2,
+    "correction_reason": "Expose a named primary-source worked example rather than generic delegation boxes; keep original story/source binding and accepted other five PNGs unchanged."
   }
 ]
