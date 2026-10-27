@@ -63,13 +63,13 @@ export function normalizeBriefExplainerPage(html,{page}){
 // /sources/ and /build-your-own-brief-compiler/. Other pages keep their layout.
 export function tailorBriefExplainerJekyllLayout(layout){
  const onlyOther="{% unless page.permalink == '/sources/' or page.permalink == '/build-your-own-brief-compiler/' %}";
- const onlyNotSources="{% unless page.permalink == '/sources/' %}";
+
  let text=String(layout);
  if(text.includes(onlyOther))fail('layout_already_tailored');
  const oldHome="<li><a href=\"{{ '/' | relative_url }}\">Home</a></li>";
  text=uniqueReplace(text,oldHome,onlyOther+'\n            '+oldHome+'\n            {% endunless %}','jekyll_home_duplicate');
  const oldBuilder="<li><a href=\"{{ '/build-your-own-brief-compiler/' | relative_url }}\">Build Your Own Brief</a></li>";
- text=uniqueReplace(text,oldBuilder,onlyNotSources+'\n            '+oldBuilder+'\n            {% endunless %}','jekyll_builder_source_cta_duplicate');
+ if(text.split(oldBuilder).length!==2)fail('jekyll_builder_link_missing');
  const footer='<nav aria-label="Publication footer" class="reader-footer-links">';
  const footerIndex=text.indexOf(footer),footerEnd=text.indexOf('</nav>',footerIndex);
  if(footerIndex<0||footerEnd<footerIndex||text.indexOf(footer,footerIndex+1)>=0)
