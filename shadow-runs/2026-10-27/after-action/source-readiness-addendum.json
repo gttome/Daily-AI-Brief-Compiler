@@ -1,0 +1,70 @@
+{
+  "schema_version": "oct27-source-readiness-addendum-v1",
+  "edition_date": "2026-10-27",
+  "target_edition": "2026-10-28",
+  "observed_at": "2026-10-27T01:21:14Z",
+  "verdict": "PARTIAL_SOURCE_EXPANSION",
+  "publication_readiness": "GO_WITH_INDIVIDUALLY_QUALIFIED_ACTIVE_SOURCES",
+  "source_expansion_readiness": "CONDITIONAL_GO",
+  "source_01": {
+    "status": "COMPLETE",
+    "registered": 208,
+    "enabled_route_attempts": 94,
+    "enabled_routes_reachable": 78,
+    "enabled_route_failures": 16,
+    "enabled_routes_blocked": 0,
+    "editorial_source_visits": 83,
+    "editorial_candidate_sources": 11,
+    "omitted_enabled_route_ids": [],
+    "omitted_editorial_source_ids": [],
+    "qualification_limit": "Complete accounting proves attempts and visits, not that every route produced publishable content."
+  },
+  "source_02": {
+    "status": "PARTIAL",
+    "disabled_rows_total": 114,
+    "reviewed": 6,
+    "unreviewed": 108,
+    "verified_active": 4,
+    "needs_more_evidence": 2,
+    "outstanding_ids_source": "editorial/source-qualification.json resources where status is UNREVIEWED"
+  },
+  "source_03": {
+    "status": "QUALIFIED_CHANGE_PROPOSED_NOT_ACTIVE",
+    "qualified_ids": [
+      "research-20261026-a05",
+      "directory-935fbe5ba89ff5f91fc8c69b",
+      "directory-411bf5f837e28f35220736eb",
+      "directory-3ccc18a956cae0b1e24b5968"
+    ],
+    "activation_pr": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/267"
+  },
+  "source_04": {
+    "status": "BLOCKED_BY_PROTECTED_CI",
+    "pull_request": 267,
+    "head_sha": "ef0899df4dfc3ff03e10b76edb17eeeaf41cdf8c",
+    "workflow_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40431768381",
+    "workflow_conclusion": "failure",
+    "failed_step": "Run npm test",
+    "blocker": "Existing protected tests and the pre-seeded historical worklist assert the 94 enabled, 114 disabled and 83 editorial-source baseline. The four-source activation produces 98 enabled, 110 disabled and 87 editorial-role sources, so the exact-head validation rejected the source-only commit.",
+    "merge_performed": false,
+    "protected_main_sha": "abdd3ca860a126c4d1c97fc761d9beddc218cc23",
+    "protected_main_active_catalogue": {
+      "registered": 208,
+      "enabled": 94,
+      "disabled": 114,
+      "editorial_role_sources": 83
+    }
+  },
+  "source_05": {
+    "status": "PENDING_DEADLINE_CHECK",
+    "required_before": "2026-10-27 19:15 America/Chicago",
+    "next_action": "Read current protected main and this AAR before October 28 discovery; use only sources enabled on protected main, recheck PR 267 or a narrower protected correction, and report all still-unreviewed IDs without delaying safe publication or the 21:15 image handoff."
+  },
+  "safety": {
+    "new_schedule_created": false,
+    "recurrence_changed": false,
+    "images_generated": false,
+    "protected_ci_bypassed": false,
+    "historical_editions_modified": false
+  }
+}
