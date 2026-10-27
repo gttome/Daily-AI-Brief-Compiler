@@ -8,12 +8,12 @@
   "original_bundle_sha256": "a70a104a807060b65dc9479d2ceb8083cf3be99daf9a9f77246706b048e84e1d",
   "owner_token": "e70c9d6332b0769362b45822ab6fdc80ecb65717c163ae5d",
   "claimed_at": "2026-10-27T02:12:58Z",
-  "updated_at": "2026-10-27T02:36:14Z",
-  "lease_expires_at": "2026-10-27T02:56:14.000Z",
-  "phase": "GENERATING",
-  "actual_generation_count": 7,
+  "updated_at": "2026-10-27T02:39:39Z",
+  "lease_expires_at": "2026-10-27T02:59:39.000Z",
+  "phase": "CORRECTING",
+  "actual_generation_count": 8,
   "accepted_count": 2,
-  "rejected_count": 5,
+  "rejected_count": 6,
   "accepted_images": [
     {
       "story_id": "oct27-t1-terra-warning-boundaries",
@@ -24,7 +24,7 @@
       "sha256": "9bf2b75f56bd4be220c70e10504d49925c55ff77ac7f03ddb3bc8d2b8d4ca0b2"
     }
   ],
-  "next_action": "Continue next still-unaccepted story; preserve exact accepted PNGs and original source bindings.",
+  "next_action": "Remove unsupported continent maps and misleading chart-like widths from k1 candidate.",
   "production": {
     "host_execution_observed_at": "2026-10-27T02:12:14Z",
     "host_execution_observation_source": "executor_observed_in_same_invocation",
@@ -34,7 +34,8 @@
   "usage": "UNKNOWN",
   "per_story_attempts": {
     "oct27-t1-terra-warning-boundaries": 3,
-    "oct27-t2-production-agent-guardrails": 4
+    "oct27-t2-production-agent-guardrails": 4,
+    "oct27-k1-work-activity-signals": 1
   },
   "errors": [
     {
@@ -61,6 +62,11 @@
       "phase": "Final exported saved-pixel review",
       "issue": "Story 2 attempt 3 corrected source logic but final 1200x630 export left policy substage text and priority branch label too small.",
       "correction": "Preserve corrected geometry; enlarge text and arrange the three dispatcher checks vertically to reserve real label width."
+    },
+    {
+      "phase": "Native saved-pixel review",
+      "issue": "Work-activity attempt 1 rendered unsupported continent maps and ribbon widths that could imply measured category distributions; labels undersized for export.",
+      "correction": "Correct to equal-width conceptual classification branches and qualitative observation plates; remove every map and apparent quantitative mark, enlarge labels."
     }
   ]
 }
