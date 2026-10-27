@@ -8,19 +8,19 @@
   "original_bundle_sha256": "a70a104a807060b65dc9479d2ceb8083cf3be99daf9a9f77246706b048e84e1d",
   "owner_token": "e70c9d6332b0769362b45822ab6fdc80ecb65717c163ae5d",
   "claimed_at": "2026-10-27T02:12:58Z",
-  "updated_at": "2026-10-27T02:27:45Z",
-  "lease_expires_at": "2026-10-27T02:47:45Z",
-  "phase": "GENERATING",
-  "actual_generation_count": 3,
+  "updated_at": "2026-10-27T02:29:44Z",
+  "lease_expires_at": "2026-10-27T02:49:44Z",
+  "phase": "CORRECTING",
+  "actual_generation_count": 4,
   "accepted_count": 1,
-  "rejected_count": 2,
+  "rejected_count": 3,
   "accepted_images": [
     {
       "story_id": "oct27-t1-terra-warning-boundaries",
       "sha256": "02d049ee8e396e2172c32957b88da82956d1f0e7683b9c14fc4781dd1bbbdc85"
     }
   ],
-  "next_action": "Generate story 2 production-agent authority layers; first accepted PNG is immutable and exact-byte verified.",
+  "next_action": "Remove faux writing/office props and unsupported control paths from second rejected candidate.",
   "production": {
     "host_execution_observed_at": "2026-10-27T02:12:14Z",
     "host_execution_observation_source": "executor_observed_in_same_invocation",
@@ -29,7 +29,8 @@
   },
   "usage": "UNKNOWN",
   "per_story_attempts": {
-    "oct27-t1-terra-warning-boundaries": 3
+    "oct27-t1-terra-warning-boundaries": 3,
+    "oct27-t2-production-agent-guardrails": 1
   },
   "errors": [
     {
@@ -41,6 +42,11 @@
       "phase": "Native saved-pixel review",
       "issue": "Story 1 native edit removed extra glyphs but did not repair the alternate-route origin or final safe margins.",
       "correction": "Rejected edit preserved; next correction uses a clear top-down route view to expose the common origin."
+    },
+    {
+      "phase": "Native saved-pixel review",
+      "issue": "Story 2 attempt 1: simulated document strokes, office chair, decorative gear/shield, undersized labels and unclear independent-classifier evidence path.",
+      "correction": "Targeted native correction removes false writing and decorative props, exposes raw-evidence relation and independent authority boundary."
     }
   ]
 }
