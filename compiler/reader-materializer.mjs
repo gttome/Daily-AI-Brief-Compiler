@@ -7,6 +7,7 @@ import {readerEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 import {verifiedHistoricalRelation} from './historical-related.mjs';
 import {renderSourcesMarkdown} from './source-transparency.mjs';
+import {BRIEF_BUILDER_MD,addBuilderToJekyllLayout,assertBuilderMarkdown} from './brief-builder-pages.mjs';
 
 const compilerRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const snapshotRoot=path.join(compilerRoot,'vendor','production-reader','snapshot');
@@ -255,6 +256,7 @@ function requiredRoutes(adapted){
     'watchlist/index.html',
     'watchlist/research/index.html',
     'sources/index.html',
+    ...(date>='2026-10-28'?['build-your-own-brief-compiler/index.html']:[]),
     'about/index.html',
     'subscribe/index.html',
     'calendar/index.html',
@@ -296,6 +298,15 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   fs.rmSync(outDir,{recursive:true,force:true});
   fs.cpSync(snapshotRoot,outDir,{recursive:true});
   if(bundle.edition_date>='2026-10-28')patchPodcastNavigationTargets(outDir);
+  if(bundle.edition_date>='2026-10-28'){
+    // Expose the already published website concept page in every future build.
+    // Never change the immutable vendor snapshot or historical complete editions.
+    const md=fs.readFileSync(path.join(compilerRoot,BRIEF_BUILDER_MD),'utf8');
+    assertBuilderMarkdown(md);
+    writeText(path.join(outDir,'build-your-own-brief-compiler.md'),md);
+    const layout=path.join(outDir,'_layouts','default.html');
+    fs.writeFileSync(layout,addBuilderToJekyllLayout(fs.readFileSync(layout,'utf8')),'utf8');
+  }
   // Only Oct28+ compilations regenerate this informational page from the
   // protected Compiler registry. The frozen reader snapshot stays immutable.
   if(bundle.edition_date>='2026-10-28'){

@@ -141,6 +141,39 @@ jobs:
             throw Error('Sources transparency publication rehearsal failed');
           console.log('REAL_PUBLISHED_SOURCES_PROOF_PASS',r.source_records,r.enabled_routes,r.pending_qualification);
           NODE
+      - name: Prepare actual Brief Builder website page (PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/brief-compiler-reusable-blueprint-pages-20261027'
+        run: node scripts/prepare-brief-builder-jekyll.mjs build/brief-builder-source
+      - name: Build mobile-aware dedicated page with canonical Jekyll (PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/brief-compiler-reusable-blueprint-pages-20261027'
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/brief-builder-source
+          destination: ./build/brief-builder-built
+      - name: Rehearse exact 3-route website publication against existing accepted images
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/brief-compiler-reusable-blueprint-pages-20261027'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/brief-builder-archive-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/brief-builder-archive-proof
+          node scripts/stage-brief-builder-pages.mjs \
+            config/reading-copy-revisions/2026-10-27-brief-builder-website.json \
+            build/brief-builder-archive-proof/site \
+            build/brief-builder-built/build-your-own-brief-compiler/index.html \
+            build/brief-builder-archive-proof/published \
+            build/brief-builder-archive-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/brief-builder-archive-proof/site build/brief-builder-archive-proof/published
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const p=JSON.parse(fs.readFileSync('build/brief-builder-archive-proof/receipt.json','utf8'));
+          if(p.result!=='PASS'||p.files_changed!==3||p.pages_added!==1||p.pages_updated!==2||
+            p.all_editions_podcasts_articles_and_accepted_images_unchanged!==true)
+            throw Error('NOT_SAFE_TO_PUBLISH_BUILDER_SITE');
+          console.log('REAL_BRIEF_WEBSITE_3_ROUTE_PRESERVATION_PASS');
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
