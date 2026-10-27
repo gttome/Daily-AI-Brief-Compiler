@@ -126,6 +126,6 @@ test('audited live staging adds one page and changes only homepage and Sources t
   assert.deepEqual(fs.readFileSync(path.join(out,'briefs/images/2026-10-27/image.png')),originalPng);
   assert.deepEqual(fs.readFileSync(path.join(out,'briefs/2026-10-27/index.html')),oldEdition);
   assert.throws(()=>stageBriefBuilderPages({revisionFile:revFile,historySite:out,
-    compiledPage:pagePath,outSite:path.join(tmp,'other')}),/public_home_or_sources_changed_since_review/);
+    compiledPage:pagePath,outSite:path.join(tmp,'other')}),/existing_web_route_must_not_be_overwritten/);
  }finally{fs.rmSync(tmp,{recursive:true,force:true});}
 });
