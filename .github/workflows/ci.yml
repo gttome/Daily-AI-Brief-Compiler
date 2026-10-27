@@ -199,6 +199,41 @@ jobs:
             throw Error('LIVE_HISTORY_RECOVERY_NOT_SAFE');
           console.log('THREE_EXISTING_LIVE_WEB_PAGES_HISTORY_RECOVERY_PASS',r.original_deployment_run);
           NODE
+      - name: Prepare six-case gardening and self-evolving website content
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/gardening-self-evolving-brief-guide-20261027'
+        run: node scripts/prepare-brief-builder-jekyll.mjs build/gardening-site-source
+      - name: Build gardening explainer using existing GitHub Pages Jekyll
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/gardening-self-evolving-brief-guide-20261027'
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/gardening-site-source
+          destination: ./build/gardening-site-html
+      - name: Rehearse exact two-page update against real published Brief and accepted images
+        if: github.event_name == 'pull_request' && github.head_ref == 'feature/gardening-self-evolving-brief-guide-20261027'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/gardening-site-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/gardening-site-proof
+          node scripts/update-brief-explainer-webpages.mjs \
+            config/reading-copy-revisions/2026-10-27-brief-explainer-gardening-evolution.json \
+            build/gardening-site-proof/site \
+            build/gardening-site-html/build-your-own-brief-compiler/index.html \
+            build/gardening-site-proof/patched \
+            build/gardening-site-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/gardening-site-proof/site build/gardening-site-proof/patched
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r=JSON.parse(fs.readFileSync('build/gardening-site-proof/receipt.json','utf8'));
+          if(r.result!=='PASS'||r.files_changed!==2||r.documented_hobby_use_cases!==6||
+             !r.feedback_sources_watchlist_learning_loop||r.duplicate_internal_links!==0||
+             !r.registry_directory_preserved||r.accepted_images_reencoded!==0||
+             !r.all_previous_reader_and_media_bytes_preserved)
+            throw Error('GARDENING_BRIEF_SITE_TWO_PAGE_SAFETY_FAILURE');
+          console.log('REAL_GARDENING_BRIEF_SITE_TWO_PAGE_SAFE_PASS',r.hobby,r.files_changed);
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
