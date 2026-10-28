@@ -121,6 +121,10 @@ jobs:
               node scripts/stage-sources-page-assets.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            OCT28_PRIVATE_LAST_VIDEO_LINK_ONLY)
+              node scripts/stage-oct28-last-video-link.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -235,6 +239,19 @@ jobs:
                r.all_earlier_articles_videos_podcasts_images_unchanged!==true||
                r.new_paid_apis!==0||r.new_schedules!==0)
               throw Error('Sources CSS/JS repair violates exact three-route and image integrity');
+
+          }else if(r.schema_version==='daily-compiler-oct28-last-video-link-correction-v1'){
+            if(r.edition_date!=='2026-10-28'||r.files_changed!==5||
+               JSON.stringify(r.changed.map(x=>x.route))!==JSON.stringify([
+                 'index.html','latest.html','latest.md',
+                 'briefs/2026-10-28/index.html','videos/2026-10-28/agent-skills/index.html'
+               ])||r.publisher!=='Okta'||r.official_youtube_video_id!=='TpJsRDZ29Os'||
+               r.owner_reported_original_player_private!==true||
+               r.replacement_verified_official_publisher_identity!==true||
+               r.original_semantic_bundle_unchanged!==true||
+               r.all_other_reader_and_accepted_image_bytes_preserved!==true||
+               r.no_video_download_or_reupload!==true||r.no_paid_api_or_new_schedule!==true)
+              throw Error('Oct28 video-only link correction changed unapproved content');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
