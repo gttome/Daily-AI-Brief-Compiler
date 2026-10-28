@@ -7,6 +7,7 @@ import {readerEnvironment} from './reader-environment.mjs';
 import {compilerFeedbackRegistry} from './feedback-identity.mjs';
 import {verifiedHistoricalRelation} from './historical-related.mjs';
 import {renderSourcesMarkdown} from './source-transparency.mjs';
+import {SOURCE_CSS,SOURCE_JS,PUBLIC_CSS,PUBLIC_JS,appendSourcesAssetsToJekyllLayout} from './sources-page-assets.mjs';
 import {BRIEF_BUILDER_MD,addBuilderToJekyllLayout,assertBuilderMarkdown} from './brief-builder-pages.mjs';
 import {BUILDER_CSS_PATH,styleBuilderJekyllLayout} from './brief-builder-style.mjs';
 import {appendGlobalBriefNavigation} from './global-brief-navigation.mjs';
