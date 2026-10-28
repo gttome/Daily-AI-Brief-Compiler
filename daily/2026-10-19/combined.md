@@ -25,6 +25,8 @@
 | Videos over seven days old | **0** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **1** | One channel is one publisher even across multiple videos |
 | Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
+| Live published video playback after release | **NOT_RECORDED** | Actual displayed public media links, not prepublish metadata | 
+| Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Recorded scheduler capability route | **UNPROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
@@ -135,6 +137,11 @@ flowchart LR
 </table>
 
 ## Incidents, corrections and learning
+
+### Postpublication reader incidents (updated when new evidence is merged)
+
+No current-edition postpublication incident register was available; this is **NOT_RECORDED**, not a certification of zero incidents.
+
 
 **Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 0. 
 **Latest failed protected stage:** Not in same-edition receipts; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions). Exact stage durations are available only where real source timestamps exist.

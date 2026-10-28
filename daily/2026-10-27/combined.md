@@ -23,6 +23,8 @@
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
 | Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Live published video playback after release | **NOT_RECORDED** | Actual displayed public media links, not prepublish metadata | 
+| Postpublication reader incidents | **2** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Recorded scheduler capability route | **CAPABILITY_ROUTE_PROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
@@ -134,6 +136,14 @@ flowchart LR
 
 ## Incidents, corrections and learning
 
+### Postpublication reader incidents (updated when new evidence is merged)
+
+| Incident | Impact | Disposition | Verified correction |
+|---|---|---|---|
+| oct28-sources-visible-code | Sources page rendered raw CSS and JavaScript and interactive directory controls did not run. | CORRECTED_MERGED_CI_PASS | [PR #282](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/282) |
+| oct28-final-private-video | Owner found the second published video unavailable/private; the initial playback evidence did not survive the reader experience. | LINK_CORRECTED_PLAYBACK_UNVERIFIED | [PR #284](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/284) |
+
+
 **Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 8. 
 **Latest failed protected stage:** PUBLICATION_PIPELINE; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40613096082). Exact stage durations are available only where real source timestamps exist.
 
@@ -196,6 +206,7 @@ flowchart LR
 | Image release receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-10-28/release.json) |
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-28/reviews/live/semantic-pixel-review.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-28/reviews/after-action.md) |
+| Postpublication incident register | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/incidents/2026-10-28.json) |
 
 **Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40624930099).
 
