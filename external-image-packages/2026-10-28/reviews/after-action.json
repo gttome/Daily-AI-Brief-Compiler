@@ -6,7 +6,7 @@
   "original_source_commit_sha": "6f8edde49e06ad9943860d4c2e037313754f5f33",
   "original_bundle_sha256": "260e4d6a0d26f220247dc4f4848180be7ea30d60b73c4cc5b54c4a21ec2f1cf3",
   "human_readable_path": "external-image-packages/2026-10-28/reviews/after-action.md",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "production": {
     "actual_generation_count": 19,
     "accepted_count": 6,
@@ -125,16 +125,42 @@
       "phase": "Local Git publication route",
       "issue": "A local dry-run Git push had no authenticated username route; no remote ref was changed by that attempt.",
       "correction": "Used connected GitHub immutable blobs, trees and expected-head non-force ref updates, followed by exact-commit base64 readback; accepted images were never regenerated for transport."
+    },
+    {
+      "phase": "Actual live capture review",
+      "issue": "One of 24 original exact-release captures, Genie dated/mobile, showed blank space and upstream metadata instead of the image despite automated positive flags.",
+      "correction": "Preserved the failed original and all23 passing original captures. Ran the existing external-image-postrelease-verify workflow in verify_only mode (40625983739), with every deployment step skipped, and independently inspected the genuine repaired capture."
+    },
+    {
+      "phase": "Browser capture repair route",
+      "issue": "Connected Browser plugin control returned Unknown tool; cloud browser did not expose a documented mobile-viewport setting.",
+      "correction": "Used the existing authenticated GitHub workflow UI to invoke only the existing verify_only lane with exact history SHA; no new workflow, producer, publication, accepted image or schedule was created."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PR"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-28T03:08:45.299Z",
+    "package_pr_number": 280,
+    "package_merge_commit": "10d61da935564f3fa38012ba6987911aa06db723",
+    "validated_head": "4595b31abdb3e60837545f496f514385792e602d",
+    "compiler_validation_run_id": 40624727461,
+    "release_workflow_run_id": 40624930099,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "live_image_hashes_verified": 6,
+    "story_image_pairings_verified": 12,
+    "protected_october8_objects_verified": 17
   },
   "visual_review": {
-    "result": "PENDING_PUBLICATION",
-    "reviewed_targets": 0,
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "reviewed_at": "2026-10-28T03:22:45Z",
     "review_path": "external-image-packages/2026-10-28/reviews/live/semantic-pixel-review.json",
-    "exact_release_artifact_reused": false
+    "exact_release_artifact_reused": true,
+    "artifact_id": 12788219472,
+    "original_capture_pass_count": 23,
+    "supplemental_capture_count": 1,
+    "supplemental_workflow_run_id": 40625983739,
+    "supplemental_artifact_id": 12789432149
   },
   "usage": {
     "work_usage_percent": null,
@@ -147,7 +173,11 @@
     "Six-set semantic comparison was performed on the actual saved images, not inferred from hashes. Fine explanatory text requires full-size mobile viewing; thumbnail readability of every label is not claimed.",
     "DeepMind direct opening initially failed; the complete indexed original first-party article was retrieved using search. Other original primary-source bodies were read directly. No unsupported numeric artwork, clinical efficacy, measured productivity or guaranteed governance outcome is claimed.",
     "Canonical generation and source facts are authentic. First observable execution and generation clocks do not establish first-party scheduler firing, provider active runtime or account usage. Usage remains UNKNOWN.",
-    "Protected PR, CI, release and 24 actual desktop/mobile context reviews are still pending at this checkpoint. No premature PUBLISHED_COMPLETE, semantic PASS for live captures or unattended scheduler certification is claimed.",
-    "The sole existing recurring task remains unchanged. No paid image API, TinyFish, metered service, extra scheduled producer or legacy-repository change was used."
+    "The sole existing recurring task remains unchanged. No paid image API, TinyFish, metered service, extra scheduled producer or legacy-repository change was used.",
+    "Protected package PR280 passed exact-head PRE_PR_PACKAGE_PASS and validate:577 tests,0 failures. Merged at10d61da935564f3fa38012ba6987911aa06db723; existing image-only release40624930099 succeeded.",
+    "Independent read-only live checks verify six exact accepted hashes, twelve dated/permanent story-image pairings, PUBLIC_STATUS_VERIFIED and all17 protected October8 objects, including the already-approved reader-anchor revision proof.",
+    "All24 original release artifact captures were actually inspected:23 passed,1 failed. The failed Genie dated/mobile capture did not include the illustration despite the automated clip flags. It is preserved as failed evidence; no synthetic PASS was applied.",
+    "Final24-context PASS reuses23 exact original captures and one genuine supplemental capture from existing verification-only run40625983739, artifact12789432149. All deploy and metadata-sync steps were skipped. Source artifact digests, capture hashes and byte counts are preserved in the per-target review, and actual capture PNGs are retained.",
+    "No publication rerun or accepted-image regeneration repaired the capture defect. Fine mobile body labels require the full-size viewer. Provider-internal causes and exact active runtime remain UNKNOWN."
   ]
 }

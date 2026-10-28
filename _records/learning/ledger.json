@@ -106,6 +106,22 @@
       "accepted_art_regenerations": 0,
       "usage": "UNKNOWN",
       "status": "PUBLISHED_COMPLETE"
+    },
+    {
+      "edition_date": "2026-10-28",
+      "recorded_at": "2026-10-28T03:22:45Z",
+      "lane": "premium_images",
+      "problem": "Zero first-pass acceptances;13 native candidates required corrections for faux writing/scenery, causal bypasses, insufficient mechanism detail or exported label size. One original mobile capture missed the image despite automated positive flags.",
+      "root_cause": "Observed generator deviations and a screenshot/content mismatch. Provider-internal and browser timing causes remain UNKNOWN; workflow success was not treated as semantic proof.",
+      "fix": "Source-grounded revisions and targeted native corrections until six accepted images. Retained all rejected originals. Reused23 passing release captures and repaired one context using the existing nonpublishing verify_only workflow; all publication steps skipped.",
+      "outcome": "19 native calls:6 accepted,13 rejected; attempts4/6/2/2/2/3. Six live hashes,12 pairings,24 actual final contexts and17 protected objects verified. Accepted art regenerated after lock:0.",
+      "timing_impact": "First native clock02:21:51Z; final actual context review03:22:45Z. This span includes review/export/transport/corrections/CI/release and capture repair, not provider active runtime.",
+      "permanent_implementation": "Existing one-worker, frozen-spec, label geometry, source/causal, exact binary, protected PR/CI and verification-only lanes retained. Do not infer capture correctness from DOM/clip flags; preserve original failed evidence and use smallest read-only capture repair.",
+      "regression_evidence": "PR280 exact head4595b31abdb3e60837545f496f514385792e602d PRE_PR_PACKAGE_PASS;577 tests0fail; release40624930099 artifact12788219472; verify_only40625983739 artifact12789432149;25 preserved original/repaired capture PNGs.",
+      "recurrence": "Faux writing, causal origin and label shrinkage recur. No cap or quality relaxation; fine mobile text needs full-size viewing. Unknown usage remains UNKNOWN.",
+      "accepted_art_regenerations": 0,
+      "usage": "UNKNOWN",
+      "status": "PUBLISHED_COMPLETE"
     }
   ]
 }
