@@ -3,6 +3,7 @@ import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/wa
 import {assertCleanReadingCopy,READING_COPY_EFFECTIVE} from '../compiler/reading-copy.mjs';
 import {assertPublishedReaderQuality} from '../compiler/reader-quality.mjs';
 import {sourceRegistrySummary} from '../compiler/source-transparency.mjs';
+import {assertSourcesPageAssets} from '../compiler/sources-page-assets.mjs';
 import {assertBuiltBriefPage} from './stage-brief-builder-pages.mjs';
 import {validateBuiltBuilderHead} from '../compiler/brief-builder-style.mjs';
 import {assertUniqueBriefInternalLinks} from '../compiler/brief-explainer-link-integrity.mjs';
@@ -84,6 +85,7 @@ export function verifyBuiltReader({siteDir,sourceDir}){
     const registry=JSON.parse(fs.readFileSync(new URL('../config/resource-registry.json',import.meta.url),'utf8'));
     const stats=sourceRegistrySummary(registry);
     const sourcePage=fs.readFileSync(path.join(siteDir,'sources','index.html'),'utf8');
+    assertSourcesPageAssets(sourcePage);
     for(const marker of [
       'id="sources-transparency"',
       'data-source-registry-count="'+stats.registered+'"',

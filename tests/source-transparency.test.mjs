@@ -60,12 +60,13 @@ test('mobile layout, semantic navigation and self-contained directory interactio
    'id="source-difference"','id="source-accountability"']){
    assert.ok(body.includes(marker),marker);
  }
- assert.match(body,/@media\(max-width:540px\)/);
- const js=body.match(/<script>([\s\S]*?)<\/script>/);
- assert.ok(js,'inline directory script is included without external API calls');
- assert.doesNotThrow(()=>new vm.Script(js[1]));
- const css=body.match(/<style>([\s\S]*?)<\/style>/);
- assert.ok(css&&css[1].includes('grid-template-columns:1fr'));
+ assert.ok(!body.includes(String.fromCharCode(60)+'style'));
+ assert.ok(!body.includes(String.fromCharCode(60)+'script'));
+ const js=fs.readFileSync('site-content/sources-transparency.js','utf8');
+ const css=fs.readFileSync('site-content/sources-transparency.css','utf8');
+ assert.doesNotThrow(()=>new vm.Script(js));
+ assert.ok(css.includes('@media(max-width:540px)'));
+ assert.ok(css.includes('grid-template-columns:1fr'));
 });
 test('historic published page patch changes main editorial area, keeping site navigation untouched',()=>{
  const prior='<!doctype html><title>Sources and early-signal monitoring</title>'+

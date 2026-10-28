@@ -117,6 +117,10 @@ jobs:
               node scripts/stage-global-brief-header-css.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            SOURCES_ASSETS_CSS_JS_FIX)
+              node scripts/stage-sources-page-assets.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -219,6 +223,18 @@ jobs:
                r.all_accepted_pngs_unchanged!==true||
                r.no_editorial_reseal!==true||r.no_paid_apis!==true)
               throw Error('Global navigation / CSS repair violates historical publication safeguards');
+
+          }else if(r.schema_version==='daily-compiler-sources-css-js-asset-repair-v1'){
+            if(r.edition_date!=='2026-10-28'||r.files_changed!==3||
+               JSON.stringify(r.changed.map(x=>x.route))!==
+                 JSON.stringify(['sources/index.html','assets/css/sources-transparency.css','assets/js/sources-transparency.js'])||
+               r.source_records!==208||r.source_enabled!==98||
+               r.external_css_head!==true||r.external_js_deferred!==true||
+               r.escaped_css_and_js_removed!==true||
+               r.interactive_directory_preserved!==true||
+               r.all_earlier_articles_videos_podcasts_images_unchanged!==true||
+               r.new_paid_apis!==0||r.new_schedules!==0)
+              throw Error('Sources CSS/JS repair violates exact three-route and image integrity');
 
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);

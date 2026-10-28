@@ -281,6 +281,52 @@ jobs:
             throw Error('UNSAFE_GLOBAL_NAVIGATION_OR_BUILDER_STYLE_CHANGE');
           console.log('HISTORICAL_BRIEF_HEADER_GLOBAL_SCRIPT_COVERAGE_PASS',r.shared_navigation);
           NODE
+      - name: Prepare Sources with real CSS and search JavaScript (PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/sources-visible-code-real-assets-20261028'
+        run: node scripts/prepare-sources-jekyll.mjs build/sources-css-js-proof-source
+      - name: Compile Sources as a normal Jekyll site page (PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/sources-visible-code-real-assets-20261028'
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./build/sources-css-js-proof-source
+          destination: ./build/sources-css-js-proof-html
+      - name: Verify no printed CSS or JS, filter contract, and accepted PNG continuity
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/sources-visible-code-real-assets-20261028'
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import {assertSourcesPageAssets} from './compiler/sources-page-assets.mjs';
+          const root='build/sources-css-js-proof-html/';
+          const page=fs.readFileSync(root+'sources/index.html','utf8');
+          if(!assertSourcesPageAssets(page)||
+             !fs.existsSync(root+'assets/css/sources-transparency.css')||
+             !fs.existsSync(root+'assets/js/sources-transparency.js'))
+            throw Error('SOURCE_JEKYLL_STILL_PRINTS_SCRIPT_OR_STYLES');
+          console.log('SOURCE_JEKYLL_REAL_CSS_JS_PASS');
+          NODE
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/sources-css-js-archive-proof
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/sources-css-js-archive-proof
+          node scripts/stage-sources-page-assets.mjs \
+            config/reading-copy-revisions/2026-10-28-sources-assets.json \
+            build/sources-css-js-archive-proof/site \
+            build/sources-css-js-archive-proof/patched \
+            build/sources-css-js-archive-proof/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/sources-css-js-archive-proof/site \
+            build/sources-css-js-archive-proof/patched
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const p=JSON.parse(fs.readFileSync('build/sources-css-js-archive-proof/receipt.json','utf8'));
+          if(p.result!=='PASS'||p.files_changed!==3||p.source_records!==208||
+             p.external_css_head!==true||p.external_js_deferred!==true||
+             p.escaped_css_and_js_removed!==true||
+             p.all_earlier_articles_videos_podcasts_images_unchanged!==true)
+            throw Error('SOURCES_REAL_ASSETS_REHEARSAL_NOT_SAFE');
+          console.log('REAL_PUBLISHED_SOURCES_ASSET_CORRECTION_PASS',p.files_changed,p.source_records);
+          NODE
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
