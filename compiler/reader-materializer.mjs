@@ -318,6 +318,15 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   if(bundle.edition_date>='2026-10-28'){
     const registry=readJson(path.join(compilerRoot,'config','resource-registry.json'));
     writeText(path.join(outDir,'sources.md'),renderSourcesMarkdown(registry));
+    for(const [from,to] of [[SOURCE_CSS,PUBLIC_CSS],[SOURCE_JS,PUBLIC_JS]]){
+      const bytes=fs.readFileSync(path.join(compilerRoot,from));
+      const output=path.join(outDir,to);
+      fs.mkdirSync(path.dirname(output),{recursive:true});
+      fs.writeFileSync(output,bytes);
+    }
+    const sourceLayout=path.join(outDir,'_layouts','default.html');
+    fs.writeFileSync(sourceLayout,
+      appendSourcesAssetsToJekyllLayout(fs.readFileSync(sourceLayout,'utf8')),'utf8');
   }
   // New editions keep the immutable vendor snapshot and add the same shared
   // header navigation enhancement used by historical Pages.
