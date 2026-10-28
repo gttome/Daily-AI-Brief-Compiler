@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-10-27",
-  "updated_at": "2026-10-27T00:32:34.216Z",
+  "edition_date": "2026-10-28",
+  "updated_at": "2026-10-28T01:05:41.440Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -2349,7 +2349,7 @@
       "topic_id": "dab-topic-consumer-agent-task-permissions",
       "name": "Consumer agent task permissions",
       "summary": "Consumer task permissions define which connected information an assistant may use, which external actions require confirmation and how memory and evidence remain reviewable.",
-      "why_now": "Carried on October 27 because no new independently measured permission-failure result changed the October 23 product baseline.",
+      "why_now": "Carried on October 28 because no new independently comparable result changed the existing evidence baseline for this topic.",
       "practical_value": "Users can test one bounded workflow by inspecting memory, verifying source links and requiring confirmation before any message or post leaves.",
       "first_detected": "2026-10-15",
       "updated_at": "2026-10-23T12:00:00Z",
@@ -2404,7 +2404,7 @@
           "publisher": "plaud.ai",
           "publication_date": "2026-10-23",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-27",
+          "checked_at": "2026-10-28",
           "development_id": "compiler-carried_forward-3"
         }
       ],
@@ -3034,11 +3034,11 @@
     {
       "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
       "name": "Continuous multi-level agent evaluation",
-      "summary": "Agent evaluation combines business facts, task rubrics and layered tool-to-orchestration tests across the deployment lifecycle.",
-      "why_now": "AWS's October 16 case study adds nine named stages, bounded test sets, canaries and drift checks.",
-      "practical_value": "Design one release gate that catches factual, safety, latency and cost failures before broader traffic.",
+      "summary": "Continuous multi-level agent evaluation tests business facts, tools, APIs, orchestration quality, security and cost across development and live operation.",
+      "why_now": "Salesforce’s October 27 Agent Fabric announcement materially extends the prior AWS lifecycle evidence by connecting production tests to quarantine and budget enforcement.",
+      "practical_value": "Teams can design a bounded release and runtime gate that names quality thresholds, cost limits, intervention owners, approval steps and recovery tests.",
       "first_detected": "2026-10-18",
-      "updated_at": "2026-10-18T12:00:00Z",
+      "updated_at": "2026-10-28T12:00:00Z",
       "status": "early_signal",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
@@ -3052,40 +3052,52 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-10-18",
           "development_id": "compiler-new-1"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+          "title": "Continuous multi-level agent evaluation",
+          "publisher": "salesforce.com",
+          "publication_date": "2026-10-27",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-28",
+          "development_id": "compiler-updated-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 64,
+      "research_score": 65,
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "Nine linked evaluation stages extend familiar model testing into an explicit production agent lifecycle."
+          "reason": "The update connects familiar evaluation methods to explicit cross-platform runtime interventions and enforceable budget controls."
         },
         "evidence": {
-          "score": 4,
-          "reason": "AWS provides named stages, test-set sizes, failure examples and reported outcomes, although some numeric examples are illustrative."
+          "score": 3,
+          "reason": "Salesforce describes named product behaviors and availability, but customer outcomes and performance remain vendor-reported."
         },
         "independence": {
-          "score": 1,
-          "reason": "The framework and measurements come from one AWS-authored implementation without independent replication or customer audit."
+          "score": 3,
+          "reason": "Separate AWS and Salesforce implementations support the workflow pattern, though neither supplies an independent comparative audit."
         },
         "momentum": {
           "score": null,
-          "reason": "This first observation supplies no comparable repeated measure collected under the same evaluation protocol."
+          "reason": "The two publications use different measures and provide no comparable dated numeric observations for a momentum score."
         },
         "relevance": {
           "score": 5,
-          "reason": "Teams can directly translate business failure modes into merge gates, release thresholds, canaries and drift alerts."
+          "reason": "Teams can directly translate quality, API and cost failures into approval, quarantine, kill-switch and recovery policies."
         },
         "durability": {
           "score": 5,
-          "reason": "Continuous evaluation across development and runtime addresses a persistent reliability need beyond any single model."
+          "reason": "Connecting evaluation evidence to bounded intervention remains necessary across changing agents, models, tools and infrastructure."
         }
       },
       "momentum": {
         "classification": "baseline",
         "score": null,
-        "reason": "No two comparable dated numerical observations establish momentum for this framework."
+        "reason": "Independent publisher implementations broaden the pattern, but no stable comparable numeric measure establishes momentum.",
+        "metric": null,
+        "observations": []
       },
       "next_action": "Continue monitoring primary evidence and independent developments."
     },
@@ -3925,7 +3937,7 @@
       "topic_id": "dab-topic-frontier-training-containment-red-teaming",
       "name": "Frontier training containment red-teaming",
       "summary": "Frontier training containment combines offline-by-default infrastructure, rapid isolation, incident investigation and high-compute agent red-teaming before a paused run resumes.",
-      "why_now": "Carried on October 27 because no independent containment incident or restart evaluation superseded the October 23 account.",
+      "why_now": "Carried on October 28 because no new independently comparable result changed the existing evidence baseline for this topic.",
       "practical_value": "Security teams can test whether network isolation, monitoring, escalation and restart criteria hold under realistic agent-driven attack scenarios.",
       "first_detected": "2026-10-25",
       "updated_at": "2026-10-23T12:00:00Z",
@@ -3960,7 +3972,7 @@
           "publisher": "openai.com",
           "publication_date": "2026-10-23",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-27",
+          "checked_at": "2026-10-28",
           "development_id": "compiler-carried_forward-2"
         }
       ],
@@ -4004,12 +4016,12 @@
     {
       "topic_id": "dab-topic-declarative-agent-authored-data-pipelines",
       "name": "Declarative agent-authored data pipelines",
-      "summary": "Declarative agent-authored pipelines describe desired datasets while the execution engine validates structure, orders dependencies and handles repeated operational boilerplate.",
-      "why_now": "Carried on October 27 because no independently comparable pipeline benchmark changed the October 23 publisher-run baseline.",
-      "practical_value": "Data teams can compare one bounded pipeline across both interfaces using dry-run failures, compute time, code volume and reviewer correction effort.",
+      "summary": "Declarative agent-authored pipelines express desired datasets while an execution engine validates structure, dependencies and repeated operational steps.",
+      "why_now": "Archived on October 28 because no independently comparable benchmark or production result changed the existing publisher-run evidence baseline.",
+      "practical_value": "Data teams can retain the prior pipeline comparison checklist while waiting for independent measurements of correctness, maintenance burden and recovery behavior.",
       "first_detected": "2026-10-26",
-      "updated_at": "2026-10-23T12:00:00Z",
-      "status": "early_signal",
+      "updated_at": "2026-10-28T12:00:00Z",
+      "status": "archived",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
       "evidence": [
@@ -4030,8 +4042,18 @@
           "publisher": "databricks.com",
           "publication_date": "2026-10-23",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-27",
+          "checked_at": "2026-10-28",
           "development_id": "compiler-carried_forward-1"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.databricks.com/blog/introducing-lakeflow-declarative-pipelines-agent-framework",
+          "title": "Declarative agent-authored data pipelines",
+          "publisher": "databricks.com",
+          "publication_date": "2026-10-23",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-28",
+          "development_id": "compiler-dropped-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4069,7 +4091,8 @@
         "metric": null,
         "observations": []
       },
-      "next_action": "Continue monitoring primary evidence and independent developments."
+      "next_action": "Continue monitoring primary evidence and independent developments.",
+      "archive_reason": "Archived after the October 28 review found no new independent result that changed the prior declarative-pipeline assessment."
     },
     {
       "topic_id": "dab-topic-agent-restriction-respect-evaluation",
@@ -4126,6 +4149,66 @@
         "classification": "baseline",
         "score": null,
         "reason": "One dated evaluation supplies no second comparable observation under a stable restriction-respect measure or task distribution.",
+        "metric": null,
+        "observations": []
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-native-multimodal-world-simulation",
+      "name": "Native multimodal world simulation",
+      "summary": "Native multimodal world simulation generates interactive scenes, movement, dialogue and ambient sound together while responding to user steering in real time.",
+      "why_now": "Google DeepMind’s October 27 Genie 4 preview adds native audio, real-time interaction and explicit object-permanence, spatial and long-session limitations.",
+      "practical_value": "Evaluation teams can test latency, continuity, object permanence, text quality and audio alignment before using generated worlds for training or design.",
+      "first_detected": "2026-10-28",
+      "updated_at": "2026-10-28T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "title": "Native multimodal world simulation",
+          "publisher": "deepmind.google",
+          "publication_date": "2026-10-27",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-10-28",
+          "development_id": "compiler-new-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 54,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Genie 4 combines steerable interactive world generation with native audio and dialogue in one research system."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Google publishes detailed demonstrations and limitations, but access is restricted and no independent benchmark is available."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The reviewed capability evidence comes from Google DeepMind without independent reproduction during this editorial review."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Simulation teams can evaluate continuity, object permanence, latency and audio alignment before considering training use."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Testing coherence and controllability remains useful as world-model architectures and media capabilities continue to change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4.",
         "metric": null,
         "observations": []
       },
