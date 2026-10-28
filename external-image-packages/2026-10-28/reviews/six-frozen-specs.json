@@ -378,7 +378,10 @@
       "Return if passing",
       "Budget limit",
       "Stop requests",
-      "Availability varies"
+      "Availability varies",
+      "Agent tests",
+      "API specifications",
+      "API tests"
     ],
     "source_claim_map": [
       {
@@ -399,6 +402,13 @@
         "id": "budget",
         "proposition": "Hard spending limits stop requests before exceeding the budget.",
         "supporting_source_excerpt": "hard limits that stop requests",
+        "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "api",
+        "proposition": "API Evals generates functional and performance tests from API specifications before production.",
+        "supporting_source_excerpt": "from API specifications",
         "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
         "evidence_kind": "primary_source_fact"
       }
@@ -452,6 +462,13 @@
         "direction": "conditional",
         "support_claim_id": "budget",
         "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "API specifications",
+        "to": "API tests",
+        "direction": "forward",
+        "support_claim_id": "api",
+        "relation_supported_by_semantic_review": true
       }
     ],
     "excluded_claims": [
@@ -492,112 +509,145 @@
       "label_layout": [
         {
           "label": "Evaluate live agents",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Evaluate live agents",
+          "region": "source-specific state region Evaluate live agents",
           "minimum_font_px": 32,
           "bounding_box_px": {
             "x": 48,
-            "y": 42,
-            "width": 1100,
-            "height": 48
+            "y": 195,
+            "width": 300,
+            "height": 65
           }
         },
         {
           "label": "Quality threshold",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Quality threshold",
+          "region": "source-specific state region Quality threshold",
           "minimum_font_px": 32,
           "bounding_box_px": {
-            "x": 48,
-            "y": 145,
-            "width": 320,
-            "height": 55
+            "x": 400,
+            "y": 195,
+            "width": 330,
+            "height": 65
           }
         },
         {
           "label": "Policy approval",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Policy approval",
+          "region": "source-specific state region Policy approval",
           "minimum_font_px": 26,
           "bounding_box_px": {
-            "x": 445,
-            "y": 145,
-            "width": 320,
-            "height": 55
+            "x": 800,
+            "y": 195,
+            "width": 350,
+            "height": 65
           }
         },
         {
           "label": "Quarantine",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Quarantine",
+          "region": "source-specific state region Quarantine",
           "minimum_font_px": 26,
           "bounding_box_px": {
-            "x": 845,
-            "y": 145,
-            "width": 300,
-            "height": 55
+            "x": 800,
+            "y": 300,
+            "width": 350,
+            "height": 50
           }
         },
         {
           "label": "Refine instructions",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Refine instructions",
+          "region": "source-specific state region Refine instructions",
           "minimum_font_px": 26,
           "bounding_box_px": {
-            "x": 845,
-            "y": 300,
-            "width": 300,
-            "height": 65
+            "x": 800,
+            "y": 395,
+            "width": 350,
+            "height": 55
           }
         },
         {
           "label": "Rerun evaluation",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Rerun evaluation",
+          "region": "source-specific state region Rerun evaluation",
           "minimum_font_px": 26,
           "bounding_box_px": {
-            "x": 445,
-            "y": 300,
-            "width": 320,
-            "height": 65
+            "x": 400,
+            "y": 395,
+            "width": 330,
+            "height": 55
           }
         },
         {
           "label": "Return if passing",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Return if passing",
+          "region": "source-specific state region Return if passing",
           "minimum_font_px": 26,
           "bounding_box_px": {
             "x": 48,
-            "y": 300,
-            "width": 320,
-            "height": 65
+            "y": 395,
+            "width": 300,
+            "height": 55
           }
         },
         {
           "label": "Budget limit",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Budget limit",
+          "region": "source-specific state region Budget limit",
           "minimum_font_px": 26,
           "bounding_box_px": {
             "x": 48,
-            "y": 465,
+            "y": 500,
             "width": 330,
-            "height": 55
+            "height": 50
           }
         },
         {
           "label": "Stop requests",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Stop requests",
+          "region": "source-specific state region Stop requests",
           "minimum_font_px": 26,
           "bounding_box_px": {
-            "x": 470,
-            "y": 465,
+            "x": 500,
+            "y": 500,
+            "width": 330,
+            "height": 50
+          }
+        },
+        {
+          "label": "Availability varies",
+          "region": "source-specific state region Availability varies",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 820,
+            "y": 550,
+            "width": 330,
+            "height": 40
+          }
+        },
+        {
+          "label": "Agent tests",
+          "region": "source-specific state region Agent tests",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 70,
             "width": 330,
             "height": 55
           }
         },
         {
-          "label": "Availability varies",
-          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Availability varies",
+          "label": "API specifications",
+          "region": "source-specific state region API specifications",
           "minimum_font_px": 26,
           "bounding_box_px": {
-            "x": 820,
-            "y": 535,
-            "width": 330,
-            "height": 45
+            "x": 440,
+            "y": 70,
+            "width": 350,
+            "height": 55
+          }
+        },
+        {
+          "label": "API tests",
+          "region": "source-specific state region API tests",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 850,
+            "y": 70,
+            "width": 290,
+            "height": 55
           }
         }
       ],
@@ -725,6 +775,16 @@
           "relation_supported_by_semantic_review": true,
           "origin_region": "Budget limit region",
           "target_region": "Stop requests region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "API specifications",
+          "to": "API tests",
+          "direction": "forward",
+          "support_claim_id": "api",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "API specifications region",
+          "target_region": "API tests region",
           "disallowed_paths_visually_blocked": true
         }
       ],
