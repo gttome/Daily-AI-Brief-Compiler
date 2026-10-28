@@ -60,6 +60,14 @@ jobs:
         run: |
           git fetch origin "$TARGET_BRANCH:$TARGET_BRANCH"
           git worktree add run "$TARGET_BRANCH"
+      - name: Inspect current enabled editorial source indexes with first-party dated evidence
+        # Pure public HTTPS GET requests within the current existing workflow;
+        # never auto-admit stories, activate disabled sources or use paid APIs.
+        run: |
+          test -f "run/shadow-runs/$TARGET_DATE/edition-bundle.json"
+          EXECUTION_ID="$(node -e "console.log(require('./run/shadow-runs/$TARGET_DATE/compiler-state.json').execution_id)")"
+          node scripts/qualify-editorial-source-items.mjs "$TARGET_DATE" "$EXECUTION_ID" \
+            "run/shadow-runs/$TARGET_DATE/editorial/source-item-census.json"
       - name: Require sealed semantic bundle without rework
         run: |
           EXTRA=""
