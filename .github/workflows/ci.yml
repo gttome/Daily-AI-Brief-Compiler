@@ -327,7 +327,7 @@ jobs:
             throw Error('SOURCES_REAL_ASSETS_REHEARSAL_NOT_SAFE');
           console.log('REAL_PUBLISHED_SOURCES_ASSET_CORRECTION_PASS',p.files_changed,p.source_records);
           NODE
-      - name: Verify public official Okta video playback (PR only)
+      - name: Probe signed-out Okta playback; distinguish public identity from player success
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct28-okta-public-video-after-sources-20261028'
         run: node scripts/check-oct28-okta-youtube-playback.cjs
       - run: npm test
