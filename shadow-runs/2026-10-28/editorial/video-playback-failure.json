@@ -31,5 +31,28 @@
     }
   ],
   "interpretation": "PLAYBACK_UNVERIFIED_NOT_INDEPENDENT_PROOF_OF_PRIVATE_VIDEO",
-  "required_recovery": "Verify an actual advancing signed-out full-length player for the replacement candidate"
+  "required_recovery": "Verify an actual advancing signed-out full-length player for the replacement candidate",
+  "recovery_attempts": [
+    {
+      "attempt": 1,
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40609473591",
+      "checked_at": "2026-10-28T00:34:56.337Z",
+      "candidate_title": "Agentic Retrieval in Azure AI Search",
+      "candidate_url": "https://learn.microsoft.com/en-us/shows/ai-show/agentic-retrieval-in-azure-ai-search",
+      "observed_result": "DURATION_MATCHED_FULL_EPISODE_PLAYBACK_UNVERIFIED",
+      "playback_verified": false,
+      "observed_player_evidence": [
+        {
+          "host": "learn.microsoft.com",
+          "duration": "NaN",
+          "current_time_seconds": 0,
+          "ready_state": 0,
+          "paused": true,
+          "network_state": 2
+        }
+      ],
+      "interpretation": "The signed-out Learn page exposed no duration-bearing advancing player, so metadata and the embedded page could not establish playback.",
+      "next_action": "Use the exact original Microsoft YouTube episode identity and rerun the protected duration-matched playback gate."
+    }
+  ]
 }
