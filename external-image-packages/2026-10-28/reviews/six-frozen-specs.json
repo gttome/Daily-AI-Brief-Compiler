@@ -1906,7 +1906,8 @@
       "Human approval",
       "Deny or revoke",
       "Retain audit evidence",
-      "Vendor claims"
+      "Vendor claims",
+      "Out-of-scope action"
     ],
     "source_claim_map": [
       {
@@ -1972,7 +1973,8 @@
         "to": "Deny or revoke",
         "direction": "conditional",
         "support_claim_id": "access",
-        "relation_supported_by_semantic_review": true
+        "relation_supported_by_semantic_review": true,
+        "condition": "Only when attempted action exceeds approved scope; no unconditional denial implied"
       },
       {
         "from": "Human approval",
@@ -2133,6 +2135,17 @@
             "y": 535,
             "width": 400,
             "height": 45
+          }
+        },
+        {
+          "label": "Out-of-scope action",
+          "region": "Conditional revocation branch",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 835,
+            "y": 260,
+            "width": 305,
+            "height": 55
           }
         }
       ],
