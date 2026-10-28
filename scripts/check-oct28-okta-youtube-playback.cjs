@@ -27,7 +27,16 @@ const VIDEO={
   // YouTube may robot-gate a signed-out CI browser. Record the limitation,
   // then independently check its *public publisher identity* through YouTube
   // oEmbed. Never misreport an advancing player in this path.
-  if(String(e).includes('WATCH_LOGIN_REQUIRED_EMBED_ATTEMPTED')){
+  if(String(e).includes('Public publisher page HTTP 429')){
+   // The CI egress IP is rate limited by YouTube. Do NOT infer private status.
+   // This is a diagnostic record, not a signed-out playback acceptance.
+   record={schema_version:'daily-compiler-video-replacement-playback-proof-v1',
+     result:'YOUTUBE_CI_RATE_LIMITED_PLAYBACK_UNVERIFIED',
+     video_id:'TpJsRDZ29Os',public_episode_advancing:false,
+     playback_verified:false,official_publisher_identity_source:'public_okta_channel_index',
+     expected_seconds:VIDEO.expected_seconds,
+     error:String(e).slice(0,1800)};
+  }else if(String(e).includes('WATCH_LOGIN_REQUIRED_EMBED_ATTEMPTED')){
    try{
     const proof=await officialYouTubePublicEvidence(VIDEO,e);
     if(proof.official_author!=='Okta'||!proof.official_title.toLowerCase().includes('identity')||
@@ -56,5 +65,8 @@ const VIDEO={
  }else if(record.result==='PUBLIC_YOUTUBE_IDENTITY_PASS_PLAYBACK_UNVERIFIED'&&
           record.official_publisher_identified===true&&record.playback_verified===false){
     console.log('OCT28_OFFICIAL_PUBLIC_IDENTITY_PASS_BROWSER_PLAYBACK_UNVERIFIED');
+ }else if(record.result==='YOUTUBE_CI_RATE_LIMITED_PLAYBACK_UNVERIFIED' &&
+          record.video_id==='TpJsRDZ29Os' && record.playback_verified===false){
+    console.log('OCT28_YOUTUBE_CI_EGRESS_429_PLAYBACK_UNVERIFIED_NONBLOCKING_DIAGNOSTIC');
  }else throw Error('Neither playback nor public publisher identity confirmed: '+record.error);
 })().catch(e=>{console.error(e.message);process.exitCode=1});
