@@ -68,3 +68,10 @@ The October 27 image run used 24 actual native attempts to accept six images; no
 For Oct28+ jobs, before the FIRST native generation, reserve separate bounding rectangles for every required explanatory label on the actual 1200x630 canvas. Planned explanatory label rectangles must NOT intersect one another. The future-only image first-pass preflight rejects intersections; it is a planning check, not a substitute for actual exported 1200x630 pixel inspection.
 
 After each real export, check origin and destination of each supported causal connector, positive and blocked paths, absence of simulated writing or unsupported quantitative marks, and final-size readable explanatory labels. Correct rejected regions until passing; preserve genuinely passing components. Never regenerate locked accepted PNG bytes solely to repair transport, GitHub validation, release, or reporting.
+
+
+## October 28 AAR — First-pass illustration improvement, effective October 29+
+
+Read the new approved October 28 implementation register at docs/automation/OCT28_APPROVED_AAR_IMPLEMENTATION.md. This adds no task, no new image tool, and no quality bypass. Before generating, use the thirteen rejected October 28 candidates as negative examples: no fake documents, invented numeric charts, scenery, success trophies, unsupported labels or causal arrows that skip required gates. Check every allowed arrow's source-supported origin, condition and destination. Keep exact nonoverlapping planned labels, 40px margins and final 1200x630 legibility of 26px body and 32px priority text. Source-grounded corrections must preserve parts already correct.
+
+After export, inspect real RGB image pixels and all 24 dated/permanent desktop/mobile page captures. The new objective saved-screenshot RGB match helps reject a blank capture but does not replace semantic review. Keep all rejection evidence, genuine attempt counts and Work-usage UNKNOWN if not observed. Never cap quality attempts or regenerate accepted PNGs for a transport/CI defect. Preserve the two original schedules, protected PR/CI and zero-paid-API contract.
