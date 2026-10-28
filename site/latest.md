@@ -290,7 +290,7 @@
 
 
 
-**Source:** <a href="https://play.vidyard.com/8Cf5xrViAVpvQLikjEutkb?disable_popouts=1&amp;type=inline&amp;v=4.3.26&amp;autoplay=1" data-item-id="dab-video-2026-10-28-agent-skills" data-edition-date="2026-10-28" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Okta</a>
+**Source:** <a href="https://www.youtube.com/watch?v=TpJsRDZ29Os" data-item-id="dab-video-2026-10-28-agent-skills" data-edition-date="2026-10-28" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Okta’s official YouTube channel</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-28" data-feedback-story-id="dab-video-compiler-2026-10-28-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
