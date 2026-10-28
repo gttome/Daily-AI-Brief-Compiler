@@ -1,0 +1,2203 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-28",
+    "story_id": "oct28-t1-genie4-world-simulation",
+    "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+    "visual_thesis": "Genie renders a multimodal world while Gemini observes frames, plans and steers; the preview still has continuity limits.",
+    "story_anchors": [
+      "Genie generates native audio alongside visual worlds.",
+      "Gemini observes incoming frames and adapts a sequence of steps."
+    ],
+    "required_labels": [
+      "Live world simulation",
+      "Prompt edits",
+      "Generate frames",
+      "Native audio",
+      "Observe frames",
+      "Plan next steps",
+      "Steer simulation",
+      "Continuity can drift",
+      "Research preview"
+    ],
+    "source_claim_map": [
+      {
+        "id": "render",
+        "proposition": "Genie generates interactive worlds with native audio.",
+        "supporting_source_excerpt": "generate audio natively",
+        "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "steer",
+        "proposition": "Gemini observes frames, plans steps and adapts steering to the evolving simulation.",
+        "supporting_source_excerpt": "continuously observes the scene",
+        "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "limits",
+        "proposition": "Long sessions and complex edits can produce continuity, spatial and object-permanence drift.",
+        "supporting_source_excerpt": "object permanence can still shift",
+        "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Prompt edits",
+        "to": "Generate frames",
+        "direction": "conditional",
+        "support_claim_id": "render",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Generate frames",
+        "to": "Native audio",
+        "direction": "conditional",
+        "support_claim_id": "render",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Generate frames",
+        "to": "Observe frames",
+        "direction": "conditional",
+        "support_claim_id": "steer",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Observe frames",
+        "to": "Plan next steps",
+        "direction": "conditional",
+        "support_claim_id": "steer",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Plan next steps",
+        "to": "Steer simulation",
+        "direction": "conditional",
+        "support_claim_id": "steer",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Steer simulation",
+        "to": "Generate frames",
+        "direction": "conditional",
+        "support_claim_id": "steer",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No real robot, humans, generated scenery, guaranteed physics, reliable long-term continuity or unsupported benchmark scores.",
+      "No extra text, fake writing, logos, people, scenery, scores, success marks or unsupported causal links."
+    ],
+    "mechanism_metaphor": "open observation and steering loop",
+    "composition_signature": {
+      "grammar": "asymmetric frame-observation feedback loop",
+      "metaphor": "open observation and steering loop",
+      "layout": "central layered frame assembly with upper-right observation loop and lower audio output",
+      "palette": "indigo and cyan",
+      "hierarchy": "asymmetric frame-observation feedback loop dominant mechanism",
+      "annotation": "external perimeter leaders",
+      "perspective": "clean editorial plan view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "components": [
+        "natural-language edit entry",
+        "contextual adaptation boundary",
+        "frame generation layer",
+        "successive frame planes",
+        "native audio channel",
+        "ambient sound association",
+        "frame-observation tap",
+        "goal breakdown",
+        "step-sequence tokens",
+        "steering return",
+        "continuity limitation note",
+        "trusted-preview scope"
+      ]
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Live world simulation",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Live world simulation",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1104,
+            "height": 48
+          }
+        },
+        {
+          "label": "Prompt edits",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Prompt edits",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 150,
+            "width": 250,
+            "height": 65
+          }
+        },
+        {
+          "label": "Generate frames",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Generate frames",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 350,
+            "y": 145,
+            "width": 330,
+            "height": 60
+          }
+        },
+        {
+          "label": "Native audio",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Native audio",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 365,
+            "y": 430,
+            "width": 310,
+            "height": 55
+          }
+        },
+        {
+          "label": "Observe frames",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Observe frames",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 815,
+            "y": 130,
+            "width": 330,
+            "height": 55
+          }
+        },
+        {
+          "label": "Plan next steps",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Plan next steps",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 815,
+            "y": 260,
+            "width": 330,
+            "height": 55
+          }
+        },
+        {
+          "label": "Steer simulation",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Steer simulation",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 410,
+            "y": 300,
+            "width": 330,
+            "height": 60
+          }
+        },
+        {
+          "label": "Continuity can drift",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Continuity can drift",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 690,
+            "y": 490,
+            "width": 450,
+            "height": 50
+          }
+        },
+        {
+          "label": "Research preview",
+          "region": "central layered frame assembly with upper-right observation loop and lower audio output: Research preview",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 535,
+            "width": 540,
+            "height": 45
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Research preview; continuity can drift, with no dependable simulation outcome implied.",
+      "causal_state_checks": [
+        {
+          "condition": "Only the source-supported relation between Prompt edits and Generate frames",
+          "allowed_path": "Prompt edits to Generate frames",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "render"
+        },
+        {
+          "condition": "Only the source-supported relation between Generate frames and Native audio",
+          "allowed_path": "Generate frames to Native audio",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "render"
+        },
+        {
+          "condition": "Only the source-supported relation between Generate frames and Observe frames",
+          "allowed_path": "Generate frames to Observe frames",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "steer"
+        },
+        {
+          "condition": "Only the source-supported relation between Observe frames and Plan next steps",
+          "allowed_path": "Observe frames to Plan next steps",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "steer"
+        },
+        {
+          "condition": "Only the source-supported relation between Plan next steps and Steer simulation",
+          "allowed_path": "Plan next steps to Steer simulation",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "steer"
+        },
+        {
+          "condition": "Only the source-supported relation between Steer simulation and Generate frames",
+          "allowed_path": "Steer simulation to Generate frames",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "steer"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Prompt edits",
+          "to": "Generate frames",
+          "direction": "conditional",
+          "support_claim_id": "render",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Prompt edits region",
+          "target_region": "Generate frames region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Generate frames",
+          "to": "Native audio",
+          "direction": "conditional",
+          "support_claim_id": "render",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Generate frames region",
+          "target_region": "Native audio region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Generate frames",
+          "to": "Observe frames",
+          "direction": "conditional",
+          "support_claim_id": "steer",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Generate frames region",
+          "target_region": "Observe frames region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Observe frames",
+          "to": "Plan next steps",
+          "direction": "conditional",
+          "support_claim_id": "steer",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Observe frames region",
+          "target_region": "Plan next steps region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Plan next steps",
+          "to": "Steer simulation",
+          "direction": "conditional",
+          "support_claim_id": "steer",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Plan next steps region",
+          "target_region": "Steer simulation region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Steer simulation",
+          "to": "Generate frames",
+          "direction": "conditional",
+          "support_claim_id": "steer",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Steer simulation region",
+          "target_region": "Generate frames region",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Live world simulation",
+        "Prompt edits"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Prompt edits",
+        "Generate frames"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-28",
+    "story_id": "oct28-t2-agent-fabric-evals",
+    "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+    "visual_thesis": "Quality failures lead through policy approval to quarantine, correction and re-evaluation; budget limits independently stop requests.",
+    "story_anchors": [
+      "Agent Evals compares production results with quality thresholds.",
+      "The example quarantines only after approval and returns only after re-evaluation."
+    ],
+    "required_labels": [
+      "Evaluate live agents",
+      "Quality threshold",
+      "Policy approval",
+      "Quarantine",
+      "Refine instructions",
+      "Rerun evaluation",
+      "Return if passing",
+      "Budget limit",
+      "Stop requests",
+      "Availability varies"
+    ],
+    "source_claim_map": [
+      {
+        "id": "quality",
+        "proposition": "Quality tests trigger predefined interventions, with approval when required by policy.",
+        "supporting_source_excerpt": "with approval where",
+        "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "recovery",
+        "proposition": "The retailer refines instructions, reruns evaluation and only then returns the agent to production.",
+        "supporting_source_excerpt": "They rerun the evaluation",
+        "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "budget",
+        "proposition": "Hard spending limits stop requests before exceeding the budget.",
+        "supporting_source_excerpt": "hard limits that stop requests",
+        "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Evaluate live agents",
+        "to": "Quality threshold",
+        "direction": "conditional",
+        "support_claim_id": "quality",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Quality threshold",
+        "to": "Policy approval",
+        "direction": "conditional",
+        "support_claim_id": "quality",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Policy approval",
+        "to": "Quarantine",
+        "direction": "conditional",
+        "support_claim_id": "quality",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Quarantine",
+        "to": "Refine instructions",
+        "direction": "conditional",
+        "support_claim_id": "recovery",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Refine instructions",
+        "to": "Rerun evaluation",
+        "direction": "conditional",
+        "support_claim_id": "recovery",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Rerun evaluation",
+        "to": "Return if passing",
+        "direction": "conditional",
+        "support_claim_id": "recovery",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Budget limit",
+        "to": "Stop requests",
+        "direction": "conditional",
+        "support_claim_id": "budget",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unconditional return to production, approved-before-detection reversal, invented dashboard, numeric savings or general availability claim.",
+      "No extra text, fake writing, logos, people, scenery, scores, success marks or unsupported causal links."
+    ],
+    "mechanism_metaphor": "quarantine and return-to-service switchyard",
+    "composition_signature": {
+      "grammar": "conditional intervention switchback",
+      "metaphor": "quarantine and return-to-service switchyard",
+      "layout": "upper quality path descends through approval then reverses through correction; independent bottom budget rail",
+      "palette": "rust and charcoal",
+      "hierarchy": "conditional intervention switchback dominant mechanism",
+      "annotation": "on-path state labels",
+      "perspective": "clean editorial plan view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "components": [
+        "live-agent input",
+        "quality comparison",
+        "threshold breach branch",
+        "policy approval gate",
+        "approval-required blocked route",
+        "quarantined execution state",
+        "instruction revision stage",
+        "new evaluation stage",
+        "conditional return route",
+        "separate spending monitor",
+        "hard budget boundary",
+        "request stop terminus"
+      ]
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Evaluate live agents",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Evaluate live agents",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1100,
+            "height": 48
+          }
+        },
+        {
+          "label": "Quality threshold",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Quality threshold",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 145,
+            "width": 320,
+            "height": 55
+          }
+        },
+        {
+          "label": "Policy approval",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Policy approval",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 445,
+            "y": 145,
+            "width": 320,
+            "height": 55
+          }
+        },
+        {
+          "label": "Quarantine",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Quarantine",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 845,
+            "y": 145,
+            "width": 300,
+            "height": 55
+          }
+        },
+        {
+          "label": "Refine instructions",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Refine instructions",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 845,
+            "y": 300,
+            "width": 300,
+            "height": 65
+          }
+        },
+        {
+          "label": "Rerun evaluation",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Rerun evaluation",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 445,
+            "y": 300,
+            "width": 320,
+            "height": 65
+          }
+        },
+        {
+          "label": "Return if passing",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Return if passing",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 300,
+            "width": 320,
+            "height": 65
+          }
+        },
+        {
+          "label": "Budget limit",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Budget limit",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 465,
+            "width": 330,
+            "height": 55
+          }
+        },
+        {
+          "label": "Stop requests",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Stop requests",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 470,
+            "y": 465,
+            "width": 330,
+            "height": 55
+          }
+        },
+        {
+          "label": "Availability varies",
+          "region": "upper quality path descends through approval then reverses through correction; independent bottom budget rail: Availability varies",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 820,
+            "y": 535,
+            "width": 330,
+            "height": 45
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor announcement; availability varies and example outcomes are not independent benchmark results.",
+      "causal_state_checks": [
+        {
+          "condition": "Only the source-supported relation between Evaluate live agents and Quality threshold",
+          "allowed_path": "Evaluate live agents to Quality threshold",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "quality"
+        },
+        {
+          "condition": "Only the source-supported relation between Quality threshold and Policy approval",
+          "allowed_path": "Quality threshold to Policy approval",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "quality"
+        },
+        {
+          "condition": "Only the source-supported relation between Policy approval and Quarantine",
+          "allowed_path": "Policy approval to Quarantine",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "quality"
+        },
+        {
+          "condition": "Only the source-supported relation between Quarantine and Refine instructions",
+          "allowed_path": "Quarantine to Refine instructions",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "recovery"
+        },
+        {
+          "condition": "Only the source-supported relation between Refine instructions and Rerun evaluation",
+          "allowed_path": "Refine instructions to Rerun evaluation",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "recovery"
+        },
+        {
+          "condition": "Only the source-supported relation between Rerun evaluation and Return if passing",
+          "allowed_path": "Rerun evaluation to Return if passing",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "recovery"
+        },
+        {
+          "condition": "Only the source-supported relation between Budget limit and Stop requests",
+          "allowed_path": "Budget limit to Stop requests",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "budget"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Evaluate live agents",
+          "to": "Quality threshold",
+          "direction": "conditional",
+          "support_claim_id": "quality",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Evaluate live agents region",
+          "target_region": "Quality threshold region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Quality threshold",
+          "to": "Policy approval",
+          "direction": "conditional",
+          "support_claim_id": "quality",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Quality threshold region",
+          "target_region": "Policy approval region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Policy approval",
+          "to": "Quarantine",
+          "direction": "conditional",
+          "support_claim_id": "quality",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Policy approval region",
+          "target_region": "Quarantine region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Quarantine",
+          "to": "Refine instructions",
+          "direction": "conditional",
+          "support_claim_id": "recovery",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Quarantine region",
+          "target_region": "Refine instructions region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Refine instructions",
+          "to": "Rerun evaluation",
+          "direction": "conditional",
+          "support_claim_id": "recovery",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Refine instructions region",
+          "target_region": "Rerun evaluation region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Rerun evaluation",
+          "to": "Return if passing",
+          "direction": "conditional",
+          "support_claim_id": "recovery",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Rerun evaluation region",
+          "target_region": "Return if passing region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Budget limit",
+          "to": "Stop requests",
+          "direction": "conditional",
+          "support_claim_id": "budget",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Budget limit region",
+          "target_region": "Stop requests region",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Evaluate live agents",
+        "Quality threshold"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Quality threshold",
+        "Policy approval"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-28",
+    "story_id": "oct28-k1-claude-drug-development",
+    "source_url": "https://www.anthropic.com/research/early-progress-drug-development",
+    "visual_thesis": "AI proposals and raw-data analysis are tested and refined in a laboratory loop, while manufacturing review and trial planning are distinct research tasks.",
+    "story_anchors": [
+      "BigHat made and tested variants and revised misleading metrics through raw-data analysis.",
+      "Enveda reviewed manufacturing documents; BMS is exploring clinical trial planning."
+    ],
+    "required_labels": [
+      "Research goal",
+      "Propose variants",
+      "Lab tests",
+      "Analyze raw data",
+      "Refine protocol",
+      "Reviewed evidence",
+      "Manufacturing review",
+      "Trial planning",
+      "Mostly preclinical"
+    ],
+    "source_claim_map": [
+      {
+        "id": "lab",
+        "proposition": "Claude proposes variants and BigHat scientists make and test them in the laboratory.",
+        "supporting_source_excerpt": "made and tested",
+        "source_url": "https://www.anthropic.com/research/early-progress-drug-development",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "raw",
+        "proposition": "Raw-data reanalysis motivates revised metrics and a protocol refined and run by scientists.",
+        "supporting_source_excerpt": "reanalyzed the raw data",
+        "source_url": "https://www.anthropic.com/research/early-progress-drug-development",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "scope",
+        "proposition": "Separate partnerships address manufacturing documentation and trial planning; most research remains preclinical.",
+        "supporting_source_excerpt": "mostly preclinical",
+        "source_url": "https://www.anthropic.com/research/early-progress-drug-development",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Research goal",
+        "to": "Propose variants",
+        "direction": "conditional",
+        "support_claim_id": "lab",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Propose variants",
+        "to": "Lab tests",
+        "direction": "conditional",
+        "support_claim_id": "lab",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Lab tests",
+        "to": "Analyze raw data",
+        "direction": "conditional",
+        "support_claim_id": "raw",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Analyze raw data",
+        "to": "Refine protocol",
+        "direction": "conditional",
+        "support_claim_id": "raw",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Refine protocol",
+        "to": "Lab tests",
+        "direction": "conditional",
+        "support_claim_id": "raw",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Lab tests",
+        "to": "Reviewed evidence",
+        "direction": "conditional",
+        "support_claim_id": "lab",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No molecule promised to cure disease, patients, human or animal figures, false clinical success, fake document writing or made-up lab scores.",
+      "No extra text, fake writing, logos, people, scenery, scores, success marks or unsupported causal links."
+    ],
+    "mechanism_metaphor": "laboratory iteration with separate workstreams",
+    "composition_signature": {
+      "grammar": "experimental spiral and parallel evidence wings",
+      "metaphor": "laboratory iteration with separate workstreams",
+      "layout": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams",
+      "palette": "teal and muted gold",
+      "hierarchy": "experimental spiral and parallel evidence wings dominant mechanism",
+      "annotation": "orbit stage callouts",
+      "perspective": "clean editorial plan view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "components": [
+        "research goal input",
+        "candidate variation family",
+        "proposal sequence",
+        "lab test well array",
+        "experimental observations",
+        "raw-data analysis",
+        "metric reassessment",
+        "protocol refinement",
+        "lab feedback route",
+        "reviewed evidence boundary",
+        "separate manufacturing review workstream",
+        "separate trial planning workstream"
+      ]
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Research goal",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Research goal",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 380,
+            "height": 48
+          }
+        },
+        {
+          "label": "Propose variants",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Propose variants",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 150,
+            "width": 310,
+            "height": 55
+          }
+        },
+        {
+          "label": "Lab tests",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Lab tests",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 150,
+            "width": 300,
+            "height": 55
+          }
+        },
+        {
+          "label": "Analyze raw data",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Analyze raw data",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 340,
+            "width": 330,
+            "height": 65
+          }
+        },
+        {
+          "label": "Refine protocol",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Refine protocol",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 340,
+            "width": 310,
+            "height": 65
+          }
+        },
+        {
+          "label": "Reviewed evidence",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Reviewed evidence",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 150,
+            "width": 350,
+            "height": 55
+          }
+        },
+        {
+          "label": "Manufacturing review",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Manufacturing review",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 285,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Trial planning",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Trial planning",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 420,
+            "width": 350,
+            "height": 55
+          }
+        },
+        {
+          "label": "Mostly preclinical",
+          "region": "left-to-center circular proposal-test-analysis cycle with separate right-side manufacturing and planning workstreams: Mostly preclinical",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 535,
+            "width": 1100,
+            "height": 45
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Mostly preclinical, early partner-reported research; no validated medicine or clinical efficacy implied.",
+      "causal_state_checks": [
+        {
+          "condition": "Only the source-supported relation between Research goal and Propose variants",
+          "allowed_path": "Research goal to Propose variants",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "lab"
+        },
+        {
+          "condition": "Only the source-supported relation between Propose variants and Lab tests",
+          "allowed_path": "Propose variants to Lab tests",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "lab"
+        },
+        {
+          "condition": "Only the source-supported relation between Lab tests and Analyze raw data",
+          "allowed_path": "Lab tests to Analyze raw data",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "raw"
+        },
+        {
+          "condition": "Only the source-supported relation between Analyze raw data and Refine protocol",
+          "allowed_path": "Analyze raw data to Refine protocol",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "raw"
+        },
+        {
+          "condition": "Only the source-supported relation between Refine protocol and Lab tests",
+          "allowed_path": "Refine protocol to Lab tests",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "raw"
+        },
+        {
+          "condition": "Only the source-supported relation between Lab tests and Reviewed evidence",
+          "allowed_path": "Lab tests to Reviewed evidence",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "lab"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Research goal",
+          "to": "Propose variants",
+          "direction": "conditional",
+          "support_claim_id": "lab",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Research goal region",
+          "target_region": "Propose variants region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Propose variants",
+          "to": "Lab tests",
+          "direction": "conditional",
+          "support_claim_id": "lab",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Propose variants region",
+          "target_region": "Lab tests region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Lab tests",
+          "to": "Analyze raw data",
+          "direction": "conditional",
+          "support_claim_id": "raw",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Lab tests region",
+          "target_region": "Analyze raw data region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Analyze raw data",
+          "to": "Refine protocol",
+          "direction": "conditional",
+          "support_claim_id": "raw",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Analyze raw data region",
+          "target_region": "Refine protocol region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Refine protocol",
+          "to": "Lab tests",
+          "direction": "conditional",
+          "support_claim_id": "raw",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Refine protocol region",
+          "target_region": "Lab tests region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Lab tests",
+          "to": "Reviewed evidence",
+          "direction": "conditional",
+          "support_claim_id": "lab",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Lab tests region",
+          "target_region": "Reviewed evidence region",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Research goal",
+        "Propose variants"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Propose variants",
+        "Lab tests"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://www.anthropic.com/research/early-progress-drug-development",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-28",
+    "story_id": "oct28-k2-isolated-ai-work",
+    "source_url": "https://www.salesforce.com/news/stories/work-stalls-isolated-ai-tools/",
+    "visual_thesis": "Private AI contexts leave outputs unshared, repeat work and delay handoffs; team audits can reveal those coordination gaps without claiming measured productivity gains.",
+    "story_anchors": [
+      "The survey reports unshared insights, duplicated problem-solving and stalled work.",
+      "The source measures executive perceptions rather than observed productivity."
+    ],
+    "required_labels": [
+      "Private AI sessions",
+      "Unshared insights",
+      "Duplicate work",
+      "Stalled handoffs",
+      "Switching tools",
+      "Audit shared context",
+      "Name handoff owners",
+      "Executive survey",
+      "Perceptions, not measured gains"
+    ],
+    "source_claim_map": [
+      {
+        "id": "isolation",
+        "proposition": "Separate chat histories can leave outputs unavailable to colleagues.",
+        "supporting_source_excerpt": "insights go unshared",
+        "source_url": "https://www.salesforce.com/news/stories/work-stalls-isolated-ai-tools/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "duplication",
+        "proposition": "Executives report duplicated work and handoff delays when AI context is isolated.",
+        "supporting_source_excerpt": "solve the same problem",
+        "source_url": "https://www.salesforce.com/news/stories/work-stalls-isolated-ai-tools/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "limits",
+        "proposition": "The results are a vendor-sponsored executive survey, not direct productivity measurements.",
+        "supporting_source_excerpt": "250 U.S. executives",
+        "source_url": "https://www.salesforce.com/news/stories/work-stalls-isolated-ai-tools/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Private AI sessions",
+        "to": "Unshared insights",
+        "direction": "conditional",
+        "support_claim_id": "isolation",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Unshared insights",
+        "to": "Duplicate work",
+        "direction": "conditional",
+        "support_claim_id": "duplication",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Unshared insights",
+        "to": "Stalled handoffs",
+        "direction": "conditional",
+        "support_claim_id": "duplication",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No proven productivity uplift, before-after success claim, numeric chart, people or anthropomorphic icons; audit suggestions stay separate from survey findings.",
+      "No extra text, fake writing, logos, people, scenery, scores, success marks or unsupported causal links."
+    ],
+    "mechanism_metaphor": "disconnected context islands and audit bridges",
+    "composition_signature": {
+      "grammar": "isolation topology with detached audit bracket",
+      "metaphor": "disconnected context islands and audit bridges",
+      "layout": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation",
+      "palette": "olive and ink",
+      "hierarchy": "isolation topology with detached audit bracket dominant mechanism",
+      "annotation": "dotted association leaders and audit brace",
+      "perspective": "clean editorial plan view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "components": [
+        "private context island one",
+        "private context island two",
+        "private context island three",
+        "unshared knowledge boundary",
+        "repeated task at two islands",
+        "duplicate output association",
+        "missing handoff bridge",
+        "delayed downstream task",
+        "switching between contexts",
+        "shared-context audit brace",
+        "handoff-owner recommendation",
+        "survey limitation footer"
+      ]
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Private AI sessions",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Private AI sessions",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1100,
+            "height": 48
+          }
+        },
+        {
+          "label": "Unshared insights",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Unshared insights",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 160,
+            "width": 330,
+            "height": 60
+          }
+        },
+        {
+          "label": "Duplicate work",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Duplicate work",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 440,
+            "y": 140,
+            "width": 330,
+            "height": 60
+          }
+        },
+        {
+          "label": "Stalled handoffs",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Stalled handoffs",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 820,
+            "y": 160,
+            "width": 330,
+            "height": 60
+          }
+        },
+        {
+          "label": "Switching tools",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Switching tools",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 440,
+            "y": 330,
+            "width": 330,
+            "height": 60
+          }
+        },
+        {
+          "label": "Audit shared context",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Audit shared context",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 435,
+            "width": 430,
+            "height": 60
+          }
+        },
+        {
+          "label": "Name handoff owners",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Name handoff owners",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 640,
+            "y": 435,
+            "width": 500,
+            "height": 60
+          }
+        },
+        {
+          "label": "Executive survey",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Executive survey",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 535,
+            "width": 330,
+            "height": 45
+          }
+        },
+        {
+          "label": "Perceptions, not measured gains",
+          "region": "three staggered disconnected context islands above; consequence branches to right; lower audit brace remains recommendation: Perceptions, not measured gains",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 450,
+            "y": 535,
+            "width": 700,
+            "height": 45
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Executive perceptions from a vendor survey, not measured productivity; audits do not guarantee gains.",
+      "causal_state_checks": [
+        {
+          "condition": "Only the source-supported relation between Private AI sessions and Unshared insights",
+          "allowed_path": "Private AI sessions to Unshared insights",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "isolation"
+        },
+        {
+          "condition": "Only the source-supported relation between Unshared insights and Duplicate work",
+          "allowed_path": "Unshared insights to Duplicate work",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "duplication"
+        },
+        {
+          "condition": "Only the source-supported relation between Unshared insights and Stalled handoffs",
+          "allowed_path": "Unshared insights to Stalled handoffs",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "duplication"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Private AI sessions",
+          "to": "Unshared insights",
+          "direction": "conditional",
+          "support_claim_id": "isolation",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Private AI sessions region",
+          "target_region": "Unshared insights region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Unshared insights",
+          "to": "Duplicate work",
+          "direction": "conditional",
+          "support_claim_id": "duplication",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Unshared insights region",
+          "target_region": "Duplicate work region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Unshared insights",
+          "to": "Stalled handoffs",
+          "direction": "conditional",
+          "support_claim_id": "duplication",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Unshared insights region",
+          "target_region": "Stalled handoffs region",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Private AI sessions",
+        "Unshared insights"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Unshared insights",
+        "Duplicate work"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://www.salesforce.com/news/stories/work-stalls-isolated-ai-tools/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-28",
+    "story_id": "oct28-a1-oracle-ai-workspace",
+    "source_url": "https://www.oracle.com/asean/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/",
+    "visual_thesis": "A business goal is translated through a workspace into scoped records and tools; permissions and approvals govern the action.",
+    "story_anchors": [
+      "Oracle describes ChatGPT plugins connecting applications, database, cloud and enterprise data.",
+      "Governance and approvals remain requirements for approved business workflows."
+    ],
+    "required_labels": [
+      "Business goal",
+      "ChatGPT workspace",
+      "Approved records",
+      "Fusion and NetSuite",
+      "Database and cloud",
+      "Review permissions",
+      "Approval gate",
+      "Authorized workflow",
+      "Planned capabilities"
+    ],
+    "source_claim_map": [
+      {
+        "id": "workspace",
+        "proposition": "The workspace connects business goals with Oracle tools and information.",
+        "supporting_source_excerpt": "describe business goals",
+        "source_url": "https://www.oracle.com/asean/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "systems",
+        "proposition": "Designed connections include Fusion, NetSuite, database, cloud and approved enterprise data.",
+        "supporting_source_excerpt": "enterprise data, and cloud services",
+        "source_url": "https://www.oracle.com/asean/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "authority",
+        "proposition": "Governance and approvals constrain completed business workflows.",
+        "supporting_source_excerpt": "governance, approvals, and controls",
+        "source_url": "https://www.oracle.com/asean/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Business goal",
+        "to": "ChatGPT workspace",
+        "direction": "conditional",
+        "support_claim_id": "workspace",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Fusion and NetSuite",
+        "to": "Approved records",
+        "direction": "conditional",
+        "support_claim_id": "systems",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Database and cloud",
+        "to": "Approved records",
+        "direction": "conditional",
+        "support_claim_id": "systems",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Approved records",
+        "to": "ChatGPT workspace",
+        "direction": "conditional",
+        "support_claim_id": "workspace",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "ChatGPT workspace",
+        "to": "Review permissions",
+        "direction": "conditional",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Review permissions",
+        "to": "Approval gate",
+        "direction": "conditional",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Approval gate",
+        "to": "Authorized workflow",
+        "direction": "conditional",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No logo, invented product UI, unrestricted records, bypassed approval, guaranteed completed business result or deployment availability claim.",
+      "No extra text, fake writing, logos, people, scenery, scores, success marks or unsupported causal links."
+    ],
+    "mechanism_metaphor": "scoped information fan-in and authority corridor",
+    "composition_signature": {
+      "grammar": "tiered enterprise access section",
+      "metaphor": "scoped information fan-in and authority corridor",
+      "layout": "central workspace lens over lower paired system reservoirs; right permission and approval corridor",
+      "palette": "plum and warm gray",
+      "hierarchy": "tiered enterprise access section dominant mechanism",
+      "annotation": "tier bands and boundary labels",
+      "perspective": "sectional shallow layers"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "components": [
+        "business goal inlet",
+        "workspace interpretation lens",
+        "plugin tool selection",
+        "approved records boundary",
+        "Fusion connection",
+        "NetSuite connection",
+        "database connection",
+        "cloud connection",
+        "permission scope check",
+        "approval gate",
+        "authorized action route",
+        "future-product caveat"
+      ]
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Business goal",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Business goal",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1100,
+            "height": 48
+          }
+        },
+        {
+          "label": "ChatGPT workspace",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: ChatGPT workspace",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 380,
+            "y": 160,
+            "width": 400,
+            "height": 65
+          }
+        },
+        {
+          "label": "Approved records",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Approved records",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 390,
+            "y": 320,
+            "width": 390,
+            "height": 60
+          }
+        },
+        {
+          "label": "Fusion and NetSuite",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Fusion and NetSuite",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 435,
+            "width": 400,
+            "height": 65
+          }
+        },
+        {
+          "label": "Database and cloud",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Database and cloud",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 475,
+            "y": 435,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Review permissions",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Review permissions",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 825,
+            "y": 150,
+            "width": 330,
+            "height": 65
+          }
+        },
+        {
+          "label": "Approval gate",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Approval gate",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 825,
+            "y": 285,
+            "width": 330,
+            "height": 55
+          }
+        },
+        {
+          "label": "Authorized workflow",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Authorized workflow",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 825,
+            "y": 425,
+            "width": 330,
+            "height": 65
+          }
+        },
+        {
+          "label": "Planned capabilities",
+          "region": "central workspace lens over lower paired system reservoirs; right permission and approval corridor: Planned capabilities",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 535,
+            "width": 1100,
+            "height": 45
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Planned product capabilities; no broad availability, customer result or unrestricted access implied.",
+      "causal_state_checks": [
+        {
+          "condition": "Only the source-supported relation between Business goal and ChatGPT workspace",
+          "allowed_path": "Business goal to ChatGPT workspace",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "workspace"
+        },
+        {
+          "condition": "Only the source-supported relation between Fusion and NetSuite and Approved records",
+          "allowed_path": "Fusion and NetSuite to Approved records",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "systems"
+        },
+        {
+          "condition": "Only the source-supported relation between Database and cloud and Approved records",
+          "allowed_path": "Database and cloud to Approved records",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "systems"
+        },
+        {
+          "condition": "Only the source-supported relation between Approved records and ChatGPT workspace",
+          "allowed_path": "Approved records to ChatGPT workspace",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "workspace"
+        },
+        {
+          "condition": "Only the source-supported relation between ChatGPT workspace and Review permissions",
+          "allowed_path": "ChatGPT workspace to Review permissions",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "authority"
+        },
+        {
+          "condition": "Only the source-supported relation between Review permissions and Approval gate",
+          "allowed_path": "Review permissions to Approval gate",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "authority"
+        },
+        {
+          "condition": "Only the source-supported relation between Approval gate and Authorized workflow",
+          "allowed_path": "Approval gate to Authorized workflow",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "authority"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Business goal",
+          "to": "ChatGPT workspace",
+          "direction": "conditional",
+          "support_claim_id": "workspace",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Business goal region",
+          "target_region": "ChatGPT workspace region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Fusion and NetSuite",
+          "to": "Approved records",
+          "direction": "conditional",
+          "support_claim_id": "systems",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Fusion and NetSuite region",
+          "target_region": "Approved records region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Database and cloud",
+          "to": "Approved records",
+          "direction": "conditional",
+          "support_claim_id": "systems",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Database and cloud region",
+          "target_region": "Approved records region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Approved records",
+          "to": "ChatGPT workspace",
+          "direction": "conditional",
+          "support_claim_id": "workspace",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Approved records region",
+          "target_region": "ChatGPT workspace region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "ChatGPT workspace",
+          "to": "Review permissions",
+          "direction": "conditional",
+          "support_claim_id": "authority",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "ChatGPT workspace region",
+          "target_region": "Review permissions region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Review permissions",
+          "to": "Approval gate",
+          "direction": "conditional",
+          "support_claim_id": "authority",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Review permissions region",
+          "target_region": "Approval gate region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Approval gate",
+          "to": "Authorized workflow",
+          "direction": "conditional",
+          "support_claim_id": "authority",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Approval gate region",
+          "target_region": "Authorized workflow region",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Business goal",
+        "ChatGPT workspace"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "ChatGPT workspace",
+        "Approved records"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://www.oracle.com/asean/news/announcement/ai-world-oracle-reinvents-enterprise-computing-for-the-ai-era-with-openai-2026-10-27/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-28",
+    "story_id": "oct28-a2-agent-access-review-skill",
+    "source_url": "https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents,-securing-frontier-intelligence-for-the-enterprise",
+    "visual_thesis": "A reusable review binds owner, task and systems to least privilege and short-lived authority, with human approval, denial or revocation and audit evidence.",
+    "story_anchors": [
+      "Agent Identity records ownership and granted authority.",
+      "Vault uses short-lived credentials, least privilege and real-time revocation."
+    ],
+    "required_labels": [
+      "Agent access review",
+      "Named owner",
+      "Bounded task",
+      "Allowed systems",
+      "Least privilege",
+      "Short-lived credentials",
+      "Human approval",
+      "Deny or revoke",
+      "Retain audit evidence",
+      "Vendor claims"
+    ],
+    "source_claim_map": [
+      {
+        "id": "identity",
+        "proposition": "Agent identity associates a named owner and granted authority with each agent.",
+        "supporting_source_excerpt": "who owns each agent",
+        "source_url": "https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents,-securing-frontier-intelligence-for-the-enterprise",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "access",
+        "proposition": "Vault constrains resource permissions and credential duration, denying and revoking unauthorized activity.",
+        "supporting_source_excerpt": "short-lived credentials",
+        "source_url": "https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents,-securing-frontier-intelligence-for-the-enterprise",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "review",
+        "proposition": "The Brief proposes a reusable human review of task, systems, lifetime and revocation with retained evidence.",
+        "supporting_source_excerpt": "authority and accountability",
+        "source_url": "https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents,-securing-frontier-intelligence-for-the-enterprise",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Named owner",
+        "to": "Human approval",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Bounded task",
+        "to": "Human approval",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Allowed systems",
+        "to": "Human approval",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Human approval",
+        "to": "Least privilege",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Least privilege",
+        "to": "Short-lived credentials",
+        "direction": "conditional",
+        "support_claim_id": "access",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Short-lived credentials",
+        "to": "Deny or revoke",
+        "direction": "conditional",
+        "support_claim_id": "access",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Human approval",
+        "to": "Retain audit evidence",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Deny or revoke",
+        "to": "Retain audit evidence",
+        "direction": "conditional",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No person icon, shield badge, automatic universal safety, infinite credential, guaranteed enforcement result or vendor certification of the editorial procedure.",
+      "No extra text, fake writing, logos, people, scenery, scores, success marks or unsupported causal links."
+    ],
+    "mechanism_metaphor": "access mandate with finite credential boundary",
+    "composition_signature": {
+      "grammar": "radial mandate and revocation arc",
+      "metaphor": "access mandate with finite credential boundary",
+      "layout": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail",
+      "palette": "navy and brick",
+      "hierarchy": "radial mandate and revocation arc dominant mechanism",
+      "annotation": "radial spoke labels and side audit rail",
+      "perspective": "clean editorial plan view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "components": [
+        "owner mandate spoke",
+        "task mandate spoke",
+        "system scope spoke",
+        "identity authority record",
+        "human review gate",
+        "least-privilege aperture",
+        "finite credential envelope",
+        "credential lifetime boundary",
+        "unauthorized-action stop",
+        "revocation arc",
+        "review decision evidence rail",
+        "vendor-versus-recommendation limitation"
+      ]
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Agent access review",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Agent access review",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 42,
+            "width": 1100,
+            "height": 48
+          }
+        },
+        {
+          "label": "Named owner",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Named owner",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 145,
+            "width": 300,
+            "height": 55
+          }
+        },
+        {
+          "label": "Bounded task",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Bounded task",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 440,
+            "y": 135,
+            "width": 320,
+            "height": 55
+          }
+        },
+        {
+          "label": "Allowed systems",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Allowed systems",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 835,
+            "y": 145,
+            "width": 310,
+            "height": 55
+          }
+        },
+        {
+          "label": "Least privilege",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Least privilege",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 350,
+            "width": 320,
+            "height": 55
+          }
+        },
+        {
+          "label": "Short-lived credentials",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Short-lived credentials",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 400,
+            "y": 430,
+            "width": 390,
+            "height": 65
+          }
+        },
+        {
+          "label": "Human approval",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Human approval",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 425,
+            "y": 265,
+            "width": 350,
+            "height": 55
+          }
+        },
+        {
+          "label": "Deny or revoke",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Deny or revoke",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 835,
+            "y": 350,
+            "width": 310,
+            "height": 65
+          }
+        },
+        {
+          "label": "Retain audit evidence",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Retain audit evidence",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 460,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Vendor claims",
+          "region": "radial owner-task-system spokes converge on review; lower finite credential ring with revocation arc and external audit rail: Vendor claims",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 48,
+            "y": 535,
+            "width": 400,
+            "height": 45
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor product claims; the human access-review procedure is an editorial recommendation, not a vendor certification.",
+      "causal_state_checks": [
+        {
+          "condition": "Only the source-supported relation between Named owner and Human approval",
+          "allowed_path": "Named owner to Human approval",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "review"
+        },
+        {
+          "condition": "Only the source-supported relation between Bounded task and Human approval",
+          "allowed_path": "Bounded task to Human approval",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "review"
+        },
+        {
+          "condition": "Only the source-supported relation between Allowed systems and Human approval",
+          "allowed_path": "Allowed systems to Human approval",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "review"
+        },
+        {
+          "condition": "Only the source-supported relation between Human approval and Least privilege",
+          "allowed_path": "Human approval to Least privilege",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "review"
+        },
+        {
+          "condition": "Only the source-supported relation between Least privilege and Short-lived credentials",
+          "allowed_path": "Least privilege to Short-lived credentials",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "access"
+        },
+        {
+          "condition": "Only the source-supported relation between Short-lived credentials and Deny or revoke",
+          "allowed_path": "Short-lived credentials to Deny or revoke",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "access"
+        },
+        {
+          "condition": "Only the source-supported relation between Human approval and Retain audit evidence",
+          "allowed_path": "Human approval to Retain audit evidence",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "review"
+        },
+        {
+          "condition": "Only the source-supported relation between Deny or revoke and Retain audit evidence",
+          "allowed_path": "Deny or revoke to Retain audit evidence",
+          "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
+          "support_claim_id": "review"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Named owner",
+          "to": "Human approval",
+          "direction": "conditional",
+          "support_claim_id": "review",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Named owner region",
+          "target_region": "Human approval region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Bounded task",
+          "to": "Human approval",
+          "direction": "conditional",
+          "support_claim_id": "review",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Bounded task region",
+          "target_region": "Human approval region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Allowed systems",
+          "to": "Human approval",
+          "direction": "conditional",
+          "support_claim_id": "review",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Allowed systems region",
+          "target_region": "Human approval region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Human approval",
+          "to": "Least privilege",
+          "direction": "conditional",
+          "support_claim_id": "review",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Human approval region",
+          "target_region": "Least privilege region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Least privilege",
+          "to": "Short-lived credentials",
+          "direction": "conditional",
+          "support_claim_id": "access",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Least privilege region",
+          "target_region": "Short-lived credentials region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Short-lived credentials",
+          "to": "Deny or revoke",
+          "direction": "conditional",
+          "support_claim_id": "access",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Short-lived credentials region",
+          "target_region": "Deny or revoke region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Human approval",
+          "to": "Retain audit evidence",
+          "direction": "conditional",
+          "support_claim_id": "review",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Human approval region",
+          "target_region": "Retain audit evidence region",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Deny or revoke",
+          "to": "Retain audit evidence",
+          "direction": "conditional",
+          "support_claim_id": "review",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Deny or revoke region",
+          "target_region": "Retain audit evidence region",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Agent access review",
+        "Named owner"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Named owner",
+        "Bounded task"
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image worker",
+      "source_url": "https://newsroom.ibm.com/2026-10-27-ibm-introduces-identity-and-control-for-ai-agents,-securing-frontier-intelligence-for-the-enterprise",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  }
+]
