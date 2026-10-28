@@ -1,5 +1,6 @@
 import {OCT9_RECOVERY_BRANCH,isAuthorizedOct9Recovery} from '../compiler/oct9-owner-exception.mjs';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 
 const branch=process.argv[2] || process.env.GITHUB_REF_NAME || '';
@@ -21,7 +22,12 @@ const state=JSON.parse(fs.readFileSync(statePath,'utf8'));
 const readyState=(state.state==='BUNDLE_READY' && state.stage==='BUNDLE') || (allowVerified && state.state==='SHADOW_VERIFIED' && state.stage==='VERIFY');
 const bundlePath=path.join(root,'shadow-runs',date,'edition-bundle.json');
 const exceptionValid=!isOct9Recovery || (fs.existsSync(bundlePath) && isAuthorizedOct9Recovery({state,bundle:JSON.parse(fs.readFileSync(bundlePath,'utf8'))}));
-const ready=exceptionValid && readyState &&
+const bundleBytes=fs.existsSync(bundlePath)?fs.readFileSync(bundlePath):null;
+const bundleDigest=bundleBytes?crypto.createHash('sha256').update(bundleBytes).digest('hex'):null;
+let bundleIdentityMatches=false;
+if(bundleBytes){try{bundleIdentityMatches=JSON.parse(bundleBytes).edition_date===date;}catch{}}
+const ready=exceptionValid && readyState && bundleIdentityMatches &&
+  bundleDigest===state.bundle?.digest &&
   state.bundle?.status==='BUNDLE_READY' &&
   typeof state.bundle?.digest==='string' &&
   /^[a-f0-9]{64}$/.test(state.bundle.digest);
