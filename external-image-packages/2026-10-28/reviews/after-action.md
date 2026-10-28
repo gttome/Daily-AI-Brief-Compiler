@@ -1,6 +1,6 @@
 # 2026-10-28 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | f862fe78dbbfd6377744076ba55c50e45ec57f81 |
 | Executor observed run start | 2026-10-28T02:16:49Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-28T02:21:51Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_PUBLICATION; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-28T03:08:45.299Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -46,6 +46,8 @@
 | Native saved-pixel review | oct28-a2-agent-access-review-skill attempt 2: Approval now precedes least privilege, and revocation is explicitly conditional. New Out-of-scope action label is too small in final export; enlarge only that text. | Rejected original preserved at external-image-packages/2026-10-28/reviews/rejected-oct28-a2-agent-access-review-skill-attempt-2.png. Targeted native correction and final-size reinspection produced the accepted version. Final exported pixels inspected: eleven exact readable labels, radial owner/task/system mandate feeds human approval, then least privilege and finite short-lived credentials. Dashed out-of-scope branch condition precedes denial/revocation; decision and revocation evidence reach a separate audit rail. Enlarged conditional label readable. Vendor-claim caveat detached; no people, brand marks, fake writing, security trophies or guaranteed safety. Immutable GitHub bytes match reviewed export. |
 | GitHub source lookup | Initial index request treated shadow-pages-history as a folder on default main and returned 404. | Resolved the authoritative site/image-jobs/index.json on the actual shadow-pages-history ref; selected only October 28 PUBLISHED_PENDING and verified immutable job and bundle hashes. |
 | Local Git publication route | A local dry-run Git push had no authenticated username route; no remote ref was changed by that attempt. | Used connected GitHub immutable blobs, trees and expected-head non-force ref updates, followed by exact-commit base64 readback; accepted images were never regenerated for transport. |
+| Actual live capture review | One of 24 original exact-release captures, Genie dated/mobile, showed blank space and upstream metadata instead of the image despite automated positive flags. | Preserved the failed original and all23 passing original captures. Ran the existing external-image-postrelease-verify workflow in verify_only mode (40625983739), with every deployment step skipped, and independently inspected the genuine repaired capture. |
+| Browser capture repair route | Connected Browser plugin control returned Unknown tool; cloud browser did not expose a documented mobile-viewport setting. | Used the existing authenticated GitHub workflow UI to invoke only the existing verify_only lane with exact history SHA; no new workflow, producer, publication, accepted image or schedule was created. |
 
 ## Evidence and limitations
 
@@ -67,8 +69,16 @@ DeepMind direct opening initially failed; the complete indexed original first-pa
 
 Canonical generation and source facts are authentic. First observable execution and generation clocks do not establish first-party scheduler firing, provider active runtime or account usage. Usage remains UNKNOWN.
 
-Protected PR, CI, release and 24 actual desktop/mobile context reviews are still pending at this checkpoint. No premature PUBLISHED_COMPLETE, semantic PASS for live captures or unattended scheduler certification is claimed.
-
 The sole existing recurring task remains unchanged. No paid image API, TinyFish, metered service, extra scheduled producer or legacy-repository change was used.
+
+Protected package PR280 passed exact-head PRE_PR_PACKAGE_PASS and validate:577 tests,0 failures. Merged at10d61da935564f3fa38012ba6987911aa06db723; existing image-only release40624930099 succeeded.
+
+Independent read-only live checks verify six exact accepted hashes, twelve dated/permanent story-image pairings, PUBLIC_STATUS_VERIFIED and all17 protected October8 objects, including the already-approved reader-anchor revision proof.
+
+All24 original release artifact captures were actually inspected:23 passed,1 failed. The failed Genie dated/mobile capture did not include the illustration despite the automated clip flags. It is preserved as failed evidence; no synthetic PASS was applied.
+
+Final24-context PASS reuses23 exact original captures and one genuine supplemental capture from existing verification-only run40625983739, artifact12789432149. All deploy and metadata-sync steps were skipped. Source artifact digests, capture hashes and byte counts are preserved in the per-target review, and actual capture PNGs are retained.
+
+No publication rerun or accepted-image regeneration repaired the capture defect. Fine mobile body labels require the full-size viewer. Provider-internal causes and exact active runtime remain UNKNOWN.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
