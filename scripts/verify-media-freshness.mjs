@@ -120,6 +120,44 @@ export function findFullArchiveRepeats({bundle,historyRoot,dates}){
     article_pages:articles.length,media_duplicates,article_duplicates};
 }
 
+// Reporting-only source-age posture: distinguish original publisher calendar dates
+// from clock-precision 24-hour evidence. Do not fabricate timestamps from dates.
+export function summarizeArticleSourceRecency(bundle){
+ const date=bundle?.edition_date;
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date||'')||!Array.isArray(bundle.stories))
+  throw Error('EDITORIAL_RECENCY_SOURCE_IDENTITY_REQUIRED');
+ const day=Date.parse(date+'T00:00:00Z'),clock=day+8*3600000;
+ const seen={calendar_0_to_1_days:0,calendar_2_to_3_days:0,
+  calendar_4_to_7_days:0,older_than_7_calendar_days:0,unknown:0,
+  precise_24h_original_timestamps:0,date_only_source_records:0};
+ for(const story of bundle.stories){
+  const published=story?.source?.published_at;
+  if(typeof published!=='string'||!Number.isFinite(Date.parse(published))){
+    seen.unknown++;continue;
+  }
+  const sourceDay=Date.parse(published.slice(0,10)+'T00:00:00Z');
+  if(!Number.isFinite(sourceDay)||sourceDay>day){seen.unknown++;continue;}
+  const delta=Math.round((day-sourceDay)/86400000);
+  if(delta<=1)seen.calendar_0_to_1_days++;
+  else if(delta<=3)seen.calendar_2_to_3_days++;
+  else if(delta<=7)seen.calendar_4_to_7_days++;
+  else seen.older_than_7_calendar_days++;
+  if(/^\d{4}-\d{2}-\d{2}$/.test(published))seen.date_only_source_records++;
+  else if(/^\d{4}-\d{2}-\d{2}T/.test(published)&&/[Zz]|[+-]\d\d:\d\d$/.test(published)){
+    const at=Date.parse(published);
+    if(at<=clock&&clock-at<=86400000)seen.precise_24h_original_timestamps++;
+  }else seen.date_only_source_records++;
+ }
+ return {scope:'ORIGINAL_PUBLISHER_DATES_NOT_RETRIEVAL_TIMES',
+  edition_date:date,stories:bundle.stories.length,counts:seen,
+  priority_under_24h:'FIRST_PREFERENCE_WHEN_INDEPENDENTLY_VERIFIED',
+  preferred_six_independent_article_publishers:true,
+  recency_advisory:seen.calendar_0_to_1_days===0?'NO_NEAR_DAY_ORIGINALS_REVIEW_DISCOVERY':
+    seen.older_than_7_calendar_days>0?'OLDER_THAN_SEVEN_DAY_SOURCE_FALLBACK_REVIEW':'DOCUMENTED_FALLBACKS_MAY_BE_NEEDED',
+  date_only_cannot_prove_rolling_24h:true,
+  never_downgrade_source_reading_or_article_novelty_gates:true};
+}
+
 export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   const date=bundle?.edition_date;
   if(typeof date!=='string'||!DATE.test(date))throw new Error('media freshness requires a dated sealed bundle');
@@ -222,7 +260,10 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
       Object.entries(publisherHistory).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))),
     seven_edition_article_pages_identified:identified,
     seven_edition_article_history_complete:identified===historyDates.length*6,
-    editorial_novelty:editorialNovelty};
+    editorial_novelty:editorialNovelty,
+    article_source_recency:summarizeArticleSourceRecency(bundle),
+    six_independent_publishers_preferred:articleDiversity?.distinct_publishers===6,
+    publisher_variety_advisory:articleDiversity?.distinct_publishers===6?'PREFERENCE_MET':'SIX_PUBLISHERS_PREFERRED_IF_QUALIFIED'};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
   const [bundleFile,historyRoot,receiptFile]=process.argv.slice(2);
