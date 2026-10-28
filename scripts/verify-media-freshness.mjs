@@ -126,7 +126,12 @@ export function summarizeArticleSourceRecency(bundle){
  const date=bundle?.edition_date;
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date||'')||!Array.isArray(bundle.stories))
   throw Error('EDITORIAL_RECENCY_SOURCE_IDENTITY_REQUIRED');
- const day=Date.parse(date+'T00:00:00Z'),clock=day+8*3600000;
+ const day=Date.parse(date+'T00:00:00Z');
+ const cutoffRaw=bundle?.editorial_provenance?.selection_locked_at;
+ // A precise rolling window requires an actual recorded selection clock, not
+ // a fabricated publication-hour approximation derived from a date string.
+ const preciseCutoff=typeof cutoffRaw==='string'&&/^\d{4}-\d{2}-\d{2}T.*(?:Z|[+-]\d\d:\d\d)$/.test(cutoffRaw)&&
+   Number.isFinite(Date.parse(cutoffRaw))?Date.parse(cutoffRaw):null;
  const seen={calendar_0_to_1_days:0,calendar_2_to_3_days:0,
   calendar_4_to_7_days:0,older_than_7_calendar_days:0,unknown:0,
   precise_24h_original_timestamps:0,date_only_source_records:0};
@@ -145,11 +150,13 @@ export function summarizeArticleSourceRecency(bundle){
   if(/^\d{4}-\d{2}-\d{2}$/.test(published))seen.date_only_source_records++;
   else if(/^\d{4}-\d{2}-\d{2}T/.test(published)&&/[Zz]|[+-]\d\d:\d\d$/.test(published)){
     const at=Date.parse(published);
-    if(at<=clock&&clock-at<=86400000)seen.precise_24h_original_timestamps++;
+    if(preciseCutoff!==null&&at<=preciseCutoff&&preciseCutoff-at<=86400000)
+      seen.precise_24h_original_timestamps++;
   }else seen.date_only_source_records++;
  }
  return {scope:'ORIGINAL_PUBLISHER_DATES_NOT_RETRIEVAL_TIMES',
   edition_date:date,stories:bundle.stories.length,counts:seen,
+  original_timestamp_cutoff_at:preciseCutoff===null?null:new Date(preciseCutoff).toISOString(),
   priority_under_24h:'FIRST_PREFERENCE_WHEN_INDEPENDENTLY_VERIFIED',
   preferred_six_independent_article_publishers:true,
   recency_advisory:seen.calendar_0_to_1_days===0?'NO_NEAR_DAY_ORIGINALS_REVIEW_DISCOVERY':
