@@ -1,0 +1,35 @@
+{
+  "schema_version": "daily-compiler-video-playback-failure-evidence-v1",
+  "edition_date": "2026-10-28",
+  "stage": "PREPUBLISH_SIGNAL",
+  "original_checked_at": "2026-10-28T00:29:07.119Z",
+  "original_result": "BLOCKED_PLAYBACK_UNVERIFIED",
+  "signal_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40608877225",
+  "failed_videos": [
+    {
+      "index": 2,
+      "title": "Uniting security and governance for the future of AI",
+      "url": "https://www.ibm.com/think/videos/ai-academy/governance-security-future-ai",
+      "observed_result": "DURATION_MATCHED_FULL_EPISODE_PLAYBACK_UNVERIFIED",
+      "playback_verified": false,
+      "observed_player_evidence": [
+        {
+          "duration_seconds": 13.1,
+          "current_time_seconds": 4.2824,
+          "ready_state": 4,
+          "paused": false
+        },
+        {
+          "duration_seconds": 776.6,
+          "current_time_seconds": 30.364043,
+          "ready_state": 4,
+          "paused": false
+        }
+      ],
+      "selected_expected_seconds": 331.002,
+      "headless_browser_limitation": "The signed-out publisher page exposed an advancing 13-second preview and an advancing 12:56 player, but neither duration matched the selected 5:31 episode. Metadata and nonmatching players cannot establish full-episode playback."
+    }
+  ],
+  "interpretation": "PLAYBACK_UNVERIFIED_NOT_INDEPENDENT_PROOF_OF_PRIVATE_VIDEO",
+  "required_recovery": "Verify an actual advancing signed-out full-length player for the replacement candidate"
+}
