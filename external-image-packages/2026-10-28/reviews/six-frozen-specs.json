@@ -469,6 +469,14 @@
         "direction": "forward",
         "support_claim_id": "api",
         "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Return if passing",
+        "to": "Evaluate live agents",
+        "direction": "conditional",
+        "condition": "Only after re-evaluation meets the required quality threshold",
+        "support_claim_id": "recovery",
+        "relation_supported_by_semantic_review": true
       }
     ],
     "excluded_claims": [
@@ -698,6 +706,12 @@
           "allowed_path": "Budget limit to Stop requests",
           "blocked_path": "No direct shortcut to an unsupported guaranteed result or source caveat",
           "support_claim_id": "budget"
+        },
+        {
+          "condition": "Only after re-evaluation meets the required quality threshold",
+          "allowed_path": "Passing re-evaluation to live operation",
+          "blocked_path": "Return before re-evaluation or before conditional passing state",
+          "support_claim_id": "recovery"
         }
       ],
       "native_export_legibility_plan": {
@@ -786,6 +800,17 @@
           "origin_region": "API specifications region",
           "target_region": "API tests region",
           "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Return if passing",
+          "to": "Evaluate live agents",
+          "direction": "conditional",
+          "condition": "Only after re-evaluation meets the required quality threshold",
+          "support_claim_id": "recovery",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "conditional passing-return exit",
+          "target_region": "live evaluation entry",
+          "disallowed_paths_visually_blocked": true
         }
       ],
       "thumbnail_priority_labels": [
@@ -810,7 +835,8 @@
       "causal_edges_verified": true,
       "unsupported_claims_excluded": true,
       "approved_before_generation": true
-    }
+    },
+    "revision_notes": "The native correction prompt froze this return-to-live relation before candidate 5; final structured spec records that same source-supported conditional relation. Earlier frozen revisions remain in Git history."
   },
   {
     "schema_version": "external-image-firstpass-freeze-v1",
