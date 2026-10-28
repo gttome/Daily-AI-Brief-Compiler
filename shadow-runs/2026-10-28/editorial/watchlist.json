@@ -1,0 +1,300 @@
+{
+  "refreshed_at": "2026-10-28T00:22:25.000Z",
+  "new": [
+    {
+      "topic": "Native multimodal world simulation",
+      "topic_id": "dab-topic-native-multimodal-world-simulation",
+      "why": "Google DeepMind published Genie 4 with steerable world generation, native audio and documented coherence limitations.",
+      "summary": "Native multimodal world simulation generates interactive scenes, movement, dialogue and ambient sound together while responding to user steering in real time.",
+      "why_now": "Google DeepMind’s October 27 Genie 4 preview adds native audio, real-time interaction and explicit object-permanence, spatial and long-session limitations.",
+      "practical_value": "Evaluation teams can test latency, continuity, object permanence, text quality and audio alignment before using generated worlds for training or design.",
+      "evidence": {
+        "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "date": "2026-10-27",
+        "publisher": "Google DeepMind",
+        "title": "Genie 4: A new generation of world simulation",
+        "checked_at": "2026-10-28T00:22:00.000Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Genie 4 combines steerable interactive world generation with native audio and dialogue in one research system."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Google publishes detailed demonstrations and limitations, but access is restricted and no independent benchmark is available."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The reviewed capability evidence comes from Google DeepMind without independent reproduction during this editorial review."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4."
+        },
+        "relevance": {
+          "score": 4,
+          "reason": "Simulation teams can evaluate continuity, object permanence, latency and audio alignment before considering training use."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Testing coherence and controllability remains useful as world-model architectures and media capabilities continue to change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "updated": [
+    {
+      "topic": "Continuous multi-level agent evaluation",
+      "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
+      "what_changed": "Salesforce added cross-platform production thresholds, API-change tests, approval-based quarantine, kill-switch actions and hard spending limits to the existing evaluation signal.",
+      "summary": "Continuous multi-level agent evaluation tests business facts, tools, APIs, orchestration quality, security and cost across development and live operation.",
+      "why_now": "Salesforce’s October 27 Agent Fabric announcement materially extends the prior AWS lifecycle evidence by connecting production tests to quarantine and budget enforcement.",
+      "practical_value": "Teams can design a bounded release and runtime gate that names quality thresholds, cost limits, intervention owners, approval steps and recovery tests.",
+      "evidence": {
+        "url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+        "date": "2026-10-27",
+        "publisher": "Salesforce",
+        "title": "Salesforce Expands Agent Fabric to Catch Failures and Control Costs",
+        "checked_at": "2026-10-28T00:22:00.000Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The update connects familiar evaluation methods to explicit cross-platform runtime interventions and enforceable budget controls."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Salesforce describes named product behaviors and availability, but customer outcomes and performance remain vendor-reported."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Separate AWS and Salesforce implementations support the workflow pattern, though neither supplies an independent comparative audit."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "The two publications use different measures and provide no comparable dated numeric observations for a momentum score."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Teams can directly translate quality, API and cost failures into approval, quarantine, kill-switch and recovery policies."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Connecting evaluation evidence to bounded intervention remains necessary across changing agents, models, tools and infrastructure."
+        }
+      },
+      "momentum": {
+        "classification": "gaining_evidence",
+        "score": null,
+        "reason": "Independent publisher implementations broaden the pattern, but no stable comparable numeric measure establishes momentum.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ],
+  "carried_forward": [
+    {
+      "topic": "Declarative agent-authored data pipelines",
+      "topic_id": "dab-topic-declarative-agent-pipelines",
+      "why": "Carried forward after the October 28 review found no material new evidence that changed the prior assessment.",
+      "summary": "Declarative agent-authored pipelines describe desired datasets while the execution engine validates structure, orders dependencies and handles repeated operational boilerplate.",
+      "why_now": "Carried on October 28 because no new independently comparable result changed the existing evidence baseline for this topic.",
+      "practical_value": "Data teams can compare one bounded pipeline across both interfaces using dry-run failures, compute time, code volume and reviewer correction effort.",
+      "evidence": {
+        "url": "https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines",
+        "date": "2026-10-23",
+        "publisher": "Databricks",
+        "title": "Built for Agents: The Case for Spark Declarative Pipelines",
+        "checked_at": "2026-10-26T00:16:09.635Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The benchmark directly compares two pipeline interfaces under the same agent-building workload rather than reporting generic coding-agent productivity."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Databricks documents 528 tasks, structural checks, compute-time and code-volume results, though all measurements remain publisher-run."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "No independent operator reproduced the benchmark on another engine, agent or production data workload during this review."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated benchmark provides no second comparable observation under a stable declarative-pipeline adoption or performance metric."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Data engineering teams can reproduce a bounded comparison using dry-run failures, compute consumption, code volume and reviewer effort."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Declarative validation and engine-managed dependencies remain useful design principles even as agents, models and execution systems change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated benchmark provides no second comparable observation under a stable declarative-pipeline adoption or performance metric.",
+        "metric": null,
+        "observations": []
+      }
+    },
+    {
+      "topic": "Frontier training containment red-teaming",
+      "topic_id": "dab-topic-frontier-training-containment",
+      "why": "Carried forward after the October 28 review found no material new evidence that changed the prior assessment.",
+      "summary": "Frontier training containment combines offline-by-default infrastructure, rapid isolation, incident investigation and high-compute agent red-teaming before a paused run resumes.",
+      "why_now": "Carried on October 28 because no new independently comparable result changed the existing evidence baseline for this topic.",
+      "practical_value": "Security teams can test whether network isolation, monitoring, escalation and restart criteria hold under realistic agent-driven attack scenarios.",
+      "evidence": {
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "date": "2026-10-23",
+        "publisher": "OpenAI",
+        "title": "Securing our frontier model training environment",
+        "checked_at": "2026-10-25T00:25:05.384Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The account links offline frontier training with a disclosed pause, high-compute agent red-teaming and explicit restart decision."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "OpenAI provides a dated incident sequence, investigation actions and remediation scope, although all technical verification remains publisher-reported."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "The reviewed facts come from OpenAI alone, with no independent audit or operator reproduction of the containment claims."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One disclosed incident offers no second comparable observation under a stable containment or restart-readiness measure."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Frontier operators can directly audit isolation paths, pause authority, adversarial tests, remediation evidence and restart approvals."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Defense in depth, incident isolation and evidence-based restart criteria remain useful across models, clusters and threat techniques."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One disclosed incident offers no second comparable observation under a stable containment or restart-readiness measure.",
+        "metric": null,
+        "observations": []
+      }
+    },
+    {
+      "topic": "Consumer agent task permissions",
+      "topic_id": "dab-topic-consumer-agent-task-permissions",
+      "what_changed": "Plaud adds confirmation before connected-app sends or posts, visible editable memory and transcript-linked artifacts to the earlier permission-design baseline.",
+      "summary": "Consumer task permissions define which connected information an assistant may use, which external actions require confirmation and how memory and evidence remain reviewable.",
+      "why_now": "Carried on October 28 because no new independently comparable result changed the existing evidence baseline for this topic.",
+      "practical_value": "Users can test one bounded workflow by inspecting memory, verifying source links and requiring confirmation before any message or post leaves.",
+      "evidence": {
+        "url": "https://www.plaud.ai/blogs/news/meet-new-plaud-intelligence",
+        "date": "2026-10-23",
+        "publisher": "Plaud",
+        "title": "Meet the new Plaud Intelligence",
+        "checked_at": "2026-10-25T00:25:05.384Z"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "Plaud combines visible editable memory, scoped evidence, reusable routines and pre-send confirmation in one consumer-facing workflow design."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "The release documents concrete controls and interfaces, but supplies no independent outcomes for permission failures or user intervention."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "Plaud provides a separate publisher implementation beside earlier Anthropic evidence, though both sources remain vendor-authored product accounts."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No stable permission or intervention metric has two source-linked observations at distinct valid review times."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Ordinary users can inspect memory, follow source links and preserve confirmation before connected-app messages or posts leave."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Least authority, visible memory, evidence links and confirmation before consequential actions remain durable across assistant products."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No stable permission or intervention metric has two source-linked observations at distinct valid review times.",
+        "metric": null,
+        "observations": []
+      },
+      "why": "Carried forward after the October 28 review found no material new evidence that changed the prior assessment."
+    }
+  ],
+  "dropped": [
+    {
+      "topic": "Declarative agent-authored data pipelines",
+      "topic_id": "dab-topic-declarative-agent-pipelines",
+      "reason": "Dropped from the active list on October 28 because the review found no material evidence change beyond the existing publisher demonstration.",
+      "why": "Archived after the October 28 review found no new independent result that changed the prior declarative-pipeline assessment.",
+      "summary": "Declarative agent-authored pipelines express desired datasets while an execution engine validates structure, dependencies and repeated operational steps.",
+      "why_now": "Archived on October 28 because no independently comparable benchmark or production result changed the existing publisher-run evidence baseline.",
+      "practical_value": "Data teams can retain the prior pipeline comparison checklist while waiting for independent measurements of correctness, maintenance burden and recovery behavior.",
+      "previous_evidence": {
+        "url": "https://www.databricks.com/blog/introducing-lakeflow-declarative-pipelines-agent-framework",
+        "date": "2026-10-23",
+        "publisher": "Databricks",
+        "title": "Lakeflow Declarative Pipelines agent framework"
+      },
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "The benchmark directly compares two pipeline interfaces under the same agent-building workload rather than reporting generic coding-agent productivity."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "Databricks documents 528 tasks, structural checks, compute-time and code-volume results, though all measurements remain publisher-run."
+        },
+        "independence": {
+          "score": 1,
+          "reason": "No independent operator reproduced the benchmark on another engine, agent or production data workload during this review."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "One dated benchmark provides no second comparable observation under a stable declarative-pipeline adoption or performance metric."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Data engineering teams can reproduce a bounded comparison using dry-run failures, compute consumption, code volume and reviewer effort."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Declarative validation and engine-managed dependencies remain useful design principles even as agents, models and execution systems change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "One dated benchmark provides no second comparable observation under a stable declarative-pipeline adoption or performance metric.",
+        "metric": null,
+        "observations": []
+      }
+    }
+  ]
+}
