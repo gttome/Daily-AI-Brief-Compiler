@@ -12,6 +12,7 @@ on:
       - 'external-image-packages/**/reviews/after-action.json'
       - 'external-image-packages/**/reviews/worker-state.json'
       - 'docs/after-action/usage/*.json'
+      - 'docs/after-action/incidents/*.json'
       - 'docs/after-action/*-unified-production-aar.md'
       - 'docs/after-action/timing/*.json'
       - 'scripts/derive-image-stage-timing.mjs'
@@ -97,6 +98,8 @@ jobs:
             git show "$ref:shadow-runs/$edition/publication-health.json" > "$in/publication-health.json" 2>/dev/null || rm -f "$in/publication-health.json"
             git show "refs/remotes/origin/main:docs/after-action/$edition-compiler-production-aar.json" > "$in/owner-intervention-incident.json" 2>/dev/null || rm -f "$in/owner-intervention-incident.json"
             git show "$ref:shadow-runs/$edition/edition-bundle.json" > "$in/edition-bundle.json" 2>/dev/null || rm -f "$in/edition-bundle.json"
+            git show "$ref:shadow-runs/$edition/compiler/postpublish-video-playback.json" > "$in/postpublish-video-playback.json" 2>/dev/null || rm -f "$in/postpublish-video-playback.json"
+            git show "refs/remotes/origin/main:docs/after-action/incidents/$edition.json" > "$in/postpublication-incidents.json" 2>/dev/null || rm -f "$in/postpublication-incidents.json"
             git show "$ref:shadow-runs/$edition/producer-receipt.json" > "$in/producer-receipt.json" 2>/dev/null || rm -f "$in/producer-receipt.json"
             # Optional edition-scoped source qualification receipts; absence is NOT OBSERVED, never PASS.
             git show "$ref:shadow-runs/$edition/editorial/source-route-coverage.json" > "$in/source-route-coverage.json" 2>/dev/null || rm -f "$in/source-route-coverage.json"
