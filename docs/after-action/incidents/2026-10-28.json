@@ -1,0 +1,39 @@
+{
+  "schema_version": "daily-compiler-postpublication-incidents-v1",
+  "edition_date": "2026-10-28",
+  "created_from": "independently verified owner report, merged corrections and GitHub CI",
+  "incidents": [
+    {
+      "incident_id": "oct28-sources-visible-code",
+      "stage": "PUBLISHED_READER",
+      "impact": "Sources page rendered raw CSS and JavaScript and interactive directory controls did not run.",
+      "detected_by": "owner",
+      "issue": "Jekyll escaped script/style text embedded in Sources Markdown.",
+      "resolution": "Published CSS and JS as standalone assets with Jekyll links and retained 208 source records.",
+      "corrective_pr": 282,
+      "corrective_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/282",
+      "merged_at": "2026-10-28T05:08:36Z",
+      "status": "CORRECTED_MERGED_CI_PASS",
+      "validation_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40636253525"
+    },
+    {
+      "incident_id": "oct28-final-private-video",
+      "stage": "PUBLISHED_MEDIA",
+      "impact": "Owner found the second published video unavailable/private; the initial playback evidence did not survive the reader experience.",
+      "detected_by": "owner",
+      "issue": "The published Vidyard player was not accessible to the owner after claimed prepublication playback success.",
+      "resolution": "Replaced only the affected public reader links with the same presentation on Okta's official YouTube channel.",
+      "corrective_pr": 284,
+      "corrective_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/284",
+      "merged_at": "2026-10-28T05:18:53Z",
+      "status": "LINK_CORRECTED_PLAYBACK_UNVERIFIED",
+      "validation_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40637268448",
+      "playback_evidence_limit": "Official publisher and indexed URL independently supported; signed-out advancing full-length playback was blocked by YouTube HTTP 429. No playback PASS claimed."
+    }
+  ],
+  "owner_intervention_required": "OWNER_REPORTED_READER_DEFECTS",
+  "automated_detection_before_owner": false,
+  "per_cycle_usage": "UNKNOWN",
+  "published_content_changed": false,
+  "accepted_png_bytes_changed": false
+}
