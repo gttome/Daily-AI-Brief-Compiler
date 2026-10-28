@@ -195,3 +195,14 @@ test('the unified AAR consumes already-collected current-edition Watchlist and i
  const stale=run({'published-watchlist':{edition_date:'2026-10-12',topics:[]}});
  assert.equal(stale.meta.watchlist_title_collisions,null);
 });
+
+test('postpublication incidents and failed video verification remain explicit after successful image release',()=>{
+ const {meta,md}=run({
+  'postpublication-incidents':{edition_date:ed,incidents:[{incident_id:'video-invalid',impact:'Video link private to readers',status:'PLAYBACK_UNVERIFIED',corrective_pr:284}]},
+  'postpublish-video-playback':{edition_date:ed,result:'PUBLISHED_MEDIA_REVIEW_REQUIRED',checked_videos:[]}
+ });
+ assert.equal(meta.postpublication_incidents_recorded,1);
+ assert.equal(meta.postpublication_video_playback_status,'PUBLISHED_MEDIA_REVIEW_REQUIRED');
+ assert.match(md,/Video link private to readers/);
+ assert.match(md,/PLAYBACK_UNVERIFIED/);
+});

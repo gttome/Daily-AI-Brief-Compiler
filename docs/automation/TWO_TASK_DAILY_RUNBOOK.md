@@ -139,3 +139,10 @@ Read docs/automation/OCT27_APPROVED_AAR_IMPLEMENTATION.md. Keep the sole existin
 - Images: New future-only pre-generation geometry check refuses overlapping explanatory label rectangles. Existing Rev8 actual native saved-pixel, release and 24 context reviews still determine image acceptance; October 27 images are immutable.
 - Reader: Existing PRs #268 and #269 already repaired Watchlist research score display and podcast overview anchors, with #271 exact historic preservation reconciliation. Retain tests; do not rework published editorial, approved images or archive copies.
 - AAR: Continue recording honest stage boundaries, five same-edition protected failures where observed, and separate authenticated scheduler identity from executor self-observation. Owner-specific weekly Work usage stays UNKNOWN until genuinely supplied. Never manufacture cost or provenance.
+
+
+## October 28 AAR implementation — effective October 29 edition onward
+
+Follow docs/automation/OCT28_APPROVED_AAR_IMPLEMENTATION.md in the existing 19:15 Compiler and 21:15 Image process; do not create new schedules, paid calls, Work/Codex processes or historical rework. Compiler release now validates true bundle bytes, canonical Watchlist compatibility, original-dated first-party enabled source index candidates, and actual displayed video playback after publication. Source GETs are index-only evidence, not full article reading, video playback, episode listening, or proof that any disabled publisher is qualified. Where publisher originals are truly fresh, prefer the 24-hour primary window and six different original organizations without weakening individual editor judgement or existing fallback.
+
+In the image lane, apply the Oct28 first-pass causal/label/unsupported-artwork rejection checklist and objective saved screenshot RGB pixel verification while preserving the full 24 semantic desktop/mobile review. A postpublication defect needs its own edition-scoped incident JSON under docs/after-action/incidents, protected merge, and rebuilt combined AAR. No register means NOT_RECORDED; unknown Work usage and scheduler provenance stay explicitly unknown.

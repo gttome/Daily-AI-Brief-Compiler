@@ -27,7 +27,12 @@ jobs:
           set -euo pipefail
           test "$(git rev-parse HEAD)" = "${{ github.event.pull_request.head.sha }}"
           git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
-          test "$(git rev-parse refs/remotes/origin/shadow-pages-history)" = "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          PINNED_OCT10="0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          # The current history advances daily: prove this historic pinned commit
+          # remains an immutable ancestor, not that history has stopped advancing.
+          git merge-base --is-ancestor "$PINNED_OCT10" "$HISTORY_HEAD"
+          echo "HISTORY_HEAD=$HISTORY_HEAD" >> "$GITHUB_ENV"
           mkdir -p build/qualification
           git worktree add --detach build/qualification/history "0730acb060f9bb31ea664f33e609e7c98fb914ca"
           test -s build/qualification/history/site/image-jobs/2026-10-10/release.json
@@ -67,7 +72,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "0730acb060f9bb31ea664f33e609e7c98fb914ca"
+          # Fail if history changes during this exact capture; the Oct10
+          # source is still verified at its original immutable commit.
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
           echo "NO_HISTORIC_OBJECT_OR_PNG_WRITE"
       - name: Archive actual pixel crops, exact URLs, hashes and status
         if: always()

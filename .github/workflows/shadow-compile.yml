@@ -70,6 +70,14 @@ jobs:
           if [ -n "$EXPECTED_DIGEST" ]; then
             grep -q "^bundle_digest=$EXPECTED_DIGEST$" ready.txt
           fi
+      - name: Inspect current enabled editorial source indexes with first-party dated evidence
+        # Pure public HTTPS GET requests within the current existing workflow;
+        # never auto-admit stories, activate disabled sources or use paid APIs.
+        run: |
+          test -f "run/shadow-runs/$TARGET_DATE/edition-bundle.json"
+          EXECUTION_ID="$(node -e "console.log(require('./run/shadow-runs/$TARGET_DATE/compiler-state.json').execution_id)")"
+          node scripts/qualify-editorial-source-items.mjs "$TARGET_DATE" "$EXECUTION_ID" \
+            "run/shadow-runs/$TARGET_DATE/editorial/source-item-census.json"
       - name: Freeze last verified published Watchlist for every new edition
         shell: bash
         run: |
@@ -83,6 +91,8 @@ jobs:
             test -s prior-archive.json
             echo "PRIOR_WATCHLIST_HISTORY_HEAD=$PRIOR_WATCHLIST_HISTORY_HEAD" >> "$GITHUB_ENV"
           fi
+      - name: Validate exact public Watchlist compatibility before reader build
+        run: node scripts/validate-release-readiness.mjs "run/shadow-runs/$TARGET_DATE/edition-bundle.json" prior-watchlist.json
       - id: reader_materialize
         name: Materialize canonical production reader from sealed bundle
         run: |
@@ -154,6 +164,15 @@ jobs:
         uses: actions/deploy-pages@v4
       - name: Verify exact live canonical reader
         run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/reader-source build/shadow build/live-verification.json
+      - name: Advisory recheck two links actually published to readers
+        # Media may become unavailable after a valid deployment. Save evidence,
+        # never falsely reverse successful publication or claim metadata is playback.
+        run: |
+          if [[ "$TARGET_DATE" < '2026-10-29' ]]; then exit 0; fi
+          node scripts/verify-published-video-playback.cjs "$TARGET_DATE" \
+            "run/shadow-runs/$TARGET_DATE/edition-bundle.json" \
+            "${{ steps.deployment.outputs.page_url }}" \
+            "run/shadow-runs/$TARGET_DATE/compiler/postpublish-video-playback.json"
       - name: Independently verify every new public page plus all 17 preserved October 8 objects
         run: |
           IMAGE_MODE="$(node -p "require('./build/reader-source/build-manifest.json').image_representation")"

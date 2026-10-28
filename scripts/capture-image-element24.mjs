@@ -5,6 +5,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {readImageProcessVersions} from './image-process-versions.mjs';
+import {verifyImageRegionInSavedPng} from './image-capture-pixel-match.mjs';
 const BASE='https://gttome.github.io/Daily-AI-Brief-Compiler/';
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fail=s=>{throw Error('image_element24:'+s);};
@@ -63,7 +64,9 @@ export function evaluateImageTargetEvidence({targets,rows,reviews=[]}){
      row.natural_width!==1200||row.natural_height!==630||
      row.img_complete!==true||row.image_in_capture!==true||
      row.horizontal_overflow!==false||!row.screenshot_sha256||!row.screenshot_path||
-     row.clip_pass!==true)defects.push('target_unproven:'+key);
+     row.clip_pass!==true||
+     (t.image_url.match(/briefs\/images\/(\d{4}-\d{2}-\d{2})\//)?.[1]>='2026-10-29'&&
+       row.image_pixel_proof?.result!=='PASS'))defects.push('target_unproven:'+key);
    if(!r||r.result!=='PASS'||!['human','semantic_pixel_inspection'].includes(r.inspection_method)||
      typeof r.reviewer!=='string'||r.reviewer.length<3||
      r.screenshot_sha256!==row?.screenshot_sha256||
@@ -136,11 +139,22 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
       clip.y+clip.height<meta.box.y+meta.box.height-1)fail('capture_excludes_image:'+target.target_id);
     const file=target.target_id.replaceAll(':','--')+'.png',screenshotPath=path.join(outDir,file);
     const screenshot=await page.screenshot({path:screenshotPath,type:'png',clip});
+    // Oct29+ quality policy: never impose a new pixel admission requirement
+    // retrospectively on immutably published legacy editions or their fixtures.
+    let elementPng=null;
+    let pixelProof={result:'SKIPPED_HISTORICAL'};
+    if(job.edition_date>='2026-10-29'){
+      elementPng=await matching.screenshot({type:'png'});
+      pixelProof=verifyImageRegionInSavedPng({capturePng:screenshot,elementPng,
+        offsetX:meta.box.x-clip.x,offsetY:meta.box.y-clip.y});
+      if(pixelProof.result!=='PASS')fail('actual_saved_capture_pixels_do_not_show_image:'+target.target_id+':'+JSON.stringify(pixelProof));
+    }
     rows.push({target_id:target.target_id,page_url:target.page_url,image_url:meta.src,
       live_image_sha256:target.expected_sha256,alt_text:meta.alt,
       natural_width:meta.naturalWidth,natural_height:meta.naturalHeight,
       img_complete:true,image_in_capture:true,clip_pass:true,horizontal_overflow:false,
       screenshot_path:file,screenshot_sha256:hash(screenshot),
+      image_pixel_proof:pixelProof,element_screenshot_sha256:elementPng?hash(elementPng):null,
       viewport:target.viewport,viewport_size:vp,image_box:meta.box,context_heading:meta.heading,
       pixel_review_status:'UNREVIEWED',captured_at:new Date().toISOString()});
    }finally{await page.close();}
