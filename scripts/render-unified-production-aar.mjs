@@ -15,6 +15,10 @@ function generateUnified(cycle,e) {
   const job=obj("image-job"),release=obj("image-release"),manifest=obj("image-manifest"),imageAar=obj("image-after-action"),reviews=obj("image-context-reviews"),imageTiming=obj("image-timing");
   const publicationHealth=obj("publication-health");
   const ownerIncident=obj("owner-intervention-incident");
+  const publishedVideoCheck=obj("postpublish-video-playback");
+  const incidentLedger=obj("postpublication-incidents");
+  const readerIncidents=Array.isArray(incidentLedger?.incidents)?incidentLedger.incidents.filter(i=>
+    i&&typeof i.incident_id==="string"&&typeof i.impact==="string"&&typeof i.status==="string"):[];
   const confirmedOwnerRecovery=ownerIncident?.owner_intervention?.required_in_observed_sequence===true||
     ownerIncident?.unattended_autonomy_result==="FAIL_OWNER_TRIGGER_REQUIRED"||
     compile?.owner_intervention===true;
@@ -120,6 +124,8 @@ function generateUnified(cycle,e) {
   const aarPath=typeof requestedAarPath==='string'&&requestedAarPath.startsWith('external-image-packages/'+edition+'/reviews/')&&
     !requestedAarPath.split('/').includes('..')?requestedAarPath:'external-image-packages/'+edition+'/reviews/after-action.md';
   const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/${pixelVisualOk?"semantic-pixel-review.json":"image-element24/semantic-reviews.json"}`],["Original image AAR",`${gh}/blob/main/${aarPath}`]];
+  if(incidentLedger)sourceInfo.push(["Postpublication incident register",`${gh}/blob/main/docs/after-action/incidents/${edition}.json`]);
+  if(publishedVideoCheck)sourceInfo.push(["Published player playback receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-video-playback.json`]);
   const imgCols=imgb.length===6?["<table>"].concat([0,2,4].map(n=>`<tr><td width="50%"><a href="${pub}${imgb[n].route}"><img src="${pub}${imgb[n].route}" alt="Diagram for ${imgb[n].story_id}" width="420"/></a><br/><b>${nice(imgb[n].label)}</b></td><td width="50%"><a href="${pub}${imgb[n+1].route}"><img src="${pub}${imgb[n+1].route}" alt="Diagram for ${imgb[n+1].story_id}" width="420"/></a><br/><b>${nice(imgb[n+1].label)}</b></td></tr>`)).concat(["</table>"]).join("\n"):"No six-image public release gallery available yet.";
   const md=[
 good,
@@ -150,6 +156,8 @@ indicators,
 `| Videos over seven days old | **${mediaOld}** | Must be labeled evergreen, not a new development |`,
 `| Distinct selected video publishers | **${selectedVideoPublishers}** | One channel is one publisher even across multiple videos |`,
 `| Duplicate active Watchlist display titles | **${watch?watchCollisions.length:"Not recorded"}** | Published canonical Watchlist only; historical evidence retained |`,
+`| Live published video playback after release | **${publishedVideoCheck?.result??"NOT_RECORDED"}** | Actual displayed public media links, not prepublish metadata | `,
+`| Postpublication reader incidents | **${incidentLedger?readerIncidents.length:"NOT_RECORDED"}** | Edition-specific owner reports and corrective PRs, not inferred absence | `,
 `| Recorded scheduler capability route | **${originImages?.capability_preflight?.result??"UNPROVEN"}** | Same-invocation route receipt only; GitHub is not scheduler authentication |`,
 `| Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |`,
 `| Media | **${durations}** | Sealed bundle |`,
@@ -247,6 +255,13 @@ imgCols,
 "",
 "## Incidents, corrections and learning",
 "",
+"### Postpublication reader incidents (updated when new evidence is merged)",
+"",
+...(incidentLedger?[ "| Incident | Impact | Disposition | Verified correction |", "|---|---|---|---|",
+  ...readerIncidents.map(i=>`| ${nice(i.incident_id)} | ${nice(i.impact)} | ${nice(i.status)} | ${i.corrective_pr?`[PR #${i.corrective_pr}](${gh}/pull/${i.corrective_pr})`:"Not recorded"} |`)
+ ]:["No current-edition postpublication incident register was available; this is **NOT_RECORDED**, not a certification of zero incidents."]),
+"",
+"",
 `**Editor recovery classification:** ${autonomy}. **Owner intervention:** ${confirmedOwnerRecovery?"Documented and required":"Unproven either way"}. **Protected same-edition failures recorded:** ${protectionEvents.length}. ${publicationHealth?.status==="BLOCKED_PUBLICATION"?"Latest recorded publishing step was blocked; public release status must be evaluated separately.":""}`,
 `**Latest failed protected stage:** ${publicationHealth?.last_recorded_blocker?.stage??"Not in same-edition receipts"}; [Action evidence](${publicationHealth?.last_recorded_blocker?.run_url??gh+"/actions"}). Exact stage durations are available only where real source timestamps exist.`,
  ...(ownerIncidentId?[`**Owner-initiated recovery record:** [${nice(ownerIncidentId)}](${gh}/blob/main/docs/after-action/${edition}-compiler-production-aar.json).${recoveryPr?` Corrected in [PR #${recoveryPr}](${gh}/pull/${recoveryPr}).`:""} Owner-message timing and independent scheduler identity remain unproven.`]:[]),
@@ -300,13 +315,13 @@ imgCols,
 "*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification"];
+const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","postpublication-incidents","postpublish-video-playback"];
 const ev={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;try{ev[k]=JSON.parse(fs.readFileSync(p,"utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev);
 fs.mkdirSync(outDir,{recursive:true});
