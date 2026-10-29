@@ -23,8 +23,11 @@
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **1** | One channel is one publisher even across multiple videos |
 | Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
-| Live published video playback after release | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Actual displayed public media links, not prepublish metadata | 
+| Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **1** | Edition-specific owner reports and corrective PRs, not inferred absence | 
+| Verified postpublication video corrections | **1** | Incident register tracks correction PR, actual playback evidence and reader preservation |
+| Editorial index second-pass attempts | **NOT_RECORDED** | Bounded public GET retries only; never proof of original article reading |
+| Editorial index reads recovered | **NOT_RECORDED** | Successful page fetch can still yield zero eligible dated items |
 | Recorded scheduler capability route | **UNPROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |

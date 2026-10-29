@@ -19,11 +19,17 @@
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
+| Postpublication incidents | 1 |
+| Owner-detected editorial defects | 1 |
+| Verified postpublication corrections | 1 |
+| Editorial index retries | NOT_RECORDED |
+| Index reads recovered on retry | NOT_RECORDED |
+| Original postpublication playback check | TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
 
-- No independently recorded defect in the available sources
+- Postpublication incident oct29-workday-product-marketing-pair: CORRECTED_LIVE_VERIFIED (PR #290); original publication defect remains reported after correction
 
 ## Operational result
 

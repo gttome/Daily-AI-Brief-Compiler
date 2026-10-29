@@ -19,11 +19,18 @@
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
+| Postpublication incidents | 2 |
+| Owner-detected editorial defects | 2 |
+| Verified postpublication corrections | 0 |
+| Editorial index retries | NOT_RECORDED |
+| Index reads recovered on retry | NOT_RECORDED |
+| Original postpublication playback check | NOT_RECORDED |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
 
-- No independently recorded defect in the available sources
+- Postpublication incident oct28-sources-visible-code: CORRECTED_MERGED_CI_PASS (PR #282); original publication defect remains reported after correction
+- Postpublication incident oct28-final-private-video: LINK_CORRECTED_PLAYBACK_UNVERIFIED (PR #284); original publication defect remains reported after correction
 
 ## Operational result
 

@@ -11,7 +11,7 @@
 
 ## Evidence and limitations
 
-- No independently recorded defect in the available sources
+- No defect recorded in available edition-scoped evidence; this does not establish zero defects
 
 ## Required October 27 AAR improvement: Full source qualification before October 28
 

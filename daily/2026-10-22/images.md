@@ -23,7 +23,7 @@
 
 ## Evidence and limitations
 
-- No independently recorded defect in the available sources
+- No defect recorded in available edition-scoped evidence; this does not establish zero defects
 
 ## Operational result
 

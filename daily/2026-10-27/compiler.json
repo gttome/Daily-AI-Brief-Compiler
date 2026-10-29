@@ -10,7 +10,13 @@
   "task_origin_observation": {
     "status": "UNPROVEN",
     "scheduler": "UNPROVEN",
-    "route_preflight": "NOT_RECORDED"
+    "route_preflight": "NOT_RECORDED",
+    "evidence_gaps": [
+      "NO_EDITION_SCOPED_TASK_ORIGIN_RECEIPT",
+      "NO_INDEPENDENT_FIRST_PARTY_SCHEDULER_ATTESTATION",
+      "NO_SAME_INVOCATION_CAPABILITY_PREFLIGHT"
+    ],
+    "repository_record_is_not_authentication": true
   },
   "same_invocation_connected_github": "UNPROVEN",
   "execution_id": "daily-compiler-2026-10-28-primary",
@@ -22,6 +28,27 @@
   "owner_intervention_required": null,
   "publication_health_status": "READER_VERIFIED",
   "prior_failed_protected_gate_count": 8,
+  "postpublication_incidents_recorded": 2,
+  "owner_detected_postpublication_defects": 2,
+  "corrected_postpublication_defects": 0,
+  "postpublication_incident_evidence": [
+    {
+      "incident_id": "oct28-sources-visible-code",
+      "status": "CORRECTED_MERGED_CI_PASS",
+      "detected_by": "owner",
+      "corrective_pr": 282,
+      "playback_evidence_limit": null
+    },
+    {
+      "incident_id": "oct28-final-private-video",
+      "status": "LINK_CORRECTED_PLAYBACK_UNVERIFIED",
+      "detected_by": "owner",
+      "corrective_pr": 284,
+      "playback_evidence_limit": "Official publisher and indexed URL independently supported; signed-out advancing full-length playback was blocked by YouTube HTTP 429. No playback PASS claimed."
+    }
+  ],
+  "original_postpublish_video_playback": null,
+  "editorial_index_retry_counts": null,
   "last_failed_gate": "PUBLICATION_PIPELINE",
   "last_failed_gate_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40613096082",
   "result": "SUCCESS",
@@ -42,9 +69,13 @@
   "model_calls": null,
   "work_invocations": null,
   "claims_not_promoted": [
-    "Host scheduler identity not independently attested in GitHub; no effect on verified public publication"
+    "Host scheduler identity not independently attested in GitHub; no effect on verified public publication",
+    "Image job asserts unattended source but first-party scheduler invocation is unproven; no autonomous PASS inferred"
   ],
-  "defects": [],
+  "defects": [
+    "Postpublication incident oct28-sources-visible-code: CORRECTED_MERGED_CI_PASS (PR #282); original publication defect remains reported after correction",
+    "Postpublication incident oct28-final-private-video: LINK_CORRECTED_PLAYBACK_UNVERIFIED (PR #284); original publication defect remains reported after correction"
+  ],
   "next_run": "UNKNOWN",
   "next_run_reason": "The reporter cannot authenticate the next ordinary scheduled host or GitHub connector; previous-cycle failure does not block next date by itself"
 }

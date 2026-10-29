@@ -10,7 +10,13 @@
   "task_origin_observation": {
     "status": "UNPROVEN",
     "scheduler": "UNPROVEN",
-    "route_preflight": "NOT_RECORDED"
+    "route_preflight": "NOT_RECORDED",
+    "evidence_gaps": [
+      "NO_EDITION_SCOPED_TASK_ORIGIN_RECEIPT",
+      "NO_INDEPENDENT_FIRST_PARTY_SCHEDULER_ATTESTATION",
+      "NO_SAME_INVOCATION_CAPABILITY_PREFLIGHT"
+    ],
+    "repository_record_is_not_authentication": true
   },
   "same_invocation_connected_github": "UNPROVEN",
   "execution_id": "daily-compiler-2026-10-22-primary",
@@ -22,6 +28,12 @@
   "owner_intervention_required": null,
   "publication_health_status": null,
   "prior_failed_protected_gate_count": 0,
+  "postpublication_incidents_recorded": null,
+  "owner_detected_postpublication_defects": 0,
+  "corrected_postpublication_defects": 0,
+  "postpublication_incident_evidence": [],
+  "original_postpublish_video_playback": null,
+  "editorial_index_retry_counts": null,
   "last_failed_gate": null,
   "last_failed_gate_url": null,
   "result": "SUCCESS",
@@ -42,7 +54,8 @@
   "model_calls": null,
   "work_invocations": null,
   "claims_not_promoted": [
-    "Host scheduler identity not independently attested in GitHub; no effect on verified public publication"
+    "Host scheduler identity not independently attested in GitHub; no effect on verified public publication",
+    "Image job asserts unattended source but first-party scheduler invocation is unproven; no autonomous PASS inferred"
   ],
   "defects": [],
   "next_run": "UNKNOWN",
