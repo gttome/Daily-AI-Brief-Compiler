@@ -12,7 +12,8 @@ const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
  'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
- 'source-route-coverage','source-item-census','source-qualification'];
+ 'source-route-coverage','source-item-census','source-qualification',
+ 'source-item-retries','postpublication-incidents','postpublish-video-playback'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -48,6 +49,11 @@ function compilerAar(cycle,date,e){
  const job=validFor(e['image-job'],date)?e['image-job']:null;
  const health=validFor(e['publication-health'],date)?e['publication-health']:null;
  const incident=validFor(e['owner-intervention-incident'],date)?e['owner-intervention-incident']:null;
+ const readerIncident=validFor(e['postpublication-incidents'],date)?e['postpublication-incidents']:null;
+ const readerIncidents=Array.isArray(readerIncident?.incidents)?readerIncident.incidents.filter(x=>
+   typeof x?.incident_id==='string'&&typeof x?.status==='string'):[];
+ const indexRetry=validFor(e['source-item-retries'],date)?e['source-item-retries']:null;
+ const postpublishVideo=validFor(e['postpublish-video-playback'],date)?e['postpublish-video-playback']:null;
  const ownerRequired=incident?.owner_intervention?.required_in_observed_sequence===true||
    incident?.unattended_autonomy_result==='FAIL_OWNER_TRIGGER_REQUIRED'||
    producer?.owner_intervention===true||compile?.owner_intervention===true;
@@ -68,8 +74,11 @@ function compilerAar(cycle,date,e){
  if(producer?.scheduled_execution!==true)claims.push('Host scheduler identity not independently attested in GitHub; no effect on verified public publication');
  if(!seen)defects.push('No Compiler source execution receipt was found');
  if(seen&&!verified)defects.push('Complete protected public Compiler verification evidence is missing');
- if(job?.source?.unattended_schedule_proven===true&&producer?.scheduled_execution===false)
-   claims.push('Image job infers unattended source while actual producer receipt says scheduled_execution=false');
+ if(job?.source?.unattended_schedule_proven===true&&autonomy!=='UNATTENDED_SOURCE_ATTESTED')
+   claims.push('Image job asserts unattended source but first-party scheduler invocation is unproven; no autonomous PASS inferred');
+ for(const item of readerIncidents)defects.push('Postpublication incident '+item.incident_id+
+   ': '+item.status+(Number.isInteger(item.corrective_pr)?' (PR #'+item.corrective_pr+')':'')+
+   '; original publication defect remains reported after correction');
  return {
   schema_version:'daily-compiler-lane-aar-v1',lane:'compiler',cycle_date:cycle,edition_date:date,
   task_id:TASKS.compiler,expected_local_start:'19:15 America/Chicago',
@@ -85,6 +94,15 @@ function compilerAar(cycle,date,e){
   owner_intervention_required:ownerRequired?true:null,
   publication_health_status:health?.status??null,
   prior_failed_protected_gate_count:blockerEvents.length,
+  postpublication_incidents_recorded:readerIncident?readerIncidents.length:null,
+  owner_detected_postpublication_defects:readerIncidents.filter(i=>i.detected_by==='owner').length,
+  corrected_postpublication_defects:readerIncidents.filter(i=>i.status==='CORRECTED_LIVE_VERIFIED').length,
+  postpublication_incident_evidence:readerIncidents.map(i=>({
+    incident_id:i.incident_id,status:i.status,detected_by:i.detected_by??null,
+    corrective_pr:i.corrective_pr??null,playback_evidence_limit:i.playback_evidence_limit??null
+  })),
+  original_postpublish_video_playback:postpublishVideo?.result??null,
+  editorial_index_retry_counts:indexRetry?.counts??null,
   last_failed_gate:health?.last_recorded_blocker?.stage??null,
   last_failed_gate_url:health?.last_recorded_blocker?.run_url??null,
   result:verified?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
@@ -271,8 +289,16 @@ export function renderMarkdown(report){
    ['Task origin',report.task_origin_observation?.status??'UNPROVEN'],
    ['First-party scheduler',report.task_origin_observation?.scheduler??'UNPROVEN'],
    ['Same-invocation route preflight',report.task_origin_observation?.route_preflight??'UNPROVEN'],
+   ...(report.lane==='compiler'?[
+    ['Postpublication incidents',report.postpublication_incidents_recorded??'NOT_RECORDED'],
+    ['Owner-detected editorial defects',report.postpublication_incidents_recorded===null?'NOT_RECORDED':report.owner_detected_postpublication_defects],
+    ['Verified postpublication corrections',report.postpublication_incidents_recorded===null?'NOT_RECORDED':report.corrected_postpublication_defects],
+    ['Editorial index retries',report.editorial_index_retry_counts?.attempted??'NOT_RECORDED'],
+    ['Index reads recovered on retry',report.editorial_index_retry_counts?.recovered_to_index_read??'NOT_RECORDED'],
+    ['Original postpublication playback check',report.original_postpublish_video_playback??'NOT_RECORDED']
+   ]:[]),
    ['Next run readiness',report.next_run]];
- const defects=(report.defects||[]).map(x=>'- '+x).join('\n')||'- No independently recorded defect in the available sources';
+ const defects=(report.defects||[]).map(x=>'- '+x).join('\n')||'- No defect recorded in available edition-scoped evidence; this does not establish zero defects';
  return '# Daily AI Brief — '+name+' AAR\n\n'+
   '**Cycle:** '+report.cycle_date+' · **Edition:** '+report.edition_date+' · **Evidence class:** Deterministic GitHub reconciliation (not AI or first-party scheduler attestation)\n\n'+
   '| Dimension | Observed evidence |\n|---|---|\n'+

@@ -1,5 +1,10 @@
 # External Image App — Recurring Starter (Revision 8)
 
+## October 29 owner-approved first-pass reinforcement (October 30 onward)
+
+Before the next image call read `docs/automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md`. Prepare six frozen source-grounded specifications with a planned actual **390px inline phone review** (`mobile_inline_390px_review_planned:true`), explicit exclusions (`no_avatars_shields_gears_control_knobs:true`, `no_unsupported_memory_or_permission_flow:true`, `no_pseudotext_decorative_microstrokes:true`), and minimum original-export label fonts **36px for two or three thumbnail-priority labels, 28px for secondary labels**. Check exact label bounding boxes, 40px safe margins, and conditioned causal edges before generating; inspect actual saved pixels and all 24 contexts after. This is a **future-only quality plan**, never an automatic PASS, additional schedule, required Work usage, or reason to regenerate historical accepted images.
+
+
 **Before generation: read [Image worker ownership](IMAGE_WORKER_OWNERSHIP.md).** From the October 20 edition onward, the scheduled worker and every recovery session must atomically claim the single `image-package/YYYY-MM-DD-native-primary` branch and persist/read back its owner receipt before the first image call. A status check is read-only; missing artifacts alone do not authorize another producer. Reuse the existing Work conversation and actual GitHub/native-image tools; no new task or mode-attestation gate.
 
 **Future-only recurring scope.** Use ONLY if protected main selects `recurring_work_v8:rev8`, standing authority is valid, and the actual execution has callable native Image Creation, PNG export, saved-pixel inspection and connected GitHub binary write/readback. **No chat type or host/scheduler invocation identity checks are allowed.** Current historical Revision 7 work remains unchanged.

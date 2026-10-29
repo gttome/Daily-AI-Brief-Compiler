@@ -36,9 +36,14 @@ async function check(row,timeoutMs=TIMEOUT_MS){
  let status='FETCH_FAILED';
  try{
   let response=await fetchPublicRoute(row.url,method,timeoutMs);
+  // Some publisher routes reject HEAD with 403 while public GET succeeds.
+  // Only 403/405/501 get one bounded GET; 429 is never retried.
+  // This remains route reachability, not article-content verification.
+  // A successful GET never auto-enables a disabled source.
+  // A publisher returning 403 again remains HTTP_BLOCKED.
   // Some publisher routes refuse HEAD; a single GET fallback remains a route
   // check and is never interpreted as full-content editorial verification.
-  if([405,501].includes(response.status)){
+  if([403,405,501].includes(response.status)){
     await response.body?.cancel().catch(()=>{});
     method='GET';
     response=await fetchPublicRoute(row.url,method,timeoutMs);

@@ -128,6 +128,20 @@ export function validateFrozenImageSpecification({spec,story}){
        fail('oct28_required_label_rectangles_overlap:'+spec.story_id);
    }
  }
+ // October 30+ pre-generation reinforcement from eleven Oct29 rejected
+ // candidates. A documented plan is not visual PASS: the exported PNG
+ // and each mobile/desktop capture still require actual pixel inspection.
+ if(spec.edition_date>='2026-10-30'){
+   const qc=spec.pre_generation_checks;
+   const priorities=new Set(qc.thumbnail_priority_labels);
+   if(qc.mobile_inline_390px_review_planned!==true||
+      qc.no_avatars_shields_gears_control_knobs!==true||
+      qc.no_unsupported_memory_or_permission_flow!==true||
+      qc.no_pseudotext_decorative_microstrokes!==true)
+     fail('oct30_mobile_inline_and_forbidden_motif_preflight_required:'+spec.story_id);
+   if(qc.label_layout.some(l=>l.minimum_font_px<(priorities.has(l.label)?36:28)))
+     fail('oct30_mobile_priority_or_secondary_export_text_insufficient:'+spec.story_id);
+ }
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||
    !clean(review.reviewer)||review.source_url!==spec.source_url||
