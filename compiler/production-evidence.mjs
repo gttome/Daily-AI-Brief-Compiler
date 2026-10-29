@@ -85,8 +85,12 @@ export function validateVideoPrequalification(bundle){
  for(const [index,item] of candidates.entries()){
    let url;
    try{url=new URL(item?.url);}catch{fail('video_candidate_invalid_url:'+index);}
+   // New editions can prequalify substantive reporting, analysis or interviews,
+   // without pretending the program teaches a practical skill.
+   const contentEvidence=bundle.edition_date>='2026-10-30' ?
+     (item.editorial_evidence??item.teaching_evidence) : item.teaching_evidence;
    if(url.protocol!=='https:'||urls.has(url.href)||!text(item.title,8)||
-     !text(item.teaching_evidence,45)||!text(item.research_disposition,35)||
+     !text(contentEvidence,45)||!text(item.research_disposition,35)||
      item.content_reviewed!==true||item.public_player_checked!==true||
      !Number.isFinite(item.duration_minutes)||item.duration_minutes<3||item.duration_minutes>20||
      !Number.isFinite(Date.parse(item.checked_at||'')))
