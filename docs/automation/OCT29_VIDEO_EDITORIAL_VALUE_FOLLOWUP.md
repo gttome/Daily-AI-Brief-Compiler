@@ -12,12 +12,12 @@ The October 29 Brief selected two first-party Workday videos: *Payroll Agent* (1
 
 1. Select videos from **two distinct original publishing organizations or channels**. A second URL or a departmental label under the same company does not make the pair diverse. Do not use a same-publisher exception to fill the two slots.
 2. Two **medium-promotional-risk** videos must not appear together, even when their authors describe multiple teaching points or working product procedures. At least one must have independently supported low promotional risk. High-risk advertisements remain prohibited by existing media quality validation.
-3. Prefer independent educational material, explainers, practitioner research, neutral comparisons, evaluation techniques and transferable professional practice. A vendor-specific product installation, configuration or product-sales tutorial does not become independent simply because it has detailed steps. Do not relabel material as low risk to evade checks.
-4. Research across the entire verified source catalogue rather than stop at a narrow first-party vendor pool. Prefer 5–10-minute substantive instruction; genuine 10–20-minute educational exceptions remain possible. Check full content or transcripts, original publisher, identity, duration, seven-edition repeat history, professional learning outcome and exact signed-out advancing playback.
+3. Prefer source-diverse, independently valuable AI content: original reporting, expert interviews, debates, research talks, credible analysis, conferences, demonstrations and tutorials when warranted. **Videos are not required to be instructional.** A vendor-specific installation or product-sales video does not become independent just because it has detailed configuration steps. Do not relabel marketing as low risk.
+4. Research across the full verified source catalogue rather than stop at a narrow first-party vendor pool. Prefer substantive 5–10-minute videos with verified value; the existing justified 10–20-minute fallback remains. Check actual content/transcripts, original publisher, identity, duration, recent repeat history, distinct source-grounded editorial value, non-promotional presentation and exact signed-out advancing playback. **Do not require teaching steps or a tutorial.**
 5. If no qualified source-diverse pair is verified, use the existing same-edition retry/recovery with truthful blocker recording. Never fake a third-party playback success, create a second worker, invoke paid browsing, or invent publication evidence.
 6. Keep six stories (2/2/2), one Agent Skills, two podcasts, original Watchlist, accepted images, schedule and source-chronology gates unchanged. Original October 29 bundle and all accepted PNG bytes remain immutable.
 
-## Independent research leads, not eligible replacements yet
+## Research leads, not eligible replacements yet
 
 The following videos have recent source descriptions and distinct publishers, but **full signed-out playback and direct editorial verification have not been established**:
 
@@ -29,3 +29,7 @@ A candidate webpage and timestamp do not establish a playable source video. If r
 ## After-action accountability
 
 Persist the original reported defect under docs/after-action/incidents/2026-10-29.json and retain OPEN status until the public reader has genuinely corrected media. Future video editorial guard tests may be documented and proven with existing protected PR/CI. No new automation, paid API, metered browser, image worker or historical editorial reseal is authorized.
+
+## October 29 owner clarification — applied prospectively
+
+The owner explicitly clarified that video material does **not** need to be instructional. Prior teaching-point and reproducible-procedure requirements were an assistant-authored interpretation of the October 21 complaint about advertising. They are superseded for the October 30 edition onward by substantively valuable AI content supported by reviewed source evidence; interview, debate, original reporting, critical analysis and research presentation are valid forms. See the current editorial contract and the Oct30+ media-quality validator. Continue to reject advertisements, sales-dominant product videos and unsupported metadata assertions; do not weaken real playback or publisher-diversity safeguards. October 29 remains an open media-correction case until two genuinely verified replacement links are published.
