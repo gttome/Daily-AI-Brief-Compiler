@@ -1,6 +1,7 @@
 // Forward-only October 21 hardening. Immutable older bundles remain replayable.
 import {articlePublisherKey} from './source-diversity.mjs';
 import {validateMediaEducationalValue,MEDIA_QUALITY_EFFECTIVE} from './media-quality.mjs';
+import {validateVideoEditorialBalance} from './video-editorial-balance.mjs';
 export const PRODUCTION_EVIDENCE_EFFECTIVE='2026-10-21';
 const fail=s=>{throw Error('production_evidence:'+s);};
 const text=(s,n=30)=>typeof s==='string'&&s.trim().length>=n;
@@ -104,7 +105,9 @@ export function validateVideoPrequalification(bundle){
 export function validateMediaPrecision(bundle){
  if(!active(bundle))return {result:'SKIPPED_HISTORICAL'};
  if(bundle.videos?.length!==2||bundle.podcasts?.length!==2)fail('two_videos_two_podcasts_required');
- const publishers=new Set(bundle.videos.map(videoPublisherKey));
+ const publisherKeys=bundle.videos.map(videoPublisherKey);
+ const publishers=new Set(publisherKeys);
+ validateVideoEditorialBalance({edition_date:bundle.edition_date,videos:bundle.videos,publishers:publisherKeys});
  const prequalification=validateVideoPrequalification(bundle);
  if(publishers.size<2){
   const e=bundle.video_diversity_exception;

@@ -66,6 +66,13 @@ Historical editions and accepted image assets stay immutable except for narrowly
 
 ## Media
 
+### October 30+ video editorial quality and publisher independence
+
+The October 29 owner reported two same-company Workday product-configuration tutorials as promotional and low-diversity. Content/transcript review and short verified player advancement do not establish independent educational value. Follow [October 29 media incident follow-up](automation/OCT29_VIDEO_EDITORIAL_VALUE_FOLLOWUP.md).
+
+For October 30 onward the existing preseal production evidence validator **requires two distinct original video publishers** (no same-publisher fallback), and rejects **two medium-promotional-risk videos together**. At least one independently substantiated low-promotion lesson must be selected, and the other must satisfy all existing instructional, identity, playback, novelty and duration checks. Reclassifying vendor-led product sales or proprietary software walkthroughs as low risk without true independent educational evidence is prohibited. If no such pair is genuinely available, record the exact failed gate and perform existing recovery rather than publish misleading source-diverse or playable claims. This is forward-only; October 29 stays sealed and the open reader incident cannot be marked resolved until a separately validated media-only correction actually publishes.
+
+
 - 2 verified videos; target <=10 minutes, fallback <=20 minutes only when necessary.
 - 2 source-diverse podcasts with verified episode identity/date/source.
 
