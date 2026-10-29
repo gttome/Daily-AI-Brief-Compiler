@@ -338,9 +338,7 @@ jobs:
           test -x /usr/bin/google-chrome
           mkdir -p /tmp/browser/node_modules
           ln -s "$GITHUB_WORKSPACE/node_modules/playwright-core" /tmp/browser/node_modules/playwright-core
-          node scripts/verify-selected-video-playback.cjs \
-            config/media-revisions/2026-10-29-playback-candidates.json \
-            build/oct29-video-candidates-playback.json
+          node scripts/probe-oct29-public-video.cjs
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
