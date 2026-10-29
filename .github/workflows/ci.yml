@@ -330,6 +330,32 @@ jobs:
       - name: Probe signed-out Okta playback; distinguish public identity from player success
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct28-okta-public-video-after-sources-20261028'
         run: node scripts/check-oct28-okta-youtube-playback.cjs
+      - name: Rehearse actual October 29 media-only site correction against preserved Pages history
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct29-two-video-reader-correction-20261028'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          mkdir -p build/oct29-media-history
+          git archive refs/remotes/origin/shadow-pages-history site | tar -x -C build/oct29-media-history
+          node scripts/stage-oct29-video-value.mjs \
+            config/reading-copy-revisions/2026-10-29-two-video-value.json \
+            build/oct29-media-history/site build/oct29-media-patched/site \
+            build/oct29-media-patched/receipt.json
+          node scripts/assert-published-image-continuity.mjs \
+            build/oct29-media-history/site build/oct29-media-patched/site
+          node -e "const r=require('./build/oct29-media-patched/receipt.json');if(r.result!=='PASS'||r.files_changed!==11||!r.original_bundle_unchanged||!r.accepted_image_and_job_bytes_unchanged)process.exit(1);console.log('OCT29_MEDIA_ONLY_SITE_REHEARSAL_PASS',r.files_changed)"
+      - name: Require both exact Oct29 PBS and TED videos to advance in signed-out Chrome
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct29-two-video-reader-correction-20261028'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -x /usr/bin/google-chrome
+          mkdir -p /tmp/browser/node_modules
+          ln -s "$GITHUB_WORKSPACE/node_modules/playwright-core" /tmp/browser/node_modules/playwright-core
+          node scripts/verify-selected-video-playback.cjs \
+            config/media-revisions/2026-10-29-playback-candidates.json \
+            build/oct29-pbs-ted-playback-evidence.json
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
