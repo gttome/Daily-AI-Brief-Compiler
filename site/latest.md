@@ -4,7 +4,7 @@
 **Coverage period:** October 28, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-29-m12">OpenAI and ServiceNow expand agents for governed service workflows</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m14">Oracle adds reusable business capabilities to a visual agent builder</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m10">Anthropic expands AI-for-science access across twenty research institutions</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m11">Microsoft introduces a multi-model harness for Copilot work</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m01">Vercel lets teams reroute AI models without redeploying applications</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m02">Google outlines zero-downtime embedding upgrades in AlloyDB AI</a><span>Article · about 7 min source read</span></li><li><a href="#general">From a Workday Expert: Payroll Agent</a><span>Video · 13:42</span></li><li><a href="#agents-for-non-technical-people">From a Workday Expert: Self-Service Agent</a><span>Video · 16:46</span></li><li><a href="#podcast-dab-podcast-2026-10-29-1">OpenAI: When AI Agents Use Computers Faster Than You</a><span>Podcast · 45:19</span></li><li><a href="#podcast-dab-podcast-2026-10-29-2">AI:AM Highlights: Clean Neurons, Black October, the GPU Credit Crunch, and Buying the Supply Chain</a><span>Podcast · 1:20:45</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-10-29-m12">OpenAI and ServiceNow expand agents for governed service workflows</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m14">Oracle adds reusable business capabilities to a visual agent builder</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m10">Anthropic expands AI-for-science access across twenty research institutions</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m11">Microsoft introduces a multi-model harness for Copilot work</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m01">Vercel lets teams reroute AI models without redeploying applications</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-10-29-m02">Google outlines zero-downtime embedding upgrades in AlloyDB AI</a><span>Article · about 7 min source read</span></li><li><a href="#general">AI agents going rogue fuel calls for regulation</a><span>Video · 13:42</span></li><li><a href="#agents-for-non-technical-people">AI brain fry is real. Here's what leaders can do</a><span>Video · 16:46</span></li><li><a href="#podcast-dab-podcast-2026-10-29-1">OpenAI: When AI Agents Use Computers Faster Than You</a><span>Podcast · 45:19</span></li><li><a href="#podcast-dab-podcast-2026-10-29-2">AI:AM Highlights: Clean Neurons, Black October, the GPU Credit Crunch, and Buying the Supply Chain</a><span>Podcast · 1:20:45</span></li></ol></section>
 <!-- reader-release:end -->
 
 <span id="reading-dab-story-2026-10-29-m12"></span>
@@ -249,21 +249,21 @@
 
 ## 7. General
 
-### From a Workday Expert: Payroll Agent
+### AI agents going rogue fuel calls for regulation
 
 <a href="{{ '/videos/2026-10-29/general/' | relative_url }}" data-item-id="dab-video-2026-10-29-general" data-edition-date="2026-10-29" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** Workday  
-**Date:** September 25, 2026  
-**Duration:** 13:42 · Longer selection today: no suitable video of 10 minutes or less was found.  
+**Channel:** PBS NewsHour  
+**Date:** August 31, 2026  
+**Duration:** 6:30  
 **Format:** Video
 
-**Summary:** Workday Education demonstrates registering the Payroll Agent, enabling individual skills, assigning security groups and testing payroll-readiness and result-analysis tasks. The complete lesson emphasizes tenant prerequisites, privacy, data readiness, legal review and human validation. It is vendor training, so product capabilities and benefits remain first-party claims that organizations must test in their own nonproduction environment.
+**Summary:** PBS NewsHour journalist William Brangham interviews AI researcher Gary Marcus following reports about autonomous AI agents exceeding testing boundaries. Their discussion considers whether stronger sandboxing, monitoring and accountability are needed when increasingly capable agents act beyond their intended scope.
 
-**Why it matters:** Use the lesson to build a bounded rollout checklist: register the agent, enable only necessary skills, assign least-privilege groups, validate tenant-specific behavior and require payroll administrators to review every proposed job and result.
+**Why it matters:** The interview offers an independent perspective on AI agent oversight and the difference between the systems' capabilities and weaknesses in their operational controls. Treat the guest's assessments as attributed analysis rather than independently established conclusions.
 
 
 
-**Source:** <a href="https://community-content.workday.com/en-us/public/learn/training/ai-training/from-a-workday-expert-payroll-agent.html?lang=en-us" data-item-id="dab-video-2026-10-29-general" data-edition-date="2026-10-29" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Workday</a>
+**Source:** <a href="https://www.pbs.org/video/ai-going-rogue-1788205111/" data-item-id="dab-video-2026-10-29-general" data-edition-date="2026-10-29" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on PBS NewsHour</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-29" data-feedback-story-id="dab-video-compiler-2026-10-29-general">
   <span class="feedback-prompt">How useful was this?</span>
@@ -276,21 +276,21 @@
 
 ## 8. Agents for Everyone
 
-### From a Workday Expert: Self-Service Agent
+### AI brain fry is real. Here's what leaders can do
 
 <a href="{{ '/videos/2026-10-29/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-10-29-agent-skills" data-edition-date="2026-10-29" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** Workday  
-**Date:** September 25, 2026  
-**Duration:** 16:46 · Longer selection today: no suitable video of 10 minutes or less was found.  
+**Channel:** TED  
+**Date:** August 2026  
+**Duration:** 9:06  
 **Format:** Video
 
-**Summary:** Workday Education demonstrates registering a Self-Service Agent, enabling Skills and tools, configuring fallback guidance, checking domain security and testing access before deployment. The lesson also shows employee and manager use cases. It reflects Workday’s product and automation claims, so teams should validate outcomes and permissions in a nonproduction environment.
+**Summary:** In a TED talk, AI advisor Julie Bedard discusses research on cognitive fatigue when employees supervise and coordinate AI tools. She explores how work can become more demanding despite faster output, and outlines organizational choices that may preserve human judgment and reduce overload.
 
-**Why it matters:** Use the procedure to create a configuration checklist: confirm required security policies, register the agent, enable only needed capabilities, define fallback behavior and test each user group before release.
+**Why it matters:** For knowledge workers and managers, the relevant outcome is not the number of agents operating but the cognitive effort needed to supervise them. Consider the evidence and its limits when deciding where AI actually improves work.
 
 
 
-**Source:** <a href="https://community-content.workday.com/en-us/public/learn/training/ai-training/from-a-workday-expert-self-service-agent.html?lang=en-us" data-item-id="dab-video-2026-10-29-agent-skills" data-edition-date="2026-10-29" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Workday</a>
+**Source:** <a href="https://www.ted.com/talks/julie_bedard_ai_brain_fry_is_real_here_s_what_leaders_can_do" data-item-id="dab-video-2026-10-29-agent-skills" data-edition-date="2026-10-29" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on TED</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-10-29" data-feedback-story-id="dab-video-compiler-2026-10-29-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
