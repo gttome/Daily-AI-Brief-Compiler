@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {checkVideo} from '../compiler/media-quality.mjs';
+import {validateVideoPrequalification} from '../compiler/production-evidence.mjs';
 
 const video=(kind='expert_interview')=>({
  title:'Independent discussion of AI governance and emerging research',
@@ -50,4 +51,21 @@ test('Oct30 retains anti-advertising and source-based value checks',()=>{
  assert.throws(()=>checkVideo(lacking,1,'2026-10-30'),/source_grounded_editorial_value_basis_required/);
  const metadata=video();metadata.quality_review.content_evidence.kind='publisher_metadata';
  assert.throws(()=>checkVideo(metadata,1,'2026-10-30'),/promotional_metadata_not_content_evidence/);
+});
+
+test('Oct30 six-candidate pool accepts substantive editorial evidence instead of instructional teaching evidence',()=>{
+ const host=['aieducation.org','independentpress.com','researchinstitute.edu'];
+ const candidates=Array.from({length:6},(_,i)=>({
+  url:'https://'+host[i%3]+'/ai/video-'+i,
+  title:'Independent AI analysis session '+i,
+  editorial_evidence:'Complete research conversation reviewed for evidence, competing perspectives and factual limitations.',
+  research_disposition:'Reviewed original source and substance; candidate is not a sales pitch or short trailer.',
+  content_reviewed:true,public_player_checked:true,
+  duration_minutes:9,checked_at:'2026-10-29T04:05:00Z'
+ }));
+ const b={edition_date:'2026-10-30',video_prequalification:{candidates},
+  videos:[{url:candidates[0].url},{url:candidates[1].url}]};
+ assert.equal(validateVideoPrequalification(b).result,'PASS');
+ b.edition_date='2026-10-29';
+ assert.throws(()=>validateVideoPrequalification(b),/video_candidate_review_incomplete/);
 });
