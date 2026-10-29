@@ -17,6 +17,7 @@ on:
       - 'docs/after-action/timing/*.json'
       - 'scripts/derive-image-stage-timing.mjs'
       - 'scripts/render-unified-production-aar.mjs'
+      - 'scripts/compile-daily-aar.mjs'
       - 'scripts/worker-checkpoint-consistency.mjs'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
@@ -104,6 +105,7 @@ jobs:
             # Optional edition-scoped source qualification receipts; absence is NOT OBSERVED, never PASS.
             git show "$ref:shadow-runs/$edition/editorial/source-route-coverage.json" > "$in/source-route-coverage.json" 2>/dev/null || rm -f "$in/source-route-coverage.json"
             git show "$ref:shadow-runs/$edition/editorial/source-item-census.json" > "$in/source-item-census.json" 2>/dev/null || rm -f "$in/source-item-census.json"
+             git show "$ref:shadow-runs/$edition/editorial/source-item-retries.json" > "$in/source-item-retries.json" 2>/dev/null || rm -f "$in/source-item-retries.json"
             git show "$ref:shadow-runs/$edition/editorial/source-qualification.json" > "$in/source-qualification.json" 2>/dev/null || rm -f "$in/source-qualification.json"
             git show "$ref:shadow-runs/$edition/producer/task-origin.json" > "$in/compiler-task-origin.json" 2>/dev/null || rm -f "$in/compiler-task-origin.json"
             git show "$ref:shadow-runs/$edition/compiler/compile-receipt.json" > "$in/compile-receipt.json" 2>/dev/null || rm -f "$in/compile-receipt.json"
