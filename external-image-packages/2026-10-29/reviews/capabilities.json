@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "method": "callable_native_image_tool",
+    "evidence_ref": "current invocation exposed imagegen/view_image and Pillow export"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "method": "view_image_saved_RGB",
+    "evidence_ref": "current invocation exposed imagegen/view_image and Pillow export"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "method": "native_render_and_RGB_export",
+    "evidence_ref": "current invocation exposed imagegen/view_image and Pillow export"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "method": "connected_github_git_data",
+    "evidence_ref": "connected GitHub create_blob and fetch_file base64"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "method": "callable_native_image_tool",
+    "evidence_ref": "current invocation exposed imagegen/view_image and Pillow export"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "method": "callable_native_image_tool",
+    "evidence_ref": "connected merge_pull_request plus protected compiler-validation"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_exact_release_artifact_capture",
+    "evidence_ref": ".github/workflows/external-image-only-replacement.yml"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "method": "existing_exact_release_artifact_capture",
+    "evidence_ref": ".github/workflows/external-image-only-replacement.yml"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml",
+    "evidence_ref": "protected-main push paths external-image-packages/**/manifest.json"
+  }
+}

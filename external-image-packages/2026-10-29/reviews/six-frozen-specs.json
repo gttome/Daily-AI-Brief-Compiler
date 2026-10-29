@@ -1,0 +1,2440 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-29",
+    "story_id": "oct29-t1-vercel-virtual-models",
+    "source_url": "https://vercel.com/blog/ai-gateway-virtual-models",
+    "visual_thesis": "A stable virtual identifier separates application calls from centrally governed model routing and allows model changes without redeployment.",
+    "mechanism_metaphor": "stable address and replaceable routing core",
+    "story_anchors": [
+      "A virtual ID refers to centrally configured models, fallback order and retention settings.",
+      "Role-controlled edits change the selected model without application redeployment; provider-specific options need review.",
+      "Vercel recommends evaluating a second candidate virtual model before switching production, and reverting if quality drops."
+    ],
+    "required_labels": [
+      "Application calls",
+      "Stable virtual ID",
+      "Central routing policy",
+      "Provider priority",
+      "Fallback on failure",
+      "Retention rules",
+      "Role-controlled changes",
+      "Candidate evaluation",
+      "Change model",
+      "No redeployment",
+      "Review provider options",
+      "Vendor announcement"
+    ],
+    "source_claim_map": [
+      {
+        "id": "routing",
+        "proposition": "A virtual ID refers to centrally configured models, fallback order and retention settings.",
+        "supporting_source_excerpt": "single virtual model ID",
+        "source_url": "https://vercel.com/blog/ai-gateway-virtual-models",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "change",
+        "proposition": "Role-controlled edits change the selected model without application redeployment; provider-specific options need review.",
+        "supporting_source_excerpt": "no code change or deployment needed",
+        "source_url": "https://vercel.com/blog/ai-gateway-virtual-models",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "eval",
+        "proposition": "Vercel recommends evaluating a second candidate virtual model before switching production, and reverting if quality drops.",
+        "supporting_source_excerpt": "run your evals against it",
+        "source_url": "https://vercel.com/blog/ai-gateway-virtual-models",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Stable virtual ID",
+        "direction": "conditional",
+        "condition": "normal request",
+        "support_claim_id": "routing",
+        "relation_supported_by_semantic_review": true,
+        "from": "Application calls"
+      },
+      {
+        "to": "Central routing policy",
+        "direction": "conditional",
+        "condition": "ID resolves to saved configuration",
+        "support_claim_id": "routing",
+        "relation_supported_by_semantic_review": true,
+        "from": "Stable virtual ID"
+      },
+      {
+        "to": "Provider priority",
+        "direction": "conditional",
+        "condition": "configured provider order",
+        "support_claim_id": "routing",
+        "relation_supported_by_semantic_review": true,
+        "from": "Central routing policy"
+      },
+      {
+        "to": "Fallback on failure",
+        "direction": "conditional",
+        "condition": "provider fails",
+        "support_claim_id": "routing",
+        "relation_supported_by_semantic_review": true,
+        "from": "Provider priority"
+      },
+      {
+        "to": "Change model",
+        "direction": "conditional",
+        "condition": "authorized role",
+        "support_claim_id": "change",
+        "relation_supported_by_semantic_review": true,
+        "from": "Role-controlled changes"
+      },
+      {
+        "to": "Change model",
+        "direction": "conditional",
+        "condition": "candidate evaluated",
+        "support_claim_id": "eval",
+        "relation_supported_by_semantic_review": true,
+        "from": "Candidate evaluation"
+      },
+      {
+        "to": "Central routing policy",
+        "direction": "conditional",
+        "condition": "configuration saved",
+        "support_claim_id": "change",
+        "relation_supported_by_semantic_review": true,
+        "from": "Change model"
+      }
+    ],
+    "excluded_claims": [
+      "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+      "No scenery, simulated writing, unsupported numbers or success badges."
+    ],
+    "composition_signature": {
+      "grammar": "offset policy cross-section",
+      "metaphor": "stable address and replaceable routing core",
+      "palette": "navy and copper",
+      "layout": "left stable application spine; central exposed policy cross-section; right provider fan; lower isolated change-review rail",
+      "annotation": "boundary callouts",
+      "hierarchy": "dominant mechanism with subordinate constraints",
+      "perspective": "editorial sectional plan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "application call",
+        "stable ID",
+        "policy boundary",
+        "primary destination",
+        "fallback destination",
+        "failure-only route",
+        "retention constraint",
+        "role edit boundary",
+        "candidate configuration",
+        "evaluation comparison",
+        "saved model change",
+        "provider-option review"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://vercel.com/blog/ai-gateway-virtual-models",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Application calls",
+          "region": "peripheral annotation row 1 column 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Stable virtual ID",
+          "region": "peripheral annotation row 1 column 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Central routing policy",
+          "region": "peripheral annotation row 1 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Provider priority",
+          "region": "peripheral annotation row 2 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Fallback on failure",
+          "region": "peripheral annotation row 2 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Retention rules",
+          "region": "peripheral annotation row 2 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Role-controlled changes",
+          "region": "peripheral annotation row 3 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Candidate evaluation",
+          "region": "peripheral annotation row 3 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Change model",
+          "region": "peripheral annotation row 3 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "No redeployment",
+          "region": "peripheral annotation row 4 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Review provider options",
+          "region": "peripheral annotation row 4 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Vendor announcement",
+          "region": "peripheral annotation row 4 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor announcement",
+      "causal_state_checks": [
+        {
+          "condition": "normal request",
+          "allowed_path": "Application calls -> Stable virtual ID",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "routing"
+        },
+        {
+          "condition": "ID resolves to saved configuration",
+          "allowed_path": "Stable virtual ID -> Central routing policy",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "routing"
+        },
+        {
+          "condition": "configured provider order",
+          "allowed_path": "Central routing policy -> Provider priority",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "routing"
+        },
+        {
+          "condition": "provider fails",
+          "allowed_path": "Provider priority -> Fallback on failure",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "routing"
+        },
+        {
+          "condition": "authorized role",
+          "allowed_path": "Role-controlled changes -> Change model",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "change"
+        },
+        {
+          "condition": "candidate evaluated",
+          "allowed_path": "Candidate evaluation -> Change model",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "eval"
+        },
+        {
+          "condition": "configuration saved",
+          "allowed_path": "Change model -> Central routing policy",
+          "blocked_path": "Request-level settings cannot bypass central retention or fallback policy; failure-only fallback is not unconditional parallel execution.",
+          "support_claim_id": "change"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Stable virtual ID",
+          "support_claim_id": "routing",
+          "origin_region": "Application calls element",
+          "target_region": "Stable virtual ID element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Application calls"
+        },
+        {
+          "to": "Central routing policy",
+          "support_claim_id": "routing",
+          "origin_region": "Stable virtual ID element",
+          "target_region": "Central routing policy element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Stable virtual ID"
+        },
+        {
+          "to": "Provider priority",
+          "support_claim_id": "routing",
+          "origin_region": "Central routing policy element",
+          "target_region": "Provider priority element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Central routing policy"
+        },
+        {
+          "to": "Fallback on failure",
+          "support_claim_id": "routing",
+          "origin_region": "Provider priority element",
+          "target_region": "Fallback on failure element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Provider priority"
+        },
+        {
+          "to": "Change model",
+          "support_claim_id": "change",
+          "origin_region": "Role-controlled changes element",
+          "target_region": "Change model element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Role-controlled changes"
+        },
+        {
+          "to": "Change model",
+          "support_claim_id": "eval",
+          "origin_region": "Candidate evaluation element",
+          "target_region": "Change model element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Candidate evaluation"
+        },
+        {
+          "to": "Central routing policy",
+          "support_claim_id": "change",
+          "origin_region": "Change model element",
+          "target_region": "Central routing policy element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Change model"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Application calls",
+        "Stable virtual ID"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Central routing policy",
+        "Provider priority"
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-29",
+    "story_id": "oct29-t2-alloydb-embedding-upgrade",
+    "source_url": "https://cloud.google.com/blog/products/databases/upgrade-embedding-models-in-alloydb-ai-with-zero-downtime",
+    "visual_thesis": "Embedding upgrades retain old vectors while a new column is backfilled, validated and indexed, then switch matching query/model pairs with rollback before retirement.",
+    "mechanism_metaphor": "two live rails with reversible cutover",
+    "story_anchors": [
+      "The same source table retains the old vector column while a new column is backfilled and refreshed.",
+      "Validate completeness and retrieval, build a new index, and switch query embeddings with the stored-vector model.",
+      "Retain the old model path for rollback; retire only after stability. Atomic column rename is manual-mode-only."
+    ],
+    "required_labels": [
+      "Source rows",
+      "Old vectors",
+      "Old index",
+      "New vectors",
+      "Backfill and refresh",
+      "Validate retrieval",
+      "Build new index",
+      "Switch matching pairs",
+      "Rollback available",
+      "Retire after stability",
+      "Extra resource overhead",
+      "Manual-mode swap only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "parallel",
+        "proposition": "The same source table retains the old vector column while a new column is backfilled and refreshed.",
+        "supporting_source_excerpt": "old and new models run side-by-side",
+        "source_url": "https://cloud.google.com/blog/products/databases/upgrade-embedding-models-in-alloydb-ai-with-zero-downtime",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "cutover",
+        "proposition": "Validate completeness and retrieval, build a new index, and switch query embeddings with the stored-vector model.",
+        "supporting_source_excerpt": "must switch models in unison",
+        "source_url": "https://cloud.google.com/blog/products/databases/upgrade-embedding-models-in-alloydb-ai-with-zero-downtime",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "rollback",
+        "proposition": "Retain the old model path for rollback; retire only after stability. Atomic column rename is manual-mode-only.",
+        "supporting_source_excerpt": "happy with its functionality and stability",
+        "source_url": "https://cloud.google.com/blog/products/databases/upgrade-embedding-models-in-alloydb-ai-with-zero-downtime",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Old vectors",
+        "direction": "conditional",
+        "condition": "old model",
+        "support_claim_id": "parallel",
+        "relation_supported_by_semantic_review": true,
+        "from": "Source rows"
+      },
+      {
+        "to": "Old index",
+        "direction": "conditional",
+        "condition": "old-vector index",
+        "support_claim_id": "parallel",
+        "relation_supported_by_semantic_review": true,
+        "from": "Old vectors"
+      },
+      {
+        "to": "Backfill and refresh",
+        "direction": "conditional",
+        "condition": "new column initialized",
+        "support_claim_id": "parallel",
+        "relation_supported_by_semantic_review": true,
+        "from": "Source rows"
+      },
+      {
+        "to": "New vectors",
+        "direction": "conditional",
+        "condition": "backfill and refresh",
+        "support_claim_id": "parallel",
+        "relation_supported_by_semantic_review": true,
+        "from": "Backfill and refresh"
+      },
+      {
+        "to": "Validate retrieval",
+        "direction": "conditional",
+        "condition": "validate current vectors",
+        "support_claim_id": "cutover",
+        "relation_supported_by_semantic_review": true,
+        "from": "New vectors"
+      },
+      {
+        "to": "Build new index",
+        "direction": "conditional",
+        "condition": "quality reviewed",
+        "support_claim_id": "cutover",
+        "relation_supported_by_semantic_review": true,
+        "from": "Validate retrieval"
+      },
+      {
+        "to": "Switch matching pairs",
+        "direction": "conditional",
+        "condition": "index ready; matching model pair",
+        "support_claim_id": "cutover",
+        "relation_supported_by_semantic_review": true,
+        "from": "Build new index"
+      },
+      {
+        "to": "Rollback available",
+        "direction": "conditional",
+        "condition": "old path retained",
+        "support_claim_id": "rollback",
+        "relation_supported_by_semantic_review": true,
+        "from": "Switch matching pairs"
+      },
+      {
+        "to": "Retire after stability",
+        "direction": "conditional",
+        "condition": "only after stability",
+        "support_claim_id": "rollback",
+        "relation_supported_by_semantic_review": true,
+        "from": "Switch matching pairs"
+      }
+    ],
+    "excluded_claims": [
+      "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+      "No scenery, simulated writing, unsupported numbers or success badges."
+    ],
+    "composition_signature": {
+      "grammar": "parallel migration braid",
+      "metaphor": "two live rails with reversible cutover",
+      "palette": "teal and ochre",
+      "layout": "two horizontal old/new vector rails; source at left; new preparation steps below; right reversible switch; retirement detached below right",
+      "annotation": "rail-aligned stage labels",
+      "hierarchy": "dominant mechanism with subordinate constraints",
+      "perspective": "editorial sectional plan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "component_roles": [
+        "source rows",
+        "old vector column",
+        "old model",
+        "old index",
+        "new model",
+        "new vector column",
+        "backfill",
+        "refresh",
+        "completeness review",
+        "retrieval review",
+        "new index",
+        "paired query switch",
+        "rollback",
+        "delayed retirement"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://cloud.google.com/blog/products/databases/upgrade-embedding-models-in-alloydb-ai-with-zero-downtime",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Source rows",
+          "region": "peripheral annotation row 1 column 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Old vectors",
+          "region": "peripheral annotation row 1 column 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Old index",
+          "region": "peripheral annotation row 1 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "New vectors",
+          "region": "peripheral annotation row 2 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Backfill and refresh",
+          "region": "peripheral annotation row 2 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Validate retrieval",
+          "region": "peripheral annotation row 2 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Build new index",
+          "region": "peripheral annotation row 3 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Switch matching pairs",
+          "region": "peripheral annotation row 3 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Rollback available",
+          "region": "peripheral annotation row 3 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Retire after stability",
+          "region": "peripheral annotation row 4 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Extra resource overhead",
+          "region": "peripheral annotation row 4 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Manual-mode swap only",
+          "region": "peripheral annotation row 4 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Extra resource overhead",
+      "causal_state_checks": [
+        {
+          "condition": "old model",
+          "allowed_path": "Source rows -> Old vectors",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "parallel"
+        },
+        {
+          "condition": "old-vector index",
+          "allowed_path": "Old vectors -> Old index",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "parallel"
+        },
+        {
+          "condition": "new column initialized",
+          "allowed_path": "Source rows -> Backfill and refresh",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "parallel"
+        },
+        {
+          "condition": "backfill and refresh",
+          "allowed_path": "Backfill and refresh -> New vectors",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "parallel"
+        },
+        {
+          "condition": "validate current vectors",
+          "allowed_path": "New vectors -> Validate retrieval",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "cutover"
+        },
+        {
+          "condition": "quality reviewed",
+          "allowed_path": "Validate retrieval -> Build new index",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "cutover"
+        },
+        {
+          "condition": "index ready; matching model pair",
+          "allowed_path": "Build new index -> Switch matching pairs",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "cutover"
+        },
+        {
+          "condition": "old path retained",
+          "allowed_path": "Switch matching pairs -> Rollback available",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "rollback"
+        },
+        {
+          "condition": "only after stability",
+          "allowed_path": "Switch matching pairs -> Retire after stability",
+          "blocked_path": "Never compare old-model query vectors with new-model stored vectors. Never retire old index before stability. Manual-mode column swap is not valid in transactional mode.",
+          "support_claim_id": "rollback"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Old vectors",
+          "support_claim_id": "parallel",
+          "origin_region": "Source rows element",
+          "target_region": "Old vectors element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Source rows"
+        },
+        {
+          "to": "Old index",
+          "support_claim_id": "parallel",
+          "origin_region": "Old vectors element",
+          "target_region": "Old index element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Old vectors"
+        },
+        {
+          "to": "Backfill and refresh",
+          "support_claim_id": "parallel",
+          "origin_region": "Source rows element",
+          "target_region": "Backfill and refresh element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Source rows"
+        },
+        {
+          "to": "New vectors",
+          "support_claim_id": "parallel",
+          "origin_region": "Backfill and refresh element",
+          "target_region": "New vectors element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Backfill and refresh"
+        },
+        {
+          "to": "Validate retrieval",
+          "support_claim_id": "cutover",
+          "origin_region": "New vectors element",
+          "target_region": "Validate retrieval element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "New vectors"
+        },
+        {
+          "to": "Build new index",
+          "support_claim_id": "cutover",
+          "origin_region": "Validate retrieval element",
+          "target_region": "Build new index element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Validate retrieval"
+        },
+        {
+          "to": "Switch matching pairs",
+          "support_claim_id": "cutover",
+          "origin_region": "Build new index element",
+          "target_region": "Switch matching pairs element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Build new index"
+        },
+        {
+          "to": "Rollback available",
+          "support_claim_id": "rollback",
+          "origin_region": "Switch matching pairs element",
+          "target_region": "Rollback available element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Switch matching pairs"
+        },
+        {
+          "to": "Retire after stability",
+          "support_claim_id": "rollback",
+          "origin_region": "Switch matching pairs element",
+          "target_region": "Retire after stability element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Switch matching pairs"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Source rows",
+        "Old vectors"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Old index",
+        "New vectors"
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-29",
+    "story_id": "oct29-k1-anthropic-science-expansion",
+    "source_url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+    "visual_thesis": "An AI-for-science access program distributes credits through research organizations to support scientific tasks; early examples do not establish general research gains.",
+    "mechanism_metaphor": "access distribution with independent research branches",
+    "story_anchors": [
+      "The program supplies Claude credits through foundations, institutions and research groups.",
+      "Scientists report hypothesis generation, experiment design, data analysis and communicating findings.",
+      "Many collaborations are early-stage; expert evaluation is the article recommended pilot approach, not measured universal performance."
+    ],
+    "required_labels": [
+      "Research access program",
+      "Claude credits",
+      "Scientific organizations",
+      "Hypothesis generation",
+      "Experiment design",
+      "Data analysis",
+      "Communicate findings",
+      "Expert evaluation",
+      "Research pilots",
+      "Early-stage examples",
+      "Gains not established"
+    ],
+    "source_claim_map": [
+      {
+        "id": "access",
+        "proposition": "The program supplies Claude credits through foundations, institutions and research groups.",
+        "supporting_source_excerpt": "gives free Claude credits",
+        "source_url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "tasks",
+        "proposition": "Scientists report hypothesis generation, experiment design, data analysis and communicating findings.",
+        "supporting_source_excerpt": "generate hypotheses",
+        "source_url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "limits",
+        "proposition": "Many collaborations are early-stage; expert evaluation is the article recommended pilot approach, not measured universal performance.",
+        "supporting_source_excerpt": "still in their early stages",
+        "source_url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Claude credits",
+        "direction": "conditional",
+        "condition": "program support",
+        "support_claim_id": "access",
+        "relation_supported_by_semantic_review": true,
+        "from": "Research access program"
+      },
+      {
+        "to": "Scientific organizations",
+        "direction": "conditional",
+        "condition": "credits shared through organizations",
+        "support_claim_id": "access",
+        "relation_supported_by_semantic_review": true,
+        "from": "Claude credits"
+      },
+      {
+        "to": "Hypothesis generation",
+        "direction": "conditional",
+        "condition": "reported use",
+        "support_claim_id": "tasks",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scientific organizations"
+      },
+      {
+        "to": "Experiment design",
+        "direction": "conditional",
+        "condition": "reported use",
+        "support_claim_id": "tasks",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scientific organizations"
+      },
+      {
+        "to": "Data analysis",
+        "direction": "conditional",
+        "condition": "reported use",
+        "support_claim_id": "tasks",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scientific organizations"
+      },
+      {
+        "to": "Communicate findings",
+        "direction": "conditional",
+        "condition": "reported use",
+        "support_claim_id": "tasks",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scientific organizations"
+      }
+    ],
+    "excluded_claims": [
+      "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+      "No scenery, simulated writing, unsupported numbers or success badges."
+    ],
+    "composition_signature": {
+      "grammar": "institutional branching canopy",
+      "metaphor": "access distribution with independent research branches",
+      "palette": "plum and amber",
+      "layout": "top program and credits trunk forks to four large research task branches; lower independent expert-evaluation brace and detached evidence caveat",
+      "annotation": "branch labels and lower evidence brace",
+      "hierarchy": "dominant mechanism with subordinate constraints",
+      "perspective": "editorial sectional plan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "program",
+        "credits",
+        "foundations",
+        "institutions",
+        "research groups",
+        "hypothesis task",
+        "experiment-design task",
+        "analysis task",
+        "communication task",
+        "pilot boundary",
+        "expert review",
+        "early evidence limitation"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Research access program",
+          "region": "peripheral annotation row 1 column 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Claude credits",
+          "region": "peripheral annotation row 1 column 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Scientific organizations",
+          "region": "peripheral annotation row 1 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Hypothesis generation",
+          "region": "peripheral annotation row 2 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Experiment design",
+          "region": "peripheral annotation row 2 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Data analysis",
+          "region": "peripheral annotation row 2 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Communicate findings",
+          "region": "peripheral annotation row 3 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Expert evaluation",
+          "region": "peripheral annotation row 3 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Research pilots",
+          "region": "peripheral annotation row 3 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Early-stage examples",
+          "region": "peripheral annotation row 4 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Gains not established",
+          "region": "peripheral annotation row 4 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Gains not established",
+      "causal_state_checks": [
+        {
+          "condition": "program support",
+          "allowed_path": "Research access program -> Claude credits",
+          "blocked_path": "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+          "support_claim_id": "access"
+        },
+        {
+          "condition": "credits shared through organizations",
+          "allowed_path": "Claude credits -> Scientific organizations",
+          "blocked_path": "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+          "support_claim_id": "access"
+        },
+        {
+          "condition": "reported use",
+          "allowed_path": "Scientific organizations -> Hypothesis generation",
+          "blocked_path": "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+          "support_claim_id": "tasks"
+        },
+        {
+          "condition": "reported use",
+          "allowed_path": "Scientific organizations -> Experiment design",
+          "blocked_path": "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+          "support_claim_id": "tasks"
+        },
+        {
+          "condition": "reported use",
+          "allowed_path": "Scientific organizations -> Data analysis",
+          "blocked_path": "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+          "support_claim_id": "tasks"
+        },
+        {
+          "condition": "reported use",
+          "allowed_path": "Scientific organizations -> Communicate findings",
+          "blocked_path": "Credits are access, not proof of research success. Do not draw research tasks as an obligatory sequential cycle or expert review as a product-guaranteed feature.",
+          "support_claim_id": "tasks"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Claude credits",
+          "support_claim_id": "access",
+          "origin_region": "Research access program element",
+          "target_region": "Claude credits element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Research access program"
+        },
+        {
+          "to": "Scientific organizations",
+          "support_claim_id": "access",
+          "origin_region": "Claude credits element",
+          "target_region": "Scientific organizations element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Claude credits"
+        },
+        {
+          "to": "Hypothesis generation",
+          "support_claim_id": "tasks",
+          "origin_region": "Scientific organizations element",
+          "target_region": "Hypothesis generation element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Scientific organizations"
+        },
+        {
+          "to": "Experiment design",
+          "support_claim_id": "tasks",
+          "origin_region": "Scientific organizations element",
+          "target_region": "Experiment design element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Scientific organizations"
+        },
+        {
+          "to": "Data analysis",
+          "support_claim_id": "tasks",
+          "origin_region": "Scientific organizations element",
+          "target_region": "Data analysis element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Scientific organizations"
+        },
+        {
+          "to": "Communicate findings",
+          "support_claim_id": "tasks",
+          "origin_region": "Scientific organizations element",
+          "target_region": "Communicate findings element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Scientific organizations"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Research access program",
+        "Claude credits"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Scientific organizations",
+        "Hypothesis generation"
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-29",
+    "story_id": "oct29-k2-microsoft-copilot-harness",
+    "source_url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+    "visual_thesis": "The Copilot harness surrounds model choice with instructions, context, tools, execution and controls; models can change while the harness remains.",
+    "mechanism_metaphor": "open layered surround and replaceable model core",
+    "story_anchors": [
+      "The harness provides instructions, context, execution environment and controls around a model.",
+      "A configurable multi-model harness serves different applications without changing the surrounding harness.",
+      "Microsoft runs the agent loop and sandbox with governance and optimization, while customers bring instructions, skills, tools and model choice."
+    ],
+    "required_labels": [
+      "Copilot harness",
+      "Instructions",
+      "Context",
+      "Tools and skills",
+      "Execution environment",
+      "Governance",
+      "Optimization",
+      "Model choice",
+      "Agent loop",
+      "Work surfaces",
+      "First-party claims"
+    ],
+    "source_claim_map": [
+      {
+        "id": "harness",
+        "proposition": "The harness provides instructions, context, execution environment and controls around a model.",
+        "supporting_source_excerpt": "everything around the model",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "models",
+        "proposition": "A configurable multi-model harness serves different applications without changing the surrounding harness.",
+        "supporting_source_excerpt": "right model for the right job",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "managed",
+        "proposition": "Microsoft runs the agent loop and sandbox with governance and optimization, while customers bring instructions, skills, tools and model choice.",
+        "supporting_source_excerpt": "agent loop and sandbox",
+        "source_url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Copilot harness",
+        "direction": "conditional",
+        "condition": "provided instructions",
+        "support_claim_id": "harness",
+        "relation_supported_by_semantic_review": true,
+        "from": "Instructions"
+      },
+      {
+        "to": "Copilot harness",
+        "direction": "conditional",
+        "condition": "task context",
+        "support_claim_id": "harness",
+        "relation_supported_by_semantic_review": true,
+        "from": "Context"
+      },
+      {
+        "to": "Copilot harness",
+        "direction": "conditional",
+        "condition": "configured tools and skills",
+        "support_claim_id": "managed",
+        "relation_supported_by_semantic_review": true,
+        "from": "Tools and skills"
+      },
+      {
+        "to": "Model choice",
+        "direction": "conditional",
+        "condition": "task-dependent selection",
+        "support_claim_id": "models",
+        "relation_supported_by_semantic_review": true,
+        "from": "Copilot harness"
+      },
+      {
+        "to": "Work surfaces",
+        "direction": "conditional",
+        "condition": "shared harness across surfaces",
+        "support_claim_id": "models",
+        "relation_supported_by_semantic_review": true,
+        "from": "Copilot harness"
+      }
+    ],
+    "excluded_claims": [
+      "No unsupported memory subsystem or automatic approval claim. Governance is a surrounding control, not proof every model output is correct; no arbitrary mandatory gate order.",
+      "No scenery, simulated writing, unsupported numbers or success badges."
+    ],
+    "composition_signature": {
+      "grammar": "concentric harness anatomy",
+      "metaphor": "open layered surround and replaceable model core",
+      "palette": "indigo and mint",
+      "layout": "large concentric sectional anatomy at center; model choice core; surrounding context/tools/execution control sectors; three abstract work-surface endpoints outside right",
+      "annotation": "radial anatomy leaders",
+      "hierarchy": "dominant mechanism with subordinate constraints",
+      "perspective": "editorial sectional plan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "instructions",
+        "context",
+        "tool interface",
+        "skill interface",
+        "agent loop",
+        "execution environment",
+        "sandbox boundary",
+        "governance layer",
+        "optimization layer",
+        "model selection",
+        "model alternatives",
+        "work surfaces"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Copilot harness",
+          "region": "peripheral annotation row 1 column 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Instructions",
+          "region": "peripheral annotation row 1 column 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Context",
+          "region": "peripheral annotation row 1 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Tools and skills",
+          "region": "peripheral annotation row 2 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Execution environment",
+          "region": "peripheral annotation row 2 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Governance",
+          "region": "peripheral annotation row 2 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Optimization",
+          "region": "peripheral annotation row 3 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Model choice",
+          "region": "peripheral annotation row 3 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Agent loop",
+          "region": "peripheral annotation row 3 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Work surfaces",
+          "region": "peripheral annotation row 4 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "First-party claims",
+          "region": "peripheral annotation row 4 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "First-party claims",
+      "causal_state_checks": [
+        {
+          "condition": "provided instructions",
+          "allowed_path": "Instructions -> Copilot harness",
+          "blocked_path": "No unsupported memory subsystem or automatic approval claim. Governance is a surrounding control, not proof every model output is correct; no arbitrary mandatory gate order.",
+          "support_claim_id": "harness"
+        },
+        {
+          "condition": "task context",
+          "allowed_path": "Context -> Copilot harness",
+          "blocked_path": "No unsupported memory subsystem or automatic approval claim. Governance is a surrounding control, not proof every model output is correct; no arbitrary mandatory gate order.",
+          "support_claim_id": "harness"
+        },
+        {
+          "condition": "configured tools and skills",
+          "allowed_path": "Tools and skills -> Copilot harness",
+          "blocked_path": "No unsupported memory subsystem or automatic approval claim. Governance is a surrounding control, not proof every model output is correct; no arbitrary mandatory gate order.",
+          "support_claim_id": "managed"
+        },
+        {
+          "condition": "task-dependent selection",
+          "allowed_path": "Copilot harness -> Model choice",
+          "blocked_path": "No unsupported memory subsystem or automatic approval claim. Governance is a surrounding control, not proof every model output is correct; no arbitrary mandatory gate order.",
+          "support_claim_id": "models"
+        },
+        {
+          "condition": "shared harness across surfaces",
+          "allowed_path": "Copilot harness -> Work surfaces",
+          "blocked_path": "No unsupported memory subsystem or automatic approval claim. Governance is a surrounding control, not proof every model output is correct; no arbitrary mandatory gate order.",
+          "support_claim_id": "models"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Copilot harness",
+          "support_claim_id": "harness",
+          "origin_region": "Instructions element",
+          "target_region": "Copilot harness element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Instructions"
+        },
+        {
+          "to": "Copilot harness",
+          "support_claim_id": "harness",
+          "origin_region": "Context element",
+          "target_region": "Copilot harness element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Context"
+        },
+        {
+          "to": "Copilot harness",
+          "support_claim_id": "managed",
+          "origin_region": "Tools and skills element",
+          "target_region": "Copilot harness element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Tools and skills"
+        },
+        {
+          "to": "Model choice",
+          "support_claim_id": "models",
+          "origin_region": "Copilot harness element",
+          "target_region": "Model choice element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Copilot harness"
+        },
+        {
+          "to": "Work surfaces",
+          "support_claim_id": "models",
+          "origin_region": "Copilot harness element",
+          "target_region": "Work surfaces element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Copilot harness"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Copilot harness",
+        "Instructions"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Context",
+        "Tools and skills"
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-29",
+    "story_id": "oct29-a1-servicenow-partnership",
+    "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+    "visual_thesis": "A ServiceNow integration makes incident context and workflow actions available in ChatGPT under the customer-selected capabilities and existing Action Fabric permissions.",
+    "mechanism_metaphor": "scoped service corridor with a denied spur",
+    "story_anchors": [
+      "Customers connect their own ServiceNow instance and choose available capabilities.",
+      "Teams can find similar incidents, assess change risk and update a ServiceNow record through ChatGPT.",
+      "Action Fabric applies existing rules and permissions; allowed actions reflect the organization configuration and access."
+    ],
+    "required_labels": [
+      "ChatGPT request",
+      "ServiceNow instance",
+      "Selected capabilities",
+      "Incident context",
+      "Assess change risk",
+      "Proposed record update",
+      "Business rules",
+      "Existing permissions",
+      "Authorized action",
+      "Denied when disallowed",
+      "Availability varies"
+    ],
+    "source_claim_map": [
+      {
+        "id": "connect",
+        "proposition": "Customers connect their own ServiceNow instance and choose available capabilities.",
+        "supporting_source_excerpt": "choose which capabilities to make available",
+        "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "work",
+        "proposition": "Teams can find similar incidents, assess change risk and update a ServiceNow record through ChatGPT.",
+        "supporting_source_excerpt": "assess the risk of a change",
+        "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "control",
+        "proposition": "Action Fabric applies existing rules and permissions; allowed actions reflect the organization configuration and access.",
+        "supporting_source_excerpt": "applies existing business rules and permissions",
+        "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Selected capabilities",
+        "direction": "conditional",
+        "condition": "customer enabled",
+        "support_claim_id": "connect",
+        "relation_supported_by_semantic_review": true,
+        "from": "ChatGPT request"
+      },
+      {
+        "to": "Incident context",
+        "direction": "conditional",
+        "condition": "available business context",
+        "support_claim_id": "work",
+        "relation_supported_by_semantic_review": true,
+        "from": "ServiceNow instance"
+      },
+      {
+        "to": "Assess change risk",
+        "direction": "conditional",
+        "condition": "review related incidents",
+        "support_claim_id": "work",
+        "relation_supported_by_semantic_review": true,
+        "from": "Incident context"
+      },
+      {
+        "to": "Proposed record update",
+        "direction": "conditional",
+        "condition": "proposed change",
+        "support_claim_id": "work",
+        "relation_supported_by_semantic_review": true,
+        "from": "Assess change risk"
+      },
+      {
+        "to": "Business rules",
+        "direction": "conditional",
+        "condition": "Action Fabric rule review",
+        "support_claim_id": "control",
+        "relation_supported_by_semantic_review": true,
+        "from": "Proposed record update"
+      },
+      {
+        "to": "Existing permissions",
+        "direction": "conditional",
+        "condition": "rule-compliant request",
+        "support_claim_id": "control",
+        "relation_supported_by_semantic_review": true,
+        "from": "Business rules"
+      },
+      {
+        "to": "Authorized action",
+        "direction": "conditional",
+        "condition": "permitted by configuration",
+        "support_claim_id": "control",
+        "relation_supported_by_semantic_review": true,
+        "from": "Existing permissions"
+      },
+      {
+        "to": "Denied when disallowed",
+        "direction": "conditional",
+        "condition": "disallowed by access",
+        "support_claim_id": "control",
+        "relation_supported_by_semantic_review": true,
+        "from": "Existing permissions"
+      }
+    ],
+    "excluded_claims": [
+      "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+      "No scenery, simulated writing, unsupported numbers or success badges."
+    ],
+    "composition_signature": {
+      "grammar": "permission-bound workflow fork",
+      "metaphor": "scoped service corridor with a denied spur",
+      "palette": "rust and slate",
+      "layout": "left context reservoir feeding top investigation path; lower rule and permission double boundary; right authorized/denied fork with no bypass",
+      "annotation": "inline boundary conditions",
+      "hierarchy": "dominant mechanism with subordinate constraints",
+      "perspective": "editorial sectional plan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "request",
+        "customer instance",
+        "capability selection",
+        "similar incidents",
+        "risk assessment",
+        "proposed update",
+        "Action Fabric boundary",
+        "business rule",
+        "permission boundary",
+        "allowed branch",
+        "denied branch",
+        "availability caveat"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "ChatGPT request",
+          "region": "peripheral annotation row 1 column 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "ServiceNow instance",
+          "region": "peripheral annotation row 1 column 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Selected capabilities",
+          "region": "peripheral annotation row 1 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Incident context",
+          "region": "peripheral annotation row 2 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Assess change risk",
+          "region": "peripheral annotation row 2 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Proposed record update",
+          "region": "peripheral annotation row 2 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Business rules",
+          "region": "peripheral annotation row 3 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Existing permissions",
+          "region": "peripheral annotation row 3 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Authorized action",
+          "region": "peripheral annotation row 3 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Denied when disallowed",
+          "region": "peripheral annotation row 4 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Availability varies",
+          "region": "peripheral annotation row 4 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Availability varies",
+      "causal_state_checks": [
+        {
+          "condition": "customer enabled",
+          "allowed_path": "ChatGPT request -> Selected capabilities",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "connect"
+        },
+        {
+          "condition": "available business context",
+          "allowed_path": "ServiceNow instance -> Incident context",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "work"
+        },
+        {
+          "condition": "review related incidents",
+          "allowed_path": "Incident context -> Assess change risk",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "work"
+        },
+        {
+          "condition": "proposed change",
+          "allowed_path": "Assess change risk -> Proposed record update",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "work"
+        },
+        {
+          "condition": "Action Fabric rule review",
+          "allowed_path": "Proposed record update -> Business rules",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "control"
+        },
+        {
+          "condition": "rule-compliant request",
+          "allowed_path": "Business rules -> Existing permissions",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "control"
+        },
+        {
+          "condition": "permitted by configuration",
+          "allowed_path": "Existing permissions -> Authorized action",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "control"
+        },
+        {
+          "condition": "disallowed by access",
+          "allowed_path": "Existing permissions -> Denied when disallowed",
+          "blocked_path": "No direct request-to-write bypass. Denied requests never enter authorized action. Distinguish currently available MCP plugin from enhanced/future capabilities; no guarantee of incident resolution.",
+          "support_claim_id": "control"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Selected capabilities",
+          "support_claim_id": "connect",
+          "origin_region": "ChatGPT request element",
+          "target_region": "Selected capabilities element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "ChatGPT request"
+        },
+        {
+          "to": "Incident context",
+          "support_claim_id": "work",
+          "origin_region": "ServiceNow instance element",
+          "target_region": "Incident context element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "ServiceNow instance"
+        },
+        {
+          "to": "Assess change risk",
+          "support_claim_id": "work",
+          "origin_region": "Incident context element",
+          "target_region": "Assess change risk element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Incident context"
+        },
+        {
+          "to": "Proposed record update",
+          "support_claim_id": "work",
+          "origin_region": "Assess change risk element",
+          "target_region": "Proposed record update element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Assess change risk"
+        },
+        {
+          "to": "Business rules",
+          "support_claim_id": "control",
+          "origin_region": "Proposed record update element",
+          "target_region": "Business rules element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Proposed record update"
+        },
+        {
+          "to": "Existing permissions",
+          "support_claim_id": "control",
+          "origin_region": "Business rules element",
+          "target_region": "Existing permissions element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Business rules"
+        },
+        {
+          "to": "Authorized action",
+          "support_claim_id": "control",
+          "origin_region": "Existing permissions element",
+          "target_region": "Authorized action element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Existing permissions"
+        },
+        {
+          "to": "Denied when disallowed",
+          "support_claim_id": "control",
+          "origin_region": "Existing permissions element",
+          "target_region": "Denied when disallowed element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Existing permissions"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "ChatGPT request",
+        "ServiceNow instance"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Selected capabilities",
+        "Incident context"
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-29",
+    "story_id": "oct29-a2-oracle-agent-skills",
+    "source_url": "https://blogs.oracle.com/ai-data-platform/oracle-ai-data-platform-agent-updates",
+    "visual_thesis": "Oracle adds reusable instruction-and-expertise packages to the visual flow builder; context, memory and runtime permissions are separate configurable controls.",
+    "mechanism_metaphor": "instruction package with separate context and identity assemblies",
+    "story_anchors": [
+      "Skills package task-specific instructions and expertise; upload a folder or use the editor in the visual builder.",
+      "The Context tab controls included conversation history and tool outputs; long-term memory and sharing are configured separately.",
+      "Run As selects platform-operation identity and permissions; invocation access and downstream tool authentication are separate."
+    ],
+    "required_labels": [
+      "Visual flow builder",
+      "Reusable skill",
+      "Task instructions",
+      "Domain expertise",
+      "Upload or edit",
+      "Agent context",
+      "Conversation history",
+      "Tool outputs",
+      "Memory settings",
+      "Runtime identity",
+      "Platform permissions",
+      "Vendor capabilities"
+    ],
+    "source_claim_map": [
+      {
+        "id": "skills",
+        "proposition": "Skills package task-specific instructions and expertise; upload a folder or use the editor in the visual builder.",
+        "supporting_source_excerpt": "task-specific instructions and expertise",
+        "source_url": "https://blogs.oracle.com/ai-data-platform/oracle-ai-data-platform-agent-updates",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "context",
+        "proposition": "The Context tab controls included conversation history and tool outputs; long-term memory and sharing are configured separately.",
+        "supporting_source_excerpt": "conversation history and tool outputs",
+        "source_url": "https://blogs.oracle.com/ai-data-platform/oracle-ai-data-platform-agent-updates",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "identity",
+        "proposition": "Run As selects platform-operation identity and permissions; invocation access and downstream tool authentication are separate.",
+        "supporting_source_excerpt": "permissions associated with that account",
+        "source_url": "https://blogs.oracle.com/ai-data-platform/oracle-ai-data-platform-agent-updates",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Reusable skill",
+        "direction": "conditional",
+        "condition": "packaged instructions",
+        "support_claim_id": "skills",
+        "relation_supported_by_semantic_review": true,
+        "from": "Task instructions"
+      },
+      {
+        "to": "Reusable skill",
+        "direction": "conditional",
+        "condition": "packaged expertise",
+        "support_claim_id": "skills",
+        "relation_supported_by_semantic_review": true,
+        "from": "Domain expertise"
+      },
+      {
+        "to": "Reusable skill",
+        "direction": "conditional",
+        "condition": "folder upload or editor",
+        "support_claim_id": "skills",
+        "relation_supported_by_semantic_review": true,
+        "from": "Upload or edit"
+      },
+      {
+        "to": "Visual flow builder",
+        "direction": "conditional",
+        "condition": "attached reusable package",
+        "support_claim_id": "skills",
+        "relation_supported_by_semantic_review": true,
+        "from": "Reusable skill"
+      },
+      {
+        "to": "Agent context",
+        "direction": "conditional",
+        "condition": "configured inclusion",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true,
+        "from": "Conversation history"
+      },
+      {
+        "to": "Agent context",
+        "direction": "conditional",
+        "condition": "configured inclusion",
+        "support_claim_id": "context",
+        "relation_supported_by_semantic_review": true,
+        "from": "Tool outputs"
+      },
+      {
+        "to": "Platform permissions",
+        "direction": "conditional",
+        "condition": "assigned account role",
+        "support_claim_id": "identity",
+        "relation_supported_by_semantic_review": true,
+        "from": "Runtime identity"
+      }
+    ],
+    "excluded_claims": [
+      "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+      "No scenery, simulated writing, unsupported numbers or success badges."
+    ],
+    "composition_signature": {
+      "grammar": "exploded capability assembly",
+      "metaphor": "instruction package with separate context and identity assemblies",
+      "palette": "olive and violet",
+      "layout": "upper-left exploded instruction/expertise skill assembly joins central visual builder; lower context/history/tool assembly; right separate runtime-identity permission boundary",
+      "annotation": "assembly brackets and dotted associations",
+      "hierarchy": "dominant mechanism with subordinate constraints",
+      "perspective": "editorial sectional plan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "builder",
+        "skill package",
+        "instructions",
+        "expertise",
+        "upload input",
+        "skills editor",
+        "context selector",
+        "conversation history",
+        "tool outputs",
+        "memory settings",
+        "runtime identity",
+        "platform permission boundary"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://blogs.oracle.com/ai-data-platform/oracle-ai-data-platform-agent-updates",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Visual flow builder",
+          "region": "peripheral annotation row 1 column 1",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Reusable skill",
+          "region": "peripheral annotation row 1 column 2",
+          "minimum_font_px": 32,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Task instructions",
+          "region": "peripheral annotation row 1 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 45,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Domain expertise",
+          "region": "peripheral annotation row 2 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Upload or edit",
+          "region": "peripheral annotation row 2 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Agent context",
+          "region": "peripheral annotation row 2 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 190,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Conversation history",
+          "region": "peripheral annotation row 3 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Tool outputs",
+          "region": "peripheral annotation row 3 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Memory settings",
+          "region": "peripheral annotation row 3 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 335,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Runtime identity",
+          "region": "peripheral annotation row 4 column 1",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Platform permissions",
+          "region": "peripheral annotation row 4 column 2",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        },
+        {
+          "label": "Vendor capabilities",
+          "region": "peripheral annotation row 4 column 3",
+          "minimum_font_px": 26,
+          "bounding_box_px": {
+            "x": 795,
+            "y": 480,
+            "width": 360,
+            "height": 64
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor capabilities",
+      "causal_state_checks": [
+        {
+          "condition": "packaged instructions",
+          "allowed_path": "Task instructions -> Reusable skill",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "skills"
+        },
+        {
+          "condition": "packaged expertise",
+          "allowed_path": "Domain expertise -> Reusable skill",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "skills"
+        },
+        {
+          "condition": "folder upload or editor",
+          "allowed_path": "Upload or edit -> Reusable skill",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "skills"
+        },
+        {
+          "condition": "attached reusable package",
+          "allowed_path": "Reusable skill -> Visual flow builder",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "skills"
+        },
+        {
+          "condition": "configured inclusion",
+          "allowed_path": "Conversation history -> Agent context",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "context"
+        },
+        {
+          "condition": "configured inclusion",
+          "allowed_path": "Tool outputs -> Agent context",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "context"
+        },
+        {
+          "condition": "assigned account role",
+          "allowed_path": "Runtime identity -> Platform permissions",
+          "blocked_path": "A reusable Skill does not itself grant permissions, train a model, guarantee successful tests or share memory across sessions by default. Invocation access and downstream credentials are not implied by Run As.",
+          "support_claim_id": "identity"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "to": "Reusable skill",
+          "support_claim_id": "skills",
+          "origin_region": "Task instructions element",
+          "target_region": "Reusable skill element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Task instructions"
+        },
+        {
+          "to": "Reusable skill",
+          "support_claim_id": "skills",
+          "origin_region": "Domain expertise element",
+          "target_region": "Reusable skill element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Domain expertise"
+        },
+        {
+          "to": "Reusable skill",
+          "support_claim_id": "skills",
+          "origin_region": "Upload or edit element",
+          "target_region": "Reusable skill element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Upload or edit"
+        },
+        {
+          "to": "Visual flow builder",
+          "support_claim_id": "skills",
+          "origin_region": "Reusable skill element",
+          "target_region": "Visual flow builder element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Reusable skill"
+        },
+        {
+          "to": "Agent context",
+          "support_claim_id": "context",
+          "origin_region": "Conversation history element",
+          "target_region": "Agent context element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Conversation history"
+        },
+        {
+          "to": "Agent context",
+          "support_claim_id": "context",
+          "origin_region": "Tool outputs element",
+          "target_region": "Agent context element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Tool outputs"
+        },
+        {
+          "to": "Platform permissions",
+          "support_claim_id": "identity",
+          "origin_region": "Runtime identity element",
+          "target_region": "Platform permissions element",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Runtime identity"
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Visual flow builder",
+        "Reusable skill"
+      ],
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Task instructions",
+        "Domain expertise"
+      ]
+    }
+  }
+]
