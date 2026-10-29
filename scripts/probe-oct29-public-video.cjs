@@ -4,12 +4,10 @@
 const {chromium}=require('/tmp/browser/node_modules/playwright-core');
 const sources=[
  {name:'TED Julie Bedard',url:'https://www.ted.com/talks/julie_bedard_ai_brain_fry_is_real_here_s_what_leaders_can_do'},
+ {name:'PBS NewsHour AI agent regulation 6:30',url:'https://www.pbs.org/video/ai-going-rogue-1788205111/'},
  {name:'DW primary non-amp',url:'https://www.dw.com/en/what-is-ais-biggest-risk-speed-or-autonomy/video-79250154'},
- {name:'WIRED Timnit Gebru',url:'https://www.wired.com/video/watch/big-interview-timnit-gebru'},
  {name:'Yahoo Finance Cisco interview',url:'https://finance.yahoo.com/video/ai-agent-safety-will-be-the-issue-of-our-time-cisco-president-143905775.html'},
- {name:'TED Peter Steinberger',url:'https://www.ted.com/talks/peter_steinberger_how_i_created_openclaw_the_breakthrough_ai_agent'},
- {name:'DW Oct 16 AI bubble interview',url:'https://www.dw.com/en/ai-bubble-fears-could-a-crash-trigger-a-global-financial-crisis/video-79676866'},
- {name:'PBS AI control discussion',url:'https://www.pbs.org/video/breaking-the-deadlock-ai-whos-in-control-zlqsj3/'}
+ {name:'TED official embed Bedard',url:'https://embed.ted.com/talks/julie_bedard_ai_brain_fry_is_real_here_s_what_leaders_can_do'}
 ];
 async function run(){
  const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});
@@ -19,9 +17,9 @@ async function run(){
   const page=await context.newPage();
   const record={name:source.name,url:source.url,checked_at:new Date().toISOString(),result:'UNVERIFIED',players:[],errors:[]};
   try{
-   const response=await page.goto(source.url,{waitUntil:'domcontentloaded',timeout:24000});
+   const response=await page.goto(source.url,{waitUntil:'domcontentloaded',timeout:18000});
    record.http=response?.status();
-   await page.waitForTimeout(1800);
+   await page.waitForTimeout(900);
    const patterns=[/accept all/i,/agree to all/i,/accept cookies/i,/i agree/i,/watch video/i,/play video/i,/play talk/i,/play/i];
    for(const re of patterns){
     try{
@@ -29,7 +27,7 @@ async function run(){
      if(await buttons.count()>0){await buttons.first().click({timeout:1400});await page.waitForTimeout(900);}
     }catch{}
    }
-   for(let attempt=0;attempt<10;attempt++){
+   for(let attempt=0;attempt<6;attempt++){
     for(const frame of page.frames().slice(0,16)){
      const nodes=frame.locator('video');
      const count=await nodes.count().catch(()=>0);
