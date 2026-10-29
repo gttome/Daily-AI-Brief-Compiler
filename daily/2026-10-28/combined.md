@@ -140,7 +140,7 @@ flowchart LR
 
 | Incident | Impact | Disposition | Verified correction |
 |---|---|---|---|
-| oct29-workday-product-marketing-pair | Both videos were selected from the same original company and are first-party Workday product-configuration lessons rather than source-diverse independent AI instruction. | OPEN_PUBLISHED_READER_UNCHANGED | Not recorded |
+| oct29-workday-product-marketing-pair | Both videos were selected from the same original company and are first-party Workday product-configuration lessons rather than source-diverse independent AI instruction. | CORRECTED_LIVE_VERIFIED | [PR #290](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/290) |
 
 
 **Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 3. 
