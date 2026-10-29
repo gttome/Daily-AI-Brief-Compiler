@@ -24,7 +24,7 @@
 | Distinct selected video publishers | **1** | One channel is one publisher even across multiple videos |
 | Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
 | Live published video playback after release | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Actual displayed public media links, not prepublish metadata | 
-| Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
+| Postpublication reader incidents | **1** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Recorded scheduler capability route | **UNPROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
@@ -138,7 +138,9 @@ flowchart LR
 
 ### Postpublication reader incidents (updated when new evidence is merged)
 
-No current-edition postpublication incident register was available; this is **NOT_RECORDED**, not a certification of zero incidents.
+| Incident | Impact | Disposition | Verified correction |
+|---|---|---|---|
+| oct29-workday-product-marketing-pair | Both videos were selected from the same original company and are first-party Workday product-configuration lessons rather than source-diverse independent AI instruction. | OPEN_PUBLISHED_READER_UNCHANGED | Not recorded |
 
 
 **Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 3. 
@@ -200,6 +202,7 @@ No current-edition postpublication incident register was available; this is **NO
 | Image release receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-10-29/release.json) |
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-29/reviews/live/semantic-pixel-review.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-10-29/reviews/after-action.md) |
+| Postpublication incident register | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/incidents/2026-10-29.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-10-29/shadow-runs/2026-10-29/compiler/postpublish-video-playback.json) |
 
 **Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/40808413435).
