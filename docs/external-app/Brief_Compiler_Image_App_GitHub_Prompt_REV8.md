@@ -1,5 +1,10 @@
 # October 19, 2026 scheduler migration
 
+## October 29 AAR approved — source-grounded mobile and first-pass image controls (effective October 30)
+
+Read `docs/automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md` and meet the prospective `scripts/preflight-image-firstpass.mjs` requirements. Each future six-image frozen specification must explicitly record `mobile_inline_390px_review_planned:true`, `no_avatars_shields_gears_control_knobs:true`, `no_unsupported_memory_or_permission_flow:true` and `no_pseudotext_decorative_microstrokes:true`. On the original **1200×630** export use at least **36px** for its two or three source-authorized thumbnail-priority labels and **28px** for every other required explanatory label. Inspect the exact saved candidate both at full size and as a 390px inline rendition; keep the existing full-size viewer for fine secondary text and record that limitation truthfully. Correct only failed regions, retain the full source/causal/permission constraints and review all 24 public contexts. No artificial retries, accepted-art regeneration, added Image Creation sessions, task changes or relaxed publication gates.
+
+
 For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d0f1b46bffc9` (**Daily Brief Images — Fresh Work**), configured in the actual scheduler as **New chat for every run**, daily at **21:15 America/Chicago**. It replaces `6acac88cff048191ba02e5b2bcb3becb`; pause the old task before enabling the replacement. The owner authorized this replacement after the autonomous GitHub/native-image test. Historical assignments and accepted PNGs retain their original task identity. No extra daily producer, chat-mode admission gate, quality relaxation or owner daily setup is introduced.
 
 # Daily AI Brief — Complete Recurring Premium Image Production Contract
