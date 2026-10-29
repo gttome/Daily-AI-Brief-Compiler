@@ -1,6 +1,6 @@
 # 2026-10-29 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 3aa8a446bacc54ab8c635174335a9837f8358905 |
 | Executor observed run start | 2026-10-29T02:13:47Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-29T02:18:36Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_CI_MERGE |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_REAL_PUBLIC_CAPTURE_INSPECTION; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-29T02:48:20.731Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -44,6 +44,7 @@
 | Native saved-pixel inspection | oct29-a2-oracle-agent-skills attempt 3: A dotted arrow still implied automatic memory flow into context. | Original rejection preserved at external-image-packages/2026-10-29/reviews/rejected-oct29-a2-oracle-agent-skills-attempt-3.png. Targeted native edits and actual final-size reinspection produced the accepted source-faithful PNG. Actual exported RGB pixels show instruction/expertise/upload inputs assembled into a reusable skill and visual builder. History/tool outputs feed context, while memory settings remains unconnected and runtime identity leads independently to platform permissions. No skill-to-permission shortcut, automatic memory sharing, avatar, shield, gear, control knob, writing strokes or success claim. Connected exact-commit base64 readback equals the inspected PNG. |
 | Initial GitHub path resolution | The first index request treated shadow-pages-history as a directory on main and returned 404. | Read the authoritative site/image-jobs/index.json on shadow-pages-history, selected only October 29 PUBLISHED_PENDING and preserved all older released editions. |
 | Original-source retrieval | The Google Cloud original article timed out on direct opening despite repeated bounded attempts. | Retrieved and read the complete indexed original Google Cloud article through first-party web search, including manual-mode restrictions, matching vector spaces, cutover, rollback and resource caveats. |
+| Exact release artifact retrieval | The scratch Python environment lacked the optional requests module during the initial download command. | Used standard-library urllib to download the same existing workflow artifact; exact artifact SHA-256 verified before extraction. No extra service, workflow or deployment was created. |
 
 ## Evidence and limitations
 
@@ -59,12 +60,20 @@ All six source-grounded compositions were frozen and existing route/first-pass p
 
 All six connected GitHub exact-commit base64 readbacks matched inspected PNG bytes, SHA-256, Git blob and length. Original immutable job/source bindings retained.
 
-Six-set review was performed on actual saved images. Public release, twelve pairings, twenty-four semantic contexts and October8 preservation remain pending at this pre-PR checkpoint. Screenshot count or CI will not imply semantic PASS.
-
-Prospective October29 capture requires saved RGB image-region pixel proof plus actual semantic inspection; the existing release artifacts will be reused, with no redeployment just for reporting.
-
 No account-level usage telemetry was available. Weekly usage UNKNOWN; exact active native provider runtime and first-party scheduler origin UNPROVEN. Observed clocks are executor observations only.
 
 No extra worker, schedule change, paid API, TinyFish, metered service or legacy-repository write was used. Historical accepted PNGs remain untouched.
+
+Protected package PR286 passed exact-head PRE_PR_PACKAGE_PASS and validate:593 tests,0 failures, then merged at3c4e0383b3c46fa64fbc165d79ec322558ac0d90. Existing image-only release40808413435 completed successfully.
+
+Independent public HTTP readback verified all6 exact PNG lengths/hashes and all12 exact alt/src story pairings, PUBLIC_STATUS_VERIFIED, and17 protected October8 objects including the already-approved anchor revision.
+
+All24 genuine original dated/permanent desktop/mobile capture PNGs from exact release artifact12868963561 were individually inspected and SHA-256/length-checked. Each saved screenshot RGB image region passed with match_ratio1.000; this objective proof was followed by actual semantic inspection.
+
+All24 complete correct illustrations and primary labels are visible without clipping, overlays or placeholders. Fine secondary mobile text requires the original/full-size viewer; no universal thumbnail legibility claim. No capture repair, publication rerun, metadata redeployment or accepted-image regeneration was used for closeout.
+
+Final semantic review completed at 2026-10-29T02:53:18.841380Z. The observed host-to-review elapsed time is 39.53 minutes; this is elapsed wall time, not model-active runtime.
+
+Final reviews, structured/generated AAR and released worker lease are being persisted through the existing protected PR process. Manifest, assignment, accepted PNGs and historical editions remain byte-identical.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
