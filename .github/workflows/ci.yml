@@ -330,15 +330,6 @@ jobs:
       - name: Probe signed-out Okta playback; distinguish public identity from player success
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct28-okta-public-video-after-sources-20261028'
         run: node scripts/check-oct28-okta-youtube-playback.cjs
-      - name: Verify proposed October 29 independent media in signed-out Chrome (correction PR only)
-        if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct29-two-video-reader-correction-20261028'
-        shell: bash
-        run: |
-          set -euo pipefail
-          test -x /usr/bin/google-chrome
-          mkdir -p /tmp/browser/node_modules
-          ln -s "$GITHUB_WORKSPACE/node_modules/playwright-core" /tmp/browser/node_modules/playwright-core
-          node scripts/probe-oct29-public-video.cjs
       - name: Rehearse actual October 29 media-only site correction against preserved Pages history
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct29-two-video-reader-correction-20261028'
         shell: bash
@@ -354,6 +345,15 @@ jobs:
           node scripts/assert-published-image-continuity.mjs \
             build/oct29-media-history/site build/oct29-media-patched/site
           node -e "const r=require('./build/oct29-media-patched/receipt.json');if(r.result!=='PASS'||r.files_changed!==11||!r.original_bundle_unchanged||!r.accepted_image_and_job_bytes_unchanged)process.exit(1);console.log('OCT29_MEDIA_ONLY_SITE_REHEARSAL_PASS',r.files_changed)"
+      - name: Verify proposed October 29 independent media in signed-out Chrome (correction PR only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/oct29-two-video-reader-correction-20261028'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -x /usr/bin/google-chrome
+          mkdir -p /tmp/browser/node_modules
+          ln -s "$GITHUB_WORKSPACE/node_modules/playwright-core" /tmp/browser/node_modules/playwright-core
+          node scripts/probe-oct29-public-video.cjs
       - run: npm test
       - name: Rehearse public-video playback logic in an isolated real browser
         shell: bash
