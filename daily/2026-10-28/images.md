@@ -5,13 +5,13 @@
 | Dimension | Observed evidence |
 |---|---|
 | Execution | START_OBSERVED |
-| Result | PARTIAL |
+| Result | SUCCESS |
 | Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | 2026-10-29T02:22:46.000Z |
-| Finished | UNKNOWN |
-| Duration (min) | UNKNOWN |
+| Finished | 2026-10-29T02:54:57.000Z |
+| Duration (min) | 32.18 |
 | Autonomy independent of publication | UNPROVEN |
 | Owner intervention required | UNKNOWN |
 | Prior protected gate failures recorded | NOT_RECORDED |
@@ -23,7 +23,7 @@
 
 ## Evidence and limitations
 
-- 24 semantic desktop/mobile context reviews not independently evidenced in this report input
+- No independently recorded defect in the available sources
 
 ## Operational result
 
