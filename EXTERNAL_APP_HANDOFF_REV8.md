@@ -1,5 +1,10 @@
 # External Premium Images Handoff — Revision 8
 
+## October 29 approved AAR (effective October 30)
+
+The owner approved prospective reductions in first-pass image defects and clearer mobile presentation. Before image generation read `docs/automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md` and supply the explicit four October 30+ frozen-spec quality flags and 36px priority / 28px secondary source-text label minima described there. Reject avatars, shields, gears, invented control knobs, pseudo-writing, unsupported permission/memory shortcuts and misleading causal arrows in the first draft. Review the **actual 390px inline rendition**, the full-size PNG and all existing 24 released visual contexts. Fine secondary inline text may require the existing full-size viewer; never fabricate a universal mobile legibility claim. This does not change scheduled times, image job count, source or main branch, accepted art, Work allowance, external spend, PR/CI or public history.
+
+
 **Execution and ownership correction, October 20 onward:** read `docs/external-app/IMAGE_WORKER_OWNERSHIP.md` before generating. The existing scheduled chat demonstrated Work, native Image Creation and GitHub on October 19; competing production sessions caused its publication stop. Require one canonical edition branch and a persisted owner receipt before any image call; status-only sessions must not launch another producer. No new task, chat-type gate or image regeneration of released editions.
 
 **Revision 8**, future-only authorized recurring image lane. Chat-type checks withdrawn by owner October 11, 2026.  
