@@ -22,7 +22,7 @@
 | Distinct selected article publishers | **5** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
-| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Live published video playback after release | **NOT_RECORDED** | Actual displayed public media links, not prepublish metadata | 
 | Postpublication reader incidents | **2** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Recorded scheduler capability route | **CAPABILITY_ROUTE_PROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
