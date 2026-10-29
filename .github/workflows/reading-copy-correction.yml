@@ -125,6 +125,10 @@ jobs:
               node scripts/stage-oct28-last-video-link.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
               ;;
+            OCT29_TWO_VIDEO_VALUE_MEDIA_ONLY)
+              node scripts/stage-oct29-video-value.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             *) echo "Unknown reader correction kind: $REVISION_KIND" >&2; exit 1 ;;
           esac
           node --input-type=module <<'NODE'
@@ -253,9 +257,33 @@ jobs:
                r.no_video_download_or_reupload!==true||r.no_paid_api_or_new_schedule!==true)
               throw Error('Oct28 video-only link correction changed unapproved content');
 
+          }else if(r.schema_version==='daily-compiler-oct29-two-video-editorial-correction-v1'){
+            const wanted=['index.html','latest.html','latest.md','briefs/2026-10-29/index.html',
+              'videos/2026-10-29/general/index.html','videos/2026-10-29/agent-skills/index.html',
+              'feed.xml','feed.json','data/archive-index.json','data/compiler-feedback-registry.json',
+              'briefs-archive/index.html'];
+            if(r.edition_date!=='2026-10-29'||r.files_changed!==11||
+               JSON.stringify(r.changed.map(x=>x.route).sort())!==JSON.stringify(wanted.sort())||
+               !r.original_bundle_unchanged||!r.accepted_image_and_job_bytes_unchanged||
+               !r.historical_edition_bytes_unchanged||!r.original_feedback_identities_preserved||
+               r.video_count!==2||new Set(r.source_publishers).size!==2||
+               r.image_generation_count!==0||r.new_paid_apis!==0||r.new_schedules!==0)
+              throw Error('Oct29 owner-requested two independent video media-only correction violated preservation contract');
+
           }else throw Error('Unexpected correction receipt version');
           console.log('READER_TEXT_CORRECTION_PREFLIGHT_PASS',r.files_changed);
           NODE
+      - name: Require real signed-out advancing playback for both October 29 replacements
+        if: env.REVISION_KIND == 'OCT29_TWO_VIDEO_VALUE_MEDIA_ONLY'
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --no-audit --no-fund --fetch-retries=1 --fetch-timeout=20000 playwright-core@1.51.1
+          mkdir -p /tmp/browser/node_modules
+          ln -s "$GITHUB_WORKSPACE/node_modules/playwright-core" /tmp/browser/node_modules/playwright-core
+          node scripts/verify-selected-video-playback.cjs \
+            config/media-revisions/2026-10-29-playback-candidates.json \
+            build/oct29-protected-public-playback.json
       - name: Preserve all previously published accepted images during text corrections
         run: node scripts/assert-published-image-continuity.mjs history/site build/patched
       - name: Refuse competing history or main changes before deploy
