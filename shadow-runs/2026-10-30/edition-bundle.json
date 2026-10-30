@@ -5,7 +5,7 @@
   "status": "BUNDLE_READY",
   "editorial_provenance": {
     "selection_locked_at": "2026-10-30T00:36:17.267Z",
-    "sealed_at": "2026-10-30T00:36:53.302Z"
+    "sealed_at": "2026-10-30T00:41:15.959Z"
   },
   "stories": [
     {
@@ -208,17 +208,17 @@
     },
     {
       "id": "oct30-a2-microsoft-agent-skills-lab",
-      "headline": "Microsoft shows how to package a repeatable workflow as an agent Skill",
+      "headline": "Agent Builder turns release-note triage into a repeatable review",
       "focus": "Agents for Everyone",
       "agent_skills": true,
-      "agent_skills_evidence": "The procedure turns a release-notes workflow into a reusable package with a trigger, ordered grouping and formatting steps, expected output, optional reference files and scripts, configuration review, upload checks and a fresh test prompt before reuse.",
+      "agent_skills_evidence": "The source gives a concrete release-notes Skill procedure: accept a merged-change list, group entries into Features, Fixes and Other, run a formatting script, produce a dated Markdown changelog, inspect the generated configuration and test the package with a fresh prompt before reuse.",
       "audience_fit": {
         "requires_programming": false,
         "prerequisite_level": "general_office_tools",
-        "intended_user": "Proposal managers, procurement analysts and project-intake owners who can describe approved business procedures, reference material and review criteria without coding.",
-        "practical_action": "Package one procedure with a specific trigger, approved references, ordered steps and prohibited claims, then test it in two fresh conversations using normal and edge-case inputs.",
-        "review_action": "A process owner inspects the loaded Skill, source citations, missing-data behavior, trade-offs, prohibited actions and generated artifact before approving reuse across another workflow.",
-        "usable_outcome": "A reusable noncoding Skill package plus a test record showing when it loads, which evidence it uses, how it handles uncertainty and which decisions remain human."
+        "intended_user": "Release managers, product operations leads and communications owners who already review merged-change lists and prepare dated release notes without writing software.",
+        "practical_action": "Provide one real merged-change list, define Features, Fixes and Other as the categories, require a dated Markdown changelog and run one fresh test.",
+        "review_action": "A release owner checks categorization, omissions, wording, date and Markdown structure before approving the Skill or sharing the generated notes.",
+        "usable_outcome": "A reusable release-note Skill plus a test record showing the source change list, assigned category, formatted output, reviewer corrections and approval status."
       },
       "source": {
         "title": "Add skills to your declarative agent in Agent Builder",
@@ -241,15 +241,15 @@
         "Agent Skills",
         "Noncoding procedure"
       ],
-      "related_coverage": "Provides the edition’s sole reusable Agent Skills procedure with explicit trigger, reference, test and human-decision boundaries.",
+      "related_coverage": "Applies Agent Skills to one bounded release-management task with explicit categories, expected format, inspection and fresh-input testing.",
       "topics": [
         "Agent Skills",
         "Procedure packaging",
         "Fresh tests"
       ],
-      "summary": "Microsoft Learn shows how to describe a repeatable release-notes workflow, have Agent Builder create a Skill, review its configuration and test the result. Teams may instead upload a ZIP containing SKILL.md, optional resources and scripts. The preview has licensing, tenant and governance constraints, so availability and outputs still require local verification.",
-      "why_it_matters": "Business teams can package one noncoding workflow with a trigger, ordered steps, expected format and approved references, then inspect the generated Skill and test a fresh prompt before sharing it or relying on repeated output.",
-      "image_alt_intent": "A release manager packages change-grouping steps, an expected changelog format and approved references into one Skill, then reviews its configuration and runs a fresh test before sharing.",
+      "summary": "Microsoft Learn shows a release manager describing a workflow that groups merged changes into Features, Fixes and Other, then formats a dated Markdown changelog. Agent Builder packages those instructions as a Skill for review and testing. Teams may add references or scripts, but licensing, tenant controls and output accuracy still need local verification.",
+      "why_it_matters": "Release managers can define one bounded input, three change categories and an expected changelog format, inspect the generated Skill, and test a fresh list of merged changes before sharing the routine across a team.",
+      "image_alt_intent": "A release manager sorts merged changes into Features, Fixes and Other, reviews a dated Markdown changelog from an Agent Skill, and approves corrections before team reuse.",
       "permanent_route": "/stories/2026-10-30/oct30-a2-microsoft-agent-skills-lab/",
       "reading_time_minutes": 8
     }
@@ -1000,7 +1000,7 @@
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "A release manager packages change-grouping steps, an expected changelog format and approved references into one Skill, then reviews its configuration and runs a fresh test before sharing."
+      "alt": "A release manager sorts merged changes into Features, Fixes and Other, reviews a dated Markdown changelog from an Agent Skill, and approves corrections before team reuse."
     }
   ],
   "image_representation": {
