@@ -1,0 +1,357 @@
+{
+  "schema_version": "daily-compiler-source-timeout-retry-v1",
+  "edition_date": "2026-10-30",
+  "execution_id": "daily-compiler-2026-10-30-primary",
+  "created_at": "2026-10-30T00:18:58.143Z",
+  "original_first_pass_attempts": 98,
+  "observed_retry_attempts": 15,
+  "second_attempt_timeout_ms": 8000,
+  "coverage_kind": "PUBLIC_HTTPS_ROUTE_ONLY_NOT_EDITORIAL_EVIDENCE",
+  "retries": [
+    {
+      "resource_id": "github-trending",
+      "first_attempt": {
+        "resource_id": "github-trending",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:17:57.853Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://github.com/trending",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "github-trending",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:37.154Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://github.com/trending",
+        "elapsed_ms": 2412,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "anthropic",
+      "first_attempt": {
+        "resource_id": "anthropic",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:17:49.197Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://www.anthropic.com/engineering",
+        "elapsed_ms": 4002,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "anthropic",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:37.329Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://www.anthropic.com/engineering",
+        "elapsed_ms": 2588,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "anthropic-news",
+      "first_attempt": {
+        "resource_id": "anthropic-news",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:17:49.198Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://www.anthropic.com/news",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "anthropic-news",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:37.347Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://www.anthropic.com/news",
+        "elapsed_ms": 2605,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "hugging-face-daily-papers",
+      "first_attempt": {
+        "resource_id": "hugging-face-daily-papers",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:17:58.496Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://huggingface.co/papers",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "hugging-face-daily-papers",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:40.118Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://huggingface.co/papers",
+        "elapsed_ms": 2789,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "hugging-face-datasets",
+      "first_attempt": {
+        "resource_id": "hugging-face-datasets",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:17:58.538Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://huggingface.co/datasets?sort=trending",
+        "elapsed_ms": 3999,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "hugging-face-datasets",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:40.291Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://huggingface.co/datasets?sort=trending",
+        "elapsed_ms": 2944,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "google-deepmind-blog",
+      "first_attempt": {
+        "resource_id": "google-deepmind-blog",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:17:57.933Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://deepmind.google/discover/blog/",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "google-deepmind-blog",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:43.116Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://deepmind.google/blog/",
+        "elapsed_ms": 5962,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "meta-ai-blog",
+      "first_attempt": {
+        "resource_id": "meta-ai-blog",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:03.723Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://ai.meta.com/blog/",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "meta-ai-blog",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:44.102Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://ai.meta.com/blog/",
+        "elapsed_ms": 3984,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "podcast-artificial-intelligence-show",
+      "first_attempt": {
+        "resource_id": "podcast-artificial-intelligence-show",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:10.368Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://podcast.smarterx.ai/",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "podcast-artificial-intelligence-show",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:44.976Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://podcast.smarterx.ai/",
+        "elapsed_ms": 4685,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "podcast-latent-space",
+      "first_attempt": {
+        "resource_id": "podcast-latent-space",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:12.679Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://www.latent.space/podcast",
+        "elapsed_ms": 4000,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "podcast-latent-space",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:51.117Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://www.latent.space/podcast",
+        "elapsed_ms": 8001,
+        "error_code": "TIMEOUT"
+      }
+    },
+    {
+      "resource_id": "the-batch",
+      "first_attempt": {
+        "resource_id": "the-batch",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:18.354Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://www.deeplearning.ai/the-batch/",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "the-batch",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:51.518Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://www.deeplearning.ai/the-batch",
+        "elapsed_ms": 7416,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "tldr-ai",
+      "first_attempt": {
+        "resource_id": "tldr-ai",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:19.501Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://tldr.tech/api/latest/ai",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "tldr-ai",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:52.220Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://tldr.tech/ai/2026-10-29",
+        "elapsed_ms": 7243,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "deep-20261026-a01-google-research",
+      "first_attempt": {
+        "resource_id": "deep-20261026-a01-google-research",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:24.137Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://research.google/blog/",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "deep-20261026-a01-google-research",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:55.208Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://research.google/blog/",
+        "elapsed_ms": 3690,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "xai-news",
+      "first_attempt": {
+        "resource_id": "xai-news",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:20.136Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://x.ai/news",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "xai-news",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:55.450Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://x.ai/news",
+        "elapsed_ms": 4333,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "directory-d6cf3f9fa167b8173a35228b",
+      "first_attempt": {
+        "resource_id": "directory-d6cf3f9fa167b8173a35228b",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:32.638Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://www.braintrust.dev/blog",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "directory-d6cf3f9fa167b8173a35228b",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:56.312Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://www.braintrust.dev/blog",
+        "elapsed_ms": 4091,
+        "error_code": null
+      }
+    },
+    {
+      "resource_id": "directory-8df3614a9972a25fc59475ed",
+      "first_attempt": {
+        "resource_id": "directory-8df3614a9972a25fc59475ed",
+        "status": "TIMED_OUT",
+        "attempted_at": "2026-10-30T00:18:33.681Z",
+        "method": "HEAD",
+        "http_status": null,
+        "final_url": "https://metr.org/blog/",
+        "elapsed_ms": 4001,
+        "error_code": "TIMEOUT"
+      },
+      "second_attempt": {
+        "resource_id": "directory-8df3614a9972a25fc59475ed",
+        "status": "ROUTE_REACHABLE",
+        "attempted_at": "2026-10-30T00:18:58.133Z",
+        "method": "HEAD",
+        "http_status": 200,
+        "final_url": "https://metr.org/blog/",
+        "elapsed_ms": 2925,
+        "error_code": null
+      }
+    }
+  ]
+}

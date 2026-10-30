@@ -1,0 +1,129 @@
+{
+  "schema_version": "daily-compiler-editorial-index-retries-v1",
+  "edition_date": "2026-10-30",
+  "execution_id": "daily-compiler-2026-10-30-primary",
+  "created_at": "2026-10-30T00:19:51.877Z",
+  "policy": {
+    "effective_from": "2026-10-30",
+    "max_second_attempts": 16,
+    "second_attempt_timeout_ms": 8000,
+    "second_attempt_concurrency": 3
+  },
+  "first_pass_attempted": 87,
+  "selection": "ROTATING_BOUNDED_TRANSIENT_ONLY",
+  "retries": [
+    {
+      "resource_id": "github-ai-agents",
+      "first_attempt": {
+        "resource_id": "github-ai-agents",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:01.412Z",
+        "source_index_url": "https://github.com/topics/ai-agents",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      },
+      "second_attempt": {
+        "resource_id": "github-ai-agents",
+        "outcome": "NO_ELIGIBLE_ITEMS",
+        "checked_at": "2026-10-30T00:19:41.071Z",
+        "source_index_url": "https://github.com/topics/ai-agents",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
+      }
+    },
+    {
+      "resource_id": "berkeley-bair",
+      "first_attempt": {
+        "resource_id": "berkeley-bair",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:01.094Z",
+        "source_index_url": "https://bair.berkeley.edu/blog/",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      },
+      "second_attempt": {
+        "resource_id": "berkeley-bair",
+        "outcome": "NO_ELIGIBLE_ITEMS",
+        "checked_at": "2026-10-30T00:19:41.070Z",
+        "source_index_url": "https://bair.berkeley.edu/blog/",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
+      }
+    },
+    {
+      "resource_id": "google-deepmind-blog",
+      "first_attempt": {
+        "resource_id": "google-deepmind-blog",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:04.061Z",
+        "source_index_url": "https://deepmind.google/discover/blog/",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      },
+      "second_attempt": {
+        "resource_id": "google-deepmind-blog",
+        "outcome": "NO_ELIGIBLE_ITEMS",
+        "checked_at": "2026-10-30T00:19:41.071Z",
+        "source_index_url": "https://deepmind.google/discover/blog/",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
+      }
+    },
+    {
+      "resource_id": "podcast-latent-space",
+      "first_attempt": {
+        "resource_id": "podcast-latent-space",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:17.738Z",
+        "source_index_url": "https://www.latent.space/podcast",
+        "evidence_method": "podcast_show",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      },
+      "second_attempt": {
+        "resource_id": "podcast-latent-space",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:43.678Z",
+        "source_index_url": "https://www.latent.space/podcast",
+        "evidence_method": "podcast_show",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      }
+    },
+    {
+      "resource_id": "the-batch",
+      "first_attempt": {
+        "resource_id": "the-batch",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:22.269Z",
+        "source_index_url": "https://www.deeplearning.ai/the-batch/",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      },
+      "second_attempt": {
+        "resource_id": "the-batch",
+        "outcome": "SOURCE_ERROR",
+        "checked_at": "2026-10-30T00:19:43.869Z",
+        "source_index_url": "https://www.deeplearning.ai/the-batch/",
+        "evidence_method": "publisher_index",
+        "items": [],
+        "reason": "Could not inspect original publisher index: This operation was aborted; no items qualified."
+      }
+    }
+  ],
+  "counts": {
+    "attempted": 5,
+    "recovered_to_candidate": 0,
+    "recovered_to_index_read": 3,
+    "still_unavailable": 2,
+    "editorial_content_admission": "NOT_PROVEN_FROM_INDEX_RETRIES"
+  },
+  "qualification_caveat": "INDEX_FETCH_ONLY_NOT_FULL_ARTICLE_READING_OR_MEDIA_PLAYBACK"
+}
