@@ -6,7 +6,7 @@
   "original_source_commit_sha": "6681e7af2266278facabf14d06db55d1d110d59a",
   "original_bundle_sha256": "48e6d468361d0854ca9cccaf5f4f1bd871bf8b68bac5f9583d8624c98820dc52",
   "human_readable_path": "external-image-packages/2026-10-30/reviews/after-action.md",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "production": {
     "actual_generation_count": 16,
     "accepted_count": 6,
@@ -120,26 +120,78 @@
       "phase": "Local pre-PR checkpoint synchronization",
       "issue": "The first local preflight ran while the Git checkout was still finishing lazy-object materialization, so HEAD had not yet moved to the complete package.",
       "correction": "Waited for the observed Git reset completion, confirmed exact HEAD and clean worktree, then reran the same package preflight. Accepted PNGs and manifest remained byte-identical."
+    },
+    {
+      "phase": "Original release after deployment",
+      "issue": "Image-only workflow 40995087318 deployed the approved14 objects and passed44 HTTP/SHA checks, then Chrome exited during fourth-route screenshot capture before 24-target QA and history finalization.",
+      "correction": "Preserved failed artifact 12950951870 and all accepted bytes. Independently verified6 live hashes,12 pairings and17 protected objects. Reconciled history to the exact14 already-deployed approved objects and ran the existing finalizer, then existing verification/sync workflow 40996235562; no image-content redeployment, new producer or production-code change."
+    },
+    {
+      "phase": "Existing public status synchronization",
+      "issue": "Existing verification/sync workflow 40996235562 captured24 real targets with24 RGB proof passes and deployed same-content metadata, but canonical release.json returned404 during its five bounded status polls while the public index already matched.",
+      "correction": "Retained the actual workflow failure and artifact 12951960494. Reused all 24 saved capture bytes for individual semantic review; continue independent read-only canonical receipt checks without another deployment or generation. The canonical release receipt subsequently returned 200 and matched the exact expected SHA-256. Existing postrelease verification then returned PUBLIC_STATUS_VERIFIED on an independent read; no additional deployment or capture job was run."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PR_CI_AND_RELEASE"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-10-30T03:03:17.631Z",
+    "package_pr_number": 293,
+    "package_merge_commit": "042dafce2b88de92225a26318a833072429980be",
+    "validated_head": "744c9709dde9da72822f8afe0deb9c1c4009a881",
+    "compiler_validation_run_id": 40994865307,
+    "release_workflow_run_id": 40995087318,
+    "original_release_workflow_conclusion": "failure_after_deployment",
+    "verification_workflow_run_id": 40996235562,
+    "verification_workflow_conclusion": "failure_at_public_status_poll",
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "live_image_hashes_verified": 6,
+    "story_image_pairings_verified": 12,
+    "protected_october8_objects_verified": 17,
+    "history_reconciliation_commit": "443a4ca6b16f3ff047021ee80818058aac3b90f5",
+    "public_status_observed_at": "2026-10-30T03:26:43Z",
+    "final_independent_readback": "external-image-packages/2026-10-30/reviews/live/final-public-status.json",
+    "metadata_sync_resolved_by": "canonical public receipt propagation, independently re-read without another deployment"
   },
   "visual_review": {
-    "result": "PENDING_24_PUBLIC_CONTEXTS",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-10-30/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "reviewed_at": "2026-10-30T03:19:47Z",
+    "review_path": "external-image-packages/2026-10-30/reviews/live/semantic-pixel-review.json",
+    "exact_verification_artifact_reused": true,
+    "artifact_id": 12951960494,
+    "saved_screenshot_rgb_proof_pass": 24,
+    "original_release_target_capture_count": 0,
+    "verification_recovery_capture_count": 24
   },
   "usage": {
     "work_usage_percent": null,
     "status": "UNKNOWN"
   },
   "notes": [
-    "Sixteen genuine native calls accepted six images; per-story attempts2,2,2,3,3,4, with ten rejected candidates preserved. First-pass acceptance0of6; no improvement in first-pass outcome is claimed from the new planning controls.",
+    "Sixteen genuine native calls accepted six images; per-story attempts 2, 2, 2, 3, 3, 4, with ten rejected candidates preserved. First-pass acceptance0 of 6; no improvement in first-pass outcome is claimed from the new planning controls.",
     "All six source-bound compositions and nonempty labels were frozen before first native call. Existing route and first-pass preflights genuinely ran and passed. October30 flags and36px/28px label plans were applied. Actual final-size and390px saved pixels, not the plan, determined acceptance.",
     "All accepted originals were proportionally exported on white as1200x630 RGB PNGs, inspected, locked and returned through connected GitHub. All six immutable-commit readbacks equal the saved pixels, lengths, SHA-256 and Git blobs. No accepted PNG was regenerated for transport or reporting.",
     "The real observed first executor clock is02:18:45Z and first native-call clock02:24:04Z on October30. These are same-invocation observations, not first-party scheduler authentication or provider-active runtime. Scheduler origin remains UNPROVEN; usage UNKNOWN.",
     "No paid API, TinyFish, metered service, new image worker/task/session, schedule change, legacy repository write or historical reseal occurred.",
-    "Actual public semantic review of all24 dated/permanent desktop/mobile captures, live six-hash/twelve-pairing checks and seventeen protected October8 objects remain pending. Package completeness and CI cannot certify those stages."
-  ]
+    "Protected package PR #293 passed exact-head PRE_PR_PACKAGE_PASS and validate:612 tests,0 failures. It merged at042dafce2b88de92225a26318a833072429980be.",
+    "The original image-only release deployed valid accepted images but failed in its older full-page Chrome capture step. The failure remains a recorded production incident; workflow success is not invented. Existing verification/sync workflow then captured all 24 actual dated/permanent desktop/mobile regions with saved-screenshot RGB match_ratio1.000 for every target.",
+    "All24capture PNGs from exact verification artifact 12951960494 were individually viewed and checked against their recorded SHA-256, source story and accepted image binding. Complete mechanisms and priority labels pass; fine secondary mobile text uses the original/full-size viewer.",
+    "All14 already-deployed objects were freshly re-read and matched the protected release preparation artifact byte lengths and SHA-256 before history reconciliation. Only those14 objects plus existing finalizer index/receipt metadata were written to the unchanged fenced history head. No new HTML/image content was published by that reconciliation.",
+    "Both canonical public index and release receipt now return200 and match their exact history byte hashes. Existing postrelease verifier independently reports PUBLIC_STATUS_VERIFIED; all 17 protected October 8 objects were audited again after metadata sync. The two original workflow failures remain historical facts, not retroactively green runs.",
+    "Final saved-context semantic review completed at 03:19:47Z; final canonical public status and integrity proof was observed by 03:26:43Z. Observed host-to-review elapsed 61.03 minutes and host-to-final-readback observation 67.97 minutes are wall-clock spans, not active native runtime or quota usage.",
+    "Worker phase PUBLISHED_COMPLETE and released lease retain16 actual generations,6 accepted / 10 rejected and all six exact accepted hashes. Original manifest, recurring assignment, accepted PNGs and source/job bytes remain unchanged; final reports/captures are being persisted through the existing protected review process."
+  ],
+  "timings": {
+    "host_execution_observed_at": "2026-10-30T02:18:45Z",
+    "first_native_call_clock": "2026-10-30T02:24:04Z",
+    "all_six_locked_observed_at": "2026-10-30T02:51:57Z",
+    "package_pr_created_at": "2026-10-30T03:00:02Z",
+    "package_pr_merged_at": "2026-10-30T03:02:18Z",
+    "first_live_byte_verification_at": "2026-10-30T03:03:17.631Z",
+    "verification_recovery_run_created_at": "2026-10-30T03:14:16Z",
+    "semantic_review_completed_at": "2026-10-30T03:19:47Z",
+    "final_public_readback_observed_at": "2026-10-30T03:26:43Z",
+    "first_party_scheduler_origin": "UNPROVEN",
+    "active_native_runtime": "UNKNOWN"
+  }
 }
