@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {validateMediaFreshness,sameMedia,samePodcastShow,podcastShowKeys,findFullArchiveRepeats} from '../scripts/verify-media-freshness.mjs';
+import {validateMediaFreshness,sameMedia,samePodcastShow,podcastShowKeys,findFullArchiveRepeats,summarizeVideoEditorialContinuity} from '../scripts/verify-media-freshness.mjs';
 
 const root=()=>fs.mkdtempSync(path.join(os.tmpdir(),'media-freshness-'));
 function makeHistory(root,date,shows=[
@@ -155,4 +155,26 @@ test('media-uniqueness expansion is forward-only and preserves show cooldown',()
   assert.match(src,/FULL_ARCHIVE_UNIQUENESS_EFFECTIVE='2026-10-26'/);
   assert.match(src,/date>=FULL_ARCHIVE_UNIQUENESS_EFFECTIVE\?/);
   assert.match(src,/const showDates=historyDates.slice\(0,3\)/);
+});
+
+test('protected Oct29 corrections and Oct30 originals are distinct programs despite repeating both original publishers',()=>{
+ const prior=[
+  {type:'video',title:'AI agents going rogue fuel calls for regulation',
+   url:'https://www.pbs.org/video/ai-going-rogue-1788205111/',source:'PBS NewsHour'},
+  {type:'video',title:'AI brain fry is real. Here is what leaders can do',
+   url:'https://www.ted.com/talks/julie_bedard_ai_brain_fry_is_real_here_s_what_leaders_can_do',source:'TED'}];
+ const now=[
+  {type:'video',title:"Self-regulation 'not enough' for AI safety, Gary Marcus says",
+   url:'https://www.pbs.org/video/ai-risks-1790711563/',source:'PBS NewsHour',
+   original_date:'2026-09-29T00:00:00Z'},
+  {type:'video',title:'How to raise kids who question AI',
+   url:'https://www.ted.com/talks/randi_williams_how_to_raise_kids_who_question_ai',source:'TED',
+   original_date:'2026-05-01T00:00:00Z'}];
+ const audit=summarizeVideoEditorialContinuity({videos:now,previousVideos:prior,
+   editionDate:'2026-10-30',previousEditionDate:'2026-10-29'});
+ assert.equal(audit.adjacent_edition_publisher_repeat_count,2);
+ assert.equal(audit.outside_seven_day_preference,2);
+ assert.equal(sameMedia(now[0],prior[0]),false);
+ assert.equal(sameMedia(now[1],prior[1]),false);
+ assert.equal(sameMedia({...now[0],url:prior[0].url},prior[0]),true);
 });

@@ -1,5 +1,10 @@
 # External Image App — Recurring Starter (Revision 8)
 
+## October 30 owner-approved first-pass defect taxonomy — effective October 31+
+
+Read `docs/automation/OCT30_APPROVED_AAR_IMPLEMENTATION.md` before freezing any new six-image native specifications. Replay the ten **actual** October 30 rejected image defects as negative examples before first generation: no avatar/person-like control, fake document writing, unsupported arrows or quantitative charts, memory/GPU confusion, oversized perspective/letterbox that shrinks text, decorative props, margin violations or unreadable priority labels. Plan the original 1200×630 canvas with 40px margins, >=36px priority and >=28px other required explanatory labels, then inspect both actual saved 390px and full-resolution pixels. Record genuine per-story first-pass attempts, failures and corrective regions. This is not an attempt cap or automatic QA PASS. Completed October 30 images and 24 public-context reviews are immutable.
+
+
 ## October 29 owner-approved first-pass reinforcement (October 30 onward)
 
 Before the next image call read `docs/automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md`. Prepare six frozen source-grounded specifications with a planned actual **390px inline phone review** (`mobile_inline_390px_review_planned:true`), explicit exclusions (`no_avatars_shields_gears_control_knobs:true`, `no_unsupported_memory_or_permission_flow:true`, `no_pseudotext_decorative_microstrokes:true`), and minimum original-export label fonts **36px for two or three thumbnail-priority labels, 28px for secondary labels**. Check exact label bounding boxes, 40px safe margins, and conditioned causal edges before generating; inspect actual saved pixels and all 24 contexts after. This is a **future-only quality plan**, never an automatic PASS, additional schedule, required Work usage, or reason to regenerate historical accepted images.

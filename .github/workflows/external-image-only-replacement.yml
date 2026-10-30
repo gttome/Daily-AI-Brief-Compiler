@@ -177,48 +177,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p build/evidence/browser
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const d=process.env.TARGET_DATE;
-          const job=JSON.parse(fs.readFileSync('history/site/image-jobs/'+d+'/job.json','utf8'));
-          const base='https://gttome.github.io/Daily-AI-Brief-Compiler/';
-          const routes=['briefs/'+d+'/',...job.stories.map(s=>{
-            if(!s.permanent_url.startsWith(base+'stories/'+d+'/'))throw Error('unexpected route');
-            return s.permanent_url.slice(base.length);
-          })];
-          if(new Set(routes).size!==7)throw Error('seven distinct routes required');
-          fs.writeFileSync('build/evidence/browser/routes.txt',routes.join('\n')+'\n');
-          NODE
-          n=0
-          while IFS= read -r route; do
-            n=$((n+1))
-            url="https://gttome.github.io/Daily-AI-Brief-Compiler/$route"
-            for viewport in desktop mobile; do
-              if [ "$viewport" = desktop ]; then size=1440,1000; else size=390,844; fi
-              "$CHROME_BINARY" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage \
-                --window-size="$size" --virtual-time-budget=3500 \
-                --screenshot="$PWD/build/evidence/browser/$n-$viewport.png" "$url" >/dev/null 2>&1
-              test -s "build/evidence/browser/$n-$viewport.png"
-            done
-            "$CHROME_BINARY" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage \
-              --virtual-time-budget=3500 --dump-dom "$url" \
-              > "build/evidence/browser/$n-dom.html" 2>/dev/null
-            grep -q "dab-edition-$TARGET_DATE-" "build/evidence/browser/$n-dom.html"
-            if grep -q 'Illustration pending for' "build/evidence/browser/$n-dom.html"; then
-              echo "Original placeholder still visible at $route"; exit 1
-            fi
-          done < build/evidence/browser/routes.txt
-          test "$n" = 7
-          python3 - <<'PY'
-          from pathlib import Path
-          b=Path('build/evidence/browser')
-          assert len(list(b.glob('*-dom.html')))==7
-          imgs=list(b.glob('*.png'))
-          assert len(imgs)==14
-          assert all(f.read_bytes().startswith(bytes.fromhex('89504e470d0a1a0a')) for f in imgs)
-          print('REAL_BROWSER_DOM_AND_SCREENSHOT_CAPTURE_PASS 7 pages 14 captures')
-          PY
+          # Exact seven routes / 14 PNGs / seven DOMs, with bounded per-target
+          # Chrome retries and persisted stderr. Never label captures semantic PASS.
+          node scripts/capture-image-browser14.mjs \
+            "history/site/image-jobs/$TARGET_DATE/job.json" build/evidence/browser
       - name: I3 actual 24 target image-area captures (not a subjective review)
         shell: bash
         run: |
@@ -281,7 +243,7 @@ jobs:
           set -euo pipefail
           # Final Pages has identical HTML/PNG bytes plus synchronized release/index.
           result=1
-          for attempt in 1 2 3 4 5; do
+          for attempt in $(seq 1 15); do
             if node scripts/verify-external-image-postrelease.mjs \
               "history/site/image-jobs/$TARGET_DATE/job.json" \
               history/site/image-jobs/index.json \
@@ -292,9 +254,14 @@ jobs:
               result=0
               break
             fi
-            sleep 10
+            echo "IMAGE_PUBLIC_METADATA_PROPAGATION_PENDING attempt=$attempt/15; exact PNG and story hashes remain separately verified"
+            if [ "$attempt" -lt 15 ]; then sleep 12; fi
           done
-          exit "$result"
+          if [ "$result" -ne 0 ]; then
+            echo "::error::PUBLIC_STATUS_SYNC_INCOMPLETE after bounded readback; retain factual evidence"
+            test ! -s build/evidence/image-public-status-readback.json || cat build/evidence/image-public-status-readback.json
+            exit 1
+          fi
       - name: Archive real release evidence (not owner Release 2 acceptance)
         if: always()
         uses: actions/upload-artifact@v4

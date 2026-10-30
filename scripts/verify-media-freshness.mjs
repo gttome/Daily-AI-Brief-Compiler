@@ -42,6 +42,34 @@ export function sameMedia(a,b){
   return Boolean(aId&&bId&&aId===bId ||
     normalText(a.title).length>15&&normalText(a.title)===normalText(b.title));
 }
+
+// Canonical prior published video pages, including protected media-only
+// corrections, supply the preceding edition's publisher identity. Publisher
+// reuse is NOT the same as a repeated program or URL.
+export function summarizeVideoEditorialContinuity({videos,previousVideos,editionDate,previousEditionDate}){
+ const now=Array.isArray(videos)?videos:[],prior=Array.isArray(previousVideos)?previousVideos:[];
+ const key=v=>normalText(v?.source);
+ const priorKeys=new Set(prior.map(key).filter(Boolean));
+ const publisherRepeats=now.filter(v=>key(v)&&priorKeys.has(key(v)))
+   .map(v=>({title:v.title,publisher:v.source}));
+ const publicationAges=now.map(v=>{
+   const original=v?.original_date??null,originalDay=typeof original==='string'?original.slice(0,10):null;
+   const age=DATE.test(originalDay||'')&&DATE.test(editionDate||'')?
+     Math.round((Date.parse(editionDate+'T00:00:00Z')-Date.parse(originalDay+'T00:00:00Z'))/86400000):null;
+   return {title:v.title,original_date:original,calendar_age_days:age,
+     outside_seven_day_preference:age!==null&&age>7};
+ });
+ return {status:'EDITORIAL_ADVISORY_NOT_DUPLICATE_PROOF',
+   prior_edition_date:previousEditionDate??null,
+   current_distinct_publisher_count:new Set(now.map(key).filter(Boolean)).size,
+   adjacent_edition_publisher_repeat_count:publisherRepeats.length,
+   adjacent_edition_publisher_repeats:publisherRepeats,
+   original_publication_ages:publicationAges,
+   outside_seven_day_preference:publicationAges.filter(x=>x.outside_seven_day_preference).length,
+   missing_original_dates:publicationAges.filter(x=>x.calendar_age_days===null).length,
+   rule:'Actual URL/title repeats are prohibited separately; publisher rotation and video age are review advisories, never fabricated duplicate evidence.'};
+}
+
 function previousItems(root,date,type){
   const folder=path.join(root,type==='video'?'videos':type==='podcast'?'podcasts':'stories',date);
   if(!fs.existsSync(folder))return [];
@@ -195,6 +223,9 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
   if(!past.some(x=>x.date===historyDates[0]&&x.type==='video')||
      !past.some(x=>x.date===historyDates[0]&&x.type==='podcast'))
     throw new Error('newest prior edition media unavailable: cannot certify non-repetition');
+  const videoEditorialAudit=summarizeVideoEditorialContinuity({videos:bundle.videos,
+    previousVideos:past.filter(x=>x.type==='video'&&x.date===historyDates[0]),
+    editionDate:date,previousEditionDate:historyDates[0]});
   const duplicateMatches=[];
   for(let i=0;i<selected.length;i++){
     for(let j=0;j<i;j++)if(sameMedia(selected[i],selected[j]))
@@ -261,6 +292,7 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
       media_pages:archiveUniqueness.media_pages,
       article_pages:archiveUniqueness.article_pages
     }:null,
+    video_editorial_audit:videoEditorialAudit,
     podcast_show_cooldown_editions:3,podcast_show_history_dates:showDates,
     selected_podcast_shows:selectedPodcasts.map(x=>({source:x.source,identity:podcastShowKeys(x)})),
     seven_edition_article_publisher_counts:Object.fromEntries(

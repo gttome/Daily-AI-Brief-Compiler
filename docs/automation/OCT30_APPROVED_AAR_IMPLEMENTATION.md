@@ -1,0 +1,39 @@
+# October 30, 2026 AAR — owner-approved no-rework reliability implementation
+
+**Approval:** October 29 Chicago evening, for the October 30 edition AAR.
+**Effective code posture:** October 31 and later; **already-published October 30 editorial and accepted artwork remain immutable**.
+**Repository:** gttome/Daily-AI-Brief-Compiler. Use existing protected PR, exact-head CI, and existing Pages/Image workers only.
+
+## Before implementing: completed-work and factual correction audit
+
+- October 30's two video URLs are **not duplicates** of October 29's corrected programs. October 29 public correction is PBS NewsHour *AI agents going rogue fuel calls for regulation* and TED *AI brain fry is real. Here's what leaders can do*. October 30 published two DIFFERENT programs, PBS NewsHour *Self-regulation 'not enough' for AI safety, Gary Marcus says* and TED *How to raise kids who question AI*. Repeated **publishers** are a legitimate variety advisory; the earlier user-facing AAR's claim that both **programs** were reused was incorrect. Do not alter media-only public pages on that erroneous premise.
+- PR #294 **already completed** all 24 real desktop/mobile image-context reviews, six public PNG hashes, 12 article pairings, exact public image status index/receipt and 17 protected October 8 objects. PR #295 already corrected cross-run capture provenance. Preserve those completed receipts and six locked accepted PNGs.
+- Source route/index retries, AI-only podcast qualification, protected publication, historical article novelty, one-Agent-Skills allocation and old AAR reporter already exist. Never reimplement them as new schedules, jobs or hosted services.
+
+## Approved incremental controls
+
+1. **Video originality and source diversity:** Compare video URL/title against actual corrected permanent public prior-edition pages, not the immutable pre-correction sealed editorial bundle. Retain exact duplicate hard stops; separately report consecutive-day original-publisher reuse and original-program date age as editorial advisories. A same-publisher pair across different dates is NOT an exact media reuse violation. A fresh candidate still requires substantive nonpromotional content and actual signed-out playback. Publisher/date advisories are not invented video playback proof or an unapproved rigid tutorial-only gate.
+2. **Corrected-media history regression:** Use the exact October 29 corrected PBS/TED URLs as fixtures against October 30's distinct URLs. A genuine repeated URL must still fail the existing protected published-media gate. Keep the historical sealed Oct29 original unchanged.
+3. **Public image receipt reliability:** The original October 30 image deployment succeeded before browser capture failed. A subsequent metadata verification encountered a temporarily missing public release.json; PR #294 later established its exact public hash. Future-only existing release and sync workflows poll publication propagation with a bounded 15×12-second budget, preserve per-attempt evidence and report a hard failure if public bytes never match. Never treat verified PNGs as proof of public status metadata.
+4. **Chrome screenshot capture resilience:** Replace the prior silent Chrome shell loop with the existing workflow invoking a deterministic local script. Capture seven public routes, 14 desktop/mobile full-page PNGs and seven DOMs with at most three attempts per target, 30-second per-call timeouts, route/viewport/exit/stderr diagnostics and explicit incomplete status. Actual 24 image-area captures and 24 human semantic pixel reviews remain separately required; screenshots alone are not approval.
+5. **24-context semantic image review:** Already completed for October 30 via #294 and reconciled via #295. Do not re-capture or rewrite the approved artwork/history simply to repeat QA. Retain mandatory prospective 24-context evidence and full-size viewer for fine mobile detail.
+6. **Skill procedural novelty:** Add a prospective October 31+ "same generic method under a renamed headline" test. Inspect the body, explicit Agent Skills evidence and reader task/outcome, link nearest prior published Skill lessons, and block generic repeated Skill packaging without a specific source-grounded deliverable. Concrete specialized procedures are flagged for editorial comparison, not blanket rejected.
+7. **Image first-pass quality:** October 30 needed 16 genuine attempts for six accepted images (0/6 first-pass, ten preserved rejects). Before each new generation, compare source-bound plans against the actual defect taxonomy below and record source claim, **which region failed and why**, not an invented quality score. A frozen plan passing preflight is never pixel proof. Record first-pass acceptance per story and progressively improve prompts without an attempt cap.
+8. **Source discovery and AAR telemetry:** The existing AAR now distinguishes enabled route checks, dated publisher indexes, item candidates, blocked indexes, transient retries, and original selected video dates. For the October 30 record: 208 registered, 98 attempted enabled routes, 97 reachable, 87 dated editorial indexes attempted, seven with candidates and 12 blocked/error. These are **not** 87 full articles reviewed. Record task origin and Work usage UNKNOWN unless independently observed; preserve original failures and later repair receipts.
+
+### Native illustration negative-example checklist — mandatory prospective review
+
+The ten October 30 rejected originals documented in external-image-packages/2026-10-30/reviews/after-action.md are the real failed examples. Convert each into a prospective refusal condition before the first generation:
+
+- No human avatars, silhouette-like endpoint glyphs, shields, gears, knobs, invented controls, scenic badges, mountains, decorative rays or fake attention icons.
+- No fake writing strokes, simulated document characters, fake results tables, imaginary controls or illegible pseudo-words on any textual object.
+- No unsupported arrow from a source/decision to a guaranteed outcome, shortcut bypassing actual gates, or causal edge that converts shared memory into resource allocation/permission.
+- No invented quantitative bar chart, rising score, success trophy, fake assurance, or misleading forecast on an explanatory picture with no real source measurement.
+- Reserve exact 40px safe margins. Final **1200×630** priority labels are **>=36px**, all other required explanatory labels **>=28px**, and planned label rectangles do not overlap.
+- Design for 1200×630 from the beginning, rather than letterboxing a too-wide canvas and shrinking explanation text. Preserve substantive 1.904:1 mechanism geometry and at least two priority explanatory labels.
+- Review true 390px inline rendition and full-size saved RGB PNG; state secondary-text limitations honestly and preserve a working original-size viewer. Never claim universal inline legibility from font plans.
+- Only regenerate a rejected candidate or failed region; **never** regenerate accepted locked art to fix a git transport, CI, screenshot or AAR problem.
+
+## Completion criteria and protected boundaries
+
+Test new media distinctions, novelty body/task comparison, AAR fields and bounded browser retry behavior using the existing npm test/compiler-validation PR gate. Do not merge until the exact PR-head required check passes and existing branch/ruleset requirements are met. A nonpublishing workflow change cannot by itself prove future real Chrome behavior: assess the next actual release and log diagnostics if a failure recurs. Do not change historical bundles, any accepted original PNG bytes, October 8's 17 protected objects, original 2/2/2 allocation, one Agent Skills, two videos/two podcasts, Watchlist or the two existing 19:15/21:15 Chicago tasks. No paid API, TinyFish, new browser service, additional Work session, new automation or legacy-repository write.

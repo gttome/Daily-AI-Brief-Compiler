@@ -43,6 +43,32 @@ export function isRecurringSkillAuthoringLesson(story){
  * or three-in-a-week generic Skill-authoring explanations. Other topical
  * matches are inspectable research leads, NOT a claim of semantic certainty.
  */
+
+// A title can omit "Skill" while its reader outcome still repeats a recent
+// generic Skill packaging/review lesson. This is a narrow prospective signal
+// for the editorial reviewer, not an automated determination of semantics.
+export function skillProcedureEvidence(story){
+ const combined=norm([story?.headline,story?.summary,story?.why_it_matters,
+   story?.agent_skills_evidence,story?.related_coverage,
+   story?.audience_fit?.practical_action,story?.audience_fit?.usable_outcome].join(' '));
+ const isSkill=story?.agent_skills===true||/\bskills?\b/.test(combined);
+ const builds=/\b(?:author|create|generate|draft|package|build|format|turn)\w*\b/.test(combined);
+ const reviews=/\b(?:review|test|inspect|validate|approve)\w*\b/.test(combined);
+ const repeatable=/\b(?:reusable|repeatable|reuse|workflow|procedure|instructions|routine)\b/.test(combined);
+ const practical=[story?.audience_fit?.practical_action,story?.audience_fit?.usable_outcome]
+   .filter(Boolean).join(' ');
+ const generic=new Set(('skill skills agent agents routine reusable reuse workflow workflows work '+
+   'procedure procedures test tests testing review reviews reviewing create creating '+
+   'package packaging build building generated generate using use instructions document '+
+   'file files output outputs prompt prompts approve approval process task tasks').split(' '));
+ const specific=[...meaningfulTokens(practical)].filter(x=>!generic.has(x));
+ return {procedural_skill:isSkill&&builds&&reviews&&repeatable,
+   reader_task_evidence:practical||null,
+   task_specific_tokens:specific.slice(0,12),
+   concrete_task_evidenced:specific.length>=3,
+   primary_source_url:story?.source?.url??null};
+}
+
 export function findEditorialValueOverlap({bundle,archive,priorEditionDates}){
   const date=bundle?.edition_date;
   if(!DATE.test(date||'')||!Array.isArray(bundle?.stories)||bundle.stories.length!==6)
@@ -80,6 +106,22 @@ export function findEditorialValueOverlap({bundle,archive,priorEditionDates}){
           prior_date:x.prior_date,prior_title:x.prior_title,prior_page:x.prior_page
         }))
     });
+    const skillEvidence=skillProcedureEvidence(story);
+    const similarSkillPages=skillEvidence.procedural_skill?
+      related.filter(x=>x.recurring_skill_lesson).slice(0,4):[];
+    // Starting October 31, generic rewording cannot circumvent an otherwise
+    // clear three-in-seven published Skill-authoring repetition. A concrete
+    // reader task (e.g. release-note triage) remains reviewable, not banned.
+    if(date>='2026-10-31'&&similarSkillPages.length>=2&&
+       !skillEvidence.concrete_task_evidenced&&
+       !violations.some(x=>x.story_index===i+1&&
+         x.reason==='recurring_generic_skill_authoring_reader_lesson')){
+      violations.push({story_index:i+1,story_title:story.headline,
+        reason:'skill_procedure_rebrand_without_distinct_task_evidence',
+        prior_pages:similarSkillPages.map(x=>({
+          prior_date:x.prior_date,prior_title:x.prior_title,prior_page:x.prior_page})),
+        required:'Name a distinct source-grounded deliverable and practical action or reselect; a renamed generic Skill tutorial is not new editorial value'});
+    }
     const nearCopied=related.filter(x=>x.similarity>=0.82&&x.shared_terms>=10);
     if(nearCopied.length)violations.push({
       story_index:i+1,story_title:story.headline,
@@ -93,7 +135,16 @@ export function findEditorialValueOverlap({bundle,archive,priorEditionDates}){
       story_index:i+1,story_title:story.headline,
       closest_prior:related.filter(x=>x.similarity>=0.20&&x.shared_terms>=4)
         .slice(0,3).map(({prior_date,prior_title,prior_page,similarity})=>
-          ({prior_date,prior_title,prior_page,similarity}))
+          ({prior_date,prior_title,prior_page,similarity})),
+      skill_procedure_review:similarSkillPages.length?{
+        compare_primary_source:true,compare_reader_takeaway:true,
+        compare_specific_practical_action:true,
+        primary_source_url:skillEvidence.primary_source_url,
+        concrete_task_evidenced:skillEvidence.concrete_task_evidenced,
+        task_specific_tokens:skillEvidence.task_specific_tokens,
+        similar_published_lessons:similarSkillPages.map(x=>({
+          prior_date:x.prior_date,prior_title:x.prior_title,prior_page:x.prior_page}))
+      }:null
     });
   }
   return {

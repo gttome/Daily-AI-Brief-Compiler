@@ -1,5 +1,10 @@
 # October 19, 2026 scheduler migration
 
+## October 30 owner-approved first-pass defect taxonomy — effective October 31+
+
+Read `docs/automation/OCT30_APPROVED_AAR_IMPLEMENTATION.md` before freezing any new six-image native specifications. Replay the ten **actual** October 30 rejected image defects as negative examples before first generation: no avatar/person-like control, fake document writing, unsupported arrows or quantitative charts, memory/GPU confusion, oversized perspective/letterbox that shrinks text, decorative props, margin violations or unreadable priority labels. Plan the original 1200×630 canvas with 40px margins, >=36px priority and >=28px other required explanatory labels, then inspect both actual saved 390px and full-resolution pixels. Record genuine per-story first-pass attempts, failures and corrective regions. This is not an attempt cap or automatic QA PASS. Completed October 30 images and 24 public-context reviews are immutable.
+
+
 ## October 29 AAR approved — source-grounded mobile and first-pass image controls (effective October 30)
 
 Read `docs/automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md` and meet the prospective `scripts/preflight-image-firstpass.mjs` requirements. Each future six-image frozen specification must explicitly record `mobile_inline_390px_review_planned:true`, `no_avatars_shields_gears_control_knobs:true`, `no_unsupported_memory_or_permission_flow:true` and `no_pseudotext_decorative_microstrokes:true`. On the original **1200×630** export use at least **36px** for its two or three source-authorized thumbnail-priority labels and **28px** for every other required explanatory label. Inspect the exact saved candidate both at full size and as a 390px inline rendition; keep the existing full-size viewer for fine secondary text and record that limitation truthfully. Correct only failed regions, retain the full source/causal/permission constraints and review all 24 public contexts. No artificial retries, accepted-art regeneration, added Image Creation sessions, task changes or relaxed publication gates.
