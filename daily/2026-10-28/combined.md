@@ -22,7 +22,7 @@
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **1** | One channel is one publisher even across multiple videos |
-| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **1** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Verified postpublication video corrections | **1** | Incident register tracks correction PR, actual playback evidence and reader preservation |
