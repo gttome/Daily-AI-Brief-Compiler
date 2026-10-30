@@ -4,43 +4,73 @@
   "cycle_date": "2026-10-29",
   "owner_token": "638464f9bdf98fe6c627f46df65586aba953a3a2c20247c9",
   "claimed_at": "2026-10-30T02:18:56Z",
-  "updated_at": "2026-10-30T03:22:00Z",
-  "lease_expires_at": "2026-10-30T03:42:00.000Z",
-  "phase": "VISUAL_24_VERIFIED_STATUS_SYNC_CHECK",
+  "updated_at": "2026-10-30T03:26:43Z",
+  "lease_expires_at": "2026-10-30T03:26:43Z",
+  "phase": "PUBLISHED_COMPLETE",
   "job_sha256": "446ae6069c4c1182293edf03530db3bdc53d5f407c2d59aeadbb61644f1dc8d4",
   "original_bundle_sha256": "48e6d468361d0854ca9cccaf5f4f1bd871bf8b68bac5f9583d8624c98820dc52",
   "original_source_commit_sha": "6681e7af2266278facabf14d06db55d1d110d59a",
   "generation_count": 16,
   "accepted_hashes": [
-    {
-      "story_id": "oct30-t1-nova-act-ui-testing",
-      "sha256": "6bf4a27826093c6529c96123090bb57be0618d022d4e0b4679758f514ea2511b"
-    },
-    {
-      "story_id": "oct30-t2-rtx-spark-local-ai",
-      "sha256": "02bee5c070fe67343d47d584af203e78852c42b53e6aa9ac4d6027e23bfd3867"
-    },
-    {
-      "story_id": "oct30-k1-openai-model-spec-values",
-      "sha256": "7fc36bb4bd9a921191d184df03398f129d86bfd868ff01c6c37a00242f8c4103"
-    },
-    {
-      "story_id": "oct30-k2-n8n-automation-enablement",
-      "sha256": "4b4d1fb5399634fd7e6886b1e8f3a236f4f135c68e8cfc92c0632a4e67c14857"
-    },
-    {
-      "story_id": "oct30-a1-agentic-commerce-grounding",
-      "sha256": "500f8462dfa2e057d89c0f23571d45d468bbae6c560a2d1b6dfac5afe5c93f9d"
-    },
-    {
-      "story_id": "oct30-a2-microsoft-agent-skills-lab",
-      "sha256": "776a4fc8983238bc766e0111394b53c4042b6ebf20445385bbccf73fe3dc77a0"
-    }
+    "6bf4a27826093c6529c96123090bb57be0618d022d4e0b4679758f514ea2511b",
+    "02bee5c070fe67343d47d584af203e78852c42b53e6aa9ac4d6027e23bfd3867",
+    "7fc36bb4bd9a921191d184df03398f129d86bfd868ff01c6c37a00242f8c4103",
+    "4b4d1fb5399634fd7e6886b1e8f3a236f4f135c68e8cfc92c0632a4e67c14857",
+    "500f8462dfa2e057d89c0f23571d45d468bbae6c560a2d1b6dfac5afe5c93f9d",
+    "776a4fc8983238bc766e0111394b53c4042b6ebf20445385bbccf73fe3dc77a0"
   ],
-  "next_action": "All24actual saved public contexts pass semantic review and RGBproof. Canonical release URL now returns200; independently verify exact metadata hashes and persist final evidence through existing protected review process.",
+  "next_action": "NO_OP for this released edition; next cycle selects only its exact new edition",
   "host_execution_observed_at": "2026-10-30T02:18:45Z",
   "actual_generation_count": 16,
   "accepted_count": 6,
   "rejected_count": 10,
-  "generation_started_at": "2026-10-30T02:24:04Z"
+  "generation_started_at": "2026-10-30T02:24:04Z",
+  "lease_status": "RELEASED",
+  "released_at": "2026-10-30T03:26:43Z",
+  "accepted_images": [
+    {
+      "story_id": "oct30-t1-nova-act-ui-testing",
+      "sha256": "6bf4a27826093c6529c96123090bb57be0618d022d4e0b4679758f514ea2511b",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "oct30-t2-rtx-spark-local-ai",
+      "sha256": "02bee5c070fe67343d47d584af203e78852c42b53e6aa9ac4d6027e23bfd3867",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "oct30-k1-openai-model-spec-values",
+      "sha256": "7fc36bb4bd9a921191d184df03398f129d86bfd868ff01c6c37a00242f8c4103",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "oct30-k2-n8n-automation-enablement",
+      "sha256": "4b4d1fb5399634fd7e6886b1e8f3a236f4f135c68e8cfc92c0632a4e67c14857",
+      "generation_attempts": 3
+    },
+    {
+      "story_id": "oct30-a1-agentic-commerce-grounding",
+      "sha256": "500f8462dfa2e057d89c0f23571d45d468bbae6c560a2d1b6dfac5afe5c93f9d",
+      "generation_attempts": 3
+    },
+    {
+      "story_id": "oct30-a2-microsoft-agent-skills-lab",
+      "sha256": "776a4fc8983238bc766e0111394b53c4042b6ebf20445385bbccf73fe3dc77a0",
+      "generation_attempts": 4
+    }
+  ],
+  "publication": {
+    "result": "RELEASED_VERIFIED",
+    "package_pr": 293,
+    "release_run_id": 40995087318,
+    "verification_recovery_run_id": 40996235562,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "historical_workflow_failures_retained": true
+  },
+  "semantic_review": {
+    "result": "PASS",
+    "targets": 24,
+    "rgb_proof_pass": 24,
+    "review_path": "external-image-packages/2026-10-30/reviews/live/semantic-pixel-review.json"
+  }
 }
