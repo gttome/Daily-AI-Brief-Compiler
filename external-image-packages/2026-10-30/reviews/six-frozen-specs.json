@@ -1,0 +1,2404 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-30",
+    "story_id": "oct30-t1-nova-act-ui-testing",
+    "source_url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+    "visual_thesis": "Intent-based browser tests complement existing regression tests, execute in isolated sessions and retain step evidence plus reusable successful trajectories.",
+    "mechanism_metaphor": "isolated session with evidence rails",
+    "story_anchors": [
+      "Epsilon retains Playwright as its regression backbone.",
+      "Each tenant runs under a scoped cross-account role; screenshots and results are retained.",
+      "Successful explored trajectories are saved for replay; vendor measurements are not independent benchmarks."
+    ],
+    "required_labels": [
+      "Intent-driven tests",
+      "Isolated browser",
+      "Plain-language steps",
+      "Scoped role",
+      "Execute steps",
+      "Step screenshots",
+      "Recorded trajectory",
+      "Replay successful paths",
+      "Per-step results",
+      "Playwright retained",
+      "Vendor-reported results"
+    ],
+    "source_claim_map": [
+      {
+        "id": "intent",
+        "proposition": "Plain-language workflows complement existing Playwright tests.",
+        "supporting_source_excerpt": "Playwright remains their regression backbone today.",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "execute",
+        "proposition": "A scoped role and managed session bound execution; every step produces screenshots and results.",
+        "supporting_source_excerpt": "system captures a screenshot per step",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "replay",
+        "proposition": "Successful trajectories can be saved and replayed after exploration.",
+        "supporting_source_excerpt": "saves the successful trajectory, and replays it in active state",
+        "source_url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Execute steps",
+        "direction": "conditional",
+        "condition": "Test has been created",
+        "support_claim_id": "intent",
+        "relation_supported_by_semantic_review": true,
+        "from": "Plain-language steps"
+      },
+      {
+        "to": "Isolated browser",
+        "direction": "conditional",
+        "condition": "Scoped tenant identity",
+        "support_claim_id": "execute",
+        "relation_supported_by_semantic_review": true,
+        "from": "Scoped role"
+      },
+      {
+        "to": "Execute steps",
+        "direction": "conditional",
+        "condition": "Browser session opened",
+        "support_claim_id": "execute",
+        "relation_supported_by_semantic_review": true,
+        "from": "Isolated browser"
+      },
+      {
+        "to": "Step screenshots",
+        "direction": "conditional",
+        "condition": "After each attempted step",
+        "support_claim_id": "execute",
+        "relation_supported_by_semantic_review": true,
+        "from": "Execute steps"
+      },
+      {
+        "to": "Per-step results",
+        "direction": "conditional",
+        "condition": "Record observed step outcomes",
+        "support_claim_id": "execute",
+        "relation_supported_by_semantic_review": true,
+        "from": "Execute steps"
+      },
+      {
+        "to": "Recorded trajectory",
+        "direction": "conditional",
+        "condition": "After successful exploration only",
+        "support_claim_id": "replay",
+        "relation_supported_by_semantic_review": true,
+        "from": "Execute steps"
+      },
+      {
+        "to": "Replay successful paths",
+        "direction": "conditional",
+        "condition": "Saved successful trajectory exists",
+        "support_claim_id": "replay",
+        "relation_supported_by_semantic_review": true,
+        "from": "Recorded trajectory"
+      }
+    ],
+    "excluded_claims": [
+      "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+      "No people, logos, photorealism, decorative microstrokes, unsupported marks or invented control interfaces."
+    ],
+    "composition_signature": {
+      "grammar": "nested execution cutaway",
+      "metaphor": "isolated session with evidence rails",
+      "palette": "navy and amber",
+      "layout": "Left intent spine enters a large central browser-session boundary; inner step sequence; right evidence rail; separate bottom replay rail.",
+      "annotation": "short boundary callouts",
+      "hierarchy": "dominant session cutaway and subordinate evidence tracks",
+      "perspective": "editorial abstract sectional illustration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "intent workflow",
+        "target application boundary",
+        "scoped identity",
+        "ephemeral session boundary",
+        "first executed step",
+        "conditional branch",
+        "next executed step",
+        "screenshot capture",
+        "step result",
+        "trajectory record",
+        "replay route",
+        "retained Playwright baseline"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://aws.amazon.com/blogs/machine-learning/building-intent-driven-ui-testing-with-amazon-nova-act/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Intent-driven tests",
+          "region": "label reserve 1",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Isolated browser",
+          "region": "label reserve 2",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 610,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Plain-language steps",
+          "region": "label reserve 3",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Scoped role",
+          "region": "label reserve 4",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Execute steps",
+          "region": "label reserve 5",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 135,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Step screenshots",
+          "region": "label reserve 6",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Recorded trajectory",
+          "region": "label reserve 7",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Replay successful paths",
+          "region": "label reserve 8",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 265,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Per-step results",
+          "region": "label reserve 9",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Playwright retained",
+          "region": "label reserve 10",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Vendor-reported results",
+          "region": "label reserve 11",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 535,
+            "width": 1110,
+            "height": 50
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor-reported results",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Plain-language steps",
+        "Scoped role"
+      ],
+      "thumbnail_priority_labels": [
+        "Intent-driven tests",
+        "Isolated browser"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Test has been created",
+          "allowed_path": "Plain-language steps to Execute steps",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "intent"
+        },
+        {
+          "condition": "Scoped tenant identity",
+          "allowed_path": "Scoped role to Isolated browser",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "execute"
+        },
+        {
+          "condition": "Browser session opened",
+          "allowed_path": "Isolated browser to Execute steps",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "execute"
+        },
+        {
+          "condition": "After each attempted step",
+          "allowed_path": "Execute steps to Step screenshots",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "execute"
+        },
+        {
+          "condition": "Record observed step outcomes",
+          "allowed_path": "Execute steps to Per-step results",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "execute"
+        },
+        {
+          "condition": "After successful exploration only",
+          "allowed_path": "Execute steps to Recorded trajectory",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "replay"
+        },
+        {
+          "condition": "Saved successful trajectory exists",
+          "allowed_path": "Recorded trajectory to Replay successful paths",
+          "blocked_path": "No claim of universal replay success, guaranteed test accuracy, bypassed authentication, replacement of Playwright, or automated production release.",
+          "support_claim_id": "replay"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Execute steps",
+          "support_claim_id": "intent",
+          "origin_region": "Plain-language steps object",
+          "target_region": "Execute steps object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Plain-language steps"
+        },
+        {
+          "to": "Isolated browser",
+          "support_claim_id": "execute",
+          "origin_region": "Scoped role object",
+          "target_region": "Isolated browser object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Scoped role"
+        },
+        {
+          "to": "Execute steps",
+          "support_claim_id": "execute",
+          "origin_region": "Isolated browser object",
+          "target_region": "Execute steps object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Isolated browser"
+        },
+        {
+          "to": "Step screenshots",
+          "support_claim_id": "execute",
+          "origin_region": "Execute steps object",
+          "target_region": "Step screenshots object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Execute steps"
+        },
+        {
+          "to": "Per-step results",
+          "support_claim_id": "execute",
+          "origin_region": "Execute steps object",
+          "target_region": "Per-step results object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Execute steps"
+        },
+        {
+          "to": "Recorded trajectory",
+          "support_claim_id": "replay",
+          "origin_region": "Execute steps object",
+          "target_region": "Recorded trajectory object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Execute steps"
+        },
+        {
+          "to": "Replay successful paths",
+          "support_claim_id": "replay",
+          "origin_region": "Recorded trajectory object",
+          "target_region": "Replay successful paths object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Recorded trajectory"
+        }
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-30",
+    "story_id": "oct30-t2-rtx-spark-local-ai",
+    "source_url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+    "visual_thesis": "Local speech processing shares device resources with foreground applications; resource allocation is distinct from memory capacity and from model availability.",
+    "mechanism_metaphor": "shared compute bridge and speech branches",
+    "story_anchors": [
+      "One promptable speech model supports transcription, speaker labels and translation.",
+      "Foreground applications and background agents share GPU compute, with a user-selected priority.",
+      "Unified memory is shared by CPU and GPU; future quantized speech-model versions are not already delivered."
+    ],
+    "required_labels": [
+      "Local speech AI",
+      "Shared GPU resources",
+      "Recorded audio",
+      "Transcribe",
+      "Speaker labels",
+      "Translate",
+      "Foreground apps",
+      "Background agents",
+      "Unified memory",
+      "Quantized versions coming",
+      "Vendor announcement"
+    ],
+    "source_claim_map": [
+      {
+        "id": "speech",
+        "proposition": "A promptable model supports transcription, speaker attribution and translation.",
+        "supporting_source_excerpt": "one promptable model that handles all three",
+        "source_url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "sharing",
+        "proposition": "Foreground apps and background agents share GPU compute, and users choose resource priority.",
+        "supporting_source_excerpt": "Both share the system\u2019s GPU compute",
+        "source_url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "memory",
+        "proposition": "CPU and GPU use unified memory; quantized speech versions are forthcoming.",
+        "supporting_source_excerpt": "Quantized versions are coming soon",
+        "source_url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Local speech AI",
+        "direction": "conditional",
+        "condition": "Audio and a prompt are supplied",
+        "support_claim_id": "speech",
+        "relation_supported_by_semantic_review": true,
+        "from": "Recorded audio"
+      },
+      {
+        "to": "Transcribe",
+        "direction": "conditional",
+        "condition": "Transcription requested",
+        "support_claim_id": "speech",
+        "relation_supported_by_semantic_review": true,
+        "from": "Local speech AI"
+      },
+      {
+        "to": "Speaker labels",
+        "direction": "conditional",
+        "condition": "Speaker attribution requested",
+        "support_claim_id": "speech",
+        "relation_supported_by_semantic_review": true,
+        "from": "Local speech AI"
+      },
+      {
+        "to": "Translate",
+        "direction": "conditional",
+        "condition": "Translation requested",
+        "support_claim_id": "speech",
+        "relation_supported_by_semantic_review": true,
+        "from": "Local speech AI"
+      },
+      {
+        "to": "Foreground apps",
+        "direction": "conditional",
+        "condition": "Foreground priority selected",
+        "support_claim_id": "sharing",
+        "relation_supported_by_semantic_review": true,
+        "from": "Shared GPU resources"
+      },
+      {
+        "to": "Background agents",
+        "direction": "conditional",
+        "condition": "Background-agent priority selected",
+        "support_claim_id": "sharing",
+        "relation_supported_by_semantic_review": true,
+        "from": "Shared GPU resources"
+      }
+    ],
+    "excluded_claims": [
+      "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+      "No people, logos, photorealism, decorative microstrokes, unsupported marks or invented control interfaces."
+    ],
+    "composition_signature": {
+      "grammar": "bifurcated resource section",
+      "metaphor": "shared compute bridge and speech branches",
+      "palette": "deep violet and turquoise",
+      "layout": "Upper left recorded audio enters a branching speech mechanism on right; lower shared compute bridge connects foreground and background workloads; a separate unified-memory slab lies below, not represented as GPU allocation.",
+      "annotation": "layer labels and branching captions",
+      "hierarchy": "paired resource and speech layers",
+      "perspective": "editorial abstract sectional illustration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "recorded audio input",
+        "prompt input port",
+        "speech-model core",
+        "transcription branch",
+        "speaker-attribution branch",
+        "translation branch",
+        "foreground workload",
+        "background workload",
+        "shared GPU junction",
+        "priority direction",
+        "CPU side of shared memory",
+        "GPU side of shared memory"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Local speech AI",
+          "region": "label reserve 1",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Shared GPU resources",
+          "region": "label reserve 2",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 610,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Recorded audio",
+          "region": "label reserve 3",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Transcribe",
+          "region": "label reserve 4",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Speaker labels",
+          "region": "label reserve 5",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 135,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Translate",
+          "region": "label reserve 6",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Foreground apps",
+          "region": "label reserve 7",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Background agents",
+          "region": "label reserve 8",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 265,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Unified memory",
+          "region": "label reserve 9",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Quantized versions coming",
+          "region": "label reserve 10",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Vendor announcement",
+          "region": "label reserve 11",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 535,
+            "width": 1110,
+            "height": 50
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor announcement",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Recorded audio",
+        "Transcribe"
+      ],
+      "thumbnail_priority_labels": [
+        "Local speech AI",
+        "Shared GPU resources"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Audio and a prompt are supplied",
+          "allowed_path": "Recorded audio to Local speech AI",
+          "blocked_path": "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+          "support_claim_id": "speech"
+        },
+        {
+          "condition": "Transcription requested",
+          "allowed_path": "Local speech AI to Transcribe",
+          "blocked_path": "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+          "support_claim_id": "speech"
+        },
+        {
+          "condition": "Speaker attribution requested",
+          "allowed_path": "Local speech AI to Speaker labels",
+          "blocked_path": "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+          "support_claim_id": "speech"
+        },
+        {
+          "condition": "Translation requested",
+          "allowed_path": "Local speech AI to Translate",
+          "blocked_path": "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+          "support_claim_id": "speech"
+        },
+        {
+          "condition": "Foreground priority selected",
+          "allowed_path": "Shared GPU resources to Foreground apps",
+          "blocked_path": "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+          "support_claim_id": "sharing"
+        },
+        {
+          "condition": "Background-agent priority selected",
+          "allowed_path": "Shared GPU resources to Background agents",
+          "blocked_path": "No fabricated app control knob, memory-to-permission flow, measured speed, resource percentages, privacy guarantee, or claim that forthcoming quantized versions are available.",
+          "support_claim_id": "sharing"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Local speech AI",
+          "support_claim_id": "speech",
+          "origin_region": "Recorded audio object",
+          "target_region": "Local speech AI object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Recorded audio"
+        },
+        {
+          "to": "Transcribe",
+          "support_claim_id": "speech",
+          "origin_region": "Local speech AI object",
+          "target_region": "Transcribe object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Local speech AI"
+        },
+        {
+          "to": "Speaker labels",
+          "support_claim_id": "speech",
+          "origin_region": "Local speech AI object",
+          "target_region": "Speaker labels object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Local speech AI"
+        },
+        {
+          "to": "Translate",
+          "support_claim_id": "speech",
+          "origin_region": "Local speech AI object",
+          "target_region": "Translate object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Local speech AI"
+        },
+        {
+          "to": "Foreground apps",
+          "support_claim_id": "sharing",
+          "origin_region": "Shared GPU resources object",
+          "target_region": "Foreground apps object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Shared GPU resources"
+        },
+        {
+          "to": "Background agents",
+          "support_claim_id": "sharing",
+          "origin_region": "Shared GPU resources object",
+          "target_region": "Background agents object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Shared GPU resources"
+        }
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-30",
+    "story_id": "oct30-k1-openai-model-spec-values",
+    "source_url": "https://openai.com/index/updated-model-spec/",
+    "visual_thesis": "Five declared values organize intended model behavior; instruction authority and context inform guidance, but a written specification is not proof of deployed compliance.",
+    "mechanism_metaphor": "five commitments around intended behavior",
+    "story_anchors": [
+      "The five values organize the updated Model Spec.",
+      "OpenAI sets boundaries, developers direct applications within them, and users direct work within those constraints.",
+      "The announcement explicitly states that models do not yet fully reflect the specification."
+    ],
+    "required_labels": [
+      "Human intent",
+      "Human agency",
+      "Harm minimization",
+      "Honesty and transparency",
+      "Care",
+      "OpenAI boundaries",
+      "Developer direction",
+      "User goals",
+      "Context and oversight",
+      "Intended behavior",
+      "Not full model compliance"
+    ],
+    "source_claim_map": [
+      {
+        "id": "values",
+        "proposition": "Five values organize the intended behavior guidance.",
+        "supporting_source_excerpt": "faithfulness to human intent, harm minimization, honesty and transparency, human agency, and care",
+        "source_url": "https://openai.com/index/updated-model-spec/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "authority",
+        "proposition": "OpenAI, developer and user direction have distinct scopes.",
+        "supporting_source_excerpt": "developers direct applications within those boundaries",
+        "source_url": "https://openai.com/index/updated-model-spec/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "limit",
+        "proposition": "Model behavior does not yet fully reflect the written specification.",
+        "supporting_source_excerpt": "our models do not yet fully reflect it",
+        "source_url": "https://openai.com/index/updated-model-spec/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Developer direction",
+        "direction": "conditional",
+        "condition": "Application direction remains within OpenAI boundaries",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true,
+        "from": "OpenAI boundaries"
+      },
+      {
+        "to": "User goals",
+        "direction": "conditional",
+        "condition": "User goals remain within application constraints",
+        "support_claim_id": "authority",
+        "relation_supported_by_semantic_review": true,
+        "from": "Developer direction"
+      },
+      {
+        "to": "Intended behavior",
+        "direction": "conditional",
+        "condition": "As a normative value, not a causal guarantee",
+        "support_claim_id": "values",
+        "relation_supported_by_semantic_review": true,
+        "from": "Human intent"
+      },
+      {
+        "to": "Intended behavior",
+        "direction": "conditional",
+        "condition": "As a normative value, not a causal guarantee",
+        "support_claim_id": "values",
+        "relation_supported_by_semantic_review": true,
+        "from": "Human agency"
+      },
+      {
+        "to": "Intended behavior",
+        "direction": "conditional",
+        "condition": "As a normative value, not a causal guarantee",
+        "support_claim_id": "values",
+        "relation_supported_by_semantic_review": true,
+        "from": "Harm minimization"
+      },
+      {
+        "to": "Intended behavior",
+        "direction": "conditional",
+        "condition": "As a normative value, not a causal guarantee",
+        "support_claim_id": "values",
+        "relation_supported_by_semantic_review": true,
+        "from": "Honesty and transparency"
+      },
+      {
+        "to": "Intended behavior",
+        "direction": "conditional",
+        "condition": "As a normative value, not a causal guarantee",
+        "support_claim_id": "values",
+        "relation_supported_by_semantic_review": true,
+        "from": "Care"
+      }
+    ],
+    "excluded_claims": [
+      "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+      "No people, logos, photorealism, decorative microstrokes, unsupported marks or invented control interfaces."
+    ],
+    "composition_signature": {
+      "grammar": "five-value normative constellation",
+      "metaphor": "five commitments around intended behavior",
+      "palette": "terracotta and charcoal",
+      "layout": "Five abstract interlocking open arcs surround intended behavior without suggesting a guaranteed operating engine. A separate left authority nesting shows boundaries, developer direction and user goals. Context and oversight is a side constraint; compliance caveat remains detached.",
+      "annotation": "radial value captions",
+      "hierarchy": "five balanced commitments and separate authority inset",
+      "perspective": "editorial abstract sectional illustration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "intent commitment",
+        "agency commitment",
+        "harm boundary",
+        "honesty commitment",
+        "care commitment",
+        "intended behavior target",
+        "OpenAI authority scope",
+        "developer scope",
+        "user scope",
+        "context consideration",
+        "oversight consideration",
+        "explicit compliance limitation"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://openai.com/index/updated-model-spec/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Human intent",
+          "region": "label reserve 1",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Human agency",
+          "region": "label reserve 2",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 610,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Harm minimization",
+          "region": "label reserve 3",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Honesty and transparency",
+          "region": "label reserve 4",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Care",
+          "region": "label reserve 5",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 135,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "OpenAI boundaries",
+          "region": "label reserve 6",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Developer direction",
+          "region": "label reserve 7",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "User goals",
+          "region": "label reserve 8",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 265,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Context and oversight",
+          "region": "label reserve 9",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Intended behavior",
+          "region": "label reserve 10",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Not full model compliance",
+          "region": "label reserve 11",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 535,
+            "width": 1110,
+            "height": 50
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Not full model compliance",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Harm minimization",
+        "Honesty and transparency"
+      ],
+      "thumbnail_priority_labels": [
+        "Human intent",
+        "Human agency"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Application direction remains within OpenAI boundaries",
+          "allowed_path": "OpenAI boundaries to Developer direction",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "authority"
+        },
+        {
+          "condition": "User goals remain within application constraints",
+          "allowed_path": "Developer direction to User goals",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "authority"
+        },
+        {
+          "condition": "As a normative value, not a causal guarantee",
+          "allowed_path": "Human intent to Intended behavior",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "values"
+        },
+        {
+          "condition": "As a normative value, not a causal guarantee",
+          "allowed_path": "Human agency to Intended behavior",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "values"
+        },
+        {
+          "condition": "As a normative value, not a causal guarantee",
+          "allowed_path": "Harm minimization to Intended behavior",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "values"
+        },
+        {
+          "condition": "As a normative value, not a causal guarantee",
+          "allowed_path": "Honesty and transparency to Intended behavior",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "values"
+        },
+        {
+          "condition": "As a normative value, not a causal guarantee",
+          "allowed_path": "Care to Intended behavior",
+          "blocked_path": "No proof-of-compliance ticks, memory-writing flow, automatic permissions, equal-authority hierarchy, avatars, shields or claim that values guarantee observed behavior.",
+          "support_claim_id": "values"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Developer direction",
+          "support_claim_id": "authority",
+          "origin_region": "OpenAI boundaries object",
+          "target_region": "Developer direction object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "OpenAI boundaries"
+        },
+        {
+          "to": "User goals",
+          "support_claim_id": "authority",
+          "origin_region": "Developer direction object",
+          "target_region": "User goals object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Developer direction"
+        },
+        {
+          "to": "Intended behavior",
+          "support_claim_id": "values",
+          "origin_region": "Human intent object",
+          "target_region": "Intended behavior object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Human intent"
+        },
+        {
+          "to": "Intended behavior",
+          "support_claim_id": "values",
+          "origin_region": "Human agency object",
+          "target_region": "Intended behavior object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Human agency"
+        },
+        {
+          "to": "Intended behavior",
+          "support_claim_id": "values",
+          "origin_region": "Harm minimization object",
+          "target_region": "Intended behavior object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Harm minimization"
+        },
+        {
+          "to": "Intended behavior",
+          "support_claim_id": "values",
+          "origin_region": "Honesty and transparency object",
+          "target_region": "Intended behavior object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Honesty and transparency"
+        },
+        {
+          "to": "Intended behavior",
+          "support_claim_id": "values",
+          "origin_region": "Care object",
+          "target_region": "Intended behavior object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Care"
+        }
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-30",
+    "story_id": "oct30-k2-n8n-automation-enablement",
+    "source_url": "https://blog.n8n.io/why-were-moving-n8ns-automation-team-beyond-the-service-desk-model/",
+    "visual_thesis": "Department enablement changes automation ownership through coaching, baseline comparison, suitable tool selection and maintainable workflows while central teams retain complex shared work.",
+    "mechanism_metaphor": "capability roots and departmental ownership",
+    "story_anchors": [
+      "The team trains departmental champions and builds alongside them.",
+      "Baseline evidence precedes new projects; simpler tools or buying can be preferable to agents.",
+      "Documentation and the operating-model transition remain unfinished."
+    ],
+    "required_labels": [
+      "Enable departments",
+      "Own the workflow",
+      "Coach champions",
+      "Set a baseline",
+      "Choose suitable tools",
+      "Buy",
+      "Workflow",
+      "Agent",
+      "Documentation",
+      "Error handling",
+      "Transition unfinished"
+    ],
+    "source_claim_map": [
+      {
+        "id": "enable",
+        "proposition": "Coaching and champions build departmental capability.",
+        "supporting_source_excerpt": "a network of technical champions",
+        "source_url": "https://blog.n8n.io/why-were-moving-n8ns-automation-team-beyond-the-service-desk-model/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "choice",
+        "proposition": "Record a baseline before building and select a suitable tool.",
+        "supporting_source_excerpt": "Require a baseline before you build",
+        "source_url": "https://blog.n8n.io/why-were-moving-n8ns-automation-team-beyond-the-service-desk-model/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "own",
+        "proposition": "Every workflow needs ownership, documentation and error handling.",
+        "supporting_source_excerpt": "It needs an owner, documentation, error handling",
+        "source_url": "https://blog.n8n.io/why-were-moving-n8ns-automation-team-beyond-the-service-desk-model/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Coach champions",
+        "direction": "conditional",
+        "condition": "Enablement through training and working together",
+        "support_claim_id": "enable",
+        "relation_supported_by_semantic_review": true,
+        "from": "Enable departments"
+      },
+      {
+        "to": "Choose suitable tools",
+        "direction": "conditional",
+        "condition": "Baseline and problem have been established",
+        "support_claim_id": "choice",
+        "relation_supported_by_semantic_review": true,
+        "from": "Set a baseline"
+      },
+      {
+        "to": "Buy",
+        "direction": "conditional",
+        "condition": "Proven purchased tool is suitable",
+        "support_claim_id": "choice",
+        "relation_supported_by_semantic_review": true,
+        "from": "Choose suitable tools"
+      },
+      {
+        "to": "Workflow",
+        "direction": "conditional",
+        "condition": "A deterministic workflow fits",
+        "support_claim_id": "choice",
+        "relation_supported_by_semantic_review": true,
+        "from": "Choose suitable tools"
+      },
+      {
+        "to": "Agent",
+        "direction": "conditional",
+        "condition": "Agent complexity is justified",
+        "support_claim_id": "choice",
+        "relation_supported_by_semantic_review": true,
+        "from": "Choose suitable tools"
+      },
+      {
+        "to": "Own the workflow",
+        "direction": "conditional",
+        "condition": "Department champion develops capability",
+        "support_claim_id": "enable",
+        "relation_supported_by_semantic_review": true,
+        "from": "Coach champions"
+      }
+    ],
+    "excluded_claims": [
+      "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+      "No people, logos, photorealism, decorative microstrokes, unsupported marks or invented control interfaces."
+    ],
+    "composition_signature": {
+      "grammar": "enablement branching tree",
+      "metaphor": "capability roots and departmental ownership",
+      "palette": "forest green and ochre",
+      "layout": "An asymmetric branching structure, not a people tree: coaching and baseline roots at left, tool-choice fork in center with three real alternatives, ownership branch on right connected by nondirectional maintenance braces to documentation and error handling.",
+      "annotation": "branch labels and maintenance braces",
+      "hierarchy": "capability branch with explicit tool alternatives",
+      "perspective": "editorial abstract sectional illustration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "department enablement",
+        "champion coaching",
+        "local process knowledge",
+        "baseline frequency",
+        "baseline effort",
+        "tool-choice decision",
+        "buy alternative",
+        "workflow alternative",
+        "agent alternative",
+        "named ownership",
+        "documentation requirement",
+        "error-handling requirement"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://blog.n8n.io/why-were-moving-n8ns-automation-team-beyond-the-service-desk-model/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Enable departments",
+          "region": "label reserve 1",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Own the workflow",
+          "region": "label reserve 2",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 610,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Coach champions",
+          "region": "label reserve 3",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Set a baseline",
+          "region": "label reserve 4",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Choose suitable tools",
+          "region": "label reserve 5",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 135,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Buy",
+          "region": "label reserve 6",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Workflow",
+          "region": "label reserve 7",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Agent",
+          "region": "label reserve 8",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 265,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Documentation",
+          "region": "label reserve 9",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Error handling",
+          "region": "label reserve 10",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Transition unfinished",
+          "region": "label reserve 11",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 535,
+            "width": 1110,
+            "height": 50
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Transition unfinished",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Coach champions",
+        "Set a baseline"
+      ],
+      "thumbnail_priority_labels": [
+        "Enable departments",
+        "Own the workflow"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Enablement through training and working together",
+          "allowed_path": "Enable departments to Coach champions",
+          "blocked_path": "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+          "support_claim_id": "enable"
+        },
+        {
+          "condition": "Baseline and problem have been established",
+          "allowed_path": "Set a baseline to Choose suitable tools",
+          "blocked_path": "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+          "support_claim_id": "choice"
+        },
+        {
+          "condition": "Proven purchased tool is suitable",
+          "allowed_path": "Choose suitable tools to Buy",
+          "blocked_path": "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+          "support_claim_id": "choice"
+        },
+        {
+          "condition": "A deterministic workflow fits",
+          "allowed_path": "Choose suitable tools to Workflow",
+          "blocked_path": "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+          "support_claim_id": "choice"
+        },
+        {
+          "condition": "Agent complexity is justified",
+          "allowed_path": "Choose suitable tools to Agent",
+          "blocked_path": "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+          "support_claim_id": "choice"
+        },
+        {
+          "condition": "Department champion develops capability",
+          "allowed_path": "Coach champions to Own the workflow",
+          "blocked_path": "No guaranteed savings, invented baseline chart, finished transformation claim, fake documents, person icons or implication that the central team abandons complex shared systems.",
+          "support_claim_id": "enable"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Coach champions",
+          "support_claim_id": "enable",
+          "origin_region": "Enable departments object",
+          "target_region": "Coach champions object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Enable departments"
+        },
+        {
+          "to": "Choose suitable tools",
+          "support_claim_id": "choice",
+          "origin_region": "Set a baseline object",
+          "target_region": "Choose suitable tools object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Set a baseline"
+        },
+        {
+          "to": "Buy",
+          "support_claim_id": "choice",
+          "origin_region": "Choose suitable tools object",
+          "target_region": "Buy object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Choose suitable tools"
+        },
+        {
+          "to": "Workflow",
+          "support_claim_id": "choice",
+          "origin_region": "Choose suitable tools object",
+          "target_region": "Workflow object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Choose suitable tools"
+        },
+        {
+          "to": "Agent",
+          "support_claim_id": "choice",
+          "origin_region": "Choose suitable tools object",
+          "target_region": "Agent object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Choose suitable tools"
+        },
+        {
+          "to": "Own the workflow",
+          "support_claim_id": "enable",
+          "origin_region": "Coach champions object",
+          "target_region": "Own the workflow object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Coach champions"
+        }
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-30",
+    "story_id": "oct30-a1-agentic-commerce-grounding",
+    "source_url": "https://www.googlecloudpresscorner.com/2026-10-29-NIQ-and-Google-Partner-to-Advance-Agentic-Commerce",
+    "visual_thesis": "A planned partnership combines product and store intelligence with a shopping graph to support discovery and local availability, with a separate purchase-data measurement branch.",
+    "mechanism_metaphor": "product provenance joins and separate measurement strand",
+    "story_anchors": [
+      "NIQ product intelligence is intended to supplement Google Shopping Graph.",
+      "Store intelligence supports the planned local-availability improvement.",
+      "Retail sales data supports Meridian measurement and location-based experiments; the announcement is forward-looking."
+    ],
+    "required_labels": [
+      "Product intelligence",
+      "Local availability",
+      "Shopping Graph",
+      "Store intelligence",
+      "Planned collaboration",
+      "Product discovery",
+      "Retail sales data",
+      "Meridian models",
+      "Location experiments",
+      "Measure outcomes",
+      "Plans, not proven outcomes"
+    ],
+    "source_claim_map": [
+      {
+        "id": "discovery",
+        "proposition": "Planned product-data collaboration supports discovery and local availability.",
+        "supporting_source_excerpt": "focused on supplementing AI commerce systems with additional information",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-29-NIQ-and-Google-Partner-to-Advance-Agentic-Commerce",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "measurement",
+        "proposition": "Real-world purchase data can feed Meridian models and location-based experiments.",
+        "supporting_source_excerpt": "run location-based experiments with Meridian GeoX",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-29-NIQ-and-Google-Partner-to-Advance-Agentic-Commerce",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "plans",
+        "proposition": "Specific initiatives and outcomes remain prospective.",
+        "supporting_source_excerpt": "not guarantees of future outcomes",
+        "source_url": "https://www.googlecloudpresscorner.com/2026-10-29-NIQ-and-Google-Partner-to-Advance-Agentic-Commerce",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Planned collaboration",
+        "direction": "conditional",
+        "condition": "Planned information supplementation",
+        "support_claim_id": "discovery",
+        "relation_supported_by_semantic_review": true,
+        "from": "Product intelligence"
+      },
+      {
+        "to": "Planned collaboration",
+        "direction": "conditional",
+        "condition": "Planned collaboration",
+        "support_claim_id": "discovery",
+        "relation_supported_by_semantic_review": true,
+        "from": "Shopping Graph"
+      },
+      {
+        "to": "Product discovery",
+        "direction": "conditional",
+        "condition": "Intended support for discovery",
+        "support_claim_id": "discovery",
+        "relation_supported_by_semantic_review": true,
+        "from": "Planned collaboration"
+      },
+      {
+        "to": "Local availability",
+        "direction": "conditional",
+        "condition": "Planned local-availability support",
+        "support_claim_id": "discovery",
+        "relation_supported_by_semantic_review": true,
+        "from": "Store intelligence"
+      },
+      {
+        "to": "Meridian models",
+        "direction": "conditional",
+        "condition": "Observed purchase data supplied",
+        "support_claim_id": "measurement",
+        "relation_supported_by_semantic_review": true,
+        "from": "Retail sales data"
+      },
+      {
+        "to": "Location experiments",
+        "direction": "conditional",
+        "condition": "Location-based experiment designed",
+        "support_claim_id": "measurement",
+        "relation_supported_by_semantic_review": true,
+        "from": "Meridian models"
+      },
+      {
+        "to": "Measure outcomes",
+        "direction": "conditional",
+        "condition": "Evaluate the observed experiment",
+        "support_claim_id": "measurement",
+        "relation_supported_by_semantic_review": true,
+        "from": "Location experiments"
+      }
+    ],
+    "excluded_claims": [
+      "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+      "No people, logos, photorealism, decorative microstrokes, unsupported marks or invented control interfaces."
+    ],
+    "composition_signature": {
+      "grammar": "data provenance weave",
+      "metaphor": "product provenance joins and separate measurement strand",
+      "palette": "cobalt and raspberry",
+      "layout": "Upper diagonal product-data weave joins Shopping Graph and product intelligence into planned discovery; separate store strand supports local availability. Lower measurement strand connects retail sales to Meridian and location experiments. No line from a recommendation directly to a guaranteed purchase.",
+      "annotation": "provenance strand captions",
+      "hierarchy": "paired discovery and measurement bands",
+      "perspective": "editorial abstract sectional illustration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "product identity evidence",
+        "product intelligence input",
+        "shopping graph input",
+        "planned join",
+        "discovery support",
+        "store intelligence input",
+        "availability support",
+        "retail sales evidence",
+        "Meridian measurement model",
+        "location experiment",
+        "measured outcome assessment",
+        "forward-looking limitation"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://www.googlecloudpresscorner.com/2026-10-29-NIQ-and-Google-Partner-to-Advance-Agentic-Commerce",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Product intelligence",
+          "region": "label reserve 1",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Local availability",
+          "region": "label reserve 2",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 610,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Shopping Graph",
+          "region": "label reserve 3",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Store intelligence",
+          "region": "label reserve 4",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Planned collaboration",
+          "region": "label reserve 5",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 135,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Product discovery",
+          "region": "label reserve 6",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Retail sales data",
+          "region": "label reserve 7",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Meridian models",
+          "region": "label reserve 8",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 265,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Location experiments",
+          "region": "label reserve 9",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Measure outcomes",
+          "region": "label reserve 10",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Plans, not proven outcomes",
+          "region": "label reserve 11",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 535,
+            "width": 1110,
+            "height": 50
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Plans, not proven outcomes",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Shopping Graph",
+        "Store intelligence"
+      ],
+      "thumbnail_priority_labels": [
+        "Product intelligence",
+        "Local availability"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Planned information supplementation",
+          "allowed_path": "Product intelligence to Planned collaboration",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "discovery"
+        },
+        {
+          "condition": "Planned collaboration",
+          "allowed_path": "Shopping Graph to Planned collaboration",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "discovery"
+        },
+        {
+          "condition": "Intended support for discovery",
+          "allowed_path": "Planned collaboration to Product discovery",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "discovery"
+        },
+        {
+          "condition": "Planned local-availability support",
+          "allowed_path": "Store intelligence to Local availability",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "discovery"
+        },
+        {
+          "condition": "Observed purchase data supplied",
+          "allowed_path": "Retail sales data to Meridian models",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "measurement"
+        },
+        {
+          "condition": "Location-based experiment designed",
+          "allowed_path": "Meridian models to Location experiments",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "measurement"
+        },
+        {
+          "condition": "Evaluate the observed experiment",
+          "allowed_path": "Location experiments to Measure outcomes",
+          "blocked_path": "No invented purchase confirmation product feature, guaranteed stock or price accuracy, unsourced sponsorship mechanism, autonomous purchase execution, conversion increase or measurement steering the shopper.",
+          "support_claim_id": "measurement"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Planned collaboration",
+          "support_claim_id": "discovery",
+          "origin_region": "Product intelligence object",
+          "target_region": "Planned collaboration object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Product intelligence"
+        },
+        {
+          "to": "Planned collaboration",
+          "support_claim_id": "discovery",
+          "origin_region": "Shopping Graph object",
+          "target_region": "Planned collaboration object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Shopping Graph"
+        },
+        {
+          "to": "Product discovery",
+          "support_claim_id": "discovery",
+          "origin_region": "Planned collaboration object",
+          "target_region": "Product discovery object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Planned collaboration"
+        },
+        {
+          "to": "Local availability",
+          "support_claim_id": "discovery",
+          "origin_region": "Store intelligence object",
+          "target_region": "Local availability object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Store intelligence"
+        },
+        {
+          "to": "Meridian models",
+          "support_claim_id": "measurement",
+          "origin_region": "Retail sales data object",
+          "target_region": "Meridian models object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Retail sales data"
+        },
+        {
+          "to": "Location experiments",
+          "support_claim_id": "measurement",
+          "origin_region": "Meridian models object",
+          "target_region": "Location experiments object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Meridian models"
+        },
+        {
+          "to": "Measure outcomes",
+          "support_claim_id": "measurement",
+          "origin_region": "Location experiments object",
+          "target_region": "Measure outcomes object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Location experiments"
+        }
+      ]
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-10-30",
+    "story_id": "oct30-a2-microsoft-agent-skills-lab",
+    "source_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-skills",
+    "visual_thesis": "A described release-note routine categorizes merged changes, formats a dated Markdown changelog and packages the procedure as a Skill that is inspected and tried with fresh input.",
+    "mechanism_metaphor": "reusable procedure shell with sorting channels",
+    "story_anchors": [
+      "The source example groups merged changes into Features, Fixes and Other.",
+      "Formatting produces a dated Markdown changelog.",
+      "A required instructions file and optional resources or scripts form a package; review and Try it testing follow."
+    ],
+    "required_labels": [
+      "Release-note Skill",
+      "Review and test",
+      "Merged changes",
+      "Features",
+      "Fixes",
+      "Other",
+      "Format changelog",
+      "Dated Markdown",
+      "Instructions",
+      "Optional scripts",
+      "Tenant controls apply"
+    ],
+    "source_claim_map": [
+      {
+        "id": "release",
+        "proposition": "The described procedure groups merged changes and formats a dated Markdown changelog.",
+        "supporting_source_excerpt": "Groups them into Features, Fixes, and Other.",
+        "source_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-skills",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "package",
+        "proposition": "A Skill contains required instructions and optional resource files/scripts.",
+        "supporting_source_excerpt": "A required `SKILL.md` file.",
+        "source_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-skills",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "review",
+        "proposition": "Review the created Skill and try a prompt that should invoke it.",
+        "supporting_source_excerpt": "On the Try it tab, try a prompt that should use the skill.",
+        "source_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-skills",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Features",
+        "direction": "conditional",
+        "condition": "Change categorized as a feature",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Merged changes"
+      },
+      {
+        "to": "Fixes",
+        "direction": "conditional",
+        "condition": "Change categorized as a fix",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Merged changes"
+      },
+      {
+        "to": "Other",
+        "direction": "conditional",
+        "condition": "Change categorized as other",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Merged changes"
+      },
+      {
+        "to": "Format changelog",
+        "direction": "conditional",
+        "condition": "Category content supplied",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Features"
+      },
+      {
+        "to": "Format changelog",
+        "direction": "conditional",
+        "condition": "Category content supplied",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Fixes"
+      },
+      {
+        "to": "Format changelog",
+        "direction": "conditional",
+        "condition": "Category content supplied",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Other"
+      },
+      {
+        "to": "Dated Markdown",
+        "direction": "conditional",
+        "condition": "Formatting script runs",
+        "support_claim_id": "release",
+        "relation_supported_by_semantic_review": true,
+        "from": "Format changelog"
+      },
+      {
+        "to": "Review and test",
+        "direction": "conditional",
+        "condition": "Skill created and available for inspection",
+        "support_claim_id": "review",
+        "relation_supported_by_semantic_review": true,
+        "from": "Release-note Skill"
+      }
+    ],
+    "excluded_claims": [
+      "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+      "No people, logos, photorealism, decorative microstrokes, unsupported marks or invented control interfaces."
+    ],
+    "composition_signature": {
+      "grammar": "procedure package exploded anatomy",
+      "metaphor": "reusable procedure shell with sorting channels",
+      "palette": "indigo and coral",
+      "layout": "Left merged-change bundle splits into three clearly labeled sorting channels; center formatting converges to dated Markdown without fake body text. Right exploded Skill anatomy shows instructions and optional scripts as contents, with a distinct review-and-test side rail. No automatic approval or training loop.",
+      "annotation": "anatomy braces and channel labels",
+      "hierarchy": "dominant procedure channels with reusable package inset",
+      "perspective": "editorial abstract sectional illustration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "component_roles": [
+        "merged-change input",
+        "feature category",
+        "fix category",
+        "other category",
+        "categorization stage",
+        "formatting stage",
+        "dated output",
+        "procedure shell",
+        "required instructions",
+        "optional script attachment",
+        "inspection stage",
+        "fresh-input test stage"
+      ],
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "executing image worker",
+      "source_url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-skills",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Release-note Skill",
+          "region": "label reserve 1",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Review and test",
+          "region": "label reserve 2",
+          "minimum_font_px": 38,
+          "bounding_box_px": {
+            "x": 610,
+            "y": 45,
+            "width": 545,
+            "height": 55
+          }
+        },
+        {
+          "label": "Merged changes",
+          "region": "label reserve 3",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Features",
+          "region": "label reserve 4",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 135,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Fixes",
+          "region": "label reserve 5",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 135,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Other",
+          "region": "label reserve 6",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Format changelog",
+          "region": "label reserve 7",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 265,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Dated Markdown",
+          "region": "label reserve 8",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 800,
+            "y": 265,
+            "width": 355,
+            "height": 65
+          }
+        },
+        {
+          "label": "Instructions",
+          "region": "label reserve 9",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Optional scripts",
+          "region": "label reserve 10",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 420,
+            "y": 405,
+            "width": 350,
+            "height": 65
+          }
+        },
+        {
+          "label": "Tenant controls apply",
+          "region": "label reserve 11",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 45,
+            "y": 535,
+            "width": 1110,
+            "height": 50
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Tenant controls apply",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 72,
+      "explanatory_substage_labels": [
+        "Merged changes",
+        "Features"
+      ],
+      "thumbnail_priority_labels": [
+        "Release-note Skill",
+        "Review and test"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Change categorized as a feature",
+          "allowed_path": "Merged changes to Features",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Change categorized as a fix",
+          "allowed_path": "Merged changes to Fixes",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Change categorized as other",
+          "allowed_path": "Merged changes to Other",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Category content supplied",
+          "allowed_path": "Features to Format changelog",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Category content supplied",
+          "allowed_path": "Fixes to Format changelog",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Category content supplied",
+          "allowed_path": "Other to Format changelog",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Formatting script runs",
+          "allowed_path": "Format changelog to Dated Markdown",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "release"
+        },
+        {
+          "condition": "Skill created and available for inspection",
+          "allowed_path": "Release-note Skill to Review and test",
+          "blocked_path": "No fabricated changelog body, guaranteed accuracy, automatic sharing approval, model retraining, unrestricted tenant access or claim that scripts are mandatory in every Skill.",
+          "support_claim_id": "review"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Features",
+          "support_claim_id": "release",
+          "origin_region": "Merged changes object",
+          "target_region": "Features object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Merged changes"
+        },
+        {
+          "to": "Fixes",
+          "support_claim_id": "release",
+          "origin_region": "Merged changes object",
+          "target_region": "Fixes object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Merged changes"
+        },
+        {
+          "to": "Other",
+          "support_claim_id": "release",
+          "origin_region": "Merged changes object",
+          "target_region": "Other object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Merged changes"
+        },
+        {
+          "to": "Format changelog",
+          "support_claim_id": "release",
+          "origin_region": "Features object",
+          "target_region": "Format changelog object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Features"
+        },
+        {
+          "to": "Format changelog",
+          "support_claim_id": "release",
+          "origin_region": "Fixes object",
+          "target_region": "Format changelog object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Fixes"
+        },
+        {
+          "to": "Format changelog",
+          "support_claim_id": "release",
+          "origin_region": "Other object",
+          "target_region": "Format changelog object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Other"
+        },
+        {
+          "to": "Dated Markdown",
+          "support_claim_id": "release",
+          "origin_region": "Format changelog object",
+          "target_region": "Dated Markdown object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Format changelog"
+        },
+        {
+          "to": "Review and test",
+          "support_claim_id": "review",
+          "origin_region": "Release-note Skill object",
+          "target_region": "Review and test object",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Release-note Skill"
+        }
+      ]
+    }
+  }
+]
