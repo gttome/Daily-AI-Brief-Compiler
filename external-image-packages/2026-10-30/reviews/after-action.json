@@ -115,6 +115,11 @@
       "phase": "Connector branch read path",
       "issue": "An encoded branch endpoint failed to return the expected payload.",
       "correction": "Used the supported Git ref/heads endpoint and checked real exact head plus owner token before every generation/checkpoint."
+    },
+    {
+      "phase": "Local pre-PR checkpoint synchronization",
+      "issue": "The first local preflight ran while the Git checkout was still finishing lazy-object materialization, so HEAD had not yet moved to the complete package.",
+      "correction": "Waited for the observed Git reset completion, confirmed exact HEAD and clean worktree, then reran the same package preflight. Accepted PNGs and manifest remained byte-identical."
     }
   ],
   "publication": {

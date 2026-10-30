@@ -44,6 +44,7 @@
 | Initial GitHub index resolution | Initial request treated shadow-pages-history as a directory on main and returned404. | Used the actual shadow-pages-history branch and site/image-jobs/index.json; selected only the current October30 PUBLISHED_PENDING job. |
 | Git transport capability check | A local dry-run push lacked an authenticated HTTPS username; no repository mutation occurred. | Used connected GitHub create_blob/base64, Git tree/commit and expected-head non-force ref updates; all six original binaries read back exactly. |
 | Connector branch read path | An encoded branch endpoint failed to return the expected payload. | Used the supported Git ref/heads endpoint and checked real exact head plus owner token before every generation/checkpoint. |
+| Local pre-PR checkpoint synchronization | The first local preflight ran while the Git checkout was still finishing lazy-object materialization, so HEAD had not yet moved to the complete package. | Waited for the observed Git reset completion, confirmed exact HEAD and clean worktree, then reran the same package preflight. Accepted PNGs and manifest remained byte-identical. |
 
 ## Evidence and limitations
 
