@@ -53,6 +53,20 @@ function compilerAar(cycle,date,e){
  const readerIncidents=Array.isArray(readerIncident?.incidents)?readerIncident.incidents.filter(x=>
    typeof x?.incident_id==='string'&&typeof x?.status==='string'):[];
  const indexRetry=validFor(e['source-item-retries'],date)?e['source-item-retries']:null;
+ const routeCoverage=validFor(e['source-route-coverage'],date)?e['source-route-coverage']:null;
+ const itemCensus=validFor(e['source-item-census'],date)?e['source-item-census']:null;
+ const discovery=routeCoverage||itemCensus?{
+   classification:'PUBLISHER_ROUTE_AND_INDEX_DISCOVERY_NOT_FULL_ARTICLE_REVIEW',
+   registered:routeCoverage?.counts?.registered??null,
+   enabled_routes_attempted:routeCoverage?.counts?.attempted??null,
+   reachable_routes:routeCoverage?.counts?.reachable??null,
+   failed_routes:routeCoverage?.counts?.failures??null,
+   editorial_indexes_attempted:itemCensus?.counts?.attempted??null,
+   indexes_with_candidates:itemCensus?.counts?.candidates_found??null,
+   indexes_without_eligible_items:itemCensus?.counts?.no_eligible_items??null,
+   indexes_blocked_or_error:itemCensus?.counts?.blocked_or_error??null,
+   transient_index_retry_attempts:indexRetry?.observed_retry_attempts??indexRetry?.counts?.attempted??null
+ }:null;
  const postpublishVideo=validFor(e['postpublish-video-playback'],date)?e['postpublish-video-playback']:null;
  const ownerRequired=incident?.owner_intervention?.required_in_observed_sequence===true||
    incident?.unattended_autonomy_result==='FAIL_OWNER_TRIGGER_REQUIRED'||
@@ -103,6 +117,9 @@ function compilerAar(cycle,date,e){
   })),
   original_postpublish_video_playback:postpublishVideo?.result??null,
   editorial_index_retry_counts:indexRetry?.counts??null,
+  source_discovery_evidence:discovery,
+  selected_video_publication_dates:(job?.editorial_context?.videos??[]).map(x=>({
+    title:x.title??null,publisher:x.source??null,original_date:x.original_date??null})),
   last_failed_gate:health?.last_recorded_blocker?.stage??null,
   last_failed_gate_url:health?.last_recorded_blocker?.run_url??null,
   result:verified?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
@@ -294,6 +311,10 @@ export function renderMarkdown(report){
     ['Owner-detected editorial defects',report.postpublication_incidents_recorded===null?'NOT_RECORDED':report.owner_detected_postpublication_defects],
     ['Verified postpublication corrections',report.postpublication_incidents_recorded===null?'NOT_RECORDED':report.corrected_postpublication_defects],
     ['Editorial index retries',report.editorial_index_retry_counts?.attempted??'NOT_RECORDED'],
+    ['Routes attempted',report.source_discovery_evidence?.enabled_routes_attempted??'NOT_RECORDED'],
+    ['Source indexes with candidates',report.source_discovery_evidence?.indexes_with_candidates??'NOT_RECORDED'],
+    ['Source indexes blocked/error',report.source_discovery_evidence?.indexes_blocked_or_error??'NOT_RECORDED'],
+    ['Selected video original dates',report.selected_video_publication_dates??'NOT_RECORDED'],
     ['Index reads recovered on retry',report.editorial_index_retry_counts?.recovered_to_index_read??'NOT_RECORDED'],
     ['Original postpublication playback check',report.original_postpublish_video_playback??'NOT_RECORDED']
    ]:[]),

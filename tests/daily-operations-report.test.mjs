@@ -105,3 +105,27 @@ test('temp-staged source AAR helper stays present in the existing nonpublishing 
  for(const name of ['source-route-coverage','source-item-census','source-qualification'])
    assert.ok(yaml.includes('shadow-runs/$edition/editorial/'+name+'.json'),name);
 });
+
+test('edition-scoped AAR separates route, index, retry and original video dates from full-content admission',()=>{
+ const date='2026-10-30';
+ const evidence={
+  'compiler-state':{edition_date:date,execution_id:'oct30',state:'SHADOW_VERIFIED'},
+  'image-job':{edition_date:date,editorial_context:{videos:[
+    {title:'PBS interview',source:'PBS NewsHour',original_date:'2026-09-29T00:00:00Z'}]}},
+  'source-route-coverage':{edition_date:date,counts:{registered:208,attempted:98,reachable:97,failures:1}},
+  'source-item-census':{edition_date:date,counts:{attempted:87,candidates_found:7,
+    no_eligible_items:68,blocked_or_error:12}},
+  'source-item-retries':{edition_date:date,observed_retry_attempts:15,counts:{attempted:15,recovered_to_index_read:3}}
+ };
+ const r=compileDailyReports({cycleDate:'2026-10-29',evidence});
+ assert.equal(r.compiler.source_discovery_evidence.enabled_routes_attempted,98);
+ assert.equal(r.compiler.source_discovery_evidence.editorial_indexes_attempted,87);
+ assert.equal(r.compiler.source_discovery_evidence.indexes_blocked_or_error,12);
+ assert.equal(r.compiler.source_discovery_evidence.transient_index_retry_attempts,15);
+ assert.match(r.compiler.source_discovery_evidence.classification,/NOT_FULL_ARTICLE_REVIEW/);
+ assert.equal(r.compiler.selected_video_publication_dates[0].original_date,'2026-09-29T00:00:00Z');
+ assert.match(renderMarkdown(r.compiler),/Source indexes blocked\/error/);
+ assert.equal(r.images.task_id,'6ad6310597b0819096a8d0f1b46bffc9');
+ const historical=compileDailyReports({cycleDate:'2026-10-18',evidence:{}});
+ assert.equal(historical.images.task_id,'6acac88cff048191ba02e5b2bcb3becb');
+});
