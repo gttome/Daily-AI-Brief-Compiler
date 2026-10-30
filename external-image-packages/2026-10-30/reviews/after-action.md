@@ -80,4 +80,6 @@ Final saved-context semantic review completed at 03:19:47Z; final canonical publ
 
 Worker phase PUBLISHED_COMPLETE and released lease retain16 actual generations,6 accepted / 10 rejected and all six exact accepted hashes. Original manifest, recurring assignment, accepted PNGs and source/job bytes remain unchanged; final reports/captures are being persisted through the existing protected review process.
 
+The semantic review separates the original image-release binding (workflow 40995087318) from actual capture/artifact origin (verification workflow 40996235562, artifact 12951960494). Every target retains its true source_workflow_run_id. The original failed release is not misrepresented as the source of the 24 recovery captures.
+
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
