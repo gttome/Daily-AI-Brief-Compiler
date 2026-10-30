@@ -50,3 +50,14 @@ test('source job cannot pass with unapproved story routes or duplicate pages',()
    permanent_url:'https://elsewhere.invalid/story/'}))},outputDir:out,browser:'test-browser'}),
    /unexpected_story_route/);
 });
+
+test('existing protected release workflow uses diagnostic browser helper without admitting screenshot count as semantic PASS',()=>{
+ const yaml=fs.readFileSync('.github/workflows/external-image-only-replacement.yml','utf8');
+ assert.match(yaml,/node scripts\/capture-image-browser14\.mjs/);
+ assert.match(yaml,/I3 actual 24 target image-area captures/);
+ assert.match(yaml,/PUBLIC_STATUS_SYNC_INCOMPLETE/);
+ assert.doesNotMatch(yaml,/--screenshot=.*2>\/dev\/null/);
+ const post=fs.readFileSync('.github/workflows/external-image-postrelease-verify.yml','utf8');
+ assert.match(post,/PUBLIC_STATUS_SYNC_INCOMPLETE/);
+ assert.match(post,/for attempt in \$\(seq 1 15\)/);
+});
