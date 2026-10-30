@@ -23,6 +23,10 @@
 | Owner-detected editorial defects | 2 |
 | Verified postpublication corrections | 0 |
 | Editorial index retries | NOT_RECORDED |
+| Routes attempted | 98 |
+| Source indexes with candidates | 0 |
+| Source indexes blocked/error | 0 |
+| Selected video original dates | [object Object],[object Object] |
 | Index reads recovered on retry | NOT_RECORDED |
 | Original postpublication playback check | NOT_RECORDED |
 | Next run readiness | UNKNOWN |
