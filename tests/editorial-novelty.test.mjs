@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
   EDITORIAL_NOVELTY_EFFECTIVE,findEditorialValueOverlap,
-  isRecurringSkillAuthoringLesson
+  isRecurringSkillAuthoringLesson,skillProcedureEvidence
 } from '../compiler/editorial-novelty.mjs';
 
 const recentDates=['2026-10-26','2026-10-25','2026-10-24',
@@ -97,4 +97,33 @@ test('the two protected publisher gates continue using one shared media admissio
     '.github/workflows/shadow-compile.yml']){
     assert.match(fs.readFileSync(file,'utf8'),/node scripts\/verify-media-freshness\.mjs/);
   }
+});
+
+test('Oct31+ does not allow a renamed generic Skill create-review-reuse lesson without distinct reader task evidence',()=>{
+ const b={edition_date:'2026-10-31',stories:[{
+  headline:'Agent Builder turns a routine into an easy repeatable review',
+  summary:'The agent creates a Skill, packages instructions for a workflow, reviews and tests it before reuse.',
+  agent_skills:true,agent_skills_evidence:'Create and package Skill instructions for a routine workflow.',
+  audience_fit:{practical_action:'Create and review the Skill',usable_outcome:'Reusable Skill'}
+ },...distinct]};
+ const result=findEditorialValueOverlap({bundle:b,archive,priorEditionDates:recentDates});
+ assert.ok(result.violations.some(x=>x.reason==='skill_procedure_rebrand_without_distinct_task_evidence'));
+ const lead=result.review_candidates[0].skill_procedure_review;
+ assert.ok(lead.compare_primary_source&&lead.compare_reader_takeaway&&lead.compare_specific_practical_action);
+ assert.equal(lead.concrete_task_evidenced,false);
+});
+test('concrete release-note triage remains eligible for comparative editorial review rather than an automatic ban',()=>{
+ const story={
+  headline:'Agent Builder organizes release-note change lists before human approval',
+  summary:'A Skill packages instructions for a workflow and a reviewer tests the resulting changelog.',
+  agent_skills:true,source:{url:'https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-skills'},
+  agent_skills_evidence:'A dated Markdown changelog groups merged changes into Features, Fixes and Other before review and testing.',
+  audience_fit:{practical_action:'Categorize merged pull-request changes into Features, Fixes and Other for dated release notes',
+    usable_outcome:'A dated Markdown changelog with categorized change entries'}
+ };
+ const b={edition_date:'2026-10-31',stories:[story,...distinct]};
+ const result=findEditorialValueOverlap({bundle:b,archive,priorEditionDates:recentDates});
+ assert.equal(result.violations.some(x=>x.reason==='skill_procedure_rebrand_without_distinct_task_evidence'),false);
+ assert.ok(result.review_candidates[0].skill_procedure_review);
+ assert.equal(skillProcedureEvidence(story).concrete_task_evidenced,true);
 });
