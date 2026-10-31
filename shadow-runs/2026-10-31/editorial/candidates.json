@@ -1,7 +1,7 @@
 {
   "schema_version": "editorial-candidates-v1",
   "edition_date": "2026-10-31",
-  "locked_at": "2026-10-31T00:30:59.149Z",
+  "locked_at": "2026-10-31T00:45:39.985Z",
   "allocation": {
     "Technical AI Engineering": 2,
     "Applied Generative AI for Knowledge Workers": 2,
@@ -12,7 +12,7 @@
     "oct31-t2-mistral-large4-open-weights",
     "oct31-k1-website-ai-training-preferences",
     "oct31-k2-synthetic-enterprise-evaluations",
-    "oct31-a1-servicenow-governed-chatgpt-actions",
+    "oct31-a1-agent-org-chart-scenarios",
     "oct31-a2-document-parsing-skill-check"
   ],
   "agent_skills_story_id": "oct31-a2-document-parsing-skill-check",
@@ -38,11 +38,11 @@
   },
   "inbox_review": {
     "status": "partial",
-    "reviewed_at": "2026-10-31T00:29:14.174Z",
+    "reviewed_at": "2026-10-31T00:45:23.163Z",
     "notes": "Inspected selected original publisher indexes and complete primary sources; unvisited enabled and disabled source IDs are explicitly recorded, and no route result is treated as article reading."
   },
   "source_discovery_audit": {
-    "reviewed_at": "2026-10-31T00:29:14.174Z",
+    "reviewed_at": "2026-10-31T00:45:23.163Z",
     "candidates": [
       {
         "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
@@ -81,8 +81,16 @@
         "publisher": "OpenAI",
         "original_date": "2026-10-28T00:00:00Z",
         "checked_at": "2026-10-31T00:29:14.174Z",
+        "disposition": "rejected",
+        "disposition_reason": "Rejected after the protected full-history gate found this exact source URL in the published October 29 edition; the complete read is preserved as failed-selection evidence."
+      },
+      {
+        "url": "https://openai.com/index/the-future-of-the-firm/",
+        "publisher": "OpenAI",
+        "original_date": "2026-10-28T00:00:00Z",
+        "checked_at": "2026-10-31T00:44:45.432Z",
         "disposition": "selected",
-        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported freshness treatment and full-archive exact-URL review."
+        "disposition_reason": "Selected after complete primary-source reading, dated publisher-index verification and an exact-URL search of the published archive through October 30 found no prior use."
       },
       {
         "url": "https://www.llamaindex.ai/blog/introducing-the-document-parsing-protocol",
@@ -91,12 +99,20 @@
         "checked_at": "2026-10-31T00:29:14.174Z",
         "disposition": "selected",
         "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported freshness treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "publisher": "Anthropic",
+        "original_date": "2026-10-28T00:00:00Z",
+        "checked_at": "2026-10-31T00:45:23.163Z",
+        "disposition": "considered",
+        "disposition_reason": "The dated original Anthropic news item was inspected from its enabled publisher index but not selected because it reports a credit-access program rather than one of the edition’s required reader workflows."
       }
     ],
     "fallback_decisions": [
       {
-        "story_id": "oct31-a1-servicenow-governed-chatgpt-actions",
-        "why_selected_over_recent_options": "The October 28 ServiceNow item remained within the normal 72-hour window and offered a concrete governed noncoding workflow; newer candidates did not provide comparable user-facing permission and approval boundaries.",
+        "story_id": "oct31-a1-agent-org-chart-scenarios",
+        "why_selected_over_recent_options": "The October 28 essay remained within the normal 72-hour window and supplied a complete noncoding framework for comparing bounded agent roles after the initial ServiceNow source failed exact-URL history review.",
         "newer_sources_considered": [
           "https://openai.com/index/helping-websites-express-ai-training-preferences/",
           "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/"
@@ -109,15 +125,46 @@
           "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
           "https://mistral.ai/news/mistral-large-4-oss/"
         ]
+      },
+      {
+        "story_id": "oct31-t1-nemoclaw-controlled-agent-stack",
+        "why_selected_over_recent_options": "The October 30 NVIDIA article was the newest reviewed source that documented a controlled agent stack with explicit file, network, credential and tool boundaries; the other reviewed items did not cover comparable runtime controls.",
+        "newer_sources_considered": [
+          "https://openai.com/index/helping-websites-express-ai-training-preferences/",
+          "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/"
+        ]
+      },
+      {
+        "story_id": "oct31-t2-mistral-large4-open-weights",
+        "why_selected_over_recent_options": "The October 29 Mistral release supplied distinct open-weight architecture, license, deployment and publisher-reported evaluation details needed for the second engineering slot; October 30 sources covered controls and policy instead.",
+        "newer_sources_considered": [
+          "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
+          "https://openai.com/index/helping-websites-express-ai-training-preferences/"
+        ]
+      },
+      {
+        "story_id": "oct31-k1-website-ai-training-preferences",
+        "why_selected_over_recent_options": "The October 30 OpenAI announcement was the only reviewed item addressing a concrete website-governance decision and its future implementation boundary; the other same-date candidates focused on agent infrastructure or evaluation.",
+        "newer_sources_considered": [
+          "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
+          "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/"
+        ]
+      },
+      {
+        "story_id": "oct31-k2-synthetic-enterprise-evaluations",
+        "why_selected_over_recent_options": "The October 30 Microsoft Research article uniquely explained a six-stage synthetic enterprise evaluation pipeline and its transfer limitations, giving knowledge-work teams a bounded evaluation method absent from the other reviewed sources.",
+        "newer_sources_considered": [
+          "https://openai.com/index/helping-websites-express-ai-training-preferences/",
+          "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/"
+        ]
       }
     ],
     "index_review": {
       "eligible": 87,
-      "inspected": 7,
+      "inspected": 8,
       "unreviewed": [
         "acl-anthology",
         "anthropic",
-        "anthropic-news",
         "article-databricks-ai-research",
         "article-ibm-research-ai",
         "arxiv-cs-ai",
