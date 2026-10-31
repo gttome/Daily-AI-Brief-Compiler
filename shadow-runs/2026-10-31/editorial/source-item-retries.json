@@ -1,0 +1,23 @@
+{
+  "schema_version": "daily-compiler-editorial-index-retries-v1",
+  "edition_date": "2026-10-31",
+  "execution_id": "daily-compiler-2026-10-31-primary",
+  "created_at": "2026-10-31T00:29:14.174Z",
+  "policy": {
+    "effective_from": "2026-10-30",
+    "max_second_attempts": 16,
+    "second_attempt_timeout_ms": 8000,
+    "second_attempt_concurrency": 3
+  },
+  "first_pass_attempted": 7,
+  "selection": "ROTATING_BOUNDED_TRANSIENT_ONLY",
+  "retries": [],
+  "counts": {
+    "attempted": 0,
+    "recovered_to_candidate": 0,
+    "recovered_to_index_read": 0,
+    "still_unavailable": 0,
+    "editorial_content_admission": "NOT_PROVEN_FROM_INDEX_RETRIES"
+  },
+  "qualification_caveat": "INDEX_FETCH_ONLY_NOT_FULL_ARTICLE_READING_OR_MEDIA_PLAYBACK"
+}
