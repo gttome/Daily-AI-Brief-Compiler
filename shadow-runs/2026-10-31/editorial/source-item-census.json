@@ -2,8 +2,8 @@
   "schema_version": "daily-compiler-editorial-source-census-v1",
   "edition_date": "2026-10-31",
   "execution_id": "daily-compiler-2026-10-31-primary",
-  "created_at": "2026-10-31T00:45:23.163Z",
-  "registry_digest": "6f731ae3f5575a9a91d9ed56970aaf129998dea2b59e7f90f76b0170ac4c0647",
+  "created_at": "2026-10-31T00:50:13.662Z",
+  "registry_digest": "bf615ab586aa4327ed4ed40e46823cfba30892326ccee4c0c04524ca1b327957",
   "scope": "ALL_ENABLED_ARTICLE_VIDEO_PODCAST_SOURCE_IDS",
   "caveat": "ITEM_CANDIDATE_NOT_PUBLICATION_VERIFIED",
   "resources": [
@@ -13,12 +13,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.664Z",
+      "source_index_url": "https://aclanthology.org/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "anthropic",
@@ -26,12 +26,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.697Z",
+      "source_index_url": "https://www.anthropic.com/engineering",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "anthropic-news",
@@ -39,18 +39,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:45:23.163Z",
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.698Z",
       "source_index_url": "https://www.anthropic.com/news",
       "evidence_method": "publisher_index",
-      "items": [
-        {
-          "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
-          "title": "AI for Science expands to foundations and institutions",
-          "original_date": "2026-10-28T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "article-databricks-ai-research",
@@ -58,12 +52,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.699Z",
+      "source_index_url": "https://www.databricks.com/blog/category/research/ai-research",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "article-ibm-research-ai",
@@ -71,12 +65,28 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:13.699Z",
+      "source_index_url": "https://research.ibm.com/blog?tag=artificial-intelligence",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://research.ibm.com/blog/connecting-quantum-processors-with-l-couplers",
+          "title": "Modular quantum computing takes shape with l-couplers",
+          "original_date": "2026-10-27T12:00:00.000Z"
+        },
+        {
+          "url": "https://research.ibm.com/blog/ibm-and-kaggle-launch-leaderboard-for-java-framework-migration",
+          "title": "IBM and Kaggle launch leaderboard for Java framework migration",
+          "original_date": "2026-10-27T12:00:00.000Z"
+        },
+        {
+          "url": "https://research.ibm.com/blog/pytorch-spyre-accelerator-software-ecosystem-updates",
+          "title": "PyTorch opens the AI ecosystem to a new class of accelerators",
+          "original_date": "2026-10-26T12:00:00.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 3 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "article-nvidia-technical-ai",
@@ -84,18 +94,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:29:14.174Z",
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.700Z",
       "source_index_url": "https://developer.nvidia.com/blog/tag/machine-learning-and-artificial-intelligence/",
       "evidence_method": "publisher_index",
-      "items": [
-        {
-          "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
-          "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
-          "original_date": "2026-10-30T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "arxiv-cs-ai",
@@ -103,12 +107,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.859Z",
+      "source_index_url": "https://arxiv.org/list/cs.AI/recent",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "arxiv-cs-cl",
@@ -116,12 +120,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.864Z",
+      "source_index_url": "https://arxiv.org/list/cs.CL/recent",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "arxiv-cs-lg",
@@ -129,12 +133,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:13.926Z",
+      "source_index_url": "https://arxiv.org/list/cs.LG/recent",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "berkeley-bair",
@@ -142,12 +146,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.112Z",
+      "source_index_url": "https://bair.berkeley.edu/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "deepseek-news",
@@ -155,12 +159,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.114Z",
+      "source_index_url": "https://api-docs.deepseek.com/news",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "github-ai-agents",
@@ -168,12 +172,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.167Z",
+      "source_index_url": "https://github.com/topics/ai-agents",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "github-generative-ai",
@@ -181,12 +185,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.335Z",
+      "source_index_url": "https://github.com/topics/generative-ai",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "github-llm",
@@ -194,12 +198,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.390Z",
+      "source_index_url": "https://github.com/topics/llm",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "github-trending",
@@ -207,12 +211,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.485Z",
+      "source_index_url": "https://github.com/trending",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "google-deepmind-blog",
@@ -220,12 +224,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.558Z",
+      "source_index_url": "https://deepmind.google/discover/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "hacker-news-newest",
@@ -233,12 +237,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:14.679Z",
+      "source_index_url": "https://news.ycombinator.com/newest",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "hacker-news-show",
@@ -246,12 +250,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.033Z",
+      "source_index_url": "https://news.ycombinator.com/show",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "hugging-face-daily-papers",
@@ -259,12 +263,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.055Z",
+      "source_index_url": "https://huggingface.co/papers",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "hugging-face-datasets",
@@ -272,12 +276,68 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:15.096Z",
+      "source_index_url": "https://huggingface.co/datasets?sort=trending",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://huggingface.co/datasets/nvidia/simready-assets",
+          "title": "nvidia/simready-assets Updated 1 day ago • 882k • 1.02k",
+          "original_date": "2026-10-29T19:45:32.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/CohereLabs/10-2026-qwen-investigation-traces",
+          "title": "CohereLabs/10-2026-qwen-investigation-traces Traces • Updated 4 days ago • 1 • 4.3k • 91",
+          "original_date": "2026-10-27T00:21:38.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/venvoo/china-a-share-l2-level2-limit-order-book-tick-data",
+          "title": "venvoo/china-a-share-l2-level2-limit-order-book-tick-data Updated about 5 hours ago • 181k • 550",
+          "original_date": "2026-10-30T20:00:12.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/nvidia/simready-central-library",
+          "title": "nvidia/simready-central-library Updated 3 days ago • 287 • 96",
+          "original_date": "2026-10-27T14:50:28.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/nvidia/Granary-v2",
+          "title": "nvidia/Granary-v2 Updated 2 days ago • 2.36k • 32",
+          "original_date": "2026-10-28T14:09:30.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/hongzhuyi/VDEBench",
+          "title": "hongzhuyi/VDEBench Benchmark • Updated 4 days ago • 7.01k • 5.77k • 59",
+          "original_date": "2026-10-27T12:36:14.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/codepawl/simready-glb",
+          "title": "codepawl/simready-glb Viewer • Updated 1 day ago • 2.6k • 1.76k • 17",
+          "original_date": "2026-10-29T14:20:19.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/baidu/MarathonDocBench",
+          "title": "baidu/MarathonDocBench Viewer • Updated 4 days ago • 18.3k • 3.66k • 17",
+          "original_date": "2026-10-27T02:47:29.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/CohereLabsCommunity/CulturalRiddles",
+          "title": "CohereLabsCommunity/CulturalRiddles Viewer • Updated 3 days ago • 251k • 520 • 41",
+          "original_date": "2026-10-27T14:21:50.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/ccore/ThreeJS-3D-Scenes",
+          "title": "ccore/ThreeJS-3D-Scenes Viewer • Updated 2 days ago • 8.29k • 864 • 14",
+          "original_date": "2026-10-28T16:19:08.000Z"
+        },
+        {
+          "url": "https://huggingface.co/datasets/fka/prompts.chat",
+          "title": "fka/prompts.chat Viewer • Updated about 22 hours ago • 2.77k • 27.4k • 9.92k",
+          "original_date": "2026-10-30T03:15:12.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 11 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "hugging-face-models",
@@ -285,12 +345,88 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:15.202Z",
+      "source_index_url": "https://huggingface.co/models?sort=trending",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+          "title": "Nanbeige/Nanbeige4.3-33B Text Generation • 33B • Updated 3 days ago • 12.2k • 798",
+          "original_date": "2026-10-28T01:59:01.000Z"
+        },
+        {
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+          "title": "LiquidAI/LFM3-1.7B Text Generation • 2B • Updated 2 days ago • 23.7k • 564",
+          "original_date": "2026-10-28T17:16:37.000Z"
+        },
+        {
+          "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+          "title": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B Automatic Speech Recognition • 34B • Updated 1 day ago • 16k • • 500",
+          "original_date": "2026-10-29T23:04:39.000Z"
+        },
+        {
+          "url": "https://huggingface.co/ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+          "title": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF Text Generation • 197B • Updated 2 days ago • 1.75M • 507",
+          "original_date": "2026-10-28T21:27:34.000Z"
+        },
+        {
+          "url": "https://huggingface.co/baidu/Unlimited-OCR-2",
+          "title": "baidu/Unlimited-OCR-2 Image-Text-to-Text • 3B • Updated 1 day ago • 24.3k • 452",
+          "original_date": "2026-10-29T09:18:46.000Z"
+        },
+        {
+          "url": "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+          "title": "mistralai/Mistral-Large-4-1T-A52B Image-Text-to-Text • Updated 1 day ago • 1.24k • 1.34k",
+          "original_date": "2026-10-29T14:51:07.000Z"
+        },
+        {
+          "url": "https://huggingface.co/XHToken/Spark-X2.6-4B",
+          "title": "XHToken/Spark-X2.6-4B Text Generation • 4B • Updated 3 days ago • 12.5k • 923",
+          "original_date": "2026-10-27T12:55:34.000Z"
+        },
+        {
+          "url": "https://huggingface.co/orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF",
+          "title": "orcarouter/DeepSeek-V4.1-Flash-1017-abliterated-GGUF Text Generation • 748B • Updated 4 days ago • 30.4k • 372",
+          "original_date": "2026-10-27T05:21:39.000Z"
+        },
+        {
+          "url": "https://huggingface.co/ccore/Qwen3.5-4B-3D-Coder",
+          "title": "ccore/Qwen3.5-4B-3D-Coder 5B • Updated about 9 hours ago • 20.2k • 322",
+          "original_date": "2026-10-30T15:47:46.000Z"
+        },
+        {
+          "url": "https://huggingface.co/LiquidAI/LFM3-Omni-2B",
+          "title": "LiquidAI/LFM3-Omni-2B Any-to-Any • 2B • Updated 2 days ago • 3.08k • 227",
+          "original_date": "2026-10-28T23:16:38.000Z"
+        },
+        {
+          "url": "https://huggingface.co/openbmb/MiniCPM-OCR-1.0",
+          "title": "openbmb/MiniCPM-OCR-1.0 Image-Text-to-Text • 1B • Updated 1 day ago • 2.41k • 363",
+          "original_date": "2026-10-29T15:39:19.000Z"
+        },
+        {
+          "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex",
+          "title": "Pika-Labs/Pika-H3-Flex Image-to-Video • 33B • Updated 1 day ago • 87 • • 197",
+          "original_date": "2026-10-29T23:29:03.000Z"
+        },
+        {
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+          "title": "MiniMaxAI/MiniMax-M3.1-Flash Image-Text-to-Text • 220B • Updated about 16 hours ago • 18.8k • • 505",
+          "original_date": "2026-10-30T08:44:16.000Z"
+        },
+        {
+          "url": "https://huggingface.co/LiquidAI/LFM3-VL-2B",
+          "title": "LiquidAI/LFM3-VL-2B Image-Text-to-Text • 2B • Updated 2 days ago • 6.24k • 180",
+          "original_date": "2026-10-28T23:16:11.000Z"
+        },
+        {
+          "url": "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview",
+          "title": "Diffuspace/Clover-35B-A3B-Preview Text Generation • 35B • Updated 3 days ago • 1.51k • 176",
+          "original_date": "2026-10-28T03:07:54.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 15 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "hugging-face-spaces",
@@ -298,12 +434,43 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:15.321Z",
+      "source_index_url": "https://huggingface.co/spaces?sort=trending",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://huggingface.co/spaces/nvidia/simready-central",
+          "title": "Running on RTX PRO 6000 Featured 297 SimReady Central 🦾 Semantic search for 3D assets: USD + RTX simulation previews nvidia about 13 hours ago",
+          "original_date": "2026-10-30T11:58:56.000Z"
+        },
+        {
+          "url": "https://huggingface.co/spaces/linoyts/qwen-image-2-1-realtime",
+          "title": "Running on Zero MCP Featured 79 Qwen Image 2.1 Realtime ⚡ Real-time t2i & editing with a Qwen-Image-2.1 2-step LoRA linoyts about 9 hours ago",
+          "original_date": "2026-10-30T15:47:08.000Z"
+        },
+        {
+          "url": "https://huggingface.co/spaces/AimeeBingmouQu/ProtectBirds",
+          "title": "Running on CPU Upgrade 1.3k ProtectBirds 🏃 Protect Birds AimeeBingmouQu about 9 hours ago",
+          "original_date": "2026-10-30T15:48:51.000Z"
+        },
+        {
+          "url": "https://huggingface.co/spaces/AST-1320/Qwen-2511-Plus-Flux.2-klein",
+          "title": "Running on Zero Agents 295 Qwen 2511 + Flux.2 Klein ✨ Edit images with Qwen and enhance with FLUX.2 Klein AST-1320 about 7 hours ago",
+          "original_date": "2026-10-30T18:07:20.000Z"
+        },
+        {
+          "url": "https://huggingface.co/spaces/WizardTY/GEAR",
+          "title": "Running 63 GEAR ⚙ Recursive self-improvement of LLM agent harnesses WizardTY 5 days ago",
+          "original_date": "2026-10-26T12:18:18.000Z"
+        },
+        {
+          "url": "https://huggingface.co/spaces/multimodalart/jev-decision-index",
+          "title": "Running Featured 847 Jev Decision Index 🔬 Benchmarks and news on various repros of TypeSafe's Jev multimodalart 1 day ago",
+          "original_date": "2026-10-29T15:41:44.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 6 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "iclr",
@@ -311,12 +478,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.337Z",
+      "source_index_url": "https://iclr.cc/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "icml",
@@ -324,12 +491,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.374Z",
+      "source_index_url": "https://icml.cc/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "meta-ai-blog",
@@ -337,12 +504,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.490Z",
+      "source_index_url": "https://ai.meta.com/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "mistral-news",
@@ -350,18 +517,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:29:14.174Z",
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:15.589Z",
       "source_index_url": "https://mistral.ai/news/",
       "evidence_method": "publisher_index",
-      "items": [
-        {
-          "url": "https://mistral.ai/news/mistral-large-4-oss/",
-          "title": "Mistral Large 4 (Le Chonk) is now open weight",
-          "original_date": "2026-10-29T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "mit-csail",
@@ -369,12 +530,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.629Z",
+      "source_index_url": "https://www.csail.mit.edu/news",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "neurips",
@@ -382,12 +543,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.698Z",
+      "source_index_url": "https://neurips.cc/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "openai-news",
@@ -395,23 +556,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:44:45.432Z",
+      "outcome": "ACCESS_BLOCKED",
+      "checked_at": "2026-10-31T00:50:15.787Z",
       "source_index_url": "https://openai.com/news/",
       "evidence_method": "publisher_index",
-      "items": [
-        {
-          "url": "https://openai.com/index/helping-websites-express-ai-training-preferences/",
-          "title": "Making it easier for websites to express AI training preferences",
-          "original_date": "2026-10-30T00:00:00Z"
-        },
-        {
-          "url": "https://openai.com/index/the-future-of-the-firm/",
-          "title": "The future of the firm",
-          "original_date": "2026-10-28T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Original publisher index refused a public reading with HTTP 403; no item is qualified."
     },
     {
       "resource_id": "openreview",
@@ -419,12 +569,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.838Z",
+      "source_index_url": "https://openreview.net/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-a16z-show",
@@ -432,12 +582,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:15.916Z",
+      "source_index_url": "https://podcasts.apple.com/us/podcast/the-a16z-show/id842818711",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-agora-briefing",
@@ -445,12 +595,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.053Z",
+      "source_index_url": "https://agora-intelligence.com/en/podcast/2026-10-16",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-ai-daily-brief",
@@ -458,18 +608,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:29:14.174Z",
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.060Z",
       "source_index_url": "https://aidailybrief.ai/",
       "evidence_method": "podcast_show",
-      "items": [
-        {
-          "url": "https://aidailybrief.beehiiv.com/p/how-the-most-ai-pilled-company-in-the-world-works",
-          "title": "How the Most AI-Pilled Company in the World Works",
-          "original_date": "2026-10-30T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-ai-for-humans",
@@ -477,12 +621,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.269Z",
+      "source_index_url": "https://www.aiforhumans.show/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-ai-future-work",
@@ -490,12 +634,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.336Z",
+      "source_index_url": "https://podcasts.apple.com/us/podcast/ai-and-the-future-of-work-artificial/id1476885647",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-ai-inside",
@@ -503,12 +647,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.455Z",
+      "source_index_url": "https://podcasts.apple.com/us/podcast/ai-inside/id1726128797",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-artificial-intelligence-show",
@@ -516,18 +660,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:29:14.174Z",
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.592Z",
       "source_index_url": "https://podcast.smarterx.ai/",
       "evidence_method": "podcast_show",
-      "items": [
-        {
-          "url": "https://podcast.smarterx.ai/shownotes/248",
-          "title": "The Artificial Intelligence Show, Episode 248",
-          "original_date": "2026-10-27T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-cognitive-revolution",
@@ -535,12 +673,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.685Z",
+      "source_index_url": "https://www.cognitiverevolution.ai/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-data-exchange",
@@ -548,12 +686,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.717Z",
+      "source_index_url": "https://thedataexchange.media/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-everyday-ai",
@@ -561,12 +699,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:16.748Z",
+      "source_index_url": "https://www.youreverydayai.com/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Original publisher index returned HTTP 202; no editorial claim is made."
     },
     {
       "resource_id": "podcast-eye-on-ai",
@@ -574,12 +712,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.750Z",
+      "source_index_url": "https://www.eye-on.ai/podcast-archive",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-gradient-dissent",
@@ -587,12 +725,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:16.891Z",
+      "source_index_url": "https://podcasts.apple.com/us/podcast/gradient-dissent-conversations-on-ai/id1504567418",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-latent-space",
@@ -600,12 +738,23 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:17.106Z",
+      "source_index_url": "https://www.latent.space/podcast",
+      "evidence_method": "podcast_show",
+      "items": [
+        {
+          "url": "https://www.latent.space/p/supabase/",
+          "title": "Why Agents Love Supabase",
+          "original_date": "2026-10-28T19:48:05.000Z"
+        },
+        {
+          "url": "https://www.latent.space/p/how_anthropic_ships_the_1_llm_in_the_world_safely_separating_the_brain_from_the_hands/",
+          "title": "How Anthropic ships the #1 LLM in the World safely: Separating the Brain from the Hands",
+          "original_date": "2026-10-27T18:40:19.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 2 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "podcast-no-priors",
@@ -613,12 +762,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.122Z",
+      "source_index_url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-nvidia-ai",
@@ -626,12 +775,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.129Z",
+      "source_index_url": "https://www.nvidia.com/en-us/about-nvidia/rss/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-practical-ai",
@@ -639,12 +788,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.168Z",
+      "source_index_url": "https://practicalai.show/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "podcast-twiml",
@@ -652,12 +801,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:17.361Z",
+      "source_index_url": "https://twimlai.com/podcast/twimlai/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "qwen-blog",
@@ -665,12 +814,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.578Z",
+      "source_index_url": "https://qwen.ai/blog",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "reddit-localllama",
@@ -678,12 +827,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "ACCESS_BLOCKED",
+      "checked_at": "2026-10-31T00:50:17.603Z",
+      "source_index_url": "https://www.reddit.com/r/LocalLLaMA/new/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Original publisher index refused a public reading with HTTP 403; no item is qualified."
     },
     {
       "resource_id": "reddit-machinelearning",
@@ -691,12 +840,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "ACCESS_BLOCKED",
+      "checked_at": "2026-10-31T00:50:17.609Z",
+      "source_index_url": "https://www.reddit.com/r/MachineLearning/new/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Original publisher index refused a public reading with HTTP 403; no item is qualified."
     },
     {
       "resource_id": "specialized-discords",
@@ -704,12 +853,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.659Z",
+      "source_index_url": "https://discord.com/discovery",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "stanford-hai",
@@ -717,12 +866,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.659Z",
+      "source_index_url": "https://hai.stanford.edu/news",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "the-batch",
@@ -730,12 +879,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "ACCESS_BLOCKED",
+      "checked_at": "2026-10-31T00:50:17.678Z",
+      "source_index_url": "https://www.deeplearning.ai/the-batch/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Original publisher index refused a public reading with HTTP 403; no item is qualified."
     },
     {
       "resource_id": "x-research-feeds",
@@ -743,12 +892,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.740Z",
+      "source_index_url": "https://x.com/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "xai-news",
@@ -756,12 +905,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.800Z",
+      "source_index_url": "https://x.ai/news",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "youtube-anthropic",
@@ -769,12 +918,12 @@
       "roles": [
         "video"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:17.805Z",
+      "source_index_url": "https://www.youtube.com/@anthropic-ai",
+      "evidence_method": "video_channel",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "youtube-google-deepmind",
@@ -782,12 +931,12 @@
       "roles": [
         "video"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:17.826Z",
+      "source_index_url": "https://www.youtube.com/@googledeepmind",
+      "evidence_method": "video_channel",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "youtube-openai",
@@ -795,12 +944,12 @@
       "roles": [
         "video"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:17.937Z",
+      "source_index_url": "https://www.youtube.com/@OpenAI",
+      "evidence_method": "video_channel",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "research-20261026-a01",
@@ -808,12 +957,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:17.993Z",
+      "source_index_url": "https://developers.openai.com/cookbook/topic/agents",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "research-20261026-a04",
@@ -821,12 +970,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.112Z",
+      "source_index_url": "https://pydantic.dev/articles",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "research-20261026-a05",
@@ -834,12 +983,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.160Z",
+      "source_index_url": "https://github.com/google/adk-python/releases",
+      "evidence_method": "rss_or_atom",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "research-20261026-a12",
@@ -847,12 +996,18 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:18.170Z",
+      "source_index_url": "https://blog.n8n.io/",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://blog.n8n.io/throttling-vs-rate-limiting/",
+          "title": "Throttling vs. Rate Limiting: Backoff Strategies for Workflows",
+          "original_date": "2026-10-30T00:00:00.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 1 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "research-20261026-p03",
@@ -860,12 +1015,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:18.264Z",
+      "source_index_url": "https://tessl.io/podcast",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "deep-20261026-a01-google-research",
@@ -873,12 +1028,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.302Z",
+      "source_index_url": "https://research.google/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "deep-20261026-a02-microsoft-ai",
@@ -886,12 +1041,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.339Z",
+      "source_index_url": "https://microsoft.ai/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "deep-20261026-a03-nvidia-news",
@@ -899,12 +1054,43 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:18.500Z",
+      "source_index_url": "https://blogs.nvidia.com/",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://blogs.nvidia.com/blog/category/robotics/",
+          "title": "Robotics",
+          "original_date": "2026-10-29T16:00:35.000Z"
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-updates-models-agents-games/",
+          "title": "Thin, Light and Built for Everything: NVIDIA RTX Spark Windows Laptops Gain New Models, Agent Tools and Games",
+          "original_date": "2026-10-28T15:00:46.000Z"
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/",
+          "title": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals",
+          "original_date": "2026-10-30T15:00:10.000Z"
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/category/enterprise/intelligent-networking/",
+          "title": "Networking",
+          "original_date": "2026-10-29T13:00:49.000Z"
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-phantom-blade-zero/",
+          "title": "Slice Into GFN Thursday: ‘Phantom Blade Zero’ Launches on GeForce NOW",
+          "original_date": "2026-10-29T13:00:16.000Z"
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/",
+          "title": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia",
+          "original_date": "2026-10-27T15:00:20.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 6 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "deep-20261026-p02-data-skeptic",
@@ -912,12 +1098,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.532Z",
+      "source_index_url": "https://dataskeptic.com/podcast",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "deep-20261026-v01-two-minute-papers",
@@ -925,12 +1111,12 @@
       "roles": [
         "video"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:18.688Z",
+      "source_index_url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+      "evidence_method": "video_channel",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
@@ -938,12 +1124,58 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:18.753Z",
+      "source_index_url": "https://huggingface.co/blog",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+          "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2: Intelligent Multilingual Transcription You Can Prompt and Adapt nvidia • 2 days ago • 83",
+          "original_date": "2026-10-28T14:58:17.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/FrontiersMind/lumma-fev-27b-v2",
+          "title": "Introducing Lumma-Fev-v2 FrontiersMind • 1 day ago • 14",
+          "original_date": "2026-10-29T16:12:19.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/huggingface/whats-new-in-the-hf-cli-and-huggingface-hub-librar",
+          "title": "What's new in the hf CLI and huggingface_hub library huggingface • 4 days ago • 13",
+          "original_date": "2026-10-26T15:27:11.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/Diffuspace/clover-35b-a3b-preview",
+          "title": "Clover\\-35B\\-A3B\\-Preview: A New Way for Intelligence Diffuspace • about 15 hours ago • 9",
+          "original_date": "2026-10-30T09:58:28.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/FrontiersMind/decisionformer",
+          "title": "DecisionFormer FrontiersMind • 4 days ago • 9",
+          "original_date": "2026-10-26T19:59:46.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/FINAL-Bench/pretraining-a-325m-language-model-from-zero-on-an",
+          "title": "Pretraining a 325M Language Model from Zero on an Inference-Only NPU FINAL-Bench • 5 days ago • 9",
+          "original_date": "2026-10-26T05:39:39.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/PeterKruger/router-benchmark-2026-10",
+          "title": "Do LLM Routers Actually Route? Quick answer: Not much! PeterKruger • 5 days ago • 6",
+          "original_date": "2026-10-26T09:18:31.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/LeagueLabs/optimizing-diffgemma-decision-model-vllm-cpu-i",
+          "title": "A Low-Cost Decision Model on CPU: Optimizing DiffusionGemma with vLLM - Part I LeagueLabs • 1 day ago • 5",
+          "original_date": "2026-10-29T13:13:15.000Z"
+        },
+        {
+          "url": "https://huggingface.co/blog/PeterKruger/autobench-beta-router",
+          "title": "Try an LLM Router That Actually Routes ($1 free credit) PeterKruger • 1 day ago • 5",
+          "original_date": "2026-10-29T12:09:29.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 9 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "directory-411bf5f837e28f35220736eb",
@@ -951,18 +1183,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:29:14.174Z",
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.785Z",
       "source_index_url": "https://www.microsoft.com/en-us/research/blog/",
       "evidence_method": "publisher_index",
-      "items": [
-        {
-          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
-          "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
-          "original_date": "2026-10-30T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-fd36049347d409f38c9f9a67",
@@ -970,12 +1196,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.870Z",
+      "source_index_url": "https://www.langchain.com/blog",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-3ccc18a956cae0b1e24b5968",
@@ -983,18 +1209,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "CANDIDATES_FOUND",
-      "checked_at": "2026-10-31T00:29:14.174Z",
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.878Z",
       "source_index_url": "https://www.llamaindex.ai/blog",
       "evidence_method": "publisher_index",
-      "items": [
-        {
-          "url": "https://www.llamaindex.ai/blog/introducing-the-document-parsing-protocol",
-          "title": "Introducing the Document Parsing Protocol",
-          "original_date": "2026-10-28T00:00:00Z"
-        }
-      ],
-      "reason": "Inspected the original publisher index and followed the dated first-party item link; candidate status does not itself prove publication admission."
+      "items": [],
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-242c2a2fc81a43d41f199129",
@@ -1002,12 +1222,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:18.998Z",
+      "source_index_url": "https://workspaceupdates.googleblog.com/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-9ad7c274f2d56274bcd5ddcc",
@@ -1015,12 +1235,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.049Z",
+      "source_index_url": "https://github.blog/changelog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-c6b8a33e7fa162cc41136fa5",
@@ -1028,12 +1248,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:19.061Z",
+      "source_index_url": "https://cohere.com/blog",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "directory-a74f303f4b0c39344c1314cf",
@@ -1041,12 +1261,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.120Z",
+      "source_index_url": "https://blog.cloudflare.com/tag/ai/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-9c0885bdb370f69c9262b88c",
@@ -1054,12 +1274,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.202Z",
+      "source_index_url": "https://cursor.com/blog",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-64f0886a6793aa8858a4b62d",
@@ -1067,12 +1287,38 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
-      "items": [],
-      "reason": null
+      "outcome": "CANDIDATES_FOUND",
+      "checked_at": "2026-10-31T00:50:19.227Z",
+      "source_index_url": "https://vercel.com/blog",
+      "evidence_method": "publisher_index",
+      "items": [
+        {
+          "url": "https://vercel.com/blog/introducing-geist-serif",
+          "title": "30 October General Introducing Geist Serif Geist Serif is a high-contrast display serif built on the same foundations as Geist Sans, Geist Mono, and Geist Pixel. Evil Rabbit, Mark Davis",
+          "original_date": "2026-10-30T00:00:00.000Z"
+        },
+        {
+          "url": "https://vercel.com/blog/introducing-vercel-ci",
+          "title": "28 October General Introducing Vercel CI Vercel CI runs only the checks your change affects, on compute sized to the push. Anthony Shew, Jeffrey Arneson, and 1 other",
+          "original_date": "2026-10-28T07:00:00.000Z"
+        },
+        {
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "title": "28 October General Introducing Virtual Models on AI Gateway Virtual models are an abstraction of the model string and configurations your apps and developers use. +3 Rohan Taneja, Walter Korman, and 3 others",
+          "original_date": "2026-10-28T07:25:00.000Z"
+        },
+        {
+          "url": "https://vercel.com/blog/simplifying-runtime-caching-on-vercel",
+          "title": "30 October General Simplifying runtime caching on Vercel Yvonne Zhou, Kelly Davis, and 1 other",
+          "original_date": "2026-10-30T04:00:00.000Z"
+        },
+        {
+          "url": "https://vercel.com/blog/elevenlabs-on-ai-gateway",
+          "title": "27 October General ElevenLabs on AI Gateway +2 Kevin Dawkins, Zachary Chen, and 2 others",
+          "original_date": "2026-10-27T07:00:00.000Z"
+        }
+      ],
+      "reason": "Visited first-party index; found 5 linked items with explicit original dates within 168 hours; content and media are not verified."
     },
     {
       "resource_id": "directory-8ec4fd458a38bc0447f4cded",
@@ -1080,12 +1326,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.350Z",
+      "source_index_url": "https://arize.com/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-6ea6e283349c7b62ac1ced9d",
@@ -1093,12 +1339,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.389Z",
+      "source_index_url": "https://langfuse.com/blog",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-d6cf3f9fa167b8173a35228b",
@@ -1106,12 +1352,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.414Z",
+      "source_index_url": "https://www.braintrust.dev/blog",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-8df3614a9972a25fc59475ed",
@@ -1119,12 +1365,12 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.561Z",
+      "source_index_url": "https://metr.org/blog/",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-ecf69ec2f036e803388f40ca",
@@ -1132,12 +1378,12 @@
       "roles": [
         "video"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:19.574Z",
+      "source_index_url": "https://www.youtube.com/@LangChain/videos",
+      "evidence_method": "video_channel",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "directory-4852e367f74118ff2dc1eec9",
@@ -1145,12 +1391,12 @@
       "roles": [
         "video"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "SOURCE_ERROR",
+      "checked_at": "2026-10-31T00:50:19.684Z",
+      "source_index_url": "https://www.youtube.com/@googlecloudtech",
+      "evidence_method": "video_channel",
       "items": [],
-      "reason": null
+      "reason": "Could not inspect original publisher index: source index exceeds 1 MiB; no items qualified."
     },
     {
       "resource_id": "directory-54d90ff964a74ff98851ae11",
@@ -1158,12 +1404,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.763Z",
+      "source_index_url": "https://every.to/podcast",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "directory-0dffb60aadd4ba31b5c090dc",
@@ -1171,12 +1417,12 @@
       "roles": [
         "podcast"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.793Z",
+      "source_index_url": "https://emerj.com/ai-in-business-podcast/",
+      "evidence_method": "podcast_show",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     },
     {
       "resource_id": "universe-20261026-every-ai-editorial",
@@ -1184,35 +1430,35 @@
       "roles": [
         "article"
       ],
-      "outcome": "NOT_VISITED",
-      "checked_at": null,
-      "source_index_url": null,
-      "evidence_method": null,
+      "outcome": "NO_ELIGIBLE_ITEMS",
+      "checked_at": "2026-10-31T00:50:19.965Z",
+      "source_index_url": "https://every.to/newsletter",
+      "evidence_method": "publisher_index",
       "items": [],
-      "reason": null
+      "reason": "Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment."
     }
   ],
   "counts": {
     "eligible": 87,
-    "attempted": 8,
-    "not_attempted": 79,
-    "candidates_found": 8,
-    "no_eligible_items": 0,
-    "blocked_or_error": 0,
+    "attempted": 87,
+    "not_attempted": 0,
+    "candidates_found": 9,
+    "no_eligible_items": 63,
+    "blocked_or_error": 15,
     "role_counts": {
       "article": {
         "eligible": 60,
-        "attempted": 6
+        "attempted": 60
       },
       "video": {
         "eligible": 6,
-        "attempted": 0
+        "attempted": 6
       },
       "podcast": {
         "eligible": 21,
-        "attempted": 2
+        "attempted": 21
       }
     },
-    "all_sources_attempted": false
+    "all_sources_attempted": true
   }
 }
