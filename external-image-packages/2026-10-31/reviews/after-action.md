@@ -1,6 +1,6 @@
 # 2026-10-31 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 87c2dd834e0ee370675c383941af8eb856853b1d |
 | Executor observed run start | 2026-10-31T02:15:56Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-10-31T02:18:36Z (observed before tool call) |
-| Public release | NOT_YET_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_PUBLIC_CONTEXT_REVIEW; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-10-31T02:41:47.295Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -59,5 +59,19 @@ All accepted1200x630 RGB PNGs were inspected at full size and390px, locked, retu
 Same-invocation clock observations do not independently authenticate scheduler origin. Scheduler origin UNPROVEN; account usage UNKNOWN. No paid API, TinyFish, metered service, new task/session/schedule or legacy repository mutation.
 
 Safe-area proportional export was inspected before each lock; no artwork was stretched, clipped or regenerated to repair transport. All six final accepted PNGs are below750KiB, so accepted-image fixed-offset transport was not needed.
+
+Protected PR297 passed exact-head PRE_PR_PACKAGE_PASS and validate:621 tests,621 passed,0 failures. The active ruleset has no bypass actors; configured required approving reviews is0. Normal merge1bf3a1328f619551c88c59b90447d38d7b185bf8 initiated the existing image-only workflow41161070796.
+
+The original protected release succeeded, including bounded Chrome diagnostics, all24 actual RGB-proof captures and truthful public receipt propagation checks. No image-release retry, historical reseal, extra capture job or accepted-original regeneration was used.
+
+The original release artifact13026978397, SHA2567c8df34ca632a396622629812e3f6d99cdf8988d01019d6137c8d063b8e49e44, was downloaded, hash-checked and reused. Every one of its24 dated/permanent desktop/mobile context captures was actually viewed, checked against saved SHA256 and accepted source-image binding, and independently reviewed. Source workflow IDs are preserved truthfully.
+
+Fresh independent postrelease reads confirmed six live image hashes,12 story pairings, canonical public index and receipt hashes. A separate17-object October8 HTTP-byte audit passed after metadata publication.
+
+The artifact original automated capture status is retained with result BLOCKED_INCOMPLETE and24 pixel_review_unproven entries; the later actual24-context semantic review is a separate PASS, never inferred from workflow success or capture count.
+
+Observed host-to-final24-context-review wall time is 29.9 minutes. This is not active native runtime or account usage.
+
+Original manifest, recurring assignment, all accepted PNGs, story/editorial bytes, Watchlist and all historical accepted images remain unchanged during closeout. The original manifest set-review pending flag is its prerelease checkpoint; final semantic status lives in the separate review receipt.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
