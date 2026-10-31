@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** October 31, 2026 · **Production evening:** 2026-10-30 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-10-31 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-10-31/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Compiler 25m 06s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -37,12 +37,12 @@
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **10** | Image worker AAR; no estimation |
 | Rejected candidates | **4** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -90,7 +90,7 @@ flowchart LR
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 10 · **Rejected candidates:** 4.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 10 · **Rejected candidates:** 4.
 
 ### Image production duration — Git-verified milestones
 
@@ -113,21 +113,31 @@ flowchart LR
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| NVIDIA packages agent harnesses with runtime policy controls | 3 | 0.61 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m01.png) |
+| Mistral releases Large 4 weights for coding and cyber evaluation | 2 | 0.68 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m02.png) |
+| OpenAI backs a shared robots.txt signal for training preferences | 1 | 0.50 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m10.png) |
+| Microsoft Research builds synthetic enterprises for safer Copilot evaluation | 1 | 0.62 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m11.png) |
+| Three ways agents may reshape the org chart | 1 | 0.47 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m12.png) |
+| Protocol gives document teams cell-level parsing checks | 2 | 0.46 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m01.png" alt="Diagram for oct31-t1-nemoclaw-controlled-agent-stack" width="420"/></a><br/><b>NVIDIA packages agent harnesses with runtime policy controls</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m02.png" alt="Diagram for oct31-t2-mistral-large4-open-weights" width="420"/></a><br/><b>Mistral releases Large 4 weights for coding and cyber evaluation</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m10.png" alt="Diagram for oct31-k1-website-ai-training-preferences" width="420"/></a><br/><b>OpenAI backs a shared robots.txt signal for training preferences</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m11.png" alt="Diagram for oct31-k2-synthetic-enterprise-evaluations" width="420"/></a><br/><b>Microsoft Research builds synthetic enterprises for safer Copilot evaluation</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m12.png" alt="Diagram for oct31-a1-agent-org-chart-scenarios" width="420"/></a><br/><b>Three ways agents may reshape the org chart</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-10-31/dab-edition-2026-10-31-m14.png" alt="Diagram for oct31-a2-document-parsing-skill-check" width="420"/></a><br/><b>Protocol gives document teams cell-level parsing checks</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -192,7 +202,7 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-10-31/shadow-runs/2026-10-31/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-10-31/shadow-runs/2026-10-31/compiler/postpublish-video-playback.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41161070796).
 
 ---
 
