@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {IMAGE_LAYOUT_REQUIREMENTS,validateCompositionGeometry} from './image-layout-contract.mjs';
 import {readImageProcessVersions} from './image-process-versions.mjs';
 const fail=s=>{throw Error('image_firstpass_quality:'+s);};
 const forbidden=/\b(?:lorem ipsum|placeholder text|pseudo[- ]?writing|fake microtext|fill in later|draft label)\b/i;
@@ -139,9 +140,10 @@ export function validateFrozenImageSpecification({spec,story}){
       qc.no_unsupported_memory_or_permission_flow!==true||
       qc.no_pseudotext_decorative_microstrokes!==true)
      fail('oct30_mobile_inline_and_forbidden_motif_preflight_required:'+spec.story_id);
-   if(qc.label_layout.some(l=>l.minimum_font_px<(priorities.has(l.label)?36:28)))
+   if(qc.label_layout.some(l=>l.minimum_font_px<(priorities.has(l.label)?IMAGE_LAYOUT_REQUIREMENTS.priority_font_px:IMAGE_LAYOUT_REQUIREMENTS.secondary_font_px)))
      fail('oct30_mobile_priority_or_secondary_export_text_insufficient:'+spec.story_id);
  }
+ if(spec.edition_date>=IMAGE_LAYOUT_REQUIREMENTS.effective_date)validateCompositionGeometry(spec);
  const review=spec.editorial_semantic_review;
  if(review?.result!=='PASS'||!oneOf(review.method,['human_primary_source_review','semantic_primary_source_review'])||
    !clean(review.reviewer)||review.source_url!==spec.source_url||
