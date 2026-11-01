@@ -5,8 +5,8 @@
 | Dimension | Observed evidence |
 |---|---|
 | Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"UNPROVEN","owner_intervention_required":null} |
-| Images | {"execution":"START_OBSERVED","result":"PARTIAL","publication":"VERIFIED"} |
-| Combined result | PARTIAL |
+| Images | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED"} |
+| Combined result | SUCCESS |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
