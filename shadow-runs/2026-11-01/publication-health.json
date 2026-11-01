@@ -2,26 +2,32 @@
   "schema_version": "daily-compiler-publication-health-v1",
   "edition_date": "2026-11-01",
   "status": "BLOCKED_PUBLICATION",
-  "observed_at": "2026-11-01T00:33:43.477Z",
+  "observed_at": "2026-11-01T00:38:48.509Z",
   "events": [
     {
       "status": "BLOCKED_PUBLICATION",
       "stage": "MEDIA_HISTORY",
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41257244670",
       "observed_at": "2026-11-01T00:33:43.477Z"
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "PUBLICATION_PIPELINE",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41257607091",
+      "observed_at": "2026-11-01T00:38:48.509Z"
     }
   ],
   "outstanding_blocker": {
-    "stage": "MEDIA_HISTORY",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41257244670",
-    "first_observed_at": "2026-11-01T00:33:43.477Z",
-    "next_action": "Replace only already published media or article source; preserve accepted unrelated editorial and image assets."
+    "stage": "PUBLICATION_PIPELINE",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41257607091",
+    "first_observed_at": "2026-11-01T00:38:48.509Z",
+    "next_action": "Inspect first failed protected stage and retry only safe idempotent operations."
   },
   "last_recorded_blocker": {
     "status": "BLOCKED_PUBLICATION",
-    "stage": "MEDIA_HISTORY",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41257244670",
-    "observed_at": "2026-11-01T00:33:43.477Z"
+    "stage": "PUBLICATION_PIPELINE",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41257607091",
+    "observed_at": "2026-11-01T00:38:48.509Z"
   },
   "public_reader_verified": false,
   "unattended_recovery_proven": false,
