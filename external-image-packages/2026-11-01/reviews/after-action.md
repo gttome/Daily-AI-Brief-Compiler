@@ -1,6 +1,6 @@
 # 2026-11-01 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | ea7a005d79dcbc9efc2d29a856604789c8b86721 |
 | Executor observed run start | 2026-11-01T02:16:02Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-01T02:19:20Z (observed before tool call) |
-| Public release | NOT_YET_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-01T02:46:32.448Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -42,6 +42,7 @@
 | Native saved-pixel inspection | nov01-a1-browser-handoff-async-agents attempt 1: Simulated browser/chat interface rows, small labels and ambiguous result destination. | Preserved authentic rejected candidate, targeted failing regions, reinspected saved final-size and390px successor before locking. |
 | Native saved-pixel inspection | nov01-a1-browser-handoff-async-agents attempt 2: Fake UI removed and labels enlarged, but result-return connector still ends in open space rather than the originating context. | Preserved authentic rejected candidate, targeted failing regions, reinspected saved final-size and390px successor before locking. |
 | Native saved-pixel inspection | nov01-a2-commitments-tally-skill attempt 1: Fake writing in source props and caveat, unapproved question/clock/exclamation/X symbols, direct per-field-to-outcome shortcuts instead of collective review gate. | Preserved authentic rejected candidate, targeted failing regions, reinspected saved final-size and390px successor before locking. |
+| Pre-PR immutable job-byte binding | The initial local text copy had one extra trailing newline, producing a different local-only digest from the authoritative immutable job. | Re-read exact original Git object bytes, verified authoritative21dd262f digest, corrected uncommitted manifest/AAR bindings before the single package PR; no job, source or accepted image bytes changed. |
 
 ## Evidence and limitations
 
@@ -49,7 +50,7 @@ Job SHA-256: 21dd262fdb00feb00f95bea8e14023a5042b2dd2922fae719527efe33d9ace5b. O
 
 The actual generation start is 2026-11-01T02:19:20Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-01/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Current protected-main Oct30/Oct29/Oct28/Oct20 and Rev8 contracts read; all ten actual October30 rejection rows used as prospective per-story negative examples before first generation. No historical accepted image was regenerated or resealed.
 
@@ -61,12 +62,28 @@ Actual saved1200x630 RGB and390px pixels inspected; final proportion-preserving 
 
 Same-invocation clock observations do not authenticate scheduler origin; task origin UNPROVEN and usage UNKNOWN. No paid API, TinyFish, metered service, added task/session/schedule or legacy repository changes.
 
-Publication and24 actual public semantic contexts remain pending at this pre-PR checkpoint.
-
 Local requests and primary-runtime requests modules were unavailable; standard-library public GET and connected web reads supplied source access. Direct OpenAI and Every urllib routes returned403; connected web retrieval returned article content. No paid browser or access bypass was used.
 
 The first contact-sheet assembly had an incorrect row spacing; it was replaced by a complete uncropped contact sheet before set acceptance. This did not change any accepted PNG.
 
 A local JSON transfer response exceeded its first output limit; reduced whitespace and complete bounded output fixed it. No remote overwrite, missing bytes or fabricated review occurred.
+
+Protected package PR301 passed exact-head compiler-validation, including PRE_PR_PACKAGE_PASS and required validate, then merged normally at eff5573cc39ce6c47bdd582e4aa9350e5ac09d92. Active ruleset has no bypass actors and requires0approving reviews; no safeguards bypassed.
+
+Original image-only workflow41266506242 succeeded. All24saved captures from its original artifact13067855906 were individually viewed, SHA256-checked and bound to the accepted source images; saved RGB match proof is1.000 for every target. No duplicate capture job or publication retry was run.
+
+Original artifact ZIP length7552896 and SHA2562a8ae9e8d5fe9cb6d6517d04c1842aa2fb491fb59fa7c8fb6d5a070f704c0a09 matched GitHub artifact metadata before extraction. Capture workflow/artifact provenance remains original, not a recovery claim.
+
+Fresh independent public checks passed six image hashes,12article pairings, canonical public index and release receipt byte hashes, and all17protected October8objects. The automated original24capture receipt remains BLOCKED_INCOMPLETE until subjective review; the separate actual semantic review is PASS.
+
+The first accepted PNG is798804bytes and was validated by the existing256KiB fixed-offset reconstruction script; the reassembled bytes match its locked SHA256 and Git blob. Other accepted images are below750KiB.
+
+All17genuine calls produced6accepted and11rejected candidates, with0/6first-pass passes. This is worse first-pass efficiency than October31(10calls,3first-pass acceptances); no improvement in generation efficiency is claimed. Future source-specific prompts should remove document/GUI props before rendering, reserve much larger label regions, and explicitly name every connector endpoint; this does not add a quality cap or service.
+
+Final24-context review completed02:49:45Z,33.72minutes after first observed executor clock and30.42minutes after first native-call clock. These are wall-clock spans, not provider active runtime, quota or first-party scheduler proof.
+
+Final worker is PUBLISHED_COMPLETE with RELEASED lease,17actual attempts,6accepted/11rejected and all six accepted hashes. Original manifest, recurring assignment, PNGs, editorial, Watchlist and historical accepted assets remain unchanged during report-only closeout.
+
+No new automation, task, Work session, paid API or metered service was created. Existing sole image task and recurrence remain enabled for the next new edition.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
