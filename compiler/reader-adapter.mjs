@@ -193,6 +193,15 @@ function legacyRubric(reason){
   const row={score:3,reason};
   return {novelty:{...row},evidence:{...row},independence:{...row},momentum:{...row},relevance:{...row},durability:{...row}};
 }
+function adaptWatchMomentum(item,date){
+  const momentum=item.momentum?structuredClone(item.momentum):{classification:'baseline',score:null,reason:'Current edition evidence is preserved without inferring additional momentum.'};
+  // Nov 2+: the canonical reader calls unmeasured first observations "baseline".
+  // Preserve null scores, all source evidence and the original sealed producer data.
+  if(date>='2026-11-02'&&momentum.classification==='unestablished'&&
+     momentum.score===null&&Array.isArray(momentum.observations)&&
+     momentum.observations.length===0)momentum.classification='baseline';
+  return momentum;
+}
 function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
   const reason=item.why||item.what_changed||item.reason||'Evidence preserved for continued monitoring.';
   const meaningful=v=>typeof v==='string'&&v.trim()?v.trim():null;
@@ -257,7 +266,7 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
     limitations:'The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.',
     research_score:null, // populated from the rubric by publicWatchlist()
     rubric:topicRubric,
-    momentum:item.momentum?structuredClone(item.momentum):{classification:'baseline',score:null,reason:'Current edition evidence is preserved without inferring additional momentum.'},
+    momentum:adaptWatchMomentum(item,date),
     next_action:'Continue monitoring primary evidence and independent developments.'
   };
   if(!prior)return current;

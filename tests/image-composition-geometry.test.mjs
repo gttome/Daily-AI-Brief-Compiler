@@ -58,3 +58,40 @@ test('review digest binds exact prompt text and rejects an omitted geometry bloc
  s.pre_generation_checks.composition_geometry.prompt_geometry_review.geometry_sha256=compositionPlanDigest(s);
  assert.throws(()=>validateCompositionGeometry(s),/exact_generation_prompt_with_geometry_required/);
 });
+
+const acceptedNov1Bytes=fs.readFileSync('external-image-packages/2026-11-01/reviews/six-frozen-specs.json');
+const acceptedNov1=JSON.parse(acceptedNov1Bytes);
+const storyFor=s=>({story_id:s.story_id,primary_source:{url:s.source_url,verified_read_evidence:{status:'verified',full_source_read:true}}});
+test('all six exact accepted Nov1 specifications retain existing full preflight acceptance',()=>{
+ for(const spec of acceptedNov1){
+  assert.equal(validateCompositionGeometry(spec).result,'ACCEPTED_PREACTIVATION_SPEC_UNCHANGED');
+  assert.equal(validateFrozenImageSpecification({spec,story:storyFor(spec)}).result,'FROZEN_PREGENERATION_SPEC_PASS');
+ }
+ assert.deepEqual(fs.readFileSync('external-image-packages/2026-11-01/reviews/six-frozen-specs.json'),acceptedNov1Bytes);
+});
+test('historical exception cannot admit modified Nov1 or future unbound specifications',()=>{
+ const mutations=[
+  s=>{s.edition_date='2026-11-02';},
+  s=>{s.edition_date='2027-01-01';},
+  s=>{s.story_id+='-new';},
+  s=>{s.source_url+='?different-source';},
+  s=>{s.composition_signature.layout+=' changed';},
+  s=>{s.pre_generation_checks.label_layout[0].bounding_box_px.x++;},
+  s=>{s.allowed_causal_edges[0].to='Different endpoint';},
+  s=>{s.editorial_semantic_review.reviewer='Another reviewer';},
+  s=>{s.native_generation_prompt='A newly submitted prompt';},
+ ];
+ for(const original of acceptedNov1)for(const mutate of mutations){
+  const spec=structuredClone(original);mutate(spec);
+  assert.throws(()=>validateCompositionGeometry(spec),/story_specific_regions_required/);
+ }
+});
+test('accepted historical exception never bypasses existing source-verification gate',()=>{
+ const spec=acceptedNov1[0],story=storyFor(spec);
+ story.primary_source.verified_read_evidence.full_source_read=false;
+ assert.throws(()=>validateFrozenImageSpecification({spec,story}),/missing_structural_or_source_faithful_spec/);
+});
+test('future bound specification continues to pass rather than depending on legacy schema opt-in',()=>{
+ const spec=fixture();spec.edition_date='2027-01-01';
+ assert.equal(validateFrozenImageSpecification({spec,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
+});

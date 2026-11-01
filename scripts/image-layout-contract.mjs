@@ -4,6 +4,25 @@ export const IMAGE_LAYOUT_REQUIREMENTS=Object.freeze({
   width:1200,height:630,safe_margin_px:40,priority_font_px:36,
   secondary_font_px:28,effective_date:'2026-11-01'
 });
+// Closed compatibility set: these six specifications were accepted on main
+// before this gate shipped (PR301, eff5573cc39ce6c47bdd582e4aa9350e5ac09d92).
+// SHA-256 covers JSON.stringify of the ENTIRE parsed specification, including
+// edition, source, story and all review fields. Never derive this allowlist from
+// mutable package files at runtime. This exempts only the new geometry check;
+// all existing source/label/semantic and package admission checks still apply.
+const ACCEPTED_NOV01_SPEC_SHA256=Object.freeze({
+  'nov01-t1-dynamo-validated-kubernetes-runtime':'181b83842fd79f9959605d3e7a02602486e1fd1f251bb6dc5740857a1d452ea0',
+  'nov01-t2-frontier-misalignment-monitoring':'879a87a06aed02527d79be928084f2a1b81eb8483c2d04b7e6952a752074da7d',
+  'nov01-k1-gemini-whole-deck-edits':'33b8c95ce8191ca073334054d7f344d9cb56d4239601e1735d5625a233fa9609',
+  'nov01-k2-cited-financial-research-assistant':'be5569dc57e041cd7f3b8994597fc17d25c0aaaa589bcf47c0a995c441a14e07',
+  'nov01-a1-browser-handoff-async-agents':'82b7f0e6fff4a0d44b6ca5771ccc6badc1647a710cc43ad0b2841ece131422a7',
+  'nov01-a2-commitments-tally-skill':'b23c17f8d1b46ffa2fce1b280fc417e6fb21a53d523e02b5d2759f4b2166e98b',
+});
+function isAcceptedPreActivationSpecification(spec){
+ return spec.edition_date==='2026-11-01'&&
+  ACCEPTED_NOV01_SPEC_SHA256[spec.story_id]===crypto.createHash('sha256')
+   .update(JSON.stringify(spec)).digest('hex');
+}
 const fail=message=>{throw Error('image_composition_geometry:'+message);};
 const text=value=>typeof value==='string'&&value.trim().length>=3;
 const id=value=>typeof value==='string'&&/^[a-z][a-z0-9_-]{2,63}$/.test(value);
@@ -28,6 +47,7 @@ export function compositionPlanDigest(spec){
 }
 export function validateCompositionGeometry(spec){
  if(spec.edition_date<IMAGE_LAYOUT_REQUIREMENTS.effective_date)return {result:'HISTORICAL_SPEC_UNCHANGED'};
+ if(isAcceptedPreActivationSpecification(spec))return {result:'ACCEPTED_PREACTIVATION_SPEC_UNCHANGED'};
  const qc=spec.pre_generation_checks,g=qc?.composition_geometry;
  if(g?.schema_version!=='image-composition-geometry-v1'||!Array.isArray(g.regions)||
     g.regions.length!==spec.quality_review_plan?.major_regions||g.regions.length<3||g.regions.length>5)

@@ -15,3 +15,7 @@ Real source and saved-pixel reviews, all 24 public contexts, six distinct accept
 ## Verification and rollout
 
 Run `npm test` using the CI Node 20 runtime, plus `npm run validate:bootstrap`, `npm run fixture:e2e` and `npm run reader:parity`. The new tests cover composition mismatches/stale review digests, historical compatibility, incomplete export visibility, truncated/corrupt files, concurrent/no-overwrite output, and active-document threshold consistency. Existing protected CI must pass on the exact submitted PR head before any separately authorized merge. No production deployment or image re-run is part of this implementation.
+
+## Accepted pre-activation compatibility
+
+The six November 1 specifications were accepted in PR301 (`eff5573cc39ce6c47bdd582e4aa9350e5ac09d92`) before this change reached main. They and all accepted images remain byte-for-byte unchanged. The geometry validator has a closed, code-pinned SHA-256 allowlist of those six entire parsed specifications (`JSON.stringify`, including edition, story, source and reviews). Only those exact objects bypass the **new geometry check**; all preexisting checks remain mandatory. Any changed November 1 specification or later edition still needs the complete bound geometry and exact prompt. This is not a moving cutoff, runtime-discovered exemption, legacy-schema opt-in or permission to regenerate/rewrite accepted art. Further already-published editions encountered before rollout require explicit compatibility review, not silently advancing the effective date.

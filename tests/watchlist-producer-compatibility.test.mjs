@@ -144,6 +144,24 @@ test('updated topic resets unobserved momentum to unknown while retaining fresh 
  assert.equal(result.rubric.momentum.score,null);assert.equal(result.momentum.score,null);
 });
 
+test('Nov 2+ maps unmeasured unestablished momentum to reader baseline without fabricating evidence',()=>{
+ const p=candidate(),item=p.bundle.watchlist.updated[0];
+ item.momentum={classification:'unestablished',score:null,reason:'No comparable two-date observations establish this measure.',metric:null,observations:[]};
+ const original=structuredClone(item.momentum);
+ p.bundle.edition_date='2026-11-02';
+ const published=adaptCompilerBundle(p.bundle).watchlist;
+ const result=published.topics.find(t=>t.topic_id===canonicalWatchTopicId(item));
+ assert.equal(result.momentum.classification,'baseline');
+ assert.equal(result.momentum.score,null);
+ assert.deepEqual(result.momentum.observations,[]);
+ assert.equal(result.momentum.reason,original.reason);
+ assert.deepEqual(item.momentum,original,'adaptation must not alter immutable source');
+ assert.doesNotThrow(()=>publicWatchlist(published));
+ p.bundle.edition_date='2026-11-01';
+ assert.equal(adaptCompilerBundle(p.bundle).watchlist.topics.find(t=>t.topic_id===canonicalWatchTopicId(item)).momentum.classification,'unestablished',
+  'older sealed dates remain unchanged by the prospective compatibility rule');
+});
+
 test('October 15 remains compatible and historical bundles are not retroactively rejected',()=>{
  const p=candidate();p.bundle.edition_date='2026-10-15';p.state.edition_date=p.bundle.edition_date;p.state.branch='shadow/'+p.bundle.edition_date;
  for(const kind of ['new','updated','carried_forward','dropped'])for(const item of p.bundle.watchlist[kind])delete item.rubric;
