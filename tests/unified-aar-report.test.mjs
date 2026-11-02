@@ -49,6 +49,7 @@ function run(overrides={},relocated=false){
   fs.copyFileSync(path.join(root,'scripts/worker-checkpoint-consistency.mjs'),path.join(tmp,'worker-checkpoint-consistency.mjs'));
   fs.copyFileSync(path.join(root,'scripts/owner-usage.mjs'),path.join(tmp,'owner-usage.mjs'));
   fs.copyFileSync(path.join(root,'scripts/oct27-source-readiness.mjs'),path.join(tmp,'oct27-source-readiness.mjs'));
+  fs.copyFileSync(path.join(root,'scripts/top10-aar.mjs'),path.join(tmp,'top10-aar.mjs'));
  }
  const res=spawnSync(process.execPath,[executable,cy,input,output],{encoding:'utf8'});
  assert.equal(res.status,0,res.stderr||res.stdout);
@@ -206,3 +207,4 @@ test('postpublication incidents and failed video verification remain explicit af
  assert.match(md,/Video link private to readers/);
  assert.match(md,/PLAYBACK_UNVERIFIED/);
 });
+
