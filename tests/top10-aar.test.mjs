@@ -31,10 +31,10 @@ function fixture(){
  const aar={schema_version:'daily-ai-topic-top10-run-aar-v1',cycle_date:cycle,edition_date:edition,
   started_at:'2026-11-02T23:00:00Z',finished_at:'2026-11-02T23:30:00Z',usage_percent:null,cost_usd:null,
   errors:['One public source withheld counters.'],improvements:['Compare the next timestamped view snapshot.']};
- return {e:{'top10-report':report,'top10-report-source':source,'trend-input':input,
+ return {e:{'trend-consumed-report':structuredClone(report),'trend-consumed-source':{...source,schema_version:'daily-ai-topic-top10-consumed-source-v1',source_commit:input.source_commit},'top10-report':report,'top10-report-source':source,'trend-input':input,
   'trend-search-coverage':coverage,'top10-after-action':aar,
   'edition-bundle':{edition_date:edition,stories:[{id:'story-1',source:{url:'https://example.com/article/1'}}],
-   videos:[{id:'video-1',url:'https://example.com/video/1'}],podcasts:[{url:'https://example.com/podcast/1'}]}},h:{'top10-report':hash}};
+   videos:[{id:'video-1',url:'https://example.com/video/1'}],podcasts:[{url:'https://example.com/podcast/1'}]}},h:{'top10-report':hash,'trend-consumed-report':hash}};
 }
 
 test('missing reports are unknown after activation, not retroactive failures before it',()=>{
@@ -201,4 +201,10 @@ test('untrusted topic text is escaped in Markdown tables',()=>{
  const {e,h}=fixture();e['top10-report'].topics[0].name='AI | <script> [bad](https://evil.example)';
  const s=summarizeTop10(cycle,edition,e,h);const md=renderTop10Section(s);
  assert.ok(md.includes('AI \\| &lt;script&gt; \\[bad\\]'));assert.ok(!md.includes('<script>'));
+});
+
+test('independent consumed commit proof cannot be replaced by an input claim',()=>{
+ const {e,h}=fixture();delete e['trend-consumed-source'];
+ const s=summarizeTop10(cycle,edition,e,h);assert.equal(s.handoff_status,'RECEIVED_SNAPSHOT_BOUND');
+ assert.equal(s.consumed_commit_independently_verified,false);assert.equal(s.end_to_end_ready,false);
 });

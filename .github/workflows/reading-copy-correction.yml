@@ -113,6 +113,10 @@ jobs:
                 build/brief-builder-built/build-your-own-brief-compiler/index.html \
                 build/patched build/reading-copy-receipt.json
               ;;
+            NOV02_MOBILE_AND_SOURCE_ROUTES)
+              node scripts/stage-nov02-reader-corrections.mjs \
+                "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
+              ;;
             GLOBAL_BRIEF_HEADER_AND_BUILDER_CSS)
               node scripts/stage-global-brief-header-css.mjs \
                 "$REVISION_PATH" history/site build/patched build/reading-copy-receipt.json
@@ -217,6 +221,14 @@ jobs:
                r.new_schedules!==0||r.new_paid_apis!==0)
               throw Error('Gardening, feedback, unique-link and accepted-image invariants failed');
 
+          }else if(r.schema_version==='daily-compiler-nov02-reader-correction-v1'){
+            if(r.edition_date!=='2026-11-02'||r.files_changed!==5||
+               r.all_accepted_pngs_unchanged!==true||r.immutable_source_bundle_unchanged!==true||
+               JSON.stringify(r.changed.map(x=>x.route))!==JSON.stringify([
+                 'assets/css/header.css','index.html','briefs/2026-11-02/index.html',
+                 'stories/2026-11-02/nov02-k1-protostar-ai-ready-science/index.html',
+                 'stories/2026-11-02/nov02-a2-article-recommendation-audit-skill/index.html']))
+              throw Error('Nov02 exact correction scope failed');
           }else if(r.schema_version==='daily-compiler-global-brief-header-css-repair-v1'){
             if(r.edition_date!=='2026-10-27'||r.files_changed!==3||
                JSON.stringify(r.changed.map(c=>c.route))!==

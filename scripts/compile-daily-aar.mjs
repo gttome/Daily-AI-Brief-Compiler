@@ -1,3 +1,4 @@
+import {summarizeNov02Evidence} from './nov02-evidence-summary.mjs';
 // Read-only evidence compiler: no network, image generation, site publication, scheduler or AI calls.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,7 +10,7 @@ import {fileURLToPath} from 'node:url';
 import {summarizeTop10,renderTop10Section} from './top10-aar.mjs';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
-const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
+const FILES=['execution-milestones','fallback-search-evidence','trend-consumed-source','trend-consumed-report','image-route-preflight','compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
  'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
@@ -103,6 +104,8 @@ function compilerAar(cycle,date,e){
   task_origin_observation:summarizeTaskOriginEvidence(e['compiler-task-origin'],date,'compiler'),
   same_invocation_connected_github:'UNPROVEN',
   execution_id:state?.execution_id??producer?.execution_id??null,
+  evidence_reconciliation:summarizeNov02Evidence(date,e),
+  timing_basis:'Final sealed-state window; not total execution runtime unless initial start is separately evidenced.',
   started_at:safeTime(state?.started_at),finished_at:safeTime(state?.updated_at),
   elapsed_minutes:minutes(state?.started_at,state?.updated_at),
   publication:verified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
@@ -235,7 +238,7 @@ function imageAar(cycle,date,e,hashes={}){
   scheduled_host_mode:mode,
   same_invocation_connected_github:'UNPROVEN',
   execution_id:job?.execution_id??release?.execution_id??null,
-  // Image stage uses persisted accepted binary Git commit → merged final 24-context review.
+  // Image stage uses persisted accepted binary Git commit → first recorded final 24-context review.
   // This is not an attested host start time or native-model generation time.
   started_at:safeTime(imageTiming?.events?.first_accepted_binary_commit),
   finished_at:safeTime(imageTiming?.events?.final_live_review_approved_commit),
@@ -245,10 +248,11 @@ function imageAar(cycle,date,e,hashes={}){
   scheduled_start_to_final_review_minutes:
     Number.isFinite(imageTiming?.durations_seconds?.scheduled_start_to_final_review)?
       Number((imageTiming.durations_seconds.scheduled_start_to_final_review/60).toFixed(2)):null,
-  timing_basis:'First persisted accepted image Git bytes to first merged 24-context review; scheduled window is separate and not exact generator runtime.',
+  timing_basis:'First persisted accepted image Git bytes to first recorded 24-context review; scheduled window is separate and not exact generator runtime.',
   executor_observed_generation_start_at:safeTime(imageTiming?.events?.native_generation_first_observed_at),
   scheduler_actual_invocation_attested:false,
   task_origin_observation:summarizeTaskOriginEvidence(e['image-task-origin'],date,'images'),
+  evidence_reconciliation:summarizeNov02Evidence(date,e),
   publication:liveVerified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
   result:liveVerified&&qa24?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
   aar_status:'BACKFILLED',
@@ -322,6 +326,8 @@ export function renderMarkdown(report){
    ['Task origin',report.task_origin_observation?.status??'UNPROVEN'],
    ['First-party scheduler',report.task_origin_observation?.scheduler??'UNPROVEN'],
    ['Same-invocation route preflight',report.task_origin_observation?.route_preflight??'UNPROVEN'],
+   ['Local capability preflight (separate from origin)',report.evidence_reconciliation?.image_capability_preflight_recorded?'RECORDED':'NOT OBSERVED'],
+   ['Timing basis',report.timing_basis],
    ...(report.lane==='compiler'?[
     ['Postpublication incidents',report.postpublication_incidents_recorded??'NOT_RECORDED'],
     ['Owner-detected editorial defects',report.postpublication_incidents_recorded===null?'NOT_RECORDED':report.owner_detected_postpublication_defects],

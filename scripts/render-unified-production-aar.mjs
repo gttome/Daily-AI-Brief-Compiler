@@ -1,3 +1,4 @@
+import {summarizeNov02Evidence} from './nov02-evidence-summary.mjs';
 import {validateImageAfterAction} from './image-aar-contract.mjs';
 import {verifyFinalImageCheckpoint} from './worker-checkpoint-consistency.mjs';
 import fs from "node:fs";
@@ -11,6 +12,7 @@ function generateUnified(cycle,e,hashes={}) {
   const d = new Date(cycle+"T00:00:00Z"); if(!Number.isFinite(d.getTime())||d.toISOString().slice(0,10)!==cycle)throw Error("invalid-cycle-date");d.setUTCDate(d.getUTCDate()+1);
   const edition=d.toISOString().slice(0,10), gh="https://github.com/gttome/Daily-AI-Brief-Compiler", pub="https://gttome.github.io/Daily-AI-Brief-Compiler/";
   const top10=summarizeTop10(cycle,edition,e,hashes);
+  const reconciled=summarizeNov02Evidence(edition,e);
   const obj=k=>e[k]&&e[k].edition_date===edition?e[k]:null;
   const sourceReadiness=oct27SourceReadiness(edition,{routeCoverage:obj('source-route-coverage'),
     itemCensus:obj('source-item-census'),qualifications:obj('source-qualification')});
@@ -153,18 +155,26 @@ indicators,
 "> **IMPORTANT — VERIFIED PRODUCTION RESULT**",
 `> **Executive release result: ${badge.replace("_"," ")}.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: ${systemStatus}.** Top 10 report: **${nice(top10.report_status)}**; Compiler handoff: **${nice(top10.handoff_status)}**; guided searches: **${nice(top10.search_status)}**. Compiler public status: **${compilerOk?"VERIFIED":"NOT VERIFIED"}**. Image release: **${imagesOk?"RELEASED_VERIFIED":"not complete"}**. Direct 24-context visual quality: **${visualOk?"24/24 PASS":"not yet evidenced"}**. Autonomous completion: **${autonomy}**. Missing evidence must not be promoted to a success claim.`,
 "",
-`**🕒 Production stage durations:** **Top 10 ${top10StageDuration}** · **Compiler ${compilerStageDuration}** · **Premium Images ${imageStageDuration}** (evidence-bounded elapsed times; the start/end events differ).`,
+`**🕒 Production stage durations:** **Top 10 ${top10StageDuration}** · **Compiler final seal window ${compilerStageDuration}** · **Premium Images ${imageStageDuration}** (evidence-bounded elapsed times; the start/end events differ).`,
 "",
 ...(provenanceWarnings.length?["> **PROVENANCE WARNING:** Source-reading timestamps follow the recorded publication verification time. The original evidence is preserved; exact historical reading times are not reconstructed. Publication/image success does not resolve this audit discrepancy.",""]:[]),
 ...(aarWarning?["> **AAR SCHEMA WARNING:** "+aarWarning,""]:[]),
 ...(!workerClosed?["> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.",""]:[]),
+"## Evidence reconciliation",
+"",
+`Compiler final seal window: ${compilerStageDuration}. ${reconciled.compiler_timing.timing_caveat}`,
+`Image capability route preflight: ${reconciled.image_capability_preflight_recorded?'RECORDED':'NOT OBSERVED'}; scheduler origin remains UNPROVEN.`,
+`Image efficiency: ${reconciled.image_efficiency.first_pass_accepted??'Unknown'}/6 first-pass accepts; ${reconciled.image_efficiency.total_attempts??'Unknown'} total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.`,
+`Image review completed: ${reconciled.image_review.semantic_review_completed_at??'Not recorded'}; review-record commit: ${reconciled.image_review.review_record_commit_at??'Not recorded'}; protected review merge: ${reconciled.image_review.review_merge_at??'Not recorded'}.`,
+...(reconciled.source_index_coverage?[`Eligible source indexes: ${reconciled.source_index_coverage.eligible}; inspected: ${reconciled.source_index_coverage.inspected} (${reconciled.source_index_coverage.inspected_percent}%); inaccessible: ${reconciled.source_index_coverage.inaccessible}; unreviewed: ${reconciled.source_index_coverage.unreviewed}. Freshness claims apply only to the inspected sample.`]:[]),
+"",
 "## Performance dashboard",
 "",
 "| Measure | Recorded result | Source / caveat |",
 "|:--|:--:|:--|",
 `| Entire-system evidence | **${systemStatus}** | Full Top 10 list, bound Compiler input, all-format search receipts and existing release checks; separate from publication and autonomy |`,
 `| Top 10 report | **${nice(top10.report_status)} · ${top10.topic_count??"Not recorded"} topics** | Same Chicago cycle report; provisional/partial coverage remains disclosed |`,
-`| Top 10 received by Compiler | **${nice(top10.handoff_status)}** | Exact report snapshot bytes; consumed commit is Compiler-recorded, not independently fetched |`,
+`| Top 10 received by Compiler | **${nice(top10.handoff_status)}** | Exact report snapshot bytes; consumed commit separately corroborated: ${top10.consumed_commit_independently_verified===true?"YES":"UNPROVEN"} |`,
 `| Top 10 guided article/video/podcast searches | **${nice(top10.search_status)}** | Actual source-search receipts and selected/rejected topic outcomes |`,
 `| Top 10 stage duration | **${top10StageDuration}** | Same-cycle run receipt only; no runtime or usage estimate |`,
 `| Editorial publication | **${compilerOk?"PASS":"NOT VERIFIED"}** | State and public reader integrity receipt |`,
@@ -184,7 +194,7 @@ indicators,
 `| Recorded scheduler capability route | **${originImages?.capability_preflight?.result??"UNPROVEN"}** | Same-invocation route receipt only; GitHub is not scheduler authentication |`,
 `| Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |`,
 `| Media | **${durations}** | Sealed bundle |`,
-`| **Compiler stage duration** | **${compilerStageDuration} (${elapsed})** | First persisted Compiler state → verified public reader; not a host scheduler attestation |`,
+`| **Compiler final seal window** | **${compilerStageDuration} (${elapsed})** | Final sealed-state timestamp → verified public reader; initial execution is separate |`,
 `| **Image processing stage duration** | **${imageStageDuration}** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |`,
 `| Image scheduled-to-final-review window | **${imageScheduleWindow}** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |`,
 `| Executor-observed generation-to-final-review | **${observedGenerationDuration}** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |`,
@@ -222,7 +232,7 @@ renderTop10Section(top10),
 "",
 "## Track 1 — Compiler",
 "",
-`**State:** \`${state?.state??"NOT_OBSERVED"}\` · **Bundle:** \`${state?.bundle?.status??"NOT_OBSERVED"}\` · **Compiler duration:** ${compilerStageDuration} (${elapsed}).`,
+`**State:** \`${state?.state??"NOT_OBSERVED"}\` · **Bundle:** \`${state?.bundle?.status??"NOT_OBSERVED"}\` · **Compiler final seal window:** ${compilerStageDuration} (${elapsed}).`,
 "",
 "| Publication gate | Result |",
 "|---|:---:|",
@@ -244,7 +254,7 @@ renderTop10Section(top10),
 "",
 "### Image production duration — Git-verified milestones",
 "",
-`**Auditable image stage duration:** **${imageStageDuration}** (first accepted binary saved in Git → final 24-context quality-review merge). **First asset to public image release:** **${imageReleaseDuration}**.`,
+`**Auditable image stage duration:** **${imageStageDuration}** (first accepted binary saved in Git → first persisted 24-context quality-review record). **First asset to public image release:** **${imageReleaseDuration}**.`,
 `**Scheduled-to-final-review window:** **${imageScheduleWindow}**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.`,
 "",
 "| Production milestone | Chicago local time | Evidence |",
@@ -256,7 +266,7 @@ renderTop10Section(top10),
 `| Six-image package / reviews committed | ${chicago(timingEvents.six_image_package_commit)} | Exact-head PR source commit |`,
 `| Protected package merged | ${chicago(timingEvents.protected_image_merge_commit)} | Merge SHA and required CI |`,
 `| Public images verified | ${chicago(timingEvents.public_release_verified_at)} | Image-release receipt |`,
-`| Final 24/24 semantic visual review approved | ${chicago(timingEvents.final_live_review_approved_commit)} | Immutable first review-approval commit |`,
+`| 24/24 review record committed | ${chicago(timingEvents.final_live_review_approved_commit)} | Immutable first review-approval commit |`,
 "",
 "> **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.",
 "",
@@ -345,13 +355,13 @@ imgCols,
 "*Generated deterministically from cycle- and edition-specific GitHub records. The report combines the ranked Top 10, its Compiler handoff and searches, the published Brief, and the image run; original research, Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",evidence_reconciliation:reconciled,oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:reconciled.image_capability_preflight_recorded||originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   return {markdown:md,json};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage"];
+const keys=["execution-milestones","fallback-search-evidence","trend-consumed-source","trend-consumed-report","image-route-preflight","compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage"];
 const ev={},hashes={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;const bytes=fs.readFileSync(p);hashes[k]=crypto.createHash("sha256").update(bytes).digest("hex");try{ev[k]=JSON.parse(bytes.toString("utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json}=generateUnified(cycle,ev,hashes);
 fs.mkdirSync(outDir,{recursive:true});

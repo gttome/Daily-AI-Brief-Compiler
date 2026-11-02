@@ -9,7 +9,8 @@ import {verifyImageRegionInSavedPng} from './image-capture-pixel-match.mjs';
 const BASE='https://gttome.github.io/Daily-AI-Brief-Compiler/';
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const fail=s=>{throw Error('image_element24:'+s);};
-const VIEWPORTS={desktop:{width:1440,height:1000},mobile:{width:390,height:844}};
+export function imageViewports(edition){return {desktop:{width:1440,height:1000},mobile:{width:edition>='2026-11-03'?320:390,height:844}};}
+const VIEWPORTS=imageViewports('2026-11-02');
 const FOCUS_SLOTS={
  'Technical AI Engineering':['m01','m02'],
  'Applied Generative AI for Knowledge Workers':['m10','m11'],
@@ -39,7 +40,7 @@ export function planImageElementTargets({job,manifest}){
      const pageUrl=context==='dated_brief'?BASE+'briefs/'+job.edition_date+'/':story.permanent_url;
      for(const viewport of Object.keys(VIEWPORTS)){
        targets.push({target_id:story.story_id+':'+context+':'+viewport,story_id:story.story_id,slot,
-         context,viewport,page_url:pageUrl,image_url:imageUrl,expected_sha256:img.sha256,
+         context,viewport,viewport_size:imageViewports(job.edition_date)[viewport],page_url:pageUrl,image_url:imageUrl,expected_sha256:img.sha256,
          expected_alt_text:img.alt_text,headline:story.complete_compiler_story.headline});
      }
    }
@@ -59,6 +60,8 @@ export function evaluateImageTargetEvidence({targets,rows,reviews=[]}){
  if(reviewed.size!==reviews.length)defects.push('duplicate_review');
  for(const [key,t] of expected){
    const row=captured.get(key),r=reviewed.get(key);
+   const date=t.image_url.match(/briefs\/images\/(\d{4}-\d{2}-\d{2})\//)?.[1];
+   if(date>='2026-11-03'&&JSON.stringify(row?.viewport_size)!==JSON.stringify(imageViewports(date)[t.viewport]))defects.push('viewport_not_proven:'+key);
    if(!row||row.page_url!==t.page_url||row.image_url!==t.image_url||
      row.live_image_sha256!==t.expected_sha256||row.alt_text!==t.expected_alt_text||
      row.natural_width!==1200||row.natural_height!==630||
@@ -90,7 +93,7 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
  const rows=[];
  try{
   for(const target of targets){
-   const vp=VIEWPORTS[target.viewport],page=await browser.newPage({viewport:vp,deviceScaleFactor:1});
+   const vp=target.viewport_size,page=await browser.newPage({viewport:vp,deviceScaleFactor:1});
    try{
     const response=await page.goto(target.page_url,{waitUntil:'domcontentloaded',timeout:45000});
     if(response?.status()!==200)fail('target_page_http:'+target.target_id);
