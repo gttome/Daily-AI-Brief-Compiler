@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 NOT_APPLICABLE** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 NOT_APPLICABLE** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 2, 2026 · **Production evening:** 2026-11-01 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-02 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-02/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: NOT_APPLICABLE.** Top 10 report: **Not reported**; Compiler handoff: **NOT_APPLICABLE**; guided searches: **NOT_APPLICABLE**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: NOT_APPLICABLE.** Top 10 report: **Not reported**; Compiler handoff: **NOT_APPLICABLE**; guided searches: **NOT_APPLICABLE**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler 4m 48s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -42,12 +42,12 @@
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **19** | Image worker AAR; no estimation |
 | Rejected candidates | **13** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -136,7 +136,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 19 · **Rejected candidates:** 13.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 19 · **Rejected candidates:** 13.
 
 ### Image production duration — Git-verified milestones
 
@@ -159,21 +159,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| NVIDIA maps a local voice-and-vision pipeline with Nemotron | 4 | 0.67 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m01.png) |
+| Behavioral evals catch model changes provenance cannot | 3 | 0.66 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m02.png) |
+| Project ProtoStar asks scientists to publish AI-ready artifacts | 3 | 0.67 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m10.png) |
+| Gemini now lets knowledge workers edit files inside the chat | 2 | 0.55 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m11.png) |
+| Client onboarding agents need governed case context | 3 | 0.61 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m12.png) |
+| A recommendation-audit Skill tests whether agents surface your work | 4 | 0.63 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m01.png" alt="Diagram for nov02-t1-nemotron-haunted-house-pipeline" width="420"/></a><br/><b>NVIDIA maps a local voice-and-vision pipeline with Nemotron</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m02.png" alt="Diagram for nov02-t2-behavioral-evals-after-provenance" width="420"/></a><br/><b>Behavioral evals catch model changes provenance cannot</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m10.png" alt="Diagram for nov02-k1-protostar-ai-ready-science" width="420"/></a><br/><b>Project ProtoStar asks scientists to publish AI-ready artifacts</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m11.png" alt="Diagram for nov02-k2-gemini-inline-file-editing" width="420"/></a><br/><b>Gemini now lets knowledge workers edit files inside the chat</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m12.png" alt="Diagram for nov02-a1-governed-onboarding-case-context" width="420"/></a><br/><b>Client onboarding agents need governed case context</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-02/dab-edition-2026-11-02-m14.png" alt="Diagram for nov02-a2-article-recommendation-audit-skill" width="420"/></a><br/><b>A recommendation-audit Skill tests whether agents surface your work</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -253,7 +263,7 @@ No six-image public release gallery available yet.
 | Postpublication incident register | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/incidents/2026-11-02.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-02/shadow-runs/2026-11-02/compiler/postpublish-video-playback.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41385927277).
 
 ---
 
