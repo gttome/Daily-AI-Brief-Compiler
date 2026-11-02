@@ -63,6 +63,20 @@ test('external app handoff requires explanatory text and permits story-fit infog
     assert.equal(s.accepted_locked,false);
   }
 });
+test('active rev8 handoff does not turn owner recovery or absent scheduler evidence into unattended success',()=>{
+  const f=fixture();
+  function generate(receipt){
+    const bundle={...f.bundle,producer_receipt:receipt};
+    const bundleBytes=Buffer.from(JSON.stringify(bundle));
+    const state={...f.state,bundle:{digest:digest(bundleBytes)},preview:{bundle_digest:digest(bundleBytes)}};
+    return buildExternalImageJob({...f,bundleBytes,state});
+  }
+  const recovered=generate({result:'PASS',owner_intervention:true,scheduled_execution:true});
+  assert.equal(recovered.source.unattended_schedule_proven,false);
+  assert.equal(recovered.source.producer_mode,'owner_recovery');
+  assert.equal(generate(undefined).source.unattended_schedule_proven,null);
+  assert.equal(generate(undefined).source.producer_mode,'unknown');
+});
 test('failed, unverified, stale, wrong-date and fake image input fail closed',()=>{
   const f=fixture();
   assert.throws(()=>buildExternalImageJob({...f,state:{...f.state,state:'SHADOW_FAILED'}}),/verified_published/);

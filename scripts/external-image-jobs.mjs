@@ -77,10 +77,14 @@ function validateInput({bundle,bundleBytes,state,sourceCommit,liveReceipt}){
   for(const route of routes)if(!roots.includes(BASE+route.slice(1)))fail('permanent_story_not_in_live_receipt');
   return date;
 }
-// New v7 jobs infer original publication provenance ONLY from positive receipts.
+// Current v7/v8 jobs infer original publication provenance ONLY from positive receipts.
 // The source bundle/job bytes for historical editions must never be migrated.
 export function positiveImageSourceProvenance({bundle,state}){
  const receipt=bundle?.producer_receipt;
+ if(receipt?.owner_intervention===true)
+  return {producer_mode:'owner_recovery',unattended_schedule_proven:false,
+   provenance_basis:'original_immutable_bundle_owner_intervention',
+   original_continuation_mode:receipt.continuation_mode??null};
  if(receipt?.edition_date!==bundle?.edition_date||
     receipt.execution_id!==state?.execution_id||
     receipt.result!=='PASS' ||

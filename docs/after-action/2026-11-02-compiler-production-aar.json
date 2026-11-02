@@ -1,0 +1,44 @@
+{
+  "schema_version": "daily-compiler-owner-triggered-incident-aar-v1",
+  "incident_id": "DAB-COMPILER-20261102-PUBLICATION-RECOVERY-001",
+  "edition_date": "2026-11-02",
+  "cycle_date": "2026-11-01",
+  "timezone": "America/Chicago",
+  "issue": "The edition encountered media-history and video-playback failures. Recovery also exposed a truncated bundle transfer and a compiler rule that rejected truthful interactive provenance. The protected repair and a valid resealed producer bundle allowed publication.",
+  "first_failure": {
+    "stage": "MEDIA_HISTORY",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41372928062",
+    "observed_at": "2026-11-02T01:32:01.430Z"
+  },
+  "owner_intervention": {
+    "required_in_observed_sequence": true,
+    "observed_sequence": "The owner requested status and correction. During that session the assistant merged PR 303, adopted its code without replacing concurrent producer selections, and verified the repaired source bundle and the successful protected publication. The producer independently continued media and bundle recovery during this work.",
+    "owner_message_timestamp": "NOT_INDEPENDENTLY_ATTESTED_BY_GITHUB",
+    "counterfactual_without_owner_message": "UNKNOWN; no alternate future or unseen background recovery is asserted"
+  },
+  "unattended_autonomy_result": "FAIL_OWNER_TRIGGER_REQUIRED",
+  "autonomy_claim_scope": "Observed owner-directed intervention. This is not an independently proved unattended recovery, nor proof that the original scheduled producer would never have recovered.",
+  "recovery": {
+    "correcting_pr": 303,
+    "protected_merge_commit": "f3b63985092c20b3528ed24ddedcf8d338bfed3f",
+    "source_bundle_sha256": "bc3db8f1fffd0eec5431cfbb7587943c748afe64e6028824c8c9cd53e534b658",
+    "prepublication_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41375261306",
+    "rerun_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41375364423",
+    "reader_verified_at": "2026-11-02T02:03:06.091Z",
+    "published_reader_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-02/",
+    "postpublication_video_result": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
+    "playback_evidence_limit": "Both signed-out players advanced and matched expected duration; full episodes were not watched.",
+    "image_job_prepared": true,
+    "image_job_status_at_verification": "PUBLISHED_PENDING",
+    "image_job_sha256": "ab6d8ff74ed4f7dc04ded214fa4bb171acd6c352d3636cdec7b01045f231e072",
+    "images_released_verified_at_verification": 0,
+    "accepted_png_regenerations": 0,
+    "work_usage_percent": null
+  },
+  "reporting_correction": {
+    "immutable_job_source_unattended_schedule_proven": true,
+    "claim_supported": false,
+    "cause": "The rev8 image job generator bypassed the positive-provenance path, which was enabled only for rev7, and fell back to a legacy default.",
+    "disposition": "Preserve published job and index bytes. This edition-scoped incident is consumed by the existing daily report, which must report FAIL_OWNER_RECOVERY. New rev8 jobs use receipt provenance and explicit owner intervention overrides scheduled claims."
+  }
+}

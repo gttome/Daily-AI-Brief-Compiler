@@ -26,3 +26,15 @@ All normal semantic, 2/2/2 allocation, archive uniqueness, Watchlist, image,
 protected-PR, public playback, release and live handoff checks remain required.
 Do not overwrite a newer edition-branch commit. Owner-directed recovery must be
 reported as such, with unknown usage remaining unknown.
+
+The reader was independently verified at 02:03 UTC on November 2, with both
+published video players advancing while signed out. The six-story image handoff
+is pending and bound to the published bundle. No full-episode viewing or image
+release is claimed.
+
+Final review found that rev8 image-job creation bypassed the positive-provenance
+logic because it tested only for rev7. New rev8 jobs now use the same receipt
+logic, and an explicit owner-intervention receipt overrides a scheduled claim.
+The already-published job and index remain immutable. The November 2 incident
+record under `docs/after-action` corrects its unsupported unattended claim through
+the existing daily-report input and records this as owner-directed recovery.
