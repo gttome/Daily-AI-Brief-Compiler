@@ -9,8 +9,9 @@ test('AAR distinguishes inaccessible/unreviewed indexes, seal window, capability
   'source-item-census':{edition_date:edition,resources:[{resource_id:'a',outcome:'CANDIDATES_FOUND'},{resource_id:'b',outcome:'ACCESS_BLOCKED'},{resource_id:'c',outcome:'NOT_VISITED'}]}};
  const s=summarizeNov02Evidence(edition,e);assert.equal(s.compiler_timing.final_seal_window_seconds,288);
  assert.equal(s.compiler_timing.initial_execution_elapsed_seconds,null);assert.equal(s.image_capability_preflight_recorded,true);
- assert.equal(s.image_scheduler_origin_attested,false);assert.equal(s.source_index_coverage.inspected_percent,33.3);
- assert.equal(s.source_index_coverage.inaccessible,1);assert.equal(s.source_index_coverage.unreviewed,1);
+ assert.equal(s.image_scheduler_origin_attested,false);assert.equal(s.source_index_coverage.inspected_percent,null);
+ assert.equal(s.source_index_coverage.automated_index_scan.processed,1);
+ assert.equal(s.source_index_coverage.automated_index_scan.inaccessible,1);assert.equal(s.source_index_coverage.automated_index_scan.not_attempted,1);
 });
 test('other selected stories and wrong-focus candidates cannot support a freshness fallback',()=>{
  const c={url:'https://example.org/new',focus:'Engineering',original_date:'2026-11-01T12:00:00Z',inspected_at:'2026-11-02T00:00:00Z',rejection_reason:'Insufficient original technical evidence'};
@@ -47,4 +48,13 @@ test('reader correction changes exactly five leased files and preserves every ot
   fs.appendFileSync(path.join(site,'index.html'),'new publication');
   assert.throws(()=>stageNov02ReaderCorrections({revisionFile:file,historySite:site,outSite:path.join(dir,'drift')}),/drift/);
  }finally{fs.rmSync(dir,{recursive:true,force:true});}
+});
+
+test('post-selection parser census never replaces the actual pre-selection editorial coverage',()=>{
+ const e={'source-item-census':{edition_date:edition,created_at:'2026-11-02T02:00:00Z',resources:Array.from({length:87},(_,i)=>({resource_id:String(i),outcome:i<73?'NO_ELIGIBLE_ITEMS':'ACCESS_BLOCKED'}))},
+  'edition-bundle':{edition_date:edition,source_discovery_audit:{reviewed_at:'2026-11-02T01:58:18Z',index_review:{eligible:87,inspected:8,unreviewed:Array.from({length:70},(_,i)=>String(i))}}}};
+ const s=summarizeNov02Evidence(edition,e).source_index_coverage;
+ assert.equal(s.inspected,8);assert.equal(s.inspected_percent,9.2);assert.equal(s.not_editorially_inspected,79);
+ assert.equal(s.unclassified_editorial_ids,9);assert.equal(s.inaccessible,null);
+ assert.equal(s.automated_index_scan.processed,73);assert.equal(s.automated_index_scan.post_editorial_selection,true);
 });

@@ -9,6 +9,11 @@ export function summarizeNov02Evidence(edition,e={}){
  const inspected=rows.filter(x=>['CANDIDATES_FOUND','NO_ELIGIBLE_ITEMS'].includes(x.outcome));
  const inaccessible=rows.filter(x=>['ACCESS_BLOCKED','SOURCE_ERROR'].includes(x.outcome));
  const unreviewed=rows.filter(x=>!inspected.includes(x)&&!inaccessible.includes(x));
+ const editorial=bundle?.source_discovery_audit?.index_review;
+ const eligible=rows.length||editorial?.eligible||null;
+ const editorialCount=Number.isSafeInteger(editorial?.inspected)&&editorial.inspected>=0&&editorial.inspected<=eligible?editorial.inspected:null;
+ const explicitUnreviewed=Array.isArray(editorial?.unreviewed)?editorial.unreviewed:null;
+ const editorialInaccessible=Array.isArray(editorial?.inaccessible_ids)?editorial.inaccessible_ids:null;
  const receipt=scoped('fallback-search-evidence');
  const selected=bundle?.stories||[],selectedUrls=new Set(selected.map(x=>x.source?.url));
  const fallbacks=(receipt?.fallbacks||[]).map(row=>{
@@ -34,10 +39,15 @@ export function summarizeNov02Evidence(edition,e={}){
   compiler_timing:{initial_execution_observed_at:initial,initial_execution_elapsed_seconds:seconds(initial,finished),
    final_seal_window_started_at:seal,public_verification_at:finished,final_seal_window_seconds:seconds(seal,finished),
    timing_caveat:initial?'Observed execution and final seal windows are distinct.':'Initial execution start not established; final seal window is not total runtime.'},
-  source_index_coverage:census?{eligible:rows.length,inspected:inspected.length,inaccessible:inaccessible.length,
-   unreviewed:unreviewed.length,inspected_percent:rows.length?Number((inspected.length/rows.length*100).toFixed(1)):null,
-   inspected_ids:inspected.map(x=>x.resource_id),inaccessible_ids:inaccessible.map(x=>x.resource_id),unreviewed_ids:unreviewed.map(x=>x.resource_id),
-   scope:'Publisher index inspection is not full article review; inaccessible is not no eligible item.'}:null,
+  source_index_coverage:eligible?{eligible,inspected:editorialCount,inaccessible:editorialInaccessible?.length??null,
+   unreviewed:explicitUnreviewed?.length??null,not_editorially_inspected:editorialCount===null?null:eligible-editorialCount,
+   unclassified_editorial_ids:editorialCount===null||!explicitUnreviewed?null:Math.max(0,eligible-editorialCount-explicitUnreviewed.length-(editorialInaccessible?.length??0)),
+   inspected_percent:editorialCount===null?null:Number((editorialCount/eligible*100).toFixed(1)),
+   inspected_ids:Array.isArray(editorial?.inspected_ids)?editorial.inspected_ids:null,
+   inaccessible_ids:editorialInaccessible,unreviewed_ids:explicitUnreviewed,
+   automated_index_scan:census?{processed:inspected.length,inaccessible:inaccessible.length,not_attempted:unreviewed.length,
+    created_at:stamp(census.created_at),post_editorial_selection:stamp(census.created_at)&&stamp(bundle?.source_discovery_audit?.reviewed_at)?Date.parse(census.created_at)>Date.parse(bundle.source_discovery_audit.reviewed_at):null}:null,
+   scope:'Editorial counts are recorded claims from the selection audit. Automated index parsing is separate and never proves editorial inspection or fallback search completeness.'}:null,
   fallback_search_evidence:receipt?fallbacks:null,
   image_capability_preflight_recorded:route?.result==='CAPABILITY_ROUTE_PROVEN'&&Array.isArray(route.blockers)&&route.blockers.length===0,
   image_scheduler_origin_attested:false,
