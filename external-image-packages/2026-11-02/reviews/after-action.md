@@ -1,6 +1,6 @@
 # 2026-11-02 premium image after-action report
 
-**Status: SIX_IMAGES_SAVED_REVIEWED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 20fbdfa19266aadf4ba38a4c3eeb8a1945c10c97 |
 | Executor observed run start | 2026-11-02T03:16:13Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-02T03:21:16Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_CI_RELEASE |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXTS; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-02T03:59:41.892Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -47,6 +47,7 @@
 | Initial GitHub index resolution | Initial request treated shadow-pages-history as a directory on main and returned404. | Used actual shadow-pages-history branch with site/image-jobs/index.json; selected only exact November2 job. |
 | Local Git transport readiness | Read-only Git clone worked; dry-run push lacked authenticated HTTPS username. | Used connected GitHub blobs/trees/commits and expected-head non-force ref updates; exact accepted binary readbacks matched. |
 | Primary source page retrieval | Job aliases for ProtoStar and Every returned unavailable404/403 routes. | Read complete matching first-party articles at announcing-project-protostar and also-true-for-humans routes; immutable job/source references preserved. |
+| Protected ancestry synchronization | First merge-commit API attempt used a short main SHA and was rejected422 without mutation. | Resolved exact40-character protected-main SHA and created a fenced non-force merge preserving accepted PNGs. |
 
 ## Evidence and limitations
 
@@ -64,8 +65,16 @@ Each exact1200x6308-bit RGB original and actual390px rendition inspected, follow
 
 All six connected immutable-commit base64 binary readbacks equaled original PNG bytes, lengths, SHA256 and Git blob identities. Accepted images are locked and were never regenerated for Git/CI/reporting.
 
-Protected package PR/CI, release,24 public semantic contexts, six live hashes,12 pairings and17 October8 integrity objects remain pending. No publication PASS is claimed yet.
-
 Native tool only; no paid API, TinyFish, metered service, extra task/session, schedule change, legacy write or historical reseal. Scheduler origin UNPROVEN and account usage UNKNOWN.
+
+Protected PR308 passed exact-head compiler-validation with PRE_PR_PACKAGE_PASS and646 tests,0 failures, then merged at58aa56c5916343c3fe9f55b789235ce582bf2bac. Existing image-only release41385927277 succeeded without corrective redeployment.
+
+Exact release artifact13115317578 ZIP SHA25693ca745f15429a23961f98fb814c39d57b0138935ac88fd2d4900eb3ec69e31c was downloaded and decoded. Every one of24 screenshot hashes matched captures.json and all24 saved RGB image-region proofs passed with match_ratio1.000. All24 actual captures were individually viewed and semantically inspected in this same execution.
+
+Independent public readback verified6 PNG hashes and12 story pairings; canonical public index and release receipt both match exact history bytes. Independent postdeployment audit preserved all17 protected October8 objects.
+
+Semantic review completed at2026-11-02T04:04:38Z. Fine secondary mobile detail uses the existing original/full-size viewer; universal inline readability is not claimed. No accepted image, manifest, assignment or frozen source/job bytes changed after locking.
+
+Final semantic review, AAR and released worker receipt are persisted through a reporting-only protected PR. No manifest modification or image-content release is needed for closeout.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
