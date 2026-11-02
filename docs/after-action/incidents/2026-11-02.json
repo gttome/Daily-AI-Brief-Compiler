@@ -1,0 +1,37 @@
+{
+  "schema_version": "daily-compiler-postpublication-incidents-v1",
+  "edition_date": "2026-11-02",
+  "created_from": "Postpublication comparison of the protected compile receipt and the exact pending Rev8 image job.",
+  "incidents": [
+    {
+      "incident_id": "nov02-rev8-image-job-scheduler-provenance",
+      "stage": "PUBLISHED_IMAGE_HANDOFF_PROVENANCE",
+      "impact": "The pending six-image job serialized unattended_schedule_proven=true even though the protected compile receipt says SCHEDULED_INVOCATION_NOT_ESTABLISHED.",
+      "detected_by": "postpublication_review",
+      "issue": "Rev8 accidentally used the pre-Rev7 fallback that inferred unattended scheduling from the absence of the October 9 exception. Route, reader, video, story, bundle and image bytes were unaffected.",
+      "editorial_disposition": "DIAGNOSTIC_FIELD_UNSUPPORTED_TREAT_AS_UNKNOWN",
+      "resolution": "Protected PR #304 merged with required CI. Rev7 and Rev8 now use only positive immutable producer receipts; incomplete receipts serialize null/unknown. The already published reader, immutable November 2 editorial bundle, current pending job bytes and all accepted historical images remain unchanged. The current job's true value is explicitly superseded by this incident receipt and must not be cited as scheduler evidence.",
+      "corrective_pr": 304,
+      "corrective_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/304",
+      "corrective_commit": "39f427726483b917ea8dce4e647df31899f6add3",
+      "validation_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41375888344",
+      "status": "CODE_CORRECTED_CURRENT_DIAGNOSTIC_TREATED_UNKNOWN",
+      "public_reader_defect": false,
+      "current_job_url": "https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/shadow-pages-history/site/image-jobs/2026-11-02/job.json",
+      "current_job_sha256": "ab6d8ff74ed4f7dc04ded214fa4bb171acd6c352d3636cdec7b01045f231e072",
+      "bundle_sha256": "bc3db8f1fffd0eec5431cfbb7587943c748afe64e6028824c8c9cd53e534b658",
+      "scheduler_independence": "UNPROVEN",
+      "work_usage": "CONFIRMED_OWNER_DIRECTED_WORK_MODE_FOR_COMPILER_RECOVERY",
+      "paid_model_api_used": false,
+      "no_original_sealed_bundle_reseal": true,
+      "accepted_image_bytes_changed": false,
+      "schedules_changed": false
+    }
+  ],
+  "owner_intervention_required": "OWNER_DIRECTED_RECOVERY_RECORDED",
+  "automated_detection_before_owner": false,
+  "per_cycle_usage": "WORK_MODE_CONFIRMED_FOR_THIS RECOVERY; SCHEDULER INDEPENDENCE UNPROVEN",
+  "accepted_png_bytes_changed": false,
+  "original_sealed_editorial_bundle_changed": false,
+  "public_reader_links_or_assets_corrected": false
+}
