@@ -238,7 +238,7 @@ function imageAar(cycle,date,e,hashes={}){
   scheduled_host_mode:mode,
   same_invocation_connected_github:'UNPROVEN',
   execution_id:job?.execution_id??release?.execution_id??null,
-  // Image stage uses persisted accepted binary Git commit → merged final 24-context review.
+  // Image stage uses persisted accepted binary Git commit → first recorded final 24-context review.
   // This is not an attested host start time or native-model generation time.
   started_at:safeTime(imageTiming?.events?.first_accepted_binary_commit),
   finished_at:safeTime(imageTiming?.events?.final_live_review_approved_commit),
@@ -248,7 +248,7 @@ function imageAar(cycle,date,e,hashes={}){
   scheduled_start_to_final_review_minutes:
     Number.isFinite(imageTiming?.durations_seconds?.scheduled_start_to_final_review)?
       Number((imageTiming.durations_seconds.scheduled_start_to_final_review/60).toFixed(2)):null,
-  timing_basis:'First persisted accepted image Git bytes to first merged 24-context review; scheduled window is separate and not exact generator runtime.',
+  timing_basis:'First persisted accepted image Git bytes to first recorded 24-context review; scheduled window is separate and not exact generator runtime.',
   executor_observed_generation_start_at:safeTime(imageTiming?.events?.native_generation_first_observed_at),
   scheduler_actual_invocation_attested:false,
   task_origin_observation:summarizeTaskOriginEvidence(e['image-task-origin'],date,'images'),
@@ -326,6 +326,8 @@ export function renderMarkdown(report){
    ['Task origin',report.task_origin_observation?.status??'UNPROVEN'],
    ['First-party scheduler',report.task_origin_observation?.scheduler??'UNPROVEN'],
    ['Same-invocation route preflight',report.task_origin_observation?.route_preflight??'UNPROVEN'],
+   ['Local capability preflight (separate from origin)',report.evidence_reconciliation?.image_capability_preflight_recorded?'RECORDED':'NOT OBSERVED'],
+   ['Timing basis',report.timing_basis],
    ...(report.lane==='compiler'?[
     ['Postpublication incidents',report.postpublication_incidents_recorded??'NOT_RECORDED'],
     ['Owner-detected editorial defects',report.postpublication_incidents_recorded===null?'NOT_RECORDED':report.owner_detected_postpublication_defects],
