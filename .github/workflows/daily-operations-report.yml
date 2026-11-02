@@ -18,6 +18,7 @@ on:
       - 'scripts/derive-image-stage-timing.mjs'
       - 'scripts/render-unified-production-aar.mjs'
       - 'scripts/compile-daily-aar.mjs'
+      - 'scripts/top10-aar.mjs'
       - 'scripts/worker-checkpoint-consistency.mjs'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
@@ -67,6 +68,7 @@ jobs:
           tmp="$(mktemp -d)"
           # Use protected main report renderers even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
+          cp scripts/top10-aar.mjs "$tmp/top10-aar.mjs"
           cp scripts/oct27-source-readiness.mjs "$tmp/oct27-source-readiness.mjs"
           cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
@@ -79,6 +81,13 @@ jobs:
           git config user.name 'Daily Compiler Report Reconciler'
           git config user.email 'actions@users.noreply.github.com'
           git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          # Freeze the optional Top 10 input branch before gathering evidence. Later
+          # checkout still refreshes the write branch so concurrent signal files survive.
+          reports_source_commit=''
+          if git ls-remote --exit-code origin refs/heads/operations-reports >/dev/null 2>&1; then
+            git fetch -q origin '+refs/heads/operations-reports:refs/remotes/origin/operations-reports'
+            reports_source_commit="$(git rev-parse refs/remotes/origin/operations-reports)"
+          fi
           # Image workflow completion is on the *production evening* (lag zero).
           # The next-morning schedule starts at lag one, avoiding premature reports.
           start_lag=1
@@ -107,6 +116,30 @@ jobs:
             git show "$ref:shadow-runs/$edition/editorial/source-item-census.json" > "$in/source-item-census.json" 2>/dev/null || rm -f "$in/source-item-census.json"
              git show "$ref:shadow-runs/$edition/editorial/source-item-retries.json" > "$in/source-item-retries.json" 2>/dev/null || rm -f "$in/source-item-retries.json"
             git show "$ref:shadow-runs/$edition/editorial/source-qualification.json" > "$in/source-qualification.json" 2>/dev/null || rm -f "$in/source-qualification.json"
+            # Topic discovery and the Compiler's exact consumption/search receipts
+            # are distinct evidence. Missing inputs never imply successful handoff.
+            git show "$ref:shadow-runs/$edition/editorial/trend-input.json" > "$in/trend-input.json" 2>/dev/null || rm -f "$in/trend-input.json"
+            git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
+            if [ -n "$reports_source_commit" ]; then
+              report_path="signals/ai-topic-top10/$cycle.json"
+              if git show "$reports_source_commit:$report_path" > "$in/top10-report.json" 2>/dev/null; then
+                report_blob_sha="$(git rev-parse "$reports_source_commit:$report_path")"
+                node --input-type=module - "$cycle" "$edition" "$reports_source_commit" "$report_path" "$report_blob_sha" "$in" <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          const [cycle,edition,commit,sourcePath,blob,inputDir]=process.argv.slice(2);
+          const bytes=fs.readFileSync(inputDir+'/top10-report.json');
+          const source={schema_version:'daily-ai-topic-top10-source-v1',cycle_date:cycle,
+            edition_date:edition,source_commit:commit,source_path:sourcePath,source_blob_sha:blob,
+            report_sha256:crypto.createHash('sha256').update(bytes).digest('hex'),
+            observed_at:new Date().toISOString()};
+          fs.writeFileSync(inputDir+'/top10-report-source.json',JSON.stringify(source,null,2)+'\n');
+          NODE
+              else
+                rm -f "$in/top10-report.json"
+              fi
+              git show "$reports_source_commit:signals/ai-topic-top10/$cycle.aar.json" > "$in/top10-after-action.json" 2>/dev/null || rm -f "$in/top10-after-action.json"
+            fi
             git show "$ref:shadow-runs/$edition/producer/task-origin.json" > "$in/compiler-task-origin.json" 2>/dev/null || rm -f "$in/compiler-task-origin.json"
             git show "$ref:shadow-runs/$edition/compiler/compile-receipt.json" > "$in/compile-receipt.json" 2>/dev/null || rm -f "$in/compile-receipt.json"
             git show "$ref:shadow-runs/$edition/compiler/postpublish-integrity.json" > "$in/postpublish-integrity.json" 2>/dev/null || rm -f "$in/postpublish-integrity.json"
@@ -139,8 +172,9 @@ jobs:
             current="$(TZ=America/Chicago date +%F)"
             cycle="$(date -u -d "$current -$lag days" +%F)"
             if [[ "$cycle" < '2026-10-11' ]]; then continue; fi
-            # Skip dates without any edition-specific production evidence.
-            test -s "$tmp/evidence/$cycle/compiler-state.json" || test -s "$tmp/evidence/$cycle/image-job.json" || continue
+            # A genuine Top 10 run can be reported before the Compiler starts;
+            # never manufacture Compiler/image receipts to admit that cycle.
+            test -s "$tmp/evidence/$cycle/compiler-state.json" || test -s "$tmp/evidence/$cycle/image-job.json" || test -s "$tmp/evidence/$cycle/top10-report.json" || test -s "$tmp/evidence/$cycle/top10-after-action.json" || continue
             node "$tmp/compile-daily-aar.mjs" "$cycle" "$tmp/evidence/$cycle" .
             node "$tmp/render-unified-production-aar.mjs" "$cycle" "$tmp/evidence/$cycle" "daily/$cycle"
           done
@@ -175,3 +209,4 @@ jobs:
           path: ${{ runner.temp }}/unified-aar-offline/
           if-no-files-found: ignore
           retention-days: 90
+
