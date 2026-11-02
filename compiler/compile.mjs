@@ -164,12 +164,22 @@ export function validateEdition({statePath, bundlePath, repoRoot='.', allowPendi
   }
 
   if (bundle.producer_receipt?.result !== 'PASS') fail('producer receipt missing PASS');
-  if (bundle.producer_receipt.owner_intervention !== false && !(bundle.producer_receipt.owner_intervention === true && isAuthorizedOct9Recovery({state,bundle}))) fail('owner intervention must be false absent the exact separately authorized Oct9 recovery');
-  if (bundle.producer_receipt.codex_used !== false || bundle.producer_receipt.paid_model_api_used !== false) fail('codex/paid model API must be false');
+  // The owner removed host-mode admission on October 11. Apply prospectively
+  // to Nov2+ pending editions; truthful recovery telemetry must not block them.
+  const diagnosticHostMode = pendingImages && bundle.edition_date >= '2026-11-02';
+  if (bundle.producer_receipt.paid_model_api_used !== false) fail('paid model API must be false');
+  if (diagnosticHostMode) {
+    for (const key of ['owner_intervention','work_used','codex_used','local_computer_used']) {
+      if (typeof bundle.producer_receipt[key] !== 'boolean') fail('producer provenance boolean required: '+key);
+    }
+  } else {
+    if (bundle.producer_receipt.owner_intervention !== false && !(bundle.producer_receipt.owner_intervention === true && isAuthorizedOct9Recovery({state,bundle}))) fail('owner intervention must be false absent the exact separately authorized Oct9 recovery');
+    if (bundle.producer_receipt.codex_used !== false) fail('codex/paid model API must be false');
+  }
   if(d1Requested){
     if(bundle.producer_receipt.work_used!==true||bundle.producer_receipt.work_scope!=='IMAGE_PACKAGE_INGEST'||bundle.producer_receipt.work_image_generation!==false) fail('D1 Work usage must be narrow IMAGE_PACKAGE_INGEST only');
     if(bundle.producer_receipt.local_computer_used!==false) fail('D1 local computer use forbidden');
-  }else if(bundle.producer_receipt.work_used!==false) fail('work_used must be false');
+  }else if(!diagnosticHostMode && bundle.producer_receipt.work_used!==false) fail('work_used must be false');
   const acceptedImageRegenerations=bundle.producer_receipt.accepted_image_regenerations ?? 0;
   if (!Number.isInteger(acceptedImageRegenerations) || acceptedImageRegenerations < 0) fail('accepted_image_regenerations invalid');
 
