@@ -1,0 +1,1455 @@
+{
+  "schema_version": "semantic-content-v1",
+  "edition_date": "2026-11-02",
+  "editorial_provenance": {
+    "selection_locked_at": "2026-11-02T01:30:54.908Z",
+    "sealed_at": "2026-11-02T01:30:54.908Z"
+  },
+  "stories": [
+    {
+      "id": "nov02-t1-nemotron-haunted-house-pipeline",
+      "headline": "NVIDIA maps a local voice-and-vision pipeline with Nemotron",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "Building a Haunted House with NVIDIA Nemotron Open Models",
+        "publisher": "NVIDIA",
+        "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+        "published_at": "2026-10-30T00:00:00Z",
+        "scope": "Read the complete NVIDIA guest post on Hugging Face covering Nemotron speech recognition, Bolt E4B orchestration, Magpie text-to-speech, Audio2Face, vision processing, LoRA tuning, application state, caching, local workstation deployment and real-world latency and reliability limitations.",
+        "freshness_reason": "No qualified November 1 original item survived complete review. This October 30 primary source is within the justified 72-hour fallback and exposes an end-to-end local multimodal engineering pipeline with stated limitations.",
+        "retrieved_at": "2026-11-02T01:30:54.908Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-02T01:30:54.908Z",
+          "scope": "Read the complete NVIDIA guest post on Hugging Face covering Nemotron speech recognition, Bolt E4B orchestration, Magpie text-to-speech, Audio2Face, vision processing, LoRA tuning, application state, caching, local workstation deployment and real-world latency and reliability limitations."
+        }
+      },
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Multimodal pipelines",
+        "Local inference"
+      ],
+      "related_coverage": "Connects speech, vision, orchestration and animation components into one inspectable local application rather than treating a model endpoint as the whole system.",
+      "topics": [
+        "Voice pipeline",
+        "Local inference",
+        "State orchestration"
+      ],
+      "summary": "NVIDIA’s Halloween prototype combines Nemotron speech recognition, an orchestrator, Magpie speech synthesis, Audio2Face animation and vision models on a local workstation. The build explains how application state, caching and lightweight tuning keep the experience responsive. It also records practical limits, including latency, noisy audio and the need to coordinate several independently failing components.",
+      "why_it_matters": "Engineering teams can use the architecture as a systems checklist: measure every model boundary, cache repeatable work, preserve state explicitly and test microphone, vision and animation failures before presenting a multimodal prototype as reliable.",
+      "image_alt_intent": "A local workstation routes microphone audio, camera frames and application state through speech, vision, orchestration and animated-character components.",
+      "permanent_route": "/stories/2026-11-02/nov02-t1-nemotron-haunted-house-pipeline/",
+      "reading_time_minutes": 9
+    },
+    {
+      "id": "nov02-t2-behavioral-evals-after-provenance",
+      "headline": "Behavioral evals catch model changes provenance cannot",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "Evil Qwen and activation steering: why SBOMs aren’t enough",
+        "publisher": "Arize",
+        "url": "https://arize.com/blog/evil-qwen-activation-steering/",
+        "published_at": "2026-10-30T00:00:00Z",
+        "scope": "Read the complete Arize experiment covering activation steering, capability and refusal tests, reproductions and limitations, weight, adapter and inference-code attack paths, AI SBOM and signing coverage, paired behavioral evaluations, served-stack identity and continuous checks.",
+        "freshness_reason": "No qualified November 1 technical item survived complete review. The October 30 experiment is within the justified 72-hour fallback and supplies current measured evidence plus explicit limits for a distinct served-stack evaluation procedure.",
+        "retrieved_at": "2026-11-02T01:30:54.908Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-02T01:30:54.908Z",
+          "scope": "Read the complete Arize experiment covering activation steering, capability and refusal tests, reproductions and limitations, weight, adapter and inference-code attack paths, AI SBOM and signing coverage, paired behavioral evaluations, served-stack identity and continuous checks."
+        }
+      },
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Behavioral evaluation",
+        "Model supply chain"
+      ],
+      "related_coverage": "Shows why signed artifacts and component inventories must be paired with behavioral checks on the exact weights, adapters, runtime settings and serving code users receive.",
+      "topics": [
+        "Activation steering",
+        "Behavioral evals",
+        "Model provenance"
+      ],
+      "summary": "Arize tests activation steering that changes a small model’s refusal behavior while leaving much of its capability intact. The article maps how altered weights, adapters or serving code can bypass provenance checks. It argues that SBOMs and signatures establish identity, while paired safety and capability evaluations must test the exact served stack and runtime configuration.",
+      "why_it_matters": "Engineering teams can pin every artifact, record adapters and runtime settings, then run safety and capability checks together on the deployed combination. That catches behavioral drift a valid signature or component inventory cannot reveal.",
+      "image_alt_intent": "An engineer compares signed model artifacts and adapters with paired capability and safety evaluations on the exact served runtime.",
+      "permanent_route": "/stories/2026-11-02/nov02-t2-behavioral-evals-after-provenance/",
+      "reading_time_minutes": 10
+    },
+    {
+      "id": "nov02-k1-protostar-ai-ready-science",
+      "headline": "Project ProtoStar asks scientists to publish AI-ready artifacts",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+        "publisher": "Hugging Face",
+        "url": "https://huggingface.co/blog/protostar",
+        "published_at": "2026-10-29T00:00:00Z",
+        "scope": "Read the complete Hugging Face announcement covering the November 2–13 challenge, publicly funded scientific artifacts, datasets and models, reusable metadata, provenance, public baselines, participation conditions and stated goals.",
+        "freshness_reason": "No qualifying November 1 science-workflow item survived source reading. The October 29 item is within the justified 168-hour fallback and becomes timely as the public challenge opens on the edition date.",
+        "retrieved_at": "2026-11-02T01:30:54.908Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-02T01:30:54.908Z",
+          "scope": "Read the complete Hugging Face announcement covering the November 2–13 challenge, publicly funded scientific artifacts, datasets and models, reusable metadata, provenance, public baselines, participation conditions and stated goals."
+        }
+      },
+      "coverage_labels": [
+        "Applied Generative AI",
+        "Open science",
+        "Data provenance"
+      ],
+      "related_coverage": "Moves scientific AI work upstream from model prompting to the metadata, provenance and reusable artifacts required for credible public research workflows.",
+      "topics": [
+        "Open science",
+        "Dataset provenance",
+        "Reusable artifacts"
+      ],
+      "summary": "Hugging Face’s Project ProtoStar challenge asks participants to turn publicly funded scientific outputs into reusable datasets, models and baselines with clearer metadata and provenance. Running November 2–13, the effort emphasizes public artifacts that others can inspect and extend. The announcement defines participation goals, but it does not yet establish downstream scientific impact.",
+      "why_it_matters": "Research teams can inventory one public project, document licenses and lineage, publish a reproducible baseline and record what remains missing. That creates a reviewable handoff for future AI experiments without overstating a challenge as validated discovery.",
+      "image_alt_intent": "Researchers arrange public papers, datasets, metadata cards and provenance links into an inspectable AI-ready science package.",
+      "permanent_route": "/stories/2026-11-02/nov02-k1-protostar-ai-ready-science/",
+      "reading_time_minutes": 5
+    },
+    {
+      "id": "nov02-k2-science-access-partnerships",
+      "headline": "Anthropic expands AI-for-science access across institutions",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "AI for Science expands to foundations and research institutions",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "published_at": "2026-10-28T00:00:00Z",
+        "scope": "Read the complete Anthropic announcement covering the 20 foundations, institutions and research initiatives, free Claude credits, reported research uses, the Model Hardware Standard preview, planned public goods and the explicit early-stage limitation.",
+        "freshness_reason": "No qualified 24- or 72-hour Anthropic item matched the applied-science category. The October 28 source uses a justified 168-hour fallback for its concrete partner list, open-artifact commitments and explicit early-stage caveat.",
+        "retrieved_at": "2026-11-02T01:30:54.908Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-02T01:30:54.908Z",
+          "scope": "Read the complete Anthropic announcement covering the 20 foundations, institutions and research initiatives, free Claude credits, reported research uses, the Model Hardware Standard preview, planned public goods and the explicit early-stage limitation."
+        }
+      },
+      "coverage_labels": [
+        "Applied Generative AI",
+        "Scientific workflows",
+        "Research access"
+      ],
+      "related_coverage": "Shows how institutions are pairing model access with domain teams, open datasets, standards and shared libraries rather than treating general model access as a research result.",
+      "topics": [
+        "Science access",
+        "Open research",
+        "Institutional pilots"
+      ],
+      "summary": "Anthropic says its AI for Science program now supports 20 foundations, institutions and research initiatives with model credits and collaborations. Partners span astronomy, genomics, climate and mathematics, with some work aimed at open datasets, standards and software. The company describes reported uses and examples, but acknowledges that many collaborations remain early and unvalidated.",
+      "why_it_matters": "Research leaders can separate access from evidence: define a bounded scientific task, preserve datasets and methods, publish reusable artifacts and measure outcomes independently. The partner list is a starting map, not proof that model use accelerates discovery.",
+      "image_alt_intent": "A research coordinator maps model access to scientific teams, public datasets, open standards, reproducible methods and independent outcome measures.",
+      "permanent_route": "/stories/2026-11-02/nov02-k2-science-access-partnerships/",
+      "reading_time_minutes": 6
+    },
+    {
+      "id": "nov02-a1-governed-onboarding-case-context",
+      "headline": "Client onboarding agents need governed case context",
+      "focus": "Agents for Everyone",
+      "agent_skills": false,
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Operations, compliance and relationship teams that coordinate document-heavy client onboarding across people and systems.",
+        "practical_action": "Choose one onboarding case and record evidence, status, exceptions, decision history and the human owner before asking an agent to recommend a next step.",
+        "review_action": "A named reviewer verifies every cited document, resolves exceptions, approves any consequential action and records the final decision separately from the agent recommendation.",
+        "usable_outcome": "A governed onboarding case file with versioned evidence, explicit exceptions, accountable approvals and measurable handoff times."
+      },
+      "source": {
+        "title": "Wealth Management Client Onboarding Needs More Than AI",
+        "publisher": "Databricks",
+        "url": "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai",
+        "published_at": "2026-10-30T00:00:00Z",
+        "scope": "Read the complete Databricks reference architecture covering governed case context, versioned evidence, workflow state, exceptions, decision history, supervised agents, human review, Unity Catalog controls and suggested end-to-end operating metrics.",
+        "freshness_reason": "No qualified November 1 agent-operations item survived full reading. The October 30 article is within the justified 72-hour fallback and supplies an unusually concrete case-governance pattern with human decision ownership.",
+        "retrieved_at": "2026-11-02T01:30:54.908Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-02T01:30:54.908Z",
+          "scope": "Read the complete Databricks reference architecture covering governed case context, versioned evidence, workflow state, exceptions, decision history, supervised agents, human review, Unity Catalog controls and suggested end-to-end operating metrics."
+        }
+      },
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Case governance",
+        "Human approval"
+      ],
+      "related_coverage": "Treats the onboarding case, evidence and decision history as the durable control plane around multiple agents and human reviewers.",
+      "topics": [
+        "Case context",
+        "Evidence history",
+        "Human approval"
+      ],
+      "summary": "Databricks argues that wealth-management onboarding agents need a governed case context containing evidence, workflow state, exceptions and decision history. Its reference architecture coordinates specialized agents with human review and catalog controls, then measures the entire client journey. The design is vendor-authored guidance, not independent proof that the proposed stack improves outcomes.",
+      "why_it_matters": "Operations teams can pilot the pattern without adopting the full stack: preserve versioned evidence, assign each exception, require human approval for consequential steps and measure cycle time, rework and unresolved risk across the whole case.",
+      "image_alt_intent": "An onboarding team reviews a governed case timeline containing documents, exceptions, agent recommendations, human approvals and journey metrics.",
+      "permanent_route": "/stories/2026-11-02/nov02-a1-governed-onboarding-case-context/",
+      "reading_time_minutes": 8
+    },
+    {
+      "id": "nov02-a2-article-recommendation-audit-skill",
+      "headline": "A recommendation-audit Skill tests whether agents surface your work",
+      "focus": "Agents for Everyone",
+      "agent_skills": true,
+      "agent_skills_evidence": "The first-party article reports 2,484 simulated recommendation sessions and concrete headline and description changes. This edition packages a distinct reusable procedure: define reader questions, run a fixed query set, record cited articles and omissions, revise only metadata, rerun the same set and require human review before publishing changes.",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Editors, knowledge managers and communications teams that need to test whether AI assistants can find and accurately describe published work.",
+        "practical_action": "Define a fixed set of reader questions, record which articles an assistant recommends, revise only titles or descriptions, then rerun the same questions and compare results.",
+        "review_action": "An editor checks every recommendation and omission against the original article, rejects misleading metadata and approves only changes that remain accurate for human readers.",
+        "usable_outcome": "A reusable recommendation-audit Skill with a frozen query set, before-and-after results, approved metadata changes, rejected variants and source links."
+      },
+      "source": {
+        "title": "How to Get AI Agents to Recommend Your Articles",
+        "publisher": "Every",
+        "url": "https://every.to/source-code/how-to-get-ai-agents-to-recommend-your-articles",
+        "published_at": "2026-10-27T00:00:00Z",
+        "scope": "Read the complete Every article, preserving its October 27 original date and November 1 update, 2,484 simulated sessions, test design, observed recommendation patterns, headline and description revisions, limits and distinction from live user traffic.",
+        "freshness_reason": "The October 27 original date requires the 168-hour fallback. It is selected because the November 1 update supplies a distinct, measurable editorial procedure and simulation evidence not present in recent commitment-tally, parsing or release-control Skills.",
+        "retrieved_at": "2026-11-02T01:30:54.908Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-02T01:30:54.908Z",
+          "scope": "Read the complete Every article, preserving its October 27 original date and November 1 update, 2,484 simulated sessions, test design, observed recommendation patterns, headline and description revisions, limits and distinction from live user traffic."
+        }
+      },
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Agent Skills",
+        "Content discoverability"
+      ],
+      "related_coverage": "Turns a one-off discoverability experiment into a controlled editorial Skill with a fixed query set, source checks and reversible metadata changes.",
+      "topics": [
+        "Agent Skills",
+        "Recommendation tests",
+        "Metadata review"
+      ],
+      "summary": "Every reports 2,484 simulated sessions testing which articles AI assistants recommend, then describes headline and description changes intended to improve retrieval. The study is not live traffic and cannot establish general ranking effects. A reusable workflow freezes reader questions, records citations and omissions, changes metadata narrowly, reruns the same tests and preserves editorial review.",
+      "why_it_matters": "Editorial teams can distinguish discoverability from persuasion: hold the query set constant, compare before-and-after recommendations, verify every cited article and keep only metadata that remains accurate for people. The Skill produces evidence without promising traffic gains.",
+      "image_alt_intent": "An editor compares a frozen set of reader questions with before-and-after article recommendations, citations, omissions and approved metadata changes.",
+      "permanent_route": "/stories/2026-11-02/nov02-a2-article-recommendation-audit-skill/",
+      "reading_time_minutes": 8
+    }
+  ],
+  "videos": [
+    {
+      "verified_at": "2026-11-02T01:30:54.908Z",
+      "content_retrieved_at": "2026-11-02T01:30:54.908Z",
+      "verified": true,
+      "title": "How AI is breaking the internet (and what to do about it)",
+      "source": "TED",
+      "url": "https://www.ted.com/talks/matthew_prince_how_ai_is_breaking_the_internet_and_what_to_do_about_it",
+      "duration_minutes": 12.6833,
+      "original_date": "2026-04-01T00:00:00Z",
+      "focus": "Expert analysis of AI crawling, publisher economics and proposed compensation mechanisms",
+      "summary": "Cloudflare chief Matthew Prince argues that AI crawlers weaken the advertising and referral economics that funded much of the open web. The full TED talk distinguishes training access from ordinary search traffic and proposes technical and market responses. Its April publication date and consecutive-day TED publisher exposure are disclosed as editorial advisories.",
+      "why_it_matters": "Publishers and platform teams can examine crawler permissions, referral losses and compensation proposals separately, then decide which evidence would justify access rules without treating one infrastructure executive’s preferred market design as neutral consensus.",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "runtime_source_url": "https://www.ted.com/talks/matthew_prince_how_ai_is_breaking_the_internet_and_what_to_do_about_it",
+        "content_reviewed": true,
+        "playback_verified": true,
+        "content_review_basis": "Reviewed the complete official TED program and transcript evidence, then confirmed the exact 12:41 full-length player; in a fresh signed-out browser the seek position advanced from approximately 00:03 to 00:16.",
+        "playback_evidence": {
+          "method": "Fresh signed-out browser loaded the exact official TED talk and activated its full-length player.",
+          "result": "The official 12:41 player visibly advanced from approximately 00:03 to 00:16 without login.",
+          "checked_at": "2026-11-02T01:30:54.908Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-02T01:30:54.908Z",
+        "editorial_relevance": "A substantive infrastructure and publishing-economics argument about AI crawling, referral traffic and content compensation.",
+        "reader_value": "Readers can separate technical crawler controls from economic claims and identify evidence needed before changing publisher policy.",
+        "selected_over_alternatives": "Selected after complete source review and genuine advancing playback. The exact URL is unique; repeated TED publisher exposure and the older original date remain explicit advisories.",
+        "content_evidence": {
+          "kind": "independent_analysis",
+          "url": "https://www.ted.com/talks/matthew_prince_how_ai_is_breaking_the_internet_and_what_to_do_about_it",
+          "scope": "Reviewed the complete official talk and its argument about crawler access, search referrals, publisher economics and proposed remedies."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The speaker leads Cloudflare and advances a preferred market mechanism, so claims remain attributed; the talk is not a product walkthrough or sales demo.",
+        "editorial_value_basis": "The complete argument is valuable as a contested policy and infrastructure analysis even though it does not teach a procedure.",
+        "transferable_takeaways": [
+          "Separate crawler access from search referral value.",
+          "Measure publisher effects before changing policy.",
+          "Treat one proposed compensation model as an attributed position."
+        ]
+      }
+    },
+    {
+      "verified_at": "2026-11-02T01:30:54.908Z",
+      "content_retrieved_at": "2026-11-02T01:30:54.908Z",
+      "verified": true,
+      "title": "AI & Human Connection",
+      "source": "Murmuration",
+      "url": "https://vimeo.com/1236099991",
+      "duration_minutes": 7.7333,
+      "original_date": "2026-09-30T00:00:00Z",
+      "focus": "Public-opinion evidence about human agency, connection, community consent and judgment in AI adoption",
+      "summary": "Murmuration research chief Sarah Stamper presents polling on where Americans want human agency retained as AI spreads. The complete lightning talk covers connection, community consent, public decisions and concern about truth in elections. The September 30 event date is disclosed, and the findings remain the publisher’s survey interpretation rather than independent validation.",
+      "why_it_matters": "Teams planning public-facing AI can test whether residents retain meaningful choice, whether consequential decisions have human owners and whether infrastructure concerns receive local input, instead of assuming technical availability equals social permission.",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "runtime_source_url": "https://vimeo.com/1236099991",
+        "content_reviewed": true,
+        "playback_verified": true,
+        "content_review_basis": "Reviewed the complete official Vimeo transcript from 00:06 through 07:30 and confirmed the exact 07:44 program; the signed-out player advanced from zero to 00:08 and later displayed 00:26.",
+        "playback_evidence": {
+          "method": "Fresh signed-out Vimeo page exposed the exact full-length player and official transcript, then playback was activated.",
+          "result": "The official 07:44 player advanced from zero to 00:08 and later displayed 00:26 without login.",
+          "checked_at": "2026-11-02T01:30:54.908Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-02T01:30:54.908Z",
+        "editorial_relevance": "An original public-interest research talk about human connection, community consent, civic judgment and AI infrastructure.",
+        "reader_value": "Readers get concrete questions for evaluating where human choice and local consent should remain explicit.",
+        "selected_over_alternatives": "Selected as the distinct low-promotion publisher after PBS displayed an unavailable player and a YouTube candidate failed to advance.",
+        "content_evidence": {
+          "kind": "research_presentation",
+          "url": "https://vimeo.com/1236099991",
+          "scope": "Reviewed the complete official transcript covering adoption, trust, connection, community infrastructure, human judgment and election concerns."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "The civic-research lightning talk sells no AI product, training service or consulting package.",
+        "editorial_value_basis": "The complete talk provides substantive public-opinion evidence and bounded decision questions without requiring a tutorial format.",
+        "transferable_takeaways": [
+          "Preserve human ownership for high-stakes decisions.",
+          "Seek local consent for AI infrastructure effects.",
+          "Distinguish adoption from trust and social permission."
+        ]
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Taking on ServiceNow: Coding Agents the Rest of Us",
+      "source": "No Priors",
+      "url": "https://podcasts.apple.com/us/podcast/taking-on-servicenow-coding-agents-the-rest-of-us/id1668002688?i=1000798684005",
+      "episode_identifier": "No Priors, Taking on ServiceNow episode",
+      "duration_minutes": 38,
+      "written_reading_time_minutes": 8,
+      "original_date": "2026-10-29T00:00:00Z",
+      "summary": "No Priors interviews the founders of an enterprise-automation company about using coding-agent techniques for business workflows, legacy systems and service operations. The exact Apple episode page provides a complete chapter map through 37:05 and verified 38-minute runtime. Vendor claims remain attributed, and no independent audio-playback claim is made.",
+      "why_it_matters": "Operations leaders can compare the proposed agent pattern with their own system boundaries, exception handling and approval needs before assuming that code-generation methods transfer cleanly into enterprise service workflows or regulated decisions.",
+      "verified_at": "2026-11-02T01:30:54.908Z",
+      "content_retrieved_at": "2026-11-02T01:30:54.908Z",
+      "verified": true,
+      "basis": "Reviewed the exact official Apple episode description and complete chapter map from 00:47 through 37:05; no independent audio playback claim is made.",
+      "objective": "Identify where coding-agent methods require additional case context, approvals and exception handling in enterprise operations.",
+      "action": "Map one service workflow into system boundaries, permitted actions, exception owners and approval points before testing an agent.",
+      "selected": "Selected as a current exact episode from a distinct show outside the protected three-edition cooldown, with verified runtime and complete chapter evidence.",
+      "transcript": "https://podcasts.apple.com/us/podcast/taking-on-servicenow-coding-agents-the-rest-of-us/id1668002688?i=1000798684005",
+      "scope": "Reviewed the complete official episode description and chapter map covering company origin, enterprise coding-agent transfer, legacy systems, workflow deployment and closing discussion.",
+      "promo": "The founder interview is product-adjacent; all performance and market claims remain attributed rather than treated as independent evidence.",
+      "takeaways": [
+        "Define enterprise system boundaries before agent action.",
+        "Assign exceptions and approvals to named people.",
+        "Test transfer claims against one real workflow."
+      ],
+      "segments": [
+        {
+          "start_seconds": 47,
+          "end_seconds": 600,
+          "kind": "ai",
+          "topic": "Company origin and enterprise automation problem framing."
+        },
+        {
+          "start_seconds": 600,
+          "end_seconds": 1200,
+          "kind": "ai",
+          "topic": "Transferring coding-agent methods into business workflows."
+        },
+        {
+          "start_seconds": 1200,
+          "end_seconds": 1800,
+          "kind": "ai",
+          "topic": "Legacy-system integration, permissions and exception handling."
+        },
+        {
+          "start_seconds": 1800,
+          "end_seconds": 2225,
+          "kind": "ai",
+          "topic": "Deployment choices, operating controls and closing discussion."
+        }
+      ],
+      "form": "A founder interview supported by an exact official episode page and complete chapter map.",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "runtime_source_url": "https://podcasts.apple.com/us/podcast/taking-on-servicenow-coding-agents-the-rest-of-us/id1668002688?i=1000798684005",
+        "episode_url": "https://podcasts.apple.com/us/podcast/taking-on-servicenow-coding-agents-the-rest-of-us/id1668002688?i=1000798684005",
+        "episode_identifier": "No Priors, Taking on ServiceNow episode",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the official episode description and complete chapter map through 37:05; no independent audio playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-02T01:30:54.908Z",
+        "learning_objective": "Identify operating controls needed when coding-agent methods move into enterprise service workflows.",
+        "practical_action": "Map one workflow into system boundaries, permissions, exceptions and approvals before testing.",
+        "selected_over_alternatives": "Selected for current exact-episode novelty, verified runtime, complete chapter evidence and cooldown compliance.",
+        "content_evidence": {
+          "kind": "timecoded_agenda",
+          "url": "https://podcasts.apple.com/us/podcast/taking-on-servicenow-coding-agents-the-rest-of-us/id1668002688?i=1000798684005",
+          "scope": "Reviewed the complete official description and chapter map through the closing segment."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The founders discuss their company, so product claims remain attributed and excluded from independent-benefit conclusions.",
+        "transferable_takeaways": [
+          "Map permissions before deploying an enterprise agent.",
+          "Keep exception ownership human and explicit.",
+          "Validate transfer claims on a bounded workflow."
+        ],
+        "editorial_segments": [
+          {
+            "start_seconds": 47,
+            "end_seconds": 600,
+            "kind": "ai",
+            "topic": "Company origin and enterprise automation problem framing."
+          },
+          {
+            "start_seconds": 600,
+            "end_seconds": 1200,
+            "kind": "ai",
+            "topic": "Transferring coding-agent methods into business workflows."
+          },
+          {
+            "start_seconds": 1200,
+            "end_seconds": 1800,
+            "kind": "ai",
+            "topic": "Legacy-system integration, permissions and exception handling."
+          },
+          {
+            "start_seconds": 1800,
+            "end_seconds": 2225,
+            "kind": "ai",
+            "topic": "Deployment choices, operating controls and closing discussion."
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "The exact chapter map supports a bounded control-design review when company claims remain attributed."
+      }
+    },
+    {
+      "title": "AI:AM: Carbon in the Arena, Mistral's Le Chonk, the Agent-Run Economy, Ferroelectric RAM + New Hacks",
+      "source": "The Cognitive Revolution",
+      "url": "https://www.cognitiverevolution.ai/ai-am-carbon-in-the-arena-mistral-s-le-chonk-the-agent-run-economy-ferroelectric-ram-new-hacks/",
+      "episode_identifier": "The Cognitive Revolution, AI:AM October 31 episode",
+      "duration_minutes": 88,
+      "written_reading_time_minutes": 18,
+      "original_date": "2026-10-31T21:45:00Z",
+      "summary": "The Cognitive Revolution synthesizes five live interviews on production alignment traces, ferroelectric memory, agent-run companies, AI-enabled cyberattacks and Mistral’s large open model. The official episode page provides extensive sourced notes and a complete chapter sequence; Apple verifies the 88-minute runtime. Sponsor sections are excluded, and no audio-playback claim is made.",
+      "why_it_matters": "The episode lets technical leaders compare claims across evaluation, chips, labor, security and open weights while preserving which evidence is published, unpublished telemetry, company assertion or host interpretation before acting on it.",
+      "verified_at": "2026-11-02T01:30:54.908Z",
+      "content_retrieved_at": "2026-11-02T01:30:54.908Z",
+      "verified": true,
+      "basis": "Reviewed the complete official sourced show notes and chapter sequence through the 85:55 outro; Apple verified an 88-minute runtime. Sponsor segments are identified and excluded; no independent audio playback claim is made.",
+      "objective": "Separate published evidence, company claims, unpublished telemetry and host interpretation across five current AI debates.",
+      "action": "Choose one claim, open its primary source, label the evidence type and record what remains unverified before using it in a decision.",
+      "selected": "Selected as a current exact episode from a distinct publisher outside the protected three-edition cooldown, with unusually complete sourced notes and runtime evidence.",
+      "transcript": "https://www.cognitiverevolution.ai/ai-am-carbon-in-the-arena-mistral-s-le-chonk-the-agent-run-economy-ferroelectric-ram-new-hacks/",
+      "scope": "Reviewed the complete official sourced notes covering all seven parts, evidence qualifications, referenced primary sources, closing footnotes and full chapter sequence.",
+      "promo": "Sponsor segments at 06:34–08:17, 21:50–24:26 and 41:39–43:16 are identified and excluded from editorial evidence.",
+      "takeaways": [
+        "Label whether each claim is published or merely asserted.",
+        "Open primary evidence before repeating benchmark conclusions.",
+        "Separate host interpretation from observed telemetry."
+      ],
+      "segments": [
+        {
+          "start_seconds": 0,
+          "end_seconds": 394,
+          "kind": "ai",
+          "topic": "Episode framing and evidence questions."
+        },
+        {
+          "start_seconds": 394,
+          "end_seconds": 497,
+          "kind": "advertisement",
+          "topic": "Identified sponsor segment excluded from editorial evidence."
+        },
+        {
+          "start_seconds": 497,
+          "end_seconds": 1310,
+          "kind": "ai",
+          "topic": "Complexity claim and production alignment evidence."
+        },
+        {
+          "start_seconds": 1310,
+          "end_seconds": 1466,
+          "kind": "advertisement",
+          "topic": "Identified sponsor segment excluded from editorial evidence."
+        },
+        {
+          "start_seconds": 1466,
+          "end_seconds": 2499,
+          "kind": "ai",
+          "topic": "Memory architecture, agent economy and labor debate."
+        },
+        {
+          "start_seconds": 2499,
+          "end_seconds": 2596,
+          "kind": "advertisement",
+          "topic": "Identified sponsor segment excluded from editorial evidence."
+        },
+        {
+          "start_seconds": 2596,
+          "end_seconds": 5155,
+          "kind": "ai",
+          "topic": "Cyber telemetry, open-model training, capability restriction and closing."
+        }
+      ],
+      "form": "A multi-interview analysis episode supported by complete sourced show notes and a full chapter sequence.",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "runtime_source_url": "https://podcasts.apple.com/us/podcast/ai-am-carbon-in-the-arena-mistrals-le-chonk-the-agent/id1669813431?i=1000799124130",
+        "episode_url": "https://www.cognitiverevolution.ai/ai-am-carbon-in-the-arena-mistral-s-le-chonk-the-agent-run-economy-ferroelectric-ram-new-hacks/",
+        "episode_identifier": "The Cognitive Revolution, AI:AM October 31 episode",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed the complete official sourced show notes and chapter sequence; Apple verified the 88-minute runtime. No independent audio playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-02T01:30:54.908Z",
+        "learning_objective": "Separate evidence types across current claims about alignment, hardware, labor, security and open weights.",
+        "practical_action": "Trace one claim to its primary source and record its evidence type and remaining uncertainty.",
+        "selected_over_alternatives": "Selected for current exact-episode novelty, source diversity, extensive first-party notes and cooldown compliance.",
+        "content_evidence": {
+          "kind": "timecoded_agenda",
+          "url": "https://www.cognitiverevolution.ai/ai-am-carbon-in-the-arena-mistral-s-le-chonk-the-agent-run-economy-ferroelectric-ram-new-hacks/",
+          "scope": "Reviewed all seven parts, qualifications, referenced sources, closing footnotes and the complete chapter sequence."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "Three sponsor intervals are identified and excluded; guest company claims remain attributed and linked to supporting or missing evidence.",
+        "transferable_takeaways": [
+          "Distinguish production traces from fixed benchmarks.",
+          "Mark unpublished telemetry as unverified.",
+          "Separate company assertions from primary evidence."
+        ],
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 394,
+            "kind": "ai",
+            "topic": "Episode framing and evidence questions."
+          },
+          {
+            "start_seconds": 394,
+            "end_seconds": 497,
+            "kind": "advertisement",
+            "topic": "Identified sponsor segment excluded from editorial evidence."
+          },
+          {
+            "start_seconds": 497,
+            "end_seconds": 1310,
+            "kind": "ai",
+            "topic": "Complexity claim and production alignment evidence."
+          },
+          {
+            "start_seconds": 1310,
+            "end_seconds": 1466,
+            "kind": "advertisement",
+            "topic": "Identified sponsor segment excluded from editorial evidence."
+          },
+          {
+            "start_seconds": 1466,
+            "end_seconds": 2499,
+            "kind": "ai",
+            "topic": "Memory architecture, agent economy and labor debate."
+          },
+          {
+            "start_seconds": 2499,
+            "end_seconds": 2596,
+            "kind": "advertisement",
+            "topic": "Identified sponsor segment excluded from editorial evidence."
+          },
+          {
+            "start_seconds": 2596,
+            "end_seconds": 5155,
+            "kind": "ai",
+            "topic": "Cyber telemetry, open-model training, capability restriction and closing."
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "expert_analysis",
+        "editorial_form_rationale": "The sourced notes and chapter sequence support a cross-domain evidence audit when sponsor and company claims stay bounded."
+      }
+    }
+  ],
+  "watchlist": {
+    "new": [
+      {
+        "topic": "AI-ready public science artifacts",
+        "topic_id": "dab-topic-ai-ready-public-science-artifacts",
+        "why": "Project ProtoStar makes metadata, provenance and reusable public artifacts the unit of progress for scientific AI workflows.",
+        "summary": "AI-ready public science artifacts pair datasets, models, metadata, provenance and reproducible baselines so others can inspect and extend funded research.",
+        "why_now": "Hugging Face opened Project ProtoStar on November 2 after announcing the public challenge and its provenance-focused artifact requirements on October 29.",
+        "practical_value": "Research teams can package one public project with licenses, lineage, metadata and a baseline, then record which gaps still block reuse.",
+        "what_changed": "A dated public challenge now supplies a concrete test bed for producing and comparing reusable scientific AI artifacts.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/protostar",
+          "date": "2026-10-29",
+          "publisher": "Hugging Face",
+          "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+          "checked_at": "2026-11-02T01:30:54.908Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The challenge treats provenance-rich reusable artifacts, not model output alone, as the deliverable."
+          },
+          "evidence": {
+            "score": 2,
+            "reason": "The launch defines dates and artifact goals, but no completed projects or outcome evaluation exist yet."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "Current evidence comes from the challenge organizer, without independent outcome or reuse assessment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Metadata and provenance directly affect whether scientific datasets and models can be reviewed or reused."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Licensing, lineage and reproducible baselines remain useful after this individual challenge ends."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      }
+    ],
+    "updated": [],
+    "carried_forward": [
+      {
+        "topic": "Frontier model misalignment monitoring",
+        "topic_id": "dab-topic-frontier-training-containment",
+        "why": "OpenAI described a multilayer monitoring system for frontier training, evaluations and tool-using agents, including a documented coverage gap and investigated incidents.",
+        "summary": "Frontier model misalignment monitoring combines broad workload coverage, high-recall screening, contextual review, investigation and intervention authority to detect unauthorized agent behavior.",
+        "why_now": "Carried on November 2 because current source review found no independently comparable evidence that changed the prior frontier model misalignment monitoring baseline.",
+        "practical_value": "Safety teams can compare workload coverage, sampling, escalation context, review latency and intervention ownership before relying on monitoring claims.",
+        "what_changed": "The topic moves from general training containment to a concrete monitoring architecture with published layers, a known coverage gap and incident examples.",
+        "evidence": {
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "date": "2026-10-29",
+          "publisher": "OpenAI",
+          "title": "How we detect frontier model misalignment",
+          "checked_at": "2026-11-01T00:40:23.591Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source publishes a concrete multilayer monitoring architecture and an acknowledged evaluation coverage gap."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "OpenAI reports workload coverage, review layers and incidents, but independent reproduction and recall measurements remain limited."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "All reviewed implementation and incident evidence comes from the system operator describing its own monitoring program."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Frontier labs and deployers need explicit coverage, escalation and intervention ownership for consequential agent behavior."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Monitoring coverage and investigative escalation remain necessary as models, harnesses, evaluations and threats change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Synthetic enterprise evaluation environments",
+        "topic_id": "dab-topic-synthetic-enterprise-evaluation-environments",
+        "why": "Microsoft Research described privacy-preserving synthetic enterprise data and realistic task environments for evaluating Copilot behavior before production exposure.",
+        "summary": "Synthetic enterprise evaluation environments recreate organizational data, permissions and work patterns so AI assistants can be tested without exposing live confidential records.",
+        "why_now": "Carried on November 2 because current source review found no independently comparable evidence that changed the prior synthetic enterprise evaluation environments baseline.",
+        "practical_value": "Evaluation teams can construct bounded permission, retrieval and workflow tests before a copilot reaches real employees or sensitive production data.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "date": "2026-10-30",
+          "publisher": "Microsoft Research",
+          "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+          "checked_at": "2026-10-31T00:29:14.174Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source joins synthetic organizational data, realistic permissions and task evaluation into one preproduction enterprise testing environment."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Microsoft Research describes concrete construction and evaluation practices, but provides limited independent replication or public comparative outcome data."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Microsoft alone and has not been independently reproduced on another enterprise copilot environment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Enterprise teams can directly test retrieval, permission and workflow failures before exposing live employees or confidential records."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Safe preproduction evaluation with representative data and permissions remains necessary as copilots, models and enterprise systems change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Task-scoped virtual model routing",
+        "topic_id": "dab-topic-task-scoped-virtual-model-routing",
+        "why": "Vercel introduced stable virtual model identifiers with centrally governed provider, fallback and retention configuration.",
+        "summary": "Task-scoped virtual model routing lets applications call a stable identifier while administrators change providers, fallbacks and data-retention policy separately.",
+        "why_now": "Carried on November 2 because current source review found no independently comparable evidence that changed the prior task-scoped virtual model routing baseline.",
+        "practical_value": "Teams can test model substitutions, failure recovery, retention rules and rollback under one stable application interface.",
+        "evidence": {
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "date": "2026-10-28",
+          "publisher": "Vercel",
+          "title": "Introducing Virtual Models on AI Gateway",
+          "checked_at": "2026-10-29T00:39:07.799Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Virtual identifiers move provider selection and fallback policy out of application deployments into a separately governed routing layer."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Vercel documents concrete configuration behavior and availability, but supplies no independent latency, quality or failure benchmark."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Vercel alone, without an independent operator reproducing the virtual routing behavior."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Engineering teams can directly test provider swaps, fallback, retention rules and rollback without changing application code."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separating application interfaces from model-routing policy remains useful as providers, models and compliance requirements change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Consumer agent task permissions",
+        "topic_id": "dab-topic-consumer-agent-task-permissions",
+        "what_changed": "OpenAI and ServiceNow extend the prior permission baseline into incident investigation, change-risk assessment and governed record updates.",
+        "summary": "Consumer and enterprise task permissions define which information an assistant may use, which records it may change and which actions require confirmation.",
+        "why_now": "Carried on November 2 because current source review found no independently comparable evidence that changed the prior consumer agent task permissions baseline.",
+        "practical_value": "Service teams can trial one request by restricting records, requiring confirmation and reviewing every proposed update and exception.",
+        "evidence": {
+          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "date": "2026-10-28",
+          "publisher": "OpenAI",
+          "title": "OpenAI and ServiceNow expand strategic partnership",
+          "checked_at": "2026-10-29T00:39:07.799Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update extends permission design from user-facing assistants into governed enterprise agents that investigate and modify operational records."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "OpenAI describes specific ServiceNow workflows and permission inheritance, but measured outcomes and failure rates remain unavailable."
+          },
+          "independence": {
+            "score": 3,
+            "reason": "OpenAI and earlier Plaud evidence show separate implementations, though both accounts remain vendor-authored product descriptions."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The sources use different workflows and provide no comparable numerical permission measure observed at two valid times."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Service owners can immediately bound records, confirmations, review evidence and escalation for one routine operational request."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Least authority, visible evidence and confirmation before consequential actions remain durable across consumer and enterprise agent products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "The sources use different workflows and provide no comparable numerical permission measure observed at two valid times.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward after the October 30 review found no material evidence change requiring a new assessment."
+      },
+      {
+        "topic": "Continuous multi-level agent evaluation",
+        "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
+        "what_changed": "Salesforce added cross-platform production thresholds, API-change tests, approval-based quarantine, kill-switch actions and hard spending limits to the existing evaluation signal.",
+        "summary": "Continuous multi-level agent evaluation tests business facts, tools, APIs, orchestration quality, security and cost across development and live operation.",
+        "why_now": "Carried on November 2 because current source review found no independently comparable evidence that changed the prior continuous multi-level agent evaluation baseline.",
+        "practical_value": "Teams can design a bounded release and runtime gate that names quality thresholds, cost limits, intervention owners, approval steps and recovery tests.",
+        "evidence": {
+          "url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+          "date": "2026-10-27",
+          "publisher": "Salesforce",
+          "title": "Salesforce Expands Agent Fabric to Catch Failures and Control Costs",
+          "checked_at": "2026-10-28T00:22:00.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update connects familiar evaluation methods to explicit cross-platform runtime interventions and enforceable budget controls."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Salesforce describes named product behaviors and availability, but customer outcomes and performance remain vendor-reported."
+          },
+          "independence": {
+            "score": 3,
+            "reason": "Separate AWS and Salesforce implementations support the workflow pattern, though neither supplies an independent comparative audit."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The two publications use different measures and provide no comparable dated numeric observations for a momentum score."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can directly translate quality, API and cost failures into approval, quarantine, kill-switch and recovery policies."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Connecting evaluation evidence to bounded intervention remains necessary across changing agents, models, tools and infrastructure."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "Independent publisher implementations broaden the pattern, but no stable comparable numeric measure establishes momentum.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward after the October 29 review found no material evidence change requiring a new assessment."
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Native multimodal world simulation",
+        "topic_id": "dab-topic-native-multimodal-world-simulation",
+        "why": "Carried forward after the October 29 review found no material evidence change requiring a new assessment.",
+        "summary": "Native multimodal world simulation generates interactive scenes, movement, dialogue and ambient sound together while responding to user steering in real time.",
+        "why_now": "Dropped on November 2 because the current review found no new independently comparable evidence beyond the prior world-simulation baseline.",
+        "practical_value": "Research teams can retain the prior evaluation plan but should wait for comparable task results before treating further demonstrations as momentum.",
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Genie 4 combines steerable interactive world generation with native audio and dialogue in one research system."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Google publishes detailed demonstrations and limitations, but access is restricted and no independent benchmark is available."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed capability evidence comes from Google DeepMind without independent reproduction during this editorial review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Simulation teams can evaluate continuity, object permanence, latency and audio alignment before considering training use."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Testing coherence and controllability remains useful as world-model architectures and media capabilities continue to change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4.",
+          "metric": null,
+          "observations": []
+        },
+        "reason": "Archived from the active watchlist after the review found no independently comparable measurement that changed the prior assessment.",
+        "previous_evidence": {
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "date": "2026-10-27",
+          "publisher": "Google DeepMind",
+          "title": "Genie 4: A new generation of world simulation",
+          "checked_at": "2026-10-28T00:22:00.000Z"
+        }
+      }
+    ],
+    "refreshed_at": "2026-11-02T01:30:54.908Z"
+  },
+  "book_mappings": [
+    {
+      "story_id": "nov02-t1-nemotron-haunted-house-pipeline",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Multimodal reliability boundaries",
+      "connection": "The prototype exposes how each model boundary and application-state transition can fail independently.",
+      "what_to_study_next": "Build a latency and failure budget for speech, vision, orchestration, synthesis and animation before integrating the components."
+    },
+    {
+      "story_id": "nov02-t2-behavioral-evals-after-provenance",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Served-stack behavioral evidence",
+      "connection": "The experiment shows that component provenance and the context actually served at runtime answer different assurance questions.",
+      "what_to_study_next": "Record weights, adapters and runtime settings for every evaluation, then pair capability checks with refusal and boundary tests."
+    },
+    {
+      "story_id": "nov02-a1-governed-onboarding-case-context",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Governed case prompts",
+      "connection": "Onboarding agents need prompts grounded in versioned evidence, exception state and explicit human decision rights.",
+      "what_to_study_next": "Write a case-review prompt that cites every document, surfaces unresolved exceptions and stops before consequential action."
+    },
+    {
+      "story_id": "nov02-a2-article-recommendation-audit-skill",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Repeatable recommendation-audit Skills",
+      "connection": "A frozen query set and reviewable metadata changes turn a one-off experiment into a shared learning procedure.",
+      "what_to_study_next": "Run the Skill on ten reader questions, compare before-and-after citations and document every rejected metadata variant."
+    }
+  ],
+  "images": [
+    {
+      "story_id": "nov02-t1-nemotron-haunted-house-pipeline",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A local workstation routes microphone audio, camera frames and application state through speech, vision, orchestration and animated-character components."
+    },
+    {
+      "story_id": "nov02-t2-behavioral-evals-after-provenance",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "An engineer compares signed model artifacts and adapters with paired capability and safety evaluations on the exact served runtime."
+    },
+    {
+      "story_id": "nov02-k1-protostar-ai-ready-science",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Researchers arrange public papers, datasets, metadata cards and provenance links into an inspectable AI-ready science package."
+    },
+    {
+      "story_id": "nov02-k2-science-access-partnerships",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A research coordinator maps model access to scientific teams, public datasets, open standards, reproducible methods and independent outcome measures."
+    },
+    {
+      "story_id": "nov02-a1-governed-onboarding-case-context",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "An onboarding team reviews a governed case timeline containing documents, exceptions, agent recommendations, human approvals and journey metrics."
+    },
+    {
+      "story_id": "nov02-a2-article-recommendation-audit-skill",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "An editor compares a frozen set of reader questions with before-and-after article recommendations, citations, omissions and approved metadata changes."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "video_prequalification": {
+    "candidates": [
+      {
+        "title": "How AI is breaking the internet (and what to do about it)",
+        "publisher": "TED",
+        "url": "https://www.ted.com/talks/matthew_prince_how_ai_is_breaking_the_internet_and_what_to_do_about_it",
+        "duration_minutes": 12.6833,
+        "editorial_evidence": "Reviewed the complete official TED program and transcript evidence, then confirmed the exact 12:41 full-length player; in a fresh signed-out browser the seek position advanced from approximately 00:03 to 00:16.",
+        "research_disposition": "Selected after complete source review and genuine advancing playback. The exact URL is unique; repeated TED publisher exposure and the older original date remain explicit advisories.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-02T01:30:54.908Z"
+      },
+      {
+        "title": "AI & Human Connection",
+        "publisher": "Murmuration",
+        "url": "https://vimeo.com/1236099991",
+        "duration_minutes": 7.7333,
+        "editorial_evidence": "Reviewed the complete official Vimeo transcript from 00:06 through 07:30 and confirmed the exact 07:44 program; the signed-out player advanced from zero to 00:08 and later displayed 00:26.",
+        "research_disposition": "Selected as the distinct low-promotion publisher after PBS displayed an unavailable player and a YouTube candidate failed to advance.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-02T01:30:54.908Z"
+      },
+      {
+        "title": "AI and the Next Decade",
+        "publisher": "PBS",
+        "url": "https://pr.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
+        "duration_minutes": 4.3167,
+        "editorial_evidence": "The complete official transcript was reviewed, but the signed-out embedded player displayed that the video was unavailable.",
+        "research_disposition": "Rejected fail-closed because transcript and metadata do not substitute for advancing full-length playback.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-02T01:30:54.908Z"
+      },
+      {
+        "title": "Humans are teaching AI how to do their jobs",
+        "publisher": "CBS News / 60 Minutes",
+        "url": "https://www.cbsnews.com/video/ai-future-of-work-60-minutes-video-2026-10-04/",
+        "duration_minutes": 13.25,
+        "editorial_evidence": "Reviewed the complete official CBS companion report and its full-transcript link, then confirmed the exact 13:15 program; after preroll, the signed-out full-length player advanced from 4.47 to 12.53 seconds.",
+        "research_disposition": "Reviewed from the protected November 1 receipt and not selected; exact URL uniqueness and adjacent publisher exposure were checked separately.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-01T00:36:35.971Z"
+      },
+      {
+        "title": "How algorithms manipulate you (and how to fight back)",
+        "publisher": "TED",
+        "url": "https://www.ted.com/talks/jen_golbeck_and_shalini_kantayya_how_algorithms_manipulate_you_and_how_to_fight_back",
+        "duration_minutes": 9.5881,
+        "editorial_evidence": "Reviewed the complete official TED transcript from 0:03 through 9:24 and confirmed the exact program; after preroll, the signed-out TED full-length player advanced from 8.98 to 15.03 seconds.",
+        "research_disposition": "Reviewed from the protected November 1 receipt and not selected; exact URL uniqueness and adjacent publisher exposure were checked separately.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-01T00:22:10.892Z"
+      },
+      {
+        "title": "From a Workday Expert: Payroll Agent",
+        "publisher": "Workday",
+        "url": "https://community-content.workday.com/en-us/public/learn/training/ai-training/from-a-workday-expert-payroll-agent.html?lang=en-us",
+        "duration_minutes": 13.705,
+        "editorial_evidence": "The protected October 29 receipt records complete caption review and advancing exact-player verification for this Workday program.",
+        "research_disposition": "Rejected because the owner-confirmed pair was too vendor-product-marketing-oriented; the historical evidence is retained without relabeling the program independent.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-29T01:03:42.045Z"
+      },
+      {
+        "title": "From a Workday Expert: Self-Service Agent",
+        "publisher": "Workday",
+        "url": "https://community-content.workday.com/en-us/public/learn/training/ai-training/from-a-workday-expert-self-service-agent.html?lang=en-us",
+        "duration_minutes": 16.7648,
+        "editorial_evidence": "The protected October 29 receipt records complete caption review and advancing exact-player verification for this Workday program.",
+        "research_disposition": "Rejected because the owner-confirmed pair was too vendor-product-marketing-oriented; the historical evidence is retained without relabeling the program independent.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-10-29T00:39:07.799Z"
+      }
+    ]
+  },
+  "video_diversity_exception": null,
+  "source_discovery_audit": {
+    "reviewed_at": "2026-11-02T01:30:54.908Z",
+    "candidates": [
+      {
+        "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+        "publisher": "NVIDIA",
+        "original_date": "2026-10-30T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported fallback treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://arize.com/blog/evil-qwen-activation-steering/",
+        "publisher": "Arize",
+        "original_date": "2026-10-30T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported fallback treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://huggingface.co/blog/protostar",
+        "publisher": "Hugging Face",
+        "original_date": "2026-10-29T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported fallback treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+        "publisher": "Anthropic",
+        "original_date": "2026-10-28T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported fallback treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai",
+        "publisher": "Databricks",
+        "original_date": "2026-10-30T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported fallback treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://every.to/source-code/how-to-get-ai-agents-to-recommend-your-articles",
+        "publisher": "Every",
+        "original_date": "2026-10-27T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated item verification, supported fallback treatment and full-archive exact-URL review."
+      },
+      {
+        "url": "https://podcasts.apple.com/us/podcast/taking-on-servicenow-coding-agents-the-rest-of-us/id1668002688?i=1000798684005",
+        "publisher": "No Priors",
+        "original_date": "2026-10-29T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "considered",
+        "disposition_reason": "Reviewed as an exact dated episode with verified identity, runtime and complete official content evidence; selected for the separate podcast section."
+      },
+      {
+        "url": "https://www.cognitiverevolution.ai/ai-am-carbon-in-the-arena-mistral-s-le-chonk-the-agent-run-economy-ferroelectric-ram-new-hacks/",
+        "publisher": "The Cognitive Revolution",
+        "original_date": "2026-10-31T21:45:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "considered",
+        "disposition_reason": "Reviewed as an exact dated episode with verified identity, runtime and complete official content evidence; selected for the separate podcast section."
+      },
+      {
+        "url": "https://www.ted.com/talks/matthew_prince_how_ai_is_breaking_the_internet_and_what_to_do_about_it",
+        "publisher": "TED",
+        "original_date": "2026-04-01T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "considered",
+        "disposition_reason": "Reviewed outside the registered index set as exact first-party media and selected only after complete content review plus signed-out advancing playback."
+      },
+      {
+        "url": "https://vimeo.com/1236099991",
+        "publisher": "Murmuration",
+        "original_date": "2026-09-30T00:00:00Z",
+        "checked_at": "2026-11-02T01:30:54.908Z",
+        "disposition": "considered",
+        "disposition_reason": "Reviewed outside the registered index set as exact first-party media and selected only after complete content review plus signed-out advancing playback."
+      }
+    ],
+    "fallback_decisions": [
+      {
+        "story_id": "nov02-t1-nemotron-haunted-house-pipeline",
+        "why_selected_over_recent_options": "No qualified November 1 original item survived complete review. This October 30 primary source is within the justified 72-hour fallback and exposes an end-to-end local multimodal engineering pipeline with stated limitations.",
+        "newer_sources_considered": [
+          "https://arize.com/blog/evil-qwen-activation-steering/",
+          "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai"
+        ]
+      },
+      {
+        "story_id": "nov02-t2-behavioral-evals-after-provenance",
+        "why_selected_over_recent_options": "No qualified November 1 technical item survived complete review. The October 30 experiment is within the justified 72-hour fallback and supplies current measured evidence plus explicit limits for a distinct served-stack evaluation procedure.",
+        "newer_sources_considered": [
+          "https://huggingface.co/blog/nvidia/nemotron-halloween",
+          "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai"
+        ]
+      },
+      {
+        "story_id": "nov02-k1-protostar-ai-ready-science",
+        "why_selected_over_recent_options": "No qualifying November 1 science-workflow item survived source reading. The October 29 item is within the justified 168-hour fallback and becomes timely as the public challenge opens on the edition date.",
+        "newer_sources_considered": [
+          "https://huggingface.co/blog/nvidia/nemotron-halloween",
+          "https://arize.com/blog/evil-qwen-activation-steering/"
+        ]
+      },
+      {
+        "story_id": "nov02-k2-science-access-partnerships",
+        "why_selected_over_recent_options": "No qualified 24- or 72-hour Anthropic item matched the applied-science category. The October 28 source uses a justified 168-hour fallback for its concrete partner list, open-artifact commitments and explicit early-stage caveat.",
+        "newer_sources_considered": [
+          "https://huggingface.co/blog/nvidia/nemotron-halloween",
+          "https://arize.com/blog/evil-qwen-activation-steering/"
+        ]
+      },
+      {
+        "story_id": "nov02-a1-governed-onboarding-case-context",
+        "why_selected_over_recent_options": "No qualified November 1 agent-operations item survived full reading. The October 30 article is within the justified 72-hour fallback and supplies an unusually concrete case-governance pattern with human decision ownership.",
+        "newer_sources_considered": [
+          "https://huggingface.co/blog/nvidia/nemotron-halloween",
+          "https://arize.com/blog/evil-qwen-activation-steering/"
+        ]
+      },
+      {
+        "story_id": "nov02-a2-article-recommendation-audit-skill",
+        "why_selected_over_recent_options": "The October 27 original date requires the 168-hour fallback. It is selected because the November 1 update supplies a distinct, measurable editorial procedure and simulation evidence not present in recent commitment-tally, parsing or release-control Skills.",
+        "newer_sources_considered": [
+          "https://huggingface.co/blog/nvidia/nemotron-halloween",
+          "https://arize.com/blog/evil-qwen-activation-steering/"
+        ]
+      }
+    ],
+    "index_review": {
+      "eligible": 87,
+      "inspected": 8,
+      "unreviewed": [
+        "acl-anthology",
+        "anthropic",
+        "article-ibm-research-ai",
+        "arxiv-cs-ai",
+        "arxiv-cs-cl",
+        "arxiv-cs-lg",
+        "berkeley-bair",
+        "deepseek-news",
+        "github-ai-agents",
+        "github-generative-ai",
+        "github-llm",
+        "github-trending",
+        "google-deepmind-blog",
+        "hacker-news-newest",
+        "hacker-news-show",
+        "hugging-face-daily-papers",
+        "hugging-face-datasets",
+        "hugging-face-models",
+        "hugging-face-spaces",
+        "iclr",
+        "icml",
+        "meta-ai-blog",
+        "mit-csail",
+        "neurips",
+        "openreview",
+        "podcast-a16z-show",
+        "podcast-agora-briefing",
+        "podcast-ai-for-humans",
+        "podcast-ai-future-work",
+        "podcast-ai-inside",
+        "podcast-data-exchange",
+        "podcast-everyday-ai",
+        "podcast-eye-on-ai",
+        "podcast-gradient-dissent",
+        "podcast-latent-space",
+        "podcast-nvidia-ai",
+        "podcast-practical-ai",
+        "podcast-twiml",
+        "qwen-blog",
+        "reddit-localllama",
+        "reddit-machinelearning",
+        "specialized-discords",
+        "stanford-hai",
+        "the-batch",
+        "x-research-feeds",
+        "xai-news",
+        "youtube-anthropic",
+        "youtube-google-deepmind",
+        "youtube-openai",
+        "research-20261026-a01",
+        "research-20261026-a04",
+        "research-20261026-a05",
+        "research-20261026-a12",
+        "research-20261026-p03",
+        "deep-20261026-a01-google-research",
+        "deep-20261026-a02-microsoft-ai",
+        "deep-20261026-a03-nvidia-news",
+        "deep-20261026-p02-data-skeptic",
+        "deep-20261026-v01-two-minute-papers",
+        "directory-9ad7c274f2d56274bcd5ddcc",
+        "directory-a74f303f4b0c39344c1314cf",
+        "directory-9c0885bdb370f69c9262b88c",
+        "directory-64f0886a6793aa8858a4b62d",
+        "directory-6ea6e283349c7b62ac1ced9d",
+        "directory-d6cf3f9fa167b8173a35228b",
+        "directory-8df3614a9972a25fc59475ed",
+        "directory-ecf69ec2f036e803388f40ca",
+        "directory-4852e367f74118ff2dc1eec9",
+        "directory-54d90ff964a74ff98851ae11",
+        "directory-0dffb60aadd4ba31b5c090dc"
+      ],
+      "disabled_unreviewed": [
+        "research-20261026-a02",
+        "research-20261026-a03",
+        "research-20261026-a06",
+        "research-20261026-a07",
+        "research-20261026-a08",
+        "research-20261026-a09",
+        "research-20261026-a10",
+        "research-20261026-a11",
+        "research-20261026-a13",
+        "research-20261026-a14",
+        "research-20261026-v01",
+        "research-20261026-v02",
+        "research-20261026-v03",
+        "research-20261026-v04",
+        "research-20261026-v05",
+        "research-20261026-v06",
+        "research-20261026-v07",
+        "research-20261026-p01",
+        "research-20261026-p02",
+        "research-20261026-p04",
+        "research-20261026-p05",
+        "research-20261026-p06",
+        "research-20261026-p07",
+        "deep-20261026-a04-synced",
+        "deep-20261026-p01-lex",
+        "deep-20261026-p03-talking-machines",
+        "directory-30c771704ce20d310317aee8",
+        "directory-581aeefb9198185f59bfc7df",
+        "directory-6e0e32e58ba2e488ad8c4c61",
+        "directory-6c95ff08aa6eaae297a12605",
+        "directory-3c29ebc2d9cbcc9f11312e28",
+        "directory-6fc2c16051b6c5876b5c143e",
+        "directory-cc8c40e66ad241091baabb53",
+        "directory-c511698feee38a8793924c12",
+        "directory-dbb55a0c7c63ce90174a69ac",
+        "directory-bb4f514f62ba0e0a08d6af6b",
+        "directory-e645db24d69ee7a0f21d8767",
+        "directory-85ee8e554a07476bacde4af4",
+        "directory-8b0eaafedc559312fb655fc6",
+        "directory-6bb864602986d830dee61c52",
+        "directory-598b30880cda55e1fbd897e4",
+        "directory-b1b767160026d31a4f001f72",
+        "directory-2e50ab69ebea3b2c9412dd48",
+        "directory-207b781e953be997d6f84c93",
+        "directory-22bfce3172fd5a67ebfcdde4",
+        "directory-9daf9da90f479955fe3e7700",
+        "directory-dbdbb37cd61bd05d3daa5975",
+        "directory-c15ce5b4a9c1e9e23b12e5c5",
+        "directory-d7d6951e0913cca8d43e64dc",
+        "directory-86ca1c8904dd91903440c2a9",
+        "directory-8ff038a44faf8336fd28b74b",
+        "directory-9d99ff8f4466a1f65bfc4917",
+        "directory-055badde01b32d19771532e7",
+        "directory-a65ed82afa514bd8b255231d",
+        "directory-88944f584a55367d3844df62",
+        "directory-76ddf221aa9a485fd35e51d6",
+        "directory-3c8435418a50bbe5096c415b",
+        "directory-f333686bf009f24fa95a8068",
+        "directory-a639b4426b7c8da8a060bd66",
+        "directory-e09ae3dc4358cf271491a3ac",
+        "directory-2f76f620c3ff2a8f2cbf7918",
+        "directory-ffef3b45859d4601fbc60c69",
+        "directory-8f73fa03dd8761b82ed67771",
+        "directory-d4bdf42a0b23db56b0e5a7b1",
+        "directory-b51c54b09007109b0ed9dd27",
+        "directory-f771d4f56ad4dbaab6f21e0e",
+        "directory-985e561bc559a1cd2b93119f",
+        "directory-64b811560a52e317d4a76b1f",
+        "directory-5e90c3904ae9e6147f058897",
+        "directory-0be5c22bd2fbf2c24835cdf8",
+        "directory-2f92b46f1e169255a4c25763",
+        "directory-0f6a23dfe3ba7ab161da730d",
+        "directory-d5e5461806b47ef56622ed89",
+        "directory-e3caaea65cc53b8206ca6531",
+        "directory-a40e2c9130f5fafa156910f9",
+        "directory-433a37bad4e66a78e834a463",
+        "directory-6ee1f08becb4fe912531e0df",
+        "directory-e3bfb0c3548ab358ef2a1953",
+        "directory-50a58b4f655899e01bae4aaa",
+        "directory-d3b428c2ddbc07b6f880f0e3",
+        "directory-551a351b5be510040312aeb8",
+        "directory-bd714d96839a9f618a555ff1",
+        "directory-2c111af9585124224d0bf018",
+        "directory-1c6f5db2559c3c226a112873",
+        "directory-b93e2368e85f0f95c066463e",
+        "directory-d5428d030dfff7d4639258e3",
+        "directory-79e16cd5beb5c662c4022a9f",
+        "directory-e7b100b6b999ac748e052327",
+        "directory-4c16d138c4a736e78a68127e",
+        "directory-db682c52794328eb69ebc377",
+        "directory-8263ca4c9f560c8d9c4df0de",
+        "directory-970506fbc577e6091a33c64d",
+        "directory-3834a0112c0e3a754320b557",
+        "directory-e2f33b502b264e51983a338a",
+        "directory-9f7087ce2c030a4b9da58499",
+        "directory-5c5d3d02a420135949164552",
+        "directory-48665d874f6008894d0d9385",
+        "directory-f8085f0f6e72cfbdfde3a0f8",
+        "directory-d1527db7c06b4e83370b7546",
+        "directory-6a6f2329446088f00c16886a",
+        "directory-06aa5423549ae7ab03534d6d",
+        "directory-b73c74c7240ac52cda5485c4",
+        "directory-7f3807ea3e16f9a7ad5c1e52",
+        "directory-d8bbfa9efb621702f6eb9672",
+        "directory-89818f9d7e6b4cd85a2537d5",
+        "directory-08a307fcf17784afa48977bb",
+        "directory-c831ea242dd43dc46401a87a",
+        "directory-d2316acd033bdfbce6d25fa2",
+        "directory-3d9b47e80ca1f30e4b17fff2",
+        "directory-ba671601ca876ef83df43fb8"
+      ],
+      "route_check_status": "NOT_RUN_NO_DIRECT_NODE20_PUBLIC_HTTPS_ROUTE_EXECUTOR",
+      "caveat": "Six enabled first-party article indexes and two enabled podcast indexes were inspected before selection, and every admitted item received complete content review. Route reachability, post-bundle census and media playback are separate evidence. All remaining enabled indexes and disabled sources are explicitly unreviewed."
+    }
+  }
+}
