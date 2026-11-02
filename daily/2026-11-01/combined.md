@@ -10,8 +10,6 @@
 
 **🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler 4m 48s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
-> **AAR SCHEMA WARNING:** image_aar:missing_or_inconsistent_source_bound_facts
-
 > **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Performance dashboard
@@ -45,8 +43,8 @@
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
 | Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
-| Native image generation attempts | **Not reported** | Image worker AAR; no estimation |
-| Rejected candidates | **Not reported** | Image worker AAR |
+| Native image generation attempts | **19** | Image worker AAR; no estimation |
+| Rejected candidates | **13** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **Not recorded** | Image release receipt |
@@ -138,7 +136,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** Not reported · **Rejected candidates:** Not reported.
+**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 19 · **Rejected candidates:** 13.
 
 ### Image production duration — Git-verified milestones
 
@@ -190,7 +188,24 @@ No six-image public release gallery available yet.
 **Latest failed protected stage:** VIDEO_PLAYBACK; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41374499329). Exact stage durations are available only where real source timestamps exist.
 **Owner-initiated recovery record:** [DAB-COMPILER-20261102-PUBLICATION-RECOVERY-001](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/2026-11-02-compiler-production-aar.json). Corrected in [PR #303](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/303). Owner-message timing and independent scheduler identity remain unproven.
 
-No image-stage correction receipts were available for this cycle.
+| Stage | Verified issue | Corrective action |
+|---|---|---|
+| Native saved-pixel inspection | t1 attempt 1: Extra Audience output label, simulated text boundary, undersized/safe-margin text and cache returning to synthesis. | Removed unapproved label and writing; source-bounded cache bypass and enlarged safe text were reinspected. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | t1 attempt 2: Dialogue surfaces still simulated writing; cache path dangling and animation did not share cache input. | Removed faux strokes and joined synthesis/cache to shared clean-speech branch. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | t1 attempt 3: Cache arrow pointed into stored audio; outer object/text margins insufficient. | Reversed cache flow and completed proportional safe-border RGB export; final pixels reinspected. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | t2 attempt 1: Fake code/citation writing, invented runtime sliders, decorative evidence and undersized labels. | Removed strokes/controls/scenery, retained smooth actual configuration and paired assays. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | t2 attempt 2: Four component labels and text geometry too small at exact final size. | Reflowed inventory into two rows, enlarged required labels and reviewed safe final export. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | k1 attempt 1: Decorative satellite/globe/cracked earth, unsupported weather-map patterns and small labels. | Replaced scenery/data with source package anatomy and qualitative comparison planes; enlarged text. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | k1 attempt 2: Challenge arrow incorrectly produced observed weather; source/package connector origins misleading. | Separated observed evidence and challenge inputs at baseline comparison and corrected origins. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | k2 attempt 1: Faux writing in app surface, card-grid treatment and misleading platform-scope brackets. | Removed writing/card panels and detached the web/mobile scope notes from export branches. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | a1 attempt 1: Extra permitted-specialist label, avatar-like workflow glyph, exclamation and fake history writing; title inside margin. | Removed all unapproved labels and motifs, enlarged safe type and kept explicit authority boundary. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | a1 attempt 2: Top context-to-supervisor feed had an unintended reverse arrow; detached caveat too small. | Removed reverse arrow and enlarged source limitation, retaining separate specialist return. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | a2 attempt 1: Faux question/citation/review writing, counted-looking rows and undersized labels. | Replaced rows with qualitative source traces and omission gaps, smooth planes and editorial boundary. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | a2 attempt 2: Second priority Same questions again label too small at final1200x630. | Enlarged into two lines and preserved fixed-question shared feed. Rejected saved PNG retained under reviews. |
+| Native saved-pixel inspection | a2 attempt 3: Required simulation caveat lost during typography edit. | Restored detached exact caveat without changing passing mechanism regions. Rejected saved PNG retained under reviews. |
+| Initial GitHub index resolution | Initial request treated shadow-pages-history as a directory on main and returned404. | Used actual shadow-pages-history branch with site/image-jobs/index.json; selected only exact November2 job. |
+| Local Git transport readiness | Read-only Git clone worked; dry-run push lacked authenticated HTTPS username. | Used connected GitHub blobs/trees/commits and expected-head non-force ref updates; exact accepted binary readbacks matched. |
+| Primary source page retrieval | Job aliases for ProtoStar and Every returned unavailable404/403 routes. | Read complete matching first-party articles at announcing-project-protostar and also-true-for-humans routes; immutable job/source references preserved. |
 
 > **OPERATIONAL NOTE**
 > This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.
@@ -201,9 +216,9 @@ No image-stage correction receipts were available for this cycle.
 |---|---|
 | **Weekly Work usage reported by owner** | **Not reported** |
 | Internal weekly usage reference | Target under 5% |
-| Genuine image-generation attempts | Not reported |
-| Accepted diagrams | Not reported |
-| Regeneration after acceptance | Not reported |
+| Genuine image-generation attempts | 19 |
+| Accepted diagrams | 6 |
+| Regeneration after acceptance | 0 |
 | Top 10 reported usage | Not reported |
 | Top 10 reported cost | Not reported |
 | Account-level billing telemetry | Not independently accessible to deterministic GitHub reporting |

@@ -5,7 +5,7 @@
 | Dimension | Observed evidence |
 |---|---|
 | Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"FAIL_OWNER_RECOVERY","owner_intervention_required":true} |
-| Images | {"execution":"NO_START_RECEIPT","result":"NOT_OBSERVED","publication":"UNKNOWN"} |
+| Images | {"execution":"START_OBSERVED","result":"PARTIAL","publication":"PARTIAL"} |
 | Top 10 report | NOT_OBSERVED |
 | Top 10 received by Compiler | NOT_APPLICABLE |
 | Topic-guided searches | NOT_APPLICABLE |

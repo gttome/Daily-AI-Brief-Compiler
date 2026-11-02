@@ -4,9 +4,9 @@
 
 | Dimension | Observed evidence |
 |---|---|
-| Execution | NO_START_RECEIPT |
-| Result | NOT_OBSERVED |
-| Publication | UNKNOWN |
+| Execution | START_OBSERVED |
+| Result | PARTIAL |
+| Publication | PARTIAL |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | UNKNOWN |
@@ -23,7 +23,7 @@
 
 ## Evidence and limitations
 
-- No image task execution receipt was found
+- Protected image-only live verification is missing or incomplete
 
 ## Operational result
 
