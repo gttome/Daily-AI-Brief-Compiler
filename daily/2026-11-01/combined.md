@@ -1,14 +1,14 @@
 **🟨 RELEASE PARTIAL**
-**🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 NOT_APPLICABLE** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 2, 2026 · **Production evening:** 2026-11-01 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-02 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-02/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive result: PARTIAL.** This is the single management-facing report combining the editorial Compiler and premium-image publication. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: NOT_APPLICABLE.** Top 10 report: **Not reported**; Compiler handoff: **NOT_APPLICABLE**; guided searches: **NOT_APPLICABLE**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
-**🕒 Production stage durations:** **Compiler 4m 48s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
+**🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler 4m 48s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
 > **AAR SCHEMA WARNING:** image_aar:missing_or_inconsistent_source_bound_facts
 
@@ -18,6 +18,11 @@
 
 | Measure | Recorded result | Source / caveat |
 |:--|:--:|:--|
+| Entire-system evidence | **NOT_APPLICABLE** | Full Top 10 list, bound Compiler input, all-format search receipts and existing release checks; separate from publication and autonomy |
+| Top 10 report | **Not reported · Not recorded topics** | Same Chicago cycle report; provisional/partial coverage remains disclosed |
+| Top 10 received by Compiler | **NOT_APPLICABLE** | Exact report snapshot bytes; consumed commit is Compiler-recorded, not independently fetched |
+| Top 10 guided article/video/podcast searches | **NOT_APPLICABLE** | Actual source-search receipts and selected/rejected topic outcomes |
+| Top 10 stage duration | **Not recorded** | Same-cycle run receipt only; no runtime or usage estimate |
 | Editorial publication | **PASS** | State and public reader integrity receipt |
 | **Unattended autonomy (separate from publication)** | **FAIL_OWNER_RECOVERY** | Owner incident receipt takes precedence over unverified producer self-attestation |
 | Recorded protected publishing gate failures | **5** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
@@ -54,8 +59,9 @@
 ## Production architecture and checkpoints
 
 ```mermaid
-flowchart LR
-  A["Compiler 19:15 Chicago"] --> B["Sealed editorial bundle"]
+flowchart TD
+  T["Top 10 topics 17:00 Chicago"] -.-> A["Compiler 19:15 Chicago"]
+  A --> B["Sealed editorial bundle"]
   B --> C["Published reader verified"]
   C --> D["Current-date six-story image job"]
   D --> E["Six source-bound premium PNGs"]
@@ -65,7 +71,47 @@ flowchart LR
   classDef uncertain fill:#fef3c7,color:#804c14,stroke:#d99412,stroke-width:2px
   class A,B,C,D done
   class E,F,G uncertain
+  class T uncertain
 ```
+
+## Daily AI Topic Top 10 and Compiler handoff
+
+**Research cycle:** 2026-11-01 · **Target Brief:** 2026-11-02 · **Scheduled start:** 17:00 America/Chicago
+
+| Dimension | Recorded evidence |
+|---|---|
+| Run/report result | NOT\_APPLICABLE |
+| Report status / topics | Not reported |
+| Freshness | NOT\_OBSERVED |
+| Compiler handoff | NOT\_APPLICABLE |
+| Search coverage | NOT\_APPLICABLE |
+| Selection mapping verification | NONE\_RECORDED |
+| Observed start / finish | Not reported |
+| Elapsed minutes | Not reported |
+| Usage percent | Not reported |
+| Cost USD | Not reported |
+| Independent scheduler autonomy | UNPROVEN |
+| Compiler-recorded consumed commit | Not reported |
+| Report SHA-256 | Not reported |
+
+The Top 10 handoff was not applicable before the November 2, 2026 research cycle.
+
+No valid cycle-specific ranked list is available in the collected evidence.
+
+**Sample scope:** Not reported. **Ranking basis:** Not reported.
+
+| Search format | Receipt rows | Attempts recorded | Explicitly not attempted |
+|---|---:|---:|---:|
+| article | 0 | 0 | 0 |
+| video | 0 | 0 | 0 |
+| podcast | 0 | 0 | 0 |
+
+**Selected Brief items linked to trends:**
+
+No validated selection-to-topic mapping was recorded.
+
+Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the Compiler-recorded consumed commit is not independently fetched here. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.
+
 
 ## Track 1 — Compiler
 
@@ -142,6 +188,7 @@ No six-image public release gallery available yet.
 
 **Editor recovery classification:** FAIL_OWNER_RECOVERY. **Owner intervention:** Documented and required. **Protected same-edition failures recorded:** 5. 
 **Latest failed protected stage:** VIDEO_PLAYBACK; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41374499329). Exact stage durations are available only where real source timestamps exist.
+**Owner-initiated recovery record:** [DAB-COMPILER-20261102-PUBLICATION-RECOVERY-001](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/2026-11-02-compiler-production-aar.json). Corrected in [PR #303](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/303). Owner-message timing and independent scheduler identity remain unproven.
 
 No image-stage correction receipts were available for this cycle.
 
@@ -157,6 +204,8 @@ No image-stage correction receipts were available for this cycle.
 | Genuine image-generation attempts | Not reported |
 | Accepted diagrams | Not reported |
 | Regeneration after acceptance | Not reported |
+| Top 10 reported usage | Not reported |
+| Top 10 reported cost | Not reported |
 | Account-level billing telemetry | Not independently accessible to deterministic GitHub reporting |
 
 **Future reporting rule:** For cycles without an optional owner-usage record, publish the complete AAR with `Not reported`; do not reuse prior percentages, guess remaining weekly credits or delay tomorrow's production.
@@ -165,6 +214,7 @@ No image-stage correction receipts were available for this cycle.
 
 | Control | Recurring contract |
 |---|---|
+| AI Topic Top 10 | Sole report task · 17:00 America/Chicago · saved dated list guides same-evening research |
 | Primary Compiler | Sole existing task · 19:15 America/Chicago |
 | Premium image production | Sole existing task · standard 21:15 America/Chicago |
 | Exact image job selection | Newly published next-date `PUBLISHED_PENDING` only |
@@ -192,4 +242,4 @@ No image-stage correction receipts were available for this cycle.
 
 ---
 
-*Generated deterministically from edition-specific GitHub records. Primary report is a synthesis; original Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*
+*Generated deterministically from cycle- and edition-specific GitHub records. The report combines the ranked Top 10, its Compiler handoff and searches, the published Brief, and the image run; original research, Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*
