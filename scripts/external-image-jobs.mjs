@@ -101,8 +101,8 @@ export function buildExternalImageJob({bundleBytes,state,sourceCommit,liveReceip
   const bundle=JSON.parse(bundleBytes.toString('utf8'));
   const date=validateInput({bundle,bundleBytes,state,sourceCommit,liveReceipt});
   const sourceBundleSha=hash(bundleBytes);
-  const positiveProvenance=['rev7','rev8'].includes(readImageProcessVersions().image_starter_contract_version);
-  const provenance=positiveProvenance?positiveImageSourceProvenance({bundle,state}):null;
+  const receiptProvenance=['rev7','rev8'].includes(readImageProcessVersions().image_starter_contract_version);
+  const provenance=receiptProvenance?positiveImageSourceProvenance({bundle,state}):null;
   return {
     schema_version:IMAGE_JOB_SCHEMA,
     edition_date:date,
@@ -112,8 +112,8 @@ export function buildExternalImageJob({bundleBytes,state,sourceCommit,liveReceip
     source:{
       branch:state.branch,
       one_time_owner_recovery:isAuthorizedOct9Recovery({state,bundle}),
-      unattended_schedule_proven:positiveProvenance?provenance.unattended_schedule_proven:!isAuthorizedOct9Recovery({state,bundle}),
-      ...(positiveProvenance?{producer_mode:provenance.producer_mode,provenance_basis:provenance.provenance_basis,original_continuation_mode:provenance.original_continuation_mode??null}:{}),
+      unattended_schedule_proven:receiptProvenance?provenance.unattended_schedule_proven:!isAuthorizedOct9Recovery({state,bundle}),
+      ...(receiptProvenance?{producer_mode:provenance.producer_mode,provenance_basis:provenance.provenance_basis,original_continuation_mode:provenance.original_continuation_mode??null}:{}),
       commit_sha:sourceCommit,
       bundle_path:'shadow-runs/'+date+'/edition-bundle.json',
       bundle_sha256:sourceBundleSha,

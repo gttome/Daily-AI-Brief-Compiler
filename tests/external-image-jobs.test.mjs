@@ -45,6 +45,9 @@ test('external app handoff requires explanatory text and permits story-fit infog
   assert.equal(job.lifecycle,'PUBLISHED_PENDING');
   assert.equal(job.accepted_images,0);
   assert.equal(job.source.bundle_sha256,digest(f.bundleBytes));
+  assert.equal(job.source.unattended_schedule_proven,null);
+  assert.equal(job.source.producer_mode,'unknown');
+  assert.equal(job.source.provenance_basis,'source_receipt_missing_or_ambiguous');
   assert.equal(job.stories.length,6);
   assert.equal(job.quality.explanatory_text_required,true);
   assert.equal(job.quality.story_fit_infographic_allowed,true);
@@ -60,17 +63,6 @@ test('external app handoff requires explanatory text and permits story-fit infog
     assert.equal(s.accepted_locked,false);
   }
 });
-test('failed, unverified, stale, wrong-date and fake image input fail closed',()=>{
-  const f=fixture();
-  assert.throws(()=>buildExternalImageJob({...f,state:{...f.state,state:'SHADOW_FAILED'}}),/verified_published/);
-  assert.throws(()=>buildExternalImageJob({...f,liveReceipt:{...f.liveReceipt,result:'FAIL'}}),/live_release/);
-  assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.concat([f.bundleBytes,Buffer.from(' ')])}),/verified_published/);
-  assert.throws(()=>buildExternalImageJob({...f,sourceCommit:'f'}),/source_commit/);
-  const old=JSON.parse(f.bundleBytes);old.edition_date='2026-10-08';
-  assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.from(JSON.stringify(old))}),/historic/);
-  const accepted=JSON.parse(f.bundleBytes);accepted.images[0].accepted=true;
-  assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.from(JSON.stringify(accepted))}),/verified_published|pending_figure/);
-});
 test('active rev8 handoff does not turn owner recovery or absent scheduler evidence into unattended success',()=>{
   const f=fixture();
   function generate(receipt){
@@ -84,6 +76,17 @@ test('active rev8 handoff does not turn owner recovery or absent scheduler evide
   assert.equal(recovered.source.producer_mode,'owner_recovery');
   assert.equal(generate(undefined).source.unattended_schedule_proven,null);
   assert.equal(generate(undefined).source.producer_mode,'unknown');
+});
+test('failed, unverified, stale, wrong-date and fake image input fail closed',()=>{
+  const f=fixture();
+  assert.throws(()=>buildExternalImageJob({...f,state:{...f.state,state:'SHADOW_FAILED'}}),/verified_published/);
+  assert.throws(()=>buildExternalImageJob({...f,liveReceipt:{...f.liveReceipt,result:'FAIL'}}),/live_release/);
+  assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.concat([f.bundleBytes,Buffer.from(' ')])}),/verified_published/);
+  assert.throws(()=>buildExternalImageJob({...f,sourceCommit:'f'}),/source_commit/);
+  const old=JSON.parse(f.bundleBytes);old.edition_date='2026-10-08';
+  assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.from(JSON.stringify(old))}),/historic/);
+  const accepted=JSON.parse(f.bundleBytes);accepted.images[0].accepted=true;
+  assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.from(JSON.stringify(accepted))}),/verified_published|pending_figure/);
 });
 test('immutable edition packet and index are idempotent; changed source cannot overwrite',t=>{
   const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'external-job-'));
