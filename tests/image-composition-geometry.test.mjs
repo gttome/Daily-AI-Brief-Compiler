@@ -95,3 +95,11 @@ test('future bound specification continues to pass rather than depending on lega
  const spec=fixture();spec.edition_date='2027-01-01';
  assert.equal(validateFrozenImageSpecification({spec,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
 });
+
+test('Nov02 exact accepted specifications remain valid, modified copies do not inherit the exception',()=>{
+ const specs=JSON.parse(fs.readFileSync('external-image-packages/2026-11-02/reviews/frozen-specifications.json'));
+ for(const spec of specs){
+  assert.equal(validateCompositionGeometry(spec).result,'ACCEPTED_PREACTIVATION_SPEC_UNCHANGED');
+  assert.throws(()=>validateCompositionGeometry({...spec,visual_thesis:spec.visual_thesis+' changed'}));
+ }
+});

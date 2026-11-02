@@ -10,7 +10,14 @@ export const IMAGE_LAYOUT_REQUIREMENTS=Object.freeze({
 // edition, source, story and all review fields. Never derive this allowlist from
 // mutable package files at runtime. This exempts only the new geometry check;
 // all existing source/label/semantic and package admission checks still apply.
-const ACCEPTED_NOV01_SPEC_SHA256=Object.freeze({
+// Nov02 six accepted specs: protected main a6142df; exact whole-spec hashes only.
+const ACCEPTED_PREACTIVATION_SPEC_SHA256=Object.freeze({
+  'nov02-t1-nemotron-haunted-house-pipeline':'6970800414f44edb2e948e8b1638ad45b67223e9adfd73962a5f130d36422b35',
+  'nov02-t2-behavioral-evals-after-provenance':'6e0316a5bb33138608ed8c68345ef0d3c347d226e21bd03f29dc1230a2689020',
+  'nov02-k1-protostar-ai-ready-science':'85c5f5b2a712218aaf8563237bd55d08f5972c1e1da209cbb0e6cc06b84cc1b4',
+  'nov02-k2-gemini-inline-file-editing':'93ad2863dd278af97e9ac41717b64beeb228d3e139389765b1d9bc1b0f3ed0ba',
+  'nov02-a1-governed-onboarding-case-context':'c36f9c4750ef5b05844d21d0f042eb976bd99569923c2ff07dded0829801c171',
+  'nov02-a2-article-recommendation-audit-skill':'c61d70fa969bf8b1a8c19bfa16b7ed16f8817a9b3cd63700a99bd40fef64d476',
   'nov01-t1-dynamo-validated-kubernetes-runtime':'181b83842fd79f9959605d3e7a02602486e1fd1f251bb6dc5740857a1d452ea0',
   'nov01-t2-frontier-misalignment-monitoring':'879a87a06aed02527d79be928084f2a1b81eb8483c2d04b7e6952a752074da7d',
   'nov01-k1-gemini-whole-deck-edits':'33b8c95ce8191ca073334054d7f344d9cb56d4239601e1735d5625a233fa9609',
@@ -19,8 +26,8 @@ const ACCEPTED_NOV01_SPEC_SHA256=Object.freeze({
   'nov01-a2-commitments-tally-skill':'b23c17f8d1b46ffa2fce1b280fc417e6fb21a53d523e02b5d2759f4b2166e98b',
 });
 function isAcceptedPreActivationSpecification(spec){
- return spec.edition_date==='2026-11-01'&&
-  ACCEPTED_NOV01_SPEC_SHA256[spec.story_id]===crypto.createHash('sha256')
+ return ['2026-11-01','2026-11-02'].includes(spec.edition_date)&&
+  ACCEPTED_PREACTIVATION_SPEC_SHA256[spec.story_id]===crypto.createHash('sha256')
    .update(JSON.stringify(spec)).digest('hex');
 }
 const fail=message=>{throw Error('image_composition_geometry:'+message);};

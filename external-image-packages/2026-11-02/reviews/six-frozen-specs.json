@@ -1,0 +1,1754 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-02",
+    "story_id": "nov02-t1-nemotron-haunted-house-pipeline",
+    "source_url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+    "visual_thesis": "Local speech recognition feeds dialogue generation, then synthesis; clean speech separately drives animation while audience audio may add effects. App state remains explicit. Optional camera context and cache bypasses have distinct origins.",
+    "mechanism_metaphor": "voice-and-animation split",
+    "story_anchors": [
+      "Speech recognition, Bolt dialogue and Magpie synthesis run locally on one workstation.",
+      "Clean speech drives Audio2Face separately from audience effects; application state and caching are explicit."
+    ],
+    "required_labels": [
+      "Local voice pipeline",
+      "Speech to text",
+      "Dialogue generation",
+      "Speech synthesis",
+      "Clean speech",
+      "Animation stream",
+      "Application state",
+      "Camera context",
+      "Cached audio",
+      "Prototype; field testing remains"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Speech recognition, Bolt dialogue and Magpie synthesis run locally on one workstation.",
+        "supporting_source_excerpt": "Speech recognition, Bolt dialogue and Magpie synthesis run locally on one workstation.",
+        "source_url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Clean speech drives Audio2Face separately from audience effects; application state and caching are explicit.",
+        "supporting_source_excerpt": "Clean speech drives Audio2Face separately from audience effects; application state and caching are explicit.",
+        "source_url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Speech to text",
+        "to": "Dialogue generation",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Dialogue generation",
+        "to": "Speech synthesis",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Speech synthesis",
+        "to": "Clean speech",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Clean speech",
+        "to": "Animation stream",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people or avatar-like glyphs, shields, gears, controls, fabricated document writing or measured charts.",
+      "No unsupported causal arrows, automatic permission or guaranteed outcomes; caveat detached."
+    ],
+    "composition_signature": {
+      "grammar": "dual-lane cascade",
+      "metaphor": "voice-and-animation split",
+      "palette": "teal and copper",
+      "layout": "left-to-right cascade with lower context rail",
+      "annotation": "lane annotations"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Local voice pipeline",
+          "region": "annotation region 1",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Speech to text",
+          "region": "annotation region 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Dialogue generation",
+          "region": "annotation region 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Speech synthesis",
+          "region": "annotation region 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Clean speech",
+          "region": "annotation region 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Animation stream",
+          "region": "annotation region 6",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 182,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Application state",
+          "region": "annotation region 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Camera context",
+          "region": "annotation region 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Cached audio",
+          "region": "annotation region 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Prototype; field testing remains",
+          "region": "annotation region 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 466,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Prototype; field testing remains",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Speech to text",
+        "Dialogue generation"
+      ],
+      "thumbnail_priority_labels": [
+        "Local voice pipeline",
+        "Animation stream"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Source-bounded procedure, with stated caveat preserved",
+          "allowed_path": "Local speech recognition feeds dialogue generation, then synthesis; clean speech separately drives animation while audience audio may add effects. App state remains explicit. Optional camera context and cache bypasses have distinct origins.",
+          "blocked_path": "No automatic proof, outcome guarantee, unsupported shortcut or approval bypass",
+          "support_claim_id": "claim-2"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Speech to text",
+          "to": "Dialogue generation",
+          "support_claim_id": "claim-2",
+          "origin_region": "Speech to text",
+          "target_region": "Dialogue generation",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Dialogue generation",
+          "to": "Speech synthesis",
+          "support_claim_id": "claim-2",
+          "origin_region": "Dialogue generation",
+          "target_region": "Speech synthesis",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Speech synthesis",
+          "to": "Clean speech",
+          "support_claim_id": "claim-2",
+          "origin_region": "Speech synthesis",
+          "target_region": "Clean speech",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Clean speech",
+          "to": "Animation stream",
+          "support_claim_id": "claim-2",
+          "origin_region": "Clean speech",
+          "target_region": "Animation stream",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Codex same-invocation primary-source reader",
+      "source_url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-02",
+    "story_id": "nov02-t2-behavioral-evals-after-provenance",
+    "source_url": "https://arize.com/blog/evil-qwen-activation-steering/",
+    "visual_thesis": "Artifact identity and signatures do not establish behavior. Evaluate capabilities and refusals together on the exact served weights, adapters, code and runtime settings. No guaranteed safe-result arrow.",
+    "mechanism_metaphor": "identity-versus-behavior comparison",
+    "story_anchors": [
+      "Weights, accompanying adapters or vectors and inference code are distinct modification paths.",
+      "Safety and capability checks must test the actual serving combination; the small demonstration has limits."
+    ],
+    "required_labels": [
+      "Artifact identity",
+      "Weights",
+      "Adapters",
+      "Serving code",
+      "Runtime settings",
+      "Exact served stack",
+      "Capability evals",
+      "Safety evals",
+      "Behavioral evidence",
+      "Demonstration; no universal safety proof"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Weights, accompanying adapters or vectors and inference code are distinct modification paths.",
+        "supporting_source_excerpt": "Weights, accompanying adapters or vectors and inference code are distinct modification paths.",
+        "source_url": "https://arize.com/blog/evil-qwen-activation-steering/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Safety and capability checks must test the actual serving combination; the small demonstration has limits.",
+        "supporting_source_excerpt": "Safety and capability checks must test the actual serving combination; the small demonstration has limits.",
+        "source_url": "https://arize.com/blog/evil-qwen-activation-steering/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Exact served stack",
+        "to": "Capability evals",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Exact served stack",
+        "to": "Safety evals",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Capability evals",
+        "to": "Behavioral evidence",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Safety evals",
+        "to": "Behavioral evidence",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people or avatar-like glyphs, shields, gears, controls, fabricated document writing or measured charts.",
+      "No unsupported causal arrows, automatic permission or guaranteed outcomes; caveat detached."
+    ],
+    "composition_signature": {
+      "grammar": "nested stack with paired assay",
+      "metaphor": "identity-versus-behavior comparison",
+      "palette": "violet and slate",
+      "layout": "nested cutaway left and forked evaluation right",
+      "annotation": "bracketed facets"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Artifact identity",
+          "region": "annotation region 1",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Weights",
+          "region": "annotation region 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Adapters",
+          "region": "annotation region 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Serving code",
+          "region": "annotation region 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Runtime settings",
+          "region": "annotation region 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Exact served stack",
+          "region": "annotation region 6",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 182,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Capability evals",
+          "region": "annotation region 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Safety evals",
+          "region": "annotation region 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Behavioral evidence",
+          "region": "annotation region 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Demonstration; no universal safety proof",
+          "region": "annotation region 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 466,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Demonstration; no universal safety proof",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Weights",
+        "Adapters"
+      ],
+      "thumbnail_priority_labels": [
+        "Artifact identity",
+        "Exact served stack"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Source-bounded procedure, with stated caveat preserved",
+          "allowed_path": "Artifact identity and signatures do not establish behavior. Evaluate capabilities and refusals together on the exact served weights, adapters, code and runtime settings. No guaranteed safe-result arrow.",
+          "blocked_path": "No automatic proof, outcome guarantee, unsupported shortcut or approval bypass",
+          "support_claim_id": "claim-2"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Exact served stack",
+          "to": "Capability evals",
+          "support_claim_id": "claim-2",
+          "origin_region": "Exact served stack",
+          "target_region": "Capability evals",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Exact served stack",
+          "to": "Safety evals",
+          "support_claim_id": "claim-2",
+          "origin_region": "Exact served stack",
+          "target_region": "Safety evals",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Capability evals",
+          "to": "Behavioral evidence",
+          "support_claim_id": "claim-2",
+          "origin_region": "Capability evals",
+          "target_region": "Behavioral evidence",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Safety evals",
+          "to": "Behavioral evidence",
+          "support_claim_id": "claim-2",
+          "origin_region": "Safety evals",
+          "target_region": "Behavioral evidence",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Codex same-invocation primary-source reader",
+      "source_url": "https://arize.com/blog/evil-qwen-activation-steering/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-02",
+    "story_id": "nov02-k1-protostar-ai-ready-science",
+    "source_url": "https://huggingface.co/blog/protostar",
+    "visual_thesis": "Publicly funded science becomes more reusable when datasets, models and code include documentation, metadata and provenance. Open challenges compare outputs with observed weather and baselines rather than declaring scientific success.",
+    "mechanism_metaphor": "research-release assembly",
+    "story_anchors": [
+      "Project ProtoStar organizes suitable public scientific artifacts with metadata and provenance.",
+      "The first public challenge compares forecasts with actual weather and simple baselines; impact is a goal."
+    ],
+    "required_labels": [
+      "Public research",
+      "Datasets",
+      "Models and code",
+      "Metadata",
+      "Provenance",
+      "Reusable artifacts",
+      "Open challenge",
+      "Observed weather",
+      "Baseline comparison",
+      "Goals; scientific impact not yet established"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Project ProtoStar organizes suitable public scientific artifacts with metadata and provenance.",
+        "supporting_source_excerpt": "Project ProtoStar organizes suitable public scientific artifacts with metadata and provenance.",
+        "source_url": "https://huggingface.co/blog/protostar",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The first public challenge compares forecasts with actual weather and simple baselines; impact is a goal.",
+        "supporting_source_excerpt": "The first public challenge compares forecasts with actual weather and simple baselines; impact is a goal.",
+        "source_url": "https://huggingface.co/blog/protostar",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Public research",
+        "to": "Reusable artifacts",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reusable artifacts",
+        "to": "Open challenge",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Open challenge",
+        "to": "Baseline comparison",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Observed weather",
+        "to": "Baseline comparison",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people or avatar-like glyphs, shields, gears, controls, fabricated document writing or measured charts.",
+      "No unsupported causal arrows, automatic permission or guaranteed outcomes; caveat detached."
+    ],
+    "composition_signature": {
+      "grammar": "artifact anatomy and public trial",
+      "metaphor": "research-release assembly",
+      "palette": "ochre and indigo",
+      "layout": "exploded package on left with bottom comparative trial",
+      "annotation": "exploded callouts"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Public research",
+          "region": "annotation region 1",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Datasets",
+          "region": "annotation region 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Models and code",
+          "region": "annotation region 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Metadata",
+          "region": "annotation region 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Provenance",
+          "region": "annotation region 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Reusable artifacts",
+          "region": "annotation region 6",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 182,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Open challenge",
+          "region": "annotation region 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Observed weather",
+          "region": "annotation region 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Baseline comparison",
+          "region": "annotation region 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Goals; scientific impact not yet established",
+          "region": "annotation region 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 466,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Goals; scientific impact not yet established",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Datasets",
+        "Models and code"
+      ],
+      "thumbnail_priority_labels": [
+        "Public research",
+        "Reusable artifacts"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Source-bounded procedure, with stated caveat preserved",
+          "allowed_path": "Publicly funded science becomes more reusable when datasets, models and code include documentation, metadata and provenance. Open challenges compare outputs with observed weather and baselines rather than declaring scientific success.",
+          "blocked_path": "No automatic proof, outcome guarantee, unsupported shortcut or approval bypass",
+          "support_claim_id": "claim-2"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Public research",
+          "to": "Reusable artifacts",
+          "support_claim_id": "claim-2",
+          "origin_region": "Public research",
+          "target_region": "Reusable artifacts",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reusable artifacts",
+          "to": "Open challenge",
+          "support_claim_id": "claim-2",
+          "origin_region": "Reusable artifacts",
+          "target_region": "Open challenge",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Open challenge",
+          "to": "Baseline comparison",
+          "support_claim_id": "claim-2",
+          "origin_region": "Open challenge",
+          "target_region": "Baseline comparison",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Observed weather",
+          "to": "Baseline comparison",
+          "support_claim_id": "claim-2",
+          "origin_region": "Observed weather",
+          "target_region": "Baseline comparison",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Codex same-invocation primary-source reader",
+      "source_url": "https://huggingface.co/blog/protostar",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-02",
+    "story_id": "nov02-k2-gemini-inline-file-editing",
+    "source_url": "https://workspaceupdates.googleblog.com/2026/10/create-preview-and-edit-files-directly-in-the-Gemini-app.html",
+    "visual_thesis": "Gemini supports generating, previewing and editing files in chat. Direct and prompted edits refine previews; supported files can move to Workspace, download or Drive. PDF has web and mobile support; other listed formats are web only.",
+    "mechanism_metaphor": "file-revision loop",
+    "story_anchors": [
+      "Files can be created, previewed and refined directly in Gemini.",
+      "PDF preview and editing work on web/mobile; other formats work on web, with type-dependent exports."
+    ],
+    "required_labels": [
+      "Create files",
+      "Preview in chat",
+      "Direct edits",
+      "Prompted edits",
+      "Reviewed file",
+      "Workspace apps",
+      "Download",
+      "Drive upload",
+      "PDF on web and mobile",
+      "Other formats on web"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Files can be created, previewed and refined directly in Gemini.",
+        "supporting_source_excerpt": "Files can be created, previewed and refined directly in Gemini.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/create-preview-and-edit-files-directly-in-the-Gemini-app.html",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "PDF preview and editing work on web/mobile; other formats work on web, with type-dependent exports.",
+        "supporting_source_excerpt": "PDF preview and editing work on web/mobile; other formats work on web, with type-dependent exports.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/create-preview-and-edit-files-directly-in-the-Gemini-app.html",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Create files",
+        "to": "Preview in chat",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Direct edits",
+        "to": "Preview in chat",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Prompted edits",
+        "to": "Preview in chat",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reviewed file",
+        "to": "Workspace apps",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reviewed file",
+        "to": "Download",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reviewed file",
+        "to": "Drive upload",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people or avatar-like glyphs, shields, gears, controls, fabricated document writing or measured charts.",
+      "No unsupported causal arrows, automatic permission or guaranteed outcomes; caveat detached."
+    ],
+    "composition_signature": {
+      "grammar": "revision loop and export fan",
+      "metaphor": "file-revision loop",
+      "palette": "blue and coral",
+      "layout": "central revision loop with export fan on right",
+      "annotation": "loop labels"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Create files",
+          "region": "annotation region 1",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Preview in chat",
+          "region": "annotation region 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Direct edits",
+          "region": "annotation region 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Prompted edits",
+          "region": "annotation region 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Reviewed file",
+          "region": "annotation region 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Workspace apps",
+          "region": "annotation region 6",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 182,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Download",
+          "region": "annotation region 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Drive upload",
+          "region": "annotation region 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "PDF on web and mobile",
+          "region": "annotation region 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Other formats on web",
+          "region": "annotation region 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 466,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Other formats on web",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Preview in chat",
+        "Direct edits"
+      ],
+      "thumbnail_priority_labels": [
+        "Create files",
+        "Workspace apps"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Source-bounded procedure, with stated caveat preserved",
+          "allowed_path": "Gemini supports generating, previewing and editing files in chat. Direct and prompted edits refine previews; supported files can move to Workspace, download or Drive. PDF has web and mobile support; other listed formats are web only.",
+          "blocked_path": "No automatic proof, outcome guarantee, unsupported shortcut or approval bypass",
+          "support_claim_id": "claim-2"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Create files",
+          "to": "Preview in chat",
+          "support_claim_id": "claim-2",
+          "origin_region": "Create files",
+          "target_region": "Preview in chat",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Direct edits",
+          "to": "Preview in chat",
+          "support_claim_id": "claim-2",
+          "origin_region": "Direct edits",
+          "target_region": "Preview in chat",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Prompted edits",
+          "to": "Preview in chat",
+          "support_claim_id": "claim-2",
+          "origin_region": "Prompted edits",
+          "target_region": "Preview in chat",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reviewed file",
+          "to": "Workspace apps",
+          "support_claim_id": "claim-2",
+          "origin_region": "Reviewed file",
+          "target_region": "Workspace apps",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reviewed file",
+          "to": "Download",
+          "support_claim_id": "claim-2",
+          "origin_region": "Reviewed file",
+          "target_region": "Download",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reviewed file",
+          "to": "Drive upload",
+          "support_claim_id": "claim-2",
+          "origin_region": "Reviewed file",
+          "target_region": "Drive upload",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Codex same-invocation primary-source reader",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/10/create-preview-and-edit-files-directly-in-the-Gemini-app.html",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-02",
+    "story_id": "nov02-a1-governed-onboarding-case-context",
+    "source_url": "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai",
+    "visual_thesis": "A governed supervisor reads versioned case context and routes permitted work. Specialist results return with sources; recommendations stay draft. Human reviewers keep decision authority; missing evidence pauses dependent actions.",
+    "mechanism_metaphor": "versioned case spine",
+    "story_anchors": [
+      "Case context joins current evidence, workflow state, exceptions and decision history.",
+      "People retain authority for exceptions, overrides and approval; recommendations remain drafts."
+    ],
+    "required_labels": [
+      "Governed case context",
+      "Versioned evidence",
+      "Workflow state",
+      "Open exceptions",
+      "Decision history",
+      "Supervisor agent",
+      "Specialist results",
+      "Draft recommendation",
+      "Human decision",
+      "Vendor design; outcomes require measurement"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Case context joins current evidence, workflow state, exceptions and decision history.",
+        "supporting_source_excerpt": "Case context joins current evidence, workflow state, exceptions and decision history.",
+        "source_url": "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "People retain authority for exceptions, overrides and approval; recommendations remain drafts.",
+        "supporting_source_excerpt": "People retain authority for exceptions, overrides and approval; recommendations remain drafts.",
+        "source_url": "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Governed case context",
+        "to": "Supervisor agent",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Supervisor agent",
+        "to": "Specialist results",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Specialist results",
+        "to": "Governed case context",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Draft recommendation",
+        "to": "Human decision",
+        "direction": "conditional",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people or avatar-like glyphs, shields, gears, controls, fabricated document writing or measured charts.",
+      "No unsupported causal arrows, automatic permission or guaranteed outcomes; caveat detached."
+    ],
+    "composition_signature": {
+      "grammar": "case-context hub and authority boundary",
+      "metaphor": "versioned case spine",
+      "palette": "forest green and plum",
+      "layout": "center hub with four state layers, agents left and authority boundary right",
+      "annotation": "layer notes"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Governed case context",
+          "region": "annotation region 1",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Versioned evidence",
+          "region": "annotation region 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Workflow state",
+          "region": "annotation region 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Open exceptions",
+          "region": "annotation region 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Decision history",
+          "region": "annotation region 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Supervisor agent",
+          "region": "annotation region 6",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 182,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Specialist results",
+          "region": "annotation region 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Draft recommendation",
+          "region": "annotation region 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Human decision",
+          "region": "annotation region 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Vendor design; outcomes require measurement",
+          "region": "annotation region 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 466,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor design; outcomes require measurement",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Versioned evidence",
+        "Workflow state"
+      ],
+      "thumbnail_priority_labels": [
+        "Governed case context",
+        "Supervisor agent"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Source-bounded procedure, with stated caveat preserved",
+          "allowed_path": "A governed supervisor reads versioned case context and routes permitted work. Specialist results return with sources; recommendations stay draft. Human reviewers keep decision authority; missing evidence pauses dependent actions.",
+          "blocked_path": "No automatic proof, outcome guarantee, unsupported shortcut or approval bypass",
+          "support_claim_id": "claim-2"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Governed case context",
+          "to": "Supervisor agent",
+          "support_claim_id": "claim-2",
+          "origin_region": "Governed case context",
+          "target_region": "Supervisor agent",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Supervisor agent",
+          "to": "Specialist results",
+          "support_claim_id": "claim-2",
+          "origin_region": "Supervisor agent",
+          "target_region": "Specialist results",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Specialist results",
+          "to": "Governed case context",
+          "support_claim_id": "claim-2",
+          "origin_region": "Specialist results",
+          "target_region": "Governed case context",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Draft recommendation",
+          "to": "Human decision",
+          "support_claim_id": "claim-2",
+          "origin_region": "Draft recommendation",
+          "target_region": "Human decision",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Codex same-invocation primary-source reader",
+      "source_url": "https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-02",
+    "story_id": "nov02-a2-article-recommendation-audit-skill",
+    "source_url": "https://every.to/source-code/how-to-get-ai-agents-to-recommend-your-articles",
+    "visual_thesis": "Freeze reader questions and record citations and omissions. Revise titles and descriptions truthfully, run the same questions and compare recommendations. Editorial review precedes publication; simulated sessions do not prove live traffic gains.",
+    "mechanism_metaphor": "paired recommendation experiment",
+    "story_anchors": [
+      "The source ran 2,484 simulated fresh sessions testing metadata and citations.",
+      "Article content stayed fixed when titles and descriptions changed; simulation is not live traffic evidence."
+    ],
+    "required_labels": [
+      "Fixed reader questions",
+      "Original metadata",
+      "Citation record",
+      "Omissions",
+      "Truthful revisions",
+      "Same questions again",
+      "Compare recommendations",
+      "Editorial review",
+      "Approved metadata",
+      "Simulation; no traffic guarantee"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "The source ran 2,484 simulated fresh sessions testing metadata and citations.",
+        "supporting_source_excerpt": "The source ran 2,484 simulated fresh sessions testing metadata and citations.",
+        "source_url": "https://every.to/source-code/how-to-get-ai-agents-to-recommend-your-articles",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Article content stayed fixed when titles and descriptions changed; simulation is not live traffic evidence.",
+        "supporting_source_excerpt": "Article content stayed fixed when titles and descriptions changed; simulation is not live traffic evidence.",
+        "source_url": "https://every.to/source-code/how-to-get-ai-agents-to-recommend-your-articles",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Fixed reader questions",
+        "to": "Citation record",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Truthful revisions",
+        "to": "Same questions again",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Same questions again",
+        "to": "Compare recommendations",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Compare recommendations",
+        "to": "Editorial review",
+        "direction": "forward",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Editorial review",
+        "to": "Approved metadata",
+        "direction": "conditional",
+        "condition": "Only within the described source workflow; no guaranteed outcome",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No people or avatar-like glyphs, shields, gears, controls, fabricated document writing or measured charts.",
+      "No unsupported causal arrows, automatic permission or guaranteed outcomes; caveat detached."
+    ],
+    "composition_signature": {
+      "grammar": "controlled before-after comparison",
+      "metaphor": "paired recommendation experiment",
+      "palette": "rust and petrol",
+      "layout": "fixed query spine across two parallel trials then editorial decision",
+      "annotation": "paired trial captions"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Fixed reader questions",
+          "region": "annotation region 1",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 40,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Original metadata",
+          "region": "annotation region 2",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Citation record",
+          "region": "annotation region 3",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 40,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Omissions",
+          "region": "annotation region 4",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Truthful revisions",
+          "region": "annotation region 5",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 182,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Same questions again",
+          "region": "annotation region 6",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 182,
+            "width": 365,
+            "height": 90
+          }
+        },
+        {
+          "label": "Compare recommendations",
+          "region": "annotation region 7",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Editorial review",
+          "region": "annotation region 8",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 415,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Approved metadata",
+          "region": "annotation region 9",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 790,
+            "y": 324,
+            "width": 365,
+            "height": 70
+          }
+        },
+        {
+          "label": "Simulation; no traffic guarantee",
+          "region": "annotation region 10",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 40,
+            "y": 466,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Simulation; no traffic guarantee",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Original metadata",
+        "Citation record"
+      ],
+      "thumbnail_priority_labels": [
+        "Fixed reader questions",
+        "Same questions again"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "condition": "Source-bounded procedure, with stated caveat preserved",
+          "allowed_path": "Freeze reader questions and record citations and omissions. Revise titles and descriptions truthfully, run the same questions and compare recommendations. Editorial review precedes publication; simulated sessions do not prove live traffic gains.",
+          "blocked_path": "No automatic proof, outcome guarantee, unsupported shortcut or approval bypass",
+          "support_claim_id": "claim-2"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Fixed reader questions",
+          "to": "Citation record",
+          "support_claim_id": "claim-2",
+          "origin_region": "Fixed reader questions",
+          "target_region": "Citation record",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Truthful revisions",
+          "to": "Same questions again",
+          "support_claim_id": "claim-2",
+          "origin_region": "Truthful revisions",
+          "target_region": "Same questions again",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Same questions again",
+          "to": "Compare recommendations",
+          "support_claim_id": "claim-2",
+          "origin_region": "Same questions again",
+          "target_region": "Compare recommendations",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Compare recommendations",
+          "to": "Editorial review",
+          "support_claim_id": "claim-2",
+          "origin_region": "Compare recommendations",
+          "target_region": "Editorial review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Editorial review",
+          "to": "Approved metadata",
+          "support_claim_id": "claim-2",
+          "origin_region": "Editorial review",
+          "target_region": "Approved metadata",
+          "disallowed_paths_visually_blocked": true
+        }
+      ]
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Codex same-invocation primary-source reader",
+      "source_url": "https://every.to/source-code/how-to-get-ai-agents-to-recommend-your-articles",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    }
+  }
+]
