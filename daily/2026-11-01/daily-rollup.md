@@ -1,0 +1,22 @@
+# Daily AI Brief — Combined Daily Operations AAR
+
+**Cycle:** 2026-11-01 · **Edition:** 2026-11-02 · **Evidence class:** Deterministic GitHub reconciliation (not AI or first-party scheduler attestation)
+
+| Dimension | Observed evidence |
+|---|---|
+| Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"FAIL_OWNER_RECOVERY","owner_intervention_required":true} |
+| Images | {"execution":"NO_START_RECEIPT","result":"NOT_OBSERVED","publication":"UNKNOWN"} |
+| Combined result | PARTIAL |
+| Next run readiness | UNKNOWN |
+
+## Evidence and limitations
+
+- No defect recorded in available edition-scoped evidence; this does not establish zero defects
+
+## Operational result
+
+A previous-cycle outcome or absent report alone does not block a new current-date Primary; current scheduled host/tool availability requires separate genuine proof.
+
+## System boundary
+
+Only `gttome/Daily-AI-Brief-Compiler` is in scope. No article/image generation, public Pages deployment, schedule mutation, extra AI recovery task, or repair is performed by this report.

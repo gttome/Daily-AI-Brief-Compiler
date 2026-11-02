@@ -1,0 +1,103 @@
+{
+  "schema_version": "daily-compiler-lane-aar-v1",
+  "lane": "compiler",
+  "cycle_date": "2026-11-01",
+  "edition_date": "2026-11-02",
+  "task_id": "6ac9868490b88191ac91f84d5f555994",
+  "expected_local_start": "19:15 America/Chicago",
+  "execution": "START_OBSERVED",
+  "scheduled_host_mode": "UNPROVEN",
+  "task_origin_observation": {
+    "status": "UNPROVEN",
+    "scheduler": "UNPROVEN",
+    "route_preflight": "NOT_RECORDED",
+    "evidence_gaps": [
+      "NO_EDITION_SCOPED_TASK_ORIGIN_RECEIPT",
+      "NO_INDEPENDENT_FIRST_PARTY_SCHEDULER_ATTESTATION",
+      "NO_SAME_INVOCATION_CAPABILITY_PREFLIGHT"
+    ],
+    "repository_record_is_not_authentication": true
+  },
+  "same_invocation_connected_github": "UNPROVEN",
+  "execution_id": "daily-compiler-2026-11-02-primary",
+  "started_at": "2026-11-02T01:58:18.512Z",
+  "finished_at": "2026-11-02T02:03:06.060Z",
+  "elapsed_minutes": 4.79,
+  "publication": "VERIFIED",
+  "autonomy_status": "FAIL_OWNER_RECOVERY",
+  "owner_intervention_required": true,
+  "publication_health_status": "READER_VERIFIED",
+  "prior_failed_protected_gate_count": 5,
+  "postpublication_incidents_recorded": 1,
+  "owner_detected_postpublication_defects": 0,
+  "corrected_postpublication_defects": 0,
+  "postpublication_incident_evidence": [
+    {
+      "incident_id": "nov02-rev8-image-job-scheduler-provenance",
+      "status": "CODE_CORRECTED_CURRENT_DIAGNOSTIC_TREATED_UNKNOWN",
+      "detected_by": "postpublication_review",
+      "corrective_pr": 304,
+      "playback_evidence_limit": null
+    }
+  ],
+  "original_postpublish_video_playback": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
+  "editorial_index_retry_counts": {
+    "attempted": 0,
+    "recovered_to_candidate": 0,
+    "recovered_to_index_read": 0,
+    "still_unavailable": 0,
+    "editorial_content_admission": "NOT_PROVEN_FROM_INDEX_RETRIES"
+  },
+  "source_discovery_evidence": {
+    "classification": "PUBLISHER_ROUTE_AND_INDEX_DISCOVERY_NOT_FULL_ARTICLE_REVIEW",
+    "registered": 208,
+    "enabled_routes_attempted": 0,
+    "reachable_routes": 0,
+    "failed_routes": 0,
+    "editorial_indexes_attempted": 87,
+    "indexes_with_candidates": 9,
+    "indexes_without_eligible_items": 64,
+    "indexes_blocked_or_error": 14,
+    "transient_index_retry_attempts": 0
+  },
+  "selected_video_publication_dates": [
+    {
+      "title": "How AI is breaking the internet (and what to do about it)",
+      "publisher": "TED",
+      "original_date": "2026-04-01T00:00:00Z"
+    },
+    {
+      "title": "What AI industry leaders in Boston think of doomsday fears",
+      "publisher": "CBS Boston",
+      "original_date": "2026-10-06T22:35:00Z"
+    }
+  ],
+  "last_failed_gate": "VIDEO_PLAYBACK",
+  "last_failed_gate_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41374499329",
+  "result": "SUCCESS",
+  "aar_status": "BACKFILLED",
+  "original_source_receipt": null,
+  "compiler_state": "SHADOW_VERIFIED",
+  "compile_result": "PASS",
+  "published_reader_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-02/",
+  "oct8_protected_objects_verified": 17,
+  "articles_total": 6,
+  "articles_focus_mix_verified": "SOURCE_RECEIPT_ONLY",
+  "videos_required": 2,
+  "podcasts_required": 2,
+  "source_job_exists": true,
+  "editorial_source_detail_available": false,
+  "oct28_source_readiness": null,
+  "usage_percent": null,
+  "model_calls": null,
+  "work_invocations": null,
+  "claims_not_promoted": [
+    "Host scheduler identity not independently attested in GitHub; no effect on verified public publication",
+    "Image job asserts unattended source but first-party scheduler invocation is unproven; no autonomous PASS inferred"
+  ],
+  "defects": [
+    "Postpublication incident nov02-rev8-image-job-scheduler-provenance: CODE_CORRECTED_CURRENT_DIAGNOSTIC_TREATED_UNKNOWN (PR #304); original publication defect remains reported after correction"
+  ],
+  "next_run": "UNKNOWN",
+  "next_run_reason": "The reporter cannot authenticate the next ordinary scheduled host or GitHub connector; previous-cycle failure does not block next date by itself"
+}
