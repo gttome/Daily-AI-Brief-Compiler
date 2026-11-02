@@ -1,0 +1,57 @@
+{
+  "native_image_generation": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "image_gen.imagegen callable native tool; e0/imagegen read",
+    "method": "native_imagegen"
+  },
+  "saved_pixel_inspection": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "view_image callable for exact local PNGs",
+    "method": "view_image"
+  },
+  "exact_1200x630_png_export": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Pillow 12.3.0 available; native image export inspected before acceptance",
+    "method": "Pillow RGB export"
+  },
+  "github_authenticated_binary_upload": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Connected GitHub create_blob accepts base64; create_tree/commit and fenced update_ref succeeded",
+    "method": "connected_git_objects"
+  },
+  "exact_commit_binary_readback": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Connected GitHub fetch_file supports encoding base64 at immutable commit",
+    "method": "connected_fetch_file_base64"
+  },
+  "protected_pr_merge_and_ci": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Existing protected compiler-validation PR workflow and permitted GitHub PR operations",
+    "method": "protected_pr_ci"
+  },
+  "desktop_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Existing image-only-release workflow and scripts capture desktop image regions",
+    "method": "existing_release_capture"
+  },
+  "mobile_image_region_capture": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Existing release capture has 390x844 mobile contexts and saved RGB proof",
+    "method": "existing_release_capture"
+  },
+  "protected_main_package_merge_auto_release": {
+    "available": true,
+    "authorized": true,
+    "evidence_ref": "Current .github/workflows/external-image-only-replacement.yml push main package manifest trigger",
+    "method": "protected_merged_package_manifest",
+    "workflow_path": ".github/workflows/external-image-only-replacement.yml"
+  }
+}
