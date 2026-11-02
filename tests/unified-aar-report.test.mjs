@@ -74,7 +74,7 @@ test('full source, final release and direct reviews => complete combined report'
  assert.match(md,/Image processing stage duration/);
  assert.match(md,/18m 04s/);
  // Keep both stage durations visible together in the management dashboard.
- assert.match(md,/\| \*\*Compiler stage duration\*\* \| \*\*18m 02s \(18\.0 min\)\*\* \|[^\n]*\n\| \*\*Image processing stage duration\*\* \|/);
+ assert.match(md,/\| \*\*Compiler final seal window\*\* \| \*\*18m 02s \(18\.0 min\)\*\* \|[^\n]*\n\| \*\*Image processing stage duration\*\* \|/);
  assert.match(md,/38m 09s/);
  assert.match(md,/8:35:05 PM/);
  assert.doesNotMatch(md,/img\.shields\.io/);
