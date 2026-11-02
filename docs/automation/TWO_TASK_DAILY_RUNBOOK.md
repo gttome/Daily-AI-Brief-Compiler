@@ -1,3 +1,5 @@
+> **November 2 approved improvements:** Apply [NOV02_APPROVED_AAR_IMPROVEMENTS.md](NOV02_APPROVED_AAR_IMPROVEMENTS.md) to recovery evidence, 320px captures, image first-pass monitoring, source coverage, timing and the first Top 10 cycle. Historical bytes and existing schedules remain protected.
+
 # October 19, 2026 scheduler migration
 
 For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d0f1b46bffc9` (**Daily Brief Images — Fresh Work**), configured in the actual scheduler as **New chat for every run**, daily at **21:15 America/Chicago**. It replaces `6acac88cff048191ba02e5b2bcb3becb`; pause the old task before enabling the replacement. The owner authorized this replacement after the autonomous GitHub/native-image test. Historical assignments and accepted PNGs retain their original task identity. No extra daily producer, chat-mode admission gate, quality relaxation or owner daily setup is introduced.

@@ -93,6 +93,9 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
  const qaPath='external-image-packages/'+edition+'/reviews/live/'+
    (pixelProof?'semantic-pixel-review.json':'image-element24/semantic-reviews.json');
  const qa=(oldProof||pixelProof)?firstPathCommit(cwd,ref,qaPath):null;
+ const reviewCompletedAt=(oldProof||pixelProof)?iso(review.reviewed_at??review.completed_at):null;
+ const mergeReviewSha=qa?git(cwd,'log','--first-parent','--format=%H','--reverse',ref,'--',qaPath)?.split('\n')[0]:null;
+ const reviewMergeAt=commitTime(cwd,mergeReviewSha,ref);
  const scheduleAt=start?.cycle_date===cycle&&start?.edition_date===edition&&
    start.host_execution_start_independently_observed===false?iso(start.scheduled_start_at):null;
  const generation=aar?.edition_date===edition&&aar.production?.generation_start_source==='executor_observed_before_first_native_call'?
@@ -113,6 +116,8 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
   six_image_package_commit:packageAt,
   protected_image_merge_commit:mergeAt,
   public_release_verified_at:releaseAt,
+  semantic_live_review_completed_at:reviewCompletedAt,
+  final_live_review_merge_at:reviewMergeAt,
   final_live_review_approved_commit:qa?.at||null
  };
  const stageSeconds=difference(firstAt,qa?.at||null);
@@ -126,8 +131,9 @@ export function deriveImageStageTiming(cycle,evidenceDir,cwd){
   actual_generation_start_attested:observedOrderOk,
   generation_start_attestation_scope:observedOrderOk?'Executor-reported real clock just before first native generation call; not first-party scheduler or model-provider timing.':'UNKNOWN — missing or inconsistent executor-origin generation observation.',
   events,
-  commits:{first_binary_stage:firstSha??null,package_head:packageSha??null,protected_merge:mergeSha??null,final_review_merge:qa?.sha??null},
+  commits:{first_binary_stage:firstSha??null,package_head:packageSha??null,protected_merge:mergeSha??null,final_review_record:qa?.sha??null,final_review_merge:mergeReviewSha??null},
   durations_seconds:{
+   native_generation_to_semantic_review: difference(generationAt,reviewCompletedAt),
    first_accepted_binary_to_final_review:stageSeconds,
    executor_observed_start_to_final_review:difference(hostAt,qa?.at||null),
    executor_observed_generation_to_final_review:difference(generationAt,qa?.at||null),

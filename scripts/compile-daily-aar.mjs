@@ -1,3 +1,4 @@
+import {summarizeNov02Evidence} from './nov02-evidence-summary.mjs';
 // Read-only evidence compiler: no network, image generation, site publication, scheduler or AI calls.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -9,7 +10,7 @@ import {fileURLToPath} from 'node:url';
 import {summarizeTop10,renderTop10Section} from './top10-aar.mjs';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
-const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
+const FILES=['execution-milestones','fallback-search-evidence','trend-consumed-source','trend-consumed-report','image-route-preflight','compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
  'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
@@ -103,6 +104,8 @@ function compilerAar(cycle,date,e){
   task_origin_observation:summarizeTaskOriginEvidence(e['compiler-task-origin'],date,'compiler'),
   same_invocation_connected_github:'UNPROVEN',
   execution_id:state?.execution_id??producer?.execution_id??null,
+  evidence_reconciliation:summarizeNov02Evidence(date,e),
+  timing_basis:'Final sealed-state window; not total execution runtime unless initial start is separately evidenced.',
   started_at:safeTime(state?.started_at),finished_at:safeTime(state?.updated_at),
   elapsed_minutes:minutes(state?.started_at,state?.updated_at),
   publication:verified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
@@ -249,6 +252,7 @@ function imageAar(cycle,date,e,hashes={}){
   executor_observed_generation_start_at:safeTime(imageTiming?.events?.native_generation_first_observed_at),
   scheduler_actual_invocation_attested:false,
   task_origin_observation:summarizeTaskOriginEvidence(e['image-task-origin'],date,'images'),
+  evidence_reconciliation:summarizeNov02Evidence(date,e),
   publication:liveVerified?'VERIFIED':(seen?'PARTIAL':'UNKNOWN'),
   result:liveVerified&&qa24?'SUCCESS':(seen?'PARTIAL':'NOT_OBSERVED'),
   aar_status:'BACKFILLED',

@@ -204,3 +204,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* November 2: keep the brand and wrapping navigation inside a 320px viewport. */
+@media screen and (max-width: 70rem) {
+  .ledger-navigation { grid-template-columns: minmax(0, 1fr); }
+  .ledger-brand { min-width: 0; white-space: normal; overflow-wrap: anywhere; }
+  .ledger-primary-nav { min-width: 0; }
+}

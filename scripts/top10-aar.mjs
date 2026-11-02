@@ -31,7 +31,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  let reportValid=!!(report&&report.schema_version==='daily-ai-topic-top10-v1'&&report.report_date===cycle&&
   report.target_edition_date===edition&&report.timezone==='America/Chicago'&&
   ['ready','provisional','partial'].includes(report.status)&&timestamp(report.generated_at)&&
-  chicagoDate(report.generated_at)===cycle&&topics.length>0&&topics.length<=10);
+  chicagoDate(report.generated_at)===cycle&&topics.length<=10);
  const ids=new Set();
  for(let i=0;i<topics.length;i++){
   const t=topics[i];
@@ -41,6 +41,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   ids.add(t?.topic_id);
  }
  if(report?.status!=='partial'&&topics.length!==10)reportValid=false;
+ if(report?.status==='partial'&&(!Array.isArray(report.limitations)||!report.limitations.some(text)))reportValid=false;
  if(report&&!reportValid)defects.push('Top 10 report schema, Chicago cycle/edition, timestamp, topic ranks or evidence are invalid.');
  const rawHash=SHA256.test(hashes['top10-report']??'')?hashes['top10-report']:null;
  const sourceBound=!!(reportValid&&source?.schema_version==='daily-ai-topic-top10-source-v1'&&
@@ -114,7 +115,15 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  const elapsed=aar&&timestamp(source?.observed_at)&&timestamp(aar.finished_at)&&
   Date.parse(aar.finished_at)<=Date.parse(source.observed_at)?minutes(aar.started_at,aar.finished_at):null;
  if(aar&&elapsed===null)limitations.push('Top 10 elapsed time is not supported by valid, collection-bounded start/finish timestamps.');
- const endToEnd=reportValid&&topics.length===10&&report.status!=='partial'&&handoff==='RECEIVED_SNAPSHOT_BOUND'&&
+ const consumed=evidence['trend-consumed-source'],consumedReport=evidence['trend-consumed-report'];
+ const consumedVerified=!!(handoff==='RECEIVED_SNAPSHOT_BOUND'&&
+  consumed?.schema_version==='daily-ai-topic-top10-consumed-source-v1'&&scoped(consumed,cycle,edition)&&
+  consumed.source_commit===input.source_commit&&consumed.source_path===input.source_path&&
+  consumed.source_blob_sha===input.source_blob_sha&&consumed.report_sha256===input.report_sha256&&
+  hashes['trend-consumed-report']===input.report_sha256&&clean(consumedReport)&&digest(consumedReport)===digest(input.report)&&
+  timestamp(consumed.observed_at)&&Date.parse(consumed.observed_at)>=Date.parse(input.retrieved_at));
+ if(applicable&&!consumedVerified)limitations.push('The exact Compiler-consumed commit has not been independently corroborated.');
+ const endToEnd=consumedVerified&&reportValid&&topics.length===10&&report.status!=='partial'&&handoff==='RECEIVED_SNAPSHOT_BOUND'&&
   searchStatus==='RECEIPTS_OBSERVED'&&notAttempted===0&&
   ['NONE_RECORDED','MATCHES_EDITION_BUNDLE'].includes(mappingStatus);
  return {
@@ -130,6 +139,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   sample_scope:reportValid?report.sample_scope??null:null,ranking_basis:reportValid?report.ranking_basis??null:null,
   source_commit:sourceBound?source.source_commit:null,source_blob_sha:sourceBound?source.source_blob_sha:null,
   report_sha256:sourceBound?rawHash:null,consumed_source_commit:handoff==='RECEIVED_SNAPSHOT_BOUND'?input.source_commit:null,
+  consumed_commit_independently_verified:consumedVerified,
   handoff_status:handoff,search_status:searchStatus,search_counts:searchCounts,
   selection_mapping_status:mappingStatus,selection_mappings_reported:mappings.length,
   selected_mappings:coverageValid&&mappingStatus==='MATCHES_EDITION_BUNDLE'?mappings:[],end_to_end_ready:endToEnd,
@@ -138,7 +148,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   autonomy_status:'UNPROVEN',
   errors:aar&&Array.isArray(aar.errors)?aar.errors:[],improvements:aar&&Array.isArray(aar.improvements)?aar.improvements:[],
   defects,limitations:[...new Set(limitations)],
-  note:'Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the Compiler-recorded consumed commit is not independently fetched here. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.'
+  note:'Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.'
  };
 }
 

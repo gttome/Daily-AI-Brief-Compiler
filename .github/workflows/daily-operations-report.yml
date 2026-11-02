@@ -19,6 +19,8 @@ on:
       - 'scripts/render-unified-production-aar.mjs'
       - 'scripts/compile-daily-aar.mjs'
       - 'scripts/top10-aar.mjs'
+      - 'scripts/nov02-evidence-summary.mjs'
+      - 'scripts/collect-top10-consumed-report.mjs'
       - 'scripts/worker-checkpoint-consistency.mjs'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
   workflow_run:
@@ -69,6 +71,8 @@ jobs:
           # Use protected main report renderers even if the evidence branch has an older snapshot.
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
           cp scripts/top10-aar.mjs "$tmp/top10-aar.mjs"
+          cp scripts/nov02-evidence-summary.mjs "$tmp/nov02-evidence-summary.mjs"
+          cp scripts/collect-top10-consumed-report.mjs "$tmp/collect-top10-consumed-report.mjs"
           cp scripts/oct27-source-readiness.mjs "$tmp/oct27-source-readiness.mjs"
           cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
@@ -120,6 +124,7 @@ jobs:
             # are distinct evidence. Missing inputs never imply successful handoff.
             git show "$ref:shadow-runs/$edition/editorial/trend-input.json" > "$in/trend-input.json" 2>/dev/null || rm -f "$in/trend-input.json"
             git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
+            node "$tmp/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
             if [ -n "$reports_source_commit" ]; then
               report_path="signals/ai-topic-top10/$cycle.json"
               if git show "$reports_source_commit:$report_path" > "$in/top10-report.json" 2>/dev/null; then
@@ -149,6 +154,9 @@ jobs:
             git show "refs/remotes/origin/main:external-image-packages/$edition/recurring-assignment.json" > "$in/image-recurring-assignment.json" 2>/dev/null || rm -f "$in/image-recurring-assignment.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/after-action.json" > "$in/image-after-action.json" 2>/dev/null || rm -f "$in/image-after-action.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/worker-state.json" > "$in/image-worker-state.json" 2>/dev/null || rm -f "$in/image-worker-state.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/route-preflight.json" > "$in/image-route-preflight.json" 2>/dev/null || rm -f "$in/image-route-preflight.json"
+            git show "$ref:shadow-runs/$edition/execution-milestones.json" > "$in/execution-milestones.json" 2>/dev/null || rm -f "$in/execution-milestones.json"
+            git show "$ref:shadow-runs/$edition/editorial/fallback-search-evidence.json" > "$in/fallback-search-evidence.json" 2>/dev/null || rm -f "$in/fallback-search-evidence.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/task-origin.json" > "$in/image-task-origin.json" 2>/dev/null || rm -f "$in/image-task-origin.json"
             git show "refs/remotes/origin/shadow-pages-history:site/data/watchlist.json" > "$in/published-watchlist.json" 2>/dev/null || rm -f "$in/published-watchlist.json"
             # Exception-only per-cycle schedule anchor; missing is normal.
