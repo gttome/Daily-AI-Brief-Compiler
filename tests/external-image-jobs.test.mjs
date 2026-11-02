@@ -45,6 +45,9 @@ test('external app handoff requires explanatory text and permits story-fit infog
   assert.equal(job.lifecycle,'PUBLISHED_PENDING');
   assert.equal(job.accepted_images,0);
   assert.equal(job.source.bundle_sha256,digest(f.bundleBytes));
+  assert.equal(job.source.unattended_schedule_proven,null);
+  assert.equal(job.source.producer_mode,'unknown');
+  assert.equal(job.source.provenance_basis,'source_receipt_missing_or_ambiguous');
   assert.equal(job.stories.length,6);
   assert.equal(job.quality.explanatory_text_required,true);
   assert.equal(job.quality.story_fit_infographic_allowed,true);
