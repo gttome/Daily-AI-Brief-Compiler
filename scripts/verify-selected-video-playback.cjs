@@ -147,6 +147,8 @@ async function proveOrVerifyVideo(browser,item) {
 // The historical YouTube oEmbed fallback is kept for immutable pre-Oct22 editions
 // only, and is always truthfully labeled PLAYBACK_UNVERIFIED.
 function assessPlaybackAdmission(editionDate, checks) {
+  if(editionDate<'2026-10-22' && checks.some(x=>x.result==='PUBLIC_VIDEO_PLAYBACK_UNVERIFIED'))
+    return {result:'BLOCKED_PLAYBACK_UNVERIFIED',approved:false,failed_indices:checks.filter(x=>x.result==='PUBLIC_VIDEO_PLAYBACK_UNVERIFIED').map(x=>x.index)};
   if(editionDate<'2026-10-22')return {result:'HISTORICAL_PUBLIC_IDENTITY_OR_PLAYBACK_CHECK',approved:true};
   const failed=checks.filter(x=>x.result!=='SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS' ||
     x.playback_verified!==true || x.duration_matched_player_advanced!==true ||
@@ -154,6 +156,22 @@ function assessPlaybackAdmission(editionDate, checks) {
   return failed.length?
     {result:'BLOCKED_PLAYBACK_UNVERIFIED',approved:false,failed_indices:failed.map(x=>x.index)}:
     {result:'TWO_DURATION_MATCHED_PUBLIC_PLAYERS_ADVANCED',approved:true};
+}
+
+async function verifyCandidates(browser,candidates,verify=proveOrVerifyVideo) {
+  const checks=[];
+  for (const candidate of candidates) {
+    try { checks.push(await verify(browser,candidate)); }
+    catch(error) {
+      checks.push({index:candidate.index,title:candidate.title,url:candidate.url,
+        expected_seconds:candidate.expected_seconds,result:'PUBLIC_VIDEO_PLAYBACK_UNVERIFIED',
+        checked_at:new Date().toISOString(),signed_out:true,full_episode_watched:false,
+        playback_verified:false,duration_matched_player_advanced:false,
+        error:String(error?.message||error),
+        headless_browser_limitation:String(error?.message||error).slice(0,650)});
+    }
+  }
+  return checks;
 }
 
 async function main() {
@@ -165,8 +183,7 @@ async function main() {
   const browser = await chromium.launch({headless:true,executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});
   let outcome;
   try {
-    const checks = [];
-    for (const candidate of candidates) checks.push(await proveOrVerifyVideo(browser,candidate));
+    const checks = await verifyCandidates(browser,candidates);
     const admission=assessPlaybackAdmission(bundle.edition_date,checks);
     outcome = {schema_version:'daily-compiler-public-video-playback-v1',result:admission.result,edition_date:bundle.edition_date,checked_at:new Date().toISOString(),signed_out:true,checked_videos:checks,publication_approved:admission.approved,failed_indices:admission.failed_indices||[],full_episodes_watched:false};
   } finally {await browser.close();}
@@ -176,4 +193,4 @@ async function main() {
   process.stdout.write('PUBLIC_VIDEO_AVAILABILITY_PASS '+outcome.edition_date+' '+outcome.checked_videos.length+'\n');
 }
 if (require.main === module) main().catch(e => {console.error('PUBLIC_VIDEO_PLAYBACK_BLOCKED:',e.message);process.exitCode=1;});
-module.exports={safeUrl,durationOk,youtubePlayabilityStatus,validateBundle,proveVideo,officialYouTubePublicEvidence,proveOrVerifyVideo,assessPlaybackAdmission};
+module.exports={safeUrl,durationOk,youtubePlayabilityStatus,validateBundle,proveVideo,officialYouTubePublicEvidence,proveOrVerifyVideo,assessPlaybackAdmission,verifyCandidates};
