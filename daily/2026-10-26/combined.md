@@ -16,7 +16,7 @@ Compiler final seal window: 52m 52s. Initial execution start not established; fi
 Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
 Image efficiency: 0/6 first-pass accepts; 24 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: 2026-10-27T03:47:18Z; review-record commit: 2026-10-27T03:51:27.000Z; protected review merge: 2026-10-27T03:53:05.000Z.
-Eligible source indexes: 83; inspected: 80 (96.4%); inaccessible: 3; unreviewed: 0. Freshness claims apply only to the inspected sample.
+Eligible source indexes: 83; editorial inspections reported: Unknown (Unknown%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: Unknown; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 ## Performance dashboard
 
