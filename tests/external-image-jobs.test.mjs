@@ -71,6 +71,20 @@ test('failed, unverified, stale, wrong-date and fake image input fail closed',()
   const accepted=JSON.parse(f.bundleBytes);accepted.images[0].accepted=true;
   assert.throws(()=>buildExternalImageJob({...f,bundleBytes:Buffer.from(JSON.stringify(accepted))}),/verified_published|pending_figure/);
 });
+test('active rev8 handoff does not turn owner recovery or absent scheduler evidence into unattended success',()=>{
+  const f=fixture();
+  function generate(receipt){
+    const bundle={...f.bundle,producer_receipt:receipt};
+    const bundleBytes=Buffer.from(JSON.stringify(bundle));
+    const state={...f.state,bundle:{digest:digest(bundleBytes)},preview:{bundle_digest:digest(bundleBytes)}};
+    return buildExternalImageJob({...f,bundleBytes,state});
+  }
+  const recovered=generate({result:'PASS',owner_intervention:true,scheduled_execution:true});
+  assert.equal(recovered.source.unattended_schedule_proven,false);
+  assert.equal(recovered.source.producer_mode,'owner_recovery');
+  assert.equal(generate(undefined).source.unattended_schedule_proven,null);
+  assert.equal(generate(undefined).source.producer_mode,'unknown');
+});
 test('immutable edition packet and index are idempotent; changed source cannot overwrite',t=>{
   const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'external-job-'));
   t.after(()=>fs.rmSync(tmp,{recursive:true,force:true}));
