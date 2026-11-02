@@ -8,7 +8,15 @@
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
 > **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: NOT_APPLICABLE.** Top 10 report: **Not reported**; Compiler handoff: **NOT_APPLICABLE**; guided searches: **NOT_APPLICABLE**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
-**🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler 52m 52s** · **Premium Images 83m 55s** (evidence-bounded elapsed times; the start/end events differ).
+**🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler final seal window 52m 52s** · **Premium Images 83m 55s** (evidence-bounded elapsed times; the start/end events differ).
+
+## Evidence reconciliation
+
+Compiler final seal window: 52m 52s. Initial execution start not established; final seal window is not total runtime.
+Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
+Image efficiency: 0/6 first-pass accepts; 24 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
+Image review completed: 2026-10-27T03:47:18Z; review-record commit: 2026-10-27T03:51:27.000Z; protected review merge: 2026-10-27T03:53:05.000Z.
+Eligible source indexes: 83; inspected: 80 (96.4%); inaccessible: 3; unreviewed: 0. Freshness claims apply only to the inspected sample.
 
 ## Performance dashboard
 
@@ -16,7 +24,7 @@
 |:--|:--:|:--|
 | Entire-system evidence | **NOT_APPLICABLE** | Full Top 10 list, bound Compiler input, all-format search receipts and existing release checks; separate from publication and autonomy |
 | Top 10 report | **Not reported · Not recorded topics** | Same Chicago cycle report; provisional/partial coverage remains disclosed |
-| Top 10 received by Compiler | **NOT_APPLICABLE** | Exact report snapshot bytes; consumed commit is Compiler-recorded, not independently fetched |
+| Top 10 received by Compiler | **NOT_APPLICABLE** | Exact report snapshot bytes; consumed commit separately corroborated: UNPROVEN |
 | Top 10 guided article/video/podcast searches | **NOT_APPLICABLE** | Actual source-search receipts and selected/rejected topic outcomes |
 | Top 10 stage duration | **Not recorded** | Same-cycle run receipt only; no runtime or usage estimate |
 | Editorial publication | **PASS** | State and public reader integrity receipt |
@@ -36,7 +44,7 @@
 | Recorded scheduler capability route | **UNPROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
-| **Compiler stage duration** | **52m 52s (52.9 min)** | First persisted Compiler state → verified public reader; not a host scheduler attestation |
+| **Compiler final seal window** | **52m 52s (52.9 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
 | **Image processing stage duration** | **83m 55s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **90m 35s** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
@@ -106,12 +114,12 @@ No valid cycle-specific ranked list is available in the collected evidence.
 
 No validated selection-to-topic mapping was recorded.
 
-Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the Compiler-recorded consumed commit is not independently fetched here. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.
+Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.
 
 
 ## Track 1 — Compiler
 
-**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler duration:** 52m 52s (52.9 min).
+**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler final seal window:** 52m 52s (52.9 min).
 
 | Publication gate | Result |
 |---|:---:|
@@ -138,7 +146,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ### Image production duration — Git-verified milestones
 
-**Auditable image stage duration:** **83m 55s** (first accepted binary saved in Git → final 24-context quality-review merge). **First asset to public image release:** **73m 15s**.
+**Auditable image stage duration:** **83m 55s** (first accepted binary saved in Git → first persisted 24-context quality-review record). **First asset to public image release:** **73m 15s**.
 **Scheduled-to-final-review window:** **Not independently recorded**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.
 
 | Production milestone | Chicago local time | Evidence |
@@ -150,7 +158,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 | Six-image package / reviews committed | 10:37:41 PM | Exact-head PR source commit |
 | Protected package merged | 10:39:44 PM | Merge SHA and required CI |
 | Public images verified | 10:40:46 PM | Image-release receipt |
-| Final 24/24 semantic visual review approved | 10:51:27 PM | Immutable first review-approval commit |
+| 24/24 review record committed | 10:51:27 PM | Immutable first review-approval commit |
 
 > **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.
 

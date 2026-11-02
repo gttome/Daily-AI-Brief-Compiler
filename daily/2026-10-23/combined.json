@@ -1,5 +1,62 @@
 {
   "schema_version": "daily-compiler-unified-aar-v1",
+  "evidence_reconciliation": {
+    "schema_version": "nov02-approved-evidence-summary-v1",
+    "edition_date": "2026-10-24",
+    "compiler_timing": {
+      "initial_execution_observed_at": null,
+      "initial_execution_elapsed_seconds": null,
+      "final_seal_window_started_at": "2026-10-24T00:21:19.931Z",
+      "public_verification_at": "2026-10-24T00:54:20.921Z",
+      "final_seal_window_seconds": 1980.99,
+      "timing_caveat": "Initial execution start not established; final seal window is not total runtime."
+    },
+    "source_index_coverage": null,
+    "fallback_search_evidence": null,
+    "image_capability_preflight_recorded": true,
+    "image_scheduler_origin_attested": false,
+    "image_efficiency": {
+      "measurement_window": false,
+      "first_pass_accepted": 0,
+      "total_attempts": 14,
+      "per_image": [
+        {
+          "story_id": "oct24-t1-sagemaker-multi-turn-rl",
+          "attempts": 3
+        },
+        {
+          "story_id": "oct24-t2-vllm-hook",
+          "attempts": 2
+        },
+        {
+          "story_id": "oct24-k1-claude-deployment-choice",
+          "attempts": 3
+        },
+        {
+          "story_id": "oct24-k2-uber-chatgpt-work",
+          "attempts": 2
+        },
+        {
+          "story_id": "oct24-a1-agent-skills-foundation",
+          "attempts": 2
+        },
+        {
+          "story_id": "oct24-a2-tk-elevator-field-agent",
+          "attempts": 2
+        }
+      ],
+      "target_first_pass": 3,
+      "target_max_attempts_per_image": 2,
+      "quality_floor_unchanged": true
+    },
+    "image_review": {
+      "semantic_review_completed_at": "2026-10-24T02:54:09Z",
+      "review_record_commit_at": "2026-10-24T02:58:19.000Z",
+      "review_merge_at": "2026-10-24T03:00:01.000Z"
+    },
+    "usage_percent": null,
+    "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
+  },
   "oct28_source_readiness": null,
   "cycle_date": "2026-10-23",
   "edition_date": "2026-10-24",
@@ -25,6 +82,7 @@
     "source_blob_sha": null,
     "report_sha256": null,
     "consumed_source_commit": null,
+    "consumed_commit_independently_verified": false,
     "handoff_status": "NOT_APPLICABLE",
     "search_status": "NOT_APPLICABLE",
     "search_counts": {
@@ -58,7 +116,7 @@
     "improvements": [],
     "defects": [],
     "limitations": [],
-    "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the Compiler-recorded consumed commit is not independently fetched here. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status."
+    "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status."
   },
   "end_to_end_system_status": "NOT_APPLICABLE",
   "autonomy_status": "UNPROVEN",

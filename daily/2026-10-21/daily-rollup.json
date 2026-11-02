@@ -2,7 +2,7 @@
   "schema_version": "daily-compiler-rollup-v1",
   "cycle_date": "2026-10-21",
   "edition_date": "2026-10-22",
-  "evidence_digest": "2a0f9dccf70386614ca1f5258156804f2da0b6a44b424740e5e15f5eef761dc2",
+  "evidence_digest": "9e5cef3a04867e190d626c89bc15ce1b6abf65d80b0c0cb5896e72f59c0cdde3",
   "compiler": {
     "execution": "START_OBSERVED",
     "result": "SUCCESS",
@@ -36,6 +36,7 @@
     "source_blob_sha": null,
     "report_sha256": null,
     "consumed_source_commit": null,
+    "consumed_commit_independently_verified": false,
     "handoff_status": "NOT_APPLICABLE",
     "search_status": "NOT_APPLICABLE",
     "search_counts": {
@@ -69,7 +70,7 @@
     "improvements": [],
     "defects": [],
     "limitations": [],
-    "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the Compiler-recorded consumed commit is not independently fetched here. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status."
+    "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status."
   },
   "end_to_end_system_result": "NOT_APPLICABLE_BEFORE_TOP10",
   "combined_result": "SUCCESS",
@@ -88,7 +89,7 @@
     "image-recurring-assignment": "98c986d6efb67d89b1203eab02efc123541ee556f18b15f2069576306028d8f3",
     "image-context-reviews": "88930cdac0cd884cf61912b085a760140841ee21393610951d9303d106b963d8",
     "image-after-action": "8fc7b98bfc24605508965f3ca599920a46a6f4db60df0aa6641afafc2b0e391b",
-    "image-timing": "a13b4bbb8c0dda2dd12d718cbfd446610591470b3097b7e80b36e5b59db21490"
+    "image-timing": "4e7372e7f99873db3e417dfd452d6c884e07ab7598112981e9d21c5b2082d702"
   },
   "oct28_source_readiness": null
 }

@@ -13,7 +13,7 @@
   "finished_at": "2026-10-24T02:58:19.000Z",
   "elapsed_minutes": 33.47,
   "scheduled_start_to_final_review_minutes": null,
-  "timing_basis": "First persisted accepted image Git bytes to first merged 24-context review; scheduled window is separate and not exact generator runtime.",
+  "timing_basis": "First persisted accepted image Git bytes to first recorded 24-context review; scheduled window is separate and not exact generator runtime.",
   "executor_observed_generation_start_at": "2026-10-24T02:19:47.000Z",
   "scheduler_actual_invocation_attested": false,
   "task_origin_observation": {
@@ -28,6 +28,63 @@
     "scheduler_invocation_ref": null,
     "missing_first_party_verification": true,
     "repository_record_is_not_authentication": true
+  },
+  "evidence_reconciliation": {
+    "schema_version": "nov02-approved-evidence-summary-v1",
+    "edition_date": "2026-10-24",
+    "compiler_timing": {
+      "initial_execution_observed_at": null,
+      "initial_execution_elapsed_seconds": null,
+      "final_seal_window_started_at": "2026-10-24T00:21:19.931Z",
+      "public_verification_at": "2026-10-24T00:54:20.921Z",
+      "final_seal_window_seconds": 1980.99,
+      "timing_caveat": "Initial execution start not established; final seal window is not total runtime."
+    },
+    "source_index_coverage": null,
+    "fallback_search_evidence": null,
+    "image_capability_preflight_recorded": true,
+    "image_scheduler_origin_attested": false,
+    "image_efficiency": {
+      "measurement_window": false,
+      "first_pass_accepted": 0,
+      "total_attempts": 14,
+      "per_image": [
+        {
+          "story_id": "oct24-t1-sagemaker-multi-turn-rl",
+          "attempts": 3
+        },
+        {
+          "story_id": "oct24-t2-vllm-hook",
+          "attempts": 2
+        },
+        {
+          "story_id": "oct24-k1-claude-deployment-choice",
+          "attempts": 3
+        },
+        {
+          "story_id": "oct24-k2-uber-chatgpt-work",
+          "attempts": 2
+        },
+        {
+          "story_id": "oct24-a1-agent-skills-foundation",
+          "attempts": 2
+        },
+        {
+          "story_id": "oct24-a2-tk-elevator-field-agent",
+          "attempts": 2
+        }
+      ],
+      "target_first_pass": 3,
+      "target_max_attempts_per_image": 2,
+      "quality_floor_unchanged": true
+    },
+    "image_review": {
+      "semantic_review_completed_at": "2026-10-24T02:54:09Z",
+      "review_record_commit_at": "2026-10-24T02:58:19.000Z",
+      "review_merge_at": "2026-10-24T03:00:01.000Z"
+    },
+    "usage_percent": null,
+    "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
   },
   "publication": "VERIFIED",
   "result": "SUCCESS",

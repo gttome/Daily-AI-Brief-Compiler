@@ -19,6 +19,8 @@
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
+| Local capability preflight (separate from origin) | RECORDED |
+| Timing basis | Final sealed-state window; not total execution runtime unless initial start is separately evidenced. |
 | Postpublication incidents | 1 |
 | Owner-detected editorial defects | 1 |
 | Verified postpublication corrections | 1 |

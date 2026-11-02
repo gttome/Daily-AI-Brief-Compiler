@@ -2,7 +2,7 @@
   "schema_version": "daily-compiler-rollup-v1",
   "cycle_date": "2026-10-24",
   "edition_date": "2026-10-25",
-  "evidence_digest": "77abd6f70b2b32fdb8a5f01b8cb4c874d11843186a3645f6be9f9b2af6ee827c",
+  "evidence_digest": "a346aea33ac0ecd2e056e5879460a7b4b8d0af9c6166154de955d9f11c9264b7",
   "compiler": {
     "execution": "START_OBSERVED",
     "result": "SUCCESS",
@@ -36,6 +36,7 @@
     "source_blob_sha": null,
     "report_sha256": null,
     "consumed_source_commit": null,
+    "consumed_commit_independently_verified": false,
     "handoff_status": "NOT_APPLICABLE",
     "search_status": "NOT_APPLICABLE",
     "search_counts": {
@@ -69,7 +70,7 @@
     "improvements": [],
     "defects": [],
     "limitations": [],
-    "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the Compiler-recorded consumed commit is not independently fetched here. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status."
+    "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status."
   },
   "end_to_end_system_result": "NOT_APPLICABLE_BEFORE_TOP10",
   "combined_result": "SUCCESS",
@@ -78,6 +79,7 @@
   "independent_aar_reconciliation": true,
   "reader_or_images_republished": false,
   "source_evidence_hashes": {
+    "image-route-preflight": "2bebbc871cffbba5f327998a3d93137adc6e7e0173c35ede6fec0b30298d51f5",
     "compiler-state": "9d3409f0cd32cca26673563e4bd4a63d5aa4cdb4d5f36feb44a7e50318eeeea0",
     "compile-receipt": "7272189d56fa65937e8d9b518b911f86b0c32076d50eca76805ba731acdd6cb4",
     "postpublish-integrity": "60205e2e2adb08b39792da521cd48c2e3848c06d804bfa7162643265151599e4",
@@ -88,7 +90,7 @@
     "image-recurring-assignment": "285064bddb1b7968ceea4d5825953bb668623fdf550c60aa62ab4ba16b47e393",
     "image-context-reviews": "c9f801367ba122adc64e3ab4511adfc1c9f9949ee2092f39febaa81cd1eafcdb",
     "image-after-action": "cb9c3ac42e7da9763526cb7a44386f5f48afa05bba35e935e48c576f5e09b47c",
-    "image-timing": "839a73300e722c0ec8e3a99d93aadff98d60a7006879869d2db11f9e46938cae",
+    "image-timing": "a4735fd056c66b974e7e13c9dd6ae2b37c36c438f774bd05e96f030971eb5bd3",
     "image-task-origin": "fa9cdefe13c1c157d0cdf7aceaab9db693cf46eb7311db50771b234eaef4d182",
     "owner-intervention-incident": "9c99e879197aff4af61bf0394fccabc38d90fc2ba158d9ba37bc541d6137d6d4"
   },
