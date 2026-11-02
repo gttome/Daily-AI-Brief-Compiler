@@ -1,17 +1,3 @@
-# October 19, 2026 scheduler migration
-
-## October 30 owner-approved first-pass defect taxonomy — effective October 31+
-
-Read `docs/automation/OCT30_APPROVED_AAR_IMPLEMENTATION.md` before freezing any new six-image native specifications. Replay the ten **actual** October 30 rejected image defects as negative examples before first generation: no avatar/person-like control, fake document writing, unsupported arrows or quantitative charts, memory/GPU confusion, oversized perspective/letterbox that shrinks text, decorative props, margin violations or unreadable priority labels. Plan the original 1200×630 canvas with 40px margins, >=36px priority and >=28px other required explanatory labels, then inspect both actual saved 390px and full-resolution pixels. Record genuine per-story first-pass attempts, failures and corrective regions. This is not an attempt cap or automatic QA PASS. Completed October 30 images and 24 public-context reviews are immutable.
-
-
-## October 29 AAR approved — source-grounded mobile and first-pass image controls (effective October 30)
-
-Read `docs/automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md` and meet the prospective `scripts/preflight-image-firstpass.mjs` requirements. Each future six-image frozen specification must explicitly record `mobile_inline_390px_review_planned:true`, `no_avatars_shields_gears_control_knobs:true`, `no_unsupported_memory_or_permission_flow:true` and `no_pseudotext_decorative_microstrokes:true`. On the original **1200×630** export use at least **36px** for its two or three source-authorized thumbnail-priority labels and **28px** for every other required explanatory label. Inspect the exact saved candidate both at full size and as a 390px inline rendition; keep the existing full-size viewer for fine secondary text and record that limitation truthfully. Correct only failed regions, retain the full source/causal/permission constraints and review all 24 public contexts. No artificial retries, accepted-art regeneration, added Image Creation sessions, task changes or relaxed publication gates.
-
-
-For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d0f1b46bffc9` (**Daily Brief Images — Fresh Work**), configured in the actual scheduler as **New chat for every run**, daily at **21:15 America/Chicago**. It replaces `6acac88cff048191ba02e5b2bcb3becb`; pause the old task before enabling the replacement. The owner authorized this replacement after the autonomous GitHub/native-image test. Historical assignments and accepted PNGs retain their original task identity. No extra daily producer, chat-mode admission gate, quality relaxation or owner daily setup is introduced.
-
 # Daily AI Brief — Complete Recurring Premium Image Production Contract
 
 **Mandatory ownership, October 20 onward:** read [Image worker ownership](IMAGE_WORKER_OWNERSHIP.md). Claim the one canonical current-edition image branch and commit/read back the owner receipt before generation. Every scheduled/recovery worker follows the same claim and expected-head updates; losing the claim means yield without generating or creating an alternate suffix. Status checks do not allocate image workers. Existing quality, source and protected release gates remain unchanged.
@@ -21,6 +7,12 @@ For the October 20 edition onward, the sole image task is `6ad6310597b0819096a8d
 **Starter:** `docs/external-app/EXTERNAL_IMAGE_APP_START_PROMPT_REV8.md`.  
 **Handoff:** `EXTERNAL_APP_HANDOFF_REV8.md`.  
 **Selected only by:** `recurring_work_v8:rev8`; historical Rev6/Rev7 remains readable.
+
+**Existing recurrence, unchanged:** the sole image task is `6ad6310597b0819096a8d0f1b46bffc9`, targeting the next local edition at 21:15 America/Chicago. Historical assignments retain their original task IDs; this contract update does not create, enable, pause or reschedule a task.
+
+## Current effective requirements
+
+Read [Current image requirements](CURRENT_IMAGE_REQUIREMENTS.md) before freezing specifications or exporting any new image. It is the single active source for label sizes, safe geometry, source-bound composition planning and complete local exports. Its November 1 additions are prospective only. Older dated AAR documents explain history, not alternative current thresholds. Preserve every existing source, visual-review, authorization and release safeguard below.
 
 ## 1. Scope, precedence and preserved Revision 7 quality contract
 
@@ -46,11 +38,7 @@ Owner standing authority is in `contracts/automation/recurring-image-authorizati
 
 Actual image outputs, pixel checks and connected GitHub evidence—not a runtime label or missing invocation ID—must establish these claims. Release code checks the assignment and six-image manifest, date/source integrity and actual accepted hashes. The strict `checkRealPng` enforces RGB/RGBA, 8-bit, 1200 × 630, full PNG integrity; palette PNGs remain forbidden. Never assert availability of an image tool or a successful readback unless the bytes were genuinely produced and verified. Required protected GitHub PR/CI/review, six live hashes, 12 story/page pairings, 24 actual desktop/mobile context reviews and 17 October 8 preserved objects remain mandatory.
 
-## October 27+ first-pass quality and source-bound Git transport
-
-Apply the **October 26 image AAR improvements** through the **existing** first-pass tool and current one-worker protected publishing lane. Complete `pre_generation_checks.source_caveat_detached`, `no_simulated_document_strokes`, `no_unsupported_chart_or_score_marks`, `mechanism_canvas_percent` (55–85) and `explanatory_substage_labels` (at least two distinct, source-approved existing labels). Plan **at least 26px export-effective secondary labels** and **32px export-effective priority labels** within the actual 1200×630 export. Leave all prior reference editions and locked PNGs unchanged. Require the real final saved-pixel review even after preflight passes; there is no synthetic visual acceptance.
-
-Freeze allowed and forbidden arrows before generation. Represent a source caveat independently—never connected as a causal output, safety approval or terminal success badge. Avoid fake document strokes, fake chart values, unapproved text/percentages, decorative controls, clocks/gears or filler. Occupy the central image with actual source-supported substages instead of enlarging a headline while shrinking the explanatory captions. Preserve correct approved paths and only repair rejected pixels; no fixed attempt cap.
+## Source-bound Git transport
 
 **Original image byte transport:** Use connected `fetch_file` at the **exact commit SHA** with `encoding:"base64"` for PNG bytes, decode and compare exact byte length, SHA-256 and Git blob identity; never UTF-8-decode image blobs. **Complete repository ancestry before pre-PR validation:** in a shallow checkout, unshallow first if possible, then fetch `origin/main`, `origin/shadow-pages-history` and the current `origin/shadow/YYYY-MM-DD` explicitly, and independently verify each with `git rev-parse` and `git merge-base --is-ancestor`. Run the **existing** `scripts/preflight-recurring-image-package.mjs` only on the complete original six-image candidate branch; the existing protected exact-head PR check remains the only admission. An unavailable Git transport capability is a truthful blocker, not permission to regenerate any accepted image.
 
@@ -76,13 +64,6 @@ Read and apply [the six approved production improvements](../automation/OCT20_AP
 
 Read [permanent AAR implementation](../automation/OCT21_AAR_IMPROVEMENTS.md) and scripts/image-aar-contract.mjs before starting any native generation. Capture an actual UTC first-invocation clock observation in production.host_execution_observed_at with host_execution_observation_source: executor_observed_in_same_invocation. Immediately before the first real native image tool call, capture the actual UTC generation_started_at with generation_start_source: executor_observed_before_first_native_call. Retain both exact observed instants in canonical reviews/after-action.json and its generated human report. Never infer from a 21:15 plan, Git author timestamp, worker lease or first saved PNG. If the clock cannot be genuinely observed, record that as missing and do not fabricate timestamps to pass package validation. All preexisting visual correctness, six-images, full-set and final 24 saved-pixel context gates remain strict; no rework of accepted assets and no new tasks or paid services.
 
-## Oct25+ factual first-pass and mobile-label priorities (owner-approved October 24 AAR)
+## Historical improvement references
 
-Read [October 24 approved deduplicated improvements](../automation/OCT24_APPROVED_DEDUP_IMPROVEMENTS.md) before generating. Perform a source-specific *misrepresentation review* of every allowed causal edge and illustration component: no simulated records/documents, fabricated trending charts, implied guaranteed outcomes, success trophies, invented glyphs, anthropomorphic imagery, or unsupported steering/data flows. Training-time loops must be visually separate from deployment/runtime arrows wherever that distinction materially matters. The Oct25+ `pre_generation_checks.thumbnail_priority_labels` contains **2–3** exact `required_labels`, each with `label_layout.minimum_font_px >=30`, still respecting `bounding_box_px` and the 40px safe area; all other required labels retain >=22px. These are plans, not claims of accurate generated pixels. After each native export, actually inspect all text, factual connections and thumbnail/full-size legibility; preserve the complete 24-target live context check. Never turn quality-attempt goals into a hard stop, and never regenerate accepted-art bytes due to status, reporting or transport failures.
-
-
-## October 28 AAR — First-pass illustration improvement, effective October 29+
-
-Read the new approved October 28 implementation register at docs/automation/OCT28_APPROVED_AAR_IMPLEMENTATION.md. This adds no task, no new image tool, and no quality bypass. Before generating, use the thirteen rejected October 28 candidates as negative examples: no fake documents, invented numeric charts, scenery, success trophies, unsupported labels or causal arrows that skip required gates. Check every allowed arrow's source-supported origin, condition and destination. Keep exact nonoverlapping planned labels, 40px margins and final 1200x630 legibility of 26px body and 32px priority text. Source-grounded corrections must preserve parts already correct.
-
-After export, inspect real RGB image pixels and all 24 dated/permanent desktop/mobile page captures. The new objective saved-screenshot RGB match helps reject a blank capture but does not replace semantic review. Keep all rejection evidence, genuine attempt counts and Work-usage UNKNOWN if not observed. Never cap quality attempts or regenerate accepted PNGs for a transport/CI defect. Preserve the two original schedules, protected PR/CI and zero-paid-API contract.
+The original dated records remain unchanged: [October 23](../automation/OCT23_APPROVED_IMPROVEMENTS.md), [October 24](../automation/OCT24_APPROVED_DEDUP_IMPROVEMENTS.md), [October 28](../automation/OCT28_APPROVED_AAR_IMPLEMENTATION.md), [October 29](../automation/OCT29_APPROVED_AAR_IMPLEMENTATION.md), and [October 30](../automation/OCT30_APPROVED_AAR_IMPLEMENTATION.md). In particular, `docs/automation/OCT30_APPROVED_AAR_IMPLEMENTATION.md` retains the ten real rejected October 30 examples. Review applicable genuine rejected regions before generating; do not substitute those historical thresholds for CURRENT_IMAGE_REQUIREMENTS.md or rework accepted images.
