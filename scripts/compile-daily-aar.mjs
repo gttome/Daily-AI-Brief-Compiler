@@ -6,14 +6,16 @@ import {ownerReportedWorkUsage} from './owner-usage.mjs';
 import {summarizeTaskOriginEvidence} from './task-origin-evidence.mjs';
 import {oct27SourceReadiness,renderOct27SourceSection} from './oct27-source-readiness.mjs';
 import {fileURLToPath} from 'node:url';
+import {summarizeTop10,renderTop10Section} from './top10-aar.mjs';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
-const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity',
+const FILES=['compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
  'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
  'source-route-coverage','source-item-census','source-qualification',
- 'source-item-retries','postpublication-incidents','postpublish-video-playback'];
+ 'source-item-retries','postpublication-incidents','postpublish-video-playback',
+ 'top10-report','top10-after-action','top10-report-source','trend-input','trend-search-coverage'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -272,12 +274,21 @@ export function compileDailyReports({cycleDate,evidence={},hashes={}}){
  // Missing or stale evidence can never be silently adopted for a different edition.
  const compiler=compilerAar(cycleDate,date,evidence);
  const images=imageAar(cycleDate,date,evidence,hashes);
+ const top10=summarizeTop10(cycleDate,date,evidence,hashes);
+ compiler.top10_discovery={report_status:top10.report_status,handoff_status:top10.handoff_status,
+  search_status:top10.search_status,source_commit:top10.source_commit,report_sha256:top10.report_sha256};
+ const trendComplete=top10.end_to_end_ready===true;
+ const endToEnd=!top10.applicable?'NOT_APPLICABLE_BEFORE_TOP10':
+   (compiler.result==='SUCCESS'&&images.result==='SUCCESS'&&trendComplete?
+    (top10.report_status==='ready'?'COMPLETE':'COMPLETE_WITH_PROVISIONAL_TRENDS'):'PARTIAL');
  const rollup={
   schema_version:'daily-compiler-rollup-v1',cycle_date:cycleDate,edition_date:date,
   evidence_digest:sha(JSON.stringify(Object.entries(hashes).sort())),
   compiler:{execution:compiler.execution,result:compiler.result,publication:compiler.publication,
     autonomy_status:compiler.autonomy_status,owner_intervention_required:compiler.owner_intervention_required},
   images:{execution:images.execution,result:images.result,publication:images.publication},
+  top10,
+  end_to_end_system_result:endToEnd,
   combined_result:compiler.result==='SUCCESS'&&images.result==='SUCCESS'?'SUCCESS':
     (compiler.result==='NOT_OBSERVED'&&images.result==='NOT_OBSERVED'?'NOT_OBSERVED':'PARTIAL'),
   next_run:'UNKNOWN',
@@ -286,16 +297,21 @@ export function compileDailyReports({cycleDate,evidence={},hashes={}}){
   source_evidence_hashes:hashes,
   oct28_source_readiness:compiler.oct28_source_readiness
  };
- return {compiler,images,'daily-rollup':rollup};
+ return {compiler,images,top10,'daily-rollup':rollup};
 }
 function readable(v){
  return typeof v==='object'&&v!==null?JSON.stringify(v):String(v??'UNKNOWN');
 }
 export function renderMarkdown(report){
+ if(report.lane==='top10')return '# Daily AI Brief — Top 10 Research AAR\n\n'+renderTop10Section(report)+'\n';
  const isRoll=report.schema_version==='daily-compiler-rollup-v1';
  const name=isRoll?'Combined Daily Operations':report.lane==='compiler'?'Compiler Production':'Premium Image Production';
  const rows=isRoll?
-  [['Compiler',readable(report.compiler)],['Images',readable(report.images)],['Combined result',report.combined_result],['Next run readiness',report.next_run]]:
+  [['Compiler',readable(report.compiler)],['Images',readable(report.images)],
+   ['Top 10 report',report.top10?.report_status??'NOT_OBSERVED'],
+   ['Top 10 received by Compiler',report.top10?.handoff_status??'NOT_OBSERVED'],
+   ['Topic-guided searches',report.top10?.search_status??'NOT_OBSERVED'],
+   ['Publication and image result',report.combined_result],['Whole-system evidence',report.end_to_end_system_result],['Next run readiness',report.next_run]]:
   [['Execution',report.execution],['Result',report.result],['Publication',report.publication],
    ['Scheduled runtime',report.scheduled_host_mode],['GitHub capability',report.same_invocation_connected_github],
    ['Started',report.started_at],['Finished',report.finished_at],['Duration (min)',report.elapsed_minutes],
@@ -326,6 +342,7 @@ export function renderMarkdown(report){
   rows.map(([k,v])=>'| '+k+' | '+String(v??'UNKNOWN').replace(/\|/g,'/')+' |').join('\n')+
   '\n\n## Evidence and limitations\n\n'+defects+'\n\n'+
   (report.oct28_source_readiness?renderOct27SourceSection(report.oct28_source_readiness)+'\n\n':'')+
+  (isRoll&&report.top10?renderTop10Section(report.top10)+'\n\n':'')+
   '## Operational result\n\n'+
   (isRoll?report.note:
    'This is a strictly evidence-derived report. Missing runtime receipts are NO_START_RECEIPT, not proof the scheduler never fired. Prior-day defects do not automatically block the next edition. Account usage and host execution mode remain UNKNOWN unless independently observed.')+
@@ -342,6 +359,7 @@ function main(){
   fs.writeFileSync(path.join(dir,name+'.md'),renderMarkdown(report));
  }
  console.log(JSON.stringify({result:'AAR_RECONCILED_NO_PUBLICATION',cycle_date:cycleDate,
-  edition_date:datePlusOne(cycleDate),files:6}));
+  edition_date:datePlusOne(cycleDate),files:Object.keys(reports).length*2}));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main();
+
