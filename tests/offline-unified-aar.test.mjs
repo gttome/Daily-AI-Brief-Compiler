@@ -116,3 +116,15 @@ test('unfinished image release produces no synthetic offline image package',()=>
   assert.equal(fs.existsSync(path.join(t.out,'combined.md')),false);
  }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
 });
+test('offline package includes continuous-improvement figures and exact measurement data',()=>{
+ const t=setup();
+ try{
+  const charts=['research-coverage','image-rework','top10-selection','seven-edition-trends','publication-failures','image-defects'];
+  fs.mkdirSync(path.join(t.tmp,'charts'));
+  for(const name of charts){fs.writeFileSync(path.join(t.tmp,'charts',name+'.svg'),'<svg xmlns="http://www.w3.org/2000/svg"><title>'+name+'</title></svg>');fs.appendFileSync(t.report,'\n!['+name+'](charts/'+name+'.svg)\n');}
+  for(const file of ['charts.json','improvement-metrics.json','improvement-observations.json'])fs.writeFileSync(path.join(t.tmp,file),JSON.stringify({fixture:file}));
+  const result=run(t);assert.equal(result.status,0,result.stderr);
+  for(const name of charts)assert.equal(fs.readFileSync(path.join(t.out,'charts',name+'.svg'),'utf8'),fs.readFileSync(path.join(t.tmp,'charts',name+'.svg'),'utf8'));
+  for(const file of ['charts.json','improvement-metrics.json','improvement-observations.json'])assert.equal(fs.readFileSync(path.join(t.out,file),'utf8'),fs.readFileSync(path.join(t.tmp,file),'utf8'));
+ }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
+});
