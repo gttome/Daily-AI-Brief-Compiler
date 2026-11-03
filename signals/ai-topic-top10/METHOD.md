@@ -21,3 +21,15 @@ Cluster the same underlying event under one topic; distinguish infrastructure ec
 ## Reruns and audit
 
 For an authorized same-cycle rerun, preserve the previous report/AAR in revisions/YYYY-MM-DD/ before updating today's canonical files with expected blob SHAs. Save actual report bytes, immutable commit/blob/SHA256 readback and a new run AAR. Preserve original observation timestamps. Never assert Compiler consumption or unattended execution without separate receipts. No new schedule, publisher, workflow or paid service is authorized by this method.
+
+## Five owner-approved corrections — November 2, 2026
+
+These rules govern specificity, ranking claims and reader presentation where older wording is less explicit.
+
+1. Name a concrete event, study, release, demonstration or dated update. Require event_id, reader_question, why_now and scope_excludes. Narrowing an angle requires rechecking which attention evidence actually matches it.
+2. Separate reader questions: product access/capabilities, benchmark methodology and a practical workflow are distinct. Assign an engagement observation to one primary event; keep loose associations as background. Never reuse a count to inflate multiple items.
+3. Separate event, source-publication, attention and future effective dates. Use New release, New update, New discussion, Carryover, Renewed attention, Forthcoming change or Date unverified. Never infer a release date from a filename or retrieval time. Preserve original counter ages and windows.
+4. Source count is not rank confidence. Label every source as attention, claim verification or background. Only event-matched attention supports placement. If exact ordering is unsupported, use the title AI Attention Watchlist — Provisional Top 10 and qualitative evidence bands; numbers are the Compiler discovery sequence, not measured popularity ranks. Entries within a band are unranked. Keep the schema's rank integer, plus rank_semantics and position_confidence. No fake scores or growth. Leads without matched attention belong in editorial_watchlist.
+5. Use up to ten concise entries, without padding. Each shows a specific headline, Why now with freshness/date, Evidence with uncertainty, and Brief value plus attention confidence. Include primary/reference and attention links with correct roles/access labels. Say when a reference is background or playback is unavailable. Add a short scope/limitations footer. A one-column D.html companion may be saved beside D.json, with no scripts, external assets or production publishing.
+
+Preserve source-universe coverage, 2/2/2, one reusable Agent Skills procedure and all media/publication requirements. Revised numbering is not audience movement. Explain replacements and preserve superseded reports and receipts.
