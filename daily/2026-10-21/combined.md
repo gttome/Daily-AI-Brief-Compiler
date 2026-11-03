@@ -17,6 +17,7 @@ Image capability route preflight: NOT OBSERVED; scheduler origin remains UNPROVE
 Image efficiency: 1/6 first-pass accepts; 14 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: 2026-10-22T03:10:44Z; review-record commit: 2026-10-22T03:17:33.000Z; protected review merge: 2026-10-22T03:25:53.000Z.
 
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |

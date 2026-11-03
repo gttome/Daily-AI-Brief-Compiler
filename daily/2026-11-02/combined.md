@@ -18,6 +18,60 @@ Image efficiency: 1/6 first-pass accepts; 12 total attempts. November 3–5 targ
 Image review completed: 2026-11-03T03:54:20Z; review-record commit: 2026-11-03T03:57:05.000Z; protected review merge: 2026-11-03T04:01:18.000Z.
 Eligible source indexes: 87; editorial inspections reported: 27 (31%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: 60; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
+## Daily AAR charts
+
+These charts use this edition’s receipts. Missing data is not zero.
+
+### Research coverage
+
+![Research coverage: recorded results](charts/research-coverage.svg)
+
+**27 of 87 indexes inspected (31%).**
+
+| Editorial inspection | Indexes |
+|---|---:|
+| Inspected | 27 |
+| Not inspected | 60 |
+
+Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories.
+
+### Image attempts and rework
+
+![Image attempts and rework: recorded results](charts/image-rework.svg)
+
+**12 attempts; 1 of 6 images accepted on their first attempt.**
+
+Recorded November 3–5, 2026 target: at least 3/6 first-pass accepts; no more than 2 attempts per image. This is an efficiency target, not a quality cutoff.
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| GDPx tests frontier agents on 206 professional tasks | 1 | 2 | 3 |
+| NVIDIA turns Cosmos models into interactive simulation pipelines | 1 | 0 | 1 |
+| Anthropic’s S-1 exposes the economics behind enterprise AI | 1 | 1 | 2 |
+| Mistral adds managed search indexes for grounded knowledge work | 1 | 1 | 2 |
+| LifeVal tests AI help on everyday planning decisions | 1 | 1 | 2 |
+| A decision-review Skill keeps AI initiatives tied to evidence | 1 | 1 | 2 |
+
+Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
+
+### Top 10 links to published items
+
+![Top 10 links to published items: recorded results](charts/top10-selection.svg)
+
+**4 of 10 unique published items link to Top 10 topics.**
+
+| Format | Linked to Top 10 | Other items |
+|---|---:|---:|
+| Articles | 3 | 3 |
+| Videos | 0 | 2 |
+| Podcasts | 1 | 1 |
+
+No selection quota. Topic linkage does not establish better quality, popularity or causal improvement.
+
+[Chart data](charts.json)
+
+One edition at a time. Missing evidence is not zero. Trend claims require comparable recorded cycles.
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |
@@ -347,8 +401,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-03/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/91d4e75144643e21ba311d131e2b1d349f6ca1bc/signals/ai-topic-top10/2026-11-02.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/91d4e75144643e21ba311d131e2b1d349f6ca1bc/signals/ai-topic-top10/2026-11-02.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/630b6d1a7410b36f1481614bff418a73a6fd328c/signals/ai-topic-top10/2026-11-02.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/630b6d1a7410b36f1481614bff418a73a6fd328c/signals/ai-topic-top10/2026-11-02.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-search-coverage.json) |
 

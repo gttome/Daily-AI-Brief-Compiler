@@ -18,6 +18,7 @@ Image efficiency: 0/6 first-pass accepts; 16 total attempts. November 3–5 targ
 Image review completed: 2026-10-30T03:19:47Z; review-record commit: 2026-10-30T03:33:31.000Z; protected review merge: 2026-10-30T03:33:31.000Z.
 Eligible source indexes: 87; editorial inspections reported: Unknown (Unknown%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: Unknown; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |

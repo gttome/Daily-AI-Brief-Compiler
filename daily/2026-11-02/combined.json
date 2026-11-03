@@ -498,7 +498,7 @@
       "numeric_score": null,
       "growth_observations": "Unavailable; no comparable video measurement pair established."
     },
-    "source_commit": "91d4e75144643e21ba311d131e2b1d349f6ca1bc",
+    "source_commit": "630b6d1a7410b36f1481614bff418a73a6fd328c",
     "source_blob_sha": "87352a137afb5d5fcb9e82a433a1be0102bb3ebe",
     "report_sha256": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
     "consumed_source_commit": "e76763522d93ba2152b6d8a2b22b64a051fb2297",
@@ -670,7 +670,7 @@
       },
       "previous_cycle": "2026-11-01",
       "previous_report_sha256": null,
-      "previous_aar_sha256": "5e3f81f711410e37aee2bcdffd528468a683dc3b8a5bad2eb54ed146085a39fc",
+      "previous_aar_sha256": "4c36e22504ef46b07198b3769ca7e8bffd30efdbfd2af650196f72ab57e7e311",
       "input_delta_from_previous": {
         "topic_count": null,
         "validation_resource_count": null,
@@ -941,11 +941,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/91d4e75144643e21ba311d131e2b1d349f6ca1bc/signals/ai-topic-top10/2026-11-02.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/630b6d1a7410b36f1481614bff418a73a6fd328c/signals/ai-topic-top10/2026-11-02.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/91d4e75144643e21ba311d131e2b1d349f6ca1bc/signals/ai-topic-top10/2026-11-02.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/630b6d1a7410b36f1481614bff418a73a6fd328c/signals/ai-topic-top10/2026-11-02.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -955,5 +955,109 @@
       "title": "Top 10 article/video/podcast search coverage",
       "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-search-coverage.json"
     }
-  ]
+  ],
+  "charts": {
+    "schema_version": "daily-ai-brief-aar-charts-v1",
+    "edition_date": "2026-11-03",
+    "charts": [
+      {
+        "id": "research-coverage",
+        "title": "Research coverage",
+        "description": "Editorial source-index inspection; automated fetches are excluded.",
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "label": "Inspected",
+            "value": 27
+          },
+          {
+            "label": "Not inspected",
+            "value": 60
+          }
+        ],
+        "total": 87,
+        "inspected_percent": 31,
+        "note": "Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories."
+      },
+      {
+        "id": "image-rework",
+        "title": "Image attempts and rework",
+        "description": "Accepted and rejected candidates for each final image.",
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov03-t1-gdpx-professional-task-benchmark",
+            "label": "GDPx tests frontier agents on 206 professional tasks",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov03-t2-cosmos-interactive-simulation",
+            "label": "NVIDIA turns Cosmos models into interactive simulation pipelines",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov03-k1-anthropic-ipo-compute-risks",
+            "label": "Anthropic’s S-1 exposes the economics behind enterprise AI",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov03-k2-managed-search-index",
+            "label": "Mistral adds managed search indexes for grounded knowledge work",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov03-a1-lifeval-daily-planning",
+            "label": "LifeVal tests AI help on everyday planning decisions",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov03-a2-ai-initiative-decision-review-skill",
+            "label": "A decision-review Skill keeps AI initiatives tied to evidence",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 12,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "November 3–5, 2026"
+        },
+        "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
+      },
+      {
+        "id": "top10-selection",
+        "title": "Top 10 links to published items",
+        "description": "Unique published items by format, not the number of topic mappings.",
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "label": "Articles",
+            "linked": 3,
+            "other": 3
+          },
+          {
+            "label": "Videos",
+            "linked": 0,
+            "other": 2
+          },
+          {
+            "label": "Podcasts",
+            "linked": 1,
+            "other": 1
+          }
+        ],
+        "linked_items": 4,
+        "total_items": 10,
+        "note": "No selection quota. Topic linkage does not establish better quality, popularity or causal improvement."
+      }
+    ],
+    "interpretation": "One edition at a time. Missing evidence is not zero. Trend claims require comparable recorded cycles."
+  }
 }
