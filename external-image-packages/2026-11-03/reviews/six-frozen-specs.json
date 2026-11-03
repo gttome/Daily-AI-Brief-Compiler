@@ -875,13 +875,20 @@
     ],
     "required_labels": [
       "Operating performance",
-      "Revenue and operating costs",
+      "Revenue",
+      "Operating costs",
+      "Operating result",
       "Net loss accounting",
       "Valuation effects",
       "Compute commitments",
       "Payment timing",
+      "Near term",
+      "Multi-year",
       "Financing constraints",
       "Capacity delivery risk",
+      "Delayed",
+      "Repriced",
+      "Reduced",
       "Disclosed risks; no forecast of outcomes"
     ],
     "source_claim_map": [
@@ -909,9 +916,44 @@
     ],
     "allowed_causal_edges": [
       {
+        "from": "Revenue",
+        "to": "Operating result",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Operating costs",
+        "to": "Operating result",
+        "direction": "forward",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
         "from": "Financing constraints",
         "to": "Capacity delivery risk",
-        "direction": "forward",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Capacity delivery risk",
+        "to": "Delayed",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Capacity delivery risk",
+        "to": "Repriced",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Capacity delivery risk",
+        "to": "Reduced",
+        "direction": "conditional",
         "support_claim_id": "claim-3",
         "relation_supported_by_semantic_review": true
       }
@@ -929,7 +971,7 @@
       "annotation": "ledger facets and conditional dependency callouts"
     },
     "quality_review_plan": {
-      "explanatory_components": 12,
+      "explanatory_components": 16,
       "major_regions": 5,
       "dominant_internal_substages": 2,
       "secondary_supported_links": 2,
@@ -943,22 +985,46 @@
           "region": "Operating performance review",
           "minimum_font_px": 36,
           "bounding_box_px": {
-            "x": 60,
-            "y": 55,
-            "width": 480,
-            "height": 65
+            "x": 55,
+            "y": 50,
+            "width": 490,
+            "height": 50
           }
         },
         {
-          "label": "Revenue and operating costs",
+          "label": "Revenue",
+          "region_id": "operations",
+          "region": "Operating performance review",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 125,
+            "width": 210,
+            "height": 40
+          }
+        },
+        {
+          "label": "Operating costs",
           "region_id": "operations",
           "region": "Operating performance review",
           "minimum_font_px": 28,
           "bounding_box_px": {
+            "x": 295,
+            "y": 125,
+            "width": 250,
+            "height": 40
+          }
+        },
+        {
+          "label": "Operating result",
+          "region_id": "operations",
+          "region": "Operating performance review",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
             "x": 60,
-            "y": 155,
+            "y": 195,
             "width": 480,
-            "height": 75
+            "height": 45
           }
         },
         {
@@ -967,46 +1033,70 @@
           "region": "Non-operating accounting review",
           "minimum_font_px": 36,
           "bounding_box_px": {
-            "x": 640,
-            "y": 55,
-            "width": 500,
-            "height": 65
+            "x": 635,
+            "y": 50,
+            "width": 505,
+            "height": 50
           }
         },
         {
           "label": "Valuation effects",
           "region_id": "accounting",
           "region": "Non-operating accounting review",
-          "minimum_font_px": 28,
+          "minimum_font_px": 30,
           "bounding_box_px": {
-            "x": 640,
+            "x": 650,
             "y": 155,
-            "width": 480,
-            "height": 65
+            "width": 470,
+            "height": 50
           }
         },
         {
           "label": "Compute commitments",
           "region_id": "compute",
           "region": "Compute commitments and timing",
-          "minimum_font_px": 32,
+          "minimum_font_px": 36,
           "bounding_box_px": {
-            "x": 60,
-            "y": 310,
-            "width": 480,
-            "height": 65
+            "x": 55,
+            "y": 305,
+            "width": 490,
+            "height": 55
           }
         },
         {
           "label": "Payment timing",
           "region_id": "compute",
           "region": "Compute commitments and timing",
+          "minimum_font_px": 30,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 385,
+            "width": 470,
+            "height": 45
+          }
+        },
+        {
+          "label": "Near term",
+          "region_id": "compute",
+          "region": "Compute commitments and timing",
           "minimum_font_px": 28,
           "bounding_box_px": {
             "x": 60,
-            "y": 415,
-            "width": 470,
-            "height": 60
+            "y": 455,
+            "width": 215,
+            "height": 40
+          }
+        },
+        {
+          "label": "Multi-year",
+          "region_id": "compute",
+          "region": "Compute commitments and timing",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 315,
+            "y": 455,
+            "width": 230,
+            "height": 40
           }
         },
         {
@@ -1015,22 +1105,58 @@
           "region": "Conditional financing-dependent capacity risk",
           "minimum_font_px": 30,
           "bounding_box_px": {
-            "x": 640,
+            "x": 635,
             "y": 305,
-            "width": 490,
-            "height": 65
+            "width": 510,
+            "height": 50
           }
         },
         {
           "label": "Capacity delivery risk",
           "region_id": "risk",
           "region": "Conditional financing-dependent capacity risk",
-          "minimum_font_px": 32,
+          "minimum_font_px": 30,
           "bounding_box_px": {
-            "x": 640,
-            "y": 415,
-            "width": 490,
-            "height": 65
+            "x": 635,
+            "y": 380,
+            "width": 510,
+            "height": 45
+          }
+        },
+        {
+          "label": "Delayed",
+          "region_id": "risk",
+          "region": "Conditional financing-dependent capacity risk",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 635,
+            "y": 455,
+            "width": 150,
+            "height": 40
+          }
+        },
+        {
+          "label": "Repriced",
+          "region_id": "risk",
+          "region": "Conditional financing-dependent capacity risk",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 805,
+            "y": 455,
+            "width": 150,
+            "height": 40
+          }
+        },
+        {
+          "label": "Reduced",
+          "region_id": "risk",
+          "region": "Conditional financing-dependent capacity risk",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 975,
+            "y": 455,
+            "width": 160,
+            "height": 40
           }
         },
         {
@@ -1056,8 +1182,8 @@
       "no_unsupported_chart_or_score_marks": true,
       "mechanism_canvas_percent": 80,
       "explanatory_substage_labels": [
-        "Operating performance",
-        "Net loss accounting"
+        "Operating result",
+        "Capacity delivery risk"
       ],
       "native_export_legibility_plan": {
         "canvas_width": 1200,
@@ -1067,7 +1193,8 @@
       },
       "thumbnail_priority_labels": [
         "Operating performance",
-        "Net loss accounting"
+        "Net loss accounting",
+        "Compute commitments"
       ],
       "mobile_inline_390px_review_planned": true,
       "mobile_inline_320px_review_planned": true,
@@ -1084,9 +1211,59 @@
       ],
       "connector_origin_reviews": [
         {
+          "from": "Revenue",
+          "to": "Operating result",
+          "direction": "forward",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Operating performance review",
+          "target_region": "Operating performance review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Operating costs",
+          "to": "Operating result",
+          "direction": "forward",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Operating performance review",
+          "target_region": "Operating performance review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
           "from": "Financing constraints",
           "to": "Capacity delivery risk",
-          "direction": "forward",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Conditional financing-dependent capacity risk",
+          "target_region": "Conditional financing-dependent capacity risk",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Capacity delivery risk",
+          "to": "Delayed",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Conditional financing-dependent capacity risk",
+          "target_region": "Conditional financing-dependent capacity risk",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Capacity delivery risk",
+          "to": "Repriced",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Conditional financing-dependent capacity risk",
+          "target_region": "Conditional financing-dependent capacity risk",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Capacity delivery risk",
+          "to": "Reduced",
+          "direction": "conditional",
           "support_claim_id": "claim-3",
           "relation_supported_by_semantic_review": true,
           "origin_region": "Conditional financing-dependent capacity risk",
@@ -1150,20 +1327,105 @@
         ],
         "connector_anchors": [
           {
+            "from": "Revenue",
+            "to": "Operating result",
+            "direction": "forward",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "operations",
+            "to_region_id": "operations",
+            "origin_px": {
+              "x": 165,
+              "y": 165
+            },
+            "target_px": {
+              "x": 300,
+              "y": 195
+            }
+          },
+          {
+            "from": "Operating costs",
+            "to": "Operating result",
+            "direction": "forward",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "operations",
+            "to_region_id": "operations",
+            "origin_px": {
+              "x": 420,
+              "y": 165
+            },
+            "target_px": {
+              "x": 300,
+              "y": 195
+            }
+          },
+          {
             "from": "Financing constraints",
             "to": "Capacity delivery risk",
-            "direction": "forward",
+            "direction": "conditional",
             "support_claim_id": "claim-3",
             "relation_supported_by_semantic_review": true,
             "from_region_id": "risk",
             "to_region_id": "risk",
             "origin_px": {
               "x": 890,
-              "y": 500
+              "y": 355
             },
             "target_px": {
               "x": 890,
-              "y": 300
+              "y": 380
+            }
+          },
+          {
+            "from": "Capacity delivery risk",
+            "to": "Delayed",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "risk",
+            "to_region_id": "risk",
+            "origin_px": {
+              "x": 890,
+              "y": 425
+            },
+            "target_px": {
+              "x": 710,
+              "y": 455
+            }
+          },
+          {
+            "from": "Capacity delivery risk",
+            "to": "Repriced",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "risk",
+            "to_region_id": "risk",
+            "origin_px": {
+              "x": 890,
+              "y": 425
+            },
+            "target_px": {
+              "x": 880,
+              "y": 455
+            }
+          },
+          {
+            "from": "Capacity delivery risk",
+            "to": "Reduced",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "risk",
+            "to_region_id": "risk",
+            "origin_px": {
+              "x": 890,
+              "y": 425
+            },
+            "target_px": {
+              "x": 1055,
+              "y": 455
             }
           }
         ],
@@ -1173,7 +1435,7 @@
           "regions_match_composition": true,
           "labels_match_regions": true,
           "connectors_match_source": true,
-          "geometry_sha256": "cad3ade0282135de74f18d7871f4b374a3c869791ba8becfd776d3ed441a362a"
+          "geometry_sha256": "65c4420f6c9ba13aa9336c96b80fdffe0a0ba9901a790facb8baf6ce5c4c7fc3"
         }
       }
     },
@@ -1187,7 +1449,7 @@
       "unsupported_claims_excluded": true,
       "approved_before_generation": true
     },
-    "native_generation_prompt": "Use case: infographic-diagram. Produce ONE finished static factual editorial illustration, landscape 1200x630, not editable engineering source. White background; professional textbook linework with elegant restrained depth. oxblood burgundy and blue grey. All graphic content and text inside 40px margins. Work at 1.904:1 aspect ratio; no letterboxing.\nVisual thesis: Review operations, valuation accounting and compute commitments separately; financing constraints can impair promised capacity without guaranteeing a loss or failure.\nComposition: Two clearly separate top ledgers for operations and accounting; lower-left compute obligations feeding a lower-right conditional financing/capacity risk fork; detached bottom disclosure note.\nMechanism detail: Separated operating inflow/outflow ledger facets, accounting reconciliation enclosure and detached valuation component; commitment stack divided into payment periods without numeric graphs; financing dependency junction with conditional delayed/repriced/reduced capacity branches represented without extra text. Nondirectional braces compare the ledger facets; no causal arrow from revenue to profit or from net loss to bankruptcy.\nRender ONLY these exact labels, each exactly once: [\"Operating performance\",\"Revenue and operating costs\",\"Net loss accounting\",\"Valuation effects\",\"Compute commitments\",\"Payment timing\",\"Financing constraints\",\"Capacity delivery risk\",\"Disclosed risks; no forecast of outcomes\"]. Priority labels at least 36px and all others at least 28px at final 1200x630. Prefer frontal typography, bold sans-serif, high contrast; line breaks allowed without changing words. No heading or footer beyond the allowlist. Use the region rectangles and label boxes below as the actual composition. Connectors follow only the listed anchors/relationships, route around text, and attach to correct mechanisms. Nondirectional evidence braces are distinct from arrows. Caveat is detached and unconnected. More explanatory detail is welcome only within stated source facts.\nNo people, avatars, silhouettes, faces, hands, shield/gear motifs, scenery, logos, photos, dashboard controls, pseudo-writing, extra glyphs, sparkles, fake paragraph strokes, unsupported bars/graphs/gauges, checkmarks or guarantees. Clean document surfaces carry no fake lines. Do not shrink required labels to fit; budget the planned rectangles.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"operations\",\"description\":\"Operating performance review\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":520,\"height\":215}},{\"id\":\"accounting\",\"description\":\"Non-operating accounting review\",\"bounding_box_px\":{\"x\":620,\"y\":40,\"width\":540,\"height\":215}},{\"id\":\"compute\",\"description\":\"Compute commitments and timing\",\"bounding_box_px\":{\"x\":40,\"y\":295,\"width\":520,\"height\":210}},{\"id\":\"risk\",\"description\":\"Conditional financing-dependent capacity risk\",\"bounding_box_px\":{\"x\":620,\"y\":295,\"width\":540,\"height\":210}},{\"id\":\"caveat\",\"description\":\"Detached disclosure-scope note\",\"bounding_box_px\":{\"x\":40,\"y\":535,\"width\":1120,\"height\":55}}],\"labels\":[{\"label\":\"Operating performance\",\"region_id\":\"operations\",\"region\":\"Operating performance review\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":60,\"y\":55,\"width\":480,\"height\":65}},{\"label\":\"Revenue and operating costs\",\"region_id\":\"operations\",\"region\":\"Operating performance review\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":155,\"width\":480,\"height\":75}},{\"label\":\"Net loss accounting\",\"region_id\":\"accounting\",\"region\":\"Non-operating accounting review\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":640,\"y\":55,\"width\":500,\"height\":65}},{\"label\":\"Valuation effects\",\"region_id\":\"accounting\",\"region\":\"Non-operating accounting review\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":640,\"y\":155,\"width\":480,\"height\":65}},{\"label\":\"Compute commitments\",\"region_id\":\"compute\",\"region\":\"Compute commitments and timing\",\"minimum_font_px\":32,\"bounding_box_px\":{\"x\":60,\"y\":310,\"width\":480,\"height\":65}},{\"label\":\"Payment timing\",\"region_id\":\"compute\",\"region\":\"Compute commitments and timing\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":415,\"width\":470,\"height\":60}},{\"label\":\"Financing constraints\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":640,\"y\":305,\"width\":490,\"height\":65}},{\"label\":\"Capacity delivery risk\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":32,\"bounding_box_px\":{\"x\":640,\"y\":415,\"width\":490,\"height\":65}},{\"label\":\"Disclosed risks; no forecast of outcomes\",\"region_id\":\"caveat\",\"region\":\"Detached disclosure-scope note\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Financing constraints\",\"to\":\"Capacity delivery risk\",\"direction\":\"forward\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"risk\",\"to_region_id\":\"risk\",\"origin_px\":{\"x\":890,\"y\":500},\"target_px\":{\"x\":890,\"y\":300}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+    "native_generation_prompt": "Use case: infographic-diagram. Revise the rejected static financial editorial illustration into a rich open financial cross-section, exact 1200x630 landscape white canvas, burgundy and blue-grey, all labels within40px margins. Preserve the factual separation of operations and valuation accounting. REMOVE the enclosing four large dashboard cards; use open ledger facets, nested accounting anatomy, a payment-period split and a conditional three-way capacity dependency. No fake numeric graphs, charts, controls or people. Source facts: revenue and operating costs contribute to operating results; net loss also reflects non-operating valuation effects. Compute obligations have near-term and multi-year payment timing. Financing constraints can delay, reprice or reduce delivery. These are disclosed risks, not forecasts.\nUse ONLY exact words [\"Operating performance\",\"Revenue\",\"Operating costs\",\"Operating result\",\"Net loss accounting\",\"Valuation effects\",\"Compute commitments\",\"Payment timing\",\"Near term\",\"Multi-year\",\"Financing constraints\",\"Capacity delivery risk\",\"Delayed\",\"Repriced\",\"Reduced\",\"Disclosed risks; no forecast of outcomes\"]. Prominent three priority labels36px minimum, all other labels28px minimum at final1200x630. Source facts become meaningful components, not empty decorative slots. Revenue and Operating costs each contribute to Operating result. A NONDIRECTIONAL brace separates operating review from Net loss accounting and Valuation effects. Compute commitments group Payment timing, Near term and Multi-year WITHOUT an arrow to financing or capacity. Financing constraints has the only external risk arrow to Capacity delivery risk, which conditionally branches to Delayed, Repriced and Reduced. Never add an arrow from Compute commitments across to the risk group. All caveat text detached along bottom. No other words or pseudo-writing. Smooth document and ledger surfaces have absolutely no fake paragraph lines. Preserve at least40px margins and frontal readable type.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"operations\",\"description\":\"Operating performance review\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":520,\"height\":215}},{\"id\":\"accounting\",\"description\":\"Non-operating accounting review\",\"bounding_box_px\":{\"x\":620,\"y\":40,\"width\":540,\"height\":215}},{\"id\":\"compute\",\"description\":\"Compute commitments and timing\",\"bounding_box_px\":{\"x\":40,\"y\":295,\"width\":520,\"height\":210}},{\"id\":\"risk\",\"description\":\"Conditional financing-dependent capacity risk\",\"bounding_box_px\":{\"x\":620,\"y\":295,\"width\":540,\"height\":210}},{\"id\":\"caveat\",\"description\":\"Detached disclosure-scope note\",\"bounding_box_px\":{\"x\":40,\"y\":535,\"width\":1120,\"height\":55}}],\"labels\":[{\"label\":\"Operating performance\",\"region_id\":\"operations\",\"region\":\"Operating performance review\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":55,\"y\":50,\"width\":490,\"height\":50}},{\"label\":\"Revenue\",\"region_id\":\"operations\",\"region\":\"Operating performance review\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":60,\"y\":125,\"width\":210,\"height\":40}},{\"label\":\"Operating costs\",\"region_id\":\"operations\",\"region\":\"Operating performance review\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":295,\"y\":125,\"width\":250,\"height\":40}},{\"label\":\"Operating result\",\"region_id\":\"operations\",\"region\":\"Operating performance review\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":60,\"y\":195,\"width\":480,\"height\":45}},{\"label\":\"Net loss accounting\",\"region_id\":\"accounting\",\"region\":\"Non-operating accounting review\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":635,\"y\":50,\"width\":505,\"height\":50}},{\"label\":\"Valuation effects\",\"region_id\":\"accounting\",\"region\":\"Non-operating accounting review\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":650,\"y\":155,\"width\":470,\"height\":50}},{\"label\":\"Compute commitments\",\"region_id\":\"compute\",\"region\":\"Compute commitments and timing\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":55,\"y\":305,\"width\":490,\"height\":55}},{\"label\":\"Payment timing\",\"region_id\":\"compute\",\"region\":\"Compute commitments and timing\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":60,\"y\":385,\"width\":470,\"height\":45}},{\"label\":\"Near term\",\"region_id\":\"compute\",\"region\":\"Compute commitments and timing\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":455,\"width\":215,\"height\":40}},{\"label\":\"Multi-year\",\"region_id\":\"compute\",\"region\":\"Compute commitments and timing\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":315,\"y\":455,\"width\":230,\"height\":40}},{\"label\":\"Financing constraints\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":635,\"y\":305,\"width\":510,\"height\":50}},{\"label\":\"Capacity delivery risk\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":30,\"bounding_box_px\":{\"x\":635,\"y\":380,\"width\":510,\"height\":45}},{\"label\":\"Delayed\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":635,\"y\":455,\"width\":150,\"height\":40}},{\"label\":\"Repriced\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":805,\"y\":455,\"width\":150,\"height\":40}},{\"label\":\"Reduced\",\"region_id\":\"risk\",\"region\":\"Conditional financing-dependent capacity risk\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":975,\"y\":455,\"width\":160,\"height\":40}},{\"label\":\"Disclosed risks; no forecast of outcomes\",\"region_id\":\"caveat\",\"region\":\"Detached disclosure-scope note\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Revenue\",\"to\":\"Operating result\",\"direction\":\"forward\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"operations\",\"to_region_id\":\"operations\",\"origin_px\":{\"x\":165,\"y\":165},\"target_px\":{\"x\":300,\"y\":195}},{\"from\":\"Operating costs\",\"to\":\"Operating result\",\"direction\":\"forward\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"operations\",\"to_region_id\":\"operations\",\"origin_px\":{\"x\":420,\"y\":165},\"target_px\":{\"x\":300,\"y\":195}},{\"from\":\"Financing constraints\",\"to\":\"Capacity delivery risk\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"risk\",\"to_region_id\":\"risk\",\"origin_px\":{\"x\":890,\"y\":355},\"target_px\":{\"x\":890,\"y\":380}},{\"from\":\"Capacity delivery risk\",\"to\":\"Delayed\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"risk\",\"to_region_id\":\"risk\",\"origin_px\":{\"x\":890,\"y\":425},\"target_px\":{\"x\":710,\"y\":455}},{\"from\":\"Capacity delivery risk\",\"to\":\"Repriced\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"risk\",\"to_region_id\":\"risk\",\"origin_px\":{\"x\":890,\"y\":425},\"target_px\":{\"x\":880,\"y\":455}},{\"from\":\"Capacity delivery risk\",\"to\":\"Reduced\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"risk\",\"to_region_id\":\"risk\",\"origin_px\":{\"x\":890,\"y\":425},\"target_px\":{\"x\":1055,\"y\":455}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
   },
   {
     "schema_version": "external-image-firstpass-freeze-v1",
