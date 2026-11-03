@@ -1,0 +1,364 @@
+{
+  "schema_version": "daily-ai-topic-validation-extension-v1",
+  "cycle_date": "2026-11-02",
+  "target_edition_date": "2026-11-03",
+  "started_at": "2026-11-03T00:34:26.887Z",
+  "completed_at": "2026-11-03T00:37:50.389Z",
+  "request": "Add four more resources to test the current Top 10.",
+  "base_report_blob_sha": "6f994a877072d7b17a99210564aa9e67fb8c67da",
+  "resources_added": [
+    {
+      "id": "trendforce",
+      "name": "TrendForce memory-market research",
+      "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html",
+      "access": "direct",
+      "provenance": "primary_industry_research",
+      "organization": "TrendForce",
+      "published_at": "2026-09-30",
+      "topic_ids": [
+        "consumer-ram-ai"
+      ],
+      "scope": "Tests whether the consumer-memory story has an underlying supply mechanism. TrendForce reports server capacity prioritization and pressure on PC memory.",
+      "limitations": [
+        "Older industry background, not a same-day event.",
+        "Forward-looking price and supply projections are not realized November measurements.",
+        "Does not validate attributed interview rhetoric or popularity."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "arena",
+      "name": "Arena model and agent evaluations",
+      "url": "https://arena.ai/leaderboard/agent",
+      "access": "direct",
+      "provenance": "primary_platform_evaluation",
+      "organization": "Arena",
+      "published_at": null,
+      "source_as_of_date": "2026-11-01",
+      "topic_ids": [
+        "frontier-model-comparisons",
+        "frontier-agent-evaluation",
+        "business-agent-workflows"
+      ],
+      "scope": "Tests frontier comparisons using platform-specific task and user-session measures. The inspected table places Opus 5.5 above Carbon overall and labels Carbon preliminary.",
+      "limitations": [
+        "Platform population, task mix, settings and uncertainty limit generalization.",
+        "Model performance is not topic popularity.",
+        "Different metrics and site views show different numbers; no change or growth inferred.",
+        "Does not independently reproduce GDPx or business earnings."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "epoch-ai",
+      "name": "Epoch AI benchmark research",
+      "url": "https://epoch.ai/benchmarks/frontiermath-tier-4-v2",
+      "additional_urls": [
+        "https://epoch.ai/benchmarks"
+      ],
+      "access": "direct",
+      "provenance": "primary_benchmark_author_with_disclosed_funding",
+      "organization": "Epoch AI",
+      "published_at": "2026-06-12",
+      "topic_ids": [
+        "ai-scientific-discovery",
+        "frontier-model-comparisons",
+        "frontier-agent-evaluation",
+        "open-local-models"
+      ],
+      "scope": "Tests the scope of mathematical and comparative capability claims against explicit benchmark methods, version changes and evaluation settings.",
+      "limitations": [
+        "FrontierMath discloses OpenAI funding and exclusive access to a subset; not a wholly independent confirmation of an OpenAI discovery.",
+        "The hub mixes internally administered results with external results.",
+        "No benchmark run or mathematical proof was independently reproduced here.",
+        "Benchmark success does not establish universal research ability or current attention."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "hacker-news",
+      "name": "Hacker News community attention",
+      "url": "https://news.ycombinator.com/",
+      "additional_urls": [
+        "https://news.ycombinator.com/item?id=50341174",
+        "https://news.ycombinator.com/item?id=50339913",
+        "https://news.ycombinator.com/item?id=50344919",
+        "https://news.ycombinator.com/item?id=50341736",
+        "https://news.ycombinator.com/item?id=50344958",
+        "https://news.ycombinator.com/item?id=50261319",
+        "https://news.ycombinator.com/item?id=50321622"
+      ],
+      "access": "direct",
+      "provenance": "primary_community_platform_attention",
+      "organization": "Hacker News / Y Combinator",
+      "published_at": null,
+      "topic_ids": [
+        "ai-financing-ipo",
+        "ai-scientific-discovery",
+        "interactive-world-models",
+        "open-local-models",
+        "business-agent-workflows",
+        "ai-usage-plans",
+        "ai-security-threats"
+      ],
+      "scope": "Tests whether topics have visible discussion outside video trackers. Finance, mathematics, model-weight experiments, world models and agent testing have retrieved discussion records.",
+      "limitations": [
+        "Technically inclined audience is not representative of all users.",
+        "Points/comments are not views and cannot be combined with YouTube counts.",
+        "Launch posts can be promotional; comments and pasted emails do not verify technical claims or official policy.",
+        "Bounded query sample, not a complete site census.",
+        "Specific security thread direct retrieval failed; search index alone provides weak support."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    }
+  ],
+  "topic_tests": [
+    {
+      "topic_id": "ai-financing-ipo",
+      "resource_id": "hacker-news",
+      "outcome": "attention_corroborated",
+      "finding": "Two inspected finance discussions appear on the community front page; this corroborates discussion, not financial accuracy or rank 1.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "consumer-ram-ai",
+      "resource_id": "trendforce",
+      "outcome": "mechanism_supported_with_age_caveat",
+      "finding": "Industry research supports memory-capacity competition. Its September date makes it background, not evidence of today's attention.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "ai-scientific-discovery",
+      "resource_id": "epoch-ai",
+      "outcome": "bounded_support",
+      "finding": "Mathematical benchmarks provide a narrower test than broad scientific-breakthrough claims; funding and method caveats retained. HN also shows recent mathematics discussion.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "interactive-world-models",
+      "resource_id": "hacker-news",
+      "outcome": "attention_corroborated",
+      "finding": "A Genie 4 thread displays 1,044 points and 593 comments in the retrieved page. This supports community attention, not a verified simulation-fidelity claim.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "open-local-models",
+      "resource_id": "hacker-news",
+      "outcome": "attention_corroborated",
+      "finding": "A Qwen weight-modification experiment is prominent on the sampled front page. The underlying experiment was not reproduced.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "business-agent-workflows",
+      "resource_id": "hacker-news",
+      "outcome": "limited_attention_support",
+      "finding": "A software-testing agent launch has an active thread; commercial positioning is not evidence of verified business outcomes.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "frontier-model-comparisons",
+      "resource_id": "arena",
+      "outcome": "task_specific_support",
+      "finding": "Arena provides an external comparison and uncertainty labels, reinforcing that model rankings depend on tasks and settings.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "ai-usage-plans",
+      "resource_id": "hacker-news",
+      "outcome": "weak_attention_support",
+      "finding": "A retrieved usage-change thread displays 7 points and 5 comments. This is a narrow discussion signal; pasted email wording does not override official documentation.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "ai-security-threats",
+      "resource_id": "hacker-news",
+      "outcome": "not_materially_strengthened",
+      "finding": "The bounded search returned a low-engagement agent-security entry through Algolia; direct thread retrieval failed. No new attack claim was verified.",
+      "rank_change": null
+    },
+    {
+      "topic_id": "frontier-agent-evaluation",
+      "resource_id": "epoch-ai",
+      "outcome": "methodology_cross_check_only",
+      "finding": "Epoch and Arena provide alternative evaluation methods, not independent replication of GDPx scores.",
+      "rank_change": null
+    }
+  ],
+  "community_observations": [
+    {
+      "item_id": "50341174",
+      "url": "https://news.ycombinator.com/item?id=50341174",
+      "topic_label": "Open-model weight experiment",
+      "points": 1757,
+      "comments": 560,
+      "source_view": "front_page",
+      "published_at": null,
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    },
+    {
+      "item_id": "50339913",
+      "url": "https://news.ycombinator.com/item?id=50339913",
+      "topic_label": "Software-testing agent launch",
+      "points": 114,
+      "comments": 74,
+      "source_view": "front_page",
+      "published_at": null,
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    },
+    {
+      "item_id": "50344919",
+      "url": "https://news.ycombinator.com/item?id=50344919",
+      "topic_label": "IPO-policy discussion",
+      "points": 118,
+      "comments": 66,
+      "source_view": "front_page",
+      "published_at": null,
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    },
+    {
+      "item_id": "50341736",
+      "url": "https://news.ycombinator.com/item?id=50341736",
+      "topic_label": "AI and mathematics discussion",
+      "points": 98,
+      "comments": 76,
+      "source_view": "front_page",
+      "published_at": null,
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    },
+    {
+      "item_id": "50344958",
+      "url": "https://news.ycombinator.com/item?id=50344958",
+      "topic_label": "AI-company growth discussion",
+      "points": 125,
+      "comments": 150,
+      "source_view": "front_page",
+      "published_at": null,
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    },
+    {
+      "item_id": "50261319",
+      "url": "https://news.ycombinator.com/item?id=50261319",
+      "topic_label": "World-model release discussion",
+      "points": 1044,
+      "comments": 593,
+      "source_view": "thread_page",
+      "published_at": "2026-10-27T16:06:01Z",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    },
+    {
+      "item_id": "50321622",
+      "url": "https://news.ycombinator.com/item?id=50321622",
+      "topic_label": "Usage-policy discussion",
+      "points": 7,
+      "comments": 5,
+      "source_view": "thread_page",
+      "published_at": "2026-11-01T00:28:26Z",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "source_metric_checked_at": null,
+      "provenance": "platform_page_as_exposed_by_web_retrieval",
+      "current_growth": null
+    }
+  ],
+  "ranking_decision": "UNCHANGED_PROVISIONAL",
+  "reason": "Additional evidence supports several topic inclusions and exposes limits; it is insufficient to validate or reorder the exact attention ranking.",
+  "coverage": {
+    "topics_assessed": 10,
+    "new_resource_organizations": 4,
+    "total_validation_resources": 14,
+    "new_video_reviews": 0,
+    "new_direct_youtube_counter_verifications": 0
+  },
+  "errors": [
+    {
+      "issue": "HN site-filtered search coverage poor",
+      "correction": "Inspected the public front page and original discussion pages; used the free Algolia public search endpoint for bounded remaining-topic lookups."
+    },
+    {
+      "issue": "Three Algolia URLs inaccessible through web-open",
+      "correction": "Public read-only HTTP retrieval succeeded; no metered or paid API used."
+    },
+    {
+      "issue": "Specific security thread unavailable",
+      "correction": "Retained limited indexed attention evidence, with no verified incident claim."
+    },
+    {
+      "issue": "Minor incompatible HN counts",
+      "correction": "Genie thread page showed 593 comments while Algolia showed 594; source observations were not merged and no growth inferred."
+    }
+  ],
+  "limits": [
+    "No global popularity order or measured momentum established.",
+    "Historical video observation times and research generation time remain unchanged.",
+    "This validation extension is not a new full video review or Compiler run."
+  ]
+}
