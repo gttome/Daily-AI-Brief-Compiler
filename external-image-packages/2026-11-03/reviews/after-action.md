@@ -39,6 +39,7 @@
 | Native saved-pixel inspection | nov03-a2-ai-initiative-decision-review-skill attempt 1: Unallowlisted role grid and repeated Source/Assumption words; added Stop/Expand condition and Date/Owner/Observation words not in the exact allowed label set. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
 | Postdeployment image-region capture | Original release41573726204 deployed accepted bytes then failed at LifeVal dated/mobile saved RGB proof with match_ratio0.402. The failed artifact retained18 partial captures; no completed24-row receipt existed. | Preserved the failed original artifact. Independently re-read all14 approved deployed objects,6 image hashes,12 pairings and17 protected objects; reconciled exact existing bytes plus finalizer metadata at fenced history129c769. Existing postrelease verification captured24 genuine contexts with24 RGB PASS, all individually reviewed. |
 | Public metadata propagation polling | Verification workflow41574426119 completed24 targets and same-content status sync but exhausted bounded polling because canonical release.json returned404 in that runner while index bytes matched. | Preserved the failed after.json and run conclusion. Two independent later read-only postrelease checks returned PUBLIC_STATUS_VERIFIED with exact public index and release bytes; no extra publication or image regeneration. |
+| Protected reporting-only closeout admission | PR315 used the canonical image-package branch after release, so its name invoked the unreleased-package admission gate and failed in workflow41575215160. It did not merge. | Closed315 and moved the identical review/report-only diff to reports/2026-11-03-image-closeout with required protected validation; no accepted PNG, manifest, assignment or production gate changed. |
 
 ## Evidence and limitations
 
@@ -79,5 +80,7 @@ Full-size viewer opened and closed successfully on the published LifeVal permane
 The connected GitHub plugin exposed no workflow-dispatch operation. The existing signed-in cloud GitHub UI dispatched only the existing postrelease verify/sync workflow; no owner local device, new workflow or task was used.
 
 No manifest, assignment, accepted PNG or historical390px receipt changed after package lock. Final reports, captures and terminal worker receipt are a reporting-only protected PR; no image-content release is retriggered.
+
+Reporting-only closeout uses the existing report-branch convention after PR315 failed unreleased-package admission. This is not a second image-package PR or a new producer; all37 changed paths are review/report artifacts, and required validate still applies.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.

@@ -105,6 +105,11 @@
       "phase": "Public metadata propagation polling",
       "issue": "Verification workflow41574426119 completed24 targets and same-content status sync but exhausted bounded polling because canonical release.json returned404 in that runner while index bytes matched.",
       "correction": "Preserved the failed after.json and run conclusion. Two independent later read-only postrelease checks returned PUBLIC_STATUS_VERIFIED with exact public index and release bytes; no extra publication or image regeneration."
+    },
+    {
+      "phase": "Protected reporting-only closeout admission",
+      "issue": "PR315 used the canonical image-package branch after release, so its name invoked the unreleased-package admission gate and failed in workflow41575215160. It did not merge.",
+      "correction": "Closed315 and moved the identical review/report-only diff to reports/2026-11-03-image-closeout with required protected validation; no accepted PNG, manifest, assignment or production gate changed."
     }
   ],
   "publication": {
@@ -157,7 +162,8 @@
     "Semantic review completed at2026-11-03T03:54:20Z,43m50s after first observed execution. This is observed wall-clock elapsed, not provider runtime or Work usage. Report-record commit and protected merge are independent later Git events, derived by the existing timing reporter.",
     "Full-size viewer opened and closed successfully on the published LifeVal permanent page in the cloud browser; its exact original PNG route was visible. Mobile captures show complete mechanisms and recognizable priority labels. Fine secondary detail requires the full-size viewer.",
     "The connected GitHub plugin exposed no workflow-dispatch operation. The existing signed-in cloud GitHub UI dispatched only the existing postrelease verify/sync workflow; no owner local device, new workflow or task was used.",
-    "No manifest, assignment, accepted PNG or historical390px receipt changed after package lock. Final reports, captures and terminal worker receipt are a reporting-only protected PR; no image-content release is retriggered."
+    "No manifest, assignment, accepted PNG or historical390px receipt changed after package lock. Final reports, captures and terminal worker receipt are a reporting-only protected PR; no image-content release is retriggered.",
+    "Reporting-only closeout uses the existing report-branch convention after PR315 failed unreleased-package admission. This is not a second image-package PR or a new producer; all37 changed paths are review/report artifacts, and required validate still applies."
   ],
   "timing": {
     "semantic_review_completed_at": "2026-11-03T03:54:20Z",
