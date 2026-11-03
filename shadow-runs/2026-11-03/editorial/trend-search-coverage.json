@@ -151,15 +151,16 @@
       "topic_id": "ai-financing-ipo",
       "format": "article",
       "query": "Anthropic November 2 2026 S1 amendment revenue losses SEC filing",
-      "attempted_at": "2026-11-03T01:28:02.445Z",
+      "attempted_at": "2026-11-03T01:57:42.354Z",
       "source_urls": [
-        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/0001628280-26-068676-index.htm",
-        "https://news.ycombinator.com/item?id=50344958"
+        "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/0001628280-26-068676-index.htm"
       ],
-      "outcome": "searched",
-      "reason": "The exact priority query was run and yielded source leads, but no item in this format survived every category, novelty, availability and editorial-value rule.",
+      "outcome": "selected",
+      "reason": "The exact event query was rerun during freshness recovery. The complete Reuters report survived original-publication, timestamp, primary-filing cross-check, archive novelty, Applied knowledge-work and reader-value review.",
       "candidate_ids": [
-        "cand-anthropic-s1-amendment-2026-11-02"
+        "cand-anthropic-s1-amendment-2026-11-02",
+        "cand-reuters-anthropic-ipo-2026-11-02"
       ]
     },
     {
@@ -489,22 +490,22 @@
       "reason": "The exact episode includes a timecoded Gemini 4 Carbon comparison while preserving preview and availability limits."
     },
     {
-      "topic_id": "human-ai-judgment",
-      "format": "article",
-      "item_id": "nov03-k1-agent-advice-judgment-bias",
-      "url": "https://www.anthropic.com/research/agents-judgment-calls",
-      "reason": "The selected article is the Top 10 event's original study and survived full reading, freshness fallback and lane review."
-    },
-    {
       "topic_id": "frontier-agent-evaluation",
       "format": "article",
       "item_id": "nov03-t1-gdpx-professional-task-benchmark",
       "url": "https://gdpx.semianalysis.com/",
       "reason": "The selected article is the Top 10 event's original GDPx methodology and survived full reading, novelty and technical-lane review."
+    },
+    {
+      "topic_id": "ai-financing-ipo",
+      "format": "article",
+      "item_id": "nov03-k1-anthropic-ipo-compute-risks",
+      "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+      "reason": "The selected complete Reuters report covers the exact November 2 amended-filing event and survived source reading, filing cross-check, timestamp, novelty and Applied knowledge-work review."
     }
   ],
   "impact_observations": {
-    "observed_at": "2026-11-03T01:51:58.016Z",
+    "observed_at": "2026-11-03T01:57:43.354Z",
     "input_adoption": {
       "usable_report_consumed": true,
       "exact_raw_sha256_verified": true,
@@ -534,7 +535,8 @@
         "cand-anthropic-judgment-2026-10-27",
         "cand-gdpx-2026-11-02",
         "cand-ted-ai-data-center-energy",
-        "cand-cbs-ai-oversight"
+        "cand-cbs-ai-oversight",
+        "cand-reuters-anthropic-ipo-2026-11-02"
       ],
       "bundle_verified_selected_mappings": 5,
       "actual_source_additions": [
@@ -547,22 +549,27 @@
           "candidate_id": "cand-cbs-ai-oversight",
           "url": "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
           "qualification": "Complete independent report plus genuine signed-out advancing 269.636-second playback; selected through same-edition media recovery."
+        },
+        {
+          "candidate_id": "cand-reuters-anthropic-ipo-2026-11-02",
+          "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+          "qualification": "Complete original Reuters report, exact 14:50 UTC publication time, and underlying November 2 SEC S-1/A cross-check; selected through same-edition freshness recovery."
         }
       ]
     },
     "freshness": {
-      "selected_story_latest_24h": 0,
+      "selected_story_latest_24h": 1,
       "selected_story_72h_fallback": 3,
-      "selected_story_168h_fallback": 3,
-      "interpretation": "Three November 2 sources expose date-only metadata, so rolling-24-hour status is unproven and they are conservatively counted as 72-hour fallbacks."
+      "selected_story_168h_fallback": 2,
+      "interpretation": "The Reuters replacement has a verified 14:50 UTC publication time inside the rolling 24-hour window. Three November 2 date-only sources remain conservatively counted as 72-hour fallbacks, and two October 30 sources use justified extended fallback."
     },
     "rejections": {
       "duplicate": [],
       "promotion": [],
       "quality_or_fit": [
-        "cand-anthropic-s1-amendment-2026-11-02: financing event did not fit the edition's 2/2/2 reader lanes strongly enough",
         "cand-openai-shared-usage-limits: official policy update did not displace stronger reader-value stories",
-        "cand-momentic-qa-bench-2026-11-02: valuable technical QA evidence, but not selected as the sole noncoding Agent Skill"
+        "cand-momentic-qa-bench-2026-11-02: valuable technical QA evidence, but not selected as the sole noncoding Agent Skill",
+        "cand-anthropic-judgment-2026-10-27: protected reader validation placed the date-only source outside the supported 168-hour window at edition noon"
       ]
     },
     "gaps": [
@@ -572,9 +579,9 @@
     ],
     "timing": {
       "execution_observed_at": "2026-11-03T01:19:55Z",
-      "selection_locked_at": "2026-11-03T01:51:58.016Z",
-      "sealed_at": "2026-11-03T01:51:59.016Z",
-      "elapsed_seconds_to_seal": 1924
+      "selection_locked_at": "2026-11-03T01:57:43.354Z",
+      "sealed_at": "2026-11-03T01:57:44.354Z",
+      "elapsed_seconds_to_seal": 2269
     },
     "usage_percent": null,
     "cost_usd": null,
@@ -589,7 +596,7 @@
       "previous_comparable_completed_cycle": null,
       "incremental_benefit": null,
       "causal_uplift": null,
-      "interpretation": "The report was adopted and five final bundle selections map to supported topics. The recovered videos were selected for independently verified editorial value and playback, not to inflate trend adoption. Association does not establish incremental benefit; the frozen baseline has no completed outcome and there is no prior comparable cycle."
+      "interpretation": "The report was adopted and five final bundle selections map to supported topics, including the exact November 2 Anthropic filing event after a protected freshness recovery. Association does not establish incremental benefit; the frozen baseline has no completed outcome and there is no prior comparable cycle."
     },
     "method_changes": [
       "Used owner-pinned exact report bytes instead of the generic latest-branch rule for this edition only.",
@@ -597,7 +604,8 @@
       "Added explicit candidate IDs, rejection reasons, timing, source links and unknown usage/cost without turning resource count into success.",
       "A real protected MEDIA_HISTORY failure triggered same-edition media-only recovery: stable-channel-deficient YouTube entries were replaced by distinct TED and CBS programs with genuine signed-out advancing playback.",
       "A second protected MEDIA_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic_roundup with two exact independently verified original sources, without changing the episode selection.",
-      "Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved."
+      "Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved.",
+      "Protected reader compatibility rejected the date-only October 27 judgment study outside its strict 168-hour edition-noon window; it was replaced by the fully read, filing-cross-checked Reuters report on the exact November 2 Anthropic S-1/A event without changing the 2/2/2 allocation."
     ],
     "next_improvement": "On the next completed comparable cycle, measure qualified candidate yield and bundle-verified selections against this frozen baseline while separating source-sample changes from method changes."
   }
