@@ -2,23 +2,26 @@
   "schema_version": "daily-ai-topic-top10-run-aar-v1",
   "cycle_date": "2026-11-02",
   "edition_date": "2026-11-03",
-  "started_at": "2026-11-02T23:02:13.920Z",
-  "finished_at": "2026-11-02T23:07:29.525Z",
+  "started_at": "2026-11-03T00:14:05.290Z",
+  "finished_at": "2026-11-03T00:28:33.968Z",
+  "run_type": "owner_requested_validation_rerun",
   "result": "REPORT_PERSISTED_READBACK_VERIFIED",
-  "report_status": "provisional",
+  "report_status": "partial",
+  "ranking_status": "provisional",
   "topic_count": 10,
-  "report_commit": "7009dba7aad0fc3118953710522ac0e94bf07dc2",
-  "report_blob_sha": "60e7ae007eeac20bae0670e47e71ed53d5683efe",
-  "report_sha256": "0b520b53af0ceb70d7199b837fe66eb4d27f24d0656e8aea03dc985012e78efa",
+  "report_commit": "94f39c73d55e89a34e38fcf279afb5d760cd7d08",
+  "report_blob_sha": "6f994a877072d7b17a99210564aa9e67fb8c67da",
+  "report_sha256": "3328771b5086369b203acd105006b2110cd4a2c73aa44e12d3d98e3b9b38800a",
   "report_path": "signals/ai-topic-top10/2026-11-02.json",
-  "report_bytes": 38788,
+  "report_bytes": 151450,
   "readback": {
-    "exact_commit": "7009dba7aad0fc3118953710522ac0e94bf07dc2",
+    "exact_commit": "94f39c73d55e89a34e38fcf279afb5d760cd7d08",
     "text_matches_intended_bytes": true,
     "computed_git_blob_matches_github": true,
-    "sha256": "0b520b53af0ceb70d7199b837fe66eb4d27f24d0656e8aea03dc985012e78efa",
+    "sha256": "3328771b5086369b203acd105006b2110cd4a2c73aa44e12d3d98e3b9b38800a",
     "schema_date_topic_queries_validation": "PASS"
   },
+  "superseded_receipt": "signals/ai-topic-top10/revisions/2026-11-02/1700-original.aar.json",
   "handoff_status": "AVAILABLE_FOR_COMPILER_CONSUMPTION_NOT_YET_PROVEN",
   "compiler_consumption": "NOT_OBSERVED_BY_PRODUCER",
   "compiler_searches": "PENDING_SEPARATE_RECEIPTS",
@@ -26,37 +29,72 @@
   "usage_percent": null,
   "cost_usd": null,
   "scheduler_origin_independently_verified": false,
+  "sample_scope": {
+    "new_metadata_screened_records": 63,
+    "new_metadata_distinct_channels": 21,
+    "retained_prior_snapshot_records": 16,
+    "combined_observation_records": 79,
+    "combined_unique_video_ids": 71,
+    "direct_counter_verifications": 0,
+    "videos_watched": 0,
+    "transcripts_reviewed": 0,
+    "original_interview_texts_reviewed": 1,
+    "target_40_to_80_full_reviews_met": false,
+    "additional_validation_resources": 10,
+    "additional_resources_directly_retrieved": 7,
+    "additional_resources_indexed_only": 3,
+    "freshness": "Relative video ages 4h–7d; exact publication times unavailable for new tracker records. Seven-day labels may exceed a strict 168-hour cutoff. Older primary work and guidance are explicitly background.",
+    "source_urls": [
+      "https://whatisthelatest.ai/top-10/",
+      "https://trendreport.com/trends/ai-and-data/",
+      "https://dailycurry.com/",
+      "https://zlio.com/videos/",
+      "https://aua.aicrossing.org/news/videos/",
+      "https://www.ai-roundup.dev/"
+    ],
+    "coverage_note": "Metadata screening does not constitute full video review. Public index sample is selected, not exhaustive or representative."
+  },
   "errors": [
     {
-      "issue": "Direct YouTube access unavailable for counters",
-      "observed": "14 throttled fetches and two page-chrome-only fetches in retained 16-video set",
-      "correction": "Used free public tracker snapshots with explicit third-party provenance; no playback or transcript claims."
+      "issue": "Incompatible and conflicting tracker counts",
+      "observed": "Different sources expose different counts for identical videos; some measurement timestamps are unknown.",
+      "correction": "Preserved separate source observations; growth and current velocity remain null."
     },
     {
-      "issue": "Review coverage below the 40-80 target",
-      "observed": "13 detailed records plus three partial identities; broader title leads not counted as full review.",
-      "correction": "Persisted a provisional ranking with scope/coverage limitations; no fake exhaustive claim."
+      "issue": "Direct counter and full-video access incomplete",
+      "observed": "Zero direct counter verifications or video playbacks; 63 new metadata records across 21 channels.",
+      "correction": "Report explicitly partial; full-review target not claimed."
     },
     {
-      "issue": "No prior persisted daily report",
-      "observed": "Only README existed before this cycle.",
-      "correction": "Baseline status; prompt seed not promoted into an independently observed growth series."
+      "issue": "Validation access gaps",
+      "observed": "SEC, Reuters and The Verge available through indexed evidence only; Google Trends blocked.",
+      "correction": "Marked access limitations; no invented search volumes or full direct-document review."
     }
   ],
   "improvements": [
     {
-      "status": "PROPOSED",
-      "action": "Retain these exact timestamped snapshots to support future same-source comparisons when available."
-    },
-    {
-      "status": "PROPOSED",
-      "action": "Increase independently retrievable channel coverage; keep promotional earnings claims separate from verified business outcomes."
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Separate attention rank/confidence from Brief priority and verification; preserve high-value editorial watchlist."
     },
     {
       "status": "IMPLEMENTED_THIS_RUN",
-      "action": "Ten distinct topics, thirty format-specific queries, raw-byte SHA256/Git blob verification and run AAR."
+      "action": "Require matched timestamps, source and format for growth; retain incompatible observations without arithmetic."
+    },
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Add ten validation resources with provenance, limited validation scope and explicit access/coverage gaps."
+    },
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Control overlap and promotion; preserve existing 2/2/2, reusable Agent Skills and media qualification."
     }
   ],
+  "automation": {
+    "id": "6ae80291d5c0819182975ed3a3038d94",
+    "prompt_readback_verified": true,
+    "schedule_unchanged": true,
+    "enabled": true
+  },
   "scope": {
     "repository_writes": "signals/ai-topic-top10/** on operations-reports only",
     "production_workflows_dispatched": false,
