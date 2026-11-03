@@ -45,6 +45,7 @@ function run(overrides={},relocated=false){
  if(relocated){
   executable=path.join(tmp,'render-unified-production-aar.mjs');
   fs.copyFileSync(script,executable);
+  fs.copyFileSync(path.join(root,'scripts/aar-charts.mjs'),path.join(tmp,'aar-charts.mjs'));
   fs.copyFileSync(path.join(root,'scripts/image-aar-contract.mjs'),path.join(tmp,'image-aar-contract.mjs'));
   fs.copyFileSync(path.join(root,'scripts/worker-checkpoint-consistency.mjs'),path.join(tmp,'worker-checkpoint-consistency.mjs'));
   fs.copyFileSync(path.join(root,'scripts/owner-usage.mjs'),path.join(tmp,'owner-usage.mjs'));
