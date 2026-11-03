@@ -504,7 +504,7 @@
     }
   ],
   "impact_observations": {
-    "observed_at": "2026-11-03T01:48:15.040Z",
+    "observed_at": "2026-11-03T01:51:58.016Z",
     "input_adoption": {
       "usable_report_consumed": true,
       "exact_raw_sha256_verified": true,
@@ -551,9 +551,10 @@
       ]
     },
     "freshness": {
-      "selected_story_latest_24h": 3,
-      "selected_story_72h_fallback": 0,
-      "selected_story_168h_fallback": 3
+      "selected_story_latest_24h": 0,
+      "selected_story_72h_fallback": 3,
+      "selected_story_168h_fallback": 3,
+      "interpretation": "Three November 2 sources expose date-only metadata, so rolling-24-hour status is unproven and they are conservatively counted as 72-hour fallbacks."
     },
     "rejections": {
       "duplicate": [],
@@ -571,9 +572,9 @@
     ],
     "timing": {
       "execution_observed_at": "2026-11-03T01:19:55Z",
-      "selection_locked_at": "2026-11-03T01:48:15.040Z",
-      "sealed_at": "2026-11-03T01:48:16.040Z",
-      "elapsed_seconds_to_seal": 1701
+      "selection_locked_at": "2026-11-03T01:51:58.016Z",
+      "sealed_at": "2026-11-03T01:51:59.016Z",
+      "elapsed_seconds_to_seal": 1924
     },
     "usage_percent": null,
     "cost_usd": null,
@@ -595,7 +596,8 @@
       "Ran all thirty suggested topic-by-format queries, then preserved broader registry discovery and ordinary selection gates.",
       "Added explicit candidate IDs, rejection reasons, timing, source links and unknown usage/cost without turning resource count into success.",
       "A real protected MEDIA_HISTORY failure triggered same-edition media-only recovery: stable-channel-deficient YouTube entries were replaced by distinct TED and CBS programs with genuine signed-out advancing playback.",
-      "A second protected MEDIA_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic_roundup with two exact independently verified original sources, without changing the episode selection."
+      "A second protected MEDIA_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic_roundup with two exact independently verified original sources, without changing the episode selection.",
+      "Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved."
     ],
     "next_improvement": "On the next completed comparable cycle, measure qualified candidate yield and bundle-verified selections against this frozen baseline while separating source-sample changes from method changes."
   }

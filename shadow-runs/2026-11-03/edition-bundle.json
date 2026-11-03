@@ -4,8 +4,8 @@
   "edition_date": "2026-11-03",
   "status": "BUNDLE_READY",
   "editorial_provenance": {
-    "selection_locked_at": "2026-11-03T01:48:15.040Z",
-    "sealed_at": "2026-11-03T01:48:16.040Z"
+    "selection_locked_at": "2026-11-03T01:51:58.016Z",
+    "sealed_at": "2026-11-03T01:51:59.016Z"
   },
   "stories": [
     {
@@ -19,7 +19,7 @@
         "url": "https://gdpx.semianalysis.com/",
         "published_at": "2026-11-02T00:00:00Z",
         "scope": "Read the complete GDPx methodology and domain pages covering 206 tasks, 11 professional domains, 14 partner organizations, expert-created deliverables, three-attempt model runs, domain-equal aggregation, cost reporting, grading procedures and stated comparability limits.",
-        "freshness_reason": "This November 2 original is inside the latest 24-hour priority window and supplies a dated first-party benchmark methodology rather than a route-only signal.",
+        "freshness_reason": "The publisher exposes a November 2 date without a publication time, so rolling-24-hour freshness is unproven. GDPx remains the strongest reviewed technical evaluation source because it documents expert-authored deliverables across eleven professional domains; the same-date Momentic QA benchmark is narrower browser testing.",
         "retrieved_at": "2026-11-03T01:31:40Z",
         "read_evidence": {
           "status": "verified",
@@ -57,7 +57,7 @@
         "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/",
         "published_at": "2026-11-02T00:00:00Z",
         "scope": "Read the complete NVIDIA technical post covering Cosmos Predict and Transfer components, skills, camera and LiDAR conditioning, NIM deployment, interactive recipes, data flows, GPU memory requirements and the limits of vendor demonstrations.",
-        "freshness_reason": "This November 2 original is inside the latest 24-hour priority window and documents an implementable world-simulation pipeline with explicit hardware and validation boundaries.",
+        "freshness_reason": "The publisher exposes a November 2 date without a publication time, so rolling-24-hour freshness is unproven. Cosmos remains the strongest reviewed interactive-simulation source because it provides an implementable pipeline with model, sensor, deployment and hardware constraints; same-date alternatives covered other technical lanes.",
         "retrieved_at": "2026-11-03T01:31:40Z",
         "read_evidence": {
           "status": "verified",
@@ -179,7 +179,7 @@
         "url": "https://openai.com/index/lifeval/",
         "published_at": "2026-11-02T00:00:00Z",
         "scope": "Read the complete OpenAI LifeVal article covering its 3,995-respondent survey, everyday task construction, childcare, government-service and budgeting examples, evaluation approach, benchmark-over-time design and limitations of self-reported priorities and model-produced assistance.",
-        "freshness_reason": "This November 2 original is inside the latest 24-hour priority window and supplies a concrete evaluation frame for everyday agent assistance while preserving publisher and benchmark limitations.",
+        "freshness_reason": "The publisher exposes a November 2 date without a publication time, so rolling-24-hour freshness is unproven. LifeVal remains the strongest reviewed noncoding everyday-assistance source because it covers planning, budgeting and public-service tasks; the same-date Momentic item is a technical browser-QA benchmark.",
         "retrieved_at": "2026-11-03T01:31:40Z",
         "read_evidence": {
           "status": "verified",
@@ -1241,24 +1241,65 @@
         "checked_at": "2026-11-03T01:31:40Z",
         "disposition": "considered",
         "disposition_reason": "Selected after exact episode, runtime, program-cooldown and near-complete content review; no audio playback claim."
+      },
+      {
+        "url": "https://www.databricks.com/blog/introducing-lakebase-ai-apps",
+        "publisher": "Databricks",
+        "original_date": "2026-11-02T00:00:00Z",
+        "checked_at": "2026-11-03T01:31:40Z",
+        "disposition": "rejected",
+        "disposition_reason": "Reviewed as a credible same-date technical alternative, but its transactional application-database focus did not support the selected grounded knowledge-retrieval or nontechnical decision lanes."
+      },
+      {
+        "url": "https://momentic.ai/blog/qa-bench",
+        "publisher": "Momentic",
+        "original_date": "2026-11-02T00:00:00Z",
+        "checked_at": "2026-11-03T01:31:40Z",
+        "disposition": "rejected",
+        "disposition_reason": "Reviewed as a credible same-date agent-evaluation alternative, but its browser QA benchmark requires a technical testing workflow and did not fit the sole noncoding Agent Skill."
       }
     ],
     "fallback_decisions": [
       {
+        "story_id": "nov03-t1-gdpx-professional-task-benchmark",
+        "why_selected_over_recent_options": "GDPx was selected over the same-date Momentic QA benchmark because its expert-authored professional deliverables span eleven domains and directly support the technical evaluation lane; Momentic is a narrower browser-testing benchmark. Date-only timestamps do not prove either item was inside the rolling 24-hour window.",
+        "newer_sources_considered": [
+          "https://momentic.ai/blog/qa-bench"
+        ]
+      },
+      {
+        "story_id": "nov03-t2-cosmos-interactive-simulation",
+        "why_selected_over_recent_options": "The NVIDIA Cosmos article was selected because it documents an implementable interactive world-simulation pipeline with model, sensor and deployment constraints. Same-date Lakebase and Momentic items cover application databases and QA agents, not interactive simulation; date-only timestamps provide no rolling-24-hour proof.",
+        "newer_sources_considered": [
+          "https://www.databricks.com/blog/introducing-lakebase-ai-apps",
+          "https://momentic.ai/blog/qa-bench"
+        ]
+      },
+      {
         "story_id": "nov03-k1-agent-advice-judgment-bias",
-        "why_selected_over_recent_options": "No newer lane-matched study with comparable expert-decision evidence survived the bounded search. This October 27 original uses the justified 168-hour fallback, with the limited search scope disclosed separately.",
-        "newer_sources_considered": []
+        "why_selected_over_recent_options": "The bounded search found no newer lane-matched original study with comparable evidence about experts changing judgment after agent advice. Same-date Lakebase and Momentic items concern application infrastructure and browser testing, so neither displaced the October 27 human-decision study.",
+        "newer_sources_considered": [
+          "https://www.databricks.com/blog/introducing-lakebase-ai-apps",
+          "https://momentic.ai/blog/qa-bench"
+        ]
       },
       {
         "story_id": "nov03-k2-managed-search-index",
-        "why_selected_over_recent_options": "No newer qualified knowledge-retrieval release survived review. This October 30 source uses the justified 168-hour fallback because it supplies a distinct hosted indexing workflow; preview status and missing independent quality evidence remain explicit.",
+        "why_selected_over_recent_options": "The October 30 Mistral release was selected over the same-date Lakebase article because it directly documents hosted search-index creation, ingestion and retrieval for the knowledge-work lane; Lakebase centers on transactional AI application databases and does not establish search quality.",
         "newer_sources_considered": [
           "https://www.databricks.com/blog/introducing-lakebase-ai-apps"
         ]
       },
       {
+        "story_id": "nov03-a1-lifeval-daily-planning",
+        "why_selected_over_recent_options": "LifeVal was selected for its concrete everyday planning, budgeting and service tasks despite date-only November 2 metadata. The same-date Momentic benchmark evaluates technical browser QA agents and could not replace a noncoding everyday-assistance story or establish rolling-24-hour freshness.",
+        "newer_sources_considered": [
+          "https://momentic.ai/blog/qa-bench"
+        ]
+      },
+      {
         "story_id": "nov03-a2-ai-initiative-decision-review-skill",
-        "why_selected_over_recent_options": "No newer noncoding decision-governance article with a distinct reusable action survived the bounded search. This October 30 source uses the justified 168-hour fallback; a newer QA-agent benchmark was rejected as a technical testing workflow.",
+        "why_selected_over_recent_options": "The October 30 Databricks decision essay was selected because it supplies a reusable noncoding review action covering evidence, ownership, cost and reversibility. The same-date Momentic QA benchmark requires a technical testing workflow and could not serve as the edition's sole noncoding Agent Skill.",
         "newer_sources_considered": [
           "https://momentic.ai/blog/qa-bench"
         ]
