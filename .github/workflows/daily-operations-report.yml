@@ -18,6 +18,8 @@ on:
       - 'scripts/derive-image-stage-timing.mjs'
       - 'scripts/render-unified-production-aar.mjs'
       - 'scripts/aar-charts.mjs'
+      - 'scripts/aar-improvement-metrics.mjs'
+      - 'config/aar-improvement-register.json'
       - 'scripts/compile-daily-aar.mjs'
       - 'scripts/top10-aar.mjs'
       - 'scripts/nov02-evidence-summary.mjs'
@@ -78,6 +80,9 @@ jobs:
           cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
           cp scripts/aar-charts.mjs "$tmp/aar-charts.mjs"
+          cp scripts/aar-improvement-metrics.mjs "$tmp/aar-improvement-metrics.mjs"
+          cp config/resource-registry.json "$tmp/resource-registry.json"
+          cp config/aar-improvement-register.json "$tmp/aar-improvement-register.json"
           cp scripts/image-aar-contract.mjs "$tmp/image-aar-contract.mjs"
           cp scripts/worker-checkpoint-consistency.mjs "$tmp/worker-checkpoint-consistency.mjs"
           cp scripts/owner-usage.mjs "$tmp/owner-usage.mjs"
@@ -128,6 +133,8 @@ jobs:
             git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
             node "$tmp/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
             if [ -n "$reports_source_commit" ]; then
+              # Optional original guard receipt. Missing timing/cause evidence remains unknown.
+              git show "$reports_source_commit:recovery/$edition.json" > "$in/recovery-receipt.json" 2>/dev/null || rm -f "$in/recovery-receipt.json"
               # Fixed owner-approved input baseline; never infer it from today's larger sample.
               git show "aebc04de2173c37b2c041eb0e9f964e27325ee26:signals/ai-topic-top10/baselines/2026-11-03.json" > "$in/top10-baseline.json" 2>/dev/null || rm -f "$in/top10-baseline.json"
               previous_cycle="$(date -u -d "$cycle -1 day" +%F)"
@@ -207,6 +214,10 @@ jobs:
             echo 'No eligible completed evening cycles yet; safe deterministic no-op'
             exit 0
           fi
+          # One deterministic postpass over existing reports, oldest to newest.
+          # No new job, cadence, producer, network request or publication trigger.
+          node "$tmp/aar-improvement-metrics.mjs" daily "$tmp/evidence" \
+            "$tmp/resource-registry.json" "$tmp/aar-improvement-register.json"
           git add -- daily
           if git diff --cached --quiet; then
             echo 'AAR reports already idempotently current; no commit'

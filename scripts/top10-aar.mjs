@@ -275,6 +275,8 @@ export function summarizeDailyImprovement(s,e={},hashes={}){
   candidate_review_baseline_status:'NOT_RECORDED_IN_FROZEN_NOV03_BASELINE',
   change_log_status:log?'RECORDED':'NOT_OBSERVED',change_log:log,
   reported_impact_observations:bound&&clean(coverage.impact_observations)?coverage.impact_observations:null,
+  reported_impact_status:bound&&clean(coverage.impact_observations)?'HISTORICAL_PRODUCER_SNAPSHOT_NOT_CURRENT_STATUS':'NOT_RECORDED',
+  reported_impact_interpretation:'Preserved producer claims from the original observation time. Pending statuses may be superseded by current reconciled metrics; candidate-quality claims require the separate validated review ledger.',
   next_improvement:text(log?.next_improvement)??(!bound?'Collect and verify the actual Compiler input and search receipts.':'Review candidate quality, unattempted searches and source gaps before changing the method.'),
   interpretation:'Counts show coverage and observed association, not audience popularity, source independence, candidate quality or causal uplift. Compare source/method changes before interpreting deltas. Unknown values are not zero. Publication, reader corrections, runtime and image outcomes retain their separate AAR evidence.'};
 }
@@ -338,7 +340,11 @@ export function renderTop10Section(s){
    ...Object.entries(d.candidate_review_depth??{}).filter(([k])=>k!=='status').map(([k,v])=>`| ${cell(k.replaceAll('_',' '))} | ${shown(v)} | ${shown(d.candidate_review_delta_from_previous?.[k])} |`),'',
    'The frozen November 3 baseline has no candidate-level review ledger; no retrospective value is invented. Recorded reviews do not independently establish content quality, audience interest or causal benefit.','',
    '**Method/resource review:** '+shown(d.change_log)+'.','',
-   '**Reported effects and gaps:** '+shown(d.reported_impact_observations)+'.','',
+   '**Current reconciled conclusion:** '+cell(d.outcome_metrics_status)+'; outcome baseline '+cell(d.outcome_baseline_status)+
+    '; candidate review ledger '+cell(d.candidate_review_depth?.status??'NOT_RECORDED')+'.','',
+   '**Historical producer observations (not current status):** The following snapshot preserves what the producer reported at the time. Its pending statuses and candidate-quality claims are not independently reconciled conclusions. Use the current tables above for publication-bound measurements; an absent candidate review ledger remains unknown.','',
+   '<details><summary>Original producer effects and gaps — historical snapshot</summary>','',
+   '```json',JSON.stringify(d.reported_impact_observations??null,null,2),'```','','</details>','',
    '**Next improvement:** '+cell(d.next_improvement),'',d.interpretation,'');
  }
  lines.push(s.note,'');return lines.join('\n');
