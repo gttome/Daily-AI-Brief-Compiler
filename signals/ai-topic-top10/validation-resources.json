@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-ai-topic-validation-resources-v1",
   "created_at": "2026-11-03T00:24:57.212Z",
-  "purpose": "Ten additional validation resources for the owner-requested November 2 rerun; these supplement existing discovery indexes and primary sources.",
+  "purpose": "Expanded validation resources for Daily AI Topic Top 10; supplement the existing discovery indexes and source universe.",
   "resources": [
     {
       "id": "cheeky-pint",
@@ -195,13 +195,144 @@
         "ended_at": "2026-11-03T00:24:57.212Z"
       },
       "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "trendforce",
+      "name": "TrendForce memory-market research",
+      "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html",
+      "access": "direct",
+      "provenance": "primary_industry_research",
+      "organization": "TrendForce",
+      "published_at": "2026-09-30",
+      "topic_ids": [
+        "consumer-ram-ai"
+      ],
+      "scope": "Tests whether the consumer-memory story has an underlying supply mechanism. TrendForce reports server capacity prioritization and pressure on PC memory.",
+      "limitations": [
+        "Older industry background, not a same-day event.",
+        "Forward-looking price and supply projections are not realized November measurements.",
+        "Does not validate attributed interview rhetoric or popularity."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "arena",
+      "name": "Arena model and agent evaluations",
+      "url": "https://arena.ai/leaderboard/agent",
+      "access": "direct",
+      "provenance": "primary_platform_evaluation",
+      "organization": "Arena",
+      "published_at": null,
+      "source_as_of_date": "2026-11-01",
+      "topic_ids": [
+        "frontier-model-comparisons",
+        "frontier-agent-evaluation",
+        "business-agent-workflows"
+      ],
+      "scope": "Tests frontier comparisons using platform-specific task and user-session measures. The inspected table places Opus 5.5 above Carbon overall and labels Carbon preliminary.",
+      "limitations": [
+        "Platform population, task mix, settings and uncertainty limit generalization.",
+        "Model performance is not topic popularity.",
+        "Different metrics and site views show different numbers; no change or growth inferred.",
+        "Does not independently reproduce GDPx or business earnings."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "epoch-ai",
+      "name": "Epoch AI benchmark research",
+      "url": "https://epoch.ai/benchmarks/frontiermath-tier-4-v2",
+      "additional_urls": [
+        "https://epoch.ai/benchmarks"
+      ],
+      "access": "direct",
+      "provenance": "primary_benchmark_author_with_disclosed_funding",
+      "organization": "Epoch AI",
+      "published_at": "2026-06-12",
+      "topic_ids": [
+        "ai-scientific-discovery",
+        "frontier-model-comparisons",
+        "frontier-agent-evaluation",
+        "open-local-models"
+      ],
+      "scope": "Tests the scope of mathematical and comparative capability claims against explicit benchmark methods, version changes and evaluation settings.",
+      "limitations": [
+        "FrontierMath discloses OpenAI funding and exclusive access to a subset; not a wholly independent confirmation of an OpenAI discovery.",
+        "The hub mixes internally administered results with external results.",
+        "No benchmark run or mathematical proof was independently reproduced here.",
+        "Benchmark success does not establish universal research ability or current attention."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "hacker-news",
+      "name": "Hacker News community attention",
+      "url": "https://news.ycombinator.com/",
+      "additional_urls": [
+        "https://news.ycombinator.com/item?id=50341174",
+        "https://news.ycombinator.com/item?id=50339913",
+        "https://news.ycombinator.com/item?id=50344919",
+        "https://news.ycombinator.com/item?id=50341736",
+        "https://news.ycombinator.com/item?id=50344958",
+        "https://news.ycombinator.com/item?id=50261319",
+        "https://news.ycombinator.com/item?id=50321622"
+      ],
+      "access": "direct",
+      "provenance": "primary_community_platform_attention",
+      "organization": "Hacker News / Y Combinator",
+      "published_at": null,
+      "topic_ids": [
+        "ai-financing-ipo",
+        "ai-scientific-discovery",
+        "interactive-world-models",
+        "open-local-models",
+        "business-agent-workflows",
+        "ai-usage-plans",
+        "ai-security-threats"
+      ],
+      "scope": "Tests whether topics have visible discussion outside video trackers. Finance, mathematics, model-weight experiments, world models and agent testing have retrieved discussion records.",
+      "limitations": [
+        "Technically inclined audience is not representative of all users.",
+        "Points/comments are not views and cannot be combined with YouTube counts.",
+        "Launch posts can be promotional; comments and pasted emails do not verify technical claims or official policy.",
+        "Bounded query sample, not a complete site census.",
+        "Specific security thread direct retrieval failed; search index alone provides weak support."
+      ],
+      "observed_at": null,
+      "source_metric_checked_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:34:26.887Z",
+        "ended_at": "2026-11-03T00:37:50.389Z"
+      },
+      "independent_confirmations_per_topic": null
     }
   ],
   "limits": [
-    "Ten resources are not ten independent confirmations of each topic.",
-    "Seven resources were directly retrieved; three were inspected through indexed search evidence only.",
     "The Hugging Face course and Hugging Face-hosted material may share organizational authorship; do not count platform URLs as independent organizations.",
     "Older guidance validates context or controls, not today's popularity.",
-    "Existing official OpenAI usage documentation remains the primary source for the usage-plan topic."
-  ]
+    "Existing official OpenAI usage documentation remains the primary source for the usage-plan topic.",
+    "Fourteen resources are not fourteen independent confirmations of each topic.",
+    "Eleven resources were directly retrieved; SEC, Reuters and The Verge remained indexed-only in this cycle.",
+    "Primary discussion metrics corroborate attention within one community, not the global rank.",
+    "Epoch's FrontierMath funding/access disclosures must accompany claims of independence."
+  ],
+  "updated_at": "2026-11-03T00:37:50.389Z"
 }
