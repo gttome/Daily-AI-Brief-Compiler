@@ -7,10 +7,10 @@ import {ownerReportedWorkUsage} from './owner-usage.mjs';
 import {summarizeTaskOriginEvidence} from './task-origin-evidence.mjs';
 import {oct27SourceReadiness,renderOct27SourceSection} from './oct27-source-readiness.mjs';
 import {fileURLToPath} from 'node:url';
-import {summarizeTop10,renderTop10Section} from './top10-aar.mjs';
+import {summarizeTop10,renderTop10Section,buildTop10OutcomeBaseline} from './top10-aar.mjs';
 const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
 const DATE=/^20\d{2}-\d{2}-\d{2}$/;
-const FILES=['execution-milestones','fallback-search-evidence','trend-consumed-source','trend-consumed-report','image-route-preflight','compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
+const FILES=['top10-baseline','top10-outcome-baseline','top10-previous-report','top10-previous-aar','top10-improvement','execution-milestones','fallback-search-evidence','trend-consumed-source','trend-consumed-report','image-route-preflight','compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
  'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
@@ -358,7 +358,19 @@ function main(){
  const [cycleDate,inputDir,outRoot]=process.argv.slice(2);
  if(!outRoot)throw Error('usage: node scripts/compile-daily-aar.mjs YYYY-MM-DD <evidence_dir> <output_root>');
  const {evidence,hashes}=readEvidence(inputDir);
- const reports=compileDailyReports({cycleDate,evidence,hashes});
+ let reports=compileDailyReports({cycleDate,evidence,hashes});
+ const baseline=buildTop10OutcomeBaseline(reports.top10,reports.compiler,hashes);
+ if(baseline){
+  const baselineDir=path.join(outRoot,'daily','baselines');fs.mkdirSync(baselineDir,{recursive:true});
+  try{fs.writeFileSync(path.join(baselineDir,'nov03-2026-top10.json'),JSON.stringify(baseline,null,2)+'\n',{flag:'wx'});}
+  catch(error){if(error.code!=='EEXIST')throw error;}
+ }
+ const frozenPath=path.join(outRoot,'daily','baselines','nov03-2026-top10.json');
+ if(fs.existsSync(frozenPath)){
+  const bytes=fs.readFileSync(frozenPath);hashes['top10-outcome-baseline']=sha(bytes);
+  try{evidence['top10-outcome-baseline']=JSON.parse(bytes);}catch{evidence['top10-outcome-baseline']={parse_error:true};}
+  reports=compileDailyReports({cycleDate,evidence,hashes});
+ }
  const dir=path.join(outRoot,'daily',cycleDate);fs.mkdirSync(dir,{recursive:true});
  for(const [name,report] of Object.entries(reports)){
   fs.writeFileSync(path.join(dir,name+'.json'),JSON.stringify(report,null,2)+'\n');
@@ -368,4 +380,5 @@ function main(){
   edition_date:datePlusOne(cycleDate),files:Object.keys(reports).length*2}));
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))main();
+
 

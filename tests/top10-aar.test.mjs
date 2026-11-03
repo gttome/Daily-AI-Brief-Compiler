@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
-import {summarizeTop10,renderTop10Section} from '../scripts/top10-aar.mjs';
+import {summarizeTop10,renderTop10Section,buildTop10OutcomeBaseline} from '../scripts/top10-aar.mjs';
 
 const cycle='2026-11-02',edition='2026-11-03';
 const commit='a'.repeat(40),blob='b'.repeat(40);
@@ -207,4 +207,80 @@ test('independent consumed commit proof cannot be replaced by an input claim',()
  const {e,h}=fixture();delete e['trend-consumed-source'];
  const s=summarizeTop10(cycle,edition,e,h);assert.equal(s.handoff_status,'RECEIVED_SNAPSHOT_BOUND');
  assert.equal(s.consumed_commit_independently_verified,false);assert.equal(s.end_to_end_ready,false);
+});
+
+
+const baselineHash='059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d';
+const baselineFixture=()=>({schema_version:'daily-ai-topic-top10-baseline-v1',baseline_id:'nov03-2026-v1',
+ cycle_date:cycle,edition_date:edition,report:{sha256:baselineHash},input_metrics:{topic_count:10,validation_resource_count:14}});
+
+test('input baseline never invents downstream outcomes or missing input counts',()=>{
+ const {e,h}=fixture();delete e['trend-input'];delete e['trend-search-coverage'];
+ e['top10-baseline']=baselineFixture();
+ const s=summarizeTop10(cycle,edition,e,h),d=s.daily_improvement;
+ assert.equal(d.baseline_status,'INPUT_FROZEN');assert.equal(d.input_delta_from_baseline.topic_count,0);
+ assert.equal(d.current_input.full_video_reviews,null);assert.equal(d.outcome_metrics.attempted_topic_format_pairs,null);
+ assert.equal(d.outcome_metrics.selected_article_count,null);assert.equal(d.outcome_baseline_status,'PENDING');
+ assert.equal(d.outcome_delta_from_baseline.selected_article_count,null);
+ assert.match(renderTop10Section(s),/Daily improvement and effect on the Brief/);
+});
+
+test('impact counts distinct topic-format pairs, candidates and selected items rather than duplicate observations',()=>{
+ const {e,h}=fixture(),coverage=e['trend-search-coverage'];
+ coverage.searches[0].candidate_ids=['candidate-a','candidate-a'];
+ coverage.searches.push({...coverage.searches[0],query:'a distinct additional query'});
+ coverage.selected_mappings.push({...coverage.selected_mappings[0],topic_id:'topic-2'});
+ const d=summarizeTop10(cycle,edition,e,h).daily_improvement;
+ assert.equal(d.outcome_metrics_status,'OBSERVED');
+ assert.equal(d.outcome_metrics.attempted_topic_format_pairs,30);
+ assert.equal(d.outcome_metrics.discovered_candidate_count,1);
+ assert.equal(d.outcome_metrics.selected_article_count,1);
+ assert.equal(d.outcome_metrics.selected_video_count,0);
+ assert.equal(d.outcome_metrics.searched_source_host_count,1);
+ assert.match(d.interpretation,/not audience popularity/);
+});
+
+test('unverified selections and missing candidate receipts remain unknown',()=>{
+ const {e,h}=fixture();e['trend-search-coverage'].selected_mappings[0].item_id='invented';
+ delete e['trend-search-coverage'].searches[0].candidate_ids;
+ const d=summarizeTop10(cycle,edition,e,h).daily_improvement;
+ assert.equal(d.outcome_metrics_status,'PENDING_OR_INCOMPLETE');
+ assert.equal(d.outcome_metrics.selected_article_count,null);
+ assert.equal(d.outcome_metrics.discovered_candidate_count,null);
+});
+
+test('wrong-date previous records and unverified frozen baselines cannot produce gains',()=>{
+ const {e,h}=fixture();e['top10-baseline']=baselineFixture();
+ e['top10-previous-report']={...e['top10-report'],validation_resources:[{id:'bad'}]};
+ e['top10-previous-aar']=summarizeTop10(cycle,edition,e,h);
+ e['top10-outcome-baseline']={schema_version:'daily-ai-topic-top10-outcome-baseline-v1',baseline_id:'nov03-2026-v1',cycle_date:cycle,edition_date:edition,report_sha256:baselineHash,publication_verified:false,metrics:{selected_article_count:0}};
+ const d=summarizeTop10(cycle,edition,e,h).daily_improvement;
+ assert.equal(d.previous_cycle,null);assert.equal(d.source_registry_changes,null);
+ assert.equal(d.outcome_delta_from_previous.selected_article_count,null);
+ assert.equal(d.outcome_baseline_status,'PENDING');
+});
+
+test('freeze requires the exact accepted November 3 report, complete observed metrics and verified publication',()=>{
+ const {e,h}=fixture();e['top10-baseline']=baselineFixture();const s=summarizeTop10(cycle,edition,e,h);
+ const compiler={result:'SUCCESS',edition_date:edition};
+ assert.equal(buildTop10OutcomeBaseline(s,compiler,h),null);
+ s.report_sha256=baselineHash;
+ const frozen=buildTop10OutcomeBaseline(s,compiler,h);
+ assert.equal(frozen.publication_verified,true);assert.equal(frozen.metrics.selected_article_count,1);
+ assert.equal(buildTop10OutcomeBaseline(s,{...compiler,result:'PARTIAL'},h),null);
+ assert.equal(buildTop10OutcomeBaseline({...s,edition_date:'2026-11-04'},compiler,h),null);
+ e['top10-outcome-baseline']=frozen;
+ const d=summarizeTop10(cycle,edition,e,h).daily_improvement;
+ assert.equal(d.outcome_baseline_status,'FROZEN_AFTER_VERIFIED_PUBLICATION');
+ assert.equal(d.outcome_delta_from_baseline.selected_article_count,0);
+});
+
+test('method log sidecars must bind to the actual report; source expansion stays separate from outcome improvement',()=>{
+ const {e,h}=fixture();e['top10-baseline']=baselineFixture();
+ e['top10-previous-report']={schema_version:'daily-ai-topic-top10-v1',report_date:'2026-11-01',target_edition_date:cycle,topics:[],validation_resources:[{id:'old'}]};
+ e['top10-improvement']={cycle_date:cycle,edition_date:edition,report_sha256:h['top10-report'],daily_improvement:{baseline_id:'nov03-2026-v1',changes:[],resource_candidates:[],next_improvement:'Verify a new primary source.'}};
+ let d=summarizeTop10(cycle,edition,e,h).daily_improvement;
+ assert.equal(d.change_log_status,'RECORDED');assert.equal(d.next_improvement,'Verify a new primary source.');
+ e['top10-improvement'].report_sha256='0'.repeat(64);
+ d=summarizeTop10(cycle,edition,e,h).daily_improvement;assert.equal(d.change_log_status,'NOT_OBSERVED');
 });
