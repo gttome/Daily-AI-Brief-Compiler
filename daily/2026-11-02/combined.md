@@ -263,7 +263,122 @@ The frozen November 3 baseline has no candidate-level review ledger; no retrospe
 
 **Method/resource review:** {"baseline\_id":"nov03-2026-v1","previous\_report\_date":null,"method\_version":"2026-11-02-validation-expansion","changes":\[{"change":"Accepted November 3 specific-event list pinned for Compiler discovery","reason":"Preserve owner-approved scope, freshness labels and honest evidence bands","expected\_effect":"More focused article/video/podcast queries; actual search and selection outcomes remain pending"},{"change":"Fixed baseline and daily source/method change ledger","reason":"Measure improvements against a stable reference and prior comparable cycle","expected\_effect":"Separate expanded coverage from measured improvements"}\],"resource\_candidates":\[\],"observed\_effects":\[{"observation":"Existing Top 10 and Compiler automation prompts updated successfully; schedules unchanged","scope":"configuration only","downstream\_outcome":null},{"observation":"Compiler persisted the exact accepted November 3 report snapshot","retrieved\_at":"2026-11-03T01:19:55Z","source\_url":"https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-input.json","receipt\_blob\_sha":"2f21a2d5a9aa59e34f800d6288475f585087783d","report\_sha256":"059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d","verification":"Receipt commit/blob/hash and complete parsed report match the accepted input","scope":"input adoption only; actual search, selection and publication effects remain pending"}\],"next\_improvement":"Verify actual topic-format searches, candidate quality and final selected-item mappings; evaluate a new event-relevant resource during the next research cycle.","limitations":\["This implementation session did not research an additional resource candidate.","Compiler input adoption is observed; publication impact, audience growth and causal benefit are not established."\]}.
 
-**Reported effects and gaps:** {"observed\_at":"2026-11-03T02:00:23.538Z","input\_adoption":{"usable\_report\_consumed":true,"exact\_raw\_sha256\_verified":true,"topic\_count":10,"ranking\_interpretation":"unranked\_within\_qualitative\_evidence\_bands; integers used only as discovery sequence"},"search\_coverage":{"topic\_format\_rows":30,"article\_rows":10,"video\_rows":10,"podcast\_rows":10,"skipped\_rows":0},"candidate\_yield":{"useful\_qualified\_candidate\_ids":\["cand-cheekypint-39","cand-genie4-2026-10-27","cand-nvidia-cosmos-2026-11-02","cand-gemini4-carbon-2026-10-28","cand-ai-for-humans-201","cand-anthropic-s1-amendment-2026-11-02","cand-openai-navier-stokes-2026-09-08","cand-deepseek-v4-1-flash-1017","cand-momentic-qa-bench-2026-11-02","cand-twiml-782","cand-openai-shared-usage-limits","cand-anthropic-judgment-2026-10-27","cand-gdpx-2026-11-02","cand-ted-ai-data-center-energy","cand-cbs-ai-oversight","cand-reuters-anthropic-ipo-2026-11-02"\],"bundle\_verified\_selected\_mappings":5,"actual\_source\_additions":\[{"candidate\_id":"cand-ted-ai-data-center-energy","url":"https://www.ted.com/talks/sajan\_saini\_why\_are\_ai\_data\_centers\_using\_so\_much\_electricity","qualification":"Complete transcript-supported program plus genuine signed-out advancing 06:16 playback; selected through same-edition media recovery."},{"candidate\_id":"cand-cbs-ai-oversight","url":"https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/","qualification":"Complete independent report plus genuine signed-out advancing 269.636-second playback; selected through same-edition media recovery."},{"candidate\_id":"cand-reuters-anthropic-ipo-2026-11-02","url":"https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/","qualification":"Complete original Reuters report, exact 14:50 UTC publication time, and underlying November 2 SEC S-1/A cross-check; selected through same-edition freshness recovery."}\]},"freshness":{"selected\_story\_latest\_24h":1,"selected\_story\_72h\_fallback":3,"selected\_story\_168h\_fallback":2,"interpretation":"The Reuters replacement has a verified 14:50 UTC publication time inside the rolling 24-hour window. Three November 2 date-only sources remain conservatively counted as 72-hour fallbacks, and two October 30 sources use justified extended fallback."},"rejections":{"duplicate":\[\],"promotion":\[\],"quality\_or\_fit":\["cand-openai-shared-usage-limits: official policy update did not displace stronger reader-value stories","cand-momentic-qa-bench-2026-11-02: valuable technical QA evidence, but not selected as the sole noncoding Agent Skill","cand-anthropic-judgment-2026-10-27: protected reader validation placed the date-only source outside the supported 168-hour window at edition noon"\]},"gaps":\["The initial YouTube pair was not admitted after a protected stable-channel-identity failure. Same-edition recovery used distinct TED and CBS publishers with genuine advancing signed-out playback; the protected gate remains decisive.","60 enabled editorial indexes and all 110 disabled sources were not editorially inspected in this bounded run and remain explicit unreviewed IDs.","No previous comparable completed Top 10 consumer cycle exists; comparison remains NOT\_APPLICABLE rather than inferred."\],"timing":{"execution\_observed\_at":"2026-11-03T01:19:55Z","selection\_locked\_at":"2026-11-03T02:00:23.538Z","sealed\_at":"2026-11-03T02:00:24.538Z","elapsed\_seconds\_to\_seal":2430},"usage\_percent":null,"cost\_usd":null,"source\_links":\["https://github.com/gttome/Daily-AI-Brief-Compiler/blob/e76763522d93ba2152b6d8a2b22b64a051fb2297/signals/ai-topic-top10/2026-11-02.json","https://github.com/gttome/Daily-AI-Brief-Compiler/blob/aebc04de2173c37b2c041eb0e9f964e27325ee26/signals/ai-topic-top10/baselines/2026-11-03.json"\],"baseline\_comparison":{"baseline\_id":"nov03-2026-v1","input\_metrics\_preserved":true,"outcome\_baseline\_status":"pending","previous\_comparable\_completed\_cycle":null,"incremental\_benefit":null,"causal\_uplift":null,"interpretation":"The report was adopted and five final bundle selections map to supported topics, including the exact November 2 Anthropic filing event after a protected freshness recovery. Association does not establish incremental benefit; the frozen baseline has no completed outcome and there is no prior comparable cycle."},"method\_changes":\["Used owner-pinned exact report bytes instead of the generic latest-branch rule for this edition only.","Ran all thirty suggested topic-by-format queries, then preserved broader registry discovery and ordinary selection gates.","Added explicit candidate IDs, rejection reasons, timing, source links and unknown usage/cost without turning resource count into success.","A real protected MEDIA\_HISTORY failure triggered same-edition media-only recovery: stable-channel-deficient YouTube entries were replaced by distinct TED and CBS programs with genuine signed-out advancing playback.","A second protected MEDIA\_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic\_roundup with two exact independently verified original sources, without changing the episode selection.","Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved.","Protected reader compatibility rejected the date-only October 27 judgment study outside its strict 168-hour edition-noon window; it was replaced by the fully read, filing-cross-checked Reuters report on the exact November 2 Anthropic S-1/A event without changing the 2/2/2 allocation.","Protected recent-source discovery required each older selection to compare an authentically recent researched candidate. The precisely timed Reuters report was therefore recorded in all five individualized older-story comparisons with explicit lane-mismatch reasons; editorial relevance still overrode any recency quota."\],"next\_improvement":"On the next completed comparable cycle, measure qualified candidate yield and bundle-verified selections against this frozen baseline while separating source-sample changes from method changes."}.
+**Current reconciled conclusion:** OBSERVED; outcome baseline FROZEN\_AFTER\_VERIFIED\_PUBLICATION; candidate review ledger NOT\_RECORDED.
+
+**Historical producer observations (not current status):** The following snapshot preserves what the producer reported at the time. Its pending statuses and candidate-quality claims are not independently reconciled conclusions. Use the current tables above for publication-bound measurements; an absent candidate review ledger remains unknown.
+
+<details><summary>Original producer effects and gaps — historical snapshot</summary>
+
+```json
+{
+  "observed_at": "2026-11-03T02:00:23.538Z",
+  "input_adoption": {
+    "usable_report_consumed": true,
+    "exact_raw_sha256_verified": true,
+    "topic_count": 10,
+    "ranking_interpretation": "unranked_within_qualitative_evidence_bands; integers used only as discovery sequence"
+  },
+  "search_coverage": {
+    "topic_format_rows": 30,
+    "article_rows": 10,
+    "video_rows": 10,
+    "podcast_rows": 10,
+    "skipped_rows": 0
+  },
+  "candidate_yield": {
+    "useful_qualified_candidate_ids": [
+      "cand-cheekypint-39",
+      "cand-genie4-2026-10-27",
+      "cand-nvidia-cosmos-2026-11-02",
+      "cand-gemini4-carbon-2026-10-28",
+      "cand-ai-for-humans-201",
+      "cand-anthropic-s1-amendment-2026-11-02",
+      "cand-openai-navier-stokes-2026-09-08",
+      "cand-deepseek-v4-1-flash-1017",
+      "cand-momentic-qa-bench-2026-11-02",
+      "cand-twiml-782",
+      "cand-openai-shared-usage-limits",
+      "cand-anthropic-judgment-2026-10-27",
+      "cand-gdpx-2026-11-02",
+      "cand-ted-ai-data-center-energy",
+      "cand-cbs-ai-oversight",
+      "cand-reuters-anthropic-ipo-2026-11-02"
+    ],
+    "bundle_verified_selected_mappings": 5,
+    "actual_source_additions": [
+      {
+        "candidate_id": "cand-ted-ai-data-center-energy",
+        "url": "https://www.ted.com/talks/sajan_saini_why_are_ai_data_centers_using_so_much_electricity",
+        "qualification": "Complete transcript-supported program plus genuine signed-out advancing 06:16 playback; selected through same-edition media recovery."
+      },
+      {
+        "candidate_id": "cand-cbs-ai-oversight",
+        "url": "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
+        "qualification": "Complete independent report plus genuine signed-out advancing 269.636-second playback; selected through same-edition media recovery."
+      },
+      {
+        "candidate_id": "cand-reuters-anthropic-ipo-2026-11-02",
+        "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+        "qualification": "Complete original Reuters report, exact 14:50 UTC publication time, and underlying November 2 SEC S-1/A cross-check; selected through same-edition freshness recovery."
+      }
+    ]
+  },
+  "freshness": {
+    "selected_story_latest_24h": 1,
+    "selected_story_72h_fallback": 3,
+    "selected_story_168h_fallback": 2,
+    "interpretation": "The Reuters replacement has a verified 14:50 UTC publication time inside the rolling 24-hour window. Three November 2 date-only sources remain conservatively counted as 72-hour fallbacks, and two October 30 sources use justified extended fallback."
+  },
+  "rejections": {
+    "duplicate": [],
+    "promotion": [],
+    "quality_or_fit": [
+      "cand-openai-shared-usage-limits: official policy update did not displace stronger reader-value stories",
+      "cand-momentic-qa-bench-2026-11-02: valuable technical QA evidence, but not selected as the sole noncoding Agent Skill",
+      "cand-anthropic-judgment-2026-10-27: protected reader validation placed the date-only source outside the supported 168-hour window at edition noon"
+    ]
+  },
+  "gaps": [
+    "The initial YouTube pair was not admitted after a protected stable-channel-identity failure. Same-edition recovery used distinct TED and CBS publishers with genuine advancing signed-out playback; the protected gate remains decisive.",
+    "60 enabled editorial indexes and all 110 disabled sources were not editorially inspected in this bounded run and remain explicit unreviewed IDs.",
+    "No previous comparable completed Top 10 consumer cycle exists; comparison remains NOT_APPLICABLE rather than inferred."
+  ],
+  "timing": {
+    "execution_observed_at": "2026-11-03T01:19:55Z",
+    "selection_locked_at": "2026-11-03T02:00:23.538Z",
+    "sealed_at": "2026-11-03T02:00:24.538Z",
+    "elapsed_seconds_to_seal": 2430
+  },
+  "usage_percent": null,
+  "cost_usd": null,
+  "source_links": [
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/e76763522d93ba2152b6d8a2b22b64a051fb2297/signals/ai-topic-top10/2026-11-02.json",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/aebc04de2173c37b2c041eb0e9f964e27325ee26/signals/ai-topic-top10/baselines/2026-11-03.json"
+  ],
+  "baseline_comparison": {
+    "baseline_id": "nov03-2026-v1",
+    "input_metrics_preserved": true,
+    "outcome_baseline_status": "pending",
+    "previous_comparable_completed_cycle": null,
+    "incremental_benefit": null,
+    "causal_uplift": null,
+    "interpretation": "The report was adopted and five final bundle selections map to supported topics, including the exact November 2 Anthropic filing event after a protected freshness recovery. Association does not establish incremental benefit; the frozen baseline has no completed outcome and there is no prior comparable cycle."
+  },
+  "method_changes": [
+    "Used owner-pinned exact report bytes instead of the generic latest-branch rule for this edition only.",
+    "Ran all thirty suggested topic-by-format queries, then preserved broader registry discovery and ordinary selection gates.",
+    "Added explicit candidate IDs, rejection reasons, timing, source links and unknown usage/cost without turning resource count into success.",
+    "A real protected MEDIA_HISTORY failure triggered same-edition media-only recovery: stable-channel-deficient YouTube entries were replaced by distinct TED and CBS programs with genuine signed-out advancing playback.",
+    "A second protected MEDIA_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic_roundup with two exact independently verified original sources, without changing the episode selection.",
+    "Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved.",
+    "Protected reader compatibility rejected the date-only October 27 judgment study outside its strict 168-hour edition-noon window; it was replaced by the fully read, filing-cross-checked Reuters report on the exact November 2 Anthropic S-1/A event without changing the 2/2/2 allocation.",
+    "Protected recent-source discovery required each older selection to compare an authentically recent researched candidate. The precisely timed Reuters report was therefore recorded in all five individualized older-story comparisons with explicit lane-mismatch reasons; editorial relevance still overrode any recency quota."
+  ],
+  "next_improvement": "On the next completed comparable cycle, measure qualified candidate yield and bundle-verified selections against this frozen baseline while separating source-sample changes from method changes."
+}
+```
+
+</details>
 
 **Next improvement:** Verify actual topic-format searches, candidate quality and final selected-item mappings; evaluate a new event-relevant resource during the next research cycle.
 
@@ -414,8 +529,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-03/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ba716172ea1c6ba435813912224b996b717061e5/signals/ai-topic-top10/2026-11-02.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ba716172ea1c6ba435813912224b996b717061e5/signals/ai-topic-top10/2026-11-02.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a04580fd26d95146e77c664a40fe33edf6a34817/signals/ai-topic-top10/2026-11-02.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a04580fd26d95146e77c664a40fe33edf6a34817/signals/ai-topic-top10/2026-11-02.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-search-coverage.json) |
 
@@ -424,3 +539,209 @@ No current-edition postpublication incident register was available; this is **NO
 ---
 
 *Generated deterministically from cycle- and edition-specific GitHub records. The report combines the Top 10 discovery priorities, its Compiler handoff and searches, the published Brief, and the image run; original research, Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*
+
+<!-- continuous-improvement:start -->
+## Continuous improvement review
+
+Edition **2026-11-03**. Measurements use 1/7 recorded editions in this window. Missing data stays **Not recorded**.
+
+### Approved change evaluations
+
+| Change | Evaluate by | Outcome status | Latest decision |
+|---|---|---|---|
+| NOV03-01 — Earlier publication checks and precise recovery | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV03-02 — Broader genuine source review | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV03-03 — Source-bound image rejection lessons | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV03-04 — Substantive Top 10 review evidence | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-01 — Current conclusions separated from historical claims | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-02 — Consolidated current task contracts | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-03 — Dated improvement evaluations | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-04 — Seven-edition trend charts | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-05 — Recurring publication failure causes | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-06 — Recovery interval reporting | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-07 — Source inspection history | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-08 — Rolling source contribution | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-09 — Recurring image defect categories | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+| AAR-10 — Top 10 publisher-family sensitivity | 2026-11-11 | NOT_YET_EFFECTIVE | Not recorded |
+
+Pending: 0; overdue: 0; reviewed: 0. Implemented controls await measured results; review decisions do not disable controls.
+
+### Seven-edition trends
+
+![Seven-edition trends](charts/seven-edition-trends.svg)
+
+| Edition | Coverage | First pass / 6 | Image attempts | Publishing failures | Top 10 links |
+|---|---|---:|---:|---:|---:|
+| 2026-10-28 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
+| 2026-10-29 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
+| 2026-10-30 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
+| 2026-10-31 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
+| 2026-11-01 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
+| 2026-11-02 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
+| 2026-11-03 | 27/87 (31%) | 1 | 12 | 5 | 4 |
+
+| Measure | Recorded editions | Window median |
+|---|---:|---:|
+| coverage percent | 1 | 31 |
+| first pass accepted | 1 | 1 |
+| image attempts | 1 | 12 |
+| top10 linked items | 1 | 4 |
+| publication failures | 1 | 5 |
+
+**Source-set comparability is unknown:** historical aggregate counts do not establish identical source membership.
+
+### Publishing failures by stage and recorded cause
+
+![Publishing failures](charts/publication-failures.svg)
+
+| Stage | Recorded cause | Failures | Editions | Recurred | Delay median (seconds; documented samples only) |
+|---|---|---:|---|---|---:|
+| READER_COMPATIBILITY | UNCLASSIFIED | 3 | 2026-11-03 | No within observed window | Not recorded (0 samples) |
+| MEDIA_HISTORY | UNCLASSIFIED | 2 | 2026-11-03 | No within observed window | Not recorded (0 samples) |
+
+Unclassified means the original gate is known but no structured cause review is recorded. Stage names do not establish root causes. No rows establish no failures only when the recorded receipt explicitly has none.
+
+### Recovery intervals
+
+| Recorded mode | Incidents | Detection seconds | Queue seconds | Repair seconds | Verification seconds | Total seconds |
+|---|---:|---:|---:|---:|---:|---:|
+
+**Not recorded:** no valid incident has all required timing and evidence references.
+
+### Source inspection history
+
+| Source | Last inspected edition | Editions since inspection |
+|---|---|---:|
+| acl-anthology | Not recorded | Not recorded |
+| anthropic | Not recorded | Not recorded |
+| anthropic-news | Not recorded | Not recorded |
+| article-databricks-ai-research | Not recorded | Not recorded |
+| article-ibm-research-ai | Not recorded | Not recorded |
+| article-nvidia-technical-ai | Not recorded | Not recorded |
+| arxiv-cs-ai | Not recorded | Not recorded |
+| arxiv-cs-cl | Not recorded | Not recorded |
+| arxiv-cs-lg | Not recorded | Not recorded |
+| berkeley-bair | Not recorded | Not recorded |
+| deep-20261026-a01-google-research | Not recorded | Not recorded |
+| deep-20261026-a02-microsoft-ai | Not recorded | Not recorded |
+| deep-20261026-a03-nvidia-news | Not recorded | Not recorded |
+| deep-20261026-p02-data-skeptic | Not recorded | Not recorded |
+| deep-20261026-v01-two-minute-papers | Not recorded | Not recorded |
+| deepseek-news | Not recorded | Not recorded |
+| directory-0dffb60aadd4ba31b5c090dc | Not recorded | Not recorded |
+| directory-242c2a2fc81a43d41f199129 | Not recorded | Not recorded |
+| directory-3ccc18a956cae0b1e24b5968 | Not recorded | Not recorded |
+| directory-411bf5f837e28f35220736eb | Not recorded | Not recorded |
+| directory-4852e367f74118ff2dc1eec9 | Not recorded | Not recorded |
+| directory-54d90ff964a74ff98851ae11 | Not recorded | Not recorded |
+| directory-64f0886a6793aa8858a4b62d | Not recorded | Not recorded |
+| directory-6ea6e283349c7b62ac1ced9d | Not recorded | Not recorded |
+| directory-8df3614a9972a25fc59475ed | Not recorded | Not recorded |
+| directory-8ec4fd458a38bc0447f4cded | Not recorded | Not recorded |
+| directory-935fbe5ba89ff5f91fc8c69b | Not recorded | Not recorded |
+| directory-9ad7c274f2d56274bcd5ddcc | Not recorded | Not recorded |
+| directory-9c0885bdb370f69c9262b88c | Not recorded | Not recorded |
+| directory-a74f303f4b0c39344c1314cf | Not recorded | Not recorded |
+| directory-c6b8a33e7fa162cc41136fa5 | Not recorded | Not recorded |
+| directory-d6cf3f9fa167b8173a35228b | Not recorded | Not recorded |
+| directory-ecf69ec2f036e803388f40ca | Not recorded | Not recorded |
+| directory-fd36049347d409f38c9f9a67 | Not recorded | Not recorded |
+| github-ai-agents | Not recorded | Not recorded |
+| github-generative-ai | Not recorded | Not recorded |
+| github-llm | Not recorded | Not recorded |
+| github-trending | Not recorded | Not recorded |
+| google-deepmind-blog | Not recorded | Not recorded |
+| hacker-news-newest | Not recorded | Not recorded |
+| hacker-news-show | Not recorded | Not recorded |
+| hugging-face-daily-papers | Not recorded | Not recorded |
+| hugging-face-datasets | Not recorded | Not recorded |
+| hugging-face-models | Not recorded | Not recorded |
+| hugging-face-spaces | Not recorded | Not recorded |
+| iclr | Not recorded | Not recorded |
+| icml | Not recorded | Not recorded |
+| meta-ai-blog | Not recorded | Not recorded |
+| mistral-news | Not recorded | Not recorded |
+| mit-csail | Not recorded | Not recorded |
+| neurips | Not recorded | Not recorded |
+| openai-news | Not recorded | Not recorded |
+| openreview | Not recorded | Not recorded |
+| podcast-a16z-show | Not recorded | Not recorded |
+| podcast-agora-briefing | Not recorded | Not recorded |
+| podcast-ai-daily-brief | Not recorded | Not recorded |
+| podcast-ai-for-humans | Not recorded | Not recorded |
+| podcast-ai-future-work | Not recorded | Not recorded |
+| podcast-ai-inside | Not recorded | Not recorded |
+| podcast-artificial-intelligence-show | Not recorded | Not recorded |
+| podcast-cognitive-revolution | Not recorded | Not recorded |
+| podcast-data-exchange | Not recorded | Not recorded |
+| podcast-everyday-ai | Not recorded | Not recorded |
+| podcast-eye-on-ai | Not recorded | Not recorded |
+| podcast-gradient-dissent | Not recorded | Not recorded |
+| podcast-latent-space | Not recorded | Not recorded |
+| podcast-no-priors | Not recorded | Not recorded |
+| podcast-nvidia-ai | Not recorded | Not recorded |
+| podcast-practical-ai | Not recorded | Not recorded |
+| podcast-twiml | Not recorded | Not recorded |
+| qwen-blog | Not recorded | Not recorded |
+| reddit-localllama | Not recorded | Not recorded |
+| reddit-machinelearning | Not recorded | Not recorded |
+| research-20261026-a01 | Not recorded | Not recorded |
+| research-20261026-a04 | Not recorded | Not recorded |
+| research-20261026-a05 | Not recorded | Not recorded |
+| research-20261026-a12 | Not recorded | Not recorded |
+| research-20261026-p03 | Not recorded | Not recorded |
+| specialized-discords | Not recorded | Not recorded |
+| stanford-hai | Not recorded | Not recorded |
+| the-batch | Not recorded | Not recorded |
+| universe-20261026-every-ai-editorial | Not recorded | Not recorded |
+| x-research-feeds | Not recorded | Not recorded |
+| xai-news | Not recorded | Not recorded |
+| youtube-anthropic | Not recorded | Not recorded |
+| youtube-google-deepmind | Not recorded | Not recorded |
+| youtube-openai | Not recorded | Not recorded |
+
+Only exact inspected source IDs and pre-selection review timestamps count. No observation means history is unavailable.
+
+### Source contribution in this window
+
+| Source | Substantively reviewed | Qualified | Selected | Editions with attributed reviews |
+|---|---:|---:|---:|---:|
+
+**Not recorded:** no validated substantive reviews have registry source IDs.
+
+### Image rejection causes
+
+![Image rejection causes](charts/image-defects.svg)
+
+| Recorded defect | Rejected attempts with defect | Recurred across editions |
+|---|---:|---|
+
+Total rejected: 6; unclassified: 6. A rejected attempt can have several defect codes.
+
+### Top 10 publisher-family sensitivity
+
+| Topic | Review status | Families | Evidence weakened after removal |
+|---|---|---:|---|
+| consumer-ram-ai | NOT_RECORDED | Not recorded | Not recorded |
+| interactive-world-models | NOT_RECORDED | Not recorded | Not recorded |
+| frontier-model-comparisons | NOT_RECORDED | Not recorded | Not recorded |
+| ai-financing-ipo | NOT_RECORDED | Not recorded | Not recorded |
+| ai-scientific-discovery | NOT_RECORDED | Not recorded | Not recorded |
+| open-local-models | NOT_RECORDED | Not recorded | Not recorded |
+| business-agent-workflows | NOT_RECORDED | Not recorded | Not recorded |
+| ai-usage-plans | NOT_RECORDED | Not recorded | Not recorded |
+| human-ai-judgment | NOT_RECORDED | Not recorded | Not recorded |
+| frontier-agent-evaluation | NOT_RECORDED | Not recorded | Not recorded |
+
+Overall status: **NOT_RECORDED**. Band changes are documented editorial assessments; source counts do not establish popularity.
+
+[Full measurement data](improvement-metrics.json) · [Exact observation inputs](improvement-observations.json)
+
+- Seven calendar edition dates; missing observations are gaps, never zero.
+- Source counts and registry/method changes limit comparison; no causal improvement claim.
+- Source contribution covers only resource-attributed substantive review records; it is not an exhaustive source ranking.
+- No last inspection record means not recorded, not proof the source was never read.
+- Image defects may have multiple codes per rejected attempt; category totals are not attempt totals.
+- Recorded recovery mode is not first-party scheduler attestation.
+- Keep/revise/retire reviews do not automatically change production controls.
+<!-- continuous-improvement:end -->
