@@ -1,0 +1,122 @@
+{
+  "schema_version": "daily-compiler-owner-triggered-incident-aar-v1",
+  "incident_id": "DAB-COMPILER-20261103-PUBLICATION-RECOVERY-001",
+  "edition_date": "2026-11-03",
+  "cycle_date": "2026-11-02",
+  "timezone": "America/Chicago",
+  "issue": "Five protected failures exposed missing media identity/review evidence and incomplete original-date/fallback accounting. The existing primary producer corrected the same edition and the protected publication completed.",
+  "first_failure": {
+    "status": "BLOCKED_PUBLICATION",
+    "stage": "MEDIA_HISTORY",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41560641659",
+    "observed_at": "2026-11-03T01:35:19.553Z"
+  },
+  "owner_intervention": {
+    "required_in_observed_sequence": true,
+    "observed_sequence": "The owner requested status and then 'fix it'. The existing primary producer continued same-branch corrections while the owner-directed assistant reviewed actual failures, prepared a narrow comparison repair, and independently ran the exact published bundle through deterministic validation. Concurrent producer progress supplied the equivalent comparison correction before any competing bundle write. The final immutable producer and compile receipts explicitly record owner_intervention=true.",
+    "owner_message_timestamp": "NOT_INDEPENDENTLY_ATTESTED_BY_GITHUB",
+    "counterfactual_without_owner_message": "UNKNOWN; no claim that the scheduled producer could not have recovered independently."
+  },
+  "unattended_autonomy_result": "FAIL_OWNER_TRIGGER_REQUIRED",
+  "autonomy_claim_scope": "Owner-assisted recovery is recorded in the observed sequence and immutable compile receipt. Independent scheduler origin remains UNPROVEN; counterfactual necessity is unknown.",
+  "recovery": {
+    "correcting_pr": null,
+    "semantic_correction_commit": "7fb646cba133b4d15300f954ded40ccb6fe06f38",
+    "protected_compiler_commit": "fd192447ce3e737f716ad7fbcd73e17d83b9f9d0",
+    "source_bundle_sha256": "0fc23ba4ae9d8e7043f9db49fd7f4a9c2e082afb10ec3539a60165810d09e14d",
+    "prepublication_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41563396070",
+    "rerun_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41563508470",
+    "reader_verified_at": "2026-11-03T02:04:27.378Z",
+    "published_reader_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-03/",
+    "postpublication_video_result": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
+    "playback_evidence_limit": "Both signed-out full-length players advanced with matching durations. Full episodes were not watched by the playback test.",
+    "image_job_prepared": true,
+    "image_job_status_at_verification": "PUBLISHED_PENDING",
+    "image_job_sha256": "0dabe14d8a32226fc65fbcdae56cecebcd93b5f47646d695ef80b262169cdc2e",
+    "image_job_story_ids_match_exact_bundle": true,
+    "images_released_verified_at_verification": 0,
+    "accepted_png_regenerations": 0,
+    "work_usage_percent": null
+  },
+  "failures": [
+    {
+      "run_id": 41560641659,
+      "stage": "MEDIA_HISTORY",
+      "cause": "Missing verified YouTube channel identity; the initial pool also contained only two candidates and a 2:27 clip below the existing video minimum.",
+      "correction": "Replaced initial selected videos with independently published TED-Ed and CBS programs and retained a reviewed alternatives pool."
+    },
+    {
+      "run_id": 41561934755,
+      "stage": "MEDIA_HISTORY",
+      "cause": "Podcast source-character label did not satisfy the existing quality schema.",
+      "correction": "Recorded synthetic_roundup with two original sources for the existing reviewed episode."
+    },
+    {
+      "run_id": 41562253964,
+      "stage": "READER_COMPATIBILITY",
+      "cause": "Date-only November 2 articles lacked individualized older-than-24-hour fallback records.",
+      "correction": "Kept original dates and added source-specific rationales; did not invent publication times."
+    },
+    {
+      "run_id": 41562684640,
+      "stage": "READER_COMPATIBILITY",
+      "cause": "October 27 date-only judgment study exceeded the strict 168-hour window at edition noon.",
+      "correction": "Replaced that Applied article with the November 2 Reuters filing report; preserved 2/2/2 and one Agent Skill."
+    },
+    {
+      "run_id": 41563209615,
+      "stage": "READER_COMPATIBILITY",
+      "cause": "Older selections were not compared with the newly researched precisely timed Reuters candidate.",
+      "correction": "Added five individualized comparisons explaining category and reader-value differences."
+    }
+  ],
+  "baseline_impact": {
+    "baseline_id": "nov03-2026-v1",
+    "input_report_sha256": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
+    "topic_format_searches": 30,
+    "expected_topic_format_searches": 30,
+    "distinct_format_candidate_leads": 40,
+    "searched_source_hosts": 16,
+    "topic_selection_mappings": 5,
+    "unique_selected_items": 4,
+    "selected_articles": 3,
+    "selected_videos": 0,
+    "selected_podcasts": 1,
+    "distinction": "One podcast maps to two topics. Forty candidate leads are not forty qualified candidates; host count does not establish independent publishers.",
+    "previous_comparable_completed_cycle": null,
+    "incremental_benefit": null,
+    "causal_uplift": null,
+    "observed_execution_start": "2026-11-03T01:19:55Z",
+    "public_verification": "2026-11-03T02:04:27.378Z",
+    "observed_elapsed_seconds": 2672.378,
+    "protected_failures": 5,
+    "cost_usd": null,
+    "usage_percent": null,
+    "editorial_indexes_inspected": 27,
+    "enabled_editorial_indexes": 87,
+    "enabled_editorial_indexes_unreviewed": 60,
+    "disabled_sources_unreviewed": 110,
+    "source_count_is_quality_proof": false
+  },
+  "next_improvements": [
+    "Run the existing complete semantic validator before the first readiness signal when an executable runtime is available; current checks remain unchanged.",
+    "Check precise original publication time and all fallback comparisons against the same edition reference before sealing.",
+    "Prioritize fresher independent playable videos and compare original publisher families, not only display labels: TED/TED-Ed and CBS/CBS Boston repeat families across adjacent editions.",
+    "Use the frozen verified outcome for future daily comparisons; measure qualified yield separately from candidate leads and retain unknown cost and usage."
+  ],
+  "scope": {
+    "six_stories": true,
+    "allocation": "2 Technical / 2 Applied / 2 Agents for Everyone",
+    "agent_skills": 1,
+    "videos": 2,
+    "podcasts": 2,
+    "public_routes_verified": 43,
+    "october8_protected_objects_verified": 17,
+    "article_publishers": 6,
+    "new_schedules": 0,
+    "paid_model_apis_used": false,
+    "owner_local_computer_used": false,
+    "historical_images_changed": false,
+    "existing_image_schedule": "21:15 America/Chicago"
+  }
+}
