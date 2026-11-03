@@ -54,3 +54,7 @@ The image lane and all historical accepted assets remain unchanged. This is advi
 ## Verification boundary
 
 Saved prompts establish producer/consumer instructions and exact-time scheduling. An actual unattended report write followed by a Compiler input/search receipt is still required to prove end-to-end operation. A README, enabled task or successful connector write alone is not such proof.
+
+## Owner-approved validation expansion — November 2, 2026
+
+Use [METHOD.md](METHOD.md) and [validation-resources.json](validation-resources.json) for the four improvements: separate attention from Brief usefulness; comparable timestamped measurements; stronger claim verification and honest review coverage; and less overlap/promotion. These supplement all requirements above. Same-cycle reruns preserve superseded evidence under revisions/YYYY-MM-DD/. The ten validation resources are an expansion, not a replacement for the registered source universe or ten independent confirmations per topic.
