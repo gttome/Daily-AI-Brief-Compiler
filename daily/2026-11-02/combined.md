@@ -10,15 +10,13 @@
 
 **🕒 Production stage durations:** **Top 10 15m 13s** · **Compiler final seal window 44m 32s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
-> **AAR SCHEMA WARNING:** image_aar:missing_or_inconsistent_source_bound_facts
-
 > **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Evidence reconciliation
 
 Compiler final seal window: 44m 32s. Observed execution and final seal windows are distinct.
-Image capability route preflight: NOT OBSERVED; scheduler origin remains UNPROVEN.
-Image efficiency: Unknown/6 first-pass accepts; Unknown total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
+Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
+Image efficiency: 1/6 first-pass accepts; 12 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: Not recorded; review-record commit: Not recorded; protected review merge: Not recorded.
 Eligible source indexes: 87; editorial inspections reported: 27 (31%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: 60; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
@@ -53,8 +51,8 @@ Eligible source indexes: 87; editorial inspections reported: 27 (31%); inaccessi
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
 | Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
-| Native image generation attempts | **Not reported** | Image worker AAR; no estimation |
-| Rejected candidates | **Not reported** | Image worker AAR |
+| Native image generation attempts | **12** | Image worker AAR; no estimation |
+| Rejected candidates | **6** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **Not recorded** | Image release receipt |
@@ -234,7 +232,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** Not reported · **Rejected candidates:** Not reported.
+**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 12 · **Rejected candidates:** 6.
 
 ### Image production duration — Git-verified milestones
 
@@ -284,7 +282,14 @@ No current-edition postpublication incident register was available; this is **NO
 **Latest failed protected stage:** READER_COMPATIBILITY; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41563209615). Exact stage durations are available only where real source timestamps exist.
 **Owner-initiated recovery record:** [DAB-COMPILER-20261103-PUBLICATION-RECOVERY-001](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/2026-11-03-compiler-production-aar.json). Owner-message timing and independent scheduler identity remain unproven.
 
-No image-stage correction receipts were available for this cycle.
+| Stage | Verified issue | Corrective action |
+|---|---|---|
+| Native saved-pixel inspection | nov03-t1-gdpx-professional-task-benchmark attempt 1: Simulated writing strokes on task/artifact/rubric documents; filled bars imply unsupported quantitative results; repetitive panel enclosure. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
+| Native saved-pixel inspection | nov03-t1-gdpx-professional-task-benchmark attempt 2: Gold arrow originates beneath Attempt costs and points to Equal domain weights, falsely implying cost weighting. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
+| Native saved-pixel inspection | nov03-k1-anthropic-ipo-compute-risks attempt 1: Generic flat-card board with unlabeled outcome slots and insufficient meaningful internal components; extra commitment-to-risk arrow not in the frozen causal plan. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
+| Native saved-pixel inspection | nov03-k2-managed-search-index attempt 1: Invented slider controls beside Query and filters; Schema fields brace incorrectly identifies embedding vectors instead of document metadata fields. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
+| Native saved-pixel inspection | nov03-a1-lifeval-daily-planning attempt 1: Three thick paragraph-like horizontal strips inside the AI proposal simulate writing rather than showing actual source-supported alternatives. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
+| Native saved-pixel inspection | nov03-a2-ai-initiative-decision-review-skill attempt 1: Unallowlisted role grid and repeated Source/Assumption words; added Stop/Expand condition and Date/Owner/Observation words not in the exact allowed label set. | Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions. |
 
 > **OPERATIONAL NOTE**
 > This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.
@@ -295,9 +300,9 @@ No image-stage correction receipts were available for this cycle.
 |---|---|
 | **Weekly Work usage reported by owner** | **Not reported** |
 | Internal weekly usage reference | Target under 5% |
-| Genuine image-generation attempts | Not reported |
-| Accepted diagrams | Not reported |
-| Regeneration after acceptance | Not reported |
+| Genuine image-generation attempts | 12 |
+| Accepted diagrams | 6 |
+| Regeneration after acceptance | 0 |
 | Top 10 reported usage | Not reported |
 | Top 10 reported cost | Not reported |
 | Account-level billing telemetry | Not independently accessible to deterministic GitHub reporting |
@@ -330,8 +335,8 @@ No image-stage correction receipts were available for this cycle.
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-03/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a9fe0a359c006707fff0e8d62e48aa1225428a59/signals/ai-topic-top10/2026-11-02.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a9fe0a359c006707fff0e8d62e48aa1225428a59/signals/ai-topic-top10/2026-11-02.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/def83522facd8159af68f540a5a60c513fd482cf/signals/ai-topic-top10/2026-11-02.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/def83522facd8159af68f540a5a60c513fd482cf/signals/ai-topic-top10/2026-11-02.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-search-coverage.json) |
 

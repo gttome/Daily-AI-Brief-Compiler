@@ -4,9 +4,9 @@
 
 | Dimension | Observed evidence |
 |---|---|
-| Execution | NO_START_RECEIPT |
-| Result | NOT_OBSERVED |
-| Publication | UNKNOWN |
+| Execution | START_OBSERVED |
+| Result | PARTIAL |
+| Publication | PARTIAL |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | UNKNOWN |
@@ -19,13 +19,13 @@
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
-| Local capability preflight (separate from origin) | NOT OBSERVED |
+| Local capability preflight (separate from origin) | RECORDED |
 | Timing basis | First persisted accepted image Git bytes to first recorded 24-context review; scheduled window is separate and not exact generator runtime. |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
 
-- No image task execution receipt was found
+- Protected image-only live verification is missing or incomplete
 
 ## Operational result
 
