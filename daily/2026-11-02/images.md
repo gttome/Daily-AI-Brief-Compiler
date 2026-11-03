@@ -5,13 +5,13 @@
 | Dimension | Observed evidence |
 |---|---|
 | Execution | START_OBSERVED |
-| Result | PARTIAL |
-| Publication | PARTIAL |
+| Result | SUCCESS |
+| Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
-| Started | UNKNOWN |
-| Finished | UNKNOWN |
-| Duration (min) | UNKNOWN |
+| Started | 2026-11-03T03:23:14.000Z |
+| Finished | 2026-11-03T03:57:05.000Z |
+| Duration (min) | 33.85 |
 | Autonomy independent of publication | UNPROVEN |
 | Owner intervention required | UNKNOWN |
 | Prior protected gate failures recorded | NOT_RECORDED |
@@ -25,7 +25,7 @@
 
 ## Evidence and limitations
 
-- Protected image-only live verification is missing or incomplete
+- No defect recorded in available edition-scoped evidence; this does not establish zero defects
 
 ## Operational result
 
