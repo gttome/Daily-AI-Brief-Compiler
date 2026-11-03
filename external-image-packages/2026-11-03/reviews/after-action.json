@@ -1,6 +1,6 @@
 {
   "schema_version": "external-image-after-action-v1",
-  "status": "SIX_IMAGES_SAVED_REVIEWED",
+  "status": "PUBLISHED_COMPLETE",
   "edition_date": "2026-11-03",
   "cycle_date": "2026-11-02",
   "job_sha256": "0dabe14d8a32226fc65fbcdae56cecebcd93b5f47646d695ef80b262169cdc2e",
@@ -95,15 +95,48 @@
       "phase": "Native saved-pixel inspection",
       "issue": "nov03-a2-ai-initiative-decision-review-skill attempt 1: Unallowlisted role grid and repeated Source/Assumption words; added Stop/Expand condition and Date/Owner/Observation words not in the exact allowed label set.",
       "correction": "Revised the exact source-bound prompt, preserved rejected saved PNG and corrected only this candidate; re-inspected actual exported original and both mobile renditions."
+    },
+    {
+      "phase": "Postdeployment image-region capture",
+      "issue": "Original release41573726204 deployed accepted bytes then failed at LifeVal dated/mobile saved RGB proof with match_ratio0.402. The failed artifact retained18 partial captures; no completed24-row receipt existed.",
+      "correction": "Preserved the failed original artifact. Independently re-read all14 approved deployed objects,6 image hashes,12 pairings and17 protected objects; reconciled exact existing bytes plus finalizer metadata at fenced history129c769. Existing postrelease verification captured24 genuine contexts with24 RGB PASS, all individually reviewed."
+    },
+    {
+      "phase": "Public metadata propagation polling",
+      "issue": "Verification workflow41574426119 completed24 targets and same-content status sync but exhausted bounded polling because canonical release.json returned404 in that runner while index bytes matched.",
+      "correction": "Preserved the failed after.json and run conclusion. Two independent later read-only postrelease checks returned PUBLIC_STATUS_VERIFIED with exact public index and release bytes; no extra publication or image regeneration."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_PR"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-11-03T03:42:44.687Z",
+    "package_pr": 314,
+    "package_pr_head": "1fc7e3dbb65d8364af4a0cd9dfb3a3d0a65fcf17",
+    "package_main_merge_sha": "297739d7aa0fe8b8fd2d0162dba2ff70418ca31a",
+    "validation_workflow_run_id": 41573519176,
+    "release_workflow_run_id": 41573726204,
+    "release_workflow_conclusion": "failure_in_capture_stage_after_deployment",
+    "verification_workflow_run_id": 41574426119,
+    "verification_workflow_conclusion": "failure_in_metadata_propagation_poll_after_complete_capture_and_same_content_sync",
+    "required_exact_head_ci": "PRE_PR_PACKAGE_PASS",
+    "tests_passed": 683,
+    "live_image_hashes_verified": 6,
+    "story_image_pairings_verified": 12,
+    "protected_oct8_objects_verified": 17,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "independent_public_status_readback_path": "external-image-packages/2026-11-03/reviews/public-status-independent.json",
+    "accepted_image_regenerations": 0
   },
   "visual_review": {
-    "result": "PENDING_LIVE_CONTEXT_REVIEW",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-11-03/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "reviewed_at": "2026-11-03T03:54:20Z",
+    "review_path": "external-image-packages/2026-11-03/reviews/live/semantic-pixel-review.json",
+    "artifact_id": 13203226452,
+    "all_saved_capture_hashes_verified": true,
+    "rgb_pixel_proof_passes": 24,
+    "desktop_width": 1440,
+    "mobile_width": 320
   },
   "usage": {
     "work_usage_percent": "UNKNOWN"
@@ -117,6 +150,21 @@
     "November3 live capture policy is1440px desktop and320px mobile for the existing24 contexts. Historical390px receipts and accepted originals remain unchanged. Live contexts are still unreviewed at package preparation.",
     "Semantic review completion, its report commit and protected merge will be recorded separately. Local capability preflight does not authenticate scheduler origin. Host start and first-call clocks are actual observations; usage UNKNOWN.",
     "Reuters direct retrieval failed; the complete matching Reuters report was read on its attributed StreetInsider syndication. Original job/source URL and all factual/source bindings are unchanged.",
-    "No paid API, TinyFish, metered service, new producer, schedule change, legacy write or historical reseal."
-  ]
+    "No paid API, TinyFish, metered service, new producer, schedule change, legacy write or historical reseal.",
+    "Protected PR314 passed PRE_PR_PACKAGE_PASS and683 tests,0 failures, then merged297739d7aa0fe8b8fd2d0162dba2ff70418ca31a. Original release41573726204 failed only after genuine deployment/live checks; its failed status is not relabeled successful.",
+    "The14 already-deployed objects were freshly read and matched the exact release preparation artifact before history-only reconciliation. Only those14 objects plus existing finalizer index/receipt metadata were written against unchanged history66ca130. Existing postrelease sync subsequently reused identical HTML/PNG content.",
+    "Recovery artifact13203226452 ZIP SHA256b46aacc37ae6982d3855a78b441fa588c9e7405cb3c3173e9ee56c2104ecc962 contained24 captures. Every saved capture hash matched captures.json; all24 RGB proof match ratios were1.000, with actual1440px desktop and320px mobile. All24 were individually viewed and semantically reviewed in this execution.",
+    "Semantic review completed at2026-11-03T03:54:20Z,43m50s after first observed execution. This is observed wall-clock elapsed, not provider runtime or Work usage. Report-record commit and protected merge are independent later Git events, derived by the existing timing reporter.",
+    "Full-size viewer opened and closed successfully on the published LifeVal permanent page in the cloud browser; its exact original PNG route was visible. Mobile captures show complete mechanisms and recognizable priority labels. Fine secondary detail requires the full-size viewer.",
+    "The connected GitHub plugin exposed no workflow-dispatch operation. The existing signed-in cloud GitHub UI dispatched only the existing postrelease verify/sync workflow; no owner local device, new workflow or task was used.",
+    "No manifest, assignment, accepted PNG or historical390px receipt changed after package lock. Final reports, captures and terminal worker receipt are a reporting-only protected PR; no image-content release is retriggered."
+  ],
+  "timing": {
+    "semantic_review_completed_at": "2026-11-03T03:54:20Z",
+    "host_to_semantic_review_seconds": 2630,
+    "review_record_commit": "DERIVED_FROM_GIT_FIRST_ADDITION",
+    "protected_review_merge": "DERIVED_FROM_PROTECTED_MAIN_GIT",
+    "semantic_review_is_not_commit_or_merge": true,
+    "final_seal_window_is_not_total_runtime": true
+  }
 }
