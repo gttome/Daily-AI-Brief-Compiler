@@ -126,6 +126,13 @@ jobs:
             git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
             node "$tmp/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
             if [ -n "$reports_source_commit" ]; then
+              # Fixed owner-approved input baseline; never infer it from today's larger sample.
+              git show "aebc04de2173c37b2c041eb0e9f964e27325ee26:signals/ai-topic-top10/baselines/2026-11-03.json" > "$in/top10-baseline.json" 2>/dev/null || rm -f "$in/top10-baseline.json"
+              previous_cycle="$(date -u -d "$cycle -1 day" +%F)"
+              git show "$reports_source_commit:signals/ai-topic-top10/$previous_cycle.json" > "$in/top10-previous-report.json" 2>/dev/null || rm -f "$in/top10-previous-report.json"
+              git show "$reports_source_commit:daily/$previous_cycle/top10.json" > "$in/top10-previous-aar.json" 2>/dev/null || rm -f "$in/top10-previous-aar.json"
+              git show "$reports_source_commit:signals/ai-topic-top10/$cycle.improvement.json" > "$in/top10-improvement.json" 2>/dev/null || rm -f "$in/top10-improvement.json"
+              git show "$reports_source_commit:daily/baselines/nov03-2026-top10.json" > "$in/top10-outcome-baseline.json" 2>/dev/null || rm -f "$in/top10-outcome-baseline.json"
               report_path="signals/ai-topic-top10/$cycle.json"
               if git show "$reports_source_commit:$report_path" > "$in/top10-report.json" 2>/dev/null; then
                 report_blob_sha="$(git rev-parse "$reports_source_commit:$report_path")"
@@ -183,7 +190,15 @@ jobs:
             # A genuine Top 10 run can be reported before the Compiler starts;
             # never manufacture Compiler/image receipts to admit that cycle.
             test -s "$tmp/evidence/$cycle/compiler-state.json" || test -s "$tmp/evidence/$cycle/image-job.json" || test -s "$tmp/evidence/$cycle/top10-report.json" || test -s "$tmp/evidence/$cycle/top10-after-action.json" || continue
+            # Pick up a previously frozen outcome; the compiler creates it only once,
+            # after genuine November 3 publication and bound search/selection evidence.
+            if [ -s daily/baselines/nov03-2026-top10.json ]; then
+              cp daily/baselines/nov03-2026-top10.json "$tmp/evidence/$cycle/top10-outcome-baseline.json"
+            fi
             node "$tmp/compile-daily-aar.mjs" "$cycle" "$tmp/evidence/$cycle" .
+            if [ -s daily/baselines/nov03-2026-top10.json ]; then
+              cp daily/baselines/nov03-2026-top10.json "$tmp/evidence/$cycle/top10-outcome-baseline.json"
+            fi
             node "$tmp/render-unified-production-aar.mjs" "$cycle" "$tmp/evidence/$cycle" "daily/$cycle"
           done
           if [ ! -d daily ]; then
@@ -217,4 +232,5 @@ jobs:
           path: ${{ runner.temp }}/unified-aar-offline/
           if-no-files-found: ignore
           retention-days: 90
+
 
