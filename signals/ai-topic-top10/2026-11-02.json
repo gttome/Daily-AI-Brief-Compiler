@@ -3,16 +3,32 @@
   "report_date": "2026-11-02",
   "target_edition_date": "2026-11-03",
   "timezone": "America/Chicago",
-  "generated_at": "2026-11-02T23:06:42.746Z",
-  "status": "provisional",
+  "generated_at": "2026-11-03T00:27:27.217594+00:00",
+  "status": "partial",
+  "ranking_status": "provisional",
+  "run_type": "owner_requested_validation_rerun",
+  "methodology_version": "2026-11-02-validation-expansion",
+  "supersedes": {
+    "report_commit": "7009dba7aad0fc3118953710522ac0e94bf07dc2",
+    "report_blob_sha": "60e7ae007eeac20bae0670e47e71ed53d5683efe",
+    "report_sha256": "0b520b53af0ceb70d7199b837fe66eb4d27f24d0656e8aea03dc985012e78efa",
+    "reason": "Owner requested ten more validation resources, four method improvements and a rerun."
+  },
   "sample_scope": {
-    "detailed_video_records": 13,
-    "additional_partial_video_records": 3,
-    "direct_video_retrieval_attempts": 16,
+    "new_metadata_screened_records": 63,
+    "new_metadata_distinct_channels": 21,
+    "retained_prior_snapshot_records": 16,
+    "combined_observation_records": 79,
+    "combined_unique_video_ids": 71,
     "direct_counter_verifications": 0,
     "videos_watched": 0,
+    "transcripts_reviewed": 0,
+    "original_interview_texts_reviewed": 1,
     "target_40_to_80_full_reviews_met": false,
-    "title_inventory_screening": "Additional inventory titles screened; no deduplicated count claimed.",
+    "additional_validation_resources": 10,
+    "additional_resources_directly_retrieved": 7,
+    "additional_resources_indexed_only": 3,
+    "freshness": "Relative video ages 4h–7d; exact publication times unavailable for new tracker records. Seven-day labels may exceed a strict 168-hour cutoff. Older primary work and guidance are explicitly background.",
     "source_urls": [
       "https://whatisthelatest.ai/top-10/",
       "https://trendreport.com/trends/ai-and-data/",
@@ -21,84 +37,24 @@
       "https://aua.aicrossing.org/news/videos/",
       "https://www.ai-roundup.dev/"
     ],
-    "freshness": "Same-day content prioritized; Oct 27-Nov 1 carryovers identified. Oct 6 Mistral page background only."
+    "coverage_note": "Metadata screening does not constitute full video review. Public index sample is selected, not exhaustive or representative."
   },
   "ranking_basis": {
-    "type": "editorial_attention_ranking",
-    "criteria": [
-      "Sampled reach",
-      "Distinct-channel breadth where exposed",
-      "Recency",
-      "Corroboration"
-    ],
-    "warning": "Mixed-scope tracker samples do not establish a precise global ranking. No composite score. Shorts totals not compared as equal to long-form views."
+    "type": "provisional_editorial_attention_order",
+    "method": "Ordinal synthesis of reported reach, distinct creator breadth, recency labels and overlap. Mixed formats and source windows prevent a defensible numerical composite. Reader relevance is separately labeled and is not the attention score.",
+    "numeric_score": null,
+    "adjacent_rank_precision": "Not established",
+    "growth_observations": "No compatible timestamped pairs; no rising/falling claim.",
+    "format_handling": "Mixed-format RAM cluster and cross-platform GDPx signal are explicitly incomparable with individual long-form totals.",
+    "same_cycle_change": "Sample-driven rerank, not an overnight trend change."
   },
   "topics": [
     {
-      "topic_id": "consumer-ram-ai",
-      "rank": 1,
-      "name": "AI demand versus consumer RAM",
-      "summary": "Viral debate connects AI resource demand with consumer computing.",
-      "attention_signal": "7 channels / 8.8M aggregate views reported; mixed formats.",
-      "confidence": "low",
-      "evidence": [
-        {
-          "source_url": "https://trendreport.com/trends/ai-and-data/",
-          "published_at": "2026-11-02",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "third_party_reported"
-        },
-        {
-          "source_url": "https://www.youtube.com/watch?v=57tB5gp80-Q",
-          "published_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "video_identity_only"
-        }
-      ],
-      "suggested_searches": {
-        "article": "Sam Altman RAM remarks original interview consumer memory AI demand",
-        "video": "Sam Altman RAM consumer computing original interview fact check",
-        "podcast": "AI memory demand consumer RAM podcast"
-      },
-      "limitations": [
-        "Attributed statement not independently authenticated.",
-        "Shorts and long-form counts are not directly comparable."
-      ],
-      "trend_status": "BASELINE",
-      "rank_change": null,
-      "reported_metrics": [
-        {
-          "source_url": "https://trendreport.com/trends/ai-and-data/",
-          "video_url": "https://www.youtube.com/watch?v=57tB5gp80-Q",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "third_party_reported",
-          "precision": "rounded",
-          "views": 7000000,
-          "likes": null,
-          "comments": null
-        },
-        {
-          "source_url": "https://trendreport.com/trends/ai-and-data/",
-          "source_metric_checked_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "provenance": "third_party_reported",
-          "scope": "rolling topic cluster",
-          "channels": 7,
-          "videos": 7,
-          "views": 8800000,
-          "precision": "rounded"
-        }
-      ]
-    },
-    {
       "topic_id": "ai-financing-ipo",
-      "rank": 2,
+      "rank": 1,
       "name": "AI financing and IPO scrutiny",
       "summary": "Creators examine AI funding, debt and Anthropic's proposed public offering.",
-      "attention_signal": "All-In 684K views; separate bubble cluster 6 channels / 556.6K views.",
+      "attention_signal": "Fireship 2.5M reported views (five-day label); All-In 684K in the retained snapshot. Separate records, not an additive audience estimate.",
       "confidence": "medium",
       "evidence": [
         {
@@ -121,6 +77,74 @@
           "observed_at": "2026-11-02T23:05:46.496Z",
           "source_metric_checked_at": null,
           "provenance": "third_party_reported"
+        },
+        {
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/0001628280-26-068676-index.htm",
+          "published_at": "2026-11-02",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "search_index_only",
+          "validation_scope": "Confirms a November 2 filing in the indexed record. Full direct retrieval was blocked; not a completed accounting review.",
+          "resource_id": "sec-edgar"
+        },
+        {
+          "source_url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+          "published_at": "2026-11-02",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "independent_reporting",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "search_index_only",
+          "validation_scope": "Corroborates fresh financing and amended-filing coverage; direct page retrieval unavailable.",
+          "resource_id": "reuters"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=eDiQNFa-zYg",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=nEaJMdM1djM",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=eDiQNFa-zYg",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142679+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=nEaJMdM1djM",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.143059+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
         }
       ],
       "suggested_searches": {
@@ -130,7 +154,9 @@
       },
       "limitations": [
         "Counts may overlap; do not sum.",
-        "Filing is a carryover; commentary is not investment advice."
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements.",
+        "Original October 26 filing is superseded as a freshness lead by indexed November 2 amendment evidence; no accounting audit performed."
       ],
       "trend_status": "BASELINE",
       "rank_change": null,
@@ -156,15 +182,330 @@
           "videos": 6,
           "views": 556600,
           "precision": "rounded"
+        },
+        {
+          "video_id": "eDiQNFa-zYg",
+          "url": "https://www.youtube.com/watch?v=eDiQNFa-zYg",
+          "views": 110000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142679+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        },
+        {
+          "video_id": "nEaJMdM1djM",
+          "url": "https://www.youtube.com/watch?v=nEaJMdM1djM",
+          "views": 2500000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.143059+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "5d"
+        }
+      ],
+      "attention_confidence": "medium",
+      "brief_priority": "medium",
+      "brief_fit": "High attention across distinct commentary sources; November 2 filing adds a current news hook.",
+      "claim_verification": "Verified an indexed November 2 amended filing and Reuters coverage. Financial details require direct filing review before Brief use.",
+      "freshness": "New filing coverage; older videos are carryovers.",
+      "prior_same_cycle_rank": 2,
+      "same_cycle_rank_revision": 1,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "eDiQNFa-zYg",
+        "nEaJMdM1djM"
+      ]
+    },
+    {
+      "topic_id": "consumer-ram-ai",
+      "rank": 2,
+      "name": "AI demand versus consumer RAM",
+      "summary": "Viral debate connects AI resource demand with consumer computing.",
+      "attention_signal": "Tracker reports 7 channels / 8.8M aggregate views, including a large short-format outlier; one recent long-form commentary record reports 20K.",
+      "confidence": "low",
+      "evidence": [
+        {
+          "source_url": "https://trendreport.com/trends/ai-and-data/",
+          "published_at": "2026-11-02",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=57tB5gp80-Q",
+          "published_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://cheekypint.transistor.fm/39/transcript",
+          "published_at": "2026-10-29",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Checks the wording and context of the memory-allocation remarks; does not independently measure RAM supply.",
+          "resource_id": "cheeky-pint"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=HMA357MXB1o",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=HMA357MXB1o",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142621+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        }
+      ],
+      "suggested_searches": {
+        "article": "Sam Altman RAM remarks original interview consumer memory AI demand",
+        "video": "Sam Altman RAM consumer computing original interview fact check",
+        "podcast": "AI memory demand consumer RAM podcast"
+      },
+      "limitations": [
+        "Shorts and long-form counts are not directly comparable.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements.",
+        "Original wording checked in transcript; claims about actual memory supply still require separate evidence."
+      ],
+      "trend_status": "BASELINE",
+      "rank_change": null,
+      "reported_metrics": [
+        {
+          "source_url": "https://trendreport.com/trends/ai-and-data/",
+          "video_url": "https://www.youtube.com/watch?v=57tB5gp80-Q",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "views": 7000000,
+          "likes": null,
+          "comments": null
+        },
+        {
+          "source_url": "https://trendreport.com/trends/ai-and-data/",
+          "source_metric_checked_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "provenance": "third_party_reported",
+          "scope": "rolling topic cluster",
+          "channels": 7,
+          "videos": 7,
+          "views": 8800000,
+          "precision": "rounded"
+        },
+        {
+          "video_id": "HMA357MXB1o",
+          "url": "https://www.youtube.com/watch?v=HMA357MXB1o",
+          "views": 20000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142621+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "1d"
+        }
+      ],
+      "attention_confidence": "low",
+      "brief_priority": "medium",
+      "brief_fit": "Consumer resource-allocation angle is distinct from corporate financing.",
+      "claim_verification": "Original interview transcript confirms the subject and wording in context; sensational paraphrases and market-supply estimates are not independently verified.",
+      "freshness": "Recent interview commentary; mixed formats prevent direct comparison with long-form topics.",
+      "prior_same_cycle_rank": 1,
+      "same_cycle_rank_revision": -1,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "HMA357MXB1o"
+      ]
+    },
+    {
+      "topic_id": "ai-scientific-discovery",
+      "name": "AI-assisted mathematics and scientific discovery",
+      "summary": "Recent creator discussions revisit AI-assisted mathematical discovery; distinguish fresh commentary from the older underlying research.",
+      "evidence": [
+        {
+          "source_url": "https://openai.com/index/navier-stokes-solution/",
+          "published_at": "2026-09-08",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=CWdTBLsbaQs",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=lskEzJ7ixw0",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=ZAzWPE9CItg",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=CWdTBLsbaQs",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142735+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=lskEzJ7ixw0",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.143308+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=ZAzWPE9CItg",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.143338+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        }
+      ],
+      "suggested_searches": {
+        "article": "AI assisted mathematics Navier Stokes original proof independent assessment October November 2026",
+        "video": "AI mathematics scientific discovery October 2026 research interview",
+        "podcast": "AI mathematical discovery research verification podcast October 2026"
+      },
+      "limitations": [
+        "Underlying OpenAI announcement is September 8; not a new November discovery.",
+        "No independent proof audit or peer-review determination was completed in this run.",
+        "The seven-day interview age label may extend beyond a strict 168-hour window.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
+      ],
+      "rank": 3,
+      "attention_signal": "Separate third-party records report 456K and 342K views, plus a 1.1M interview at the approximate seven-day boundary.",
+      "confidence": "medium",
+      "attention_confidence": "medium",
+      "brief_priority": "medium",
+      "brief_fit": "Strong sampled attention, but a fresh explanatory angle is needed to avoid recycling an older announcement.",
+      "claim_verification": "Primary announcement inspected; independent mathematical acceptance was not established.",
+      "freshness": "Fresh commentary on September research; do not label the research as new.",
+      "trend_status": "BASELINE",
+      "rank_change": null,
+      "prior_same_cycle_rank": null,
+      "same_cycle_rank_revision": null,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "CWdTBLsbaQs",
+        "lskEzJ7ixw0",
+        "ZAzWPE9CItg"
+      ],
+      "reported_metrics": [
+        {
+          "video_id": "CWdTBLsbaQs",
+          "url": "https://www.youtube.com/watch?v=CWdTBLsbaQs",
+          "views": 456000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142735+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        },
+        {
+          "video_id": "lskEzJ7ixw0",
+          "url": "https://www.youtube.com/watch?v=lskEzJ7ixw0",
+          "views": 342000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.143308+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "6d"
+        },
+        {
+          "video_id": "ZAzWPE9CItg",
+          "url": "https://www.youtube.com/watch?v=ZAzWPE9CItg",
+          "views": 1100000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.143338+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "7d"
         }
       ]
     },
     {
       "topic_id": "interactive-world-models",
-      "rank": 3,
+      "rank": 4,
       "name": "Interactive AI world models",
       "summary": "World models attract attention for explorable simulations.",
-      "attention_signal": "Genie 4: 18 channels / 19 videos / 598.4K views reported.",
+      "attention_signal": "A DeepMind video reports 593K; a different tracker reports 18 channels / 598.4K. The overlapping measures are not summed.",
       "confidence": "medium",
       "evidence": [
         {
@@ -187,6 +528,60 @@
           "observed_at": "2026-11-02T23:05:46.496Z",
           "source_metric_checked_at": null,
           "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://www.theverge.com/tech/1019076/google-genie-4-ai-model",
+          "published_at": "2026-10-27",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "independent_reporting",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "search_index_only",
+          "validation_scope": "Provides independent coverage of the preview and access limits; technical claims checked against DeepMind.",
+          "resource_id": "the-verge"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=tFUEzE9EsN4",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=tFUEzE9EsN4",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142727+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.143268+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
         }
       ],
       "suggested_searches": {
@@ -196,7 +591,9 @@
       },
       "limitations": [
         "Six-day carryover; changing rolling clusters do not measure growth.",
-        "Research preview, not universal availability."
+        "Research preview, not universal availability.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
       ],
       "trend_status": "BASELINE",
       "rank_change": null,
@@ -222,15 +619,56 @@
           "videos": 19,
           "views": 598400,
           "precision": "rounded"
+        },
+        {
+          "video_id": "tFUEzE9EsN4",
+          "url": "https://www.youtube.com/watch?v=tFUEzE9EsN4",
+          "views": 13000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142727+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        },
+        {
+          "video_id": "sFfPkUJd_Jk",
+          "url": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+          "views": 593000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.143268+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "6d"
         }
+      ],
+      "attention_confidence": "medium",
+      "brief_priority": "high",
+      "brief_fit": "Technical relevance is strong if preview access and limitations are explicit.",
+      "claim_verification": "Original DeepMind preview and indexed independent coverage support the release context; broad availability or general intelligence is not established.",
+      "freshness": "October 27 preview carryover.",
+      "prior_same_cycle_rank": 3,
+      "same_cycle_rank_revision": -1,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "tFUEzE9EsN4",
+        "sFfPkUJd_Jk"
       ]
     },
     {
       "topic_id": "open-local-models",
-      "rank": 4,
+      "rank": 5,
       "name": "Open and local AI models",
       "summary": "Creators compare local-model capabilities and deployment options.",
-      "attention_signal": "DeepSeek demo: 118.3K views, 2.3K likes, 351 comments reported.",
+      "attention_signal": "Several channels show 83K–186K reported views. One identical video is reported as 118.3K and 145K by different sources; no growth inferred.",
       "confidence": "medium",
       "evidence": [
         {
@@ -253,6 +691,111 @@
           "observed_at": "2026-11-02T23:05:46.496Z",
           "source_metric_checked_at": null,
           "provenance": "primary"
+        },
+        {
+          "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary_model_card",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Checks model identity and deployment documentation. A card does not prove broad superiority or a same-day launch.",
+          "resource_id": "hugging-face"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=lEFFa0Z5BIE",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=pryCaGv8wuo",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=DDZ-a6bAn3Y",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142613+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=lEFFa0Z5BIE",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142750+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=pryCaGv8wuo",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.143044+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=DDZ-a6bAn3Y",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.143222+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://huggingface.co/blog/mistral-large4",
+          "published_at": "2026-10-29",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary_model_author",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
         }
       ],
       "suggested_searches": {
@@ -263,7 +806,10 @@
       "limitations": [
         "Video original date unavailable; index date is not publication date.",
         "October 6 Mistral page is background only, not proof of today's weights-release claim.",
-        "Creator comparisons do not establish benchmark superiority."
+        "Creator comparisons do not establish benchmark superiority.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements.",
+        "Mistral page/model/social dates differ; a November 2 first-release claim is not verified."
       ],
       "trend_status": "BASELINE",
       "rank_change": null,
@@ -278,16 +824,85 @@
           "views": 118300,
           "likes": 2300,
           "comments": 351
+        },
+        {
+          "video_id": "9tOu4r-FiQI",
+          "url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+          "views": 83000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142613+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "22h"
+        },
+        {
+          "video_id": "lEFFa0Z5BIE",
+          "url": "https://www.youtube.com/watch?v=lEFFa0Z5BIE",
+          "views": 64000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142750+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        },
+        {
+          "video_id": "pryCaGv8wuo",
+          "url": "https://www.youtube.com/watch?v=pryCaGv8wuo",
+          "views": 186000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.143044+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "5d"
+        },
+        {
+          "video_id": "DDZ-a6bAn3Y",
+          "url": "https://www.youtube.com/watch?v=DDZ-a6bAn3Y",
+          "views": 145000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.143222+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "5d"
         }
+      ],
+      "attention_confidence": "medium",
+      "brief_priority": "high",
+      "brief_fit": "Useful deployment and hardware angle if licensing and reproducible tests are checked.",
+      "claim_verification": "Official model documentation inspected; creator superiority claims and a same-day Mistral release date are not established.",
+      "freshness": "Recent demos; original model release dates differ.",
+      "prior_same_cycle_rank": 4,
+      "same_cycle_rank_revision": -1,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "9tOu4r-FiQI",
+        "lEFFa0Z5BIE",
+        "pryCaGv8wuo",
+        "DDZ-a6bAn3Y"
       ]
     },
     {
       "topic_id": "business-agent-workflows",
-      "rank": 5,
+      "rank": 6,
       "name": "Practical business agents",
       "summary": "Business creators discuss agents connected to everyday workflows.",
-      "attention_signal": "Two discussions report 102.5K and 80.7K views.",
-      "confidence": "low",
+      "attention_signal": "Multiple channels discuss implementation: a recent iteration video reports 433K and a noncoder workflow video 104K; income-themed claims remain promotional.",
+      "confidence": "medium",
       "evidence": [
         {
           "source_url": "https://www.youtube.com/watch?v=2ulXtLUDvdU",
@@ -309,6 +924,80 @@
           "observed_at": "2026-11-02T23:05:46.496Z",
           "source_metric_checked_at": null,
           "provenance": "third_party_reported"
+        },
+        {
+          "source_url": "https://content.govdelivery.com/accounts/USDHSCISA/bulletins/41544ff",
+          "published_at": "2026-05-01",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "government_guidance",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Background on cautious operational adoption; does not validate creator revenue promises.",
+          "resource_id": "cisa"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=tcb5q_6jwvY",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=F8rc-ULd4_4",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=DByAR5Su1Yw",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=tcb5q_6jwvY",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142669+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=F8rc-ULd4_4",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142695+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=DByAR5Su1Yw",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142846+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
         }
       ],
       "suggested_searches": {
@@ -318,7 +1007,9 @@
       },
       "limitations": [
         "Income claims are promotional leads, not verified outcomes.",
-        "Original dates and sponsorship status unavailable."
+        "Original dates and sponsorship status unavailable.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
       ],
       "trend_status": "BASELINE",
       "rank_change": null,
@@ -344,12 +1035,539 @@
           "views": 80700,
           "likes": 1300,
           "comments": 71
+        },
+        {
+          "video_id": "tcb5q_6jwvY",
+          "url": "https://www.youtube.com/watch?v=tcb5q_6jwvY",
+          "views": 104000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142669+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        },
+        {
+          "video_id": "F8rc-ULd4_4",
+          "url": "https://www.youtube.com/watch?v=F8rc-ULd4_4",
+          "views": 88000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142695+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        },
+        {
+          "video_id": "DByAR5Su1Yw",
+          "url": "https://www.youtube.com/watch?v=DByAR5Su1Yw",
+          "views": 433000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142846+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "3d"
+        }
+      ],
+      "attention_confidence": "medium",
+      "brief_priority": "medium",
+      "brief_fit": "Useful only with a reproducible workflow, concrete output and verified limitations.",
+      "claim_verification": "Background operational guidance supports controls, not the creators’ income or productivity promises.",
+      "freshness": "Recent workflow commentary; older agency guidance is background.",
+      "prior_same_cycle_rank": 5,
+      "same_cycle_rank_revision": -1,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "tcb5q_6jwvY",
+        "F8rc-ULd4_4",
+        "DByAR5Su1Yw"
+      ]
+    },
+    {
+      "topic_id": "frontier-model-comparisons",
+      "name": "Frontier-model comparisons and Gemini Carbon",
+      "summary": "Recent comparisons discuss Gemini Carbon and competing frontier systems; performance depends on the evaluated task.",
+      "evidence": [
+        {
+          "source_url": "https://deepmind.google/models/gemini/",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",
+          "published_at": "2026-10-27",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "benchmark_author",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=yNI84SU9x4I",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=zhnJo7s91ls",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=yNI84SU9x4I",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142854+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=zhnJo7s91ls",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142896+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        }
+      ],
+      "suggested_searches": {
+        "article": "Gemini Carbon original announcement independent evaluation methodology October 2026",
+        "video": "Gemini Carbon frontier model comparison reproducible tasks October 2026",
+        "podcast": "frontier model evaluation Gemini Carbon comparative benchmarks podcast"
+      },
+      "limitations": [
+        "Official model page is vendor evidence; its existence does not establish universal superiority.",
+        "Benchmark runs were not independently reproduced.",
+        "Month-level announcement date only; no exact launch date asserted.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
+      ],
+      "rank": 7,
+      "attention_signal": "Two distinct channels report 134K and 127K views for recent Carbon comparisons.",
+      "confidence": "medium",
+      "attention_confidence": "medium",
+      "brief_priority": "high",
+      "brief_fit": "Useful comparative evidence requires task, model version, settings and cost context.",
+      "claim_verification": "Official model identity and benchmark methodology inspected; universal superiority is unsupported.",
+      "freshness": "Recent four-day commentary; October model announcement.",
+      "trend_status": "BASELINE",
+      "rank_change": null,
+      "prior_same_cycle_rank": null,
+      "same_cycle_rank_revision": null,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "yNI84SU9x4I",
+        "zhnJo7s91ls"
+      ],
+      "reported_metrics": [
+        {
+          "video_id": "yNI84SU9x4I",
+          "url": "https://www.youtube.com/watch?v=yNI84SU9x4I",
+          "views": 127000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142854+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "4d"
+        },
+        {
+          "video_id": "zhnJo7s91ls",
+          "url": "https://www.youtube.com/watch?v=zhnJo7s91ls",
+          "views": 134000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142896+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "4d"
         }
       ]
     },
     {
+      "topic_id": "ai-usage-plans",
+      "rank": 8,
+      "name": "AI plan and usage changes",
+      "summary": "Users examine how AI work consumes subscription allowances.",
+      "attention_signal": "Retained third-party snapshot reports 112K views; a separate official announcement video reports 57K. No matched growth observation.",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+          "published_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "primary"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=vMvkR8WEOpE",
+          "published_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=ujmyzWSj8IU",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=ujmyzWSj8IU",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142972+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        }
+      ],
+      "suggested_searches": {
+        "article": "OpenAI ChatGPT Codex shared usage December 2026 official limits",
+        "video": "ChatGPT Codex usage changes explanation November 2026",
+        "podcast": "AI subscription usage limits ChatGPT Codex podcast"
+      },
+      "limitations": [
+        "Official help describes a December transition, not a completed change.",
+        "No inference about the owner's current allowance or costs.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
+      ],
+      "trend_status": "BASELINE",
+      "rank_change": null,
+      "reported_metrics": [
+        {
+          "source_url": "https://whatisthelatest.ai/top-10/",
+          "video_url": "https://www.youtube.com/watch?v=vMvkR8WEOpE",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": "2026-11-02T16:07:00-05:00",
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "views": 112000,
+          "likes": 1100,
+          "comments": null
+        },
+        {
+          "video_id": "ujmyzWSj8IU",
+          "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU",
+          "views": 57000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142972+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "5d"
+        }
+      ],
+      "attention_confidence": "medium",
+      "brief_priority": "high",
+      "brief_fit": "Direct practical relevance, with the future effective date stated clearly.",
+      "claim_verification": "Official help describes a December transition, not a completed November change.",
+      "freshness": "Upcoming December change; not yet effective in this cycle.",
+      "prior_same_cycle_rank": 9,
+      "same_cycle_rank_revision": 1,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "ujmyzWSj8IU"
+      ]
+    },
+    {
+      "topic_id": "ai-security-threats",
+      "rank": 9,
+      "name": "AI security and data exposure",
+      "summary": "Security discussion spans AI-assisted attacks and local-model data handling.",
+      "attention_signal": "Cyber commentary reports 88K; a separate local-model test has 6.9K in the retained snapshot.",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/29/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft/",
+          "published_at": "2026-10-29",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "primary"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
+          "published_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=0PUWSLNfpFA",
+          "published_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems",
+          "published_at": "2026-10-27",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "government_technical_guidance",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Checks proposed identity and human-review controls; does not confirm a specific attack.",
+          "resource_id": "nist"
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://www.youtube.com/watch?v=FczbSauVvjw",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "video_identity_from_third_party",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          }
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142629+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=FczbSauVvjw",
+          "published_at": null,
+          "observed_at": "2026-11-03T00:17:43.142872+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "measurement_note": "Rounded view count; unknown counter measurement time."
+        }
+      ],
+      "suggested_searches": {
+        "article": "AI security North Korean threat actors human directed Microsoft October 29 2026",
+        "video": "AI model data exfiltration controlled test independent security analysis",
+        "podcast": "AI cybersecurity agent data security podcast"
+      },
+      "limitations": [
+        "Do not infer autonomous cybercrime from video headlines.",
+        "Local-model allegation remains under review.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
+      ],
+      "trend_status": "BASELINE",
+      "rank_change": null,
+      "reported_metrics": [
+        {
+          "source_url": "https://whatisthelatest.ai/top-10/",
+          "video_url": "https://www.youtube.com/watch?v=0PUWSLNfpFA",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": "2026-11-02T16:07:00-05:00",
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "views": 6900,
+          "likes": 98,
+          "comments": null
+        },
+        {
+          "source_url": "https://zlio.com/videos/",
+          "video_url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "views": 88000,
+          "likes": null,
+          "comments": null
+        },
+        {
+          "video_id": "WhA2iNfzytY",
+          "url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
+          "views": 88000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142629+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "1d"
+        },
+        {
+          "video_id": "FczbSauVvjw",
+          "url": "https://www.youtube.com/watch?v=FczbSauVvjw",
+          "views": 7000,
+          "likes": null,
+          "comments": null,
+          "source_url": "https://zlio.com/videos/",
+          "observed_at": "2026-11-03T00:17:43.142872+00:00",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported",
+          "precision": "rounded",
+          "age_label": "4d"
+        }
+      ],
+      "attention_confidence": "medium",
+      "brief_priority": "high",
+      "brief_fit": "Prioritize concrete attack mechanisms and controls over dramatic headlines.",
+      "claim_verification": "Microsoft describes human-directed adoption; NIST supplies design guidance. An unrelated local-model allegation remains unverified.",
+      "freshness": "October 29 threat-report carryover; October 27 guidance.",
+      "prior_same_cycle_rank": 7,
+      "same_cycle_rank_revision": -2,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": [
+        "WhA2iNfzytY",
+        "FczbSauVvjw"
+      ]
+    },
+    {
+      "topic_id": "frontier-agent-evaluation",
+      "rank": 10,
+      "name": "Evaluating frontier agents",
+      "summary": "A new benchmark prompts debate about difficult expert work.",
+      "attention_signal": "A third-party index reports 1.4M X views for GDPx; no dedicated YouTube count was verified. Cross-platform attention is not numerically comparable.",
+      "confidence": "low",
+      "evidence": [
+        {
+          "source_url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
+          "published_at": "2026-11-02",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "primary"
+        },
+        {
+          "source_url": "https://gdpx.semianalysis.com/",
+          "published_at": null,
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "primary"
+        },
+        {
+          "source_url": "https://whatisthelatest.ai/top-10/",
+          "published_at": "2026-11-02",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "source_metric_checked_at": null,
+          "provenance": "third_party_reported"
+        },
+        {
+          "source_url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",
+          "published_at": "2026-10-27",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "benchmark_author",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Validates how its own index is constructed; does not independently replicate GDPx or establish a universal winner.",
+          "resource_id": "artificial-analysis"
+        }
+      ],
+      "suggested_searches": {
+        "article": "GDPx agent benchmark November 2 2026 methodology limitations",
+        "video": "GDPx benchmark evaluation independent analysis",
+        "podcast": "frontier agent benchmarks GDPx podcast"
+      },
+      "limitations": [
+        "Cross-source emerging topic; no dedicated YouTube metric verified.",
+        "Scores describe benchmark tasks, not universal failure rates.",
+        "Exact rank is uncertain; reported attention is not a representative global measurement.",
+        "No directly verified video counters or matched current-growth measurements."
+      ],
+      "trend_status": "BASELINE",
+      "rank_change": null,
+      "reported_metrics": [
+        {
+          "source_url": "https://whatisthelatest.ai/top-10/",
+          "source_metric_checked_at": "2026-11-02T16:06:00-05:00",
+          "observed_at": "2026-11-02T23:05:46.496Z",
+          "provenance": "third_party_reported",
+          "platform": "X",
+          "views": 1400000,
+          "precision": "rounded"
+        }
+      ],
+      "attention_confidence": "low",
+      "brief_priority": "high",
+      "brief_fit": "Fresh evaluation-method story with strong Brief usefulness despite weak comparable video evidence.",
+      "claim_verification": "Original GDPx search evidence and prior leaderboard inspection retained; Artificial Analysis validates its own separate methodology, not GDPx results.",
+      "freshness": "November 2 benchmark discussion; cross-source discovery lead, not a YouTube growth claim.",
+      "prior_same_cycle_rank": 10,
+      "same_cycle_rank_revision": 0,
+      "rank_revision_reason": "Expanded sample and validation; not measured audience growth.",
+      "views_growth": null,
+      "current_velocity": null,
+      "channel_relative_performance": null,
+      "supporting_video_ids": []
+    }
+  ],
+  "editorial_watchlist": [
+    {
       "topic_id": "human-ai-judgment",
-      "rank": 6,
+      "rank": null,
       "name": "Human judgment and AI control",
       "summary": "Discussion asks whether human oversight remains an independent check.",
       "attention_signal": "AI Explained 24K views; Cole Medin 13K views reported.",
@@ -375,6 +1593,20 @@
           "observed_at": "2026-11-02T23:05:46.496Z",
           "source_metric_checked_at": null,
           "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://hai.stanford.edu/policy/designing-loyalty-ai-agents-and-conflicts-of-interest",
+          "published_at": "2026-08-25",
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "research_institution_analysis",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Background on agency and conflicting incentives, not a replication of the October judgment experiment.",
+          "resource_id": "stanford-hai"
         }
       ],
       "suggested_searches": {
@@ -411,77 +1643,17 @@
           "likes": 119,
           "comments": null
         }
-      ]
-    },
-    {
-      "topic_id": "ai-security-threats",
-      "rank": 7,
-      "name": "AI security and data exposure",
-      "summary": "Security discussion spans AI-assisted attacks and local-model data handling.",
-      "attention_signal": "Cyber commentary 88K views; local-model test 6.9K views reported.",
-      "confidence": "medium",
-      "evidence": [
-        {
-          "source_url": "https://www.microsoft.com/en-us/security/blog/2026/10/29/tracking-ai-adoption-in-north-korean-threat-actor-tradecraft/",
-          "published_at": "2026-10-29",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "primary"
-        },
-        {
-          "source_url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
-          "published_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "video_identity_only"
-        },
-        {
-          "source_url": "https://www.youtube.com/watch?v=0PUWSLNfpFA",
-          "published_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "video_identity_only"
-        }
       ],
-      "suggested_searches": {
-        "article": "AI security North Korean threat actors human directed Microsoft October 29 2026",
-        "video": "AI model data exfiltration controlled test independent security analysis",
-        "podcast": "AI cybersecurity agent data security podcast"
-      },
-      "limitations": [
-        "Do not infer autonomous cybercrime from video headlines.",
-        "Local-model allegation remains under review."
-      ],
-      "trend_status": "BASELINE",
-      "rank_change": null,
-      "reported_metrics": [
-        {
-          "source_url": "https://whatisthelatest.ai/top-10/",
-          "video_url": "https://www.youtube.com/watch?v=0PUWSLNfpFA",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": "2026-11-02T16:07:00-05:00",
-          "provenance": "third_party_reported",
-          "precision": "rounded",
-          "views": 6900,
-          "likes": 98,
-          "comments": null
-        },
-        {
-          "source_url": "https://zlio.com/videos/",
-          "video_url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "third_party_reported",
-          "precision": "rounded",
-          "views": 88000,
-          "likes": null,
-          "comments": null
-        }
-      ]
+      "prior_same_cycle_rank": 6,
+      "brief_priority": "high",
+      "attention_confidence": "low",
+      "reason_outside_attention_top10": "Expanded sample surfaced stronger reported attention elsewhere; retain for high-value editorial research.",
+      "brief_fit": "Human review and incentives; qualify the bounded original study.",
+      "claim_verification": "Bounded original judgment experiment inspected; Stanford guidance is background, not independent replication."
     },
     {
       "topic_id": "agent-context-reliability",
-      "rank": 8,
+      "rank": null,
       "name": "Context engineering and reliable agents",
       "summary": "Engineering coverage focuses on context, runtimes and validation.",
       "attention_signal": "Context 22K views; runtime 17K; validation discussion 8.7K.",
@@ -507,6 +1679,20 @@
           "observed_at": "2026-11-02T23:05:46.496Z",
           "source_metric_checked_at": null,
           "provenance": "video_identity_only"
+        },
+        {
+          "source_url": "https://github.com/huggingface/context-course/blob/main/units/en/unit0/introduction.mdx",
+          "published_at": null,
+          "observed_at": null,
+          "source_metric_checked_at": null,
+          "provenance": "primary_repository",
+          "retrieval_window": {
+            "started_at": "2026-11-03T00:14:05.290Z",
+            "ended_at": "2026-11-03T00:27:27.217594+00:00"
+          },
+          "access": "direct",
+          "validation_scope": "Provides reusable context-engineering material. Publication freshness not established; no repository code executed.",
+          "resource_id": "github-originals"
         }
       ],
       "suggested_searches": {
@@ -554,108 +1740,13 @@
           "likes": 133,
           "comments": null
         }
-      ]
-    },
-    {
-      "topic_id": "ai-usage-plans",
-      "rank": 9,
-      "name": "AI plan and usage changes",
-      "summary": "Users examine how AI work consumes subscription allowances.",
-      "attention_signal": "Riley Brown: 112K views / 1.1K likes reported.",
-      "confidence": "medium",
-      "evidence": [
-        {
-          "source_url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
-          "published_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "primary"
-        },
-        {
-          "source_url": "https://www.youtube.com/watch?v=vMvkR8WEOpE",
-          "published_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "video_identity_only"
-        }
       ],
-      "suggested_searches": {
-        "article": "OpenAI ChatGPT Codex shared usage December 2026 official limits",
-        "video": "ChatGPT Codex usage changes explanation November 2026",
-        "podcast": "AI subscription usage limits ChatGPT Codex podcast"
-      },
-      "limitations": [
-        "Official help describes a December transition, not a completed change.",
-        "No inference about the owner's current allowance or costs."
-      ],
-      "trend_status": "BASELINE",
-      "rank_change": null,
-      "reported_metrics": [
-        {
-          "source_url": "https://whatisthelatest.ai/top-10/",
-          "video_url": "https://www.youtube.com/watch?v=vMvkR8WEOpE",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": "2026-11-02T16:07:00-05:00",
-          "provenance": "third_party_reported",
-          "precision": "rounded",
-          "views": 112000,
-          "likes": 1100,
-          "comments": null
-        }
-      ]
-    },
-    {
-      "topic_id": "frontier-agent-evaluation",
-      "rank": 10,
-      "name": "Evaluating frontier agents",
-      "summary": "A new benchmark prompts debate about difficult expert work.",
-      "attention_signal": "GDPx discussion: 1.4M X views reported; original leaderboard inspected.",
-      "confidence": "medium",
-      "evidence": [
-        {
-          "source_url": "https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities",
-          "published_at": "2026-11-02",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "primary"
-        },
-        {
-          "source_url": "https://gdpx.semianalysis.com/",
-          "published_at": null,
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "primary"
-        },
-        {
-          "source_url": "https://whatisthelatest.ai/top-10/",
-          "published_at": "2026-11-02",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "source_metric_checked_at": null,
-          "provenance": "third_party_reported"
-        }
-      ],
-      "suggested_searches": {
-        "article": "GDPx agent benchmark November 2 2026 methodology limitations",
-        "video": "GDPx benchmark evaluation independent analysis",
-        "podcast": "frontier agent benchmarks GDPx podcast"
-      },
-      "limitations": [
-        "Cross-source emerging topic; no dedicated YouTube metric verified.",
-        "Scores describe benchmark tasks, not universal failure rates."
-      ],
-      "trend_status": "BASELINE",
-      "rank_change": null,
-      "reported_metrics": [
-        {
-          "source_url": "https://whatisthelatest.ai/top-10/",
-          "source_metric_checked_at": "2026-11-02T16:06:00-05:00",
-          "observed_at": "2026-11-02T23:05:46.496Z",
-          "provenance": "third_party_reported",
-          "platform": "X",
-          "views": 1400000,
-          "precision": "rounded"
-        }
-      ]
+      "prior_same_cycle_rank": 8,
+      "brief_priority": "high",
+      "attention_confidence": "low",
+      "reason_outside_attention_top10": "Expanded sample surfaced stronger reported attention elsewhere; retain for high-value editorial research.",
+      "brief_fit": "Potential reusable Agent Skills procedure; verify inputs, steps, output and validation before selection.",
+      "claim_verification": "Original context-course repository inspected; code not executed and freshness not established."
     }
   ],
   "video_snapshots": [
@@ -1013,21 +2104,1803 @@
       "precision": "rounded",
       "direct_retrieval_result": "THROTTLED",
       "playback_verified": false
+    },
+    {
+      "video_id": "67BmkptgTms",
+      "url": "https://www.youtube.com/watch?v=67BmkptgTms",
+      "channel": "Greg Isenberg",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "4h",
+      "published_at": null,
+      "views": 283,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142509+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "0Kw6_DTZPrY",
+      "url": "https://www.youtube.com/watch?v=0Kw6_DTZPrY",
+      "channel": "AI Explained",
+      "title": "Model control discussion",
+      "age_label": "7h",
+      "published_at": null,
+      "views": 9000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142545+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "Amm9ySSET4c",
+      "url": "https://www.youtube.com/watch?v=Amm9ySSET4c",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7h",
+      "published_at": null,
+      "views": 2000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142558+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "NVzgt2AEvDg",
+      "url": "https://www.youtube.com/watch?v=NVzgt2AEvDg",
+      "channel": "Y Combinator",
+      "title": "Software testing discussion",
+      "age_label": "7h",
+      "published_at": null,
+      "views": 4000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142568+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "1v7ldJiyH-Y",
+      "url": "https://www.youtube.com/watch?v=1v7ldJiyH-Y",
+      "channel": "IndyDevDan",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "10h",
+      "published_at": null,
+      "views": 9000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142578+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "vSCYL8ySh9g",
+      "url": "https://www.youtube.com/watch?v=vSCYL8ySh9g",
+      "channel": "Sam Witteveen",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "11h",
+      "published_at": null,
+      "views": 18000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142591+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "zadg3dWaMts",
+      "url": "https://www.youtube.com/watch?v=zadg3dWaMts",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "12h",
+      "published_at": null,
+      "views": 11000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142602+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "9tOu4r-FiQI",
+      "url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+      "channel": "David Ondrej",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "22h",
+      "published_at": null,
+      "views": 83000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142613+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "HMA357MXB1o",
+      "url": "https://www.youtube.com/watch?v=HMA357MXB1o",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "1d",
+      "published_at": null,
+      "views": 20000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142621+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "WhA2iNfzytY",
+      "url": "https://www.youtube.com/watch?v=WhA2iNfzytY",
+      "channel": "Wes Roth",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "1d",
+      "published_at": null,
+      "views": 88000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142629+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "KlG0VyhIzBU",
+      "url": "https://www.youtube.com/watch?v=KlG0VyhIzBU",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "1d",
+      "published_at": null,
+      "views": 184000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142636+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "BlbxhsItZPg",
+      "url": "https://www.youtube.com/watch?v=BlbxhsItZPg",
+      "channel": "Cole Medin",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "2d",
+      "published_at": null,
+      "views": 13000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142648+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "UIYoKcIvSVo",
+      "url": "https://www.youtube.com/watch?v=UIYoKcIvSVo",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "2d",
+      "published_at": null,
+      "views": 68000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142655+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "SaBtmnZGBxo",
+      "url": "https://www.youtube.com/watch?v=SaBtmnZGBxo",
+      "channel": "All About AI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "2d",
+      "published_at": null,
+      "views": 2000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142662+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "tcb5q_6jwvY",
+      "url": "https://www.youtube.com/watch?v=tcb5q_6jwvY",
+      "channel": "Nate Herk",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 104000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142669+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "eDiQNFa-zYg",
+      "url": "https://www.youtube.com/watch?v=eDiQNFa-zYg",
+      "channel": "Matt Wolfe",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 110000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142679+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "o4D1J1YWjhg",
+      "url": "https://www.youtube.com/watch?v=o4D1J1YWjhg",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 118000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142688+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "F8rc-ULd4_4",
+      "url": "https://www.youtube.com/watch?v=F8rc-ULd4_4",
+      "channel": "David Ondrej",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 88000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142695+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "rY8FuDONHxw",
+      "url": "https://www.youtube.com/watch?v=rY8FuDONHxw",
+      "channel": "Wes Roth",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 55000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142703+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "tFUEzE9EsN4",
+      "url": "https://www.youtube.com/watch?v=tFUEzE9EsN4",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 13000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142727+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "CWdTBLsbaQs",
+      "url": "https://www.youtube.com/watch?v=CWdTBLsbaQs",
+      "channel": "Two Minute Papers",
+      "title": "AI mathematics discussion",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 456000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142735+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "Oi9DHk57KeQ",
+      "url": "https://www.youtube.com/watch?v=Oi9DHk57KeQ",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 14000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142742+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "lEFFa0Z5BIE",
+      "url": "https://www.youtube.com/watch?v=lEFFa0Z5BIE",
+      "channel": "Sam Witteveen",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 64000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142750+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "DByAR5Su1Yw",
+      "url": "https://www.youtube.com/watch?v=DByAR5Su1Yw",
+      "channel": "Nate Herk",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "3d",
+      "published_at": null,
+      "views": 433000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142846+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "yNI84SU9x4I",
+      "url": "https://www.youtube.com/watch?v=yNI84SU9x4I",
+      "channel": "TheAIGRID",
+      "title": "Frontier model comparison",
+      "age_label": "4d",
+      "published_at": null,
+      "views": 127000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142854+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "L6pzlo1QvoM",
+      "url": "https://www.youtube.com/watch?v=L6pzlo1QvoM",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "4d",
+      "published_at": null,
+      "views": 15000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142862+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "FczbSauVvjw",
+      "url": "https://www.youtube.com/watch?v=FczbSauVvjw",
+      "channel": "Hugging Face",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "4d",
+      "published_at": null,
+      "views": 7000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142872+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "93JxG8dZv84",
+      "url": "https://www.youtube.com/watch?v=93JxG8dZv84",
+      "channel": "All About AI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "4d",
+      "published_at": null,
+      "views": 2000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142880+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "hOitZIkMT2Y",
+      "url": "https://www.youtube.com/watch?v=hOitZIkMT2Y",
+      "channel": "Prompt Engineering",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "4d",
+      "published_at": null,
+      "views": 29000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142887+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "zhnJo7s91ls",
+      "url": "https://www.youtube.com/watch?v=zhnJo7s91ls",
+      "channel": "Matthew Berman",
+      "title": "Frontier model comparison",
+      "age_label": "4d",
+      "published_at": null,
+      "views": 134000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142896+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "qIWB1yMsqRo",
+      "url": "https://www.youtube.com/watch?v=qIWB1yMsqRo",
+      "channel": "Cole Medin",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 15000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142963+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "ujmyzWSj8IU",
+      "url": "https://www.youtube.com/watch?v=ujmyzWSj8IU",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 57000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142972+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "ID6vEy94j7c",
+      "url": "https://www.youtube.com/watch?v=ID6vEy94j7c",
+      "channel": "Google for Developers",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 39000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142981+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "AtjFk9f44HE",
+      "url": "https://www.youtube.com/watch?v=AtjFk9f44HE",
+      "channel": "Matt Wolfe",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 79000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142988+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "x6jBcI5FtXc",
+      "url": "https://www.youtube.com/watch?v=x6jBcI5FtXc",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 189000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.142996+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "st61aKW8P5A",
+      "url": "https://www.youtube.com/watch?v=st61aKW8P5A",
+      "channel": "Greg Isenberg",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 56000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143004+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "pryCaGv8wuo",
+      "url": "https://www.youtube.com/watch?v=pryCaGv8wuo",
+      "channel": "Two Minute Papers",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 186000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143044+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "pQ_Dnr9Q4k8",
+      "url": "https://www.youtube.com/watch?v=pQ_Dnr9Q4k8",
+      "channel": "Google for Developers",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 25000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143052+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "nEaJMdM1djM",
+      "url": "https://www.youtube.com/watch?v=nEaJMdM1djM",
+      "channel": "Fireship",
+      "title": "AI financing debate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 2500000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143059+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "_87vrjxx1EE",
+      "url": "https://www.youtube.com/watch?v=_87vrjxx1EE",
+      "channel": "Prompt Engineering",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 29000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143066+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "6ep8Vvm4Bdw",
+      "url": "https://www.youtube.com/watch?v=6ep8Vvm4Bdw",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 13000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143073+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "M2Oa42hF67E",
+      "url": "https://www.youtube.com/watch?v=M2Oa42hF67E",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 9000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143087+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "6-sMVePCKS4",
+      "url": "https://www.youtube.com/watch?v=6-sMVePCKS4",
+      "channel": "Wes Roth",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 48000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143099+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "RHMsAm4ODDU",
+      "url": "https://www.youtube.com/watch?v=RHMsAm4ODDU",
+      "channel": "David Ondrej",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 24000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143206+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "t0mTwJxP4eM",
+      "url": "https://www.youtube.com/watch?v=t0mTwJxP4eM",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 35000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143215+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "DDZ-a6bAn3Y",
+      "url": "https://www.youtube.com/watch?v=DDZ-a6bAn3Y",
+      "channel": "Matthew Berman",
+      "title": "Local-model demonstration",
+      "age_label": "5d",
+      "published_at": null,
+      "views": 145000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143222+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "sFfPkUJd_Jk",
+      "url": "https://www.youtube.com/watch?v=sFfPkUJd_Jk",
+      "channel": "Google DeepMind",
+      "title": "World-model preview",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 593000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143268+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "BQJRLZ2q_Ns",
+      "url": "https://www.youtube.com/watch?v=BQJRLZ2q_Ns",
+      "channel": "Nate Herk",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 85000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143276+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "lPZQrVFcz3c",
+      "url": "https://www.youtube.com/watch?v=lPZQrVFcz3c",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 18000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143285+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "cflbzHRvGvg",
+      "url": "https://www.youtube.com/watch?v=cflbzHRvGvg",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 10000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143293+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "C2vdw5GSTQo",
+      "url": "https://www.youtube.com/watch?v=C2vdw5GSTQo",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 11000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143301+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "lskEzJ7ixw0",
+      "url": "https://www.youtube.com/watch?v=lskEzJ7ixw0",
+      "channel": "Wes Roth",
+      "title": "AI scientific discovery discussion",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 342000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143308+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "3uoStyWxO5M",
+      "url": "https://www.youtube.com/watch?v=3uoStyWxO5M",
+      "channel": "TheAIGRID",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 94000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143316+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "JI3bbZNdyeA",
+      "url": "https://www.youtube.com/watch?v=JI3bbZNdyeA",
+      "channel": "Matthew Berman",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "6d",
+      "published_at": null,
+      "views": 113000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143328+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "ZAzWPE9CItg",
+      "url": "https://www.youtube.com/watch?v=ZAzWPE9CItg",
+      "channel": "Lex Fridman",
+      "title": "AI mathematics interview",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 1100000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143338+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "zUybw-9ejZ4",
+      "url": "https://www.youtube.com/watch?v=zUybw-9ejZ4",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 14000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143346+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "8fp-G14hvUk",
+      "url": "https://www.youtube.com/watch?v=8fp-G14hvUk",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 9000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143354+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "inrYeej3Big",
+      "url": "https://www.youtube.com/watch?v=inrYeej3Big",
+      "channel": "OpenAI",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 30000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143362+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "HKNpCwG3nlc",
+      "url": "https://www.youtube.com/watch?v=HKNpCwG3nlc",
+      "channel": "Greg Isenberg",
+      "title": "Business agent discussion",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 100000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143369+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "CKFUx7COIwQ",
+      "url": "https://www.youtube.com/watch?v=CKFUx7COIwQ",
+      "channel": "Hugging Face",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 31000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143377+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "mEtRe_KKYm0",
+      "url": "https://www.youtube.com/watch?v=mEtRe_KKYm0",
+      "channel": "Hugging Face",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 2000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143384+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "VhrtlfTyqp4",
+      "url": "https://www.youtube.com/watch?v=VhrtlfTyqp4",
+      "channel": "Sam Witteveen",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 13000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143392+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    },
+    {
+      "video_id": "52JX83rGPLc",
+      "url": "https://www.youtube.com/watch?v=52JX83rGPLc",
+      "channel": "IndyDevDan",
+      "title": "AI video: metadata-screened candidate",
+      "age_label": "7d",
+      "published_at": null,
+      "views": 60000,
+      "likes": null,
+      "comments": null,
+      "duration": null,
+      "format": "long_form_or_live",
+      "source_url": "https://zlio.com/videos/",
+      "source_metric_checked_at": null,
+      "observed_at": "2026-11-03T00:17:43.143400+00:00",
+      "provenance": "third_party_reported",
+      "precision": "rounded",
+      "playback_verified": false,
+      "title_is_topic_label": true,
+      "subscriber_count": null,
+      "sponsorship_disclosure": null,
+      "transcript_verified": false,
+      "age_precision": "rounded_relative_label; exact publication time unavailable"
+    }
+  ],
+  "validation_resources": [
+    {
+      "id": "cheeky-pint",
+      "name": "Cheeky Pint original interview transcript",
+      "url": "https://cheekypint.transistor.fm/39/transcript",
+      "access": "direct",
+      "provenance": "primary",
+      "topic_ids": [
+        "consumer-ram-ai"
+      ],
+      "scope": "Checks the wording and context of the memory-allocation remarks; does not independently measure RAM supply.",
+      "published_at": "2026-10-29",
+      "organization": "Cheeky Pint",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "sec-edgar",
+      "name": "SEC EDGAR amended registration filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/0001628280-26-068676-index.htm",
+      "access": "search_index_only",
+      "provenance": "primary",
+      "topic_ids": [
+        "ai-financing-ipo"
+      ],
+      "scope": "Confirms a November 2 filing in the indexed record. Full direct retrieval was blocked; not a completed accounting review.",
+      "published_at": "2026-11-02",
+      "organization": "SEC filing / Anthropic",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters reporting on Anthropic financing",
+      "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+      "access": "search_index_only",
+      "provenance": "independent_reporting",
+      "topic_ids": [
+        "ai-financing-ipo"
+      ],
+      "scope": "Corroborates fresh financing and amended-filing coverage; direct page retrieval unavailable.",
+      "published_at": "2026-11-02",
+      "organization": "Reuters",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "the-verge",
+      "name": "The Verge coverage of Genie 4",
+      "url": "https://www.theverge.com/tech/1019076/google-genie-4-ai-model",
+      "access": "search_index_only",
+      "provenance": "independent_reporting",
+      "topic_ids": [
+        "interactive-world-models"
+      ],
+      "scope": "Provides independent coverage of the preview and access limits; technical claims checked against DeepMind.",
+      "published_at": "2026-10-27",
+      "organization": "The Verge",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "hugging-face",
+      "name": "Hugging Face official model cards",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "access": "direct",
+      "provenance": "primary_model_card",
+      "topic_ids": [
+        "open-local-models"
+      ],
+      "scope": "Checks model identity and deployment documentation. A card does not prove broad superiority or a same-day launch.",
+      "published_at": null,
+      "organization": "Model author on Hugging Face",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null,
+      "additional_urls": [
+        "https://huggingface.co/blog/mistral-large4"
+      ]
+    },
+    {
+      "id": "artificial-analysis",
+      "name": "Artificial Analysis benchmark methodology",
+      "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",
+      "access": "direct",
+      "provenance": "benchmark_author",
+      "topic_ids": [
+        "frontier-agent-evaluation"
+      ],
+      "scope": "Validates how its own index is constructed; does not independently replicate GDPx or establish a universal winner.",
+      "published_at": "2026-10-27",
+      "organization": "Artificial Analysis",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "stanford-hai",
+      "name": "Stanford HAI on agent incentives",
+      "url": "https://hai.stanford.edu/policy/designing-loyalty-ai-agents-and-conflicts-of-interest",
+      "access": "direct",
+      "provenance": "research_institution_analysis",
+      "topic_ids": [
+        "human-ai-judgment"
+      ],
+      "scope": "Background on agency and conflicting incentives, not a replication of the October judgment experiment.",
+      "published_at": "2026-08-25",
+      "organization": "Stanford HAI",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "nist",
+      "name": "NIST on agent identity management",
+      "url": "https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems",
+      "access": "direct",
+      "provenance": "government_technical_guidance",
+      "topic_ids": [
+        "ai-security-threats"
+      ],
+      "scope": "Checks proposed identity and human-review controls; does not confirm a specific attack.",
+      "published_at": "2026-10-27",
+      "organization": "NIST",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "github-originals",
+      "name": "Original maintained context-course repository",
+      "url": "https://github.com/huggingface/context-course/blob/main/units/en/unit0/introduction.mdx",
+      "access": "direct",
+      "provenance": "primary_repository",
+      "topic_ids": [
+        "agent-context-reliability"
+      ],
+      "scope": "Provides reusable context-engineering material. Publication freshness not established; no repository code executed.",
+      "published_at": null,
+      "organization": "Hugging Face",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
+    },
+    {
+      "id": "cisa",
+      "name": "CISA guidance on agent adoption",
+      "url": "https://content.govdelivery.com/accounts/USDHSCISA/bulletins/41544ff",
+      "access": "direct",
+      "provenance": "government_guidance",
+      "topic_ids": [
+        "business-agent-workflows"
+      ],
+      "scope": "Background on cautious operational adoption; does not validate creator revenue promises.",
+      "published_at": "2026-05-01",
+      "organization": "CISA",
+      "observed_at": null,
+      "retrieval_window": {
+        "started_at": "2026-11-03T00:14:05.290Z",
+        "ended_at": "2026-11-03T00:24:57.212Z"
+      },
+      "independent_confirmations_per_topic": null
     }
   ],
   "comparisons": {
-    "prior_persisted_report_available": false,
-    "rank_changes": null,
-    "growth": null,
-    "seed_status": "Nov 1 rounded prompt seed not promoted into independently measured growth; no durable prior report exists."
+    "prior_same_cycle_report": "2026-11-02T23:06:42.746Z",
+    "type": "methodological_revision",
+    "measured_growth": null,
+    "source_conflicts": [
+      {
+        "video_id": "0Kw6_DTZPrY",
+        "values": [
+          24000,
+          9000
+        ],
+        "sources": [
+          "whatisthelatest.ai",
+          "zlio.com"
+        ]
+      },
+      {
+        "video_id": "NVzgt2AEvDg",
+        "values": [
+          8700,
+          4000
+        ],
+        "sources": [
+          "whatisthelatest.ai",
+          "zlio.com"
+        ]
+      },
+      {
+        "video_id": "DDZ-a6bAn3Y",
+        "values": [
+          118300,
+          145000
+        ],
+        "sources": [
+          "dailycurry.com",
+          "zlio.com"
+        ]
+      },
+      {
+        "video_id": "HKNpCwG3nlc",
+        "values": [
+          80700,
+          100000
+        ],
+        "sources": [
+          "dailycurry.com",
+          "zlio.com"
+        ]
+      }
+    ],
+    "interpretation": "Unknown measurement times and different sources; no increase/decrease can be inferred. Latest tracker YouTube check remains November 2 16:07 -05:00; later retrieval is not a fresh counter snapshot."
+  },
+  "excluded_or_held_leads": [
+    {
+      "topic": "Grok 5 release speculation",
+      "reason": "Large reported headline reach does not establish a verified new release."
+    },
+    {
+      "topic": "Creator earnings promises",
+      "reason": "Attention signals only; revenue claims unverified."
+    },
+    {
+      "topic": "General vendor brand films",
+      "reason": "Insufficient distinct verified news or reusable workflow."
+    }
+  ],
+  "editorial_controls": {
+    "allocation": "2 Technical / 2 Applied / 2 Agents",
+    "reusable_agent_skills_required": 1,
+    "verified_videos_required": 2,
+    "source_diverse_podcasts_required": 2,
+    "selection_status": "Not selected by this producer; existing Compiler qualification applies.",
+    "overlap_rules": [
+      "Consumer RAM is allocation; financing is business economics.",
+      "Local deployment differs from frontier comparison.",
+      "GDPx task evaluation differs from general model rankings."
+    ],
+    "handoff": "Updated discovery input only; Compiler consumption not yet observed."
   },
   "limitations": [
-    "All video counters are third-party reported; direct pages throttled or page chrome only.",
-    "No transcripts or playback verified. Private analytics inaccessible.",
-    "40-80 full-video review target not achieved; 13 detailed metadata records plus three partial records retained.",
-    "Rounded counters differ by source and measurement time; null represents unavailable fields.",
-    "First persisted baseline: rising/falling labels and current velocity unknown.",
-    "Popularity and income claims do not prequalify any Brief item.",
-    "Compiler consumption, searches and selected mappings await separate receipts."
+    "Ranking remains provisional and research coverage partial: metadata expanded, full-video review target unfinished.",
+    "All video counts are third-party reported, mostly rounded; direct YouTube counter access was throttled or unavailable.",
+    "No video playback, direct video transcript review, channel baseline or measured current velocity.",
+    "Google Trends retrieval was blocked; no search-interest measurements used.",
+    "SEC, Reuters and The Verge were accessible through indexed evidence only.",
+    "Ten validation resources are not ten independent confirmations of every topic.",
+    "Older Stanford/CISA guidance and September mathematics research do not establish current news freshness.",
+    "Source audiences overlap; counts are never summed into total unique reach.",
+    "No claim of global completeness, exact popularity order, paid consumption, unattended execution or Compiler adoption."
   ]
 }
