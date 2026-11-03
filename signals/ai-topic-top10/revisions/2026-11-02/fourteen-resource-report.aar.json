@@ -1,0 +1,113 @@
+{
+  "schema_version": "daily-ai-topic-top10-run-aar-v1",
+  "cycle_date": "2026-11-02",
+  "edition_date": "2026-11-03",
+  "started_at": "2026-11-03T00:34:26.887Z",
+  "finished_at": "2026-11-03T00:38:57.312Z",
+  "run_type": "owner_requested_four_resource_validation_extension",
+  "result": "REPORT_PERSISTED_READBACK_VERIFIED",
+  "report_status": "partial",
+  "ranking_status": "provisional",
+  "topic_count": 10,
+  "report_commit": "87b7f94b431b3807a20ba4877fdc961ef55b38a8",
+  "report_blob_sha": "ec9fc1eea8b0f659f774f2238671fcfe0bf879ec",
+  "report_sha256": "5b2bdcc3b7cd67aa87201ebde5374be089170cf61019d4388b06b55523ad142a",
+  "report_path": "signals/ai-topic-top10/2026-11-02.json",
+  "report_bytes": 183200,
+  "readback": {
+    "exact_commit": "87b7f94b431b3807a20ba4877fdc961ef55b38a8",
+    "text_matches_intended_bytes": true,
+    "computed_git_blob_matches_github": true,
+    "sha256": "5b2bdcc3b7cd67aa87201ebde5374be089170cf61019d4388b06b55523ad142a",
+    "schema_date_topic_queries_validation": "PASS"
+  },
+  "superseded_receipt": "signals/ai-topic-top10/revisions/2026-11-02/ten-resource-rerun.aar.json",
+  "handoff_status": "AVAILABLE_FOR_COMPILER_CONSUMPTION_NOT_YET_PROVEN",
+  "compiler_consumption": "NOT_OBSERVED_BY_PRODUCER",
+  "compiler_searches": "PENDING_SEPARATE_RECEIPTS",
+  "selected_mappings": "PENDING_BUNDLE_VERIFICATION",
+  "usage_percent": null,
+  "cost_usd": null,
+  "scheduler_origin_independently_verified": false,
+  "sample_scope": {
+    "new_metadata_screened_records": 63,
+    "new_metadata_distinct_channels": 21,
+    "retained_prior_snapshot_records": 16,
+    "combined_observation_records": 79,
+    "combined_unique_video_ids": 71,
+    "direct_counter_verifications": 0,
+    "videos_watched": 0,
+    "transcripts_reviewed": 0,
+    "original_interview_texts_reviewed": 1,
+    "target_40_to_80_full_reviews_met": false,
+    "additional_validation_resources": 14,
+    "additional_resources_directly_retrieved": 11,
+    "additional_resources_indexed_only": 3,
+    "freshness": "Relative video ages 4h–7d; exact publication times unavailable for new tracker records. Seven-day labels may exceed a strict 168-hour cutoff. Older primary work and guidance are explicitly background.",
+    "source_urls": [
+      "https://whatisthelatest.ai/top-10/",
+      "https://trendreport.com/trends/ai-and-data/",
+      "https://dailycurry.com/",
+      "https://zlio.com/videos/",
+      "https://aua.aicrossing.org/news/videos/",
+      "https://www.ai-roundup.dev/"
+    ],
+    "coverage_note": "Metadata screening does not constitute full video review. Public index sample is selected, not exhaustive or representative."
+  },
+  "errors": [
+    {
+      "issue": "HN site-filtered search coverage poor",
+      "correction": "Inspected the public front page and original discussion pages; used the free Algolia public search endpoint for bounded remaining-topic lookups."
+    },
+    {
+      "issue": "Three Algolia URLs inaccessible through web-open",
+      "correction": "Public read-only HTTP retrieval succeeded; no metered or paid API used."
+    },
+    {
+      "issue": "Specific security thread unavailable",
+      "correction": "Retained limited indexed attention evidence, with no verified incident claim."
+    },
+    {
+      "issue": "Minor incompatible HN counts",
+      "correction": "Genie thread page showed 593 comments while Algolia showed 594; source observations were not merged and no growth inferred."
+    }
+  ],
+  "improvements": [
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Separate attention rank/confidence from Brief priority and verification; preserve high-value editorial watchlist."
+    },
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Require matched timestamps, source and format for growth; retain incompatible observations without arithmetic."
+    },
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Add ten validation resources with provenance, limited validation scope and explicit access/coverage gaps."
+    },
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Control overlap and promotion; preserve existing 2/2/2, reusable Agent Skills and media qualification."
+    },
+    {
+      "status": "IMPLEMENTED_THIS_RUN",
+      "action": "Added TrendForce, Arena, Epoch AI and Hacker News; tested all ten topics with bounded findings and retained provisional ranking."
+    }
+  ],
+  "automation": {
+    "id": "6ae80291d5c0819182975ed3a3038d94",
+    "prompt_readback_verified": true,
+    "schedule_unchanged": true,
+    "enabled": true
+  },
+  "scope": {
+    "repository_writes": "signals/ai-topic-top10/** on operations-reports only",
+    "production_workflows_dispatched": false,
+    "production_bundles_modified": false,
+    "images_generated": false,
+    "paid_external_tools_used": false,
+    "billing_telemetry": "UNAVAILABLE"
+  },
+  "validation_extension_path": "signals/ai-topic-top10/2026-11-02.validation-extension.json",
+  "ranking_decision": "UNCHANGED_PROVISIONAL"
+}
