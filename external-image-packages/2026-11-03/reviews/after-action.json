@@ -108,7 +108,7 @@
     },
     {
       "phase": "Protected reporting-only closeout admission",
-      "issue": "PR315 used the canonical image-package branch after release, so its name invoked the unreleased-package admission gate and failed in workflow41575215160. It did not merge.",
+      "issue": "PR315 used the image-package branch for reporting-only changes. Workflow41575215160 stopped at image_prepr:FORBIDDEN_OR_MODIFIED_PATH:external-image-packages/2026-11-03/reviews/after-action.json because fresh-package admission permits added package files, not updates to an existing released package. It did not merge.",
       "correction": "Closed315 and moved the identical review/report-only diff to reports/2026-11-03-image-closeout with required protected validation; no accepted PNG, manifest, assignment or production gate changed."
     }
   ],
