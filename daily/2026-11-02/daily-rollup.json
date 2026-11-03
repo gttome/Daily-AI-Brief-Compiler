@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-rollup-v1",
   "cycle_date": "2026-11-02",
   "edition_date": "2026-11-03",
-  "evidence_digest": "9975211fd7bc4414ceab8ca3934991d00e6645e5e257abf2a1056d6f1793e131",
+  "evidence_digest": "7662676b1ee37f3a90011bfec4975ae6c1fd7220edb04f76034acfbd5e4723bc",
   "compiler": {
     "execution": "START_OBSERVED",
-    "result": "PARTIAL",
-    "publication": "PARTIAL",
-    "autonomy_status": "UNPROVEN",
-    "owner_intervention_required": null
+    "result": "SUCCESS",
+    "publication": "VERIFIED",
+    "autonomy_status": "FAIL_OWNER_RECOVERY",
+    "owner_intervention_required": true
   },
   "images": {
     "execution": "NO_START_RECEIPT",
@@ -341,33 +341,69 @@
       "numeric_score": null,
       "growth_observations": "Unavailable; no comparable video measurement pair established."
     },
-    "source_commit": "d8e3c9478610b8b74bccc0d0ad09437dbba8d248",
+    "source_commit": "a9fe0a359c006707fff0e8d62e48aa1225428a59",
     "source_blob_sha": "87352a137afb5d5fcb9e82a433a1be0102bb3ebe",
     "report_sha256": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
     "consumed_source_commit": "e76763522d93ba2152b6d8a2b22b64a051fb2297",
     "consumed_commit_independently_verified": true,
     "handoff_status": "RECEIVED_SNAPSHOT_BOUND",
-    "search_status": "NOT_OBSERVED",
+    "search_status": "RECEIPTS_OBSERVED",
     "search_counts": {
       "article": {
-        "recorded": 0,
-        "attempted": 0,
+        "recorded": 10,
+        "attempted": 10,
         "not_attempted": 0
       },
       "video": {
-        "recorded": 0,
-        "attempted": 0,
+        "recorded": 10,
+        "attempted": 10,
         "not_attempted": 0
       },
       "podcast": {
-        "recorded": 0,
-        "attempted": 0,
+        "recorded": 10,
+        "attempted": 10,
         "not_attempted": 0
       }
     },
-    "selection_mapping_status": "NONE_RECORDED",
-    "selection_mappings_reported": 0,
-    "selected_mappings": [],
+    "selection_mapping_status": "MATCHES_EDITION_BUNDLE",
+    "selection_mappings_reported": 5,
+    "selected_mappings": [
+      {
+        "topic_id": "interactive-world-models",
+        "format": "article",
+        "item_id": "nov03-t2-cosmos-interactive-simulation",
+        "url": "https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/",
+        "reason": "A current original article supplied a qualified interactive-simulation engineering pipeline with explicit limitations."
+      },
+      {
+        "topic_id": "interactive-world-models",
+        "format": "podcast",
+        "item_id": "https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721",
+        "url": "https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721",
+        "reason": "The chaptered episode devotes a substantive segment to the specific Genie 4 release and links the original source."
+      },
+      {
+        "topic_id": "frontier-model-comparisons",
+        "format": "podcast",
+        "item_id": "https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721",
+        "url": "https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721",
+        "reason": "The exact episode includes a timecoded Gemini 4 Carbon comparison while preserving preview and availability limits."
+      },
+      {
+        "topic_id": "frontier-agent-evaluation",
+        "format": "article",
+        "item_id": "nov03-t1-gdpx-professional-task-benchmark",
+        "url": "https://gdpx.semianalysis.com/",
+        "reason": "The selected article is the Top 10 event's original GDPx methodology and survived full reading, novelty and technical-lane review."
+      },
+      {
+        "topic_id": "ai-financing-ipo",
+        "format": "article",
+        "item_id": "nov03-k1-anthropic-ipo-compute-risks",
+        "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+        "reason": "The selected complete Reuters report covers the exact November 2 amended-filing event and survived source reading, filing cross-check, timestamp, novelty and Applied knowledge-work review."
+      }
+    ],
     "end_to_end_ready": false,
     "started_at": "2026-11-03T00:42:14.191Z",
     "finished_at": "2026-11-03T00:57:27.168Z",
@@ -417,7 +453,6 @@
     ],
     "defects": [],
     "limitations": [
-      "No per-topic article/video/podcast search receipt was observed.",
       "The report labels its research partial.",
       "Ranking remains provisional and research coverage partial: metadata expanded, full-video review target unfinished.",
       "All video counts are third-party reported, mostly rounded; direct YouTube counter access was throttled or unavailable.",
@@ -478,7 +513,7 @@
       },
       "previous_cycle": "2026-11-01",
       "previous_report_sha256": null,
-      "previous_aar_sha256": "641300229278a4724abab5c6657fbebe92d37b9628bd7377c2a1812439e83fe7",
+      "previous_aar_sha256": "3de5d1d6dfafd88e2d48447949145a5b05325fb8600e9f481c723608b676cd48",
       "input_delta_from_previous": {
         "topic_count": null,
         "validation_resource_count": null,
@@ -492,28 +527,28 @@
         "limited_evidence_band_topics": null
       },
       "source_registry_changes": null,
-      "outcome_metrics_status": "PENDING_OR_INCOMPLETE",
+      "outcome_metrics_status": "OBSERVED",
       "outcome_metrics": {
         "expected_topic_format_pairs": 30,
-        "attempted_topic_format_pairs": null,
-        "explicitly_unattempted_pairs": null,
-        "discovered_candidate_count": null,
-        "searched_source_host_count": null,
-        "selected_article_count": null,
-        "selected_video_count": null,
-        "selected_podcast_count": null
+        "attempted_topic_format_pairs": 30,
+        "explicitly_unattempted_pairs": 0,
+        "discovered_candidate_count": 40,
+        "searched_source_host_count": 16,
+        "selected_article_count": 3,
+        "selected_video_count": 0,
+        "selected_podcast_count": 1
       },
-      "outcome_baseline_status": "PENDING",
-      "outcome_baseline_sha256": null,
+      "outcome_baseline_status": "FROZEN_AFTER_VERIFIED_PUBLICATION",
+      "outcome_baseline_sha256": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
       "outcome_delta_from_baseline": {
-        "expected_topic_format_pairs": null,
-        "attempted_topic_format_pairs": null,
-        "explicitly_unattempted_pairs": null,
-        "discovered_candidate_count": null,
-        "searched_source_host_count": null,
-        "selected_article_count": null,
-        "selected_video_count": null,
-        "selected_podcast_count": null
+        "expected_topic_format_pairs": 0,
+        "attempted_topic_format_pairs": 0,
+        "explicitly_unattempted_pairs": 0,
+        "discovered_candidate_count": 0,
+        "searched_source_host_count": 0,
+        "selected_article_count": 0,
+        "selected_video_count": 0,
+        "selected_podcast_count": 0
       },
       "outcome_delta_from_previous": {
         "expected_topic_format_pairs": null,
@@ -565,7 +600,112 @@
           "Compiler input adoption is observed; publication impact, audience growth and causal benefit are not established."
         ]
       },
-      "reported_impact_observations": null,
+      "reported_impact_observations": {
+        "observed_at": "2026-11-03T02:00:23.538Z",
+        "input_adoption": {
+          "usable_report_consumed": true,
+          "exact_raw_sha256_verified": true,
+          "topic_count": 10,
+          "ranking_interpretation": "unranked_within_qualitative_evidence_bands; integers used only as discovery sequence"
+        },
+        "search_coverage": {
+          "topic_format_rows": 30,
+          "article_rows": 10,
+          "video_rows": 10,
+          "podcast_rows": 10,
+          "skipped_rows": 0
+        },
+        "candidate_yield": {
+          "useful_qualified_candidate_ids": [
+            "cand-cheekypint-39",
+            "cand-genie4-2026-10-27",
+            "cand-nvidia-cosmos-2026-11-02",
+            "cand-gemini4-carbon-2026-10-28",
+            "cand-ai-for-humans-201",
+            "cand-anthropic-s1-amendment-2026-11-02",
+            "cand-openai-navier-stokes-2026-09-08",
+            "cand-deepseek-v4-1-flash-1017",
+            "cand-momentic-qa-bench-2026-11-02",
+            "cand-twiml-782",
+            "cand-openai-shared-usage-limits",
+            "cand-anthropic-judgment-2026-10-27",
+            "cand-gdpx-2026-11-02",
+            "cand-ted-ai-data-center-energy",
+            "cand-cbs-ai-oversight",
+            "cand-reuters-anthropic-ipo-2026-11-02"
+          ],
+          "bundle_verified_selected_mappings": 5,
+          "actual_source_additions": [
+            {
+              "candidate_id": "cand-ted-ai-data-center-energy",
+              "url": "https://www.ted.com/talks/sajan_saini_why_are_ai_data_centers_using_so_much_electricity",
+              "qualification": "Complete transcript-supported program plus genuine signed-out advancing 06:16 playback; selected through same-edition media recovery."
+            },
+            {
+              "candidate_id": "cand-cbs-ai-oversight",
+              "url": "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
+              "qualification": "Complete independent report plus genuine signed-out advancing 269.636-second playback; selected through same-edition media recovery."
+            },
+            {
+              "candidate_id": "cand-reuters-anthropic-ipo-2026-11-02",
+              "url": "https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/",
+              "qualification": "Complete original Reuters report, exact 14:50 UTC publication time, and underlying November 2 SEC S-1/A cross-check; selected through same-edition freshness recovery."
+            }
+          ]
+        },
+        "freshness": {
+          "selected_story_latest_24h": 1,
+          "selected_story_72h_fallback": 3,
+          "selected_story_168h_fallback": 2,
+          "interpretation": "The Reuters replacement has a verified 14:50 UTC publication time inside the rolling 24-hour window. Three November 2 date-only sources remain conservatively counted as 72-hour fallbacks, and two October 30 sources use justified extended fallback."
+        },
+        "rejections": {
+          "duplicate": [],
+          "promotion": [],
+          "quality_or_fit": [
+            "cand-openai-shared-usage-limits: official policy update did not displace stronger reader-value stories",
+            "cand-momentic-qa-bench-2026-11-02: valuable technical QA evidence, but not selected as the sole noncoding Agent Skill",
+            "cand-anthropic-judgment-2026-10-27: protected reader validation placed the date-only source outside the supported 168-hour window at edition noon"
+          ]
+        },
+        "gaps": [
+          "The initial YouTube pair was not admitted after a protected stable-channel-identity failure. Same-edition recovery used distinct TED and CBS publishers with genuine advancing signed-out playback; the protected gate remains decisive.",
+          "60 enabled editorial indexes and all 110 disabled sources were not editorially inspected in this bounded run and remain explicit unreviewed IDs.",
+          "No previous comparable completed Top 10 consumer cycle exists; comparison remains NOT_APPLICABLE rather than inferred."
+        ],
+        "timing": {
+          "execution_observed_at": "2026-11-03T01:19:55Z",
+          "selection_locked_at": "2026-11-03T02:00:23.538Z",
+          "sealed_at": "2026-11-03T02:00:24.538Z",
+          "elapsed_seconds_to_seal": 2430
+        },
+        "usage_percent": null,
+        "cost_usd": null,
+        "source_links": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/e76763522d93ba2152b6d8a2b22b64a051fb2297/signals/ai-topic-top10/2026-11-02.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/aebc04de2173c37b2c041eb0e9f964e27325ee26/signals/ai-topic-top10/baselines/2026-11-03.json"
+        ],
+        "baseline_comparison": {
+          "baseline_id": "nov03-2026-v1",
+          "input_metrics_preserved": true,
+          "outcome_baseline_status": "pending",
+          "previous_comparable_completed_cycle": null,
+          "incremental_benefit": null,
+          "causal_uplift": null,
+          "interpretation": "The report was adopted and five final bundle selections map to supported topics, including the exact November 2 Anthropic filing event after a protected freshness recovery. Association does not establish incremental benefit; the frozen baseline has no completed outcome and there is no prior comparable cycle."
+        },
+        "method_changes": [
+          "Used owner-pinned exact report bytes instead of the generic latest-branch rule for this edition only.",
+          "Ran all thirty suggested topic-by-format queries, then preserved broader registry discovery and ordinary selection gates.",
+          "Added explicit candidate IDs, rejection reasons, timing, source links and unknown usage/cost without turning resource count into success.",
+          "A real protected MEDIA_HISTORY failure triggered same-edition media-only recovery: stable-channel-deficient YouTube entries were replaced by distinct TED and CBS programs with genuine signed-out advancing playback.",
+          "A second protected MEDIA_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic_roundup with two exact independently verified original sources, without changing the episode selection.",
+          "Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved.",
+          "Protected reader compatibility rejected the date-only October 27 judgment study outside its strict 168-hour edition-noon window; it was replaced by the fully read, filing-cross-checked Reuters report on the exact November 2 Anthropic S-1/A event without changing the 2/2/2 allocation.",
+          "Protected recent-source discovery required each older selection to compare an authentically recent researched candidate. The precisely timed Reuters report was therefore recorded in all five individualized older-story comparisons with explicit lane-mismatch reasons; editorial relevance still overrode any recency quota."
+        ],
+        "next_improvement": "On the next completed comparable cycle, measure qualified candidate yield and bundle-verified selections against this frozen baseline while separating source-sample changes from method changes."
+      },
       "next_improvement": "Verify actual topic-format searches, candidate quality and final selected-item mappings; evaluate a new event-relevant resource during the next research cycle.",
       "interpretation": "Counts show coverage and observed association, not audience popularity, source independence, candidate quality or causal uplift. Compare source/method changes before interpreting deltas. Unknown values are not zero. Publication, reader corrections, runtime and image outcomes retain their separate AAR evidence."
     }
@@ -578,17 +718,30 @@
   "reader_or_images_republished": false,
   "source_evidence_hashes": {
     "top10-baseline": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
-    "top10-previous-aar": "641300229278a4724abab5c6657fbebe92d37b9628bd7377c2a1812439e83fe7",
+    "top10-previous-aar": "3de5d1d6dfafd88e2d48447949145a5b05325fb8600e9f481c723608b676cd48",
     "top10-improvement": "45399e0a711f64f726a052526976dd22d69716966191b3dc124e8213d85f020d",
-    "execution-milestones": "459214d64757f3c4872bafa57ba299942e947a8d5a267c728771a7ad9fe89922",
-    "trend-consumed-source": "6562dfd898b829bb08a38225ac4b3fd94cdc2e24014161aa34a04cc111d33a25",
+    "execution-milestones": "f20927b7805a7f74b110490b379b711088ac3f7ec78ede2254f64c9a87c15328",
+    "fallback-search-evidence": "fd01e6c2db37fe0e9009307529ed60e0ec85c71c5a1021396436e79910a255d7",
+    "trend-consumed-source": "60436293a7d953ae0a28890399b214e5276077e3bdebe58f541de2544747febb",
     "trend-consumed-report": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
-    "compiler-state": "1d07233d70590943a0a42aa69add401172de0ef5541bf15c4bf59dfcb60f8e2c",
+    "compiler-state": "40a17b9eb9986b59fc06a8fd2214998b71766275d5914afafb961dcd6a9b389a",
+    "producer-receipt": "89eee48f0c3893a849bbeac943b6ca0fee8b6da08066316c7e49ae8ecbbfe4fe",
+    "compile-receipt": "60ff7d455c1f407455132e3e3f98c5b8f7a64e39b9acc5b816ce0374cdd4b468",
+    "postpublish-integrity": "04fa7e6533ae1ec1cfb4f5709b434ba919789dc8d092497a8b2d8a1d0e16ba82",
+    "edition-bundle": "0fc23ba4ae9d8e7043f9db49fd7f4a9c2e082afb10ec3539a60165810d09e14d",
+    "image-job": "0dabe14d8a32226fc65fbcdae56cecebcd93b5f47646d695ef80b262169cdc2e",
     "image-timing": "06071fcc177dd0210b7058ccbc454047d6c2429dcdb4fb82ee260b6ffd3e102b",
+    "publication-health": "87747b8163ee05def57c3a3b6fe387dbca5438351bc35f559713763e2c9c587e",
+    "owner-intervention-incident": "ecff2fceb8847af2fdc6a496b9032dad3f256fe2b9fe989f35825cf5056d131e",
+    "source-item-census": "7aaaf077b9b969d8be79f35913a5fe0db854299ee5a17049df908a33a7866ffb",
+    "source-item-retries": "6572c0de2f1685e87d4b3c26e0cecdccc57a1397dd65b6cd3c877fbe80a2ac6f",
+    "postpublish-video-playback": "31197e25c58c6819425e7d85cf2b3cf64dfb753f4fb54ef4bb1207219c4a6f03",
     "top10-report": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
     "top10-after-action": "e110853d2f1ff936dbac4f597f9418ea4b289cb3f830202b4f268d4b64bed428",
-    "top10-report-source": "7c6d61c2fc90300827b9ded3bbba86b6f10a894272527b1217f799bf44018781",
-    "trend-input": "32d2249d5c0532a188f66fb36ecb94254b23c04ea5839c0561309f3eb6f1e469"
+    "top10-report-source": "f13ad5fcaf2938325ee908c9656b31433d0486ba0849b7379b8e4a20ce2a7625",
+    "trend-input": "32d2249d5c0532a188f66fb36ecb94254b23c04ea5839c0561309f3eb6f1e469",
+    "trend-search-coverage": "c95e99e0b61922fc8f882ad263d11c343dccc9f049478d194806c0aaf1e39ddb",
+    "top10-outcome-baseline": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc"
   },
   "oct28_source_readiness": null
 }

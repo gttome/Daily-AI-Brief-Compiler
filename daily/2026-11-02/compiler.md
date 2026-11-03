@@ -5,17 +5,17 @@
 | Dimension | Observed evidence |
 |---|---|
 | Execution | START_OBSERVED |
-| Result | PARTIAL |
-| Publication | PARTIAL |
+| Result | SUCCESS |
+| Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | 2026-11-03T01:19:55Z |
-| Finished | 2026-11-03T01:19:55Z |
-| Duration (min) | 0 |
-| Autonomy independent of publication | UNPROVEN |
-| Owner intervention required | UNKNOWN |
-| Prior protected gate failures recorded | 0 |
-| Last failing stage | NONE_RECORDED |
+| Finished | 2026-11-03T02:04:27.434Z |
+| Duration (min) | 44.54 |
+| Autonomy independent of publication | FAIL_OWNER_RECOVERY |
+| Owner intervention required | YES |
+| Prior protected gate failures recorded | 5 |
+| Last failing stage | READER_COMPATIBILITY |
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
@@ -24,18 +24,18 @@
 | Postpublication incidents | NOT_RECORDED |
 | Owner-detected editorial defects | NOT_RECORDED |
 | Verified postpublication corrections | NOT_RECORDED |
-| Editorial index retries | NOT_RECORDED |
+| Editorial index retries | 0 |
 | Routes attempted | NOT_RECORDED |
-| Source indexes with candidates | NOT_RECORDED |
-| Source indexes blocked/error | NOT_RECORDED |
-| Selected video original dates |  |
-| Index reads recovered on retry | NOT_RECORDED |
-| Original postpublication playback check | NOT_RECORDED |
+| Source indexes with candidates | 9 |
+| Source indexes blocked/error | 15 |
+| Selected video original dates | [object Object],[object Object] |
+| Index reads recovered on retry | 0 |
+| Original postpublication playback check | TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
 
-- Complete protected public Compiler verification evidence is missing
+- No defect recorded in available edition-scoped evidence; this does not establish zero defects
 
 ## Operational result
 

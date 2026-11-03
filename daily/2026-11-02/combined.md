@@ -1,25 +1,26 @@
-**🟨 RELEASE NOT VERIFIED**
-**TOP 10 PARTIAL** · **🟨 COMPILER UNVERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**🟨 RELEASE PARTIAL**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 3, 2026 · **Production evening:** 2026-11-02 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-03 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-03/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: NOT VERIFIED.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **NOT_OBSERVED**. Compiler public status: **NOT VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
-**🕒 Production stage durations:** **Top 10 15m 13s** · **Compiler final seal window 0m 00s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
+**🕒 Production stage durations:** **Top 10 15m 13s** · **Compiler final seal window 44m 32s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
-> **AAR SCHEMA WARNING:** Cannot read properties of null (reading 'stories')
+> **AAR SCHEMA WARNING:** image_aar:missing_or_inconsistent_source_bound_facts
 
 > **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Evidence reconciliation
 
-Compiler final seal window: 0m 00s. Observed execution and final seal windows are distinct.
+Compiler final seal window: 44m 32s. Observed execution and final seal windows are distinct.
 Image capability route preflight: NOT OBSERVED; scheduler origin remains UNPROVEN.
 Image efficiency: Unknown/6 first-pass accepts; Unknown total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: Not recorded; review-record commit: Not recorded; protected review merge: Not recorded.
+Eligible source indexes: 87; editorial inspections reported: 27 (31%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: 60; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 ## Performance dashboard
 
@@ -28,26 +29,26 @@ Image review completed: Not recorded; review-record commit: Not recorded; protec
 | Entire-system evidence | **PARTIAL** | Full Top 10 list, bound Compiler input, all-format search receipts and existing release checks; separate from publication and autonomy |
 | Top 10 report | **partial · 10 topics** | Same Chicago cycle report; provisional/partial coverage remains disclosed |
 | Top 10 received by Compiler | **RECEIVED_SNAPSHOT_BOUND** | Exact report snapshot bytes; consumed commit separately corroborated: YES |
-| Top 10 guided article/video/podcast searches | **NOT_OBSERVED** | Actual source-search receipts and selected/rejected topic outcomes |
+| Top 10 guided article/video/podcast searches | **RECEIPTS_OBSERVED** | Actual source-search receipts and selected/rejected topic outcomes |
 | Top 10 stage duration | **15m 13s** | Same-cycle run receipt only; no runtime or usage estimate |
-| Editorial publication | **NOT VERIFIED** | State and public reader integrity receipt |
-| **Unattended autonomy (separate from publication)** | **UNPROVEN** | Owner incident receipt takes precedence over unverified producer self-attestation |
-| Recorded protected publishing gate failures | **0** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
-| Articles | **Not recorded** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
-| Verified original sources within preceding 24 hours | **0 / 0** | Original publisher dates only; other sources require a documented fallback rationale |
-| Distinct selected article publishers | **0** | Six different primary organizations preferred |
-| Videos over seven days old | **0** | Must be labeled evergreen, not a new development |
-| Distinct selected video publishers | **0** | One channel is one publisher even across multiple videos |
-| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
-| Original-release video playback (historical) | **NOT_RECORDED** | Later reader corrections may replace these originally verified videos; see incident register | 
+| Editorial publication | **PASS** | State and public reader integrity receipt |
+| **Unattended autonomy (separate from publication)** | **FAIL_OWNER_RECOVERY** | Owner incident receipt takes precedence over unverified producer self-attestation |
+| Recorded protected publishing gate failures | **5** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
+| Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
+| Verified original sources within preceding 24 hours | **1 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
+| Distinct selected article publishers | **6** | Six different primary organizations preferred |
+| Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
+| Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
+| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Verified postpublication video corrections | **NOT_RECORDED** | Incident register tracks correction PR, actual playback evidence and reader preservation |
-| Editorial index second-pass attempts | **NOT_RECORDED** | Bounded public GET retries only; never proof of original article reading |
-| Editorial index reads recovered | **NOT_RECORDED** | Successful page fetch can still yield zero eligible dated items |
+| Editorial index second-pass attempts | **0** | Bounded public GET retries only; never proof of original article reading |
+| Editorial index reads recovered | **0** | Successful page fetch can still yield zero eligible dated items |
 | Recorded scheduler capability route | **UNPROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
-| Media | **Source receipt incomplete** | Sealed bundle |
-| **Compiler final seal window** | **0m 00s (0.0 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
+| Media | **2 videos + 2 podcasts** | Sealed bundle |
+| **Compiler final seal window** | **44m 32s (44.5 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
@@ -57,7 +58,7 @@ Image review completed: Not recorded; review-record commit: Not recorded; protec
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **Not recorded** | Image release receipt |
-| October 8 immutable history | **Not recorded / 17** | Independent content-preservation checks |
+| October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
 > **EFFICIENCY NOTE**
@@ -76,7 +77,7 @@ flowchart TD
   F --> G["Pages release and 24 visual reviews"]
   classDef done fill:#dff6eb,color:#165c39,stroke:#168052,stroke-width:2px
   classDef uncertain fill:#fef3c7,color:#804c14,stroke:#d99412,stroke-width:2px
-  class A,B,C,D uncertain
+  class A,B,C,D done
   class E,F,G uncertain
   class T uncertain
 ```
@@ -91,8 +92,8 @@ flowchart TD
 | Report status / topics | partial / 10 |
 | Freshness | FRESH\_AT\_CONSUMPTION |
 | Compiler handoff | RECEIVED\_SNAPSHOT\_BOUND |
-| Search coverage | NOT\_OBSERVED |
-| Selection mapping verification | NONE\_RECORDED |
+| Search coverage | RECEIPTS\_OBSERVED |
+| Selection mapping verification | MATCHES\_EDITION\_BUNDLE |
 | Observed start / finish | 2026-11-03T00:42:14.191Z / 2026-11-03T00:57:27.168Z |
 | Elapsed minutes | 15.22 |
 | Usage percent | Not reported |
@@ -120,17 +121,22 @@ flowchart TD
 
 | Search format | Receipt rows | Attempts recorded | Explicitly not attempted |
 |---|---:|---:|---:|
-| article | 0 | 0 | 0 |
-| video | 0 | 0 | 0 |
-| podcast | 0 | 0 | 0 |
+| article | 10 | 10 | 0 |
+| video | 10 | 10 | 0 |
+| podcast | 10 | 10 | 0 |
 
 **Selected Brief items linked to trends:**
 
-No validated selection-to-topic mapping was recorded.
+| Topic | Format | Selected item | Reason |
+|---|---|---|---|
+| interactive-world-models | article | nov03-t2-cosmos-interactive-simulation · [Source](https://developer.nvidia.com/blog/build-world-models-for-interactive-simulation-with-nvidia-cosmos/) | A current original article supplied a qualified interactive-simulation engineering pipeline with explicit limitations. |
+| interactive-world-models | podcast | https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721 · [Source](https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721) | The chaptered episode devotes a substantive segment to the specific Genie 4 release and links the original source. |
+| frontier-model-comparisons | podcast | https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721 · [Source](https://podcasts.apple.com/sg/podcast/ai-is-moving-too-fast-two-new-models-in-two-weeks/id1682409647?i=1000798873721) | The exact episode includes a timecoded Gemini 4 Carbon comparison while preserving preview and availability limits. |
+| frontier-agent-evaluation | article | nov03-t1-gdpx-professional-task-benchmark · [Source](https://gdpx.semianalysis.com/) | The selected article is the Top 10 event's original GDPx methodology and survived full reading, novelty and technical-lane review. |
+| ai-financing-ipo | article | nov03-k1-anthropic-ipo-compute-risks · [Source](https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/) | The selected complete Reuters report covers the exact November 2 amended-filing event and survived source reading, filing cross-check, timestamp, novelty and Applied knowledge-work review. |
 
 **Gaps and limitations:**
 
-- No per-topic article/video/podcast search receipt was observed.
 - The report labels its research partial.
 - Ranking remains provisional and research coverage partial: metadata expanded, full-video review target unfinished.
 - All video counts are third-party reported, mostly rounded; direct YouTube counter access was throttled or unavailable.
@@ -162,7 +168,7 @@ No validated selection-to-topic mapping was recorded.
 
 ### Daily improvement and effect on the Brief
 
-**Fixed baseline:** nov03-2026-v1 / INPUT\_FROZEN. **Outcome baseline:** PENDING. **Prior cycle:** 2026-11-01.
+**Fixed baseline:** nov03-2026-v1 / INPUT\_FROZEN. **Outcome baseline:** FROZEN\_AFTER\_VERIFIED\_PUBLICATION. **Prior cycle:** 2026-11-01.
 
 | Input measure | Current | November 3 baseline | Change from baseline | Change from prior cycle |
 |---|---:|---:|---:|---:|
@@ -177,24 +183,24 @@ No validated selection-to-topic mapping was recorded.
 | broader evidence band topics | 3 | 3 | 0 | Not reported |
 | limited evidence band topics | 7 | 7 | 0 | Not reported |
 
-**Observed downstream measurements:** PENDING\_OR\_INCOMPLETE.
+**Observed downstream measurements:** OBSERVED.
 
 | Outcome measure | Current | Change from frozen outcome | Change from prior cycle |
 |---|---:|---:|---:|
-| expected topic format pairs | 30 | Not reported | Not reported |
-| attempted topic format pairs | Not reported | Not reported | Not reported |
-| explicitly unattempted pairs | Not reported | Not reported | Not reported |
-| discovered candidate count | Not reported | Not reported | Not reported |
-| searched source host count | Not reported | Not reported | Not reported |
-| selected article count | Not reported | Not reported | Not reported |
-| selected video count | Not reported | Not reported | Not reported |
-| selected podcast count | Not reported | Not reported | Not reported |
+| expected topic format pairs | 30 | 0 | Not reported |
+| attempted topic format pairs | 30 | 0 | Not reported |
+| explicitly unattempted pairs | 0 | 0 | Not reported |
+| discovered candidate count | 40 | 0 | Not reported |
+| searched source host count | 16 | 0 | Not reported |
+| selected article count | 3 | 0 | Not reported |
+| selected video count | 0 | 0 | Not reported |
+| selected podcast count | 1 | 0 | Not reported |
 
 **Source changes:** Not reported.
 
 **Method/resource review:** {"baseline\_id":"nov03-2026-v1","previous\_report\_date":null,"method\_version":"2026-11-02-validation-expansion","changes":\[{"change":"Accepted November 3 specific-event list pinned for Compiler discovery","reason":"Preserve owner-approved scope, freshness labels and honest evidence bands","expected\_effect":"More focused article/video/podcast queries; actual search and selection outcomes remain pending"},{"change":"Fixed baseline and daily source/method change ledger","reason":"Measure improvements against a stable reference and prior comparable cycle","expected\_effect":"Separate expanded coverage from measured improvements"}\],"resource\_candidates":\[\],"observed\_effects":\[{"observation":"Existing Top 10 and Compiler automation prompts updated successfully; schedules unchanged","scope":"configuration only","downstream\_outcome":null},{"observation":"Compiler persisted the exact accepted November 3 report snapshot","retrieved\_at":"2026-11-03T01:19:55Z","source\_url":"https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-input.json","receipt\_blob\_sha":"2f21a2d5a9aa59e34f800d6288475f585087783d","report\_sha256":"059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d","verification":"Receipt commit/blob/hash and complete parsed report match the accepted input","scope":"input adoption only; actual search, selection and publication effects remain pending"}\],"next\_improvement":"Verify actual topic-format searches, candidate quality and final selected-item mappings; evaluate a new event-relevant resource during the next research cycle.","limitations":\["This implementation session did not research an additional resource candidate.","Compiler input adoption is observed; publication impact, audience growth and causal benefit are not established."\]}.
 
-**Reported effects and gaps:** Not reported.
+**Reported effects and gaps:** {"observed\_at":"2026-11-03T02:00:23.538Z","input\_adoption":{"usable\_report\_consumed":true,"exact\_raw\_sha256\_verified":true,"topic\_count":10,"ranking\_interpretation":"unranked\_within\_qualitative\_evidence\_bands; integers used only as discovery sequence"},"search\_coverage":{"topic\_format\_rows":30,"article\_rows":10,"video\_rows":10,"podcast\_rows":10,"skipped\_rows":0},"candidate\_yield":{"useful\_qualified\_candidate\_ids":\["cand-cheekypint-39","cand-genie4-2026-10-27","cand-nvidia-cosmos-2026-11-02","cand-gemini4-carbon-2026-10-28","cand-ai-for-humans-201","cand-anthropic-s1-amendment-2026-11-02","cand-openai-navier-stokes-2026-09-08","cand-deepseek-v4-1-flash-1017","cand-momentic-qa-bench-2026-11-02","cand-twiml-782","cand-openai-shared-usage-limits","cand-anthropic-judgment-2026-10-27","cand-gdpx-2026-11-02","cand-ted-ai-data-center-energy","cand-cbs-ai-oversight","cand-reuters-anthropic-ipo-2026-11-02"\],"bundle\_verified\_selected\_mappings":5,"actual\_source\_additions":\[{"candidate\_id":"cand-ted-ai-data-center-energy","url":"https://www.ted.com/talks/sajan\_saini\_why\_are\_ai\_data\_centers\_using\_so\_much\_electricity","qualification":"Complete transcript-supported program plus genuine signed-out advancing 06:16 playback; selected through same-edition media recovery."},{"candidate\_id":"cand-cbs-ai-oversight","url":"https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/","qualification":"Complete independent report plus genuine signed-out advancing 269.636-second playback; selected through same-edition media recovery."},{"candidate\_id":"cand-reuters-anthropic-ipo-2026-11-02","url":"https://www.reuters.com/business/anthropics-quarterly-loss-shrinks-revenue-jumps-ahead-blockbuster-ipo-2026-11-02/","qualification":"Complete original Reuters report, exact 14:50 UTC publication time, and underlying November 2 SEC S-1/A cross-check; selected through same-edition freshness recovery."}\]},"freshness":{"selected\_story\_latest\_24h":1,"selected\_story\_72h\_fallback":3,"selected\_story\_168h\_fallback":2,"interpretation":"The Reuters replacement has a verified 14:50 UTC publication time inside the rolling 24-hour window. Three November 2 date-only sources remain conservatively counted as 72-hour fallbacks, and two October 30 sources use justified extended fallback."},"rejections":{"duplicate":\[\],"promotion":\[\],"quality\_or\_fit":\["cand-openai-shared-usage-limits: official policy update did not displace stronger reader-value stories","cand-momentic-qa-bench-2026-11-02: valuable technical QA evidence, but not selected as the sole noncoding Agent Skill","cand-anthropic-judgment-2026-10-27: protected reader validation placed the date-only source outside the supported 168-hour window at edition noon"\]},"gaps":\["The initial YouTube pair was not admitted after a protected stable-channel-identity failure. Same-edition recovery used distinct TED and CBS publishers with genuine advancing signed-out playback; the protected gate remains decisive.","60 enabled editorial indexes and all 110 disabled sources were not editorially inspected in this bounded run and remain explicit unreviewed IDs.","No previous comparable completed Top 10 consumer cycle exists; comparison remains NOT\_APPLICABLE rather than inferred."\],"timing":{"execution\_observed\_at":"2026-11-03T01:19:55Z","selection\_locked\_at":"2026-11-03T02:00:23.538Z","sealed\_at":"2026-11-03T02:00:24.538Z","elapsed\_seconds\_to\_seal":2430},"usage\_percent":null,"cost\_usd":null,"source\_links":\["https://github.com/gttome/Daily-AI-Brief-Compiler/blob/e76763522d93ba2152b6d8a2b22b64a051fb2297/signals/ai-topic-top10/2026-11-02.json","https://github.com/gttome/Daily-AI-Brief-Compiler/blob/aebc04de2173c37b2c041eb0e9f964e27325ee26/signals/ai-topic-top10/baselines/2026-11-03.json"\],"baseline\_comparison":{"baseline\_id":"nov03-2026-v1","input\_metrics\_preserved":true,"outcome\_baseline\_status":"pending","previous\_comparable\_completed\_cycle":null,"incremental\_benefit":null,"causal\_uplift":null,"interpretation":"The report was adopted and five final bundle selections map to supported topics, including the exact November 2 Anthropic filing event after a protected freshness recovery. Association does not establish incremental benefit; the frozen baseline has no completed outcome and there is no prior comparable cycle."},"method\_changes":\["Used owner-pinned exact report bytes instead of the generic latest-branch rule for this edition only.","Ran all thirty suggested topic-by-format queries, then preserved broader registry discovery and ordinary selection gates.","Added explicit candidate IDs, rejection reasons, timing, source links and unknown usage/cost without turning resource count into success.","A real protected MEDIA\_HISTORY failure triggered same-edition media-only recovery: stable-channel-deficient YouTube entries were replaced by distinct TED and CBS programs with genuine signed-out advancing playback.","A second protected MEDIA\_HISTORY check exposed an invalid podcast source-character label; the existing completed multi-source review was corrected to synthetic\_roundup with two exact independently verified original sources, without changing the episode selection.","Protected reader compatibility conservatively reclassified all date-only November 2 sources from unproven 24-hour freshness to individualized 72-hour fallbacks; same-date rejected candidates and limited search scope were preserved.","Protected reader compatibility rejected the date-only October 27 judgment study outside its strict 168-hour edition-noon window; it was replaced by the fully read, filing-cross-checked Reuters report on the exact November 2 Anthropic S-1/A event without changing the 2/2/2 allocation.","Protected recent-source discovery required each older selection to compare an authentically recent researched candidate. The precisely timed Reuters report was therefore recorded in all five individualized older-story comparisons with explicit lane-mismatch reasons; editorial relevance still overrode any recency quota."\],"next\_improvement":"On the next completed comparable cycle, measure qualified candidate yield and bundle-verified selections against this frozen baseline while separating source-sample changes from method changes."}.
 
 **Next improvement:** Verify actual topic-format searches, candidate quality and final selected-item mappings; evaluate a new event-relevant resource during the next research cycle.
 
@@ -205,20 +211,26 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 1 — Compiler
 
-**State:** `EDITORIAL_IN_PROGRESS` · **Bundle:** `NOT_READY` · **Compiler final seal window:** 0m 00s (0.0 min).
+**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler final seal window:** 44m 32s (44.5 min).
 
 | Publication gate | Result |
 |---|:---:|
-| Canonical reader build | Not yet evidenced |
-| Reader parity | Not yet evidenced |
-| Public verification of dated edition | Not yet evidenced |
-| Previous editions preserved | Not yet evidenced |
-| Permanent story routes and feeds | Not yet evidenced |
+| Canonical reader build | ✅ |
+| Reader parity | ✅ |
+| Public verification of dated edition | ✅ |
+| Previous editions preserved | ✅ |
+| Permanent story routes and feeds | ✅ |
 
 **Selected coverage:**
 
 | Lane | Story |
 |---|---|
+| Technical AI Engineering | GDPx tests frontier agents on 206 professional tasks |
+| Technical AI Engineering | NVIDIA turns Cosmos models into interactive simulation pipelines |
+| Applied Generative AI for Knowledge Workers | Anthropic’s S-1 exposes the economics behind enterprise AI |
+| Applied Generative AI for Knowledge Workers | Mistral adds managed search indexes for grounded knowledge work |
+| Agents for Everyone | LifeVal tests AI help on everyday planning decisions |
+| Agents for Everyone | A decision-review Skill keeps AI initiatives tied to evidence |
 
 ## Track 2 — Premium images
 
@@ -268,8 +280,9 @@ No six-image public release gallery available yet.
 No current-edition postpublication incident register was available; this is **NOT_RECORDED**, not a certification of zero incidents.
 
 
-**Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 0. 
-**Latest failed protected stage:** Not in same-edition receipts; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions). Exact stage durations are available only where real source timestamps exist.
+**Editor recovery classification:** FAIL_OWNER_RECOVERY. **Owner intervention:** Documented and required. **Protected same-edition failures recorded:** 5. 
+**Latest failed protected stage:** READER_COMPATIBILITY; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41563209615). Exact stage durations are available only where real source timestamps exist.
+**Owner-initiated recovery record:** [DAB-COMPILER-20261103-PUBLICATION-RECOVERY-001](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/docs/after-action/2026-11-03-compiler-production-aar.json). Owner-message timing and independent scheduler identity remain unproven.
 
 No image-stage correction receipts were available for this cycle.
 
@@ -315,9 +328,12 @@ No image-stage correction receipts were available for this cycle.
 | Image release receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-11-03/release.json) |
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-03/reviews/live/image-element24/semantic-reviews.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-03/reviews/after-action.md) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d8e3c9478610b8b74bccc0d0ad09437dbba8d248/signals/ai-topic-top10/2026-11-02.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d8e3c9478610b8b74bccc0d0ad09437dbba8d248/signals/ai-topic-top10/2026-11-02.aar.json) |
+| Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/source-item-retries.json) |
+| Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/compiler/postpublish-video-playback.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a9fe0a359c006707fff0e8d62e48aa1225428a59/signals/ai-topic-top10/2026-11-02.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a9fe0a359c006707fff0e8d62e48aa1225428a59/signals/ai-topic-top10/2026-11-02.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-input.json) |
+| Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-03/shadow-runs/2026-11-03/editorial/trend-search-coverage.json) |
 
 **Image workflow:** Not yet available.
 
