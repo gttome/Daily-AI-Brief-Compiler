@@ -62,3 +62,9 @@ Use [METHOD.md](METHOD.md) and [validation-resources.json](validation-resources.
 ## Four-resource test extension — November 2, 2026
 
 The validation registry now has fourteen resources. TrendForce, Arena, Epoch AI and Hacker News were added and tested against the current list. See [2026-11-02.validation-extension.json](2026-11-02.validation-extension.json) for the ten-topic matrix, dated source evidence, community observations and limitations. This test retained the provisional order and did not renew the underlying video snapshot times or establish Compiler consumption.
+
+## Specificity, freshness and presentation correction — November 2, 2026
+
+Apply the five corrections in METHOD.md. Current stories have named events, separate attention/claim/background sources and explicit metric matches. The rank field is the Compiler discovery sequence, not verified global popularity. Entries within qualitative evidence bands are unranked. Freshness distinguishes new releases/updates, renewed attention, carryovers, future changes and unknown dates.
+
+The [readable report](2026-11-02.html) explains each lead, date, evidence, uncertainty, reader value and source links. The generic cyber item moved to editorial_watchlist because prior counts did not match the specific Microsoft report; the bounded analyst-judgment study returned. This changes discovery leads, not Brief selection or publication gates.
