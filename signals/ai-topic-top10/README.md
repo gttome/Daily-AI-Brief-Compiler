@@ -57,4 +57,8 @@ Saved prompts establish producer/consumer instructions and exact-time scheduling
 
 ## Owner-approved validation expansion — November 2, 2026
 
-Use [METHOD.md](METHOD.md) and [validation-resources.json](validation-resources.json) for the four improvements: separate attention from Brief usefulness; comparable timestamped measurements; stronger claim verification and honest review coverage; and less overlap/promotion. These supplement all requirements above. Same-cycle reruns preserve superseded evidence under revisions/YYYY-MM-DD/. The ten validation resources are an expansion, not a replacement for the registered source universe or ten independent confirmations per topic.
+Use [METHOD.md](METHOD.md) and [validation-resources.json](validation-resources.json) for the four improvements: separate attention from Brief usefulness; comparable timestamped measurements; stronger claim verification and honest review coverage; and less overlap/promotion. These supplement all requirements above. Same-cycle reruns preserve superseded evidence under revisions/YYYY-MM-DD/. The registered validation resources are an expansion, not a replacement for the registered source universe or ten independent confirmations per topic.
+
+## Four-resource test extension — November 2, 2026
+
+The validation registry now has fourteen resources. TrendForce, Arena, Epoch AI and Hacker News were added and tested against the current list. See [2026-11-02.validation-extension.json](2026-11-02.validation-extension.json) for the ten-topic matrix, dated source evidence, community observations and limitations. This test retained the provisional order and did not renew the underlying video snapshot times or establish Compiler consumption.
