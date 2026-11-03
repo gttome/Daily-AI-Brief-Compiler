@@ -1,0 +1,75 @@
+{
+  "schema_version": "daily-compiler-fallback-search-evidence-v1",
+  "edition_date": "2026-11-03",
+  "fallbacks": [
+    {
+      "story_id": "nov03-k1-agent-advice-judgment-bias",
+      "searches": [
+        {
+          "query": "site:anthropic.com/research November 1 2026 expert judgment decision support AI agents",
+          "source_url": "https://www.anthropic.com/research",
+          "attempted_at": "2026-11-03T01:31:56.170Z",
+          "candidate_urls": [
+            "https://www.anthropic.com/research/agents-judgment-calls"
+          ]
+        }
+      ],
+      "newer_rejected_candidates": [],
+      "scope_limitation": "The bounded search found no newer lane-relevant original study with comparable expert-decision evidence. This does not establish that no newer article exists elsewhere in the source universe."
+    },
+    {
+      "story_id": "nov03-k2-managed-search-index",
+      "searches": [
+        {
+          "query": "site:mistral.ai OR site:docs.mistral.ai November 1 2026 managed search grounded retrieval knowledge index",
+          "source_url": "https://docs.mistral.ai/resources/release-notes",
+          "attempted_at": "2026-11-03T01:31:56.170Z",
+          "candidate_urls": [
+            "https://docs.mistral.ai/resources/release-notes",
+            "https://docs.mistral.ai/api/endpoint/beta/rag/managed_indexes",
+            "https://docs.mistral.ai/studio/search/libraries"
+          ]
+        }
+      ],
+      "newer_rejected_candidates": [
+        {
+          "url": "https://www.databricks.com/blog/introducing-lakebase-ai-apps",
+          "focus": "Managed application database for AI apps rather than a knowledge-worker retrieval index",
+          "original_date": "2026-11-02",
+          "inspected_at": "2026-11-03T01:31:40Z",
+          "rejection_reason": "Newer and credible, but its transactional application-database focus did not support this story's grounded knowledge-retrieval lane."
+        }
+      ]
+    },
+    {
+      "story_id": "nov03-a2-ai-initiative-decision-review-skill",
+      "searches": [
+        {
+          "query": "site:databricks.com/blog November 1 2026 AI initiative decisions evidence ownership cost",
+          "source_url": "https://www.databricks.com/blog",
+          "attempted_at": "2026-11-03T01:31:56.170Z",
+          "candidate_urls": [
+            "https://www.databricks.com/blog/deliberate-decisions-and-enterprise-ai-value"
+          ]
+        },
+        {
+          "query": "Momentic QA Bench November 2 2026 bug reports recall precision methodology limitations",
+          "source_url": "https://momentic.ai/blog/qa-bench",
+          "attempted_at": "2026-11-03T01:28:05.133Z",
+          "candidate_urls": [
+            "https://momentic.ai/blog/qa-bench"
+          ]
+        }
+      ],
+      "newer_rejected_candidates": [
+        {
+          "url": "https://momentic.ai/blog/qa-bench",
+          "focus": "Technical browser QA-agent benchmarking and bug-report recall",
+          "original_date": "2026-11-02",
+          "inspected_at": "2026-11-03T01:31:40Z",
+          "rejection_reason": "Newer and relevant to agent evaluation, but it requires a technical testing workflow and could not serve as the edition's sole noncoding Agent Skill."
+        }
+      ]
+    }
+  ]
+}
