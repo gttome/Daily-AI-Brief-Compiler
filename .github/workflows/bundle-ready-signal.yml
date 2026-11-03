@@ -27,6 +27,17 @@ jobs:
           node-version: '20'
       - id: ready
         run: node scripts/check-current-shadow-ready.mjs >> "$GITHUB_OUTPUT"
+      - id: semantic_preflight
+        name: Run existing complete semantic checks before media work and dispatch
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          TARGET_DATE: ${{ steps.ready.outputs.date }}
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-11-04" ]]; then exit 0; fi
+          node scripts/validate-semantic-bundle.mjs \
+            "shadow-runs/$TARGET_DATE/compiler-state.json" \
+            "shadow-runs/$TARGET_DATE/edition-bundle.json"
       - id: media_history
         name: Reject previously published media using full history for Oct26+
         if: steps.ready.outputs.ready == 'true'
@@ -39,6 +50,16 @@ jobs:
           git worktree add --detach media-history refs/remotes/origin/shadow-pages-history
           node scripts/verify-media-freshness.mjs \
             "shadow-runs/$TARGET_DATE/edition-bundle.json" media-history/site
+      - id: reader_preflight
+        name: Check existing reader compatibility against actual history before dispatch
+        if: steps.ready.outputs.ready == 'true'
+        env:
+          TARGET_DATE: ${{ steps.ready.outputs.date }}
+        run: |
+          set -euo pipefail
+          if [[ "$TARGET_DATE" < "2026-11-04" ]]; then exit 0; fi
+          node scripts/validate-release-readiness.mjs \
+            "shadow-runs/$TARGET_DATE/edition-bundle.json" media-history/site/data/watchlist.json
       - id: video_playback
         name: Check signed-out advancing public video playback before reader dispatch
         if: steps.ready.outputs.ready == 'true'
@@ -65,7 +86,7 @@ jobs:
         if: ${{ failure() && startsWith(github.ref, 'refs/heads/shadow/') }}
         shell: bash
         env:
-          FAILED_STAGE: ${{ steps.video_playback.outcome == 'failure' && 'VIDEO_PLAYBACK' || steps.media_history.outcome == 'failure' && 'MEDIA_HISTORY' || steps.ready.outcome == 'failure' && 'SOURCE_READY' || 'DISPATCH_FAILED' }}
+          FAILED_STAGE: ${{ steps.semantic_preflight.outcome == 'failure' && 'SEMANTIC_PREFLIGHT' || steps.reader_preflight.outcome == 'failure' && 'READER_COMPATIBILITY' || steps.video_playback.outcome == 'failure' && 'VIDEO_PLAYBACK' || steps.media_history.outcome == 'failure' && 'MEDIA_HISTORY' || steps.ready.outcome == 'failure' && 'SOURCE_READY' || 'DISPATCH_FAILED' }}
         run: |
           set -euo pipefail
           case "$GITHUB_REF_NAME" in shadow/20??-??-??) ;; *) exit 0 ;; esac

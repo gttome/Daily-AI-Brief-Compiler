@@ -14,9 +14,11 @@ The machine-readable values are `IMAGE_LAYOUT_REQUIREMENTS` in `scripts/image-la
 - `secondary_font_px`: **28** minimum for every other required explanatory label.
 - `effective_date`: **2026-11-01** for the new composition binding. The existing font floors remain in force for October 30 onward.
 
-Design at the final 1200×630 aspect ratio from the beginning. Do not letterbox or shrink a different composition and assume planned fonts survived. Inspect actual full-resolution saved pixels and a real **390px** inline rendition. Fine secondary mobile detail may use the existing full-size viewer; state that limitation honestly. A numeric font plan is not measured rendered-text evidence.
+Design at the final 1200×630 aspect ratio from the beginning. Do not letterbox or shrink a different composition and assume planned fonts survived. From November 3 onward inspect actual full-resolution saved pixels and a real **320px** inline rendition; earlier 390px receipts remain historical. Fine secondary mobile detail may use the existing full-size viewer; state that limitation honestly. A numeric font plan is not measured rendered-text evidence.
 
 ## Freeze source-grounded, distinct mechanisms before generation
+
+For November 4 and later, read [November 3 approved AAR improvements](../automation/NOV03_APPROVED_AAR_IMPROVEMENTS.md), especially the six recorded rejection lessons. Apply the relevant source-specific exclusions and physical arrow/brace/label checks to each actual prompt. Keep the legacy `mobile_inline_390px_review_planned` field for compatibility while performing the current 320px mobile review. The existing geometry and pixel gates remain unchanged.
 
 Read each full source; retain exact required-label allowlists, source-claim maps, supported conditional causal edges and excluded claims. Six images need six genuinely different composition grammars, not six names on the same layout. Preserve the existing density requirements: 12 meaningful components, three to five major regions, at least two dominant internal substages and at least two supported secondary relationships.
 

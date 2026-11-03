@@ -177,6 +177,44 @@ function inputMetrics(report){
 const delta=(current,base)=>Object.fromEntries(Object.entries(current).map(([key,value])=>[key,
  typeof value==='number'&&Number.isFinite(value)&&typeof base?.[key]==='number'&&Number.isFinite(base[key])?value-base[key]:null]));
 
+// Supplementary review-depth evidence. Do not reinterpret or extend the frozen
+// November 3 outcome baseline, which did not record this candidate-level ledger.
+export function summarizeCandidateReviews({coverage,bundle,bound=false,edition}){
+ const empty=status=>({status,reviewed_candidate_count:null,qualified_candidate_count:null,
+  rejected_candidate_count:null,metadata_only_count:null,full_video_reviews:null,transcript_reviews:null});
+ const ledger=coverage?.candidate_reviews;
+ if(!bound||!ledger)return empty('NOT_RECORDED');
+ if(coverage.edition_date!==edition||ledger.schema_version!=='daily-compiler-candidate-reviews-v1'||ledger.edition_date!==edition||
+    bundle?.edition_date!==edition||!Array.isArray(ledger.records)||!Array.isArray(coverage.searches)||
+    !timestamp(bundle.editorial_provenance?.selection_locked_at))return empty('INVALID');
+ const discovered=new Set(coverage.searches.filter(r=>r.outcome!=='not_attempted')
+  .flatMap(r=>(Array.isArray(r.candidate_ids)?r.candidate_ids:[]).map(id=>r.format+':'+id)));
+ const seen=new Set(),sources=new Set(),methods=new Set(['full_article','full_transcript','full_video','detailed_episode_notes','metadata_only']);
+ for(const r of ledger.records){
+  if(!clean(r))return empty('INVALID');
+  const key=r.format+':'+r.candidate_id;
+  const sourceKey=r.format+':'+https(r.source_url);
+  if(!FORMATS.includes(r.format)||!discovered.has(key)||seen.has(key)||sources.has(sourceKey)||!https(r.source_url)||
+     !methods.has(r.review_method)||!['qualified','rejected','research_lead'].includes(r.disposition)||
+     !timestamp(r.retrieved_at)||!timestamp(r.reviewed_at)||Date.parse(r.retrieved_at)>Date.parse(r.reviewed_at)||
+     Date.parse(r.reviewed_at)>Date.parse(bundle.editorial_provenance.selection_locked_at)||
+     !text(r.content_evidence)||r.content_evidence.trim().length<50||!text(r.disposition_reason)||r.disposition_reason.trim().length<40||
+     (r.disposition==='qualified'&&r.review_method==='metadata_only')||
+     (r.review_method==='full_transcript'&&r.format==='article')||
+     (r.review_method==='detailed_episode_notes'&&r.format!=='podcast')||
+     (r.review_method==='full_video'&&r.format!=='video')||
+     (r.review_method==='full_article'&&r.format!=='article'))return empty('INVALID');
+  seen.add(key);sources.add(sourceKey);
+ }
+ const rows=ledger.records;
+ return {status:'RECORDED_REVIEW_LEDGER',reviewed_candidate_count:rows.filter(r=>r.review_method!=='metadata_only').length,
+  qualified_candidate_count:rows.filter(r=>r.disposition==='qualified').length,
+  rejected_candidate_count:rows.filter(r=>r.disposition==='rejected').length,
+  metadata_only_count:rows.filter(r=>r.review_method==='metadata_only').length,
+  full_video_reviews:rows.filter(r=>r.review_method==='full_video').length,
+  transcript_reviews:rows.filter(r=>r.review_method==='full_transcript').length};
+}
+
 export function summarizeDailyImprovement(s,e={},hashes={}){
  const report=s.report_valid?e['top10-report']:null,rawBaseline=e['top10-baseline'];
  const baseline=clean(rawBaseline)&&rawBaseline.schema_version==='daily-ai-topic-top10-baseline-v1'&&
@@ -215,6 +253,8 @@ export function summarizeDailyImprovement(s,e={},hashes={}){
  const priorMetrics=previousAar?.daily_improvement?.outcome_metrics_status==='OBSERVED'?previousAar.daily_improvement.outcome_metrics:null;
  const currentInput=inputMetrics(report),resourceIds=r=>Array.isArray(r?.validation_resources)?r.validation_resources.map(x=>x.id).filter(text):[];
  const currentIds=resourceIds(report),previousIds=resourceIds(previous);
+ const reviewDepth=summarizeCandidateReviews({coverage,bundle,bound,edition:s.edition_date});
+ const previousDepth=previousAar?.daily_improvement?.candidate_review_depth;
  return {schema_version:'daily-ai-topic-top10-improvement-aar-v1',baseline_id:BASELINE_ID,
   baseline_status:!s.applicable?'NOT_APPLICABLE':baseline?'INPUT_FROZEN':'NOT_OBSERVED',
   baseline_input:baseline?.input_metrics??null,baseline_input_sha256:hashes['top10-baseline']??null,
@@ -229,6 +269,10 @@ export function summarizeDailyImprovement(s,e={},hashes={}){
   outcome_baseline_sha256:frozenValid?hashes['top10-outcome-baseline']??null:null,
   outcome_delta_from_baseline:delta(metrics,frozenValid?frozen.metrics:null),
   outcome_delta_from_previous:delta(metrics,priorMetrics),
+  candidate_review_depth:reviewDepth,
+  candidate_review_delta_from_previous:delta(Object.fromEntries(Object.entries(reviewDepth).filter(([k])=>k!=='status')),
+    previousDepth?.status==='RECORDED_REVIEW_LEDGER'?previousDepth:null),
+  candidate_review_baseline_status:'NOT_RECORDED_IN_FROZEN_NOV03_BASELINE',
   change_log_status:log?'RECORDED':'NOT_OBSERVED',change_log:log,
   reported_impact_observations:bound&&clean(coverage.impact_observations)?coverage.impact_observations:null,
   next_improvement:text(log?.next_improvement)??(!bound?'Collect and verify the actual Compiler input and search receipts.':'Review candidate quality, unattempted searches and source gaps before changing the method.'),
@@ -289,6 +333,10 @@ export function renderTop10Section(s){
    '| Outcome measure | Current | Change from frozen outcome | Change from prior cycle |','|---|---:|---:|---:|',
    ...Object.entries(d.outcome_metrics).map(([k,v])=>`| ${cell(k.replaceAll('_',' '))} | ${shown(v)} | ${shown(d.outcome_delta_from_baseline[k])} | ${shown(d.outcome_delta_from_previous[k])} |`),'',
    '**Source changes:** '+shown(d.source_registry_changes)+'.','',
+   '**Candidate review depth:** '+cell(d.candidate_review_depth?.status??'NOT_RECORDED')+'.','',
+   '| Review measure | Current | Change from prior comparable cycle |','|---|---:|---:|',
+   ...Object.entries(d.candidate_review_depth??{}).filter(([k])=>k!=='status').map(([k,v])=>`| ${cell(k.replaceAll('_',' '))} | ${shown(v)} | ${shown(d.candidate_review_delta_from_previous?.[k])} |`),'',
+   'The frozen November 3 baseline has no candidate-level review ledger; no retrospective value is invented. Recorded reviews do not independently establish content quality, audience interest or causal benefit.','',
    '**Method/resource review:** '+shown(d.change_log)+'.','',
    '**Reported effects and gaps:** '+shown(d.reported_impact_observations)+'.','',
    '**Next improvement:** '+cell(d.next_improvement),'',d.interpretation,'');

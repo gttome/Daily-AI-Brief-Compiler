@@ -48,10 +48,20 @@ export function sameMedia(a,b){
 // reuse is NOT the same as a repeated program or URL.
 export function summarizeVideoEditorialContinuity({videos,previousVideos,editionDate,previousEditionDate}){
  const now=Array.isArray(videos)?videos:[],prior=Array.isArray(previousVideos)?previousVideos:[];
- const key=v=>normalText(v?.source);
+ // Known aliases affect rotation advice only, never duplicate or playback proof.
+ // URL identity takes precedence; a generic platform host is not a publisher.
+ const key=v=>{
+   let host='';try{host=new URL(v?.url).hostname.replace(/^www\./,'').toLowerCase();}catch{}
+   if(host==='ted.com'||host.endsWith('.ted.com'))return 'family:ted';
+   if(host==='cbsnews.com'||host.endsWith('.cbsnews.com'))return 'family:cbs-news';
+   const label=normalText(v?.source);
+   if(['ted','ted ed','ted education','ted ed ted'].includes(label))return 'family:ted';
+   if(['cbs','cbs news','cbs boston','cbs news boston','cbs boston wbz','wbz cbs boston'].includes(label))return 'family:cbs-news';
+   return label;
+ };
  const priorKeys=new Set(prior.map(key).filter(Boolean));
  const publisherRepeats=now.filter(v=>key(v)&&priorKeys.has(key(v)))
-   .map(v=>({title:v.title,publisher:v.source}));
+   .map(v=>({title:v.title,publisher:v.source,publisher_family:key(v)}));
  const publicationAges=now.map(v=>{
    const original=v?.original_date??null,originalDay=typeof original==='string'?original.slice(0,10):null;
    const age=DATE.test(originalDay||'')&&DATE.test(editionDate||'')?
