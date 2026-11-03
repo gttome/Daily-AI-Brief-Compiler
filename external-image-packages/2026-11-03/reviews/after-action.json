@@ -110,6 +110,11 @@
       "phase": "Protected reporting-only closeout admission",
       "issue": "PR315 used the image-package branch for reporting-only changes. Workflow41575215160 stopped at image_prepr:FORBIDDEN_OR_MODIFIED_PATH:external-image-packages/2026-11-03/reviews/after-action.json because fresh-package admission permits added package files, not updates to an existing released package. It did not merge.",
       "correction": "Closed315 and moved the identical review/report-only diff to reports/2026-11-03-image-closeout with required protected validation; no accepted PNG, manifest, assignment or production gate changed."
+    },
+    {
+      "phase": "Combined AAR worker checkpoint convergence",
+      "issue": "The terminal worker receipt had phase PUBLISHED_COMPLETE, a released timestamp and six story/hash rows, but omitted the existing reconciler fields lease_status and accepted_hashes. The combined AAR correctly refused convergence.",
+      "correction": "Add truthful lease_status RELEASED and the exact six already-released accepted_hashes; retain all image/AAR counts and source bindings, then rerun existing protected reporting convergence."
     }
   ],
   "publication": {
