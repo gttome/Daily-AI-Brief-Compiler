@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
+import {AAR_CHART_FILES} from './aar-charts.mjs';
 
 const sha256=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const DATE=/^20\d\d-\d\d-\d\d$/;
@@ -59,6 +60,13 @@ export function createOfflinePackage(cycle,markdownFile,evidenceDirectory,output
   receipt.push({story_id:im.story_id,image_file:bname,sha256:im.sha256,bytes:im.bytes});
  }
  if(/<img src="https?:\/\//i.test(modified))throw Error('external embedded PNG source remains');
+ // Charts are deterministic report assets, kept separate from the accepted story PNGs.
+ const chartFiles=AAR_CHART_FILES.filter(file=>modified.includes(']('+file+')'));
+ for(const file of chartFiles){
+  fs.mkdirSync(path.join(output,'charts'),{recursive:true});
+  fs.copyFileSync(path.join(path.dirname(markdownFile),file),path.join(output,file));
+ }
+ if(chartFiles.length)fs.copyFileSync(path.join(path.dirname(markdownFile),'charts.json'),path.join(output,'charts.json'));
  fs.writeFileSync(path.join(output,'combined.md'),modified);
  fs.writeFileSync(path.join(output,'README.txt'),[
   'DAILY AI BRIEF — OFFLINE UNIFIED AFTER-ACTION REPORT',
@@ -70,6 +78,7 @@ export function createOfflinePackage(cycle,markdownFile,evidenceDirectory,output
   '4. No remote badge images are required. Headings, status symbols, tables and images work offline.',
   '5. Online source links still require internet. Mermaid diagrams display in editors that support Mermaid.',
   '6. The enclosed six PNGs match the published release SHA-256 values.',
+  ...(chartFiles.length?['7. Keep charts/ and charts.json beside combined.md; all three AAR charts are included offline.']:[]),
   ''
  ].join('\n'));
  fs.writeFileSync(path.join(output,'image-integrity.json'),JSON.stringify({

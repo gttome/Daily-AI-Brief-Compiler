@@ -7,6 +7,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import {oct27SourceReadiness,renderOct27SourceSection} from './oct27-source-readiness.mjs';
 import {summarizeTop10,renderTop10Section} from './top10-aar.mjs';
+import {buildAarCharts,renderAarChartsMarkdown,writeAarCharts} from './aar-charts.mjs';
 
 function generateUnified(cycle,e,hashes={}) {
   const d = new Date(cycle+"T00:00:00Z"); if(!Number.isFinite(d.getTime())||d.toISOString().slice(0,10)!==cycle)throw Error("invalid-cycle-date");d.setUTCDate(d.getUTCDate()+1);
@@ -144,6 +145,8 @@ function generateUnified(cycle,e,hashes={}) {
   if(e['trend-input'])sourceInfo.push(["Compiler Top 10 input snapshot",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/trend-input.json`]);
   if(e['trend-search-coverage'])sourceInfo.push(["Top 10 article/video/podcast search coverage",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/trend-search-coverage.json`]);
   const imgCols=imgb.length===6?["<table>"].concat([0,2,4].map(n=>`<tr><td width="50%"><a href="${pub}${imgb[n].route}"><img src="${pub}${imgb[n].route}" alt="Diagram for ${imgb[n].story_id}" width="420"/></a><br/><b>${nice(imgb[n].label)}</b></td><td width="50%"><a href="${pub}${imgb[n+1].route}"><img src="${pub}${imgb[n+1].route}" alt="Diagram for ${imgb[n+1].story_id}" width="420"/></a><br/><b>${nice(imgb[n+1].label)}</b></td></tr>`)).concat(["</table>"]).join("\n"):"No six-image public release gallery available yet.";
+  const charts=buildAarCharts({edition,coverage:reconciled.source_index_coverage,bundle,imageAar,
+    imageEvidenceVerified:imagesOk&&!aarWarning,top10,compilerVerified:compilerOk});
   const md=[
 good,
 indicators,
@@ -168,6 +171,7 @@ indicators,
 `Image review completed: ${reconciled.image_review.semantic_review_completed_at??'Not recorded'}; review-record commit: ${reconciled.image_review.review_record_commit_at??'Not recorded'}; protected review merge: ${reconciled.image_review.review_merge_at??'Not recorded'}.`,
 ...(reconciled.source_index_coverage?[`Eligible source indexes: ${reconciled.source_index_coverage.eligible}; editorial inspections reported: ${reconciled.source_index_coverage.inspected??"Unknown"} (${reconciled.source_index_coverage.inspected_percent??"Unknown"}%); inaccessible in editorial audit: ${reconciled.source_index_coverage.inaccessible??"Unknown"}; explicitly unreviewed IDs: ${reconciled.source_index_coverage.unreviewed??"Unknown"}; unclassified editorial IDs: ${reconciled.source_index_coverage.unclassified_editorial_ids??"Unknown"}. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.`]:[]),
 "",
+renderAarChartsMarkdown(charts),
 "## Performance dashboard",
 "",
 "| Measure | Recorded result | Source / caveat |",
@@ -356,15 +360,17 @@ imgCols,
 ""
 ].join("\n");
   const json={schema_version:"daily-compiler-unified-aar-v1",evidence_reconciliation:reconciled,oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:reconciled.image_capability_preflight_recorded||originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
-  return {markdown:md,json};
+  if(charts)json.charts=charts;
+  return {markdown:md,json,charts};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
 const keys=["top10-baseline","top10-outcome-baseline","top10-previous-report","top10-previous-aar","top10-improvement","execution-milestones","fallback-search-evidence","trend-consumed-source","trend-consumed-report","image-route-preflight","compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage"];
 const ev={},hashes={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;const bytes=fs.readFileSync(p);hashes[k]=crypto.createHash("sha256").update(bytes).digest("hex");try{ev[k]=JSON.parse(bytes.toString("utf8"));}catch{ev[k]={parse_error:true}}}
-const {markdown,json}=generateUnified(cycle,ev,hashes);
+const {markdown,json,charts}=generateUnified(cycle,ev,hashes);
 fs.mkdirSync(outDir,{recursive:true});
+writeAarCharts(charts,outDir);
 fs.writeFileSync(path.join(outDir,"combined.md"),markdown);
 fs.writeFileSync(path.join(outDir,"combined.json"),JSON.stringify(json,null,2)+"\n");
 console.log(JSON.stringify({result:"UNIFIED_AAR_WRITTEN_NO_PUBLICATION",cycle_date:cycle,edition_date:json.edition_date,status:json.result,work_usage_percent:json.work_usage_percent}));

@@ -83,6 +83,21 @@ test('external decorative badge is rejected instead of shipping broken remote me
   const v=run(t);assert.notEqual(v.status,0);assert.match(v.stderr,/external decorative image badges/i);
  }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
 });
+test('the three recurring report figures and data travel with the offline AAR',()=>{
+ const t=setup();
+ try{
+  fs.mkdirSync(path.join(t.tmp,'charts'));
+  for(const id of ['research-coverage','image-rework','top10-selection']){
+   const svg='<svg xmlns="http://www.w3.org/2000/svg"><title>'+id+'</title></svg>';
+   fs.writeFileSync(path.join(t.tmp,'charts',id+'.svg'),svg);
+   fs.appendFileSync(t.report,'\n![Chart](charts/'+id+'.svg)\n');
+  }
+  fs.writeFileSync(path.join(t.tmp,'charts.json'),JSON.stringify({edition_date:edition}));
+  const v=run(t);assert.equal(v.status,0,v.stderr);
+  assert.equal(fs.readdirSync(path.join(t.out,'charts')).length,3);
+  assert.deepEqual(JSON.parse(fs.readFileSync(path.join(t.out,'charts.json'))),{edition_date:edition});
+ }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
+});
 test('any changed pixel bytes or SHA mismatch fails closed',()=>{
  const t=setup();
  try {
