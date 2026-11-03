@@ -1,5 +1,7 @@
 # External Image App — Recurring Starter (Revision 8)
 
+**November 4 onward:** apply [November 3 approved AAR improvements](../automation/NOV03_APPROVED_AAR_IMPROVEMENTS.md), including the six genuine rejection lessons and current 320px mobile review. Reuse existing composition/pixel gates; preserve accepted images and the unchanged schedule.
+
 ## Current effective requirements
 
 Read [Current image requirements](CURRENT_IMAGE_REQUIREMENTS.md) before freezing specifications or exporting any new image. It is the single active source for label sizes, safe geometry, source-bound composition planning and complete local exports. Its November 1 additions are prospective only. Older dated AAR documents explain history, not alternative current thresholds. Preserve every existing source, visual-review, authorization and release safeguard below.

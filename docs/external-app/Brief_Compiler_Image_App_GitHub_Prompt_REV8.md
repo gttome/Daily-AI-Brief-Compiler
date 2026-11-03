@@ -1,5 +1,7 @@
 # Daily AI Brief — Complete Recurring Premium Image Production Contract
 
+**November 4 onward:** apply [November 3 approved AAR improvements](../automation/NOV03_APPROVED_AAR_IMPROVEMENTS.md), including the six genuine rejection lessons and current 320px mobile review. Reuse existing composition/pixel gates; preserve accepted images and the unchanged schedule.
+
 **Mandatory ownership, October 20 onward:** read [Image worker ownership](IMAGE_WORKER_OWNERSHIP.md). Claim the one canonical current-edition image branch and commit/read back the owner receipt before generation. Every scheduled/recovery worker follows the same claim and expected-head updates; losing the claim means yield without generating or creating an alternate suffix. Status checks do not allocate image workers. Existing quality, source and protected release gates remain unchanged.
 
 **Revision 8 — October 10, 2026.**  

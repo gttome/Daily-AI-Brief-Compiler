@@ -20,10 +20,11 @@ export function nextPublicationHealth({previous=null,editionDate,status,stage,ru
   const blocked=status==='BLOCKED_PUBLICATION';
   const plan={
     VIDEO_PLAYBACK:'Reselect only failed videos from actual publisher-reviewed backups; require advancing duration-matched signed-out player.',
-    MEDIA_HISTORY:'Replace only already published media or article source; preserve accepted unrelated editorial and image assets.',
+    MEDIA_HISTORY:'Read the exact failed job: check duplicates, verified channel identity, candidate pool and podcast evidence. Correct only the observed cause; replacement is not always required.',
+    SEMANTIC_PREFLIGHT:'Read the complete semantic validator error; repair only the same-edition cause and rerun unchanged validation before protected dispatch.',
     SOURCE_READY:'Correct the first invalid edition readiness constraint; do not allocate a second producer.',
     DISPATCH_FAILED:'Inspect dispatch transport; retry only exact sealed source branch and digest.',
-    READER_COMPATIBILITY:'Repair Watchlist schema from verified same-topic source evidence; reseal and revalidate only the invalid stage.',
+    READER_COMPATIBILITY:'Read the exact failed job; check original source dates, fallback comparisons, reader and Watchlist schema. Correct only the observed cause and rerun the existing gate.',
     IMAGE_HANDOFF:'Check released reader and regenerate only exact immutable six-story image job; do not create premium images.',
     PUBLICATION_PIPELINE:'Inspect first failed protected stage and retry only safe idempotent operations.'
   };
