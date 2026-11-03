@@ -284,3 +284,10 @@ test('method log sidecars must bind to the actual report; source expansion stays
  e['top10-improvement'].report_sha256='0'.repeat(64);
  d=summarizeTop10(cycle,edition,e,h).daily_improvement;assert.equal(d.change_log_status,'NOT_OBSERVED');
 });
+
+test('an omitted selection ledger cannot be converted into zero selected items',()=>{
+ const {e,h}=fixture();delete e['trend-search-coverage'].selected_mappings;
+ const d=summarizeTop10(cycle,edition,e,h).daily_improvement;
+ assert.equal(d.outcome_metrics.selected_article_count,null);
+ assert.equal(d.outcome_metrics_status,'PENDING_OR_INCOMPLETE');
+});

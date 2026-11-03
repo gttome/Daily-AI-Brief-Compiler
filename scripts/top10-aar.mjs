@@ -192,7 +192,7 @@ export function summarizeDailyImprovement(s,e={},hashes={}){
  const bound=s.consumed_commit_independently_verified&&s.search_status==='RECEIPTS_OBSERVED';
  const rows=bound?coverage.searches.filter(r=>r.outcome!=='not_attempted'):[];
  const bundle=e['edition-bundle'];
- const selectionsObserved=bound&&clean(bundle)&&bundle.edition_date===s.edition_date&&
+ const selectionsObserved=bound&&Array.isArray(coverage.selected_mappings)&&clean(bundle)&&bundle.edition_date===s.edition_date&&
   FORMATS.every(f=>Array.isArray(bundle[f==='article'?'stories':f==='video'?'videos':'podcasts']))&&
   ['NONE_RECORDED','MATCHES_EDITION_BUNDLE'].includes(s.selection_mapping_status);
  const candidatesObserved=bound&&rows.every(r=>Array.isArray(r.candidate_ids)&&r.candidate_ids.every(text));
