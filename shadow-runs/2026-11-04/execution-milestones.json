@@ -28,6 +28,20 @@
       "observed_at": "2026-11-04T01:52:30.676Z",
       "stage": "SEAL",
       "detail": "Immutable bundle sealed with SHA-256 ed4f797fec536fbde753684aa5c00d0952ee72b1b76b61bdc213a90de4fd53d2."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-04T01:56:21.108Z",
+      "stage": "BUNDLE",
+      "failure_code": "STATE_STAGE_SCHEMA_MISMATCH",
+      "source_ref": "bundle-ready-signal run 41757241484",
+      "details": "The protected readiness probe required BUNDLE_READY with stage BUNDLE; the first signal skipped publication because state used stage SEAL."
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-04T01:56:21.109Z",
+      "stage": "BUNDLE",
+      "detail": "Corrected only compiler-state.stage to BUNDLE and preserved the immutable bundle bytes, digest, editorial selections, and pending-image representation."
     }
   ],
   "scheduler_origin_attested": false
