@@ -62,6 +62,26 @@
       "observed_at": "2026-11-04T02:01:07.084Z",
       "stage": "SEAL",
       "detail": "Resealed same-edition bundle after semantic recovery with SHA-256 0a9a31872e02b5fd3ce8fc09f880bb8c00b50d893db209d33704e00def063781."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-04T02:02:03.936Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "failure_code": "VIDEO_PREQUALIFICATION_RECORD_INCOMPLETE",
+      "source_ref": "bundle-ready-signal run 41757985799",
+      "details": "The protected validator rejected the mixed ledger because candidate zero lacked the canonical complete-review fields required for every candidate in video_prequalification."
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-04T02:05:08.599Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "detail": "Narrowed video_prequalification to six duration-compliant, fully reviewed candidates across six original publishers; broader failed leads remain in editorial/media-review.json."
+    },
+    {
+      "event": "SEAL",
+      "observed_at": "2026-11-04T02:05:08.599Z",
+      "stage": "SEAL",
+      "detail": "Resealed same-edition bundle after video prequalification recovery with SHA-256 4b2230082a8f5e2fa5ddcba64e47c6341a98a5078f9ca2d7a283522035e932e5."
     }
   ],
   "scheduler_origin_attested": false
