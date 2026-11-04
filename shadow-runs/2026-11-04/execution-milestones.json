@@ -82,6 +82,26 @@
       "observed_at": "2026-11-04T02:05:08.599Z",
       "stage": "SEAL",
       "detail": "Resealed same-edition bundle after video prequalification recovery with SHA-256 4b2230082a8f5e2fa5ddcba64e47c6341a98a5078f9ca2d7a283522035e932e5."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-04T02:06:13.102Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "failure_code": "PODCAST_QUALITY_SCHEMA_NONCANONICAL",
+      "source_ref": "bundle-ready-signal run 41758454931",
+      "details": "Protected validation found a noncanonical promotional-risk label and incomplete whole-episode evidence fields in the podcast quality records."
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-04T02:07:33.367Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "detail": "Canonicalized podcast promotional risk and whole-episode transcript evidence, reconciled measured AI fractions with timecoded segments, and added two independently verified original sources for the synthetic roundup."
+    },
+    {
+      "event": "SEAL",
+      "observed_at": "2026-11-04T02:07:33.367Z",
+      "stage": "SEAL",
+      "detail": "Resealed same-edition bundle after podcast quality recovery with SHA-256 0267bb6065afcb96df4d9f77f65fc0deeaaeac44cf0c9b4350f5c7344dc3224b."
     }
   ],
   "scheduler_origin_attested": false
