@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-media-review-v1",
   "edition_date": "2026-11-04",
-  "reviewed_at": "2026-11-04T01:38:25.804Z",
+  "reviewed_at": "2026-11-04T01:52:29.676Z",
   "video_prequalification": {
     "required_candidates": 6,
     "candidates": [
@@ -91,11 +91,54 @@
         "duration_seconds": 24,
         "disposition": "rejected",
         "reason": "Only a 24-second teaser was exposed during the check; original publisher identity and full-program playback were not established."
+      },
+      {
+        "candidate_id": "vid-ted-ai-relationships",
+        "resource_id": null,
+        "url": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+        "title": "How people are using AI to grieve, love and connect",
+        "original_publisher": "TED",
+        "published_date": "2026-04",
+        "duration_seconds": 841,
+        "promotional_risk": "low",
+        "content_review_scope": "Reviewed the complete official TED description, talk identity, transcript-supported scope and exact 14:01 full-length player. After the signed-out pre-roll, the program visibly advanced to 00:12 with the correct title and captions.",
+        "signed_out": true,
+        "public_player_checked": true,
+        "advancing_playback_verified": true,
+        "checked_at": "2026-11-04T01:52:29.676Z",
+        "observed_player_times_seconds": [
+          0,
+          12
+        ],
+        "disposition": "selected"
+      },
+      {
+        "candidate_id": "vid-pbs-ai-regulation",
+        "resource_id": null,
+        "url": "https://www.pbs.org/video/the-push-for-ai-regulations-intensifies-what-is-the-path-forward-rlw9l7/",
+        "title": "The Push for AI Regulations Intensifies. What Is the Path Forward?",
+        "original_publisher": "PBS / WTTW",
+        "published_date": "2026-09-17",
+        "duration_seconds": 611,
+        "promotional_risk": "low",
+        "content_review_scope": "Reviewed the complete official PBS/WTTW description and transcript, exact 10:11 identity and full-length player. In a fresh signed-out browser, the program advanced to 00:06 and reported Duration 10:11.",
+        "signed_out": true,
+        "public_player_checked": true,
+        "advancing_playback_verified": true,
+        "checked_at": "2026-11-04T01:52:29.676Z",
+        "observed_player_times_seconds": [
+          0,
+          6
+        ],
+        "disposition": "selected"
       }
     ],
-    "qualified_winners": [],
-    "result": "FAIL_VIDEO_PLAYBACK_UNVERIFIED",
-    "blocker": "No pair can be selected because the two enabled-source finalists did not show genuine signed-out advancing playback."
+    "qualified_winners": [
+      "vid-ted-ai-relationships",
+      "vid-pbs-ai-regulation"
+    ],
+    "result": "PASS_TWO_DISTINCT_LOW_PROMOTION_PUBLISHERS",
+    "blocker": null
   },
   "podcasts": {
     "required": 2,
@@ -167,6 +210,6 @@
     ],
     "qualified_count": 2,
     "show_cooldown": "PASS_NO_SHOW_IN_PRIOR_THREE_EDITIONS",
-    "result": "QUALIFIED_PENDING_BUNDLE"
+    "result": "QUALIFIED"
   }
 }

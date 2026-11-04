@@ -365,7 +365,15 @@
       "candidate_ids": []
     }
   ],
-  "selected_mappings": [],
+  "selected_mappings": [
+    {
+      "topic_id": "weight-space-programming-nov02",
+      "format": "article",
+      "item_id": "nov04-t1-weight-space-repair",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "reason": "The selected technical story is the exact Top 10 event's original project report and survived full reading, novelty, lane and limitation review."
+    }
+  ],
   "candidate_reviews": {
     "schema_version": "daily-compiler-candidate-reviews-v1",
     "edition_date": "2026-11-04",
@@ -493,39 +501,88 @@
     ]
   },
   "impact_observations": {
-    "status": "PARTIAL_PENDING_BUNDLE",
-    "source_additions": 0,
-    "useful_qualified_candidate_ids": [
-      "cand-nov04-t1-weight-space-repair",
-      "cand-nov04-t2-statebench-state-tracking",
-      "cand-nov04-k1-openai-physical-engineering",
-      "cand-nov04-k2-palette-deck-building",
-      "cand-nov04-a1-meet-policy-notices",
-      "cand-nov04-a2-three-check-agent-brief",
-      "pod-ai-show-249",
-      "pod-eyeonai-390"
-    ],
-    "rejections_by_reason": {
-      "freshness": 1,
-      "duplicate_or_rotation": 2,
-      "promotion": 3,
-      "availability_or_playback": 4,
-      "duration": 1,
-      "registry_identity": 3
+    "observed_at": "2026-11-04T01:52:29.676Z",
+    "input_adoption": {
+      "usable_report_consumed": true,
+      "exact_raw_sha256_verified": true,
+      "topic_count": 10,
+      "ranking_interpretation": "unranked_within_qualitative_evidence_bands; integers used only as discovery sequence"
+    },
+    "search_coverage": {
+      "topic_format_rows": 30,
+      "attempted_rows": 13,
+      "not_attempted_rows": 17,
+      "limited_scope_disclosed": true
+    },
+    "candidate_yield": {
+      "useful_qualified_candidate_ids": [
+        "cand-nov04-t1-weight-space-repair",
+        "cand-nov04-t2-statebench-state-tracking",
+        "cand-nov04-k1-openai-physical-engineering",
+        "cand-nov04-k2-palette-deck-building",
+        "cand-nov04-a1-meet-policy-notices",
+        "cand-nov04-a2-three-check-agent-brief",
+        "vid-ted-ai-relationships",
+        "vid-pbs-ai-regulation",
+        "pod-ai-show-249",
+        "pod-eyeonai-390"
+      ],
+      "bundle_verified_selected_mappings": 1,
+      "actual_source_additions": []
+    },
+    "freshness": {
+      "selected_story_latest_24h": 0,
+      "selected_story_72h_fallback": 5,
+      "selected_story_168h_fallback": 1,
+      "interpretation": "Date-only November 2 and November 3 sources are conservatively treated as 72-hour fallbacks because rolling-24-hour publication times are unavailable; the November 1 Agent Skill uses a justified 168-hour fallback."
+    },
+    "rejections": {
+      "duplicate": [
+        "cand-nov04-every-autopilot-rerun: November surface was a rerun of an April original outside the supported window"
+      ],
+      "promotion": [
+        "cand-nov04-cohere-open-models: product announcement lacked sufficient independent practical detail",
+        "vid-deepseek-rob: prominent tool promotion and unregistered publisher"
+      ],
+      "quality_or_fit": [
+        "cand-nov04-langchain-browser: coding focus failed the noncoding Agents lane",
+        "vid-graph-engineering: 20:35 exceeded the maximum by 35 seconds",
+        "vid-two-minute-papers-eth and vid-gcloud-ui-spec: exact players loaded but did not advance in the signed-out browser"
+      ]
     },
     "gaps": [
-      "No verified advancing video pair",
-      "Sixty-three eligible editorial indexes remained unreviewed in the bounded preselection pass",
-      "No bundle-verified selection mappings because selection is not locked"
+      "63 of 87 enabled editorial indexes were not editorially inspected in this bounded run and remain explicit unreviewed resource IDs.",
+      "Seventeen Top-10 topic-format rows were not attempted after sufficient article and podcast candidates were found and video recovery became the hard gate.",
+      "Usage percent remains unknown; no causal uplift is inferred from one trend-linked selected story."
     ],
-    "observed_timing_seconds": null,
-    "observed_cost_usd": 0,
-    "causal_uplift": null,
+    "timing": {
+      "execution_observed_at": "2026-11-04T01:22:40.644Z",
+      "selection_locked_at": "2026-11-04T01:52:29.676Z",
+      "sealed_at": "2026-11-04T01:52:30.676Z",
+      "elapsed_seconds_to_seal": 1790
+    },
+    "usage_percent": null,
+    "cost_usd": 0,
     "source_links": [
-      "https://rikiyat.github.io/blog/weight-space-programming/",
-      "https://www.anthropic.com/research/provable-inference",
-      "https://openai.com/index/scaling-git-at-openai/"
-    ]
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4cd175ca264002fe4217101dd9b5aea03b5e8a7a/signals/ai-topic-top10/2026-11-03.json",
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/aebc04de2173c37b2c041eb0e9f964e27325ee26/signals/ai-topic-top10/baselines/2026-11-03.json"
+    ],
+    "baseline_comparison": {
+      "baseline_id": "nov03-2026-v1",
+      "input_metrics_preserved": true,
+      "outcome_baseline_status": "pending",
+      "previous_comparable_completed_cycle": "2026-11-02 / edition 2026-11-03",
+      "incremental_benefit": null,
+      "causal_uplift": null,
+      "interpretation": "The report was adopted and one final bundle story maps to a supported event. The prior completed cycle mapped five selections after all thirty searches; this cycle's smaller attempted scope and one mapping do not establish lower or higher editorial benefit."
+    },
+    "method_changes": [
+      "Kept the frozen November 3 baseline while consuming the actual November 3 dated report pinned to its immutable source commit.",
+      "Separated 24 inspected indexes, zero inaccessible indexes and 63 unreviewed indexes from later automated census work.",
+      "Preserved real newer rejections and disclosed that seventeen topic-format searches were not attempted.",
+      "Recovered from non-advancing YouTube players by selecting distinct TED and PBS/WTTW programs only after exact signed-out advancement."
+    ],
+    "next_improvement": "On the next cycle, raise genuine preselection index inspection and complete more high-priority topic-format searches before media recovery, then compare qualified candidate yield and bundle-verified selections without treating source count as success."
   },
   "daily_improvement": {
     "input_adoption": "EXACT_REPORT_PINNED",

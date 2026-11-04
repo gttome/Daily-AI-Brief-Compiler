@@ -3,43 +3,39 @@
   "edition_date": "2026-11-04",
   "execution_id": "daily-compiler-2026-11-04-primary",
   "branch": "shadow/2026-11-04",
-  "state": "BLOCKED",
-  "stage": "MEDIA",
+  "state": "BUNDLE_READY",
+  "stage": "SEAL",
   "started_at": "2026-11-04T01:22:40.644Z",
-  "updated_at": "2026-11-04T01:40:19.459Z",
+  "updated_at": "2026-11-04T01:52:30.676Z",
   "source_main_sha": "952bb3a59a5f79335fcda33afe7a686dddfa407a",
-  "bundle_sha256": null,
+  "bundle_sha256": "ed4f797fec536fbde753684aa5c00d0952ee72b1b76b61bdc213a90de4fd53d2",
   "owner_task_id": "6ac9868490b88191ac91f84d5f555994",
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-04T01:52:29.676Z",
+    "sealed_at": "2026-11-04T01:52:30.676Z"
+  },
   "images": {
     "required": 6,
     "accepted": [],
     "mode": "images_pending",
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
-  "editorial_bundle": {
-    "status": "draft_complete_not_locked",
-    "stories": 6,
-    "videos": 0,
-    "podcasts": 2,
-    "watchlist_refreshed": false,
-    "selection_locked_at": null,
-    "sealed_at": null
-  },
   "bundle": {
-    "status": "NOT_READY",
-    "digest": null
+    "status": "BUNDLE_READY",
+    "digest": "ed4f797fec536fbde753684aa5c00d0952ee72b1b76b61bdc213a90de4fd53d2"
   },
-  "last_error": {
-    "code": "VIDEO_PLAYBACK_UNVERIFIED",
-    "observed_at": "2026-11-04T01:40:19.459Z",
-    "message": "Two enabled-source finalists exposed exact full-length players, but neither demonstrated signed-out advancing playback. Seeking alone is not playback evidence.",
-    "evidence_ref": "editorial/media-review.json"
-  },
-  "retryable": true,
+  "last_error": null,
+  "retryable": false,
   "observability": {
     "source_read_events": 6,
-    "media_review_events": 8,
-    "clock_basis": "genuine UTC observations from this execution",
+    "media_review_events": 10,
+    "watchlist_refresh_at": "2026-11-04T01:52:29.676Z",
+    "clock_basis": "genuine UTC event observations from this execution",
     "trend_input": "editorial/trend-input.json",
     "trend_baseline_id": "nov03-2026-v1",
     "scheduler_origin": "UNPROVEN",
@@ -51,7 +47,9 @@
       "inspected_indexes": 24,
       "inaccessible_indexes": 0,
       "unreviewed_indexes": 63,
-      "result": "PRESELECTION_REVIEW_INCOMPLETE_EXPLICIT"
+      "result": "PRESELECTION_REVIEW_INCOMPLETE_EXPLICIT",
+      "review_receipt": "editorial/index-review.json",
+      "automated_census": "SEPARATE_NOT_EDITORIAL_INSPECTION"
     }
   }
 }
