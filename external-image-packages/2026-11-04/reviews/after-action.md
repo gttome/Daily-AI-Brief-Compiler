@@ -1,6 +1,6 @@
 # 2026-11-04 premium image after-action report
 
-**Status: READY_FOR_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 6ed65f484346f97cebcdf69dc2291a210d2ab4b1 |
 | Executor observed run start | 2026-11-04T03:14:35Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-04T03:21:28Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_CI_MERGE_AND_DEPLOYMENT |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_24_CONTEXT_REVIEW; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-04T04:07:32.609Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -53,7 +53,7 @@ Job SHA-256: 37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff. O
 
 The actual generation start is 2026-11-04T03:21:28Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-04/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 November 3 baseline remains immutable: 12 attempts, six rejected candidates and one first-pass acceptance. This edition used 21 attempts, 15 rejections and zero first-pass acceptances; observed image efficiency worsened. Different stories and compositions limit causal comparison.
 
@@ -65,8 +65,16 @@ Current COMMON and IMAGES v2026-11-03.2 and detailed references read at protecte
 
 Approved change register reviews are due November 11; no efficacy success, retirement or scheduler-autonomy claim is made from this one cycle.
 
-Six accepted assets are immutable and exact connected GitHub binary readbacks passed. Genuine protected publication, live hash/pairing/October8 integrity verification and all 24 semantic contexts remain pending.
-
 Scheduler origin remains UNPROVEN. No owner-computer, paid API, TinyFish, metered service, new producer or additional schedule was used. Existing protected workflows remain the only release route.
+
+Original protected PR #321 validate and package admission passed on exact e9ff145bcf02b69276a72a11f7595b941258894d; merged as 18ab5ddfd0055c8e12b5b9b932a65c9129fa5d5b. Existing release41771161566 completed successfully with no image publication replay or accepted-asset regeneration.
+
+Independent read-only postrelease verification passed six public PNG bytes, twelve story-image pairings and exact public index/release status. Independent October8 audit passed17 objects. Actual release artifact3438e716ce13381e3bb2e19363a8400792536271ad1966b7953cd336b50f5276 contains24 RGB-proof captures; all24 were individually inspected at1440desktop/320mobile.
+
+The raw automated-capture status deliberately retains its pre-semantic unreviewed flags. The separately saved semantic-pixel-review.json is the current24/24 review conclusion; no historical artifact was rewritten.
+
+Mobile priority labels remain recognizable, while fine secondary labels use the unchanged full-size image access. No universal inline small-text claim is made.
+
+Source timing distinction observed in the physical-engineering publisher article: design work took under a week; a manufactured batch took under a month. Artwork intentionally omits that timeline; this image-only release preserves the original editorial bundle.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
