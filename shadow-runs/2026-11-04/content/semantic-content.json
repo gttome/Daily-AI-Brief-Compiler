@@ -3,7 +3,7 @@
   "edition_date": "2026-11-04",
   "editorial_provenance": {
     "selection_locked_at": "2026-11-04T01:52:29.676Z",
-    "sealed_at": "2026-11-04T01:52:30.676Z"
+    "sealed_at": "2026-11-04T02:01:07.084Z"
   },
   "stories": [
     {
@@ -1302,7 +1302,7 @@
         "publisher": "Anthropic",
         "original_date": "2026-11-02T00:00:00Z",
         "checked_at": "2026-11-04T01:52:29.676Z",
-        "disposition": "qualified_not_selected",
+        "disposition": "considered",
         "disposition_reason": "Strong Top-10 research lead, but the two technical slots provided more distinct reader value on weight repair and long-horizon state tracking."
       },
       {
@@ -1310,7 +1310,7 @@
         "publisher": "OpenAI",
         "original_date": "2026-11-02T00:00:00Z",
         "checked_at": "2026-11-04T01:52:29.676Z",
-        "disposition": "qualified_not_selected",
+        "disposition": "considered",
         "disposition_reason": "Useful infrastructure account, but the edition already had a stronger OpenAI applied-engineering case and publisher diversity was preferred."
       },
       {
@@ -1344,6 +1344,45 @@
         "checked_at": "2026-11-04T01:52:29.676Z",
         "disposition": "rejected",
         "disposition_reason": "A product and company announcement with insufficient independent practical detail for the edition."
+      }
+    ],
+    "fallback_decisions": [
+      {
+        "story_id": "nov04-t1-weight-space-repair",
+        "newer_sources_considered": [
+          "https://www.langchain.com/blog",
+          "https://blogs.nvidia.com/blog/ai-semiconductor-fabs/"
+        ],
+        "why_selected_over_recent_options": "The November 2 primary research supplied a distinct model-repair technique and reproducible technical evidence; the newer LangChain item was coding-framework specific, while NVIDIA repeated the prior edition’s publisher and offered less implementation depth."
+      },
+      {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "No later original item with a verified publication time was found in the bounded technical search; StateBench directly documented long-horizon state failures, methods, and benchmark results that complemented rather than duplicated model repair."
+      },
+      {
+        "story_id": "nov04-k1-openai-physical-engineering",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "No later qualified Applied-lane source was established during the recorded search; this dated OpenAI case provided concrete engineering workflows, deployment constraints, and practitioner outcomes that the rejected company announcements did not substantiate."
+      },
+      {
+        "story_id": "nov04-k2-palette-deck-building",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "The bounded Applied search found no later independently dated candidate; IBM’s complete primary account exposed the dataset, workflow stages, evaluation framing, and limits needed to judge an AI-assisted presentation-building system."
+      },
+      {
+        "story_id": "nov04-a1-meet-policy-notices",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "No later noncoding Agents-for-Everyone item passed date and primary-reading checks; Google’s policy-notice change gave administrators a specific, current governance workflow with a bounded user-facing action and clear deployment scope."
+      },
+      {
+        "story_id": "nov04-a2-three-check-agent-brief",
+        "newer_sources_considered": [
+          "https://www.langchain.com/blog",
+          "https://blogs.nvidia.com/blog/ai-semiconductor-fabs/",
+          "https://cohere.com/blog"
+        ],
+        "why_selected_over_recent_options": "The November 1 essay remained inside the allowed fallback window and uniquely supported the edition’s reusable noncoding Agent Skill; newer candidates were coding-focused, publisher-repetitive, or promotional and did not offer the same practical reader outcome."
       }
     ]
   }

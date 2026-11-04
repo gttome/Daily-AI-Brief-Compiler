@@ -42,6 +42,26 @@
       "observed_at": "2026-11-04T01:56:21.109Z",
       "stage": "BUNDLE",
       "detail": "Corrected only compiler-state.stage to BUNDLE and preserved the immutable bundle bytes, digest, editorial selections, and pending-image representation."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-04T01:57:07.540Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "failure_code": "RECENT_SOURCE_DISCOVERY_SCHEMA_INCOMPLETE",
+      "source_ref": "bundle-ready-signal run 41757444896",
+      "details": "Protected semantic validation found twelve dated candidates but required canonical candidate dispositions and one explicit fallback decision per older-than-24-hour selected story."
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-04T02:01:07.084Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "detail": "Added six source-specific fallback decisions from the existing candidate ledger, canonicalized two consideration dispositions, and preserved all six selections and media."
+    },
+    {
+      "event": "SEAL",
+      "observed_at": "2026-11-04T02:01:07.084Z",
+      "stage": "SEAL",
+      "detail": "Resealed same-edition bundle after semantic recovery with SHA-256 0a9a31872e02b5fd3ce8fc09f880bb8c00b50d893db209d33704e00def063781."
     }
   ],
   "scheduler_origin_attested": false
