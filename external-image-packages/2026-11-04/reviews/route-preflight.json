@@ -1,0 +1,70 @@
+{
+  "schema_version": "external-image-route-preflight-v7",
+  "result": "CAPABILITY_ROUTE_PROVEN",
+  "blockers": [],
+  "edition_date": "2026-11-04",
+  "release_start_mode": "protected_package_merge",
+  "selected_document_version": "rev8",
+  "creative_attempts_consumed": 0,
+  "owner_browser_login_assumed": false,
+  "production_dispatch_not_inferred": true,
+  "capabilities": {
+    "native_image_generation": {
+      "available": true,
+      "authorized": true,
+      "method": "Exposed native image_gen.imagegen callable; no API fallback",
+      "evidence_ref": "tool:image_gen.imagegen"
+    },
+    "saved_pixel_inspection": {
+      "available": true,
+      "authorized": true,
+      "method": "Native output and view_image exposed; Pillow executed and six actual rejected PNG regions inspected in this invocation",
+      "evidence_ref": "tool:view_image;local:run-nov04/previous-rejections.png"
+    },
+    "exact_1200x630_png_export": {
+      "available": true,
+      "authorized": true,
+      "method": "Local Pillow RGB export followed by awaited completeImageExport and strict PNG decoder; actual candidate validation pending",
+      "evidence_ref": "scripts/complete-image-export.mjs"
+    },
+    "github_authenticated_binary_upload": {
+      "available": true,
+      "authorized": true,
+      "method": "Connected GitHub create_blob base64, tree/commit and expected-head non-force update_ref exposed; actual accepted binary upload still pending",
+      "evidence_ref": "tool:github_create_blob;commit:b25e9f539b7c9ef28a4a952d6b9c560b9a6ac316"
+    },
+    "exact_commit_binary_readback": {
+      "available": true,
+      "authorized": true,
+      "method": "Connected fetch_file supports exact ref with encoding base64; per-image verification remains pending",
+      "evidence_ref": "tool:github_fetch_file"
+    },
+    "protected_pr_merge_and_ci": {
+      "available": true,
+      "authorized": true,
+      "method": "Connected create_pull_request and merge_pull_request exposed; all required exact-head CI and reviews preserved",
+      "evidence_ref": "tool:github_create_pull_request;tool:github_merge_pull_request"
+    },
+    "protected_main_package_merge_auto_release": {
+      "available": true,
+      "authorized": true,
+      "method": "protected_merged_package_manifest",
+      "evidence_ref": ".github/workflows/external-image-only-replacement.yml",
+      "workflow_path": ".github/workflows/external-image-only-replacement.yml"
+    },
+    "desktop_image_region_capture": {
+      "available": true,
+      "authorized": true,
+      "method": "Existing protected release capture-image-element24 uses 1440px and archives exact captures; local view_image provides actual semantic inspection",
+      "evidence_ref": "scripts/capture-image-element24.mjs;tool:github_download_workflow_artifact"
+    },
+    "mobile_image_region_capture": {
+      "available": true,
+      "authorized": true,
+      "method": "Existing November3+ capture uses 320px mobile with RGB proof; actual capture and subjective inspection remain pending",
+      "evidence_ref": "scripts/capture-image-element24.mjs;tool:view_image"
+    }
+  },
+  "scheduler_origin": "UNPROVEN",
+  "actual_image_generation_and_binary_results_pending": true
+}

@@ -1,0 +1,2389 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-04",
+    "story_id": "nov04-t1-weight-space-repair",
+    "source_url": "https://rikiyat.github.io/blog/weight-space-programming/",
+    "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+    "visual_thesis": "A small targeted weight edit removes a diagnosed looping direction in one model; evaluation is separate from the edit and does not establish a general training replacement.",
+    "mechanism_metaphor": "exposed neural-layer surgery",
+    "story_anchors": [
+      "Qwen3.5-0.8B: 0.016% of weights edited",
+      "MLP layers 15 and 19; held-out MATH-500 evaluation"
+    ],
+    "required_labels": [
+      "Model weights",
+      "Loop diagnosis",
+      "Layers 15 and 19",
+      "Targeted edit",
+      "0.016% edited",
+      "No gradient descent",
+      "MATH-500: 7.9% to 48.1%",
+      "50 practice forward passes",
+      "Early research; inefficient harness"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Astra inspects Qwen weights and uses practice forward passes to identify a looping direction in MLP layers 15 and 19.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Astra inspects Qwen weights and uses practice forward passes to identify a looping direction in MLP layers 15 and 19.",
+        "source_url": "https://rikiyat.github.io/blog/weight-space-programming/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "It subtracts that direction from 64 output columns in each layer, changing 131072 weights without training or gradient descent.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: It subtracts that direction from 64 output columns in each layer, changing 131072 weights without training or gradient descent.",
+        "source_url": "https://rikiyat.github.io/blog/weight-space-programming/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "With 50 practice forward passes the reported held-out MATH-500 score rose from 7.9% to 48.1%; broader efficacy remains early and inefficient.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: With 50 practice forward passes the reported held-out MATH-500 score rose from 7.9% to 48.1%; broader efficacy remains early and inefficient.",
+        "source_url": "https://rikiyat.github.io/blog/weight-space-programming/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Model weights",
+        "to": "Loop diagnosis",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Loop diagnosis",
+        "to": "Targeted edit",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No score bars, fake reasoning sentences or document strokes. No arrow from evaluation to training. Do not imply the general LLM edits itself or that this adds missing math ability.",
+      "No people, humanoids, logos, photography, invented controls, gears, shields, fake writing, unsupported chart marks or unlisted text."
+    ],
+    "composition_signature": {
+      "grammar": "large tensor cutaway with magnified edited columns and separate evaluation plaque",
+      "metaphor": "exposed neural-layer surgery",
+      "palette": "ink indigo and warm copper",
+      "layout": "Large left layered weight lattice, upper-middle diagnosis, lower-middle edited-column enlargement, right measured evaluation; detached bottom limitation.",
+      "annotation": "magnification leaders and detached evidence plaque"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "actual_components": "Show four actual conceptual tensor layers, input/output boundaries, two localized MLP layers, a magnified selected-column slice, subtraction direction distinct from loop path, remaining unchanged lattice, practice-evaluation boundary and held-out evaluation plaque. Lattice geometry is conceptual, not a numeric heatmap. Do not make 0.016% a literal measured area or draw filled score bars."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Model weights",
+          "region_id": "weights",
+          "region": "Layered model-weight lattice",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 60,
+            "width": 325,
+            "height": 80
+          }
+        },
+        {
+          "label": "Loop diagnosis",
+          "region_id": "diagnosis",
+          "region": "Loop diagnosis and layer localization",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 435,
+            "y": 55,
+            "width": 320,
+            "height": 70
+          }
+        },
+        {
+          "label": "Layers 15 and 19",
+          "region_id": "diagnosis",
+          "region": "Loop diagnosis and layer localization",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 435,
+            "y": 150,
+            "width": 320,
+            "height": 100
+          }
+        },
+        {
+          "label": "Targeted edit",
+          "region_id": "edit",
+          "region": "Magnified direct column edit",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 435,
+            "y": 295,
+            "width": 320,
+            "height": 65
+          }
+        },
+        {
+          "label": "0.016% edited",
+          "region_id": "edit",
+          "region": "Magnified direct column edit",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 435,
+            "y": 375,
+            "width": 320,
+            "height": 45
+          }
+        },
+        {
+          "label": "No gradient descent",
+          "region_id": "edit",
+          "region": "Magnified direct column edit",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 435,
+            "y": 435,
+            "width": 320,
+            "height": 50
+          }
+        },
+        {
+          "label": "MATH-500: 7.9% to 48.1%",
+          "region_id": "evidence",
+          "region": "Separate held-out evaluation evidence",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 810,
+            "y": 60,
+            "width": 330,
+            "height": 130
+          }
+        },
+        {
+          "label": "50 practice forward passes",
+          "region_id": "evidence",
+          "region": "Separate held-out evaluation evidence",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 810,
+            "y": 330,
+            "width": 330,
+            "height": 100
+          }
+        },
+        {
+          "label": "Early research; inefficient harness",
+          "region_id": "caveat",
+          "region": "Detached experimental limitation",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 535,
+            "width": 1080,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Early research; inefficient harness",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 80,
+      "explanatory_substage_labels": [
+        "Model weights",
+        "Loop diagnosis"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Model weights",
+        "Loop diagnosis",
+        "Targeted edit"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Astra inspects Qwen weights and uses practice forward passes to identify a looping direction in MLP layers 15 and 19.",
+          "allowed_path": "A small targeted weight edit removes a diagnosed looping direction in one model; evaluation is separate from the edit and does not establish a general training replacement.",
+          "blocked_path": "No score bars, fake reasoning sentences or document strokes. No arrow from evaluation to training. Do not imply the general LLM edits itself or that this adds missing math ability.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Model weights",
+          "to": "Loop diagnosis",
+          "direction": "conditional",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Layered model-weight lattice",
+          "target_region": "Loop diagnosis and layer localization",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Loop diagnosis",
+          "to": "Targeted edit",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Loop diagnosis and layer localization",
+          "target_region": "Magnified direct column edit",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "weights",
+            "description": "Layered model-weight lattice",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 355,
+              "height": 460
+            }
+          },
+          {
+            "id": "diagnosis",
+            "description": "Loop diagnosis and layer localization",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 40,
+              "width": 350,
+              "height": 220
+            }
+          },
+          {
+            "id": "edit",
+            "description": "Magnified direct column edit",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 280,
+              "width": 350,
+              "height": 220
+            }
+          },
+          {
+            "id": "evidence",
+            "description": "Separate held-out evaluation evidence",
+            "bounding_box_px": {
+              "x": 795,
+              "y": 40,
+              "width": 365,
+              "height": 460
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached experimental limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 520,
+              "width": 1120,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Model weights",
+            "to": "Loop diagnosis",
+            "direction": "conditional",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "weights",
+            "to_region_id": "diagnosis",
+            "origin_px": {
+              "x": 217.5,
+              "y": 140
+            },
+            "target_px": {
+              "x": 595,
+              "y": 55
+            }
+          },
+          {
+            "from": "Loop diagnosis",
+            "to": "Targeted edit",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "diagnosis",
+            "to_region_id": "edit",
+            "origin_px": {
+              "x": 595,
+              "y": 125
+            },
+            "target_px": {
+              "x": 595,
+              "y": 295
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor; original primary-source and exact geometry comparison",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "abe99f3ae6c5181f010b9be7f7c197e3078ced144d21fd619e11642c0fb1502a"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: infographic-diagram. Create ONE premium finished static factual editorial raster illustration, exactly 1200x630 landscape, white background, not an editable engineering drawing. Use refined textbook linework and restrained dimensional depth, ink indigo and warm copper. All graphics and labels stay inside 40px safe margins.\nVisual thesis: A small targeted weight edit removes a diagnosed looping direction in one model; evaluation is separate from the edit and does not establish a general training replacement.\nSource-supported facts: Astra inspects Qwen weights and uses practice forward passes to identify a looping direction in MLP layers 15 and 19. It subtracts that direction from 64 output columns in each layer, changing 131072 weights without training or gradient descent. With 50 practice forward passes the reported held-out MATH-500 score rose from 7.9% to 48.1%; broader efficacy remains early and inefficient.\nComposition: Large left layered weight lattice, upper-middle diagnosis, lower-middle edited-column enlargement, right measured evaluation; detached bottom limitation.\nMeaningful mechanism details: Show four actual conceptual tensor layers, input/output boundaries, two localized MLP layers, a magnified selected-column slice, subtraction direction distinct from loop path, remaining unchanged lattice, practice-evaluation boundary and held-out evaluation plaque. Lattice geometry is conceptual, not a numeric heatmap. Do not make 0.016% a literal measured area or draw filled score bars.\nRender ONLY these exact labels, each ONCE: [\"Model weights\",\"Loop diagnosis\",\"Layers 15 and 19\",\"Targeted edit\",\"0.016% edited\",\"No gradient descent\",\"MATH-500: 7.9% to 48.1%\",\"50 practice forward passes\",\"Early research; inefficient harness\"]. No extra title or caption. Two or three priority labels at least 36px; every secondary label at least 28px in final pixels. Crisp bold sans-serif, nonoverlapping, ample label boxes. Follow the frozen actual regions and label positions. Arrows follow ONLY the listed source-supported paths, route around text and attach to the exact stated mechanism. Other braces are nondirectional comparisons. Caveat is detached, with NO connectors.\nSpecific exclusions from source and actual prior rejected candidates: No score bars, fake reasoning sentences or document strokes. No arrow from evaluation to training. Do not imply the general LLM edits itself or that this adds missing math ability.\nNo people, faces, hands, avatars, humanoids, logos, photorealism, fake document strokes, simulated writing, dashboard cards, gears, shields, sliders, trophies, checkmarks, invented charts, unsupported outcomes, unlisted text or digits. Do not shrink the composition or add letterboxing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"weights\",\"description\":\"Layered model-weight lattice\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":355,\"height\":460}},{\"id\":\"diagnosis\",\"description\":\"Loop diagnosis and layer localization\",\"bounding_box_px\":{\"x\":420,\"y\":40,\"width\":350,\"height\":220}},{\"id\":\"edit\",\"description\":\"Magnified direct column edit\",\"bounding_box_px\":{\"x\":420,\"y\":280,\"width\":350,\"height\":220}},{\"id\":\"evidence\",\"description\":\"Separate held-out evaluation evidence\",\"bounding_box_px\":{\"x\":795,\"y\":40,\"width\":365,\"height\":460}},{\"id\":\"caveat\",\"description\":\"Detached experimental limitation\",\"bounding_box_px\":{\"x\":40,\"y\":520,\"width\":1120,\"height\":70}}],\"labels\":[{\"label\":\"Model weights\",\"region_id\":\"weights\",\"region\":\"Layered model-weight lattice\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":55,\"y\":60,\"width\":325,\"height\":80}},{\"label\":\"Loop diagnosis\",\"region_id\":\"diagnosis\",\"region\":\"Loop diagnosis and layer localization\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":435,\"y\":55,\"width\":320,\"height\":70}},{\"label\":\"Layers 15 and 19\",\"region_id\":\"diagnosis\",\"region\":\"Loop diagnosis and layer localization\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":435,\"y\":150,\"width\":320,\"height\":100}},{\"label\":\"Targeted edit\",\"region_id\":\"edit\",\"region\":\"Magnified direct column edit\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":435,\"y\":295,\"width\":320,\"height\":65}},{\"label\":\"0.016% edited\",\"region_id\":\"edit\",\"region\":\"Magnified direct column edit\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":435,\"y\":375,\"width\":320,\"height\":45}},{\"label\":\"No gradient descent\",\"region_id\":\"edit\",\"region\":\"Magnified direct column edit\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":435,\"y\":435,\"width\":320,\"height\":50}},{\"label\":\"MATH-500: 7.9% to 48.1%\",\"region_id\":\"evidence\",\"region\":\"Separate held-out evaluation evidence\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":810,\"y\":60,\"width\":330,\"height\":130}},{\"label\":\"50 practice forward passes\",\"region_id\":\"evidence\",\"region\":\"Separate held-out evaluation evidence\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":810,\"y\":330,\"width\":330,\"height\":100}},{\"label\":\"Early research; inefficient harness\",\"region_id\":\"caveat\",\"region\":\"Detached experimental limitation\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":535,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Model weights\",\"to\":\"Loop diagnosis\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"weights\",\"to_region_id\":\"diagnosis\",\"origin_px\":{\"x\":217.5,\"y\":140},\"target_px\":{\"x\":595,\"y\":55}},{\"from\":\"Loop diagnosis\",\"to\":\"Targeted edit\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"diagnosis\",\"to_region_id\":\"edit\",\"origin_px\":{\"x\":595,\"y\":125},\"target_px\":{\"x\":595,\"y\":295}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nTARGETED CORRECTION after actual saved-pixel rejection: Delete every extra Input, Output, MLP, 15, 19 and Held-out evaluation caption outside the nine exact labels. Remove the minus and equals glyphs and their vector strips. Keep a magnified selected orange column edit only. Put the 0.016% edited brace directly beneath the orange EDITED COLUMNS, never beneath unchanged blue cells. Move all boundary strokes inside 40px; bottom caveat text baseline inside y590. No repeated enclosing cards: leave the large model lattice unboxed. Preserve the source-correct main hierarchy and the nine exact mandatory labels.\nSECOND PIXEL CORRECTION: Layers 15 and 19 is too small. Render that exact label in TWO lines, as large as No gradient descent, with actual final font at least 36px. Enlarge 0.016% edited to match it. In the native reference resolution keep all ink 90px from each edge, corresponding to more than 40px at final export. Especially inset the bottom caveat and right outer border. Preserve the corrected orange-column brace and all nine exact labels; add no text. All remaining labels already have adequate hierarchy.\nFINAL SAFE-MARGIN CORRECTION: Remove ONLY the outer border around the bottom caveat text, keeping that text exactly where it is and at the same font. Remove the large outer enclosure around the entire right evaluation area, keeping its text and artifact illustration unchanged. The label text itself already sits within the final 40px safe area; do not move or shrink any label. Preserve every corrected feature and every word. This is a static editorial artwork edit, not an exact engineering source."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-04",
+    "story_id": "nov04-t2-statebench-state-tracking",
+    "source_url": "https://huggingface.co/blog/allenai/statebench",
+    "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+    "visual_thesis": "State tracking becomes harder as updates depend on earlier values; the longest general tasks expose frontier failures while targeted recurrent training has a distinct scope.",
+    "mechanism_metaphor": "four-level dependency weave",
+    "story_anchors": [
+      "Four assignment-complexity levels",
+      "Longest general cases at 13% or lower for tested frontier models"
+    ],
+    "required_labels": [
+      "Immutable values",
+      "Latest assignment",
+      "Running updates",
+      "Cross-variable copies",
+      "Final-state check",
+      "Longer dependency chains",
+      "Longest general cases: 13% or lower",
+      "Direct task training differs",
+      "Fixed variables; deployment limits remain"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Immutable assignment only needs the initial value; reassignment by value needs the latest value.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Immutable assignment only needs the initial value; reassignment by value needs the latest value.",
+        "source_url": "https://huggingface.co/blog/allenai/statebench",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Self-referential updates build on current values and assignment by reference creates dependencies across variables.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Self-referential updates build on current values and assignment by reference creates dependencies across variables.",
+        "source_url": "https://huggingface.co/blog/allenai/statebench",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Frontier models fall to 13% or lower on longest general cases; directly trained recurrent and hybrid models generalize farther under fixed-variable conditions.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Frontier models fall to 13% or lower on longest general cases; directly trained recurrent and hybrid models generalize farther under fixed-variable conditions.",
+        "source_url": "https://huggingface.co/blog/allenai/statebench",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Running updates",
+        "to": "Final-state check",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Cross-variable copies",
+        "to": "Final-state check",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No guaranteed memory icon, no missing-step success badge, no numerical chart invented from the 13% statement; direct training must not look like a deployed frontier-model memory upgrade.",
+      "No people, humanoids, logos, photography, invented controls, gears, shields, fake writing, unsupported chart marks or unlisted text."
+    ],
+    "composition_signature": {
+      "grammar": "stacked horizontal transition ribbons with increasingly coupled variable paths",
+      "metaphor": "four-level dependency weave",
+      "palette": "deep teal and moss",
+      "layout": "Four tall horizontal bands read top to bottom, first two on the left and two coupled bands across the center; a right final-state evidence bracket; bottom detached scope note.",
+      "annotation": "dependency strands and terminal evidence bracket"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "actual_components": "Distinct immutable nodes, overwrite nodes, carried state junctions and crossed copy strands represent the four assignment classes. Include at least two state tokens per class, an initial-value anchor, latest-write replacement, cumulative dependency path, cross-variable mapping and final comparison bracket. No invented numerical task examples or generic dashboard. Comparison lines have no arrowheads; source-caveat is not a process node."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Immutable values",
+          "region_id": "easy",
+          "region": "Initial and latest value transitions",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 55,
+            "width": 420,
+            "height": 55
+          }
+        },
+        {
+          "label": "Latest assignment",
+          "region_id": "easy",
+          "region": "Initial and latest value transitions",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 170,
+            "width": 420,
+            "height": 55
+          }
+        },
+        {
+          "label": "Running updates",
+          "region_id": "running",
+          "region": "Stateful running-update band",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 285,
+            "width": 420,
+            "height": 65
+          }
+        },
+        {
+          "label": "Cross-variable copies",
+          "region_id": "copies",
+          "region": "Cross-variable dependency weave",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 530,
+            "y": 55,
+            "width": 610,
+            "height": 65
+          }
+        },
+        {
+          "label": "Final-state check",
+          "region_id": "evidence",
+          "region": "Final-state comparison and benchmark scope",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 530,
+            "y": 285,
+            "width": 610,
+            "height": 60
+          }
+        },
+        {
+          "label": "Longer dependency chains",
+          "region_id": "copies",
+          "region": "Cross-variable dependency weave",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 530,
+            "y": 170,
+            "width": 610,
+            "height": 55
+          }
+        },
+        {
+          "label": "Longest general cases: 13% or lower",
+          "region_id": "evidence",
+          "region": "Final-state comparison and benchmark scope",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 530,
+            "y": 365,
+            "width": 610,
+            "height": 55
+          }
+        },
+        {
+          "label": "Direct task training differs",
+          "region_id": "running",
+          "region": "Stateful running-update band",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 410,
+            "width": 420,
+            "height": 65
+          }
+        },
+        {
+          "label": "Fixed variables; deployment limits remain",
+          "region_id": "caveat",
+          "region": "Detached fixed-variable limitation",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 535,
+            "width": 1080,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Fixed variables; deployment limits remain",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 80,
+      "explanatory_substage_labels": [
+        "Immutable values",
+        "Latest assignment"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Immutable values",
+        "Latest assignment",
+        "Running updates"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Immutable assignment only needs the initial value; reassignment by value needs the latest value.",
+          "allowed_path": "State tracking becomes harder as updates depend on earlier values; the longest general tasks expose frontier failures while targeted recurrent training has a distinct scope.",
+          "blocked_path": "No guaranteed memory icon, no missing-step success badge, no numerical chart invented from the 13% statement; direct training must not look like a deployed frontier-model memory upgrade.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Running updates",
+          "to": "Final-state check",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Stateful running-update band",
+          "target_region": "Final-state comparison and benchmark scope",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Cross-variable copies",
+          "to": "Final-state check",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Cross-variable dependency weave",
+          "target_region": "Final-state comparison and benchmark scope",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "easy",
+            "description": "Initial and latest value transitions",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 450,
+              "height": 210
+            }
+          },
+          {
+            "id": "running",
+            "description": "Stateful running-update band",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 270,
+              "width": 450,
+              "height": 230
+            }
+          },
+          {
+            "id": "copies",
+            "description": "Cross-variable dependency weave",
+            "bounding_box_px": {
+              "x": 515,
+              "y": 40,
+              "width": 645,
+              "height": 210
+            }
+          },
+          {
+            "id": "evidence",
+            "description": "Final-state comparison and benchmark scope",
+            "bounding_box_px": {
+              "x": 515,
+              "y": 270,
+              "width": 645,
+              "height": 230
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached fixed-variable limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 520,
+              "width": 1120,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Running updates",
+            "to": "Final-state check",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "running",
+            "to_region_id": "evidence",
+            "origin_px": {
+              "x": 265,
+              "y": 350
+            },
+            "target_px": {
+              "x": 835,
+              "y": 285
+            }
+          },
+          {
+            "from": "Cross-variable copies",
+            "to": "Final-state check",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "copies",
+            "to_region_id": "evidence",
+            "origin_px": {
+              "x": 835,
+              "y": 120
+            },
+            "target_px": {
+              "x": 835,
+              "y": 285
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor; original primary-source and exact geometry comparison",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "e6d8b5c29524d7edad02be914e278b2ce6bd396f076e0f7df03ac9978fe9874f"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://huggingface.co/blog/allenai/statebench",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: infographic-diagram. Create ONE premium finished static factual editorial raster illustration, exactly 1200x630 landscape, white background, not an editable engineering drawing. Use refined textbook linework and restrained dimensional depth, deep teal and moss. All graphics and labels stay inside 40px safe margins.\nVisual thesis: State tracking becomes harder as updates depend on earlier values; the longest general tasks expose frontier failures while targeted recurrent training has a distinct scope.\nSource-supported facts: Immutable assignment only needs the initial value; reassignment by value needs the latest value. Self-referential updates build on current values and assignment by reference creates dependencies across variables. Frontier models fall to 13% or lower on longest general cases; directly trained recurrent and hybrid models generalize farther under fixed-variable conditions.\nComposition: Four tall horizontal bands read top to bottom, first two on the left and two coupled bands across the center; a right final-state evidence bracket; bottom detached scope note.\nMeaningful mechanism details: Distinct immutable nodes, overwrite nodes, carried state junctions and crossed copy strands represent the four assignment classes. Include at least two state tokens per class, an initial-value anchor, latest-write replacement, cumulative dependency path, cross-variable mapping and final comparison bracket. No invented numerical task examples or generic dashboard. Comparison lines have no arrowheads; source-caveat is not a process node.\nRender ONLY these exact labels, each ONCE: [\"Immutable values\",\"Latest assignment\",\"Running updates\",\"Cross-variable copies\",\"Final-state check\",\"Longer dependency chains\",\"Longest general cases: 13% or lower\",\"Direct task training differs\",\"Fixed variables; deployment limits remain\"]. No extra title or caption. Two or three priority labels at least 36px; every secondary label at least 28px in final pixels. Crisp bold sans-serif, nonoverlapping, ample label boxes. Follow the frozen actual regions and label positions. Arrows follow ONLY the listed source-supported paths, route around text and attach to the exact stated mechanism. Other braces are nondirectional comparisons. Caveat is detached, with NO connectors.\nSpecific exclusions from source and actual prior rejected candidates: No guaranteed memory icon, no missing-step success badge, no numerical chart invented from the 13% statement; direct training must not look like a deployed frontier-model memory upgrade.\nNo people, faces, hands, avatars, humanoids, logos, photorealism, fake document strokes, simulated writing, dashboard cards, gears, shields, sliders, trophies, checkmarks, invented charts, unsupported outcomes, unlisted text or digits. Do not shrink the composition or add letterboxing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"easy\",\"description\":\"Initial and latest value transitions\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":450,\"height\":210}},{\"id\":\"running\",\"description\":\"Stateful running-update band\",\"bounding_box_px\":{\"x\":40,\"y\":270,\"width\":450,\"height\":230}},{\"id\":\"copies\",\"description\":\"Cross-variable dependency weave\",\"bounding_box_px\":{\"x\":515,\"y\":40,\"width\":645,\"height\":210}},{\"id\":\"evidence\",\"description\":\"Final-state comparison and benchmark scope\",\"bounding_box_px\":{\"x\":515,\"y\":270,\"width\":645,\"height\":230}},{\"id\":\"caveat\",\"description\":\"Detached fixed-variable limitation\",\"bounding_box_px\":{\"x\":40,\"y\":520,\"width\":1120,\"height\":70}}],\"labels\":[{\"label\":\"Immutable values\",\"region_id\":\"easy\",\"region\":\"Initial and latest value transitions\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":420,\"height\":55}},{\"label\":\"Latest assignment\",\"region_id\":\"easy\",\"region\":\"Initial and latest value transitions\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":55,\"y\":170,\"width\":420,\"height\":55}},{\"label\":\"Running updates\",\"region_id\":\"running\",\"region\":\"Stateful running-update band\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":55,\"y\":285,\"width\":420,\"height\":65}},{\"label\":\"Cross-variable copies\",\"region_id\":\"copies\",\"region\":\"Cross-variable dependency weave\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":530,\"y\":55,\"width\":610,\"height\":65}},{\"label\":\"Final-state check\",\"region_id\":\"evidence\",\"region\":\"Final-state comparison and benchmark scope\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":530,\"y\":285,\"width\":610,\"height\":60}},{\"label\":\"Longer dependency chains\",\"region_id\":\"copies\",\"region\":\"Cross-variable dependency weave\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":530,\"y\":170,\"width\":610,\"height\":55}},{\"label\":\"Longest general cases: 13% or lower\",\"region_id\":\"evidence\",\"region\":\"Final-state comparison and benchmark scope\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":530,\"y\":365,\"width\":610,\"height\":55}},{\"label\":\"Direct task training differs\",\"region_id\":\"running\",\"region\":\"Stateful running-update band\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":410,\"width\":420,\"height\":65}},{\"label\":\"Fixed variables; deployment limits remain\",\"region_id\":\"caveat\",\"region\":\"Detached fixed-variable limitation\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":535,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Running updates\",\"to\":\"Final-state check\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"running\",\"to_region_id\":\"evidence\",\"origin_px\":{\"x\":265,\"y\":350},\"target_px\":{\"x\":835,\"y\":285}},{\"from\":\"Cross-variable copies\",\"to\":\"Final-state check\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"copies\",\"to_region_id\":\"evidence\",\"origin_px\":{\"x\":835,\"y\":120},\"target_px\":{\"x\":835,\"y\":285}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nSAVED-PIXEL CORRECTION: Keep the four source-grounded comparisons and nine exact captions, but remove EVERY variable, subscript, function, assignment equation, asterisk and glyph from within the illustrated tokens. Use clean blank shape/color tokens for values and a visibly changed shape for an overwrite. No formulas or symbols appear in the allowlist. Remove the outermost rounded frame around each region and the bottom caveat border so every remaining ink pixel sits safely within the final 40px margins. Preserve the labels, paths and source meaning. Do not add any words.\nMECHANISM CORRECTION: Blank identical circles hide the actual state changes. Keep circles as variable holders but put a clear large geometric VALUE shape inside each: Immutable values has the SAME triangle in both holders. Latest assignment starts with a square, the overwrite block contains a triangle, and the final holder contains the triangle. Running updates starts with a single square, each update visibly adds a distinct diamond component, and the final holder has the square plus accumulated diamonds. Cross-variable copies starts with triangle in the top holder and square in the bottom holder; crossed paths end with the same triangle in the bottom holder and square in the top holder. Final-state check compares these distinctive shapes on two nondirectional guide lines. Shapes are conceptual value identities, not numeric quantities or performance marks. No text inside holders, no symbols, no tiny repeated glyphs. Remove the green feedback loop under Running updates, which is not part of the listed causal plan. Inset all left captions to at least 90px at native reference resolution. Remove the caveat background panel but preserve its exact text and size.\nMARGIN-ONLY FINAL CORRECTION: Preserve all correct shapes, links, captions and font sizes from the latest image. Remove every filled heading banner/background and each label border; render the same exact heading words in dark teal on white at the same positions. Remove the right longest-cases box outline, keeping its dark text. This removes frame ink crossing safe margins while preserving large type. No enclosing panels or banners anywhere, no extra words.\nAlso shift the complete left mechanism column 40 native pixels to the right, shortening its horizontal arrows rather than shrinking fonts; every node and word must have at least 90 native pixels of left inset. Keep the right mechanism and its text safely inset too."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-04",
+    "story_id": "nov04-k1-openai-physical-engineering",
+    "source_url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+    "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+    "visual_thesis": "Agent-generated mechanical, electrical and software artifacts converge into a device proposal, while real manufacturer review still discovers production gaps.",
+    "mechanism_metaphor": "exploded artifact assembly with review boundary",
+    "story_anchors": [
+      "Enclosure, PCB, interface and firmware produced without direct human edits",
+      "Manufacturer review still found tolerances and assembly gaps"
+    ],
+    "required_labels": [
+      "Enclosure",
+      "Circuit board",
+      "Interface",
+      "Firmware",
+      "Agent-generated artifacts",
+      "Manufacturer review",
+      "Tolerances",
+      "Assembly details",
+      "Expert review remains necessary"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Astra generated enclosure, internal supports, PCB component placement and connections, user interface, firmware and integrations.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Astra generated enclosure, internal supports, PCB component placement and connections, user interface, firmware and integrations.",
+        "source_url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "A manufacturer built prototype batches after several rounds of review and iteration.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: A manufacturer built prototype batches after several rounds of review and iteration.",
+        "source_url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Models did not consistently account for production limits, tolerances and assembly details; engineers continue to review practical accuracy.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Models did not consistently account for production limits, tolerances and assembly details; engineers continue to review practical accuracy.",
+        "source_url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Agent-generated artifacts",
+        "to": "Manufacturer review",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No prototype-under-one-week claim: source states design under a week and manufacturer batch under a month. No approval checkmark, certification shield, automatic safety pass or physical dimensional claim.",
+      "No people, humanoids, logos, photography, invented controls, gears, shields, fake writing, unsupported chart marks or unlisted text."
+    ],
+    "composition_signature": {
+      "grammar": "diagonal exploded mechanical assembly converging at an expert review boundary",
+      "metaphor": "exploded artifact assembly with review boundary",
+      "palette": "graphite and terracotta",
+      "layout": "Large left exploded enclosure and board assembly, lower-left software/interface layers, upper-right manufacturer review and lower-right gap annotations; detached caveat across bottom.",
+      "annotation": "radial assembly callouts and constrained review boundary"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "actual_components": "Use a conceptual exploded enclosure top and base, internal supports, circuit-board plane, selected components and interconnects, separate firmware layer and interface plane, assembly alignment guides, review boundary, tolerance gap and fit junction. No real device drawing or measured dimensions. No machinery, gears or decorative bolts. Review leader lines are nondirectional annotations; no arrow implies guaranteed manufacture."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Enclosure",
+          "region_id": "hardware",
+          "region": "Exploded mechanical and electrical artifacts",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 55,
+            "width": 240,
+            "height": 55
+          }
+        },
+        {
+          "label": "Circuit board",
+          "region_id": "hardware",
+          "region": "Exploded mechanical and electrical artifacts",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 305,
+            "y": 55,
+            "width": 255,
+            "height": 55
+          }
+        },
+        {
+          "label": "Interface",
+          "region_id": "software",
+          "region": "Software and interface artifact layers",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 360,
+            "width": 240,
+            "height": 50
+          }
+        },
+        {
+          "label": "Firmware",
+          "region_id": "software",
+          "region": "Software and interface artifact layers",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 305,
+            "y": 360,
+            "width": 255,
+            "height": 50
+          }
+        },
+        {
+          "label": "Agent-generated artifacts",
+          "region_id": "hardware",
+          "region": "Exploded mechanical and electrical artifacts",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 245,
+            "width": 505,
+            "height": 65
+          }
+        },
+        {
+          "label": "Manufacturer review",
+          "region_id": "review",
+          "region": "Manufacturing review boundary",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 625,
+            "y": 55,
+            "width": 515,
+            "height": 90
+          }
+        },
+        {
+          "label": "Tolerances",
+          "region_id": "gaps",
+          "region": "Source-supported production findings",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 625,
+            "y": 285,
+            "width": 515,
+            "height": 55
+          }
+        },
+        {
+          "label": "Assembly details",
+          "region_id": "gaps",
+          "region": "Source-supported production findings",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 625,
+            "y": 410,
+            "width": 515,
+            "height": 55
+          }
+        },
+        {
+          "label": "Expert review remains necessary",
+          "region_id": "caveat",
+          "region": "Detached continuing-review limitation",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 535,
+            "width": 1080,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Expert review remains necessary",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 80,
+      "explanatory_substage_labels": [
+        "Enclosure",
+        "Circuit board"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Enclosure",
+        "Circuit board",
+        "Manufacturer review"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Astra generated enclosure, internal supports, PCB component placement and connections, user interface, firmware and integrations.",
+          "allowed_path": "Agent-generated mechanical, electrical and software artifacts converge into a device proposal, while real manufacturer review still discovers production gaps.",
+          "blocked_path": "No prototype-under-one-week claim: source states design under a week and manufacturer batch under a month. No approval checkmark, certification shield, automatic safety pass or physical dimensional claim.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Agent-generated artifacts",
+          "to": "Manufacturer review",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Exploded mechanical and electrical artifacts",
+          "target_region": "Manufacturing review boundary",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "hardware",
+            "description": "Exploded mechanical and electrical artifacts",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 540,
+              "height": 285
+            }
+          },
+          {
+            "id": "software",
+            "description": "Software and interface artifact layers",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 345,
+              "width": 540,
+              "height": 155
+            }
+          },
+          {
+            "id": "review",
+            "description": "Manufacturing review boundary",
+            "bounding_box_px": {
+              "x": 610,
+              "y": 40,
+              "width": 550,
+              "height": 210
+            }
+          },
+          {
+            "id": "gaps",
+            "description": "Source-supported production findings",
+            "bounding_box_px": {
+              "x": 610,
+              "y": 270,
+              "width": 550,
+              "height": 230
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached continuing-review limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 520,
+              "width": 1120,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Agent-generated artifacts",
+            "to": "Manufacturer review",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "hardware",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 307.5,
+              "y": 310
+            },
+            "target_px": {
+              "x": 882.5,
+              "y": 55
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor; original primary-source and exact geometry comparison",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "e271a31c58b695e188095b6ce1dc35cf0c3bdc59b162dc7ad4777d1c0587a177"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: infographic-diagram. Create ONE premium finished static factual editorial raster illustration, exactly 1200x630 landscape, white background, not an editable engineering drawing. Use refined textbook linework and restrained dimensional depth, graphite and terracotta. All graphics and labels stay inside 40px safe margins.\nVisual thesis: Agent-generated mechanical, electrical and software artifacts converge into a device proposal, while real manufacturer review still discovers production gaps.\nSource-supported facts: Astra generated enclosure, internal supports, PCB component placement and connections, user interface, firmware and integrations. A manufacturer built prototype batches after several rounds of review and iteration. Models did not consistently account for production limits, tolerances and assembly details; engineers continue to review practical accuracy.\nComposition: Large left exploded enclosure and board assembly, lower-left software/interface layers, upper-right manufacturer review and lower-right gap annotations; detached caveat across bottom.\nMeaningful mechanism details: Use a conceptual exploded enclosure top and base, internal supports, circuit-board plane, selected components and interconnects, separate firmware layer and interface plane, assembly alignment guides, review boundary, tolerance gap and fit junction. No real device drawing or measured dimensions. No machinery, gears or decorative bolts. Review leader lines are nondirectional annotations; no arrow implies guaranteed manufacture.\nRender ONLY these exact labels, each ONCE: [\"Enclosure\",\"Circuit board\",\"Interface\",\"Firmware\",\"Agent-generated artifacts\",\"Manufacturer review\",\"Tolerances\",\"Assembly details\",\"Expert review remains necessary\"]. No extra title or caption. Two or three priority labels at least 36px; every secondary label at least 28px in final pixels. Crisp bold sans-serif, nonoverlapping, ample label boxes. Follow the frozen actual regions and label positions. Arrows follow ONLY the listed source-supported paths, route around text and attach to the exact stated mechanism. Other braces are nondirectional comparisons. Caveat is detached, with NO connectors.\nSpecific exclusions from source and actual prior rejected candidates: No prototype-under-one-week claim: source states design under a week and manufacturer batch under a month. No approval checkmark, certification shield, automatic safety pass or physical dimensional claim.\nNo people, faces, hands, avatars, humanoids, logos, photorealism, fake document strokes, simulated writing, dashboard cards, gears, shields, sliders, trophies, checkmarks, invented charts, unsupported outcomes, unlisted text or digits. Do not shrink the composition or add letterboxing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"hardware\",\"description\":\"Exploded mechanical and electrical artifacts\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":540,\"height\":285}},{\"id\":\"software\",\"description\":\"Software and interface artifact layers\",\"bounding_box_px\":{\"x\":40,\"y\":345,\"width\":540,\"height\":155}},{\"id\":\"review\",\"description\":\"Manufacturing review boundary\",\"bounding_box_px\":{\"x\":610,\"y\":40,\"width\":550,\"height\":210}},{\"id\":\"gaps\",\"description\":\"Source-supported production findings\",\"bounding_box_px\":{\"x\":610,\"y\":270,\"width\":550,\"height\":230}},{\"id\":\"caveat\",\"description\":\"Detached continuing-review limitation\",\"bounding_box_px\":{\"x\":40,\"y\":520,\"width\":1120,\"height\":70}}],\"labels\":[{\"label\":\"Enclosure\",\"region_id\":\"hardware\",\"region\":\"Exploded mechanical and electrical artifacts\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":240,\"height\":55}},{\"label\":\"Circuit board\",\"region_id\":\"hardware\",\"region\":\"Exploded mechanical and electrical artifacts\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":305,\"y\":55,\"width\":255,\"height\":55}},{\"label\":\"Interface\",\"region_id\":\"software\",\"region\":\"Software and interface artifact layers\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":360,\"width\":240,\"height\":50}},{\"label\":\"Firmware\",\"region_id\":\"software\",\"region\":\"Software and interface artifact layers\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":305,\"y\":360,\"width\":255,\"height\":50}},{\"label\":\"Agent-generated artifacts\",\"region_id\":\"hardware\",\"region\":\"Exploded mechanical and electrical artifacts\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":245,\"width\":505,\"height\":65}},{\"label\":\"Manufacturer review\",\"region_id\":\"review\",\"region\":\"Manufacturing review boundary\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":625,\"y\":55,\"width\":515,\"height\":90}},{\"label\":\"Tolerances\",\"region_id\":\"gaps\",\"region\":\"Source-supported production findings\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":625,\"y\":285,\"width\":515,\"height\":55}},{\"label\":\"Assembly details\",\"region_id\":\"gaps\",\"region\":\"Source-supported production findings\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":625,\"y\":410,\"width\":515,\"height\":55}},{\"label\":\"Expert review remains necessary\",\"region_id\":\"caveat\",\"region\":\"Detached continuing-review limitation\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":535,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Agent-generated artifacts\",\"to\":\"Manufacturer review\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"hardware\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":307.5,\"y\":310},\"target_px\":{\"x\":882.5,\"y\":55}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nFirst-render reinforcement: no enclosing region frames, heading banners, label boxes or caveat boxes; render dark labels directly on white. Keep every actual ink mark at least 90px from the edges if exporting at the native reference size around 1731x909, corresponding to more than 40px in the final 1200x630. Keep label glyphs very large: priority about 60px at native size and secondary at least 44px. Use only the exact frozen words; no added captions, formulas or symbols. These are editorial compositions with generous safe text insets, not dashboards.\nTARGETED SAVED-PIXEL CORRECTION: The Interface and Firmware planes contain rows of fake writing/code strokes. Remove ALL those parallel strips. Show Interface as one blank conceptual interface-artifact plane with a single simple non-text interaction region; show Firmware as one smooth unmarked artifact plane. These are generic artifact illustrations, not product screenshots or code. Under Manufacturer review remove the three finished-device replicas and replace them with a single annotated assembly REVIEW boundary containing the enclosure and board separated for inspection, with no success or approval indication. Keep tolerance gap and assembly-junction details. Raise the bottom caveat text by 35 native pixels so its complete glyphs remain above final y590. Preserve all nine exact labels, every valid mechanical/circuit detail, the single main arrow, and the differentiated exploded assembly. No new captions or stroke patterns.\nFINAL CAVEAT CORRECTION: Keep every corrected hardware and review feature unchanged. Set ONLY Expert review remains necessary to the SAME FONT SIZE AS Firmware (still at least 28px in final output), centered across the bottom with its glyph top at native y780 and glyph bottom no lower than native y825. There must be at least 85 native pixels of clear white below that text. Do not enlarge the caveat to fill the width. No new elements or text."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-04",
+    "story_id": "nov04-k2-palette-deck-building",
+    "source_url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+    "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+    "visual_thesis": "A designer creates an editable slide brief, a coder renders slides, and measured layout failures trigger a separate repair accepted only when the checker observes improvement.",
+    "mechanism_metaphor": "editorial plan into constrained repair circuit",
+    "story_anchors": [
+      "Designer and coder share a LoRA adapter on a 20B model",
+      "Repair retained only if measured improvement; harness gain 3.5 points over 131 decks"
+    ],
+    "required_labels": [
+      "Structured brief",
+      "Slide code",
+      "Rendered slide",
+      "Overlap and overflow",
+      "Repair flagged slides",
+      "Keep only improvements",
+      "Otherwise retain original",
+      "Brand fidelity still needs evaluation"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "The designer emits structured slide plans and the coder writes PptxGenJS slide code before rendering.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: The designer emits structured slide plans and the coder writes PptxGenJS slide code before rendering.",
+        "source_url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The harness checks overlap, clipping and overflow; flagged slides go to a separate editor which rewrites code.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: The harness checks overlap, clipping and overflow; flagged slides go to a separate editor which rewrites code.",
+        "source_url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "The rewrite is kept only when the checker confirms improvement; otherwise the original remains. The evaluation does not certify design-language fidelity.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: The rewrite is kept only when the checker confirms improvement; otherwise the original remains. The evaluation does not certify design-language fidelity.",
+        "source_url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Structured brief",
+        "to": "Slide code",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Slide code",
+        "to": "Rendered slide",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Rendered slide",
+        "to": "Overlap and overflow",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Overlap and overflow",
+        "to": "Repair flagged slides",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Repair flagged slides",
+        "to": "Keep only improvements",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No fabricated deck content, simulated writing or chart bars. No claim that geometric improvement guarantees truthful content or brand fidelity. Reject unsupported unconditional success path.",
+      "No people, humanoids, logos, photography, invented controls, gears, shields, fake writing, unsupported chart marks or unlisted text."
+    ],
+    "composition_signature": {
+      "grammar": "upper planning-to-render arc above lower conditional repair return",
+      "metaphor": "editorial plan into constrained repair circuit",
+      "palette": "aubergine and muted rose",
+      "layout": "Upper left designer brief and upper center coder/render stack; large right geometric check region; lower left repair editor and lower center retained original versus improved choice; detached bottom limitation.",
+      "annotation": "conditional return arc and explicit original-preservation split"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "actual_components": "Show a structured brief with actual blank semantic content compartments rather than fake paragraphs; code as a clean assembly block with no fake code; render text and shape bounding rectangles, overlap intersection, overflow boundary, flagged-slide diversion, editor rewrite, measurement comparison and preserved original plane. Comparison branches use exact label descriptions, no added Yes/No text. Repair is conditional; no training-loop arrow."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Structured brief",
+          "region_id": "plan",
+          "region": "Designer brief and code stage",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 55,
+            "width": 450,
+            "height": 60
+          }
+        },
+        {
+          "label": "Slide code",
+          "region_id": "plan",
+          "region": "Designer brief and code stage",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 150,
+            "width": 450,
+            "height": 55
+          }
+        },
+        {
+          "label": "Rendered slide",
+          "region_id": "render",
+          "region": "Rendered-slide construction",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 560,
+            "y": 55,
+            "width": 270,
+            "height": 100
+          }
+        },
+        {
+          "label": "Overlap and overflow",
+          "region_id": "check",
+          "region": "Geometry checker findings",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 885,
+            "y": 55,
+            "width": 255,
+            "height": 120
+          }
+        },
+        {
+          "label": "Repair flagged slides",
+          "region_id": "repair",
+          "region": "Editor repair and measured retention split",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 285,
+            "width": 370,
+            "height": 65
+          }
+        },
+        {
+          "label": "Keep only improvements",
+          "region_id": "repair",
+          "region": "Editor repair and measured retention split",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 450,
+            "y": 285,
+            "width": 370,
+            "height": 65
+          }
+        },
+        {
+          "label": "Otherwise retain original",
+          "region_id": "repair",
+          "region": "Editor repair and measured retention split",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 450,
+            "y": 410,
+            "width": 370,
+            "height": 60
+          }
+        },
+        {
+          "label": "Brand fidelity still needs evaluation",
+          "region_id": "caveat",
+          "region": "Detached brand-fidelity evaluation limitation",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 490,
+            "width": 500,
+            "height": 90
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Brand fidelity still needs evaluation",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 80,
+      "explanatory_substage_labels": [
+        "Structured brief",
+        "Slide code"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Structured brief",
+        "Slide code",
+        "Rendered slide"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "The designer emits structured slide plans and the coder writes PptxGenJS slide code before rendering.",
+          "allowed_path": "A designer creates an editable slide brief, a coder renders slides, and measured layout failures trigger a separate repair accepted only when the checker observes improvement.",
+          "blocked_path": "No fabricated deck content, simulated writing or chart bars. No claim that geometric improvement guarantees truthful content or brand fidelity. Reject unsupported unconditional success path.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Structured brief",
+          "to": "Slide code",
+          "direction": "conditional",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Designer brief and code stage",
+          "target_region": "Designer brief and code stage",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Slide code",
+          "to": "Rendered slide",
+          "direction": "conditional",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Designer brief and code stage",
+          "target_region": "Rendered-slide construction",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Rendered slide",
+          "to": "Overlap and overflow",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Rendered-slide construction",
+          "target_region": "Geometry checker findings",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Overlap and overflow",
+          "to": "Repair flagged slides",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Geometry checker findings",
+          "target_region": "Editor repair and measured retention split",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Repair flagged slides",
+          "to": "Keep only improvements",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Editor repair and measured retention split",
+          "target_region": "Editor repair and measured retention split",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "plan",
+            "description": "Designer brief and code stage",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 480,
+              "height": 210
+            }
+          },
+          {
+            "id": "render",
+            "description": "Rendered-slide construction",
+            "bounding_box_px": {
+              "x": 545,
+              "y": 40,
+              "width": 300,
+              "height": 210
+            }
+          },
+          {
+            "id": "check",
+            "description": "Geometry checker findings",
+            "bounding_box_px": {
+              "x": 870,
+              "y": 40,
+              "width": 290,
+              "height": 460
+            }
+          },
+          {
+            "id": "repair",
+            "description": "Editor repair and measured retention split",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 270,
+              "width": 805,
+              "height": 230
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached brand-fidelity evaluation limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 480,
+              "width": 1120,
+              "height": 110
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Structured brief",
+            "to": "Slide code",
+            "direction": "conditional",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "plan",
+            "to_region_id": "plan",
+            "origin_px": {
+              "x": 280,
+              "y": 115
+            },
+            "target_px": {
+              "x": 280,
+              "y": 150
+            }
+          },
+          {
+            "from": "Slide code",
+            "to": "Rendered slide",
+            "direction": "conditional",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "plan",
+            "to_region_id": "render",
+            "origin_px": {
+              "x": 280,
+              "y": 205
+            },
+            "target_px": {
+              "x": 695,
+              "y": 55
+            }
+          },
+          {
+            "from": "Rendered slide",
+            "to": "Overlap and overflow",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "render",
+            "to_region_id": "check",
+            "origin_px": {
+              "x": 695,
+              "y": 155
+            },
+            "target_px": {
+              "x": 1012.5,
+              "y": 55
+            }
+          },
+          {
+            "from": "Overlap and overflow",
+            "to": "Repair flagged slides",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "check",
+            "to_region_id": "repair",
+            "origin_px": {
+              "x": 1012.5,
+              "y": 175
+            },
+            "target_px": {
+              "x": 240,
+              "y": 285
+            }
+          },
+          {
+            "from": "Repair flagged slides",
+            "to": "Keep only improvements",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "repair",
+            "to_region_id": "repair",
+            "origin_px": {
+              "x": 240,
+              "y": 350
+            },
+            "target_px": {
+              "x": 635,
+              "y": 285
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor; original primary-source and exact geometry comparison",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "6263ee09398c1555fd749ee0a5ac02ab92495af71e748e2049814f2102723d3e"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: infographic-diagram. Edit the reference into a final premium factual editorial image, final 1200x630 white-background PNG. Preserve its correct actual brief -> code -> rendered slide -> overlap/overflow checking -> conditional repair and keep-improvement/retain-original mechanisms. No training arrows or guaranteed brand fidelity. Source facts: The designer emits structured slide plans and the coder writes PptxGenJS slide code before rendering. The harness checks overlap, clipping and overflow; flagged slides go to a separate editor which rewrites code. The rewrite is kept only when the checker confirms improvement; otherwise the original remains. The evaluation does not certify design-language fidelity.\nKeep ONLY these EIGHT exact labels, each once: [\"Structured brief\",\"Slide code\",\"Rendered slide\",\"Overlap and overflow\",\"Repair flagged slides\",\"Keep only improvements\",\"Otherwise retain original\",\"Brand fidelity still needs evaluation\"]. Priority at least36px and secondary at least28px at final export. No people, logos, photos, invented UI controls, fake writing, extra symbols, burst strokes or score charts. Preserve the mechanism artwork, correct text, blank code/editor artifacts, layout-boundary examples and source caveats.\nONLY PIXEL CHANGE: Move the entire bottom caveat phrase into the clear BOTTOM-LEFT area below the repair artifact, no longer beneath the retained-original artifact. Render two lines: Brand fidelity / still needs evaluation (slash denotes line break; do not print slash). At native reference size around1731x909, put glyphs at x130..700 and y730..825, with at least84px clear white below. Keep font about44px native, at least28px final. Do not overlap any existing mechanism or label. Do not shrink or shift other artwork. The final note rectangle is x60..560, y510..590.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"plan\",\"description\":\"Designer brief and code stage\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":480,\"height\":210}},{\"id\":\"render\",\"description\":\"Rendered-slide construction\",\"bounding_box_px\":{\"x\":545,\"y\":40,\"width\":300,\"height\":210}},{\"id\":\"check\",\"description\":\"Geometry checker findings\",\"bounding_box_px\":{\"x\":870,\"y\":40,\"width\":290,\"height\":460}},{\"id\":\"repair\",\"description\":\"Editor repair and measured retention split\",\"bounding_box_px\":{\"x\":40,\"y\":270,\"width\":805,\"height\":230}},{\"id\":\"caveat\",\"description\":\"Detached brand-fidelity evaluation limitation\",\"bounding_box_px\":{\"x\":40,\"y\":480,\"width\":1120,\"height\":110}}],\"labels\":[{\"label\":\"Structured brief\",\"region_id\":\"plan\",\"region\":\"Designer brief and code stage\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":450,\"height\":60}},{\"label\":\"Slide code\",\"region_id\":\"plan\",\"region\":\"Designer brief and code stage\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":55,\"y\":150,\"width\":450,\"height\":55}},{\"label\":\"Rendered slide\",\"region_id\":\"render\",\"region\":\"Rendered-slide construction\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":560,\"y\":55,\"width\":270,\"height\":100}},{\"label\":\"Overlap and overflow\",\"region_id\":\"check\",\"region\":\"Geometry checker findings\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":885,\"y\":55,\"width\":255,\"height\":120}},{\"label\":\"Repair flagged slides\",\"region_id\":\"repair\",\"region\":\"Editor repair and measured retention split\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":285,\"width\":370,\"height\":65}},{\"label\":\"Keep only improvements\",\"region_id\":\"repair\",\"region\":\"Editor repair and measured retention split\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":450,\"y\":285,\"width\":370,\"height\":65}},{\"label\":\"Otherwise retain original\",\"region_id\":\"repair\",\"region\":\"Editor repair and measured retention split\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":450,\"y\":410,\"width\":370,\"height\":60}},{\"label\":\"Brand fidelity still needs evaluation\",\"region_id\":\"caveat\",\"region\":\"Detached brand-fidelity evaluation limitation\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":490,\"width\":500,\"height\":90}}],\"connector_anchors\":[{\"from\":\"Structured brief\",\"to\":\"Slide code\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"plan\",\"to_region_id\":\"plan\",\"origin_px\":{\"x\":280,\"y\":115},\"target_px\":{\"x\":280,\"y\":150}},{\"from\":\"Slide code\",\"to\":\"Rendered slide\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"plan\",\"to_region_id\":\"render\",\"origin_px\":{\"x\":280,\"y\":205},\"target_px\":{\"x\":695,\"y\":55}},{\"from\":\"Rendered slide\",\"to\":\"Overlap and overflow\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"render\",\"to_region_id\":\"check\",\"origin_px\":{\"x\":695,\"y\":155},\"target_px\":{\"x\":1012.5,\"y\":55}},{\"from\":\"Overlap and overflow\",\"to\":\"Repair flagged slides\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"check\",\"to_region_id\":\"repair\",\"origin_px\":{\"x\":1012.5,\"y\":175},\"target_px\":{\"x\":240,\"y\":285}},{\"from\":\"Repair flagged slides\",\"to\":\"Keep only improvements\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"repair\",\"to_region_id\":\"repair\",\"origin_px\":{\"x\":240,\"y\":350},\"target_px\":{\"x\":635,\"y\":285}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nThe caveat has moved left correctly but is still too low. On THIS reference, translate BOTH caveat lines UP by 60 native pixels, keeping their existing font, left edge and line breaks exactly unchanged. Do not reflow or resize them. The top of the first line should be just below the repair artifact, with a clear gap, and the second line must end well above the image bottom. Make no other artwork or text changes."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-04",
+    "story_id": "nov04-a1-meet-policy-notices",
+    "source_url": "https://workspaceupdates.googleblog.com/2026/10/display-custom-policy-in-green-room-before-Google-Meet-Calls.html?m=1",
+    "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+    "visual_thesis": "Administrator policy scope and trigger settings cause a custom notice to appear before joining; the notice informs users and does not itself grant permissions or stop recording.",
+    "mechanism_metaphor": "conditional notice threshold",
+    "story_anchors": [
+      "Off by default; enabled per organizational unit",
+      "Always or only during recording, transcription or Gemini notes"
+    ],
+    "required_labels": [
+      "Organizational scope",
+      "Always",
+      "When artifacts are active",
+      "Custom notice",
+      "Policy link",
+      "Before joining",
+      "Recording / transcription / AI notes",
+      "Host policy for guests",
+      "Off by default; notice is informational"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Administrators enable custom short text and optional policy URL at the organizational-unit level; the feature is off by default.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Administrators enable custom short text and optional policy URL at the organizational-unit level; the feature is off by default.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/display-custom-policy-in-green-room-before-Google-Meet-Calls.html?m=1",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The message can always appear or appear only while recording, transcription or Gemini note-taking is active.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: The message can always appear or appear only while recording, transcription or Gemini note-taking is active.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/display-custom-policy-in-green-room-before-Google-Meet-Calls.html?m=1",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "The message is presented in the pre-join green room; guests receive the host organization notice. It is a notice, not a consent or access-control guarantee.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: The message is presented in the pre-join green room; guests receive the host organization notice. It is a notice, not a consent or access-control guarantee.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/10/display-custom-policy-in-green-room-before-Google-Meet-Calls.html?m=1",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Organizational scope",
+        "to": "Custom notice",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Always",
+        "to": "Custom notice",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "When artifacts are active",
+        "to": "Custom notice",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Custom notice",
+        "to": "Before joining",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No padlock/shield, consent approval, recording prevention guarantee, off/on slider or invented control. No arrow from notice to activation of recording or AI notes.",
+      "No people, humanoids, logos, photography, invented controls, gears, shields, fake writing, unsupported chart marks or unlisted text."
+    ],
+    "composition_signature": {
+      "grammar": "left policy-scope fan merging into central notice boundary and open meeting threshold",
+      "metaphor": "conditional notice threshold",
+      "palette": "navy and ochre",
+      "layout": "Left upper administrative scope, left lower trigger alternatives; large center pre-join notice plane; right host/guest presentation and meeting threshold; detached bottom behavior caveat.",
+      "annotation": "alternative-trigger bracket and scope-to-notice leaders"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "actual_components": "Show three abstract organizational scope branches, two mutually alternative trigger paths, distinct recording/transcription/AI-notes artifact symbols without fake document lines, a custom notice plane, optional policy-link attachment, pre-join threshold, host-policy boundary and guest path. No person or meeting-screen avatars. The flow ends with notice presentation, not permission to start artifacts."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Organizational scope",
+          "region_id": "scope",
+          "region": "Administrator organizational policy scope",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 55,
+            "width": 280,
+            "height": 110
+          }
+        },
+        {
+          "label": "Always",
+          "region_id": "triggers",
+          "region": "Alternative display triggers",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 255,
+            "width": 280,
+            "height": 55
+          }
+        },
+        {
+          "label": "When artifacts are active",
+          "region_id": "triggers",
+          "region": "Alternative display triggers",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 365,
+            "width": 280,
+            "height": 100
+          }
+        },
+        {
+          "label": "Custom notice",
+          "region_id": "notice",
+          "region": "Pre-join custom notice and durable policy link",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 395,
+            "y": 140,
+            "width": 390,
+            "height": 70
+          }
+        },
+        {
+          "label": "Policy link",
+          "region_id": "notice",
+          "region": "Pre-join custom notice and durable policy link",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 395,
+            "y": 260,
+            "width": 390,
+            "height": 70
+          }
+        },
+        {
+          "label": "Before joining",
+          "region_id": "meeting",
+          "region": "Meeting and guest context",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 845,
+            "y": 55,
+            "width": 300,
+            "height": 90
+          }
+        },
+        {
+          "label": "Recording / transcription / AI notes",
+          "region_id": "meeting",
+          "region": "Meeting and guest context",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 845,
+            "y": 185,
+            "width": 300,
+            "height": 140
+          }
+        },
+        {
+          "label": "Host policy for guests",
+          "region_id": "meeting",
+          "region": "Meeting and guest context",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 845,
+            "y": 360,
+            "width": 300,
+            "height": 100
+          }
+        },
+        {
+          "label": "Off by default; notice is informational",
+          "region_id": "caveat",
+          "region": "Detached defaults and informational limit",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 535,
+            "width": 1080,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Off by default; notice is informational",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 80,
+      "explanatory_substage_labels": [
+        "Organizational scope",
+        "Always"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Organizational scope",
+        "Custom notice",
+        "Before joining"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "Administrators enable custom short text and optional policy URL at the organizational-unit level; the feature is off by default.",
+          "allowed_path": "Administrator policy scope and trigger settings cause a custom notice to appear before joining; the notice informs users and does not itself grant permissions or stop recording.",
+          "blocked_path": "No padlock/shield, consent approval, recording prevention guarantee, off/on slider or invented control. No arrow from notice to activation of recording or AI notes.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Organizational scope",
+          "to": "Custom notice",
+          "direction": "conditional",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Administrator organizational policy scope",
+          "target_region": "Pre-join custom notice and durable policy link",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Always",
+          "to": "Custom notice",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Alternative display triggers",
+          "target_region": "Pre-join custom notice and durable policy link",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "When artifacts are active",
+          "to": "Custom notice",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Alternative display triggers",
+          "target_region": "Pre-join custom notice and durable policy link",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Custom notice",
+          "to": "Before joining",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Pre-join custom notice and durable policy link",
+          "target_region": "Meeting and guest context",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "scope",
+            "description": "Administrator organizational policy scope",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 310,
+              "height": 180
+            }
+          },
+          {
+            "id": "triggers",
+            "description": "Alternative display triggers",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 240,
+              "width": 310,
+              "height": 260
+            }
+          },
+          {
+            "id": "notice",
+            "description": "Pre-join custom notice and durable policy link",
+            "bounding_box_px": {
+              "x": 380,
+              "y": 40,
+              "width": 420,
+              "height": 460
+            }
+          },
+          {
+            "id": "meeting",
+            "description": "Meeting and guest context",
+            "bounding_box_px": {
+              "x": 830,
+              "y": 40,
+              "width": 330,
+              "height": 460
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached defaults and informational limit",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 520,
+              "width": 1120,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Organizational scope",
+            "to": "Custom notice",
+            "direction": "conditional",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "scope",
+            "to_region_id": "notice",
+            "origin_px": {
+              "x": 195,
+              "y": 165
+            },
+            "target_px": {
+              "x": 590,
+              "y": 55
+            }
+          },
+          {
+            "from": "Always",
+            "to": "Custom notice",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "triggers",
+            "to_region_id": "notice",
+            "origin_px": {
+              "x": 195,
+              "y": 310
+            },
+            "target_px": {
+              "x": 590,
+              "y": 55
+            }
+          },
+          {
+            "from": "When artifacts are active",
+            "to": "Custom notice",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "triggers",
+            "to_region_id": "notice",
+            "origin_px": {
+              "x": 195,
+              "y": 465
+            },
+            "target_px": {
+              "x": 590,
+              "y": 55
+            }
+          },
+          {
+            "from": "Custom notice",
+            "to": "Before joining",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "notice",
+            "to_region_id": "meeting",
+            "origin_px": {
+              "x": 590,
+              "y": 125
+            },
+            "target_px": {
+              "x": 995,
+              "y": 55
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor; original primary-source and exact geometry comparison",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "5bf12280d26441cda77f7e79e8ae56e284ccfb22f6288debc967e5fe03f3fa6b"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/10/display-custom-policy-in-green-room-before-Google-Meet-Calls.html?m=1",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: infographic-diagram. Create ONE premium finished static factual editorial raster illustration, exactly 1200x630 landscape, white background, not an editable engineering drawing. Use refined textbook linework and restrained dimensional depth, navy and ochre. All graphics and labels stay inside 40px safe margins.\nVisual thesis: Administrator policy scope and trigger settings cause a custom notice to appear before joining; the notice informs users and does not itself grant permissions or stop recording.\nSource-supported facts: Administrators enable custom short text and optional policy URL at the organizational-unit level; the feature is off by default. The message can always appear or appear only while recording, transcription or Gemini note-taking is active. The message is presented in the pre-join green room; guests receive the host organization notice. It is a notice, not a consent or access-control guarantee.\nComposition: Left upper administrative scope, left lower trigger alternatives; large center pre-join notice plane; right host/guest presentation and meeting threshold; detached bottom behavior caveat.\nMeaningful mechanism details: Show three abstract organizational scope branches, two mutually alternative trigger paths, distinct recording/transcription/AI-notes artifact symbols without fake document lines, a custom notice plane, optional policy-link attachment, pre-join threshold, host-policy boundary and guest path. No person or meeting-screen avatars. The flow ends with notice presentation, not permission to start artifacts.\nRender ONLY these exact labels, each ONCE: [\"Organizational scope\",\"Always\",\"When artifacts are active\",\"Custom notice\",\"Policy link\",\"Before joining\",\"Recording / transcription / AI notes\",\"Host policy for guests\",\"Off by default; notice is informational\"]. No extra title or caption. Two or three priority labels at least 36px; every secondary label at least 28px in final pixels. Crisp bold sans-serif, nonoverlapping, ample label boxes. Follow the frozen actual regions and label positions. Arrows follow ONLY the listed source-supported paths, route around text and attach to the exact stated mechanism. Other braces are nondirectional comparisons. Caveat is detached, with NO connectors.\nSpecific exclusions from source and actual prior rejected candidates: No padlock/shield, consent approval, recording prevention guarantee, off/on slider or invented control. No arrow from notice to activation of recording or AI notes.\nNo people, faces, hands, avatars, humanoids, logos, photorealism, fake document strokes, simulated writing, dashboard cards, gears, shields, sliders, trophies, checkmarks, invented charts, unsupported outcomes, unlisted text or digits. Do not shrink the composition or add letterboxing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"scope\",\"description\":\"Administrator organizational policy scope\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":310,\"height\":180}},{\"id\":\"triggers\",\"description\":\"Alternative display triggers\",\"bounding_box_px\":{\"x\":40,\"y\":240,\"width\":310,\"height\":260}},{\"id\":\"notice\",\"description\":\"Pre-join custom notice and durable policy link\",\"bounding_box_px\":{\"x\":380,\"y\":40,\"width\":420,\"height\":460}},{\"id\":\"meeting\",\"description\":\"Meeting and guest context\",\"bounding_box_px\":{\"x\":830,\"y\":40,\"width\":330,\"height\":460}},{\"id\":\"caveat\",\"description\":\"Detached defaults and informational limit\",\"bounding_box_px\":{\"x\":40,\"y\":520,\"width\":1120,\"height\":70}}],\"labels\":[{\"label\":\"Organizational scope\",\"region_id\":\"scope\",\"region\":\"Administrator organizational policy scope\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":280,\"height\":110}},{\"label\":\"Always\",\"region_id\":\"triggers\",\"region\":\"Alternative display triggers\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":255,\"width\":280,\"height\":55}},{\"label\":\"When artifacts are active\",\"region_id\":\"triggers\",\"region\":\"Alternative display triggers\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":365,\"width\":280,\"height\":100}},{\"label\":\"Custom notice\",\"region_id\":\"notice\",\"region\":\"Pre-join custom notice and durable policy link\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":395,\"y\":140,\"width\":390,\"height\":70}},{\"label\":\"Policy link\",\"region_id\":\"notice\",\"region\":\"Pre-join custom notice and durable policy link\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":395,\"y\":260,\"width\":390,\"height\":70}},{\"label\":\"Before joining\",\"region_id\":\"meeting\",\"region\":\"Meeting and guest context\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":845,\"y\":55,\"width\":300,\"height\":90}},{\"label\":\"Recording / transcription / AI notes\",\"region_id\":\"meeting\",\"region\":\"Meeting and guest context\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":845,\"y\":185,\"width\":300,\"height\":140}},{\"label\":\"Host policy for guests\",\"region_id\":\"meeting\",\"region\":\"Meeting and guest context\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":845,\"y\":360,\"width\":300,\"height\":100}},{\"label\":\"Off by default; notice is informational\",\"region_id\":\"caveat\",\"region\":\"Detached defaults and informational limit\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":535,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Organizational scope\",\"to\":\"Custom notice\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"scope\",\"to_region_id\":\"notice\",\"origin_px\":{\"x\":195,\"y\":165},\"target_px\":{\"x\":590,\"y\":55}},{\"from\":\"Always\",\"to\":\"Custom notice\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"triggers\",\"to_region_id\":\"notice\",\"origin_px\":{\"x\":195,\"y\":310},\"target_px\":{\"x\":590,\"y\":55}},{\"from\":\"When artifacts are active\",\"to\":\"Custom notice\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"triggers\",\"to_region_id\":\"notice\",\"origin_px\":{\"x\":195,\"y\":465},\"target_px\":{\"x\":590,\"y\":55}},{\"from\":\"Custom notice\",\"to\":\"Before joining\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"notice\",\"to_region_id\":\"meeting\",\"origin_px\":{\"x\":590,\"y\":125},\"target_px\":{\"x\":995,\"y\":55}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nFirst-render reinforcement: no enclosing region frames, heading banners, label boxes or caveat boxes; render dark labels directly on white. Keep every actual ink mark at least 90px from the edges if exporting at the native reference size around 1731x909, corresponding to more than 40px in the final 1200x630. Keep label glyphs very large: priority about 60px at native size and secondary at least 44px. Use only the exact frozen words; no added captions, formulas or symbols. These are editorial compositions with generous safe text insets, not dashboards.\nBottom-note placement lesson from actual current-run rejects: render the detached source caveat as MEDIUM secondary type, about48px at native1731x909 and at least28px at final1200x630. Put all its glyphs between native y750 and y815, with a broad white band below, never aligned to the bottom edge or enlarged to fill the image width. Keep all other text and shapes 90 native pixels inside edges. Use only meaningful source-supported forms, with no fake paragraphs or decorative token repetition.\nTARGETED SAVED-PIXEL CORRECTION: Replace BOTH four-point sparkle/star icons for AI notes with plain document-outline artifacts with NO fake writing. A sparkle is a brand-like AI symbol and must not appear. Delete the lowercase information i glyph entirely; it is not in the allowlist. Replace the laptop/window with a clean conceptual notice plane, preserving the exact Custom notice caption above it and the chain-link attachment with exact Policy link caption, but no button border or invented UI controls. Keep the source-correct scope fan, alternative triggers, pre-join order, recording/microphone artifacts and host-policy boundary. Preserve every exact caption and the good footer position. No extra characters or pseudo-writing.\nFINAL MEANING-ONLY CORRECTION: The large empty gold circle remaining inside the notice is unexplained decorative filler. Remove that circle entirely. Move the single existing Custom notice caption from above the notice plane INTO that now-clear upper center of the plane, preserving font size and exact wording, with no duplicate. Keep Policy link with chain attachment in its lower area. Move the Custom notice -> Before joining connector so it clearly leaves the actual notice plane and ends at the pre-join caption without crossing text. Preserve all other source-correct symbols, labels, scope/trigger lines and safe margins. No new words or objects."
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-04",
+    "story_id": "nov04-a2-three-check-agent-brief",
+    "source_url": "https://every.to/context-window/agents-choose-what-you-read-now",
+    "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+    "visual_thesis": "A bounded agent task is briefed through opportunity discovery, explicit source and recency checking, then a chosen delivery format before drafting; benefits are measured rather than guaranteed.",
+    "mechanism_metaphor": "three-stage briefing stair",
+    "story_anchors": [
+      "Ask for useful work not yet tried",
+      "Ask source and last-updated date; choose format before drafting"
+    ],
+    "required_labels": [
+      "Untried useful task",
+      "Bounded delegation",
+      "Source",
+      "Last-updated date",
+      "Check evidence",
+      "Choose format",
+      "Video / webpage / plan",
+      "Draft after format",
+      "Measure rework; no guaranteed gain"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "The roundup recommends asking an agent what useful work it can do that the user has not tried, exposing possible delegation blind spots.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: The roundup recommends asking an agent what useful work it can do that the user has not tried, exposing possible delegation blind spots.",
+        "source_url": "https://every.to/context-window/agents-choose-what-you-read-now",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Before acting, ask for the source and when it was last updated; the user checks that evidence.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Before acting, ask for the source and when it was last updated; the user checks that evidence.",
+        "source_url": "https://every.to/context-window/agents-choose-what-you-read-now",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-3",
+        "proposition": "Choose the final format before writing, with video, webpage or interactive plan as examples. This three-check Skill is the edition synthesis, not a guaranteed productivity result.",
+        "supporting_source_excerpt": "Reviewed primary-source paraphrase: Choose the final format before writing, with video, webpage or interactive plan as examples. This three-check Skill is the edition synthesis, not a guaranteed productivity result.",
+        "source_url": "https://every.to/context-window/agents-choose-what-you-read-now",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Untried useful task",
+        "to": "Check evidence",
+        "direction": "conditional",
+        "support_claim_id": "claim-1",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Source",
+        "to": "Check evidence",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Last-updated date",
+        "to": "Check evidence",
+        "direction": "conditional",
+        "support_claim_id": "claim-2",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Check evidence",
+        "to": "Choose format",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Choose format",
+        "to": "Draft after format",
+        "direction": "conditional",
+        "support_claim_id": "claim-3",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No unallowlisted role grid, duplicated Source words, added Date/Owner/Stop/Expand labels, tick marks, fake document text or unmeasured productivity chart.",
+      "No people, humanoids, logos, photography, invented controls, gears, shields, fake writing, unsupported chart marks or unlisted text."
+    ],
+    "composition_signature": {
+      "grammar": "ascending three-step evidence-aware delegation stair with separate format fan",
+      "metaphor": "three-stage briefing stair",
+      "palette": "forest green and muted gold",
+      "layout": "Left task-opportunity step, upper-middle evidence-and-recency step, right format-before-drafting step; bottom detached measured-outcome note.",
+      "annotation": "step risers with paired evidence tags and output format fan"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2,
+      "actual_components": "Show bounded-task enclosure, untried-task opening, opportunity selection path, actual source attachment and separate date tag, evidence inspection junction, format-choice branching into a video frame, webpage plane and interactive-plan branching geometry, followed by a draft boundary. No fake prose, repeated words or role grids. The workflow is an editorial synthesis and never claims an automated source guarantee."
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Untried useful task",
+          "region_id": "opportunity",
+          "region": "Bounded task-discovery step",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 195,
+            "width": 290,
+            "height": 110
+          }
+        },
+        {
+          "label": "Bounded delegation",
+          "region_id": "opportunity",
+          "region": "Bounded task-discovery step",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 55,
+            "y": 390,
+            "width": 290,
+            "height": 80
+          }
+        },
+        {
+          "label": "Source",
+          "region_id": "evidence",
+          "region": "Source and recency verification step",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 405,
+            "y": 105,
+            "width": 320,
+            "height": 55
+          }
+        },
+        {
+          "label": "Last-updated date",
+          "region_id": "evidence",
+          "region": "Source and recency verification step",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 405,
+            "y": 215,
+            "width": 320,
+            "height": 90
+          }
+        },
+        {
+          "label": "Check evidence",
+          "region_id": "evidence",
+          "region": "Source and recency verification step",
+          "minimum_font_px": 36,
+          "bounding_box_px": {
+            "x": 405,
+            "y": 380,
+            "width": 320,
+            "height": 80
+          }
+        },
+        {
+          "label": "Choose format",
+          "region_id": "format",
+          "region": "Format choice before drafting step",
+          "minimum_font_px": 40,
+          "bounding_box_px": {
+            "x": 785,
+            "y": 55,
+            "width": 360,
+            "height": 70
+          }
+        },
+        {
+          "label": "Video / webpage / plan",
+          "region_id": "format",
+          "region": "Format choice before drafting step",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 785,
+            "y": 210,
+            "width": 360,
+            "height": 100
+          }
+        },
+        {
+          "label": "Draft after format",
+          "region_id": "format",
+          "region": "Format choice before drafting step",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 785,
+            "y": 390,
+            "width": 360,
+            "height": 80
+          }
+        },
+        {
+          "label": "Measure rework; no guaranteed gain",
+          "region_id": "caveat",
+          "region": "Detached outcome-measurement limitation",
+          "minimum_font_px": 28,
+          "bounding_box_px": {
+            "x": 60,
+            "y": 535,
+            "width": 1080,
+            "height": 40
+          }
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Measure rework; no guaranteed gain",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 80,
+      "explanatory_substage_labels": [
+        "Untried useful task",
+        "Bounded delegation"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Untried useful task",
+        "Source",
+        "Check evidence"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "causal_state_checks": [
+        {
+          "condition": "The roundup recommends asking an agent what useful work it can do that the user has not tried, exposing possible delegation blind spots.",
+          "allowed_path": "A bounded agent task is briefed through opportunity discovery, explicit source and recency checking, then a chosen delivery format before drafting; benefits are measured rather than guaranteed.",
+          "blocked_path": "No unallowlisted role grid, duplicated Source words, added Date/Owner/Stop/Expand labels, tick marks, fake document text or unmeasured productivity chart.",
+          "support_claim_id": "claim-1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Untried useful task",
+          "to": "Check evidence",
+          "direction": "conditional",
+          "support_claim_id": "claim-1",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Bounded task-discovery step",
+          "target_region": "Source and recency verification step",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Source",
+          "to": "Check evidence",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Source and recency verification step",
+          "target_region": "Source and recency verification step",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Last-updated date",
+          "to": "Check evidence",
+          "direction": "conditional",
+          "support_claim_id": "claim-2",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Source and recency verification step",
+          "target_region": "Source and recency verification step",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Check evidence",
+          "to": "Choose format",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Source and recency verification step",
+          "target_region": "Format choice before drafting step",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Choose format",
+          "to": "Draft after format",
+          "direction": "conditional",
+          "support_claim_id": "claim-3",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "Format choice before drafting step",
+          "target_region": "Format choice before drafting step",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "opportunity",
+            "description": "Bounded task-discovery step",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 180,
+              "width": 320,
+              "height": 320
+            }
+          },
+          {
+            "id": "evidence",
+            "description": "Source and recency verification step",
+            "bounding_box_px": {
+              "x": 390,
+              "y": 90,
+              "width": 350,
+              "height": 410
+            }
+          },
+          {
+            "id": "format",
+            "description": "Format choice before drafting step",
+            "bounding_box_px": {
+              "x": 770,
+              "y": 40,
+              "width": 390,
+              "height": 460
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached outcome-measurement limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 520,
+              "width": 1120,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Untried useful task",
+            "to": "Check evidence",
+            "direction": "conditional",
+            "support_claim_id": "claim-1",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "opportunity",
+            "to_region_id": "evidence",
+            "origin_px": {
+              "x": 200,
+              "y": 305
+            },
+            "target_px": {
+              "x": 565,
+              "y": 380
+            }
+          },
+          {
+            "from": "Source",
+            "to": "Check evidence",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "evidence",
+            "to_region_id": "evidence",
+            "origin_px": {
+              "x": 565,
+              "y": 160
+            },
+            "target_px": {
+              "x": 565,
+              "y": 380
+            }
+          },
+          {
+            "from": "Last-updated date",
+            "to": "Check evidence",
+            "direction": "conditional",
+            "support_claim_id": "claim-2",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "evidence",
+            "to_region_id": "evidence",
+            "origin_px": {
+              "x": 565,
+              "y": 305
+            },
+            "target_px": {
+              "x": 565,
+              "y": 380
+            }
+          },
+          {
+            "from": "Check evidence",
+            "to": "Choose format",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "evidence",
+            "to_region_id": "format",
+            "origin_px": {
+              "x": 565,
+              "y": 460
+            },
+            "target_px": {
+              "x": 965,
+              "y": 55
+            }
+          },
+          {
+            "from": "Choose format",
+            "to": "Draft after format",
+            "direction": "conditional",
+            "support_claim_id": "claim-3",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "format",
+            "to_region_id": "format",
+            "origin_px": {
+              "x": 965,
+              "y": 125
+            },
+            "target_px": {
+              "x": 965,
+              "y": 390
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor; original primary-source and exact geometry comparison",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "a20f2d3343e72ec888d10de6cc79695cfa51e4d1d43362c6ee6cabf3b00e07bd"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://every.to/context-window/agents-choose-what-you-read-now",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: infographic-diagram. Create ONE premium finished static factual editorial raster illustration, exactly 1200x630 landscape, white background, not an editable engineering drawing. Use refined textbook linework and restrained dimensional depth, forest green and muted gold. All graphics and labels stay inside 40px safe margins.\nVisual thesis: A bounded agent task is briefed through opportunity discovery, explicit source and recency checking, then a chosen delivery format before drafting; benefits are measured rather than guaranteed.\nSource-supported facts: The roundup recommends asking an agent what useful work it can do that the user has not tried, exposing possible delegation blind spots. Before acting, ask for the source and when it was last updated; the user checks that evidence. Choose the final format before writing, with video, webpage or interactive plan as examples. This three-check Skill is the edition synthesis, not a guaranteed productivity result.\nComposition: Left task-opportunity step, upper-middle evidence-and-recency step, right format-before-drafting step; bottom detached measured-outcome note.\nMeaningful mechanism details: Show bounded-task enclosure, untried-task opening, opportunity selection path, actual source attachment and separate date tag, evidence inspection junction, format-choice branching into a video frame, webpage plane and interactive-plan branching geometry, followed by a draft boundary. No fake prose, repeated words or role grids. The workflow is an editorial synthesis and never claims an automated source guarantee.\nRender ONLY these exact labels, each ONCE: [\"Untried useful task\",\"Bounded delegation\",\"Source\",\"Last-updated date\",\"Check evidence\",\"Choose format\",\"Video / webpage / plan\",\"Draft after format\",\"Measure rework; no guaranteed gain\"]. No extra title or caption. Two or three priority labels at least 36px; every secondary label at least 28px in final pixels. Crisp bold sans-serif, nonoverlapping, ample label boxes. Follow the frozen actual regions and label positions. Arrows follow ONLY the listed source-supported paths, route around text and attach to the exact stated mechanism. Other braces are nondirectional comparisons. Caveat is detached, with NO connectors.\nSpecific exclusions from source and actual prior rejected candidates: No unallowlisted role grid, duplicated Source words, added Date/Owner/Stop/Expand labels, tick marks, fake document text or unmeasured productivity chart.\nNo people, faces, hands, avatars, humanoids, logos, photorealism, fake document strokes, simulated writing, dashboard cards, gears, shields, sliders, trophies, checkmarks, invented charts, unsupported outcomes, unlisted text or digits. Do not shrink the composition or add letterboxing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"opportunity\",\"description\":\"Bounded task-discovery step\",\"bounding_box_px\":{\"x\":40,\"y\":180,\"width\":320,\"height\":320}},{\"id\":\"evidence\",\"description\":\"Source and recency verification step\",\"bounding_box_px\":{\"x\":390,\"y\":90,\"width\":350,\"height\":410}},{\"id\":\"format\",\"description\":\"Format choice before drafting step\",\"bounding_box_px\":{\"x\":770,\"y\":40,\"width\":390,\"height\":460}},{\"id\":\"caveat\",\"description\":\"Detached outcome-measurement limitation\",\"bounding_box_px\":{\"x\":40,\"y\":520,\"width\":1120,\"height\":70}}],\"labels\":[{\"label\":\"Untried useful task\",\"region_id\":\"opportunity\",\"region\":\"Bounded task-discovery step\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":55,\"y\":195,\"width\":290,\"height\":110}},{\"label\":\"Bounded delegation\",\"region_id\":\"opportunity\",\"region\":\"Bounded task-discovery step\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":55,\"y\":390,\"width\":290,\"height\":80}},{\"label\":\"Source\",\"region_id\":\"evidence\",\"region\":\"Source and recency verification step\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":405,\"y\":105,\"width\":320,\"height\":55}},{\"label\":\"Last-updated date\",\"region_id\":\"evidence\",\"region\":\"Source and recency verification step\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":405,\"y\":215,\"width\":320,\"height\":90}},{\"label\":\"Check evidence\",\"region_id\":\"evidence\",\"region\":\"Source and recency verification step\",\"minimum_font_px\":36,\"bounding_box_px\":{\"x\":405,\"y\":380,\"width\":320,\"height\":80}},{\"label\":\"Choose format\",\"region_id\":\"format\",\"region\":\"Format choice before drafting step\",\"minimum_font_px\":40,\"bounding_box_px\":{\"x\":785,\"y\":55,\"width\":360,\"height\":70}},{\"label\":\"Video / webpage / plan\",\"region_id\":\"format\",\"region\":\"Format choice before drafting step\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":785,\"y\":210,\"width\":360,\"height\":100}},{\"label\":\"Draft after format\",\"region_id\":\"format\",\"region\":\"Format choice before drafting step\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":785,\"y\":390,\"width\":360,\"height\":80}},{\"label\":\"Measure rework; no guaranteed gain\",\"region_id\":\"caveat\",\"region\":\"Detached outcome-measurement limitation\",\"minimum_font_px\":28,\"bounding_box_px\":{\"x\":60,\"y\":535,\"width\":1080,\"height\":40}}],\"connector_anchors\":[{\"from\":\"Untried useful task\",\"to\":\"Check evidence\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-1\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"opportunity\",\"to_region_id\":\"evidence\",\"origin_px\":{\"x\":200,\"y\":305},\"target_px\":{\"x\":565,\"y\":380}},{\"from\":\"Source\",\"to\":\"Check evidence\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"evidence\",\"to_region_id\":\"evidence\",\"origin_px\":{\"x\":565,\"y\":160},\"target_px\":{\"x\":565,\"y\":380}},{\"from\":\"Last-updated date\",\"to\":\"Check evidence\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-2\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"evidence\",\"to_region_id\":\"evidence\",\"origin_px\":{\"x\":565,\"y\":305},\"target_px\":{\"x\":565,\"y\":380}},{\"from\":\"Check evidence\",\"to\":\"Choose format\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"evidence\",\"to_region_id\":\"format\",\"origin_px\":{\"x\":565,\"y\":460},\"target_px\":{\"x\":965,\"y\":55}},{\"from\":\"Choose format\",\"to\":\"Draft after format\",\"direction\":\"conditional\",\"support_claim_id\":\"claim-3\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"format\",\"to_region_id\":\"format\",\"origin_px\":{\"x\":965,\"y\":125},\"target_px\":{\"x\":965,\"y\":390}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nFirst-render reinforcement: no enclosing region frames, heading banners, label boxes or caveat boxes; render dark labels directly on white. Keep every actual ink mark at least 90px from the edges if exporting at the native reference size around 1731x909, corresponding to more than 40px in the final 1200x630. Keep label glyphs very large: priority about 60px at native size and secondary at least 44px. Use only the exact frozen words; no added captions, formulas or symbols. These are editorial compositions with generous safe text insets, not dashboards.\nBottom-note placement lesson from actual current-run rejects: render the detached source caveat as MEDIUM secondary type, about48px at native1731x909 and at least28px at final1200x630. Put all its glyphs between native y750 and y815, with a broad white band below, never aligned to the bottom edge or enlarged to fill the image width. Keep all other text and shapes 90 native pixels inside edges. Use only meaningful source-supported forms, with no fake paragraphs or decorative token repetition.\nTARGETED SAVED-PIXEL CORRECTION: Remove EVERY simulated writing line on the Source document, webpage example and Draft artifact. Leave those artifact faces smooth and blank; their exact existing captions already explain them. Remove the webpage titlebar and three dots, and remove the playback slider/bar and knob from the video example; keep only a plain play triangle within the video outline. Replace the literal door, handle, floor shadow and golden rays with a clean abstract bounded-task enclosure having one visible opening and a single source-bound opportunity path to Check evidence, with no door/scenery or glow. Keep the exact Untried useful task and Bounded delegation captions and all correct evidence/source/date/format/draft links. No fake paragraph strips, role grid, extra text or invented controls. Keep the good caveat position and all existing readable label sizes."
+  }
+]
