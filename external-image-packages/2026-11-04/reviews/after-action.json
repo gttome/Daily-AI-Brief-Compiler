@@ -1,0 +1,293 @@
+{
+  "schema_version": "external-image-after-action-v1",
+  "status": "READY_FOR_PROTECTED_RELEASE",
+  "edition_date": "2026-11-04",
+  "cycle_date": "2026-11-03",
+  "job_sha256": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
+  "original_source_commit_sha": "efe302600dc28d74826b3e2bff631bf4bbea5d96",
+  "original_bundle_sha256": "0267bb6065afcb96df4d9f77f65fc0deeaaeac44cf0c9b4350f5c7344dc3224b",
+  "human_readable_path": "external-image-packages/2026-11-04/reviews/after-action.md",
+  "production": {
+    "actual_generation_count": 21,
+    "accepted_count": 6,
+    "rejected_count": 15,
+    "accepted_art_regenerated_after_lock": 0,
+    "github_binary_stage_commit": "6ed65f484346f97cebcdf69dc2291a210d2ab4b1",
+    "host_execution_observed_at": "2026-11-04T03:14:35Z",
+    "host_execution_observation_source": "executor_observed_in_same_invocation",
+    "generation_started_at": "2026-11-04T03:21:28Z",
+    "generation_start_source": "executor_observed_before_first_native_call",
+    "first_pass_accepts": 0
+  },
+  "images": [
+    {
+      "story_id": "nov04-t1-weight-space-repair",
+      "sha256": "88acde77bd8378f69cdaa3f4d438a0513ec58f6eee82ce9c9f3f0cfbea7b6f3f",
+      "generation_attempts": 4,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov04-t2-statebench-state-tracking",
+      "sha256": "7d1f470212715beabca3538a2da29e2ac3dccb16a0d376bfa2274d52ae0969f8",
+      "generation_attempts": 4,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov04-k1-openai-physical-engineering",
+      "sha256": "7f9b3bcf43a6f0f90308ef188f6e3413262afb918c64eefc4c33b85e8f45de4e",
+      "generation_attempts": 3,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov04-k2-palette-deck-building",
+      "sha256": "bd9b5f58a1aeb948844c030cdaf66d1192a694b83114a4f25b3699b5b3cc5933",
+      "generation_attempts": 5,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov04-a1-meet-policy-notices",
+      "sha256": "56a7602a792475325d18f1468e62b9a661dab2a8feede98d8ac5fc9e5f3dbe81",
+      "generation_attempts": 3,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov04-a2-three-check-agent-brief",
+      "sha256": "3897a9ca4e8ea3faed9ea0dc35ccdce8d0239852e4f1899c67de1ba465fc4062",
+      "generation_attempts": 2,
+      "first_pass_accepted": false
+    }
+  ],
+  "errors": [
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-t1-weight-space-repair attempt 1: Extra Input, Output, MLP and Held-out evaluation labels; 0.016% brace attached under unchanged blue cells; extra arithmetic glyphs; repeated enclosing cards; outer strokes cross 40px safe margin.",
+      "correction": "TARGETED CORRECTION after actual saved-pixel rejection: Delete every extra Input, Output, MLP, 15, 19 and Held-out evaluation caption outside the nine exact labels. Remove the minus and equals glyphs and their vector strips. Keep a magnified selected orange column edit only. Put the 0.016% edited brace directly beneath the orange EDITED COLUMNS, never beneath unchanged blue cells. Move all boundary strokes inside 40px; bottom caveat text baseline inside y590. No repeated enclosing cards: leave the large model lattice unboxed. Preserve the source-correct main hierarchy and the nine exact mandatory labels.",
+      "generation_rejection": {
+        "story_id": "nov04-t1-weight-space-repair",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t1-rejection-1.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-t1-weight-space-repair attempt 2: Layers 15 and 19 caption remains undersized at final 1200px output; outer borders and bottom caveat violate 40px safe inset. Corrected unallowlisted text and edited-column brace are preserved.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-t1-weight-space-repair",
+        "attempt": 2,
+        "defect_codes": [
+          "TYPOGRAPHY",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t1-rejection-2.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-t1-weight-space-repair attempt 3: Correct labels and brace, readable 320px priorities; bottom caveat enclosing stroke still extends beyond 40px safe inset. Removing only those outer frames; no semantic defect found.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-t1-weight-space-repair",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t1-rejection-3.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-t2-statebench-state-tracking attempt 1: Variable/subscript and assignment/function formula glyphs are not in the frozen nine-label allowlist; enclosing frames cross safe margins. Preserve the four comparison mechanisms; replace glyphs with clean unlabeled shapes.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t2-rejection-1.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-t2-statebench-state-tracking attempt 2: Identical blank tokens obscure state identity and update effects; left captions cross safe margin; unplanned green feedback link remains. Replace with distinct conceptual shapes per immutable/overwrite/accumulate/copy relationship and remove feedback.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t2-rejection-2.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-t2-statebench-state-tracking attempt 3: Mechanisms now distinguish immutable, overwritten, accumulated and copied values without formulas. Filled heading banners and right evidence frame still extend outside safe margins; remove only those frames and preserve text.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t2-rejection-3.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-k1-openai-physical-engineering attempt 1: Interface and firmware show rows of simulated writing/code. Manufacturer review depicts completed-device replicas instead of inspection; bottom caveat glyphs extend below safe area. Preserve actual exploded hardware and review gaps; remove fake writing and success implication.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-k1-openai-physical-engineering",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "UNSUPPORTED_CLAIM",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k1-rejection-1.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-k1-openai-physical-engineering attempt 2: Source-bound hardware, review boundary and clean artifact planes now pass; bottom caveat still extends below final y590. Reduce only its font to existing Firmware label size and raise baseline; preserve all passing features.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-k1-openai-physical-engineering",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k1-rejection-2.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-k2-palette-deck-building attempt 1: Designer then coder caption under repair misstates chronology; source-supported flow otherwise correct. Window dot controls and overflow burst strokes are unneeded invented decoration. Top brief and bottom caveat violate margins. Remove misleading caption from revised frozen allowlist and correct only failed details.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-1.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-k2-palette-deck-building attempt 2: Main labels, clean artifact blocks and conditional repair source fidelity pass; caveat still exceeds bottom safe margin. Reformat the same exact phrase over two lines inside reviewed bottom region without changing mechanism.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-2.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-k2-palette-deck-building attempt 3: Two-line caveat placed too low beneath retained-original panel, exceeding final y590. Move unchanged phrase to genuinely clear bottom-left area under repair artifact with reviewed safe text rectangle.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-3.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-k2-palette-deck-building attempt 4: Caveat correctly moved to clear bottom-left, but second line still falls below final y590. Raise the existing two lines without resizing or reflow; all other regions preserved.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 4,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-4.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-a1-meet-policy-notices attempt 1: Unallowlisted lowercase i information glyph, brand-like four-point AI sparkles and an invented laptop/button UI. Actual scope/trigger/pre-join notice order is correct. Replace with conceptual notice plane, chain-link and plain note artifacts; preserve all exact captions.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-a1-meet-policy-notices",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/a1-rejection-1.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-a1-meet-policy-notices attempt 2: Brand-like sparkles, i glyph and invented UI removed, but a large unexplained gold circle remains decorative. Replace only that filler with the existing Custom notice caption moved into its actual notice plane; preserve source-correct scope and triggers.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-a1-meet-policy-notices",
+        "attempt": 2,
+        "defect_codes": [
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/a1-rejection-2.json"
+      }
+    },
+    {
+      "phase": "Native saved-pixel inspection",
+      "issue": "nov04-a2-three-check-agent-brief attempt 1: Source, webpage and draft artifacts contain fake prose strips; video has invented slider knob, webpage has dot controls, and opportunity opening became a scenic door with glow. Preserve correct source/date/check/format/draft sequence; replace only these unsupported details.",
+      "correction": "Applied the recorded same-story native correction, preserved passing features, exported a complete PNG and reinspected the actual full-size and mobile pixels before acceptance.",
+      "generation_rejection": {
+        "story_id": "nov04-a2-three-check-agent-brief",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/a2-rejection-1.json"
+      }
+    }
+  ],
+  "publication": {
+    "result": "PENDING_PROTECTED_PR_CI_MERGE_AND_DEPLOYMENT",
+    "verified_at": null
+  },
+  "visual_review": {
+    "result": "PENDING_LIVE_24_CONTEXT_REVIEW",
+    "reviewed_targets": 0,
+    "review_path": null
+  },
+  "usage": {
+    "work_usage_percent": null,
+    "cost_usd": null,
+    "basis": "UNKNOWN: no authoritative cycle-specific usage or cost supplied"
+  },
+  "notes": [
+    "November 3 baseline remains immutable: 12 attempts, six rejected candidates and one first-pass acceptance. This edition used 21 attempts, 15 rejections and zero first-pass acceptances; observed image efficiency worsened. Different stories and compositions limit causal comparison.",
+    "November 3\u20135 targets missed: zero of six first-pass accepts versus target at least three; five of six images exceeded the two-attempt goal. Quality corrections continued without an attempt cap.",
+    "Actual saved-pixel defects were recorded during generation, with multiple allowed codes per rejected attempt. Do not multiply rejected-attempt counts by code counts.",
+    "Current COMMON and IMAGES v2026-11-03.2 and detailed references read at protected main 952bb3a59a5f79335fcda33afe7a686dddfa407a. Previous combined AAR, chart data and improvement metrics read from operations-reports/daily/2026-11-02 for the November 3 edition.",
+    "Approved change register reviews are due November 11; no efficacy success, retirement or scheduler-autonomy claim is made from this one cycle.",
+    "Six accepted assets are immutable and exact connected GitHub binary readbacks passed. Genuine protected publication, live hash/pairing/October8 integrity verification and all 24 semantic contexts remain pending.",
+    "Scheduler origin remains UNPROVEN. No owner-computer, paid API, TinyFish, metered service, new producer or additional schedule was used. Existing protected workflows remain the only release route."
+  ],
+  "change_evaluations": []
+}
