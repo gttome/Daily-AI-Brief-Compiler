@@ -1,0 +1,236 @@
+{
+  "schema_version": "daily-compiler-editorial-candidates-v1",
+  "edition_date": "2026-11-04",
+  "review_completed_at": "2026-11-04T01:38:25.804Z",
+  "selection_status": "DRAFT_NOT_LOCKED_MEDIA_BLOCKED",
+  "quota": {
+    "technical": 2,
+    "applied": 2,
+    "agents": 2,
+    "agent_skills": 1
+  },
+  "draft_selected": [
+    {
+      "story_id": "nov04-t1-weight-space-repair",
+      "headline": "Astra edits model weights without retraining",
+      "summary": "MIT CSAIL researchers report that GPT-6 Astra can inspect, write and repair neural-network weights directly. In one experiment, it changed 0.016% of Qwen3.5-0.8B’s weights, reducing reasoning loops and raising reported MATH-500 accuracy from 7.9% to 48.1% without gradient descent, while the authors stress the work remains early and inefficient.",
+      "why_it_matters": "Direct weight editing could become a targeted repair tool, but the evidence is still a controlled research result. Teams should reproduce the claimed gains, inspect regressions and compare compute costs before treating it as an alternative to training.",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "Weight editing",
+        "Reasoning loops",
+        "Gradient-free repair"
+      ],
+      "publisher": "MIT CSAIL researchers",
+      "resource_id": "mit-csail",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "original_date": "2026-11-02",
+      "read_scope": "Full original project post, experiment setup, reported benchmark table, controls, limitations and future-work section.",
+      "reading_time_minutes": 10,
+      "trend_topic_id": "weight-space-programming-nov02",
+      "selected": true,
+      "retrieved_at": "2026-11-04T01:38:25.804Z",
+      "content_reviewed": true,
+      "summary_word_count": 49,
+      "why_word_count": 38
+    },
+    {
+      "story_id": "nov04-t2-statebench-state-tracking",
+      "headline": "StateBench exposes long-horizon tracking failures",
+      "summary": "Ai2’s StateBench tests whether language models can track evolving states across long sequences in six finite-system tasks. The authors report that frontier models fall to 13% accuracy or less on the longest general cases, while directly trained recurrent and hybrid models generalize farther under the benchmark’s fixed-variable conditions.",
+      "why_it_matters": "Long tool chains and agent workflows depend on remembering what changed, not merely generating plausible next steps. Use this benchmark pattern to stress-test state transitions, while noting that fixed variable counts and numerical precision leave important deployment conditions untested.",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "State tracking",
+        "Finite systems",
+        "Long horizons"
+      ],
+      "publisher": "Ai2",
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "url": "https://huggingface.co/blog/allenai/statebench",
+      "original_date": "2026-11-03",
+      "read_scope": "Full original article covering six tasks, long-horizon results, recurrent/hybrid comparison and stated benchmark constraints.",
+      "reading_time_minutes": 8,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-04T01:38:25.804Z",
+      "content_reviewed": true,
+      "summary_word_count": 48,
+      "why_word_count": 39
+    },
+    {
+      "story_id": "nov04-k1-openai-physical-engineering",
+      "headline": "OpenAI’s hardware agent designs a device in weeks",
+      "summary": "OpenAI says its Astra engineering agent produced an enclosure, circuit board, interface and firmware for a portable device without direct human edits. A prototype arrived in under a week and a small batch within a month, but manufacturer review still found tolerance, assembly and verification gaps that required expert judgment.",
+      "why_it_matters": "The case shows where autonomous engineering may compress iteration and where it still needs manufacturing review. Hardware teams can separate agent-generated artifacts from approval checkpoints, then measure rework, safety findings and prototype lead time against a conventional process.",
+      "focus": "applied_generative_ai_for_knowledge_workers",
+      "topics": [
+        "Hardware design",
+        "Autonomous engineering",
+        "Manufacturing review"
+      ],
+      "publisher": "OpenAI",
+      "resource_id": "openai-news",
+      "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world/",
+      "original_date": "2026-11-03",
+      "read_scope": "Full original case study including artifacts, timing, manufacturer review, BenchCAD results and human-review limits.",
+      "reading_time_minutes": 7,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-04T01:38:25.804Z",
+      "content_reviewed": true,
+      "summary_word_count": 50,
+      "why_word_count": 38
+    },
+    {
+      "story_id": "nov04-k2-palette-deck-building",
+      "headline": "Palette trains a small model to build branded decks",
+      "summary": "IBM Research describes Palette, a 20-billion-parameter open model trained on about 1,000 presentations and 10,000 slides. A designer component emits structured plans, a coder writes PptxGenJS, and automated overlap and overflow checks trigger repairs. On PresentBench, IBM reports the checking harness improved results by 3.5 points.",
+      "why_it_matters": "Presentation automation becomes more useful when layout errors are treated as test failures instead of cosmetic surprises. Teams can borrow the planner–coder–checker pattern, but should evaluate brand fidelity, accessibility and complex-chart handling on their own deck library.",
+      "focus": "applied_generative_ai_for_knowledge_workers",
+      "topics": [
+        "Presentation design",
+        "Small models",
+        "Visual QA"
+      ],
+      "publisher": "IBM Research",
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "url": "https://huggingface.co/blog/ibm-research/palette-deck-building",
+      "original_date": "2026-11-03",
+      "read_scope": "Full original article covering training set, designer/coder architecture, PptxGenJS checks, PresentBench and limitations.",
+      "reading_time_minutes": 7,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-04T01:38:25.804Z",
+      "content_reviewed": true,
+      "summary_word_count": 46,
+      "why_word_count": 37
+    },
+    {
+      "story_id": "nov04-a1-meet-policy-notices",
+      "headline": "Meet can show policy notices before Gemini notes",
+      "summary": "Google Workspace now lets administrators show custom policy text before users join Google Meet calls, either always or only when recording, transcription or Gemini note-taking is active. The setting is off by default, can include a policy link and can be applied by organizational unit during the extended rollout.",
+      "why_it_matters": "A visible pre-join notice puts governance at the moment an AI meeting feature is used. Administrators can pair the message with a durable policy page, choose the right organizational scope and confirm that guests see the host’s notice.",
+      "focus": "agents_for_everyone",
+      "topics": [
+        "Meeting notices",
+        "AI note-taking",
+        "Admin policy"
+      ],
+      "publisher": "Google Workspace",
+      "resource_id": "directory-242c2a2fc81a43d41f199129",
+      "url": "https://workspaceupdates.googleblog.com/2026/10/display-custom-policy-in-green-room-before-Google-Meet-Calls.html?m=1",
+      "original_date": "2026-11-03",
+      "read_scope": "Complete original update plus administrator help steps, rollout, scope, defaults and guest-notice behavior.",
+      "reading_time_minutes": 3,
+      "trend_topic_id": null,
+      "selected": true,
+      "audience_fit": "A noncoding administrator can govern recording, transcription and AI notes at the moment employees and guests join a meeting.",
+      "retrieved_at": "2026-11-04T01:38:25.804Z",
+      "content_reviewed": true,
+      "summary_word_count": 49,
+      "why_word_count": 38
+    },
+    {
+      "story_id": "nov04-a2-three-check-agent-brief",
+      "headline": "Use a three-check brief before delegating to an agent",
+      "summary": "Every’s November 1 roundup turns a week of agent experiments into practical delegation habits: ask what useful work the agent can do that you have not tried, require the source and last-updated date for its answer, and choose the final format before drafting. The sequence creates a reusable agent briefing skill.",
+      "why_it_matters": "This skill helps uncover overlooked delegation opportunities without accepting unsupported output. Run the three checks on one bounded task, record the evidence and requested format, then compare whether the result reduced rework or surfaced a genuinely useful workflow.",
+      "focus": "agents_for_everyone",
+      "topics": [
+        "Agent briefing",
+        "Source checks",
+        "Output formats"
+      ],
+      "publisher": "Every",
+      "resource_id": "universe-20261026-every-ai-editorial",
+      "url": "https://every.to/context-window/agents-choose-what-you-read-now",
+      "original_date": "2026-11-01",
+      "read_scope": "Complete original weekly roundup, linked practice descriptions, source-check prompts, delegation examples and limitations.",
+      "reading_time_minutes": 9,
+      "trend_topic_id": null,
+      "selected": true,
+      "audience_fit": "A nontechnical knowledge worker can run the three checks on a bounded task using ordinary chat and existing work documents.",
+      "agent_skill": {
+        "is_skill": true,
+        "name": "Three-check agent brief",
+        "distinct_action": "Ask for an untried useful task, require its source and last-updated date, then specify the delivery format before drafting.",
+        "reader_outcome": "A bounded, evidence-aware delegation brief whose usefulness and rework can be compared with the prior workflow."
+      },
+      "retrieved_at": "2026-11-04T01:38:25.804Z",
+      "content_reviewed": true,
+      "summary_word_count": 51,
+      "why_word_count": 38
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate_id": "cand-nov04-flashprove",
+      "focus": "technical_ai_engineering",
+      "publisher": "Anthropic",
+      "resource_id": "anthropic",
+      "url": "https://www.anthropic.com/research/provable-inference",
+      "original_date": "2026-11-02",
+      "disposition": "qualified_not_selected",
+      "reason": "Strong Top-10 research lead, but the two technical slots provided more distinct reader value on weight repair and long-horizon state tracking."
+    },
+    {
+      "candidate_id": "cand-nov04-pando",
+      "focus": "technical_ai_engineering",
+      "publisher": "OpenAI",
+      "resource_id": "openai-news",
+      "url": "https://openai.com/index/scaling-git-at-openai/",
+      "original_date": "2026-11-02",
+      "disposition": "qualified_not_selected",
+      "reason": "Useful infrastructure account, but the edition already had a stronger OpenAI applied-engineering case and publisher diversity was preferred."
+    },
+    {
+      "candidate_id": "cand-nov04-nvidia-fabs",
+      "focus": "applied_generative_ai_for_knowledge_workers",
+      "publisher": "NVIDIA",
+      "resource_id": "deep-20261026-a03-nvidia-news",
+      "url": "https://blogs.nvidia.com/blog/ai-semiconductor-fabs/",
+      "original_date": "2026-11-03",
+      "disposition": "rejected",
+      "reason": "Current and relevant, but the bounded read did not establish enough operational detail beyond the selected primary cases, and NVIDIA appeared in the previous edition."
+    },
+    {
+      "candidate_id": "cand-nov04-langchain-browser",
+      "focus": "agents_for_everyone",
+      "publisher": "LangChain",
+      "resource_id": "directory-fd36049347d409f38c9f9a67",
+      "url": "https://www.langchain.com/blog",
+      "original_date": "2026-11-03",
+      "disposition": "rejected",
+      "reason": "Fresh browser-agent engineering item, but its coding and framework focus did not meet the noncoding Agents-for-Everyone audience requirement."
+    },
+    {
+      "candidate_id": "cand-nov04-every-autopilot-rerun",
+      "focus": "agents_for_everyone",
+      "publisher": "Every",
+      "resource_id": "universe-20261026-every-ai-editorial",
+      "url": "https://every.to/working-overtime/how-i-escaped-ai-autopilot-rerun",
+      "original_date": "2026-04-01",
+      "display_date": "2026-11-03",
+      "disposition": "rejected",
+      "reason": "The November surface was explicitly a rerun; the original article date falls outside the 168-hour maximum."
+    },
+    {
+      "candidate_id": "cand-nov04-cohere-open-models",
+      "focus": "applied_generative_ai_for_knowledge_workers",
+      "publisher": "Cohere",
+      "resource_id": "directory-c6b8a33e7fa162cc41136fa5",
+      "url": "https://cohere.com/blog",
+      "original_date": "2026-11-03",
+      "disposition": "rejected",
+      "reason": "A product and company announcement with insufficient independent practical detail for the edition."
+    }
+  ],
+  "publisher_count": 6,
+  "candidate_count": 12,
+  "source_limitations": [
+    "The MIT item is an author project post found through the owner-approved Top-10 input; no matching dated MIT CSAIL news-index item was found.",
+    "Hugging Face is the distribution route for separate Ai2 and IBM Research original-publisher posts.",
+    "No story selection is locked and no bundle is sealed while video playback remains unverified."
+  ]
+}
