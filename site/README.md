@@ -2,7 +2,7 @@
 
 ## Archive
 
-- [November 3, 2026](briefs/2026-11-03.md)
+- [November 4, 2026](briefs/2026-11-04.md)
 - [October 6, 2026](briefs/2026-10-06.md)
 - [October 5, 2026](briefs/2026-10-05.md)
 - [October 4, 2026](briefs/2026-10-04.md)
