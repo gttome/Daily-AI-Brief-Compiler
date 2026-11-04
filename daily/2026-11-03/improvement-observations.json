@@ -12,8 +12,9 @@
     "image-job.json": "37c0d291dd53dd5d4f58c4e0568f8daf146abf0c35ebe8186041c07e46c268ff",
     "image-manifest.json": "2ed97ee11e51f67a76ee2083d028b788d5074c4506f18da7a98240cd1e58cef7",
     "image-recurring-assignment.json": "ed5e4af08608cdc5dfbd5ac029734fb59b508ae5bcd56c91dfb8c9a7b10a3eb1",
+    "image-release.json": "2dca409de40cef8ed8084f29678dad64e6123d78fc027a8fbb280c8453d09d0a",
     "image-route-preflight.json": "a3e8195f853f8e40c8da4b72201a296574fdc759bc04561d7bb86a6707258e98",
-    "image-timing.json": "ac91b695d55b64042751801409a5670c2b3f9e5b9da68a7706996b6e298e65d4",
+    "image-timing.json": "5ce59a65f139e31dca52fee0a9e6323a5e064bf6e6256ed8e85af2329673d866",
     "image-worker-state.json": "7e5af532adc7af74638b3c2c33621b3ad2c861f1b7d7149e7a4898e32eab0c12",
     "postpublish-integrity.json": "a3f7277e463f33dec63d8a36e17dd62f988609204bfdb2bcfa2e03e01ac65bc0",
     "postpublish-video-playback.json": "e4ec6b2272b5ca3deef222a202ff76400d4604f80f79d5a620e3bfdadb827abd",
@@ -24,12 +25,12 @@
     "top10-after-action.json": "a989fe3e448ded70fcbb38bc40fdb3f974deec60f73f2c9337736b7840a65be7",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "a5f31dcb0f48d7a254c93182e8d287cef66bb0d4986b89fff394c2f1e106456a",
+    "top10-previous-aar.json": "dbf218f79dba51adedb4ae5b619e76444684d76cd8407a231096c1ae3b54637a",
     "top10-previous-report.json": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
-    "top10-report-source.json": "ef63ab47b7575e134eddd0d07926494f2e25f68b64fe5e979ea24f5239291bf7",
+    "top10-report-source.json": "477f6a86d236d578ec2fca1fe7820e365af7acf62db05d5f74a7500aadeaf506",
     "top10-report.json": "3286ec50e70f3bb16e2dd2686e07c8d238e53dac159127073649c8d2975bf313",
     "trend-consumed-report.json": "3286ec50e70f3bb16e2dd2686e07c8d238e53dac159127073649c8d2975bf313",
-    "trend-consumed-source.json": "fd370077bd2e10a1c70d574dea79041e657b7e6198e2f12e5ba253f807b91b89",
+    "trend-consumed-source.json": "8476953373e6e04df2fed8a507592a5fa77018f6f77293b6238872c1f6a44d2e",
     "trend-input.json": "cd950a1119f23b432bd53cdd99acc4c01fa37c1baab2f01ea55f76d259477b02",
     "trend-search-coverage.json": "f458db207331c9beca618e8f11ba148806507929aadd5531fa8783f12df6c86f"
   },
@@ -129,8 +130,8 @@
     "coverage_percent": null,
     "coverage_numerator": null,
     "coverage_denominator": null,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 21,
     "top10_linked_items": null,
     "publication_failures": 3
   },
@@ -170,7 +171,144 @@
   "inspections": [],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 15,
+    "classified": [
+      {
+        "story_id": "nov04-t1-weight-space-repair",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t1-rejection-1.json"
+      },
+      {
+        "story_id": "nov04-t1-weight-space-repair",
+        "attempt": 2,
+        "defect_codes": [
+          "TYPOGRAPHY",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t1-rejection-2.json"
+      },
+      {
+        "story_id": "nov04-t1-weight-space-repair",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t1-rejection-3.json"
+      },
+      {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t2-rejection-1.json"
+      },
+      {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t2-rejection-2.json"
+      },
+      {
+        "story_id": "nov04-t2-statebench-state-tracking",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/t2-rejection-3.json"
+      },
+      {
+        "story_id": "nov04-k1-openai-physical-engineering",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "UNSUPPORTED_CLAIM",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k1-rejection-1.json"
+      },
+      {
+        "story_id": "nov04-k1-openai-physical-engineering",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k1-rejection-2.json"
+      },
+      {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-1.json"
+      },
+      {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-2.json"
+      },
+      {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-3.json"
+      },
+      {
+        "story_id": "nov04-k2-palette-deck-building",
+        "attempt": 4,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/k2-rejection-4.json"
+      },
+      {
+        "story_id": "nov04-a1-meet-policy-notices",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/a1-rejection-1.json"
+      },
+      {
+        "story_id": "nov04-a1-meet-policy-notices",
+        "attempt": 2,
+        "defect_codes": [
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/a1-rejection-2.json"
+      },
+      {
+        "story_id": "nov04-a2-three-check-agent-brief",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfc2d17ab36c14a313a63b5a0f82c6953adf6b2f/external-image-packages/2026-11-04/reviews/a2-rejection-1.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "PARTIAL",
     "reviewed_topics": 1,

@@ -333,7 +333,7 @@
         "Independent experimental replication"
       ]
     },
-    "source_commit": "876389634af343a8b9c66ffe59a6315d9c6f4860",
+    "source_commit": "46a7f7802cc1903db662d5e2cd254a936f3e2fde",
     "source_blob_sha": "68443e1580b894bd7c068d5a4fa7678c45e7c4ca",
     "report_sha256": "3286ec50e70f3bb16e2dd2686e07c8d238e53dac159127073649c8d2975bf313",
     "consumed_source_commit": "4cd175ca264002fe4217101dd9b5aea03b5e8a7a",
@@ -458,7 +458,7 @@
       },
       "previous_cycle": "2026-11-02",
       "previous_report_sha256": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
-      "previous_aar_sha256": "a5f31dcb0f48d7a254c93182e8d287cef66bb0d4986b89fff394c2f1e106456a",
+      "previous_aar_sha256": "dbf218f79dba51adedb4ae5b619e76444684d76cd8407a231096c1ae3b54637a",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -661,9 +661,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -703,11 +703,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/876389634af343a8b9c66ffe59a6315d9c6f4860/signals/ai-topic-top10/2026-11-03.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/46a7f7802cc1903db662d5e2cd254a936f3e2fde/signals/ai-topic-top10/2026-11-03.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/876389634af343a8b9c66ffe59a6315d9c6f4860/signals/ai-topic-top10/2026-11-03.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/46a7f7802cc1903db662d5e2cd254a936f3e2fde/signals/ai-topic-top10/2026-11-03.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -734,8 +734,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov04-t1-weight-space-repair",
+            "label": "Astra edits model weights without retraining",
+            "accepted": 1,
+            "rejected": 3
+          },
+          {
+            "id": "nov04-t2-statebench-state-tracking",
+            "label": "StateBench exposes long-horizon tracking failures",
+            "accepted": 1,
+            "rejected": 3
+          },
+          {
+            "id": "nov04-k1-openai-physical-engineering",
+            "label": "OpenAI’s hardware agent designs a device in weeks",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov04-k2-palette-deck-building",
+            "label": "Palette trains a small model to build branded decks",
+            "accepted": 1,
+            "rejected": 4
+          },
+          {
+            "id": "nov04-a1-meet-policy-notices",
+            "label": "Meet can show policy notices before Gemini notes",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov04-a2-three-check-agent-brief",
+            "label": "Use a three-check brief before delegating to an agent",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 21,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "November 3–5, 2026"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -824,8 +868,8 @@
         "coverage_percent": null,
         "coverage_numerator": null,
         "coverage_denominator": null,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 21,
         "top10_linked_items": null,
         "publication_failures": 3
       }
@@ -836,12 +880,12 @@
         "median": 31
       },
       "first_pass_accepted": {
-        "recorded_editions": 1,
-        "median": 1
+        "recorded_editions": 2,
+        "median": 0.5
       },
       "image_attempts": {
-        "recorded_editions": 1,
-        "median": 12
+        "recorded_editions": 2,
+        "median": 16.5
       },
       "top10_linked_items": {
         "recorded_editions": 1,
@@ -2396,10 +2440,67 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 1,
-      "total_rejected": 6,
+      "recorded_editions": 2,
+      "total_rejected": 21,
       "unclassified": 6,
-      "rows": []
+      "rows": [
+        {
+          "cause": "LAYOUT",
+          "rejected_attempts": 12,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "OTHER",
+          "rejected_attempts": 5,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "CAUSAL_CONNECTOR",
+          "rejected_attempts": 3,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "UNALLOWLISTED_TEXT",
+          "rejected_attempts": 3,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "PSEUDO_WRITING",
+          "rejected_attempts": 2,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "TYPOGRAPHY",
+          "rejected_attempts": 1,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "UNSUPPORTED_CLAIM",
+          "rejected_attempts": 1,
+          "editions": [
+            "2026-11-04"
+          ],
+          "recurring": false
+        }
+      ]
     },
     "top10_resilience": {
       "status": "PARTIAL",
