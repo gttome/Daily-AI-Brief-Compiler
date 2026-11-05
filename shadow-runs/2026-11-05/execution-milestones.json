@@ -28,6 +28,26 @@
       "observed_at": "2026-11-05T01:33:30.957Z",
       "stage": "SEAL",
       "detail": "Immutable bundle sealed with SHA-256 02e0f86999fb69279e3145a23d37bafeb8a77f0c9cc72b0de292a1c36e8a4b3b."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-05T01:34:37.242Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "failure_code": "EDITORIAL_CONTRACT_VERSION_MISMATCH",
+      "source_ref": "bundle-ready-signal run 41949408449",
+      "details": "Protected validation required the exact editorial contract schema identifier; the bundle incorrectly used the consolidated prompt version label."
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-05T01:35:28.246Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "detail": "Corrected only editorial_contract_version to daily-compiler-editorial-contract-v1, preserving all editorial selections, media, watchlist and pending-image representation."
+    },
+    {
+      "event": "SEAL",
+      "observed_at": "2026-11-05T01:35:28.246Z",
+      "stage": "SEAL",
+      "detail": "Resealed same-edition bundle after schema correction with SHA-256 a2fd8653ad3be4d5f78c09cadf3949855f4f8354d6a946f23879ad1bedb01b20."
     }
   ],
   "scheduler_origin_attested": false
