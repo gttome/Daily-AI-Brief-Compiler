@@ -1,6 +1,6 @@
 # 2026-11-05 premium image after-action report
 
-**Status: READY_FOR_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 5e45daf844ced10c436673171b832aa71b3e06c9 |
 | Executor observed run start | 2026-11-05T03:13:12Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-05T03:20:29Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_CI_MERGE_AND_DEPLOYMENT |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_24_CONTEXT_REVIEW; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-05T03:59:35.846Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -50,7 +50,7 @@ Job SHA-256: 2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2. O
 
 The actual generation start is 2026-11-05T03:20:29Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-05/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Current COMMON and IMAGES v2026-11-03.2 were read in full at protected main9e0f45e2b0ff531f92cd48c1aba64a214e3e32a8, together with all detailed current image/schema references. Immutable exact November5 job SHA256 and source bundle bytes were independently checked before native generation.
 
@@ -71,5 +71,17 @@ Cloudflare original source concerns site traffic/access policies; carrying user 
 The same opaque fenced owner and canonical branch were retained throughout. No new producer/task, additional schedule, paid API, TinyFish, metered service or owner-computer dependency was used. Existing protected PR/CI/image-only release is the only production route. Scheduler origin and actual usage/cost remain unknown.
 
 Six saved assets are accepted and immutable. Protected package admission, publication, six live hashes, twelve page pairings, seventeen protected October8 objects, public status and all24 semantic contexts remain pending at package preparation. A passing package or screenshot count cannot establish semantic PASS.
+
+Current release conclusion: protected PR323 passed exact-head PRE_PR_PACKAGE_PASS and713 tests,0 failures; merged as9a172be41026fbf453418e038c9984e8ffa1edad. Existing release41964882515 succeeded without any image publication replay or accepted-art regeneration.
+
+Independent read-only postrelease verification passed six public PNG bytes, twelve page pairings and exact public index/release status. Independent October8 audit passed17 protected objects. The exact original release artifact ZIP SHA2567e7309bf6764ddee7efa6b180bc6b0d95ade6d57ec5acf6f60ae0ec2a420728a contains24 captures, each with matching saved hash and RGB image-region proof ratio1.000. All24 were individually inspected at1440desktop/320mobile.
+
+Actual semantic review completed at2026-11-05T04:04:39Z,51m27s after the first observed execution and44m10s after the pre-first-call clock. These are observed wall-clock intervals, not provider active runtime, scheduler attestation or quota usage. Report commit and protected merge are separate later Git events.
+
+The raw automated-capture status retains its original UNREVIEWED/BLOCKED_INCOMPLETE flags. The separate current semantic-pixel-review.json supplies the truthful24/24 conclusion; original capture artifacts are not rewritten.
+
+Actual rejection codes:10 LAYOUT,4 OTHER,3 CAUSAL_CONNECTOR,3 UNALLOWLISTED_TEXT and2 PSEUDO_WRITING across11 rejected candidates. A candidate may have multiple codes; these category counts do not sum to attempt count. Stronger prompt exclusions and frozen geometry did not deliver a first-pass acceptance in this run. No efficacy success is inferred.
+
+Current closeout uses the existing reporting-only protected branch path. Manifest, recurring assignment, six accepted PNGs, editorial bundle and all previous editions remain unchanged. The existing daily reporting workflow must converge on the new image certificate and released worker checkpoint.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
