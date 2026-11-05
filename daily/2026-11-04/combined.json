@@ -348,7 +348,7 @@
         "Exact full-video coverage"
       ]
     },
-    "source_commit": "a4463133524c759bbb08abe3a37b828b731450bb",
+    "source_commit": "2ed2692975317fe47959157150cb01147b692760",
     "source_blob_sha": "01d1d57f43425da7f5bca4565511666cbf7cb12d",
     "report_sha256": "e9b39cfdae2d2c680b1aedba3534611f7adeab94949c0d4ac238a86849e85b71",
     "consumed_source_commit": "a112987adb4b275893658a363d1cbd77e0dc4870",
@@ -493,7 +493,7 @@
       },
       "previous_cycle": "2026-11-03",
       "previous_report_sha256": "3286ec50e70f3bb16e2dd2686e07c8d238e53dac159127073649c8d2975bf313",
-      "previous_aar_sha256": "4dc2f6c62e4143ea99736e2a2f385212f1cde61062057c178fede5554a307122",
+      "previous_aar_sha256": "7754b51b2f9fa8ac7bf34a7195b109a56c435e0a851b45fb05c340d927664b51",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -717,9 +717,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -759,11 +759,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4463133524c759bbb08abe3a37b828b731450bb/signals/ai-topic-top10/2026-11-04.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2ed2692975317fe47959157150cb01147b692760/signals/ai-topic-top10/2026-11-04.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4463133524c759bbb08abe3a37b828b731450bb/signals/ai-topic-top10/2026-11-04.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2ed2692975317fe47959157150cb01147b692760/signals/ai-topic-top10/2026-11-04.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -790,8 +790,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov05-t1-flashprove",
+            "label": "FlashProve makes model identity cryptographically checkable",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov05-t2-nemo-trace-evals",
+            "label": "NVIDIA turns agent failure traces into executable evaluations",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov05-k1-pierre",
+            "label": "OpenAI plans to acquire Pierre for interface-driven coding",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov05-k2-openweights",
+            "label": "Databricks argues for governed open-weight model portfolios",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov05-a1-agent-access",
+            "label": "Cloudflare adds per-agent access policies for personal assistants",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov05-a2-human-review-skill",
+            "label": "A review loop turns expert judgment into stronger agent evaluations",
+            "accepted": 1,
+            "rejected": 2
+          }
+        ],
+        "total_attempts": 17,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "November 3–5, 2026"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -880,8 +924,8 @@
         "coverage_percent": null,
         "coverage_numerator": null,
         "coverage_denominator": null,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 17,
         "top10_linked_items": null,
         "publication_failures": 7
       }
@@ -892,12 +936,12 @@
         "median": 31
       },
       "first_pass_accepted": {
-        "recorded_editions": 2,
-        "median": 0.5
+        "recorded_editions": 3,
+        "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 2,
-        "median": 16.5
+        "recorded_editions": 3,
+        "median": 17
       },
       "top10_linked_items": {
         "recorded_editions": 1,
@@ -2454,49 +2498,54 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 2,
-      "total_rejected": 21,
+      "recorded_editions": 3,
+      "total_rejected": 32,
       "unclassified": 6,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 12,
+          "rejected_attempts": 22,
           "editions": [
-            "2026-11-04"
+            "2026-11-04",
+            "2026-11-05"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 5,
+          "rejected_attempts": 9,
           "editions": [
-            "2026-11-04"
+            "2026-11-04",
+            "2026-11-05"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 3,
+          "rejected_attempts": 6,
           "editions": [
-            "2026-11-04"
+            "2026-11-04",
+            "2026-11-05"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
           "cause": "UNALLOWLISTED_TEXT",
-          "rejected_attempts": 3,
+          "rejected_attempts": 6,
           "editions": [
-            "2026-11-04"
+            "2026-11-04",
+            "2026-11-05"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 2,
+          "rejected_attempts": 4,
           "editions": [
-            "2026-11-04"
+            "2026-11-04",
+            "2026-11-05"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
           "cause": "TYPOGRAPHY",

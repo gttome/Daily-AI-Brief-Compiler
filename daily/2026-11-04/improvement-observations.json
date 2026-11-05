@@ -12,8 +12,9 @@
     "image-job.json": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
     "image-manifest.json": "614af3d6654735829c4ede88101a14558b003c9914be1cc59bcfb5866ab778eb",
     "image-recurring-assignment.json": "1b4a0bfa8d34db806be332a1cd9adb570d70c7f807f25ca9c58cf668b0f4578a",
+    "image-release.json": "eeae7a777007c2c0022a81e716b0077435761e4d2a7e2eed1991aa1700a97ed8",
     "image-route-preflight.json": "ff88903c3006ed116153b1dc6ad175254ea89c2fb5ddf99bbf4bc554311d9b2f",
-    "image-timing.json": "8758634e2c4066ab3e6cc883cfee26bee32a879c70b8aba3779847eeaaa25d94",
+    "image-timing.json": "e68d47c09dcb5af314823385833e1d86a33815cdd0cdb7af5d4521ec57b294e0",
     "image-worker-state.json": "a67e53dba7872a89b9578ad1d4eb78d217a44f4603b1c6a8c4e96f881a71a1d2",
     "postpublish-integrity.json": "59b23f1bf4782bbc4c2a7f4f889af6743af2b4f040514e238985278179aa27f2",
     "postpublish-video-playback.json": "4f3c01df234900cd4015d1ea423c05c341f44f9aa6c4f6e237602ea293f618d1",
@@ -24,12 +25,12 @@
     "top10-after-action.json": "01667b0b424e6c584f3ca50ec95788891fe3ef77fb676a4040a95221b80929fa",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "4dc2f6c62e4143ea99736e2a2f385212f1cde61062057c178fede5554a307122",
+    "top10-previous-aar.json": "7754b51b2f9fa8ac7bf34a7195b109a56c435e0a851b45fb05c340d927664b51",
     "top10-previous-report.json": "3286ec50e70f3bb16e2dd2686e07c8d238e53dac159127073649c8d2975bf313",
-    "top10-report-source.json": "04aa3265c9ab9069b0d97879bfb87e2aeef00a59f04041cc5328f26bdbf2c35f",
+    "top10-report-source.json": "b621c97ce107a2c04ab802f05e873f9309f6a9300a84fe15357549779d471b72",
     "top10-report.json": "e9b39cfdae2d2c680b1aedba3534611f7adeab94949c0d4ac238a86849e85b71",
     "trend-consumed-report.json": "e9b39cfdae2d2c680b1aedba3534611f7adeab94949c0d4ac238a86849e85b71",
-    "trend-consumed-source.json": "358fc74b3fa91818b3a3201dd43b98433817b2748f0916ffc6b124d4b881bd26",
+    "trend-consumed-source.json": "f8910ba16b0422f56ad8429585edc765348abfeab4dd40d3f92ab81bd68d1059",
     "trend-input.json": "7c3c21a373089cba1998a4b9ce11d0587797bc029870051107ee3fced5213e63",
     "trend-search-coverage.json": "0993b82528c80ae14ec7bdfa0ee1519c9dc7fa87677abe2e80a502d0a7cd59fa"
   },
@@ -129,8 +130,8 @@
     "coverage_percent": null,
     "coverage_numerator": null,
     "coverage_denominator": null,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 17,
     "top10_linked_items": null,
     "publication_failures": 7
   },
@@ -206,7 +207,111 @@
   "inspections": [],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 11,
+    "classified": [
+      {
+        "story_id": "nov05-t1-flashprove",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/t1-rejection-1.json"
+      },
+      {
+        "story_id": "nov05-t2-nemo-trace-evals",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "UNALLOWLISTED_TEXT",
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/t2-rejection-1.json"
+      },
+      {
+        "story_id": "nov05-t2-nemo-trace-evals",
+        "attempt": 2,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/t2-rejection-2.json"
+      },
+      {
+        "story_id": "nov05-k1-pierre",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/k1-rejection-1.json"
+      },
+      {
+        "story_id": "nov05-k1-pierre",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/k1-rejection-2.json"
+      },
+      {
+        "story_id": "nov05-k2-openweights",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "UNALLOWLISTED_TEXT",
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/k2-rejection-1.json"
+      },
+      {
+        "story_id": "nov05-k2-openweights",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/k2-rejection-2.json"
+      },
+      {
+        "story_id": "nov05-a1-agent-access",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/a1-rejection-1.json"
+      },
+      {
+        "story_id": "nov05-a1-agent-access",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/a1-rejection-2.json"
+      },
+      {
+        "story_id": "nov05-a2-human-review-skill",
+        "attempt": 1,
+        "defect_codes": [
+          "OTHER",
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/a2-rejection-1.json"
+      },
+      {
+        "story_id": "nov05-a2-human-review-skill",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/cba3089202c10579ebfdb75bbb9062d7bb8ebb83/external-image-packages/2026-11-05/reviews/a2-rejection-2.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "PARTIAL",
     "reviewed_topics": 1,

@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 5, 2026 · **Production evening:** 2026-11-04 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-05 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-05/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 8m 38s** · **Compiler final seal window 54m 10s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -34,9 +34,20 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**17 attempts; 0 of 6 images accepted on their first attempt.**
+
+Recorded November 3–5, 2026 target: at least 3/6 first-pass accepts; no more than 2 attempts per image. This is an efficiency target, not a quality cutoff.
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| FlashProve makes model identity cryptographically checkable | 1 | 1 | 2 |
+| NVIDIA turns agent failure traces into executable evaluations | 1 | 2 | 3 |
+| OpenAI plans to acquire Pierre for interface-driven coding | 1 | 2 | 3 |
+| Databricks argues for governed open-weight model portfolios | 1 | 2 | 3 |
+| Cloudflare adds per-agent access policies for personal assistants | 1 | 2 | 3 |
+| A review loop turns expert judgment into stronger agent evaluations | 1 | 2 | 3 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -82,12 +93,12 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **17** | Image worker AAR; no estimation |
 | Rejected candidates | **11** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -276,7 +287,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 17 · **Rejected candidates:** 11.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 17 · **Rejected candidates:** 11.
 
 ### Image production duration — Git-verified milestones
 
@@ -299,21 +310,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| FlashProve makes model identity cryptographically checkable | 2 | 0.75 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m01.png) |
+| NVIDIA turns agent failure traces into executable evaluations | 3 | 0.60 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m02.png) |
+| OpenAI plans to acquire Pierre for interface-driven coding | 3 | 0.53 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m10.png) |
+| Databricks argues for governed open-weight model portfolios | 3 | 0.71 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m11.png) |
+| Cloudflare adds per-agent access policies for personal assistants | 3 | 0.65 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m12.png) |
+| A review loop turns expert judgment into stronger agent evaluations | 3 | 0.68 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m01.png" alt="Diagram for nov05-t1-flashprove" width="420"/></a><br/><b>FlashProve makes model identity cryptographically checkable</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m02.png" alt="Diagram for nov05-t2-nemo-trace-evals" width="420"/></a><br/><b>NVIDIA turns agent failure traces into executable evaluations</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m10.png" alt="Diagram for nov05-k1-pierre" width="420"/></a><br/><b>OpenAI plans to acquire Pierre for interface-driven coding</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m11.png" alt="Diagram for nov05-k2-openweights" width="420"/></a><br/><b>Databricks argues for governed open-weight model portfolios</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m12.png" alt="Diagram for nov05-a1-agent-access" width="420"/></a><br/><b>Cloudflare adds per-agent access policies for personal assistants</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-05/dab-edition-2026-11-05-m14.png" alt="Diagram for nov05-a2-human-review-skill" width="420"/></a><br/><b>A review loop turns expert judgment into stronger agent evaluations</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -384,12 +405,12 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-05/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4463133524c759bbb08abe3a37b828b731450bb/signals/ai-topic-top10/2026-11-04.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4463133524c759bbb08abe3a37b828b731450bb/signals/ai-topic-top10/2026-11-04.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2ed2692975317fe47959157150cb01147b692760/signals/ai-topic-top10/2026-11-04.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2ed2692975317fe47959157150cb01147b692760/signals/ai-topic-top10/2026-11-04.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/trend-search-coverage.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41964882515).
 
 ---
 
@@ -433,13 +454,13 @@ Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured result
 | 2026-11-02 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded |
 | 2026-11-03 | 27/87 (31%) | 1 | 12 | 5 | 4 |
 | 2026-11-04 | Not recorded | 0 | 21 | 3 | Not recorded |
-| 2026-11-05 | Not recorded | Not recorded | Not recorded | 7 | Not recorded |
+| 2026-11-05 | Not recorded | 0 | 17 | 7 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 1 | 31 |
-| first pass accepted | 2 | 0.5 |
-| image attempts | 2 | 16.5 |
+| first pass accepted | 3 | 0 |
+| image attempts | 3 | 17 |
 | top10 linked items | 1 | 4 |
 | publication failures | 3 | 5 |
 
@@ -571,15 +592,15 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 
 | Recorded defect | Rejected attempts with defect | Recurred across editions |
 |---|---:|---|
-| LAYOUT | 12 | No within observed window |
-| OTHER | 5 | No within observed window |
-| CAUSAL_CONNECTOR | 3 | No within observed window |
-| UNALLOWLISTED_TEXT | 3 | No within observed window |
-| PSEUDO_WRITING | 2 | No within observed window |
+| LAYOUT | 22 | Yes |
+| OTHER | 9 | Yes |
+| CAUSAL_CONNECTOR | 6 | Yes |
+| UNALLOWLISTED_TEXT | 6 | Yes |
+| PSEUDO_WRITING | 4 | Yes |
 | TYPOGRAPHY | 1 | No within observed window |
 | UNSUPPORTED_CLAIM | 1 | No within observed window |
 
-Total rejected: 21; unclassified: 6. A rejected attempt can have several defect codes.
+Total rejected: 32; unclassified: 6. A rejected attempt can have several defect codes.
 
 ### Top 10 publisher-family sensitivity
 
