@@ -2,47 +2,47 @@
   "schema_version": "daily-compiler-edition-bundle-v1",
   "edition_date": "2026-11-05",
   "editorial_provenance": {
-    "selection_locked_at": "2026-11-05T02:01:11.577Z",
-    "sealed_at": "2026-11-05T02:02:35.904Z"
+    "selection_locked_at": "2026-11-05T02:06:48.535Z",
+    "sealed_at": "2026-11-05T02:07:16.844Z"
   },
   "stories": [
     {
-      "id": "nov05-t1-statebench",
-      "headline": "Ai2's StateBench exposes memory limits in long state transitions",
+      "id": "nov05-t1-flashprove",
+      "headline": "FlashProve makes model identity cryptographically checkable",
       "focus": "Technical AI Engineering",
       "agent_skills": false,
       "source": {
-        "title": "StateBench: Evaluating State Tracking in Language Models",
-        "publisher": "Ai2",
-        "url": "https://huggingface.co/blog/allenai/statebench",
-        "published_at": "2026-11-03T00:00:00Z",
-        "scope": "Full original Ai2 post, benchmark construction, four state levels, reported results, architecture comparison and stated limitations.",
-        "freshness_reason": "The source exposes a November 3 date without a publication time, so rolling-24-hour freshness is unproven. It uses the normal 72-hour fallback because the complete original post supplies the strongest reviewed evidence for long-horizon state tracking and states fixed-variable and precision limits.",
-        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "title": "Progress on provable inference for large language models",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/research/provable-inference",
+        "published_at": "2026-11-02T00:00:00Z",
+        "scope": "Full original research post, FlashProve protocol, performance evaluation, open artifacts, formal-verification boundaries, trust gaps and stated limitations.",
+        "freshness_reason": "The source exposes a November 2 date without a publication time, so rolling-72-hour freshness is unproven. This justified extended fallback remains inside 168 hours and replaces an exact archive duplicate with complete primary evidence, open artifacts, measured overhead and explicit technical limitations.",
+        "retrieved_at": "2026-11-05T02:06:48.535Z",
         "read_evidence": {
           "status": "verified",
           "full_source_read": true,
           "method": "publisher_main_text",
-          "read_at": "2026-11-05T01:25:26.461Z",
-          "scope": "Full original Ai2 post, benchmark construction, four state levels, reported results, architecture comparison and stated limitations."
+          "read_at": "2026-11-05T02:06:48.535Z",
+          "scope": "Full original research post, FlashProve protocol, performance evaluation, open artifacts, formal-verification boundaries, trust gaps and stated limitations."
         }
       },
       "coverage_labels": [
         "Technical AI Engineering",
-        "State tracking",
-        "Long sequences"
+        "Provable inference",
+        "Model identity"
       ],
-      "related_coverage": "Measures long-horizon state tracking while separating benchmark evidence from broader claims about agent memory.",
+      "related_coverage": "Examines cryptographic model-output attribution while separating proof guarantees from unresolved implementation, decoding and context limitations.",
       "topics": [
-        "State tracking",
-        "Long sequences",
-        "Agent memory"
+        "Provable inference",
+        "Model identity",
+        "Zero-knowledge proofs"
       ],
-      "summary": "StateBench measures whether language models can track changing variables across extended instruction sequences. Ai2 reports that frontier systems fall to 13% accuracy or less on its longest general setting, while hybrid architectures trained for state tracking extrapolate farther. The benchmark deliberately fixes variable count and precision, so it does not represent every agent memory problem.",
-      "why_it_matters": "Engineering teams can use StateBench to separate short-context reasoning from durable state tracking. Reproduce results on representative workflows, inspect errors by state level, and avoid assuming that a large context window alone preserves operational state.",
-      "image_alt_intent": "A long sequence of variable updates flows through four state-tracking levels, with final-state errors and benchmark limitations clearly marked.",
-      "permanent_route": "/stories/2026-11-05/nov05-t1-statebench/",
-      "reading_time_minutes": 9
+      "summary": "Anthropic released FlashProve, an open-source prototype that attaches cryptographic proofs to model outputs so a verifier can check which committed weights produced them without seeing those weights. The team reports 110 proved tokens per second for a quantized 400-billion-parameter mixture-of-experts model, while documenting substantial compute overhead, short contexts, greedy decoding and executable-code trust gaps.",
+      "why_it_matters": "Engineering teams can evaluate provable inference as an integrity layer, not a blanket safety guarantee. Reproduce one proof, audit the verifier and formal statements, measure latency and proof size, and document what model identity checks still cannot establish.",
+      "image_alt_intent": "A model commitment and output pass through a zero-knowledge proof to a lightweight verifier, with latency, context and implementation trust gaps visibly marked.",
+      "permanent_route": "/stories/2026-11-05/nov05-t1-flashprove/",
+      "reading_time_minutes": 11
     },
     {
       "id": "nov05-t2-nemo-trace-evals",
@@ -1119,11 +1119,11 @@
   },
   "book_mappings": [
     {
-      "story_id": "nov05-t1-statebench",
+      "story_id": "nov05-t1-flashprove",
       "book": "Reliable Generative AI Context Engineering",
-      "concept_or_chapter": "Long-horizon state context",
-      "connection": "StateBench makes evolving state an explicit context object whose transitions and final values can be independently checked.",
-      "what_to_study_next": "Write a state-transition ledger for one agent workflow and test whether every tool result updates the correct variable."
+      "concept_or_chapter": "Verifiable model identity",
+      "connection": "FlashProve treats the committed model, prompt, output and proof as a context chain that a lightweight verifier can check without receiving the weights.",
+      "what_to_study_next": "Run one published proof, inspect the commitment and verifier, then document which integrity claims remain outside the cryptographic statement."
     },
     {
       "story_id": "nov05-t2-nemo-trace-evals",
@@ -1149,11 +1149,11 @@
   ],
   "images": [
     {
-      "story_id": "nov05-t1-statebench",
+      "story_id": "nov05-t1-flashprove",
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "A long sequence of variable updates flows through four state-tracking levels, with final-state errors and benchmark limitations clearly marked."
+      "alt": "A model commitment and output pass through a zero-knowledge proof to a lightweight verifier, with latency, context and implementation trust gaps visibly marked."
     },
     {
       "story_id": "nov05-t2-nemo-trace-evals",
@@ -1307,15 +1307,15 @@
   },
   "video_diversity_exception": null,
   "source_discovery_audit": {
-    "reviewed_at": "2026-11-05T01:29:09.869Z",
+    "reviewed_at": "2026-11-05T02:06:48.535Z",
     "candidates": [
       {
         "url": "https://huggingface.co/blog/allenai/statebench",
         "publisher": "Ai2",
         "original_date": "2026-11-03T00:00:00Z",
-        "checked_at": "2026-11-05T01:29:09.869Z",
-        "disposition": "selected",
-        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+        "checked_at": "2026-11-05T02:06:48.535Z",
+        "disposition": "rejected",
+        "disposition_reason": "Rejected after protected full-history comparison found the exact source URL in the November 4 edition."
       },
       {
         "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
@@ -1369,9 +1369,9 @@
         "url": "https://www.anthropic.com/research/provable-inference",
         "publisher": "Anthropic",
         "original_date": "2026-11-02T00:00:00Z",
-        "checked_at": "2026-11-05T01:29:09.869Z",
-        "disposition": "considered",
-        "disposition_reason": "Strong research lead, but the technical slots provided more immediate evidence on state tracking and failure-driven evaluations."
+        "checked_at": "2026-11-05T02:06:48.535Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, archive-novelty verification, lane fit, concise reader-copy validation and review of measured overhead plus stated limitations."
       },
       {
         "url": "https://github.com/deepseek-ai/deepseek-harness",
@@ -1392,9 +1392,11 @@
     ],
     "fallback_decisions": [
       {
-        "story_id": "nov05-t1-statebench",
-        "newer_sources_considered": [],
-        "why_selected_over_recent_options": "No later original benchmark with equivalent task construction, architecture comparison and stated limitations was established; StateBench supplied the complete long-horizon state evidence that the newer trace-evaluation article did not address."
+        "story_id": "nov05-t1-flashprove",
+        "newer_sources_considered": [
+          "https://huggingface.co/blog/allenai/statebench"
+        ],
+        "why_selected_over_recent_options": "The newer StateBench source was an exact November 4 archive repeat. FlashProve is archive-new, remains inside the justified 168-hour window, releases code and proofs, reports measurable overhead and states implementation, decoding and context limitations."
       },
       {
         "story_id": "nov05-t2-nemo-trace-evals",

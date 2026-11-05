@@ -503,7 +503,7 @@
     ]
   },
   "impact_observations": {
-    "observed_at": "2026-11-05T02:01:11.577Z",
+    "observed_at": "2026-11-05T02:06:48.535Z",
     "input_adoption": {
       "usable_report_consumed": true,
       "exact_raw_sha256_verified": true,
@@ -518,7 +518,6 @@
     },
     "candidate_yield": {
       "useful_qualified_candidate_ids": [
-        "cand-nov05-t1-statebench",
         "cand-nov05-t2-nemo-trace-evals",
         "cand-nov05-k1-pierre",
         "cand-nov05-k2-openweights",
@@ -527,16 +526,17 @@
         "pod-latent-software-factory",
         "vid-ted-workforce-plan",
         "vid-pbs-ai-fears",
-        "pod-every-kevin-roose"
+        "pod-every-kevin-roose",
+        "cand-nov05-t1-flashprove"
       ],
       "bundle_verified_selected_mappings": 1,
       "actual_source_additions": []
     },
     "freshness": {
       "selected_story_latest_24h": 0,
-      "selected_story_72h_fallback": 6,
-      "selected_story_168h_fallback": 0,
-      "interpretation": "All selected article pages exposed calendar dates without publication times, so rolling-24-hour freshness is conservatively unproven; all remain inside the normal 72-hour window with source-specific reasons."
+      "selected_story_72h_fallback": 5,
+      "selected_story_168h_fallback": 1,
+      "interpretation": "Five selected article pages remain inside the normal 72-hour window with date-only timestamps; FlashProve uses a justified extended fallback inside 168 hours after a newer exact-source archive duplicate was rejected."
     },
     "rejections": {
       "duplicate": [
@@ -545,7 +545,8 @@
         "pod-eyeonai-390-repeat: exact November 4 archive repeat",
         "vid-ted-algorithms: protected archive comparison found exact prior-edition URL",
         "vid-pbs-agents-regulation: protected archive comparison found exact prior-edition URL",
-        "pod-practical-ai-378: protected archive comparison found exact November 1 episode"
+        "pod-practical-ai-378: protected archive comparison found exact November 1 episode",
+        "cand-nov05-statebench-repeat: exact November 4 article source URL"
       ],
       "promotion": [
         "vid-claude-video-editing: overlong product demonstration with substantial promotion",
@@ -564,9 +565,9 @@
     ],
     "timing": {
       "execution_observed_at": "2026-11-05T01:17:22.157Z",
-      "selection_locked_at": "2026-11-05T02:01:11.577Z",
-      "sealed_at": "2026-11-05T02:02:35.904Z",
-      "elapsed_seconds_to_seal": 2714
+      "selection_locked_at": "2026-11-05T02:06:48.535Z",
+      "sealed_at": "2026-11-05T02:07:16.844Z",
+      "elapsed_seconds_to_seal": 2995
     },
     "usage_percent": null,
     "cost_usd": 0,
@@ -587,7 +588,8 @@
       "Consumed the exact November 4 dated report pinned to its immutable source commit while retaining the frozen November 3 baseline.",
       "Separated 28 inspected indexes, zero inaccessible indexes and 59 unreviewed indexes from later automated census work.",
       "Expanded genuine current article-source inspection while retaining honest not-attempted Top-10 formats.",
-      "After the protected archive gate exposed exact repeats, replaced both videos and one podcast with archive-unique items while preserving two publishers, genuine playback, complete content review and prior-three-edition podcast show rotation."
+      "After the protected archive gate exposed exact repeats, replaced both videos and one podcast with archive-unique items while preserving two publishers, genuine playback, complete content review and prior-three-edition podcast show rotation.",
+      "Protected full-history readback rejected the newer StateBench exact-source repeat; an archive-new Anthropic research post replaced it after full primary reading and explicit extended-fallback review."
     ],
     "next_improvement": "On the next cycle, inspect more previously unreviewed enabled indexes and complete high-priority video and podcast topic searches earlier, then compare qualified yield and final bundle mappings without treating source count as success."
   },

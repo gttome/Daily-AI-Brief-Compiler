@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-candidate-selection-v1",
   "edition_date": "2026-11-05",
-  "review_completed_at": "2026-11-05T01:29:09.869Z",
+  "review_completed_at": "2026-11-05T02:06:48.535Z",
   "selection_status": "LOCKED",
   "quota": {
     "technical": 2,
@@ -11,28 +11,28 @@
   },
   "draft_selected": [
     {
-      "story_id": "nov05-t1-statebench",
-      "headline": "Ai2's StateBench exposes memory limits in long state transitions",
-      "summary": "StateBench measures whether language models can track changing variables across extended instruction sequences. Ai2 reports that frontier systems fall to 13% accuracy or less on its longest general setting, while hybrid architectures trained for state tracking extrapolate farther. The benchmark deliberately fixes variable count and precision, so it does not represent every agent memory problem.",
-      "why_it_matters": "Engineering teams can use StateBench to separate short-context reasoning from durable state tracking. Reproduce results on representative workflows, inspect errors by state level, and avoid assuming that a large context window alone preserves operational state.",
+      "story_id": "nov05-t1-flashprove",
+      "headline": "FlashProve makes model identity cryptographically checkable",
+      "summary": "Anthropic released FlashProve, an open-source prototype that attaches cryptographic proofs to model outputs so a verifier can check which committed weights produced them without seeing those weights. The team reports 110 proved tokens per second for a quantized 400-billion-parameter mixture-of-experts model, while documenting substantial compute overhead, short contexts, greedy decoding and executable-code trust gaps.",
+      "why_it_matters": "Engineering teams can evaluate provable inference as an integrity layer, not a blanket safety guarantee. Reproduce one proof, audit the verifier and formal statements, measure latency and proof size, and document what model identity checks still cannot establish.",
       "focus": "technical_ai_engineering",
       "topics": [
-        "State tracking",
-        "Long sequences",
-        "Agent memory"
+        "Provable inference",
+        "Model identity",
+        "Zero-knowledge proofs"
       ],
-      "publisher": "Ai2",
-      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
-      "url": "https://huggingface.co/blog/allenai/statebench",
-      "original_date": "2026-11-03",
-      "read_scope": "Full original Ai2 post, benchmark construction, four state levels, reported results, architecture comparison and stated limitations.",
-      "reading_time_minutes": 9,
+      "publisher": "Anthropic",
+      "resource_id": "anthropic",
+      "url": "https://www.anthropic.com/research/provable-inference",
+      "original_date": "2026-11-02",
+      "read_scope": "Full original research post, FlashProve protocol, performance evaluation, open artifacts, formal-verification boundaries, trust gaps and stated limitations.",
+      "reading_time_minutes": 11,
       "trend_topic_id": null,
       "selected": true,
-      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "retrieved_at": "2026-11-05T02:06:48.535Z",
       "content_reviewed": true,
-      "summary_word_count": 55,
-      "why_word_count": 35
+      "summary_word_count": 54,
+      "why_word_count": 38
     },
     {
       "story_id": "nov05-t2-nemo-trace-evals",
@@ -167,16 +167,6 @@
       "reason": "Useful operations case, but the selected NVIDIA trace-to-evaluation article supplied more transferable failure-recovery evidence and avoided a duplicate publisher story."
     },
     {
-      "candidate_id": "cand-nov05-flashprove",
-      "focus": "technical_ai_engineering",
-      "publisher": "Anthropic",
-      "resource_id": "anthropic",
-      "url": "https://www.anthropic.com/research/provable-inference",
-      "original_date": "2026-11-02",
-      "disposition": "qualified_not_selected",
-      "reason": "Strong formal-inference lead, but StateBench and trace-to-test evaluation supplied more distinct current engineering actions."
-    },
-    {
       "candidate_id": "cand-nov05-deepseek-harness",
       "focus": "technical_ai_engineering",
       "publisher": "DeepSeek",
@@ -195,15 +185,25 @@
       "original_date": "2026-11-04",
       "disposition": "qualified_not_selected",
       "reason": "The related company announcement was less specific than the selected per-agent access-policy article."
+    },
+    {
+      "candidate_id": "cand-nov05-statebench-repeat",
+      "focus": "technical_ai_engineering",
+      "publisher": "Ai2",
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "url": "https://huggingface.co/blog/allenai/statebench",
+      "original_date": "2026-11-03",
+      "disposition": "rejected",
+      "reason": "Protected full-history comparison found the exact source URL in the November 4 edition."
     }
   ],
   "publisher_count": 6,
   "candidate_count": 10,
   "source_limitations": [
     "Rolling 24-hour status remains unproven for date-only sources; all six selections retain explicit source-specific freshness language and fallback decisions.",
-    "Hugging Face is the distribution route for the original Ai2 StateBench post; publisher identity remains Ai2.",
     "The video winners repeat TED and PBS as consecutive-day publishers but use different exact programs and URLs; publisher overlap and original ages remain advisories.",
-    "Selection locked only after two distinct low-promotion programs demonstrated genuine signed-out advancing playback."
+    "Selection locked only after two distinct low-promotion programs demonstrated genuine signed-out advancing playback.",
+    "The Anthropic source exposes only a calendar date; it uses a justified extended fallback inside 168 hours after a newer exact-source archive duplicate was rejected."
   ],
-  "selection_locked_at": "2026-11-05T01:29:09.869Z"
+  "selection_locked_at": "2026-11-05T02:06:48.535Z"
 }

@@ -3,28 +3,36 @@
   "edition_date": "2026-11-05",
   "fallbacks": [
     {
-      "story_id": "nov05-t1-statebench",
+      "story_id": "nov05-t1-flashprove",
       "searches": [
         {
-          "query": "November 4 AI state tracking benchmark agent memory original source",
-          "source_url": "https://huggingface.co/blog/allenai/statebench",
-          "attempted_at": "2026-11-05T01:25:26.461Z",
+          "query": "November 2 provable inference cryptographic model identity original research",
+          "source_url": "https://www.anthropic.com/research/provable-inference",
+          "attempted_at": "2026-11-05T02:06:48.535Z",
           "candidate_urls": [
+            "https://www.anthropic.com/research/provable-inference",
             "https://huggingface.co/blog/allenai/statebench",
-            "https://www.anthropic.com/research/provable-inference"
+            "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/"
           ]
         }
       ],
       "newer_rejected_candidates": [
         {
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "focus": "Technical state-tracking benchmark",
+          "original_date": "2026-11-03",
+          "inspected_at": "2026-11-05T02:06:48.535Z",
+          "rejection_reason": "Rejected because protected full-history comparison found the exact source URL in the November 4 edition."
+        },
+        {
           "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
           "focus": "Technical failure-driven evaluations",
           "original_date": "2026-11-04",
-          "inspected_at": "2026-11-05T01:25:26.461Z",
-          "rejection_reason": "Selected in the other technical slot; it does not replace the distinct state-tracking evidence."
+          "inspected_at": "2026-11-05T02:06:48.535Z",
+          "rejection_reason": "Selected in the other technical slot; it covers trace-to-test harness repair rather than cryptographic model identity."
         }
       ],
-      "scope_limitation": "The source exposes a calendar date but no publication time, so rolling-24-hour freshness is not claimed; this is a justified 72-hour fallback."
+      "scope_limitation": "The source exposes a November 2 calendar date without publication time; this is a justified extended fallback inside 168 hours after the newer StateBench exact-source repeat was rejected."
     },
     {
       "story_id": "nov05-a2-human-review-skill",
