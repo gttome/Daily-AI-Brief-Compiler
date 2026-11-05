@@ -4,7 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const validTime=s=>typeof s==='string'&&!Number.isNaN(Date.parse(s))&&
- /^20\\d\\d-\\d\\d-\\d\\dT.+(?:Z|[+-]\\d\\d:\\d\\d)$/.test(s);
+ /^20\d\d-\d\d-\d\dT.+(?:Z|[+-]\d\d:\d\d)$/.test(s);
 const unique=rows=>new Set(rows).size===rows.length;
 const fail=code=>{throw Error('EDITORIAL_INDEX_BINDING_'+code);};
 
@@ -46,7 +46,7 @@ if(main){
  const read=file=>JSON.parse(fs.readFileSync(file,'utf8'));
  const output=attachEditorialIndexReview({registry:read(registryFile),indexReview:read(indexFile),bundle:read(draftBundleFile)});
  fs.mkdirSync(path.dirname(outputFile),{recursive:true});
- fs.writeFileSync(outputFile,JSON.stringify(output,null,2)+'\\n');
+ fs.writeFileSync(outputFile,JSON.stringify(output,null,2)+'\n');
  console.log(JSON.stringify({result:'PRESELECTION_INDEX_EVIDENCE_BOUND',edition_date:output.edition_date,
   inspected:output.source_discovery_audit.index_review.inspected,
   eligible:output.source_discovery_audit.index_review.eligible}));
