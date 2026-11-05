@@ -108,6 +108,26 @@
       "observed_at": "2026-11-05T01:41:00.494Z",
       "stage": "SEAL",
       "detail": "Resealed same-edition bundle after podcast fraction recovery with SHA-256 870ae3af0cdd91c892b61a61857fbad2aa1dac1bb0978833ab1119c817f01adf."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-05T01:41:54.692Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "failure_code": "PODCAST_WHOLE_EPISODE_SEGMENT_SCHEMA",
+      "source_ref": "bundle-ready-signal run 41950195040",
+      "details": "Protected media-quality validation computes AI share over editorial segments and requires at least 90% timeline coverage; the first podcast omitted its short opening promotion."
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-05T01:43:02.735Z",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "detail": "Added explicit promotion, introduction, transition and outro segments to cover both complete timelines, set canonical podcast editorial forms and reconciled AI fractions to the validator's editorial-segment calculation."
+    },
+    {
+      "event": "SEAL",
+      "observed_at": "2026-11-05T01:43:02.735Z",
+      "stage": "SEAL",
+      "detail": "Resealed same-edition bundle after complete podcast-timeline recovery with SHA-256 e7ae77724d45d3f81d5c52f61bc00f1de99739f2a7999c5d59843e3dc9c140c5."
     }
   ],
   "scheduler_origin_attested": false
