@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-media-review-v1",
   "edition_date": "2026-11-05",
-  "reviewed_at": "2026-11-05T01:29:09.869Z",
+  "reviewed_at": "2026-11-05T02:01:11.577Z",
   "video_prequalification": {
     "required_candidates": 6,
     "candidates": [
@@ -108,7 +108,8 @@
           0,
           25.263
         ],
-        "disposition": "selected"
+        "disposition": "rejected",
+        "reason": "Protected full archive comparison identified this exact program URL in a prior edition."
       },
       {
         "candidate_id": "vid-pbs-agents-regulation",
@@ -128,7 +129,8 @@
           0,
           17.108
         ],
-        "disposition": "selected"
+        "disposition": "rejected",
+        "reason": "Protected full archive comparison identified this exact program URL in a prior edition."
       },
       {
         "candidate_id": "vid-bloomberg-agents-enterprise",
@@ -162,11 +164,51 @@
         "duration_seconds": 1965,
         "disposition": "rejected",
         "reason": "The 32:45 program exceeds the maximum and carries substantial product promotion."
+      },
+      {
+        "candidate_id": "vid-ted-workforce-plan",
+        "resource_id": null,
+        "url": "https://www.ted.com/talks/gina_raimondo_a_plan_to_stop_ai_from_automating_our_decline",
+        "title": "A plan to stop AI from automating our decline",
+        "original_publisher": "TED",
+        "published_date": "2026-04",
+        "duration_seconds": 951,
+        "promotional_risk": "low",
+        "content_review_scope": "Reviewed the complete official TED transcript, then loaded the exact signed-out full-length player. After pre-roll, the 15:51 program advanced from 00:24 to 00:42.",
+        "signed_out": true,
+        "public_player_checked": true,
+        "advancing_playback_verified": true,
+        "checked_at": "2026-11-05T01:55:00.000Z",
+        "observed_player_times_seconds": [
+          24,
+          42
+        ],
+        "disposition": "selected"
+      },
+      {
+        "candidate_id": "vid-pbs-ai-fears",
+        "resource_id": null,
+        "url": "https://www.pbs.org/video/ai-fears-1789419789/",
+        "title": "AI leaders fuel calls to rein in rapidly advancing tech",
+        "original_publisher": "PBS NewsHour",
+        "published_date": "2026-09-14",
+        "duration_seconds": 514,
+        "promotional_risk": "low",
+        "content_review_scope": "Reviewed the complete official PBS NewsHour transcript, then loaded the exact signed-out full-length player. The 8:34 program advanced from 00:12 to 02:14.",
+        "signed_out": true,
+        "public_player_checked": true,
+        "advancing_playback_verified": true,
+        "checked_at": "2026-11-05T01:52:00.000Z",
+        "observed_player_times_seconds": [
+          12,
+          134
+        ],
+        "disposition": "selected"
       }
     ],
     "qualified_winners": [
-      "vid-ted-algorithms",
-      "vid-pbs-agents-regulation"
+      "vid-ted-workforce-plan",
+      "vid-pbs-ai-fears"
     ],
     "result": "PASS_TWO_DISTINCT_LOW_PROMOTION_PUBLISHERS",
     "blocker": null
@@ -236,7 +278,8 @@
           }
         ],
         "availability_verified_at": "2026-11-05T01:29:09.869Z",
-        "disposition": "qualified"
+        "disposition": "rejected",
+        "reason": "Protected full archive comparison identified the exact episode in the November 1 edition."
       },
       {
         "candidate_id": "pod-eyeonai-390-repeat",
@@ -261,6 +304,38 @@
         "content_reviewed": false,
         "disposition": "rejected",
         "reason": "Exact episode was selected in the November 2 edition; archive novelty failed."
+      },
+      {
+        "candidate_id": "pod-every-kevin-roose",
+        "resource_id": "directory-54d90ff964a74ff98851ae11",
+        "url": "https://every.to/podcast/the-inside-story-of-the-150-people-who-built-modern-ai",
+        "show": "The Every Podcast",
+        "episode": "The Inside Story of the 150 People Who Built Modern AI",
+        "published_date": "2026-11-04",
+        "duration_seconds": 2774,
+        "content_reviewed": true,
+        "source_character": "Journalist interview with disclosed book, conference and membership promotion; claims and promotional references remain attributed.",
+        "ai_timeline_share_estimate": 0.948,
+        "segments": [
+          {
+            "start": "00:02:23",
+            "topic": "AI risk and mandatory safety testing"
+          },
+          {
+            "start": "00:07:13",
+            "topic": "Historical sourcing and preserving records"
+          },
+          {
+            "start": "00:23:24",
+            "topic": "AI-assisted chapter review and human editing"
+          },
+          {
+            "start": "00:41:41",
+            "topic": "Weightlifting versus forklifting delegation test"
+          }
+        ],
+        "availability_verified_at": "2026-11-05T02:01:11.577Z",
+        "disposition": "qualified"
       }
     ],
     "qualified_count": 2,
