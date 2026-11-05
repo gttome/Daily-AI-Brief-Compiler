@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
-  "edition_date": "2026-11-04",
-  "updated_at": "2026-11-04T01:52:29.676Z",
+  "edition_date": "2026-11-05",
+  "updated_at": "2026-11-05T01:29:09.869Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -2348,11 +2348,11 @@
     {
       "topic_id": "dab-topic-consumer-agent-task-permissions",
       "name": "Consumer agent task permissions",
-      "summary": "Consumer and enterprise task permissions define which information an assistant may use, which records it may change and which actions require confirmation.",
-      "why_now": "Carried on November 4 because current source review found no independently comparable evidence that changed the prior consumer agent task permissions baseline.",
-      "practical_value": "Service teams can trial one request by restricting records, requiring confirmation and reviewing every proposed update and exception.",
+      "summary": "Consumer agent task permissions define which user context, corporate resources and consequential actions an assistant may access or perform.",
+      "why_now": "Updated on November 5 because Cloudflare published specific early-access controls that distinguish personal assistants and apply per-agent resource policy.",
+      "practical_value": "Security teams can test one assistant workflow by separating user and agent identity, restricting resources and requiring confirmation for consequential actions.",
       "first_detected": "2026-10-15",
-      "updated_at": "2026-10-28T12:00:00Z",
+      "updated_at": "2026-11-05T12:00:00Z",
       "status": "under_research",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
@@ -2389,12 +2389,12 @@
         },
         {
           "kind": "primary",
-          "url": "https://openai.com/index/openai-servicenow-partnership-expansion/",
+          "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
           "title": "Consumer agent task permissions",
-          "publisher": "openai.com",
-          "publication_date": "2026-10-28",
+          "publisher": "blog.cloudflare.com",
+          "publication_date": "2026-11-04",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-10-29",
+          "checked_at": "2026-11-05",
           "development_id": "compiler-updated-1"
         },
         {
@@ -2439,37 +2439,37 @@
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
-      "research_score": 65,
+      "research_score": 60,
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "The update extends permission design from user-facing assistants into governed enterprise agents that investigate and modify operational records."
+          "reason": "The update adds named visibility and per-agent policy controls to the prior task-permission and confirmation baseline."
         },
         "evidence": {
           "score": 3,
-          "reason": "OpenAI describes specific ServiceNow workflows and permission inheritance, but measured outcomes and failure rates remain unavailable."
+          "reason": "Cloudflare documents specific early-access product behavior, but measured security outcomes and failure rates remain unavailable."
         },
         "independence": {
-          "score": 3,
-          "reason": "OpenAI and earlier Plaud evidence show separate implementations, though both accounts remain vendor-authored product descriptions."
+          "score": 2,
+          "reason": "Cloudflare and earlier OpenAI or ServiceNow evidence show separate implementations, though all reviewed accounts remain vendor-authored."
         },
         "momentum": {
           "score": null,
-          "reason": "The sources use different workflows and provide no comparable numerical permission measure observed at two valid times."
+          "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times."
         },
         "relevance": {
           "score": 5,
-          "reason": "Service owners can immediately bound records, confirmations, review evidence and escalation for one routine operational request."
+          "reason": "Security owners can immediately bound assistant resources, confirmations, logs and exception handling for one routine workflow."
         },
         "durability": {
-          "score": 5,
-          "reason": "Least authority, visible evidence and confirmation before consequential actions remain durable across consumer and enterprise agent products."
+          "score": 4,
+          "reason": "Separate user authority, agent identity and least-privilege resource access remain durable across changing assistant products."
         }
       },
       "momentum": {
         "classification": "baseline",
         "score": null,
-        "reason": "The sources use different workflows and provide no comparable numerical permission measure observed at two valid times.",
+        "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times.",
         "metric": null,
         "observations": []
       },
@@ -3065,7 +3065,7 @@
       "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
       "name": "Continuous multi-level agent evaluation",
       "summary": "Continuous multi-level agent evaluation tests business facts, tools, APIs, orchestration quality, security and cost across development and live operation.",
-      "why_now": "Carried on November 4 because current source review found no independently comparable evidence that changed the prior continuous multi-level agent evaluation baseline.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior continuous multi-level agent evaluation assessment.",
       "practical_value": "Teams can design a bounded release and runtime gate that names quality thresholds, cost limits, intervention owners, approval steps and recovery tests.",
       "first_detected": "2026-10-18",
       "updated_at": "2026-10-27T12:00:00Z",
@@ -3150,7 +3150,7 @@
           "publisher": "salesforce.com",
           "publication_date": "2026-10-27",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-04",
+          "checked_at": "2026-11-05",
           "development_id": "compiler-carried_forward-7"
         }
       ],
@@ -4269,10 +4269,10 @@
       "topic_id": "dab-topic-native-multimodal-world-simulation",
       "name": "Native multimodal world simulation",
       "summary": "Native multimodal world simulation generates interactive scenes, movement, dialogue and ambient sound together while responding to user steering in real time.",
-      "why_now": "Remains dropped on November 4 because current source review found no independently comparable evidence that changed the prior native multimodal world simulation assessment.",
+      "why_now": "Remains dropped on November 5 because current source review found no independently comparable evidence that changed the prior native multimodal world simulation assessment.",
       "practical_value": "Research teams can retain the prior evaluation plan but should wait for comparable task results before treating further demonstrations as momentum.",
       "first_detected": "2026-10-28",
-      "updated_at": "2026-11-04T12:00:00Z",
+      "updated_at": "2026-11-05T12:00:00Z",
       "status": "archived",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
@@ -4314,7 +4314,7 @@
           "publisher": "deepmind.google",
           "publication_date": "2026-10-27",
           "review_depth": "Preserved edition evidence reference.",
-          "checked_at": "2026-11-04",
+          "checked_at": "2026-11-05",
           "development_id": "compiler-dropped-1"
         }
       ],
@@ -4360,7 +4360,7 @@
       "topic_id": "dab-topic-task-scoped-virtual-model-routing",
       "name": "Task-scoped virtual model routing",
       "summary": "Task-scoped virtual model routing lets applications call a stable identifier while administrators change providers, fallbacks and data-retention policy separately.",
-      "why_now": "Carried on November 4 because current source review found no independently comparable evidence that changed the prior task-scoped virtual model routing baseline.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior task-scoped virtual model routing assessment.",
       "practical_value": "Teams can test model substitutions, failure recovery, retention rules and rollback under one stable application interface.",
       "first_detected": "2026-10-29",
       "updated_at": "2026-10-28T12:00:00Z",
@@ -4427,6 +4427,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-04",
           "development_id": "compiler-carried_forward-5"
+        },
+        {
+          "kind": "primary",
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "title": "Task-scoped virtual model routing",
+          "publisher": "vercel.com",
+          "publication_date": "2026-10-28",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-carried_forward-6"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4551,7 +4561,7 @@
       "topic_id": "dab-topic-synthetic-enterprise-evaluation-environments",
       "name": "Synthetic enterprise evaluation environments",
       "summary": "Synthetic enterprise evaluation environments recreate organizational data, permissions and work patterns so AI assistants can be tested without exposing live confidential records.",
-      "why_now": "Carried on November 4 because current source review found no independently comparable evidence that changed the prior synthetic enterprise evaluation environments baseline.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior synthetic enterprise evaluation environments assessment.",
       "practical_value": "Evaluation teams can construct bounded permission, retrieval and workflow tests before a copilot reaches real employees or sensitive production data.",
       "first_detected": "2026-10-31",
       "updated_at": "2026-10-30T12:00:00Z",
@@ -4608,6 +4618,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-04",
           "development_id": "compiler-carried_forward-4"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "title": "Synthetic enterprise evaluation environments",
+          "publisher": "microsoft.com",
+          "publication_date": "2026-10-30",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-carried_forward-5"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4651,7 +4671,7 @@
       "topic_id": "dab-topic-frontier-model-misalignment-monitoring",
       "name": "Frontier model misalignment monitoring",
       "summary": "Frontier model misalignment monitoring combines broad workload coverage, high-recall screening, contextual review, investigation and intervention authority to detect unauthorized agent behavior.",
-      "why_now": "Carried on November 4 because current source review found no independently comparable evidence that changed the prior frontier model misalignment monitoring baseline.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior frontier model misalignment monitoring assessment.",
       "practical_value": "Safety teams can compare workload coverage, sampling, escalation context, review latency and intervention ownership before relying on monitoring claims.",
       "first_detected": "2026-10-29",
       "updated_at": "2026-10-29T12:00:00Z",
@@ -4698,6 +4718,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-04",
           "development_id": "compiler-carried_forward-3"
+        },
+        {
+          "kind": "primary",
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "title": "Frontier model misalignment monitoring",
+          "publisher": "openai.com",
+          "publication_date": "2026-10-29",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-carried_forward-4"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4741,7 +4771,7 @@
       "topic_id": "dab-topic-ai-ready-public-science-artifacts",
       "name": "AI-ready public science artifacts",
       "summary": "AI-ready public science artifacts pair datasets, models, metadata, provenance and reproducible baselines so others can inspect and extend funded research.",
-      "why_now": "Carried on November 4 because current source review found no independently comparable evidence that changed the prior ai-ready public science artifacts baseline.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior ai-ready public science artifacts assessment.",
       "practical_value": "Research teams can package one public project with licenses, lineage, metadata and a baseline, then record which gaps still block reuse.",
       "first_detected": "2026-11-02",
       "updated_at": "2026-10-29T12:00:00Z",
@@ -4778,6 +4808,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-04",
           "development_id": "compiler-carried_forward-2"
+        },
+        {
+          "kind": "primary",
+          "url": "https://huggingface.co/blog/protostar",
+          "title": "AI-ready public science artifacts",
+          "publisher": "huggingface.co",
+          "publication_date": "2026-10-29",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-carried_forward-3"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4821,7 +4861,7 @@
       "topic_id": "dab-topic-professional-task-agent-benchmarks",
       "name": "Professional-task agent benchmarks",
       "summary": "Professional-task agent benchmarks evaluate reviewable workplace deliverables across multiple domains, rather than relying only on short synthetic prompts or isolated tool calls.",
-      "why_now": "Carried on November 4 because the current source review found no material evidence change beyond the November 2 professional-task benchmark baseline.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior professional-task agent benchmarks assessment.",
       "practical_value": "Evaluation teams can adapt the task, artifact, grading and cost structure while keeping domain results separate and limitations visible.",
       "first_detected": "2026-11-03",
       "updated_at": "2026-11-02T12:00:00Z",
@@ -4848,6 +4888,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-04",
           "development_id": "compiler-carried_forward-1"
+        },
+        {
+          "kind": "primary",
+          "url": "https://gdpx.semianalysis.com/",
+          "title": "Professional-task agent benchmarks",
+          "publisher": "gdpx.semianalysis.com",
+          "publication_date": "2026-11-02",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-carried_forward-2"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4891,10 +4941,10 @@
       "topic_id": "dab-topic-weight-space-model-repair",
       "name": "Weight-space model repair",
       "summary": "Weight-space model repair lets an agent inspect and change selected neural-network parameters to correct a targeted behavior without a conventional training run.",
-      "why_now": "The November 2 project report documents a direct repair experiment on Qwen3.5-0.8B, including edited-weight share, benchmark change, controls and stated efficiency limits.",
+      "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior weight-space model repair assessment.",
       "practical_value": "Model teams can reproduce one bounded repair, compare regressions and compute cost, and preserve the exact edited parameters before considering deployment.",
       "first_detected": "2026-11-04",
-      "updated_at": "2026-11-04T12:00:00Z",
+      "updated_at": "2026-11-02T12:00:00Z",
       "status": "early_signal",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
@@ -4908,6 +4958,16 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-04",
           "development_id": "compiler-new-1"
+        },
+        {
+          "kind": "primary",
+          "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+          "title": "Weight-space model repair",
+          "publisher": "rikiyat.github.io",
+          "publication_date": "2026-11-02",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-carried_forward-1"
         }
       ],
       "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
@@ -4942,6 +5002,66 @@
         "classification": "baseline",
         "score": null,
         "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished.",
+        "metric": null,
+        "observations": []
+      },
+      "next_action": "Continue monitoring primary evidence and independent developments."
+    },
+    {
+      "topic_id": "dab-topic-long-horizon-state-tracking-benchmarks",
+      "name": "Long-horizon state tracking benchmarks",
+      "summary": "Long-horizon state tracking benchmarks test whether models preserve evolving variables, dependencies and final values across extended instruction sequences.",
+      "why_now": "Added on November 5 because Ai2 published dated benchmark evidence showing severe degradation on the longest general state-tracking setting.",
+      "practical_value": "Agent teams can replay representative state transitions, inspect failure levels and compare memory architectures before trusting long operational sequences.",
+      "first_detected": "2026-11-05",
+      "updated_at": "2026-11-05T12:00:00Z",
+      "status": "early_signal",
+      "confidence": "moderate",
+      "audience": "Professionals using generative AI",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "title": "Long-horizon state tracking benchmarks",
+          "publisher": "huggingface.co",
+          "publication_date": "2026-11-03",
+          "review_depth": "Preserved edition evidence reference.",
+          "checked_at": "2026-11-05",
+          "development_id": "compiler-new-1"
+        }
+      ],
+      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "research_score": 60,
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "StateBench separates direct, indirect, event and general state updates while testing extrapolation beyond training sequence lengths."
+        },
+        "evidence": {
+          "score": 3,
+          "reason": "Ai2 publishes benchmark construction and reported results, but external reproduction and broader variable settings remain unavailable."
+        },
+        "independence": {
+          "score": 2,
+          "reason": "The reviewed capability evidence comes from Ai2 and has not yet been independently reproduced in this editorial cycle."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "Agent engineers can directly test whether workflows preserve changing operational state rather than relying on context-window size."
+        },
+        "durability": {
+          "score": 4,
+          "reason": "Explicit state-transition testing remains useful as memory architectures, model families and context lengths continue to change."
+        }
+      },
+      "momentum": {
+        "classification": "baseline",
+        "score": null,
+        "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
         "metric": null,
         "observations": []
       },
