@@ -291,3 +291,34 @@ test('an omitted selection ledger cannot be converted into zero selected items',
  assert.equal(d.outcome_metrics.selected_article_count,null);
  assert.equal(d.outcome_metrics_status,'PENDING_OR_INCOMPLETE');
 });
+
+test('post-handoff search receipts use selection-lock chronology and allow truthful skipped formats',()=>{
+ const {e,h}=fixture();
+ // A provenance collector can read the Top 10 before the Compiler searches;
+ // its observation timestamp is not a search deadline.
+ e['top10-report-source'].observed_at='2026-11-03T01:16:00Z';
+ e['trend-consumed-source'].observed_at='2026-11-03T01:23:00Z';
+ e['edition-bundle'].editorial_provenance={selection_locked_at:'2026-11-03T01:22:00Z'};
+ const searches=e['trend-search-coverage'].searches;
+ searches[1].outcome='qualified_not_selected';
+ searches[2].outcome='not_attempted';
+ searches[2].query=null;searches[2].attempted_at=null;
+ searches[2].source_urls=[];searches[2].candidate_ids=[];
+ const valid=summarizeTop10(cycle,edition,e,h);
+ assert.equal(valid.handoff_status,'RECEIVED_SNAPSHOT_BOUND');
+ assert.equal(valid.search_status,'RECEIPTS_OBSERVED');
+ assert.equal(valid.search_counts.podcast.not_attempted,1);
+ assert.equal(valid.end_to_end_ready,false);
+ searches[0].attempted_at='2026-11-03T01:24:00Z';
+ assert.equal(summarizeTop10(cycle,edition,e,h).search_status,'INVALID');
+});
+test('unattempted rows cannot contain phantom candidates or attempted timestamps',()=>{
+ for(const field of ['candidate_ids','attempted_at','source_urls']){
+  const {e,h}=fixture(),r=e['trend-search-coverage'].searches[0];
+  r.outcome='not_attempted';r.query=null;r.attempted_at=null;r.source_urls=[];r.candidate_ids=[];
+  if(field==='candidate_ids')r.candidate_ids=['phantom'];
+  if(field==='attempted_at')r.attempted_at='2026-11-03T01:20:00Z';
+  if(field==='source_urls')r.source_urls=['https://example.com/not-an-attempt'];
+  assert.equal(summarizeTop10(cycle,edition,e,h).search_status,'INVALID',field);
+ }
+});

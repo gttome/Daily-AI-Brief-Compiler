@@ -106,9 +106,12 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  const sourceSet=Array.isArray(index?.eligible_ids)&&index.eligible_ids.length===index.eligible&&unique(index.eligible_ids).length===index.eligible_ids.length&&index.eligible_ids.every(text)?hash(JSON.stringify([...index.eligible_ids].sort())):null;
  // Exact IDs and a genuinely pre-selection review time are required. No inference from counts or index GETs.
  const locked=bundle?.editorial_provenance?.selection_locked_at;
- if(Array.isArray(index?.inspected_ids)&&stamp(audit.reviewed_at)&&stamp(locked)&&Date.parse(audit.reviewed_at)<=Date.parse(locked)&&
+ // A source index has its own genuine pre-selection review clock. A later
+ // candidate-discovery audit timestamp must not overwrite that earlier event.
+ const inspectedAt=index?.reviewed_at??audit?.reviewed_at;
+ if(Array.isArray(index?.inspected_ids)&&stamp(inspectedAt)&&stamp(locked)&&Date.parse(inspectedAt)<=Date.parse(locked)&&
     index.inspected===index.inspected_ids.length&&unique(index.inspected_ids).length===index.inspected_ids.length&&index.inspected_ids.every(id=>knownIds.has(id)))
-  inspections.push(...index.inspected_ids.map(resource_id=>({resource_id,reviewed_at:audit.reviewed_at,edition_date:edition})));
+  inspections.push(...index.inspected_ids.map(resource_id=>({resource_id,reviewed_at:inspectedAt,edition_date:edition})));
  const reviewValid=top10?.daily_improvement?.candidate_review_depth?.status==='RECORDED_REVIEW_LEDGER'&&
   top10.consumed_commit_independently_verified&&top10.search_status==='RECEIPTS_OBSERVED'&&coverage?.edition_date===edition;
  const selected=new Map(['article','video','podcast'].map(f=>[f,new Set((bundle?.[f==='article'?'stories':f==='video'?'videos':'podcasts']||[]).map(x=>x.source?.url??x.url))]));
