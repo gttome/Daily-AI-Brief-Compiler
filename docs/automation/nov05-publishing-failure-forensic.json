@@ -1,0 +1,81 @@
+{
+  "schema_version": "daily-brief-publishing-failure-forensic-v1",
+  "edition_date": "2026-11-05",
+  "scope": "READ_ONLY_ORIGINAL_GITHUB_ACTIONS_LOGS",
+  "record_type": "POSTRELEASE_FORENSIC_REVIEW",
+  "historical_publication_receipts_changed": false,
+  "repair_or_producer_executed": false,
+  "total_recorded_failures": 7,
+  "distinct_cause_classes": 6,
+  "classification_basis": "Original failure step and exception in the actual GitHub workflow job logs. Do not infer from stage name.",
+  "failures": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949408449",
+      "job_id": 126989505727,
+      "stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "EDITORIAL_CONTRACT_MISMATCH",
+      "original_error": "editorial contract mismatch",
+      "reason": "The exact semantic validator rejected a mismatched editorial contract; the producer needed to align its proposed bundle with the existing contract.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949408449"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949621806",
+      "job_id": 126990194158,
+      "stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "SOURCE_DATED_EVIDENCE_MISSING",
+      "original_error": "recent_source_discovery:source_consideration_missing_original_dated_evidence",
+      "reason": "The source-consideration audit lacked the required genuine original dated-item evidence and failed the prepublication validator.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949621806"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949795337",
+      "job_id": 126990766769,
+      "stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "NONTECHNICAL_AUDIENCE_EVIDENCE_MISSING",
+      "original_error": "production_evidence:nontechnical_audience_evidence_required:nov05-a1-agent-access",
+      "reason": "The selected Agents story lacked required nontechnical-audience fit evidence for this exact story ID.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949795337"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949962601",
+      "job_id": 126991313620,
+      "stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "PODCAST_AI_FRACTION_MISMATCH",
+      "original_error": "media_quality:podcast_1:ai_fraction_claim_disagrees_with_segments",
+      "reason": "The first podcast's claimed AI share disagreed with its segment audit; the original validation rejected the mismatch.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41949962601"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41950195040",
+      "job_id": 126992053620,
+      "stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "PODCAST_AI_FRACTION_MISMATCH",
+      "original_error": "media_quality:podcast_1:ai_fraction_claim_disagrees_with_segments",
+      "reason": "The same first-podcast AI-share mismatch remained and caused a second real failed protected signal run.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41950195040"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41950574998",
+      "job_id": 126993282674,
+      "stage": "MEDIA_HISTORY",
+      "root_cause_code": "MEDIA_ARCHIVE_REPEAT",
+      "original_error": "MEDIA_REUSE_VIOLATION",
+      "reason": "The full-history gate found two selected videos and one podcast already published: TED November 1, PBS October 29, and Midwest AI Summit podcast November 1.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41950574998"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41952756246",
+      "job_id": 127000319601,
+      "stage": "MEDIA_HISTORY",
+      "root_cause_code": "ARTICLE_ARCHIVE_REPEAT",
+      "original_error": "ARTICLE_REUSE_VIOLATION",
+      "reason": "The full-history gate found the Ai2 StateBench source URL already used in the November 4 edition, despite the changed headline.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/41952756246"
+    }
+  ],
+  "limitations": [
+    "Exact gate failures verified; incident repair timings and owner/scheduler attribution not reconstructed from these logs.",
+    "The reporting-only forensic file is not a backfill of the historical Compiler cause_reviews receipt.",
+    "No claim that the production preflight or owner assistance was autonomous."
+  ]
+}
