@@ -1,0 +1,2887 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-05",
+    "story_id": "nov05-t1-flashprove",
+    "source_url": "https://www.anthropic.com/research/provable-inference",
+    "job_sha256": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
+    "visual_thesis": "A commitment to hidden weights and a post-hoc proof let a CPU verifier check model-output identity, within prototype limits.",
+    "mechanism_metaphor": "sealed layered computation with a public commitment bridge",
+    "story_anchors": [
+      "The proof hides weights but not model architecture.",
+      "Proving is post-hoc, not synchronous generation.",
+      "Fast executable code still requires trust and audit."
+    ],
+    "required_labels": [
+      "Hidden weights",
+      "Model commitment",
+      "Prompt and response",
+      "Post-hoc proof",
+      "Weights stay hidden",
+      "CPU verifier",
+      "Identity check",
+      "Prototype: short contexts; fast-code trust gaps"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "Provider commits to weights; the public commitment binds subsequent inference proofs.",
+        "supporting_source_excerpt": "Provider commits to weights; the public commitment binds subsequent inference proofs.",
+        "source_url": "https://www.anthropic.com/research/provable-inference",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "The prover processes completed prompt and response computation after generation, hiding weights.",
+        "supporting_source_excerpt": "The prover processes completed prompt and response computation after generation, hiding weights.",
+        "source_url": "https://www.anthropic.com/research/provable-inference",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "A CPU verifier checks proof and commitment for the claimed model computation.",
+        "supporting_source_excerpt": "A CPU verifier checks proof and commitment for the claimed model computation.",
+        "source_url": "https://www.anthropic.com/research/provable-inference",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_4",
+        "proposition": "The prototype has short contexts, integer greedy decoding and executable-code trust gaps.",
+        "supporting_source_excerpt": "The prototype has short contexts, integer greedy decoding and executable-code trust gaps.",
+        "source_url": "https://www.anthropic.com/research/provable-inference",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Hidden weights",
+        "to": "Model commitment",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Hidden weights",
+        "to": "Post-hoc proof",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Prompt and response",
+        "to": "Post-hoc proof",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Model commitment",
+        "to": "CPU verifier",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Post-hoc proof",
+        "to": "CPU verifier",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Draw meaningful layer slices with distinct expert partitions, an opaque boundary, a commitment ribbon, separate prompt and output token shapes, segmented computation folds, proof lattice, commitment input rail, proof input rail and a comparison junction. At least twelve meaningful parts. Do not put a lock, shield, tick, identity badge, hash text, invented equations or fake code anywhere. The two public rails must meet the CPU verifier; no hidden-weight line reaches the verifier. Model commitment travels across the upper whitespace bridge. Proof construction is after-the-fact; never draw a feedback arrow into the model. Conceptual illustration, no measured cryptographic graph.",
+      "No invented measured results, repeated unapproved text, simulated document strokes, unsupported cost-weighting arrows, sliders or source-less risk arrows."
+    ],
+    "composition_signature": {
+      "grammar": "triangular commitment and proof cross-section",
+      "layout": "Left hidden-weight anatomy, central post-hoc construction, right dual-input CPU verification, detached bottom caveat.",
+      "metaphor": "sealed layered computation with a public commitment bridge",
+      "palette": "indigo and muted copper",
+      "annotation": "split boundary callouts",
+      "hierarchy": "Large priority labels integrated with meaningful internal mechanisms; detached caveat.",
+      "perspective": "Clean static editorial conceptual geometry; no engineering scale or product screenshot."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Hidden weights",
+          "region_id": "weights",
+          "region": "weights: Hidden weights directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 65,
+            "width": 270,
+            "height": 44
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Model commitment",
+          "region_id": "weights",
+          "region": "weights: Model commitment directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 405,
+            "width": 270,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Prompt and response",
+          "region_id": "proof",
+          "region": "proof: Prompt and response directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 65,
+            "width": 365,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Post-hoc proof",
+          "region_id": "proof",
+          "region": "proof: Post-hoc proof directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 400,
+            "y": 310,
+            "width": 340,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Weights stay hidden",
+          "region_id": "proof",
+          "region": "proof: Weights stay hidden directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 395,
+            "y": 455,
+            "width": 355,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "CPU verifier",
+          "region_id": "verify",
+          "region": "verify: CPU verifier directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 820,
+            "y": 100,
+            "width": 320,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Identity check",
+          "region_id": "verify",
+          "region": "verify: Identity check directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 820,
+            "y": 375,
+            "width": 320,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Prototype: short contexts; fast-code trust gaps",
+          "region_id": "caveat",
+          "region": "caveat: Prototype: short contexts; fast-code trust gaps directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 542,
+            "width": 1080,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Prototype: short contexts; fast-code trust gaps",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Hidden weights",
+        "Model commitment"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "actual_mobile_review_width": 320,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Prompt and response",
+        "Post-hoc proof",
+        "CPU verifier"
+      ],
+      "causal_state_checks": [
+        {
+          "condition": "Fast executable code still requires trust and audit.",
+          "allowed_path": "Hidden weights to Model commitment",
+          "blocked_path": "Draw meaningful layer slices with distinct expert partitions, an opaque boundary, a commitment ribbon, separate prompt and output token shapes, segmented computation folds, proof lattice, commitment input rail, proof input rail and a comparison junction. At least twelve meaningful parts. Do not put a lock, shield, tick, identity badge, hash text, invented equations or fake code anywhere. The two public rails must meet the CPU verifier; no hidden-weight line reaches the verifier. Model commitment travels across the upper whitespace bridge. Proof construction is after-the-fact; never draw a feedback arrow into the model. Conceptual illustration, no measured cryptographic graph.",
+          "support_claim_id": "claim_1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Hidden weights",
+          "to": "Model commitment",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "weights",
+          "target_region": "weights",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Hidden weights",
+          "to": "Post-hoc proof",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "weights",
+          "target_region": "proof",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Prompt and response",
+          "to": "Post-hoc proof",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "proof",
+          "target_region": "proof",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Model commitment",
+          "to": "CPU verifier",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "weights",
+          "target_region": "verify",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Post-hoc proof",
+          "to": "CPU verifier",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "proof",
+          "target_region": "verify",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "weights",
+            "description": "Hidden layer anatomy and model commitment",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 300,
+              "height": 470
+            }
+          },
+          {
+            "id": "proof",
+            "description": "Prompt-response pair and post-hoc proof construction",
+            "bounding_box_px": {
+              "x": 370,
+              "y": 40,
+              "width": 400,
+              "height": 470
+            }
+          },
+          {
+            "id": "verify",
+            "description": "CPU checks against public commitment and proof",
+            "bounding_box_px": {
+              "x": 800,
+              "y": 40,
+              "width": 360,
+              "height": 470
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached research limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 530,
+              "width": 1120,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Hidden weights",
+            "to": "Model commitment",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "weights",
+            "to_region_id": "weights",
+            "origin_px": {
+              "x": 195,
+              "y": 87
+            },
+            "target_px": {
+              "x": 195,
+              "y": 425
+            }
+          },
+          {
+            "from": "Hidden weights",
+            "to": "Post-hoc proof",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "weights",
+            "to_region_id": "proof",
+            "origin_px": {
+              "x": 195,
+              "y": 87
+            },
+            "target_px": {
+              "x": 570,
+              "y": 332
+            }
+          },
+          {
+            "from": "Prompt and response",
+            "to": "Post-hoc proof",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "proof",
+            "to_region_id": "proof",
+            "origin_px": {
+              "x": 572.5,
+              "y": 87
+            },
+            "target_px": {
+              "x": 570,
+              "y": 332
+            }
+          },
+          {
+            "from": "Model commitment",
+            "to": "CPU verifier",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "weights",
+            "to_region_id": "verify",
+            "origin_px": {
+              "x": 320,
+              "y": 430
+            },
+            "target_px": {
+              "x": 1140,
+              "y": 250
+            }
+          },
+          {
+            "from": "Post-hoc proof",
+            "to": "CPU verifier",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "proof",
+            "to_region_id": "verify",
+            "origin_px": {
+              "x": 570,
+              "y": 332
+            },
+            "target_px": {
+              "x": 980,
+              "y": 122
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "c09b900c3ec6ea3e50a0b886e38a426a70ad591cdadf33ca83644fe5c2c6f112"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://www.anthropic.com/research/provable-inference",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create one polished static factual editorial raster illustration, 1200x630 landscape. White background, indigo and muted copper accents, crisp textbook linework and meaningful exposed mechanism detail. No photographs, people, humanoids, logos, dashboards, cards, decorative gears, shields, invented UI controls, fake writing, numerical charts, checkmarks or stray symbols. This is a conceptual editorial illustration, not a measured engineering drawing.\nVisual thesis: A commitment to hidden weights and a post-hoc proof let a CPU verifier check model-output identity, within prototype limits.\nComposition: Left hidden-weight anatomy, central post-hoc construction, right dual-input CPU verification, detached bottom caveat.\nMechanism details and source restrictions: Draw meaningful layer slices with distinct expert partitions, an opaque boundary, a commitment ribbon, separate prompt and output token shapes, segmented computation folds, proof lattice, commitment input rail, proof input rail and a comparison junction. At least twelve meaningful parts. Do not put a lock, shield, tick, identity badge, hash text, invented equations or fake code anywhere. The two public rails must meet the CPU verifier; no hidden-weight line reaches the verifier. Model commitment travels across the upper whitespace bridge. Proof construction is after-the-fact; never draw a feedback arrow into the model. Conceptual illustration, no measured cryptographic graph.\nOnly visible text, each exactly once: [\"Hidden weights\",\"Model commitment\",\"Prompt and response\",\"Post-hoc proof\",\"Weights stay hidden\",\"CPU verifier\",\"Identity check\",\"Prototype: short contexts; fast-code trust gaps\"]. All other surfaces are blank or depict meaningful shapes, never imitation writing. Use two or three designated priority labels at least36px at final resolution and every secondary label at least28px, dark high-contrast type. Allow multiline wrapping inside supplied boxes without changing words. Maintain40px safe margins. Caveat is a detached bottom note; no arrow touches it.\nDraw only these directional relationships: Hidden weights -> Model commitment; Hidden weights -> Post-hoc proof; Prompt and response -> Post-hoc proof; Model commitment -> CPU verifier; Post-hoc proof -> CPU verifier. Other comparison or association guides, if described, are nondirectional. Route connectors around text rather than through labels, attach to the corresponding objects beside those labels, and preserve each endpoint region. Geometry coordinates are editorial layout guidance, never physical measurements.\n\nCORRECTION OF REJECTED CANDIDATE: Preserve exact words, hidden-weight anatomy, two prompt-response rows and post-hoc proof. Remove enclosing label boxes except detached caveat. Every graphic and text must remain inside a clearly blank40px border at1200x630. The public commitment bridge must run at y=50 or lower, then down the FAR RIGHT blank gutter x=1150, bend inward beneath the CPU label and enter the physical CPU upper comparison port at(1140,250), never terminate at a word or run into another label. Connect that external commitment wire continuously to the internal UPPER comparison rail; proof wire enters LOWER rail. Move the upper input port to the right side if needed. There must be no unconnected internal rail, no floating arrows and no connector entering CPU label. Keep white label-free routing corridors. Omit any chip pins or ribbon tails violating safe border. Treat border as strict blank margin, no letterboxing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"weights\",\"description\":\"Hidden layer anatomy and model commitment\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":300,\"height\":470}},{\"id\":\"proof\",\"description\":\"Prompt-response pair and post-hoc proof construction\",\"bounding_box_px\":{\"x\":370,\"y\":40,\"width\":400,\"height\":470}},{\"id\":\"verify\",\"description\":\"CPU checks against public commitment and proof\",\"bounding_box_px\":{\"x\":800,\"y\":40,\"width\":360,\"height\":470}},{\"id\":\"caveat\",\"description\":\"Detached research limitation\",\"bounding_box_px\":{\"x\":40,\"y\":530,\"width\":1120,\"height\":60}}],\"labels\":[{\"label\":\"Hidden weights\",\"region_id\":\"weights\",\"region\":\"weights: Hidden weights directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":65,\"width\":270,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Model commitment\",\"region_id\":\"weights\",\"region\":\"weights: Model commitment directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":405,\"width\":270,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Prompt and response\",\"region_id\":\"proof\",\"region\":\"proof: Prompt and response directly beside its explanatory object\",\"bounding_box_px\":{\"x\":390,\"y\":65,\"width\":365,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Post-hoc proof\",\"region_id\":\"proof\",\"region\":\"proof: Post-hoc proof directly beside its explanatory object\",\"bounding_box_px\":{\"x\":400,\"y\":310,\"width\":340,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Weights stay hidden\",\"region_id\":\"proof\",\"region\":\"proof: Weights stay hidden directly beside its explanatory object\",\"bounding_box_px\":{\"x\":395,\"y\":455,\"width\":355,\"height\":40},\"minimum_font_px\":28},{\"label\":\"CPU verifier\",\"region_id\":\"verify\",\"region\":\"verify: CPU verifier directly beside its explanatory object\",\"bounding_box_px\":{\"x\":820,\"y\":100,\"width\":320,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Identity check\",\"region_id\":\"verify\",\"region\":\"verify: Identity check directly beside its explanatory object\",\"bounding_box_px\":{\"x\":820,\"y\":375,\"width\":320,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Prototype: short contexts; fast-code trust gaps\",\"region_id\":\"caveat\",\"region\":\"caveat: Prototype: short contexts; fast-code trust gaps directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Hidden weights\",\"to\":\"Model commitment\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"weights\",\"to_region_id\":\"weights\",\"origin_px\":{\"x\":195,\"y\":87},\"target_px\":{\"x\":195,\"y\":425}},{\"from\":\"Hidden weights\",\"to\":\"Post-hoc proof\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"weights\",\"to_region_id\":\"proof\",\"origin_px\":{\"x\":195,\"y\":87},\"target_px\":{\"x\":570,\"y\":332}},{\"from\":\"Prompt and response\",\"to\":\"Post-hoc proof\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"proof\",\"to_region_id\":\"proof\",\"origin_px\":{\"x\":572.5,\"y\":87},\"target_px\":{\"x\":570,\"y\":332}},{\"from\":\"Model commitment\",\"to\":\"CPU verifier\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"weights\",\"to_region_id\":\"verify\",\"origin_px\":{\"x\":320,\"y\":430},\"target_px\":{\"x\":1140,\"y\":250}},{\"from\":\"Post-hoc proof\",\"to\":\"CPU verifier\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"proof\",\"to_region_id\":\"verify\",\"origin_px\":{\"x\":570,\"y\":332},\"target_px\":{\"x\":980,\"y\":122}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-05",
+    "story_id": "nov05-t2-nemo-trace-evals",
+    "source_url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+    "job_sha256": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
+    "visual_thesis": "An observed failure becomes a requirement-grounded test and a harness change tested separately on development and held-out tasks.",
+    "mechanism_metaphor": "failure trace distilled into test fixture and split experiment",
+    "story_anchors": [
+      "The example assistant sent a message without confirmation.",
+      "Generated evaluations require review against intended requirements.",
+      "Held-out tasks stay hidden from the proposing coding agent."
+    ],
+    "required_labels": [
+      "Failure trace",
+      "Trace evidence",
+      "Reproduce failure",
+      "Review criteria",
+      "Harness change",
+      "Development tests",
+      "Held-out tests",
+      "Compare results",
+      "Vendor case; independent reproduction needed"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "Stored trace evidence grounds a minimal evaluation reproducing a failure.",
+        "supporting_source_excerpt": "Stored trace evidence grounds a minimal evaluation reproducing a failure.",
+        "source_url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Generated verifiers must reflect agent requirements; change harness instructions after creating tests.",
+        "supporting_source_excerpt": "Generated verifiers must reflect agent requirements; change harness instructions after creating tests.",
+        "source_url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Rerun both development and separately held-out tests to assess changes and regressions.",
+        "supporting_source_excerpt": "Rerun both development and separately held-out tests to assess changes and regressions.",
+        "source_url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_4",
+        "proposition": "Reported results are vendor examples and do not establish general improvements.",
+        "supporting_source_excerpt": "Reported results are vendor examples and do not establish general improvements.",
+        "source_url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Trace evidence",
+        "to": "Reproduce failure",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Review criteria",
+        "to": "Reproduce failure",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reproduce failure",
+        "to": "Harness change",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Harness change",
+        "to": "Development tests",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Harness change",
+        "to": "Held-out tests",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Development tests",
+        "to": "Compare results",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Held-out tests",
+        "to": "Compare results",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Trace uses a connected sequence of request, draft, tool-call and unwanted-send abstract tokens, not imitation paragraphs. Show an isolated trace fragment as evidence, a test input, an expected-behavior boundary, criterion junction, changed harness layer, two separate evaluation fixture assemblies, independent output samples and a comparison tray. Twelve meaningful components. Held-out tasks must never flow back into harness design. No score charts, numbers, checkmarks, fake code or UI controls. Development and held-out rails remain distinct until comparison; no guaranteed promotion outcome.",
+      "No invented measured results, repeated unapproved text, simulated document strokes, unsupported cost-weighting arrows, sliders or source-less risk arrows."
+    ],
+    "composition_signature": {
+      "grammar": "stepped evidence to test fork",
+      "layout": "Left chronological trace, middle reproduction and harness step, right upper/lower independent test branches, detached bottom caveat.",
+      "metaphor": "failure trace distilled into test fixture and split experiment",
+      "palette": "forest green with charcoal and restrained amber",
+      "annotation": "evidence-linked stepped captions",
+      "hierarchy": "Large priority labels integrated with meaningful internal mechanisms; detached caveat.",
+      "perspective": "Clean static editorial conceptual geometry; no engineering scale or product screenshot."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Failure trace",
+          "region_id": "trace",
+          "region": "trace: Failure trace directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 55,
+            "y": 60,
+            "width": 250,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Trace evidence",
+          "region_id": "trace",
+          "region": "trace: Trace evidence directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 55,
+            "y": 420,
+            "width": 250,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Reproduce failure",
+          "region_id": "repair",
+          "region": "repair: Reproduce failure directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 360,
+            "y": 60,
+            "width": 330,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Review criteria",
+          "region_id": "repair",
+          "region": "repair: Review criteria directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 360,
+            "y": 225,
+            "width": 330,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Harness change",
+          "region_id": "repair",
+          "region": "repair: Harness change directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 360,
+            "y": 425,
+            "width": 330,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Development tests",
+          "region_id": "tests",
+          "region": "tests: Development tests directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 750,
+            "y": 65,
+            "width": 390,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Held-out tests",
+          "region_id": "tests",
+          "region": "tests: Held-out tests directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 750,
+            "y": 260,
+            "width": 390,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Compare results",
+          "region_id": "tests",
+          "region": "tests: Compare results directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 750,
+            "y": 445,
+            "width": 390,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Vendor case; independent reproduction needed",
+          "region_id": "caveat",
+          "region": "caveat: Vendor case; independent reproduction needed directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 542,
+            "width": 1080,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor case; independent reproduction needed",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Failure trace",
+        "Trace evidence"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "actual_mobile_review_width": 320,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Failure trace",
+        "Reproduce failure",
+        "Harness change"
+      ],
+      "causal_state_checks": [
+        {
+          "condition": "Held-out tasks stay hidden from the proposing coding agent.",
+          "allowed_path": "Trace evidence to Reproduce failure",
+          "blocked_path": "Trace uses a connected sequence of request, draft, tool-call and unwanted-send abstract tokens, not imitation paragraphs. Show an isolated trace fragment as evidence, a test input, an expected-behavior boundary, criterion junction, changed harness layer, two separate evaluation fixture assemblies, independent output samples and a comparison tray. Twelve meaningful components. Held-out tasks must never flow back into harness design. No score charts, numbers, checkmarks, fake code or UI controls. Development and held-out rails remain distinct until comparison; no guaranteed promotion outcome.",
+          "support_claim_id": "claim_1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Trace evidence",
+          "to": "Reproduce failure",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "trace",
+          "target_region": "repair",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Review criteria",
+          "to": "Reproduce failure",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "repair",
+          "target_region": "repair",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reproduce failure",
+          "to": "Harness change",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "repair",
+          "target_region": "repair",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Harness change",
+          "to": "Development tests",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "repair",
+          "target_region": "tests",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Harness change",
+          "to": "Held-out tests",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "repair",
+          "target_region": "tests",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Development tests",
+          "to": "Compare results",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "tests",
+          "target_region": "tests",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Held-out tests",
+          "to": "Compare results",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "tests",
+          "target_region": "tests",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "trace",
+            "description": "Recorded sequence and evidence of failure",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 280,
+              "height": 470
+            }
+          },
+          {
+            "id": "repair",
+            "description": "Reproduction criteria followed by harness change",
+            "bounding_box_px": {
+              "x": 345,
+              "y": 40,
+              "width": 360,
+              "height": 470
+            }
+          },
+          {
+            "id": "tests",
+            "description": "Separate development and held-out evaluation before comparison",
+            "bounding_box_px": {
+              "x": 730,
+              "y": 40,
+              "width": 430,
+              "height": 470
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached case-study limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 530,
+              "width": 1120,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Trace evidence",
+            "to": "Reproduce failure",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "trace",
+            "to_region_id": "repair",
+            "origin_px": {
+              "x": 180,
+              "y": 440
+            },
+            "target_px": {
+              "x": 525,
+              "y": 82
+            }
+          },
+          {
+            "from": "Review criteria",
+            "to": "Reproduce failure",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "repair",
+            "to_region_id": "repair",
+            "origin_px": {
+              "x": 525,
+              "y": 245
+            },
+            "target_px": {
+              "x": 525,
+              "y": 82
+            }
+          },
+          {
+            "from": "Reproduce failure",
+            "to": "Harness change",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "repair",
+            "to_region_id": "repair",
+            "origin_px": {
+              "x": 525,
+              "y": 82
+            },
+            "target_px": {
+              "x": 525,
+              "y": 447
+            }
+          },
+          {
+            "from": "Harness change",
+            "to": "Development tests",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "repair",
+            "to_region_id": "tests",
+            "origin_px": {
+              "x": 525,
+              "y": 447
+            },
+            "target_px": {
+              "x": 945,
+              "y": 85
+            }
+          },
+          {
+            "from": "Harness change",
+            "to": "Held-out tests",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "repair",
+            "to_region_id": "tests",
+            "origin_px": {
+              "x": 525,
+              "y": 447
+            },
+            "target_px": {
+              "x": 945,
+              "y": 280
+            }
+          },
+          {
+            "from": "Development tests",
+            "to": "Compare results",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "tests",
+            "to_region_id": "tests",
+            "origin_px": {
+              "x": 945,
+              "y": 85
+            },
+            "target_px": {
+              "x": 945,
+              "y": 465
+            }
+          },
+          {
+            "from": "Held-out tests",
+            "to": "Compare results",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "tests",
+            "to_region_id": "tests",
+            "origin_px": {
+              "x": 945,
+              "y": 280
+            },
+            "target_px": {
+              "x": 945,
+              "y": 465
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "4d5c305ed56b26b8b738c5d24977d245c4ef99024fad36315083188dd2d95e89"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create one polished static factual editorial raster illustration, 1200x630 landscape. White background, forest green with charcoal and restrained amber accents, crisp textbook linework and meaningful exposed mechanism detail. No photographs, people, humanoids, logos, dashboards, cards, decorative gears, shields, invented UI controls, fake writing, numerical charts, checkmarks or stray symbols. This is a conceptual editorial illustration, not a measured engineering drawing.\nVisual thesis: An observed failure becomes a requirement-grounded test and a harness change tested separately on development and held-out tasks.\nComposition: Left chronological trace, middle reproduction and harness step, right upper/lower independent test branches, detached bottom caveat.\nMechanism details and source restrictions: Trace uses a connected sequence of request, draft, tool-call and unwanted-send abstract tokens, not imitation paragraphs. Show an isolated trace fragment as evidence, a test input, an expected-behavior boundary, criterion junction, changed harness layer, two separate evaluation fixture assemblies, independent output samples and a comparison tray. Twelve meaningful components. Held-out tasks must never flow back into harness design. No score charts, numbers, checkmarks, fake code or UI controls. Development and held-out rails remain distinct until comparison; no guaranteed promotion outcome.\nOnly visible text, each exactly once: [\"Failure trace\",\"Trace evidence\",\"Reproduce failure\",\"Review criteria\",\"Harness change\",\"Development tests\",\"Held-out tests\",\"Compare results\",\"Vendor case; independent reproduction needed\"]. All other surfaces are blank or depict meaningful shapes, never imitation writing. Use two or three designated priority labels at least36px at final resolution and every secondary label at least28px, dark high-contrast type. Allow multiline wrapping inside supplied boxes without changing words. Maintain40px safe margins. Caveat is a detached bottom note; no arrow touches it.\nDraw only these directional relationships: Trace evidence -> Reproduce failure; Review criteria -> Reproduce failure; Reproduce failure -> Harness change; Harness change -> Development tests; Harness change -> Held-out tests; Development tests -> Compare results; Held-out tests -> Compare results. Other comparison or association guides, if described, are nondirectional. Route connectors around text rather than through labels, attach to the corresponding objects beside those labels, and preserve each endpoint region. Geometry coordinates are editorial layout guidance, never physical measurements.\n\nCORRECT THESE ACTUAL REJECTED MOTIFS: No document with horizontal lines anywhere; every document-like surface is entirely blank or contains one meaningful distinct abstract shape, never rows of strokes. No speech bubble with ellipsis, wrench, warning triangle, exclamation point, pause glyph, slider, shipping box or decorative machinery. Use message=plain open rectangle, draft=folded blank sheet, tool call=angular branch junction, unwanted send=paper-plane shape without any enclosing UI button; the four distinct shapes connect in the trace. Test fixture is an open geometric boundary with a matching input and expected behavior shape, no machine housing. Harness change is a visibly replaced instruction layer, with no controls or plugs. Development and held-out paths are separate arrays of distinct input/output specimens, no card-board panels. Remove large rounded region enclosures and keep only white space groupings. Bottom caveat is plain exact text with no package icon. Preserve exact text and causal directions, and physical separation of held-out tests from harness design. All required labels within40px margins.\n\nTARGETED ROUTE CORRECTION: Preserve the previous corrected artwork and every exact label. The vertical development-results arrow currently crosses the horizontal held-out specimen path, making the two test sets appear coupled. Move that development-results wire to the outer right white routing gutter at final x=1150, beyond all held-out objects and connectors, then bend left into Compare results below the entire held-out group. Held-out results need their own separate downward arrow from their final specimen into Compare results. No cross, touch, junction or arrow from development into any held-out fixture. This is the ONLY requested visual correction; preserve all clean abstract trace shapes and blank document surfaces.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"trace\",\"description\":\"Recorded sequence and evidence of failure\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":280,\"height\":470}},{\"id\":\"repair\",\"description\":\"Reproduction criteria followed by harness change\",\"bounding_box_px\":{\"x\":345,\"y\":40,\"width\":360,\"height\":470}},{\"id\":\"tests\",\"description\":\"Separate development and held-out evaluation before comparison\",\"bounding_box_px\":{\"x\":730,\"y\":40,\"width\":430,\"height\":470}},{\"id\":\"caveat\",\"description\":\"Detached case-study limitation\",\"bounding_box_px\":{\"x\":40,\"y\":530,\"width\":1120,\"height\":60}}],\"labels\":[{\"label\":\"Failure trace\",\"region_id\":\"trace\",\"region\":\"trace: Failure trace directly beside its explanatory object\",\"bounding_box_px\":{\"x\":55,\"y\":60,\"width\":250,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Trace evidence\",\"region_id\":\"trace\",\"region\":\"trace: Trace evidence directly beside its explanatory object\",\"bounding_box_px\":{\"x\":55,\"y\":420,\"width\":250,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Reproduce failure\",\"region_id\":\"repair\",\"region\":\"repair: Reproduce failure directly beside its explanatory object\",\"bounding_box_px\":{\"x\":360,\"y\":60,\"width\":330,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Review criteria\",\"region_id\":\"repair\",\"region\":\"repair: Review criteria directly beside its explanatory object\",\"bounding_box_px\":{\"x\":360,\"y\":225,\"width\":330,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Harness change\",\"region_id\":\"repair\",\"region\":\"repair: Harness change directly beside its explanatory object\",\"bounding_box_px\":{\"x\":360,\"y\":425,\"width\":330,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Development tests\",\"region_id\":\"tests\",\"region\":\"tests: Development tests directly beside its explanatory object\",\"bounding_box_px\":{\"x\":750,\"y\":65,\"width\":390,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Held-out tests\",\"region_id\":\"tests\",\"region\":\"tests: Held-out tests directly beside its explanatory object\",\"bounding_box_px\":{\"x\":750,\"y\":260,\"width\":390,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Compare results\",\"region_id\":\"tests\",\"region\":\"tests: Compare results directly beside its explanatory object\",\"bounding_box_px\":{\"x\":750,\"y\":445,\"width\":390,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Vendor case; independent reproduction needed\",\"region_id\":\"caveat\",\"region\":\"caveat: Vendor case; independent reproduction needed directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Trace evidence\",\"to\":\"Reproduce failure\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"trace\",\"to_region_id\":\"repair\",\"origin_px\":{\"x\":180,\"y\":440},\"target_px\":{\"x\":525,\"y\":82}},{\"from\":\"Review criteria\",\"to\":\"Reproduce failure\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"repair\",\"to_region_id\":\"repair\",\"origin_px\":{\"x\":525,\"y\":245},\"target_px\":{\"x\":525,\"y\":82}},{\"from\":\"Reproduce failure\",\"to\":\"Harness change\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"repair\",\"to_region_id\":\"repair\",\"origin_px\":{\"x\":525,\"y\":82},\"target_px\":{\"x\":525,\"y\":447}},{\"from\":\"Harness change\",\"to\":\"Development tests\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"repair\",\"to_region_id\":\"tests\",\"origin_px\":{\"x\":525,\"y\":447},\"target_px\":{\"x\":945,\"y\":85}},{\"from\":\"Harness change\",\"to\":\"Held-out tests\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"repair\",\"to_region_id\":\"tests\",\"origin_px\":{\"x\":525,\"y\":447},\"target_px\":{\"x\":945,\"y\":280}},{\"from\":\"Development tests\",\"to\":\"Compare results\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"tests\",\"to_region_id\":\"tests\",\"origin_px\":{\"x\":945,\"y\":85},\"target_px\":{\"x\":945,\"y\":465}},{\"from\":\"Held-out tests\",\"to\":\"Compare results\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"tests\",\"to_region_id\":\"tests\",\"origin_px\":{\"x\":945,\"y\":280},\"target_px\":{\"x\":945,\"y\":465}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-05",
+    "story_id": "nov05-k1-pierre",
+    "source_url": "https://openai.com/index/openai-to-acquire-pierre/",
+    "job_sha256": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
+    "visual_thesis": "Distinct Git interface libraries support navigation, change review, highlighting and code history while the announced acquisition remains pending.",
+    "mechanism_metaphor": "four complementary views of a shared Git structure",
+    "story_anchors": [
+      "Trees supports project-file navigation and Diffs supports change review.",
+      "Highlights supports syntax highlighting and Code Storage tracks Git history.",
+      "OpenAI and Pierre remain separate until closing."
+    ],
+    "required_labels": [
+      "Parallel branches",
+      "Trees",
+      "Navigate files",
+      "Diffs",
+      "Review changes",
+      "Highlights",
+      "Code Storage",
+      "Acquisition pending; companies remain separate"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "Trees provides project file navigation.",
+        "supporting_source_excerpt": "Trees provides project file navigation.",
+        "source_url": "https://openai.com/index/openai-to-acquire-pierre/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Diffs exposes changes and supports reviewing and editing a changed line.",
+        "supporting_source_excerpt": "Diffs exposes changes and supports reviewing and editing a changed line.",
+        "source_url": "https://openai.com/index/openai-to-acquire-pierre/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Highlights handles syntax color; Code Storage stores code with Git history.",
+        "supporting_source_excerpt": "Highlights handles syntax color; Code Storage stores code with Git history.",
+        "source_url": "https://openai.com/index/openai-to-acquire-pierre/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_4",
+        "proposition": "The deal is subject to closing and regulatory approval; companies remain independent until closing.",
+        "supporting_source_excerpt": "The deal is subject to closing and regulatory approval; companies remain independent until closing.",
+        "source_url": "https://openai.com/index/openai-to-acquire-pierre/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Trees",
+        "to": "Navigate files",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Diffs",
+        "to": "Review changes",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Make an exploded editorial anatomy, never a product screenshot. Upper branching graph has a shared ancestor and clearly independent branches without deployment or merger arrows. The navigation area exposes a nested hierarchy with folder boundaries and file leaves; change review shows aligned before/after geometric blocks with a displaced changed block, not line-like writing; highlighting shows distinct token shapes with no invented code; code history shows stacked revisions bound to a separate history spine. At least twelve meaningful components. Only two causal callout arrows: Trees to Navigate files and Diffs to Review changes. Other links are nondirectional association guides. Do not imply the four libraries automatically merge code, guarantee conflict resolution, or that the acquisition is closed.",
+      "No invented measured results, repeated unapproved text, simulated document strokes, unsupported cost-weighting arrows, sliders or source-less risk arrows."
+    ],
+    "composition_signature": {
+      "grammar": "exploded Git interface anatomy",
+      "layout": "Upper branch structure spans the canvas; lower left file navigation, lower middle change-review anatomy, lower right highlighting/history layers, detached status below.",
+      "metaphor": "four complementary views of a shared Git structure",
+      "palette": "plum with warm graphite",
+      "annotation": "anatomical leader lines",
+      "hierarchy": "Large priority labels integrated with meaningful internal mechanisms; detached caveat.",
+      "perspective": "Clean static editorial conceptual geometry; no engineering scale or product screenshot."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Parallel branches",
+          "region_id": "branches",
+          "region": "branches: Parallel branches directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 52,
+            "width": 490,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Trees",
+          "region_id": "navigation",
+          "region": "navigation: Trees directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 210,
+            "width": 300,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Navigate files",
+          "region_id": "navigation",
+          "region": "navigation: Navigate files directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 450,
+            "width": 300,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Diffs",
+          "region_id": "review",
+          "region": "review: Diffs directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 210,
+            "width": 300,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Review changes",
+          "region_id": "review",
+          "region": "review: Review changes directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 450,
+            "width": 300,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Highlights",
+          "region_id": "history",
+          "region": "history: Highlights directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 210,
+            "width": 340,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Code Storage",
+          "region_id": "history",
+          "region": "history: Code Storage directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 450,
+            "width": 340,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Acquisition pending; companies remain separate",
+          "region_id": "caveat",
+          "region": "caveat: Acquisition pending; companies remain separate directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 542,
+            "width": 1080,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Acquisition pending; companies remain separate",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Parallel branches",
+        "Trees"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "actual_mobile_review_width": 320,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Parallel branches",
+        "Trees",
+        "Diffs"
+      ],
+      "causal_state_checks": [
+        {
+          "condition": "OpenAI and Pierre remain separate until closing.",
+          "allowed_path": "Trees to Navigate files",
+          "blocked_path": "Make an exploded editorial anatomy, never a product screenshot. Upper branching graph has a shared ancestor and clearly independent branches without deployment or merger arrows. The navigation area exposes a nested hierarchy with folder boundaries and file leaves; change review shows aligned before/after geometric blocks with a displaced changed block, not line-like writing; highlighting shows distinct token shapes with no invented code; code history shows stacked revisions bound to a separate history spine. At least twelve meaningful components. Only two causal callout arrows: Trees to Navigate files and Diffs to Review changes. Other links are nondirectional association guides. Do not imply the four libraries automatically merge code, guarantee conflict resolution, or that the acquisition is closed.",
+          "support_claim_id": "claim_1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Trees",
+          "to": "Navigate files",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "navigation",
+          "target_region": "navigation",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Diffs",
+          "to": "Review changes",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "review",
+          "target_region": "review",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "branches",
+            "description": "Abstract parallel Git branches",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 1120,
+              "height": 130
+            }
+          },
+          {
+            "id": "navigation",
+            "description": "Trees file-navigation anatomy",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 190,
+              "width": 340,
+              "height": 310
+            }
+          },
+          {
+            "id": "review",
+            "description": "Diffs change-review anatomy",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 190,
+              "width": 340,
+              "height": 310
+            }
+          },
+          {
+            "id": "history",
+            "description": "Highlights and Code Storage companion anatomy",
+            "bounding_box_px": {
+              "x": 780,
+              "y": 190,
+              "width": 380,
+              "height": 310
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached pending transaction status",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 530,
+              "width": 1120,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Trees",
+            "to": "Navigate files",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "navigation",
+            "to_region_id": "navigation",
+            "origin_px": {
+              "x": 210,
+              "y": 232
+            },
+            "target_px": {
+              "x": 210,
+              "y": 470
+            }
+          },
+          {
+            "from": "Diffs",
+            "to": "Review changes",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "review",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 580,
+              "y": 232
+            },
+            "target_px": {
+              "x": 580,
+              "y": 470
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "619214e4485275cf1b546f332d040276f214590a5990c73656ed17258fabd1a2"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://openai.com/index/openai-to-acquire-pierre/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create one polished static factual editorial raster illustration, 1200x630 landscape. White background, plum with warm graphite accents, crisp textbook linework and meaningful exposed mechanism detail. No photographs, people, humanoids, logos, dashboards, cards, decorative gears, shields, invented UI controls, fake writing, numerical charts, checkmarks or stray symbols. This is a conceptual editorial illustration, not a measured engineering drawing.\nVisual thesis: Distinct Git interface libraries support navigation, change review, highlighting and code history while the announced acquisition remains pending.\nComposition: Upper branch structure spans the canvas; lower left file navigation, lower middle change-review anatomy, lower right highlighting/history layers, detached status below.\nMechanism details and source restrictions: Make an exploded editorial anatomy, never a product screenshot. Upper branching graph has a shared ancestor and clearly independent branches without deployment or merger arrows. The navigation area exposes a nested hierarchy with folder boundaries and file leaves; change review shows aligned before/after geometric blocks with a displaced changed block, not line-like writing; highlighting shows distinct token shapes with no invented code; code history shows stacked revisions bound to a separate history spine. At least twelve meaningful components. Only two causal callout arrows: Trees to Navigate files and Diffs to Review changes. Other links are nondirectional association guides. Do not imply the four libraries automatically merge code, guarantee conflict resolution, or that the acquisition is closed.\nOnly visible text, each exactly once: [\"Parallel branches\",\"Trees\",\"Navigate files\",\"Diffs\",\"Review changes\",\"Highlights\",\"Code Storage\",\"Acquisition pending; companies remain separate\"]. All other surfaces are blank or depict meaningful shapes, never imitation writing. Use two or three designated priority labels at least36px at final resolution and every secondary label at least28px, dark high-contrast type. Allow multiline wrapping inside supplied boxes without changing words. Maintain40px safe margins. Caveat is a detached bottom note; no arrow touches it.\nDraw only these directional relationships: Trees -> Navigate files; Diffs -> Review changes. Other comparison or association guides, if described, are nondirectional. Route connectors around text rather than through labels, attach to the corresponding objects beside those labels, and preserve each endpoint region. Geometry coordinates are editorial layout guidance, never physical measurements.\n\nMARGIN CORRECTION TO ATTACHED ART: Preserve all eight exact labels, meaningful file tree, before/after block comparison, highlighting shapes and layered history. The top heading currently begins too close to the canvas edge. Move Parallel branches to final x60,y52 with its full text inside y52..100. Shift the branch graph into x500..1140,y70..160 so it remains to the right/below the heading without collision. The acquisition caveat text must stay in y542..582, never below590. Keep every required letter at least40px from each edge at1200x630. Remove the large rounded region panel outlines and decorative dotted divider lines; use white space to distinguish the four source-supported tool mechanisms. Do not shrink the required typography or add any word.\n\nSECOND PRECISE TEXT-MARGIN CORRECTION: Keep all artwork otherwise identical. Move the top Parallel branches words DOWN another20px in final1200px coordinates; target text top60 rather than39. Move the entire bottom acquisition caveat and its outline UP30px in final1200px coordinates; target text baseline560 and lower border580 rather than615. Leave a completely blank bottom strip of50px and a completely blank top strip of50px. Do not add a title, word or arrow and do not change the mechanisms. Preserve large type size.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"branches\",\"description\":\"Abstract parallel Git branches\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":1120,\"height\":130}},{\"id\":\"navigation\",\"description\":\"Trees file-navigation anatomy\",\"bounding_box_px\":{\"x\":40,\"y\":190,\"width\":340,\"height\":310}},{\"id\":\"review\",\"description\":\"Diffs change-review anatomy\",\"bounding_box_px\":{\"x\":410,\"y\":190,\"width\":340,\"height\":310}},{\"id\":\"history\",\"description\":\"Highlights and Code Storage companion anatomy\",\"bounding_box_px\":{\"x\":780,\"y\":190,\"width\":380,\"height\":310}},{\"id\":\"caveat\",\"description\":\"Detached pending transaction status\",\"bounding_box_px\":{\"x\":40,\"y\":530,\"width\":1120,\"height\":60}}],\"labels\":[{\"label\":\"Parallel branches\",\"region_id\":\"branches\",\"region\":\"branches: Parallel branches directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":52,\"width\":490,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Trees\",\"region_id\":\"navigation\",\"region\":\"navigation: Trees directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":210,\"width\":300,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Navigate files\",\"region_id\":\"navigation\",\"region\":\"navigation: Navigate files directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":450,\"width\":300,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Diffs\",\"region_id\":\"review\",\"region\":\"review: Diffs directly beside its explanatory object\",\"bounding_box_px\":{\"x\":430,\"y\":210,\"width\":300,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Review changes\",\"region_id\":\"review\",\"region\":\"review: Review changes directly beside its explanatory object\",\"bounding_box_px\":{\"x\":430,\"y\":450,\"width\":300,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Highlights\",\"region_id\":\"history\",\"region\":\"history: Highlights directly beside its explanatory object\",\"bounding_box_px\":{\"x\":800,\"y\":210,\"width\":340,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Code Storage\",\"region_id\":\"history\",\"region\":\"history: Code Storage directly beside its explanatory object\",\"bounding_box_px\":{\"x\":800,\"y\":450,\"width\":340,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Acquisition pending; companies remain separate\",\"region_id\":\"caveat\",\"region\":\"caveat: Acquisition pending; companies remain separate directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Trees\",\"to\":\"Navigate files\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"navigation\",\"to_region_id\":\"navigation\",\"origin_px\":{\"x\":210,\"y\":232},\"target_px\":{\"x\":210,\"y\":470}},{\"from\":\"Diffs\",\"to\":\"Review changes\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"review\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":580,\"y\":232},\"target_px\":{\"x\":580,\"y\":470}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-05",
+    "story_id": "nov05-k2-openweights",
+    "source_url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+    "job_sha256": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
+    "visual_thesis": "A governed gateway routes workload choices across hosted and open-weight model options with shared access, budget and audit controls.",
+    "mechanism_metaphor": "shared governance membrane over an interchangeable model portfolio",
+    "story_anchors": [
+      "The source argues for portfolios rather than a single provider.",
+      "Gateway controls cover access, budgets and audit trails.",
+      "Economic advantages are vendor claims to test on local workloads."
+    ],
+    "required_labels": [
+      "Shared workload",
+      "Governed gateway",
+      "Access controls",
+      "Budgets",
+      "Hosted models",
+      "Open-weight models",
+      "Audit trail",
+      "Compare on your tasks",
+      "Vendor claims; validate locally"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "A unified gateway serves hosted open-weight and frontier or external model options with common routing.",
+        "supporting_source_excerpt": "A unified gateway serves hosted open-weight and frontier or external model options with common routing.",
+        "source_url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Access, budgets and auditing govern the portfolio centrally.",
+        "supporting_source_excerpt": "Access, budgets and auditing govern the portfolio centrally.",
+        "source_url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Cost and control claims should be tested on the users own workload; no universal advantage is established.",
+        "supporting_source_excerpt": "Cost and control claims should be tested on the users own workload; no universal advantage is established.",
+        "source_url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Shared workload",
+        "to": "Governed gateway",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Governed gateway",
+        "to": "Hosted models",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Governed gateway",
+        "to": "Open-weight models",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Governed gateway",
+        "to": "Audit trail",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Draw a layered architecture cross-section, not a dashboard. Input has distinguishable workload tokens, the gateway has a policy membrane, access boundary, budget boundary, routing junction, two separate paths to a hosted service assembly and a controllable open-weight layer stack. Audit branch attaches to the gateway, not to a guarantee badge. Right comparison spine relates identical input tokens and distinct returned outputs without numbers, scores or bars. Twelve meaningful parts. No claim that open weights automatically win; no data-locality, safety or cost guarantee; no feedback arrow or knob. Long labels may wrap onto two lines at minimum font without added text.",
+      "No invented measured results, repeated unapproved text, simulated document strokes, unsupported cost-weighting arrows, sliders or source-less risk arrows."
+    ],
+    "composition_signature": {
+      "grammar": "layered gateway and portfolio comparison",
+      "layout": "Left shared-workload inlet; broad upper center governance layer; lower center two model alternatives; narrow right observation spine; detached caveat.",
+      "metaphor": "shared governance membrane over an interchangeable model portfolio",
+      "palette": "teal with ochre accents",
+      "annotation": "layer braces and comparison guides",
+      "hierarchy": "Large priority labels integrated with meaningful internal mechanisms; detached caveat.",
+      "perspective": "Clean static editorial conceptual geometry; no engineering scale or product screenshot."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Shared workload",
+          "region_id": "input",
+          "region": "input: Shared workload directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 55,
+            "y": 65,
+            "width": 230,
+            "height": 88
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Governed gateway",
+          "region_id": "governance",
+          "region": "governance: Governed gateway directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 350,
+            "y": 55,
+            "width": 520,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Access controls",
+          "region_id": "governance",
+          "region": "governance: Access controls directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 350,
+            "y": 150,
+            "width": 270,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Budgets",
+          "region_id": "governance",
+          "region": "governance: Budgets directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 670,
+            "y": 150,
+            "width": 190,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Hosted models",
+          "region_id": "portfolio",
+          "region": "portfolio: Hosted models directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 350,
+            "y": 270,
+            "width": 245,
+            "height": 88
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Open-weight models",
+          "region_id": "portfolio",
+          "region": "portfolio: Open-weight models directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 620,
+            "y": 270,
+            "width": 250,
+            "height": 88
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Audit trail",
+          "region_id": "observe",
+          "region": "observe: Audit trail directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 940,
+            "y": 70,
+            "width": 200,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Compare on your tasks",
+          "region_id": "observe",
+          "region": "observe: Compare on your tasks directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 940,
+            "y": 340,
+            "width": 200,
+            "height": 120
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Vendor claims; validate locally",
+          "region_id": "caveat",
+          "region": "caveat: Vendor claims; validate locally directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 542,
+            "width": 1080,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Vendor claims; validate locally",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Shared workload",
+        "Governed gateway"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "actual_mobile_review_width": 320,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Shared workload",
+        "Governed gateway",
+        "Open-weight models"
+      ],
+      "causal_state_checks": [
+        {
+          "condition": "Economic advantages are vendor claims to test on local workloads.",
+          "allowed_path": "Shared workload to Governed gateway",
+          "blocked_path": "Draw a layered architecture cross-section, not a dashboard. Input has distinguishable workload tokens, the gateway has a policy membrane, access boundary, budget boundary, routing junction, two separate paths to a hosted service assembly and a controllable open-weight layer stack. Audit branch attaches to the gateway, not to a guarantee badge. Right comparison spine relates identical input tokens and distinct returned outputs without numbers, scores or bars. Twelve meaningful parts. No claim that open weights automatically win; no data-locality, safety or cost guarantee; no feedback arrow or knob. Long labels may wrap onto two lines at minimum font without added text.",
+          "support_claim_id": "claim_1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Shared workload",
+          "to": "Governed gateway",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "input",
+          "target_region": "governance",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Governed gateway",
+          "to": "Hosted models",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "governance",
+          "target_region": "portfolio",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Governed gateway",
+          "to": "Open-weight models",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "governance",
+          "target_region": "portfolio",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Governed gateway",
+          "to": "Audit trail",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "governance",
+          "target_region": "observe",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "input",
+            "description": "Shared workload entry",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 260,
+              "height": 470
+            }
+          },
+          {
+            "id": "governance",
+            "description": "Common controls above routing junction",
+            "bounding_box_px": {
+              "x": 330,
+              "y": 40,
+              "width": 560,
+              "height": 180
+            }
+          },
+          {
+            "id": "portfolio",
+            "description": "Hosted and open-weight alternatives",
+            "bounding_box_px": {
+              "x": 330,
+              "y": 250,
+              "width": 560,
+              "height": 260
+            }
+          },
+          {
+            "id": "observe",
+            "description": "Audit and local comparison observations",
+            "bounding_box_px": {
+              "x": 920,
+              "y": 40,
+              "width": 240,
+              "height": 470
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached vendor limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 530,
+              "width": 1120,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Shared workload",
+            "to": "Governed gateway",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "input",
+            "to_region_id": "governance",
+            "origin_px": {
+              "x": 170,
+              "y": 109
+            },
+            "target_px": {
+              "x": 610,
+              "y": 77
+            }
+          },
+          {
+            "from": "Governed gateway",
+            "to": "Hosted models",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "governance",
+            "to_region_id": "portfolio",
+            "origin_px": {
+              "x": 610,
+              "y": 77
+            },
+            "target_px": {
+              "x": 472.5,
+              "y": 314
+            }
+          },
+          {
+            "from": "Governed gateway",
+            "to": "Open-weight models",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "governance",
+            "to_region_id": "portfolio",
+            "origin_px": {
+              "x": 610,
+              "y": 77
+            },
+            "target_px": {
+              "x": 745,
+              "y": 314
+            }
+          },
+          {
+            "from": "Governed gateway",
+            "to": "Audit trail",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "governance",
+            "to_region_id": "observe",
+            "origin_px": {
+              "x": 610,
+              "y": 77
+            },
+            "target_px": {
+              "x": 1040,
+              "y": 90
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "ce7757c2515d7cec191abd4c558ead1b6bb618a6362baa25d93b1604e98053e0"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create one polished static factual editorial raster illustration, 1200x630 landscape. White background, teal with ochre accents accents, crisp textbook linework and meaningful exposed mechanism detail. No photographs, people, humanoids, logos, dashboards, cards, decorative gears, shields, invented UI controls, fake writing, numerical charts, checkmarks or stray symbols. This is a conceptual editorial illustration, not a measured engineering drawing.\nVisual thesis: A governed gateway routes workload choices across hosted and open-weight model options with shared access, budget and audit controls.\nComposition: Left shared-workload inlet; broad upper center governance layer; lower center two model alternatives; narrow right observation spine; detached caveat.\nMechanism details and source restrictions: Draw a layered architecture cross-section, not a dashboard. Input has distinguishable workload tokens, the gateway has a policy membrane, access boundary, budget boundary, routing junction, two separate paths to a hosted service assembly and a controllable open-weight layer stack. Audit branch attaches to the gateway, not to a guarantee badge. Right comparison spine relates identical input tokens and distinct returned outputs without numbers, scores or bars. Twelve meaningful parts. No claim that open weights automatically win; no data-locality, safety or cost guarantee; no feedback arrow or knob. Long labels may wrap onto two lines at minimum font without added text.\nOnly visible text, each exactly once: [\"Shared workload\",\"Governed gateway\",\"Access controls\",\"Budgets\",\"Hosted models\",\"Open-weight models\",\"Audit trail\",\"Compare on your tasks\",\"Vendor claims; validate locally\"]. All other surfaces are blank or depict meaningful shapes, never imitation writing. Use two or three designated priority labels at least36px at final resolution and every secondary label at least28px, dark high-contrast type. Allow multiline wrapping inside supplied boxes without changing words. Maintain40px safe margins. Caveat is a detached bottom note; no arrow touches it.\nDraw only these directional relationships: Shared workload -> Governed gateway; Governed gateway -> Hosted models; Governed gateway -> Open-weight models; Governed gateway -> Audit trail. Other comparison or association guides, if described, are nondirectional. Route connectors around text rather than through labels, attach to the corresponding objects beside those labels, and preserve each endpoint region. Geometry coordinates are editorial layout guidance, never physical measurements.\n\nCORRECT ACTUAL REJECTED MOTIFS: Remove EVERY short horizontal line on documents, server fronts and audit sheets, all waveform strokes, fake code brackets, slash glyphs, landscape/photo icons and lock/keyhole. No document strokes and no pseudo-writing anywhere, including logs and outputs. Workload consists of a plain folded sheet with ONE outlined triangle, a tile with ONE circle, and a tile with ONE hexagon. The same three distinct shapes may recur on outputs only as actual paired workload specimens, never fake text lines or statistics. Audit trail is a linked chronological chain of distinct event tokens, no written pages. Access control is an open nested boundary and budgets a plain boundary layer with no coin stack, number or security badge. Comparison shows paired alternative output specimens with only exact Compare on your tasks text; no wavy placeholder marks. Remove all rounded outer region enclosures to avoid a generic card-board. Keep only the meaningful gateway membrane and source-backed routing topology. Move top Governed gateway heading DOWN to final y60 and bottom caveat UP so all text ends byy580. Blank60px top and bottom text margins. Every required label stays large.\n\nONLY REMAINING CORRECTION: Preserve every cleaned source-supported object and exact label. At the final1200x630 export, Governed gateway lettering currently starts aroundy28. Move ONLY that heading text DOWN25 final pixels so its top isy53. Lower the blank roof title band as needed without touching control layers or routing. The lower caveat lettering currently ends belowy590; move its whole outlined strip UP25 final pixels, so text liesy545..575 and the lower outline ends at580. Do not change font sizes or any other content. Leave the bottom50px blank.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"input\",\"description\":\"Shared workload entry\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":260,\"height\":470}},{\"id\":\"governance\",\"description\":\"Common controls above routing junction\",\"bounding_box_px\":{\"x\":330,\"y\":40,\"width\":560,\"height\":180}},{\"id\":\"portfolio\",\"description\":\"Hosted and open-weight alternatives\",\"bounding_box_px\":{\"x\":330,\"y\":250,\"width\":560,\"height\":260}},{\"id\":\"observe\",\"description\":\"Audit and local comparison observations\",\"bounding_box_px\":{\"x\":920,\"y\":40,\"width\":240,\"height\":470}},{\"id\":\"caveat\",\"description\":\"Detached vendor limitation\",\"bounding_box_px\":{\"x\":40,\"y\":530,\"width\":1120,\"height\":60}}],\"labels\":[{\"label\":\"Shared workload\",\"region_id\":\"input\",\"region\":\"input: Shared workload directly beside its explanatory object\",\"bounding_box_px\":{\"x\":55,\"y\":65,\"width\":230,\"height\":88},\"minimum_font_px\":36},{\"label\":\"Governed gateway\",\"region_id\":\"governance\",\"region\":\"governance: Governed gateway directly beside its explanatory object\",\"bounding_box_px\":{\"x\":350,\"y\":55,\"width\":520,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Access controls\",\"region_id\":\"governance\",\"region\":\"governance: Access controls directly beside its explanatory object\",\"bounding_box_px\":{\"x\":350,\"y\":150,\"width\":270,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Budgets\",\"region_id\":\"governance\",\"region\":\"governance: Budgets directly beside its explanatory object\",\"bounding_box_px\":{\"x\":670,\"y\":150,\"width\":190,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Hosted models\",\"region_id\":\"portfolio\",\"region\":\"portfolio: Hosted models directly beside its explanatory object\",\"bounding_box_px\":{\"x\":350,\"y\":270,\"width\":245,\"height\":88},\"minimum_font_px\":28},{\"label\":\"Open-weight models\",\"region_id\":\"portfolio\",\"region\":\"portfolio: Open-weight models directly beside its explanatory object\",\"bounding_box_px\":{\"x\":620,\"y\":270,\"width\":250,\"height\":88},\"minimum_font_px\":36},{\"label\":\"Audit trail\",\"region_id\":\"observe\",\"region\":\"observe: Audit trail directly beside its explanatory object\",\"bounding_box_px\":{\"x\":940,\"y\":70,\"width\":200,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Compare on your tasks\",\"region_id\":\"observe\",\"region\":\"observe: Compare on your tasks directly beside its explanatory object\",\"bounding_box_px\":{\"x\":940,\"y\":340,\"width\":200,\"height\":120},\"minimum_font_px\":28},{\"label\":\"Vendor claims; validate locally\",\"region_id\":\"caveat\",\"region\":\"caveat: Vendor claims; validate locally directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Shared workload\",\"to\":\"Governed gateway\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"input\",\"to_region_id\":\"governance\",\"origin_px\":{\"x\":170,\"y\":109},\"target_px\":{\"x\":610,\"y\":77}},{\"from\":\"Governed gateway\",\"to\":\"Hosted models\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"governance\",\"to_region_id\":\"portfolio\",\"origin_px\":{\"x\":610,\"y\":77},\"target_px\":{\"x\":472.5,\"y\":314}},{\"from\":\"Governed gateway\",\"to\":\"Open-weight models\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"governance\",\"to_region_id\":\"portfolio\",\"origin_px\":{\"x\":610,\"y\":77},\"target_px\":{\"x\":745,\"y\":314}},{\"from\":\"Governed gateway\",\"to\":\"Audit trail\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"governance\",\"to_region_id\":\"observe\",\"origin_px\":{\"x\":610,\"y\":77},\"target_px\":{\"x\":1040,\"y\":90}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-05",
+    "story_id": "nov05-a1-agent-access",
+    "source_url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+    "job_sha256": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
+    "visual_thesis": "A site can inspect personal-agent traffic and combine an overall agents policy with per-agent overrides; identity is not action consent.",
+    "mechanism_metaphor": "nested policy boundary with conditional access exits",
+    "story_anchors": [
+      "The supported policy choices are allow, block on pages with ads, and block.",
+      "A per-agent choice can differ from the overall agents policy.",
+      "Preserving user relationship context and accountability remains future work."
+    ],
+    "required_labels": [
+      "Personal agents",
+      "Traffic visibility",
+      "Overall policy",
+      "Per-agent override",
+      "Allow",
+      "Block on ad pages",
+      "Block",
+      "User authority unresolved",
+      "Site policy, not action consent"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "Personal Assistants traffic visibility identifies agent requests and resource paths.",
+        "supporting_source_excerpt": "Personal Assistants traffic visibility identifies agent requests and resource paths.",
+        "source_url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Site owners can set an overall Agents policy and choose a different policy for a supported personal agent.",
+        "supporting_source_excerpt": "Site owners can set an overall Agents policy and choose a different policy for a supported personal agent.",
+        "source_url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Current policy choices govern access; carrying user authority and accountability context is a stated next goal.",
+        "supporting_source_excerpt": "Current policy choices govern access; carrying user authority and accountability context is a stated next goal.",
+        "source_url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Personal agents",
+        "to": "Traffic visibility",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Overall policy",
+        "to": "Per-agent override",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Per-agent override",
+        "to": "Allow",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Per-agent override",
+        "to": "Block on ad pages",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Per-agent override",
+        "to": "Block",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Personal agents",
+        "to": "Per-agent override",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Site policy applies to supported agent requests; this does not confer user action consent.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Show abstract request tokens and visible resource paths, a nondirectional observation tap, a broad overall-policy aperture with one smaller agent-specific override insert, then three alternative branches. Allow has an open boundary, conditional ad-page blocking has a pair of resource surfaces with only the ad-bearing surface stopped, block has a closed physical boundary. No success symbols, ticks, X glyphs, people, shields or brand logos. Twelve meaningful components arise from request, agent identity marker, visibility tap, path objects, overall boundary, override insert, three fork paths and distinct resource boundaries. Unresolved user-authority note remains unconnected to allowed access. Do not draw confirmation as a shipped product gate, identify account protection as general availability, or turn recognized agent identity into user consent.",
+      "No invented measured results, repeated unapproved text, simulated document strokes, unsupported cost-weighting arrows, sliders or source-less risk arrows."
+    ],
+    "composition_signature": {
+      "grammar": "policy override branching boundary",
+      "layout": "Left traffic observation lane; center overall policy and override boundary; right three alternate access paths; detached caveat below.",
+      "metaphor": "nested policy boundary with conditional access exits",
+      "palette": "burnt orange and slate",
+      "annotation": "branch-adjacent conditional labels",
+      "hierarchy": "Large priority labels integrated with meaningful internal mechanisms; detached caveat.",
+      "perspective": "Clean static editorial conceptual geometry; no engineering scale or product screenshot."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Personal agents",
+          "region_id": "traffic",
+          "region": "traffic: Personal agents directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 60,
+            "width": 260,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Traffic visibility",
+          "region_id": "traffic",
+          "region": "traffic: Traffic visibility directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 420,
+            "width": 260,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Overall policy",
+          "region_id": "policy",
+          "region": "policy: Overall policy directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 65,
+            "width": 330,
+            "height": 44
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Per-agent override",
+          "region_id": "policy",
+          "region": "policy: Per-agent override directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 310,
+            "width": 330,
+            "height": 88
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Allow",
+          "region_id": "outcomes",
+          "region": "outcomes: Allow directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 60,
+            "width": 330,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Block on ad pages",
+          "region_id": "outcomes",
+          "region": "outcomes: Block on ad pages directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 200,
+            "width": 330,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Block",
+          "region_id": "outcomes",
+          "region": "outcomes: Block directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 325,
+            "width": 330,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "User authority unresolved",
+          "region_id": "outcomes",
+          "region": "outcomes: User authority unresolved directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 790,
+            "y": 445,
+            "width": 350,
+            "height": 60
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Site policy, not action consent",
+          "region_id": "caveat",
+          "region": "caveat: Site policy, not action consent directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 542,
+            "width": 1080,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Site policy, not action consent",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Personal agents",
+        "Traffic visibility"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "actual_mobile_review_width": 320,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Personal agents",
+        "Per-agent override",
+        "Allow"
+      ],
+      "causal_state_checks": [
+        {
+          "condition": "Preserving user relationship context and accountability remains future work.",
+          "allowed_path": "Personal agents to Traffic visibility",
+          "blocked_path": "Show abstract request tokens and visible resource paths, a nondirectional observation tap, a broad overall-policy aperture with one smaller agent-specific override insert, then three alternative branches. Allow has an open boundary, conditional ad-page blocking has a pair of resource surfaces with only the ad-bearing surface stopped, block has a closed physical boundary. No success symbols, ticks, X glyphs, people, shields or brand logos. Twelve meaningful components arise from request, agent identity marker, visibility tap, path objects, overall boundary, override insert, three fork paths and distinct resource boundaries. Unresolved user-authority note remains unconnected to allowed access. Do not draw confirmation as a shipped product gate, identify account protection as general availability, or turn recognized agent identity into user consent.",
+          "support_claim_id": "claim_1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Personal agents",
+          "to": "Traffic visibility",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "traffic",
+          "target_region": "traffic",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Overall policy",
+          "to": "Per-agent override",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "policy",
+          "target_region": "policy",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Per-agent override",
+          "to": "Allow",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "policy",
+          "target_region": "outcomes",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Per-agent override",
+          "to": "Block on ad pages",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "policy",
+          "target_region": "outcomes",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Per-agent override",
+          "to": "Block",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "policy",
+          "target_region": "outcomes",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Personal agents",
+          "to": "Per-agent override",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Site policy applies to supported agent requests; this does not confer user action consent.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "traffic",
+          "target_region": "policy",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "traffic",
+            "description": "Agent request and visibility lane",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 300,
+              "height": 470
+            }
+          },
+          {
+            "id": "policy",
+            "description": "Overall policy with specific agent override",
+            "bounding_box_px": {
+              "x": 370,
+              "y": 40,
+              "width": 370,
+              "height": 470
+            }
+          },
+          {
+            "id": "outcomes",
+            "description": "Three mutually alternative access policies and unresolved authority",
+            "bounding_box_px": {
+              "x": 770,
+              "y": 40,
+              "width": 390,
+              "height": 470
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached consent distinction",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 530,
+              "width": 1120,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Personal agents",
+            "to": "Traffic visibility",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "traffic",
+            "to_region_id": "traffic",
+            "origin_px": {
+              "x": 190,
+              "y": 82
+            },
+            "target_px": {
+              "x": 190,
+              "y": 440
+            }
+          },
+          {
+            "from": "Overall policy",
+            "to": "Per-agent override",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "policy",
+            "to_region_id": "policy",
+            "origin_px": {
+              "x": 555,
+              "y": 87
+            },
+            "target_px": {
+              "x": 555,
+              "y": 354
+            }
+          },
+          {
+            "from": "Per-agent override",
+            "to": "Allow",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "policy",
+            "to_region_id": "outcomes",
+            "origin_px": {
+              "x": 555,
+              "y": 354
+            },
+            "target_px": {
+              "x": 965,
+              "y": 82
+            }
+          },
+          {
+            "from": "Per-agent override",
+            "to": "Block on ad pages",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "policy",
+            "to_region_id": "outcomes",
+            "origin_px": {
+              "x": 555,
+              "y": 354
+            },
+            "target_px": {
+              "x": 965,
+              "y": 220
+            }
+          },
+          {
+            "from": "Per-agent override",
+            "to": "Block",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "policy",
+            "to_region_id": "outcomes",
+            "origin_px": {
+              "x": 555,
+              "y": 354
+            },
+            "target_px": {
+              "x": 965,
+              "y": 345
+            }
+          },
+          {
+            "from": "Personal agents",
+            "to": "Per-agent override",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Site policy applies to supported agent requests; this does not confer user action consent.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "traffic",
+            "to_region_id": "policy",
+            "origin_px": {
+              "x": 300,
+              "y": 260
+            },
+            "target_px": {
+              "x": 390,
+              "y": 350
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "76539580f1f664099d338bde3cb365b66479f7fa456df8d725ad8d2da81828f3"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create one polished static factual editorial raster illustration, 1200x630 landscape. White background, burnt orange and slate accents, crisp textbook linework and meaningful exposed mechanism detail. No photographs, people, humanoids, logos, dashboards, cards, decorative gears, shields, invented UI controls, fake writing, numerical charts, checkmarks or stray symbols. This is a conceptual editorial illustration, not a measured engineering drawing.\nVisual thesis: A site can inspect personal-agent traffic and combine an overall agents policy with per-agent overrides; identity is not action consent.\nComposition: Left traffic observation lane; center overall policy and override boundary; right three alternate access paths; detached caveat below.\nMechanism details and source restrictions: Show abstract request tokens and visible resource paths, a nondirectional observation tap, a broad overall-policy aperture with one smaller agent-specific override insert, then three alternative branches. Allow has an open boundary, conditional ad-page blocking has a pair of resource surfaces with only the ad-bearing surface stopped, block has a closed physical boundary. No success symbols, ticks, X glyphs, people, shields or brand logos. Twelve meaningful components arise from request, agent identity marker, visibility tap, path objects, overall boundary, override insert, three fork paths and distinct resource boundaries. Unresolved user-authority note remains unconnected to allowed access. Do not draw confirmation as a shipped product gate, identify account protection as general availability, or turn recognized agent identity into user consent.\nOnly visible text, each exactly once: [\"Personal agents\",\"Traffic visibility\",\"Overall policy\",\"Per-agent override\",\"Allow\",\"Block on ad pages\",\"Block\",\"User authority unresolved\",\"Site policy, not action consent\"]. All other surfaces are blank or depict meaningful shapes, never imitation writing. Use two or three designated priority labels at least36px at final resolution and every secondary label at least28px, dark high-contrast type. Allow multiline wrapping inside supplied boxes without changing words. Maintain40px safe margins. Caveat is a detached bottom note; no arrow touches it.\nDraw only these directional relationships: Personal agents -> Traffic visibility; Overall policy -> Per-agent override; Per-agent override -> Allow; Per-agent override -> Block on ad pages; Per-agent override -> Block; Personal agents -> Per-agent override. Other comparison or association guides are nondirectional. Route connectors around text, attach to corresponding objects beside labels, and preserve endpoint regions.\n\nApply observed source-specific exclusions before this first draft: policy boundaries must never use a shield, padlock, keyhole, tick, X, warning triangle or consent badge. The three policy outcomes are alternatives, not a sequential path. Site resources are plain abstract page surfaces, never fake paragraphs, AD lettering, charts or landscape icons. For the conditional ad-page branch show one surface with a single large inset ad-space rectangle stopped at the boundary, and one surface without that inset continuing; use only the exact Block on ad pages label. Do not add inferred user authorization or a confirmation gate. The source leaves user-authority context unresolved. Render the unresolved note completely detached. For actual text margins use a blank60px top strip and baseline no lower than575 for the bottom caveat, all text at least50px from left/right. No region card enclosures, decoration or simulated writing.\n\nCORRECT ACTUAL REJECTED CONTENT: Delete all robot faces, antennas, eyes, humanoids and person icons. Each agent is a different plain polygon identity token with no features. Delete the slash, /news and /docs strings; the ONLY permitted words are the nine exact frozen labels. Delete every browser title bar and three-dot window control: resource pages are smooth abstract rectangles, not simulated browser UI. Remove bolts, rivets, decorative concentric wheel housing and magnifier machinery; depict overall policy as a simple broad abstract boundary and the per-agent override as one distinct inset boundary. Keep the three alternative outcome branches, open resource, conditional ad-space inset blocked at boundary, and closed resource boundary. The request path from Personal agents into Per-agent override is source-supported and permitted alongside the independent visibility tap. Move bottom Site policy, not action consent text UP25 final pixels so it ends by575. Do not change or repeat any word. No control widgets, fake paths, fake writing, badge or additional glyph.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"traffic\",\"description\":\"Agent request and visibility lane\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":300,\"height\":470}},{\"id\":\"policy\",\"description\":\"Overall policy with specific agent override\",\"bounding_box_px\":{\"x\":370,\"y\":40,\"width\":370,\"height\":470}},{\"id\":\"outcomes\",\"description\":\"Three mutually alternative access policies and unresolved authority\",\"bounding_box_px\":{\"x\":770,\"y\":40,\"width\":390,\"height\":470}},{\"id\":\"caveat\",\"description\":\"Detached consent distinction\",\"bounding_box_px\":{\"x\":40,\"y\":530,\"width\":1120,\"height\":60}}],\"labels\":[{\"label\":\"Personal agents\",\"region_id\":\"traffic\",\"region\":\"traffic: Personal agents directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":60,\"width\":260,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Traffic visibility\",\"region_id\":\"traffic\",\"region\":\"traffic: Traffic visibility directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":420,\"width\":260,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Overall policy\",\"region_id\":\"policy\",\"region\":\"policy: Overall policy directly beside its explanatory object\",\"bounding_box_px\":{\"x\":390,\"y\":65,\"width\":330,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Per-agent override\",\"region_id\":\"policy\",\"region\":\"policy: Per-agent override directly beside its explanatory object\",\"bounding_box_px\":{\"x\":390,\"y\":310,\"width\":330,\"height\":88},\"minimum_font_px\":36},{\"label\":\"Allow\",\"region_id\":\"outcomes\",\"region\":\"outcomes: Allow directly beside its explanatory object\",\"bounding_box_px\":{\"x\":800,\"y\":60,\"width\":330,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Block on ad pages\",\"region_id\":\"outcomes\",\"region\":\"outcomes: Block on ad pages directly beside its explanatory object\",\"bounding_box_px\":{\"x\":800,\"y\":200,\"width\":330,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Block\",\"region_id\":\"outcomes\",\"region\":\"outcomes: Block directly beside its explanatory object\",\"bounding_box_px\":{\"x\":800,\"y\":325,\"width\":330,\"height\":40},\"minimum_font_px\":28},{\"label\":\"User authority unresolved\",\"region_id\":\"outcomes\",\"region\":\"outcomes: User authority unresolved directly beside its explanatory object\",\"bounding_box_px\":{\"x\":790,\"y\":445,\"width\":350,\"height\":60},\"minimum_font_px\":28},{\"label\":\"Site policy, not action consent\",\"region_id\":\"caveat\",\"region\":\"caveat: Site policy, not action consent directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Personal agents\",\"to\":\"Traffic visibility\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"traffic\",\"to_region_id\":\"traffic\",\"origin_px\":{\"x\":190,\"y\":82},\"target_px\":{\"x\":190,\"y\":440}},{\"from\":\"Overall policy\",\"to\":\"Per-agent override\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"policy\",\"to_region_id\":\"policy\",\"origin_px\":{\"x\":555,\"y\":87},\"target_px\":{\"x\":555,\"y\":354}},{\"from\":\"Per-agent override\",\"to\":\"Allow\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"policy\",\"to_region_id\":\"outcomes\",\"origin_px\":{\"x\":555,\"y\":354},\"target_px\":{\"x\":965,\"y\":82}},{\"from\":\"Per-agent override\",\"to\":\"Block on ad pages\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"policy\",\"to_region_id\":\"outcomes\",\"origin_px\":{\"x\":555,\"y\":354},\"target_px\":{\"x\":965,\"y\":220}},{\"from\":\"Per-agent override\",\"to\":\"Block\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"policy\",\"to_region_id\":\"outcomes\",\"origin_px\":{\"x\":555,\"y\":354},\"target_px\":{\"x\":965,\"y\":345}},{\"from\":\"Personal agents\",\"to\":\"Per-agent override\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Site policy applies to supported agent requests; this does not confer user action consent.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"traffic\",\"to_region_id\":\"policy\",\"origin_px\":{\"x\":300,\"y\":260},\"target_px\":{\"x\":390,\"y\":350}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-05",
+    "story_id": "nov05-a2-human-review-skill",
+    "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+    "job_sha256": "2f6700742eed2ce288ab63d359e10cda5661f2b0abc9367faecf877bc7c43eb2",
+    "visual_thesis": "Full-trajectory expert judgment supplies rubric reasons used to calibrate evaluators and build reusable golden examples for future evaluations.",
+    "mechanism_metaphor": "trajectory evidence converted into reusable evaluation criteria",
+    "story_anchors": [
+      "Review the full thread, including earlier messages and tool calls.",
+      "Compare judge and human scores on the same traces.",
+      "Golden examples support offline experiments, not automatic model training."
+    ],
+    "required_labels": [
+      "Full trajectory",
+      "Expert criteria reused",
+      "Rubric judgment",
+      "Reason recorded",
+      "Compare judge",
+      "Revise evaluator",
+      "Golden examples",
+      "Next evaluation",
+      "Workflow, not measured uplift"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "A full thread exposes earlier messages, tool calls and intermediate actions needed for contextual review.",
+        "supporting_source_excerpt": "A full thread exposes earlier messages, tool calls and intermediate actions needed for contextual review.",
+        "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Human annotation records rubric judgment plus a reason and is compared with an automated judge on the same traces.",
+        "supporting_source_excerpt": "Human annotation records rubric judgment plus a reason and is compared with an automated judge on the same traces.",
+        "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Disagreements guide judge prompt or rubric revision and later evaluation.",
+        "supporting_source_excerpt": "Disagreements guide judge prompt or rubric revision and later evaluation.",
+        "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_4",
+        "proposition": "Strong human-labeled examples become a golden dataset for offline experiments.",
+        "supporting_source_excerpt": "Strong human-labeled examples become a golden dataset for offline experiments.",
+        "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Full trajectory",
+        "to": "Rubric judgment",
+        "support_claim_id": "claim_1",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Rubric judgment",
+        "to": "Reason recorded",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Reason recorded",
+        "to": "Compare judge",
+        "support_claim_id": "claim_2",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Compare judge",
+        "to": "Revise evaluator",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Rubric judgment",
+        "to": "Golden examples",
+        "support_claim_id": "claim_4",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Revise evaluator",
+        "to": "Next evaluation",
+        "support_claim_id": "claim_3",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Golden examples",
+        "to": "Next evaluation",
+        "support_claim_id": "claim_4",
+        "direction": "forward",
+        "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Use a long folded trajectory ribbon with clearly distinct earlier-message, model-response, tool-call and final-response shapes, not fake text lines. Central evidence junction includes rubric dimensions shown as unequal categorical shapes with no score digits, a reason annotation area with only its exact label, paired human and automated judgments abstractly represented without avatars, and a disagreement comparison junction. Right has an evaluator revision layer, curated-example stack and next evaluation fixture with two separately sourced inputs. At least twelve meaningful parts. Show no automatic model training, guaranteed uplift, checkmarks or invented rubric words. Golden examples derive from reviewed human labels, not directly from automated judge output. No path bypasses full-trajectory judgment.",
+      "No invented measured results, repeated unapproved text, simulated document strokes, unsupported cost-weighting arrows, sliders or source-less risk arrows."
+    ],
+    "composition_signature": {
+      "grammar": "review calibration loop and golden-set branch",
+      "layout": "Left complete chronological trajectory; central judgment and judge comparison; right split reuse branches meeting a next-evaluation return lane; detached caveat.",
+      "metaphor": "trajectory evidence converted into reusable evaluation criteria",
+      "palette": "cobalt with subdued olive",
+      "annotation": "loop-path captions with split provenance",
+      "hierarchy": "Large priority labels integrated with meaningful internal mechanisms; detached caveat.",
+      "perspective": "Clean static editorial conceptual geometry; no engineering scale or product screenshot."
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Full trajectory",
+          "region_id": "trajectory",
+          "region": "trajectory: Full trajectory directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 60,
+            "width": 260,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Expert criteria reused",
+          "region_id": "trajectory",
+          "region": "trajectory: Expert criteria reused directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 55,
+            "y": 420,
+            "width": 270,
+            "height": 88
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Rubric judgment",
+          "region_id": "judgment",
+          "region": "judgment: Rubric judgment directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 60,
+            "width": 330,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Reason recorded",
+          "region_id": "judgment",
+          "region": "judgment: Reason recorded directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 210,
+            "width": 330,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Compare judge",
+          "region_id": "judgment",
+          "region": "judgment: Compare judge directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 410,
+            "width": 330,
+            "height": 44
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Revise evaluator",
+          "region_id": "reuse",
+          "region": "reuse: Revise evaluator directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 790,
+            "y": 60,
+            "width": 350,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Golden examples",
+          "region_id": "reuse",
+          "region": "reuse: Golden examples directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 790,
+            "y": 225,
+            "width": 350,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Next evaluation",
+          "region_id": "reuse",
+          "region": "reuse: Next evaluation directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 790,
+            "y": 430,
+            "width": 350,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Workflow, not measured uplift",
+          "region_id": "caveat",
+          "region": "caveat: Workflow, not measured uplift directly beside its explanatory object",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 542,
+            "width": 1080,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Workflow, not measured uplift",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Full trajectory",
+        "Expert criteria reused"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "actual_mobile_review_width": 320,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "thumbnail_priority_labels": [
+        "Full trajectory",
+        "Rubric judgment",
+        "Compare judge"
+      ],
+      "causal_state_checks": [
+        {
+          "condition": "Golden examples support offline experiments, not automatic model training.",
+          "allowed_path": "Full trajectory to Rubric judgment",
+          "blocked_path": "Use a long folded trajectory ribbon with clearly distinct earlier-message, model-response, tool-call and final-response shapes, not fake text lines. Central evidence junction includes rubric dimensions shown as unequal categorical shapes with no score digits, a reason annotation area with only its exact label, paired human and automated judgments abstractly represented without avatars, and a disagreement comparison junction. Right has an evaluator revision layer, curated-example stack and next evaluation fixture with two separately sourced inputs. At least twelve meaningful parts. Show no automatic model training, guaranteed uplift, checkmarks or invented rubric words. Golden examples derive from reviewed human labels, not directly from automated judge output. No path bypasses full-trajectory judgment.",
+          "support_claim_id": "claim_1"
+        }
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Full trajectory",
+          "to": "Rubric judgment",
+          "support_claim_id": "claim_1",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "trajectory",
+          "target_region": "judgment",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Rubric judgment",
+          "to": "Reason recorded",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "judgment",
+          "target_region": "judgment",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Reason recorded",
+          "to": "Compare judge",
+          "support_claim_id": "claim_2",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "judgment",
+          "target_region": "judgment",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Compare judge",
+          "to": "Revise evaluator",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "judgment",
+          "target_region": "reuse",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Rubric judgment",
+          "to": "Golden examples",
+          "support_claim_id": "claim_4",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "judgment",
+          "target_region": "reuse",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Revise evaluator",
+          "to": "Next evaluation",
+          "support_claim_id": "claim_3",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "reuse",
+          "target_region": "reuse",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Golden examples",
+          "to": "Next evaluation",
+          "support_claim_id": "claim_4",
+          "direction": "forward",
+          "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+          "relation_supported_by_semantic_review": true,
+          "origin_region": "reuse",
+          "target_region": "reuse",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "trajectory",
+            "description": "Complete conversation chronology",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 40,
+              "width": 300,
+              "height": 470
+            }
+          },
+          {
+            "id": "judgment",
+            "description": "Expert rubric judgment and comparison",
+            "bounding_box_px": {
+              "x": 370,
+              "y": 40,
+              "width": 370,
+              "height": 470
+            }
+          },
+          {
+            "id": "reuse",
+            "description": "Evaluator calibration and golden example reuse",
+            "bounding_box_px": {
+              "x": 770,
+              "y": 40,
+              "width": 390,
+              "height": 470
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached outcome limitation",
+            "bounding_box_px": {
+              "x": 40,
+              "y": 530,
+              "width": 1120,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Full trajectory",
+            "to": "Rubric judgment",
+            "support_claim_id": "claim_1",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "trajectory",
+            "to_region_id": "judgment",
+            "origin_px": {
+              "x": 190,
+              "y": 82
+            },
+            "target_px": {
+              "x": 555,
+              "y": 82
+            }
+          },
+          {
+            "from": "Rubric judgment",
+            "to": "Reason recorded",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "judgment",
+            "to_region_id": "judgment",
+            "origin_px": {
+              "x": 555,
+              "y": 82
+            },
+            "target_px": {
+              "x": 555,
+              "y": 230
+            }
+          },
+          {
+            "from": "Reason recorded",
+            "to": "Compare judge",
+            "support_claim_id": "claim_2",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "judgment",
+            "to_region_id": "judgment",
+            "origin_px": {
+              "x": 555,
+              "y": 230
+            },
+            "target_px": {
+              "x": 555,
+              "y": 432
+            }
+          },
+          {
+            "from": "Compare judge",
+            "to": "Revise evaluator",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "judgment",
+            "to_region_id": "reuse",
+            "origin_px": {
+              "x": 555,
+              "y": 432
+            },
+            "target_px": {
+              "x": 965,
+              "y": 80
+            }
+          },
+          {
+            "from": "Rubric judgment",
+            "to": "Golden examples",
+            "support_claim_id": "claim_4",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "judgment",
+            "to_region_id": "reuse",
+            "origin_px": {
+              "x": 555,
+              "y": 82
+            },
+            "target_px": {
+              "x": 965,
+              "y": 245
+            }
+          },
+          {
+            "from": "Revise evaluator",
+            "to": "Next evaluation",
+            "support_claim_id": "claim_3",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "reuse",
+            "to_region_id": "reuse",
+            "origin_px": {
+              "x": 965,
+              "y": 80
+            },
+            "target_px": {
+              "x": 965,
+              "y": 450
+            }
+          },
+          {
+            "from": "Golden examples",
+            "to": "Next evaluation",
+            "support_claim_id": "claim_4",
+            "direction": "forward",
+            "condition": "Only the source-supported conceptual relationship; no guaranteed outcome.",
+            "relation_supported_by_semantic_review": true,
+            "from_region_id": "reuse",
+            "to_region_id": "reuse",
+            "origin_px": {
+              "x": 965,
+              "y": 245
+            },
+            "target_px": {
+              "x": 965,
+              "y": 450
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Executing image editor",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "84d2536e955f0a4b3f4725271d49a546091cff25f555094215860b891c998558"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Executing image editor",
+      "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create one polished static factual editorial raster illustration, 1200x630 landscape. White background, cobalt with subdued olive accents, crisp textbook linework and meaningful exposed mechanism detail. No photographs, people, humanoids, logos, dashboards, cards, decorative gears, shields, invented UI controls, fake writing, numerical charts, checkmarks or stray symbols. This is a conceptual editorial illustration, not a measured engineering drawing.\nVisual thesis: Full-trajectory expert judgment supplies rubric reasons used to calibrate evaluators and build reusable golden examples for future evaluations.\nComposition: Left complete chronological trajectory; central judgment and judge comparison; right split reuse branches meeting a next-evaluation return lane; detached caveat.\nMechanism details and source restrictions: Use a long folded trajectory ribbon with clearly distinct earlier-message, model-response, tool-call and final-response shapes, not fake text lines. Central evidence junction includes rubric dimensions shown as unequal categorical shapes with no score digits, a reason annotation area with only its exact label, paired human and automated judgments abstractly represented without avatars, and a disagreement comparison junction. Right has an evaluator revision layer, curated-example stack and next evaluation fixture with two separately sourced inputs. At least twelve meaningful parts. Show no automatic model training, guaranteed uplift, checkmarks or invented rubric words. Golden examples derive from reviewed human labels, not directly from automated judge output. No path bypasses full-trajectory judgment.\nOnly visible text, each exactly once: [\"Full trajectory\",\"Expert criteria reused\",\"Rubric judgment\",\"Reason recorded\",\"Compare judge\",\"Revise evaluator\",\"Golden examples\",\"Next evaluation\",\"Workflow, not measured uplift\"]. All other surfaces are blank or depict meaningful shapes, never imitation writing. Use two or three designated priority labels at least36px at final resolution and every secondary label at least28px, dark high-contrast type. Allow multiline wrapping inside supplied boxes without changing words. Maintain40px safe margins. Caveat is a detached bottom note; no arrow touches it.\nDraw only these directional relationships: Full trajectory -> Rubric judgment; Rubric judgment -> Reason recorded; Reason recorded -> Compare judge; Compare judge -> Revise evaluator; Rubric judgment -> Golden examples; Revise evaluator -> Next evaluation; Golden examples -> Next evaluation. Other comparison or association guides, if described, are nondirectional. Route connectors around text rather than through labels, attach to the corresponding objects beside those labels, and preserve each endpoint region. Geometry coordinates are editorial layout guidance, never physical measurements.\n\nApply observed source-specific exclusions before this first draft: trace messages are smooth blank shapes with distinct outline geometry, never horizontal paragraph lines, speech ellipses, code, grids or invented score bars. Expert judgment is represented by a labeled abstract rubric comparison junction, not a person, head, avatar or role grid. No ticks, Xs, stars, badges, trophies, knobs, shields or magic sparkle. Golden examples are curated distinct example shapes on an open stack, never a medal or guaranteed outcome. Human rubric judgments feed golden examples separately from the automated judge comparison. Neither golden examples nor evaluator revision feeds model training. Keep all directionality exact and do not route wires through words or make crossings appear as additional causal junctions. Keep all text50px from outer edges; bottom caveat letters must lie no lower than575. Do not shrink fonts to achieve margins. No rounded outer panels or pseudo-writing.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"trajectory\",\"description\":\"Complete conversation chronology\",\"bounding_box_px\":{\"x\":40,\"y\":40,\"width\":300,\"height\":470}},{\"id\":\"judgment\",\"description\":\"Expert rubric judgment and comparison\",\"bounding_box_px\":{\"x\":370,\"y\":40,\"width\":370,\"height\":470}},{\"id\":\"reuse\",\"description\":\"Evaluator calibration and golden example reuse\",\"bounding_box_px\":{\"x\":770,\"y\":40,\"width\":390,\"height\":470}},{\"id\":\"caveat\",\"description\":\"Detached outcome limitation\",\"bounding_box_px\":{\"x\":40,\"y\":530,\"width\":1120,\"height\":60}}],\"labels\":[{\"label\":\"Full trajectory\",\"region_id\":\"trajectory\",\"region\":\"trajectory: Full trajectory directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":60,\"width\":260,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Expert criteria reused\",\"region_id\":\"trajectory\",\"region\":\"trajectory: Expert criteria reused directly beside its explanatory object\",\"bounding_box_px\":{\"x\":55,\"y\":420,\"width\":270,\"height\":88},\"minimum_font_px\":28},{\"label\":\"Rubric judgment\",\"region_id\":\"judgment\",\"region\":\"judgment: Rubric judgment directly beside its explanatory object\",\"bounding_box_px\":{\"x\":390,\"y\":60,\"width\":330,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Reason recorded\",\"region_id\":\"judgment\",\"region\":\"judgment: Reason recorded directly beside its explanatory object\",\"bounding_box_px\":{\"x\":390,\"y\":210,\"width\":330,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Compare judge\",\"region_id\":\"judgment\",\"region\":\"judgment: Compare judge directly beside its explanatory object\",\"bounding_box_px\":{\"x\":390,\"y\":410,\"width\":330,\"height\":44},\"minimum_font_px\":36},{\"label\":\"Revise evaluator\",\"region_id\":\"reuse\",\"region\":\"reuse: Revise evaluator directly beside its explanatory object\",\"bounding_box_px\":{\"x\":790,\"y\":60,\"width\":350,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Golden examples\",\"region_id\":\"reuse\",\"region\":\"reuse: Golden examples directly beside its explanatory object\",\"bounding_box_px\":{\"x\":790,\"y\":225,\"width\":350,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Next evaluation\",\"region_id\":\"reuse\",\"region\":\"reuse: Next evaluation directly beside its explanatory object\",\"bounding_box_px\":{\"x\":790,\"y\":430,\"width\":350,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Workflow, not measured uplift\",\"region_id\":\"caveat\",\"region\":\"caveat: Workflow, not measured uplift directly beside its explanatory object\",\"bounding_box_px\":{\"x\":60,\"y\":542,\"width\":1080,\"height\":40},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Full trajectory\",\"to\":\"Rubric judgment\",\"support_claim_id\":\"claim_1\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"trajectory\",\"to_region_id\":\"judgment\",\"origin_px\":{\"x\":190,\"y\":82},\"target_px\":{\"x\":555,\"y\":82}},{\"from\":\"Rubric judgment\",\"to\":\"Reason recorded\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"judgment\",\"to_region_id\":\"judgment\",\"origin_px\":{\"x\":555,\"y\":82},\"target_px\":{\"x\":555,\"y\":230}},{\"from\":\"Reason recorded\",\"to\":\"Compare judge\",\"support_claim_id\":\"claim_2\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"judgment\",\"to_region_id\":\"judgment\",\"origin_px\":{\"x\":555,\"y\":230},\"target_px\":{\"x\":555,\"y\":432}},{\"from\":\"Compare judge\",\"to\":\"Revise evaluator\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"judgment\",\"to_region_id\":\"reuse\",\"origin_px\":{\"x\":555,\"y\":432},\"target_px\":{\"x\":965,\"y\":80}},{\"from\":\"Rubric judgment\",\"to\":\"Golden examples\",\"support_claim_id\":\"claim_4\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"judgment\",\"to_region_id\":\"reuse\",\"origin_px\":{\"x\":555,\"y\":82},\"target_px\":{\"x\":965,\"y\":245}},{\"from\":\"Revise evaluator\",\"to\":\"Next evaluation\",\"support_claim_id\":\"claim_3\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"reuse\",\"to_region_id\":\"reuse\",\"origin_px\":{\"x\":965,\"y\":80},\"target_px\":{\"x\":965,\"y\":450}},{\"from\":\"Golden examples\",\"to\":\"Next evaluation\",\"support_claim_id\":\"claim_4\",\"direction\":\"forward\",\"condition\":\"Only the source-supported conceptual relationship; no guaranteed outcome.\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"reuse\",\"to_region_id\":\"reuse\",\"origin_px\":{\"x\":965,\"y\":245},\"target_px\":{\"x\":965,\"y\":450}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]
