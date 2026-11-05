@@ -3,7 +3,7 @@
   "edition_date": "2026-11-05",
   "editorial_provenance": {
     "selection_locked_at": "2026-11-05T01:29:09.869Z",
-    "sealed_at": "2026-11-05T01:37:20.574Z"
+    "sealed_at": "2026-11-05T01:38:55.475Z"
   },
   "stories": [
     {
@@ -194,7 +194,15 @@
       "why_it_matters": "Security teams can inventory one assistant-mediated workflow, identify the user and agent separately, restrict reachable resources, and require confirmation for consequential actions. Log every decision so the policy can be tested against misuse, stale identity and exception handling.",
       "image_alt_intent": "A personal assistant passes through separate user identity, agent identity, resource access and confirmation policy gates.",
       "permanent_route": "/stories/2026-11-05/nov05-a1-agent-access/",
-      "reading_time_minutes": 7
+      "reading_time_minutes": 7,
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Security administrators and business owners governing personal-assistant access to ordinary corporate resources.",
+        "practical_action": "Choose one assistant-mediated request, identify the user and agent separately, restrict reachable resources and require confirmation before a consequential action.",
+        "review_action": "A named security owner reviews the decision log, tests stale identity and misuse cases, and records any required policy exception.",
+        "usable_outcome": "A tested per-agent access policy with explicit resources, confirmation points, exception handling and a named review owner."
+      }
     },
     {
       "id": "nov05-a2-human-review-skill",
@@ -232,7 +240,16 @@
       "why_it_matters": "Domain experts can apply this reusable skill to one noncoding workflow. Review complete trajectories, record rubric-based reasons, reconcile disagreements with the automated judge, and add only verified examples to a golden set before expanding evaluation coverage.",
       "image_alt_intent": "A domain expert reviews a complete agent trajectory, scores a rubric, reconciles judge disagreement and promotes a verified example.",
       "permanent_route": "/stories/2026-11-05/nov05-a2-human-review-skill/",
-      "reading_time_minutes": 8
+      "reading_time_minutes": 8,
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Domain experts reviewing a bounded customer-service, research or administrative agent workflow through ordinary review tools.",
+        "practical_action": "Inspect one complete trajectory, score it against a written rubric with a reason, compare the automated judge and reconcile every disagreement.",
+        "review_action": "The domain expert verifies each promoted example, records the judge disagreement and approves any addition to the golden evaluation set.",
+        "usable_outcome": "A reviewed trajectory, a documented rubric judgment and a small verified golden set for the next evaluation cycle."
+      },
+      "agent_skills_evidence": "The complete LangChain article supplies full-trajectory review, rubric scoring with a reason, automated-judge comparison, evaluator revision and verified golden-set promotion. This noncoding Skill has a distinct primary source, body, practical action and reader outcome from prior delegation and decision-review Skills."
     }
   ],
   "videos": [
