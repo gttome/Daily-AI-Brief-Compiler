@@ -54,9 +54,9 @@
 
 | Search format | Receipt rows | Attempts recorded | Explicitly not attempted |
 |---|---:|---:|---:|
-| article | 7 | 7 | 0 |
-| video | 4 | 4 | 0 |
-| podcast | 2 | 2 | 0 |
+| article | 10 | 10 | 0 |
+| video | 10 | 4 | 6 |
+| podcast | 10 | 2 | 8 |
 
 **Selected Brief items linked to trends:**
 
@@ -65,6 +65,7 @@ No validated selection-to-topic mapping was recorded.
 **Gaps and limitations:**
 
 - Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input.
+- 14 topic/format searches are explicitly not attempted.
 - The report labels its ranking provisional.
 - Public YouTube watch pages were throttled; all ten retained video counters and timestamps are third-party reported.
 - No full audiovisual review or direct YouTube counter verification; the 40–80 full-review aim is unmet.

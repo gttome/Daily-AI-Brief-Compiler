@@ -158,9 +158,9 @@ flowchart TD
 
 | Search format | Receipt rows | Attempts recorded | Explicitly not attempted |
 |---|---:|---:|---:|
-| article | 7 | 7 | 0 |
-| video | 4 | 4 | 0 |
-| podcast | 2 | 2 | 0 |
+| article | 10 | 10 | 0 |
+| video | 10 | 4 | 6 |
+| podcast | 10 | 2 | 8 |
 
 **Selected Brief items linked to trends:**
 
@@ -169,6 +169,7 @@ No validated selection-to-topic mapping was recorded.
 **Gaps and limitations:**
 
 - Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input.
+- 14 topic/format searches are explicitly not attempted.
 - The report labels its ranking provisional.
 - Public YouTube watch pages were throttled; all ten retained video counters and timestamps are third-party reported.
 - No full audiovisual review or direct YouTube counter verification; the 40–80 full-review aim is unmet.
@@ -403,8 +404,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-05/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d501cb93f9406666c12622ce5ea5027182f4bc79/signals/ai-topic-top10/2026-11-04.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d501cb93f9406666c12622ce5ea5027182f4bc79/signals/ai-topic-top10/2026-11-04.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-04.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-04.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/trend-search-coverage.json) |
 
