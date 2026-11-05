@@ -1,0 +1,54 @@
+{
+  "schema_version": "daily-compiler-fallback-search-evidence-v1",
+  "edition_date": "2026-11-05",
+  "fallbacks": [
+    {
+      "story_id": "nov05-t1-statebench",
+      "searches": [
+        {
+          "query": "November 4 AI state tracking benchmark agent memory original source",
+          "source_url": "https://huggingface.co/blog/allenai/statebench",
+          "attempted_at": "2026-11-05T01:25:26.461Z",
+          "candidate_urls": [
+            "https://huggingface.co/blog/allenai/statebench",
+            "https://www.anthropic.com/research/provable-inference"
+          ]
+        }
+      ],
+      "newer_rejected_candidates": [
+        {
+          "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+          "focus": "Technical failure-driven evaluations",
+          "original_date": "2026-11-04",
+          "inspected_at": "2026-11-05T01:25:26.461Z",
+          "rejection_reason": "Selected in the other technical slot; it does not replace the distinct state-tracking evidence."
+        }
+      ],
+      "scope_limitation": "The source exposes a calendar date but no publication time, so rolling-24-hour freshness is not claimed; this is a justified 72-hour fallback."
+    },
+    {
+      "story_id": "nov05-a2-human-review-skill",
+      "searches": [
+        {
+          "query": "November 4 noncoding agent evaluation human review rubric trajectory original source",
+          "source_url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+          "attempted_at": "2026-11-05T01:25:26.461Z",
+          "candidate_urls": [
+            "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+            "https://blog.cloudflare.com/personal-agents-visibility-control/"
+          ]
+        }
+      ],
+      "newer_rejected_candidates": [
+        {
+          "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+          "focus": "Agent access controls",
+          "original_date": "2026-11-04",
+          "inspected_at": "2026-11-05T01:25:26.461Z",
+          "rejection_reason": "Selected in the other Agents slot; it provides product controls rather than a reusable expert-review Skill."
+        }
+      ],
+      "scope_limitation": "The source exposes a calendar date but no publication time, so rolling-24-hour freshness is not claimed; it is a justified 72-hour fallback for the single Agent Skills item."
+    }
+  ]
+}

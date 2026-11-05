@@ -1,0 +1,209 @@
+{
+  "schema_version": "daily-compiler-candidate-selection-v1",
+  "edition_date": "2026-11-05",
+  "review_completed_at": "2026-11-05T01:29:09.869Z",
+  "selection_status": "LOCKED",
+  "quota": {
+    "technical": 2,
+    "applied": 2,
+    "agents": 2,
+    "agent_skills": 1
+  },
+  "draft_selected": [
+    {
+      "story_id": "nov05-t1-statebench",
+      "headline": "Ai2's StateBench exposes memory limits in long state transitions",
+      "summary": "StateBench measures whether language models can track changing variables across extended instruction sequences. Ai2 reports that frontier systems fall to 13% accuracy or less on its longest general setting, while hybrid architectures trained for state tracking extrapolate farther. The benchmark deliberately fixes variable count and precision, so it does not represent every agent memory problem.",
+      "why_it_matters": "Engineering teams can use StateBench to separate short-context reasoning from durable state tracking. Reproduce results on representative workflows, inspect errors by state level, and avoid assuming that a large context window alone preserves operational state.",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "State tracking",
+        "Long sequences",
+        "Agent memory"
+      ],
+      "publisher": "Ai2",
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "url": "https://huggingface.co/blog/allenai/statebench",
+      "original_date": "2026-11-03",
+      "read_scope": "Full original Ai2 post, benchmark construction, four state levels, reported results, architecture comparison and stated limitations.",
+      "reading_time_minutes": 9,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "content_reviewed": true,
+      "summary_word_count": 55,
+      "why_word_count": 35
+    },
+    {
+      "story_id": "nov05-t2-nemo-trace-evals",
+      "headline": "NVIDIA turns agent failure traces into executable evaluations",
+      "summary": "NVIDIA describes a NeMo Compass workflow that converts failed agent traces into Harbor or NeMo Gym evaluations, repairs the harness, and reruns development plus held-out tests. Its vendor case study reports fewer malformed tool calls, better scores, and lower tool use across six scenarios; those results require independent reproduction.",
+      "why_it_matters": "The useful pattern is trace-to-test discipline, not the reported uplift. Teams can preserve a failure, generate a minimal evaluation, fix the harness, and verify both development and held-out cases before promoting an agent update.",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "Trace evaluation",
+        "Harness repair",
+        "Held-out tests"
+      ],
+      "publisher": "NVIDIA",
+      "resource_id": "article-nvidia-technical-ai",
+      "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+      "original_date": "2026-11-04",
+      "read_scope": "Full original technical article, trace-to-evaluation workflow, Harbor and NeMo Gym integration, held-out reruns, reported six-scenario case results and vendor limitations.",
+      "reading_time_minutes": 8,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "content_reviewed": true,
+      "summary_word_count": 49,
+      "why_word_count": 34
+    },
+    {
+      "story_id": "nov05-k1-pierre",
+      "headline": "OpenAI plans to acquire Pierre for interface-driven coding",
+      "summary": "OpenAI says it has agreed to acquire Pierre, whose Trees, Diffs, Highlights and Code Storage interfaces organize parallel coding-agent work. The transaction remains subject to closing conditions and regulatory approval, and Pierre stays separate until closing. Open-source projects will remain open source according to the announcement.",
+      "why_it_matters": "Knowledge-work teams can evaluate the workflow without treating the deal as complete: compare one multi-agent review task using branches, diffs and highlighted changes, then measure review time, missed conflicts and the cost of switching context.",
+      "focus": "applied_knowledge_workers",
+      "topics": [
+        "Coding interfaces",
+        "Parallel agents",
+        "Acquisition status"
+      ],
+      "publisher": "OpenAI",
+      "resource_id": "openai-news",
+      "url": "https://openai.com/index/openai-to-acquire-pierre/",
+      "original_date": "2026-11-04",
+      "read_scope": "Full original acquisition announcement, product-interface descriptions, transaction status, closing conditions, organizational separation and open-source commitment.",
+      "reading_time_minutes": 7,
+      "trend_topic_id": "pierre-acquisition-announcement-nov04",
+      "selected": true,
+      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "content_reviewed": true,
+      "summary_word_count": 46,
+      "why_word_count": 35
+    },
+    {
+      "story_id": "nov05-k2-openweights",
+      "headline": "Databricks argues for governed open-weight model portfolios",
+      "summary": "Databricks outlines seven pressures pushing enterprises toward open-weight models, including cost control, data locality, customization and reduced provider dependence. The article recommends gateways, evaluation harnesses and governance across a model portfolio. Its advantages and economics are vendor-authored claims, so teams should validate them against their own workloads.",
+      "why_it_matters": "Procurement and platform teams can turn the article into a bounded comparison: run the same private workload through one hosted and one open-weight option, then record quality, latency, operating cost, data handling and rollback complexity.",
+      "focus": "applied_knowledge_workers",
+      "topics": [
+        "Open weights",
+        "Model governance",
+        "Portfolio testing"
+      ],
+      "publisher": "Databricks",
+      "resource_id": "article-databricks-ai-research",
+      "url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+      "original_date": "2026-11-04",
+      "read_scope": "Full original article, seven stated enterprise pressures, gateway and governance recommendations, portfolio framing and vendor-authored economic claims.",
+      "reading_time_minutes": 8,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "content_reviewed": true,
+      "summary_word_count": 47,
+      "why_word_count": 35
+    },
+    {
+      "story_id": "nov05-a1-agent-access",
+      "headline": "Cloudflare adds per-agent access policies for personal assistants",
+      "summary": "Cloudflare introduced a Personal Assistants category, visibility tooling and per-agent access policies for consumer AI assistants reaching corporate resources. The company positions the controls as early access and emphasizes identity, reputation and accountability gaps when agents act for users. The announcement provides product behavior, not independent outcome measurements.",
+      "why_it_matters": "Security teams can inventory one assistant-mediated workflow, identify the user and agent separately, restrict reachable resources, and require confirmation for consequential actions. Log every decision so the policy can be tested against misuse, stale identity and exception handling.",
+      "focus": "agents_for_everyone",
+      "topics": [
+        "Agent identity",
+        "Access policies",
+        "Action control"
+      ],
+      "publisher": "Cloudflare",
+      "resource_id": "directory-a74f303f4b0c39344c1314cf",
+      "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+      "original_date": "2026-11-04",
+      "read_scope": "Full original announcement, Personal Assistants category, visibility widget, per-agent policy behavior, early-access status and stated identity and accountability gaps.",
+      "reading_time_minutes": 7,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "content_reviewed": true,
+      "summary_word_count": 48,
+      "why_word_count": 38
+    },
+    {
+      "story_id": "nov05-a2-human-review-skill",
+      "headline": "A review loop turns expert judgment into stronger agent evaluations",
+      "summary": "LangChain proposes a human-review loop for agent trajectories: inspect the full thread, score it against a rubric with a reason, compare that judgment with an automated evaluator, revise the evaluator, and promote strong examples into a golden dataset. The vendor-authored workflow is practical but not independently benchmarked.",
+      "why_it_matters": "Domain experts can apply this reusable skill to one noncoding workflow. Review complete trajectories, record rubric-based reasons, reconcile disagreements with the automated judge, and add only verified examples to a golden set before expanding evaluation coverage.",
+      "focus": "agents_for_everyone",
+      "topics": [
+        "Human review",
+        "Evaluation rubrics",
+        "Golden datasets"
+      ],
+      "publisher": "LangChain",
+      "resource_id": "directory-fd36049347d409f38c9f9a67",
+      "url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+      "original_date": "2026-11-03",
+      "read_scope": "Full original article, complete-trajectory review procedure, rubric scoring, automated-judge comparison, evaluator revision, golden-dataset promotion and vendor framing.",
+      "reading_time_minutes": 8,
+      "trend_topic_id": null,
+      "selected": true,
+      "retrieved_at": "2026-11-05T01:25:26.461Z",
+      "content_reviewed": true,
+      "summary_word_count": 47,
+      "why_word_count": 36
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "candidate_id": "cand-nov05-nvidia-factory",
+      "focus": "technical_ai_engineering",
+      "publisher": "NVIDIA",
+      "resource_id": "article-nvidia-technical-ai",
+      "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations/",
+      "original_date": "2026-11-04",
+      "disposition": "qualified_not_selected",
+      "reason": "Useful operations case, but the selected NVIDIA trace-to-evaluation article supplied more transferable failure-recovery evidence and avoided a duplicate publisher story."
+    },
+    {
+      "candidate_id": "cand-nov05-flashprove",
+      "focus": "technical_ai_engineering",
+      "publisher": "Anthropic",
+      "resource_id": "anthropic",
+      "url": "https://www.anthropic.com/research/provable-inference",
+      "original_date": "2026-11-02",
+      "disposition": "qualified_not_selected",
+      "reason": "Strong formal-inference lead, but StateBench and trace-to-test evaluation supplied more distinct current engineering actions."
+    },
+    {
+      "candidate_id": "cand-nov05-deepseek-harness",
+      "focus": "technical_ai_engineering",
+      "publisher": "DeepSeek",
+      "resource_id": "deepseek-news",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "original_date": "2026-11-02",
+      "disposition": "rejected",
+      "reason": "The bounded review did not establish a dated original publisher article with enough complete evidence to displace the selected technical sources."
+    },
+    {
+      "candidate_id": "cand-nov05-cloudflare-press",
+      "focus": "agents_for_everyone",
+      "publisher": "Cloudflare",
+      "resource_id": "directory-a74f303f4b0c39344c1314cf",
+      "url": "https://www.cloudflare.com/press-releases/2026/cloudflare-introduces-new-tools-for-agentic-internet/",
+      "original_date": "2026-11-04",
+      "disposition": "qualified_not_selected",
+      "reason": "The related company announcement was less specific than the selected per-agent access-policy article."
+    }
+  ],
+  "publisher_count": 6,
+  "candidate_count": 10,
+  "source_limitations": [
+    "Rolling 24-hour status remains unproven for date-only sources; all six selections retain explicit source-specific freshness language and fallback decisions.",
+    "Hugging Face is the distribution route for the original Ai2 StateBench post; publisher identity remains Ai2.",
+    "The video winners repeat TED and PBS as consecutive-day publishers but use different exact programs and URLs; publisher overlap and original ages remain advisories.",
+    "Selection locked only after two distinct low-promotion programs demonstrated genuine signed-out advancing playback."
+  ],
+  "selection_locked_at": "2026-11-05T01:29:09.869Z"
+}

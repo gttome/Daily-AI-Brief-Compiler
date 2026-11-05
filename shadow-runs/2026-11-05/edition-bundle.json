@@ -1,0 +1,1367 @@
+{
+  "schema_version": "daily-compiler-edition-bundle-v1",
+  "edition_date": "2026-11-05",
+  "editorial_provenance": {
+    "selection_locked_at": "2026-11-05T01:29:09.869Z",
+    "sealed_at": "2026-11-05T01:33:30.957Z"
+  },
+  "stories": [
+    {
+      "id": "nov05-t1-statebench",
+      "headline": "Ai2's StateBench exposes memory limits in long state transitions",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "StateBench: Evaluating State Tracking in Language Models",
+        "publisher": "Ai2",
+        "url": "https://huggingface.co/blog/allenai/statebench",
+        "published_at": "2026-11-03T00:00:00Z",
+        "scope": "Full original Ai2 post, benchmark construction, four state levels, reported results, architecture comparison and stated limitations.",
+        "freshness_reason": "The source exposes a November 3 date without a publication time, so rolling-24-hour freshness is unproven. It uses the normal 72-hour fallback because the complete original post supplies the strongest reviewed evidence for long-horizon state tracking and states fixed-variable and precision limits.",
+        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-05T01:25:26.461Z",
+          "scope": "Full original Ai2 post, benchmark construction, four state levels, reported results, architecture comparison and stated limitations."
+        }
+      },
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "State tracking",
+        "Long sequences"
+      ],
+      "related_coverage": "Measures long-horizon state tracking while separating benchmark evidence from broader claims about agent memory.",
+      "topics": [
+        "State tracking",
+        "Long sequences",
+        "Agent memory"
+      ],
+      "summary": "StateBench measures whether language models can track changing variables across extended instruction sequences. Ai2 reports that frontier systems fall to 13% accuracy or less on its longest general setting, while hybrid architectures trained for state tracking extrapolate farther. The benchmark deliberately fixes variable count and precision, so it does not represent every agent memory problem.",
+      "why_it_matters": "Engineering teams can use StateBench to separate short-context reasoning from durable state tracking. Reproduce results on representative workflows, inspect errors by state level, and avoid assuming that a large context window alone preserves operational state.",
+      "image_alt_intent": "A long sequence of variable updates flows through four state-tracking levels, with final-state errors and benchmark limitations clearly marked.",
+      "permanent_route": "/stories/2026-11-05/nov05-t1-statebench/",
+      "reading_time_minutes": 9
+    },
+    {
+      "id": "nov05-t2-nemo-trace-evals",
+      "headline": "NVIDIA turns agent failure traces into executable evaluations",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "Use NVIDIA NeMo to Turn Agent Failures Into Tests and Harness Fixes",
+        "publisher": "NVIDIA",
+        "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+        "published_at": "2026-11-04T00:00:00Z",
+        "scope": "Full original technical article, trace-to-evaluation workflow, Harbor and NeMo Gym integration, held-out reruns, reported six-scenario case results and vendor limitations.",
+        "freshness_reason": "The original publisher dated the article November 4, inside the edition's normal discovery window; no publication time was exposed, so exact rolling-24-hour status remains unproven.",
+        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-05T01:25:26.461Z",
+          "scope": "Full original technical article, trace-to-evaluation workflow, Harbor and NeMo Gym integration, held-out reruns, reported six-scenario case results and vendor limitations."
+        }
+      },
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Trace evaluation",
+        "Harness repair"
+      ],
+      "related_coverage": "Turns observed agent failures into repeatable tests while keeping vendor-reported gains explicitly attributed.",
+      "topics": [
+        "Trace evaluation",
+        "Harness repair",
+        "Held-out tests"
+      ],
+      "summary": "NVIDIA describes a NeMo Compass workflow that converts failed agent traces into Harbor or NeMo Gym evaluations, repairs the harness, and reruns development plus held-out tests. Its vendor case study reports fewer malformed tool calls, better scores, and lower tool use across six scenarios; those results require independent reproduction.",
+      "why_it_matters": "The useful pattern is trace-to-test discipline, not the reported uplift. Teams can preserve a failure, generate a minimal evaluation, fix the harness, and verify both development and held-out cases before promoting an agent update.",
+      "image_alt_intent": "An agent failure trace becomes a minimal test, a repaired harness and separate development and held-out validation runs.",
+      "permanent_route": "/stories/2026-11-05/nov05-t2-nemo-trace-evals/",
+      "reading_time_minutes": 8
+    },
+    {
+      "id": "nov05-k1-pierre",
+      "headline": "OpenAI plans to acquire Pierre for interface-driven coding",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "OpenAI to acquire Pierre",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/openai-to-acquire-pierre/",
+        "published_at": "2026-11-04T00:00:00Z",
+        "scope": "Full original acquisition announcement, product-interface descriptions, transaction status, closing conditions, organizational separation and open-source commitment.",
+        "freshness_reason": "The original publisher dated the announcement November 4, inside the edition's normal discovery window; exact rolling-24-hour status is unproven because no publication time was exposed.",
+        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-05T01:25:26.461Z",
+          "scope": "Full original acquisition announcement, product-interface descriptions, transaction status, closing conditions, organizational separation and open-source commitment."
+        }
+      },
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Coding interfaces",
+        "Parallel agents"
+      ],
+      "related_coverage": "Examines review interfaces for parallel coding agents without treating an announced acquisition as closed.",
+      "topics": [
+        "Coding interfaces",
+        "Parallel agents",
+        "Acquisition status"
+      ],
+      "summary": "OpenAI says it has agreed to acquire Pierre, whose Trees, Diffs, Highlights and Code Storage interfaces organize parallel coding-agent work. The transaction remains subject to closing conditions and regulatory approval, and Pierre stays separate until closing. Open-source projects will remain open source according to the announcement.",
+      "why_it_matters": "Knowledge-work teams can evaluate the workflow without treating the deal as complete: compare one multi-agent review task using branches, diffs and highlighted changes, then measure review time, missed conflicts and the cost of switching context.",
+      "image_alt_intent": "Parallel coding-agent branches converge through trees, diffs and highlighted review surfaces while an acquisition-status checklist remains visibly pending.",
+      "permanent_route": "/stories/2026-11-05/nov05-k1-pierre/",
+      "reading_time_minutes": 7
+    },
+    {
+      "id": "nov05-k2-openweights",
+      "headline": "Databricks argues for governed open-weight model portfolios",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "The Enterprise Case for Open Weight Models",
+        "publisher": "Databricks",
+        "url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+        "published_at": "2026-11-04T00:00:00Z",
+        "scope": "Full original article, seven stated enterprise pressures, gateway and governance recommendations, portfolio framing and vendor-authored economic claims.",
+        "freshness_reason": "The original publisher dated the article November 4, inside the edition's normal discovery window; exact rolling-24-hour status is unproven because no publication time was exposed.",
+        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-05T01:25:26.461Z",
+          "scope": "Full original article, seven stated enterprise pressures, gateway and governance recommendations, portfolio framing and vendor-authored economic claims."
+        }
+      },
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Open weights",
+        "Model governance"
+      ],
+      "related_coverage": "Frames open-weight adoption as a governed portfolio decision while retaining the source's vendor perspective.",
+      "topics": [
+        "Open weights",
+        "Model governance",
+        "Portfolio testing"
+      ],
+      "summary": "Databricks outlines seven pressures pushing enterprises toward open-weight models, including cost control, data locality, customization and reduced provider dependence. The article recommends gateways, evaluation harnesses and governance across a model portfolio. Its advantages and economics are vendor-authored claims, so teams should validate them against their own workloads.",
+      "why_it_matters": "Procurement and platform teams can turn the article into a bounded comparison: run the same private workload through one hosted and one open-weight option, then record quality, latency, operating cost, data handling and rollback complexity.",
+      "image_alt_intent": "A governed model gateway compares hosted and open-weight options across quality, latency, cost, data locality and rollback.",
+      "permanent_route": "/stories/2026-11-05/nov05-k2-openweights/",
+      "reading_time_minutes": 8
+    },
+    {
+      "id": "nov05-a1-agent-access",
+      "headline": "Cloudflare adds per-agent access policies for personal assistants",
+      "focus": "Agents for Everyone",
+      "agent_skills": false,
+      "source": {
+        "title": "Personal agents need visibility and control",
+        "publisher": "Cloudflare",
+        "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+        "published_at": "2026-11-04T00:00:00Z",
+        "scope": "Full original announcement, Personal Assistants category, visibility widget, per-agent policy behavior, early-access status and stated identity and accountability gaps.",
+        "freshness_reason": "The original publisher dated the article November 4, inside the edition's normal discovery window; exact rolling-24-hour status is unproven because no publication time was exposed.",
+        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-05T01:25:26.461Z",
+          "scope": "Full original announcement, Personal Assistants category, visibility widget, per-agent policy behavior, early-access status and stated identity and accountability gaps."
+        }
+      },
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Agent identity",
+        "Access policies"
+      ],
+      "related_coverage": "Separates user authority from agent identity and resource access in a bounded enterprise workflow.",
+      "topics": [
+        "Agent identity",
+        "Access policies",
+        "Action control"
+      ],
+      "summary": "Cloudflare introduced a Personal Assistants category, visibility tooling and per-agent access policies for consumer AI assistants reaching corporate resources. The company positions the controls as early access and emphasizes identity, reputation and accountability gaps when agents act for users. The announcement provides product behavior, not independent outcome measurements.",
+      "why_it_matters": "Security teams can inventory one assistant-mediated workflow, identify the user and agent separately, restrict reachable resources, and require confirmation for consequential actions. Log every decision so the policy can be tested against misuse, stale identity and exception handling.",
+      "image_alt_intent": "A personal assistant passes through separate user identity, agent identity, resource access and confirmation policy gates.",
+      "permanent_route": "/stories/2026-11-05/nov05-a1-agent-access/",
+      "reading_time_minutes": 7
+    },
+    {
+      "id": "nov05-a2-human-review-skill",
+      "headline": "A review loop turns expert judgment into stronger agent evaluations",
+      "focus": "Agents for Everyone",
+      "agent_skills": true,
+      "source": {
+        "title": "Human insight is the strategic advantage for agents",
+        "publisher": "LangChain",
+        "url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "published_at": "2026-11-03T00:00:00Z",
+        "scope": "Full original article, complete-trajectory review procedure, rubric scoring, automated-judge comparison, evaluator revision, golden-dataset promotion and vendor framing.",
+        "freshness_reason": "The source exposes a November 3 date without a publication time, so rolling-24-hour freshness is unproven. It uses the normal 72-hour fallback because it uniquely supports the edition's reusable noncoding Agent Skill with a concrete review loop and bounded reader outcome.",
+        "retrieved_at": "2026-11-05T01:25:26.461Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-05T01:25:26.461Z",
+          "scope": "Full original article, complete-trajectory review procedure, rubric scoring, automated-judge comparison, evaluator revision, golden-dataset promotion and vendor framing."
+        }
+      },
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Human review",
+        "Evaluation rubrics"
+      ],
+      "related_coverage": "Packages full-trajectory expert review into a reusable noncoding Agent Skill with an explicit practical outcome.",
+      "topics": [
+        "Human review",
+        "Evaluation rubrics",
+        "Golden datasets"
+      ],
+      "summary": "LangChain proposes a human-review loop for agent trajectories: inspect the full thread, score it against a rubric with a reason, compare that judgment with an automated evaluator, revise the evaluator, and promote strong examples into a golden dataset. The vendor-authored workflow is practical but not independently benchmarked.",
+      "why_it_matters": "Domain experts can apply this reusable skill to one noncoding workflow. Review complete trajectories, record rubric-based reasons, reconcile disagreements with the automated judge, and add only verified examples to a golden set before expanding evaluation coverage.",
+      "image_alt_intent": "A domain expert reviews a complete agent trajectory, scores a rubric, reconciles judge disagreement and promotes a verified example.",
+      "permanent_route": "/stories/2026-11-05/nov05-a2-human-review-skill/",
+      "reading_time_minutes": 8
+    }
+  ],
+  "videos": [
+    {
+      "verified_at": "2026-11-05T01:29:09.869Z",
+      "content_retrieved_at": "2026-11-05T01:25:26.461Z",
+      "verified": true,
+      "title": "How algorithms manipulate you (and how to fight back)",
+      "source": "TED",
+      "url": "https://www.ted.com/talks/jen_golbeck_and_shalini_kantayya_how_algorithms_manipulate_you_and_how_to_fight_back",
+      "duration_minutes": 9.5881,
+      "original_date": "2026-06-01T00:00:00Z",
+      "focus": "Independent critical discussion of algorithmic influence, data collection and human agency",
+      "summary": "Jen Golbeck and Shalini Kantayya examine how recommendation algorithms collect data, shape choices and concentrate decision power. The complete TED program offers critical, noncommercial analysis rather than product instruction. Its June 2026 original date and consecutive-day TED publisher exposure are retained as editorial advisories, not exact-program duplication.",
+      "why_it_matters": "Readers can use the discussion to identify where an algorithm chooses, ranks or withholds information, then ask which decisions require disclosure, user control, independent oversight or a human alternative.",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "runtime_source_url": "https://www.ted.com/talks/jen_golbeck_and_shalini_kantayya_how_algorithms_manipulate_you_and_how_to_fight_back",
+        "content_reviewed": true,
+        "playback_verified": true,
+        "content_review_basis": "Reviewed the complete official TED description and transcript-supported argument, then loaded the exact signed-out full-length player. After pre-roll, the 575.283-second program advanced to 00:25.",
+        "playback_evidence": {
+          "method": "Fresh signed-out browser loaded the exact official TED program and waited through pre-roll.",
+          "result": "The exact 575.283-second program advanced to 00:25.263 with paused=false and readyState=4.",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-05T01:29:09.869Z",
+        "editorial_relevance": "Independent critical analysis examines algorithmic influence, data extraction and decisions that should remain contestable.",
+        "reader_value": "Readers gain a concrete lens for locating hidden ranking decisions and demanding bounded control.",
+        "selected_over_alternatives": "Selected for exact archive novelty, low promotional risk, complete content review and genuine signed-out advancing playback. The June original date and consecutive-day TED publisher exposure remain advisories; the URL and program differ from prior editions.",
+        "content_evidence": {
+          "kind": "transcript",
+          "url": "https://www.ted.com/talks/jen_golbeck_and_shalini_kantayya_how_algorithms_manipulate_you_and_how_to_fight_back",
+          "scope": "Reviewed the complete official description and transcript-supported discussion of data collection, algorithmic influence, resistance and decisions AI should not make."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "The program sells no AI product or service and is framed as independent critical discussion.",
+        "editorial_value_basis": "The complete discussion provides substantive critical analysis; editorial value does not depend on procedural instruction.",
+        "transferable_takeaways": [
+          "Locate hidden ranking and recommendation decisions.",
+          "Ask what data enables each influence loop.",
+          "Require disclosure, contestability and a human alternative for consequential choices."
+        ]
+      }
+    },
+    {
+      "verified_at": "2026-11-05T01:29:09.869Z",
+      "content_retrieved_at": "2026-11-05T01:25:26.461Z",
+      "verified": true,
+      "title": "AI agents going rogue fuel calls for regulation",
+      "source": "PBS NewsHour",
+      "url": "https://www.pbs.org/video/ai-going-rogue-1788205111/",
+      "duration_minutes": 6.5048,
+      "original_date": "2026-08-31T00:00:00Z",
+      "focus": "Independent news interview about agent security incidents, sandbox escape claims and regulation",
+      "summary": "PBS NewsHour interviews Gary Marcus about reported agent security failures, sandbox escapes and regulatory responses. The complete six-minute report attributes contested claims rather than presenting agent intent as fact. Its August 31 original date and consecutive-day PBS exposure are explicit advisories; the exact program and URL are new to the Brief.",
+      "why_it_matters": "Security and policy readers can separate observed tool behavior from claims about intention, then ask for incident evidence, containment boundaries, accountable operators and proportionate controls before generalizing from a single failure.",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "runtime_source_url": "https://www.pbs.org/video/ai-going-rogue-1788205111/",
+        "content_reviewed": true,
+        "playback_verified": true,
+        "content_review_basis": "Reviewed the complete official PBS NewsHour description and transcript-supported interview, then loaded the exact signed-out full-length player. The 390.29-second program advanced to 00:17.",
+        "playback_evidence": {
+          "method": "Fresh signed-out browser loaded the exact PBS player with userPassportStatus=loggedout.",
+          "result": "The exact 390.29-second program advanced to 00:17.108 with paused=false and readyState=4.",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-05T01:29:09.869Z",
+        "editorial_relevance": "Independent public-media reporting examines concrete agent-security claims and regulatory implications.",
+        "reader_value": "Readers gain a careful distinction between observed failures, attributed interpretation and policy response.",
+        "selected_over_alternatives": "Selected for exact archive novelty, low promotional risk, complete report review and genuine signed-out advancing playback. The August original date and consecutive-day PBS publisher exposure remain advisories; the URL and program differ from prior editions.",
+        "content_evidence": {
+          "kind": "original_reporting",
+          "url": "https://www.pbs.org/video/ai-going-rogue-1788205111/",
+          "scope": "Reviewed the complete official report and transcript-supported interview on sandbox escape claims, security failures, attribution and regulation."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "The program sells no AI product or service and is framed as independent news analysis.",
+        "editorial_value_basis": "The report supplies substantive independent news and expert interpretation; editorial value does not depend on a tutorial.",
+        "transferable_takeaways": [
+          "Separate observed behavior from claims about agent intent.",
+          "Demand incident evidence and containment details.",
+          "Match regulatory controls to a specific failure mode."
+        ]
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "The 2026 Software Factory Standard — Zach Lloyd, Warp.dev",
+      "source": "Latent Space",
+      "url": "https://podcasts.apple.com/us/podcast/the-2026-software-factory-standard-zach-lloyd-warp-dev/id1674008350?i=1000799675179",
+      "episode_identifier": "Latent Space episode published November 3, 2026",
+      "duration_minutes": 35,
+      "written_reading_time_minutes": 8,
+      "original_date": "2026-11-03T00:00:00Z",
+      "summary": "Latent Space interviews Warp CEO Zach Lloyd about software factories, Slack-to-pull-request workflows, cost, throughput, quality and changing engineering roles. The exact Apple episode identity and 35-minute runtime are verified against the show’s current feed, while the complete timecoded transcript preserves vendor claims as attributed statements.",
+      "why_it_matters": "Engineering leaders can turn the interview into a measurement plan: define one factory workflow, record cost per accepted change, review burden and defect escape, and compare it with the existing process before expanding autonomy.",
+      "verified_at": "2026-11-05T01:29:09.869Z",
+      "content_retrieved_at": "2026-11-05T01:25:26.461Z",
+      "verified": true,
+      "basis": "Reviewed the exact episode identity, verified 35-minute runtime and complete timecoded transcript evidence; no independent audio-playback claim is made.",
+      "objective": "Translate software-factory claims into measurable cost, throughput, quality and review criteria.",
+      "action": "Select one bounded workflow and compare cost per accepted change, review burden and escaped defects with the current process.",
+      "selected": "Selected as a current exact episode from an enabled index, a distinct show outside the protected cooldown, with complete timeline evidence.",
+      "transcript": "https://forck.live/podcasts/latent-space/LL0YmIyBKSU",
+      "scope": "Reviewed the complete timecoded transcript covering factory definition, Slack-to-PR workflow, cost and quality metrics, agent improvement, benchmarks and engineering roles.",
+      "promo": "The guest represents Warp and an event promotion appears near the opening; product and performance claims remain attributed and are not treated as independent validation.",
+      "takeaways": [
+        "Define the factory workflow boundary.",
+        "Measure accepted-change cost and review burden.",
+        "Test quality before expanding autonomy."
+      ],
+      "segments": [
+        {
+          "start_seconds": 91,
+          "end_seconds": 521,
+          "kind": "ai",
+          "topic": "Software-factory definition and Slack-to-pull-request workflow"
+        },
+        {
+          "start_seconds": 521,
+          "end_seconds": 872,
+          "kind": "ai",
+          "topic": "Cost, throughput and quality metrics"
+        },
+        {
+          "start_seconds": 872,
+          "end_seconds": 1439,
+          "kind": "ai",
+          "topic": "How agents and benchmarks improve the factory"
+        },
+        {
+          "start_seconds": 1439,
+          "end_seconds": 2100,
+          "kind": "ai",
+          "topic": "Cost-per-change claims and changing engineering roles"
+        }
+      ],
+      "form": "complete timecoded transcript",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "runtime_source_url": "https://podcasts.apple.com/us/podcast/the-2026-software-factory-standard-zach-lloyd-warp-dev/id1674008350?i=1000799675179",
+        "episode_url": "https://podcasts.apple.com/us/podcast/the-2026-software-factory-standard-zach-lloyd-warp-dev/id1674008350?i=1000799675179",
+        "episode_identifier": "Latent Space episode published November 3, 2026",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed exact Apple identity, show feed, 35-minute runtime and complete timecoded transcript; no audio playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-05T01:29:09.869Z",
+        "learning_objective": "Translate software-factory claims into measurable cost, throughput, quality and review criteria.",
+        "practical_action": "Select one bounded workflow and compare accepted-change cost, review burden and escaped defects with the current process.",
+        "selected_over_alternatives": "Selected for current exact identity, show rotation and complete timecoded content evidence.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://forck.live/podcasts/latent-space/LL0YmIyBKSU",
+          "scope": "Complete timecoded transcript reviewed from opening through factory definition, metrics, benchmarks, agent improvement, costs and roles."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "The guest represents Warp and an event promotion appears near the opening; all product and performance claims remain attributed.",
+        "transferable_takeaways": [
+          "Define the factory workflow boundary.",
+          "Measure accepted-change cost and review burden.",
+          "Test quality before expanding autonomy."
+        ],
+        "editorial_segments": [
+          {
+            "start_seconds": 91,
+            "end_seconds": 521,
+            "kind": "ai",
+            "topic": "Software-factory definition and Slack-to-pull-request workflow"
+          },
+          {
+            "start_seconds": 521,
+            "end_seconds": 872,
+            "kind": "ai",
+            "topic": "Cost, throughput and quality metrics"
+          },
+          {
+            "start_seconds": 872,
+            "end_seconds": 1439,
+            "kind": "ai",
+            "topic": "How agents and benchmarks improve the factory"
+          },
+          {
+            "start_seconds": 1439,
+            "end_seconds": 2100,
+            "kind": "ai",
+            "topic": "Cost-per-change claims and changing engineering roles"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 0.96,
+        "editorial_form": "whole_episode",
+        "editorial_form_rationale": "Nearly the full episode is substantive AI engineering discussion with only a short opening promotion; the complete timeline supports review.",
+        "independently_verified_sources": []
+      }
+    },
+    {
+      "title": "Abundant Intelligence at the Midwest AI Summit",
+      "source": "Practical AI",
+      "url": "https://practicalai.show/378",
+      "episode_identifier": "Practical AI episode 378",
+      "duration_minutes": 54.2333,
+      "written_reading_time_minutes": 10,
+      "original_date": "2026-10-29T00:00:00Z",
+      "summary": "Practical AI presents three Midwest AI Summit talks on reliable AI workflows, frontline-worker participation and choosing an appropriate level of software-agent autonomy. The exact first-party page provides a 54:14 identity and full timecoded transcript. Sponsor and consultancy references are disclosed rather than used as evidence.",
+      "why_it_matters": "Teams can use the talks to match mechanisms, evaluations and human review to a workflow, involve frontline experts in test design, and choose agent autonomy from constraints instead of copying a dark-factory demonstration.",
+      "verified_at": "2026-11-05T01:29:09.869Z",
+      "content_retrieved_at": "2026-11-05T01:25:26.461Z",
+      "verified": true,
+      "basis": "Reviewed the exact first-party episode identity, verified 54:14 runtime and complete first-party timecoded transcript; no independent audio-playback claim is made.",
+      "objective": "Connect workflow reliability, frontline feedback and autonomy choices to explicit constraints and evaluation evidence.",
+      "action": "Map one workflow’s mechanism, data, guardrails, evaluator, frontline reviewer and acceptable autonomy mode before implementation.",
+      "selected": "Selected as a distinct exact episode outside the protected cooldown, with complete first-party transcript evidence and three substantive AI talks.",
+      "transcript": "https://practicalai.show/378/transcript",
+      "scope": "Reviewed the complete first-party transcript: reliable AI workflows, frontline-worker co-design, evaluation flywheels, autonomy constraints and verification-first principles.",
+      "promo": "The page and transcript disclose Hostinger, Framer, Prediction Guard, conference and consultancy references; promotional segments are excluded from factual support.",
+      "takeaways": [
+        "Choose the simplest mechanism per task.",
+        "Build evaluations with frontline experts.",
+        "Let constraints determine autonomy."
+      ],
+      "segments": [
+        {
+          "start_seconds": 146,
+          "end_seconds": 1088,
+          "kind": "ai",
+          "topic": "Reliable AI-augmented workflows, mechanisms, guardrails and evaluations"
+        },
+        {
+          "start_seconds": 1223,
+          "end_seconds": 2200,
+          "kind": "ai",
+          "topic": "Building agents with frontline workers and evaluation flywheels"
+        },
+        {
+          "start_seconds": 2252,
+          "end_seconds": 2694,
+          "kind": "ai",
+          "topic": "Constraints that determine feasible agent autonomy"
+        },
+        {
+          "start_seconds": 2694,
+          "end_seconds": 3183,
+          "kind": "ai",
+          "topic": "Team operating modes, verification and bottleneck removal"
+        }
+      ],
+      "form": "complete first-party transcript",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "runtime_source_url": "https://practicalai.show/378",
+        "episode_url": "https://practicalai.show/378",
+        "episode_identifier": "Practical AI episode 378",
+        "content_reviewed": true,
+        "playback_verified": false,
+        "content_review_basis": "Reviewed exact first-party identity, 54:14 runtime and complete first-party timecoded transcript; no audio playback claim is made."
+      },
+      "quality_review": {
+        "reviewer": "Daily AI Brief editorial producer",
+        "reviewed_at": "2026-11-05T01:29:09.869Z",
+        "learning_objective": "Connect workflow reliability, frontline feedback and autonomy choices to explicit constraints and evaluation evidence.",
+        "practical_action": "Map one workflow’s mechanism, data, guardrails, evaluator, frontline reviewer and acceptable autonomy mode before implementation.",
+        "selected_over_alternatives": "Selected for source diversity, exact episode novelty and complete first-party transcript evidence.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://practicalai.show/378/transcript",
+          "scope": "Complete first-party timecoded transcript reviewed across all three AI talks, excluding sponsor segments from evidence."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "Sponsor, conference, consultancy and product references are disclosed; promotional segments are excluded from support.",
+        "transferable_takeaways": [
+          "Choose the simplest mechanism per task.",
+          "Build evaluations with frontline experts.",
+          "Let constraints determine autonomy."
+        ],
+        "editorial_segments": [
+          {
+            "start_seconds": 146,
+            "end_seconds": 1088,
+            "kind": "ai",
+            "topic": "Reliable AI-augmented workflows, mechanisms, guardrails and evaluations"
+          },
+          {
+            "start_seconds": 1223,
+            "end_seconds": 2200,
+            "kind": "ai",
+            "topic": "Building agents with frontline workers and evaluation flywheels"
+          },
+          {
+            "start_seconds": 2252,
+            "end_seconds": 2694,
+            "kind": "ai",
+            "topic": "Constraints that determine feasible agent autonomy"
+          },
+          {
+            "start_seconds": 2694,
+            "end_seconds": 3183,
+            "kind": "ai",
+            "topic": "Team operating modes, verification and bottleneck removal"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 0.92,
+        "editorial_form": "whole_episode",
+        "editorial_form_rationale": "More than ninety percent of the timeline is substantive AI workflow and agent-practice content; the complete transcript supports review.",
+        "independently_verified_sources": []
+      }
+    }
+  ],
+  "watchlist": {
+    "schema_version": "editorial-watchlist-v1",
+    "edition_date": "2026-11-05",
+    "new": [
+      {
+        "topic": "Long-horizon state tracking benchmarks",
+        "topic_id": "dab-topic-long-horizon-state-tracking",
+        "what_changed": "Ai2 published StateBench with four state levels and general-length tests that expose sharp failures in tracking evolving variables.",
+        "summary": "Long-horizon state tracking benchmarks test whether models preserve evolving variables, dependencies and final values across extended instruction sequences.",
+        "why_now": "Added on November 5 because Ai2 published dated benchmark evidence showing severe degradation on the longest general state-tracking setting.",
+        "practical_value": "Agent teams can replay representative state transitions, inspect failure levels and compare memory architectures before trusting long operational sequences.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "date": "2026-11-03",
+          "publisher": "Ai2",
+          "title": "StateBench: Evaluating State Tracking in Language Models",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "StateBench separates direct, indirect, event and general state updates while testing extrapolation beyond training sequence lengths."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Ai2 publishes benchmark construction and reported results, but external reproduction and broader variable settings remain unavailable."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The reviewed capability evidence comes from Ai2 and has not yet been independently reproduced in this editorial cycle."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Agent engineers can directly test whether workflows preserve changing operational state rather than relying on context-window size."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Explicit state-transition testing remains useful as memory architectures, model families and context lengths continue to change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Added after a complete review of Ai2's dated StateBench evidence and limitations."
+      }
+    ],
+    "updated": [
+      {
+        "topic": "Consumer agent task permissions",
+        "topic_id": "dab-topic-consumer-agent-task-permissions",
+        "what_changed": "Cloudflare added a Personal Assistants category, visibility widget and per-agent access policies for assistants reaching corporate resources.",
+        "summary": "Consumer agent task permissions define which user context, corporate resources and consequential actions an assistant may access or perform.",
+        "why_now": "Updated on November 5 because Cloudflare published specific early-access controls that distinguish personal assistants and apply per-agent resource policy.",
+        "practical_value": "Security teams can test one assistant workflow by separating user and agent identity, restricting resources and requiring confirmation for consequential actions.",
+        "evidence": {
+          "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+          "date": "2026-11-04",
+          "publisher": "Cloudflare",
+          "title": "Personal agents need visibility and control",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update adds named visibility and per-agent policy controls to the prior task-permission and confirmation baseline."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Cloudflare documents specific early-access product behavior, but measured security outcomes and failure rates remain unavailable."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Cloudflare and earlier OpenAI or ServiceNow evidence show separate implementations, though all reviewed accounts remain vendor-authored."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Security owners can immediately bound assistant resources, confirmations, logs and exception handling for one routine workflow."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separate user authority, agent identity and least-privilege resource access remain durable across changing assistant products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Updated because the dated Cloudflare controls materially extend the prior consumer-agent permission baseline."
+      }
+    ],
+    "carried_forward": [
+      {
+        "topic": "Weight-space model repair",
+        "topic_id": "dab-topic-weight-space-model-repair",
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment.",
+        "summary": "Weight-space model repair lets an agent inspect and change selected neural-network parameters to correct a targeted behavior without a conventional training run.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior weight-space model repair assessment.",
+        "practical_value": "Model teams can reproduce one bounded repair, compare regressions and compute cost, and preserve the exact edited parameters before considering deployment.",
+        "what_changed": "A dated public experiment now supplies a concrete agent-driven weight-editing procedure, reported benchmark result and explicit limitations.",
+        "evidence": {
+          "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+          "date": "2026-11-02",
+          "publisher": "MIT CSAIL researchers",
+          "title": "The First AI Scientist That Writes Into Weight Space",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The project applies an agent to direct parameter repair rather than prompting, fine-tuning or ordinary gradient-based retraining."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The authors publish the setup, edited-weight share, benchmark results and limitations, but independent reproduction remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed capability evidence comes from the project authors and has not been independently reproduced in this cycle."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Model teams could use targeted repair experiments to test specific failures while measuring regressions and compute cost."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Parameter-level diagnosis, reproducibility and regression testing remain useful even as repair agents and model architectures change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Professional-task agent benchmarks",
+        "topic_id": "dab-topic-professional-task-agent-benchmarks",
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment.",
+        "summary": "Professional-task agent benchmarks evaluate reviewable workplace deliverables across multiple domains, rather than relying only on short synthetic prompts or isolated tool calls.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior professional-task agent benchmarks assessment.",
+        "practical_value": "Evaluation teams can adapt the task, artifact, grading and cost structure while keeping domain results separate and limitations visible.",
+        "what_changed": "A dated public benchmark now supplies expert-created tasks, deliverable artifacts, repeated attempts, cost records and domain-level reporting.",
+        "evidence": {
+          "url": "https://gdpx.semianalysis.com/",
+          "date": "2026-11-02",
+          "publisher": "SemiAnalysis",
+          "title": "GDPx — Measuring Frontier Model Capabilities in Real-World Professional Tasks",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The benchmark combines expert-designed professional artifacts, multiple attempts, costs and domain-equal aggregation in one public framework."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The publisher documents 206 tasks, 11 domains, partner participation, grading and cost methodology, with configuration limits still present."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Fourteen organizations contributed task expertise, but the benchmark publisher controls the aggregate methodology and presentation."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable benchmark measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Agent builders need realistic deliverables, grading evidence and cost records before claiming professional task readiness."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Task artifacts, domain reporting and disclosed grading remain useful as models and harnesses change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable benchmark measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "AI-ready public science artifacts",
+        "topic_id": "dab-topic-ai-ready-public-science-artifacts",
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment.",
+        "summary": "AI-ready public science artifacts pair datasets, models, metadata, provenance and reproducible baselines so others can inspect and extend funded research.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior ai-ready public science artifacts assessment.",
+        "practical_value": "Research teams can package one public project with licenses, lineage, metadata and a baseline, then record which gaps still block reuse.",
+        "what_changed": "A dated public challenge now supplies a concrete test bed for producing and comparing reusable scientific AI artifacts.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/protostar",
+          "date": "2026-10-29",
+          "publisher": "Hugging Face",
+          "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The challenge treats provenance-rich reusable artifacts, not model output alone, as the deliverable."
+          },
+          "evidence": {
+            "score": 2,
+            "reason": "The launch defines dates and artifact goals, but no completed projects or outcome evaluation exist yet."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "Current evidence comes from the challenge organizer, without independent outcome or reuse assessment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Metadata and provenance directly affect whether scientific datasets and models can be reviewed or reused."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Licensing, lineage and reproducible baselines remain useful after this individual challenge ends."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Frontier model misalignment monitoring",
+        "topic_id": "dab-topic-frontier-training-containment",
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment.",
+        "summary": "Frontier model misalignment monitoring combines broad workload coverage, high-recall screening, contextual review, investigation and intervention authority to detect unauthorized agent behavior.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior frontier model misalignment monitoring assessment.",
+        "practical_value": "Safety teams can compare workload coverage, sampling, escalation context, review latency and intervention ownership before relying on monitoring claims.",
+        "what_changed": "The topic moves from general training containment to a concrete monitoring architecture with published layers, a known coverage gap and incident examples.",
+        "evidence": {
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "date": "2026-10-29",
+          "publisher": "OpenAI",
+          "title": "How we detect frontier model misalignment",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source publishes a concrete multilayer monitoring architecture and an acknowledged evaluation coverage gap."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "OpenAI reports workload coverage, review layers and incidents, but independent reproduction and recall measurements remain limited."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "All reviewed implementation and incident evidence comes from the system operator describing its own monitoring program."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Frontier labs and deployers need explicit coverage, escalation and intervention ownership for consequential agent behavior."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Monitoring coverage and investigative escalation remain necessary as models, harnesses, evaluations and threats change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Synthetic enterprise evaluation environments",
+        "topic_id": "dab-topic-synthetic-enterprise-evaluation-environments",
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment.",
+        "summary": "Synthetic enterprise evaluation environments recreate organizational data, permissions and work patterns so AI assistants can be tested without exposing live confidential records.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior synthetic enterprise evaluation environments assessment.",
+        "practical_value": "Evaluation teams can construct bounded permission, retrieval and workflow tests before a copilot reaches real employees or sensitive production data.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "date": "2026-10-30",
+          "publisher": "Microsoft Research",
+          "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source joins synthetic organizational data, realistic permissions and task evaluation into one preproduction enterprise testing environment."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Microsoft Research describes concrete construction and evaluation practices, but provides limited independent replication or public comparative outcome data."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Microsoft alone and has not been independently reproduced on another enterprise copilot environment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Enterprise teams can directly test retrieval, permission and workflow failures before exposing live employees or confidential records."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Safe preproduction evaluation with representative data and permissions remains necessary as copilots, models and enterprise systems change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Task-scoped virtual model routing",
+        "topic_id": "dab-topic-task-scoped-virtual-model-routing",
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment.",
+        "summary": "Task-scoped virtual model routing lets applications call a stable identifier while administrators change providers, fallbacks and data-retention policy separately.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior task-scoped virtual model routing assessment.",
+        "practical_value": "Teams can test model substitutions, failure recovery, retention rules and rollback under one stable application interface.",
+        "evidence": {
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "date": "2026-10-28",
+          "publisher": "Vercel",
+          "title": "Introducing Virtual Models on AI Gateway",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Virtual identifiers move provider selection and fallback policy out of application deployments into a separately governed routing layer."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Vercel documents concrete configuration behavior and availability, but supplies no independent latency, quality or failure benchmark."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Vercel alone, without an independent operator reproducing the virtual routing behavior."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Engineering teams can directly test provider swaps, fallback, retention rules and rollback without changing application code."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separating application interfaces from model-routing policy remains useful as providers, models and compliance requirements change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Continuous multi-level agent evaluation",
+        "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
+        "what_changed": "Salesforce added cross-platform production thresholds, API-change tests, approval-based quarantine, kill-switch actions and hard spending limits to the existing evaluation signal.",
+        "summary": "Continuous multi-level agent evaluation tests business facts, tools, APIs, orchestration quality, security and cost across development and live operation.",
+        "why_now": "Carried on November 5 because current source review found no independently comparable evidence that changed the prior continuous multi-level agent evaluation assessment.",
+        "practical_value": "Teams can design a bounded release and runtime gate that names quality thresholds, cost limits, intervention owners, approval steps and recovery tests.",
+        "evidence": {
+          "url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+          "date": "2026-10-27",
+          "publisher": "Salesforce",
+          "title": "Salesforce Expands Agent Fabric to Catch Failures and Control Costs",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update connects familiar evaluation methods to explicit cross-platform runtime interventions and enforceable budget controls."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Salesforce describes named product behaviors and availability, but customer outcomes and performance remain vendor-reported."
+          },
+          "independence": {
+            "score": 3,
+            "reason": "Separate AWS and Salesforce implementations support the workflow pattern, though neither supplies an independent comparative audit."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The two publications use different measures and provide no comparable dated numeric observations for a momentum score."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can directly translate quality, API and cost failures into approval, quarantine, kill-switch and recovery policies."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Connecting evaluation evidence to bounded intervention remains necessary across changing agents, models, tools and infrastructure."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "Independent publisher implementations broaden the pattern, but no stable comparable numeric measure establishes momentum.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward after the November 5 review found no material evidence change requiring a new assessment."
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Native multimodal world simulation",
+        "topic_id": "dab-topic-native-multimodal-world-simulation",
+        "why": "Carried forward after the October 29 review found no material evidence change requiring a new assessment.",
+        "summary": "Native multimodal world simulation generates interactive scenes, movement, dialogue and ambient sound together while responding to user steering in real time.",
+        "why_now": "Remains dropped on November 5 because current source review found no independently comparable evidence that changed the prior native multimodal world simulation assessment.",
+        "practical_value": "Research teams can retain the prior evaluation plan but should wait for comparable task results before treating further demonstrations as momentum.",
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Genie 4 combines steerable interactive world generation with native audio and dialogue in one research system."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Google publishes detailed demonstrations and limitations, but access is restricted and no independent benchmark is available."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed capability evidence comes from Google DeepMind without independent reproduction during this editorial review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Simulation teams can evaluate continuity, object permanence, latency and audio alignment before considering training use."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Testing coherence and controllability remains useful as world-model architectures and media capabilities continue to change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4.",
+          "metric": null,
+          "observations": []
+        },
+        "reason": "Archived from the active watchlist after the review found no independently comparable measurement that changed the prior assessment.",
+        "previous_evidence": {
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "date": "2026-10-27",
+          "publisher": "Google DeepMind",
+          "title": "Genie 4: A new generation of world simulation",
+          "checked_at": "2026-11-05T01:29:09.869Z"
+        }
+      }
+    ],
+    "refreshed_at": "2026-11-05T01:29:09.869Z"
+  },
+  "book_mappings": [
+    {
+      "story_id": "nov05-t1-statebench",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Long-horizon state context",
+      "connection": "StateBench makes evolving state an explicit context object whose transitions and final values can be independently checked.",
+      "what_to_study_next": "Write a state-transition ledger for one agent workflow and test whether every tool result updates the correct variable."
+    },
+    {
+      "story_id": "nov05-t2-nemo-trace-evals",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Failure-driven evaluations",
+      "connection": "Turning observed traces into repeatable development and held-out tests connects reliability claims to preserved evidence.",
+      "what_to_study_next": "Capture one failed trajectory, create a minimal evaluation and verify the harness fix on development and held-out cases."
+    },
+    {
+      "story_id": "nov05-k2-openweights",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Model portfolio evaluation",
+      "connection": "A governed comparison requires identical workload prompts, explicit evidence criteria and stable measurements across hosted and open-weight options.",
+      "what_to_study_next": "Run one private workload through two model options and compare quality, latency, cost, data handling and rollback."
+    },
+    {
+      "story_id": "nov05-a2-human-review-skill",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable evaluation Skills",
+      "connection": "The review loop packages complete-trajectory inspection, rubric reasons and judge reconciliation into a repeatable noncoding Skill.",
+      "what_to_study_next": "Apply the Skill to one workflow and promote only verified examples into a small golden evaluation set."
+    }
+  ],
+  "images": [
+    {
+      "story_id": "nov05-t1-statebench",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A long sequence of variable updates flows through four state-tracking levels, with final-state errors and benchmark limitations clearly marked."
+    },
+    {
+      "story_id": "nov05-t2-nemo-trace-evals",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "An agent failure trace becomes a minimal test, a repaired harness and separate development and held-out validation runs."
+    },
+    {
+      "story_id": "nov05-k1-pierre",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Parallel coding-agent branches converge through trees, diffs and highlighted review surfaces while an acquisition-status checklist remains visibly pending."
+    },
+    {
+      "story_id": "nov05-k2-openweights",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A governed model gateway compares hosted and open-weight options across quality, latency, cost, data locality and rollback."
+    },
+    {
+      "story_id": "nov05-a1-agent-access",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A personal assistant passes through separate user identity, agent identity, resource access and confirmation policy gates."
+    },
+    {
+      "story_id": "nov05-a2-human-review-skill",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A domain expert reviews a complete agent trajectory, scores a rubric, reconciles judge disagreement and promotes a verified example."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "video_prequalification": {
+    "candidates": [
+      {
+        "title": "OpenAI Claims It Just Did The Impossible",
+        "publisher": "Two Minute Papers",
+        "url": "https://www.youtube.com/watch?v=CWdTBLsbaQs",
+        "duration_minutes": 7.35,
+        "editorial_evidence": "Retained complete original description, runtime metadata, captions and linked-paper review from the immediately prior cycle.",
+        "research_disposition": "Rejected because the exact signed-out player did not advance during the prior protected check.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-04T01:38:25.804Z",
+        "verification": {
+          "publisher_channel_id": "UCbfYPyITQ-7l4upoX8nvctg",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Stop vibe coding blind: Spec driven UI design with AI agents",
+        "publisher": "Google Cloud Tech",
+        "url": "https://www.youtube.com/watch?v=YNXnbGrXEp4",
+        "duration_minutes": 11.9833,
+        "editorial_evidence": "Retained exact chapters, captions, description, runtime and structured full-program review from the immediately prior cycle.",
+        "research_disposition": "Rejected because seeking did not establish genuine advancing signed-out playback in the prior protected check.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-04T01:38:25.804Z",
+        "verification": {
+          "publisher_channel_id": "UCJS9pqu9BzkAMNTmzNMNhvg",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCJS9pqu9BzkAMNTmzNMNhvg",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Who's keeping AI in check?",
+        "publisher": "CBS News",
+        "url": "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
+        "duration_minutes": 4.4939,
+        "editorial_evidence": "Retained complete CBS report review and exact 04:30 advancing-player evidence from the November 3 cycle.",
+        "research_disposition": "Rejected as an exact archive repeat; complete prior review does not create current novelty.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-03T01:44:57.507Z"
+      },
+      {
+        "title": "How people are using AI to grieve, love and connect",
+        "publisher": "TED",
+        "url": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+        "duration_minutes": 14.0167,
+        "editorial_evidence": "Retained complete TED description, transcript-supported scope and exact advancing-player evidence from the prior cycle.",
+        "research_disposition": "Rejected as an exact archive repeat; the current TED winner is a different program and URL.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-04T01:52:29.676Z"
+      },
+      {
+        "title": "How algorithms manipulate you (and how to fight back)",
+        "publisher": "TED",
+        "url": "https://www.ted.com/talks/jen_golbeck_and_shalini_kantayya_how_algorithms_manipulate_you_and_how_to_fight_back",
+        "duration_minutes": 9.5881,
+        "editorial_evidence": "Reviewed the complete official TED description and transcript-supported argument, then loaded the exact signed-out full-length player. After pre-roll, the 575.283-second program advanced to 00:25.",
+        "research_disposition": "Selected for substantive independent analysis, exact archive novelty, low promotional risk and genuine signed-out advancement.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-05T01:29:09.869Z"
+      },
+      {
+        "title": "AI agents going rogue fuel calls for regulation",
+        "publisher": "PBS NewsHour",
+        "url": "https://www.pbs.org/video/ai-going-rogue-1788205111/",
+        "duration_minutes": 6.5048,
+        "editorial_evidence": "Reviewed the complete official PBS NewsHour description and transcript-supported interview, then loaded the exact signed-out full-length player. The 390.29-second program advanced to 00:17.",
+        "research_disposition": "Selected for substantive independent reporting, exact archive novelty, low promotional risk and genuine signed-out advancement.",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-05T01:29:09.869Z"
+      }
+    ],
+    "qualified_winners": [
+      "https://www.ted.com/talks/jen_golbeck_and_shalini_kantayya_how_algorithms_manipulate_you_and_how_to_fight_back",
+      "https://www.pbs.org/video/ai-going-rogue-1788205111/"
+    ],
+    "result": "PASS_TWO_DISTINCT_LOW_PROMOTION_PUBLISHERS",
+    "blocker": null
+  },
+  "video_diversity_exception": null,
+  "source_discovery_audit": {
+    "reviewed_at": "2026-11-05T01:29:09.869Z",
+    "candidates": [
+      {
+        "url": "https://huggingface.co/blog/allenai/statebench",
+        "publisher": "Ai2",
+        "original_date": "2026-11-03T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/use-nvidia-nemo-to-turn-agent-failures-into-tests-and-harness-fixes/",
+        "publisher": "NVIDIA",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+      },
+      {
+        "url": "https://openai.com/index/openai-to-acquire-pierre/",
+        "publisher": "OpenAI",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+      },
+      {
+        "url": "https://www.databricks.com/blog/enterprise-case-open-weight-models-databricks",
+        "publisher": "Databricks",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+      },
+      {
+        "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+        "publisher": "Cloudflare",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+      },
+      {
+        "url": "https://www.langchain.com/blog/human-insight-strategic-advantage-agents",
+        "publisher": "LangChain",
+        "original_date": "2026-11-03T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after complete primary-source reading, dated-item verification, archive novelty review, lane fit and concise-reader-copy validation."
+      },
+      {
+        "url": "https://developer.nvidia.com/blog/how-nvidia-uses-ai-agents-to-streamline-ai-factory-operations/",
+        "publisher": "NVIDIA",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "qualified_not_selected",
+        "disposition_reason": "Current and technically useful, but the edition already selected the stronger trace-to-evaluation NVIDIA article and preserved publisher diversity."
+      },
+      {
+        "url": "https://www.anthropic.com/research/provable-inference",
+        "publisher": "Anthropic",
+        "original_date": "2026-11-02T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "qualified_not_selected",
+        "disposition_reason": "Strong research lead, but the technical slots provided more immediate evidence on state tracking and failure-driven evaluations."
+      },
+      {
+        "url": "https://github.com/deepseek-ai/deepseek-harness",
+        "publisher": "DeepSeek",
+        "original_date": "2026-11-02T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "rejected",
+        "disposition_reason": "The bounded review did not establish a new dated publisher article with enough evidence to displace the selected technical sources."
+      },
+      {
+        "url": "https://www.cloudflare.com/press-releases/2026/cloudflare-introduces-new-tools-for-agentic-internet/",
+        "publisher": "Cloudflare",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-05T01:29:09.869Z",
+        "disposition": "qualified_not_selected",
+        "disposition_reason": "Related company announcement was less specific than the selected per-agent access-policy article."
+      }
+    ],
+    "fallback_decisions": [
+      {
+        "story_id": "nov05-t1-statebench",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "No later original benchmark with equivalent methods and limitations was established; StateBench supplied the strongest complete technical evidence for long-horizon state tracking."
+      },
+      {
+        "story_id": "nov05-t2-nemo-trace-evals",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "The source fell inside the normal discovery window and no later qualified item with a verified publication time displaced its complete primary evidence, lane fit and distinct reader value."
+      },
+      {
+        "story_id": "nov05-k1-pierre",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "The source fell inside the normal discovery window and no later qualified item with a verified publication time displaced its complete primary evidence, lane fit and distinct reader value."
+      },
+      {
+        "story_id": "nov05-k2-openweights",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "The source fell inside the normal discovery window and no later qualified item with a verified publication time displaced its complete primary evidence, lane fit and distinct reader value."
+      },
+      {
+        "story_id": "nov05-a1-agent-access",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "The source fell inside the normal discovery window and no later qualified item with a verified publication time displaced its complete primary evidence, lane fit and distinct reader value."
+      },
+      {
+        "story_id": "nov05-a2-human-review-skill",
+        "newer_sources_considered": [],
+        "why_selected_over_recent_options": "No later noncoding Agent Skills source supplied the same complete trajectory-review procedure, explicit practical action and reader outcome; newer agent items were product controls or technical harnesses."
+      }
+    ]
+  },
+  "editorial_contract_version": "2026-11-03.2",
+  "status": "BUNDLE_READY",
+  "producer_receipt": {
+    "result": "PASS",
+    "owner_intervention": false,
+    "work_used": true,
+    "codex_used": true,
+    "paid_model_api_used": false,
+    "local_computer_used": false,
+    "accepted_image_regenerations": 0,
+    "semantic_stages_complete": [
+      "research",
+      "selection",
+      "seal"
+    ]
+  }
+}
