@@ -402,8 +402,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-04/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-03.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-03.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-03.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-03.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/trend-search-coverage.json) |
 
@@ -417,6 +417,19 @@ No current-edition postpublication incident register was available; this is **NO
 ## Continuous improvement review
 
 Edition **2026-11-04**. Measurements use 2/7 recorded editions in this window. Missing data stays **Not recorded**.
+
+### Daily corrective-action review
+
+**4 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+
+| Priority | Observed issue | Existing owner / next correction | When |
+|---|---|---|---|
+| P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
+| P1 | 3 failed protected publication gates were recorded (3 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Next genuine run |
+| P1 | Source inspection coverage is not verifiable from the current bundled receipts. | Compiler: Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access. | Next genuine run |
+| P1 | 15 rejected image candidates preceded the verified six-image release. | Images: Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation. | Next genuine run |
+
+Findings are observational and do not claim a repair was executed by the reporter.
 
 ### Approved change evaluations
 

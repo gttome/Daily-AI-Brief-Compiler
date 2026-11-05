@@ -348,7 +348,7 @@
         "Exact full-video coverage"
       ]
     },
-    "source_commit": "d58b17d0e9fba815ab4fbc1b064d47db21c488a3",
+    "source_commit": "731bc5c567f30184c766915b3a18056907bd7338",
     "source_blob_sha": "01d1d57f43425da7f5bca4565511666cbf7cb12d",
     "report_sha256": "e9b39cfdae2d2c680b1aedba3534611f7adeab94949c0d4ac238a86849e85b71",
     "consumed_source_commit": "a112987adb4b275893658a363d1cbd77e0dc4870",
@@ -494,7 +494,7 @@
       },
       "previous_cycle": "2026-11-03",
       "previous_report_sha256": "3286ec50e70f3bb16e2dd2686e07c8d238e53dac159127073649c8d2975bf313",
-      "previous_aar_sha256": "34c726db9d9b93b463d059ac3b642e5273308e0d2dd66fa571ff5f0d8941bb52",
+      "previous_aar_sha256": "67c37ce842d06db9e85a527d37e766ce666d4c6c31afead41ce358aa47c6641a",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -763,11 +763,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-04.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-04.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-04.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-04.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1146,6 +1146,68 @@
       "pending": 14,
       "overdue": 0,
       "reviewed": 0
+    },
+    "daily_action_review": {
+      "schema_version": "daily-aar-action-review-v1",
+      "edition_date": "2026-11-05",
+      "mode": "DAILY_EVIDENCE_LED_TRIAGE",
+      "next_cumulative_review": "2026-11-11",
+      "cumulative_review_due_today": false,
+      "finding_count": 5,
+      "open_production_blockers": 0,
+      "findings": [
+        {
+          "id": "TOP10_SEARCH_EVIDENCE_INVALID",
+          "priority": "P1",
+          "owner": "Compiler",
+          "observation": "This edition has invalid Top 10 search-coverage receipts.",
+          "action": "Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "PROTECTED_GATE_FAILURES",
+          "priority": "P1",
+          "owner": "Compiler / Recovery",
+          "observation": "7 failed protected publication gates were recorded (7 unclassified causes).",
+          "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "RECURRENCE_PREVENTION"
+        },
+        {
+          "id": "SOURCE_INSPECTION_EVIDENCE_MISSING",
+          "priority": "P1",
+          "owner": "Compiler",
+          "observation": "Source inspection coverage is not verifiable from the current bundled receipts.",
+          "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "11 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
+        },
+        {
+          "id": "SCHEDULER_ORIGIN_UNPROVEN",
+          "priority": "P2",
+          "owner": "Compiler / Recovery",
+          "observation": "Publication success does not independently attest the originating scheduler.",
+          "action": "Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EVIDENCE_GAP"
+        }
+      ],
+      "limitations": [
+        "This report records findings and next actions; it does not execute corrections.",
+        "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",
+        "A released edition remains immutable; lessons apply prospectively to the next genuine cycle.",
+        "Missing observations are not zero; no causality, autonomous recovery or effectiveness is inferred."
+      ]
     },
     "publication_failures": {
       "recorded_editions": 3,

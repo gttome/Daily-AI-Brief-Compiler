@@ -292,6 +292,59 @@
     "overdue": 0,
     "reviewed": 0
   },
+  "daily_action_review": {
+    "schema_version": "daily-aar-action-review-v1",
+    "edition_date": "2026-11-04",
+    "mode": "DAILY_EVIDENCE_LED_TRIAGE",
+    "next_cumulative_review": "2026-11-11",
+    "cumulative_review_due_today": false,
+    "finding_count": 4,
+    "open_production_blockers": 0,
+    "findings": [
+      {
+        "id": "TOP10_SEARCH_EVIDENCE_INVALID",
+        "priority": "P1",
+        "owner": "Compiler",
+        "observation": "This edition has invalid Top 10 search-coverage receipts.",
+        "action": "Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EVIDENCE_GAP"
+      },
+      {
+        "id": "PROTECTED_GATE_FAILURES",
+        "priority": "P1",
+        "owner": "Compiler / Recovery",
+        "observation": "3 failed protected publication gates were recorded (3 unclassified causes).",
+        "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "RECURRENCE_PREVENTION"
+      },
+      {
+        "id": "SOURCE_INSPECTION_EVIDENCE_MISSING",
+        "priority": "P1",
+        "owner": "Compiler",
+        "observation": "Source inspection coverage is not verifiable from the current bundled receipts.",
+        "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EVIDENCE_GAP"
+      },
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "15 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
+      }
+    ],
+    "limitations": [
+      "This report records findings and next actions; it does not execute corrections.",
+      "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",
+      "A released edition remains immutable; lessons apply prospectively to the next genuine cycle.",
+      "Missing observations are not zero; no causality, autonomous recovery or effectiveness is inferred."
+    ]
+  },
   "publication_failures": {
     "recorded_editions": 2,
     "rows": [

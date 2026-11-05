@@ -498,7 +498,7 @@
       "numeric_score": null,
       "growth_observations": "Unavailable; no comparable video measurement pair established."
     },
-    "source_commit": "d58b17d0e9fba815ab4fbc1b064d47db21c488a3",
+    "source_commit": "731bc5c567f30184c766915b3a18056907bd7338",
     "source_blob_sha": "87352a137afb5d5fcb9e82a433a1be0102bb3ebe",
     "report_sha256": "059ee675574a3ba7e257828e8b062a638f808d29870e49ca924791d51d47735d",
     "consumed_source_commit": "e76763522d93ba2152b6d8a2b22b64a051fb2297",
@@ -670,7 +670,7 @@
       },
       "previous_cycle": "2026-11-01",
       "previous_report_sha256": null,
-      "previous_aar_sha256": "69d30b7d02ce864f1b292402d6a1e5649907af162fa2a783e1e4bdd9aaecf4a1",
+      "previous_aar_sha256": "3a96d3564c59e863fdc8f9643bf238895a8d32c4fcdbd5502b50d63e5effb574",
       "input_delta_from_previous": {
         "topic_count": null,
         "validation_resource_count": null,
@@ -961,11 +961,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-02.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-02.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d58b17d0e9fba815ab4fbc1b064d47db21c488a3/signals/ai-topic-top10/2026-11-02.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-02.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1373,6 +1373,41 @@
       "pending": 0,
       "overdue": 0,
       "reviewed": 0
+    },
+    "daily_action_review": {
+      "schema_version": "daily-aar-action-review-v1",
+      "edition_date": "2026-11-03",
+      "mode": "DAILY_EVIDENCE_LED_TRIAGE",
+      "next_cumulative_review": "2026-11-11",
+      "cumulative_review_due_today": false,
+      "finding_count": 2,
+      "open_production_blockers": 0,
+      "findings": [
+        {
+          "id": "PROTECTED_GATE_FAILURES",
+          "priority": "P1",
+          "owner": "Compiler / Recovery",
+          "observation": "5 failed protected publication gates were recorded (5 unclassified causes).",
+          "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "RECURRENCE_PREVENTION"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "6 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
+        }
+      ],
+      "limitations": [
+        "This report records findings and next actions; it does not execute corrections.",
+        "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",
+        "A released edition remains immutable; lessons apply prospectively to the next genuine cycle.",
+        "Missing observations are not zero; no causality, autonomous recovery or effectiveness is inferred."
+      ]
     },
     "publication_failures": {
       "recorded_editions": 1,
