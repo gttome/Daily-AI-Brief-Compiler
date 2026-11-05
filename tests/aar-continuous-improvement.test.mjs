@@ -133,6 +133,7 @@ test('daily triage flags witnessed failures without waiting for November 11 or r
  i.combined.visual_24_pass=true;
  i.combined.autonomy_status='UNPROVEN';
  i.combined.top10.search_status='INVALID';
+ i.combined.charts.charts.find(c=>c.id==='research-coverage').status='NOT_RECORDED';
  const obs=collectObservations(i);
  assert.equal(obs.production_state.compiler,'VERIFIED');
  assert.equal(obs.production_state.premium_images,'RELEASE_AND_VISUAL_VERIFIED');
