@@ -131,7 +131,14 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  }
  const evaluations=[...list(top10?.daily_improvement?.change_log?.change_evaluations),
   ...list(coverage?.change_evaluations),...list(aar?.change_evaluations),...list(recovery?.change_evaluations)].filter(Boolean);
- return {schema_version:OBSERVATION_SCHEMA,edition_date:edition,cycle_date:combined.cycle_date,evidence_hashes:evidenceHashes,
+ const production_state={
+  compiler:combined.compiler_verified===true?'VERIFIED':combined.latest_publication_health==='BLOCKED_PUBLICATION'?'BLOCKED':'NOT_VERIFIED',
+  premium_images:combined.images_released===true&&combined.visual_24_pass===true?'RELEASE_AND_VISUAL_VERIFIED':
+   combined.images_released===false?'RELEASE_NOT_VERIFIED':'NOT_RECORDED',
+  top10_search:typeof top10?.search_status==='string'?top10.search_status:'NOT_RECORDED',
+  autonomy:typeof combined.autonomy_status==='string'?combined.autonomy_status:'NOT_RECORDED'
+ };
+ return {schema_version:OBSERVATION_SCHEMA,edition_date:edition,cycle_date:combined.cycle_date,evidence_hashes:evidenceHashes,production_state,
   registry_sha256:hash(JSON.stringify(registry)),source_set_sha256:sourceSet,eligible_resource_ids:[...knownIds],invalid_evidence:unique(invalid),
   metrics:{coverage_percent:research?.status==='OBSERVED'?research.inspected_percent:null,
    coverage_numerator:research?.status==='OBSERVED'?research.rows[0].value:null,coverage_denominator:research?.status==='OBSERVED'?research.total:null,
@@ -155,6 +162,72 @@ export function improvementRegister(register,observations,edition){
   const latest=reviews.at(-1)??null;
   return {...c,implementation_status:'PROTECTED_MAIN_IMPLEMENTATION',outcome_status:latest?'REVIEWED':edition<c.effective_edition?'NOT_YET_EFFECTIVE':edition>c.review_due_edition?'OVERDUE':'PENDING',latest_review:latest};
  });
+}
+
+// Today's explicit improvement triage is advisory evidence, not an automated
+// producer or a reason to defer owner-authorized same-cycle corrections.
+export function buildDailyActionReview({edition,observation,registered=[]}){
+ if(!date(edition))throw Error('INVALID_DAILY_ACTION_EDITION');
+ const p=observation?.edition_date===edition?observation.production_state??{}:{};
+ const m=observation?.edition_date===edition?observation.metrics??{}:{};
+ const failures=observation?.edition_date===edition?observation.failures:null;
+ const findings=[],add=(id,priority,owner,observationText,action,timing,kind)=>findings.push({
+  id,priority,owner,observation:observationText,action,timing,kind
+ });
+ const complete=p.compiler==='VERIFIED'&&p.premium_images==='RELEASE_AND_VISUAL_VERIFIED';
+ if(p.compiler==='BLOCKED'){
+  add('PUBLISHING_BLOCKED','P0','Compiler / Recovery','A genuine current edition has a recorded publication blocker.',
+   'Read the exact failed job and use the existing ownership-safe repair path; verify the public reader without waiting for an AAR deadline.',
+   'CURRENT_CYCLE_IF_OWNED','OPEN_PRODUCTION_BLOCKER');
+ }
+ if(p.compiler==='VERIFIED'&&p.premium_images==='RELEASE_NOT_VERIFIED'){
+  add('IMAGE_RELEASE_NOT_VERIFIED','P0','Images','Editorial publication is verified but the image release is not verified.',
+   'Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.',
+   'CURRENT_CYCLE_IF_OWNED','OPEN_PRODUCTION_BLOCKER');
+ }
+ if(p.top10_search==='INVALID'){
+  add('TOP10_SEARCH_EVIDENCE_INVALID','P1','Compiler','This edition has invalid Top 10 search-coverage receipts.',
+   'Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle.',
+   'NEXT_GENUINE_CYCLE','EVIDENCE_GAP');
+ }
+ if(Array.isArray(failures)&&failures.length){
+  const unclassified=failures.filter(f=>f.root_cause==='UNCLASSIFIED').length;
+  add('PROTECTED_GATE_FAILURES','P1','Compiler / Recovery',
+   failures.length+' failed protected publication gates were recorded ('+unclassified+' unclassified causes).',
+   'Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.',
+   complete?'NEXT_GENUINE_CYCLE':'CURRENT_CYCLE_IF_OWNED','RECURRENCE_PREVENTION');
+ }
+ if(p.compiler==='VERIFIED'&&m.coverage_percent===null){
+  add('SOURCE_INSPECTION_EVIDENCE_MISSING','P1','Compiler',
+   'Source inspection coverage is not verifiable from the current bundled receipts.',
+   'Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.',
+   'NEXT_GENUINE_CYCLE','EVIDENCE_GAP');
+ }
+ const rejected=observation?.edition_date===edition?observation.image_rejections?.total:null;
+ if(p.premium_images==='RELEASE_AND_VISUAL_VERIFIED'&&number(rejected)&&rejected>0){
+  add('PREMIUM_IMAGE_REWORK','P1','Images',rejected+' rejected image candidates preceded the verified six-image release.',
+   'Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.',
+   'NEXT_GENUINE_CYCLE','EFFICIENCY_LESSON');
+ }
+ if(p.autonomy==='UNPROVEN'){
+  add('SCHEDULER_ORIGIN_UNPROVEN','P2','Compiler / Recovery',
+   'Publication success does not independently attest the originating scheduler.',
+   'Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success.',
+   'NEXT_GENUINE_CYCLE','EVIDENCE_GAP');
+ }
+ const dates=registered.map(r=>r.review_due_edition).filter(date).sort();
+ const nextReview=dates.find(d=>d>=edition)??dates.at(-1)??null;
+ return {schema_version:'daily-aar-action-review-v1',edition_date:edition,
+  mode:'DAILY_EVIDENCE_LED_TRIAGE',next_cumulative_review:nextReview,
+  cumulative_review_due_today:nextReview===edition,
+  finding_count:findings.length,open_production_blockers:findings.filter(f=>f.kind==='OPEN_PRODUCTION_BLOCKER').length,
+  findings,
+  limitations:[
+   'This report records findings and next actions; it does not execute corrections.',
+   'Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.',
+   'A released edition remains immutable; lessons apply prospectively to the next genuine cycle.',
+   'Missing observations are not zero; no causality, autonomous recovery or effectiveness is inferred.'
+  ]};
 }
 
 export function buildMetrics({edition,observations,registry,register}){
@@ -184,10 +257,12 @@ export function buildMetrics({edition,observations,registry,register}){
  for(const o of window)for(const r of o.image_rejections?.classified||[])for(const code of r.defect_codes){const x=defectMap.get(code)??{cause:code,rejected_attempts:0,editions:[]};x.rejected_attempts++;x.editions.push(o.edition_date);defectMap.set(code,x);}
  const defects=[...defectMap.values()].map(x=>({...x,editions:unique(x.editions),recurring:unique(x.editions).length>1})).sort((a,b)=>b.rejected_attempts-a.rejected_attempts||a.cause.localeCompare(b.cause));
  const imageWindows=window.filter(o=>o.image_rejections),registered=improvementRegister(register,valid,edition);
+ const actionReview=buildDailyActionReview({edition,observation:byDate.get(edition),registered});
  return {schema_version:METRICS_SCHEMA,edition_date:edition,window:{first:shift(edition,-6),last:edition,expected_editions:7,recorded_editions:window.length},
   series,summary,coverage_registry_changed:unique(window.filter(o=>text(o.source_set_sha256)).map(o=>o.source_set_sha256)).length>1||unique(series.map(r=>r.coverage_denominator).filter(number)).length>1,
   coverage_source_set_comparable:window.filter(o=>number(o.metrics.coverage_percent)).every(o=>text(o.source_set_sha256))&&window.some(o=>number(o.metrics.coverage_percent)),
   change_register:registered,change_review_counts:{pending:registered.filter(x=>x.outcome_status==='PENDING').length,overdue:registered.filter(x=>x.outcome_status==='OVERDUE').length,reviewed:registered.filter(x=>x.outcome_status==='REVIEWED').length},
+  daily_action_review:actionReview,
   publication_failures:{recorded_editions:window.filter(x=>x.failures!==null).length,rows:failures,classified:window.flatMap(x=>x.failures||[]).filter(x=>x.root_cause!=='UNCLASSIFIED').length},
   recovery:{rows:recovery,summary:recoverySummary},source_inspection_age:age,source_contribution:contribution,
   image_defects:{recorded_editions:imageWindows.length,total_rejected:imageWindows.length?imageWindows.reduce((n,o)=>n+o.image_rejections.total,0):null,
@@ -230,7 +305,13 @@ export function renderCauseSvg(title,rows,valueKey,known,footnote){
 }
 
 export function renderMetricsMarkdown(m){
+ const actions=m.daily_action_review??{findings:[],finding_count:0,next_cumulative_review:null,open_production_blockers:0};
  const lines=['## Continuous improvement review','',`Edition **${m.edition_date}**. Measurements use ${m.window.recorded_editions}/7 recorded editions in this window. Missing data stays **Not recorded**.`,
+  '', '### Daily corrective-action review',
+  '', `**${actions.finding_count} evidence-based findings**; open production blockers: ${actions.open_production_blockers}. Cumulative evaluation checkpoint: **${actions.next_cumulative_review??'Not recorded'}**. The daily review never waits for that date to act on a safe live problem.`,
+  '', '| Priority | Observed issue | Existing owner / next correction | When |','|---|---|---|---|',
+  ...actions.findings.map(f=>`| ${f.priority} | ${tableCell(f.observation)} | ${tableCell(f.owner+': '+f.action)} | ${f.timing==='CURRENT_CYCLE_IF_OWNED'?'Immediate, if ownership and gates allow':'Next genuine run'} |`),
+  '', actions.findings.length?'Findings are observational and do not claim a repair was executed by the reporter.':'No action meeting these evidence rules was recorded; this is not proof that all processes are defect-free.',
   '', '### Approved change evaluations','','| Change | Evaluate by | Outcome status | Latest decision |','|---|---|---|---|',
   ...m.change_register.map(r=>`| ${tableCell(r.change_id+' — '+r.title)} | ${r.review_due_edition} | ${r.outcome_status} | ${tableCell(r.latest_review?.decision)} |`),
   '',`Pending: ${m.change_review_counts.pending}; overdue: ${m.change_review_counts.overdue}; reviewed: ${m.change_review_counts.reviewed}. Implemented controls await measured results; review decisions do not disable controls.`,
