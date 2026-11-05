@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {buildMetrics,collectObservations,publisherResilience,recoveryTiming,improvementRegister,
- reconcileImprovementMetrics,renderTrendSvg,renderCauseSvg,METRICS_SCHEMA,OBSERVATION_SCHEMA,IMPROVEMENT_CHART_FILES} from '../scripts/aar-improvement-metrics.mjs';
+import {buildMetrics,buildDailyActionReview,collectObservations,publisherResilience,recoveryTiming,improvementRegister,
+ reconcileImprovementMetrics,renderTrendSvg,renderCauseSvg,renderMetricsMarkdown,METRICS_SCHEMA,OBSERVATION_SCHEMA,IMPROVEMENT_CHART_FILES} from '../scripts/aar-improvement-metrics.mjs';
 import {renderTop10Section} from '../scripts/top10-aar.mjs';
 const edition='2026-11-04',cycle='2026-11-03';
 const run='https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/123';
@@ -124,4 +124,38 @@ test('index inspection clock stays independent of later editorial candidate-audi
  assert.equal(o.inspections[0].reviewed_at,'2026-11-04T01:20:00Z');
  audit.index_review.reviewed_at='2026-11-04T03:00:00Z';
  assert.deepEqual(collectObservations(i).inspections,[]);
+});
+ 
+test('daily triage flags witnessed failures without waiting for November 11 or rewriting history',()=>{
+ const i=input();
+ i.combined.compiler_verified=true;
+ i.combined.images_released=true;
+ i.combined.visual_24_pass=true;
+ i.combined.autonomy_status='UNPROVEN';
+ i.combined.top10.search_status='INVALID';
+ i.combined.charts.charts.find(c=>c.id==='research-coverage').status='NOT_RECORDED';
+ const obs=collectObservations(i);
+ assert.equal(obs.production_state.compiler,'VERIFIED');
+ assert.equal(obs.production_state.premium_images,'RELEASE_AND_VISUAL_VERIFIED');
+ const m=buildMetrics({edition,observations:[obs],registry,register});
+ const triage=m.daily_action_review;
+ assert.equal(triage.mode,'DAILY_EVIDENCE_LED_TRIAGE');
+ assert.equal(triage.next_cumulative_review,'2026-11-11');
+ assert.equal(triage.open_production_blockers,0);
+ for(const code of ['TOP10_SEARCH_EVIDENCE_INVALID','PROTECTED_GATE_FAILURES','SOURCE_INSPECTION_EVIDENCE_MISSING','PREMIUM_IMAGE_REWORK','SCHEDULER_ORIGIN_UNPROVEN'])
+  assert.ok(triage.findings.some(f=>f.id===code),code);
+ assert.match(renderMetricsMarkdown(m),/Daily corrective-action review/);
+ assert.match(renderMetricsMarkdown(m),/November 11|2026-11-11/);
+ assert.match(renderMetricsMarkdown(m),/never waits for that date/);
+});
+test('daily triage prioritizes verified live blockers, does not invent unknown failures',()=>{
+ const obs=observation();
+ obs.production_state={compiler:'BLOCKED',premium_images:'NOT_RECORDED',top10_search:'NOT_RECORDED',autonomy:'NOT_RECORDED'};
+ obs.failures=null;obs.image_rejections=null;obs.metrics.coverage_percent=null;
+ const triage=buildDailyActionReview({edition,observation:obs,registered:[]});
+ assert.equal(triage.open_production_blockers,1);
+ assert.equal(triage.findings[0].id,'PUBLISHING_BLOCKED');
+ assert.equal(triage.findings[0].timing,'CURRENT_CYCLE_IF_OWNED');
+ assert.equal(triage.findings.some(x=>x.id==='PROTECTED_GATE_FAILURES'),false);
+ assert.equal(buildDailyActionReview({edition,observation:null,registered:[]}).finding_count,0);
 });
