@@ -114,3 +114,14 @@ test('consolidated prompts retain all four task identities and mapped requiremen
  assert.equal(archive.status,'SUPERSEDED_HISTORY_NOT_ACTIVE_INSTRUCTIONS');
  const common=fs.readFileSync('docs/automation/current/COMMON.md','utf8');assert.match(common,/320px mobile \/ 1440px desktop/);assert.match(common,/need not be tutorials/);
 });
+
+test('index inspection clock stays independent of later editorial candidate-audit clock',()=>{
+ const i=input(),audit=i.evidence['edition-bundle'].source_discovery_audit;
+ audit.reviewed_at='2026-11-04T02:30:00Z';
+ audit.index_review.reviewed_at='2026-11-04T01:20:00Z';
+ const o=collectObservations(i);
+ assert.equal(o.inspections.length,1);
+ assert.equal(o.inspections[0].reviewed_at,'2026-11-04T01:20:00Z');
+ audit.index_review.reviewed_at='2026-11-04T03:00:00Z';
+ assert.deepEqual(collectObservations(i).inspections,[]);
+});

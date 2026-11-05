@@ -5,7 +5,7 @@ const EFFECTIVE_CYCLE='2026-11-02';
 const SHA=/^[a-f0-9]{40}$/;
 const SHA256=/^[a-f0-9]{64}$/;
 const FORMATS=['article','video','podcast'];
-const OUTCOMES=new Set(['searched','selected','rejected','not_found','unavailable','not_attempted']);
+const OUTCOMES=new Set(['searched','selected','rejected','qualified_not_selected','not_found','unavailable','not_attempted']);
 const clean=x=>x&&typeof x==='object'&&!Array.isArray(x)&&!x._evidence_parse_error&&!x.parse_error;
 const text=x=>typeof x==='string'&&x.trim()?x.trim():null;
 const timestamp=x=>typeof x==='string'&&/^\d{4}-\d\d-\d\dT.+(?:Z|[+-]\d\d:\d\d)$/.test(x)&&Number.isFinite(Date.parse(x))?x:null;
@@ -66,17 +66,30 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  }
  const searchCounts=Object.fromEntries(FORMATS.map(f=>[f,{recorded:0,attempted:0,not_attempted:0}]));
  const searches=Array.isArray(coverage?.searches)?coverage.searches:[];
+ const bundle=clean(evidence['edition-bundle'])&&evidence['edition-bundle'].edition_date===edition?
+  evidence['edition-bundle']:null;
+ // The source readback may be collected before or after Compiler searches.
+ // Search chronology is bound to the consumed snapshot and the editorial selection
+ // lock, never to the separate Top 10 provenance-collector observation time.
+ const selectionLock=timestamp(bundle?.editorial_provenance?.selection_locked_at)||
+  timestamp(coverage?.impact_observations?.timing?.selection_locked_at);
  const covered=new Set(),observations=new Set();let searchesValid=true;
  for(const row of searches){
   const key=row?.topic_id+':'+row?.format;
   const observation=JSON.stringify([row?.topic_id,row?.format,row?.query,row?.attempted_at??null]);
   const noAttempt=row?.outcome==='not_attempted';
   const attempted=timestamp(row?.attempted_at);
+  const sourceUrls=Array.isArray(row?.source_urls)?row.source_urls:null;
+  const candidateIds=Array.isArray(row?.candidate_ids)?row.candidate_ids:null;
+  const skipped=!!(noAttempt&&(row.attempted_at===null||row.attempted_at===undefined)&&
+   sourceUrls&&sourceUrls.length===0&&candidateIds&&candidateIds.length===0);
+  const searched=!!(!noAttempt&&text(row.query)&&attempted&&timestamp(input?.retrieved_at)&&
+   Date.parse(attempted)>=Date.parse(input.retrieved_at)&&
+   (!selectionLock||Date.parse(attempted)<=Date.parse(selectionLock))&&
+   sourceUrls&&sourceUrls.length>0&&sourceUrls.every(https));
   const valid=clean(row)&&ids.has(row.topic_id)&&FORMATS.includes(row.format)&&OUTCOMES.has(row.outcome)&&
-   !observations.has(observation)&&text(row.query)&&text(row.reason)&&
-   (noAttempt||(attempted&&timestamp(input?.retrieved_at)&&Date.parse(attempted)>=Date.parse(input.retrieved_at)&&
-     timestamp(source?.observed_at)&&Date.parse(attempted)<=Date.parse(source.observed_at)&&
-     Array.isArray(row.source_urls)&&row.source_urls.length>0&&row.source_urls.every(https)));
+   !observations.has(observation)&&text(row.reason)&&candidateIds&&candidateIds.every(text)&&
+   (noAttempt?skipped:searched);
   if(!valid){searchesValid=false;continue;}
   covered.add(key);observations.add(observation);searchCounts[row.format].recorded++;
   searchCounts[row.format][noAttempt?'not_attempted':'attempted']++;
@@ -84,8 +97,6 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  const mappings=Array.isArray(coverage?.selected_mappings)?coverage.selected_mappings:[];
  const mappingValid=mappings.every(m=>clean(m)&&ids.has(m.topic_id)&&FORMATS.includes(m.format)&&
   text(m.item_id)&&https(m.url)&&text(m.reason)&&covered.has(m.topic_id+':'+m.format));
- const bundle=clean(evidence['edition-bundle'])&&evidence['edition-bundle'].edition_date===edition?
-  evidence['edition-bundle']:null;
  const selectedMatch=m=>{
   const records=bundle?.[m.format==='article'?'stories':m.format==='video'?'videos':'podcasts'];
   return Array.isArray(records)&&records.some(item=>{
