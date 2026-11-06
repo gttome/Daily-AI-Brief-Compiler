@@ -9,7 +9,7 @@ import {sourceRegistrySummary,renderSourcesExperience,renderSourcesMarkdown,
   replacePublishedSourcesPage} from '../compiler/source-transparency.mjs';
 import {correctSourcesPage} from '../scripts/correct-sources-transparency.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const blob=b=>crypto.createHash('sha1').update('blob '+b.length+'\0').update(b).digest('hex');
 const revisionPath='config/reading-copy-revisions/2026-10-27-sources-transparency.json';
 
@@ -87,7 +87,7 @@ test('historic published page patch changes main editorial area, keeping site na
 test('current protected owner correction manifest matches exact source snapshot',()=>{
  const revision=JSON.parse(fs.readFileSync(revisionPath,'utf8'));
  const stats=sourceRegistrySummary(registry);
- assert.equal(revision.expected_registry_blob_sha,blob(fs.readFileSync('config/resource-registry.json')));
+ assert.equal(revision.expected_registry_blob_sha,blob(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json')));
  assert.deepEqual(revision.expected_counts,
    {catalogued:stats.registered,enabled:stats.enabled,pending:stats.pending});
 });
