@@ -10,15 +10,13 @@
 
 **🕒 Production stage durations:** **Top 10 6m 09s** · **Compiler final seal window 50m 42s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
-> **AAR SCHEMA WARNING:** image_aar:missing_or_inconsistent_source_bound_facts
-
 > **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Evidence reconciliation
 
 Compiler final seal window: 50m 42s. Observed execution and final seal windows are distinct.
-Image capability route preflight: NOT OBSERVED; scheduler origin remains UNPROVEN.
-Image efficiency: Unknown/6 first-pass accepts; Unknown total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
+Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
+Image efficiency: 0/6 first-pass accepts; 14 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: Not recorded; review-record commit: Not recorded; protected review merge: Not recorded.
 Eligible source indexes: 87; editorial inspections reported: 8 (9.2%); inaccessible in editorial audit: 0; explicitly unreviewed IDs: Unknown; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
@@ -98,8 +96,8 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
 | Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
-| Native image generation attempts | **Not reported** | Image worker AAR; no estimation |
-| Rejected candidates | **Not reported** | Image worker AAR |
+| Native image generation attempts | **14** | Image worker AAR; no estimation |
+| Rejected candidates | **8** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **Not recorded** | Image release receipt |
@@ -352,7 +350,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** Not reported · **Rejected candidates:** Not reported.
+**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
 
 ### Image production duration — Git-verified milestones
 
@@ -401,7 +399,16 @@ No current-edition postpublication incident register was available; this is **NO
 **Editor recovery classification:** UNPROVEN. **Owner intervention:** Unproven either way. **Protected same-edition failures recorded:** 1. 
 **Latest failed protected stage:** VIDEO_PLAYBACK; [Action evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42146079831). Exact stage durations are available only where real source timestamps exist.
 
-No image-stage correction receipts were available for this cycle.
+| Stage | Verified issue | Corrective action |
+|---|---|---|
+| Native saved-pixel inspection | Simulated patch writing and an unsupported monitor trace. | Use blank fixtures, no displays, and plain labels. |
+| Native saved-pixel inspection | Simulated document lines and unintended directional connectors. | Use solid layers and nondirectional comparison guides. |
+| Native saved-pixel inspection | Unchanged film frames and extra arrows obscured revision. | Show a single lighting edit and three arrows only. |
+| Native saved-pixel inspection | The edit arrow missed its target and the review label ran too close to the edge. | Connect strip to strip and wrap the review label. |
+| Native saved-pixel inspection | The analysis arrow pointed to label text. | Connect the digital path to an analysis output port. |
+| Native saved-pixel inspection | Fake writing and label-terminating arrows obscured policy. | Use blank tokens and a hardware policy gate. |
+| Native saved-pixel inspection | A route bypassed response verification. | Bind the decision path to the original-response check. |
+| Native saved-pixel inspection | Bars and a pie implied unsupported quantitative results. | Use equal-size neutral pattern marks. |
 
 > **OPERATIONAL NOTE**
 > This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.
@@ -412,9 +419,9 @@ No image-stage correction receipts were available for this cycle.
 |---|---|
 | **Weekly Work usage reported by owner** | **Not reported** |
 | Internal weekly usage reference | Target under 5% |
-| Genuine image-generation attempts | Not reported |
-| Accepted diagrams | Not reported |
-| Regeneration after acceptance | Not reported |
+| Genuine image-generation attempts | 14 |
+| Accepted diagrams | 6 |
+| Regeneration after acceptance | 0 |
 | Top 10 reported usage | Not reported |
 | Top 10 reported cost | Not reported |
 | Account-level billing telemetry | Not independently accessible to deterministic GitHub reporting |
@@ -447,8 +454,8 @@ No image-stage correction receipts were available for this cycle.
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-06/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3750de9bf04086a6e7eaac449d1ce6cb7c426fab/signals/ai-topic-top10/2026-11-05.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3750de9bf04086a6e7eaac449d1ce6cb7c426fab/signals/ai-topic-top10/2026-11-05.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8497191bedeab8c91e96b343de3fca8860beaed7/signals/ai-topic-top10/2026-11-05.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8497191bedeab8c91e96b343de3fca8860beaed7/signals/ai-topic-top10/2026-11-05.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/trend-search-coverage.json) |
 
@@ -561,22 +568,38 @@ Unclassified means the original gate is known but no structured cause review is 
 | deep-20261026-v01-two-minute-papers | Not recorded | Not recorded |
 | deepseek-news | Not recorded | Not recorded |
 | directory-0dffb60aadd4ba31b5c090dc | Not recorded | Not recorded |
+| directory-1c6f5db2559c3c226a112873 | Not recorded | Not recorded |
 | directory-242c2a2fc81a43d41f199129 | 2026-11-06 | 0 |
+| directory-3834a0112c0e3a754320b557 | Not recorded | Not recorded |
 | directory-3ccc18a956cae0b1e24b5968 | Not recorded | Not recorded |
 | directory-411bf5f837e28f35220736eb | Not recorded | Not recorded |
 | directory-4852e367f74118ff2dc1eec9 | Not recorded | Not recorded |
+| directory-48665d874f6008894d0d9385 | Not recorded | Not recorded |
+| directory-4c16d138c4a736e78a68127e | Not recorded | Not recorded |
 | directory-54d90ff964a74ff98851ae11 | Not recorded | Not recorded |
+| directory-5c5d3d02a420135949164552 | Not recorded | Not recorded |
 | directory-64f0886a6793aa8858a4b62d | Not recorded | Not recorded |
 | directory-6ea6e283349c7b62ac1ced9d | Not recorded | Not recorded |
+| directory-79e16cd5beb5c662c4022a9f | Not recorded | Not recorded |
+| directory-8263ca4c9f560c8d9c4df0de | Not recorded | Not recorded |
 | directory-8df3614a9972a25fc59475ed | Not recorded | Not recorded |
 | directory-8ec4fd458a38bc0447f4cded | Not recorded | Not recorded |
 | directory-935fbe5ba89ff5f91fc8c69b | Not recorded | Not recorded |
+| directory-970506fbc577e6091a33c64d | Not recorded | Not recorded |
 | directory-9ad7c274f2d56274bcd5ddcc | Not recorded | Not recorded |
 | directory-9c0885bdb370f69c9262b88c | Not recorded | Not recorded |
+| directory-9f7087ce2c030a4b9da58499 | Not recorded | Not recorded |
 | directory-a74f303f4b0c39344c1314cf | 2026-11-06 | 0 |
+| directory-b93e2368e85f0f95c066463e | Not recorded | Not recorded |
 | directory-c6b8a33e7fa162cc41136fa5 | Not recorded | Not recorded |
+| directory-d1527db7c06b4e83370b7546 | Not recorded | Not recorded |
+| directory-d5428d030dfff7d4639258e3 | Not recorded | Not recorded |
 | directory-d6cf3f9fa167b8173a35228b | Not recorded | Not recorded |
+| directory-db682c52794328eb69ebc377 | Not recorded | Not recorded |
+| directory-e2f33b502b264e51983a338a | Not recorded | Not recorded |
+| directory-e7b100b6b999ac748e052327 | Not recorded | Not recorded |
 | directory-ecf69ec2f036e803388f40ca | Not recorded | Not recorded |
+| directory-f8085f0f6e72cfbdfde3a0f8 | Not recorded | Not recorded |
 | directory-fd36049347d409f38c9f9a67 | Not recorded | Not recorded |
 | github-ai-agents | Not recorded | Not recorded |
 | github-generative-ai | Not recorded | Not recorded |
@@ -622,6 +645,12 @@ Unclassified means the original gate is known but no structured cause review is 
 | research-20261026-a05 | Not recorded | Not recorded |
 | research-20261026-a12 | Not recorded | Not recorded |
 | research-20261026-p03 | Not recorded | Not recorded |
+| research-20261026-v01 | Not recorded | Not recorded |
+| research-20261026-v02 | Not recorded | Not recorded |
+| research-20261026-v04 | Not recorded | Not recorded |
+| research-20261026-v05 | Not recorded | Not recorded |
+| research-20261026-v06 | Not recorded | Not recorded |
+| research-20261026-v07 | Not recorded | Not recorded |
 | specialized-discords | Not recorded | Not recorded |
 | stanford-hai | Not recorded | Not recorded |
 | the-batch | Not recorded | Not recorded |

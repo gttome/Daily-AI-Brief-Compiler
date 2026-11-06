@@ -406,8 +406,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-05/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3750de9bf04086a6e7eaac449d1ce6cb7c426fab/signals/ai-topic-top10/2026-11-04.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3750de9bf04086a6e7eaac449d1ce6cb7c426fab/signals/ai-topic-top10/2026-11-04.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8497191bedeab8c91e96b343de3fca8860beaed7/signals/ai-topic-top10/2026-11-04.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8497191bedeab8c91e96b343de3fca8860beaed7/signals/ai-topic-top10/2026-11-04.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-05/shadow-runs/2026-11-05/editorial/trend-search-coverage.json) |
 
@@ -521,22 +521,38 @@ Unclassified means the original gate is known but no structured cause review is 
 | deep-20261026-v01-two-minute-papers | Not recorded | Not recorded |
 | deepseek-news | Not recorded | Not recorded |
 | directory-0dffb60aadd4ba31b5c090dc | Not recorded | Not recorded |
+| directory-1c6f5db2559c3c226a112873 | Not recorded | Not recorded |
 | directory-242c2a2fc81a43d41f199129 | Not recorded | Not recorded |
+| directory-3834a0112c0e3a754320b557 | Not recorded | Not recorded |
 | directory-3ccc18a956cae0b1e24b5968 | Not recorded | Not recorded |
 | directory-411bf5f837e28f35220736eb | Not recorded | Not recorded |
 | directory-4852e367f74118ff2dc1eec9 | Not recorded | Not recorded |
+| directory-48665d874f6008894d0d9385 | Not recorded | Not recorded |
+| directory-4c16d138c4a736e78a68127e | Not recorded | Not recorded |
 | directory-54d90ff964a74ff98851ae11 | Not recorded | Not recorded |
+| directory-5c5d3d02a420135949164552 | Not recorded | Not recorded |
 | directory-64f0886a6793aa8858a4b62d | Not recorded | Not recorded |
 | directory-6ea6e283349c7b62ac1ced9d | Not recorded | Not recorded |
+| directory-79e16cd5beb5c662c4022a9f | Not recorded | Not recorded |
+| directory-8263ca4c9f560c8d9c4df0de | Not recorded | Not recorded |
 | directory-8df3614a9972a25fc59475ed | Not recorded | Not recorded |
 | directory-8ec4fd458a38bc0447f4cded | Not recorded | Not recorded |
 | directory-935fbe5ba89ff5f91fc8c69b | Not recorded | Not recorded |
+| directory-970506fbc577e6091a33c64d | Not recorded | Not recorded |
 | directory-9ad7c274f2d56274bcd5ddcc | Not recorded | Not recorded |
 | directory-9c0885bdb370f69c9262b88c | Not recorded | Not recorded |
+| directory-9f7087ce2c030a4b9da58499 | Not recorded | Not recorded |
 | directory-a74f303f4b0c39344c1314cf | Not recorded | Not recorded |
+| directory-b93e2368e85f0f95c066463e | Not recorded | Not recorded |
 | directory-c6b8a33e7fa162cc41136fa5 | Not recorded | Not recorded |
+| directory-d1527db7c06b4e83370b7546 | Not recorded | Not recorded |
+| directory-d5428d030dfff7d4639258e3 | Not recorded | Not recorded |
 | directory-d6cf3f9fa167b8173a35228b | Not recorded | Not recorded |
+| directory-db682c52794328eb69ebc377 | Not recorded | Not recorded |
+| directory-e2f33b502b264e51983a338a | Not recorded | Not recorded |
+| directory-e7b100b6b999ac748e052327 | Not recorded | Not recorded |
 | directory-ecf69ec2f036e803388f40ca | Not recorded | Not recorded |
+| directory-f8085f0f6e72cfbdfde3a0f8 | Not recorded | Not recorded |
 | directory-fd36049347d409f38c9f9a67 | Not recorded | Not recorded |
 | github-ai-agents | Not recorded | Not recorded |
 | github-generative-ai | Not recorded | Not recorded |
@@ -582,6 +598,12 @@ Unclassified means the original gate is known but no structured cause review is 
 | research-20261026-a05 | Not recorded | Not recorded |
 | research-20261026-a12 | Not recorded | Not recorded |
 | research-20261026-p03 | Not recorded | Not recorded |
+| research-20261026-v01 | Not recorded | Not recorded |
+| research-20261026-v02 | Not recorded | Not recorded |
+| research-20261026-v04 | Not recorded | Not recorded |
+| research-20261026-v05 | Not recorded | Not recorded |
+| research-20261026-v06 | Not recorded | Not recorded |
+| research-20261026-v07 | Not recorded | Not recorded |
 | specialized-discords | Not recorded | Not recorded |
 | stanford-hai | Not recorded | Not recorded |
 | the-batch | Not recorded | Not recorded |

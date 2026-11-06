@@ -71,13 +71,38 @@
       "completeness": "NOT_RECORDED"
     },
     "fallback_search_evidence": [],
-    "image_capability_preflight_recorded": false,
+    "image_capability_preflight_recorded": true,
     "image_scheduler_origin_attested": false,
     "image_efficiency": {
       "measurement_window": false,
-      "first_pass_accepted": null,
-      "total_attempts": null,
-      "per_image": null,
+      "first_pass_accepted": 0,
+      "total_attempts": 14,
+      "per_image": [
+        {
+          "story_id": "nov06-t1-gpt6-cyber",
+          "attempts": 2
+        },
+        {
+          "story_id": "nov06-t2-ripple",
+          "attempts": 2
+        },
+        {
+          "story_id": "nov06-k1-gemini-omni",
+          "attempts": 3
+        },
+        {
+          "story_id": "nov06-k2-science-claude",
+          "attempts": 2
+        },
+        {
+          "story_id": "nov06-a1-trusted-agent",
+          "attempts": 2
+        },
+        {
+          "story_id": "nov06-a2-forms-insight-skill",
+          "attempts": 3
+        }
+      ],
       "target_first_pass": 3,
       "target_max_attempts_per_image": 2,
       "quality_floor_unchanged": true
@@ -164,7 +189,7 @@
     "report_status": "provisional",
     "handoff_status": "RECEIVED_SNAPSHOT_BOUND",
     "search_status": "RECEIPTS_OBSERVED",
-    "source_commit": "3750de9bf04086a6e7eaac449d1ce6cb7c426fab",
+    "source_commit": "8497191bedeab8c91e96b343de3fca8860beaed7",
     "report_sha256": "334e6e7e9f8fc30fc49b1d15462f95dc3b4c3ef7ffd0d9bb950b9561591768ef"
   }
 }
