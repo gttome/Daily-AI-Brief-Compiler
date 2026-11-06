@@ -46,22 +46,42 @@ export function sameMedia(a,b){
 // Canonical prior published video pages, including protected media-only
 // corrections, supply the preceding edition's publisher identity. Publisher
 // reuse is NOT the same as a repeated program or URL.
-export function summarizeVideoEditorialContinuity({videos,previousVideos,editionDate,previousEditionDate}){
+export function summarizeVideoEditorialContinuity({videos,previousVideos,previousSevenVideos=null,previousSevenDates=null,editionDate,previousEditionDate}){
  const now=Array.isArray(videos)?videos:[],prior=Array.isArray(previousVideos)?previousVideos:[];
  // Known aliases affect rotation advice only, never duplicate or playback proof.
  // URL identity takes precedence; a generic platform host is not a publisher.
  const key=v=>{
    let host='';try{host=new URL(v?.url).hostname.replace(/^www\./,'').toLowerCase();}catch{}
    if(host==='ted.com'||host.endsWith('.ted.com'))return 'family:ted';
+   if(host==='pbs.org'||host.endsWith('.pbs.org'))return 'family:pbs';
    if(host==='cbsnews.com'||host.endsWith('.cbsnews.com'))return 'family:cbs-news';
    const label=normalText(v?.source);
    if(['ted','ted ed','ted education','ted ed ted'].includes(label))return 'family:ted';
+   if(label==='pbs'||label.startsWith('pbs ')||label==='wttw'||label.startsWith('wttw '))return 'family:pbs';
    if(['cbs','cbs news','cbs boston','cbs news boston','cbs boston wbz','wbz cbs boston'].includes(label))return 'family:cbs-news';
    return label;
  };
  const priorKeys=new Set(prior.map(key).filter(Boolean));
  const publisherRepeats=now.filter(v=>key(v)&&priorKeys.has(key(v)))
    .map(v=>({title:v.title,publisher:v.source,publisher_family:key(v)}));
+ // Editorial observation, not an additional publication gate. Use actual
+ // prior published video pages; never infer missing publisher history.
+ const seven=Array.isArray(previousSevenVideos)?previousSevenVideos:null;
+ const sevenDates=Array.isArray(previousSevenDates)?previousSevenDates:null;
+ const sevenCounts={};
+ for(const video of seven||[]){
+   const family=key(video);
+   if(family)sevenCounts[family]=(sevenCounts[family]||0)+1;
+ }
+ const lastTwo=new Set((sevenDates||[]).slice(0,2));
+ const recentFamilyRepeats=now.filter(v=>key(v)&&seven?.some(old=>
+   lastTwo.has(old.date)&&key(old)===key(v)))
+   .map(v=>({title:v.title,publisher_family:key(v),prior_edition_dates:[...new Set(
+     seven.filter(old=>lastTwo.has(old.date)&&key(old)===key(v)).map(old=>old.date))]}));
+ const completeSevenHistory=Boolean(sevenDates?.length===7&&seven&&
+   sevenDates.every(d=>seven.filter(x=>x.date===d).length===2));
+ const familyExposure=now.map(v=>({title:v.title,publisher_family:key(v)||null,
+   prior_seven_video_count:seven?sevenCounts[key(v)]||0:null}));
  const publicationAges=now.map(v=>{
    const original=v?.original_date??null,originalDay=typeof original==='string'?original.slice(0,10):null;
    const age=DATE.test(originalDay||'')&&DATE.test(editionDate||'')?
@@ -74,10 +94,17 @@ export function summarizeVideoEditorialContinuity({videos,previousVideos,edition
    current_distinct_publisher_count:new Set(now.map(key).filter(Boolean)).size,
    adjacent_edition_publisher_repeat_count:publisherRepeats.length,
    adjacent_edition_publisher_repeats:publisherRepeats,
+    prior_seven_video_count:seven?.length??null,
+    seven_edition_video_family_history_complete:completeSevenHistory,
+    seven_edition_publisher_family_counts:seven?Object.fromEntries(Object.entries(sevenCounts).sort(([a],[b])=>a.localeCompare(b))):null,
+    seven_edition_current_family_exposure:familyExposure,
+    recent_two_edition_family_repeat_count:seven?recentFamilyRepeats.length:null,
+    recent_two_edition_family_repeats:seven?recentFamilyRepeats:null,
+    overrepresented_prior_seven_families:seven?Object.entries(sevenCounts).filter(([,count])=>count>=3).map(([family,count])=>({family,count})):null,
    original_publication_ages:publicationAges,
    outside_seven_day_preference:publicationAges.filter(x=>x.outside_seven_day_preference).length,
    missing_original_dates:publicationAges.filter(x=>x.calendar_age_days===null).length,
-   rule:'Actual URL/title repeats are prohibited separately; publisher rotation and video age are review advisories, never fabricated duplicate evidence.'};
+   rule:'Actual URL/title repeats are prohibited separately; seven-edition publisher concentration and video age are editorial advisories, never fabricated duplicate evidence or playback proof.'};
 }
 
 function previousItems(root,date,type){
@@ -235,6 +262,7 @@ export function validateMediaFreshness({bundle,historyRoot,lookback=7}){
     throw new Error('newest prior edition media unavailable: cannot certify non-repetition');
   const videoEditorialAudit=summarizeVideoEditorialContinuity({videos:bundle.videos,
     previousVideos:past.filter(x=>x.type==='video'&&x.date===historyDates[0]),
+    previousSevenVideos:past.filter(x=>x.type==='video'),previousSevenDates:historyDates,
     editionDate:date,previousEditionDate:historyDates[0]});
   const duplicateMatches=[];
   for(let i=0;i<selected.length;i++){
