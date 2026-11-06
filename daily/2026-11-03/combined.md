@@ -18,6 +18,7 @@ Image efficiency: 0/6 first-pass accepts; 21 total attempts. November 3–5 targ
 Image review completed: 2026-11-04T04:11:34Z; review-record commit: 2026-11-04T04:16:04.000Z; protected review merge: 2026-11-04T04:17:59.000Z.
 Eligible source indexes: 87; editorial inspections reported: Unknown (Unknown%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: Unknown; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
+
 ## Daily AAR charts
 
 These charts use this edition’s receipts. Missing data is not zero.
@@ -78,6 +79,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
+| Video discovery source attempts | **NOT_RECORDED / NOT_RECORDED** | Attempt evidence across enabled and qualification-only leads; NOT_RECORDED. Not a claim of full content review or player verification | 
 | Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
@@ -402,8 +404,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-04/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-03.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/731bc5c567f30184c766915b3a18056907bd7338/signals/ai-topic-top10/2026-11-03.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3750de9bf04086a6e7eaac449d1ce6cb7c426fab/signals/ai-topic-top10/2026-11-03.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3750de9bf04086a6e7eaac449d1ce6cb7c426fab/signals/ai-topic-top10/2026-11-03.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/trend-search-coverage.json) |
 

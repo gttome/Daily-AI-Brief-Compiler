@@ -19,6 +19,7 @@ Image review completed: 2026-10-31T02:45:49.758872+00:00; review-record commit: 
 Eligible source indexes: 87; editorial inspections reported: 8 (9.2%); inaccessible in editorial audit: Unknown; explicitly unreviewed IDs: 79; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |
@@ -36,6 +37,7 @@ Eligible source indexes: 87; editorial inspections reported: 8 (9.2%); inaccessi
 | Distinct selected article publishers | **5** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
+| Video discovery source attempts | **NOT_RECORDED / NOT_RECORDED** | Attempt evidence across enabled and qualification-only leads; NOT_RECORDED. Not a claim of full content review or player verification | 
 | Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 

@@ -18,6 +18,7 @@ Image efficiency: 1/6 first-pass accepts; 16 total attempts. November 3–5 targ
 Image review completed: 2026-10-23T03:15:16Z; review-record commit: 2026-10-23T03:20:22.000Z; protected review merge: 2026-10-23T03:25:08.000Z.
 
 
+
 ## Performance dashboard
 
 | Measure | Recorded result | Source / caveat |
@@ -35,6 +36,7 @@ Image review completed: 2026-10-23T03:15:16Z; review-record commit: 2026-10-23T0
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **1** | One channel is one publisher even across multiple videos |
+| Video discovery source attempts | **NOT_RECORDED / NOT_RECORDED** | Attempt evidence across enabled and qualification-only leads; NOT_RECORDED. Not a claim of full content review or player verification | 
 | Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **NOT_RECORDED** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
