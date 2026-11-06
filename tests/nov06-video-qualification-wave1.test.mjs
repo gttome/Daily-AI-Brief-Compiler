@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {buildEditorialResearchPlan} from '../operations/editorial-research-plan.mjs';
 import {activeDiscoveryResources,validateResourceRegistry} from '../operations/resources.mjs';
+import {sourceRegistrySummary} from '../compiler/source-transparency.mjs';
 
 const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
 const audit=JSON.parse(fs.readFileSync('config/video-source-qualification/2026-11-06.json','utf8'));
@@ -53,4 +54,13 @@ test('research planner and active discovery use actual enabled status, while all
   assert.equal(p.video_source_sweep.qualification_only_count,video.length-active.length);
   assert.equal(p.video_source_sweep.observations.length,video.length);
   assert.ok(p.video_source_sweep.observations.every(x=>x.outcome==='NOT_ATTEMPTED'));
+});
+
+test('current public-source registry totals remain genuinely dynamic after evidence-backed activation',()=>{
+ const summary=sourceRegistrySummary(registry);
+ assert.equal(summary.registered,registry.resources.length);
+ assert.equal(summary.enabled,registry.resources.filter(r=>r.enabled).length);
+ assert.equal(summary.pending,registry.resources.filter(r=>!r.enabled).length);
+ assert.equal(summary.roles.video.enabled,video.filter(r=>r.enabled).length);
+ assert.equal(summary.roles.video.registered,video.length);
 });
