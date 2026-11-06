@@ -66,6 +66,12 @@ Historical editions and accepted image assets stay immutable except for narrowly
 
 ## Media
 
+### November 7+ video source-family rotation (new-edition selection)
+
+The November 6 owner review verified that the October 29–November 6 video inventory used nine TED/TED-Ed, six PBS and three CBS family videos across 18 slots. Exact videos were not reused, but rotating individual programs inside these three families failed source variety. For newly sealed November 7+ editions, read the latest seven *published* predecessor editions before media lock. Normalize TED/TED-Ed, PBS affiliates/programs and CBS News/local affiliates to their shared publishing families. Treat use within either of the previous two editions, or three-or-more videos in the previous seven editions, as an overexposure warning requiring original-source-supported reselection and a documented evidence-backed exception only if genuinely different playable and substantive alternatives cannot be qualified. During the next three new-edition cycles, focus discovery outside TED/PBS/CBS and particularly avoid TED and PBS fallback. Do not republish historical selections, disguise a publisher alias or substitute an unplayable, promotional or irrelevant video to hit a variety target.
+
+Use the forward-only seven-edition video family audit in the existing media-history receipt; include actual history completeness and qualifying evidence in the daily AAR. The audit is **advisory** and adds no new CI hard gate. Keep the existing six-candidate/three-original-publisher prequalification requirement, two independent selected publishers, complete content review, exact-program archive uniqueness, signed-out advancing playback and source-date/duration standards. Disabled or unverified video feeds are qualification leads, not a source of automatically accepted videos. A failure to find two compliant videos requires honest existing recovery, not lowered playback or research standards.
+
 ### October 30+ video editorial quality and publisher independence
 
 The October 29 owner reported two same-company Workday product-configuration tutorials as promotional and low-diversity. Content/transcript review and short verified player advancement do not establish independent educational value. Follow [October 29 media incident follow-up](automation/OCT29_VIDEO_EDITORIAL_VALUE_FOLLOWUP.md).
