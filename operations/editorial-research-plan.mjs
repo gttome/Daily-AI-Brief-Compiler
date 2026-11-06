@@ -1,6 +1,7 @@
 // Planning is not source inspection. Preserve every currently enabled editorial ID.
 import crypto from 'node:crypto';
 import {validateResourceRegistry} from './resources.mjs';
+import {buildVideoSourceSweepPlan} from './video-source-sweep.mjs';
 const roles=['article','video','podcast'];
 const validDate=d=>/^20\d\d-\d\d-\d\d$/.test(d||'')&&Number.isFinite(Date.parse(d+'T00:00:00Z'))&&new Date(d+'T00:00:00Z').toISOString().slice(0,10)===d;
 function rotate(rows,days){const at=rows.length?days%rows.length:0;return rows.slice(at).concat(rows.slice(0,at));}
@@ -22,7 +23,8 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
   previous_edition_date:previous?.edition_date??null,
   registry_sha256:crypto.createHash('sha256').update(JSON.stringify(registry)).digest('hex'),
   eligible_count:eligible.length,previously_unreviewed_prioritized:first.length,
+  video_source_sweep:buildVideoSourceSweepPlan({editionDate,registry}),
   resources:[...first,...rest].map((r,i)=>({order:i+1,resource_id:r.resource_id,url:r.url,
    roles:r.content_types.filter(t=>roles.includes(t)),priority_reason:unreviewed.has(r.resource_id)?'PREVIOUSLY_UNREVIEWED':'REGULAR_ROTATION',inspection_status:'NOT_YET_RECORDED'})),
-  rule:'Inspect original dated items across all enabled sources. Account for each as inspected, inaccessible or unreviewed. This plan proves no retrieval, reading, freshness or qualification. Disabled sources stay disabled; publication gates and the image handoff remain unchanged.'};
+  rule:'Plan enabled editorial sources as before and separately account for every registered video lead, including disabled qualification-only leads. The video_source_sweep plan never proves retrieval; write and validate actual per-source attempts before new-edition selection lock. Disabled resources stay unqualified unless independently admitted.'};
 }
