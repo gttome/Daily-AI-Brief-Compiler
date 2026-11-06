@@ -19,7 +19,7 @@ test('second-wave admission increases discovery to 27 of the same 29 registered 
  assert.equal(wave2.prior_registry.enabled_video,prior.proposed_registry.enabled_video);
  assert.equal(wave2.prior_registry.disabled_video,prior.proposed_registry.disabled_video);
  assert.equal(video.length,wave2.proposed_registry.registered_video);
- assert.equal(now.length,wave2.proposed_registry.enabled_video);
+ assert.ok(now.length>=wave2.proposed_registry.enabled_video); // post-wave2 additions can qualify later
  assert.equal(wave2On.length,wave2.new_discovery_qualifications);
  assert.equal(pending.length,wave2.pending_qualifications);
  assert.equal(wave2On.length+pending.length,wave2.qualifications.length);
@@ -47,7 +47,8 @@ test('Zapier and W&B are the only pending leads, with unambiguous original video
  assert.deepEqual(pending.map(x=>x.name).sort(),[
   'Weights & Biases YouTube','Zapier Official Tutorials'].sort());
  for(const q of pending){
-  assert.equal(video.find(v=>v.resource_id===q.resource_id)?.enabled,false);
+  assert.ok(video.find(v=>v.resource_id===q.resource_id));
+  assert.equal(q.eligible_for_discovery,false); // historic wave2 snapshot, not a live status
   assert.ok(q.blocker_or_next_action?.length>=60);
   assert.equal(q.individual_program_playback_verified,false);
   assert.equal(q.individual_program_selection_qualified,false);
@@ -55,12 +56,12 @@ test('Zapier and W&B are the only pending leads, with unambiguous original video
  const mechanics=video.find(v=>v.name==='Microsoft Mechanics YouTube');
  assert.equal(mechanics?.url,'https://www.youtube.com/@msftmechanics/videos');
 });
-test('29-source mandatory sweep still considers the two disabled leads',()=>{
+test('29-source mandatory sweep follows current registry as historical pending entries qualify',()=>{
  const sweep=buildVideoSourceSweepPlan({editionDate:'2026-11-07',registry});
  const plan=buildEditorialResearchPlan({editionDate:'2026-11-07',registry});
  assert.equal(sweep.registered_count,video.length);
  assert.equal(sweep.enabled_count,activeDiscoveryResources(registry,'video').length);
- assert.equal(sweep.qualification_only_count,pending.length);
+ assert.equal(sweep.qualification_only_count,video.filter(x=>!x.enabled).length);
  assert.equal(plan.video_source_sweep.registered_count,video.length);
  assert.ok(sweep.observations.every(x=>x.outcome==='NOT_ATTEMPTED'));
  assert.equal(new Set(sweep.observations.map(x=>x.resource_id)).size,video.length);
