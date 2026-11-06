@@ -4,6 +4,8 @@ import {watchlistScoringProblems,WATCHLIST_RUBRIC_EFFECTIVE} from './watchlist-r
 import {allowedPendingEditionBranch} from './oct9-owner-exception.mjs';
 import {validateArticleSourceDiversity} from './source-diversity.mjs';
 import {validateRecentSourceDiscovery} from './recent-source-discovery.mjs';
+import fs from 'node:fs';
+import {validateVideoSourceSweep,VIDEO_SWEEP_EFFECTIVE_DATE} from '../operations/video-source-sweep.mjs';
 // Strict evidence gate for a NEW unattended Release 1 pending-figure edition.
 // This is not invoked by fixture/reader preview compilation or legacy illustrated editions.
 const fail=s=>{throw new Error('Release 1 editorial evidence: '+s);};
@@ -50,6 +52,15 @@ export function validateNewPendingEditorial({bundle,state}){
   validateEditorialChronology({bundle,state});
   validateNontechnicalAudience(bundle);
   validateMediaPrecision(bundle);
+  // Nov 7+: all registered video discovery/qualification leads must have
+  // genuinely attempted source-specific entries before selection was locked.
+  // This does not authorize disabled feeds or prove candidate playback.
+  if(bundle.edition_date>=VIDEO_SWEEP_EFFECTIVE_DATE){
+    const registry=JSON.parse(fs.readFileSync(new URL('../config/resource-registry.json',import.meta.url),'utf8'));
+    validateVideoSourceSweep({editionDate:bundle.edition_date,registry,
+      sweep:bundle.video_source_sweep,
+      selectionLockedAt:bundle.editorial_provenance?.selection_locked_at});
+  }
   const ids=new Set(),sources=new Set();
   const noon=time(bundle.edition_date+'T12:00:00Z','edition date');
   for(const [i,story] of bundle.stories.entries()){
