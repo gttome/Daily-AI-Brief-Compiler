@@ -6,4 +6,4 @@ if(!output)throw Error('Usage: plan-editorial-research.mjs <edition> <registry.j
 const previousAar=previousAarFile==='-'?null:JSON.parse(fs.readFileSync(previousAarFile));
 const plan=buildEditorialResearchPlan({editionDate,registry:JSON.parse(fs.readFileSync(registryFile)),previousAar});
 fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(plan,null,2)+'\n');
-console.log(JSON.stringify({result:'RESEARCH_PLAN_ONLY',edition_date:editionDate,eligible:plan.eligible_count,previously_unreviewed:plan.previously_unreviewed_prioritized}));
+console.log(JSON.stringify({result:'RESEARCH_PLAN_ONLY',edition_date:editionDate,eligible:plan.eligible_count,previously_unreviewed:plan.previously_unreviewed_prioritized,video_registered:plan.video_source_sweep.registered_count,video_qualification_only:plan.video_source_sweep.qualification_only_count}));
