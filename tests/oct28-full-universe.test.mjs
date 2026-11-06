@@ -5,7 +5,7 @@ import {createOct28Plan,saveOct28Observation,validateOct28Plan}
  from '../operations/oct28-full-universe.mjs';
 import {activeDiscoveryResources} from '../operations/resources.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const time='2026-10-27T23:15:00Z';
 const create=(date='2026-10-28')=>createOct28Plan(registry,{
  edition_date:date,execution_id:'oct28-actual-run',created_at:time});
