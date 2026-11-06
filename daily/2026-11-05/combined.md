@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 REPORT_AND_SEARCH_RECEIPTS_OBSERVED** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 REPORT_AND_SEARCH_RECEIPTS_OBSERVED** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 6, 2026 · **Production evening:** 2026-11-05 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-06 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-06/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 6m 09s** · **Compiler final seal window 50m 42s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -40,9 +40,18 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**14 attempts; 0 of 6 images accepted on their first attempt.**
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| GPT-6 Cyber pairs stronger exploit research with restricted access | 1 | 1 | 2 |
+| Ripple-65B targets coding performance with a dense open-weight design | 1 | 1 | 2 |
+| Gemini Omni 1.2 Flash extends clips and lowers API pricing | 1 | 2 | 3 |
+| Anthropic models how Claude could change scientific work | 1 | 1 | 2 |
+| Cloudflare proposes identity and accountability for hosted agents | 1 | 1 | 2 |
+| A verification loop turns Forms insights into a reusable agent skill | 1 | 2 | 3 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -95,12 +104,12 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **14** | Image worker AAR; no estimation |
 | Rejected candidates | **8** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -350,7 +359,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
 
 ### Image production duration — Git-verified milestones
 
@@ -373,21 +382,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| GPT-6 Cyber pairs stronger exploit research with restricted access | 2 | 0.71 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m01.png) |
+| Ripple-65B targets coding performance with a dense open-weight design | 2 | 0.54 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m02.png) |
+| Gemini Omni 1.2 Flash extends clips and lowers API pricing | 3 | 0.58 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m10.png) |
+| Anthropic models how Claude could change scientific work | 2 | 0.63 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m11.png) |
+| Cloudflare proposes identity and accountability for hosted agents | 2 | 0.58 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m12.png) |
+| A verification loop turns Forms insights into a reusable agent skill | 3 | 0.53 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m01.png" alt="Diagram for nov06-t1-gpt6-cyber" width="420"/></a><br/><b>GPT-6 Cyber pairs stronger exploit research with restricted access</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m02.png" alt="Diagram for nov06-t2-ripple" width="420"/></a><br/><b>Ripple-65B targets coding performance with a dense open-weight design</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m10.png" alt="Diagram for nov06-k1-gemini-omni" width="420"/></a><br/><b>Gemini Omni 1.2 Flash extends clips and lowers API pricing</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m11.png" alt="Diagram for nov06-k2-science-claude" width="420"/></a><br/><b>Anthropic models how Claude could change scientific work</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m12.png" alt="Diagram for nov06-a1-trusted-agent" width="420"/></a><br/><b>Cloudflare proposes identity and accountability for hosted agents</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-06/dab-edition-2026-11-06-m14.png" alt="Diagram for nov06-a2-forms-insight-skill" width="420"/></a><br/><b>A verification loop turns Forms insights into a reusable agent skill</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -454,12 +473,12 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-06/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d8dd7ece406642f8a8639d3b4fde8c66e446a096/signals/ai-topic-top10/2026-11-05.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d8dd7ece406642f8a8639d3b4fde8c66e446a096/signals/ai-topic-top10/2026-11-05.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2f0584fb2f3c8373391e48e504b6f8e0120f9e54/signals/ai-topic-top10/2026-11-05.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2f0584fb2f3c8373391e48e504b6f8e0120f9e54/signals/ai-topic-top10/2026-11-05.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/trend-search-coverage.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42261038716).
 
 ---
 
@@ -472,11 +491,10 @@ Edition **2026-11-06**. Measurements use 4/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**3 evidence-based findings**; open production blockers: 1. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**2 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
-| P0 | Editorial publication is verified but the image release is not verified. | Images: Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker. | Immediate, if ownership and gates allow |
 | P1 | 1 failed protected publication gates were recorded (1 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Immediate, if ownership and gates allow |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
@@ -515,13 +533,13 @@ Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured result
 | 2026-11-03 | 27/87 (31%) | 1 | 12 | 5 | 4 |
 | 2026-11-04 | Not recorded | 0 | 21 | 3 | Not recorded |
 | 2026-11-05 | Not recorded | 0 | 17 | 7 | Not recorded |
-| 2026-11-06 | 8/87 (9%) | Not recorded | Not recorded | 1 | 3 |
+| 2026-11-06 | 8/87 (9%) | 0 | 14 | 1 | 3 |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 2 | 20 |
-| first pass accepted | 3 | 0 |
-| image attempts | 3 | 17 |
+| first pass accepted | 4 | 0 |
+| image attempts | 4 | 15.5 |
 | top10 linked items | 2 | 3.5 |
 | publication failures | 4 | 4 |
 
@@ -684,7 +702,7 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 | TYPOGRAPHY | 1 | No within observed window |
 | UNSUPPORTED_CLAIM | 1 | No within observed window |
 
-Total rejected: 32; unclassified: 6. A rejected attempt can have several defect codes.
+Total rejected: 40; unclassified: 14. A rejected attempt can have several defect codes.
 
 ### Top 10 publisher-family sensitivity
 

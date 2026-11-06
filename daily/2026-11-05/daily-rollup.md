@@ -5,7 +5,7 @@
 | Dimension | Observed evidence |
 |---|---|
 | Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"UNPROVEN","owner_intervention_required":null} |
-| Images | {"execution":"START_OBSERVED","result":"PARTIAL","publication":"PARTIAL"} |
+| Images | {"execution":"START_OBSERVED","result":"PARTIAL","publication":"VERIFIED"} |
 | Top 10 report | provisional |
 | Top 10 received by Compiler | RECEIVED_SNAPSHOT_BOUND |
 | Topic-guided searches | RECEIPTS_OBSERVED |
