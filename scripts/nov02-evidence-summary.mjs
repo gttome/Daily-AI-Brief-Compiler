@@ -10,6 +10,20 @@ export function summarizeNov02Evidence(edition,e={}){
  const inaccessible=rows.filter(x=>['ACCESS_BLOCKED','SOURCE_ERROR'].includes(x.outcome));
  const unreviewed=rows.filter(x=>!inspected.includes(x)&&!inaccessible.includes(x));
  const editorial=bundle?.source_discovery_audit?.index_review;
+ // Video source evidence is separate from the enabled editorial index census.
+ const videoSweep=bundle?.video_source_sweep;
+ const videoRoster=Array.isArray(videoSweep?.registry_snapshot)?videoSweep.registry_snapshot:[];
+ const videoRows=Array.isArray(videoSweep?.observations)?videoSweep.observations:[];
+ const videoIds=new Set(videoRoster.map(r=>r.resource_id));
+ const attemptedVideoRows=videoRows.filter(r=>videoIds.has(r?.resource_id)&&
+   r.outcome!=='NOT_ATTEMPTED'&&stamp(r.attempted_at)&&typeof r.checked_url==='string'&&
+   r.checked_url.startsWith('https://'));
+ const videoCounts=Object.fromEntries([...new Set(videoRows.map(r=>r.outcome))].filter(Boolean)
+   .map(outcome=>[outcome,videoRows.filter(r=>r.outcome===outcome).length]));
+ const videoSweepCompleteness=videoRoster.length>0&&
+   videoRows.length===videoRoster.length&&
+   new Set(videoRows.map(r=>r.resource_id)).size===videoRows.length&&
+   attemptedVideoRows.length===videoRoster.length;
  const eligible=rows.length||editorial?.eligible||null;
  const editorialCount=Number.isSafeInteger(editorial?.inspected)&&editorial.inspected>=0&&editorial.inspected<=eligible?editorial.inspected:null;
  const explicitUnreviewed=Array.isArray(editorial?.unreviewed)?editorial.unreviewed:null;
@@ -48,6 +62,17 @@ export function summarizeNov02Evidence(edition,e={}){
    automated_index_scan:census?{processed:inspected.length,inaccessible:inaccessible.length,not_attempted:unreviewed.length,
     created_at:stamp(census.created_at),post_editorial_selection:stamp(census.created_at)&&stamp(bundle?.source_discovery_audit?.reviewed_at)?Date.parse(census.created_at)>Date.parse(bundle.source_discovery_audit.reviewed_at):null}:null,
    scope:'Editorial counts are recorded claims from the selection audit. Automated index parsing is separate and never proves editorial inspection or fallback search completeness.'}:null,
+  video_source_sweep:videoSweep?{
+   registered:videoSweep.registered_count??null,enabled:videoSweep.enabled_count??null,
+   qualification_only:videoSweep.qualification_only_count??null,
+   attempted:attemptedVideoRows.length,unattempted:Math.max(0,videoRoster.length-attemptedVideoRows.length),
+   candidate_sources:videoRows.filter(r=>r.outcome==='CANDIDATES_FOUND').length,
+   outcomes:videoCounts,completeness:videoSweepCompleteness?'REPORTED_ALL_ATTEMPTED':'INCOMPLETE',
+   source_outcomes:videoRows.map(r=>({resource_id:r.resource_id,outcome:r.outcome,
+     attempted_at:stamp(r.attempted_at),checked_url:r.checked_url})),
+   caveat:'Declared source attempt ledger only. The editorial release gate validates its structure; this AAR does not independently prove retrieval, content review or signed-out playback.'
+  }:{registered:null,enabled:null,qualification_only:null,attempted:null,unattempted:null,
+   candidate_sources:null,outcomes:null,completeness:'NOT_RECORDED'},
   fallback_search_evidence:receipt?fallbacks:null,
   image_capability_preflight_recorded:route?.result==='CAPABILITY_ROUTE_PROVEN'&&Array.isArray(route.blockers)&&route.blockers.length===0,
   image_scheduler_origin_attested:false,
