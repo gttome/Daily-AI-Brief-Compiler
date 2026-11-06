@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {buildDisabledSourceWorklist,recordDisabledSourceDisposition,
  validateDisabledSourceWorklist} from '../operations/oct28-source-qualification.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const data=()=>buildDisabledSourceWorklist(registry,{edition_date:'2026-10-27',
  execution_id:'actual-oct27',created_at:'2026-10-27T00:00:00Z'});
 const decision=(resource_id,status='VERIFIED_ACTIVE')=>({
