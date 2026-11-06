@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {activeDiscoveryResources,validateResourceRegistry} from '../operations/resources.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const newSources=registry.resources.filter(r=>r.resource_id.startsWith('research-20261026-'));
 const oldSources=registry.resources.slice(0,69); // preserved original IDs; six historical role assignments now reconciled
 const enabled=['research-20261026-a01','research-20261026-a04',

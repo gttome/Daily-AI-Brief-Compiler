@@ -6,7 +6,7 @@ import {
   validateSourceCoverageReceipt
 } from '../operations/source-coverage.mjs';
 
-const liveRegistry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const liveRegistry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const meta={edition_date:'2026-10-27',execution_id:'compiler-2026-10-27-r1',
   created_at:'2026-10-26T23:15:00.000Z'};
 const fakeProbe=(resource_id,extra={})=>({resource_id,status:'ROUTE_REACHABLE',

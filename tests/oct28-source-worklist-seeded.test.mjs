@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {validateDisabledSourceWorklist} from '../operations/oct28-source-qualification.mjs';
 
 test('frozen October 27 114-source seed remains auditable after four live activations',()=>{
- const reg=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+ const reg=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
  const worklist=JSON.parse(fs.readFileSync(
   'docs/source-expansion/OCT27_DISABLED_SOURCE_114_REVIEW_WORKLIST.json','utf8'));
  // Frozen October 26/27 review seed: four of these sources have since been

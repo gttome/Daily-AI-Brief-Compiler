@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {validateResourceRegistry,activeDiscoveryResources} from '../operations/resources.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const inventory=JSON.parse(fs.readFileSync(
   'docs/source-expansion/OCT26_FULL_SOURCE_UNIVERSE_RECONCILIATION.json','utf8'));
 const baselineIds=inventory.current_baseline_105_ids;

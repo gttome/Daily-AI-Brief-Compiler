@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {buildEditorialSourceCensus,recordEditorialSourceObservation,
   validateEditorialSourceCensus} from '../operations/source-item-census.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const meta={edition_date:'2026-10-27',execution_id:'compiler-2026-10-27-r1',
  created_at:'2026-10-26T23:14:00Z'};
 const observation=(resource_id,extra={})=>({resource_id,outcome:'NO_ELIGIBLE_ITEMS',

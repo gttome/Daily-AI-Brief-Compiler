@@ -9,7 +9,7 @@ import {sourceRegistrySummary,renderSourcesExperience,renderSourcesMarkdown,
   replacePublishedSourcesPage} from '../compiler/source-transparency.mjs';
 import {correctSourcesPage} from '../scripts/correct-sources-transparency.mjs';
 
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json','utf8'));
 const blob=b=>crypto.createHash('sha1').update('blob '+b.length+'\0').update(b).digest('hex');
 const revisionPath='config/reading-copy-revisions/2026-10-27-sources-transparency.json';
 
@@ -87,7 +87,7 @@ test('historic published page patch changes main editorial area, keeping site na
 test('current protected owner correction manifest matches exact source snapshot',()=>{
  const revision=JSON.parse(fs.readFileSync(revisionPath,'utf8'));
  const stats=sourceRegistrySummary(registry);
- assert.equal(revision.expected_registry_blob_sha,blob(fs.readFileSync('config/resource-registry.json')));
+ assert.equal(revision.expected_registry_blob_sha,blob(fs.readFileSync('fixtures/resource-registry-pre-nov06-video-qualification.json')));
  assert.deepEqual(revision.expected_counts,
    {catalogued:stats.registered,enabled:stats.enabled,pending:stats.pending});
 });
@@ -95,9 +95,16 @@ test('live correction has a single legal route; all other mock public and image 
  const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'sources-transparency-'));
  const history=path.join(tmp,'history'),out=path.join(tmp,'out');
  const rev=JSON.parse(fs.readFileSync(revisionPath,'utf8'));
+ const originalCwd=process.cwd();
  const oldPage='    <main id="content" class="main-content" role="main">'+
   '<h2>Old sources</h2>\n      <footer class="site-footer">Original footer</footer></main>';
  try{
+  // Execute the original October 27 correction against the original source
+  // snapshot, rather than pretending today's updated registry existed then.
+  fs.mkdirSync(path.join(tmp,'config'),{recursive:true});
+  fs.copyFileSync(path.join(originalCwd,'fixtures/resource-registry-pre-nov06-video-qualification.json'),
+    path.join(tmp,'config/resource-registry.json'));
+  process.chdir(tmp);
   fs.mkdirSync(path.join(history,'sources'),{recursive:true});
   fs.mkdirSync(path.join(history,'briefs/images/2026-10-27'),{recursive:true});
   fs.mkdirSync(path.join(history,'briefs/2026-10-27'),{recursive:true});
@@ -117,5 +124,5 @@ test('live correction has a single legal route; all other mock public and image 
   assert.deepEqual(fs.readFileSync(path.join(out,'briefs/2026-10-27/index.html')),oldEdition);
   assert.throws(()=>correctSourcesPage({revisionFile:revFile,historySite:out,
     outSite:path.join(tmp,'invalid')}),/public_sources_page_changed_since_owner_review/);
- }finally{fs.rmSync(tmp,{recursive:true,force:true});}
+ }finally{process.chdir(originalCwd);fs.rmSync(tmp,{recursive:true,force:true});}
 });
