@@ -5,11 +5,11 @@
 | Dimension | Observed evidence |
 |---|---|
 | Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"FAIL_OWNER_RECOVERY","owner_intervention_required":true} |
-| Images | {"execution":"START_OBSERVED","result":"PARTIAL","publication":"VERIFIED"} |
+| Images | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED"} |
 | Top 10 report | provisional |
 | Top 10 received by Compiler | RECEIVED_SNAPSHOT_BOUND |
 | Topic-guided searches | NOT_OBSERVED |
-| Publication and image result | PARTIAL |
+| Publication and image result | SUCCESS |
 | Whole-system evidence | PARTIAL |
 | Next run readiness | UNKNOWN |
 

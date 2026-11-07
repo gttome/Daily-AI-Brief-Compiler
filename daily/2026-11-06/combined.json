@@ -302,9 +302,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-07T15:06:24Z",
+      "review_record_commit_at": "2026-11-07T15:08:03.000Z",
+      "review_merge_at": "2026-11-07T15:09:36.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -312,7 +312,7 @@
   "oct28_source_readiness": null,
   "cycle_date": "2026-11-06",
   "edition_date": "2026-11-07",
-  "result": "PARTIAL",
+  "result": "COMPLETE",
   "top10": {
     "schema_version": "daily-ai-topic-top10-aar-v1",
     "lane": "top10",
@@ -543,7 +543,7 @@
         "Mixed-topic roundup counts remain attached to the programs."
       ]
     },
-    "source_commit": "9eeb76ee6d88036743398540db4fc73cdad5f288",
+    "source_commit": "47457be451654ee8f83c9a639f190ade9361b5ed",
     "source_blob_sha": "d3a0af39e23a41870d1cb679a6817b8f23f36a3e",
     "report_sha256": "f49f95eecdbf618d0feaf1a627d9f203ae893c9d0b0fc1fffba5b8ca9339428f",
     "consumed_source_commit": "b42c9ac06ba959678d440e1491ce22af163e516e",
@@ -673,7 +673,7 @@
       },
       "previous_cycle": "2026-11-05",
       "previous_report_sha256": "334e6e7e9f8fc30fc49b1d15462f95dc3b4c3ef7ffd0d9bb950b9561591768ef",
-      "previous_aar_sha256": "80b4e1de71e09d60697bf44c35ae6f2ca1e36b607e270fb284c925fa5b145b35",
+      "previous_aar_sha256": "de04df51e50ac4ac70aad067c7ebb7059ca23a5607db7aa909c78f7f8cb81d64",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -850,10 +850,13 @@
   "latest_publication_health": "READER_VERIFIED",
   "provenance_warnings": [],
   "image_aar_warning": null,
-  "worker_closeout_verified": false,
+  "worker_closeout_verified": true,
   "worker_checkpoint_consistency": {
-    "result": "MISMATCH",
-    "reason": "worker_not_closed_for_exact_job"
+    "result": "PASS",
+    "accepted_images": 6,
+    "actual_generations": 11,
+    "content_changed": false,
+    "first_party_scheduler_attested": false
   },
   "watchlist_title_collisions": 0,
   "postpublication_incidents_recorded": null,
@@ -868,14 +871,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": true,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-07T14:39:27.291Z",
   "scheduler_start_attested": false,
   "source_urls": [
     {
@@ -896,7 +899,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-07/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-07/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -912,11 +915,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9eeb76ee6d88036743398540db4fc73cdad5f288/signals/ai-topic-top10/2026-11-06.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/47457be451654ee8f83c9a639f190ade9361b5ed/signals/ai-topic-top10/2026-11-06.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9eeb76ee6d88036743398540db4fc73cdad5f288/signals/ai-topic-top10/2026-11-06.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/47457be451654ee8f83c9a639f190ade9361b5ed/signals/ai-topic-top10/2026-11-06.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1305,9 +1308,19 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 0,
+      "finding_count": 1,
       "open_production_blockers": 0,
-      "findings": [],
+      "findings": [
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "5 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
+        }
+      ],
       "limitations": [
         "This report records findings and next actions; it does not execute corrections.",
         "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",

@@ -298,9 +298,19 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-11",
     "cumulative_review_due_today": false,
-    "finding_count": 0,
+    "finding_count": 1,
     "open_production_blockers": 0,
-    "findings": [],
+    "findings": [
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "5 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
+      }
+    ],
     "limitations": [
       "This report records findings and next actions; it does not execute corrections.",
       "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",
