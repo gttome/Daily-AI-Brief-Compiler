@@ -1,6 +1,6 @@
 # 2026-11-07 premium image after-action report
 
-**Status: PACKAGE_READY**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 6d92a2bc0f437bbce4aaa74c9d3f71cdb71739bf |
 | Executor observed run start | 2026-11-07T14:35:47.175Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-07T14:39:27.291Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR |
-| Public verified time | Not recorded |
-| Final saved-context review | SIX_SAVED_PNGS_PASS_LIVE_REVIEW_PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-07T14:59:38.487Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -43,12 +43,18 @@ Job SHA-256: 563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7. O
 
 The actual generation start is 2026-11-07T14:39:27.291Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: external-image-packages/2026-11-07/reviews/six-set-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-07/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 The scheduled worker found no verified source at its evening invocation. The owner requested an immediate run after the morning reader and image handoff were verified.
 
 The previous edition recorded zero first-pass accepts. This set had two. The comparison is descriptive and does not establish improvement from one run.
 
 The six 320px renditions were inspected before staging. Desktop/mobile live contexts remain a separate postdeployment review.
+
+The protected image-only release preserved the published editorial brief and all 17 frozen October 8 objects. Independent public readback matched six accepted PNG SHA-256 hashes and all 12 edition and permanent story placements.
+
+All 24 saved desktop and mobile image-area captures passed the release RGB pixel comparison and subsequent visual review. The captures showed the complete, correctly paired images. Smaller mobile labels can be read in the full-size image.
+
+The archived automation status records the state before visual inspection. The separate semantic review records the 24 completed visual checks.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
