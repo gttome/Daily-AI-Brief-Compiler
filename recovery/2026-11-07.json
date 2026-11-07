@@ -1,0 +1,75 @@
+{
+  "edition_date": "2026-11-07",
+  "observed_at": "2026-11-07T14:01:39Z",
+  "mode": "owner_assisted",
+  "owner_intervention": true,
+  "scheduler_origin": null,
+  "usage_percent": null,
+  "cost_usd": null,
+  "status": "BLOCKED_EDITORIAL_REPAIR_REQUIRED",
+  "source_branch": "shadow/2026-11-07",
+  "source_commit": "77ddafaa29f3affda909bb13bbeac9dbef7f19df",
+  "protected_main_commit": "e20ded27f470c600b7597282a134107796798b31",
+  "bundle": {
+    "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/77ddafaa29f3affda909bb13bbeac9dbef7f19df/shadow-runs/2026-11-07/edition-bundle.json",
+    "blob_sha": "c2644f1f9b1d55d52140de4141c1089fcc4a40d2",
+    "sha256": "2e4aaa2bfdc5431769a8404910cb35d57b1189bd011792ff2b6057579f156236",
+    "declared_sha256": "df1fcb0ea4e09dabb6285ef5b98c864d243944828026431d8f3029c980c51d48"
+  },
+  "ownership": {
+    "observation": "Same-edition source head matched the inspected commit. The existing Primary, Images and Recovery task run records reported completed and no same-edition publication PR or image job was found. No scheduler identity or writer lease was claimed."
+  },
+  "readiness_signal": {
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42327034050",
+    "run_conclusion": "success",
+    "observed_result": "Readiness check ran. Semantic validation, history and reader preflight, playback and dispatch were skipped.",
+    "local_reproduction": "The sealed state uses SEAL instead of BUNDLE and its digest differs from the exact committed bundle. A local-only stage and digest correction passed the readiness checker."
+  },
+  "preflight": {
+    "result": "REJECTED",
+    "scope": "Protected-main validators run locally against exact committed bundle bytes with locally corrected readiness metadata. This was not a GitHub preflight job.",
+    "errors": [
+      {
+        "code": "recent_source_discovery:eight_original_source_considerations_and_dated_review_required",
+        "detail": "The bundle lists six dated source considerations, all selected. The protected check requires eight, including at least two alternatives."
+      },
+      {
+        "code": "production_evidence:media_verification_after_selection_or_before_retrieval",
+        "detail": "The recorded checks for both selected videos and both podcasts follow selection lock, seal and the source commit."
+      },
+      {
+        "code": "production_evidence:six_prequalified_substantive_video_candidates_required",
+        "detail": "The pool contains two videos, both under the three-minute minimum (95.929 and 169.767 seconds), against six required candidates from at least three publishers."
+      },
+      {
+        "code": "media_quality:video_1:substantiated_editorial_review_required",
+        "detail": "Both video learning objectives concern the November 6 programs. Both podcast reviews and timecoded segments point to November 6 episodes rather than their November 7 selections."
+      }
+    ]
+  },
+  "action": {
+    "scope": "Owner-directed read-only publication diagnosis with local validation",
+    "source_write": false,
+    "workflow_dispatch": false,
+    "publication_verified": false,
+    "next": "Existing Compiler to perform original-source research and same-edition editorial requalification, preserve valid material, then reseal only after actual verification and protected preflight pass."
+  },
+  "public_checks": [
+    {
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-07/",
+      "http_status": 404
+    },
+    {
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-06/",
+      "http_status": 200
+    }
+  ],
+  "evidence_refs": [
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42327034050",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/77ddafaa29f3affda909bb13bbeac9dbef7f19df/shadow-runs/2026-11-07/compiler-state.json",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/77ddafaa29f3affda909bb13bbeac9dbef7f19df/shadow-runs/2026-11-07/edition-bundle.json",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/77ddafaa29f3affda909bb13bbeac9dbef7f19df/shadow-runs/2026-11-07/content/semantic-content.json",
+    "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/77ddafaa29f3affda909bb13bbeac9dbef7f19df/shadow-runs/2026-11-07/editorial/candidate-selection.json",
+    "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-06/"
+  ]
+}
