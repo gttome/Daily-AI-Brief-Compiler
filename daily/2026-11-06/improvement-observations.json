@@ -12,8 +12,9 @@
     "image-job.json": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
     "image-manifest.json": "d3b78a9b880f205b5b3979a2354108c37bf4992477d071d10d6f5bae78f4585e",
     "image-recurring-assignment.json": "7bf9ab14e6ba80bc53a809a77ae7cd0b8f9d7326d9a3b2dd282028c09ac8325e",
+    "image-release.json": "38204d5eafcd2b6ccd70144ed32ed132fb2f9a42b0341f585950b549431aa1b4",
     "image-route-preflight.json": "f3fe090efdad15bdff0c8bf06d28529b66d0eac1fe7addb4c42988dbb160feee",
-    "image-timing.json": "04fe6fee443f80b43c3ba17268f56002db080cf728653a00408c39537f41ee0c",
+    "image-timing.json": "b8d184e48a79870f4b3b9662dd0251734e265843b862e08f96d0d1fccfe5f050",
     "image-worker-state.json": "971e2de9fac523febecc6e78386ccb205f50fe86eb232c1ad61900d3523ae76c",
     "postpublish-integrity.json": "2ac89da5f1fb28e5ce0bc4548e169f65faced19829e294e4693594892a5f8b38",
     "postpublish-video-playback.json": "c9e6e810d44af9f71cb76788ed33d5b8117459a499fdd749907b3c86305583fd",
@@ -25,17 +26,17 @@
     "top10-after-action.json": "507154d4ce7e321ccd41c069a83cd3a14d87a216831eacd54713c527b8669275",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "213d0a3eb0bfe9c00f489cd1353cce1acfe7d5479d87ddc69196654f53fd96d6",
+    "top10-previous-aar.json": "80b4e1de71e09d60697bf44c35ae6f2ca1e36b607e270fb284c925fa5b145b35",
     "top10-previous-report.json": "334e6e7e9f8fc30fc49b1d15462f95dc3b4c3ef7ffd0d9bb950b9561591768ef",
-    "top10-report-source.json": "ff4ab88bef598baa5a1de940245390717fd28b46414727668d8209a08500be79",
+    "top10-report-source.json": "37947417aff62580bbea062a865ee30c45c2f0adc5a3f36aa56d6ee27ec219cc",
     "top10-report.json": "f49f95eecdbf618d0feaf1a627d9f203ae893c9d0b0fc1fffba5b8ca9339428f",
     "trend-consumed-report.json": "f49f95eecdbf618d0feaf1a627d9f203ae893c9d0b0fc1fffba5b8ca9339428f",
-    "trend-consumed-source.json": "60bcef0d012bcce627b951327c6d8e78fb8a1edce0581add8e167b5a5928ed51",
+    "trend-consumed-source.json": "b4e366c37422ffe8bce8b1cd25b61fb5764f53f58c2f82342f3f224f7fb05c36",
     "trend-input.json": "c16394b3df6e0e41ae6a6e41f5ccc74df957ae81b25d32308392e43a7e81057f"
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "NOT_OBSERVED",
     "autonomy": "FAIL_OWNER_RECOVERY"
   },
@@ -157,8 +158,8 @@
     "coverage_percent": 4,
     "coverage_numerator": 4,
     "coverage_denominator": 109,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 2,
+    "image_attempts": 11,
     "top10_linked_items": null,
     "publication_failures": 0
   },
@@ -191,7 +192,56 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 5,
+    "classified": [
+      {
+        "story_id": "nov07-a1-airbnb-visual-agent",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "PSEUDO_WRITING",
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-07-native-primary/external-image-packages/2026-11-07/reviews/a1-attempt-1.png"
+      },
+      {
+        "story_id": "nov07-a2-finance-skill",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-07-native-primary/external-image-packages/2026-11-07/reviews/a2-attempt-1.png"
+      },
+      {
+        "story_id": "nov07-k2-ai-native-universities",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-07-native-primary/external-image-packages/2026-11-07/reviews/k2-attempt-1.png"
+      },
+      {
+        "story_id": "nov07-t2-metr-acceleration",
+        "attempt": 1,
+        "defect_codes": [
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-07-native-primary/external-image-packages/2026-11-07/reviews/t2-attempt-1.png"
+      },
+      {
+        "story_id": "nov07-t2-metr-acceleration",
+        "attempt": 2,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-07-native-primary/external-image-packages/2026-11-07/reviews/t2-attempt-2.png"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "PARTIAL",
     "reviewed_topics": 2,

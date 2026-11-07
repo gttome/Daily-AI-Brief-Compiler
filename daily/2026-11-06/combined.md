@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 7, 2026 · **Production evening:** 2026-11-06 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-07 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-07/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **NOT_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **NOT_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 5m 22s** · **Compiler final seal window 786m 60s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -41,9 +41,18 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**11 attempts; 2 of 6 images accepted on their first attempt.**
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| BioBasicsBench tests agents on raw wet-lab protocols | 1 | 0 | 1 |
+| METR estimates Anthropic benchmark scores advanced 1.9 times faster | 1 | 2 | 3 |
+| Cursor agents can scaffold and publish live applications | 1 | 0 | 1 |
+| Australian universities redesign assessment for AI-native graduates | 1 | 1 | 2 |
+| Airbnb plans a visual travel agent for 2027 | 1 | 1 | 2 |
+| Claude’s finance beta supports a read-only verification Skill | 1 | 1 | 2 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -90,12 +99,12 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **11** | Image worker AAR; no estimation |
 | Rejected candidates | **5** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -279,7 +288,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 11 · **Rejected candidates:** 5.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 11 · **Rejected candidates:** 5.
 
 ### Image production duration — Git-verified milestones
 
@@ -302,21 +311,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| BioBasicsBench tests agents on raw wet-lab protocols | 1 | 0.67 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m01.png) |
+| METR estimates Anthropic benchmark scores advanced 1.9 times faster | 3 | 0.62 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m02.png) |
+| Cursor agents can scaffold and publish live applications | 1 | 0.65 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m10.png) |
+| Australian universities redesign assessment for AI-native graduates | 2 | 0.65 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m11.png) |
+| Airbnb plans a visual travel agent for 2027 | 2 | 0.83 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m12.png) |
+| Claude’s finance beta supports a read-only verification Skill | 2 | 0.64 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m01.png" alt="Diagram for nov07-t1-wet-lab-benchmark" width="420"/></a><br/><b>BioBasicsBench tests agents on raw wet-lab protocols</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m02.png" alt="Diagram for nov07-t2-metr-acceleration" width="420"/></a><br/><b>METR estimates Anthropic benchmark scores advanced 1.9 times faster</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m10.png" alt="Diagram for nov07-k1-cursor-live-apps" width="420"/></a><br/><b>Cursor agents can scaffold and publish live applications</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m11.png" alt="Diagram for nov07-k2-ai-native-universities" width="420"/></a><br/><b>Australian universities redesign assessment for AI-native graduates</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m12.png" alt="Diagram for nov07-a1-airbnb-visual-agent" width="420"/></a><br/><b>Airbnb plans a visual travel agent for 2027</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m14.png" alt="Diagram for nov07-a2-finance-skill" width="420"/></a><br/><b>Claude’s finance beta supports a read-only verification Skill</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -380,11 +399,11 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-07/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0174dcee385a42af7fec50a33a651e23ca30abc9/signals/ai-topic-top10/2026-11-06.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0174dcee385a42af7fec50a33a651e23ca30abc9/signals/ai-topic-top10/2026-11-06.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9eeb76ee6d88036743398540db4fc73cdad5f288/signals/ai-topic-top10/2026-11-06.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9eeb76ee6d88036743398540db4fc73cdad5f288/signals/ai-topic-top10/2026-11-06.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/editorial/trend-input.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42384104653).
 
 ---
 
@@ -397,13 +416,12 @@ Edition **2026-11-07**. Measurements use 5/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**1 evidence-based findings**; open production blockers: 1. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**0 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
-| P0 | Editorial publication is verified but the image release is not verified. | Images: Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker. | Immediate, if ownership and gates allow |
 
-Findings are observational and do not claim a repair was executed by the reporter.
+No action meeting these evidence rules was recorded; this is not proof that all processes are defect-free.
 
 ### Approved change evaluations
 
@@ -438,13 +456,13 @@ Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured result
 | 2026-11-04 | Not recorded | 0 | 21 | 3 | Not recorded |
 | 2026-11-05 | Not recorded | 0 | 17 | 7 | Not recorded |
 | 2026-11-06 | 8/87 (9%) | 0 | 14 | 1 | 3 |
-| 2026-11-07 | 4/109 (4%) | Not recorded | Not recorded | 0 | Not recorded |
+| 2026-11-07 | 4/109 (4%) | 2 | 11 | 0 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 3 | 9 |
-| first pass accepted | 4 | 0 |
-| image attempts | 4 | 15.5 |
+| first pass accepted | 5 | 0 |
+| image attempts | 5 | 14 |
 | top10 linked items | 2 | 3.5 |
 | publication failures | 5 | 3 |
 
@@ -600,14 +618,14 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 | Recorded defect | Rejected attempts with defect | Recurred across editions |
 |---|---:|---|
 | LAYOUT | 22 | Yes |
+| CAUSAL_CONNECTOR | 10 | Yes |
 | OTHER | 9 | Yes |
-| CAUSAL_CONNECTOR | 6 | Yes |
+| PSEUDO_WRITING | 7 | Yes |
 | UNALLOWLISTED_TEXT | 6 | Yes |
-| PSEUDO_WRITING | 4 | Yes |
+| UNSUPPORTED_CLAIM | 3 | Yes |
 | TYPOGRAPHY | 1 | No within observed window |
-| UNSUPPORTED_CLAIM | 1 | No within observed window |
 
-Total rejected: 40; unclassified: 14. A rejected attempt can have several defect codes.
+Total rejected: 45; unclassified: 14. A rejected attempt can have several defect codes.
 
 ### Top 10 publisher-family sensitivity
 

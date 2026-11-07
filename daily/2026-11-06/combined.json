@@ -543,7 +543,7 @@
         "Mixed-topic roundup counts remain attached to the programs."
       ]
     },
-    "source_commit": "0174dcee385a42af7fec50a33a651e23ca30abc9",
+    "source_commit": "9eeb76ee6d88036743398540db4fc73cdad5f288",
     "source_blob_sha": "d3a0af39e23a41870d1cb679a6817b8f23f36a3e",
     "report_sha256": "f49f95eecdbf618d0feaf1a627d9f203ae893c9d0b0fc1fffba5b8ca9339428f",
     "consumed_source_commit": "b42c9ac06ba959678d440e1491ce22af163e516e",
@@ -673,7 +673,7 @@
       },
       "previous_cycle": "2026-11-05",
       "previous_report_sha256": "334e6e7e9f8fc30fc49b1d15462f95dc3b4c3ef7ffd0d9bb950b9561591768ef",
-      "previous_aar_sha256": "213d0a3eb0bfe9c00f489cd1353cce1acfe7d5479d87ddc69196654f53fd96d6",
+      "previous_aar_sha256": "80b4e1de71e09d60697bf44c35ae6f2ca1e36b607e270fb284c925fa5b145b35",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -870,9 +870,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -912,11 +912,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0174dcee385a42af7fec50a33a651e23ca30abc9/signals/ai-topic-top10/2026-11-06.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9eeb76ee6d88036743398540db4fc73cdad5f288/signals/ai-topic-top10/2026-11-06.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0174dcee385a42af7fec50a33a651e23ca30abc9/signals/ai-topic-top10/2026-11-06.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9eeb76ee6d88036743398540db4fc73cdad5f288/signals/ai-topic-top10/2026-11-06.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -950,8 +950,48 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov07-t1-wet-lab-benchmark",
+            "label": "BioBasicsBench tests agents on raw wet-lab protocols",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov07-t2-metr-acceleration",
+            "label": "METR estimates Anthropic benchmark scores advanced 1.9 times faster",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov07-k1-cursor-live-apps",
+            "label": "Cursor agents can scaffold and publish live applications",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov07-k2-ai-native-universities",
+            "label": "Australian universities redesign assessment for AI-native graduates",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov07-a1-airbnb-visual-agent",
+            "label": "Airbnb plans a visual travel agent for 2027",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov07-a2-finance-skill",
+            "label": "Claude’s finance beta supports a read-only verification Skill",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 11,
+        "first_pass_accepted": 2,
+        "target": null,
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1040,8 +1080,8 @@
         "coverage_percent": 4,
         "coverage_numerator": 4,
         "coverage_denominator": 109,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 2,
+        "image_attempts": 11,
         "top10_linked_items": null,
         "publication_failures": 0
       }
@@ -1052,12 +1092,12 @@
         "median": 9
       },
       "first_pass_accepted": {
-        "recorded_editions": 4,
+        "recorded_editions": 5,
         "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 4,
-        "median": 15.5
+        "recorded_editions": 5,
+        "median": 14
       },
       "top10_linked_items": {
         "recorded_editions": 2,
@@ -1265,19 +1305,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 1,
-      "open_production_blockers": 1,
-      "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        }
-      ],
+      "finding_count": 0,
+      "open_production_blockers": 0,
+      "findings": [],
       "limitations": [
         "This report records findings and next actions; it does not execute corrections.",
         "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",
@@ -2981,8 +3011,8 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 4,
-      "total_rejected": 40,
+      "recorded_editions": 5,
+      "total_rejected": 45,
       "unclassified": 14,
       "rows": [
         {
@@ -2991,6 +3021,16 @@
           "editions": [
             "2026-11-04",
             "2026-11-05"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "CAUSAL_CONNECTOR",
+          "rejected_attempts": 10,
+          "editions": [
+            "2026-11-04",
+            "2026-11-05",
+            "2026-11-07"
           ],
           "recurring": true
         },
@@ -3004,11 +3044,12 @@
           "recurring": true
         },
         {
-          "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 6,
+          "cause": "PSEUDO_WRITING",
+          "rejected_attempts": 7,
           "editions": [
             "2026-11-04",
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-07"
           ],
           "recurring": true
         },
@@ -3022,24 +3063,16 @@
           "recurring": true
         },
         {
-          "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 4,
+          "cause": "UNSUPPORTED_CLAIM",
+          "rejected_attempts": 3,
           "editions": [
             "2026-11-04",
-            "2026-11-05"
+            "2026-11-07"
           ],
           "recurring": true
         },
         {
           "cause": "TYPOGRAPHY",
-          "rejected_attempts": 1,
-          "editions": [
-            "2026-11-04"
-          ],
-          "recurring": false
-        },
-        {
-          "cause": "UNSUPPORTED_CLAIM",
           "rejected_attempts": 1,
           "editions": [
             "2026-11-04"
