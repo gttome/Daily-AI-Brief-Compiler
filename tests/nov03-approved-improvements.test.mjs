@@ -80,3 +80,29 @@ test('current image entrypoints include observed November 3 rejection lessons wi
  const doc=fs.readFileSync('docs/automation/NOV03_APPROVED_AAR_IMPROVEMENTS.md','utf8');
  for(const phrase of ['GDPx attempt 2','Mistral attempt 1','LifeVal attempt 1','not an attempt cap','320px','candidate_reviews','Not recorded'])assert.ok(doc.includes(phrase),phrase);
 });
+
+test('a verified trend snapshot initializes ordered unattempted rows without replacing the normal source plan',()=>{
+ const cycle='2026-11-03';
+ const topics=Array.from({length:10},(_,i)=>({
+  topic_id:'topic-'+(i+1),rank:i+1,
+  suggested_searches:{article:'article '+i,video:'video '+i,podcast:'podcast '+i}
+ }));
+ const trendInput={schema_version:'daily-ai-topic-top10-input-v1',cycle_date:cycle,edition_date:edition,report_date:cycle,
+  source_path:'signals/ai-topic-top10/'+cycle+'.json',source_commit:'a'.repeat(40),source_blob_sha:'b'.repeat(40),
+  report_sha256:'c'.repeat(64),retrieved_at:'2026-11-04T01:15:00Z',
+  report:{schema_version:'daily-ai-topic-top10-v1',report_date:cycle,target_edition_date:edition,
+   timezone:'America/Chicago',status:'provisional',generated_at:'2026-11-03T23:15:00Z',topics}};
+ const plan=buildEditorialResearchPlan({editionDate:edition,registry,trendInput});
+ const {trend_search_coverage:coverage,...standard}=plan;
+ assert.deepEqual(standard,buildEditorialResearchPlan({editionDate:edition,registry}));
+ assert.equal(coverage.searches.length,30);
+ assert.equal(coverage.source_commit,trendInput.source_commit);
+ assert.equal(coverage.report_sha256,trendInput.report_sha256);
+ assert.deepEqual(coverage.searches.slice(0,3).map(row=>row.query),['article 0','video 0','podcast 0']);
+ assert.ok(coverage.searches.every(row=>row.outcome==='not_attempted'&&row.attempted_at===null&&
+   row.source_urls.length===0&&row.candidate_ids.length===0));
+ assert.deepEqual(coverage.selected_mappings,[]);
+ assert.throws(()=>buildEditorialResearchPlan({editionDate:'2026-11-05',registry,trendInput}),/INVALID_TREND_INPUT/);
+ assert.throws(()=>buildEditorialResearchPlan({editionDate:edition,registry,
+   trendInput:{...trendInput,retrieved_at:'2026-11-06T01:15:00Z'}}),/INVALID_TREND_INPUT/);
+});

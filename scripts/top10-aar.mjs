@@ -73,7 +73,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  // lock, never to the separate Top 10 provenance-collector observation time.
  const selectionLock=timestamp(bundle?.editorial_provenance?.selection_locked_at)||
   timestamp(coverage?.impact_observations?.timing?.selection_locked_at);
- const covered=new Set(),observations=new Set();let searchesValid=true;
+ const covered=new Set(),attemptedPairs=new Set(),observations=new Set();let searchesValid=true;
  for(const row of searches){
   const key=row?.topic_id+':'+row?.format;
   const observation=JSON.stringify([row?.topic_id,row?.format,row?.query,row?.attempted_at??null]);
@@ -93,10 +93,11 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   if(!valid){searchesValid=false;continue;}
   covered.add(key);observations.add(observation);searchCounts[row.format].recorded++;
   searchCounts[row.format][noAttempt?'not_attempted':'attempted']++;
+  if(!noAttempt)attemptedPairs.add(key);
  }
  const mappings=Array.isArray(coverage?.selected_mappings)?coverage.selected_mappings:[];
  const mappingValid=mappings.every(m=>clean(m)&&ids.has(m.topic_id)&&FORMATS.includes(m.format)&&
-  text(m.item_id)&&https(m.url)&&text(m.reason)&&covered.has(m.topic_id+':'+m.format));
+  text(m.item_id)&&https(m.url)&&text(m.reason)&&attemptedPairs.has(m.topic_id+':'+m.format));
  const selectedMatch=m=>{
   const records=bundle?.[m.format==='article'?'stories':m.format==='video'?'videos':'podcasts'];
   return Array.isArray(records)&&records.some(item=>{

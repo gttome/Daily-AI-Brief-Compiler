@@ -22,7 +22,7 @@ export function nextPublicationHealth({previous=null,editionDate,status,stage,ru
     VIDEO_PLAYBACK:'Reselect only failed videos from actual publisher-reviewed backups; require advancing duration-matched signed-out player.',
     MEDIA_HISTORY:'Read the exact failed job: check duplicates, verified channel identity, candidate pool and podcast evidence. Correct only the observed cause; replacement is not always required.',
     SEMANTIC_PREFLIGHT:'Read the complete semantic validator error; repair only the same-edition cause and rerun unchanged validation before protected dispatch.',
-    SOURCE_READY:'Correct the first invalid edition readiness constraint; do not allocate a second producer.',
+    SOURCE_READY:'Read the original readiness error. Check the BUNDLE stage, edition identity and exact bundle digest before retrying the same source.',
     DISPATCH_FAILED:'Inspect dispatch transport; retry only exact sealed source branch and digest.',
     READER_COMPATIBILITY:'Read the exact failed job; check original source dates, fallback comparisons, reader and Watchlist schema. Correct only the observed cause and rerun the existing gate.',
     IMAGE_HANDOFF:'Check released reader and regenerate only exact immutable six-story image job; do not create premium images.',

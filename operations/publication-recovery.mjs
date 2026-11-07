@@ -8,7 +8,7 @@ const plans={
  DISPATCH_FAILED:{correction:'RETRY_IDEMPOTENT_DISPATCH',next_action:'Retry only exact sealed bundle digest and branch through existing workflow; do not bypass main protection.'},
  IMAGE_HANDOFF:{correction:'REPAIR_SAME_SOURCE_IMAGE_JOB',next_action:'Reconstruct only the exact verified six-story image job from reader release receipts, then compare SHA256s; never regenerate any accepted image.'},
  PUBLICATION_PIPELINE:{correction:'REPAIR_FIRST_PROTECTED_STAGE',next_action:'Identify actual failed gate and replay only safe idempotent dependent steps.'},
- SOURCE_READY:{correction:'RESTORE_EXACT_BUNDLE_READINESS',next_action:'Resume the same shadow edition without allocating another producer.'}
+ SOURCE_READY:{correction:'RESTORE_EXACT_BUNDLE_READINESS',next_action:'Read the original SOURCE_READY failure and revalidate the same edition stage, identity and exact bundle bytes before signaling again.'}
 };
 export function publicationRecoveryDecision({editionDate,state=null,health=null,imageIndex=null,ownerIntervention=null,activePrimary=false}){
  if(!/^20\d\d-\d\d-\d\d$/.test(editionDate))throw new Error('Invalid edition date');
@@ -16,7 +16,7 @@ export function publicationRecoveryDecision({editionDate,state=null,health=null,
  if(state?.edition_date===editionDate&&state.state==='SHADOW_VERIFIED'&&current?.status==='RELEASED_VERIFIED')
    return {result:'PUBLICATION_AND_IMAGES_RELEASED',next_action:'Read-only independent verification; preserve accepted assets and immutable job.',requires_new_producer:false};
  if(state?.edition_date===editionDate&&state.state==='SHADOW_VERIFIED'&&current?.status==='PUBLISHED_PENDING')
-   return {result:'PUBLIC_READER_READY_FOR_IMAGE_WORKER',next_action:'Only existing image task consumes this immutable job at 21:15 Central.',requires_new_producer:false};
+   return {result:'PUBLIC_READER_READY_FOR_IMAGE_WORKER',next_action:'Only the existing image worker may consume this immutable job, including during its bounded recheck window.',requires_new_producer:false};
  if(state?.edition_date===editionDate&&state.state==='SHADOW_VERIFIED')
    return {result:'BLOCKED_IMAGE_HANDOFF',correction:plans.IMAGE_HANDOFF.correction,next_action:plans.IMAGE_HANDOFF.next_action,requires_new_producer:false};
  if(health?.edition_date===editionDate&&health.status==='BLOCKED_PUBLICATION'){
