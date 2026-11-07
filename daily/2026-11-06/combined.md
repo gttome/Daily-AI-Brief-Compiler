@@ -8,15 +8,15 @@
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
 > **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **provisional**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **NOT_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
-**🕒 Production stage durations:** **Top 10 5m 22s** · **Compiler final seal window 786m 60s** · **Premium Images 25m 59s** (evidence-bounded elapsed times; the start/end events differ).
+**🕒 Production stage durations:** **Top 10 5m 22s** · **Compiler final seal window 5m 51s** · **Premium Images 25m 59s** (evidence-bounded elapsed times; the start/end events differ).
 
 ## Evidence reconciliation
 
-Compiler final seal window: 786m 60s. Observed execution and final seal windows are distinct.
+Compiler final seal window: 5m 51s. Compiler state start to public verification: 787m 00s. Observed execution and final seal windows are distinct.
 Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
 Image efficiency: 2/6 first-pass accepts; 11 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: 2026-11-07T15:06:24Z; review-record commit: 2026-11-07T15:08:03.000Z; protected review merge: 2026-11-07T15:09:36.000Z.
-Eligible source indexes: 109; editorial inspections reported: 4 (3.7%); inaccessible in editorial audit: 0; explicitly unreviewed IDs: Unknown; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
+Eligible source indexes: 109; editorial inspections reported: 4 (3.7%); inaccessible in editorial audit: 0; explicitly unreviewed IDs: 105; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 Registered video sources: 29; attempted this edition: 29; unattempted: 0; enabled: 28; qualification-only: 1; sources yielding candidate URLs: 9. Status: REPORTED_ALL_ATTEMPTED. Attempt evidence is not automatic proof of source-content review or playback.
 
@@ -93,7 +93,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Recorded scheduler capability route | **UNPROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
-| **Compiler final seal window** | **786m 60s (787.0 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
+| **Compiler final seal window** | **5m 51s (5.8 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
 | **Image processing stage duration** | **25m 59s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **28m 36s** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
@@ -263,7 +263,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 1 — Compiler
 
-**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler final seal window:** 786m 60s (787.0 min).
+**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler final seal window:** 5m 51s (5.8 min).
 
 | Publication gate | Result |
 |---|:---:|
@@ -397,8 +397,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-07/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/47457be451654ee8f83c9a639f190ade9361b5ed/signals/ai-topic-top10/2026-11-06.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/47457be451654ee8f83c9a639f190ade9361b5ed/signals/ai-topic-top10/2026-11-06.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/39150548b457fd8b53a6e12480beb3acb85f6e0e/signals/ai-topic-top10/2026-11-06.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/39150548b457fd8b53a6e12480beb3acb85f6e0e/signals/ai-topic-top10/2026-11-06.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/editorial/trend-input.json) |
 
 **Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42384104653).

@@ -8,11 +8,11 @@
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
 > **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: NOT_APPLICABLE.** Top 10 report: **Not reported**; Compiler handoff: **NOT_APPLICABLE**; guided searches: **NOT_APPLICABLE**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
-**🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler final seal window 73m 54s** · **Premium Images 39m 09s** (evidence-bounded elapsed times; the start/end events differ).
+**🕒 Production stage durations:** **Top 10 Not recorded** · **Compiler final seal window 2m 34s** · **Premium Images 39m 09s** (evidence-bounded elapsed times; the start/end events differ).
 
 ## Evidence reconciliation
 
-Compiler final seal window: 73m 54s. Initial execution start not established; final seal window is not total runtime.
+Compiler final seal window: 2m 34s. Compiler state start to public verification: 73m 54s. Initial execution start not established; final seal window is not total runtime.
 Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
 Image efficiency: 0/6 first-pass accepts; 19 total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: 2026-10-25T02:58:00Z; review-record commit: 2026-10-25T03:01:45.000Z; protected review merge: 2026-10-25T03:03:34.000Z.
@@ -46,7 +46,7 @@ Image review completed: 2026-10-25T02:58:00Z; review-record commit: 2026-10-25T0
 | Recorded scheduler capability route | **CAPABILITY_ROUTE_PROVEN** | Same-invocation route receipt only; GitHub is not scheduler authentication |
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
-| **Compiler final seal window** | **73m 54s (73.9 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
+| **Compiler final seal window** | **2m 34s (2.6 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
 | **Image processing stage duration** | **39m 09s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **45m 17s** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
@@ -121,7 +121,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 1 — Compiler
 
-**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler final seal window:** 73m 54s (73.9 min).
+**State:** `SHADOW_VERIFIED` · **Bundle:** `BUNDLE_READY` · **Compiler final seal window:** 2m 34s (2.6 min).
 
 | Publication gate | Result |
 |---|:---:|
