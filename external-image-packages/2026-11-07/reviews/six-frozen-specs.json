@@ -1,0 +1,1718 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-07",
+    "story_id": "nov07-t1-wet-lab-benchmark",
+    "source_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+    "job_sha256": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
+    "visual_thesis": "The benchmark gives AI agents raw laboratory evidence to interpret and grades reasoning on controls and context.",
+    "mechanism_metaphor": "dry-lab evidence bridge",
+    "story_anchors": [
+      "The tasks start with raw wet-lab data rather than experimental conclusions.",
+      "A score reflects available task credit for interpretation, including controls and images.",
+      "The study does not establish dependable real-world laboratory judgment."
+    ],
+    "required_labels": [
+      "Raw lab evidence",
+      "Image interpretation",
+      "Check controls",
+      "Experimental context",
+      "Graded reasoning",
+      "Benchmark only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The tasks start with raw wet-lab data rather than experimental conclusions.",
+        "supporting_source_excerpt": "interpret raw experimental data, identify errors",
+        "source_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "A score reflects available task credit for interpretation, including controls and images.",
+        "supporting_source_excerpt": "misreading an image or overlooking a problem with the controls",
+        "source_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Raw lab evidence",
+        "to": "Image interpretation",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Interpret the available raw images and measurements.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Check controls",
+        "to": "Graded reasoning",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "Only credit conclusions supported by the relevant controls.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "The study does not establish dependable real-world laboratory judgment.",
+      "No unsupported metric, invented interface, approval badge, or simulated writing."
+    ],
+    "composition_signature": {
+      "grammar": "open laboratory evidence bridge",
+      "layout": "Wide triptych with an independent bottom caveat rail",
+      "metaphor": "dry-lab evidence bridge",
+      "palette": "petrol teal, mineral navy and amber",
+      "annotation": "specimen callouts above two distinct reading bays",
+      "hierarchy": "large input and validation labels, mid-level internal views",
+      "perspective": "Static conceptual editorial illustration with unobstructed label plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Raw lab evidence",
+          "region_id": "specimen",
+          "region": "Input plate with unlabeled specimen and gel wells",
+          "bounding_box_px": {
+            "x": 67,
+            "y": 96,
+            "width": 285,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Image interpretation",
+          "region_id": "interpret",
+          "region": "Bridge of separate image, control and contextual evidence bays",
+          "bounding_box_px": {
+            "x": 393,
+            "y": 85,
+            "width": 405,
+            "height": 36
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Check controls",
+          "region_id": "interpret",
+          "region": "Bridge of separate image, control and contextual evidence bays",
+          "bounding_box_px": {
+            "x": 402,
+            "y": 248,
+            "width": 370,
+            "height": 36
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Experimental context",
+          "region_id": "interpret",
+          "region": "Bridge of separate image, control and contextual evidence bays",
+          "bounding_box_px": {
+            "x": 398,
+            "y": 413,
+            "width": 390,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Graded reasoning",
+          "region_id": "assessment",
+          "region": "Assessment plate with observed supported and uncertain cases",
+          "bounding_box_px": {
+            "x": 842,
+            "y": 130,
+            "width": 288,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Benchmark only",
+          "region_id": "boundary",
+          "region": "Detached caveat beneath the main bridge",
+          "bounding_box_px": {
+            "x": 414,
+            "y": 536,
+            "width": 370,
+            "height": 36
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Raw lab evidence",
+        "Graded reasoning"
+      ],
+      "explanatory_substage_labels": [
+        "Image interpretation",
+        "Check controls"
+      ],
+      "source_caveat": "Benchmark only",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 74,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Interpret the available raw images and measurements.",
+          "allowed_path": "Raw lab evidence toward Image interpretation",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "Only credit conclusions supported by the relevant controls.",
+          "allowed_path": "Check controls toward Graded reasoning",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Raw lab evidence",
+          "to": "Image interpretation",
+          "support_claim_id": "claim_1",
+          "origin_region": "specimen",
+          "target_region": "interpret",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Check controls",
+          "to": "Graded reasoning",
+          "support_claim_id": "claim_2",
+          "origin_region": "interpret",
+          "target_region": "assessment",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "specimen",
+            "description": "Input plate with unlabeled specimen and gel wells",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 82,
+              "width": 305,
+              "height": 418
+            }
+          },
+          {
+            "id": "interpret",
+            "description": "Bridge of separate image, control and contextual evidence bays",
+            "bounding_box_px": {
+              "x": 382,
+              "y": 65,
+              "width": 427,
+              "height": 445
+            }
+          },
+          {
+            "id": "assessment",
+            "description": "Assessment plate with observed supported and uncertain cases",
+            "bounding_box_px": {
+              "x": 830,
+              "y": 105,
+              "width": 315,
+              "height": 397
+            }
+          },
+          {
+            "id": "boundary",
+            "description": "Detached caveat beneath the main bridge",
+            "bounding_box_px": {
+              "x": 385,
+              "y": 524,
+              "width": 430,
+              "height": 64
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Raw lab evidence",
+            "to": "Image interpretation",
+            "support_claim_id": "claim_1",
+            "from_region_id": "specimen",
+            "to_region_id": "interpret",
+            "origin_px": {
+              "x": 335,
+              "y": 230
+            },
+            "target_px": {
+              "x": 395,
+              "y": 230
+            }
+          },
+          {
+            "from": "Check controls",
+            "to": "Graded reasoning",
+            "support_claim_id": "claim_2",
+            "from_region_id": "interpret",
+            "to_region_id": "assessment",
+            "origin_px": {
+              "x": 791,
+              "y": 345
+            },
+            "target_px": {
+              "x": 846,
+              "y": 345
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Image task, primary-source editorial plan",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "419fe89af8dde7eafd8def8d095eba333bc778ea1c37b6b6014d24d9e49753ad"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Image task, primary-source editorial plan",
+      "source_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create ONE premium static editorial textbook infographic PNG with crisp polished vector-like linework and editorial visual depth. It is a conceptual illustration, not an engineering drawing.\n\nTarget 1200 x 630, aspect ratio 40:21, pure white. If your native canvas is taller, retain extra blank white bleed only above and below, with all content within an imaginary central 40:21 area. Do not draw a border or crop guide.\n\nStory mechanism: The benchmark gives AI agents raw laboratory evidence to interpret and grades reasoning on controls and context.\n\nLayout: Wide triptych with an independent bottom caveat rail. Palette: petrol teal, mineral navy and amber. Make the specimen plate include three meaningful evidence types (gel bands, a well cross-section, and a microscopy field); visually separate the image and control readings with distinct bays. Show positive and negative wells, comparison brackets, an evidence gap and unsupported conclusions through unmarked forms. Right assessment reads from the main supported port. Never draw an automated lab apparatus, physical experiments being run, numerical benchmark score, trophy, or causal arrow into the caveat.\n\nThe only text allowed, case and punctuation exactly: \"Raw lab evidence\", \"Image interpretation\", \"Check controls\", \"Experimental context\", \"Graded reasoning\", \"Benchmark only\". Do not render technical plan text, placeholders, measurements, logs or metadata.\n\nUse heavy dark high-contrast type, clean sans serif. Priority labels at least 36px and other labels at least 28px at 1200x630. Keep 40px safe margins and generous white gaps. Place labels next to objects, never on arrows.\n\nNo people, logos, branding, photos, dark or colored backgrounds, decorative controls, numerical scores, checkmark badges, pseudo-writing, letters in motifs, or unsupported arrows. Use unmarked physical forms for rich meaningful details and no ornamental filler.\n\nUse the geometry only as nonprinted composition guidance. Each arrow must terminate in a real object port in the specified region. Connect only the listed meaningful directed paths. Do not connect the independent caveat.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"specimen\",\"description\":\"Input plate with unlabeled specimen and gel wells\",\"bounding_box_px\":{\"x\":55,\"y\":82,\"width\":305,\"height\":418}},{\"id\":\"interpret\",\"description\":\"Bridge of separate image, control and contextual evidence bays\",\"bounding_box_px\":{\"x\":382,\"y\":65,\"width\":427,\"height\":445}},{\"id\":\"assessment\",\"description\":\"Assessment plate with observed supported and uncertain cases\",\"bounding_box_px\":{\"x\":830,\"y\":105,\"width\":315,\"height\":397}},{\"id\":\"boundary\",\"description\":\"Detached caveat beneath the main bridge\",\"bounding_box_px\":{\"x\":385,\"y\":524,\"width\":430,\"height\":64}}],\"labels\":[{\"label\":\"Raw lab evidence\",\"region_id\":\"specimen\",\"region\":\"Input plate with unlabeled specimen and gel wells\",\"bounding_box_px\":{\"x\":67,\"y\":96,\"width\":285,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Image interpretation\",\"region_id\":\"interpret\",\"region\":\"Bridge of separate image, control and contextual evidence bays\",\"bounding_box_px\":{\"x\":393,\"y\":85,\"width\":405,\"height\":36},\"minimum_font_px\":28},{\"label\":\"Check controls\",\"region_id\":\"interpret\",\"region\":\"Bridge of separate image, control and contextual evidence bays\",\"bounding_box_px\":{\"x\":402,\"y\":248,\"width\":370,\"height\":36},\"minimum_font_px\":28},{\"label\":\"Experimental context\",\"region_id\":\"interpret\",\"region\":\"Bridge of separate image, control and contextual evidence bays\",\"bounding_box_px\":{\"x\":398,\"y\":413,\"width\":390,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Graded reasoning\",\"region_id\":\"assessment\",\"region\":\"Assessment plate with observed supported and uncertain cases\",\"bounding_box_px\":{\"x\":842,\"y\":130,\"width\":288,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Benchmark only\",\"region_id\":\"boundary\",\"region\":\"Detached caveat beneath the main bridge\",\"bounding_box_px\":{\"x\":414,\"y\":536,\"width\":370,\"height\":36},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Raw lab evidence\",\"to\":\"Image interpretation\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"specimen\",\"to_region_id\":\"interpret\",\"origin_px\":{\"x\":335,\"y\":230},\"target_px\":{\"x\":395,\"y\":230}},{\"from\":\"Check controls\",\"to\":\"Graded reasoning\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"interpret\",\"to_region_id\":\"assessment\",\"origin_px\":{\"x\":791,\"y\":345},\"target_px\":{\"x\":846,\"y\":345}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-07",
+    "story_id": "nov07-t2-metr-acceleration",
+    "source_url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+    "job_sha256": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
+    "visual_thesis": "METR estimates a faster Anthropic model benchmark trend and separately evaluates what caused it.",
+    "mechanism_metaphor": "paired observation tracks and separated attribution notes",
+    "story_anchors": [
+      "The estimated acceleration describes the trend in Anthropic model benchmark scores.",
+      "Causal attribution depends partly on interviews and evidence that readers cannot independently inspect.",
+      "The estimate is not a direct speed measurement for researcher productivity."
+    ],
+    "required_labels": [
+      "Model benchmark trend",
+      "Earlier pace",
+      "Later pace",
+      "Attribution review",
+      "AI assistance",
+      "Redacted evidence"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The estimated acceleration describes the trend in Anthropic model benchmark scores.",
+        "supporting_source_excerpt": "benchmark scores (measured via AECI",
+        "source_url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Causal attribution depends partly on interviews and evidence that readers cannot independently inspect.",
+        "supporting_source_excerpt": "A majority of this acceleration today is likely attributable",
+        "source_url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Model benchmark trend",
+        "to": "Attribution review",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "The measured trend informs the attribution review without settling the cause.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "The estimate is not a direct speed measurement for researcher productivity.",
+      "No unsupported metric, invented interface, approval badge, or simulated writing."
+    ],
+    "composition_signature": {
+      "grammar": "paired model evidence cross-section",
+      "layout": "Two stacked timeline tracks on the left and a separate attribution fork on the right",
+      "metaphor": "paired observation tracks and separated attribution notes",
+      "palette": "ochre, ink brown and mineral sage",
+      "annotation": "parallel time comparisons plus detached uncertainty",
+      "hierarchy": "large measured-trend and attribution headings above layered evidence",
+      "perspective": "Static conceptual editorial illustration with unobstructed label plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 3,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Model benchmark trend",
+          "region_id": "trend",
+          "region": "Two comparative bands within one benchmark evidence field",
+          "bounding_box_px": {
+            "x": 70,
+            "y": 76,
+            "width": 558,
+            "height": 49
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Earlier pace",
+          "region_id": "trend",
+          "region": "Two comparative bands within one benchmark evidence field",
+          "bounding_box_px": {
+            "x": 77,
+            "y": 179,
+            "width": 255,
+            "height": 37
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Later pace",
+          "region_id": "trend",
+          "region": "Two comparative bands within one benchmark evidence field",
+          "bounding_box_px": {
+            "x": 77,
+            "y": 345,
+            "width": 255,
+            "height": 37
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Attribution review",
+          "region_id": "attribution",
+          "region": "Separate editorial plate for qualitative causal evidence",
+          "bounding_box_px": {
+            "x": 693,
+            "y": 99,
+            "width": 425,
+            "height": 49
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "AI assistance",
+          "region_id": "attribution",
+          "region": "Separate editorial plate for qualitative causal evidence",
+          "bounding_box_px": {
+            "x": 708,
+            "y": 285,
+            "width": 370,
+            "height": 37
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Redacted evidence",
+          "region_id": "limits",
+          "region": "Detached evidence limitation beneath the attribution plate",
+          "bounding_box_px": {
+            "x": 700,
+            "y": 532,
+            "width": 400,
+            "height": 36
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Model benchmark trend",
+        "Attribution review"
+      ],
+      "explanatory_substage_labels": [
+        "Earlier pace",
+        "Later pace"
+      ],
+      "source_caveat": "Redacted evidence",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 74,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "The measured trend informs the attribution review without settling the cause.",
+          "allowed_path": "Model benchmark trend toward Attribution review",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Model benchmark trend",
+          "to": "Attribution review",
+          "support_claim_id": "claim_1",
+          "origin_region": "trend",
+          "target_region": "attribution",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "trend",
+            "description": "Two comparative bands within one benchmark evidence field",
+            "bounding_box_px": {
+              "x": 56,
+              "y": 62,
+              "width": 595,
+              "height": 435
+            }
+          },
+          {
+            "id": "attribution",
+            "description": "Separate editorial plate for qualitative causal evidence",
+            "bounding_box_px": {
+              "x": 678,
+              "y": 83,
+              "width": 462,
+              "height": 410
+            }
+          },
+          {
+            "id": "limits",
+            "description": "Detached evidence limitation beneath the attribution plate",
+            "bounding_box_px": {
+              "x": 679,
+              "y": 516,
+              "width": 460,
+              "height": 65
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Model benchmark trend",
+            "to": "Attribution review",
+            "support_claim_id": "claim_1",
+            "from_region_id": "trend",
+            "to_region_id": "attribution",
+            "origin_px": {
+              "x": 630,
+              "y": 348
+            },
+            "target_px": {
+              "x": 690,
+              "y": 348
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Image task, primary-source editorial plan",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "ee803c3d4752c9d016e1369f0dbcbd2e4a161d2ea3dc2f77abf6adddd6a40d70"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Image task, primary-source editorial plan",
+      "source_url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Edit the supplied draft and preserve its exact labels and all existing visual elements apart from the single directional connector. Move the connector so it starts from the OUTER BOUNDARY of the entire left comparison plate, in the white horizontal gutter between the two pace bands. The earlier and later strips must each remain visibly disconnected from the arrow. The arrow ends in the right plate boundary at the same vertical height. This arrow represents the combined comparison informing the attribution review. No new text, no additional directional connectors.\n\nCreate ONE premium static editorial textbook infographic PNG with crisp polished vector-like linework and editorial visual depth. It is a conceptual illustration, not an engineering drawing.\n\nTarget 1200 x 630, aspect ratio 40:21, pure white. If your native canvas is taller, retain extra blank white bleed only above and below, with all content within an imaginary central 40:21 area. Do not draw a border or crop guide.\n\nStory mechanism: METR estimates a faster Anthropic model benchmark trend and separately evaluates what caused it.\n\nLayout: Two stacked timeline tracks on the left and a separate attribution fork on the right. Palette: ochre, ink brown and mineral sage. No drawn numeric graph or invented data points. Use two unnumbered smooth time bands with equal length and a single abstract motion motif apiece. Within the separate attribution field place interview evidence, modeling assumptions, a training-compute control and unmarked alternative evidence plates. The arrow enters only the attribution-review plate. Depict AI assistance as a plausible contributor inside the plate without a causal arrow asserting it caused the trend. Put the redacted evidence note outside the field.\n\nThe only text allowed, case and punctuation exactly: \"Model benchmark trend\", \"Earlier pace\", \"Later pace\", \"Attribution review\", \"AI assistance\", \"Redacted evidence\". Do not render technical plan text, placeholders, measurements, logs or metadata.\n\nUse heavy dark high-contrast type, clean sans serif. Priority labels at least 36px and other labels at least 28px at 1200x630. Keep 40px safe margins and generous white gaps. Place labels next to objects, never on arrows.\n\nNo people, logos, branding, photos, dark or colored backgrounds, decorative controls, numerical scores, checkmark badges, pseudo-writing, letters in motifs, or unsupported arrows. Use unmarked physical forms for rich meaningful details and no ornamental filler.\n\nUse the geometry only as nonprinted composition guidance. Each arrow must terminate in a real object port in the specified region. Connect only the listed meaningful directed paths. Do not connect the independent caveat.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"trend\",\"description\":\"Two comparative bands within one benchmark evidence field\",\"bounding_box_px\":{\"x\":56,\"y\":62,\"width\":595,\"height\":435}},{\"id\":\"attribution\",\"description\":\"Separate editorial plate for qualitative causal evidence\",\"bounding_box_px\":{\"x\":678,\"y\":83,\"width\":462,\"height\":410}},{\"id\":\"limits\",\"description\":\"Detached evidence limitation beneath the attribution plate\",\"bounding_box_px\":{\"x\":679,\"y\":516,\"width\":460,\"height\":65}}],\"labels\":[{\"label\":\"Model benchmark trend\",\"region_id\":\"trend\",\"region\":\"Two comparative bands within one benchmark evidence field\",\"bounding_box_px\":{\"x\":70,\"y\":76,\"width\":558,\"height\":49},\"minimum_font_px\":36},{\"label\":\"Earlier pace\",\"region_id\":\"trend\",\"region\":\"Two comparative bands within one benchmark evidence field\",\"bounding_box_px\":{\"x\":77,\"y\":179,\"width\":255,\"height\":37},\"minimum_font_px\":28},{\"label\":\"Later pace\",\"region_id\":\"trend\",\"region\":\"Two comparative bands within one benchmark evidence field\",\"bounding_box_px\":{\"x\":77,\"y\":345,\"width\":255,\"height\":37},\"minimum_font_px\":28},{\"label\":\"Attribution review\",\"region_id\":\"attribution\",\"region\":\"Separate editorial plate for qualitative causal evidence\",\"bounding_box_px\":{\"x\":693,\"y\":99,\"width\":425,\"height\":49},\"minimum_font_px\":36},{\"label\":\"AI assistance\",\"region_id\":\"attribution\",\"region\":\"Separate editorial plate for qualitative causal evidence\",\"bounding_box_px\":{\"x\":708,\"y\":285,\"width\":370,\"height\":37},\"minimum_font_px\":28},{\"label\":\"Redacted evidence\",\"region_id\":\"limits\",\"region\":\"Detached evidence limitation beneath the attribution plate\",\"bounding_box_px\":{\"x\":700,\"y\":532,\"width\":400,\"height\":36},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Model benchmark trend\",\"to\":\"Attribution review\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"trend\",\"to_region_id\":\"attribution\",\"origin_px\":{\"x\":630,\"y\":348},\"target_px\":{\"x\":690,\"y\":348}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-07",
+    "story_id": "nov07-k1-cursor-live-apps",
+    "source_url": "https://cursor.com/changelog/build-live-apps",
+    "job_sha256": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
+    "visual_thesis": "A cloud agent scaffolds an app and managed services, while explicit publish remains a separate step after security review.",
+    "mechanism_metaphor": "application scaffold and separate deployment gate",
+    "story_anchors": [
+      "The publisher describes scaffolding, managed hosting and optional Postgres.",
+      "Security review occurs before the app goes live.",
+      "Explicit publication is required, and administrators may approve blocked releases."
+    ],
+    "required_labels": [
+      "App scaffold",
+      "Optional database",
+      "Sign-in boundary",
+      "Security checks",
+      "Explicit publish",
+      "Admin exception"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The publisher describes scaffolding, managed hosting and optional Postgres.",
+        "supporting_source_excerpt": "Cursor will scaffold the web app",
+        "source_url": "https://cursor.com/changelog/build-live-apps",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Security review occurs before the app goes live.",
+        "supporting_source_excerpt": "Nothing goes live until the checks pass and you explicitly publish",
+        "source_url": "https://cursor.com/changelog/build-live-apps",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "App scaffold",
+        "to": "Security checks",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "A scaffold goes through security review when publish is attempted.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Security checks",
+        "to": "Explicit publish",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "A normal successful review permits the separate explicit publish step.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Explicit publication is required, and administrators may approve blocked releases.",
+      "No unsupported metric, invented interface, approval badge, or simulated writing."
+    ],
+    "composition_signature": {
+      "grammar": "application construction cross-section with controlled release gate",
+      "layout": "Architectural cutaway left and offset pre-release clearance gate right",
+      "metaphor": "application scaffold and separate deployment gate",
+      "palette": "oxide orange, neutral navy and restrained steel blue",
+      "annotation": "cutaway labels and a release interlock",
+      "hierarchy": "dominant architecture and gate headings above smaller implementation terms",
+      "perspective": "Static conceptual editorial illustration with unobstructed label plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 3,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "App scaffold",
+          "region_id": "construction",
+          "region": "Layered app scaffold and related optional services",
+          "bounding_box_px": {
+            "x": 72,
+            "y": 84,
+            "width": 380,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Optional database",
+          "region_id": "construction",
+          "region": "Layered app scaffold and related optional services",
+          "bounding_box_px": {
+            "x": 77,
+            "y": 309,
+            "width": 320,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Sign-in boundary",
+          "region_id": "construction",
+          "region": "Layered app scaffold and related optional services",
+          "bounding_box_px": {
+            "x": 78,
+            "y": 411,
+            "width": 350,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Security checks",
+          "region_id": "clearance",
+          "region": "Staggered checks and explicit publish with a closed failure track",
+          "bounding_box_px": {
+            "x": 664,
+            "y": 100,
+            "width": 435,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Explicit publish",
+          "region_id": "clearance",
+          "region": "Staggered checks and explicit publish with a closed failure track",
+          "bounding_box_px": {
+            "x": 670,
+            "y": 352,
+            "width": 435,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Admin exception",
+          "region_id": "exception",
+          "region": "Separate administrative exception note",
+          "bounding_box_px": {
+            "x": 669,
+            "y": 533,
+            "width": 430,
+            "height": 37
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "App scaffold",
+        "Security checks"
+      ],
+      "explanatory_substage_labels": [
+        "Optional database",
+        "Sign-in boundary"
+      ],
+      "source_caveat": "Admin exception",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 74,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "A scaffold goes through security review when publish is attempted.",
+          "allowed_path": "App scaffold toward Security checks",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "A normal successful review permits the separate explicit publish step.",
+          "allowed_path": "Security checks toward Explicit publish",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "App scaffold",
+          "to": "Security checks",
+          "support_claim_id": "claim_1",
+          "origin_region": "construction",
+          "target_region": "clearance",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Security checks",
+          "to": "Explicit publish",
+          "support_claim_id": "claim_2",
+          "origin_region": "clearance",
+          "target_region": "clearance",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "construction",
+            "description": "Layered app scaffold and related optional services",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 71,
+              "width": 570,
+              "height": 432
+            }
+          },
+          {
+            "id": "clearance",
+            "description": "Staggered checks and explicit publish with a closed failure track",
+            "bounding_box_px": {
+              "x": 647,
+              "y": 83,
+              "width": 496,
+              "height": 417
+            }
+          },
+          {
+            "id": "exception",
+            "description": "Separate administrative exception note",
+            "bounding_box_px": {
+              "x": 656,
+              "y": 514,
+              "width": 470,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "App scaffold",
+            "to": "Security checks",
+            "support_claim_id": "claim_1",
+            "from_region_id": "construction",
+            "to_region_id": "clearance",
+            "origin_px": {
+              "x": 612,
+              "y": 216
+            },
+            "target_px": {
+              "x": 663,
+              "y": 216
+            }
+          },
+          {
+            "from": "Security checks",
+            "to": "Explicit publish",
+            "support_claim_id": "claim_2",
+            "from_region_id": "clearance",
+            "to_region_id": "clearance",
+            "origin_px": {
+              "x": 916,
+              "y": 235
+            },
+            "target_px": {
+              "x": 916,
+              "y": 338
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Image task, primary-source editorial plan",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "2860ad5df8cbffcbecb80e8ef40f6ee5b48a7802802d057fff0c1ab489f2291c"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Image task, primary-source editorial plan",
+      "source_url": "https://cursor.com/changelog/build-live-apps",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Create ONE premium static editorial textbook infographic PNG with crisp polished vector-like linework and editorial visual depth. It is a conceptual illustration, not an engineering drawing.\n\nTarget 1200 x 630, aspect ratio 40:21, pure white. If your native canvas is taller, retain extra blank white bleed only above and below, with all content within an imaginary central 40:21 area. Do not draw a border or crop guide.\n\nStory mechanism: A cloud agent scaffolds an app and managed services, while explicit publish remains a separate step after security review.\n\nLayout: Architectural cutaway left and offset pre-release clearance gate right. Palette: oxide orange, neutral navy and restrained steel blue. Use a three-layer open cutaway with app structure, optional database and sign-in perimeter, plus a separate stepped release assembly. Add a capped rejection track with no text and no connection to publication; the admin-exception note is detached. Use twelve functional visual details only, including scope perimeter, service connection, test stage, explicit action port and blocked endcap. No imitation UI or secrets, badges, hardware knobs, or assurance that checks prevent every vulnerability.\n\nThe only text allowed, case and punctuation exactly: \"App scaffold\", \"Optional database\", \"Sign-in boundary\", \"Security checks\", \"Explicit publish\", \"Admin exception\". Do not render technical plan text, placeholders, measurements, logs or metadata.\n\nUse heavy dark high-contrast type, clean sans serif. Priority labels at least 36px and other labels at least 28px at 1200x630. Keep 40px safe margins and generous white gaps. Place labels next to objects, never on arrows.\n\nNo people, logos, branding, photos, dark or colored backgrounds, decorative controls, numerical scores, checkmark badges, pseudo-writing, letters in motifs, or unsupported arrows. Use unmarked physical forms for rich meaningful details and no ornamental filler.\n\nUse the geometry only as nonprinted composition guidance. Each arrow must terminate in a real object port in the specified region. Connect only the listed meaningful directed paths. Do not connect the independent caveat.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"construction\",\"description\":\"Layered app scaffold and related optional services\",\"bounding_box_px\":{\"x\":55,\"y\":71,\"width\":570,\"height\":432}},{\"id\":\"clearance\",\"description\":\"Staggered checks and explicit publish with a closed failure track\",\"bounding_box_px\":{\"x\":647,\"y\":83,\"width\":496,\"height\":417}},{\"id\":\"exception\",\"description\":\"Separate administrative exception note\",\"bounding_box_px\":{\"x\":656,\"y\":514,\"width\":470,\"height\":70}}],\"labels\":[{\"label\":\"App scaffold\",\"region_id\":\"construction\",\"region\":\"Layered app scaffold and related optional services\",\"bounding_box_px\":{\"x\":72,\"y\":84,\"width\":380,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Optional database\",\"region_id\":\"construction\",\"region\":\"Layered app scaffold and related optional services\",\"bounding_box_px\":{\"x\":77,\"y\":309,\"width\":320,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Sign-in boundary\",\"region_id\":\"construction\",\"region\":\"Layered app scaffold and related optional services\",\"bounding_box_px\":{\"x\":78,\"y\":411,\"width\":350,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Security checks\",\"region_id\":\"clearance\",\"region\":\"Staggered checks and explicit publish with a closed failure track\",\"bounding_box_px\":{\"x\":664,\"y\":100,\"width\":435,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Explicit publish\",\"region_id\":\"clearance\",\"region\":\"Staggered checks and explicit publish with a closed failure track\",\"bounding_box_px\":{\"x\":670,\"y\":352,\"width\":435,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Admin exception\",\"region_id\":\"exception\",\"region\":\"Separate administrative exception note\",\"bounding_box_px\":{\"x\":669,\"y\":533,\"width\":430,\"height\":37},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"App scaffold\",\"to\":\"Security checks\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"construction\",\"to_region_id\":\"clearance\",\"origin_px\":{\"x\":612,\"y\":216},\"target_px\":{\"x\":663,\"y\":216}},{\"from\":\"Security checks\",\"to\":\"Explicit publish\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"clearance\",\"to_region_id\":\"clearance\",\"origin_px\":{\"x\":916,\"y\":235},\"target_px\":{\"x\":916,\"y\":338}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-07",
+    "story_id": "nov07-k2-ai-native-universities",
+    "source_url": "https://openai.com/index/australian-universities-ai-native-graduates/",
+    "job_sha256": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
+    "visual_thesis": "The university example has educators specify when AI is permitted, prohibited or required for an assessment.",
+    "mechanism_metaphor": "course assessment taxonomy",
+    "story_anchors": [
+      "UNSW’s assessment framework distinguishes Can, Can’t and Must.",
+      "Teaching examples include simulations and practice with explicit boundaries.",
+      "Classroom case studies do not establish learning outcomes."
+    ],
+    "required_labels": [
+      "Assessment design",
+      "AI permitted",
+      "AI prohibited",
+      "AI required",
+      "Practice simulation",
+      "Case examples only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "UNSW’s assessment framework distinguishes Can, Can’t and Must.",
+        "supporting_source_excerpt": "Can, Can’t, Must framework for assessment",
+        "source_url": "https://openai.com/index/australian-universities-ai-native-graduates/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Teaching examples include simulations and practice with explicit boundaries.",
+        "supporting_source_excerpt": "an educator can specify that AI use is permitted, prohibited or required",
+        "source_url": "https://openai.com/index/australian-universities-ai-native-graduates/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Assessment design",
+        "to": "AI prohibited",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "The assignment learning goal can define a prohibited-use category.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Classroom case studies do not establish learning outcomes.",
+      "No unsupported metric, invented interface, approval badge, or simulated writing."
+    ],
+    "composition_signature": {
+      "grammar": "assessment taxonomy organized as a ruled classification tree",
+      "layout": "Wide top guidance field over three broad category columns and independent bottom note",
+      "metaphor": "course assessment taxonomy",
+      "palette": "deep plum, muted lavender and dry marigold",
+      "annotation": "category headers with examples shown as abstract exercise materials",
+      "hierarchy": "big top assessment heading and emphasized prohibited/required categories",
+      "perspective": "Static conceptual editorial illustration with unobstructed label plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Assessment design",
+          "region_id": "assessment",
+          "region": "Top band with assignment and learning goal",
+          "bounding_box_px": {
+            "x": 300,
+            "y": 69,
+            "width": 600,
+            "height": 47
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "AI permitted",
+          "region_id": "optional",
+          "region": "Permitted category",
+          "bounding_box_px": {
+            "x": 76,
+            "y": 203,
+            "width": 293,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "AI prohibited",
+          "region_id": "prohibited",
+          "region": "Prohibited category",
+          "bounding_box_px": {
+            "x": 436,
+            "y": 203,
+            "width": 310,
+            "height": 47
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "AI required",
+          "region_id": "required",
+          "region": "Required category with practice example",
+          "bounding_box_px": {
+            "x": 802,
+            "y": 203,
+            "width": 326,
+            "height": 47
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Practice simulation",
+          "region_id": "required",
+          "region": "Required category with practice example",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 390,
+            "width": 325,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Case examples only",
+          "region_id": "limits",
+          "region": "Detached caveat on scope of cases",
+          "bounding_box_px": {
+            "x": 379,
+            "y": 527,
+            "width": 457,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Assessment design",
+        "AI prohibited",
+        "AI required"
+      ],
+      "explanatory_substage_labels": [
+        "AI permitted",
+        "Practice simulation"
+      ],
+      "source_caveat": "Case examples only",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 74,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_2",
+          "condition": "The assignment learning goal can define a prohibited-use category.",
+          "allowed_path": "Assessment design toward AI prohibited",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Assessment design",
+          "to": "AI prohibited",
+          "support_claim_id": "claim_2",
+          "origin_region": "assessment",
+          "target_region": "prohibited",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "assessment",
+            "description": "Top band with assignment and learning goal",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 56,
+              "width": 1090,
+              "height": 118
+            }
+          },
+          {
+            "id": "optional",
+            "description": "Permitted category",
+            "bounding_box_px": {
+              "x": 60,
+              "y": 191,
+              "width": 330,
+              "height": 286
+            }
+          },
+          {
+            "id": "prohibited",
+            "description": "Prohibited category",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 191,
+              "width": 340,
+              "height": 286
+            }
+          },
+          {
+            "id": "required",
+            "description": "Required category with practice example",
+            "bounding_box_px": {
+              "x": 787,
+              "y": 191,
+              "width": 354,
+              "height": 286
+            }
+          },
+          {
+            "id": "limits",
+            "description": "Detached caveat on scope of cases",
+            "bounding_box_px": {
+              "x": 345,
+              "y": 515,
+              "width": 510,
+              "height": 64
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Assessment design",
+            "to": "AI prohibited",
+            "support_claim_id": "claim_2",
+            "from_region_id": "assessment",
+            "to_region_id": "prohibited",
+            "origin_px": {
+              "x": 591,
+              "y": 153
+            },
+            "target_px": {
+              "x": 591,
+              "y": 196
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Image task, primary-source editorial plan",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "92a24b05e209eb73feff7733edecd3db4f308d23c85a7d07b3e7a182bd8e3cf7"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Image task, primary-source editorial plan",
+      "source_url": "https://openai.com/index/australian-universities-ai-native-graduates/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Targeted correction of the supplied draft. Preserve the six labels exactly and the white-background hierarchy. Change ONLY the following: remove arrowheads from the left and right top branch lines so they are non-directional classification branches; keep only the central directional arrow to AI prohibited. Remove all marks from the document surfaces, including the multiple-choice circles, horizontal simulated-writing bars and notebook lines. Replace the repeated exam forms with deliberately different abstract assignment symbols: a two-part option tile on the left, a bounded plain work sheet in the center, and a simple geometric scenario layout on the right. Keep Practice simulation visibly inside the example area. Do not add labels or any simulated writing.\n\nCreate ONE premium static editorial textbook infographic PNG with crisp polished vector-like linework and editorial visual depth. It is a conceptual illustration, not an engineering drawing.\n\nTarget 1200 x 630, aspect ratio 40:21, pure white. If your native canvas is taller, retain extra blank white bleed only above and below, with all content within an imaginary central 40:21 area. Do not draw a border or crop guide.\n\nStory mechanism: The university example has educators specify when AI is permitted, prohibited or required for an assessment.\n\nLayout: Wide top guidance field over three broad category columns and independent bottom note. Palette: deep plum, muted lavender and dry marigold. Use a branching classification tree, with straight neutral branches and explicit category separation, no student/person icons. Show each column with abstract answer sheet silhouette, oral simulation cue, task evidence and rule boundary through blank physical forms, not a card deck. The categories are alternatives for a given assignment, not consecutive stages. Keep the caveat separate and do not invent grades, passing outcomes or measured learning gains.\n\nThe only text allowed, case and punctuation exactly: \"Assessment design\", \"AI permitted\", \"AI prohibited\", \"AI required\", \"Practice simulation\", \"Case examples only\". Do not render technical plan text, placeholders, measurements, logs or metadata.\n\nUse heavy dark high-contrast type, clean sans serif. Priority labels at least 36px and other labels at least 28px at 1200x630. Keep 40px safe margins and generous white gaps. Place labels next to objects, never on arrows.\n\nNo people, logos, branding, photos, dark or colored backgrounds, decorative controls, numerical scores, checkmark badges, pseudo-writing, letters in motifs, or unsupported arrows. Use unmarked physical forms for rich meaningful details and no ornamental filler.\n\nUse the geometry only as nonprinted composition guidance. Each arrow must terminate in a real object port in the specified region. Connect only the listed meaningful directed paths. Do not connect the independent caveat.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"assessment\",\"description\":\"Top band with assignment and learning goal\",\"bounding_box_px\":{\"x\":55,\"y\":56,\"width\":1090,\"height\":118}},{\"id\":\"optional\",\"description\":\"Permitted category\",\"bounding_box_px\":{\"x\":60,\"y\":191,\"width\":330,\"height\":286}},{\"id\":\"prohibited\",\"description\":\"Prohibited category\",\"bounding_box_px\":{\"x\":420,\"y\":191,\"width\":340,\"height\":286}},{\"id\":\"required\",\"description\":\"Required category with practice example\",\"bounding_box_px\":{\"x\":787,\"y\":191,\"width\":354,\"height\":286}},{\"id\":\"limits\",\"description\":\"Detached caveat on scope of cases\",\"bounding_box_px\":{\"x\":345,\"y\":515,\"width\":510,\"height\":64}}],\"labels\":[{\"label\":\"Assessment design\",\"region_id\":\"assessment\",\"region\":\"Top band with assignment and learning goal\",\"bounding_box_px\":{\"x\":300,\"y\":69,\"width\":600,\"height\":47},\"minimum_font_px\":36},{\"label\":\"AI permitted\",\"region_id\":\"optional\",\"region\":\"Permitted category\",\"bounding_box_px\":{\"x\":76,\"y\":203,\"width\":293,\"height\":38},\"minimum_font_px\":28},{\"label\":\"AI prohibited\",\"region_id\":\"prohibited\",\"region\":\"Prohibited category\",\"bounding_box_px\":{\"x\":436,\"y\":203,\"width\":310,\"height\":47},\"minimum_font_px\":36},{\"label\":\"AI required\",\"region_id\":\"required\",\"region\":\"Required category with practice example\",\"bounding_box_px\":{\"x\":802,\"y\":203,\"width\":326,\"height\":47},\"minimum_font_px\":36},{\"label\":\"Practice simulation\",\"region_id\":\"required\",\"region\":\"Required category with practice example\",\"bounding_box_px\":{\"x\":800,\"y\":390,\"width\":325,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Case examples only\",\"region_id\":\"limits\",\"region\":\"Detached caveat on scope of cases\",\"bounding_box_px\":{\"x\":379,\"y\":527,\"width\":457,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Assessment design\",\"to\":\"AI prohibited\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"assessment\",\"to_region_id\":\"prohibited\",\"origin_px\":{\"x\":591,\"y\":153},\"target_px\":{\"x\":591,\"y\":196}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-07",
+    "story_id": "nov07-a1-airbnb-visual-agent",
+    "source_url": "https://news.airbnb.com/airbnb-q3-2026-financial-results",
+    "job_sha256": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
+    "visual_thesis": "Airbnb describes a proposed travel agent using visual interface elements and reservation context to support planning.",
+    "mechanism_metaphor": "visual trip planning atlas",
+    "story_anchors": [
+      "The future interface can use maps, photos, comparisons, calendars and itinerary elements.",
+      "Booking and customer support context is separate from planning surfaces.",
+      "The agent is a roadmap item, not a released feature."
+    ],
+    "required_labels": [
+      "Travel map",
+      "Visual comparisons",
+      "Calendar view",
+      "Itinerary options",
+      "Reservation context",
+      "Planned rollout"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The future interface can use maps, photos, comparisons, calendars and itinerary elements.",
+        "supporting_source_excerpt": "maps, photos, comparisons, calendars",
+        "source_url": "https://news.airbnb.com/airbnb-q3-2026-financial-results",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Booking and customer support context is separate from planning surfaces.",
+        "supporting_source_excerpt": "We plan to start rolling it out to guests in the first half of 2027",
+        "source_url": "https://news.airbnb.com/airbnb-q3-2026-financial-results",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Travel map",
+        "to": "Itinerary options",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "The proposed visual interface can use map evidence to compare itinerary options.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "The agent is a roadmap item, not a released feature.",
+      "No unsupported metric, invented interface, approval badge, or simulated writing."
+    ],
+    "composition_signature": {
+      "grammar": "map atlas with aligned decision evidence foldouts",
+      "layout": "Left map panel, top-right visual comparisons, lower-right reservation context, independent bottom tag",
+      "metaphor": "visual trip planning atlas",
+      "palette": "forest teal, sand, muted terracotta and slate",
+      "annotation": "map key and alignment bands for candidate options",
+      "hierarchy": "large map and visual comparison labels above reserved context and roadmap",
+      "perspective": "Static conceptual editorial illustration with unobstructed label plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Travel map",
+          "region_id": "map",
+          "region": "Conceptual street map with alternate locations, routes and proximity",
+          "bounding_box_px": {
+            "x": 74,
+            "y": 83,
+            "width": 425,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Visual comparisons",
+          "region_id": "options",
+          "region": "Visual candidate comparison with calendar and itinerary features",
+          "bounding_box_px": {
+            "x": 581,
+            "y": 73,
+            "width": 520,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Calendar view",
+          "region_id": "options",
+          "region": "Visual candidate comparison with calendar and itinerary features",
+          "bounding_box_px": {
+            "x": 583,
+            "y": 212,
+            "width": 255,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Itinerary options",
+          "region_id": "options",
+          "region": "Visual candidate comparison with calendar and itinerary features",
+          "bounding_box_px": {
+            "x": 856,
+            "y": 212,
+            "width": 270,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Reservation context",
+          "region_id": "reservation",
+          "region": "Separate context strip with pre/post booking information",
+          "bounding_box_px": {
+            "x": 585,
+            "y": 427,
+            "width": 520,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Planned rollout",
+          "region_id": "roadmap",
+          "region": "Detached future rollout note below the atlas",
+          "bounding_box_px": {
+            "x": 420,
+            "y": 532,
+            "width": 380,
+            "height": 36
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Travel map",
+        "Visual comparisons"
+      ],
+      "explanatory_substage_labels": [
+        "Calendar view",
+        "Itinerary options"
+      ],
+      "source_caveat": "Planned rollout",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 74,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "The proposed visual interface can use map evidence to compare itinerary options.",
+          "allowed_path": "Travel map toward Itinerary options",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Travel map",
+          "to": "Itinerary options",
+          "support_claim_id": "claim_1",
+          "origin_region": "map",
+          "target_region": "options",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "map",
+            "description": "Conceptual street map with alternate locations, routes and proximity",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 68,
+              "width": 478,
+              "height": 436
+            }
+          },
+          {
+            "id": "options",
+            "description": "Visual candidate comparison with calendar and itinerary features",
+            "bounding_box_px": {
+              "x": 560,
+              "y": 60,
+              "width": 585,
+              "height": 320
+            }
+          },
+          {
+            "id": "reservation",
+            "description": "Separate context strip with pre/post booking information",
+            "bounding_box_px": {
+              "x": 565,
+              "y": 405,
+              "width": 575,
+              "height": 99
+            }
+          },
+          {
+            "id": "roadmap",
+            "description": "Detached future rollout note below the atlas",
+            "bounding_box_px": {
+              "x": 390,
+              "y": 520,
+              "width": 430,
+              "height": 64
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Travel map",
+            "to": "Itinerary options",
+            "support_claim_id": "claim_1",
+            "from_region_id": "map",
+            "to_region_id": "options",
+            "origin_px": {
+              "x": 509,
+              "y": 338
+            },
+            "target_px": {
+              "x": 572,
+              "y": 338
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Image task, primary-source editorial plan",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "a602b59e10f28823cf5f2f6603f6b4f5ecfce7495ca879af135bab3e88c4112c"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Image task, primary-source editorial plan",
+      "source_url": "https://news.airbnb.com/airbnb-q3-2026-financial-results",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Targeted correction of the supplied draft. Preserve the overall map, painterly illustrated buildings, calendar, headings and all six exact labels. In the right two itinerary rows remove the decorative rows of three horizontal strokes and the clusters of blank button-like squares. Replace them with one large clearly visual color-key chip or route motif per row, without simulated text. Replace the plane at bottom right with a simple blank lodging key to keep this about reservation context without implying air ticket booking. Route the single teal arrow through a white gap beneath the calendar rather than over the calendar tiles. End the arrow on a clearly drawn port at the outer edge of the itinerary module, with zero extra arrows. Keep the planned rollout label detached.\n\nCreate ONE premium static editorial textbook infographic PNG with crisp polished vector-like linework and editorial visual depth. It is a conceptual illustration, not an engineering drawing.\n\nTarget 1200 x 630, aspect ratio 40:21, pure white. If your native canvas is taller, retain extra blank white bleed only above and below, with all content within an imaginary central 40:21 area. Do not draw a border or crop guide.\n\nStory mechanism: Airbnb describes a proposed travel agent using visual interface elements and reservation context to support planning.\n\nLayout: Left map panel, top-right visual comparisons, lower-right reservation context, independent bottom tag. Palette: forest teal, sand, muted terracotta and slate. Draw a refined plan view with street lines, water boundary, two distinct locations, relevant distance cues, two choices and color grouping with no map names, numbers, pins with letters or pseudo writing. On the right show calendar columns and itinerary rows through intentional blank marks, structured around the visual comparison. Use only a single map-to-options connector at open object ports. Do not depict actual booking, automatic payments, a released product or photorealism.\n\nThe only text allowed, case and punctuation exactly: \"Travel map\", \"Visual comparisons\", \"Calendar view\", \"Itinerary options\", \"Reservation context\", \"Planned rollout\". Do not render technical plan text, placeholders, measurements, logs or metadata.\n\nUse heavy dark high-contrast type, clean sans serif. Priority labels at least 36px and other labels at least 28px at 1200x630. Keep 40px safe margins and generous white gaps. Place labels next to objects, never on arrows.\n\nNo people, logos, branding, photos, dark or colored backgrounds, decorative controls, numerical scores, checkmark badges, pseudo-writing, letters in motifs, or unsupported arrows. Use unmarked physical forms for rich meaningful details and no ornamental filler.\n\nUse the geometry only as nonprinted composition guidance. Each arrow must terminate in a real object port in the specified region. Connect only the listed meaningful directed paths. Do not connect the independent caveat.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"map\",\"description\":\"Conceptual street map with alternate locations, routes and proximity\",\"bounding_box_px\":{\"x\":55,\"y\":68,\"width\":478,\"height\":436}},{\"id\":\"options\",\"description\":\"Visual candidate comparison with calendar and itinerary features\",\"bounding_box_px\":{\"x\":560,\"y\":60,\"width\":585,\"height\":320}},{\"id\":\"reservation\",\"description\":\"Separate context strip with pre/post booking information\",\"bounding_box_px\":{\"x\":565,\"y\":405,\"width\":575,\"height\":99}},{\"id\":\"roadmap\",\"description\":\"Detached future rollout note below the atlas\",\"bounding_box_px\":{\"x\":390,\"y\":520,\"width\":430,\"height\":64}}],\"labels\":[{\"label\":\"Travel map\",\"region_id\":\"map\",\"region\":\"Conceptual street map with alternate locations, routes and proximity\",\"bounding_box_px\":{\"x\":74,\"y\":83,\"width\":425,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Visual comparisons\",\"region_id\":\"options\",\"region\":\"Visual candidate comparison with calendar and itinerary features\",\"bounding_box_px\":{\"x\":581,\"y\":73,\"width\":520,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Calendar view\",\"region_id\":\"options\",\"region\":\"Visual candidate comparison with calendar and itinerary features\",\"bounding_box_px\":{\"x\":583,\"y\":212,\"width\":255,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Itinerary options\",\"region_id\":\"options\",\"region\":\"Visual candidate comparison with calendar and itinerary features\",\"bounding_box_px\":{\"x\":856,\"y\":212,\"width\":270,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Reservation context\",\"region_id\":\"reservation\",\"region\":\"Separate context strip with pre/post booking information\",\"bounding_box_px\":{\"x\":585,\"y\":427,\"width\":520,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Planned rollout\",\"region_id\":\"roadmap\",\"region\":\"Detached future rollout note below the atlas\",\"bounding_box_px\":{\"x\":420,\"y\":532,\"width\":380,\"height\":36},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Travel map\",\"to\":\"Itinerary options\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"map\",\"to_region_id\":\"options\",\"origin_px\":{\"x\":509,\"y\":338},\"target_px\":{\"x\":572,\"y\":338}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-07",
+    "story_id": "nov07-a2-finance-skill",
+    "source_url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+    "job_sha256": "563a4b3d13a0b40d1dc3e60c06a20e1335dea783d9e5b99fead96955c43f75c7",
+    "visual_thesis": "A user can ask a bounded question of read-only finance data and check the answer against source transactions and a bank statement.",
+    "mechanism_metaphor": "transaction reconciliation workbench",
+    "story_anchors": [
+      "Connected account access is read-only.",
+      "The publisher advises asking for the transactions behind a number and checking the answer.",
+      "The user can unlink the account and the system does not move money."
+    ],
+    "required_labels": [
+      "Read-only account",
+      "Cited transactions",
+      "Category result",
+      "Bank statement check",
+      "Flag mismatches",
+      "Disconnect access"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "Connected account access is read-only.",
+        "supporting_source_excerpt": "Claude’s access is read-only",
+        "source_url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "The publisher advises asking for the transactions behind a number and checking the answer.",
+        "supporting_source_excerpt": "ask which transactions are behind a number",
+        "source_url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Read-only account",
+        "to": "Cited transactions",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Read-only access supplies the bounded transaction evidence.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Category result",
+        "to": "Bank statement check",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "Compare the generated result and citations against the original bank statement.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "The user can unlink the account and the system does not move money.",
+      "No unsupported metric, invented interface, approval badge, or simulated writing."
+    ],
+    "composition_signature": {
+      "grammar": "reconciliation spread with a double-entry matching seam",
+      "layout": "Two lower comparison ledgers separated by an evidence matching strip, top scope strip, detached footer",
+      "metaphor": "transaction reconciliation workbench",
+      "palette": "burgundy, indigo-gray and muted olive",
+      "annotation": "separate fact evidence, comparison traces and exception note",
+      "hierarchy": "largest read-only boundary and statement-check labels; secondary input/result labels",
+      "perspective": "Static conceptual editorial illustration with unobstructed label plane"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Read-only account",
+          "region_id": "scope",
+          "region": "Top source access boundary",
+          "bounding_box_px": {
+            "x": 312,
+            "y": 73,
+            "width": 550,
+            "height": 49
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Cited transactions",
+          "region_id": "reported",
+          "region": "Left source transactions and categorized output",
+          "bounding_box_px": {
+            "x": 70,
+            "y": 202,
+            "width": 470,
+            "height": 39
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Category result",
+          "region_id": "reported",
+          "region": "Left source transactions and categorized output",
+          "bounding_box_px": {
+            "x": 72,
+            "y": 389,
+            "width": 458,
+            "height": 39
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Bank statement check",
+          "region_id": "reconcile",
+          "region": "Right statement checks and mismatch marks",
+          "bounding_box_px": {
+            "x": 598,
+            "y": 202,
+            "width": 518,
+            "height": 50
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Flag mismatches",
+          "region_id": "reconcile",
+          "region": "Right statement checks and mismatch marks",
+          "bounding_box_px": {
+            "x": 609,
+            "y": 394,
+            "width": 475,
+            "height": 39
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Disconnect access",
+          "region_id": "exit",
+          "region": "Separate final disconnection note",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 536,
+            "width": 380,
+            "height": 36
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Read-only account",
+        "Bank statement check"
+      ],
+      "explanatory_substage_labels": [
+        "Cited transactions",
+        "Category result"
+      ],
+      "source_caveat": "Disconnect access",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 74,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Read-only access supplies the bounded transaction evidence.",
+          "allowed_path": "Read-only account toward Cited transactions",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "Compare the generated result and citations against the original bank statement.",
+          "allowed_path": "Category result toward Bank statement check",
+          "blocked_path": "No arrow reaches the detached caveat or indicates an unsupported outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Read-only account",
+          "to": "Cited transactions",
+          "support_claim_id": "claim_1",
+          "origin_region": "scope",
+          "target_region": "reported",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Category result",
+          "to": "Bank statement check",
+          "support_claim_id": "claim_2",
+          "origin_region": "reported",
+          "target_region": "reconcile",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "scope",
+            "description": "Top source access boundary",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 58,
+              "width": 1090,
+              "height": 111
+            }
+          },
+          {
+            "id": "reported",
+            "description": "Left source transactions and categorized output",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 189,
+              "width": 504,
+              "height": 320
+            }
+          },
+          {
+            "id": "reconcile",
+            "description": "Right statement checks and mismatch marks",
+            "bounding_box_px": {
+              "x": 582,
+              "y": 190,
+              "width": 560,
+              "height": 319
+            }
+          },
+          {
+            "id": "exit",
+            "description": "Separate final disconnection note",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 526,
+              "width": 420,
+              "height": 58
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Read-only account",
+            "to": "Cited transactions",
+            "support_claim_id": "claim_1",
+            "from_region_id": "scope",
+            "to_region_id": "reported",
+            "origin_px": {
+              "x": 200,
+              "y": 155
+            },
+            "target_px": {
+              "x": 200,
+              "y": 197
+            }
+          },
+          {
+            "from": "Category result",
+            "to": "Bank statement check",
+            "support_claim_id": "claim_2",
+            "from_region_id": "reported",
+            "to_region_id": "reconcile",
+            "origin_px": {
+              "x": 542,
+              "y": 333
+            },
+            "target_px": {
+              "x": 595,
+              "y": 333
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "Image task, primary-source editorial plan",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "c0cb5fbf331e13eb58aac49acc68dd993eb8d08d48d5a2218fb695e0dab59d86"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "Image task, primary-source editorial plan",
+      "source_url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Targeted correction of the supplied draft. Keep the broad two-ledger layout, the disconnected footer and all six exact labels. Remove every horizontal writing-like strip and ruling from the open books and the pink flag region. Show only wide, solid colored transaction blocks in corresponding positions, paired by thin non-directional comparison guides, with a different color or shape for one unmatched item. Move the lower directional arrow so it ends at a small connector port visibly attached to the BLUE BANK STATEMENT BOOK itself, above and apart from the Flag mismatches label and without touching any word. It must show comparing the result with the statement first. Leave the upper read-only-to-cited-transactions connector and disconnect footer unchanged. No new text, numbers, amounts, or symbols.\n\nCreate ONE premium static editorial textbook infographic PNG with crisp polished vector-like linework and editorial visual depth. It is a conceptual illustration, not an engineering drawing.\n\nTarget 1200 x 630, aspect ratio 40:21, pure white. If your native canvas is taller, retain extra blank white bleed only above and below, with all content within an imaginary central 40:21 area. Do not draw a border or crop guide.\n\nStory mechanism: A user can ask a bounded question of read-only finance data and check the answer against source transactions and a bank statement.\n\nLayout: Two lower comparison ledgers separated by an evidence matching strip, top scope strip, detached footer. Palette: burgundy, indigo-gray and muted olive. Use an open reconciliation spread with featureless straight transaction tokens and paired comparison guides, clean blocks with no short rows of text strokes. Show two visibly distinct sources, aligned matching pairs, a mismatch gap, scope boundaries, and an isolated access disconnect note. Match guides are nondirectional. Do not show dollars, figures, a checkmark badge, investment advice, money movement or balance guarantees.\n\nThe only text allowed, case and punctuation exactly: \"Read-only account\", \"Cited transactions\", \"Category result\", \"Bank statement check\", \"Flag mismatches\", \"Disconnect access\". Do not render technical plan text, placeholders, measurements, logs or metadata.\n\nUse heavy dark high-contrast type, clean sans serif. Priority labels at least 36px and other labels at least 28px at 1200x630. Keep 40px safe margins and generous white gaps. Place labels next to objects, never on arrows.\n\nNo people, logos, branding, photos, dark or colored backgrounds, decorative controls, numerical scores, checkmark badges, pseudo-writing, letters in motifs, or unsupported arrows. Use unmarked physical forms for rich meaningful details and no ornamental filler.\n\nUse the geometry only as nonprinted composition guidance. Each arrow must terminate in a real object port in the specified region. Connect only the listed meaningful directed paths. Do not connect the independent caveat.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"scope\",\"description\":\"Top source access boundary\",\"bounding_box_px\":{\"x\":55,\"y\":58,\"width\":1090,\"height\":111}},{\"id\":\"reported\",\"description\":\"Left source transactions and categorized output\",\"bounding_box_px\":{\"x\":55,\"y\":189,\"width\":504,\"height\":320}},{\"id\":\"reconcile\",\"description\":\"Right statement checks and mismatch marks\",\"bounding_box_px\":{\"x\":582,\"y\":190,\"width\":560,\"height\":319}},{\"id\":\"exit\",\"description\":\"Separate final disconnection note\",\"bounding_box_px\":{\"x\":410,\"y\":526,\"width\":420,\"height\":58}}],\"labels\":[{\"label\":\"Read-only account\",\"region_id\":\"scope\",\"region\":\"Top source access boundary\",\"bounding_box_px\":{\"x\":312,\"y\":73,\"width\":550,\"height\":49},\"minimum_font_px\":36},{\"label\":\"Cited transactions\",\"region_id\":\"reported\",\"region\":\"Left source transactions and categorized output\",\"bounding_box_px\":{\"x\":70,\"y\":202,\"width\":470,\"height\":39},\"minimum_font_px\":28},{\"label\":\"Category result\",\"region_id\":\"reported\",\"region\":\"Left source transactions and categorized output\",\"bounding_box_px\":{\"x\":72,\"y\":389,\"width\":458,\"height\":39},\"minimum_font_px\":28},{\"label\":\"Bank statement check\",\"region_id\":\"reconcile\",\"region\":\"Right statement checks and mismatch marks\",\"bounding_box_px\":{\"x\":598,\"y\":202,\"width\":518,\"height\":50},\"minimum_font_px\":36},{\"label\":\"Flag mismatches\",\"region_id\":\"reconcile\",\"region\":\"Right statement checks and mismatch marks\",\"bounding_box_px\":{\"x\":609,\"y\":394,\"width\":475,\"height\":39},\"minimum_font_px\":28},{\"label\":\"Disconnect access\",\"region_id\":\"exit\",\"region\":\"Separate final disconnection note\",\"bounding_box_px\":{\"x\":430,\"y\":536,\"width\":380,\"height\":36},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Read-only account\",\"to\":\"Cited transactions\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"scope\",\"to_region_id\":\"reported\",\"origin_px\":{\"x\":200,\"y\":155},\"target_px\":{\"x\":200,\"y\":197}},{\"from\":\"Category result\",\"to\":\"Bank statement check\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"reported\",\"to_region_id\":\"reconcile\",\"origin_px\":{\"x\":542,\"y\":333},\"target_px\":{\"x\":595,\"y\":333}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]
