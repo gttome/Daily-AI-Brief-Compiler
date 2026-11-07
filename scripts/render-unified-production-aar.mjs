@@ -82,8 +82,6 @@ function generateUnified(cycle,e,hashes={}) {
   const stateColor=complete?"0b7b57":(badge==="PARTIAL"?"d97706":"64748b");
   const nice=s=>String(s??"Not reported").replace(/\|/g,"/").replace(/\r?\n/g," ");
   const dateString=new Date(edition+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"});
-  const started=Date.parse(state?.started_at||"");const ended=Date.parse(state?.updated_at||"");
-  const elapsed=Number.isFinite(started)&&Number.isFinite(ended)&&ended>=started?((ended-started)/60000).toFixed(1)+" min":"Not recorded";
   const stories=Array.isArray(bundle?.stories)?bundle.stories:[];
   const watch=e["published-watchlist"]?.edition_date===edition?e["published-watchlist"]:null;
   const watchActive=(watch?.topics||[]).filter(t=>t.status!=="archived");
@@ -111,13 +109,18 @@ function generateUnified(cycle,e,hashes={}) {
 
   const durations=bundle?.videos?.length===2&&bundle?.podcasts?.length===2?"2 videos + 2 podcasts":"Source receipt incomplete";
   // Image timeline uses persisted first-accepted-binary and approved 24-context review Git events.
-  const seconds=n=>typeof n==='number'&&Number.isFinite(n)&&n>=0?
-    Math.floor(n/60)+'m '+String(Math.round(n%60)).padStart(2,'0')+'s':'Not independently recorded';
+  const seconds=n=>{
+    if(!Number.isFinite(n)||n<0)return 'Not independently recorded';
+    const rounded=Math.round(n);
+    return Math.floor(rounded/60)+'m '+String(rounded%60).padStart(2,'0')+'s';
+  };
   const chicago=t=>t&&Number.isFinite(Date.parse(t))?
     new Date(t).toLocaleTimeString('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit',second:'2-digit'}):'Not independently recorded';
   const timeEvidence=imageTiming?.result==='DURATIONS_VERIFIED'&&imageTiming?.events?imageTiming:null;
-  const compilerStageDuration=Number.isFinite(started)&&Number.isFinite(ended)&&ended>=started?
-    seconds((ended-started)/1000):'Not independently recorded';
+  const sealSeconds=reconciled.compiler_timing.final_seal_window_seconds;
+  const compilerStageDuration=seconds(sealSeconds);
+  const elapsed=Number.isFinite(sealSeconds)?(sealSeconds/60).toFixed(1)+" min":"Not recorded";
+  const compilerStateDuration=seconds(reconciled.compiler_timing.state_elapsed_seconds);
   const top10StageDuration=Number.isFinite(top10.elapsed_minutes)?seconds(top10.elapsed_minutes*60):'Not recorded';
   const imageStageDuration=seconds(timeEvidence?.durations_seconds?.first_accepted_binary_to_final_review);
   const imageScheduleWindow=seconds(timeEvidence?.durations_seconds?.scheduled_start_to_final_review);
@@ -165,9 +168,9 @@ indicators,
 ...(!workerClosed?["> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.",""]:[]),
 "## Evidence reconciliation",
 "",
-`Compiler final seal window: ${compilerStageDuration}. ${reconciled.compiler_timing.timing_caveat}`,
+`Compiler final seal window: ${compilerStageDuration}. Compiler state start to public verification: ${compilerStateDuration}. ${reconciled.compiler_timing.timing_caveat}`,
 `Image capability route preflight: ${reconciled.image_capability_preflight_recorded?'RECORDED':'NOT OBSERVED'}; scheduler origin remains UNPROVEN.`,
-`Image efficiency: ${reconciled.image_efficiency.first_pass_accepted??'Unknown'}/6 first-pass accepts; ${reconciled.image_efficiency.total_attempts??'Unknown'} total attempts. November 3–5 target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.`,
+`Image efficiency: ${reconciled.image_efficiency.first_pass_accepted??'Unknown'}/6 first-pass accepts; ${reconciled.image_efficiency.total_attempts??'Unknown'} total attempts. ${edition>='2026-11-08'?'Current efficiency target':'November 3–5 target'}: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.`,
 `Image review completed: ${reconciled.image_review.semantic_review_completed_at??'Not recorded'}; review-record commit: ${reconciled.image_review.review_record_commit_at??'Not recorded'}; protected review merge: ${reconciled.image_review.review_merge_at??'Not recorded'}.`,
 ...(reconciled.source_index_coverage?[`Eligible source indexes: ${reconciled.source_index_coverage.eligible}; editorial inspections reported: ${reconciled.source_index_coverage.inspected??"Unknown"} (${reconciled.source_index_coverage.inspected_percent??"Unknown"}%); inaccessible in editorial audit: ${reconciled.source_index_coverage.inaccessible??"Unknown"}; explicitly unreviewed IDs: ${reconciled.source_index_coverage.unreviewed??"Unknown"}; unclassified editorial IDs: ${reconciled.source_index_coverage.unclassified_editorial_ids??"Unknown"}. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.`]:[]),
 "",

@@ -158,7 +158,7 @@ test('duplicate, missing, foreign-date or source-free searches cannot imply full
 });
 
 test('explicit skipped searches are disclosed but never end-to-end complete',()=>{
- const {e,h}=fixture();const row=e['trend-search-coverage'].searches[0];
+ const {e,h}=fixture();const row=e['trend-search-coverage'].searches[3];
  row.outcome='not_attempted';row.attempted_at=null;row.source_urls=[];
  const s=summarizeTop10(cycle,edition,e,h);
  assert.equal(s.search_status,'RECEIPTS_OBSERVED');assert.equal(s.search_counts.article.not_attempted,1);
@@ -321,4 +321,13 @@ test('unattempted rows cannot contain phantom candidates or attempted timestamps
   if(field==='source_urls')r.source_urls=['https://example.com/not-an-attempt'];
   assert.equal(summarizeTop10(cycle,edition,e,h).search_status,'INVALID',field);
  }
+});
+
+test('a skipped topic-format pair cannot be attributed to a published selection',()=>{
+ const {e,h}=fixture();
+ const row=e['trend-search-coverage'].searches[0];
+ Object.assign(row,{outcome:'not_attempted',attempted_at:null,source_urls:[]});
+ const summary=summarizeTop10(cycle,edition,e,h);
+ assert.equal(summary.selection_mapping_status,'INVALID');
+ assert.deepEqual(summary.selected_mappings,[]);
 });

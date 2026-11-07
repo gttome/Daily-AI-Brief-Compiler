@@ -58,3 +58,23 @@ test('post-selection parser census never replaces the actual pre-selection edito
  assert.equal(s.unclassified_editorial_ids,9);assert.equal(s.inaccessible,null);
  assert.equal(s.automated_index_scan.processed,73);assert.equal(s.automated_index_scan.post_editorial_selection,true);
 });
+
+test('current compiler timing and editorial coverage use their original distinct clocks and rosters',()=>{
+ const edition='2026-11-08';
+ const state={edition_date:edition,state:'SHADOW_VERIFIED',started_at:'2026-11-08T01:23:56Z',
+  updated_at:'2026-11-08T14:30:56Z',editorial_bundle:{sealed_at:'2026-11-08T14:25:06Z'}};
+ const bundle={edition_date:edition,editorial_provenance:{sealed_at:state.editorial_bundle.sealed_at},
+  source_discovery_audit:{index_review:{eligible:3,inspected:1,unreviewed:2,unreviewed_ids:['b','c'],inaccessible_ids:[]}}};
+ const inputs={'compiler-state':state,'edition-bundle':bundle,
+  'source-item-census':{edition_date:edition,resources:[{resource_id:'a',outcome:'CANDIDATES_FOUND'}]}};
+ const summary=summarizeNov02Evidence(edition,inputs);
+ assert.equal(summary.compiler_timing.state_elapsed_seconds,47220);
+ assert.equal(summary.compiler_timing.final_seal_window_seconds,350);
+ assert.equal(summary.source_index_coverage.eligible,3);
+ assert.equal(summary.source_index_coverage.unreviewed,2);
+ assert.equal(summary.source_index_coverage.unclassified_editorial_ids,0);
+ bundle.editorial_provenance.sealed_at='2026-11-08T14:27:00Z';
+ assert.equal(summarizeNov02Evidence(edition,inputs).compiler_timing.final_seal_window_seconds,null);
+ state.state='BUNDLE_READY';
+ assert.equal(summarizeNov02Evidence(edition,inputs).compiler_timing.public_verification_at,null);
+});
