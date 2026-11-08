@@ -1,0 +1,306 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-08",
+  "story_id": "nov08-k1-proof-driven",
+  "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+  "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+  "visual_thesis": "A team converts acceptance criteria into a formal specification, proves a selected login core, and uses tests around the proof boundary.",
+  "mechanism_metaphor": "Specification and verification cross-section",
+  "story_anchors": [
+    "A team converts acceptance criteria into a formal specification, proves a selected login core, and uses tests around the proof boundary.",
+    "No proof of the entire app, all inputs beyond the written scope, overall app security, or guaranteed termination."
+  ],
+  "required_labels": [
+    "Acceptance criteria",
+    "Formal specification",
+    "Boundary tests",
+    "Login proof",
+    "Password match",
+    "Selected login only"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim_1",
+      "proposition": "The formal specification is the contract for the proved implementation.",
+      "supporting_source_excerpt": "proves the agent’s code meets that spec for every input",
+      "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim_2",
+      "proposition": "The plan tests assumed boundaries outside the formal proof.",
+      "supporting_source_excerpt": "writes a test for every assumed clause into the plan",
+      "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Formal specification",
+      "to": "Login proof",
+      "support_claim_id": "claim_1",
+      "direction": "conditional",
+      "condition": "Prove selected login behavior with respect to the reviewed specification.",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Boundary tests",
+      "to": "Formal specification",
+      "support_claim_id": "claim_2",
+      "direction": "conditional",
+      "condition": "Use tests for assumptions and boundaries that are outside the proof itself.",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No proof of the entire app, all inputs beyond the written scope, overall app security, or guaranteed termination."
+  ],
+  "composition_signature": {
+    "grammar": "Nested login proof cutaway surrounded by a test ring",
+    "layout": "Nested login proof cutaway surrounded by a test ring",
+    "metaphor": "Specification and verification cross-section",
+    "palette": "dark violet and jade",
+    "annotation": "Show an intent folio at left using unmarked tokens in place of document writing. The main body is a nested cutaway. Its solid inner core has account lookup, password match and token output shown as unmarked objects. A separate outer ring holds wrapper and integration-test objects. An incorrect-password channel terminates at a visibly closed end with no arrowhead. Only the input-to-core and boundary-test connectors listed below use arrowheads. Keep the detached scope note away from the core.",
+    "hierarchy": "Priority labels mark the two or three main relationships",
+    "perspective": "Static white-background editorial mechanism"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Acceptance criteria",
+        "region_id": "intent",
+        "region": "Reviewed acceptance criteria and formal specification",
+        "bounding_box_px": {
+          "x": 61,
+          "y": 135,
+          "width": 300,
+          "height": 52
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Formal specification",
+        "region_id": "intent",
+        "region": "Reviewed acceptance criteria and formal specification",
+        "bounding_box_px": {
+          "x": 66,
+          "y": 342,
+          "width": 294,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Boundary tests",
+        "region_id": "ring",
+        "region": "Outer ring of wrappers and integration tests",
+        "bounding_box_px": {
+          "x": 429,
+          "y": 69,
+          "width": 348,
+          "height": 51
+        },
+        "minimum_font_px": 37
+      },
+      {
+        "label": "Login proof",
+        "region_id": "core",
+        "region": "Nested selected login proof core",
+        "bounding_box_px": {
+          "x": 633,
+          "y": 184,
+          "width": 320,
+          "height": 52
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Password match",
+        "region_id": "core",
+        "region": "Nested selected login proof core",
+        "bounding_box_px": {
+          "x": 681,
+          "y": 359,
+          "width": 339,
+          "height": 43
+        },
+        "minimum_font_px": 31
+      },
+      {
+        "label": "Selected login only",
+        "region_id": "limit",
+        "region": "Detached qualification about proof scope",
+        "bounding_box_px": {
+          "x": 437,
+          "y": 538,
+          "width": 340,
+          "height": 41
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "thumbnail_priority_labels": [
+      "Acceptance criteria",
+      "Boundary tests",
+      "Login proof"
+    ],
+    "explanatory_substage_labels": [
+      "Formal specification",
+      "Boundary tests"
+    ],
+    "source_caveat": "Selected login only",
+    "source_caveat_detached": true,
+    "no_simulated_writing": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 72,
+    "mobile_inline_390px_review_planned": true,
+    "causal_state_checks": [
+      {
+        "support_claim_id": "claim_1",
+        "condition": "Prove selected login behavior with respect to the reviewed specification.",
+        "allowed_path": "Formal specification to Login proof",
+        "blocked_path": "Denied password path ends before the token object."
+      },
+      {
+        "support_claim_id": "claim_2",
+        "condition": "Use tests for assumptions and boundaries that are outside the proof itself.",
+        "allowed_path": "Boundary tests to Formal specification",
+        "blocked_path": "No arrow that equates passing tests with proving the entire application."
+      }
+    ],
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_inline_width": 320,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "connector_origin_reviews": [
+      {
+        "from": "Formal specification",
+        "to": "Login proof",
+        "support_claim_id": "claim_1",
+        "origin_region": "intent",
+        "target_region": "core",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Boundary tests",
+        "to": "Formal specification",
+        "support_claim_id": "claim_2",
+        "origin_region": "ring",
+        "target_region": "intent",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "intent",
+          "description": "Reviewed acceptance criteria and formal specification",
+          "bounding_box_px": {
+            "x": 50,
+            "y": 117,
+            "width": 315,
+            "height": 359
+          }
+        },
+        {
+          "id": "ring",
+          "description": "Outer ring of wrappers and integration tests",
+          "bounding_box_px": {
+            "x": 390,
+            "y": 52,
+            "width": 755,
+            "height": 449
+          }
+        },
+        {
+          "id": "core",
+          "description": "Nested selected login proof core",
+          "bounding_box_px": {
+            "x": 597,
+            "y": 166,
+            "width": 490,
+            "height": 247
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached qualification about proof scope",
+          "bounding_box_px": {
+            "x": 414,
+            "y": 524,
+            "width": 385,
+            "height": 62
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Formal specification",
+          "to": "Login proof",
+          "support_claim_id": "claim_1",
+          "from_region_id": "intent",
+          "to_region_id": "core",
+          "origin_px": {
+            "x": 353,
+            "y": 313
+          },
+          "target_px": {
+            "x": 615,
+            "y": 305
+          }
+        },
+        {
+          "from": "Boundary tests",
+          "to": "Formal specification",
+          "support_claim_id": "claim_2",
+          "from_region_id": "ring",
+          "to_region_id": "intent",
+          "origin_px": {
+            "x": 408,
+            "y": 399
+          },
+          "target_px": {
+            "x": 350,
+            "y": 399
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "November 8 image worker, original publisher and permanent reader review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "d200f81b32710fdbf5bca6d616063227e1092eb4084d72e22a70779e8f5c366e"
+      }
+    }
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "November 8 image worker, original publisher and permanent reader review",
+    "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "native_generation_prompt": "Create one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast dark violet and jade. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA team converts acceptance criteria into a formal specification, proves a selected login core, and uses tests around the proof boundary.\n\nShow an intent folio at left using unmarked tokens in place of document writing. The main body is a nested cutaway. Its solid inner core has account lookup, password match and token output shown as unmarked objects. A separate outer ring holds wrapper and integration-test objects. An incorrect-password channel terminates at a visibly closed end with no arrowhead. Only the input-to-core and boundary-test connectors listed below use arrowheads. Keep the detached scope note away from the core.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Acceptance criteria\", \"Formal specification\", \"Boundary tests\", \"Login proof\", \"Password match\", \"Selected login only\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Formal specification → Login proof. Prove selected login behavior with respect to the reviewed specification. Denied password path ends before the token object. Boundary tests → Formal specification. Use tests for assumptions and boundaries that are outside the proof itself. No arrow that equates passing tests with proving the entire application.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No proof of the entire app, all inputs beyond the written scope, overall app security, or guaranteed termination.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"intent\",\"description\":\"Reviewed acceptance criteria and formal specification\",\"bounding_box_px\":{\"x\":50,\"y\":117,\"width\":315,\"height\":359}},{\"id\":\"ring\",\"description\":\"Outer ring of wrappers and integration tests\",\"bounding_box_px\":{\"x\":390,\"y\":52,\"width\":755,\"height\":449}},{\"id\":\"core\",\"description\":\"Nested selected login proof core\",\"bounding_box_px\":{\"x\":597,\"y\":166,\"width\":490,\"height\":247}},{\"id\":\"limit\",\"description\":\"Detached qualification about proof scope\",\"bounding_box_px\":{\"x\":414,\"y\":524,\"width\":385,\"height\":62}}],\"labels\":[{\"label\":\"Acceptance criteria\",\"region_id\":\"intent\",\"region\":\"Reviewed acceptance criteria and formal specification\",\"bounding_box_px\":{\"x\":61,\"y\":135,\"width\":300,\"height\":52},\"minimum_font_px\":36},{\"label\":\"Formal specification\",\"region_id\":\"intent\",\"region\":\"Reviewed acceptance criteria and formal specification\",\"bounding_box_px\":{\"x\":66,\"y\":342,\"width\":294,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Boundary tests\",\"region_id\":\"ring\",\"region\":\"Outer ring of wrappers and integration tests\",\"bounding_box_px\":{\"x\":429,\"y\":69,\"width\":348,\"height\":51},\"minimum_font_px\":37},{\"label\":\"Login proof\",\"region_id\":\"core\",\"region\":\"Nested selected login proof core\",\"bounding_box_px\":{\"x\":633,\"y\":184,\"width\":320,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Password match\",\"region_id\":\"core\",\"region\":\"Nested selected login proof core\",\"bounding_box_px\":{\"x\":681,\"y\":359,\"width\":339,\"height\":43},\"minimum_font_px\":31},{\"label\":\"Selected login only\",\"region_id\":\"limit\",\"region\":\"Detached qualification about proof scope\",\"bounding_box_px\":{\"x\":437,\"y\":538,\"width\":340,\"height\":41},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Formal specification\",\"to\":\"Login proof\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"intent\",\"to_region_id\":\"core\",\"origin_px\":{\"x\":353,\"y\":313},\"target_px\":{\"x\":615,\"y\":305}},{\"from\":\"Boundary tests\",\"to\":\"Formal specification\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"ring\",\"to_region_id\":\"intent\",\"origin_px\":{\"x\":408,\"y\":399},\"target_px\":{\"x\":350,\"y\":399}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}

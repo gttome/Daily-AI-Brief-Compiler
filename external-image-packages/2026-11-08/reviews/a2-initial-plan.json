@@ -1,0 +1,360 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-08",
+  "story_id": "nov08-a2-renewal",
+  "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+  "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+  "visual_thesis": "A reusable renewal review draws on permitted service history and returns open cases plus a follow-up draft for owner review.",
+  "mechanism_metaphor": "Reusable playbook and owner review folio",
+  "story_anchors": [
+    "A reusable renewal review draws on permitted service history and returns open cases plus a follow-up draft for owner review.",
+    "No scheduling as a current ability in this story, no automatic send, no scope expansion, no claim that every source is permitted."
+  ],
+  "required_labels": [
+    "Renewal Skill",
+    "Service history",
+    "Open cases",
+    "Follow-up draft",
+    "Owner review",
+    "Run on request"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim_1",
+      "proposition": "The renewal example uses service history to identify unresolved cases.",
+      "supporting_source_excerpt": "pull together relevant service history, identify unresolved cases",
+      "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim_2",
+      "proposition": "The renewal example prepares a follow-up from the case investigation.",
+      "supporting_source_excerpt": "prepare customer follow-up",
+      "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim_3",
+      "proposition": "The workflow returns results and recommended actions for review.",
+      "supporting_source_excerpt": "bring back results and recommended actions for review",
+      "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Service history",
+      "to": "Open cases",
+      "support_claim_id": "claim_1",
+      "direction": "conditional",
+      "condition": "Identify unresolved cases using the approved records for the requested account.",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Open cases",
+      "to": "Follow-up draft",
+      "support_claim_id": "claim_2",
+      "direction": "conditional",
+      "condition": "Prepare follow-up using the relevant case evidence.",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Follow-up draft",
+      "to": "Owner review",
+      "support_claim_id": "claim_3",
+      "direction": "conditional",
+      "condition": "Return the prepared draft to the accountable owner for review.",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No scheduling as a current ability in this story, no automatic send, no scope expansion, no claim that every source is permitted."
+  ],
+  "composition_signature": {
+    "grammar": "Vertical playbook spine opening to a side-by-side review dossier",
+    "layout": "Vertical playbook spine opening to a side-by-side review dossier",
+    "metaphor": "Reusable playbook and owner review folio",
+    "palette": "forest teal and brick red",
+    "annotation": "Open a clean vertical playbook spine on the left above an approved-record inlet. In the center show a stepped dossier with case tabs and citation links as broad geometric tokens, never thin document strokes. At right show a draft tray ending at a closed owner-review boundary. The draft can reach the owner-review port only; no external sending path or schedule icon. Detach the manual-execution caveat.",
+    "hierarchy": "Priority labels mark the two or three main relationships",
+    "perspective": "Static white-background editorial mechanism"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 5,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Renewal Skill",
+        "region_id": "skill",
+        "region": "Left playbook spine for the reusable request",
+        "bounding_box_px": {
+          "x": 74,
+          "y": 80,
+          "width": 280,
+          "height": 52
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Service history",
+        "region_id": "data",
+        "region": "Lower-left permitted service-record inlet",
+        "bounding_box_px": {
+          "x": 85,
+          "y": 291,
+          "width": 263,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Open cases",
+        "region_id": "cases",
+        "region": "Center dossier identifying open cases",
+        "bounding_box_px": {
+          "x": 430,
+          "y": 114,
+          "width": 315,
+          "height": 52
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Follow-up draft",
+        "region_id": "draft",
+        "region": "Right follow-up draft and owner review boundary",
+        "bounding_box_px": {
+          "x": 828,
+          "y": 148,
+          "width": 304,
+          "height": 46
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Owner review",
+        "region_id": "draft",
+        "region": "Right follow-up draft and owner review boundary",
+        "bounding_box_px": {
+          "x": 831,
+          "y": 387,
+          "width": 297,
+          "height": 51
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Run on request",
+        "region_id": "limit",
+        "region": "Detached execution scope",
+        "bounding_box_px": {
+          "x": 455,
+          "y": 540,
+          "width": 299,
+          "height": 39
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "thumbnail_priority_labels": [
+      "Renewal Skill",
+      "Open cases",
+      "Owner review"
+    ],
+    "explanatory_substage_labels": [
+      "Service history",
+      "Open cases"
+    ],
+    "source_caveat": "Run on request",
+    "source_caveat_detached": true,
+    "no_simulated_writing": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 72,
+    "mobile_inline_390px_review_planned": true,
+    "causal_state_checks": [
+      {
+        "support_claim_id": "claim_1",
+        "condition": "Identify unresolved cases using the approved records for the requested account.",
+        "allowed_path": "Service history to Open cases",
+        "blocked_path": "No path to unsupported data or a permission override."
+      },
+      {
+        "support_claim_id": "claim_2",
+        "condition": "Prepare follow-up using the relevant case evidence.",
+        "allowed_path": "Open cases to Follow-up draft",
+        "blocked_path": "No automatic outreach from the open-case list."
+      },
+      {
+        "support_claim_id": "claim_3",
+        "condition": "Return the prepared draft to the accountable owner for review.",
+        "allowed_path": "Follow-up draft to Owner review",
+        "blocked_path": "The route ends at owner review and never goes outside the dossier."
+      }
+    ],
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_inline_width": 320,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "connector_origin_reviews": [
+      {
+        "from": "Service history",
+        "to": "Open cases",
+        "support_claim_id": "claim_1",
+        "origin_region": "data",
+        "target_region": "cases",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Open cases",
+        "to": "Follow-up draft",
+        "support_claim_id": "claim_2",
+        "origin_region": "cases",
+        "target_region": "draft",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Follow-up draft",
+        "to": "Owner review",
+        "support_claim_id": "claim_3",
+        "origin_region": "draft",
+        "target_region": "draft",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "skill",
+          "description": "Left playbook spine for the reusable request",
+          "bounding_box_px": {
+            "x": 54,
+            "y": 59,
+            "width": 320,
+            "height": 184
+          }
+        },
+        {
+          "id": "data",
+          "description": "Lower-left permitted service-record inlet",
+          "bounding_box_px": {
+            "x": 65,
+            "y": 270,
+            "width": 303,
+            "height": 235
+          }
+        },
+        {
+          "id": "cases",
+          "description": "Center dossier identifying open cases",
+          "bounding_box_px": {
+            "x": 404,
+            "y": 95,
+            "width": 365,
+            "height": 409
+          }
+        },
+        {
+          "id": "draft",
+          "description": "Right follow-up draft and owner review boundary",
+          "bounding_box_px": {
+            "x": 806,
+            "y": 130,
+            "width": 340,
+            "height": 369
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached execution scope",
+          "bounding_box_px": {
+            "x": 432,
+            "y": 526,
+            "width": 345,
+            "height": 60
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Service history",
+          "to": "Open cases",
+          "support_claim_id": "claim_1",
+          "from_region_id": "data",
+          "to_region_id": "cases",
+          "origin_px": {
+            "x": 350,
+            "y": 381
+          },
+          "target_px": {
+            "x": 419,
+            "y": 340
+          }
+        },
+        {
+          "from": "Open cases",
+          "to": "Follow-up draft",
+          "support_claim_id": "claim_2",
+          "from_region_id": "cases",
+          "to_region_id": "draft",
+          "origin_px": {
+            "x": 750,
+            "y": 253
+          },
+          "target_px": {
+            "x": 820,
+            "y": 255
+          }
+        },
+        {
+          "from": "Follow-up draft",
+          "to": "Owner review",
+          "support_claim_id": "claim_3",
+          "from_region_id": "draft",
+          "to_region_id": "draft",
+          "origin_px": {
+            "x": 968,
+            "y": 316
+          },
+          "target_px": {
+            "x": 968,
+            "y": 371
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "November 8 image worker, original publisher and permanent reader review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "1be4ba4eee055d6c32e306e18b922224f5436621410c159fda29899156c48027"
+      }
+    }
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "November 8 image worker, original publisher and permanent reader review",
+    "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "native_generation_prompt": "Create one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast forest teal and brick red. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA reusable renewal review draws on permitted service history and returns open cases plus a follow-up draft for owner review.\n\nOpen a clean vertical playbook spine on the left above an approved-record inlet. In the center show a stepped dossier with case tabs and citation links as broad geometric tokens, never thin document strokes. At right show a draft tray ending at a closed owner-review boundary. The draft can reach the owner-review port only; no external sending path or schedule icon. Detach the manual-execution caveat.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Renewal Skill\", \"Service history\", \"Open cases\", \"Follow-up draft\", \"Owner review\", \"Run on request\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Service history → Open cases. Identify unresolved cases using the approved records for the requested account. No path to unsupported data or a permission override. Open cases → Follow-up draft. Prepare follow-up using the relevant case evidence. No automatic outreach from the open-case list. Follow-up draft → Owner review. Return the prepared draft to the accountable owner for review. The route ends at owner review and never goes outside the dossier.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No scheduling as a current ability in this story, no automatic send, no scope expansion, no claim that every source is permitted.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"skill\",\"description\":\"Left playbook spine for the reusable request\",\"bounding_box_px\":{\"x\":54,\"y\":59,\"width\":320,\"height\":184}},{\"id\":\"data\",\"description\":\"Lower-left permitted service-record inlet\",\"bounding_box_px\":{\"x\":65,\"y\":270,\"width\":303,\"height\":235}},{\"id\":\"cases\",\"description\":\"Center dossier identifying open cases\",\"bounding_box_px\":{\"x\":404,\"y\":95,\"width\":365,\"height\":409}},{\"id\":\"draft\",\"description\":\"Right follow-up draft and owner review boundary\",\"bounding_box_px\":{\"x\":806,\"y\":130,\"width\":340,\"height\":369}},{\"id\":\"limit\",\"description\":\"Detached execution scope\",\"bounding_box_px\":{\"x\":432,\"y\":526,\"width\":345,\"height\":60}}],\"labels\":[{\"label\":\"Renewal Skill\",\"region_id\":\"skill\",\"region\":\"Left playbook spine for the reusable request\",\"bounding_box_px\":{\"x\":74,\"y\":80,\"width\":280,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Service history\",\"region_id\":\"data\",\"region\":\"Lower-left permitted service-record inlet\",\"bounding_box_px\":{\"x\":85,\"y\":291,\"width\":263,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Open cases\",\"region_id\":\"cases\",\"region\":\"Center dossier identifying open cases\",\"bounding_box_px\":{\"x\":430,\"y\":114,\"width\":315,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Follow-up draft\",\"region_id\":\"draft\",\"region\":\"Right follow-up draft and owner review boundary\",\"bounding_box_px\":{\"x\":828,\"y\":148,\"width\":304,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Owner review\",\"region_id\":\"draft\",\"region\":\"Right follow-up draft and owner review boundary\",\"bounding_box_px\":{\"x\":831,\"y\":387,\"width\":297,\"height\":51},\"minimum_font_px\":38},{\"label\":\"Run on request\",\"region_id\":\"limit\",\"region\":\"Detached execution scope\",\"bounding_box_px\":{\"x\":455,\"y\":540,\"width\":299,\"height\":39},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Service history\",\"to\":\"Open cases\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"data\",\"to_region_id\":\"cases\",\"origin_px\":{\"x\":350,\"y\":381},\"target_px\":{\"x\":419,\"y\":340}},{\"from\":\"Open cases\",\"to\":\"Follow-up draft\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"cases\",\"to_region_id\":\"draft\",\"origin_px\":{\"x\":750,\"y\":253},\"target_px\":{\"x\":820,\"y\":255}},{\"from\":\"Follow-up draft\",\"to\":\"Owner review\",\"support_claim_id\":\"claim_3\",\"from_region_id\":\"draft\",\"to_region_id\":\"draft\",\"origin_px\":{\"x\":968,\"y\":316},\"target_px\":{\"x\":968,\"y\":371}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}

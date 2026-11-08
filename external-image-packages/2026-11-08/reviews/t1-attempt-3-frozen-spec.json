@@ -1,0 +1,360 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-08",
+  "story_id": "nov08-t1-memory",
+  "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+  "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+  "visual_thesis": "An offline transcript replay revises stored notes; the later session retrieves the revised context.",
+  "mechanism_metaphor": "Transcript replay arch",
+  "story_anchors": [
+    "An offline transcript replay revises stored notes; the later session retrieves the revised context.",
+    "No model retraining, guaranteed benchmark gain, or automatic permission changes."
+  ],
+  "required_labels": [
+    "Session transcripts",
+    "Offline replay",
+    "Compare source",
+    "Revised notes",
+    "Later session",
+    "Internal evaluation"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim_1",
+      "proposition": "A replay reads stored transcripts and can organize existing memory.",
+      "supporting_source_excerpt": "Claude can use dreaming to organize memory.",
+      "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim_2",
+      "proposition": "Offline replay can correct notes or produce new memory representations.",
+      "supporting_source_excerpt": "This can correct mistakes, create notes, build new memory representations",
+      "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim_3",
+      "proposition": "Stored notes can supply context to subsequent sessions.",
+      "supporting_source_excerpt": "saved as context it can read later",
+      "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Session transcripts",
+      "to": "Offline replay",
+      "support_claim_id": "claim_1",
+      "direction": "conditional",
+      "condition": "Only when prior transcripts are selected for offline replay.",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Offline replay",
+      "to": "Revised notes",
+      "support_claim_id": "claim_2",
+      "direction": "conditional",
+      "condition": "When transcript comparison supports a correction.",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Revised notes",
+      "to": "Later session",
+      "support_claim_id": "claim_3",
+      "direction": "conditional",
+      "condition": "When revised context is retrieved in a later session.",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No model retraining, guaranteed benchmark gain, or automatic permission changes."
+  ],
+  "composition_signature": {
+    "grammar": "Separated session islands with raised replay arch",
+    "layout": "Separated session islands with raised replay arch",
+    "metaphor": "Transcript replay arch",
+    "palette": "petrol teal and copper",
+    "annotation": "Two session islands with distinct frames, an overhead curved replay bay and a persistent note shelf below it. Depict unmarked transcript reels with solid broad segments, an open comparison cradle with original and corrected note tiles in distinct silhouettes, a small collection of organized note tiles, and a fresh context tray with a matching tile. No arrow links model parameters, access controls or permissions. Leave the lower limitation detached.",
+    "hierarchy": "Priority labels mark the two or three main relationships",
+    "perspective": "Static white-background editorial mechanism"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 5,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Session transcripts",
+        "region_id": "past",
+        "region": "Past session and its original transcript reel",
+        "bounding_box_px": {
+          "x": 65,
+          "y": 136,
+          "width": 265,
+          "height": 51
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Offline replay",
+        "region_id": "offline",
+        "region": "Raised offline replay with source comparison cradle",
+        "bounding_box_px": {
+          "x": 453,
+          "y": 69,
+          "width": 330,
+          "height": 55
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Compare source",
+        "region_id": "offline",
+        "region": "Raised offline replay with source comparison cradle",
+        "bounding_box_px": {
+          "x": 451,
+          "y": 221,
+          "width": 315,
+          "height": 37
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Revised notes",
+        "region_id": "notes",
+        "region": "Persistent note shelf and organized context",
+        "bounding_box_px": {
+          "x": 410,
+          "y": 315,
+          "width": 345,
+          "height": 52
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Later session",
+        "region_id": "later",
+        "region": "Independent later-session context tray",
+        "bounding_box_px": {
+          "x": 867,
+          "y": 156,
+          "width": 275,
+          "height": 43
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Internal evaluation",
+        "region_id": "limit",
+        "region": "Detached benchmark limitation",
+        "bounding_box_px": {
+          "x": 431,
+          "y": 538,
+          "width": 334,
+          "height": 40
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "thumbnail_priority_labels": [
+      "Session transcripts",
+      "Offline replay",
+      "Revised notes"
+    ],
+    "explanatory_substage_labels": [
+      "Offline replay",
+      "Compare source"
+    ],
+    "source_caveat": "Internal evaluation",
+    "source_caveat_detached": true,
+    "no_simulated_writing": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 72,
+    "mobile_inline_390px_review_planned": true,
+    "causal_state_checks": [
+      {
+        "support_claim_id": "claim_1",
+        "condition": "Only when prior transcripts are selected for offline replay.",
+        "allowed_path": "Session transcripts to Offline replay",
+        "blocked_path": "No route from transcript to later session across the gap."
+      },
+      {
+        "support_claim_id": "claim_2",
+        "condition": "When transcript comparison supports a correction.",
+        "allowed_path": "Offline replay to Revised notes",
+        "blocked_path": "No arrow to training or permissions."
+      },
+      {
+        "support_claim_id": "claim_3",
+        "condition": "When revised context is retrieved in a later session.",
+        "allowed_path": "Revised notes to Later session",
+        "blocked_path": "No link to the benchmark limitation."
+      }
+    ],
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_inline_width": 320,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "connector_origin_reviews": [
+      {
+        "from": "Session transcripts",
+        "to": "Offline replay",
+        "support_claim_id": "claim_1",
+        "origin_region": "past",
+        "target_region": "offline",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Offline replay",
+        "to": "Revised notes",
+        "support_claim_id": "claim_2",
+        "origin_region": "offline",
+        "target_region": "notes",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Revised notes",
+        "to": "Later session",
+        "support_claim_id": "claim_3",
+        "origin_region": "notes",
+        "target_region": "later",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "past",
+          "description": "Past session and its original transcript reel",
+          "bounding_box_px": {
+            "x": 50,
+            "y": 118,
+            "width": 290,
+            "height": 340
+          }
+        },
+        {
+          "id": "offline",
+          "description": "Raised offline replay with source comparison cradle",
+          "bounding_box_px": {
+            "x": 373,
+            "y": 52,
+            "width": 440,
+            "height": 225
+          }
+        },
+        {
+          "id": "notes",
+          "description": "Persistent note shelf and organized context",
+          "bounding_box_px": {
+            "x": 378,
+            "y": 300,
+            "width": 425,
+            "height": 205
+          }
+        },
+        {
+          "id": "later",
+          "description": "Independent later-session context tray",
+          "bounding_box_px": {
+            "x": 845,
+            "y": 135,
+            "width": 310,
+            "height": 340
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached benchmark limitation",
+          "bounding_box_px": {
+            "x": 410,
+            "y": 525,
+            "width": 380,
+            "height": 60
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Session transcripts",
+          "to": "Offline replay",
+          "support_claim_id": "claim_1",
+          "from_region_id": "past",
+          "to_region_id": "offline",
+          "origin_px": {
+            "x": 330,
+            "y": 258
+          },
+          "target_px": {
+            "x": 390,
+            "y": 193
+          }
+        },
+        {
+          "from": "Offline replay",
+          "to": "Revised notes",
+          "support_claim_id": "claim_2",
+          "from_region_id": "offline",
+          "to_region_id": "notes",
+          "origin_px": {
+            "x": 585,
+            "y": 264
+          },
+          "target_px": {
+            "x": 395,
+            "y": 430
+          }
+        },
+        {
+          "from": "Revised notes",
+          "to": "Later session",
+          "support_claim_id": "claim_3",
+          "from_region_id": "notes",
+          "to_region_id": "later",
+          "origin_px": {
+            "x": 790,
+            "y": 392
+          },
+          "target_px": {
+            "x": 868,
+            "y": 392
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "November 8 image worker, original publisher and permanent reader review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "a58397daf6c190c7213d8cb74be01e462507cd93b39cad69bc55813f1d541d59"
+      }
+    }
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "November 8 image worker, original publisher and permanent reader review",
+    "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "native_generation_prompt": "Targeted edit. The single failed arrow is the bent orange path below Compare source. Keep its origin on the comparison cradle, keep its outside-left route, then bend its last segment RIGHT so the arrowhead visibly touches the teal note tile's left edge at approximately (395,430) in the 1200×630 export. The arrow must terminate on that teal tile, not below the left corner or at the frame. Keep the later-session arrow as it is, touching the tray. Keep the corrected detached caveat at its current height and preserve all six labels, layout, shapes and other arrows.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast petrol teal and copper. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nAn offline transcript replay revises stored notes; the later session retrieves the revised context.\n\nTwo session islands with distinct frames, an overhead curved replay bay and a persistent note shelf below it. Depict unmarked transcript reels with solid broad segments, an open comparison cradle with original and corrected note tiles in distinct silhouettes, a small collection of organized note tiles, and a fresh context tray with a matching tile. No arrow links model parameters, access controls or permissions. Leave the lower limitation detached.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Session transcripts\", \"Offline replay\", \"Compare source\", \"Revised notes\", \"Later session\", \"Internal evaluation\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Session transcripts → Offline replay. Only when prior transcripts are selected for offline replay. No route from transcript to later session across the gap. Offline replay → Revised notes. When transcript comparison supports a correction. No arrow to training or permissions. Revised notes → Later session. When revised context is retrieved in a later session. No link to the benchmark limitation.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No model retraining, guaranteed benchmark gain, or automatic permission changes.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"past\",\"description\":\"Past session and its original transcript reel\",\"bounding_box_px\":{\"x\":50,\"y\":118,\"width\":290,\"height\":340}},{\"id\":\"offline\",\"description\":\"Raised offline replay with source comparison cradle\",\"bounding_box_px\":{\"x\":373,\"y\":52,\"width\":440,\"height\":225}},{\"id\":\"notes\",\"description\":\"Persistent note shelf and organized context\",\"bounding_box_px\":{\"x\":378,\"y\":300,\"width\":425,\"height\":205}},{\"id\":\"later\",\"description\":\"Independent later-session context tray\",\"bounding_box_px\":{\"x\":845,\"y\":135,\"width\":310,\"height\":340}},{\"id\":\"limit\",\"description\":\"Detached benchmark limitation\",\"bounding_box_px\":{\"x\":410,\"y\":525,\"width\":380,\"height\":60}}],\"labels\":[{\"label\":\"Session transcripts\",\"region_id\":\"past\",\"region\":\"Past session and its original transcript reel\",\"bounding_box_px\":{\"x\":65,\"y\":136,\"width\":265,\"height\":51},\"minimum_font_px\":36},{\"label\":\"Offline replay\",\"region_id\":\"offline\",\"region\":\"Raised offline replay with source comparison cradle\",\"bounding_box_px\":{\"x\":453,\"y\":69,\"width\":330,\"height\":55},\"minimum_font_px\":40},{\"label\":\"Compare source\",\"region_id\":\"offline\",\"region\":\"Raised offline replay with source comparison cradle\",\"bounding_box_px\":{\"x\":451,\"y\":221,\"width\":315,\"height\":37},\"minimum_font_px\":30},{\"label\":\"Revised notes\",\"region_id\":\"notes\",\"region\":\"Persistent note shelf and organized context\",\"bounding_box_px\":{\"x\":410,\"y\":315,\"width\":345,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Later session\",\"region_id\":\"later\",\"region\":\"Independent later-session context tray\",\"bounding_box_px\":{\"x\":867,\"y\":156,\"width\":275,\"height\":43},\"minimum_font_px\":32},{\"label\":\"Internal evaluation\",\"region_id\":\"limit\",\"region\":\"Detached benchmark limitation\",\"bounding_box_px\":{\"x\":431,\"y\":538,\"width\":334,\"height\":40},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Session transcripts\",\"to\":\"Offline replay\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"past\",\"to_region_id\":\"offline\",\"origin_px\":{\"x\":330,\"y\":258},\"target_px\":{\"x\":390,\"y\":193}},{\"from\":\"Offline replay\",\"to\":\"Revised notes\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"offline\",\"to_region_id\":\"notes\",\"origin_px\":{\"x\":585,\"y\":264},\"target_px\":{\"x\":395,\"y\":430}},{\"from\":\"Revised notes\",\"to\":\"Later session\",\"support_claim_id\":\"claim_3\",\"from_region_id\":\"notes\",\"to_region_id\":\"later\",\"origin_px\":{\"x\":790,\"y\":392},\"target_px\":{\"x\":868,\"y\":392}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}

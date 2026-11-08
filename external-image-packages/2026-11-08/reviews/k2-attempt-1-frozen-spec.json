@@ -1,0 +1,316 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-08",
+  "story_id": "nov08-k2-records",
+  "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+  "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+  "visual_thesis": "A smaller judge evaluates record pairs and routes low-confidence decisions for a second opinion in a vendor benchmark.",
+  "mechanism_metaphor": "Confidence sorter and second-opinion spur",
+  "story_anchors": [
+    "A smaller judge evaluates record pairs and routes low-confidence decisions for a second opinion in a vendor benchmark.",
+    "No automatic live merge, claim of general accuracy, or unapproved cost and score charts."
+  ],
+  "required_labels": [
+    "Record pairs",
+    "Confidence check",
+    "Low confidence",
+    "Second opinion",
+    "Initial decision",
+    "Vendor benchmark"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim_1",
+      "proposition": "The study applies a calibrated confidence threshold to model judgments about identity resolution.",
+      "supporting_source_excerpt": "Picking a confidence threshold",
+      "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim_2",
+      "proposition": "Changing the threshold changes how many uncertain cases get another judgment.",
+      "supporting_source_excerpt": "send fewer cases for a second opinion",
+      "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Record pairs",
+      "to": "Confidence check",
+      "support_claim_id": "claim_1",
+      "direction": "conditional",
+      "condition": "Evaluate whether a candidate identity has been merged incorrectly.",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Low confidence",
+      "to": "Second opinion",
+      "support_claim_id": "claim_2",
+      "direction": "conditional",
+      "condition": "Only low-confidence cases are escalated for a second opinion.",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No automatic live merge, claim of general accuracy, or unapproved cost and score charts."
+  ],
+  "composition_signature": {
+    "grammar": "Y-shaped identity decision sorter with an upper review spur",
+    "layout": "Y-shaped identity decision sorter with an upper review spur",
+    "metaphor": "Confidence sorter and second-opinion spur",
+    "palette": "navy and coral",
+    "annotation": "Use unmarked customer record tiles with abstract non-face fields. Show comparison of two candidate records at left and a central split cradle. The retained first decision and low-confidence spur must stay visibly separate. A blue arrow takes only the low-confidence branch into an independent second-opinion bay. Use opaque blank tokens and no numerical bars, percentages, implied ratios, live merge or permission marks. Caveat remains detached.",
+    "hierarchy": "Priority labels mark the two or three main relationships",
+    "perspective": "Static white-background editorial mechanism"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 5,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Record pairs",
+        "region_id": "pairs",
+        "region": "Left input tray for paired identity records",
+        "bounding_box_px": {
+          "x": 78,
+          "y": 148,
+          "width": 260,
+          "height": 50
+        },
+        "minimum_font_px": 37
+      },
+      {
+        "label": "Confidence check",
+        "region_id": "sort",
+        "region": "Central Y-shaped confidence decision cradle",
+        "bounding_box_px": {
+          "x": 415,
+          "y": 111,
+          "width": 309,
+          "height": 51
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Low confidence",
+        "region_id": "sort",
+        "region": "Central Y-shaped confidence decision cradle",
+        "bounding_box_px": {
+          "x": 423,
+          "y": 270,
+          "width": 292,
+          "height": 42
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Second opinion",
+        "region_id": "review",
+        "region": "Upper-right second-opinion spur",
+        "bounding_box_px": {
+          "x": 792,
+          "y": 74,
+          "width": 320,
+          "height": 54
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Initial decision",
+        "region_id": "retain",
+        "region": "Lower-right retained initial decision",
+        "bounding_box_px": {
+          "x": 804,
+          "y": 328,
+          "width": 311,
+          "height": 46
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Vendor benchmark",
+        "region_id": "limit",
+        "region": "Detached one-vendor benchmark scope",
+        "bounding_box_px": {
+          "x": 453,
+          "y": 535,
+          "width": 322,
+          "height": 41
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "thumbnail_priority_labels": [
+      "Record pairs",
+      "Confidence check",
+      "Second opinion"
+    ],
+    "explanatory_substage_labels": [
+      "Confidence check",
+      "Low confidence"
+    ],
+    "source_caveat": "Vendor benchmark",
+    "source_caveat_detached": true,
+    "no_simulated_writing": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 72,
+    "mobile_inline_390px_review_planned": true,
+    "causal_state_checks": [
+      {
+        "support_claim_id": "claim_1",
+        "condition": "Evaluate whether a candidate identity has been merged incorrectly.",
+        "allowed_path": "Record pairs to Confidence check",
+        "blocked_path": "No direct route from raw records to the second judge."
+      },
+      {
+        "support_claim_id": "claim_2",
+        "condition": "Only low-confidence cases are escalated for a second opinion.",
+        "allowed_path": "Low confidence to Second opinion",
+        "blocked_path": "No arrow into a live merge, customer notification or retained high-confidence route."
+      }
+    ],
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_inline_width": 320,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "connector_origin_reviews": [
+      {
+        "from": "Record pairs",
+        "to": "Confidence check",
+        "support_claim_id": "claim_1",
+        "origin_region": "pairs",
+        "target_region": "sort",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Low confidence",
+        "to": "Second opinion",
+        "support_claim_id": "claim_2",
+        "origin_region": "sort",
+        "target_region": "review",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "pairs",
+          "description": "Left input tray for paired identity records",
+          "bounding_box_px": {
+            "x": 53,
+            "y": 128,
+            "width": 310,
+            "height": 352
+          }
+        },
+        {
+          "id": "sort",
+          "description": "Central Y-shaped confidence decision cradle",
+          "bounding_box_px": {
+            "x": 396,
+            "y": 92,
+            "width": 338,
+            "height": 408
+          }
+        },
+        {
+          "id": "review",
+          "description": "Upper-right second-opinion spur",
+          "bounding_box_px": {
+            "x": 770,
+            "y": 53,
+            "width": 375,
+            "height": 221
+          }
+        },
+        {
+          "id": "retain",
+          "description": "Lower-right retained initial decision",
+          "bounding_box_px": {
+            "x": 784,
+            "y": 310,
+            "width": 361,
+            "height": 177
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached one-vendor benchmark scope",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 522,
+            "width": 360,
+            "height": 62
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Record pairs",
+          "to": "Confidence check",
+          "support_claim_id": "claim_1",
+          "from_region_id": "pairs",
+          "to_region_id": "sort",
+          "origin_px": {
+            "x": 350,
+            "y": 330
+          },
+          "target_px": {
+            "x": 407,
+            "y": 330
+          }
+        },
+        {
+          "from": "Low confidence",
+          "to": "Second opinion",
+          "support_claim_id": "claim_2",
+          "from_region_id": "sort",
+          "to_region_id": "review",
+          "origin_px": {
+            "x": 715,
+            "y": 236
+          },
+          "target_px": {
+            "x": 794,
+            "y": 192
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "November 8 image worker, original publisher and permanent reader review",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "07012e59514b12f079ff2f03d5bb4a51b123771f640c0a4a034faec427713318"
+      }
+    }
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "November 8 image worker, original publisher and permanent reader review",
+    "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "native_generation_prompt": "Create one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast navy and coral. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA smaller judge evaluates record pairs and routes low-confidence decisions for a second opinion in a vendor benchmark.\n\nUse unmarked customer record tiles with abstract non-face fields. Show comparison of two candidate records at left and a central split cradle. The retained first decision and low-confidence spur must stay visibly separate. A blue arrow takes only the low-confidence branch into an independent second-opinion bay. Use opaque blank tokens and no numerical bars, percentages, implied ratios, live merge or permission marks. Caveat remains detached.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Record pairs\", \"Confidence check\", \"Low confidence\", \"Second opinion\", \"Initial decision\", \"Vendor benchmark\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Record pairs → Confidence check. Evaluate whether a candidate identity has been merged incorrectly. No direct route from raw records to the second judge. Low confidence → Second opinion. Only low-confidence cases are escalated for a second opinion. No arrow into a live merge, customer notification or retained high-confidence route.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No automatic live merge, claim of general accuracy, or unapproved cost and score charts.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"pairs\",\"description\":\"Left input tray for paired identity records\",\"bounding_box_px\":{\"x\":53,\"y\":128,\"width\":310,\"height\":352}},{\"id\":\"sort\",\"description\":\"Central Y-shaped confidence decision cradle\",\"bounding_box_px\":{\"x\":396,\"y\":92,\"width\":338,\"height\":408}},{\"id\":\"review\",\"description\":\"Upper-right second-opinion spur\",\"bounding_box_px\":{\"x\":770,\"y\":53,\"width\":375,\"height\":221}},{\"id\":\"retain\",\"description\":\"Lower-right retained initial decision\",\"bounding_box_px\":{\"x\":784,\"y\":310,\"width\":361,\"height\":177}},{\"id\":\"limit\",\"description\":\"Detached one-vendor benchmark scope\",\"bounding_box_px\":{\"x\":430,\"y\":522,\"width\":360,\"height\":62}}],\"labels\":[{\"label\":\"Record pairs\",\"region_id\":\"pairs\",\"region\":\"Left input tray for paired identity records\",\"bounding_box_px\":{\"x\":78,\"y\":148,\"width\":260,\"height\":50},\"minimum_font_px\":37},{\"label\":\"Confidence check\",\"region_id\":\"sort\",\"region\":\"Central Y-shaped confidence decision cradle\",\"bounding_box_px\":{\"x\":415,\"y\":111,\"width\":309,\"height\":51},\"minimum_font_px\":36},{\"label\":\"Low confidence\",\"region_id\":\"sort\",\"region\":\"Central Y-shaped confidence decision cradle\",\"bounding_box_px\":{\"x\":423,\"y\":270,\"width\":292,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Second opinion\",\"region_id\":\"review\",\"region\":\"Upper-right second-opinion spur\",\"bounding_box_px\":{\"x\":792,\"y\":74,\"width\":320,\"height\":54},\"minimum_font_px\":38},{\"label\":\"Initial decision\",\"region_id\":\"retain\",\"region\":\"Lower-right retained initial decision\",\"bounding_box_px\":{\"x\":804,\"y\":328,\"width\":311,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Vendor benchmark\",\"region_id\":\"limit\",\"region\":\"Detached one-vendor benchmark scope\",\"bounding_box_px\":{\"x\":453,\"y\":535,\"width\":322,\"height\":41},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Record pairs\",\"to\":\"Confidence check\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"pairs\",\"to_region_id\":\"sort\",\"origin_px\":{\"x\":350,\"y\":330},\"target_px\":{\"x\":407,\"y\":330}},{\"from\":\"Low confidence\",\"to\":\"Second opinion\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"sort\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":715,\"y\":236},\"target_px\":{\"x\":794,\"y\":192}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}

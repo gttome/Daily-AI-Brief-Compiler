@@ -1,0 +1,1973 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-08",
+    "story_id": "nov08-t1-memory",
+    "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+    "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+    "visual_thesis": "An offline transcript replay revises stored notes; the later session retrieves the revised context.",
+    "mechanism_metaphor": "Transcript replay arch",
+    "story_anchors": [
+      "An offline transcript replay revises stored notes; the later session retrieves the revised context.",
+      "No model retraining, guaranteed benchmark gain, or automatic permission changes."
+    ],
+    "required_labels": [
+      "Session transcripts",
+      "Offline replay",
+      "Compare source",
+      "Revised notes",
+      "Later session",
+      "Internal evaluation"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "A replay reads stored transcripts and can organize existing memory.",
+        "supporting_source_excerpt": "Claude can use dreaming to organize memory.",
+        "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Offline replay can correct notes or produce new memory representations.",
+        "supporting_source_excerpt": "This can correct mistakes, create notes, build new memory representations",
+        "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Stored notes can supply context to subsequent sessions.",
+        "supporting_source_excerpt": "saved as context it can read later",
+        "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Session transcripts",
+        "to": "Offline replay",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Only when prior transcripts are selected for offline replay.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Offline replay",
+        "to": "Revised notes",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "When transcript comparison supports a correction.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Revised notes",
+        "to": "Later session",
+        "support_claim_id": "claim_3",
+        "direction": "conditional",
+        "condition": "When revised context is retrieved in a later session.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No model retraining, guaranteed benchmark gain, or automatic permission changes."
+    ],
+    "composition_signature": {
+      "grammar": "Separated session islands with raised replay arch",
+      "layout": "Separated session islands with raised replay arch",
+      "metaphor": "Transcript replay arch",
+      "palette": "petrol teal and copper",
+      "annotation": "Two session islands with distinct frames, an overhead curved replay bay and a persistent note shelf below it. Depict unmarked transcript reels with solid broad segments, an open comparison cradle with original and corrected note tiles in distinct silhouettes, a small collection of organized note tiles, and a fresh context tray with a matching tile. No arrow links model parameters, access controls or permissions. Leave the lower limitation detached.",
+      "hierarchy": "Priority labels mark the two or three main relationships",
+      "perspective": "Static white-background editorial mechanism"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Session transcripts",
+          "region_id": "past",
+          "region": "Past session and its original transcript reel",
+          "bounding_box_px": {
+            "x": 65,
+            "y": 136,
+            "width": 265,
+            "height": 51
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Offline replay",
+          "region_id": "offline",
+          "region": "Raised offline replay with source comparison cradle",
+          "bounding_box_px": {
+            "x": 453,
+            "y": 69,
+            "width": 330,
+            "height": 55
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Compare source",
+          "region_id": "offline",
+          "region": "Raised offline replay with source comparison cradle",
+          "bounding_box_px": {
+            "x": 451,
+            "y": 221,
+            "width": 315,
+            "height": 37
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Revised notes",
+          "region_id": "notes",
+          "region": "Persistent note shelf and organized context",
+          "bounding_box_px": {
+            "x": 410,
+            "y": 315,
+            "width": 345,
+            "height": 52
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Later session",
+          "region_id": "later",
+          "region": "Independent later-session context tray",
+          "bounding_box_px": {
+            "x": 867,
+            "y": 156,
+            "width": 275,
+            "height": 43
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Internal evaluation",
+          "region_id": "limit",
+          "region": "Detached benchmark limitation",
+          "bounding_box_px": {
+            "x": 431,
+            "y": 538,
+            "width": 334,
+            "height": 40
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Session transcripts",
+        "Offline replay",
+        "Revised notes"
+      ],
+      "explanatory_substage_labels": [
+        "Offline replay",
+        "Compare source"
+      ],
+      "source_caveat": "Internal evaluation",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 72,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Only when prior transcripts are selected for offline replay.",
+          "allowed_path": "Session transcripts to Offline replay",
+          "blocked_path": "No route from transcript to later session across the gap."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "When transcript comparison supports a correction.",
+          "allowed_path": "Offline replay to Revised notes",
+          "blocked_path": "No arrow to training or permissions."
+        },
+        {
+          "support_claim_id": "claim_3",
+          "condition": "When revised context is retrieved in a later session.",
+          "allowed_path": "Revised notes to Later session",
+          "blocked_path": "No link to the benchmark limitation."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_inline_width": 320,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Session transcripts",
+          "to": "Offline replay",
+          "support_claim_id": "claim_1",
+          "origin_region": "past",
+          "target_region": "offline",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Offline replay",
+          "to": "Revised notes",
+          "support_claim_id": "claim_2",
+          "origin_region": "offline",
+          "target_region": "notes",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Revised notes",
+          "to": "Later session",
+          "support_claim_id": "claim_3",
+          "origin_region": "notes",
+          "target_region": "later",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "past",
+            "description": "Past session and its original transcript reel",
+            "bounding_box_px": {
+              "x": 50,
+              "y": 118,
+              "width": 290,
+              "height": 340
+            }
+          },
+          {
+            "id": "offline",
+            "description": "Raised offline replay with source comparison cradle",
+            "bounding_box_px": {
+              "x": 373,
+              "y": 52,
+              "width": 440,
+              "height": 225
+            }
+          },
+          {
+            "id": "notes",
+            "description": "Persistent note shelf and organized context",
+            "bounding_box_px": {
+              "x": 378,
+              "y": 300,
+              "width": 425,
+              "height": 205
+            }
+          },
+          {
+            "id": "later",
+            "description": "Independent later-session context tray",
+            "bounding_box_px": {
+              "x": 845,
+              "y": 135,
+              "width": 310,
+              "height": 340
+            }
+          },
+          {
+            "id": "limit",
+            "description": "Detached benchmark limitation",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 525,
+              "width": 380,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Session transcripts",
+            "to": "Offline replay",
+            "support_claim_id": "claim_1",
+            "from_region_id": "past",
+            "to_region_id": "offline",
+            "origin_px": {
+              "x": 330,
+              "y": 258
+            },
+            "target_px": {
+              "x": 390,
+              "y": 193
+            }
+          },
+          {
+            "from": "Offline replay",
+            "to": "Revised notes",
+            "support_claim_id": "claim_2",
+            "from_region_id": "offline",
+            "to_region_id": "notes",
+            "origin_px": {
+              "x": 416,
+              "y": 200
+            },
+            "target_px": {
+              "x": 395,
+              "y": 430
+            }
+          },
+          {
+            "from": "Revised notes",
+            "to": "Later session",
+            "support_claim_id": "claim_3",
+            "from_region_id": "notes",
+            "to_region_id": "later",
+            "origin_px": {
+              "x": 788,
+              "y": 443
+            },
+            "target_px": {
+              "x": 880,
+              "y": 420
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 8 image worker, original publisher and permanent reader review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "29c0683722e6b7a7f0b53bed3c76e90a5fb0b640bdb05394ebc3859b25da9fc7"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 8 image worker, original publisher and permanent reader review",
+      "source_url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "ONE text-only margin repair. Move the complete white label Offline replay vertically DOWN 20 pixels inside the dark teal arch, from top y=39 to top around y=59. Preserve the exact white lettering, size, style and horizontal alignment. Move no other label. Leave every arrow, its start and endpoint, the frame geometry, and all note and tray objects as in the reference. Do not add a second copy or erase any existing mechanism. Maintain a true white 1200×630 field.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast petrol teal and copper. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nAn offline transcript replay revises stored notes; the later session retrieves the revised context.\n\nTwo session islands with distinct frames, an overhead curved replay bay and a persistent note shelf below it. Depict unmarked transcript reels with solid broad segments, an open comparison cradle with original and corrected note tiles in distinct silhouettes, a small collection of organized note tiles, and a fresh context tray with a matching tile. No arrow links model parameters, access controls or permissions. Leave the lower limitation detached.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Session transcripts\", \"Offline replay\", \"Compare source\", \"Revised notes\", \"Later session\", \"Internal evaluation\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Session transcripts → Offline replay. Only when prior transcripts are selected for offline replay. No route from transcript to later session across the gap. Offline replay → Revised notes. When transcript comparison supports a correction. No arrow to training or permissions. Revised notes → Later session. When revised context is retrieved in a later session. No link to the benchmark limitation.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No model retraining, guaranteed benchmark gain, or automatic permission changes.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"past\",\"description\":\"Past session and its original transcript reel\",\"bounding_box_px\":{\"x\":50,\"y\":118,\"width\":290,\"height\":340}},{\"id\":\"offline\",\"description\":\"Raised offline replay with source comparison cradle\",\"bounding_box_px\":{\"x\":373,\"y\":52,\"width\":440,\"height\":225}},{\"id\":\"notes\",\"description\":\"Persistent note shelf and organized context\",\"bounding_box_px\":{\"x\":378,\"y\":300,\"width\":425,\"height\":205}},{\"id\":\"later\",\"description\":\"Independent later-session context tray\",\"bounding_box_px\":{\"x\":845,\"y\":135,\"width\":310,\"height\":340}},{\"id\":\"limit\",\"description\":\"Detached benchmark limitation\",\"bounding_box_px\":{\"x\":410,\"y\":525,\"width\":380,\"height\":60}}],\"labels\":[{\"label\":\"Session transcripts\",\"region_id\":\"past\",\"region\":\"Past session and its original transcript reel\",\"bounding_box_px\":{\"x\":65,\"y\":136,\"width\":265,\"height\":51},\"minimum_font_px\":36},{\"label\":\"Offline replay\",\"region_id\":\"offline\",\"region\":\"Raised offline replay with source comparison cradle\",\"bounding_box_px\":{\"x\":453,\"y\":69,\"width\":330,\"height\":55},\"minimum_font_px\":40},{\"label\":\"Compare source\",\"region_id\":\"offline\",\"region\":\"Raised offline replay with source comparison cradle\",\"bounding_box_px\":{\"x\":451,\"y\":221,\"width\":315,\"height\":37},\"minimum_font_px\":30},{\"label\":\"Revised notes\",\"region_id\":\"notes\",\"region\":\"Persistent note shelf and organized context\",\"bounding_box_px\":{\"x\":410,\"y\":315,\"width\":345,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Later session\",\"region_id\":\"later\",\"region\":\"Independent later-session context tray\",\"bounding_box_px\":{\"x\":867,\"y\":156,\"width\":275,\"height\":43},\"minimum_font_px\":32},{\"label\":\"Internal evaluation\",\"region_id\":\"limit\",\"region\":\"Detached benchmark limitation\",\"bounding_box_px\":{\"x\":431,\"y\":538,\"width\":334,\"height\":40},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Session transcripts\",\"to\":\"Offline replay\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"past\",\"to_region_id\":\"offline\",\"origin_px\":{\"x\":330,\"y\":258},\"target_px\":{\"x\":390,\"y\":193}},{\"from\":\"Offline replay\",\"to\":\"Revised notes\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"offline\",\"to_region_id\":\"notes\",\"origin_px\":{\"x\":416,\"y\":200},\"target_px\":{\"x\":395,\"y\":430}},{\"from\":\"Revised notes\",\"to\":\"Later session\",\"support_claim_id\":\"claim_3\",\"from_region_id\":\"notes\",\"to_region_id\":\"later\",\"origin_px\":{\"x\":788,\"y\":443},\"target_px\":{\"x\":880,\"y\":420}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-08",
+    "story_id": "nov08-t2-inkling",
+    "source_url": "https://thinkingmachines.ai/news/inkling-2-small/",
+    "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+    "visual_thesis": "Hosted sampling and fine-tuning are available now; downloadable weights are a separate planned step after safety testing.",
+    "mechanism_metaphor": "Hosted workbench with separated release track",
+    "story_anchors": [
+      "Hosted sampling and fine-tuning are available now; downloadable weights are a separate planned step after safety testing.",
+      "No downloadable deployment today, completed safety certification, or benchmark guarantees."
+    ],
+    "required_labels": [
+      "Hosted access",
+      "Run inference",
+      "Fine-tune",
+      "Safety testing",
+      "Planned weights",
+      "Weights still pending"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The announced weights release follows completion of further external safety testing.",
+        "supporting_source_excerpt": "after the completion of external safety testing and red-teaming",
+        "source_url": "https://thinkingmachines.ai/news/inkling-2-small/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "The hosted service is already available for sampling and fine-tuning.",
+        "supporting_source_excerpt": "The model is also available for fine-tuning and sampling on Tinker",
+        "source_url": "https://thinkingmachines.ai/news/inkling-2-small/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Safety testing",
+        "to": "Planned weights",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "The announced weights release is planned after external testing and red-teaming.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No downloadable deployment today, completed safety certification, or benchmark guarantees."
+    ],
+    "composition_signature": {
+      "grammar": "Asymmetric hosted cutaway beside staged weight-release column",
+      "layout": "Asymmetric hosted cutaway beside staged weight-release column",
+      "metaphor": "Hosted workbench with separated release track",
+      "palette": "indigo and mineral orange",
+      "annotation": "Show hosted evaluation as an open cutaway workbench on the left. Unmarked input, sample, tune and result forms suggest separate hosted actions. The right column shows external safety testing, red-team trial forms and a future archive object in a dashed outline. Use a clear white separation between the hosted bench and future archive. Only the conditional right-column arrow may have an arrowhead. Do not imply any approval or availability of weights.",
+      "hierarchy": "Priority labels mark the two or three main relationships",
+      "perspective": "Static white-background editorial mechanism"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Hosted access",
+          "region_id": "host",
+          "region": "Large hosted workbench with sample and tuning substages",
+          "bounding_box_px": {
+            "x": 78,
+            "y": 74,
+            "width": 514,
+            "height": 55
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Run inference",
+          "region_id": "host",
+          "region": "Large hosted workbench with sample and tuning substages",
+          "bounding_box_px": {
+            "x": 99,
+            "y": 185,
+            "width": 255,
+            "height": 44
+          },
+          "minimum_font_px": 31
+        },
+        {
+          "label": "Fine-tune",
+          "region_id": "host",
+          "region": "Large hosted workbench with sample and tuning substages",
+          "bounding_box_px": {
+            "x": 405,
+            "y": 322,
+            "width": 270,
+            "height": 52
+          },
+          "minimum_font_px": 37
+        },
+        {
+          "label": "Safety testing",
+          "region_id": "test",
+          "region": "Upper-right independent external safety test bay",
+          "bounding_box_px": {
+            "x": 795,
+            "y": 91,
+            "width": 338,
+            "height": 46
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Planned weights",
+          "region_id": "future",
+          "region": "Lower-right outline of a planned weights archive",
+          "bounding_box_px": {
+            "x": 798,
+            "y": 331,
+            "width": 330,
+            "height": 51
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Weights still pending",
+          "region_id": "limit",
+          "region": "Detached release caveat",
+          "bounding_box_px": {
+            "x": 418,
+            "y": 539,
+            "width": 375,
+            "height": 39
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Hosted access",
+        "Fine-tune",
+        "Planned weights"
+      ],
+      "explanatory_substage_labels": [
+        "Run inference",
+        "Fine-tune"
+      ],
+      "source_caveat": "Weights still pending",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 72,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "The announced weights release is planned after external testing and red-teaming.",
+          "allowed_path": "Safety testing to Planned weights",
+          "blocked_path": "No connector from hosted sampling or tuning to a downloadable archive."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_inline_width": 320,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Safety testing",
+          "to": "Planned weights",
+          "support_claim_id": "claim_1",
+          "origin_region": "test",
+          "target_region": "future",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "host",
+            "description": "Large hosted workbench with sample and tuning substages",
+            "bounding_box_px": {
+              "x": 50,
+              "y": 55,
+              "width": 680,
+              "height": 444
+            }
+          },
+          {
+            "id": "test",
+            "description": "Upper-right independent external safety test bay",
+            "bounding_box_px": {
+              "x": 770,
+              "y": 78,
+              "width": 386,
+              "height": 204
+            }
+          },
+          {
+            "id": "future",
+            "description": "Lower-right outline of a planned weights archive",
+            "bounding_box_px": {
+              "x": 780,
+              "y": 312,
+              "width": 365,
+              "height": 190
+            }
+          },
+          {
+            "id": "limit",
+            "description": "Detached release caveat",
+            "bounding_box_px": {
+              "x": 394,
+              "y": 526,
+              "width": 420,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Safety testing",
+            "to": "Planned weights",
+            "support_claim_id": "claim_1",
+            "from_region_id": "test",
+            "to_region_id": "future",
+            "origin_px": {
+              "x": 1125,
+              "y": 230
+            },
+            "target_px": {
+              "x": 1110,
+              "y": 448
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 8 image worker, original publisher and permanent reader review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "a4dd79da239d1587677551f3db73e8ae239e56745c860f42ccf8f1cbb179bb31"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 8 image worker, original publisher and permanent reader review",
+      "source_url": "https://thinkingmachines.ai/news/inkling-2-small/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Edit only the orange connector and detached caveat. Remove the L-shaped portion and all fragments of the current orange connector near the Planned weights wording. Draw one clean continuous connector from the lower-right corner of the solid purple testing fixture at about x=1125 y=230. Route it along a clear white vertical lane at x=1162 to the RIGHT of the Planned weights lettering, then bend its end left into the right edge of the physical purple archive at x=1110 y=448. Use a single arrowhead only at the archive. The arrow must never cross behind or touch any letters. Raise Weights still pending by 20 px; place the lowest glyph above y=575. Preserve all other imagery and all six label strings.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast indigo and mineral orange. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nHosted sampling and fine-tuning are available now; downloadable weights are a separate planned step after safety testing.\n\nShow hosted evaluation as an open cutaway workbench on the left. Unmarked input, sample, tune and result forms suggest separate hosted actions. The right column shows external safety testing, red-team trial forms and a future archive object in a dashed outline. Use a clear white separation between the hosted bench and future archive. Only the conditional right-column arrow may have an arrowhead. Do not imply any approval or availability of weights.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Hosted access\", \"Run inference\", \"Fine-tune\", \"Safety testing\", \"Planned weights\", \"Weights still pending\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Safety testing → Planned weights. The announced weights release is planned after external testing and red-teaming. No connector from hosted sampling or tuning to a downloadable archive.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No downloadable deployment today, completed safety certification, or benchmark guarantees.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"host\",\"description\":\"Large hosted workbench with sample and tuning substages\",\"bounding_box_px\":{\"x\":50,\"y\":55,\"width\":680,\"height\":444}},{\"id\":\"test\",\"description\":\"Upper-right independent external safety test bay\",\"bounding_box_px\":{\"x\":770,\"y\":78,\"width\":386,\"height\":204}},{\"id\":\"future\",\"description\":\"Lower-right outline of a planned weights archive\",\"bounding_box_px\":{\"x\":780,\"y\":312,\"width\":365,\"height\":190}},{\"id\":\"limit\",\"description\":\"Detached release caveat\",\"bounding_box_px\":{\"x\":394,\"y\":526,\"width\":420,\"height\":60}}],\"labels\":[{\"label\":\"Hosted access\",\"region_id\":\"host\",\"region\":\"Large hosted workbench with sample and tuning substages\",\"bounding_box_px\":{\"x\":78,\"y\":74,\"width\":514,\"height\":55},\"minimum_font_px\":40},{\"label\":\"Run inference\",\"region_id\":\"host\",\"region\":\"Large hosted workbench with sample and tuning substages\",\"bounding_box_px\":{\"x\":99,\"y\":185,\"width\":255,\"height\":44},\"minimum_font_px\":31},{\"label\":\"Fine-tune\",\"region_id\":\"host\",\"region\":\"Large hosted workbench with sample and tuning substages\",\"bounding_box_px\":{\"x\":405,\"y\":322,\"width\":270,\"height\":52},\"minimum_font_px\":37},{\"label\":\"Safety testing\",\"region_id\":\"test\",\"region\":\"Upper-right independent external safety test bay\",\"bounding_box_px\":{\"x\":795,\"y\":91,\"width\":338,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Planned weights\",\"region_id\":\"future\",\"region\":\"Lower-right outline of a planned weights archive\",\"bounding_box_px\":{\"x\":798,\"y\":331,\"width\":330,\"height\":51},\"minimum_font_px\":36},{\"label\":\"Weights still pending\",\"region_id\":\"limit\",\"region\":\"Detached release caveat\",\"bounding_box_px\":{\"x\":418,\"y\":539,\"width\":375,\"height\":39},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Safety testing\",\"to\":\"Planned weights\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"test\",\"to_region_id\":\"future\",\"origin_px\":{\"x\":1125,\"y\":230},\"target_px\":{\"x\":1110,\"y\":448}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-08",
+    "story_id": "nov08-k1-proof-driven",
+    "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+    "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+    "visual_thesis": "A team converts acceptance criteria into a formal specification, proves a selected login core, and uses tests around the proof boundary.",
+    "mechanism_metaphor": "Specification and verification cross-section",
+    "story_anchors": [
+      "A team converts acceptance criteria into a formal specification, proves a selected login core, and uses tests around the proof boundary.",
+      "No proof of the entire app, all inputs beyond the written scope, overall app security, or guaranteed termination."
+    ],
+    "required_labels": [
+      "Acceptance criteria",
+      "Formal specification",
+      "Boundary tests",
+      "Login proof",
+      "Password match",
+      "Selected login only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The formal specification is the contract for the proved implementation.",
+        "supporting_source_excerpt": "proves the agent’s code meets that spec for every input",
+        "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "The plan tests assumed boundaries outside the formal proof.",
+        "supporting_source_excerpt": "writes a test for every assumed clause into the plan",
+        "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Formal specification",
+        "to": "Login proof",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Prove selected login behavior with respect to the reviewed specification.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Boundary tests",
+        "to": "Formal specification",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "Use tests for assumptions and boundaries that are outside the proof itself.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No proof of the entire app, all inputs beyond the written scope, overall app security, or guaranteed termination."
+    ],
+    "composition_signature": {
+      "grammar": "Nested login proof cutaway surrounded by a test ring",
+      "layout": "Nested login proof cutaway surrounded by a test ring",
+      "metaphor": "Specification and verification cross-section",
+      "palette": "dark violet and jade",
+      "annotation": "Show an intent folio at left using unmarked tokens in place of document writing. The main body is a nested cutaway. Its solid inner core has account lookup, password match and token output shown as unmarked objects. A separate outer ring holds wrapper and integration-test objects. An incorrect-password channel terminates at a visibly closed end with no arrowhead. Only the input-to-core and boundary-test connectors listed below use arrowheads. Keep the detached scope note away from the core.",
+      "hierarchy": "Priority labels mark the two or three main relationships",
+      "perspective": "Static white-background editorial mechanism"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Acceptance criteria",
+          "region_id": "intent",
+          "region": "Reviewed acceptance criteria and formal specification",
+          "bounding_box_px": {
+            "x": 61,
+            "y": 135,
+            "width": 300,
+            "height": 52
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Formal specification",
+          "region_id": "intent",
+          "region": "Reviewed acceptance criteria and formal specification",
+          "bounding_box_px": {
+            "x": 66,
+            "y": 342,
+            "width": 294,
+            "height": 44
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Boundary tests",
+          "region_id": "ring",
+          "region": "Outer ring of wrappers and integration tests",
+          "bounding_box_px": {
+            "x": 429,
+            "y": 69,
+            "width": 348,
+            "height": 51
+          },
+          "minimum_font_px": 37
+        },
+        {
+          "label": "Login proof",
+          "region_id": "core",
+          "region": "Nested selected login proof core",
+          "bounding_box_px": {
+            "x": 633,
+            "y": 184,
+            "width": 320,
+            "height": 52
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Password match",
+          "region_id": "core",
+          "region": "Nested selected login proof core",
+          "bounding_box_px": {
+            "x": 681,
+            "y": 359,
+            "width": 339,
+            "height": 43
+          },
+          "minimum_font_px": 31
+        },
+        {
+          "label": "Selected login only",
+          "region_id": "limit",
+          "region": "Detached qualification about proof scope",
+          "bounding_box_px": {
+            "x": 437,
+            "y": 538,
+            "width": 340,
+            "height": 41
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Acceptance criteria",
+        "Boundary tests",
+        "Login proof"
+      ],
+      "explanatory_substage_labels": [
+        "Formal specification",
+        "Boundary tests"
+      ],
+      "source_caveat": "Selected login only",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 72,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Prove selected login behavior with respect to the reviewed specification.",
+          "allowed_path": "Formal specification to Login proof",
+          "blocked_path": "Denied password path ends before the token object."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "Use tests for assumptions and boundaries that are outside the proof itself.",
+          "allowed_path": "Boundary tests to Formal specification",
+          "blocked_path": "No arrow that equates passing tests with proving the entire application."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_inline_width": 320,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Formal specification",
+          "to": "Login proof",
+          "support_claim_id": "claim_1",
+          "origin_region": "intent",
+          "target_region": "core",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Boundary tests",
+          "to": "Formal specification",
+          "support_claim_id": "claim_2",
+          "origin_region": "ring",
+          "target_region": "intent",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "intent",
+            "description": "Reviewed acceptance criteria and formal specification",
+            "bounding_box_px": {
+              "x": 50,
+              "y": 117,
+              "width": 315,
+              "height": 359
+            }
+          },
+          {
+            "id": "ring",
+            "description": "Outer ring of wrappers and integration tests",
+            "bounding_box_px": {
+              "x": 390,
+              "y": 52,
+              "width": 755,
+              "height": 449
+            }
+          },
+          {
+            "id": "core",
+            "description": "Nested selected login proof core",
+            "bounding_box_px": {
+              "x": 597,
+              "y": 166,
+              "width": 490,
+              "height": 247
+            }
+          },
+          {
+            "id": "limit",
+            "description": "Detached qualification about proof scope",
+            "bounding_box_px": {
+              "x": 414,
+              "y": 524,
+              "width": 385,
+              "height": 62
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Formal specification",
+            "to": "Login proof",
+            "support_claim_id": "claim_1",
+            "from_region_id": "intent",
+            "to_region_id": "core",
+            "origin_px": {
+              "x": 302,
+              "y": 436
+            },
+            "target_px": {
+              "x": 603,
+              "y": 306
+            }
+          },
+          {
+            "from": "Boundary tests",
+            "to": "Formal specification",
+            "support_claim_id": "claim_2",
+            "from_region_id": "ring",
+            "to_region_id": "intent",
+            "origin_px": {
+              "x": 408,
+              "y": 399
+            },
+            "target_px": {
+              "x": 350,
+              "y": 399
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 8 image worker, original publisher and permanent reader review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "8544102412cb471e04f3eaf62ed565c799f3ef4910347d027af88611db6f40ce"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 8 image worker, original publisher and permanent reader review",
+      "source_url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Make a narrow connector repair only. Delete the horizontal purple arrow that begins at the outer green boundary. Draw a single unbroken purple connector from the right side of the actual dark-purple rectangular specification token at approximately x=302, y=436, under the Formal specification words. Route it right into white space, then upward through the open corridor between the test elements, then right into the left wall of the green database cylinder at x=590 y=306. Draw the line continuously from the token through the ring and directly into the cylinder; only the cylinder end has an arrowhead. It must touch both objects, not start or end on a frame or cross label letters. Keep the other objects, all words and the caveat fixed.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast dark violet and jade. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA team converts acceptance criteria into a formal specification, proves a selected login core, and uses tests around the proof boundary.\n\nShow an intent folio at left using unmarked tokens in place of document writing. The main body is a nested cutaway. Its solid inner core has account lookup, password match and token output shown as unmarked objects. A separate outer ring holds wrapper and integration-test objects. An incorrect-password channel terminates at a visibly closed end with no arrowhead. Only the input-to-core and boundary-test connectors listed below use arrowheads. Keep the detached scope note away from the core.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Acceptance criteria\", \"Formal specification\", \"Boundary tests\", \"Login proof\", \"Password match\", \"Selected login only\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Formal specification → Login proof. Prove selected login behavior with respect to the reviewed specification. Denied password path ends before the token object. Boundary tests → Formal specification. Use tests for assumptions and boundaries that are outside the proof itself. No arrow that equates passing tests with proving the entire application.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No proof of the entire app, all inputs beyond the written scope, overall app security, or guaranteed termination.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"intent\",\"description\":\"Reviewed acceptance criteria and formal specification\",\"bounding_box_px\":{\"x\":50,\"y\":117,\"width\":315,\"height\":359}},{\"id\":\"ring\",\"description\":\"Outer ring of wrappers and integration tests\",\"bounding_box_px\":{\"x\":390,\"y\":52,\"width\":755,\"height\":449}},{\"id\":\"core\",\"description\":\"Nested selected login proof core\",\"bounding_box_px\":{\"x\":597,\"y\":166,\"width\":490,\"height\":247}},{\"id\":\"limit\",\"description\":\"Detached qualification about proof scope\",\"bounding_box_px\":{\"x\":414,\"y\":524,\"width\":385,\"height\":62}}],\"labels\":[{\"label\":\"Acceptance criteria\",\"region_id\":\"intent\",\"region\":\"Reviewed acceptance criteria and formal specification\",\"bounding_box_px\":{\"x\":61,\"y\":135,\"width\":300,\"height\":52},\"minimum_font_px\":36},{\"label\":\"Formal specification\",\"region_id\":\"intent\",\"region\":\"Reviewed acceptance criteria and formal specification\",\"bounding_box_px\":{\"x\":66,\"y\":342,\"width\":294,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Boundary tests\",\"region_id\":\"ring\",\"region\":\"Outer ring of wrappers and integration tests\",\"bounding_box_px\":{\"x\":429,\"y\":69,\"width\":348,\"height\":51},\"minimum_font_px\":37},{\"label\":\"Login proof\",\"region_id\":\"core\",\"region\":\"Nested selected login proof core\",\"bounding_box_px\":{\"x\":633,\"y\":184,\"width\":320,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Password match\",\"region_id\":\"core\",\"region\":\"Nested selected login proof core\",\"bounding_box_px\":{\"x\":681,\"y\":359,\"width\":339,\"height\":43},\"minimum_font_px\":31},{\"label\":\"Selected login only\",\"region_id\":\"limit\",\"region\":\"Detached qualification about proof scope\",\"bounding_box_px\":{\"x\":437,\"y\":538,\"width\":340,\"height\":41},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Formal specification\",\"to\":\"Login proof\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"intent\",\"to_region_id\":\"core\",\"origin_px\":{\"x\":302,\"y\":436},\"target_px\":{\"x\":603,\"y\":306}},{\"from\":\"Boundary tests\",\"to\":\"Formal specification\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"ring\",\"to_region_id\":\"intent\",\"origin_px\":{\"x\":408,\"y\":399},\"target_px\":{\"x\":350,\"y\":399}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-08",
+    "story_id": "nov08-k2-records",
+    "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+    "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+    "visual_thesis": "A smaller judge evaluates record pairs and routes low-confidence decisions for a second opinion in a vendor benchmark.",
+    "mechanism_metaphor": "Confidence sorter and second-opinion spur",
+    "story_anchors": [
+      "A smaller judge evaluates record pairs and routes low-confidence decisions for a second opinion in a vendor benchmark.",
+      "No automatic live merge, claim of general accuracy, or unapproved cost and score charts."
+    ],
+    "required_labels": [
+      "Record pairs",
+      "Confidence check",
+      "Low confidence",
+      "Second opinion",
+      "Initial decision",
+      "Vendor benchmark"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The study applies a calibrated confidence threshold to model judgments about identity resolution.",
+        "supporting_source_excerpt": "Picking a confidence threshold",
+        "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "Changing the threshold changes how many uncertain cases get another judgment.",
+        "supporting_source_excerpt": "send fewer cases for a second opinion",
+        "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Record pairs",
+        "to": "Confidence check",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Evaluate whether a candidate identity has been merged incorrectly.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Low confidence",
+        "to": "Second opinion",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "Only low-confidence cases are escalated for a second opinion.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No automatic live merge, claim of general accuracy, or unapproved cost and score charts."
+    ],
+    "composition_signature": {
+      "grammar": "Y-shaped identity decision sorter with an upper review spur",
+      "layout": "Y-shaped identity decision sorter with an upper review spur",
+      "metaphor": "Confidence sorter and second-opinion spur",
+      "palette": "navy and coral",
+      "annotation": "Use unmarked customer record tiles with abstract non-face fields. Show comparison of two candidate records at left and a central split cradle. The retained first decision and low-confidence spur must stay visibly separate. A blue arrow takes only the low-confidence branch into an independent second-opinion bay. Use opaque blank tokens and no numerical bars, percentages, implied ratios, live merge or permission marks. Caveat remains detached.",
+      "hierarchy": "Priority labels mark the two or three main relationships",
+      "perspective": "Static white-background editorial mechanism"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Record pairs",
+          "region_id": "pairs",
+          "region": "Left input tray for paired identity records",
+          "bounding_box_px": {
+            "x": 78,
+            "y": 148,
+            "width": 260,
+            "height": 50
+          },
+          "minimum_font_px": 37
+        },
+        {
+          "label": "Confidence check",
+          "region_id": "sort",
+          "region": "Central Y-shaped confidence decision cradle",
+          "bounding_box_px": {
+            "x": 415,
+            "y": 111,
+            "width": 309,
+            "height": 51
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Low confidence",
+          "region_id": "sort",
+          "region": "Central Y-shaped confidence decision cradle",
+          "bounding_box_px": {
+            "x": 423,
+            "y": 270,
+            "width": 292,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Second opinion",
+          "region_id": "review",
+          "region": "Upper-right second-opinion spur",
+          "bounding_box_px": {
+            "x": 792,
+            "y": 74,
+            "width": 320,
+            "height": 54
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Initial decision",
+          "region_id": "retain",
+          "region": "Lower-right retained initial decision",
+          "bounding_box_px": {
+            "x": 804,
+            "y": 328,
+            "width": 311,
+            "height": 46
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Vendor benchmark",
+          "region_id": "limit",
+          "region": "Detached one-vendor benchmark scope",
+          "bounding_box_px": {
+            "x": 453,
+            "y": 535,
+            "width": 322,
+            "height": 41
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Record pairs",
+        "Confidence check",
+        "Second opinion"
+      ],
+      "explanatory_substage_labels": [
+        "Confidence check",
+        "Low confidence"
+      ],
+      "source_caveat": "Vendor benchmark",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 72,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Evaluate whether a candidate identity has been merged incorrectly.",
+          "allowed_path": "Record pairs to Confidence check",
+          "blocked_path": "No direct route from raw records to the second judge."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "Only low-confidence cases are escalated for a second opinion.",
+          "allowed_path": "Low confidence to Second opinion",
+          "blocked_path": "No arrow into a live merge, customer notification or retained high-confidence route."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_inline_width": 320,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Record pairs",
+          "to": "Confidence check",
+          "support_claim_id": "claim_1",
+          "origin_region": "pairs",
+          "target_region": "sort",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Low confidence",
+          "to": "Second opinion",
+          "support_claim_id": "claim_2",
+          "origin_region": "sort",
+          "target_region": "review",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "pairs",
+            "description": "Left input tray for paired identity records",
+            "bounding_box_px": {
+              "x": 53,
+              "y": 128,
+              "width": 310,
+              "height": 352
+            }
+          },
+          {
+            "id": "sort",
+            "description": "Central Y-shaped confidence decision cradle",
+            "bounding_box_px": {
+              "x": 396,
+              "y": 92,
+              "width": 338,
+              "height": 408
+            }
+          },
+          {
+            "id": "review",
+            "description": "Upper-right second-opinion spur",
+            "bounding_box_px": {
+              "x": 770,
+              "y": 53,
+              "width": 375,
+              "height": 221
+            }
+          },
+          {
+            "id": "retain",
+            "description": "Lower-right retained initial decision",
+            "bounding_box_px": {
+              "x": 784,
+              "y": 310,
+              "width": 361,
+              "height": 177
+            }
+          },
+          {
+            "id": "limit",
+            "description": "Detached one-vendor benchmark scope",
+            "bounding_box_px": {
+              "x": 430,
+              "y": 522,
+              "width": 360,
+              "height": 62
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Record pairs",
+            "to": "Confidence check",
+            "support_claim_id": "claim_1",
+            "from_region_id": "pairs",
+            "to_region_id": "sort",
+            "origin_px": {
+              "x": 350,
+              "y": 330
+            },
+            "target_px": {
+              "x": 407,
+              "y": 330
+            }
+          },
+          {
+            "from": "Low confidence",
+            "to": "Second opinion",
+            "support_claim_id": "claim_2",
+            "from_region_id": "sort",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 695,
+              "y": 250
+            },
+            "target_px": {
+              "x": 861,
+              "y": 225
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 8 image worker, original publisher and permanent reader review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "63f46b02b9cd9576c89f9a7f8993c60bd99f203f13acfb27e764ec2b51d7540a"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 8 image worker, original publisher and permanent reader review",
+      "source_url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Edit only the arrow and record content regions. Replace every set of mock text strokes with three distinct solid geometry field tokens, a circle, triangle and square, arranged on a diagonal with white gaps. No text-like stripes anywhere. Preserve the source-approved wording and the original Y-shaped branch. Make the incoming arrow emerge from the right physical edge of one input record tile and enter the Y-shaped channel. For the second arrow, add a small coral LOW-CONFIDENCE OBJECT below the Low confidence letters, such as a coral wedge inside the top channel, and let the arrow visibly start at that wedge. Let the tip visibly touch the CORAL TRIANGLE in the second-opinion region at about x=861 y=225. Do not attach to label backgrounds or panel borders. Keep all the labels, the unarrowed branch, and the detached vendor-benchmark caveat in their current safe positions.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast navy and coral. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA smaller judge evaluates record pairs and routes low-confidence decisions for a second opinion in a vendor benchmark.\n\nUse unmarked customer record tiles with abstract non-face fields. Show comparison of two candidate records at left and a central split cradle. The retained first decision and low-confidence spur must stay visibly separate. A blue arrow takes only the low-confidence branch into an independent second-opinion bay. Use opaque blank tokens and no numerical bars, percentages, implied ratios, live merge or permission marks. Caveat remains detached.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Record pairs\", \"Confidence check\", \"Low confidence\", \"Second opinion\", \"Initial decision\", \"Vendor benchmark\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Record pairs → Confidence check. Evaluate whether a candidate identity has been merged incorrectly. No direct route from raw records to the second judge. Low confidence → Second opinion. Only low-confidence cases are escalated for a second opinion. No arrow into a live merge, customer notification or retained high-confidence route.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No automatic live merge, claim of general accuracy, or unapproved cost and score charts.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"pairs\",\"description\":\"Left input tray for paired identity records\",\"bounding_box_px\":{\"x\":53,\"y\":128,\"width\":310,\"height\":352}},{\"id\":\"sort\",\"description\":\"Central Y-shaped confidence decision cradle\",\"bounding_box_px\":{\"x\":396,\"y\":92,\"width\":338,\"height\":408}},{\"id\":\"review\",\"description\":\"Upper-right second-opinion spur\",\"bounding_box_px\":{\"x\":770,\"y\":53,\"width\":375,\"height\":221}},{\"id\":\"retain\",\"description\":\"Lower-right retained initial decision\",\"bounding_box_px\":{\"x\":784,\"y\":310,\"width\":361,\"height\":177}},{\"id\":\"limit\",\"description\":\"Detached one-vendor benchmark scope\",\"bounding_box_px\":{\"x\":430,\"y\":522,\"width\":360,\"height\":62}}],\"labels\":[{\"label\":\"Record pairs\",\"region_id\":\"pairs\",\"region\":\"Left input tray for paired identity records\",\"bounding_box_px\":{\"x\":78,\"y\":148,\"width\":260,\"height\":50},\"minimum_font_px\":37},{\"label\":\"Confidence check\",\"region_id\":\"sort\",\"region\":\"Central Y-shaped confidence decision cradle\",\"bounding_box_px\":{\"x\":415,\"y\":111,\"width\":309,\"height\":51},\"minimum_font_px\":36},{\"label\":\"Low confidence\",\"region_id\":\"sort\",\"region\":\"Central Y-shaped confidence decision cradle\",\"bounding_box_px\":{\"x\":423,\"y\":270,\"width\":292,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Second opinion\",\"region_id\":\"review\",\"region\":\"Upper-right second-opinion spur\",\"bounding_box_px\":{\"x\":792,\"y\":74,\"width\":320,\"height\":54},\"minimum_font_px\":38},{\"label\":\"Initial decision\",\"region_id\":\"retain\",\"region\":\"Lower-right retained initial decision\",\"bounding_box_px\":{\"x\":804,\"y\":328,\"width\":311,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Vendor benchmark\",\"region_id\":\"limit\",\"region\":\"Detached one-vendor benchmark scope\",\"bounding_box_px\":{\"x\":453,\"y\":535,\"width\":322,\"height\":41},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Record pairs\",\"to\":\"Confidence check\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"pairs\",\"to_region_id\":\"sort\",\"origin_px\":{\"x\":350,\"y\":330},\"target_px\":{\"x\":407,\"y\":330}},{\"from\":\"Low confidence\",\"to\":\"Second opinion\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"sort\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":695,\"y\":250},\"target_px\":{\"x\":861,\"y\":225}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-08",
+    "story_id": "nov08-a1-bmo",
+    "source_url": "https://newsroom.bmo.com/2026-11-06-BMO-Using-Agentic-AI-to-Help-Credit-Card-Clients-Get-Faster-Answers-and-Resolutions",
+    "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+    "visual_thesis": "A contact center assistant brings matched transaction evidence and retrieved policy into case preparation for employee review.",
+    "mechanism_metaphor": "Case-evidence confluence",
+    "story_anchors": [
+      "A contact center assistant brings matched transaction evidence and retrieved policy into case preparation for employee review.",
+      "No employee replacement, mandatory refund, same-day guarantee, or performance target as a result."
+    ],
+    "required_labels": [
+      "Card inquiry",
+      "Transaction match",
+      "Policy lookup",
+      "Case preparation",
+      "Employee review",
+      "Eligible requests"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "Matched transaction evidence and policy guidance support employee review.",
+        "supporting_source_excerpt": "transaction matching, policy retrieval and case preparation directly to employees for review",
+        "source_url": "https://newsroom.bmo.com/2026-11-06-BMO-Using-Agentic-AI-to-Help-Credit-Card-Clients-Get-Faster-Answers-and-Resolutions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "The assistant supplies relevant policy guidance with the case.",
+        "supporting_source_excerpt": "By bringing together the information and guidance employees need",
+        "source_url": "https://newsroom.bmo.com/2026-11-06-BMO-Using-Agentic-AI-to-Help-Credit-Card-Clients-Get-Faster-Answers-and-Resolutions",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "Employees remain responsible for service decisions.",
+        "supporting_source_excerpt": "Employees remain accountable for reviewing AI-generated information",
+        "source_url": "https://newsroom.bmo.com/2026-11-06-BMO-Using-Agentic-AI-to-Help-Credit-Card-Clients-Get-Faster-Answers-and-Resolutions",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Transaction match",
+        "to": "Case preparation",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Bring matching transaction evidence into case preparation.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Policy lookup",
+        "to": "Case preparation",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "Include relevant policy for the case.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Case preparation",
+        "to": "Employee review",
+        "support_claim_id": "claim_3",
+        "direction": "conditional",
+        "condition": "Prepared information is reviewed by the employee responsible for the decision.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No employee replacement, mandatory refund, same-day guarantee, or performance target as a result."
+    ],
+    "composition_signature": {
+      "grammar": "Parallel transaction and policy inlets converging at review",
+      "layout": "Parallel transaction and policy inlets converging at review",
+      "metaphor": "Case-evidence confluence",
+      "palette": "deep blue and warm ochre",
+      "annotation": "Draw a credit-card inquiry token without text or numbers. A top lane uses matched transaction shapes and a lower lane uses policy tabs with blank fields. Both visually feed the case-preparation cradle. Only that cradle enters the employee-review station, shown as an unoccupied decision surface. A closed stub signals no automatic service decision. No refund success icon, payment release, performance chart, account balance, people or logos.",
+      "hierarchy": "Priority labels mark the two or three main relationships",
+      "perspective": "Static white-background editorial mechanism"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Card inquiry",
+          "region_id": "request",
+          "region": "Initial card inquiry without account data",
+          "bounding_box_px": {
+            "x": 68,
+            "y": 171,
+            "width": 230,
+            "height": 49
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Transaction match",
+          "region_id": "match",
+          "region": "Upper transaction-match evidence lane",
+          "bounding_box_px": {
+            "x": 367,
+            "y": 72,
+            "width": 340,
+            "height": 46
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Policy lookup",
+          "region_id": "policy",
+          "region": "Lower policy-retrieval evidence lane",
+          "bounding_box_px": {
+            "x": 368,
+            "y": 302,
+            "width": 330,
+            "height": 46
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Case preparation",
+          "region_id": "review",
+          "region": "Right case-preparation cradle and employee review station",
+          "bounding_box_px": {
+            "x": 797,
+            "y": 108,
+            "width": 326,
+            "height": 50
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Employee review",
+          "region_id": "review",
+          "region": "Right case-preparation cradle and employee review station",
+          "bounding_box_px": {
+            "x": 797,
+            "y": 394,
+            "width": 329,
+            "height": 54
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Eligible requests",
+          "region_id": "limit",
+          "region": "Detached eligibility note",
+          "bounding_box_px": {
+            "x": 441,
+            "y": 539,
+            "width": 323,
+            "height": 39
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Card inquiry",
+        "Case preparation",
+        "Employee review"
+      ],
+      "explanatory_substage_labels": [
+        "Transaction match",
+        "Policy lookup"
+      ],
+      "source_caveat": "Eligible requests",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 72,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Bring matching transaction evidence into case preparation.",
+          "allowed_path": "Transaction match to Case preparation",
+          "blocked_path": "No path from a transaction match directly to a service decision."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "Include relevant policy for the case.",
+          "allowed_path": "Policy lookup to Case preparation",
+          "blocked_path": "Do not turn policy retrieval into automatic authorization."
+        },
+        {
+          "support_claim_id": "claim_3",
+          "condition": "Prepared information is reviewed by the employee responsible for the decision.",
+          "allowed_path": "Case preparation to Employee review",
+          "blocked_path": "No arrow to a refund or guaranteed outcome."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_inline_width": 320,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Transaction match",
+          "to": "Case preparation",
+          "support_claim_id": "claim_1",
+          "origin_region": "match",
+          "target_region": "review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Policy lookup",
+          "to": "Case preparation",
+          "support_claim_id": "claim_2",
+          "origin_region": "policy",
+          "target_region": "review",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Case preparation",
+          "to": "Employee review",
+          "support_claim_id": "claim_3",
+          "origin_region": "review",
+          "target_region": "review",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "request",
+            "description": "Initial card inquiry without account data",
+            "bounding_box_px": {
+              "x": 51,
+              "y": 154,
+              "width": 262,
+              "height": 321
+            }
+          },
+          {
+            "id": "match",
+            "description": "Upper transaction-match evidence lane",
+            "bounding_box_px": {
+              "x": 336,
+              "y": 57,
+              "width": 391,
+              "height": 206
+            }
+          },
+          {
+            "id": "policy",
+            "description": "Lower policy-retrieval evidence lane",
+            "bounding_box_px": {
+              "x": 336,
+              "y": 278,
+              "width": 394,
+              "height": 223
+            }
+          },
+          {
+            "id": "review",
+            "description": "Right case-preparation cradle and employee review station",
+            "bounding_box_px": {
+              "x": 765,
+              "y": 85,
+              "width": 382,
+              "height": 421
+            }
+          },
+          {
+            "id": "limit",
+            "description": "Detached eligibility note",
+            "bounding_box_px": {
+              "x": 417,
+              "y": 525,
+              "width": 370,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Transaction match",
+            "to": "Case preparation",
+            "support_claim_id": "claim_1",
+            "from_region_id": "match",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 710,
+              "y": 192
+            },
+            "target_px": {
+              "x": 786,
+              "y": 210
+            }
+          },
+          {
+            "from": "Policy lookup",
+            "to": "Case preparation",
+            "support_claim_id": "claim_2",
+            "from_region_id": "policy",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 710,
+              "y": 360
+            },
+            "target_px": {
+              "x": 788,
+              "y": 287
+            }
+          },
+          {
+            "from": "Case preparation",
+            "to": "Employee review",
+            "support_claim_id": "claim_3",
+            "from_region_id": "review",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 990,
+              "y": 300
+            },
+            "target_px": {
+              "x": 990,
+              "y": 381
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 8 image worker, original publisher and permanent reader review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "a3d07d3eea61def9aa3700cbb8fbac56c6db5981d7de8a0ed70a882d5b5fd095"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 8 image worker, original publisher and permanent reader review",
+      "source_url": "https://newsroom.bmo.com/2026-11-06-BMO-Using-Agentic-AI-to-Help-Credit-Card-Clients-Get-Faster-Answers-and-Resolutions",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "One edit only: move the entire detached Eligible requests label and its outline UP by exactly 25 image pixels, from its existing y≈558 text position to y≈533. Leave its horizontal position centered and preserve the lettering size and wording. Put at least 55px clean white below the lowest letter pixel. Keep the two evidence arrows, their connected objects, and every other region exactly as shown.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast deep blue and warm ochre. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA contact center assistant brings matched transaction evidence and retrieved policy into case preparation for employee review.\n\nDraw a credit-card inquiry token without text or numbers. A top lane uses matched transaction shapes and a lower lane uses policy tabs with blank fields. Both visually feed the case-preparation cradle. Only that cradle enters the employee-review station, shown as an unoccupied decision surface. A closed stub signals no automatic service decision. No refund success icon, payment release, performance chart, account balance, people or logos.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Card inquiry\", \"Transaction match\", \"Policy lookup\", \"Case preparation\", \"Employee review\", \"Eligible requests\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Transaction match → Case preparation. Bring matching transaction evidence into case preparation. No path from a transaction match directly to a service decision. Policy lookup → Case preparation. Include relevant policy for the case. Do not turn policy retrieval into automatic authorization. Case preparation → Employee review. Prepared information is reviewed by the employee responsible for the decision. No arrow to a refund or guaranteed outcome.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No employee replacement, mandatory refund, same-day guarantee, or performance target as a result.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"request\",\"description\":\"Initial card inquiry without account data\",\"bounding_box_px\":{\"x\":51,\"y\":154,\"width\":262,\"height\":321}},{\"id\":\"match\",\"description\":\"Upper transaction-match evidence lane\",\"bounding_box_px\":{\"x\":336,\"y\":57,\"width\":391,\"height\":206}},{\"id\":\"policy\",\"description\":\"Lower policy-retrieval evidence lane\",\"bounding_box_px\":{\"x\":336,\"y\":278,\"width\":394,\"height\":223}},{\"id\":\"review\",\"description\":\"Right case-preparation cradle and employee review station\",\"bounding_box_px\":{\"x\":765,\"y\":85,\"width\":382,\"height\":421}},{\"id\":\"limit\",\"description\":\"Detached eligibility note\",\"bounding_box_px\":{\"x\":417,\"y\":525,\"width\":370,\"height\":60}}],\"labels\":[{\"label\":\"Card inquiry\",\"region_id\":\"request\",\"region\":\"Initial card inquiry without account data\",\"bounding_box_px\":{\"x\":68,\"y\":171,\"width\":230,\"height\":49},\"minimum_font_px\":36},{\"label\":\"Transaction match\",\"region_id\":\"match\",\"region\":\"Upper transaction-match evidence lane\",\"bounding_box_px\":{\"x\":367,\"y\":72,\"width\":340,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Policy lookup\",\"region_id\":\"policy\",\"region\":\"Lower policy-retrieval evidence lane\",\"bounding_box_px\":{\"x\":368,\"y\":302,\"width\":330,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Case preparation\",\"region_id\":\"review\",\"region\":\"Right case-preparation cradle and employee review station\",\"bounding_box_px\":{\"x\":797,\"y\":108,\"width\":326,\"height\":50},\"minimum_font_px\":36},{\"label\":\"Employee review\",\"region_id\":\"review\",\"region\":\"Right case-preparation cradle and employee review station\",\"bounding_box_px\":{\"x\":797,\"y\":394,\"width\":329,\"height\":54},\"minimum_font_px\":38},{\"label\":\"Eligible requests\",\"region_id\":\"limit\",\"region\":\"Detached eligibility note\",\"bounding_box_px\":{\"x\":441,\"y\":539,\"width\":323,\"height\":39},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Transaction match\",\"to\":\"Case preparation\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"match\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":710,\"y\":192},\"target_px\":{\"x\":786,\"y\":210}},{\"from\":\"Policy lookup\",\"to\":\"Case preparation\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"policy\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":710,\"y\":360},\"target_px\":{\"x\":788,\"y\":287}},{\"from\":\"Case preparation\",\"to\":\"Employee review\",\"support_claim_id\":\"claim_3\",\"from_region_id\":\"review\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":990,\"y\":300},\"target_px\":{\"x\":990,\"y\":381}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-08",
+    "story_id": "nov08-a2-renewal",
+    "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+    "job_sha256": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
+    "visual_thesis": "A reusable renewal review draws on permitted service history and returns open cases plus a follow-up draft for owner review.",
+    "mechanism_metaphor": "Reusable playbook and owner review folio",
+    "story_anchors": [
+      "A reusable renewal review draws on permitted service history and returns open cases plus a follow-up draft for owner review.",
+      "No scheduling as a current ability in this story, no automatic send, no scope expansion, no claim that every source is permitted."
+    ],
+    "required_labels": [
+      "Renewal Skill",
+      "Service history",
+      "Open cases",
+      "Follow-up draft",
+      "Owner review",
+      "Run on request"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim_1",
+        "proposition": "The renewal example uses service history to identify unresolved cases.",
+        "supporting_source_excerpt": "pull together relevant service history, identify unresolved cases",
+        "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_2",
+        "proposition": "The renewal example prepares a follow-up from the case investigation.",
+        "supporting_source_excerpt": "prepare customer follow-up",
+        "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim_3",
+        "proposition": "The workflow returns results and recommended actions for review.",
+        "supporting_source_excerpt": "bring back results and recommended actions for review",
+        "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Service history",
+        "to": "Open cases",
+        "support_claim_id": "claim_1",
+        "direction": "conditional",
+        "condition": "Identify unresolved cases using the approved records for the requested account.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Open cases",
+        "to": "Follow-up draft",
+        "support_claim_id": "claim_2",
+        "direction": "conditional",
+        "condition": "Prepare follow-up using the relevant case evidence.",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Follow-up draft",
+        "to": "Owner review",
+        "support_claim_id": "claim_3",
+        "direction": "conditional",
+        "condition": "Return the prepared draft to the accountable owner for review.",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No scheduling as a current ability in this story, no automatic send, no scope expansion, no claim that every source is permitted."
+    ],
+    "composition_signature": {
+      "grammar": "Vertical playbook spine opening to a side-by-side review dossier",
+      "layout": "Vertical playbook spine opening to a side-by-side review dossier",
+      "metaphor": "Reusable playbook and owner review folio",
+      "palette": "forest teal and brick red",
+      "annotation": "Open a clean vertical playbook spine on the left above an approved-record inlet. In the center show a stepped dossier with case tabs and citation links as broad geometric tokens, never thin document strokes. At right show a draft tray ending at a closed owner-review boundary. The draft can reach the owner-review port only; no external sending path or schedule icon. Detach the manual-execution caveat.",
+      "hierarchy": "Priority labels mark the two or three main relationships",
+      "perspective": "Static white-background editorial mechanism"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Renewal Skill",
+          "region_id": "skill",
+          "region": "Left playbook spine for the reusable request",
+          "bounding_box_px": {
+            "x": 74,
+            "y": 80,
+            "width": 280,
+            "height": 52
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Service history",
+          "region_id": "data",
+          "region": "Lower-left permitted service-record inlet",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 291,
+            "width": 263,
+            "height": 44
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Open cases",
+          "region_id": "cases",
+          "region": "Center dossier identifying open cases",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 114,
+            "width": 315,
+            "height": 52
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Follow-up draft",
+          "region_id": "draft",
+          "region": "Right follow-up draft and owner review boundary",
+          "bounding_box_px": {
+            "x": 828,
+            "y": 148,
+            "width": 304,
+            "height": 46
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Owner review",
+          "region_id": "draft",
+          "region": "Right follow-up draft and owner review boundary",
+          "bounding_box_px": {
+            "x": 831,
+            "y": 387,
+            "width": 297,
+            "height": 51
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Run on request",
+          "region_id": "limit",
+          "region": "Detached execution scope",
+          "bounding_box_px": {
+            "x": 455,
+            "y": 540,
+            "width": 299,
+            "height": 39
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "thumbnail_priority_labels": [
+        "Renewal Skill",
+        "Open cases",
+        "Owner review"
+      ],
+      "explanatory_substage_labels": [
+        "Service history",
+        "Open cases"
+      ],
+      "source_caveat": "Run on request",
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 72,
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim_1",
+          "condition": "Identify unresolved cases using the approved records for the requested account.",
+          "allowed_path": "Service history to Open cases",
+          "blocked_path": "No path to unsupported data or a permission override."
+        },
+        {
+          "support_claim_id": "claim_2",
+          "condition": "Prepare follow-up using the relevant case evidence.",
+          "allowed_path": "Open cases to Follow-up draft",
+          "blocked_path": "No automatic outreach from the open-case list."
+        },
+        {
+          "support_claim_id": "claim_3",
+          "condition": "Return the prepared draft to the accountable owner for review.",
+          "allowed_path": "Follow-up draft to Owner review",
+          "blocked_path": "The route ends at owner review and never goes outside the dossier."
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_inline_width": 320,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Service history",
+          "to": "Open cases",
+          "support_claim_id": "claim_1",
+          "origin_region": "data",
+          "target_region": "cases",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Open cases",
+          "to": "Follow-up draft",
+          "support_claim_id": "claim_2",
+          "origin_region": "cases",
+          "target_region": "draft",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Follow-up draft",
+          "to": "Owner review",
+          "support_claim_id": "claim_3",
+          "origin_region": "draft",
+          "target_region": "draft",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "skill",
+            "description": "Left playbook spine for the reusable request",
+            "bounding_box_px": {
+              "x": 54,
+              "y": 59,
+              "width": 320,
+              "height": 184
+            }
+          },
+          {
+            "id": "data",
+            "description": "Lower-left permitted service-record inlet",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 270,
+              "width": 303,
+              "height": 235
+            }
+          },
+          {
+            "id": "cases",
+            "description": "Center dossier identifying open cases",
+            "bounding_box_px": {
+              "x": 404,
+              "y": 95,
+              "width": 365,
+              "height": 409
+            }
+          },
+          {
+            "id": "draft",
+            "description": "Right follow-up draft and owner review boundary",
+            "bounding_box_px": {
+              "x": 806,
+              "y": 130,
+              "width": 340,
+              "height": 369
+            }
+          },
+          {
+            "id": "limit",
+            "description": "Detached execution scope",
+            "bounding_box_px": {
+              "x": 432,
+              "y": 526,
+              "width": 345,
+              "height": 60
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Service history",
+            "to": "Open cases",
+            "support_claim_id": "claim_1",
+            "from_region_id": "data",
+            "to_region_id": "cases",
+            "origin_px": {
+              "x": 350,
+              "y": 381
+            },
+            "target_px": {
+              "x": 419,
+              "y": 340
+            }
+          },
+          {
+            "from": "Open cases",
+            "to": "Follow-up draft",
+            "support_claim_id": "claim_2",
+            "from_region_id": "cases",
+            "to_region_id": "draft",
+            "origin_px": {
+              "x": 750,
+              "y": 253
+            },
+            "target_px": {
+              "x": 820,
+              "y": 255
+            }
+          },
+          {
+            "from": "Follow-up draft",
+            "to": "Owner review",
+            "support_claim_id": "claim_3",
+            "from_region_id": "draft",
+            "to_region_id": "draft",
+            "origin_px": {
+              "x": 970,
+              "y": 308
+            },
+            "target_px": {
+              "x": 970,
+              "y": 380
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 8 image worker, original publisher and permanent reader review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "acea2edda71f8e63e485b583dd2971fca03b3edac1328fad186022fd663fe32e"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 8 image worker, original publisher and permanent reader review",
+      "source_url": "https://www.salesforce.com/ap/news/press-releases/2026/11/05/ph-salesforces-agentforce-coworker-usage-soars-21x-in-three-months-as-enterprises-delegate-real-work-to-ai/?bc=OTH",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Change ONE area only: move the exact black words Run on request upwards by 26 px, retaining their existing width, typography and center alignment. Their baseline should be around y=557, in the open white gap below the center Open cases folder. Keep the entire q descender above y=573 and preserve at least 50px white below the words. Keep every other pixel of the reference concept as close as possible, including all three arrow attachments, review station, draft tray, and record tabs.\n\nCreate one premium factual textbook editorial mechanism as a single raster PNG. Pure white backdrop, crisp vector-like rendering, subtle editorial depth, an uncluttered hierarchy, and high-contrast forest teal and brick red. Target exact 1200×630. Use an imaginary central 40:21 artwork area if the native canvas is taller, with blank bleed only outside that area. The exported 40:21 area must use its width and height, without letterboxing.\n\nA reusable renewal review draws on permitted service history and returns open cases plus a follow-up draft for owner review.\n\nOpen a clean vertical playbook spine on the left above an approved-record inlet. In the center show a stepped dossier with case tabs and citation links as broad geometric tokens, never thin document strokes. At right show a draft tray ending at a closed owner-review boundary. The draft can reach the owner-review port only; no external sending path or schedule icon. Detach the manual-execution caveat.\n\nUse at least twelve meaningful forms with a distinct internal hierarchy. Print only these exact phrases, exactly once each: \"Renewal Skill\", \"Service history\", \"Open cases\", \"Follow-up draft\", \"Owner review\", \"Run on request\". Bold sans serif. Priority typography at least 36px, other labels at least 28px on the 1200×630 export. Keep all labels inside 40px safe margins, outside connectors, and inside the reserved boxes. Do not print instructions, region IDs, positions or metadata.\n\nOnly these arrows, with arrowheads attached to actual object ports rather than label text: Service history → Open cases. Identify unresolved cases using the approved records for the requested account. No path to unsupported data or a permission override. Open cases → Follow-up draft. Prepare follow-up using the relevant case evidence. No automatic outreach from the open-case list. Follow-up draft → Owner review. Return the prepared draft to the accountable owner for review. The route ends at owner review and never goes outside the dossier.\n\nNo people, humanoids, avatars, shields, gears, knobs, dashboards, logos, invented interfaces or controls, realistic photos, scenery, fake writing, decorative microstrokes, charts, unsupported numbers, success badges, permission changes or alternate implied flows. No scheduling as a current ability in this story, no automatic send, no scope expansion, no claim that every source is permitted.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"skill\",\"description\":\"Left playbook spine for the reusable request\",\"bounding_box_px\":{\"x\":54,\"y\":59,\"width\":320,\"height\":184}},{\"id\":\"data\",\"description\":\"Lower-left permitted service-record inlet\",\"bounding_box_px\":{\"x\":65,\"y\":270,\"width\":303,\"height\":235}},{\"id\":\"cases\",\"description\":\"Center dossier identifying open cases\",\"bounding_box_px\":{\"x\":404,\"y\":95,\"width\":365,\"height\":409}},{\"id\":\"draft\",\"description\":\"Right follow-up draft and owner review boundary\",\"bounding_box_px\":{\"x\":806,\"y\":130,\"width\":340,\"height\":369}},{\"id\":\"limit\",\"description\":\"Detached execution scope\",\"bounding_box_px\":{\"x\":432,\"y\":526,\"width\":345,\"height\":60}}],\"labels\":[{\"label\":\"Renewal Skill\",\"region_id\":\"skill\",\"region\":\"Left playbook spine for the reusable request\",\"bounding_box_px\":{\"x\":74,\"y\":80,\"width\":280,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Service history\",\"region_id\":\"data\",\"region\":\"Lower-left permitted service-record inlet\",\"bounding_box_px\":{\"x\":85,\"y\":291,\"width\":263,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Open cases\",\"region_id\":\"cases\",\"region\":\"Center dossier identifying open cases\",\"bounding_box_px\":{\"x\":430,\"y\":114,\"width\":315,\"height\":52},\"minimum_font_px\":38},{\"label\":\"Follow-up draft\",\"region_id\":\"draft\",\"region\":\"Right follow-up draft and owner review boundary\",\"bounding_box_px\":{\"x\":828,\"y\":148,\"width\":304,\"height\":46},\"minimum_font_px\":32},{\"label\":\"Owner review\",\"region_id\":\"draft\",\"region\":\"Right follow-up draft and owner review boundary\",\"bounding_box_px\":{\"x\":831,\"y\":387,\"width\":297,\"height\":51},\"minimum_font_px\":38},{\"label\":\"Run on request\",\"region_id\":\"limit\",\"region\":\"Detached execution scope\",\"bounding_box_px\":{\"x\":455,\"y\":540,\"width\":299,\"height\":39},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Service history\",\"to\":\"Open cases\",\"support_claim_id\":\"claim_1\",\"from_region_id\":\"data\",\"to_region_id\":\"cases\",\"origin_px\":{\"x\":350,\"y\":381},\"target_px\":{\"x\":419,\"y\":340}},{\"from\":\"Open cases\",\"to\":\"Follow-up draft\",\"support_claim_id\":\"claim_2\",\"from_region_id\":\"cases\",\"to_region_id\":\"draft\",\"origin_px\":{\"x\":750,\"y\":253},\"target_px\":{\"x\":820,\"y\":255}},{\"from\":\"Follow-up draft\",\"to\":\"Owner review\",\"support_claim_id\":\"claim_3\",\"from_region_id\":\"draft\",\"to_region_id\":\"draft\",\"origin_px\":{\"x\":970,\"y\":308},\"target_px\":{\"x\":970,\"y\":380}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]
