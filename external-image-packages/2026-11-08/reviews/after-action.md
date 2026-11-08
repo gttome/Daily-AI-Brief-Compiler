@@ -1,6 +1,6 @@
 # 2026-11-08 premium image after-action report
 
-**Status: PACKAGE_READY**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 53b5cf7b26261fe49d40a994263dddfd5d87a988 |
 | Executor observed run start | 2026-11-08T03:13:50.000Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-08T03:35:17Z (observed before tool call) |
-| Public release | PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-08T04:04:58.089Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -60,6 +60,12 @@ The November 7 combined AAR and charts recorded 2 first-pass accepts from 11 gen
 
 The first provisional T1 lock was withdrawn for a one-pixel heading margin failure found in the follow-up audit. The original PNG bytes and original review commit remain preserved. A separately versioned successor passed re-review. No valid accepted PNG was regenerated for transport, CI, deployment, or reporting. The first retained final PNG checkpoint is the T2 lock.
 
-All six final 1200×630 saved images and 320px renditions passed individual and set review. These checks are separate from the pending 24 published placements and semantic review.
+All six live hashes, all 12 dated/permanent story-image placements and all 17 protected October 8 objects matched independent HTTP readback.
+
+All 24 actual 1440px and 320px contexts passed RGB image-region proof and subsequent human-style semantic inspection of the exact release archive. Fine mobile text can use the full-size image.
+
+Semantic review completion is recorded independently of repository commit and protected merge.
+
+Semantic review finished at 2026-11-08T04:07:28Z. The first review commit was recorded separately at 2026-11-08T04:09:22Z in a1abd4f554c37af0bfe0546534fe90e87253e083. Protected closeout merge timing is recorded by GitHub.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
