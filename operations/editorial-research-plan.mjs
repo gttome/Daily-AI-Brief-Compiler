@@ -25,6 +25,8 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
   eligible_count:eligible.length,previously_unreviewed_prioritized:first.length,
   ...(trendInput && {trend_search_coverage:initializeTrendSearchCoverage(editionDate,trendInput)}),
   video_source_sweep:buildVideoSourceSweepPlan({editionDate,registry}),
+  video_discovery_fallbacks:eligible.filter(r=>r.video_discovery_fallback?.status==='DISCOVERY_ONLY')
+   .map(r=>({resource_id:r.resource_id,...r.video_discovery_fallback})),
   resources:[...first,...rest].map((r,i)=>({order:i+1,resource_id:r.resource_id,url:r.url,
    roles:r.content_types.filter(t=>roles.includes(t)),priority_reason:unreviewed.has(r.resource_id)?'PREVIOUSLY_UNREVIEWED':'REGULAR_ROTATION',inspection_status:'NOT_YET_RECORDED'})),
   rule:'Plan enabled editorial sources as before and separately account for every registered video lead, including disabled qualification-only leads. The video_source_sweep plan never proves retrieval; write and validate actual per-source attempts before new-edition selection lock. Disabled resources stay unqualified unless independently admitted.'};
