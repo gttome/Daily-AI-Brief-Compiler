@@ -12,8 +12,9 @@
     "image-job.json": "9d7b4aa1ac778524e1ca67b197096bbaa774fb1b0085ba69d61303e6477e06a5",
     "image-manifest.json": "ed039e0f82911cec2ecd2332162df0bd0b75b90f5c0248c24ac886edcdb2e834",
     "image-recurring-assignment.json": "c4fd3bb77c8f43cd82c2cec4a745c1a7be69c7e2fa264e1358475a1133914bf1",
+    "image-release.json": "b969fdb63b8ed4dd2ec88a841781b11fcd367701d1250ba4cb1466e521d14c9b",
     "image-route-preflight.json": "e63fa173beab1d087f4ca7857052eeff1bc926edca53065a20b7c289f05741e0",
-    "image-timing.json": "72a400505e5466656e2ffccb3d03dc7cae1c9c0e65a553b691db5582986e3d71",
+    "image-timing.json": "91d4bd9405716b8b2f3112a5d59efb972ea0482c71df2b4795aa7a1ebb4301ca",
     "image-worker-state.json": "725fe2530e34dd17bbd69144691e37cb52bd87ea3718645193f75c1e5aeebf52",
     "postpublish-integrity.json": "e2a9eaeaad4d54207f2d24c23aae6633682b9ce9522b1b80a55e0252edc3739c",
     "postpublish-video-playback.json": "8636e4d4af86d4f33e80032b0f038e2d9b1bad7178a6de85c6de0051bd6f06a1",
@@ -24,18 +25,18 @@
     "top10-after-action.json": "d435541d5b9cc65bee03b763771330bd196d598a15ff7f1e69a02bde1110b560",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "2285c94b51c5ec07f390b9d22a408900c31489eede252e4b76e8751a80714f91",
+    "top10-previous-aar.json": "b3e6cfecf0768efc9625759027236b291e7d75ace38879f11fc4f7e0cf9bdd22",
     "top10-previous-report.json": "f49f95eecdbf618d0feaf1a627d9f203ae893c9d0b0fc1fffba5b8ca9339428f",
-    "top10-report-source.json": "0602cb03ade56c22abcdb0546dd22a398c3682d7de747b1786da922f36a2a94d",
+    "top10-report-source.json": "d50117420ce5556146f30d4280f2d417c1d33df96a77028995a7cbab4225219f",
     "top10-report.json": "2ab8b09a10eb90072936fb9f4a88ab8b99cb751e89b79329ee85e8f615cf1335",
     "trend-consumed-report.json": "2ab8b09a10eb90072936fb9f4a88ab8b99cb751e89b79329ee85e8f615cf1335",
-    "trend-consumed-source.json": "5ae67a14e59bf6b6c04f2ef4230845daa4f466a1ddf77844d854d1bf42e6c1b7",
+    "trend-consumed-source.json": "5047f11ac64d889b4d393b32c716e881262f486a02a43c6be52907e08e1826e8",
     "trend-input.json": "462c7cd116547e5fd4b25b6657c0d75c44d92f310a502787c52aa858ec583428",
     "trend-search-coverage.json": "8a571dd62de4dd08b04e4781193200958c50131e2016de77bc5bc88b3e0bbb95"
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "INVALID",
     "autonomy": "FAIL_OWNER_RECOVERY"
   },
@@ -157,8 +158,8 @@
     "coverage_percent": null,
     "coverage_numerator": null,
     "coverage_denominator": null,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 20,
     "top10_linked_items": null,
     "publication_failures": 4
   },
@@ -207,7 +208,133 @@
   "inspections": [],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 14,
+    "classified": [
+      {
+        "story_id": "nov08-t1-memory",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t1-attempt-1.png"
+      },
+      {
+        "story_id": "nov08-t1-memory",
+        "attempt": 2,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t1-attempt-2.png"
+      },
+      {
+        "story_id": "nov08-t1-memory",
+        "attempt": 3,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t1-attempt-3.png"
+      },
+      {
+        "story_id": "nov08-t1-memory",
+        "attempt": 4,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t1-attempt-4.png"
+      },
+      {
+        "story_id": "nov08-t1-memory",
+        "attempt": 5,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t1-attempt-5-preserved.png"
+      },
+      {
+        "story_id": "nov08-t2-inkling",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT",
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t2-attempt-1.png"
+      },
+      {
+        "story_id": "nov08-t2-inkling",
+        "attempt": 2,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/t2-attempt-2.png"
+      },
+      {
+        "story_id": "nov08-k1-proof-driven",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/k1-attempt-1.png"
+      },
+      {
+        "story_id": "nov08-k1-proof-driven",
+        "attempt": 2,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/k1-attempt-2.png"
+      },
+      {
+        "story_id": "nov08-k2-records",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/k2-attempt-1.png"
+      },
+      {
+        "story_id": "nov08-a1-bmo",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/a1-attempt-1.png"
+      },
+      {
+        "story_id": "nov08-a1-bmo",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/a1-attempt-2.png"
+      },
+      {
+        "story_id": "nov08-a2-renewal",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/a2-attempt-1.png"
+      },
+      {
+        "story_id": "nov08-a2-renewal",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/132d85b44811d3b9916c17fd14e4523fc95c96d9/external-image-packages/2026-11-08/reviews/a2-attempt-2.png"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,
