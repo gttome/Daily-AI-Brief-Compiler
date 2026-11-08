@@ -34,7 +34,7 @@ export function publicationRecoveryDecision({editionDate,state=null,health=null,
 
 // Admission for the existing Recovery Guard, not a second producer. Every write
 // must still use expectedHead as the compare-and-swap lease in the GitHub API.
-export function recoveryGuardDecision({editionDate,state,health,imageIndex,ownership,expectedHead,observedHead,attempts=0,observedAt=new Date().toISOString()}){
+export function recoveryGuardDecision({editionDate,state,health,imageIndex,ownership,presealBlocker,expectedHead,observedHead,attempts=0,observedAt=new Date().toISOString()}){
  const base=publicationRecoveryDecision({editionDate,state,health,imageIndex});
  const readonly=result=>({...base,result,write_allowed:false,unattended_recovery_proven:false});
  if(base.result==='PUBLICATION_AND_IMAGES_RELEASED'||base.result==='PUBLIC_READER_READY_FOR_IMAGE_WORKER')return readonly(base.result);
@@ -46,6 +46,17 @@ export function recoveryGuardDecision({editionDate,state,health,imageIndex,owner
    return readonly('YIELD_WRITER_OWNERSHIP_UNPROVEN');
  if(!/^[a-f0-9]{40}$/.test(expectedHead||'')||expectedHead!==observedHead)return readonly('YIELD_SOURCE_HEAD_CHANGED');
  if(attempts!==0)return readonly('BOUNDED_ATTEMPT_ALREADY_USED');
+ if(state?.edition_date===editionDate&&state.state==='RESEARCH'&&!state.selection_locked_at&&!state.sealed_at&&
+    presealBlocker?.edition_date===editionDate&&presealBlocker.stage==='PRESEAL_VIDEO'&&
+    presealBlocker.result==='BLOCKED'&&presealBlocker.source_head===expectedHead&&
+    (/^https:\/\/github\.com\/gttome\/Daily-AI-Brief-Compiler\/actions\/runs\/\d+$/.test(presealBlocker.run_url||'')||
+     (presealBlocker.run_url==null&&typeof presealBlocker.evidence_path==='string'&&
+      presealBlocker.evidence_path.startsWith('shadow-runs/'+editionDate+'/editorial/')&&
+      !presealBlocker.evidence_path.includes('..')&&presealBlocker.evidence_path.endsWith('.json')))&&
+    /^https:\/\/[^\s]+$/.test(presealBlocker.next_candidate_url||''))
+  return {...readonly('ONE_BOUNDED_PRESEAL_VIDEO_RECOVERY_ALLOWED'),write_allowed:true,expected_head:expectedHead,
+   correction:'QUALIFY_ONE_NEW_VIDEO_AND_RESUME_SAVED_DRAFT',next_candidate_url:presealBlocker.next_candidate_url,
+   next_action:'Use the saved same-edition draft, review one next candidate and submit a changed protected pre-seal request. Preserve unrelated evidence and yield if another writer advances.'};
  if(health?.edition_date!==editionDate||health.status!=='BLOCKED_PUBLICATION')return readonly('NO_FAILED_STAGE_TO_REPAIR');
  return {...base,result:'ONE_BOUNDED_RECOVERY_ALLOWED',write_allowed:true,expected_head:expectedHead,
   requires_new_producer:false,unattended_recovery_proven:false};

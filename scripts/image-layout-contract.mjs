@@ -73,6 +73,11 @@ export function validateCompositionGeometry(spec){
   labels.set(label.label,label);used.add(region.id);
  }
  if(used.size!==regions.size)fail('unexplained_composition_region');
+ if(spec.edition_date>='2026-11-09'){
+  const labelSafe={x:52,y:52,width:1096,height:526};
+  if([...labels.values()].some(label=>!inside(label.bounding_box_px,labelSafe)))
+   fail('leave_twelve_pixels_of_glyph_buffer_inside_export_safe_area');
+ }
  const edges=spec.allowed_causal_edges;
  if(!Array.isArray(g.connector_anchors)||g.connector_anchors.length!==edges.length)fail('exact_connector_anchors_required');
  const seen=new Set();
@@ -83,6 +88,9 @@ export function validateCompositionGeometry(spec){
      (anchor.origin_px.x===anchor.target_px.x&&anchor.origin_px.y===anchor.target_px.y))fail('invalid_or_duplicate_connector_anchor');
   if((labels.has(anchor.from)&&labels.get(anchor.from).region_id!==anchor.from_region_id)||
      (labels.has(anchor.to)&&labels.get(anchor.to).region_id!==anchor.to_region_id))fail('connector_endpoint_label_region_mismatch');
+  if(spec.edition_date>='2026-11-09'&&[...labels.values()].some(label=>
+    pointInside(anchor.origin_px,label.bounding_box_px)||pointInside(anchor.target_px,label.bounding_box_px)))
+   fail('connector_endpoints_must_touch_objects_clear_of_label_boxes');
   seen.add(key);
  }
  const prompt=spec.native_generation_prompt,block=compositionGeometryPromptBlock(spec);

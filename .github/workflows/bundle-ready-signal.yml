@@ -7,10 +7,12 @@ on:
     paths:
       - 'shadow-runs/**/compiler-state.json'
       - 'shadow-runs/**/edition-bundle.json'
+      - 'shadow-runs/**/editorial/preseal-video-request.json'
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: bundle-ready-signal-${{ github.ref }}
@@ -27,6 +29,36 @@ jobs:
           node-version: '20'
       - id: ready
         run: node scripts/check-current-shadow-ready.mjs >> "$GITHUB_OUTPUT"
+      - id: preseal_video
+        name: Check three proposed programs in the protected runner before seal
+        if: steps.ready.outputs.ready == 'false' && startsWith(github.ref, 'refs/heads/shadow/')
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$GITHUB_REF_NAME" in shadow/20??-??-??) ;; *) exit 0 ;; esac
+          date="${GITHUB_REF_NAME#shadow/}"
+          dir="shadow-runs/$date"
+          request="$dir/editorial/preseal-video-request.json"
+          receipt="$dir/editorial/preseal-video-receipt.json"
+          [[ "$date" > "2026-11-08" ]] && test -s "$request" || exit 0
+          node -e "const s=require('./'+process.argv[1]); process.exit(s.state==='RESEARCH'&&!s.selection_locked_at&&!s.sealed_at?0:1)" "$dir/compiler-state.json" || exit 0
+          hash="$(sha256sum "$request" | cut -d ' ' -f1)"
+          if test -s "$receipt" && node -e "process.exit(require('./'+process.argv[1]).request_sha256===process.argv[2]?0:1)" "$receipt" "$hash"; then exit 0; fi
+          npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
+          node scripts/preseal-video-playback.mjs probe "$date" "$dir/compiler-state.json" "$request" "$receipt"
+          git config user.name "Daily Brief Publication Health"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$receipt"
+          git commit -m "Record protected pre-seal video evidence"
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          echo "receipt=$receipt" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        if: steps.preseal_video.outputs.receipt != ''
+        with:
+          name: protected-preseal-video-receipt
+          path: ${{ steps.preseal_video.outputs.receipt }}
+          retention-days: 7
+          if-no-files-found: error
       - id: semantic_preflight
         name: Run existing complete semantic checks before media work and dispatch
         if: steps.ready.outputs.ready == 'true'
@@ -65,10 +97,26 @@ jobs:
         if: steps.ready.outputs.ready == 'true'
         env:
           TARGET_DATE: ${{ steps.ready.outputs.date }}
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           if [[ "$TARGET_DATE" < "2026-10-21" ]]; then echo "Historical video unchanged"; exit 0; fi
+          dir="shadow-runs/$TARGET_DATE"
+          node scripts/preseal-video-playback.mjs check "$TARGET_DATE" "$dir/compiler-state.json" \
+            "$dir/editorial/preseal-video-request.json" "$dir/editorial/preseal-video-receipt.json" "$dir/edition-bundle.json"
+          if [[ "$TARGET_DATE" > "2026-11-08" ]]; then
+            request="$dir/editorial/preseal-video-request.json"
+            receipt="$dir/editorial/preseal-video-receipt.json"
+            run="$(jq -r '.run_url | split("/") | last' "$receipt")"
+            head="$(jq -r '.source_head' "$receipt")"
+            [[ "$run" =~ ^[0-9]+$ && "$head" =~ ^[a-f0-9]{40}$ ]]
+            gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run" | jq -e --arg branch "$GITHUB_REF_NAME" --arg head "$head" \
+              '.name=="bundle-ready-signal" and .head_branch==$branch and .head_sha==$head and .conclusion=="success"' >/dev/null
+            test "$(gh api "repos/$GITHUB_REPOSITORY/contents/$request?ref=$head" --jq .sha)" = "$(git hash-object "$request")"
+            gh run download "$run" --name protected-preseal-video-receipt --dir "$RUNNER_TEMP/preseal-video"
+            cmp "$receipt" "$RUNNER_TEMP/preseal-video/preseal-video-receipt.json"
+          fi
           npm install --prefix /tmp/browser --no-audit --no-fund playwright-core@1.51.1 >/dev/null
           node scripts/verify-selected-video-playback.cjs "shadow-runs/$TARGET_DATE/edition-bundle.json" build/video-prepublish-playback.json
       - id: signal_dispatch
@@ -86,7 +134,7 @@ jobs:
         if: ${{ failure() && startsWith(github.ref, 'refs/heads/shadow/') }}
         shell: bash
         env:
-          FAILED_STAGE: ${{ steps.semantic_preflight.outcome == 'failure' && 'SEMANTIC_PREFLIGHT' || steps.reader_preflight.outcome == 'failure' && 'READER_COMPATIBILITY' || steps.video_playback.outcome == 'failure' && 'VIDEO_PLAYBACK' || steps.media_history.outcome == 'failure' && 'MEDIA_HISTORY' || steps.ready.outcome == 'failure' && 'SOURCE_READY' || 'DISPATCH_FAILED' }}
+          FAILED_STAGE: ${{ steps.semantic_preflight.outcome == 'failure' && 'SEMANTIC_PREFLIGHT' || steps.reader_preflight.outcome == 'failure' && 'READER_COMPATIBILITY' || steps.video_playback.outcome == 'failure' && 'VIDEO_PLAYBACK' || steps.media_history.outcome == 'failure' && 'MEDIA_HISTORY' || steps.preseal_video.outcome == 'failure' && 'PRESEAL_VIDEO' || steps.ready.outcome == 'failure' && 'SOURCE_READY' || 'DISPATCH_FAILED' }}
         run: |
           set -euo pipefail
           case "$GITHUB_REF_NAME" in shadow/20??-??-??) ;; *) exit 0 ;; esac
@@ -97,14 +145,14 @@ jobs:
           if [ "$FAILED_STAGE" = VIDEO_PLAYBACK ] && test -s build/video-prepublish-playback.json; then
             node scripts/record-video-playback-failure.mjs \
               build/video-prepublish-playback.json "$date" \
-              "shadow-runs/$date/editorial/video-playback-failure.json" PREPUBLISH_SIGNAL || \
+              "shadow-runs/$date/editorial/video-playback-failure-$GITHUB_RUN_ID.json" PREPUBLISH_SIGNAL "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" || \
               echo "Video diagnostic unavailable; original failed gate is still recorded"
           fi
           git config user.name "Daily Brief Publication Health"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "shadow-runs/$date/publication-health.json"
-          if test -s "shadow-runs/$date/editorial/video-playback-failure.json"; then
-            git add "shadow-runs/$date/editorial/video-playback-failure.json"
+          if test -s "shadow-runs/$date/editorial/video-playback-failure-$GITHUB_RUN_ID.json"; then
+            git add "shadow-runs/$date/editorial/video-playback-failure-$GITHUB_RUN_ID.json"
           fi
           if ! git diff --cached --quiet; then
             git commit -m "Record actual blocked publishing gate $FAILED_STAGE"

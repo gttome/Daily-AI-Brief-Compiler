@@ -93,6 +93,16 @@ test('accepted historical exception never bypasses existing source-verification 
 });
 test('future bound specification continues to pass rather than depending on legacy schema opt-in',()=>{
  const spec=fixture();spec.edition_date='2027-01-01';
+ const q=spec.pre_generation_checks;
+ for(const label of q.label_layout){
+  const b=label.bounding_box_px;
+  b.x=Math.max(52,b.x);b.y=Math.max(52,b.y);b.width=Math.min(b.width,1148-b.x);
+ }
+ for(const anchor of q.composition_geometry.connector_anchors){
+  anchor.origin_px.x=601;anchor.target_px.x=605;
+ }
+ spec.native_generation_prompt=compositionGeometryPromptBlock(spec);
+ q.composition_geometry.prompt_geometry_review.geometry_sha256=compositionPlanDigest(spec);
  assert.equal(validateFrozenImageSpecification({spec,story}).result,'FROZEN_PREGENERATION_SPEC_PASS');
 });
 
@@ -102,4 +112,14 @@ test('Nov02 exact accepted specifications remain valid, modified copies do not i
   assert.equal(validateCompositionGeometry(spec).result,'ACCEPTED_PREACTIVATION_SPEC_UNCHANGED');
   assert.throws(()=>validateCompositionGeometry({...spec,visual_thesis:spec.visual_thesis+' changed'}));
  }
+});
+
+test('November 9 planning rejects narrow glyph buffers and label-attached connectors',()=>{
+ const s=fixture();s.edition_date='2026-11-09';
+ assert.throws(()=>validateCompositionGeometry(s),/glyph_buffer/);
+ for(const label of s.pre_generation_checks.label_layout){
+  const b=label.bounding_box_px;
+  b.x=Math.max(52,b.x);b.y=Math.max(52,b.y);b.width=Math.min(b.width,1148-b.x);
+ }
+ assert.throws(()=>validateCompositionGeometry(s),/endpoints_must_touch_objects/);
 });

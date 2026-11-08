@@ -4,7 +4,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const fail=x=>{throw Error('VIDEO_FAILURE_EVIDENCE_'+x);};
-export function summarizeFailedVideoPlayback(source,editionDate,stage){
+export function classifyPlaybackFailure(message){
+ if(typeof message!=='string')return null;
+ if(/Public publisher page HTTP (?:\d{3}|unavailable)/.test(message))return 'PUBLISHER_HTTP_ACCESS';
+ if(message.includes('advancing_short_player=true'))return 'SHORT_PLAYER_ADVANCED_FULL_PROGRAM_UNVERIFIED';
+ if(/YouTube playability status (?:UNPLAYABLE|ERROR|LIVE_STREAM_OFFLINE|LOGIN_REQUIRED)/.test(message))
+   return 'YOUTUBE_PLAYABILITY_STATUS';
+ return null;
+}
+export function summarizeFailedVideoPlayback(source,editionDate,stage,runUrl=null){
  if(!/^20\d\d-\d\d-\d\d$/.test(editionDate||'')||
    !['PREPUBLISH_SIGNAL','READER_DEPLOY'].includes(stage)||
    source?.schema_version!=='daily-compiler-public-video-playback-v1'||
@@ -23,20 +31,21 @@ export function summarizeFailedVideoPlayback(source,editionDate,stage){
      fail('FALSE_FAILURE_OR_IDENTITY');
    failed.push({index:v.index,title:v.title,url:v.url,observed_result:v.result,
      playback_verified:false,
+     failure_code:classifyPlaybackFailure(v.error??v.headless_browser_limitation),
      headless_browser_limitation:typeof v.headless_browser_limitation==='string'?
        v.headless_browser_limitation.slice(0,650):null});
  }
  if(failed.length!==bad.size)fail('MISSING_FAILED_VIDEO');
  return {schema_version:'daily-compiler-video-playback-failure-evidence-v1',
-   edition_date:editionDate,stage,original_checked_at:source.checked_at||null,
+   edition_date:editionDate,stage,run_url:runUrl,original_checked_at:source.checked_at||null,
    original_result:source.result,failed_videos:failed,
    interpretation:'PLAYBACK_UNVERIFIED_NOT_INDEPENDENT_PROOF_OF_PRIVATE_VIDEO',
    required_recovery:'Verify an actual advancing signed-out full-length player for replacement candidates'};
 }
 function main(){
- const [input,edition,output,stage]=process.argv.slice(2);
+ const [input,edition,output,stage,runUrl]=process.argv.slice(2);
  if(!input||!output)fail('USAGE');
- const evidence=summarizeFailedVideoPlayback(JSON.parse(fs.readFileSync(input,'utf8')),edition,stage);
+ const evidence=summarizeFailedVideoPlayback(JSON.parse(fs.readFileSync(input,'utf8')),edition,stage,runUrl);
  fs.mkdirSync(path.dirname(output),{recursive:true});
  fs.writeFileSync(output,JSON.stringify(evidence,null,2)+'\n');
  console.log('VIDEO_PLAYBACK_FAILURE_EVIDENCE_SAVED '+edition+' '+evidence.failed_videos.length);

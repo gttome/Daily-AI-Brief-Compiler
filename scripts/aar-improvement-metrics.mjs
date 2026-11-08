@@ -98,7 +98,12 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  const failures=events?.map(event=>{
   const matches=causeReviews.filter(r=>r.run_url===event.run_url&&r.stage===event.stage&&/^[A-Z][A-Z_]{2,60}$/.test(r.root_cause_code||'')&&https(r.evidence_ref)&&text(r.reason)&&r.reason.length>=40);
   const review=matches.length===1?matches[0]:null;
-  return {...event,root_cause:review?.root_cause_code??'UNCLASSIFIED',cause_evidence_ref:review?.evidence_ref??null,
+  const diagnostic=event.stage==='VIDEO_PLAYBACK'&&list(evidence['video-playback-failures']).find(r=>
+   r?.schema_version==='daily-compiler-video-playback-failure-evidence-v1'&&r.edition_date===edition&&r.run_url===event.run_url);
+  const codes=list(diagnostic?.failed_videos).map(v=>v.failure_code);
+  const playbackCause=codes.length&&codes.every(c=>/^[A-Z][A-Z_]{2,60}$/.test(c||''))?
+   (new Set(codes).size===1?codes[0]:'MULTIPLE_VIDEO_PLAYBACK_CAUSES'):null;
+  return {...event,root_cause:review?.root_cause_code??playbackCause??'UNCLASSIFIED',cause_evidence_ref:review?.evidence_ref??(playbackCause?event.run_url:null),
    documented_delay_seconds:review&&number(review.documented_delay_seconds)?review.documented_delay_seconds:null};
  })??null;
  const charts=combined.charts?.charts||[],research=charts.find(x=>x.id==='research-coverage'),image=charts.find(x=>x.id==='image-rework'),selection=charts.find(x=>x.id==='top10-selection');

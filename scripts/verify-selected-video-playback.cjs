@@ -73,6 +73,7 @@ async function proveVideo(browser, item, opts={}) {
       await page.getByText(/Watch this episode/i).first().click({timeout:6500}).catch(() => {});
     }
     let proof = null;
+    let advancingShortPlayer = false;
     let pollLimit = maxAttempts;
     for (let attempt=0; attempt<pollLimit && !proof; attempt++) {
       await page.waitForTimeout(pollingMs);
@@ -88,6 +89,7 @@ async function proveVideo(browser, item, opts={}) {
                 attempt === maxAttempts-1 && duration > 0 && duration <= 120 && duration < item.expected_seconds) {
               const ad = await video.evaluate(v => ({at:v.currentTime,paused:v.paused,ready:v.readyState})).catch(() => null);
               if (ad && !ad.paused && ad.ready >= 2 && ad.at > 0 && ad.at < duration) {
+                advancingShortPlayer = true;
                 const remainingPolls = Math.ceil(((duration-ad.at)*1000 + 8000)/pollingMs);
                 pollLimit += Math.min(36,remainingPolls);
               }
@@ -117,7 +119,7 @@ async function proveVideo(browser, item, opts={}) {
         contexts.push({host:(()=>{try{return new URL(frame.url()).hostname}catch{return 'invalid-frame-url'}})(),players:found});
       }
       throw new Error('Video '+item.index+' ('+item.title+'): full-episode playback UNVERIFIED; status='+playerStatus+
-        '; player_evidence='+JSON.stringify(contexts).slice(0,3000)+
+        '; advancing_short_player='+advancingShortPlayer+'; player_evidence='+JSON.stringify(contexts).slice(0,3000)+
         '; no observed advancing duration-matched HTML5 episode; previews and metadata insufficient');
     }
     return {index:item.index,title:item.title,url:item.url,result:'SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS',checked_at:new Date().toISOString(),signed_out:true,full_episode_watched:false,playback_verified:true,duration_matched_player_advanced:true,expected_seconds:item.expected_seconds,...proof};
@@ -202,7 +204,7 @@ async function main() {
   } finally {await browser.close();}
   fs.mkdirSync(path.dirname(outPath),{recursive:true});
   fs.writeFileSync(outPath,JSON.stringify(outcome,null,2)+'\n');
-  if(!outcome.publication_approved)throw new Error('OCT22_MEDIA_PLAYBACK_FAIL_CLOSED: one or more videos were only metadata-verified; read '+outPath+' and select publicly playable instructional alternatives');
+  if(!outcome.publication_approved)throw new Error('OCT22_MEDIA_PLAYBACK_FAIL_CLOSED: one or more videos were only metadata-verified; read '+outPath+' and select qualified publicly playable alternatives');
   process.stdout.write('PUBLIC_VIDEO_AVAILABILITY_PASS '+outcome.edition_date+' '+outcome.checked_videos.length+'\n');
 }
 if (require.main === module) main().catch(e => {console.error('PUBLIC_VIDEO_PLAYBACK_BLOCKED:',e.message);process.exitCode=1;});
