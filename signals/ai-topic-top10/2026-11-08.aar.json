@@ -1,0 +1,208 @@
+{
+  "schema_version": "daily-ai-topic-top10-run-aar-v1",
+  "cycle_date": "2026-11-08",
+  "edition_date": "2026-11-09",
+  "timezone": "America/Chicago",
+  "started_at": "2026-11-08T23:04:58Z",
+  "finished_at": "2026-11-08T23:10:03Z",
+  "report_commit": "0f61fc274bf35c12afed857e78e3a2a3ee0d34d4",
+  "report_blob_sha": "56c02f440ab3ae2e5bf43e9d6f9c12be25d38772",
+  "report_sha256": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
+  "report_bytes": 87170,
+  "report_path": "signals/ai-topic-top10/2026-11-08.json",
+  "usage_percent": null,
+  "cost_usd": null,
+  "protected_main_commit": "bdc8025f90562113ca030894513c0fc7ca42a560",
+  "report_status": "partial",
+  "topic_count": 10,
+  "readback": {
+    "verified_at": "2026-11-08T23:09:49Z",
+    "result": "EXACT_COMMITTED_BYTES_VERIFIED",
+    "protected_reporter_schema_validation": "PASS"
+  },
+  "sample_scope": {
+    "metadata_screened_videos": 12,
+    "distinct_retained_channels": 12,
+    "total_video_observations": 12,
+    "unique_videos": 12,
+    "new_metadata_screened_records": 12,
+    "new_metadata_distinct_channels": 12,
+    "combined_observation_records": 12,
+    "combined_unique_video_ids": 12,
+    "full_video_reviews": 0,
+    "videos_watched": 0,
+    "transcript_reviews": 1,
+    "complete_original_publisher_script_reviews": 1,
+    "complete_original_publisher_transcript_reviews": 0,
+    "indexed_transcript_excerpt_reviews": 1,
+    "partial_transcript_reviews": 0,
+    "direct_youtube_counter_verifications": 0,
+    "direct_counter_verifications": 0,
+    "original_watch_attempts": 12,
+    "tracker_counter_records": 12,
+    "comparable_video_observations": 7,
+    "within_24h_reported_publications": 1,
+    "additional_within_72h_reported_publications": 6,
+    "additional_within_7d_reported_publications": 5,
+    "freshness_reference_at": "2026-11-08T23:06:29Z",
+    "target_40_to_80_full_reviews_met": false,
+    "validation_resources_registered": 14,
+    "scope": "Ten selected long-form tracker rows plus two retained rows from a second tracker; original publications, research repositories and bounded HN/X observations."
+  },
+  "original_route_fallbacks": [
+    {
+      "video_id": "1NQwfImTseU",
+      "source_url": "https://www.dwarkesh.com/p/clocktower",
+      "attempted_at": "2026-11-08T23:05:32Z",
+      "access_result": "direct publisher page",
+      "content_scope": "Full displayed script from opening to closing before the appendix. No playback or counter."
+    },
+    {
+      "video_id": "Q78dJ0vkWe8",
+      "source_url": "https://www.ycombinator.com/library/ks-how-to-build-the-future-paul-graham-amjad-masad",
+      "attempted_at": "2026-11-08T23:05:32Z",
+      "access_result": "direct page returned no readable lines",
+      "content_scope": "Indexed episode identity only; derivative transcript excerpt has limited scope."
+    },
+    {
+      "video_id": "DHWc0uonVbA",
+      "source_url": "https://www.bbc.com/news/articles/cmn04705rd8jo",
+      "attempted_at": "2026-11-08T23:05:32Z",
+      "access_result": "restricted URL",
+      "content_scope": "Original related publisher report unavailable; AP read for context."
+    },
+    {
+      "video_id": "_BCQ7qbFXGA",
+      "source_url": "https://www.youtube.com/watch?v=_BCQ7qbFXGA",
+      "attempted_at": "2026-11-08T23:06:29Z",
+      "access_result": "no readable publisher transcript or alternate timed direct counter found in exact-ID search",
+      "content_scope": "Secondary index links video to permission issue; title and tracker metadata only."
+    },
+    {
+      "video_id": "9RIK3A24ZxA",
+      "source_url": "https://www.youtube.com/watch?v=9RIK3A24ZxA",
+      "attempted_at": "2026-11-08T23:06:29Z",
+      "access_result": "no readable publisher transcript or alternate timed direct counter found in exact-ID search",
+      "content_scope": "Second creator’s roundup has topic-matched title and tracker metadata only."
+    }
+  ],
+  "errors": [
+    {
+      "issue": "Twelve YouTube watch pages throttled.",
+      "effect": "No original counters, playback or verified sponsorship data.",
+      "correction": "Used original Dwarkesh publisher script, retried the YC original episode page and BBC related article, and separated alternate tracker metadata and indexed extracts."
+    },
+    {
+      "issue": "X original posts returned 403 and some secondary timestamps were not exposed.",
+      "effect": "Three post counts are third-party; two secondary video counter times are unknown.",
+      "correction": "Kept exact post IDs, counter-source timestamps where exposed and null measurement times otherwise."
+    },
+    {
+      "issue": "Arete primary material failed during the previous cycle.",
+      "effect": "The item was previously held.",
+      "correction": "Retrieved the actual Nous release and model card. Bound claims to the author’s rubric, prompt set and decoding settings."
+    },
+    {
+      "issue": "The first local check required a measurement timestamp even for the two explicitly unclocked tracker counters.",
+      "effect": "Local check failed before any write.",
+      "correction": "Allowed null measurement times while checking publication and observation chronology and verifying all known measurements. Exact readback passed."
+    }
+  ],
+  "improvements": [
+    {
+      "status": "implemented",
+      "change": "Use a bounded original-publisher fallback when the original watch page throttles.",
+      "reason": "The November 8 corrective contract requires auditable provenance after throttling; previous text depth relied on a mirror.",
+      "expected_effect": "Separate first-party content depth from metadata and counters."
+    },
+    {
+      "status": "implemented",
+      "change": "Retry the Arete original card and corroborate new video coverage with a second tracker without merging counters.",
+      "reason": "Prior original Arete documentation was unavailable, and some new events were missing in the primary tracker.",
+      "expected_effect": "Use event-specific source details and record additional channels without treating them as measurable growth."
+    },
+    {
+      "status": "proposed",
+      "change": "Continue one bounded original publisher fallback for event-matched videos and keep the first-party counter gap visible."
+    }
+  ],
+  "daily_improvement": {
+    "baseline_id": "nov03-2026-v1",
+    "previous_report_date": "2026-11-07",
+    "previous_method_version": "2026-11-03.2-event-review",
+    "method_version": "2026-11-03.2-event-review",
+    "feedback": {
+      "aar_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/df398047378b26af78552f4348243c56c22e9bd6/daily/2026-11-07/combined.md",
+      "charts_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/df398047378b26af78552f4348243c56c22e9bd6/daily/2026-11-07/charts.json",
+      "metrics_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/df398047378b26af78552f4348243c56c22e9bd6/daily/2026-11-07/improvement-metrics.json",
+      "previous_report_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/df398047378b26af78552f4348243c56c22e9bd6/signals/ai-topic-top10/2026-11-07.json",
+      "previous_run_aar_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/df398047378b26af78552f4348243c56c22e9bd6/signals/ai-topic-top10/2026-11-07.aar.json",
+      "observation": "November 8 combined AAR shows a bound handoff, invalid Compiler search coverage, unrecorded Top 10 selection chart, and a completed release. Compiler owns search receipt correction. Ten publisher-family reviews were recorded. Earlier Top 10 relied on one complete caption mirror and an indexed episode excerpt with no original transcript."
+    },
+    "changes": [
+      {
+        "change": "Use a bounded original-publisher fallback when the original watch page throttles.",
+        "reason": "The November 8 corrective contract requires auditable provenance after throttling; previous text depth relied on a mirror.",
+        "expected_effect": "Separate first-party content depth from metadata and counters."
+      },
+      {
+        "change": "Retry the Arete original card and corroborate new video coverage with a second tracker without merging counters.",
+        "reason": "Prior original Arete documentation was unavailable, and some new events were missing in the primary tracker.",
+        "expected_effect": "Use event-specific source details and record additional channels without treating them as measurable growth."
+      }
+    ],
+    "resource_candidates": [
+      {
+        "url": "https://www.dwarkesh.com/p/clocktower",
+        "role": "publisher video script",
+        "access": "direct",
+        "review_scope": "Full displayed script ending before the supplemental appendix; game setup, comparisons, harness and limits.",
+        "independence": "Same publisher as the original YouTube video.",
+        "decision": "accepted",
+        "reason": "Adds original methodology and caveats beyond the video title.",
+        "contribution": "One complete published-script review, no playback/counters."
+      },
+      {
+        "url": "https://www.ai-roundup.dev/",
+        "role": "additional video metadata tracker",
+        "access": "direct",
+        "review_scope": "Scanned nine rows and retained two previously unseen channels/video IDs.",
+        "independence": "Tracker is an aggregator, neither the origin of videos nor an extra attention family.",
+        "decision": "accepted",
+        "reason": "Supplies two fresh event-matched channels while keeping measurement clock unknown.",
+        "contribution": "Two distinct video snapshots; no growth comparison."
+      }
+    ],
+    "observed_effects": [
+      {
+        "observation": "One complete original publisher script was readable. YC’s alternative publisher page supplied no readable transcript.",
+        "effect": "Clocktower scope is stronger than a metadata-only read; playback and direct counters remain unavailable."
+      },
+      {
+        "observation": "Arete’s original model card and research page are now accessible.",
+        "effect": "Promoted this previously held lead with explicit rubric, sample and cross-model comparison caveats."
+      },
+      {
+        "observation": "12 retained videos versus 10 in the prior snapshot and seven comparable observations.",
+        "effect": "Sample composition and tracker mix changed. Counts do not measure audience improvement."
+      }
+    ],
+    "next_improvement": "Continue one bounded original publisher fallback for event-matched videos and keep the first-party counter gap visible.",
+    "limitations": [
+      "The search-coverage correction belongs to the Compiler. November 11 cumulative evaluation remains pending."
+    ],
+    "change_evaluations": [],
+    "pending_change_evaluations": [
+      "NOV03-04",
+      "AAR-10"
+    ],
+    "review_due_edition": "2026-11-11"
+  },
+  "limitations": [
+    "Twelve watch pages throttled. No playback or direct YouTube counters were obtained; the 40–80 full-video target was not met. Subscriber counts, comments and sponsorship disclosures are unknown.",
+    "The primary tracker’s ten counters are a November 8 morning snapshot, selected from tracked channels and search. Two additional third-party counters have no distinct measurement clock or exposed duration. No cross-source subtraction or count aggregation.",
+    "Six programs match November 7 on source, ID, format and duration. One matches November 6. Deltas reflect rounded counters, not current velocity or global popularity.",
+    "Original X posts returned 403. Hacker News index refresh times and account usage or billing are unknown. Prior and current Compiler selection effectiveness require separate evidence."
+  ],
+  "verification_boundary": "Producer verified exact persisted handoff. Compiler consumption, searches and selection for this edition require separate receipts. Start and finish are observed run times. Usage, billing and independent scheduler proof are unavailable."
+}
