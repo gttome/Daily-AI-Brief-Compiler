@@ -6,128 +6,246 @@
   "description": "Six AI articles, up to two videos, and up to two podcasts selected daily.",
   "items": [
     {
+      "id": "dab-podcast-2026-11-08-1",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-11-08/how-to-build-the-future-paul-graham-amjad-masad/",
+      "title": "How To Build The Future: Paul Graham & Amjad Masad",
+      "summary": "Paul Graham interviews Replit founder Amjad Masad about what happens after code generation, including debugging loops, sandboxing, reversible infrastructure, and enterprise controls. Business results and forecasts are Masad’s claims.",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Y Combinator Startup Podcast"
+      ]
+    },
+    {
+      "id": "dab-podcast-2026-11-08-2",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-11-08/operationalizing-closed-loop-agent-evaluation-latent-intent-regret/",
+      "title": "Operationalizing Closed-Loop Agent Evaluation & Latent Intent Regret",
+      "summary": "The AI-voiced roundup discusses how misleading evaluator cues change verdicts, why researchers propose auditing evaluation itself, and what remains unbuilt in an offline implementation.",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "The Observability Layer"
+      ]
+    },
+    {
+      "id": "dab-story-2026-11-08-m01",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-08/nov08-t1-memory/",
+      "title": "Anthropic tests an offline pass for agent memory",
+      "summary": "Anthropic reports that Claude can revisit session transcripts offline to correct memory notes and build reusable knowledge representations. In one internal wiki benchmark, scores rose from 54% to 61% as wikis grew, compared with 53% without a wiki. The tests use specific tasks and models, and the results come from Anthropic.",
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-08/illustration-pending.svg?v=fe54b845623b",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Agent memory",
+        "Transcript review",
+        "Offline evaluation",
+        "Anthropic"
+      ]
+    },
+    {
+      "id": "dab-story-2026-11-08-m02",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-08/nov08-t2-inkling/",
+      "title": "Inkling 2 Small opens for hosted fine-tuning",
+      "summary": "Thinking Machines Lab released Inkling 2 Small for hosted inference and fine-tuning through Tinker. The mixture-of-experts model has 594 billion total parameters, 17 billion active parameters, and supports image inputs and adjustable effort. The lab plans a separate weights release after external safety testing, so downloadable deployment is still a future step.",
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-08/illustration-pending.svg?v=fe54b845623b",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Hosted fine-tuning",
+        "Model evaluation",
+        "Mixture of experts",
+        "Thinking Machines Lab"
+      ]
+    },
+    {
+      "id": "dab-story-2026-11-08-m10",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-08/nov08-k1-proof-driven/",
+      "title": "Microsoft shows how acceptance criteria can become software proofs",
+      "summary": "Microsoft Research demonstrates how teams can turn acceptance criteria for agent-written software into formal specifications. Its example proves selected login behavior with Verus, then uses tests for boundaries the proofs do not cover. The approach leaves teams responsible for judging whether the written specification captures what users actually need.",
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-08/illustration-pending.svg?v=fe54b845623b",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Acceptance criteria",
+        "Software verification",
+        "Proof boundaries",
+        "Microsoft Research"
+      ]
+    },
+    {
+      "id": "dab-story-2026-11-08-m11",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-08/nov08-k2-records/",
+      "title": "Hightouch tests a second opinion for uncertain record matches",
+      "summary": "Hightouch tested whether a smaller model could flag incorrectly merged customer identities and send uncertain cases to Claude Opus for a second opinion. One reported threshold sent 22% of cases to Opus and reached 98.8% accuracy, compared with 99.0% for Opus alone. The results come from one vendor benchmark.",
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-08/illustration-pending.svg?v=fe54b845623b",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Record matching",
+        "Confidence calibration",
+        "Escalation thresholds",
+        "Hightouch"
+      ]
+    },
+    {
+      "id": "dab-story-2026-11-08-m12",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-08/nov08-a1-bmo/",
+      "title": "BMO brings transaction evidence into contact-center calls",
+      "summary": "BMO introduced an internal assistant for employees handling Canadian credit card calls. It matches transactions, retrieves policy guidance and prepares eligible requests for review. BMO says these inquiries currently take 12 to 14 minutes on average and targets a 20% to 30% reduction for eligible calls. Those figures are goals.",
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-08/illustration-pending.svg?v=fe54b845623b",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Contact centers",
+        "Policy lookup",
+        "Employee review",
+        "BMO"
+      ]
+    },
+    {
+      "id": "dab-story-2026-11-08-m14",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-08/nov08-a2-renewal/",
+      "title": "Salesforce makes renewal review a reusable Agentforce Skill",
+      "summary": "Salesforce says Agentforce Coworker Skills can package a proven workflow as a request teammates can reuse. Its renewal example pulls service history, identifies unresolved cases and prepares a follow-up for review. The November announcement lists Skills as available and scheduled tasks as expected in December, which separates reuse from automatic execution.",
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-08/illustration-pending.svg?v=fe54b845623b",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "Reusable Agent Skills",
+        "Renewal review",
+        "Approval boundaries",
+        "Salesforce"
+      ]
+    },
+    {
+      "id": "dab-video-2026-11-08-agent-skills",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/videos/2026-11-08/agent-skills/",
+      "title": "What to know about the labor market amid AI bubble concerns",
+      "summary": "PBS NewsHour interviews economist Diane Swonk about the latest jobs report, weak purchasing power and why the economy could be vulnerable to a slowdown in AI investment. The interview separates observed labor data from concerns about future returns.",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "PBS NewsHour"
+      ]
+    },
+    {
+      "id": "dab-video-2026-11-08-general",
+      "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/videos/2026-11-08/general/",
+      "title": "Tech development pushback sways elections",
+      "summary": "CBS News interviews Puck correspondent Ian Krietzberg about local data-center ballot measures, size caps, and the difference between restricting a project and banning it. He also distinguishes potential federal hearings from oversight by state attorneys general.",
+      "date_published": "2026-11-08T13:00:00-05:00",
+      "tags": [
+        "CBS News"
+      ]
+    },
+    {
       "id": "dab-podcast-2026-11-07-1",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-11-07/america-s-first-ai-election-plus-sella-nevo-on-securing-model-weights/",
       "title": "America's First AI Election? Plus Sella Nevo on Securing Model Weights",
       "summary": "CSIS reviews how U.S. midterm results might shape AI policy before RAND’s Sella Nevo describes threats to frontier model weights, the SL1–SL5 security framework and the risks of embedded evaluators.",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "The AI Policy Podcast"
-      ]
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler"
     },
     {
       "id": "dab-podcast-2026-11-07-2",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/podcasts/2026-11-07/abundant-intelligence-at-the-midwest-ai-summit-part-2/",
       "title": "Abundant Intelligence at the Midwest AI Summit Part 2",
       "summary": "Three summit talks cover a written AI charter, delegation and accountability choices, and an aviation maintenance team’s use of AI for data access and work order verification. The speakers describe their own deployments and tradeoffs.",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "Practical AI"
-      ]
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler"
     },
     {
       "id": "dab-story-2026-11-07-m01",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-07/nov07-t1-wet-lab-benchmark/",
       "title": "BioBasicsBench tests agents on raw wet-lab protocols",
       "summary": "OpenAI introduced BioBasicsBench, 100 wet-lab tasks tested across seven models, 37 settings and 18,500 graded results. GPT-6 Astra at xhigh reached 66.7%, with a reported 95% confidence interval of 60.3–73.1. The benchmark also exposes failures involving controls, image interpretation and experimental context; all results remain publisher-reported.",
-      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/illustration-pending.svg?v=fe54b845623b",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "Wet-lab benchmarks",
         "Experimental controls",
         "Agent evaluation",
-        "OpenAI"
-      ]
+        "Measuring how AI agents handle everyday wet-lab science"
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m01.png?v=cb00fda758d4"
     },
     {
       "id": "dab-story-2026-11-07-m02",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-07/nov07-t2-metr-acceleration/",
       "title": "METR estimates Anthropic benchmark scores advanced 1.9 times faster",
       "summary": "METR estimates that benchmark scores for Anthropic models rose 1.9 times faster after October 2025 than during the previous trend, with a 95% confidence interval of 1.5 to 2.8 times. The team judged AI assistance likely explains much of the recent acceleration, but redactions and competing explanations limit confidence in that attribution.",
-      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/illustration-pending.svg?v=fe54b845623b",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "R&D acceleration",
         "Embedded evaluation",
         "Uncertainty bounds",
-        "METR"
-      ]
+        "Independent Assessment of AI R&D Acceleration at Anthropic in October 2026"
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m02.png?v=8767dbbfd0aa"
     },
     {
       "id": "dab-story-2026-11-07-m10",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-07/nov07-k1-cursor-live-apps/",
       "title": "Cursor agents can scaffold and publish live applications",
       "summary": "Cursor’s Build Live Apps lets paid cloud agent users describe an application and have the agent scaffold hosting, databases, authentication and deployment. Security checks run before publication, users must publish explicitly, and team administrators can approve a release blocked by those checks. Sharing to a team uses Cursor sign-in.",
-      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/illustration-pending.svg?v=fe54b845623b",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "Live app agents",
         "Human publishing",
         "Security checks",
-        "Cursor"
-      ]
+        "Build Live Apps in Cursor"
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m10.png?v=5c89ac4c2350"
     },
     {
       "id": "dab-story-2026-11-07-m11",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-07/nov07-k2-ai-native-universities/",
       "title": "Australian universities redesign assessment for AI-native graduates",
       "summary": "OpenAI profiles four Australian universities redesigning learning and assessment around AI. A commissioned survey of 1,018 students found 81% use AI weekly, 28% have built an agent and 79% want more real-world practice. Examples include simulations, staged tool access and UNSW’s Can, Can’t, Must assessment framework.",
-      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/illustration-pending.svg?v=fe54b845623b",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "AI-native learning",
         "Assessment rules",
         "Student practice",
-        "OpenAI"
-      ]
+        "Australian universities are creating AI-native graduates"
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m11.png?v=4bf1df640b85"
     },
     {
       "id": "dab-story-2026-11-07-m12",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-07/nov07-a1-airbnb-visual-agent/",
       "title": "Airbnb plans a visual travel agent for 2027",
       "summary": "Airbnb says it plans a first-half 2027 guest rollout for a visual travel agent that combines maps, photos, comparisons, calendars and itineraries instead of relying only on chat. The company expects reservation context to support after-booking help, but the interface is not yet available and the timetable remains a company target.",
-      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/illustration-pending.svg?v=fe54b845623b",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "Visual travel agents",
         "Generative interfaces",
         "Reservation context",
-        "Airbnb"
-      ]
+        "Q3 2026 financial results"
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m12.png?v=3a01793ad764"
     },
     {
       "id": "dab-story-2026-11-07-m14",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-07/nov07-a2-finance-skill/",
       "title": "Claude’s finance beta supports a read-only verification Skill",
       "summary": "Anthropic opened a U.S. beta that gives eligible Claude Pro, Max and Ultra users read-only Plaid access to selected financial accounts, including balances, limits and up to two years of transactions. This Skill defines one bounded question, transaction-level evidence, bank-statement cross-checking and unlinking when the review ends; it never permits money movement.",
-      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/illustration-pending.svg?v=fe54b845623b",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "Personal finance",
         "Read-only access",
         "Verification Skill",
-        "Anthropic"
-      ]
+        "Introducing Personal Finance in Claude"
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-07/dab-edition-2026-11-07-m14.png?v=7bdb8b5c4999"
     },
     {
       "id": "dab-video-2026-11-07-agent-skills",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/videos/2026-11-07/agent-skills/",
       "title": "Data centers can be a ‘gold mine,’ but not at communities’ expense: Compass Datacenters CEO",
       "summary": "Compass Datacenters CEO Chris Crosby argues developers should be transparent about water use, cover electricity costs and make community benefits trackable. The interview includes skeptical questions and statements from Texas officials.",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "Fox News"
-      ]
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler"
     },
     {
       "id": "dab-video-2026-11-07-general",
       "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/videos/2026-11-07/general/",
       "title": "Stock market plummets as Americans rebuke data center development",
       "summary": "CBS News reports on state and local data center restrictions, then explains why concerns about financing and profits spread to investors beyond AI companies.",
-      "date_published": "2026-11-07T13:00:00-05:00",
       "tags": [
         "CBS News"
-      ]
+      ],
+      "image": "https://gttome.github.io/Daily-AI-Brief-Compiler"
     },
     {
       "id": "dab-podcast-2026-11-06-1",
