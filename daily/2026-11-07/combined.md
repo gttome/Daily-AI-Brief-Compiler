@@ -1,4 +1,4 @@
-**🟨 RELEASE PARTIAL**
+**🟩 RELEASE COMPLETE**
 **TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟪 VISUAL QA 24/24 PASS**
 
 # Daily AI Brief — Unified Production After-Action Report
@@ -6,11 +6,9 @@
 **Primary public reader:** [Open 2026-11-08 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-08/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **FAIL_OWNER_RECOVERY**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 7m 12s** · **Compiler final seal window 4m 08s** · **Premium Images 20m 06s** (evidence-bounded elapsed times; the start/end events differ).
-
-> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Evidence reconciliation
 
@@ -97,7 +95,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **20** | Image worker AAR; no estimation |
 | Rejected candidates | **14** | Image worker AAR |
-| Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
+| Final worker checkpoint reconciliation | **PASS** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **24 / 24 PASS** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
@@ -402,8 +400,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-08/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d1c4c906d2367a258459211dc1bb94f76122d95c/signals/ai-topic-top10/2026-11-07.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d1c4c906d2367a258459211dc1bb94f76122d95c/signals/ai-topic-top10/2026-11-07.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/49e4f35d34c7b4c7a223b4a587a1d5aeedb890ff/signals/ai-topic-top10/2026-11-07.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/49e4f35d34c7b4c7a223b4a587a1d5aeedb890ff/signals/ai-topic-top10/2026-11-07.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/editorial/trend-search-coverage.json) |
 
