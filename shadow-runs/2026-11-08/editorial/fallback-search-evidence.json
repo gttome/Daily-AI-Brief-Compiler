@@ -1,0 +1,78 @@
+{
+  "schema_version": "daily-compiler-fallback-search-evidence-v1",
+  "edition_date": "2026-11-08",
+  "recorded_at": "2026-11-08T01:33:25.214Z",
+  "selection_locked_at": null,
+  "scope": "Search receipts and lane-relevant alternatives are preserved before selection. No older candidate was admitted, so no fallback justification is asserted.",
+  "search_receipts": [
+    {
+      "query": "November 5 2026 AI infrastructure stocks midterms selloff Reuters AP capital spending",
+      "format": "article",
+      "outcome": "AP and Reuters reporting discovered",
+      "urls": [
+        "https://apnews.com/article/7ee9c212805aa5e70cf34d25aab7a36e",
+        "https://www.reuters.com/world/china/tech-selloff-wipes-out-hedge-fund-gains-prompting-risk-cuts-layoffs-2026-11-06/"
+      ]
+    },
+    {
+      "query": "Anthropic The components of agent memory November 6 dreaming evaluation failure cases",
+      "format": "article",
+      "outcome": "current original research candidate discovered",
+      "urls": [
+        "https://www.anthropic.com/research/components-of-agent-memory"
+      ]
+    },
+    {
+      "query": "Thinking Machines Inkling 2 Small Tinker fine tuning weights release November 5",
+      "format": "article",
+      "outcome": "current original announcement candidate discovered",
+      "urls": [
+        "https://thinkingmachines.ai/news/inkling-2-small/"
+      ]
+    },
+    {
+      "query": "Hightouch Jev Opus LLM judges identity resolution escalation benchmark November 2026",
+      "format": "article",
+      "outcome": "current original benchmark post discovered; vendor provenance retained",
+      "urls": [
+        "https://hightouch.com/blog/llm-judges-identity-resolution"
+      ]
+    },
+    {
+      "query": "Lightcone How To Build The Future Paul Graham Amjad Masad November 7 podcast",
+      "format": "podcast",
+      "outcome": "exact current episode and transcript candidate discovered",
+      "urls": [
+        "https://realalpha.app/v/Q78dJ0vkWe8/",
+        "https://podcasts.apple.com/us/podcast/y-combinator-startup-podcast/id1236907421"
+      ]
+    }
+  ],
+  "lane_relevant_rejected_candidates": [
+    {
+      "candidate_id": "ART-AREX2",
+      "lane": "Technical AI Engineering",
+      "url": "https://github.com/VectorSpaceLab/AREX-2",
+      "reason": "original research date 2026-09-29 exceeds the 168-hour story window"
+    },
+    {
+      "candidate_id": "VID-AIENGINEER-YS6YQ2YFBPM",
+      "lane": "media",
+      "url": "https://www.youtube.com/watch?v=ys6YQ2yfBpM",
+      "reason": "64:03 duration exceeds the 20-minute media ceiling"
+    },
+    {
+      "candidate_id": "VID-BBC-DHWC0UONVBA",
+      "lane": "media",
+      "url": "https://www.youtube.com/watch?v=DHWc0uonVbA",
+      "reason": "signed-out player failed to advance in the observed playback attempt"
+    },
+    {
+      "candidate_id": "VID-SAM-C9HS3ZMRGO0",
+      "lane": "media",
+      "url": "https://www.youtube.com/watch?v=C9HS3zMrGo0",
+      "reason": "signed-out player failed to advance in the observed playback attempt"
+    }
+  ],
+  "limitation": "Search scope was broad enough to establish eight story candidates and six video candidates, but final selection and item-by-item fallback comparison were not performed after the media gate blocked selection."
+}
