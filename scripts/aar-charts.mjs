@@ -33,7 +33,8 @@ export function buildAarCharts({edition, coverage, bundle, imageAar, imageEviden
       rejected:attempts.find(x=>x.story_id===s.id).generation_attempts-1}));
     Object.assign(rework,{status:'OBSERVED',rows,total_attempts:p.actual_generation_count,
       first_pass_accepted:rows.filter(x=>x.rejected===0).length,
-      target:edition<='2026-11-05'?{first_pass:3,max_attempts:2,window:'November 3–5, 2026'}:null});
+      target:edition<='2026-11-05'?{first_pass:3,max_attempts:2,window:'November 3–5, 2026'}:
+        edition>='2026-11-08'?{first_pass:3,max_attempts:2,window:'ongoing from November 8'}:null});
   }
   rework.note='Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.';
 

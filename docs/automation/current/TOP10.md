@@ -42,3 +42,7 @@ Treat unattempted downstream article/video/podcast searches as a separate Compil
 ## Daily AAR action loop — approved November 5
 
 Use the previous edition's action-review to correct research/handoff weaknesses **during the current genuine Top 10 run** when accessible: weak or promotional attention evidence, missing first-party counters, missing transcript depth, and unsupported ranking claims. Add actual alternative evidence or retain an explicit unavailable/null result. Do not postpone a supportable same-cycle research correction to November 11, invent unavailable source data, change Compiler selection after lock, or rewrite an earlier report without preserving its revision. Record real impact and remaining gaps in the existing dated Top 10 AAR.
+
+## November 8 AAR change — provenance after a throttled watch route
+
+When an event-matched watch page throttles, make one bounded attempt at another freely accessible original publisher transcript or direct timed counter when a genuine route exists. Record what was attempted, actual time, source, access result and content scope. Keep tracker, mirror, excerpt and direct platform results distinct. Preserve provisional status when the stronger evidence is unavailable. A transcript does not verify playback or audience counters.

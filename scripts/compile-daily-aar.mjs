@@ -13,7 +13,7 @@ const DATE=/^20\d{2}-\d{2}-\d{2}$/;
 const FILES=['top10-baseline','top10-outcome-baseline','top10-previous-report','top10-previous-aar','top10-improvement','execution-milestones','fallback-search-evidence','trend-consumed-source','trend-consumed-report','image-route-preflight','compiler-state','producer-receipt','compile-receipt','postpublish-integrity','edition-bundle',
  'image-job','image-release','image-manifest','image-recurring-assignment',
  'image-context-verification','image-context-reviews','image-after-action','image-timing','owner-usage',
- 'compiler-task-origin','image-task-origin','publication-health','owner-intervention-incident',
+ 'compiler-task-origin','image-task-origin','publication-health','video-playback-failures','owner-intervention-incident',
  'source-route-coverage','source-item-census','source-qualification',
  'source-item-retries','postpublication-incidents','postpublish-video-playback',
  'top10-report','top10-after-action','top10-report-source','trend-input','trend-search-coverage'];

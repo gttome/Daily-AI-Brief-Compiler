@@ -23,3 +23,15 @@ test('resealing appends milestones and cannot replace the original observed star
  assert.equal(seal.initial_execution_observed_at,start.initial_execution_observed_at);assert.equal(seal.events.length,2);
  assert.throws(()=>appendExecutionMilestone(seal,{...base,event:'RECOVERY_OBSERVED',observed_at:'2026-11-03T01:59:00Z'}),/regression/);
 });
+test('a corroborated pre-seal blocker can resume the saved edition once',()=>{
+ const i=input();
+ i.health=null;
+ i.state={edition_date:i.editionDate,state:'RESEARCH'};
+ i.presealBlocker={edition_date:i.editionDate,result:'BLOCKED',stage:'PRESEAL_VIDEO',source_head:i.expectedHead,
+  run_url:'https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/2345678',next_candidate_url:'https://example.org/video'};
+ assert.equal(recoveryGuardDecision(i).result,'ONE_BOUNDED_PRESEAL_VIDEO_RECOVERY_ALLOWED');
+ assert.equal(recoveryGuardDecision({...i,attempts:1}).write_allowed,false);
+ assert.equal(recoveryGuardDecision({...i,ownership:{...i.ownership,primary_active:true}}).write_allowed,false);
+ assert.equal(recoveryGuardDecision({...i,presealBlocker:{...i.presealBlocker,source_head:'b'.repeat(40)}}).write_allowed,false);
+ assert.equal(recoveryGuardDecision({...i,state:{...i.state,sealed_at:i.observedAt}}).write_allowed,false);
+});
