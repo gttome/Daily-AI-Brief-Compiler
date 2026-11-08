@@ -32,7 +32,9 @@ function validateBundle(bundle) {
   return items;
 }
 async function proveVideo(browser, item, opts={}) {
-  const maxAttempts = opts.maxAttempts ?? 28;
+  const isYoutube = /(^|\.)youtube\.com$|(^|\.)youtu\.be$/i.test(new URL(item.url).hostname);
+  // Publisher-hosted players can serve a 50-second preroll before the full program.
+  const maxAttempts = opts.maxAttempts ?? (isYoutube ? 28 : 56);
   const pollingMs = opts.pollingMs ?? 1100;
   if (!Number.isInteger(maxAttempts) || maxAttempts < 1 || !Number.isInteger(pollingMs) || pollingMs < 100) throw new Error('Invalid probe bounds');
   // No existing sign-in, persisted profile, cookies, credentials or extensions.
@@ -41,7 +43,6 @@ async function proveVideo(browser, item, opts={}) {
   try {
     const response = await page.goto(item.url,{waitUntil:'domcontentloaded',timeout:40000});
     if (!response || response.status() >= 400) throw new Error('Public publisher page HTTP ' + (response?.status() ?? 'unavailable'));
-    const isYoutube = /(^|\.)youtube\.com$|(^|\.)youtu\.be$/i.test(new URL(item.url).hostname);
     let playerStatus = 'NOT_YOUTUBE';
     if (isYoutube) {
       await page.waitForTimeout(1600);
