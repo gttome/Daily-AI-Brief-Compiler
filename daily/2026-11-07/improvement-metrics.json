@@ -298,7 +298,7 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-11",
     "cumulative_review_due_today": false,
-    "finding_count": 3,
+    "finding_count": 4,
     "open_production_blockers": 0,
     "findings": [
       {
@@ -316,7 +316,7 @@
         "owner": "Compiler / Recovery",
         "observation": "4 failed protected publication gates were recorded (4 unclassified causes).",
         "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
+        "timing": "NEXT_GENUINE_CYCLE",
         "kind": "RECURRENCE_PREVENTION"
       },
       {
@@ -327,6 +327,15 @@
         "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
         "timing": "NEXT_GENUINE_CYCLE",
         "kind": "EVIDENCE_GAP"
+      },
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "14 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
       }
     ],
     "limitations": [
