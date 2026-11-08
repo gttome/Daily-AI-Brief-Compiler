@@ -2,15 +2,15 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-08",
   "execution_id": "daily-compiler-2026-11-08-primary",
-  "state": "RESEARCH",
-  "stage": "EDITORIAL",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "afe3f782e0bbbffea8e3efe94ef9571a5b468a21",
   "branch": "shadow/2026-11-08",
   "initial_execution_observed_at": "2026-11-08T01:21:35.543Z",
-  "updated_at": "2026-11-08T02:35:29.775Z",
-  "selection_locked_at": null,
-  "sealed_at": null,
-  "bundle_sha256": null,
+  "updated_at": "2026-11-08T02:57:16.598Z",
+  "selection_locked_at": "2026-11-08T02:57:16.598Z",
+  "sealed_at": "2026-11-08T02:57:16.598Z",
+  "bundle_sha256": "9a991aa9bb9446dac1563b0752008b28c1bc32ca76cdc8c8af4dc6110d83be7a",
   "images": {
     "required": 6,
     "accepted": [],
@@ -30,7 +30,7 @@
     "video_source_sweep_validated": "shadow-runs/2026-11-08/editorial/video-source-sweep-validated.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -39,5 +39,21 @@
     "host_identity": "unknown",
     "usage_metrics": "unknown"
   },
-  "continuation": "ABC News and Reuters are reviewed video candidates with signed-out advancing playback. The complete current video roster has a validated recheck ledger. Complete archive and selection checks, six-story editorial package, two podcast verifications, Watchlist, and protected preflight before sealing."
+  "continuation": "Await protected bundle-ready validation and publication.",
+  "started_at": "2026-11-08T01:21:35.543Z",
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "9a991aa9bb9446dac1563b0752008b28c1bc32ca76cdc8c8af4dc6110d83be7a"
+  },
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-08T02:57:16.598Z",
+    "sealed_at": "2026-11-08T02:57:16.598Z"
+  },
+  "source_main_sha": "afe3f782e0bbbffea8e3efe94ef9571a5b468a21",
+  "owner_task_id": "6ac9868490b88191ac91f84d5f555994"
 }
