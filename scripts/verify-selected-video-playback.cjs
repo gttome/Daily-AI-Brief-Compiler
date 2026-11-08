@@ -73,7 +73,8 @@ async function proveVideo(browser, item, opts={}) {
       await page.getByText(/Watch this episode/i).first().click({timeout:6500}).catch(() => {});
     }
     let proof = null;
-    for (let attempt=0; attempt<maxAttempts && !proof; attempt++) {
+    let pollLimit = maxAttempts;
+    for (let attempt=0; attempt<pollLimit && !proof; attempt++) {
       await page.waitForTimeout(pollingMs);
       for (const frame of page.frames()) {
         const nodes = frame.locator('video');
@@ -81,7 +82,18 @@ async function proveVideo(browser, item, opts={}) {
         for (let i=0; i<count; i++) {
           const video = nodes.nth(i);
           const duration = await video.evaluate(v => v.duration).catch(() => NaN);
-          if (!durationOk(item.expected_seconds,duration)) continue;
+          if (!durationOk(item.expected_seconds,duration)) {
+            // Grant one bounded grace period only for an observed shorter player still advancing.
+            if (!isYoutube && opts.maxAttempts === undefined && pollLimit === maxAttempts &&
+                attempt === maxAttempts-1 && duration > 0 && duration <= 120 && duration < item.expected_seconds) {
+              const ad = await video.evaluate(v => ({at:v.currentTime,paused:v.paused,ready:v.readyState})).catch(() => null);
+              if (ad && !ad.paused && ad.ready >= 2 && ad.at > 0 && ad.at < duration) {
+                const remainingPolls = Math.ceil(((duration-ad.at)*1000 + 8000)/pollingMs);
+                pollLimit += Math.min(36,remainingPolls);
+              }
+            }
+            continue;
+          }
           try { await video.evaluate(v => {v.muted=true;return v.play()}); } catch { continue; }
           const before = await video.evaluate(v => ({at:v.currentTime,ready:v.readyState}));
           await page.waitForTimeout(2600);
