@@ -3,7 +3,7 @@
   "edition_date": "2026-11-09",
   "cycle_date": "2026-11-08",
   "baseline_id": "nov03-2026-v1",
-  "generated_at": "2026-11-09T01:52:43.032Z",
+  "generated_at": "2026-11-09T02:05:13.847Z",
   "report": {
     "source_path": "signals/ai-topic-top10/2026-11-08.json",
     "source_commit": "0f61fc274bf35c12afed857e78e3a2a3ee0d34d4",
@@ -758,16 +758,8 @@
         "ART-GEMINI-OMNI-12",
         "VID-GEMINI-OMNI-12"
       ],
-      "selected_mappings": [
-        {
-          "topic_id": "gemini-omni-12-flash-nov05",
-          "format": "article",
-          "item_id": "nov09-k1-omni-editing",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-          "reason": "The selected story uses the original Gemini Omni 1.2 Flash launch."
-        }
-      ],
-      "selection_status": "bundle-selected"
+      "selected_mappings": [],
+      "selection_status": "not-selected-exact-archive-duplicate"
     },
     {
       "topic_id": "claude-agent-memory-dreaming-nov06",
@@ -940,13 +932,6 @@
       "reason": "The selected story directly reviews the accepted Apiiro permission event."
     },
     {
-      "topic_id": "gemini-omni-12-flash-nov05",
-      "format": "article",
-      "item_id": "nov09-k1-omni-editing",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "reason": "The selected story uses the original Gemini Omni 1.2 Flash launch."
-    },
-    {
       "topic_id": "clocktower-model-deception-discussion-nov05",
       "format": "article",
       "item_id": "nov09-a1-clocktower",
@@ -993,14 +978,13 @@
     "actual_source_additions": [
       "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
       "https://nousresearch.com/arete",
-      "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "https://workspaceupdates.googleblog.com/2026/11/automatically-apply-client-side-encryption-to-confidential-Editors-and-Drive-files-now-available-in-Beta.html",
       "https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html",
       "https://www.dwarkesh.com/p/clocktower",
       "https://mcscope.github.io/Alignment-Incident-Database/incidents/AID-2026-0155/"
     ],
     "useful_qualified_candidate_ids": [
       "ART-APIIRO-PERMISSIONS",
-      "ART-GEMINI-OMNI-12",
       "ART-CLOCKTOWER",
       "ART-ARETE-27B",
       "ART-RBA-CHEAPER-INTELLIGENCE",
@@ -1008,7 +992,8 @@
       "VID-ABC-137915485",
       "VID-REUTERS-RW634406112026RP1",
       "POD-TECHCRUNCH-OPEN-SOURCE",
-      "POD-NEWSTACK-STANDARDS"
+      "POD-NEWSTACK-STANDARDS",
+      "ART-GOOGLE-POLICY-CSE"
     ],
     "rejection_reasons": [
       {
@@ -1030,6 +1015,10 @@
       {
         "candidate_id": "POD-YC-LIGHTCONE-20261107",
         "reason": "exact November 8 duplicate"
+      },
+      {
+        "candidate_id": "ART-GEMINI-OMNI-12",
+        "reason": "independent archive gate found exact November 6 reuse"
       }
     ],
     "gaps": [
@@ -1041,7 +1030,7 @@
     "source_links": [
       "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
       "https://nousresearch.com/arete",
-      "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "https://workspaceupdates.googleblog.com/2026/11/automatically-apply-client-side-encryption-to-confidential-Editors-and-Drive-files-now-available-in-Beta.html",
       "https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html",
       "https://www.dwarkesh.com/p/clocktower",
       "https://mcscope.github.io/Alignment-Incident-Database/incidents/AID-2026-0155/",
@@ -1113,6 +1102,14 @@
       "root_cause_code": "EDITORIAL_CHECKPOINT_STATUS_MISMATCH",
       "reason": "The nested editorial checkpoint used the outer bundle-ready label instead of the current pending-image contract value complete.",
       "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42548423660",
+      "documented_delay_seconds": null
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42548610259",
+      "stage": "MEDIA_HISTORY",
+      "root_cause_code": "ARTICLE_REUSE_VIOLATION",
+      "reason": "The selected Gemini Omni source URL was already published in the November 6 edition; it was replaced with an archive-new reviewed Google Workspace policy-encryption beta.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42548610259",
       "documented_delay_seconds": null
     }
   ]
