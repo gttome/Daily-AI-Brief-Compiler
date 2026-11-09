@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-09",
-  "recorded_at": "2026-11-09T02:43:56.390Z",
+  "recorded_at": "2026-11-09T02:47:27.352Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "df398047378b26af78552f4348243c56c22e9bd6",
     "aar_cycle_date": "2026-11-07",
@@ -41,8 +41,8 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Thirteen exact protected failures were read and narrowly corrected. A fresh protected receipt passed CBS News, Fox News and PBS NewsHour exact programs; only the distinct CBS and Fox programs were selected and sealed.",
-    "publication_failures": 13,
+    "outcome": "Fourteen exact protected failures were read and narrowly corrected. The final chronology now places both media quality reviews at their protected verification times and the selection lock after those reviews; the verified CBS and Fox pair remains unchanged.",
+    "publication_failures": 14,
     "publication_failure_causes": [
       "EXPECTED_BUNDLE_STAGE",
       "BUNDLE_DIGEST_MISMATCH",
@@ -55,7 +55,8 @@
       "SOURCE_READ_METHOD_ENUM_INVALID",
       "PODCAST_SHOW_ROTATION_VIOLATION",
       "PRESEAL_VIDEO_REQUEST_MISSING",
-      "VERIFIED_YOUTUBE_CHANNEL_IDENTITY_REQUIRED"
+      "VERIFIED_YOUTUBE_CHANNEL_IDENTITY_REQUIRED",
+      "MEDIA_QUALITY_REVIEW_NOT_BETWEEN_VERIFICATION_AND_SELECTION"
     ],
     "preseal_video_probe": {
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42552100347",
@@ -115,7 +116,8 @@
       "Replaced three runner-blocked publisher/embed probe slots with direct fully reviewed players from DW News, CNBC and IBM Technology; no causal uplift claimed before the new receipt.",
       "Replaced YouTube handle-only identity evidence with canonical verified channel IDs and /channel/ URLs after the protected pre-seal validator rejected the recovery request.",
       "Moved video recovery from direct YouTube and nonadvancing publisher players to exact publisher-native CBS, Fox News and PBS NewsHour programs with fresh protected duration-matched advancement.",
-      "Selected only two distinct-publisher passing programs; the third passing PBS item remains a qualified backup, so candidate count alone is not treated as success."
+      "Selected only two distinct-publisher passing programs; the third passing PBS item remains a qualified backup, so candidate count alone is not treated as success.",
+      "Aligned each final selected-video quality review to the exact protected verification time, then advanced the final selection lock and seal after those reviews without changing the passed media request."
     ],
     "interpretation": "The final video pair has fresh bundle-bound protected playback evidence and complete editorial review. This establishes this edition's admission result, not causal uplift or an unattended scheduler claim.",
     "more_sources_success": null,
@@ -165,6 +167,13 @@
       "root_cause_code": "VIDEO_CANDIDATE_REVIEW_INCOMPLETE",
       "reason": "One proposed Fox Business clip was 2:47, below the contract's three-minute candidate minimum.",
       "evidence_ref": "Workflow log: production_evidence:video_candidate_review_incomplete:8"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42552542029",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "MEDIA_QUALITY_REVIEW_NOT_BETWEEN_VERIFICATION_AND_SELECTION",
+      "reason": "Both selected video quality-review timestamps preceded the fresh protected playback verification timestamps.",
+      "evidence_ref": "Workflow log: production_evidence:media_quality_review_not_between_verification_and_selection"
     }
   ]
 }
