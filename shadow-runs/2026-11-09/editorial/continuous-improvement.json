@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-09",
-  "recorded_at": "2026-11-09T02:09:52.763Z",
+  "recorded_at": "2026-11-09T02:13:30.432Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "df398047378b26af78552f4348243c56c22e9bd6",
     "aar_cycle_date": "2026-11-07",
@@ -41,8 +41,8 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Ten exact protected failures were read and narrowly corrected; the podcast history gate replaced an adjacent-day repeated show with a transcript-reviewed different show.",
-    "publication_failures": 10,
+    "outcome": "Eleven exact protected failures were read and narrowly corrected; the current recovery submits the required three-program protected pre-seal probe before resealing.",
+    "publication_failures": 11,
     "publication_failure_causes": [
       "EXPECTED_BUNDLE_STAGE",
       "BUNDLE_DIGEST_MISMATCH",
@@ -53,7 +53,8 @@
       "EDITORIAL_CHECKPOINT_STATUS_MISMATCH",
       "ARTICLE_REUSE_VIOLATION",
       "SOURCE_READ_METHOD_ENUM_INVALID",
-      "PODCAST_SHOW_ROTATION_VIOLATION"
+      "PODCAST_SHOW_ROTATION_VIOLATION",
+      "PRESEAL_VIDEO_REQUEST_MISSING"
     ]
   },
   "comparison": {
@@ -70,7 +71,8 @@
       "Aligned the nested completed-editorial checkpoint with the pending-image contract while retaining the outer BUNDLE_READY state.",
       "Used the independent full-history gate to remove an exact November 6 article reuse and re-ran broader Applied discovery for an archive-new replacement.",
       "Recorded the archive-new replacement review using the contract-supported publisher_main_text method.",
-      "Applied the show-rotation gate to replace The Observability Layer with a complete-transcript TWIML episode from a different publisher."
+      "Applied the show-rotation gate to replace The Observability Layer with a complete-transcript TWIML episode from a different publisher.",
+      "Submitted the November 9 three-program protected pre-seal request after the final playback gate exposed the missing exact-head receipt."
     ],
     "interpretation": "Evidence coverage and bundle linkage improved. No causal production uplift is claimed before protected validation and public verification.",
     "more_sources_success": null,
@@ -98,5 +100,14 @@
     ],
     "efficacy_conclusion": "pending"
   },
-  "next_improvement": "For the next genuine run, rotate substantive preselection index inspection toward the oldest unreviewed article and podcast resource IDs while preserving qualified candidate yield, rather than increasing raw source count alone."
+  "next_improvement": "For the next genuine run, rotate substantive preselection index inspection toward the oldest unreviewed article and podcast resource IDs while preserving qualified candidate yield, rather than increasing raw source count alone.",
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42549492317",
+      "failing_stage": "VIDEO_PLAYBACK",
+      "root_cause_code": "PRESEAL_VIDEO_REQUEST_MISSING",
+      "reason": "The bundle was sealed without the November 9 protected pre-seal video request and exact-head receipt required by the current contract.",
+      "evidence_ref": "Workflow log: ENOENT shadow-runs/2026-11-09/editorial/preseal-video-request.json"
+    }
+  ]
 }
