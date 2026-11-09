@@ -1,6 +1,6 @@
 # 2026-11-09 premium image after-action report
 
-**Status: PACKAGE_READY_AWAITING_PROTECTED_PR**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: LIVE_AND_VISUAL_VERIFIED_PUBLIC_STATUS_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 9ff21fc0b6aff67822d679ffa32bd63953c6b47d |
 | Executor observed run start | 2026-11-09T03:15:17.000Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-09T03:21:11Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_VALIDATION |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-09T03:35:23.277Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -36,6 +36,8 @@
 | Native saved-pixel inspection | The task bench contains pseudo-writing and a rising bar chart. The middle bench has two unapproved arrows. The upper teal route starts on a bench border instead of an object, and the last glyph of the caveat reaches beyond x1160. | Use nonquantitative unmarked shapes, remove the middle black arrows, connect the upper teal route to the timer base, and bring the caveat and housings inward. |
 | Native saved-pixel inspection | A third arrow appears between the private envelope and the role token, outside the approved connector set. The board’s exterior rim also approaches the top edge. | Delete only the unplanned arrow, use proximity to associate the envelope and role token, and tuck the top rim inward without moving or shrinking labels. |
 | Native saved-pixel inspection | The editing cradle contains simulated document writing. The right-hand branch feeds the replacement fixture directly, bypassing diff review. | Replace the mock writing with two distinct geometric tokens. Remove the continuation to the replacement gate so the copy-to-diff connector ends only at the diff tray and the red closed gate remains separate. |
+| Protected postdeployment capture | Initial release run stopped after 44 successful live byte checks because the saved T1 permanent-story mobile RGB match was 0.339. | Retained exact release artifact and failed screenshot. Captured stable full viewports against the same six live PNGs; all 24 comparisons and manual semantic inspections passed. |
+| Public metadata synchronization | The first metadata sync stopped on a different T1 mobile capture with an RGB match of 0.353, before deploying the receipt. | A read-only metadata continuation is pending. The same six image bytes are verified and the 24 actual semantic screenshots are already saved. |
 
 ## Evidence and limitations
 
@@ -51,6 +53,10 @@ The November 8 image AAR recorded 20 native attempts and zero first-pass accepts
 
 The file-safe Skill image uses the published backup-and-copy procedure and retains the draft incident caveat. The incident database has since updated the title shown by the immutable source record. The image avoids details of the reported deletion.
 
-The earlier combined report and charts could not be verified at the checked paths. The earlier image AAR and original rejection receipts supplied the quality feedback. Usage is unknown.
+The November 8 combined report, chart artifacts and improvement metrics were located on operations-reports under the preceding Chicago cycle date after the original image AAR review. The report confirms 20 attempts, zero first-pass accepts and recurring layout and connector errors. The November 9 result is a single-cycle comparison. The November 11 cumulative review remains due.
+
+Semantic review was completed at 2026-11-09T03:42:38Z and first committed at 2026-11-09T03:45:41Z in 2dd923b14efa63382a5fe3f85c5423fd94c491f5. Protected reporting merge is recorded separately by GitHub.
+
+Work usage remains unknown; scheduler origin is not attested.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
