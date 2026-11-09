@@ -105,7 +105,10 @@ jobs:
                row.live_image_sha256!==t.expected_sha256||JSON.stringify(row.viewport_size)!==JSON.stringify(t.viewport_size)||
                row.actual_pixels_inspected!==true||row.correct_story_asset_visible!==true||row.full_diagram_visible!==true||
                row.clipped_or_overlapped!==false||row.placeholder_visible!==false||row.primary_explanatory_labels_recognizable!==true||
-               row.image_pixel_proof?.result!=='PASS'||row.image_pixel_proof.ink_samples<15||row.image_pixel_proof.match_ratio<0.82||
+               row.inspection_method!=='semantic_pixel_inspection'||
+               row.image_pixel_proof?.result!=='PASS'||!Number.isInteger(row.image_pixel_proof.ink_samples)||row.image_pixel_proof.ink_samples<15||
+               !Number.isFinite(row.image_pixel_proof.match_ratio)||row.image_pixel_proof.match_ratio<0.82||row.image_pixel_proof.match_ratio>1||
+               !/^[a-f0-9]{64}$/.test(row.element_screenshot_sha256||'')||
                row.capture_path!==path)
               throw Error('unverified visual placement: '+t.target_id);
             const bytes=fs.readFileSync(path);
