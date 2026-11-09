@@ -1,0 +1,1782 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-09",
+    "story_id": "nov09-t1-command-permissions",
+    "source_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+    "visual_thesis": "A remembered approval records the literal command, potentially with an inline secret, in local settings. A settings file committed to a public repository can expose any stored secret, and tracked files bypass ignore rules.",
+    "mechanism_metaphor": "cutaway file archive",
+    "story_anchors": [
+      "A remembered approval records the literal command, potentially with an inline secret, in local settings.",
+      "A settings file committed to a public repository can expose any stored secret, and tracked files bypass ignore rules."
+    ],
+    "required_labels": [
+      "Saved approval",
+      "Command with secret",
+      "Local settings",
+      "Tracked file",
+      "Public repository",
+      "Ignore rules can miss it"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "A remembered approval records the literal command, potentially with an inline secret, in local settings.",
+        "supporting_source_excerpt": "The rule is the command string itself.",
+        "source_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "A settings file committed to a public repository can expose any stored secret, and tracked files bypass ignore rules.",
+        "supporting_source_excerpt": "gitignore rules do not apply to tracked files",
+        "source_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Saved approval",
+        "to": "Local settings",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Tracked file",
+        "to": "Public repository",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "There is no transfer to the repository for a file that stays local; no implied scanner, auto-upload, or fake secret string."
+    ],
+    "composition_signature": {
+      "grammar": "staggered repository cutaway",
+      "layout": "Stepped horizontal cutaway with approval fixture, local file bay, and elevated repository archive, with a disconnected lower caveat.",
+      "metaphor": "cutaway file archive",
+      "annotation": "staggered path and detached scanning note"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Saved approval",
+          "region_id": "approval",
+          "region": "Left command strip fixture",
+          "bounding_box_px": {
+            "x": 63,
+            "y": 95,
+            "width": 280,
+            "height": 49
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Command with secret",
+          "region_id": "approval",
+          "region": "Left command strip fixture",
+          "bounding_box_px": {
+            "x": 63,
+            "y": 320,
+            "width": 283,
+            "height": 43
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Local settings",
+          "region_id": "settings",
+          "region": "Middle local file bay",
+          "bounding_box_px": {
+            "x": 407,
+            "y": 128,
+            "width": 300,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Tracked file",
+          "region_id": "settings",
+          "region": "Middle local file bay",
+          "bounding_box_px": {
+            "x": 408,
+            "y": 363,
+            "width": 295,
+            "height": 43
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Public repository",
+          "region_id": "repository",
+          "region": "Elevated right archive",
+          "bounding_box_px": {
+            "x": 784,
+            "y": 75,
+            "width": 350,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Ignore rules can miss it",
+          "region_id": "caveat",
+          "region": "Detached lower note",
+          "bounding_box_px": {
+            "x": 409,
+            "y": 522,
+            "width": 374,
+            "height": 45
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Ignore rules can miss it",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Saved approval",
+        "Tracked file",
+        "Local settings",
+        "Public repository"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "A remembered approval records the literal command, potentially with an inline secret, in local settings.",
+          "allowed_path": "Saved approval to Local settings",
+          "blocked_path": "There is no transfer to the repository for a file that stays local; no implied scanner, auto-upload, or fake secret string."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "A settings file committed to a public repository can expose any stored secret, and tracked files bypass ignore rules.",
+          "allowed_path": "Tracked file to Public repository",
+          "blocked_path": "There is no transfer to the repository for a file that stays local; no implied scanner, auto-upload, or fake secret string."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Saved approval",
+        "Local settings",
+        "Public repository"
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Saved approval",
+          "to": "Local settings",
+          "support_claim_id": "claim-1",
+          "origin_region": "Left command strip fixture",
+          "target_region": "Middle local file bay",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Tracked file",
+          "to": "Public repository",
+          "support_claim_id": "claim-2",
+          "origin_region": "Middle local file bay",
+          "target_region": "Elevated right archive",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "approval",
+            "description": "Left command strip fixture",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 85,
+              "width": 298,
+              "height": 330
+            }
+          },
+          {
+            "id": "settings",
+            "description": "Middle local file bay",
+            "bounding_box_px": {
+              "x": 380,
+              "y": 115,
+              "width": 350,
+              "height": 330
+            }
+          },
+          {
+            "id": "repository",
+            "description": "Elevated right archive",
+            "bounding_box_px": {
+              "x": 765,
+              "y": 60,
+              "width": 380,
+              "height": 393
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached lower note",
+            "bounding_box_px": {
+              "x": 395,
+              "y": 512,
+              "width": 400,
+              "height": 66
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Saved approval",
+            "to": "Local settings",
+            "support_claim_id": "claim-1",
+            "from_region_id": "approval",
+            "to_region_id": "settings",
+            "origin_px": {
+              "x": 330,
+              "y": 250
+            },
+            "target_px": {
+              "x": 407,
+              "y": 250
+            }
+          },
+          {
+            "from": "Tracked file",
+            "to": "Public repository",
+            "support_claim_id": "claim-2",
+            "from_region_id": "settings",
+            "to_region_id": "repository",
+            "origin_px": {
+              "x": 690,
+              "y": 282
+            },
+            "target_px": {
+              "x": 795,
+              "y": 282
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 9 image worker, protected source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "8be0355fe63dbdbbb0781e8256e7dab96f27c7e696ec3be15c142f49ac915c0b"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 9 image worker, protected source and geometry review",
+      "source_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Render one finished static factual editorial illustration for a premium advanced textbook. Use a 1200 by 630 wide native composition; white ground, crisp dark ink, restrained indigo, teal, and terracotta highlights, clean modern large sans-serif, high-contrast flat editorial linework with subtle cutaway shading. Fill the broad white canvas with the mechanism without adding bars or shrinking a different aspect ratio. At least 12 individually useful objects and at least two visually differentiated substages. No human figures, avatars, shields, gears, logos, brands, realism, pseudo-text, microstrokes, invented gauges, controls or success marks.\n\nStepped horizontal cutaway with approval fixture, local file bay, and elevated repository archive, with a disconnected lower caveat.\n\nA rust abstract credential insert in a blank shell-command strip enters a clipboard-like approval clamp, exits its right nozzle at x330 y250, and touches a file tab in the local settings shelf. A second arrow starts at a separate tracked-file tab at x690 y282 and touches the archive's open receiving slot. Populate the three zones with blank terminal bezel, strip, credential insert, clamp, file tab, file body, nesting sleeve, tracked-file tab, Git-history layers, archive intake, archive base, and exposed credential insert. Emphasize matching insert color across locations as a comparison, and show file nested in its local settings sleeve. No scanner in the causal chain.\n\nThere is no transfer to the repository for a file that stays local; no implied scanner, auto-upload, or fake secret string.\n\nVisible text allowlist, exactly once per label and no other text: \"Saved approval\", \"Command with secret\", \"Local settings\", \"Tracked file\", \"Public repository\", \"Ignore rules can miss it\". Labels sit on white, never on a connector. Detached caveat occupies its own clean box and never participates in flow. Hold 52px planning inset from every edge; retain at least 40px whitespace to actual glyphs after export. Use the region and label boxes with font minima specified below, and attach every arrow tail and head to the exact exposed object port, clear of labels, frames and unrelated objects. Only the enumerated arrows are directional.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"approval\",\"description\":\"Left command strip fixture\",\"bounding_box_px\":{\"x\":55,\"y\":85,\"width\":298,\"height\":330}},{\"id\":\"settings\",\"description\":\"Middle local file bay\",\"bounding_box_px\":{\"x\":380,\"y\":115,\"width\":350,\"height\":330}},{\"id\":\"repository\",\"description\":\"Elevated right archive\",\"bounding_box_px\":{\"x\":765,\"y\":60,\"width\":380,\"height\":393}},{\"id\":\"caveat\",\"description\":\"Detached lower note\",\"bounding_box_px\":{\"x\":395,\"y\":512,\"width\":400,\"height\":66}}],\"labels\":[{\"label\":\"Saved approval\",\"region_id\":\"approval\",\"region\":\"Left command strip fixture\",\"bounding_box_px\":{\"x\":63,\"y\":95,\"width\":280,\"height\":49},\"minimum_font_px\":40},{\"label\":\"Command with secret\",\"region_id\":\"approval\",\"region\":\"Left command strip fixture\",\"bounding_box_px\":{\"x\":63,\"y\":320,\"width\":283,\"height\":43},\"minimum_font_px\":28},{\"label\":\"Local settings\",\"region_id\":\"settings\",\"region\":\"Middle local file bay\",\"bounding_box_px\":{\"x\":407,\"y\":128,\"width\":300,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Tracked file\",\"region_id\":\"settings\",\"region\":\"Middle local file bay\",\"bounding_box_px\":{\"x\":408,\"y\":363,\"width\":295,\"height\":43},\"minimum_font_px\":30},{\"label\":\"Public repository\",\"region_id\":\"repository\",\"region\":\"Elevated right archive\",\"bounding_box_px\":{\"x\":784,\"y\":75,\"width\":350,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Ignore rules can miss it\",\"region_id\":\"caveat\",\"region\":\"Detached lower note\",\"bounding_box_px\":{\"x\":409,\"y\":522,\"width\":374,\"height\":45},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Saved approval\",\"to\":\"Local settings\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"approval\",\"to_region_id\":\"settings\",\"origin_px\":{\"x\":330,\"y\":250},\"target_px\":{\"x\":407,\"y\":250}},{\"from\":\"Tracked file\",\"to\":\"Public repository\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"settings\",\"to_region_id\":\"repository\",\"origin_px\":{\"x\":690,\"y\":282},\"target_px\":{\"x\":795,\"y\":282}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-09",
+    "story_id": "nov09-t2-arete",
+    "source_url": "https://nousresearch.com/arete",
+    "visual_thesis": "The released model is assessed on the authors’ set of prompts and generates candidate answers. The publisher’s judge assesses recall and framing from an answer and its evidence without knowing model identity.",
+    "mechanism_metaphor": "blinded specimen evaluator",
+    "story_anchors": [
+      "The released model is assessed on the authors’ set of prompts and generates candidate answers.",
+      "The publisher’s judge assesses recall and framing from an answer and its evidence without knowing model identity."
+    ],
+    "required_labels": [
+      "Eval prompts",
+      "Open weights",
+      "Model answers",
+      "Blind judge",
+      "Facts and framing",
+      "Publisher-designed test"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "The released model is assessed on the authors’ set of prompts and generates candidate answers.",
+        "supporting_source_excerpt": "We built an evaluation of 803 prompts spanning seven value categories",
+        "source_url": "https://nousresearch.com/arete",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The publisher’s judge assesses recall and framing from an answer and its evidence without knowing model identity.",
+        "supporting_source_excerpt": "The judge is not told which model wrote the answer.",
+        "source_url": "https://nousresearch.com/arete",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Eval prompts",
+        "to": "Model answers",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Model answers",
+        "to": "Blind judge",
+        "support_claim_id": "claim-2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No transfer from this test to general capability, neutrality, independent human certification, or training-data overlap."
+    ],
+    "composition_signature": {
+      "grammar": "asymmetric blind evaluation bench",
+      "layout": "Upper-left prompt fixture and lower-left weights bay meet a central answer rack, then a right comparison bench and independent caveat.",
+      "metaphor": "blinded specimen evaluator",
+      "annotation": "offset sources and separate evidence trays"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Eval prompts",
+          "region_id": "prompts",
+          "region": "Upper-left prompt feeder",
+          "bounding_box_px": {
+            "x": 69,
+            "y": 65,
+            "width": 266,
+            "height": 47
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Open weights",
+          "region_id": "weights",
+          "region": "Lower-left weight cassette bay",
+          "bounding_box_px": {
+            "x": 77,
+            "y": 435,
+            "width": 264,
+            "height": 46
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Model answers",
+          "region_id": "answers",
+          "region": "Central answer rack",
+          "bounding_box_px": {
+            "x": 400,
+            "y": 130,
+            "width": 290,
+            "height": 48
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Blind judge",
+          "region_id": "judge",
+          "region": "Right blind evaluator",
+          "bounding_box_px": {
+            "x": 756,
+            "y": 77,
+            "width": 345,
+            "height": 48
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Facts and framing",
+          "region_id": "judge",
+          "region": "Right blind evaluator",
+          "bounding_box_px": {
+            "x": 755,
+            "y": 403,
+            "width": 370,
+            "height": 44
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Publisher-designed test",
+          "region_id": "caveat",
+          "region": "Detached publisher note",
+          "bounding_box_px": {
+            "x": 676,
+            "y": 524,
+            "width": 420,
+            "height": 43
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Publisher-designed test",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Eval prompts",
+        "Model answers",
+        "Blind judge"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "The released model is assessed on the authors’ set of prompts and generates candidate answers.",
+          "allowed_path": "Eval prompts to Model answers",
+          "blocked_path": "No transfer from this test to general capability, neutrality, independent human certification, or training-data overlap."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "The publisher’s judge assesses recall and framing from an answer and its evidence without knowing model identity.",
+          "allowed_path": "Model answers to Blind judge",
+          "blocked_path": "No transfer from this test to general capability, neutrality, independent human certification, or training-data overlap."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Eval prompts",
+        "Open weights",
+        "Model answers"
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Eval prompts",
+          "to": "Model answers",
+          "support_claim_id": "claim-1",
+          "origin_region": "Upper-left prompt feeder",
+          "target_region": "Central answer rack",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Model answers",
+          "to": "Blind judge",
+          "support_claim_id": "claim-2",
+          "origin_region": "Central answer rack",
+          "target_region": "Right blind evaluator",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "prompts",
+            "description": "Upper-left prompt feeder",
+            "bounding_box_px": {
+              "x": 57,
+              "y": 54,
+              "width": 300,
+              "height": 190
+            }
+          },
+          {
+            "id": "weights",
+            "description": "Lower-left weight cassette bay",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 299,
+              "width": 292,
+              "height": 196
+            }
+          },
+          {
+            "id": "answers",
+            "description": "Central answer rack",
+            "bounding_box_px": {
+              "x": 385,
+              "y": 116,
+              "width": 320,
+              "height": 380
+            }
+          },
+          {
+            "id": "judge",
+            "description": "Right blind evaluator",
+            "bounding_box_px": {
+              "x": 743,
+              "y": 65,
+              "width": 400,
+              "height": 428
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached publisher note",
+            "bounding_box_px": {
+              "x": 660,
+              "y": 514,
+              "width": 450,
+              "height": 64
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Eval prompts",
+            "to": "Model answers",
+            "support_claim_id": "claim-1",
+            "from_region_id": "prompts",
+            "to_region_id": "answers",
+            "origin_px": {
+              "x": 340,
+              "y": 198
+            },
+            "target_px": {
+              "x": 411,
+              "y": 221
+            }
+          },
+          {
+            "from": "Model answers",
+            "to": "Blind judge",
+            "support_claim_id": "claim-2",
+            "from_region_id": "answers",
+            "to_region_id": "judge",
+            "origin_px": {
+              "x": 674,
+              "y": 254
+            },
+            "target_px": {
+              "x": 779,
+              "y": 254
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 9 image worker, protected source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "82735a9094f5f20aafb161d652f1c42e72f7768a3bcc4e3484149599ffcf946c"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 9 image worker, protected source and geometry review",
+      "source_url": "https://nousresearch.com/arete",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Render one finished static factual editorial illustration for a premium advanced textbook. Use a 1200 by 630 wide native composition; white ground, crisp dark ink, restrained indigo, teal, and terracotta highlights, clean modern large sans-serif, high-contrast flat editorial linework with subtle cutaway shading. Fill the broad white canvas with the mechanism without adding bars or shrinking a different aspect ratio. At least 12 individually useful objects and at least two visually differentiated substages. No human figures, avatars, shields, gears, logos, brands, realism, pseudo-text, microstrokes, invented gauges, controls or success marks.\n\nUpper-left prompt fixture and lower-left weights bay meet a central answer rack, then a right comparison bench and independent caveat.\n\nStacked colored prompt tiles feed a left-to-center specimen slot; a separate lower-left open-weight cassette is a released artifact, with no arrow from the weights to the judge. In the center place opaque answer slips, rack, export slot and identity-cover sleeve. The answer rack’s port touches the judge inlet through one straight arrow; add paired solid evidence tabs, fixed rubric stencil, contrasting fact and framing trays, and a centered support bed. No rankings, score bars, flags, or faces.\n\nNo transfer from this test to general capability, neutrality, independent human certification, or training-data overlap.\n\nVisible text allowlist, exactly once per label and no other text: \"Eval prompts\", \"Open weights\", \"Model answers\", \"Blind judge\", \"Facts and framing\", \"Publisher-designed test\". Labels sit on white, never on a connector. Detached caveat occupies its own clean box and never participates in flow. Hold 52px planning inset from every edge; retain at least 40px whitespace to actual glyphs after export. Use the region and label boxes with font minima specified below, and attach every arrow tail and head to the exact exposed object port, clear of labels, frames and unrelated objects. Only the enumerated arrows are directional.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"prompts\",\"description\":\"Upper-left prompt feeder\",\"bounding_box_px\":{\"x\":57,\"y\":54,\"width\":300,\"height\":190}},{\"id\":\"weights\",\"description\":\"Lower-left weight cassette bay\",\"bounding_box_px\":{\"x\":65,\"y\":299,\"width\":292,\"height\":196}},{\"id\":\"answers\",\"description\":\"Central answer rack\",\"bounding_box_px\":{\"x\":385,\"y\":116,\"width\":320,\"height\":380}},{\"id\":\"judge\",\"description\":\"Right blind evaluator\",\"bounding_box_px\":{\"x\":743,\"y\":65,\"width\":400,\"height\":428}},{\"id\":\"caveat\",\"description\":\"Detached publisher note\",\"bounding_box_px\":{\"x\":660,\"y\":514,\"width\":450,\"height\":64}}],\"labels\":[{\"label\":\"Eval prompts\",\"region_id\":\"prompts\",\"region\":\"Upper-left prompt feeder\",\"bounding_box_px\":{\"x\":69,\"y\":65,\"width\":266,\"height\":47},\"minimum_font_px\":36},{\"label\":\"Open weights\",\"region_id\":\"weights\",\"region\":\"Lower-left weight cassette bay\",\"bounding_box_px\":{\"x\":77,\"y\":435,\"width\":264,\"height\":46},\"minimum_font_px\":36},{\"label\":\"Model answers\",\"region_id\":\"answers\",\"region\":\"Central answer rack\",\"bounding_box_px\":{\"x\":400,\"y\":130,\"width\":290,\"height\":48},\"minimum_font_px\":40},{\"label\":\"Blind judge\",\"region_id\":\"judge\",\"region\":\"Right blind evaluator\",\"bounding_box_px\":{\"x\":756,\"y\":77,\"width\":345,\"height\":48},\"minimum_font_px\":40},{\"label\":\"Facts and framing\",\"region_id\":\"judge\",\"region\":\"Right blind evaluator\",\"bounding_box_px\":{\"x\":755,\"y\":403,\"width\":370,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Publisher-designed test\",\"region_id\":\"caveat\",\"region\":\"Detached publisher note\",\"bounding_box_px\":{\"x\":676,\"y\":524,\"width\":420,\"height\":43},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Eval prompts\",\"to\":\"Model answers\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"prompts\",\"to_region_id\":\"answers\",\"origin_px\":{\"x\":340,\"y\":198},\"target_px\":{\"x\":411,\"y\":221}},{\"from\":\"Model answers\",\"to\":\"Blind judge\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"answers\",\"to_region_id\":\"judge\",\"origin_px\":{\"x\":674,\"y\":254},\"target_px\":{\"x\":779,\"y\":254}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-09",
+    "story_id": "nov09-k1-policy-encryption",
+    "source_url": "https://workspaceupdates.googleblog.com/2026/11/automatically-apply-client-side-encryption-to-confidential-Editors-and-Drive-files-now-available-in-Beta.html",
+    "visual_thesis": "Policy-Based Enforcement applies client-side encryption to files matching configured admin rules. In-place encryption retains the existing URL; audit monitoring and external key service outage alerts are available.",
+    "mechanism_metaphor": "stationary file under a rule plate",
+    "story_anchors": [
+      "Policy-Based Enforcement applies client-side encryption to files matching configured admin rules.",
+      "In-place encryption retains the existing URL; audit monitoring and external key service outage alerts are available."
+    ],
+    "required_labels": [
+      "Drive files",
+      "Rule match",
+      "Encrypt in place",
+      "Same file URL",
+      "Audit and key alerts",
+      "Eligible beta only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Policy-Based Enforcement applies client-side encryption to files matching configured admin rules.",
+        "supporting_source_excerpt": "Policy-Based Enforcement automatically encrypts files matching rule conditions",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/11/automatically-apply-client-side-encryption-to-confidential-Editors-and-Drive-files-now-available-in-Beta.html",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "In-place encryption retains the existing URL; audit monitoring and external key service outage alerts are available.",
+        "supporting_source_excerpt": "Encryption is enforced “in place”, preserving the file’s original URL.",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/11/automatically-apply-client-side-encryption-to-confidential-Editors-and-Drive-files-now-available-in-Beta.html",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Rule match",
+        "to": "Encrypt in place",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Unmatched file has no encryption path; audit is observational and key-service alerts describe service trouble, not automatic recovery or guaranteed access."
+    ],
+    "composition_signature": {
+      "grammar": "in-place layered governance section",
+      "layout": "Left file-location stack, central matching policy plate over an in-place file cutaway, right audit and outage fixtures, bottom left caveat.",
+      "metaphor": "stationary file under a rule plate",
+      "annotation": "section view with same-address vertical registration"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Drive files",
+          "region_id": "files",
+          "region": "Left file origins and support",
+          "bounding_box_px": {
+            "x": 66,
+            "y": 94,
+            "width": 268,
+            "height": 48
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Rule match",
+          "region_id": "policy",
+          "region": "Central vertically aligned rule and file layers",
+          "bounding_box_px": {
+            "x": 393,
+            "y": 68,
+            "width": 375,
+            "height": 52
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Encrypt in place",
+          "region_id": "policy",
+          "region": "Central vertically aligned rule and file layers",
+          "bounding_box_px": {
+            "x": 391,
+            "y": 306,
+            "width": 390,
+            "height": 51
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Same file URL",
+          "region_id": "policy",
+          "region": "Central vertically aligned rule and file layers",
+          "bounding_box_px": {
+            "x": 395,
+            "y": 448,
+            "width": 380,
+            "height": 44
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Audit and key alerts",
+          "region_id": "alerts",
+          "region": "Right detached operational evidence fixtures",
+          "bounding_box_px": {
+            "x": 831,
+            "y": 405,
+            "width": 302,
+            "height": 48
+          },
+          "minimum_font_px": 29
+        },
+        {
+          "label": "Eligible beta only",
+          "region_id": "caveat",
+          "region": "Lower-left eligibility note",
+          "bounding_box_px": {
+            "x": 72,
+            "y": 525,
+            "width": 415,
+            "height": 43
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Eligible beta only",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Rule match",
+        "Encrypt in place"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Policy-Based Enforcement applies client-side encryption to files matching configured admin rules.",
+          "allowed_path": "Rule match to Encrypt in place",
+          "blocked_path": "Unmatched file has no encryption path; audit is observational and key-service alerts describe service trouble, not automatic recovery or guaranteed access."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Drive files",
+        "Rule match",
+        "Encrypt in place"
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Rule match",
+          "to": "Encrypt in place",
+          "support_claim_id": "claim-1",
+          "origin_region": "Central vertically aligned rule and file layers",
+          "target_region": "Central vertically aligned rule and file layers",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "files",
+            "description": "Left file origins and support",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 85,
+              "width": 294,
+              "height": 410
+            }
+          },
+          {
+            "id": "policy",
+            "description": "Central vertically aligned rule and file layers",
+            "bounding_box_px": {
+              "x": 375,
+              "y": 55,
+              "width": 418,
+              "height": 447
+            }
+          },
+          {
+            "id": "alerts",
+            "description": "Right detached operational evidence fixtures",
+            "bounding_box_px": {
+              "x": 820,
+              "y": 100,
+              "width": 323,
+              "height": 395
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Lower-left eligibility note",
+            "bounding_box_px": {
+              "x": 60,
+              "y": 514,
+              "width": 441,
+              "height": 63
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Rule match",
+            "to": "Encrypt in place",
+            "support_claim_id": "claim-1",
+            "from_region_id": "policy",
+            "to_region_id": "policy",
+            "origin_px": {
+              "x": 570,
+              "y": 214
+            },
+            "target_px": {
+              "x": 570,
+              "y": 292
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 9 image worker, protected source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "8b6e602e26e12f38a142e624412f20b5ddff4006e3557394317c372235e68b75"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 9 image worker, protected source and geometry review",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/11/automatically-apply-client-side-encryption-to-confidential-Editors-and-Drive-files-now-available-in-Beta.html",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Render one finished static factual editorial illustration for a premium advanced textbook. Use a 1200 by 630 wide native composition; white ground, crisp dark ink, restrained indigo, teal, and terracotta highlights, clean modern large sans-serif, high-contrast flat editorial linework with subtle cutaway shading. Fill the broad white canvas with the mechanism without adding bars or shrinking a different aspect ratio. At least 12 individually useful objects and at least two visually differentiated substages. No human figures, avatars, shields, gears, logos, brands, realism, pseudo-text, microstrokes, invented gauges, controls or success marks.\n\nLeft file-location stack, central matching policy plate over an in-place file cutaway, right audit and outage fixtures, bottom left caveat.\n\nStack separated personal and shared drive file trays and unmarked document, sheet and image tiles on left. Center a shaped rule template over a single unmarked file pinned onto a fixed address post with registration brackets; one downward arrow from the matching slot x570 y214 to the upper encrypted layer x570 y292. Differentiate ordinary file and encrypted outer layers with diagonal broad bands and a sectioned protective envelope, not a shield. Keep fixed registration visible through both states. At right draw separate audit receipt tile and external key-service line with an obvious gap marking an outage, no arrow between the independent fixtures.\n\nUnmatched file has no encryption path; audit is observational and key-service alerts describe service trouble, not automatic recovery or guaranteed access.\n\nVisible text allowlist, exactly once per label and no other text: \"Drive files\", \"Rule match\", \"Encrypt in place\", \"Same file URL\", \"Audit and key alerts\", \"Eligible beta only\". Labels sit on white, never on a connector. Detached caveat occupies its own clean box and never participates in flow. Hold 52px planning inset from every edge; retain at least 40px whitespace to actual glyphs after export. Use the region and label boxes with font minima specified below, and attach every arrow tail and head to the exact exposed object port, clear of labels, frames and unrelated objects. Only the enumerated arrows are directional.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"files\",\"description\":\"Left file origins and support\",\"bounding_box_px\":{\"x\":55,\"y\":85,\"width\":294,\"height\":410}},{\"id\":\"policy\",\"description\":\"Central vertically aligned rule and file layers\",\"bounding_box_px\":{\"x\":375,\"y\":55,\"width\":418,\"height\":447}},{\"id\":\"alerts\",\"description\":\"Right detached operational evidence fixtures\",\"bounding_box_px\":{\"x\":820,\"y\":100,\"width\":323,\"height\":395}},{\"id\":\"caveat\",\"description\":\"Lower-left eligibility note\",\"bounding_box_px\":{\"x\":60,\"y\":514,\"width\":441,\"height\":63}}],\"labels\":[{\"label\":\"Drive files\",\"region_id\":\"files\",\"region\":\"Left file origins and support\",\"bounding_box_px\":{\"x\":66,\"y\":94,\"width\":268,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Rule match\",\"region_id\":\"policy\",\"region\":\"Central vertically aligned rule and file layers\",\"bounding_box_px\":{\"x\":393,\"y\":68,\"width\":375,\"height\":52},\"minimum_font_px\":42},{\"label\":\"Encrypt in place\",\"region_id\":\"policy\",\"region\":\"Central vertically aligned rule and file layers\",\"bounding_box_px\":{\"x\":391,\"y\":306,\"width\":390,\"height\":51},\"minimum_font_px\":40},{\"label\":\"Same file URL\",\"region_id\":\"policy\",\"region\":\"Central vertically aligned rule and file layers\",\"bounding_box_px\":{\"x\":395,\"y\":448,\"width\":380,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Audit and key alerts\",\"region_id\":\"alerts\",\"region\":\"Right detached operational evidence fixtures\",\"bounding_box_px\":{\"x\":831,\"y\":405,\"width\":302,\"height\":48},\"minimum_font_px\":29},{\"label\":\"Eligible beta only\",\"region_id\":\"caveat\",\"region\":\"Lower-left eligibility note\",\"bounding_box_px\":{\"x\":72,\"y\":525,\"width\":415,\"height\":43},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Rule match\",\"to\":\"Encrypt in place\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"policy\",\"to_region_id\":\"policy\",\"origin_px\":{\"x\":570,\"y\":214},\"target_px\":{\"x\":570,\"y\":292}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-09",
+    "story_id": "nov09-k2-cheaper-intelligence",
+    "source_url": "https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html",
+    "visual_thesis": "Individual task improvements and the observed aggregate effects are distinct; the brief proposes measuring task time and quality. Implementation costs and workflow redesign can delay measured productivity gains, so evaluation must account for both gains and costs.",
+    "mechanism_metaphor": "measurement bench with uncalibrated trays",
+    "story_anchors": [
+      "Individual task improvements and the observed aggregate effects are distinct; the brief proposes measuring task time and quality.",
+      "Implementation costs and workflow redesign can delay measured productivity gains, so evaluation must account for both gains and costs."
+    ],
+    "required_labels": [
+      "Task gains",
+      "Time and quality",
+      "Redesign costs",
+      "Training and rollout",
+      "Measure both",
+      "Economy-wide impact uncertain"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Individual task improvements and the observed aggregate effects are distinct; the brief proposes measuring task time and quality.",
+        "supporting_source_excerpt": "In aggregate, it is hard to see the impact of AI on productivity.",
+        "source_url": "https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Implementation costs and workflow redesign can delay measured productivity gains, so evaluation must account for both gains and costs.",
+        "supporting_source_excerpt": "The Productivity J-Curve",
+        "source_url": "https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Task gains",
+        "to": "Measure both",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Redesign costs",
+        "to": "Measure both",
+        "support_claim_id": "claim-2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No fitted curve, measured ratio or relative tray size as evidence; no automatic arrow from a firm-level observation to economy-wide growth or job changes."
+    ],
+    "composition_signature": {
+      "grammar": "task measurement seesaw comparison",
+      "layout": "Wide low comparison bench of gains and redesign burden, stepped reconciliation block at right, remote conclusion note above right.",
+      "metaphor": "measurement bench with uncalibrated trays",
+      "annotation": "separate inputs at different elevations and reserved uncertainty note"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Task gains",
+          "region_id": "gains",
+          "region": "Elevated left task-measurement bench",
+          "bounding_box_px": {
+            "x": 69,
+            "y": 118,
+            "width": 294,
+            "height": 52
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Time and quality",
+          "region_id": "gains",
+          "region": "Elevated left task-measurement bench",
+          "bounding_box_px": {
+            "x": 67,
+            "y": 426,
+            "width": 303,
+            "height": 47
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Redesign costs",
+          "region_id": "burden",
+          "region": "Low central redesign bench",
+          "bounding_box_px": {
+            "x": 420,
+            "y": 208,
+            "width": 305,
+            "height": 52
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Training and rollout",
+          "region_id": "burden",
+          "region": "Low central redesign bench",
+          "bounding_box_px": {
+            "x": 416,
+            "y": 455,
+            "width": 302,
+            "height": 43
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Measure both",
+          "region_id": "measurement",
+          "region": "Right evidence comparison cradle",
+          "bounding_box_px": {
+            "x": 780,
+            "y": 188,
+            "width": 348,
+            "height": 51
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Economy-wide impact uncertain",
+          "region_id": "caveat",
+          "region": "Upper-right uncertainty note",
+          "bounding_box_px": {
+            "x": 749,
+            "y": 69,
+            "width": 387,
+            "height": 43
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Economy-wide impact uncertain",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Task gains",
+        "Redesign costs",
+        "Measure both"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Individual task improvements and the observed aggregate effects are distinct; the brief proposes measuring task time and quality.",
+          "allowed_path": "Task gains to Measure both",
+          "blocked_path": "No fitted curve, measured ratio or relative tray size as evidence; no automatic arrow from a firm-level observation to economy-wide growth or job changes."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Implementation costs and workflow redesign can delay measured productivity gains, so evaluation must account for both gains and costs.",
+          "allowed_path": "Redesign costs to Measure both",
+          "blocked_path": "No fitted curve, measured ratio or relative tray size as evidence; no automatic arrow from a firm-level observation to economy-wide growth or job changes."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Task gains",
+        "Redesign costs",
+        "Measure both"
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Task gains",
+          "to": "Measure both",
+          "support_claim_id": "claim-1",
+          "origin_region": "Elevated left task-measurement bench",
+          "target_region": "Right evidence comparison cradle",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Redesign costs",
+          "to": "Measure both",
+          "support_claim_id": "claim-2",
+          "origin_region": "Low central redesign bench",
+          "target_region": "Right evidence comparison cradle",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "gains",
+            "description": "Elevated left task-measurement bench",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 105,
+              "width": 330,
+              "height": 410
+            }
+          },
+          {
+            "id": "burden",
+            "description": "Low central redesign bench",
+            "bounding_box_px": {
+              "x": 405,
+              "y": 194,
+              "width": 330,
+              "height": 335
+            }
+          },
+          {
+            "id": "measurement",
+            "description": "Right evidence comparison cradle",
+            "bounding_box_px": {
+              "x": 765,
+              "y": 172,
+              "width": 380,
+              "height": 358
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Upper-right uncertainty note",
+            "bounding_box_px": {
+              "x": 740,
+              "y": 56,
+              "width": 405,
+              "height": 82
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Task gains",
+            "to": "Measure both",
+            "support_claim_id": "claim-1",
+            "from_region_id": "gains",
+            "to_region_id": "measurement",
+            "origin_px": {
+              "x": 355,
+              "y": 309
+            },
+            "target_px": {
+              "x": 809,
+              "y": 309
+            }
+          },
+          {
+            "from": "Redesign costs",
+            "to": "Measure both",
+            "support_claim_id": "claim-2",
+            "from_region_id": "burden",
+            "to_region_id": "measurement",
+            "origin_px": {
+              "x": 697,
+              "y": 392
+            },
+            "target_px": {
+              "x": 809,
+              "y": 392
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 9 image worker, protected source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "78df25445107c5bcb3211893142689cb90554c6f3077b6dfed0b87e19efea570"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 9 image worker, protected source and geometry review",
+      "source_url": "https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Render one finished static factual editorial illustration for a premium advanced textbook. Use a 1200 by 630 wide native composition; white ground, crisp dark ink, restrained indigo, teal, and terracotta highlights, clean modern large sans-serif, high-contrast flat editorial linework with subtle cutaway shading. Fill the broad white canvas with the mechanism without adding bars or shrinking a different aspect ratio. At least 12 individually useful objects and at least two visually differentiated substages. No human figures, avatars, shields, gears, logos, brands, realism, pseudo-text, microstrokes, invented gauges, controls or success marks.\n\nWide low comparison bench of gains and redesign burden, stepped reconciliation block at right, remote conclusion note above right.\n\nDraw two uncalibrated work surfaces: sample task tokens beside a ring timer without ticks and a finished-piece stencil; below, a redesign kit with replacement workflow links, staged training tokens, fixture and rollout tray. Two separated arrows to two independent inlets of a single inspection cradle: x355 y309 to x809 y309 passes through open space above central objects; x697 y392 to x809 y392 comes from the rollout tray. Visually align the two inputs with separate receiving pockets; no mathematical axis, curve, gauge, ratios or numeric ticks.\n\nNo fitted curve, measured ratio or relative tray size as evidence; no automatic arrow from a firm-level observation to economy-wide growth or job changes.\n\nVisible text allowlist, exactly once per label and no other text: \"Task gains\", \"Time and quality\", \"Redesign costs\", \"Training and rollout\", \"Measure both\", \"Economy-wide impact uncertain\". Labels sit on white, never on a connector. Detached caveat occupies its own clean box and never participates in flow. Hold 52px planning inset from every edge; retain at least 40px whitespace to actual glyphs after export. Use the region and label boxes with font minima specified below, and attach every arrow tail and head to the exact exposed object port, clear of labels, frames and unrelated objects. Only the enumerated arrows are directional.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"gains\",\"description\":\"Elevated left task-measurement bench\",\"bounding_box_px\":{\"x\":55,\"y\":105,\"width\":330,\"height\":410}},{\"id\":\"burden\",\"description\":\"Low central redesign bench\",\"bounding_box_px\":{\"x\":405,\"y\":194,\"width\":330,\"height\":335}},{\"id\":\"measurement\",\"description\":\"Right evidence comparison cradle\",\"bounding_box_px\":{\"x\":765,\"y\":172,\"width\":380,\"height\":358}},{\"id\":\"caveat\",\"description\":\"Upper-right uncertainty note\",\"bounding_box_px\":{\"x\":740,\"y\":56,\"width\":405,\"height\":82}}],\"labels\":[{\"label\":\"Task gains\",\"region_id\":\"gains\",\"region\":\"Elevated left task-measurement bench\",\"bounding_box_px\":{\"x\":69,\"y\":118,\"width\":294,\"height\":52},\"minimum_font_px\":42},{\"label\":\"Time and quality\",\"region_id\":\"gains\",\"region\":\"Elevated left task-measurement bench\",\"bounding_box_px\":{\"x\":67,\"y\":426,\"width\":303,\"height\":47},\"minimum_font_px\":32},{\"label\":\"Redesign costs\",\"region_id\":\"burden\",\"region\":\"Low central redesign bench\",\"bounding_box_px\":{\"x\":420,\"y\":208,\"width\":305,\"height\":52},\"minimum_font_px\":40},{\"label\":\"Training and rollout\",\"region_id\":\"burden\",\"region\":\"Low central redesign bench\",\"bounding_box_px\":{\"x\":416,\"y\":455,\"width\":302,\"height\":43},\"minimum_font_px\":28},{\"label\":\"Measure both\",\"region_id\":\"measurement\",\"region\":\"Right evidence comparison cradle\",\"bounding_box_px\":{\"x\":780,\"y\":188,\"width\":348,\"height\":51},\"minimum_font_px\":40},{\"label\":\"Economy-wide impact uncertain\",\"region_id\":\"caveat\",\"region\":\"Upper-right uncertainty note\",\"bounding_box_px\":{\"x\":749,\"y\":69,\"width\":387,\"height\":43},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Task gains\",\"to\":\"Measure both\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"gains\",\"to_region_id\":\"measurement\",\"origin_px\":{\"x\":355,\"y\":309},\"target_px\":{\"x\":809,\"y\":309}},{\"from\":\"Redesign costs\",\"to\":\"Measure both\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"burden\",\"to_region_id\":\"measurement\",\"origin_px\":{\"x\":697,\"y\":392},\"target_px\":{\"x\":809,\"y\":392}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-09",
+    "story_id": "nov09-a1-clocktower",
+    "source_url": "https://www.dwarkesh.com/p/clocktower",
+    "visual_thesis": "Private role information shapes what agents share, bluff or withhold during day discussions and night phases. The published account uses transcripts of plays to inspect strategic behavior within this game.",
+    "mechanism_metaphor": "abstract tabletop social deduction arena",
+    "story_anchors": [
+      "Private role information shapes what agents share, bluff or withhold during day discussions and night phases.",
+      "The published account uses transcripts of plays to inspect strategic behavior within this game."
+    ],
+    "required_labels": [
+      "Private roles",
+      "Public claims",
+      "Day vote",
+      "Night action",
+      "Review the log",
+      "Game results only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Private role information shapes what agents share, bluff or withhold during day discussions and night phases.",
+        "supporting_source_excerpt": "there are precise rules for private conversations and public discussions",
+        "source_url": "https://www.dwarkesh.com/p/clocktower",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The published account uses transcripts of plays to inspect strategic behavior within this game.",
+        "supporting_source_excerpt": "Good-team brilliance",
+        "source_url": "https://www.dwarkesh.com/p/clocktower",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Private roles",
+        "to": "Public claims",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Public claims",
+        "to": "Review the log",
+        "support_claim_id": "claim-2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "Private roles do not become public ground truth. No arrow to workplace reliability, universal deception risk or a numerical leaderboard."
+    ],
+    "composition_signature": {
+      "grammar": "annular role board with transcript edge",
+      "layout": "Circular voting board at center, opaque role packet nook at left, transcript inspection station to right, isolated lower scope qualifier.",
+      "metaphor": "abstract tabletop social deduction arena",
+      "annotation": "arc phase boundary and off-board record inspection"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Private roles",
+          "region_id": "roles",
+          "region": "Left concealed-role pouch zone",
+          "bounding_box_px": {
+            "x": 70,
+            "y": 115,
+            "width": 250,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Public claims",
+          "region_id": "board",
+          "region": "Central game ring",
+          "bounding_box_px": {
+            "x": 358,
+            "y": 70,
+            "width": 267,
+            "height": 49
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Day vote",
+          "region_id": "board",
+          "region": "Central game ring",
+          "bounding_box_px": {
+            "x": 356,
+            "y": 399,
+            "width": 200,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Night action",
+          "region_id": "board",
+          "region": "Central game ring",
+          "bounding_box_px": {
+            "x": 579,
+            "y": 399,
+            "width": 205,
+            "height": 45
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Review the log",
+          "region_id": "transcript",
+          "region": "Right transcript station",
+          "bounding_box_px": {
+            "x": 842,
+            "y": 120,
+            "width": 290,
+            "height": 53
+          },
+          "minimum_font_px": 39
+        },
+        {
+          "label": "Game results only",
+          "region_id": "caveat",
+          "region": "Detached game-only caveat",
+          "bounding_box_px": {
+            "x": 413,
+            "y": 523,
+            "width": 403,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Game results only",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Private roles",
+        "Public claims",
+        "Review the log"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Private role information shapes what agents share, bluff or withhold during day discussions and night phases.",
+          "allowed_path": "Private roles to Public claims",
+          "blocked_path": "Private roles do not become public ground truth. No arrow to workplace reliability, universal deception risk or a numerical leaderboard."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "The published account uses transcripts of plays to inspect strategic behavior within this game.",
+          "allowed_path": "Public claims to Review the log",
+          "blocked_path": "Private roles do not become public ground truth. No arrow to workplace reliability, universal deception risk or a numerical leaderboard."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Private roles",
+        "Public claims",
+        "Day vote"
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Private roles",
+          "to": "Public claims",
+          "support_claim_id": "claim-1",
+          "origin_region": "Left concealed-role pouch zone",
+          "target_region": "Central game ring",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Public claims",
+          "to": "Review the log",
+          "support_claim_id": "claim-2",
+          "origin_region": "Central game ring",
+          "target_region": "Right transcript station",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "roles",
+            "description": "Left concealed-role pouch zone",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 100,
+              "width": 282,
+              "height": 385
+            }
+          },
+          {
+            "id": "board",
+            "description": "Central game ring",
+            "bounding_box_px": {
+              "x": 340,
+              "y": 57,
+              "width": 466,
+              "height": 438
+            }
+          },
+          {
+            "id": "transcript",
+            "description": "Right transcript station",
+            "bounding_box_px": {
+              "x": 827,
+              "y": 104,
+              "width": 318,
+              "height": 382
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached game-only caveat",
+            "bounding_box_px": {
+              "x": 398,
+              "y": 510,
+              "width": 435,
+              "height": 68
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Private roles",
+            "to": "Public claims",
+            "support_claim_id": "claim-1",
+            "from_region_id": "roles",
+            "to_region_id": "board",
+            "origin_px": {
+              "x": 317,
+              "y": 230
+            },
+            "target_px": {
+              "x": 380,
+              "y": 230
+            }
+          },
+          {
+            "from": "Public claims",
+            "to": "Review the log",
+            "support_claim_id": "claim-2",
+            "from_region_id": "board",
+            "to_region_id": "transcript",
+            "origin_px": {
+              "x": 785,
+              "y": 250
+            },
+            "target_px": {
+              "x": 862,
+              "y": 250
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 9 image worker, protected source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "a0072d560e4ce65ecfe766893ebe40adeecdbcb85667dddc4b96651fa5264721"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 9 image worker, protected source and geometry review",
+      "source_url": "https://www.dwarkesh.com/p/clocktower",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Render one finished static factual editorial illustration for a premium advanced textbook. Use a 1200 by 630 wide native composition; white ground, crisp dark ink, restrained indigo, teal, and terracotta highlights, clean modern large sans-serif, high-contrast flat editorial linework with subtle cutaway shading. Fill the broad white canvas with the mechanism without adding bars or shrinking a different aspect ratio. At least 12 individually useful objects and at least two visually differentiated substages. No human figures, avatars, shields, gears, logos, brands, realism, pseudo-text, microstrokes, invented gauges, controls or success marks.\n\nCircular voting board at center, opaque role packet nook at left, transcript inspection station to right, isolated lower scope qualifier.\n\nAnonymous abstract game pieces only, no humanoids. Role packet and sleeve reveal a colored geometric role token; its right-hand port reaches a claim-tile pocket on the outer board, representing selective claims rather than disclosure of the role itself. Add round board, phase divider, public claim markers, recessed ballot slot and separate night token vault. One line from the discussion-record port on the board at x785 y250 to the review station's sequence tray inlet at x862 y250. Use opaque shaped transcript tokens, a comparison lens and open inspection pocket. Ring boundary is not an arrow.\n\nPrivate roles do not become public ground truth. No arrow to workplace reliability, universal deception risk or a numerical leaderboard.\n\nVisible text allowlist, exactly once per label and no other text: \"Private roles\", \"Public claims\", \"Day vote\", \"Night action\", \"Review the log\", \"Game results only\". Labels sit on white, never on a connector. Detached caveat occupies its own clean box and never participates in flow. Hold 52px planning inset from every edge; retain at least 40px whitespace to actual glyphs after export. Use the region and label boxes with font minima specified below, and attach every arrow tail and head to the exact exposed object port, clear of labels, frames and unrelated objects. Only the enumerated arrows are directional.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"roles\",\"description\":\"Left concealed-role pouch zone\",\"bounding_box_px\":{\"x\":55,\"y\":100,\"width\":282,\"height\":385}},{\"id\":\"board\",\"description\":\"Central game ring\",\"bounding_box_px\":{\"x\":340,\"y\":57,\"width\":466,\"height\":438}},{\"id\":\"transcript\",\"description\":\"Right transcript station\",\"bounding_box_px\":{\"x\":827,\"y\":104,\"width\":318,\"height\":382}},{\"id\":\"caveat\",\"description\":\"Detached game-only caveat\",\"bounding_box_px\":{\"x\":398,\"y\":510,\"width\":435,\"height\":68}}],\"labels\":[{\"label\":\"Private roles\",\"region_id\":\"roles\",\"region\":\"Left concealed-role pouch zone\",\"bounding_box_px\":{\"x\":70,\"y\":115,\"width\":250,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Public claims\",\"region_id\":\"board\",\"region\":\"Central game ring\",\"bounding_box_px\":{\"x\":358,\"y\":70,\"width\":267,\"height\":49},\"minimum_font_px\":40},{\"label\":\"Day vote\",\"region_id\":\"board\",\"region\":\"Central game ring\",\"bounding_box_px\":{\"x\":356,\"y\":399,\"width\":200,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Night action\",\"region_id\":\"board\",\"region\":\"Central game ring\",\"bounding_box_px\":{\"x\":579,\"y\":399,\"width\":205,\"height\":45},\"minimum_font_px\":32},{\"label\":\"Review the log\",\"region_id\":\"transcript\",\"region\":\"Right transcript station\",\"bounding_box_px\":{\"x\":842,\"y\":120,\"width\":290,\"height\":53},\"minimum_font_px\":39},{\"label\":\"Game results only\",\"region_id\":\"caveat\",\"region\":\"Detached game-only caveat\",\"bounding_box_px\":{\"x\":413,\"y\":523,\"width\":403,\"height\":45},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Private roles\",\"to\":\"Public claims\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"roles\",\"to_region_id\":\"board\",\"origin_px\":{\"x\":317,\"y\":230},\"target_px\":{\"x\":380,\"y\":230}},{\"from\":\"Public claims\",\"to\":\"Review the log\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"board\",\"to_region_id\":\"transcript\",\"origin_px\":{\"x\":785,\"y\":250},\"target_px\":{\"x\":862,\"y\":250}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-09",
+    "story_id": "nov09-a2-file-safe-skill",
+    "source_url": "https://mcscope.github.io/Alignment-Incident-Database/incidents/AID-2026-0155/",
+    "visual_thesis": "The brief’s precautionary Skill preserves originals and makes a separate working copy after inventory and backup checks. The procedure returns a diff and inventory for review before separately approved replacement; the reported incident is draft and the mechanism is uncertain.",
+    "mechanism_metaphor": "sealed archive versus editing bench",
+    "story_anchors": [
+      "The brief’s precautionary Skill preserves originals and makes a separate working copy after inventory and backup checks.",
+      "The procedure returns a diff and inventory for review before separately approved replacement; the reported incident is draft and the mechanism is uncertain."
+    ],
+    "required_labels": [
+      "Original files",
+      "Verified backup",
+      "Edit a copy",
+      "Return a diff",
+      "Approve replacement",
+      "Incident report is draft"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "The brief’s precautionary Skill preserves originals and makes a separate working copy after inventory and backup checks.",
+        "supporting_source_excerpt": "Snapshot the source inventory and duplicate the targets into a working copy.",
+        "source_url": "https://mcscope.github.io/Alignment-Incident-Database/incidents/AID-2026-0155/",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The procedure returns a diff and inventory for review before separately approved replacement; the reported incident is draft and the mechanism is uncertain.",
+        "supporting_source_excerpt": "A human validates the backup and original inventory before approving replacement.",
+        "source_url": "https://mcscope.github.io/Alignment-Incident-Database/incidents/AID-2026-0155/",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Original files",
+        "to": "Edit a copy",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Edit a copy",
+        "to": "Return a diff",
+        "support_claim_id": "claim-2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No automatic edit, move, deletion or overwrite of originals. The approval fixture is visibly closed, with no arrow back into the originals."
+    ],
+    "composition_signature": {
+      "grammar": "split protected originals and working-copy fork",
+      "layout": "Tall left archive vault with original and backup, broad upper-right copy workspace, lower-right diff and approval boundary, bottom-left detached caveat.",
+      "metaphor": "sealed archive versus editing bench",
+      "annotation": "guarded fork and closed replacement boundary"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Original files",
+          "region_id": "archive",
+          "region": "Left original and verified backup shelf",
+          "bounding_box_px": {
+            "x": 67,
+            "y": 70,
+            "width": 349,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Verified backup",
+          "region_id": "archive",
+          "region": "Left original and verified backup shelf",
+          "bounding_box_px": {
+            "x": 68,
+            "y": 381,
+            "width": 346,
+            "height": 49
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Edit a copy",
+          "region_id": "working",
+          "region": "Upper-right working copy editing bench",
+          "bounding_box_px": {
+            "x": 512,
+            "y": 72,
+            "width": 390,
+            "height": 50
+          },
+          "minimum_font_px": 43
+        },
+        {
+          "label": "Return a diff",
+          "region_id": "review",
+          "region": "Lower-right diff and review station",
+          "bounding_box_px": {
+            "x": 507,
+            "y": 304,
+            "width": 270,
+            "height": 48
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Approve replacement",
+          "region_id": "review",
+          "region": "Lower-right diff and review station",
+          "bounding_box_px": {
+            "x": 784,
+            "y": 438,
+            "width": 345,
+            "height": 43
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Incident report is draft",
+          "region_id": "caveat",
+          "region": "Detached incident caveat",
+          "bounding_box_px": {
+            "x": 70,
+            "y": 526,
+            "width": 408,
+            "height": 43
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Incident report is draft",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Original files",
+        "Edit a copy",
+        "Return a diff"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "The brief’s precautionary Skill preserves originals and makes a separate working copy after inventory and backup checks.",
+          "allowed_path": "Original files to Edit a copy",
+          "blocked_path": "No automatic edit, move, deletion or overwrite of originals. The approval fixture is visibly closed, with no arrow back into the originals."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "The procedure returns a diff and inventory for review before separately approved replacement; the reported incident is draft and the mechanism is uncertain.",
+          "allowed_path": "Edit a copy to Return a diff",
+          "blocked_path": "No automatic edit, move, deletion or overwrite of originals. The approval fixture is visibly closed, with no arrow back into the originals."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Original files",
+        "Verified backup",
+        "Edit a copy"
+      ],
+      "connector_origin_reviews": [
+        {
+          "from": "Original files",
+          "to": "Edit a copy",
+          "support_claim_id": "claim-1",
+          "origin_region": "Left original and verified backup shelf",
+          "target_region": "Upper-right working copy editing bench",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Edit a copy",
+          "to": "Return a diff",
+          "support_claim_id": "claim-2",
+          "origin_region": "Upper-right working copy editing bench",
+          "target_region": "Lower-right diff and review station",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "archive",
+            "description": "Left original and verified backup shelf",
+            "bounding_box_px": {
+              "x": 55,
+              "y": 56,
+              "width": 392,
+              "height": 441
+            }
+          },
+          {
+            "id": "working",
+            "description": "Upper-right working copy editing bench",
+            "bounding_box_px": {
+              "x": 482,
+              "y": 57,
+              "width": 660,
+              "height": 217
+            }
+          },
+          {
+            "id": "review",
+            "description": "Lower-right diff and review station",
+            "bounding_box_px": {
+              "x": 482,
+              "y": 287,
+              "width": 661,
+              "height": 213
+            }
+          },
+          {
+            "id": "caveat",
+            "description": "Detached incident caveat",
+            "bounding_box_px": {
+              "x": 61,
+              "y": 514,
+              "width": 427,
+              "height": 64
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Original files",
+            "to": "Edit a copy",
+            "support_claim_id": "claim-1",
+            "from_region_id": "archive",
+            "to_region_id": "working",
+            "origin_px": {
+              "x": 415,
+              "y": 182
+            },
+            "target_px": {
+              "x": 520,
+              "y": 182
+            }
+          },
+          {
+            "from": "Edit a copy",
+            "to": "Return a diff",
+            "support_claim_id": "claim-2",
+            "from_region_id": "working",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 637,
+              "y": 253
+            },
+            "target_px": {
+              "x": 637,
+              "y": 360
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 9 image worker, protected source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "c5273eb8b66e17639ea390c446b860e247fa832150293931432faee8432a5a79"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 9 image worker, protected source and geometry review",
+      "source_url": "https://mcscope.github.io/Alignment-Incident-Database/incidents/AID-2026-0155/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Render one finished static factual editorial illustration for a premium advanced textbook. Use a 1200 by 630 wide native composition; white ground, crisp dark ink, restrained indigo, teal, and terracotta highlights, clean modern large sans-serif, high-contrast flat editorial linework with subtle cutaway shading. Fill the broad white canvas with the mechanism without adding bars or shrinking a different aspect ratio. At least 12 individually useful objects and at least two visually differentiated substages. No human figures, avatars, shields, gears, logos, brands, realism, pseudo-text, microstrokes, invented gauges, controls or success marks.\n\nTall left archive vault with original and backup, broad upper-right copy workspace, lower-right diff and approval boundary, bottom-left detached caveat.\n\nOriginal folder fixed in shelf with closed mechanical latch, unmarked file tabs, inventory tokens and separate verified backup drawer. Horizontal connector exits the copy outlet x415 y182 and touches working-folder socket x520 y182, preserving left shelf. In right bench use working folder, two geometric edited tabs, editing cradle, visible output port x637 y253, a continuous connector that turns right immediately below the output port, passes at x805 to the right of the Return a diff label box, then runs left at y360 into the diff tray port x637 y360, contrasting shape tokens, changed-file tray, and closed mechanical approval stop. Leave source report caveat detached.\n\nNo automatic edit, move, deletion or overwrite of originals. The approval fixture is visibly closed, with no arrow back into the originals.\n\nVisible text allowlist, exactly once per label and no other text: \"Original files\", \"Verified backup\", \"Edit a copy\", \"Return a diff\", \"Approve replacement\", \"Incident report is draft\". Labels sit on white, never on a connector. Detached caveat occupies its own clean box and never participates in flow. Hold 52px planning inset from every edge; retain at least 40px whitespace to actual glyphs after export. Use the region and label boxes with font minima specified below, and attach every arrow tail and head to the exact exposed object port, clear of labels, frames and unrelated objects. Only the enumerated arrows are directional.\n\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"archive\",\"description\":\"Left original and verified backup shelf\",\"bounding_box_px\":{\"x\":55,\"y\":56,\"width\":392,\"height\":441}},{\"id\":\"working\",\"description\":\"Upper-right working copy editing bench\",\"bounding_box_px\":{\"x\":482,\"y\":57,\"width\":660,\"height\":217}},{\"id\":\"review\",\"description\":\"Lower-right diff and review station\",\"bounding_box_px\":{\"x\":482,\"y\":287,\"width\":661,\"height\":213}},{\"id\":\"caveat\",\"description\":\"Detached incident caveat\",\"bounding_box_px\":{\"x\":61,\"y\":514,\"width\":427,\"height\":64}}],\"labels\":[{\"label\":\"Original files\",\"region_id\":\"archive\",\"region\":\"Left original and verified backup shelf\",\"bounding_box_px\":{\"x\":67,\"y\":70,\"width\":349,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Verified backup\",\"region_id\":\"archive\",\"region\":\"Left original and verified backup shelf\",\"bounding_box_px\":{\"x\":68,\"y\":381,\"width\":346,\"height\":49},\"minimum_font_px\":36},{\"label\":\"Edit a copy\",\"region_id\":\"working\",\"region\":\"Upper-right working copy editing bench\",\"bounding_box_px\":{\"x\":512,\"y\":72,\"width\":390,\"height\":50},\"minimum_font_px\":43},{\"label\":\"Return a diff\",\"region_id\":\"review\",\"region\":\"Lower-right diff and review station\",\"bounding_box_px\":{\"x\":507,\"y\":304,\"width\":270,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Approve replacement\",\"region_id\":\"review\",\"region\":\"Lower-right diff and review station\",\"bounding_box_px\":{\"x\":784,\"y\":438,\"width\":345,\"height\":43},\"minimum_font_px\":30},{\"label\":\"Incident report is draft\",\"region_id\":\"caveat\",\"region\":\"Detached incident caveat\",\"bounding_box_px\":{\"x\":70,\"y\":526,\"width\":408,\"height\":43},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Original files\",\"to\":\"Edit a copy\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"archive\",\"to_region_id\":\"working\",\"origin_px\":{\"x\":415,\"y\":182},\"target_px\":{\"x\":520,\"y\":182}},{\"from\":\"Edit a copy\",\"to\":\"Return a diff\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"working\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":637,\"y\":253},\"target_px\":{\"x\":637,\"y\":360}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]
