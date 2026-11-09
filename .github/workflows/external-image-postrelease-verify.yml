@@ -78,6 +78,47 @@ jobs:
         run: |
           set -euo pipefail
           POLICY="$(node --input-type=module -e "import {readImageProcessVersions} from './scripts/image-process-versions.mjs';process.stdout.write(readImageProcessVersions().image_target_capture_policy)")"
+          if [[ "$MODE" == sync_metadata && "$TARGET_DATE" > 2026-11-08 && "$POLICY" == element24_v1 ]]; then
+            # Metadata-only sync reuses the protected review of the same live
+            # image bytes. A missing or mismatched review fails closed.
+            node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          import {planImageElementTargets} from './scripts/capture-image-element24.mjs';
+          const date=process.env.TARGET_DATE,prefix='external-image-packages/'+date+'/';
+          const read=path=>JSON.parse(fs.readFileSync(path,'utf8'));
+          const job=read('history/site/image-jobs/'+date+'/job.json');
+          const release=read('history/site/image-jobs/'+date+'/release.json');
+          const manifest=read(prefix+'manifest.json');
+          const review=read(prefix+'reviews/live/semantic-pixel-review.json');
+          const targets=planImageElementTargets({job,manifest});
+          const rows=new Map(review.targets?.map(row=>[row.target_id,row]));
+          if(review.schema_version!=='external-image-semantic-pixel-review-v1'||review.edition_date!==date||
+             review.result!=='PASS'||review.expected_targets!==24||review.captured_targets!==24||
+             review.reviewed_pass!==24||review.defects?.length!==0||review.targets?.length!==24||rows.size!==24||
+             release.actions_run_url!=='https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/'+review.evidence_source?.workflow_run_id)
+            throw Error('protected exact-release visual review required');
+          for(const t of targets){
+            const row=rows.get(t.target_id);
+            const path=prefix+'reviews/live/captures/'+t.target_id.replaceAll(':','--')+'.png';
+            if(row?.result!=='PASS'||row.page_url!==t.page_url||row.image_url!==t.image_url||
+               row.live_image_sha256!==t.expected_sha256||JSON.stringify(row.viewport_size)!==JSON.stringify(t.viewport_size)||
+               row.actual_pixels_inspected!==true||row.correct_story_asset_visible!==true||row.full_diagram_visible!==true||
+               row.clipped_or_overlapped!==false||row.placeholder_visible!==false||row.primary_explanatory_labels_recognizable!==true||
+               row.inspection_method!=='semantic_pixel_inspection'||
+               row.image_pixel_proof?.result!=='PASS'||!Number.isInteger(row.image_pixel_proof.ink_samples)||row.image_pixel_proof.ink_samples<15||
+               !Number.isFinite(row.image_pixel_proof.match_ratio)||row.image_pixel_proof.match_ratio<0.82||row.image_pixel_proof.match_ratio>1||
+               !/^[a-f0-9]{64}$/.test(row.element_screenshot_sha256||'')||
+               row.capture_path!==path)
+              throw Error('unverified visual placement: '+t.target_id);
+            const bytes=fs.readFileSync(path);
+            if(bytes.length!==row.capture_bytes||crypto.createHash('sha256').update(bytes).digest('hex')!==row.capture_sha256)
+              throw Error('saved capture bytes changed: '+t.target_id);
+          }
+          console.log('PROTECTED_24_CONTEXT_REVIEW_REUSED_FOR_METADATA_SYNC');
+          NODE
+            exit 0
+          fi
           if [ "$POLICY" = element24_v1 ]; then
             npm install --no-save playwright-core@1.56.1
             BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"

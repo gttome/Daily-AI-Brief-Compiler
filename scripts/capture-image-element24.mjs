@@ -95,6 +95,13 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
   for(const target of targets){
    const vp=target.viewport_size,page=await browser.newPage({viewport:vp,deviceScaleFactor:1});
    try{
+    // This is a read-only capture of the published reader and its static
+    // assets. Exclude unrelated external widgets and feedback submissions.
+    await page.route('**/*',route=>{
+      const request=route.request();
+      return request.url().startsWith(BASE)&&['GET','HEAD'].includes(request.method())
+        ?route.continue():route.abort();
+    });
     const response=await page.goto(target.page_url,{waitUntil:'domcontentloaded',timeout:45000});
     if(response?.status()!==200)fail('target_page_http:'+target.target_id);
     const fileName=target.image_url.split('/').pop().split('?')[0];
@@ -120,36 +127,41 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
       return box.width>=150&&box.height>=75&&box.x>=-1&&box.y>=-1&&
         box.right<=innerWidth+1&&box.bottom<=innerHeight+1;
     },fileName,{timeout:20000});
-    const meta=await matching.evaluate(el=>{
+    const readMeta=()=>matching.evaluate(el=>{
       const b=el.getBoundingClientRect();
       const headings=Array.from(document.querySelectorAll('h1,h2,h3')).filter(h=>h.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING);
       return {src:el.src,alt:el.alt,complete:el.complete,naturalWidth:el.naturalWidth,naturalHeight:el.naturalHeight,
         box:{x:b.x,y:b.y,width:b.width,height:b.height},heading:headings.at(-1)?.textContent?.trim()??'',
         overflow:document.documentElement.scrollWidth>window.innerWidth+1};
     });
+    // Element screenshots may scroll the page. Measure after that step, then
+    // save the full viewport so the screenshot uses the same origin as the DOM.
+    const elementPng=job.edition_date>='2026-10-29'
+      ?await matching.screenshot({type:'png',animations:'disabled'}):null;
+    await matching.evaluate(async el=>{
+      await el.decode();
+      await document.fonts.ready;
+      el.scrollIntoView({behavior:'instant',block:'center',inline:'nearest'});
+      await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    });
+    const meta=await readMeta();
     if(meta.src!==target.image_url||meta.alt!==target.expected_alt_text||!meta.complete||
       meta.naturalWidth!==1200||meta.naturalHeight!==630||
       meta.box.width<150||meta.box.height<75||meta.overflow||
       meta.box.x<0||meta.box.y<0||meta.box.x+meta.box.width>vp.width+1||
       meta.box.y+meta.box.height>vp.height+1)fail('image_area_or_size_invalid:'+target.target_id+':'+JSON.stringify({viewport:vp,actual:meta}));
+    const file=target.target_id.replaceAll(':','--')+'.png',screenshotPath=path.join(outDir,file);
+    const screenshot=await page.screenshot({path:screenshotPath,type:'png',animations:'disabled'});
+    if(JSON.stringify((await readMeta()).box)!==JSON.stringify(meta.box))
+      fail('image_moved_during_capture:'+target.target_id);
     const imgResponse=await fetchImpl(meta.src);
     if(imgResponse.status!==200||hash(Buffer.from(await imgResponse.arrayBuffer()))!==target.expected_sha256)
       fail('live_image_hash_mismatch:'+target.target_id);
-    const clip={x:Math.max(0,Math.floor(meta.box.x)-14),y:Math.max(0,Math.floor(meta.box.y)-105)};
-    clip.width=Math.min(vp.width-clip.x,Math.ceil(meta.box.width)+28);
-    clip.height=Math.min(vp.height-clip.y,Math.ceil(meta.box.height)+125);
-    if(clip.x>meta.box.x||clip.y>meta.box.y||clip.x+clip.width<meta.box.x+meta.box.width-1||
-      clip.y+clip.height<meta.box.y+meta.box.height-1)fail('capture_excludes_image:'+target.target_id);
-    const file=target.target_id.replaceAll(':','--')+'.png',screenshotPath=path.join(outDir,file);
-    const screenshot=await page.screenshot({path:screenshotPath,type:'png',clip});
-    // Oct29+ quality policy: never impose a new pixel admission requirement
-    // retrospectively on immutably published legacy editions or their fixtures.
-    let elementPng=null;
+    // Require the existing RGB proof for all editions where it already applies.
     let pixelProof={result:'SKIPPED_HISTORICAL'};
-    if(job.edition_date>='2026-10-29'){
-      elementPng=await matching.screenshot({type:'png'});
+    if(elementPng){
       pixelProof=verifyImageRegionInSavedPng({capturePng:screenshot,elementPng,
-        offsetX:meta.box.x-clip.x,offsetY:meta.box.y-clip.y});
+        offsetX:meta.box.x,offsetY:meta.box.y});
       if(pixelProof.result!=='PASS')fail('actual_saved_capture_pixels_do_not_show_image:'+target.target_id+':'+JSON.stringify(pixelProof));
     }
     rows.push({target_id:target.target_id,page_url:target.page_url,image_url:meta.src,
