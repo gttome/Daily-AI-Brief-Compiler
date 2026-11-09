@@ -1,6 +1,6 @@
 # 2026-11-09 premium image after-action report
 
-**Status: LIVE_AND_VISUAL_VERIFIED_PUBLIC_STATUS_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -37,7 +37,7 @@
 | Native saved-pixel inspection | A third arrow appears between the private envelope and the role token, outside the approved connector set. The board’s exterior rim also approaches the top edge. | Delete only the unplanned arrow, use proximity to associate the envelope and role token, and tuck the top rim inward without moving or shrinking labels. |
 | Native saved-pixel inspection | The editing cradle contains simulated document writing. The right-hand branch feeds the replacement fixture directly, bypassing diff review. | Replace the mock writing with two distinct geometric tokens. Remove the continuation to the replacement gate so the copy-to-diff connector ends only at the diff tray and the red closed gate remains separate. |
 | Protected postdeployment capture | Initial release run stopped after 44 successful live byte checks because the saved T1 permanent-story mobile RGB match was 0.339. | Retained exact release artifact and failed screenshot. Captured stable full viewports against the same six live PNGs; all 24 comparisons and manual semantic inspections passed. |
-| Public metadata synchronization | The first metadata sync stopped on a different T1 mobile capture with an RGB match of 0.353, before deploying the receipt. | A read-only metadata continuation is pending. The same six image bytes are verified and the 24 actual semantic screenshots are already saved. |
+| Public metadata synchronization | The first metadata sync stopped on a different T1 mobile capture with an RGB match of 0.353, before deploying the receipt. | Protected the existing capture and metadata path, reused the complete protected semantic evidence, and verified the exact public release receipt and index. |
 
 ## Evidence and limitations
 
