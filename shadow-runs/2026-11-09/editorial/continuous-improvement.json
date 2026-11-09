@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-09",
-  "recorded_at": "2026-11-09T03:03:55.285Z",
+  "recorded_at": "2026-11-09T03:07:48.667Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "df398047378b26af78552f4348243c56c22e9bd6",
     "aar_cycle_date": "2026-11-07",
@@ -41,7 +41,7 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Fifteen exact protected failures were read and narrowly corrected. The independent full-history gate rejected both previously sealed video URLs because they appeared on November 7; an archive-new Fox/CBS pair completed full content review and awaits a fresh protected receipt.",
+    "outcome": "Fifteen exact protected failures were read and narrowly corrected. After the history gate rejected both November 7 repeats, the archive-new Fox/CBS pair completed full review and passed the fresh bundle-bound protected playback probe.",
     "publication_failures": 15,
     "publication_failure_causes": [
       "EXPECTED_BUNDLE_STAGE",
@@ -60,15 +60,15 @@
       "MEDIA_REUSE_VIOLATION"
     ],
     "preseal_video_probe": {
-      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42552100347",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42554330737",
       "result": "PASS",
       "passed_slots": 3,
       "selected_slots": 2,
       "selected_urls": [
-        "https://www.cbsnews.com/video/stock-market-plummets-as-americans-rebuke-data-center-development/",
-        "https://www.foxnews.com/video/6408029435112"
+        "https://www.foxnews.com/video/6408108124112",
+        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/"
       ],
-      "backup_url": "https://pr.pbs.org/video/what-to-know-about-the-labor-market-amid-ai-bubble-concerns-1794008145/"
+      "rejected_control_url": "https://pr.pbs.org/video/what-to-know-about-the-labor-market-amid-ai-bubble-concerns-1794008145/"
     },
     "preseal_video_probe_attempts": [
       {
@@ -95,6 +95,11 @@
         "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42552100347",
         "result": "PASS",
         "reason": "CBS News, Fox News and PBS NewsHour all produced duration-matched signed-out advancement"
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42554330737",
+        "result": "PASS",
+        "reason": "Archive-new Fox News and CBS News programs plus the known-duplicate PBS control all produced duration-matched signed-out advancement; only Fox/CBS were selected."
       }
     ]
   },
@@ -119,9 +124,10 @@
       "Moved video recovery from direct YouTube and nonadvancing publisher players to exact publisher-native CBS, Fox News and PBS NewsHour programs with fresh protected duration-matched advancement.",
       "Selected only two distinct-publisher passing programs; the third passing PBS item remains a qualified backup, so candidate count alone is not treated as success.",
       "Aligned each final selected-video quality review to the exact protected verification time, then advanced the final selection lock and seal after those reviews without changing the passed media request.",
-      "Used the independent full-history gate to reject two exact November 7 video repeats, then reviewed a November 8 Fox interview and a CBS deepfake report plus its first-party supporting article before requesting a new protected receipt."
+      "Used the independent full-history gate to reject two exact November 7 video repeats, then reviewed a November 8 Fox interview and a CBS deepfake report plus its first-party supporting article before requesting a new protected receipt.",
+      "Bound the archive-new Fox/CBS pair to protected run 42554330737; retained PBS only as a known-duplicate probe control and did not treat playback success as editorial eligibility."
     ],
-    "interpretation": "The replacement programs are archive-new and fully reviewed, but selection remains unlocked until a fresh protected signed-out playback receipt binds their exact URLs. No incremental or causal uplift is claimed.",
+    "interpretation": "The final pair is archive-new, fully reviewed and protected-playback verified. This is an admission result for this edition, not causal uplift or evidence of unattended scheduler behavior.",
     "more_sources_success": null,
     "causal_uplift": null
   },
