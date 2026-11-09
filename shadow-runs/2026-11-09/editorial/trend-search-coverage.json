@@ -3,7 +3,7 @@
   "edition_date": "2026-11-09",
   "cycle_date": "2026-11-08",
   "baseline_id": "nov03-2026-v1",
-  "generated_at": "2026-11-09T02:05:13.847Z",
+  "generated_at": "2026-11-09T02:09:52.763Z",
   "report": {
     "source_path": "signals/ai-topic-top10/2026-11-08.json",
     "source_commit": "0f61fc274bf35c12afed857e78e3a2a3ee0d34d4",
@@ -992,8 +992,8 @@
       "VID-ABC-137915485",
       "VID-REUTERS-RW634406112026RP1",
       "POD-TECHCRUNCH-OPEN-SOURCE",
-      "POD-NEWSTACK-STANDARDS",
-      "ART-GOOGLE-POLICY-CSE"
+      "ART-GOOGLE-POLICY-CSE",
+      "POD-TWIML-783"
     ],
     "rejection_reasons": [
       {
@@ -1019,6 +1019,10 @@
       {
         "candidate_id": "ART-GEMINI-OMNI-12",
         "reason": "independent archive gate found exact November 6 reuse"
+      },
+      {
+        "candidate_id": "POD-OBSERVABILITY-20261105",
+        "reason": "adjacent-day show rotation violation against November 8"
       }
     ],
     "gaps": [
@@ -1037,7 +1041,8 @@
       "https://abcnews.com/video/137915485/",
       "https://www.breakingviews.com/video/watch/idRW634406112026RP1/",
       "https://techcrunch.com/podcast/building-on-open-source-ai-hugging-faces-policy-chief-on-the-costs-risks-and-trade-offs/",
-      "https://theobservabilitylayer.com/podcast/2026-11-05"
+      "https://twimlai.com/podcast/twimlai/can-ai-invent-just-help-scientists-work-faster",
+      "https://realalpha.app/v/rIUcQfyXuUo/"
     ],
     "causal_uplift": null
   },
@@ -1118,6 +1123,14 @@
       "root_cause_code": "SOURCE_READ_METHOD_ENUM_INVALID",
       "reason": "The archive-new replacement used a descriptive read-method label outside the current allowed enum; the actual review was publisher main text.",
       "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42548982562",
+      "documented_delay_seconds": null
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42549138127",
+      "stage": "MEDIA_HISTORY",
+      "root_cause_code": "PODCAST_SHOW_ROTATION_VIOLATION",
+      "reason": "The Observability Layer was already selected on November 8, so the November 9 episode was replaced with a transcript-reviewed TWIML episode from a different show.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42549138127",
       "documented_delay_seconds": null
     }
   ]
