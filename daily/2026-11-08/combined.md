@@ -1,14 +1,14 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟪 VISUAL QA 24/24 PASS**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 9, 2026 · **Production evening:** 2026-11-08 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-09 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-09/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
-**🕒 Production stage durations:** **Top 10 5m 05s** · **Compiler final seal window 4m 07s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
+**🕒 Production stage durations:** **Top 10 5m 05s** · **Compiler final seal window 4m 07s** · **Premium Images 27m 56s** (evidence-bounded elapsed times; the start/end events differ).
 
 > **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
@@ -17,7 +17,7 @@
 Compiler final seal window: 4m 07s. Compiler state start to public verification: 117m 14s. Observed execution and final seal windows are distinct.
 Image capability route preflight: NOT OBSERVED; scheduler origin remains UNPROVEN.
 Image efficiency: 1/6 first-pass accepts; 11 total attempts. Current efficiency target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
-Image review completed: Not recorded; review-record commit: Not recorded; protected review merge: Not recorded.
+Image review completed: 2026-11-09T03:42:38Z; review-record commit: 2026-11-09T03:51:41.000Z; protected review merge: 2026-11-09T03:51:41.000Z.
 Eligible source indexes: 109; editorial inspections reported: Unknown (Unknown%); inaccessible in editorial audit: 1; explicitly unreviewed IDs: 105; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 Registered video sources: 29; attempted this edition: 29; unattempted: 0; enabled: 28; qualification-only: 1; sources yielding candidate URLs: 0. Status: REPORTED_ALL_ATTEMPTED. Attempt evidence is not automatic proof of source-content review or playback.
@@ -36,9 +36,20 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**11 attempts; 1 of 6 images accepted on their first attempt.**
+
+Recorded ongoing from November 8 target: at least 3/6 first-pass accepts; no more than 2 attempts per image. This is an efficiency target, not a quality cutoff.
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| A saved coding-agent approval exposed real secrets | 1 | 1 | 2 |
+| Nous publishes a 27B model and its political-framing evals | 1 | 0 | 1 |
+| Google Workspace can encrypt sensitive files by policy | 1 | 1 | 2 |
+| Australia’s central bank maps an uncertain AI productivity curve | 1 | 1 | 2 |
+| Clocktower tests whether agents can coordinate, deceive and recover | 1 | 1 | 2 |
+| A file-safe editing Skill puts recovery before replacement | 1 | 1 | 2 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -82,15 +93,15 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Avoidable incomplete-staging CI failures | **Not independently audited** | Existing image-package push CI is disabled; exact-head protected PR CI remains required. A failure count requires actual workflow evidence |
 | Media | **2 videos + 2 podcasts** | Sealed bundle |
 | **Compiler final seal window** | **4m 07s (4.1 min)** | Final sealed-state timestamp → verified public reader; initial execution is separate |
-| **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
+| **Image processing stage duration** | **27m 56s** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
-| Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Executor-observed generation-to-final-review | **30m 30s** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **11** | Image worker AAR; no estimation |
 | Rejected candidates | **5** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
-| Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Saved visual contexts | **24 / 24 PASS** | Dated/permanent desktop/mobile review |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -111,7 +122,7 @@ flowchart TD
   classDef done fill:#dff6eb,color:#165c39,stroke:#168052,stroke-width:2px
   classDef uncertain fill:#fef3c7,color:#804c14,stroke:#d99412,stroke-width:2px
   class A,B,C,D done
-  class E,F,G uncertain
+  class E,F,G done
   class T uncertain
 ```
 
@@ -274,44 +285,54 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 11 · **Rejected candidates:** 5.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 11 · **Rejected candidates:** 5.
 
 ### Image production duration — Git-verified milestones
 
-**Auditable image stage duration:** **Not independently recorded** (first accepted binary saved in Git → first persisted 24-context quality-review record). **First asset to public image release:** **Not independently recorded**.
+**Auditable image stage duration:** **27m 56s** (first accepted binary saved in Git → first persisted 24-context quality-review record). **First asset to public image release:** **11m 38s**.
 **Scheduled-to-final-review window:** **Not independently recorded**. This is a scheduled-clock comparison only when a separately recorded exact-date schedule exists; it is **not** measured native image-generation runtime.
 
 | Production milestone | Chicago local time | Evidence |
 |---|---|---|
 | Scheduled image start (if exact-date record exists) | Not independently recorded | Time planned, not actual execution start |
-| First executor-observed start | Not independently recorded | Worker self-attestation, not a first-party scheduler event |
-| First native generation observation | Not independently recorded | Worker clock recorded immediately before first native call, not model-provider telemetry |
-| First accepted PNG bytes saved to Git | Not independently recorded | Immutable binary-stage commit |
-| Six-image package / reviews committed | Not independently recorded | Exact-head PR source commit |
-| Protected package merged | Not independently recorded | Merge SHA and required CI |
-| Public images verified | Not independently recorded | Image-release receipt |
-| 24/24 review record committed | Not independently recorded | Immutable first review-approval commit |
+| First executor-observed start | 9:15:17 PM | Worker self-attestation, not a first-party scheduler event |
+| First native generation observation | 9:21:11 PM | Worker clock recorded immediately before first native call, not model-provider telemetry |
+| First accepted PNG bytes saved to Git | 9:23:45 PM | Immutable binary-stage commit |
+| Six-image package / reviews committed | 9:32:28 PM | Exact-head PR source commit |
+| Protected package merged | 9:34:19 PM | Merge SHA and required CI |
+| Public images verified | 9:35:23 PM | Image-release receipt |
+| 24/24 review record committed | 9:51:41 PM | Immutable first review-approval commit |
 
 > **Duration interpretation:** The audited stage excludes unobservable pre-checkpoint creative work. The scheduled-start window includes it but must not be interpreted as precise active processing time. Missing timestamps appear as **Not independently recorded**, never an estimate.
 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| A saved coding-agent approval exposed real secrets | 2 | 0.53 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m01.png) |
+| Nous publishes a 27B model and its political-framing evals | 1 | 0.55 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m02.png) |
+| Google Workspace can encrypt sensitive files by policy | 2 | 0.58 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m10.png) |
+| Australia’s central bank maps an uncertain AI productivity curve | 2 | 0.59 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m11.png) |
+| Clocktower tests whether agents can coordinate, deceive and recover | 2 | 0.68 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m12.png) |
+| A file-safe editing Skill puts recovery before replacement | 2 | 0.61 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
-| Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
+| Desktop/mobile visual inspection | 24/24 PASS |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m01.png" alt="Diagram for nov09-t1-command-permissions" width="420"/></a><br/><b>A saved coding-agent approval exposed real secrets</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m02.png" alt="Diagram for nov09-t2-arete" width="420"/></a><br/><b>Nous publishes a 27B model and its political-framing evals</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m10.png" alt="Diagram for nov09-k1-policy-encryption" width="420"/></a><br/><b>Google Workspace can encrypt sensitive files by policy</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m11.png" alt="Diagram for nov09-k2-cheaper-intelligence" width="420"/></a><br/><b>Australia’s central bank maps an uncertain AI productivity curve</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m12.png" alt="Diagram for nov09-a1-clocktower" width="420"/></a><br/><b>Clocktower tests whether agents can coordinate, deceive and recover</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-09/dab-edition-2026-11-09-m14.png" alt="Diagram for nov09-a2-file-safe-skill" width="420"/></a><br/><b>A file-safe editing Skill puts recovery before replacement</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -330,6 +351,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Native saved-pixel inspection | The task bench contains pseudo-writing and a rising bar chart. The middle bench has two unapproved arrows. The upper teal route starts on a bench border instead of an object, and the last glyph of the caveat reaches beyond x1160. | Use nonquantitative unmarked shapes, remove the middle black arrows, connect the upper teal route to the timer base, and bring the caveat and housings inward. |
 | Native saved-pixel inspection | A third arrow appears between the private envelope and the role token, outside the approved connector set. The board’s exterior rim also approaches the top edge. | Delete only the unplanned arrow, use proximity to associate the envelope and role token, and tuck the top rim inward without moving or shrinking labels. |
 | Native saved-pixel inspection | The editing cradle contains simulated document writing. The right-hand branch feeds the replacement fixture directly, bypassing diff review. | Replace the mock writing with two distinct geometric tokens. Remove the continuation to the replacement gate so the copy-to-diff connector ends only at the diff tray and the red closed gate remains separate. |
+| Protected postdeployment capture | Initial release run stopped after 44 successful live byte checks because the saved T1 permanent-story mobile RGB match was 0.339. | Retained exact release artifact and failed screenshot. Captured stable full viewports against the same six live PNGs; all 24 comparisons and manual semantic inspections passed. |
+| Public metadata synchronization | The first metadata sync stopped on a different T1 mobile capture with an RGB match of 0.353, before deploying the receipt. | A read-only metadata continuation is pending. The same six image bytes are verified and the 24 actual semantic screenshots are already saved. |
 
 > **OPERATIONAL NOTE**
 > This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.
@@ -371,16 +394,16 @@ No current-edition postpublication incident register was available; this is **NO
 | Compiler compile receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/compiler/compile-receipt.json) |
 | Compiler public integrity | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/compiler/postpublish-integrity.json) |
 | Image release receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow-pages-history/site/image-jobs/2026-11-09/release.json) |
-| Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-09/reviews/live/image-element24/semantic-reviews.json) |
+| Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-09/reviews/live/semantic-pixel-review.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-09/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/159bc7d41397e1ed649f086aeedf240104e293c8/signals/ai-topic-top10/2026-11-08.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/159bc7d41397e1ed649f086aeedf240104e293c8/signals/ai-topic-top10/2026-11-08.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9472112f72fef7a6d82e8d8af7ab04008f54839b/signals/ai-topic-top10/2026-11-08.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9472112f72fef7a6d82e8d8af7ab04008f54839b/signals/ai-topic-top10/2026-11-08.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/editorial/trend-search-coverage.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42557131670).
 
 ---
 
@@ -393,14 +416,14 @@ Edition **2026-11-09**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**5 evidence-based findings**; open production blockers: 1. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**5 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
-| P0 | Editorial publication is verified but the image release is not verified. | Images: Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker. | Immediate, if ownership and gates allow |
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
-| P1 | 15 failed protected publication gates were recorded (5 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Immediate, if ownership and gates allow |
+| P1 | 15 failed protected publication gates were recorded (5 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Next genuine run |
 | P1 | Source inspection coverage is not verifiable from the current bundled receipts. | Compiler: Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access. | Next genuine run |
+| P1 | 5 rejected image candidates preceded the verified six-image release. | Images: Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation. | Next genuine run |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
 Findings are observational and do not claim a repair was executed by the reporter.
@@ -438,13 +461,13 @@ Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured result
 | 2026-11-06 | 8/87 (9%) | 0 | 14 | 1 | 3 |
 | 2026-11-07 | 4/109 (4%) | 2 | 11 | 0 | Not recorded |
 | 2026-11-08 | Not recorded | 0 | 20 | 4 | Not recorded |
-| 2026-11-09 | Not recorded | Not recorded | Not recorded | 15 | Not recorded |
+| 2026-11-09 | Not recorded | 1 | 11 | 15 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 3 | 9 |
-| first pass accepted | 6 | 0 |
-| image attempts | 6 | 15.5 |
+| first pass accepted | 7 | 0 |
+| image attempts | 7 | 14 |
 | top10 linked items | 2 | 3.5 |
 | publication failures | 7 | 4 |
 
@@ -610,15 +633,15 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 
 | Recorded defect | Rejected attempts with defect | Recurred across editions |
 |---|---:|---|
-| LAYOUT | 31 | Yes |
-| CAUSAL_CONNECTOR | 20 | Yes |
-| OTHER | 9 | Yes |
-| PSEUDO_WRITING | 9 | Yes |
-| UNALLOWLISTED_TEXT | 6 | Yes |
-| UNSUPPORTED_CLAIM | 5 | Yes |
+| LAYOUT | 33 | Yes |
+| CAUSAL_CONNECTOR | 24 | Yes |
+| PSEUDO_WRITING | 12 | Yes |
+| OTHER | 11 | Yes |
+| UNALLOWLISTED_TEXT | 7 | Yes |
+| UNSUPPORTED_CLAIM | 6 | Yes |
 | TYPOGRAPHY | 1 | No within observed window |
 
-Total rejected: 59; unclassified: 14. A rejected attempt can have several defect codes.
+Total rejected: 64; unclassified: 14. A rejected attempt can have several defect codes.
 
 ### Top 10 publisher-family sensitivity
 

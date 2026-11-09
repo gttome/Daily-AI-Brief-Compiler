@@ -73,8 +73,8 @@
       "coverage_percent": null,
       "coverage_numerator": null,
       "coverage_denominator": null,
-      "first_pass_accepted": null,
-      "image_attempts": null,
+      "first_pass_accepted": 1,
+      "image_attempts": 11,
       "top10_linked_items": null,
       "publication_failures": 15
     }
@@ -85,12 +85,12 @@
       "median": 9
     },
     "first_pass_accepted": {
-      "recorded_editions": 6,
+      "recorded_editions": 7,
       "median": 0
     },
     "image_attempts": {
-      "recorded_editions": 6,
-      "median": 15.5
+      "recorded_editions": 7,
+      "median": 14
     },
     "top10_linked_items": {
       "recorded_editions": 2,
@@ -299,17 +299,8 @@
     "next_cumulative_review": "2026-11-11",
     "cumulative_review_due_today": false,
     "finding_count": 5,
-    "open_production_blockers": 1,
+    "open_production_blockers": 0,
     "findings": [
-      {
-        "id": "IMAGE_RELEASE_NOT_VERIFIED",
-        "priority": "P0",
-        "owner": "Images",
-        "observation": "Editorial publication is verified but the image release is not verified.",
-        "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
-        "kind": "OPEN_PRODUCTION_BLOCKER"
-      },
       {
         "id": "TOP10_SEARCH_EVIDENCE_INVALID",
         "priority": "P1",
@@ -325,7 +316,7 @@
         "owner": "Compiler / Recovery",
         "observation": "15 failed protected publication gates were recorded (5 unclassified causes).",
         "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
+        "timing": "NEXT_GENUINE_CYCLE",
         "kind": "RECURRENCE_PREVENTION"
       },
       {
@@ -336,6 +327,15 @@
         "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
         "timing": "NEXT_GENUINE_CYCLE",
         "kind": "EVIDENCE_GAP"
+      },
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "5 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
       },
       {
         "id": "SCHEDULER_ORIGIN_UNPROVEN",
@@ -2175,67 +2175,73 @@
     }
   ],
   "image_defects": {
-    "recorded_editions": 6,
-    "total_rejected": 59,
+    "recorded_editions": 7,
+    "total_rejected": 64,
     "unclassified": 14,
     "rows": [
       {
         "cause": "LAYOUT",
-        "rejected_attempts": 31,
+        "rejected_attempts": 33,
         "editions": [
           "2026-11-04",
           "2026-11-05",
-          "2026-11-08"
+          "2026-11-08",
+          "2026-11-09"
         ],
         "recurring": true
       },
       {
         "cause": "CAUSAL_CONNECTOR",
-        "rejected_attempts": 20,
+        "rejected_attempts": 24,
         "editions": [
           "2026-11-04",
           "2026-11-05",
           "2026-11-07",
-          "2026-11-08"
-        ],
-        "recurring": true
-      },
-      {
-        "cause": "OTHER",
-        "rejected_attempts": 9,
-        "editions": [
-          "2026-11-04",
-          "2026-11-05"
+          "2026-11-08",
+          "2026-11-09"
         ],
         "recurring": true
       },
       {
         "cause": "PSEUDO_WRITING",
-        "rejected_attempts": 9,
+        "rejected_attempts": 12,
         "editions": [
           "2026-11-04",
           "2026-11-05",
           "2026-11-07",
-          "2026-11-08"
+          "2026-11-08",
+          "2026-11-09"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "OTHER",
+        "rejected_attempts": 11,
+        "editions": [
+          "2026-11-04",
+          "2026-11-05",
+          "2026-11-09"
         ],
         "recurring": true
       },
       {
         "cause": "UNALLOWLISTED_TEXT",
-        "rejected_attempts": 6,
+        "rejected_attempts": 7,
         "editions": [
           "2026-11-04",
-          "2026-11-05"
+          "2026-11-05",
+          "2026-11-09"
         ],
         "recurring": true
       },
       {
         "cause": "UNSUPPORTED_CLAIM",
-        "rejected_attempts": 5,
+        "rejected_attempts": 6,
         "editions": [
           "2026-11-04",
           "2026-11-07",
-          "2026-11-08"
+          "2026-11-08",
+          "2026-11-09"
         ],
         "recurring": true
       },

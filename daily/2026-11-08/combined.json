@@ -373,9 +373,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-09T03:42:38Z",
+      "review_record_commit_at": "2026-11-09T03:51:41.000Z",
+      "review_merge_at": "2026-11-09T03:51:41.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -638,7 +638,7 @@
       "scope": "Ten selected long-form tracker rows plus two retained rows from a second tracker; original publications, research repositories and bounded HN/X observations."
     },
     "ranking_basis": "Broader evidence means two named media or community families discuss the event within this sample. Limited means one identifiable audience source. When programs are roundups, all counters stay program-level. Attention, research confidence and usefulness for the Brief remain separate.",
-    "source_commit": "159bc7d41397e1ed649f086aeedf240104e293c8",
+    "source_commit": "9472112f72fef7a6d82e8d8af7ab04008f54839b",
     "source_blob_sha": "56c02f440ab3ae2e5bf43e9d6f9c12be25d38772",
     "report_sha256": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
     "consumed_source_commit": "0f61fc274bf35c12afed857e78e3a2a3ee0d34d4",
@@ -769,7 +769,7 @@
       },
       "previous_cycle": "2026-11-07",
       "previous_report_sha256": "2ab8b09a10eb90072936fb9f4a88ab8b99cb751e89b79329ee85e8f615cf1335",
-      "previous_aar_sha256": "eb44647f86ec946b0466a04c4a9558684ffa8d31a499734fe854db08353a2034",
+      "previous_aar_sha256": "e7d304210b8f633851a81d191ac3a2cfa08e44d09ccd8ca4c4a5a1372a5571a0",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": -1,
@@ -946,14 +946,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": false,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
-  "images_released": false,
-  "visual_24_pass": false,
-  "image_count": 0,
+  "images_released": true,
+  "visual_24_pass": true,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-09T03:21:11.000Z",
   "scheduler_start_attested": false,
   "source_urls": [
     {
@@ -974,7 +974,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-09/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-09/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -990,11 +990,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/159bc7d41397e1ed649f086aeedf240104e293c8/signals/ai-topic-top10/2026-11-08.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9472112f72fef7a6d82e8d8af7ab04008f54839b/signals/ai-topic-top10/2026-11-08.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/159bc7d41397e1ed649f086aeedf240104e293c8/signals/ai-topic-top10/2026-11-08.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9472112f72fef7a6d82e8d8af7ab04008f54839b/signals/ai-topic-top10/2026-11-08.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1021,8 +1021,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov09-t1-command-permissions",
+            "label": "A saved coding-agent approval exposed real secrets",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov09-t2-arete",
+            "label": "Nous publishes a 27B model and its political-framing evals",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov09-k1-policy-encryption",
+            "label": "Google Workspace can encrypt sensitive files by policy",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov09-k2-cheaper-intelligence",
+            "label": "Australia’s central bank maps an uncertain AI productivity curve",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov09-a1-clocktower",
+            "label": "Clocktower tests whether agents can coordinate, deceive and recover",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov09-a2-file-safe-skill",
+            "label": "A file-safe editing Skill puts recovery before replacement",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 11,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1111,8 +1155,8 @@
         "coverage_percent": null,
         "coverage_numerator": null,
         "coverage_denominator": null,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 1,
+        "image_attempts": 11,
         "top10_linked_items": null,
         "publication_failures": 15
       }
@@ -1123,12 +1167,12 @@
         "median": 9
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 15.5
+        "recorded_editions": 7,
+        "median": 14
       },
       "top10_linked_items": {
         "recorded_editions": 2,
@@ -1337,17 +1381,8 @@
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
       "finding_count": 5,
-      "open_production_blockers": 1,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -1363,7 +1398,7 @@
           "owner": "Compiler / Recovery",
           "observation": "15 failed protected publication gates were recorded (5 unclassified causes).",
           "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
+          "timing": "NEXT_GENUINE_CYCLE",
           "kind": "RECURRENCE_PREVENTION"
         },
         {
@@ -1374,6 +1409,15 @@
           "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
           "timing": "NEXT_GENUINE_CYCLE",
           "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "5 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
         },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
@@ -3213,67 +3257,73 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 59,
+      "recorded_editions": 7,
+      "total_rejected": 64,
       "unclassified": 14,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 31,
+          "rejected_attempts": 33,
           "editions": [
             "2026-11-04",
             "2026-11-05",
-            "2026-11-08"
+            "2026-11-08",
+            "2026-11-09"
           ],
           "recurring": true
         },
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 20,
+          "rejected_attempts": 24,
           "editions": [
             "2026-11-04",
             "2026-11-05",
             "2026-11-07",
-            "2026-11-08"
-          ],
-          "recurring": true
-        },
-        {
-          "cause": "OTHER",
-          "rejected_attempts": 9,
-          "editions": [
-            "2026-11-04",
-            "2026-11-05"
+            "2026-11-08",
+            "2026-11-09"
           ],
           "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 9,
+          "rejected_attempts": 12,
           "editions": [
             "2026-11-04",
             "2026-11-05",
             "2026-11-07",
-            "2026-11-08"
+            "2026-11-08",
+            "2026-11-09"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "OTHER",
+          "rejected_attempts": 11,
+          "editions": [
+            "2026-11-04",
+            "2026-11-05",
+            "2026-11-09"
           ],
           "recurring": true
         },
         {
           "cause": "UNALLOWLISTED_TEXT",
-          "rejected_attempts": 6,
+          "rejected_attempts": 7,
           "editions": [
             "2026-11-04",
-            "2026-11-05"
+            "2026-11-05",
+            "2026-11-09"
           ],
           "recurring": true
         },
         {
           "cause": "UNSUPPORTED_CLAIM",
-          "rejected_attempts": 5,
+          "rejected_attempts": 6,
           "editions": [
             "2026-11-04",
             "2026-11-07",
-            "2026-11-08"
+            "2026-11-08",
+            "2026-11-09"
           ],
           "recurring": true
         },
