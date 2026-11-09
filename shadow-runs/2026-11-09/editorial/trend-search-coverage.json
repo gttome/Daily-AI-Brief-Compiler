@@ -3,7 +3,7 @@
   "edition_date": "2026-11-09",
   "cycle_date": "2026-11-08",
   "baseline_id": "nov03-2026-v1",
-  "generated_at": "2026-11-09T01:45:19.956Z",
+  "generated_at": "2026-11-09T01:47:12.036Z",
   "report": {
     "source_path": "signals/ai-topic-top10/2026-11-08.json",
     "source_commit": "0f61fc274bf35c12afed857e78e3a2a3ee0d34d4",
@@ -1065,6 +1065,14 @@
       "root_cause_code": "EXPECTED_BUNDLE_STAGE",
       "reason": "The sealed state used stage SEAL, while the current protected readiness checker requires BUNDLE for a BUNDLE_READY state.",
       "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42547093513",
+      "documented_delay_seconds": null
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42547240343",
+      "stage": "SOURCE_READY",
+      "root_cause_code": "BUNDLE_DIGEST_MISMATCH",
+      "reason": "The recorded SHA-256 was computed over Unicode code units instead of the exact UTF-8 bundle bytes used by the protected checker.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42547240343",
       "documented_delay_seconds": null
     }
   ]

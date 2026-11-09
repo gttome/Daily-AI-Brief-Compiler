@@ -12,7 +12,7 @@
     {
       "event": "BUNDLE_SEALED",
       "observed_at": "2026-11-09T01:38:09.421Z",
-      "source_ref": "shadow-runs/2026-11-09/edition-bundle.json sha256 5b3ea84a1ac48f0d9b735d24ab2dfd9679de99c88b7737c2206a8a5b124a5743; local deterministic structural review passed before protected dispatch"
+      "source_ref": "shadow-runs/2026-11-09/edition-bundle.json sha256 08c3db5765d5f8a4a589e272173a5b5c4dcbcd158075c1d4612d156e0a018ac3; protected-byte digest corrected while edition remained active"
     },
     {
       "event": "FAILURE_OBSERVED",
@@ -23,6 +23,16 @@
       "event": "RECOVERY_OBSERVED",
       "observed_at": "2026-11-09T01:45:19.956Z",
       "source_ref": "Corrected compiler-state stage from SEAL to required BUNDLE after reading scripts/check-current-shadow-ready.mjs and the exact failed job log."
+    },
+    {
+      "event": "FAILURE_OBSERVED",
+      "observed_at": "2026-11-09T01:46:04.943Z",
+      "source_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42547240343 SOURCE_READY BUNDLE_DIGEST_MISMATCH"
+    },
+    {
+      "event": "RECOVERY_OBSERVED",
+      "observed_at": "2026-11-09T01:47:12.036Z",
+      "source_ref": "Corrected compiler-state bundle digest from a Unicode code-unit hash to the exact UTF-8 SHA256 08c3db5765d5f8a4a589e272173a5b5c4dcbcd158075c1d4612d156e0a018ac3; bundle bytes unchanged."
     }
   ]
 }
