@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-09",
-  "recorded_at": "2026-11-09T01:49:23.536Z",
+  "recorded_at": "2026-11-09T01:52:43.032Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "df398047378b26af78552f4348243c56c22e9bd6",
     "aar_cycle_date": "2026-11-07",
@@ -41,12 +41,13 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Three exact protected failures were read and narrowly corrected; the third changed only source-discovery evidence fields, leaving selections unchanged.",
-    "publication_failures": 3,
+    "outcome": "Four exact protected failures were read and narrowly corrected; the fourth strengthened the six-candidate media evidence and replaced a podcast lacking whole-episode evidence.",
+    "publication_failures": 4,
     "publication_failure_causes": [
       "EXPECTED_BUNDLE_STAGE",
       "BUNDLE_DIGEST_MISMATCH",
-      "SOURCE_CONSIDERATION_SCHEMA_MISMATCH"
+      "SOURCE_CONSIDERATION_SCHEMA_MISMATCH",
+      "VIDEO_CANDIDATE_REVIEW_INCOMPLETE"
     ]
   },
   "comparison": {
@@ -56,7 +57,8 @@
       "Moved deterministic editorial checks before the protected readiness signal and verified two publisher-hosted advancing players.",
       "Read the exact failed readiness log and corrected state.stage from SEAL to the checker-required BUNDLE value before retry.",
       "Corrected the recorded bundle digest to the SHA-256 of exact UTF-8 bytes after the protected checker rejected the earlier Unicode code-unit hash.",
-      "Converted candidate-pool style fields to the current recent-source-discovery evidence schema and added individualized comparisons to the authentic recent RBA source."
+      "Converted candidate-pool style fields to the current recent-source-discovery evidence schema and added individualized comparisons to the authentic recent RBA source.",
+      "Replaced metadata-only video alternatives with three fully reviewed archive-new candidates and required allowed content-evidence kinds for all selected media."
     ],
     "interpretation": "Evidence coverage and bundle linkage improved. No causal production uplift is claimed before protected validation and public verification.",
     "more_sources_success": null,
