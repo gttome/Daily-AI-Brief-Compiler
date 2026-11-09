@@ -95,6 +95,13 @@ export async function captureImageTargetEvidence({job,manifest,outDir,chromium,f
   for(const target of targets){
    const vp=target.viewport_size,page=await browser.newPage({viewport:vp,deviceScaleFactor:1});
    try{
+    // This is a read-only capture of the published reader and its static
+    // assets. Exclude unrelated external widgets and feedback submissions.
+    await page.route('**/*',route=>{
+      const request=route.request();
+      return request.url().startsWith(BASE)&&['GET','HEAD'].includes(request.method())
+        ?route.continue():route.abort();
+    });
     const response=await page.goto(target.page_url,{waitUntil:'domcontentloaded',timeout:45000});
     if(response?.status()!==200)fail('target_page_http:'+target.target_id);
     const fileName=target.image_url.split('/').pop().split('?')[0];
