@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-09",
-  "recorded_at": "2026-11-09T02:13:30.432Z",
+  "recorded_at": "2026-11-09T02:21:21.029Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "df398047378b26af78552f4348243c56c22e9bd6",
     "aar_cycle_date": "2026-11-07",
@@ -55,7 +55,22 @@
       "SOURCE_READ_METHOD_ENUM_INVALID",
       "PODCAST_SHOW_ROTATION_VIOLATION",
       "PRESEAL_VIDEO_REQUEST_MISSING"
-    ]
+    ],
+    "preseal_video_probe": {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42549752290",
+      "result": "BLOCKED",
+      "blocked_slots": 3,
+      "reasons": [
+        "ABC News duration-matched full program not observed",
+        "Reuters publisher page HTTP 401",
+        "Dwarkesh embedded player did not advance"
+      ],
+      "replacement_request": [
+        "DW News direct YouTube",
+        "CNBC direct YouTube",
+        "IBM Technology direct YouTube"
+      ]
+    }
   },
   "comparison": {
     "source_or_method_changes": [
@@ -72,7 +87,8 @@
       "Used the independent full-history gate to remove an exact November 6 article reuse and re-ran broader Applied discovery for an archive-new replacement.",
       "Recorded the archive-new replacement review using the contract-supported publisher_main_text method.",
       "Applied the show-rotation gate to replace The Observability Layer with a complete-transcript TWIML episode from a different publisher.",
-      "Submitted the November 9 three-program protected pre-seal request after the final playback gate exposed the missing exact-head receipt."
+      "Submitted the November 9 three-program protected pre-seal request after the final playback gate exposed the missing exact-head receipt.",
+      "Replaced three runner-blocked publisher/embed probe slots with direct fully reviewed players from DW News, CNBC and IBM Technology; no causal uplift claimed before the new receipt."
     ],
     "interpretation": "Evidence coverage and bundle linkage improved. No causal production uplift is claimed before protected validation and public verification.",
     "more_sources_success": null,
