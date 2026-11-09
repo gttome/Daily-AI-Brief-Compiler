@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-09",
-  "recorded_at": "2026-11-09T02:47:27.352Z",
+  "recorded_at": "2026-11-09T03:03:55.285Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "df398047378b26af78552f4348243c56c22e9bd6",
     "aar_cycle_date": "2026-11-07",
@@ -41,8 +41,8 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Fourteen exact protected failures were read and narrowly corrected. The final chronology now places both media quality reviews at their protected verification times and the selection lock after those reviews; the verified CBS and Fox pair remains unchanged.",
-    "publication_failures": 14,
+    "outcome": "Fifteen exact protected failures were read and narrowly corrected. The independent full-history gate rejected both previously sealed video URLs because they appeared on November 7; an archive-new Fox/CBS pair completed full content review and awaits a fresh protected receipt.",
+    "publication_failures": 15,
     "publication_failure_causes": [
       "EXPECTED_BUNDLE_STAGE",
       "BUNDLE_DIGEST_MISMATCH",
@@ -56,7 +56,8 @@
       "PODCAST_SHOW_ROTATION_VIOLATION",
       "PRESEAL_VIDEO_REQUEST_MISSING",
       "VERIFIED_YOUTUBE_CHANNEL_IDENTITY_REQUIRED",
-      "MEDIA_QUALITY_REVIEW_NOT_BETWEEN_VERIFICATION_AND_SELECTION"
+      "MEDIA_QUALITY_REVIEW_NOT_BETWEEN_VERIFICATION_AND_SELECTION",
+      "MEDIA_REUSE_VIOLATION"
     ],
     "preseal_video_probe": {
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42552100347",
@@ -117,9 +118,10 @@
       "Replaced YouTube handle-only identity evidence with canonical verified channel IDs and /channel/ URLs after the protected pre-seal validator rejected the recovery request.",
       "Moved video recovery from direct YouTube and nonadvancing publisher players to exact publisher-native CBS, Fox News and PBS NewsHour programs with fresh protected duration-matched advancement.",
       "Selected only two distinct-publisher passing programs; the third passing PBS item remains a qualified backup, so candidate count alone is not treated as success.",
-      "Aligned each final selected-video quality review to the exact protected verification time, then advanced the final selection lock and seal after those reviews without changing the passed media request."
+      "Aligned each final selected-video quality review to the exact protected verification time, then advanced the final selection lock and seal after those reviews without changing the passed media request.",
+      "Used the independent full-history gate to reject two exact November 7 video repeats, then reviewed a November 8 Fox interview and a CBS deepfake report plus its first-party supporting article before requesting a new protected receipt."
     ],
-    "interpretation": "The final video pair has fresh bundle-bound protected playback evidence and complete editorial review. This establishes this edition's admission result, not causal uplift or an unattended scheduler claim.",
+    "interpretation": "The replacement programs are archive-new and fully reviewed, but selection remains unlocked until a fresh protected signed-out playback receipt binds their exact URLs. No incremental or causal uplift is claimed.",
     "more_sources_success": null,
     "causal_uplift": null
   },
@@ -174,6 +176,13 @@
       "root_cause_code": "MEDIA_QUALITY_REVIEW_NOT_BETWEEN_VERIFICATION_AND_SELECTION",
       "reason": "Both selected video quality-review timestamps preceded the fresh protected playback verification timestamps.",
       "evidence_ref": "Workflow log: production_evidence:media_quality_review_not_between_verification_and_selection"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42552885031",
+      "failing_stage": "MEDIA_HISTORY",
+      "root_cause_code": "MEDIA_REUSE_VIOLATION",
+      "reason": "Both selected video URLs were already published in the November 7 edition despite passing semantic and signed-out playback checks.",
+      "evidence_ref": "Workflow log duplicateMatches for CBS News and Fox News exact URLs"
     }
   ]
 }
