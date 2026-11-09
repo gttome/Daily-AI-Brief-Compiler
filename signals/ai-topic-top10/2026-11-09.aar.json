@@ -1,0 +1,232 @@
+{
+  "schema_version": "daily-ai-topic-top10-run-aar-v1",
+  "cycle_date": "2026-11-09",
+  "edition_date": "2026-11-10",
+  "timezone": "America/Chicago",
+  "started_at": "2026-11-09T23:03:54Z",
+  "finished_at": "2026-11-09T23:10:54Z",
+  "report_commit": "5e08dbb93bb9560aae1283b5955199c1caeacd87",
+  "report_blob_sha": "4150fcb8330aa08bbc415ec8fd80cbf4adf54ef3",
+  "report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
+  "report_bytes": 151453,
+  "report_path": "signals/ai-topic-top10/2026-11-09.json",
+  "usage_percent": null,
+  "cost_usd": null,
+  "protected_main_commit": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
+  "report_status": "partial",
+  "topic_count": 10,
+  "readback": {
+    "verified_at": "2026-11-09T23:10:37Z",
+    "result": "EXACT_COMMITTED_BYTES_VERIFIED",
+    "protected_reporter_schema_validation": "PASS"
+  },
+  "sample_scope": {
+    "metadata_screened_videos": 52,
+    "distinct_retained_channels": 26,
+    "new_metadata_screened_records": 52,
+    "new_metadata_distinct_channels": 26,
+    "combined_observation_records": 52,
+    "combined_unique_video_ids": 52,
+    "unique_videos": 52,
+    "videos_watched": 0,
+    "full_video_reviews": 0,
+    "direct_counter_verifications": 0,
+    "direct_youtube_counter_verifications": 0,
+    "transcript_reviews": 0,
+    "partial_original_publisher_transcript_reviews": 2,
+    "original_watch_attempts": 46,
+    "comparable_video_observations": 3,
+    "within_24h_reported_publications": 0,
+    "additional_within_72h_reported_publications": 14,
+    "additional_within_7d_reported_publications": 3,
+    "date_only_video_publications": 33,
+    "unknown_video_publication_dates": 2,
+    "validation_resources_registered": 14,
+    "target_40_to_80_full_reviews_met": false,
+    "freshness_reference_at": "2026-11-09T23:06:40Z"
+  },
+  "pilot_coverage": {
+    "targets": {
+      "video": 55,
+      "primary": 20,
+      "independent": 15,
+      "discussion": 15,
+      "total": 105
+    },
+    "screened_total": 108,
+    "retained_in_topics_on_same_categories": 29,
+    "by_category": {
+      "video": {
+        "screened": 52,
+        "retained": 4
+      },
+      "primary": {
+        "screened": 20,
+        "retained": 11
+      },
+      "independent": {
+        "screened": 18,
+        "retained": 7
+      },
+      "discussion": {
+        "screened": 18,
+        "retained": 7
+      }
+    },
+    "distinct_video_channels_with_names": 26,
+    "aggregation_sources_counted_separately": [
+      "https://whatisthelatest.ai/top-10/",
+      "https://www.ai-roundup.dev/",
+      "https://aua.aicrossing.org/news/videos/",
+      "https://chooseto.ai/"
+    ],
+    "previous_cycle_comparability": "Prior 35 distinct URLs combined 28 topic references, 5 additional videos, and 2 trackers. It did not publish a category-level screening ledger. Compare its 12 retained video metadata rows only with caution about coverage and depth.",
+    "note": "Retention counts the intersection of the ledger and citations on final topics. Original publisher transcript routes for the same underlying program are not additional screened items.",
+    "ledger_location": "signals/ai-topic-top10/2026-11-09.json#/pilot_coverage/screening_ledger",
+    "original_watch_outcomes_by_distinct_video": {
+      "throttled": 40,
+      "cached YouTube title/index page; no usable counters or playback": 6,
+      "not attempted; metadata screen only": 6
+    },
+    "topics_with_multiple_attention_families": 1,
+    "topics_with_family_removal_reviews": 10
+  },
+  "original_route_fallbacks": [
+    {
+      "video_id": "dpY7YzZo4kE",
+      "source_url": "https://latent.space/p/cs146s/",
+      "attempted_at": "2026-11-09T23:05:54Z",
+      "access_result": "Original publisher transcript accessible",
+      "content_scope": "Selected sections and show notes from the two-hour interview. No full playback or direct counter."
+    },
+    {
+      "video_id": "pz74r-4dGfQ",
+      "source_url": "https://ai.engineer/talks/pz74r-4dGfQ-your-ai-agent-is-hiding-its-mistakes",
+      "attempted_at": "2026-11-09T23:05:54Z",
+      "access_result": "Original publisher transcript and downloadable text accessible",
+      "content_scope": "Selected transcript and chapter ranges covering collection, evaluation and pitfalls. No full playback or direct counter."
+    },
+    {
+      "video_id": "P5QCrpdr9gU",
+      "source_url": "https://github.com/microsoft/TokenEconomizer",
+      "attempted_at": "2026-11-09T23:05:54Z",
+      "access_result": "Publisher transcript search found no readable original transcript; original Microsoft project documentation reachable",
+      "content_scope": "Read the underlying project and its evaluation claims; the original watch extract supplied a title only."
+    },
+    {
+      "video_id": "EWpZC-wOA_I",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmly0lg3w5x2o",
+      "attempted_at": "2026-11-09T23:05:54Z",
+      "access_result": "No original episode transcript surfaced in the public search",
+      "content_scope": "Related BBC report located via secondary copy; original dated OpenAI disclosure and Reuters coverage checked."
+    }
+  ],
+  "errors": [
+    {
+      "issue": "Original watch pages throttled or exposed cached title-only extracts.",
+      "effect": "No full playback or direct counter verification.",
+      "correction": "Kept original watch status, tracker time and indexed scope distinct. Read selected original transcript ranges for the Stanford and Warp programs."
+    },
+    {
+      "issue": "The 55-video screen target was three short.",
+      "effect": "52 distinct video IDs, with 26 identifiable channels. Overall count reached 108 because additional news and discussion items met the screening bar.",
+      "correction": "Used multiple discovery indexes and original publisher listings, deduplicated two overlapping video IDs, and retained all actually observed shortfalls."
+    },
+    {
+      "issue": "Initial local report materialization exceeded the host command-argument limit.",
+      "effect": "Local verification had not run; no GitHub write had been attempted.",
+      "correction": "Materialized independent ordered chunks, assembled them locally, and reran schema, scope, metric and exact committed-byte checks."
+    }
+  ],
+  "improvements": [
+    {
+      "status": "implemented",
+      "change": "Screen four categories using deduplicated item URLs, then deepen selected claims.",
+      "reason": "Test the one-edition coverage expansion and improve topic discovery without allowing quotas to determine retention.",
+      "expected_effect": "More distinct leads and a reproducible screening denominator."
+    },
+    {
+      "status": "implemented",
+      "change": "Use original publisher text after throttling.",
+      "reason": "Prior run found only one complete published script and zero direct counters.",
+      "expected_effect": "Record content depth and distinguish it from video playback."
+    },
+    {
+      "status": "proposed",
+      "change": "Use more freely accessible original publisher feeds with actual measurement times and preserve event-matched provenance."
+    }
+  ],
+  "daily_improvement": {
+    "baseline_id": "nov03-2026-v1",
+    "previous_report_date": "2026-11-08",
+    "previous_method_version": "2026-11-03.2-event-review",
+    "method_version": "2026-11-03.2-event-review",
+    "feedback": {
+      "aar_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa/daily/2026-11-08/combined.md",
+      "charts_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa/daily/2026-11-08/charts.json",
+      "metrics_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa/daily/2026-11-08/improvement-metrics.json",
+      "observation": "Prior handoff was received and bound; Compiler search evidence remained invalid and the selection chart was unrecorded. Prior publisher sensitivity was recorded for ten topics. Compiler owns its search receipt correction."
+    },
+    "changes": [
+      {
+        "change": "Screen four categories using deduplicated item URLs, then deepen selected claims.",
+        "reason": "Test the one-edition coverage expansion and improve topic discovery without allowing quotas to determine retention.",
+        "expected_effect": "More distinct leads and a reproducible screening denominator."
+      },
+      {
+        "change": "Use original publisher text after throttling.",
+        "reason": "Prior run found only one complete published script and zero direct counters.",
+        "expected_effect": "Record content depth and distinguish it from video playback."
+      }
+    ],
+    "resource_candidates": [
+      {
+        "url": "https://aua.aicrossing.org/news/videos/",
+        "role": "metadata discovery",
+        "access": "public index",
+        "review_scope": "Read 18 dated publisher/title summaries; did not use as a view-count source.",
+        "independence": "Aggregator of original video items.",
+        "decision": "accepted",
+        "reason": "Added a diverse set of distinct recent candidate URLs, including Two Minute Papers and Bijan Bowen.",
+        "contribution": "Adds metadata-only coverage without extra audience families."
+      },
+      {
+        "url": "https://ai.engineer/talks/pz74r-4dGfQ-your-ai-agent-is-hiding-its-mistakes",
+        "role": "original conference transcript",
+        "access": "direct original publisher",
+        "review_scope": "Chapter and transcript excerpts",
+        "independence": "Same family as the linked AI Engineer video.",
+        "decision": "accepted",
+        "reason": "Explains what trace evidence to review and limitations.",
+        "contribution": "Substantive original-text review for one selected program."
+      }
+    ],
+    "observed_effects": [
+      {
+        "observation": "108 unique research items screened with category ledger. One topic has two observed independent discussion families.",
+        "effect": "Broader screened coverage and one defensible cross-community signal; prior methodology differed and efficacy is unknown."
+      },
+      {
+        "observation": "3 comparable video observations plus two partial original publisher transcript reviews.",
+        "effect": "Verified bounded program-level comparison and deeper context without claiming playback."
+      }
+    ],
+    "next_improvement": "Use more freely accessible original publisher feeds with actual measurement times and preserve event-matched provenance.",
+    "limitations": [
+      "Review due November 11. No outcome or population-level efficacy evaluation inferred."
+    ],
+    "change_evaluations": [],
+    "pending_change_evaluations": [
+      "NOV03-04",
+      "AAR-10"
+    ],
+    "review_due_edition": "2026-11-11"
+  },
+  "limitations": [
+    "Video counts and likes are third-party where present. Watch-page routes throttled or returned cached title-only extracts, so playback and direct counter checks are zero. Untimed counter values are ineligible for growth comparisons.",
+    "Date-only listings were not forced into exact 24/72-hour buckets. Older source text was used as targeted background when a newer discussion or video reopened the event.",
+    "The breadth target was reached overall but the video target fell short. Screening depth differs by item. Only two original publisher transcripts were reviewed in part. There is no exact popularity order or proof that the larger sample improved Compiler outcomes.",
+    "Usage and cost are unknown. Wider discovery is advisory; receipt of this cycle by the Compiler requires separate evidence."
+  ],
+  "verification_boundary": "Producer handoff and schema independently checked at immutable commit. No evidence of current Compiler consumption, selection, publication, scheduler attestation or account billing."
+}
