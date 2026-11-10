@@ -2,16 +2,16 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-10",
   "execution_id": "daily-compiler-2026-11-10-primary",
-  "state": "RESEARCH",
-  "stage": "DISCOVER",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
   "branch": "shadow/2026-11-10",
   "initial_execution_observed_at": "2026-11-10T01:16:31.139Z",
   "started_at": "2026-11-10T01:16:31.139Z",
-  "updated_at": "2026-11-10T01:28:34.935Z",
-  "selection_locked_at": null,
-  "sealed_at": null,
-  "bundle_sha256": null,
+  "updated_at": "2026-11-10T01:56:27.385Z",
+  "selection_locked_at": "2026-11-10T01:49:41.831Z",
+  "sealed_at": "2026-11-10T01:54:27.594Z",
+  "bundle_sha256": "46f33786845ce86d142c2e51a5dcca76f8258ac191d7bb795f841581a42b79ee",
   "images": {
     "required": 6,
     "accepted": [],
@@ -20,27 +20,43 @@
   },
   "blocker": null,
   "evidence": {
-    "trend_input": "editorial/trend-input.json",
-    "trend_search_coverage": "editorial/trend-search-coverage.json",
-    "execution_milestones": "execution-milestones.json"
+    "trend_input": "shadow-runs/2026-11-10/editorial/trend-input.json",
+    "trend_search_coverage": "shadow-runs/2026-11-10/editorial/trend-search-coverage.json",
+    "video_source_sweep": "shadow-runs/2026-11-10/editorial/video-source-sweep.json",
+    "candidate_pool": "shadow-runs/2026-11-10/editorial/candidate-pool.json",
+    "index_review": "shadow-runs/2026-11-10/editorial/index-review.json",
+    "execution_milestones": "shadow-runs/2026-11-10/execution-milestones.json",
+    "fallback_search_evidence": "shadow-runs/2026-11-10/editorial/fallback-search-evidence.json",
+    "continuous_improvement": "shadow-runs/2026-11-10/editorial/continuous-improvement.json",
+    "preseal_video_request": "shadow-runs/2026-11-10/editorial/preseal-video-request.json",
+    "preseal_video_receipt": "shadow-runs/2026-11-10/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
   "unknowns": {
-    "scheduler_invocation_identity": "unknown",
-    "host_identity": "unknown",
-    "usage_metrics": "unknown"
+    "scheduler_invocation_identity": "UNPROVEN",
+    "host_identity": "UNPROVEN",
+    "usage_metrics": null
   },
-  "continuation": {
-    "owner": "sole existing Daily AI Brief Compiler editorial task",
-    "status": "ACTIVE",
-    "recovery_guard": null
-  },
+  "continuation": "Exact-request protected video receipt is PASS; dispatch the existing protected-main compile, deployment and public verification without changing the sealed editorial bundle.",
   "source_main_sha": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
-  "owner_task_id": null,
-  "retryable": true,
-  "last_error": null
+  "owner_task_id": "6ac9868490b88191ac91f84d5f555994",
+  "retryable": false,
+  "last_error": null,
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "46f33786845ce86d142c2e51a5dcca76f8258ac191d7bb795f841581a42b79ee"
+  },
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-10T01:49:41.831Z",
+    "sealed_at": "2026-11-10T01:54:27.594Z"
+  }
 }
