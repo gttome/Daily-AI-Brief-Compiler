@@ -15,12 +15,12 @@
     },
     "source_index_coverage": {
       "eligible": 109,
-      "inspected": null,
+      "inspected": 13,
       "inaccessible": 0,
       "unreviewed": 96,
-      "not_editorially_inspected": null,
-      "unclassified_editorial_ids": null,
-      "inspected_percent": null,
+      "not_editorially_inspected": 96,
+      "unclassified_editorial_ids": 0,
+      "inspected_percent": 11.9,
       "inspected_ids": [
         "acl-anthology",
         "anthropic-news",
@@ -637,7 +637,7 @@
       "freshness_reference_at": "2026-11-09T23:06:40Z"
     },
     "ranking_basis": "Retain named events with measured, event-specific attention. Give broader confidence to distinct observed audience families. Claim-verifying reports and research are separate from popularity. Order within the limited band reflects discovery usefulness and freshness after evidence checks.",
-    "source_commit": "02370667524f4b9ef85dc3d2d9e42de3ef41f37b",
+    "source_commit": "927b80b7b36530e31ed89b83320a6e50a5a6a4c0",
     "source_blob_sha": "4150fcb8330aa08bbc415ec8fd80cbf4adf54ef3",
     "report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
     "consumed_source_commit": "5e08dbb93bb9560aae1283b5955199c1caeacd87",
@@ -660,6 +660,16 @@
         "attempted": 7,
         "not_attempted": 0
       }
+    },
+    "receipt_diagnostics": {
+      "raw_search_rows": 30,
+      "raw_distinct_topic_format_pairs": 30,
+      "noncanonical_outcomes": [
+        "candidate_discovered"
+      ],
+      "raw_selected_mapping_rows": 3,
+      "noncanonical_mapping_rows": 3,
+      "interpretation": "Unverified producer rows are retained for diagnosis only; they do not count as schema-valid searches or bundle-verified selections."
     },
     "selection_mapping_status": "INVALID",
     "selection_mappings_reported": 3,
@@ -763,7 +773,7 @@
       },
       "previous_cycle": "2026-11-08",
       "previous_report_sha256": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
-      "previous_aar_sha256": "43377c53cf242bca307c3bce737a062e38cf8b173717cc15e47906c18393757c",
+      "previous_aar_sha256": "ddff68199f0d2a376aa1684c848988032d6cbf9e2ad17139557402c85213e007",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": 1,
@@ -984,11 +994,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-09.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/927b80b7b36530e31ed89b83320a6e50a5a6a4c0/signals/ai-topic-top10/2026-11-09.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-09.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/927b80b7b36530e31ed89b83320a6e50a5a6a4c0/signals/ai-topic-top10/2026-11-09.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1007,8 +1017,19 @@
         "id": "research-coverage",
         "title": "Research coverage",
         "description": "Editorial source-index inspection; automated fetches are excluded.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "label": "Inspected",
+            "value": 13
+          },
+          {
+            "label": "Not inspected",
+            "value": 96
+          }
+        ],
+        "total": 109,
+        "inspected_percent": 12,
         "note": "Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories."
       },
       {
@@ -1136,9 +1157,9 @@
       },
       {
         "edition_date": "2026-11-09",
-        "coverage_percent": null,
-        "coverage_numerator": null,
-        "coverage_denominator": null,
+        "coverage_percent": 3,
+        "coverage_numerator": 3,
+        "coverage_denominator": 109,
         "first_pass_accepted": 1,
         "image_attempts": 11,
         "top10_linked_items": null,
@@ -1146,9 +1167,9 @@
       },
       {
         "edition_date": "2026-11-10",
-        "coverage_percent": null,
-        "coverage_numerator": null,
-        "coverage_denominator": null,
+        "coverage_percent": 12,
+        "coverage_numerator": 13,
+        "coverage_denominator": 109,
         "first_pass_accepted": 0,
         "image_attempts": 16,
         "top10_linked_items": null,
@@ -1157,7 +1178,7 @@
     ],
     "summary": {
       "coverage_percent": {
-        "recorded_editions": 2,
+        "recorded_editions": 4,
         "median": 6.5
       },
       "first_pass_accepted": {
@@ -1374,7 +1395,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 5,
+      "finding_count": 4,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -1394,15 +1415,6 @@
           "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
           "timing": "NEXT_GENUINE_CYCLE",
           "kind": "RECURRENCE_PREVENTION"
-        },
-        {
-          "id": "SOURCE_INSPECTION_EVIDENCE_MISSING",
-          "priority": "P1",
-          "owner": "Compiler",
-          "observation": "Source inspection coverage is not verifiable from the current bundled receipts.",
-          "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
-          "timing": "NEXT_GENUINE_CYCLE",
-          "kind": "EVIDENCE_GAP"
         },
         {
           "id": "PREMIUM_IMAGE_REWORK",
@@ -1616,10 +1628,10 @@
     "source_inspection_age": [
       {
         "resource_id": "acl-anthology",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "anthropic",
@@ -1630,9 +1642,9 @@
       },
       {
         "resource_id": "anthropic-news",
-        "last_inspected_at": "2026-11-07T01:55:00Z",
-        "last_inspected_edition": "2026-11-07",
-        "editions_since_inspection": 3,
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
         "status": "OBSERVED"
       },
       {
@@ -1735,16 +1747,16 @@
       },
       {
         "resource_id": "directory-1c6f5db2559c3c226a112873",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "directory-242c2a2fc81a43d41f199129",
-        "last_inspected_at": "2026-11-06T01:32:50.000Z",
-        "last_inspected_edition": "2026-11-06",
-        "editions_since_inspection": 4,
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
         "status": "OBSERVED"
       },
       {
@@ -1763,10 +1775,10 @@
       },
       {
         "resource_id": "directory-411bf5f837e28f35220736eb",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-09T01:31:28.914Z",
+        "last_inspected_edition": "2026-11-09",
+        "editions_since_inspection": 1,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "directory-4852e367f74118ff2dc1eec9",
@@ -1798,10 +1810,10 @@
       },
       {
         "resource_id": "directory-5c5d3d02a420135949164552",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "directory-64f0886a6793aa8858a4b62d",
@@ -1889,10 +1901,10 @@
       },
       {
         "resource_id": "directory-b93e2368e85f0f95c066463e",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "directory-c6b8a33e7fa162cc41136fa5",
@@ -2057,10 +2069,10 @@
       },
       {
         "resource_id": "meta-ai-blog",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "mistral-news",
@@ -2085,9 +2097,9 @@
       },
       {
         "resource_id": "openai-news",
-        "last_inspected_at": "2026-11-07T01:55:00Z",
-        "last_inspected_edition": "2026-11-07",
-        "editions_since_inspection": 3,
+        "last_inspected_at": "2026-11-09T01:31:28.914Z",
+        "last_inspected_edition": "2026-11-09",
+        "editions_since_inspection": 1,
         "status": "OBSERVED"
       },
       {
@@ -2099,10 +2111,10 @@
       },
       {
         "resource_id": "podcast-a16z-show",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "podcast-agora-briefing",
@@ -2169,10 +2181,10 @@
       },
       {
         "resource_id": "podcast-eye-on-ai",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "podcast-gradient-dissent",
@@ -2183,10 +2195,10 @@
       },
       {
         "resource_id": "podcast-latent-space",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "podcast-no-priors",
@@ -2288,24 +2300,24 @@
       },
       {
         "resource_id": "research-20261026-v04",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "research-20261026-v05",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "research-20261026-v06",
-        "last_inspected_at": null,
-        "last_inspected_edition": null,
-        "editions_since_inspection": null,
-        "status": "NOT_RECORDED"
+        "last_inspected_at": "2026-11-10T01:33:08.386Z",
+        "last_inspected_edition": "2026-11-10",
+        "editions_since_inspection": 0,
+        "status": "OBSERVED"
       },
       {
         "resource_id": "research-20261026-v07",

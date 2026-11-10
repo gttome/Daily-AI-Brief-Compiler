@@ -16,7 +16,7 @@ Compiler final seal window: 6m 50s. Compiler state start to public verification:
 Image capability route preflight: NOT OBSERVED; scheduler origin remains UNPROVEN.
 Image efficiency: 0/6 first-pass accepts; 16 total attempts. Current efficiency target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: 2026-11-10T05:05:37Z; review-record commit: 2026-11-10T05:09:09.000Z; protected review merge: 2026-11-10T05:11:25.000Z.
-Eligible source indexes: 109; editorial inspections reported: Unknown (Unknown%); inaccessible in editorial audit: 0; explicitly unreviewed IDs: 96; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
+Eligible source indexes: 109; editorial inspections reported: 13 (11.9%); inaccessible in editorial audit: 0; explicitly unreviewed IDs: 96; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 Registered video sources: 29; attempted this edition: 29; unattempted: 0; enabled: 28; qualification-only: 1; sources yielding candidate URLs: 16. Status: REPORTED_ALL_ATTEMPTED. Attempt evidence is not automatic proof of source-content review or playback.
 
@@ -26,9 +26,14 @@ These charts use this edition’s receipts. Missing data is not zero.
 
 ### Research coverage
 
-![Research coverage: not recorded](charts/research-coverage.svg)
+![Research coverage: recorded results](charts/research-coverage.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**13 of 109 indexes inspected (12%).**
+
+| Editorial inspection | Indexes |
+|---|---:|
+| Inspected | 13 |
+| Not inspected | 96 |
 
 Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories.
 
@@ -168,6 +173,8 @@ flowchart TD
 **Selected Brief items linked to trends:**
 
 No validated selection-to-topic mapping was recorded.
+
+**Raw, unverified Top 10 receipt observations:** 30 search rows across 30 topic/format pairs; 3 claimed mapping rows (3 with noncanonical fields). Noncanonical outcomes: candidate_discovered. These counts are NOT validated search attempts or verified selections.
 
 **Gaps and limitations:**
 
@@ -400,8 +407,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-10/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-09.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-09.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/927b80b7b36530e31ed89b83320a6e50a5a6a4c0/signals/ai-topic-top10/2026-11-09.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/927b80b7b36530e31ed89b83320a6e50a5a6a4c0/signals/ai-topic-top10/2026-11-09.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/editorial/trend-search-coverage.json) |
 
@@ -418,13 +425,12 @@ Edition **2026-11-10**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**5 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**4 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
 | P1 | 11 failed protected publication gates were recorded (11 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Next genuine run |
-| P1 | Source inspection coverage is not verifiable from the current bundled receipts. | Compiler: Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access. | Next genuine run |
 | P1 | 10 rejected image candidates preceded the verified six-image release. | Images: Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation. | Next genuine run |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
@@ -462,12 +468,12 @@ Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured result
 | 2026-11-06 | 8/87 (9%) | 0 | 14 | 1 | 3 |
 | 2026-11-07 | 4/109 (4%) | 2 | 11 | 0 | Not recorded |
 | 2026-11-08 | Not recorded | 0 | 20 | 4 | Not recorded |
-| 2026-11-09 | Not recorded | 1 | 11 | 15 | Not recorded |
-| 2026-11-10 | Not recorded | 0 | 16 | 11 | Not recorded |
+| 2026-11-09 | 3/109 (3%) | 1 | 11 | 15 | Not recorded |
+| 2026-11-10 | 13/109 (12%) | 0 | 16 | 11 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
-| coverage percent | 2 | 6.5 |
+| coverage percent | 4 | 6.5 |
 | first pass accepted | 7 | 0 |
 | image attempts | 7 | 16 |
 | top10 linked items | 1 | 3 |
@@ -510,9 +516,9 @@ Unclassified means the original gate is known but no structured cause review is 
 
 | Source | Last inspected edition | Editions since inspection |
 |---|---|---:|
-| acl-anthology | Not recorded | Not recorded |
+| acl-anthology | 2026-11-10 | 0 |
 | anthropic | Not recorded | Not recorded |
-| anthropic-news | 2026-11-07 | 3 |
+| anthropic-news | 2026-11-10 | 0 |
 | article-databricks-ai-research | 2026-11-06 | 4 |
 | article-ibm-research-ai | Not recorded | Not recorded |
 | article-nvidia-technical-ai | Not recorded | Not recorded |
@@ -527,16 +533,16 @@ Unclassified means the original gate is known but no structured cause review is 
 | deep-20261026-v01-two-minute-papers | Not recorded | Not recorded |
 | deepseek-news | Not recorded | Not recorded |
 | directory-0dffb60aadd4ba31b5c090dc | Not recorded | Not recorded |
-| directory-1c6f5db2559c3c226a112873 | Not recorded | Not recorded |
-| directory-242c2a2fc81a43d41f199129 | 2026-11-06 | 4 |
+| directory-1c6f5db2559c3c226a112873 | 2026-11-10 | 0 |
+| directory-242c2a2fc81a43d41f199129 | 2026-11-10 | 0 |
 | directory-3834a0112c0e3a754320b557 | Not recorded | Not recorded |
 | directory-3ccc18a956cae0b1e24b5968 | Not recorded | Not recorded |
-| directory-411bf5f837e28f35220736eb | Not recorded | Not recorded |
+| directory-411bf5f837e28f35220736eb | 2026-11-09 | 1 |
 | directory-4852e367f74118ff2dc1eec9 | Not recorded | Not recorded |
 | directory-48665d874f6008894d0d9385 | Not recorded | Not recorded |
 | directory-4c16d138c4a736e78a68127e | Not recorded | Not recorded |
 | directory-54d90ff964a74ff98851ae11 | Not recorded | Not recorded |
-| directory-5c5d3d02a420135949164552 | Not recorded | Not recorded |
+| directory-5c5d3d02a420135949164552 | 2026-11-10 | 0 |
 | directory-64f0886a6793aa8858a4b62d | Not recorded | Not recorded |
 | directory-6ea6e283349c7b62ac1ced9d | Not recorded | Not recorded |
 | directory-79e16cd5beb5c662c4022a9f | Not recorded | Not recorded |
@@ -549,7 +555,7 @@ Unclassified means the original gate is known but no structured cause review is 
 | directory-9c0885bdb370f69c9262b88c | 2026-11-07 | 3 |
 | directory-9f7087ce2c030a4b9da58499 | Not recorded | Not recorded |
 | directory-a74f303f4b0c39344c1314cf | 2026-11-06 | 4 |
-| directory-b93e2368e85f0f95c066463e | Not recorded | Not recorded |
+| directory-b93e2368e85f0f95c066463e | 2026-11-10 | 0 |
 | directory-c6b8a33e7fa162cc41136fa5 | Not recorded | Not recorded |
 | directory-d1527db7c06b4e83370b7546 | Not recorded | Not recorded |
 | directory-d5428d030dfff7d4639258e3 | Not recorded | Not recorded |
@@ -573,13 +579,13 @@ Unclassified means the original gate is known but no structured cause review is 
 | hugging-face-spaces | Not recorded | Not recorded |
 | iclr | Not recorded | Not recorded |
 | icml | Not recorded | Not recorded |
-| meta-ai-blog | Not recorded | Not recorded |
+| meta-ai-blog | 2026-11-10 | 0 |
 | mistral-news | Not recorded | Not recorded |
 | mit-csail | Not recorded | Not recorded |
 | neurips | Not recorded | Not recorded |
-| openai-news | 2026-11-07 | 3 |
+| openai-news | 2026-11-09 | 1 |
 | openreview | Not recorded | Not recorded |
-| podcast-a16z-show | Not recorded | Not recorded |
+| podcast-a16z-show | 2026-11-10 | 0 |
 | podcast-agora-briefing | Not recorded | Not recorded |
 | podcast-ai-daily-brief | 2026-11-06 | 4 |
 | podcast-ai-for-humans | Not recorded | Not recorded |
@@ -589,9 +595,9 @@ Unclassified means the original gate is known but no structured cause review is 
 | podcast-cognitive-revolution | 2026-11-06 | 4 |
 | podcast-data-exchange | Not recorded | Not recorded |
 | podcast-everyday-ai | Not recorded | Not recorded |
-| podcast-eye-on-ai | Not recorded | Not recorded |
+| podcast-eye-on-ai | 2026-11-10 | 0 |
 | podcast-gradient-dissent | Not recorded | Not recorded |
-| podcast-latent-space | Not recorded | Not recorded |
+| podcast-latent-space | 2026-11-10 | 0 |
 | podcast-no-priors | Not recorded | Not recorded |
 | podcast-nvidia-ai | Not recorded | Not recorded |
 | podcast-practical-ai | Not recorded | Not recorded |
@@ -606,9 +612,9 @@ Unclassified means the original gate is known but no structured cause review is 
 | research-20261026-p03 | Not recorded | Not recorded |
 | research-20261026-v01 | Not recorded | Not recorded |
 | research-20261026-v02 | Not recorded | Not recorded |
-| research-20261026-v04 | Not recorded | Not recorded |
-| research-20261026-v05 | Not recorded | Not recorded |
-| research-20261026-v06 | Not recorded | Not recorded |
+| research-20261026-v04 | 2026-11-10 | 0 |
+| research-20261026-v05 | 2026-11-10 | 0 |
+| research-20261026-v06 | 2026-11-10 | 0 |
 | research-20261026-v07 | Not recorded | Not recorded |
 | specialized-discords | Not recorded | Not recorded |
 | stanford-hai | Not recorded | Not recorded |

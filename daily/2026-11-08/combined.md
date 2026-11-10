@@ -16,7 +16,7 @@ Compiler final seal window: 4m 07s. Compiler state start to public verification:
 Image capability route preflight: RECORDED; scheduler origin remains UNPROVEN.
 Image efficiency: 1/6 first-pass accepts; 11 total attempts. Current efficiency target: at least 3/6 first-pass and at most 2 attempts per image, with unchanged quality floor.
 Image review completed: 2026-11-09T03:42:38Z; review-record commit: 2026-11-09T03:51:41.000Z; protected review merge: 2026-11-09T03:51:41.000Z.
-Eligible source indexes: 109; editorial inspections reported: Unknown (Unknown%); inaccessible in editorial audit: 1; explicitly unreviewed IDs: 105; unclassified editorial IDs: Unknown. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
+Eligible source indexes: 109; editorial inspections reported: 3 (2.8%); inaccessible in editorial audit: 1; explicitly unreviewed IDs: 105; unclassified editorial IDs: 0. Automated index parsing is separate from editorial inspection and cannot substantiate exhaustive freshness claims.
 
 Registered video sources: 29; attempted this edition: 29; unattempted: 0; enabled: 28; qualification-only: 1; sources yielding candidate URLs: 0. Status: REPORTED_ALL_ATTEMPTED. Attempt evidence is not automatic proof of source-content review or playback.
 
@@ -26,9 +26,14 @@ These charts use this edition’s receipts. Missing data is not zero.
 
 ### Research coverage
 
-![Research coverage: not recorded](charts/research-coverage.svg)
+![Research coverage: recorded results](charts/research-coverage.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**3 of 109 indexes inspected (3%).**
+
+| Editorial inspection | Indexes |
+|---|---:|
+| Inspected | 3 |
+| Not inspected | 106 |
 
 Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories.
 
@@ -168,6 +173,8 @@ flowchart TD
 **Selected Brief items linked to trends:**
 
 No validated selection-to-topic mapping was recorded.
+
+**Raw, unverified Top 10 receipt observations:** 30 search rows across 30 topic/format pairs; 6 claimed mapping rows (0 with noncanonical fields). Noncanonical outcomes: none. These counts are NOT validated search attempts or verified selections.
 
 **Gaps and limitations:**
 
@@ -396,8 +403,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-09/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-08.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-08.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/927b80b7b36530e31ed89b83320a6e50a5a6a4c0/signals/ai-topic-top10/2026-11-08.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/927b80b7b36530e31ed89b83320a6e50a5a6a4c0/signals/ai-topic-top10/2026-11-08.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-09/shadow-runs/2026-11-09/editorial/trend-search-coverage.json) |
 
@@ -414,13 +421,12 @@ Edition **2026-11-09**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**5 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**4 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
 | P1 | 15 failed protected publication gates were recorded (5 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Next genuine run |
-| P1 | Source inspection coverage is not verifiable from the current bundled receipts. | Compiler: Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access. | Next genuine run |
 | P1 | 5 rejected image candidates preceded the verified six-image release. | Images: Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation. | Next genuine run |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
@@ -459,11 +465,11 @@ Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured result
 | 2026-11-06 | 8/87 (9%) | 0 | 14 | 1 | 3 |
 | 2026-11-07 | 4/109 (4%) | 2 | 11 | 0 | Not recorded |
 | 2026-11-08 | Not recorded | 0 | 20 | 4 | Not recorded |
-| 2026-11-09 | Not recorded | 1 | 11 | 15 | Not recorded |
+| 2026-11-09 | 3/109 (3%) | 1 | 11 | 15 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
-| coverage percent | 3 | 9 |
+| coverage percent | 4 | 6.5 |
 | first pass accepted | 7 | 0 |
 | image attempts | 7 | 14 |
 | top10 linked items | 2 | 3.5 |
@@ -508,7 +514,7 @@ Unclassified means the original gate is known but no structured cause review is 
 |---|---|---:|
 | acl-anthology | Not recorded | Not recorded |
 | anthropic | Not recorded | Not recorded |
-| anthropic-news | 2026-11-07 | 2 |
+| anthropic-news | 2026-11-09 | 0 |
 | article-databricks-ai-research | 2026-11-06 | 3 |
 | article-ibm-research-ai | Not recorded | Not recorded |
 | article-nvidia-technical-ai | Not recorded | Not recorded |
@@ -527,7 +533,7 @@ Unclassified means the original gate is known but no structured cause review is 
 | directory-242c2a2fc81a43d41f199129 | 2026-11-06 | 3 |
 | directory-3834a0112c0e3a754320b557 | Not recorded | Not recorded |
 | directory-3ccc18a956cae0b1e24b5968 | Not recorded | Not recorded |
-| directory-411bf5f837e28f35220736eb | Not recorded | Not recorded |
+| directory-411bf5f837e28f35220736eb | 2026-11-09 | 0 |
 | directory-4852e367f74118ff2dc1eec9 | Not recorded | Not recorded |
 | directory-48665d874f6008894d0d9385 | Not recorded | Not recorded |
 | directory-4c16d138c4a736e78a68127e | Not recorded | Not recorded |
@@ -573,7 +579,7 @@ Unclassified means the original gate is known but no structured cause review is 
 | mistral-news | Not recorded | Not recorded |
 | mit-csail | Not recorded | Not recorded |
 | neurips | Not recorded | Not recorded |
-| openai-news | 2026-11-07 | 2 |
+| openai-news | 2026-11-09 | 0 |
 | openreview | Not recorded | Not recorded |
 | podcast-a16z-show | Not recorded | Not recorded |
 | podcast-agora-briefing | Not recorded | Not recorded |

@@ -45,6 +45,8 @@
 
 No validated selection-to-topic mapping was recorded.
 
+**Raw, unverified Top 10 receipt observations:** 30 search rows across 30 topic/format pairs; 1 claimed mapping rows (0 with noncanonical fields). Noncanonical outcomes: none. These counts are NOT validated search attempts or verified selections.
+
 **Gaps and limitations:**
 
 - Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input.

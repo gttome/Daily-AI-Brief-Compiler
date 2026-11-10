@@ -62,6 +62,8 @@
 
 No validated selection-to-topic mapping was recorded.
 
+**Raw, unverified Top 10 receipt observations:** 30 search rows across 30 topic/format pairs; 3 claimed mapping rows (3 with noncanonical fields). Noncanonical outcomes: candidate_discovered. These counts are NOT validated search attempts or verified selections.
+
 **Gaps and limitations:**
 
 - Claimed trend-to-selection mappings are not verified against the same-edition selected bundle.
