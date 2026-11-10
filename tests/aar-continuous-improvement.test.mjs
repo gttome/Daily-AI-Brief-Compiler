@@ -159,3 +159,14 @@ test('daily triage prioritizes verified live blockers, does not invent unknown f
  assert.equal(triage.findings.some(x=>x.id==='PROTECTED_GATE_FAILURES'),false);
  assert.equal(buildDailyActionReview({edition,observation:null,registered:[]}).finding_count,0);
 });
+
+test('AAR improvement history accepts matching structured inspection rows but not contradictory or late rows',()=>{
+ const i=input(),bundle=i.evidence['edition-bundle'],index=bundle.source_discovery_audit.index_review;
+ index.reviewed_at='2026-11-04T01:30:00Z';
+ index.inspected=[{resource_id:'source-a',index_url:'https://example.org/index',scope:'Dated source index inspected'}];
+ assert.equal(collectObservations(i).inspections.length,1);
+ index.inspected[0].resource_id='source-b';
+ assert.equal(collectObservations(i).inspections.length,0);
+ index.inspected[0].resource_id='source-a';index.reviewed_at='2026-11-04T03:00:00Z';
+ assert.equal(collectObservations(i).inspections.length,0);
+});
