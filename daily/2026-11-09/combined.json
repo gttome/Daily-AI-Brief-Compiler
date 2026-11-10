@@ -373,9 +373,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-10T05:05:37Z",
+      "review_record_commit_at": "2026-11-10T05:09:09.000Z",
+      "review_merge_at": "2026-11-10T05:11:25.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -637,7 +637,7 @@
       "freshness_reference_at": "2026-11-09T23:06:40Z"
     },
     "ranking_basis": "Retain named events with measured, event-specific attention. Give broader confidence to distinct observed audience families. Claim-verifying reports and research are separate from popularity. Order within the limited band reflects discovery usefulness and freshness after evidence checks.",
-    "source_commit": "1234f4a08cd67a0977dda6091ecbbbdc347281c5",
+    "source_commit": "dfdec8fd6709a1c784bc02631d12ceca2e74ed9f",
     "source_blob_sha": "4150fcb8330aa08bbc415ec8fd80cbf4adf54ef3",
     "report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
     "consumed_source_commit": "5e08dbb93bb9560aae1283b5955199c1caeacd87",
@@ -763,7 +763,7 @@
       },
       "previous_cycle": "2026-11-08",
       "previous_report_sha256": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
-      "previous_aar_sha256": "5a5551aa294f0acabe944369e1c296381537c7105af401fd8f18bdd92bc86f17",
+      "previous_aar_sha256": "4970a41161ebc319e6c3bd81357ac49b4d252673eadef6b491392779948fabdc",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": 1,
@@ -937,14 +937,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": false,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-10T03:22:52.000Z",
   "scheduler_start_attested": false,
   "source_urls": [
     {
@@ -965,7 +965,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-10/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-10/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -981,11 +981,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1234f4a08cd67a0977dda6091ecbbbdc347281c5/signals/ai-topic-top10/2026-11-09.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfdec8fd6709a1c784bc02631d12ceca2e74ed9f/signals/ai-topic-top10/2026-11-09.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1234f4a08cd67a0977dda6091ecbbbdc347281c5/signals/ai-topic-top10/2026-11-09.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfdec8fd6709a1c784bc02631d12ceca2e74ed9f/signals/ai-topic-top10/2026-11-09.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1371,7 +1371,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 4,
+      "finding_count": 5,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -1389,7 +1389,7 @@
           "owner": "Compiler / Recovery",
           "observation": "11 failed protected publication gates were recorded (11 unclassified causes).",
           "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
+          "timing": "NEXT_GENUINE_CYCLE",
           "kind": "RECURRENCE_PREVENTION"
         },
         {
@@ -1400,6 +1400,15 @@
           "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
           "timing": "NEXT_GENUINE_CYCLE",
           "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "10 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
         },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
