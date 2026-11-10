@@ -25,7 +25,23 @@ export function summarizeNov02Evidence(edition,e={}){
    new Set(videoRows.map(r=>r.resource_id)).size===videoRows.length&&
    attemptedVideoRows.length===videoRoster.length;
  const eligible=editorial?.eligible??(rows.length||null);
- const editorialCount=Number.isSafeInteger(editorial?.inspected)&&editorial.inspected>=0&&editorial.inspected<=eligible?editorial.inspected:null;
+ // Newer producers preserve substantive per-ID inspection rows as well as the ID partition.
+ // Only count those rows when identities, source URLs and preselection clocks agree.
+ const inspectionRows=Array.isArray(editorial?.inspected)?editorial.inspected:null;
+ const inspectionIds=Array.isArray(editorial?.inspected_ids)?editorial.inspected_ids:null;
+ const eligibleIds=Array.isArray(editorial?.eligible_ids)?editorial.eligible_ids:null;
+ const inspectedFromRows=inspectionRows&&inspectionIds&&eligibleIds&&
+   eligibleIds.length===eligible&&new Set(eligibleIds).size===eligibleIds.length&&
+   inspectionRows.length===inspectionIds.length&&inspectionRows.length<=eligible&&
+   new Set(inspectionIds).size===inspectionIds.length&&
+   inspectionRows.every((row,i)=>row?.resource_id===inspectionIds[i]&&
+     typeof row.index_url==='string'&&row.index_url.startsWith('https://'))&&
+   inspectionIds.every(id=>eligibleIds.includes(id))&&stamp(editorial?.reviewed_at)&&
+   stamp(bundle?.editorial_provenance?.selection_locked_at)&&
+   Date.parse(editorial.reviewed_at)<=Date.parse(bundle.editorial_provenance.selection_locked_at)?
+   inspectionRows.length:null;
+ const editorialCount=Number.isSafeInteger(editorial?.inspected)&&editorial.inspected>=0&&editorial.inspected<=eligible?
+   editorial.inspected:inspectedFromRows;
  const explicitUnreviewed=Array.isArray(editorial?.unreviewed_ids)?editorial.unreviewed_ids:
   Array.isArray(editorial?.unreviewed)?editorial.unreviewed:null;
  const editorialInaccessible=Array.isArray(editorial?.inaccessible_ids)?editorial.inaccessible_ids:null;
