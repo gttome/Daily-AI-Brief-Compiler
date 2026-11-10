@@ -590,7 +590,35 @@
       "selection_status": "selection-pending"
     }
   ],
-  "selected_mappings": [],
+  "selected_mappings": [
+    {
+      "topic_sequence": 1,
+      "topic_identity": "Claude Fable 5.2 and Mythos 5.2 release",
+      "format": "article",
+      "candidate_id": "ART-ANTHROPIC-FABLE-52",
+      "selected_item_id": "nov10-t1-fable-mythos",
+      "selected_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "match_basis": "Exact original release selected after full source review and bundle qualification."
+    },
+    {
+      "topic_sequence": 2,
+      "topic_identity": "Meta Muse Ember release",
+      "format": "article",
+      "candidate_id": "ART-META-MUSE-EMBER",
+      "selected_item_id": "nov10-t2-muse-ember",
+      "selected_url": "https://research.meta.ai/blog/muse-ember",
+      "match_basis": "Exact original release selected after full source review and bundle qualification."
+    },
+    {
+      "topic_sequence": 5,
+      "topic_identity": "Stanford CS146S AI-native engineering course",
+      "format": "podcast",
+      "candidate_id": "POD-LATENTSPACE-CS146S",
+      "selected_item_id": "nov10-podcast-latent-space-cs146s",
+      "selected_url": "https://latent.space/p/cs146s/",
+      "match_basis": "Exact individually identified publisher episode selected after complete transcript and chapter review."
+    }
+  ],
   "impact_observations": {
     "actual_source_additions": [
       "https://www.anthropic.com/claude-fable-and-mythos-5-2",
@@ -661,9 +689,38 @@
       "ART-EMEANS-CLUSTERING",
       "ART-OPENAI-PHP-DISCLOSURE",
       "VID-BBC-PHP-EMERGENCY",
-      "POD-BBC-TECHLIFE-PHP-OLD"
+      "POD-BBC-TECHLIFE-PHP-OLD",
+      "ART-GOOGLE-LABEL-CONFIRM",
+      "ART-ASANA-AI-MEETINGS-TABLES",
+      "ART-INLOOX-AI-AGENTS",
+      "ART-SMARTSHEET-SCHEDULED-PROMPTS",
+      "POD-EYEONAI-BARTO",
+      "VID-CBS-DEEPFAKES",
+      "VID-FOX-ROGUE-AGENTS",
+      "VID-PBS-COXON"
     ],
-    "rejection_reasons": [],
+    "rejection_reasons": [
+      {
+        "candidate_id": "VID-BETTERSTACK-TOKENECONOMIZER",
+        "reason": "Protected direct and publisher-fallback probes did not expose an advancing duration-matched public player."
+      },
+      {
+        "candidate_id": "VID-AIENGINEER-WARP-TRACES",
+        "reason": "Protected direct and publisher-fallback probes did not expose an advancing duration-matched public player."
+      },
+      {
+        "candidate_id": "VID-BBC-PHP-EMERGENCY",
+        "reason": "Protected direct and publisher-fallback probes did not expose an advancing duration-matched public player."
+      },
+      {
+        "candidate_id": "VID-IBM-MULTIAGENT",
+        "reason": "IBM MediaCenter player remained uninitialized in the protected signed-out runner."
+      },
+      {
+        "candidate_id": "ART-MS-TOKENECONOMIZER",
+        "reason": "Qualified technical lead but not selected because the six-story lane allocation favored two exact November 9 model releases."
+      }
+    ],
     "gaps": [
       "Top 10 input is partial and discovery-sequence integers are not popularity ranks.",
       "Search receipts establish leads, not incremental benefit or causal uplift."
@@ -716,7 +773,15 @@
       "https://www.youtube.com/watch?v=EWpZC-wOA_I",
       "https://www.kenyamoja.com/video/php-emergency-how-ai-has-changed-hacking-forever-bbc-africa-bbc-africa-528789",
       "https://www.bbc.co.uk/programmes/w3ct8jys",
-      "https://share.snipd.com/episode/4c970df4-3339-4cb3-b536-83588fc251dc"
+      "https://share.snipd.com/episode/4c970df4-3339-4cb3-b536-83588fc251dc",
+      "https://workspaceupdates.googleblog.com/2026/11/quickly-confirm-system-applied-classification-labels-in-Google-Drive-Docs-Sheets-and-Slides.html",
+      "https://asana.com/inside-asana/introducing-ai-meetings-and-tables",
+      "https://docs.inloox.com/whats-new/",
+      "https://www.smartsheet.com/content-center/schedule-prompts-run-automatically",
+      "https://aneyeonai.libsyn.com/why-ai-goes-rogue-turing-award-winner-explains-reward-failure-andrew-barto",
+      "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+      "https://www.foxnews.com/video/6407416427112",
+      "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/"
     ],
     "causal_uplift": null
   },
@@ -726,5 +791,21 @@
     "The report is partial and supplies bounded leads.",
     "More source URLs alone are not treated as success."
   ],
-  "cause_reviews": []
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736096411",
+      "root_cause_code": "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
+      "resolution": "Switched to original publisher pages without changing editorial work."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736401936",
+      "root_cause_code": "RECEIPT_PUSH_NON_FAST_FORWARD",
+      "resolution": "Reissued the same request at the exact current head after concurrent evidence writes completed."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737623157",
+      "root_cause_code": "IBM_NATIVE_PLAYER_UNINITIALIZED",
+      "resolution": "Retained the failed receipt and replaced only the third probe with a distinct PBS native program."
+    }
+  ]
 }
