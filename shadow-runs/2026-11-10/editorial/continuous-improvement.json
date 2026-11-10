@@ -42,7 +42,7 @@
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
     "outcome": "Exact Top 10 searches produced qualified leads and three bundle links, while broader discovery supplied four stories and the final PBS/Fox video pair. Eleven protected failures were corrected through narrow same-edition recovery; this records execution evidence, not incremental benefit or causal uplift.",
-    "publication_failures": 11,
+    "publication_failures": 13,
     "publication_failure_causes": [
       "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
       "RECEIPT_PUSH_NON_FAST_FORWARD",
@@ -139,6 +139,16 @@
         "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741853860",
         "result": "PASS",
         "reason": "PBS, Fox and TED each produced duration-matched signed-out advancement on the exact final request."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742353837",
+        "result": "FAILED",
+        "reason": "Source readiness rejected state.bundle.status=ready; the protected contract requires the literal BUNDLE_READY."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742433287",
+        "result": "FAILED",
+        "reason": "Source readiness rejected state.bundle.status=ready; the protected contract requires the literal BUNDLE_READY."
       }
     ]
   },
@@ -256,6 +266,20 @@
       "root_cause_code": "PRESEAL_VIDEO_THREE_DISTINCT_PUBLISHERS_REQUIRED",
       "reason": "The PBS/PBS/Fox request represented only two original publisher families.",
       "evidence_ref": "Replaced the second PBS backup with archive-new TED and reissued the exact request."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742353837",
+      "failing_stage": "SOURCE_READY",
+      "root_cause_code": "BUNDLE_STATUS_NOT_READY",
+      "reason": "The exact bundle digest was present but state.bundle.status used ready instead of the protected BUNDLE_READY literal.",
+      "evidence_ref": "Correct only state.bundle.status at the current exact head; bundle bytes remain unchanged."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742433287",
+      "failing_stage": "SOURCE_READY",
+      "root_cause_code": "BUNDLE_STATUS_NOT_READY",
+      "reason": "The exact bundle digest was present but state.bundle.status used ready instead of the protected BUNDLE_READY literal.",
+      "evidence_ref": "Correct only state.bundle.status at the current exact head; bundle bytes remain unchanged."
     }
   ]
 }
