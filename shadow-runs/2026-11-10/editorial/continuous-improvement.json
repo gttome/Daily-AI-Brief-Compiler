@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-10",
-  "recorded_at": "2026-11-10T01:49:41.831Z",
+  "recorded_at": "2026-11-10T02:21:45.025Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
     "aar_cycle_date": "2026-11-08",
@@ -41,25 +41,33 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Exact Top 10 searches produced qualified leads and three eventual bundle links, while broader discovery supplied four stories and both selected videos. This is adoption evidence, not incremental benefit or causal uplift.",
-    "publication_failures": 5,
+    "outcome": "Exact Top 10 searches produced qualified leads and three bundle links, while broader discovery supplied four stories and the final PBS/Fox video pair. Eleven protected failures were corrected through narrow same-edition recovery; this records execution evidence, not incremental benefit or causal uplift.",
+    "publication_failures": 11,
     "publication_failure_causes": [
       "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
       "RECEIPT_PUSH_NON_FAST_FORWARD",
       "PUBLISHER_FALLBACK_NO_ADVANCING_PLAYER",
       "VIDEO_CANDIDATE_BELOW_THREE_MINUTES",
-      "IBM_NATIVE_PLAYER_UNINITIALIZED"
+      "IBM_NATIVE_PLAYER_UNINITIALIZED",
+      "RECENT_SOURCE_FALLBACK_REASON_MISSING",
+      "INVALID_SEAL_CLOCK_OR_ORDER",
+      "MEDIA_CHRONOLOGY_INCONSISTENT",
+      "AGENT_SKILLS_EVIDENCE_MISSING",
+      "EXACT_MEDIA_REUSE",
+      "PRESEAL_VIDEO_THREE_DISTINCT_PUBLISHERS_REQUIRED"
     ],
     "preseal_video_probe": {
-      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737994315",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741853860",
       "result": "PASS",
       "passed_slots": 3,
       "selected_slots": 2,
       "selected_urls": [
-        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+        "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
         "https://www.foxnews.com/video/6407416427112"
       ],
-      "qualified_backup_url": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/"
+      "qualified_backup_url": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+      "request_sha256": "5c0af31e914368a8da6f1d90fa203ae26b73f1b489f8476aa4f2cd5c3bd989b1",
+      "source_head": "62666d9aa77f940403090f04afcdf8ea69a427c0"
     },
     "preseal_video_probe_attempts": [
       {
@@ -91,6 +99,46 @@
         "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737994315",
         "result": "PASS",
         "reason": "PBS NewsHour, CBS News and Fox News all produced duration-matched signed-out advancement."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739273752",
+        "result": "FAILED",
+        "reason": "Semantic preflight required item-specific extended-window fallback reasons."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739492573",
+        "result": "FAILED",
+        "reason": "Semantic preflight rejected an invalid seal clock/order."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739980542",
+        "result": "FAILED",
+        "reason": "Semantic preflight rejected video retrieval timestamps later than protected playback checks."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740231377",
+        "result": "FAILED",
+        "reason": "Semantic preflight required dedicated reusable Agent Skills procedure evidence."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740462047",
+        "result": "FAILED",
+        "reason": "Media history found the exact CBS program in the published 2026-11-09 edition."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740964425",
+        "result": "PASS",
+        "reason": "PBS, CBS and Fox advanced, but the later media-history check disqualified CBS from final selection."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741259447",
+        "result": "FAILED",
+        "reason": "The PBS/PBS/Fox request did not contain three distinct original publishers."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741853860",
+        "result": "PASS",
+        "reason": "PBS, Fox and TED each produced duration-matched signed-out advancement on the exact final request."
       }
     ]
   },
@@ -100,8 +148,9 @@
       "Expanded preselection editorial index inspection from the previous three named IDs to 13 explicit resource IDs, while leaving 96 unreviewed and keeping the automated census separate.",
       "Applied the prior AAR improvement by including older unreviewed article and podcast indexes without treating raw source count as success.",
       "Preserved every failed video program and exact receipt, then moved only through the contract's original-publisher recovery path.",
-      "Selected two exact programs only after a fresh exact-request PASS; the third passing PBS program remains a qualified backup.",
-      "Kept all fourteen approved change evaluations pending for the November 11 due edition."
+      "Kept all fourteen approved change evaluations pending for the November 11 due edition.",
+      "Rejected a playback-passing CBS program after exact archive reuse was discovered, then re-probed only the video scope.",
+      "Bound the final PBS/Fox selection and TED backup to one exact protected PASS request with three distinct publishers."
     ],
     "interpretation": "Input adoption, search coverage, candidate yield and admission-gate completion are measured for this edition. No evidence establishes that trend-linked selection caused better reader outcomes.",
     "more_sources_success": null,
@@ -165,6 +214,48 @@
       "root_cause_code": "IBM_NATIVE_PLAYER_UNINITIALIZED",
       "reason": "IBM MediaCenter exposed a video node with NaN duration and no advancing full program.",
       "evidence_ref": "Protected receipt request_sha256 8e993d2f."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739273752",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "RECENT_SOURCE_FALLBACK_REASON_MISSING",
+      "reason": "Extended-window selections lacked item-specific newer-candidate comparisons.",
+      "evidence_ref": "Corrected bundle source decisions and preserved limited-search disclosure."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739492573",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "INVALID_SEAL_CLOCK_OR_ORDER",
+      "reason": "The corrected bundle seal timestamp did not satisfy the protected production clock.",
+      "evidence_ref": "Recomputed the seal after the preserved selection lock."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739980542",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "MEDIA_CHRONOLOGY_INCONSISTENT",
+      "reason": "Selected-video retrieval timestamps followed the exact protected playback checks.",
+      "evidence_ref": "Bound content retrieval to the exact playback verification timestamps."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740231377",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "AGENT_SKILLS_EVIDENCE_MISSING",
+      "reason": "The Agent Skills story lacked a dedicated reusable-procedure evidence field.",
+      "evidence_ref": "Added a source-grounded five-step scheduled-prompt procedure."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740462047",
+      "failing_stage": "MEDIA_HISTORY",
+      "root_cause_code": "EXACT_MEDIA_REUSE",
+      "reason": "The selected CBS program exactly matched the published 2026-11-09 media archive.",
+      "evidence_ref": "Removed only CBS and promoted the archive-new PBS backup."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741259447",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "PRESEAL_VIDEO_THREE_DISTINCT_PUBLISHERS_REQUIRED",
+      "reason": "The PBS/PBS/Fox request represented only two original publisher families.",
+      "evidence_ref": "Replaced the second PBS backup with archive-new TED and reissued the exact request."
     }
   ]
 }
