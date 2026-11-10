@@ -2,23 +2,29 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-10",
   "execution_id": "daily-compiler-2026-11-10-primary",
-  "state": "BUNDLE_READY",
-  "stage": "BUNDLE",
+  "state": "PRODUCING",
+  "stage": "CONTENT",
   "base_commit": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
   "branch": "shadow/2026-11-10",
   "initial_execution_observed_at": "2026-11-10T01:16:31.139Z",
   "started_at": "2026-11-10T01:16:31.139Z",
-  "updated_at": "2026-11-10T02:06:44.574Z",
+  "updated_at": "2026-11-10T02:08:36.911Z",
   "selection_locked_at": "2026-11-10T01:49:41.831Z",
   "sealed_at": "2026-11-10T02:06:41.600Z",
-  "bundle_sha256": "fbe8f31c878af901c463344b216031f0fe1c96dae4992c56ec888dec85dcc29d",
+  "bundle_sha256": null,
   "images": {
     "required": 6,
     "accepted": [],
     "mode": "images_pending",
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
-  "blocker": null,
+  "blocker": {
+    "stage": "MEDIA_HISTORY",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740462047",
+    "failing_program": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+    "next_candidate": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
+    "ownership_state": "PRIMARY_ACTIVE_SAME_INVOCATION"
+  },
   "evidence": {
     "trend_input": "shadow-runs/2026-11-10/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-10/editorial/trend-search-coverage.json",
@@ -32,7 +38,7 @@
     "preseal_video_receipt": "shadow-runs/2026-11-10/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": true,
+    "bundle_ready": false,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -41,14 +47,14 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Exact-request protected video receipt is PASS; dispatch the existing protected-main compile, deployment and public verification without changing the sealed editorial bundle.",
+  "continuation": "Replace the single reused CBS program with the already reviewed PBS backup, obtain a new exact-request PASS receipt, then reseal and resume protected dispatch.",
   "source_main_sha": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
   "owner_task_id": "6ac9868490b88191ac91f84d5f555994",
-  "retryable": false,
-  "last_error": null,
+  "retryable": true,
+  "last_error": "MEDIA_HISTORY: CBS News video reused from published 2026-11-09 edition; replacing only this video with the passed PBS backup and reissuing exact protected request.",
   "bundle": {
-    "status": "BUNDLE_READY",
-    "digest": "fbe8f31c878af901c463344b216031f0fe1c96dae4992c56ec888dec85dcc29d"
+    "status": "pending",
+    "digest": null
   },
   "editorial_bundle": {
     "status": "complete",
