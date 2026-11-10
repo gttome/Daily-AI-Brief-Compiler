@@ -1,6 +1,6 @@
 # 2026-11-10 premium image after-action report
 
-**Status: READY_FOR_PROTECTED_PR**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: BLOCKED_INCOMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,7 +11,7 @@
 | First accepted binary commit | 4671c971dbee5b29a18b753eedc2682e4cb376a4 |
 | Executor observed run start | 2026-11-10T03:15:37.000Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-10T03:22:52.000Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_CI |
+| Public release | BLOCKED_INCOMPLETE |
 | Public verified time | Not recorded |
 | Final saved-context review | PENDING; 0 targets |
 | Weekly usage | UNKNOWN |
@@ -41,6 +41,9 @@
 | Native saved-pixel inspection | Object ports and connectors are now correct. The first dark heading pixels are at y38 and the bottom beta text extends past y590. | Only repair safe margins: move the top heading and calendar group down by 26 pixels, leaving the topmost 52 final pixels blank white. Move the detached beta note up by 20 pixels, with all glyphs above y578. Preserve arrow starts on calendar and folder ports and endpoints on the draft tray. |
 | Native saved-pixel inspection | Digest has simulated lines of writing. The email arrow starts on the review housing before the approval checkpoint. The caveat descender reaches below y590 and the delivery label approaches x1168. | Replace all digest text bars with plain blank solid paper. Replace the second arrow's source with the tip of a clearly separate physical approval bridge beside an unmistakable red blocked blind slot; the arrow from that bridge alone touches the envelope tray. Leave the unapproved slot with no arrow. Move email wording left 24 final pixels and the detached caveat up 28 final pixels without changing font sizes. Keep the first arrow and named source rows. |
 | Native saved-pixel inspection | The blank digest pages and separate approval bridge are corrected. The detached note's descender still reaches about y607. | Keep every component and both connector endpoints. Move the existing detached Log recurring corrections text and placard up by 42 final pixels AND right by 68 final pixels so it sits immediately below the two right modules. Place the placard center at x760 y555 on the final canvas, and leave all text above y575. Erase the previous lower placard entirely to white. Do not make any text smaller. |
+| Protected Pages deployment | Initial deploy remained in syncing_files until the action timed out. | Verified the original protected inputs and that the PNG was absent. Retried the failed existing job with unchanged accepted assets. |
+| Protected Pages retry | The same run held two github-pages artifacts, so the deploy action rejected the ambiguous artifact name. | Started a fresh invocation of the existing workflow using the exact validated PR head, protected merge and history SHA. |
+| Protected Pages deployment | The fresh run reached finished_file_sync but timed out without a successful deployment. All six exact public PNG URLs returned HTTP 404 afterward. | Preserved all six protected-main PNGs, both release evidence archives, and the job bindings for the existing recovery route. No live semantic review was claimed. |
 
 ## Evidence and limitations
 
@@ -59,5 +62,7 @@ The exact dated reader, index, immutable job, source commit and source-bundle ha
 Local Chrome was unable to create its process socket. The existing protected workflow capture and connected artifact download were checked as the release review route. No owner computer or paid service was used.
 
 All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. The 24 live semantic reviews remain pending. Usage is UNKNOWN.
+
+Protected package admission and validation passed at the exact PR head. The package merged in PR #349. Public release, placement verification and the 24 semantic checks remain incomplete because GitHub Pages deployment did not finish.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.

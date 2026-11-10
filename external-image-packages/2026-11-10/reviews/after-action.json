@@ -5,7 +5,7 @@
   "original_source_commit_sha": "6d1bf5f3117ab04ca1ee935a61dbc2fb7375b2d7",
   "original_bundle_sha256": "668124c60175e312667bb57dcf3215704d909a8cb702483d908535da4284e82b",
   "cycle_date": "2026-11-09",
-  "status": "READY_FOR_PROTECTED_PR",
+  "status": "BLOCKED_INCOMPLETE",
   "human_readable_path": "external-image-packages/2026-11-10/reviews/after-action.md",
   "production": {
     "actual_generation_count": 16,
@@ -209,11 +209,38 @@
         ],
         "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-5-2-rejection.json"
       }
+    },
+    {
+      "phase": "Protected Pages deployment",
+      "issue": "Initial deploy remained in syncing_files until the action timed out.",
+      "correction": "Verified the original protected inputs and that the PNG was absent. Retried the failed existing job with unchanged accepted assets.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42751550564"
+    },
+    {
+      "phase": "Protected Pages retry",
+      "issue": "The same run held two github-pages artifacts, so the deploy action rejected the ambiguous artifact name.",
+      "correction": "Started a fresh invocation of the existing workflow using the exact validated PR head, protected merge and history SHA.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42751550564/attempts/2"
+    },
+    {
+      "phase": "Protected Pages deployment",
+      "issue": "The fresh run reached finished_file_sync but timed out without a successful deployment. All six exact public PNG URLs returned HTTP 404 afterward.",
+      "correction": "Preserved all six protected-main PNGs, both release evidence archives, and the job bindings for the existing recovery route. No live semantic review was claimed.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42752983734"
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_CI",
-    "verified_at": null
+    "result": "BLOCKED_INCOMPLETE",
+    "verified_at": null,
+    "protected_package_pr": 349,
+    "exact_ci_head_sha": "c1707458d2bea0afe93abf1c509a66d2e04625c6",
+    "ci_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42751311652",
+    "protected_merge_sha": "92e20477c191cdbe4c5f9b1d0a8954e608685eba",
+    "release_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42752983734",
+    "previous_release_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42751550564",
+    "public_status": "PUBLISHED_PENDING",
+    "image_hashes_verified": 0,
+    "story_image_pairings_verified": 0
   },
   "visual_review": {
     "result": "PENDING",
@@ -229,6 +256,7 @@
     "The first-pass goal of at least 3 of 6 was missed with 0 of 6. Three images took more than two attempts. Quality requirements were applied throughout. The cumulative effectiveness review remains due November 11.",
     "The exact dated reader, index, immutable job, source commit and source-bundle hash were checked. The canonical candidate branch was atomically claimed and subsequent mutations used expected-head non-force updates. Capability-route preflight passed separately from scheduler origin, which remains unproven.",
     "Local Chrome was unable to create its process socket. The existing protected workflow capture and connected artifact download were checked as the release review route. No owner computer or paid service was used.",
-    "All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. The 24 live semantic reviews remain pending. Usage is UNKNOWN."
+    "All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. The 24 live semantic reviews remain pending. Usage is UNKNOWN.",
+    "Protected package admission and validation passed at the exact PR head. The package merged in PR #349. Public release, placement verification and the 24 semantic checks remain incomplete because GitHub Pages deployment did not finish."
   ]
 }
