@@ -114,8 +114,13 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  // A source index has its own genuine pre-selection review clock. A later
  // candidate-discovery audit timestamp must not overwrite that earlier event.
  const inspectedAt=index?.reviewed_at??audit?.reviewed_at;
+ const inspectionRows=Array.isArray(index?.inspected)?index.inspected:null;
+ const inspectionCount=inspectionRows?inspectionRows.length:index?.inspected;
+ const inspectionRowsMatch=!inspectionRows||inspectionRows.every((row,i)=>row?.resource_id===index.inspected_ids?.[i]&&
+   typeof row.index_url==='string'&&row.index_url.startsWith('https://'));
  if(Array.isArray(index?.inspected_ids)&&stamp(inspectedAt)&&stamp(locked)&&Date.parse(inspectedAt)<=Date.parse(locked)&&
-    index.inspected===index.inspected_ids.length&&unique(index.inspected_ids).length===index.inspected_ids.length&&index.inspected_ids.every(id=>knownIds.has(id)))
+    inspectionCount===index.inspected_ids.length&&inspectionRowsMatch&&
+    unique(index.inspected_ids).length===index.inspected_ids.length&&index.inspected_ids.every(id=>knownIds.has(id)))
   inspections.push(...index.inspected_ids.map(resource_id=>({resource_id,reviewed_at:inspectedAt,edition_date:edition})));
  const reviewValid=top10?.daily_improvement?.candidate_review_depth?.status==='RECORDED_REVIEW_LEDGER'&&
   top10.consumed_commit_independently_verified&&top10.search_status==='RECEIPTS_OBSERVED'&&coverage?.edition_date===edition;
