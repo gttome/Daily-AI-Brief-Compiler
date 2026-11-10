@@ -12,7 +12,8 @@
     "image-job.json": "768cd921ce521e960c93d2767e90bdf1ee52c6f44b62d3a0814f5f99d380b94e",
     "image-manifest.json": "c7dded9b5c096b0d4a998d9af76069c139f629e4f72f5deecec78fed746a853a",
     "image-recurring-assignment.json": "b1538b6dc7ddf6b3a42c2c2c959888e91a4d54b9015127bf8cc7371fcb8634c5",
-    "image-timing.json": "b8c2fc2c4f2077c44f7598eadf571792a5406d6a33c579e86426cac284be3c7c",
+    "image-release.json": "93a78a442fde1f9cad84bfd192524e3be638a447f41d2deff73878d8f02d4c00",
+    "image-timing.json": "f4afb4ffb09509f19f9becdc5ce069f49a81452fde9deea110c46ffefdcd4b7d",
     "image-worker-state.json": "62b252d7c45be6a0f14f19f083e78e9aa819b2f0d543caf0133fd71ee3c2252b",
     "postpublish-integrity.json": "282eb7174af0fd95df6fb2c82ebc36b476a2508474de702b5fb173a856db1e33",
     "postpublish-video-playback.json": "c626a04a001490e40e5b4ca7043e2b1720653b7596b388862ea1142c2fd67c36",
@@ -23,19 +24,19 @@
     "top10-after-action.json": "c05e8a7e1b46f9592786477343adf758ab29e9daa91788a0ae45549841fba7e1",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "1df80fc4454aaeba78446354543373d5e850add818ecc6adc594ac8a2aa7e3e7",
+    "top10-previous-aar.json": "5a5551aa294f0acabe944369e1c296381537c7105af401fd8f18bdd92bc86f17",
     "top10-previous-report.json": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
-    "top10-report-source.json": "4be6c8b6066f9608091386e5f25bf0643884497667a7cd6ef85bc7c03c5e0134",
+    "top10-report-source.json": "97943255d8d2418726a4f07f904f1c25deb96a680195429bae57f7a318f9b862",
     "top10-report.json": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
     "trend-consumed-report.json": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
-    "trend-consumed-source.json": "f007ef5ef76a3ab3e4d2137aee66f3d575c2e8e727be961444beb79287516a21",
+    "trend-consumed-source.json": "a22020e875ee08447561bd24a25606c1232afc86d7bfbf619b1747482440b180",
     "trend-input.json": "f04e5f9875fdee02fc35521eec0ef7fe8f89cad96a8c5a283519b08ef2b861c4",
     "trend-search-coverage.json": "a88121c495df2382d03c9cb9c213be3a2fe6c1f1089347a30444865057ae426a",
     "video-playback-failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "INVALID",
     "autonomy": "UNPROVEN"
   },
@@ -157,8 +158,8 @@
     "coverage_percent": null,
     "coverage_numerator": null,
     "coverage_denominator": null,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 16,
     "top10_linked_items": null,
     "publication_failures": 11
   },
@@ -270,7 +271,101 @@
   "inspections": [],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 10,
+    "classified": [
+      {
+        "story_id": "nov10-t1-fable-mythos",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/t1-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov10-t2-muse-ember",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-1-1-rejection.json"
+      },
+      {
+        "story_id": "nov10-k1-label-confirmation",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-2-1-rejection.json"
+      },
+      {
+        "story_id": "nov10-k2-asana-meetings-tables",
+        "attempt": 1,
+        "defect_codes": [
+          "OTHER",
+          "PSEUDO_WRITING",
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-3-1-rejection.json"
+      },
+      {
+        "story_id": "nov10-k2-asana-meetings-tables",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-3-2-rejection.json"
+      },
+      {
+        "story_id": "nov10-k2-asana-meetings-tables",
+        "attempt": 3,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-3-3-rejection.json"
+      },
+      {
+        "story_id": "nov10-a1-inloox-agents",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-4-1-rejection.json"
+      },
+      {
+        "story_id": "nov10-a1-inloox-agents",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-4-2-rejection.json"
+      },
+      {
+        "story_id": "nov10-a2-smartsheet-scheduled-prompts",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-5-1-rejection.json"
+      },
+      {
+        "story_id": "nov10-a2-smartsheet-scheduled-prompts",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-5-2-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,

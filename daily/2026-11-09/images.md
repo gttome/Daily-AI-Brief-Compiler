@@ -6,10 +6,10 @@
 |---|---|
 | Execution | START_OBSERVED |
 | Result | PARTIAL |
-| Publication | PARTIAL |
+| Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
-| Started | UNKNOWN |
+| Started | 2026-11-10T03:26:11.000Z |
 | Finished | UNKNOWN |
 | Duration (min) | UNKNOWN |
 | Autonomy independent of publication | UNPROVEN |
@@ -25,7 +25,7 @@
 
 ## Evidence and limitations
 
-- Protected image-only live verification is missing or incomplete
+- 24 semantic desktop/mobile context reviews not independently evidenced in this report input
 
 ## Operational result
 

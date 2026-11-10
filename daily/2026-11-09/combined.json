@@ -637,7 +637,7 @@
       "freshness_reference_at": "2026-11-09T23:06:40Z"
     },
     "ranking_basis": "Retain named events with measured, event-specific attention. Give broader confidence to distinct observed audience families. Claim-verifying reports and research are separate from popularity. Order within the limited band reflects discovery usefulness and freshness after evidence checks.",
-    "source_commit": "869605f2e58a0d144452dfaccb33933573fa748f",
+    "source_commit": "1234f4a08cd67a0977dda6091ecbbbdc347281c5",
     "source_blob_sha": "4150fcb8330aa08bbc415ec8fd80cbf4adf54ef3",
     "report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
     "consumed_source_commit": "5e08dbb93bb9560aae1283b5955199c1caeacd87",
@@ -763,7 +763,7 @@
       },
       "previous_cycle": "2026-11-08",
       "previous_report_sha256": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
-      "previous_aar_sha256": "1df80fc4454aaeba78446354543373d5e850add818ecc6adc594ac8a2aa7e3e7",
+      "previous_aar_sha256": "5a5551aa294f0acabe944369e1c296381537c7105af401fd8f18bdd92bc86f17",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": 1,
@@ -939,9 +939,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -981,11 +981,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/869605f2e58a0d144452dfaccb33933573fa748f/signals/ai-topic-top10/2026-11-09.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1234f4a08cd67a0977dda6091ecbbbdc347281c5/signals/ai-topic-top10/2026-11-09.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/869605f2e58a0d144452dfaccb33933573fa748f/signals/ai-topic-top10/2026-11-09.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1234f4a08cd67a0977dda6091ecbbbdc347281c5/signals/ai-topic-top10/2026-11-09.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1012,8 +1012,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov10-t1-fable-mythos",
+            "label": "Anthropic splits one frontier model into two compute modes",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov10-t2-muse-ember",
+            "label": "Meta’s Muse Ember stretches context to one million tokens",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov10-k1-label-confirmation",
+            "label": "Google Workspace shortens classification-label confirmation",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov10-k2-asana-meetings-tables",
+            "label": "Asana turns meetings and structured records into reviewable work",
+            "accepted": 1,
+            "rejected": 3
+          },
+          {
+            "id": "nov10-a1-inloox-agents",
+            "label": "InLoox adds scheduled agents across project portfolios",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov10-a2-smartsheet-scheduled-prompts",
+            "label": "A scheduled Smartsheet prompt becomes a reusable exception digest",
+            "accepted": 1,
+            "rejected": 2
+          }
+        ],
+        "total_attempts": 16,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1102,8 +1146,8 @@
         "coverage_percent": null,
         "coverage_numerator": null,
         "coverage_denominator": null,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 16,
         "top10_linked_items": null,
         "publication_failures": 11
       }
@@ -1114,12 +1158,12 @@
         "median": 6.5
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 15.5
+        "recorded_editions": 7,
+        "median": 16
       },
       "top10_linked_items": {
         "recorded_editions": 1,
@@ -1327,18 +1371,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 5,
-      "open_production_blockers": 1,
+      "finding_count": 4,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -3206,52 +3241,56 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 58,
+      "recorded_editions": 7,
+      "total_rejected": 68,
       "unclassified": 8,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 33,
+          "rejected_attempts": 43,
           "editions": [
             "2026-11-04",
             "2026-11-05",
             "2026-11-08",
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-10"
           ],
           "recurring": true
         },
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 24,
+          "rejected_attempts": 29,
           "editions": [
             "2026-11-04",
             "2026-11-05",
             "2026-11-07",
             "2026-11-08",
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-10"
           ],
           "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 12,
+          "rejected_attempts": 15,
           "editions": [
             "2026-11-04",
             "2026-11-05",
             "2026-11-07",
             "2026-11-08",
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-10"
           ],
           "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 11,
+          "rejected_attempts": 12,
           "editions": [
             "2026-11-04",
             "2026-11-05",
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-10"
           ],
           "recurring": true
         },
