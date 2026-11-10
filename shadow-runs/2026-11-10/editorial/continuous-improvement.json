@@ -1,0 +1,170 @@
+{
+  "schema_version": "daily-compiler-continuous-improvement-v1",
+  "edition_date": "2026-11-10",
+  "recorded_at": "2026-11-10T01:49:41.831Z",
+  "latest_comparable_aar": {
+    "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
+    "aar_cycle_date": "2026-11-08",
+    "reconciled_edition_date": "2026-11-09",
+    "combined_path": "daily/2026-11-08/combined.json",
+    "charts_path": "daily/2026-11-08/charts.json",
+    "metrics_path": "daily/2026-11-08/improvement-metrics.json"
+  },
+  "prior_observations": {
+    "top10_search_coverage": "invalid or incomplete in the latest earlier AAR",
+    "publication_failures": 15,
+    "publication_failure_causes": "five remained unclassified in the comparable AAR",
+    "preselection_source_ids": "three inspected IDs recorded while the numeric inspected metric remained unknown",
+    "outcome": "November 9 public edition complete after protected-gate recovery"
+  },
+  "current_observations": {
+    "preselection_index_coverage": {
+      "eligible": 109,
+      "inspected": 13,
+      "inaccessible": 0,
+      "unreviewed": 96
+    },
+    "video_source_sweep": {
+      "attempted": 29,
+      "registered": 29,
+      "candidate_bearing": 16,
+      "inaccessible": 0
+    },
+    "top10_searches": {
+      "attempted": 30,
+      "formats": [
+        "article",
+        "video",
+        "podcast"
+      ],
+      "selected_linkage": "three bundle-bound mappings: two articles and one podcast"
+    },
+    "final_bundle_verified_selections": 6,
+    "public_reader_completion": false,
+    "outcome": "Exact Top 10 searches produced qualified leads and three eventual bundle links, while broader discovery supplied four stories and both selected videos. This is adoption evidence, not incremental benefit or causal uplift.",
+    "publication_failures": 5,
+    "publication_failure_causes": [
+      "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
+      "RECEIPT_PUSH_NON_FAST_FORWARD",
+      "PUBLISHER_FALLBACK_NO_ADVANCING_PLAYER",
+      "VIDEO_CANDIDATE_BELOW_THREE_MINUTES",
+      "IBM_NATIVE_PLAYER_UNINITIALIZED"
+    ],
+    "preseal_video_probe": {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737994315",
+      "result": "PASS",
+      "passed_slots": 3,
+      "selected_slots": 2,
+      "selected_urls": [
+        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+        "https://www.foxnews.com/video/6407416427112"
+      ],
+      "qualified_backup_url": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/"
+    },
+    "preseal_video_probe_attempts": [
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736096411",
+        "result": "BLOCKED",
+        "reason": "Three exact direct YouTube programs did not advance signed-out in the protected runner."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736401936",
+        "result": "FAILED",
+        "reason": "The probe produced a receipt locally but concurrent evidence commits advanced the remote head and rejected the push."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736938302",
+        "result": "BLOCKED",
+        "reason": "GridVids returned HTTP 403 and AI Engineer/BBC fallbacks exposed nonadvancing YouTube embeds."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737424830",
+        "result": "FAILED",
+        "reason": "The first Fox probe clip was 2:12, below the three-minute candidate floor."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737623157",
+        "result": "BLOCKED",
+        "reason": "CBS and Fox passed, while IBM MediaCenter remained uninitialized."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737994315",
+        "result": "PASS",
+        "reason": "PBS NewsHour, CBS News and Fox News all produced duration-matched signed-out advancement."
+      }
+    ]
+  },
+  "comparison": {
+    "source_or_method_changes": [
+      "Recorded all 30 topic-format searches and bound only three genuine final mappings.",
+      "Expanded preselection editorial index inspection from the previous three named IDs to 13 explicit resource IDs, while leaving 96 unreviewed and keeping the automated census separate.",
+      "Applied the prior AAR improvement by including older unreviewed article and podcast indexes without treating raw source count as success.",
+      "Preserved every failed video program and exact receipt, then moved only through the contract's original-publisher recovery path.",
+      "Selected two exact programs only after a fresh exact-request PASS; the third passing PBS program remains a qualified backup.",
+      "Kept all fourteen approved change evaluations pending for the November 11 due edition."
+    ],
+    "interpretation": "Input adoption, search coverage, candidate yield and admission-gate completion are measured for this edition. No evidence establishes that trend-linked selection caused better reader outcomes.",
+    "more_sources_success": null,
+    "causal_uplift": null
+  },
+  "approved_improvement_register": {
+    "frozen_baseline_id": "nov03-2026-v1",
+    "due_edition": "2026-11-11",
+    "evaluations_due_now": [],
+    "pending_change_evaluations": [
+      "NOV03-01",
+      "NOV03-02",
+      "NOV03-03",
+      "NOV03-04",
+      "AAR-01",
+      "AAR-02",
+      "AAR-03",
+      "AAR-04",
+      "AAR-05",
+      "AAR-06",
+      "AAR-07",
+      "AAR-08",
+      "AAR-09",
+      "AAR-10"
+    ],
+    "efficacy_conclusion": "pending"
+  },
+  "next_improvement": "On the November 11 due edition, evaluate the fourteen registered changes against their defined metrics and baseline before adopting another source-expansion change.",
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736096411",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
+      "reason": "All three direct YouTube watch pages required sign-in or exposed nonadvancing embeds in the signed-out runner.",
+      "evidence_ref": "Exact protected receipt bound to request hash 7b8884."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736401936",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "RECEIPT_PUSH_NON_FAST_FORWARD",
+      "reason": "The probe completed while two separately authorized evidence commits advanced the branch, so its receipt push was rejected.",
+      "evidence_ref": "Workflow log shows fetch-first rejection after local receipt commit 00af41a."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736938302",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "PUBLISHER_FALLBACK_NO_ADVANCING_PLAYER",
+      "reason": "GridVids returned HTTP 403; AI Engineer and the BBC mirror exposed nonadvancing YouTube frames.",
+      "evidence_ref": "Protected receipt request_sha256 7d998a4f."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737424830",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "VIDEO_CANDIDATE_BELOW_THREE_MINUTES",
+      "reason": "The first Fox safety candidate had a verified 2:12 runtime, below the contract minimum.",
+      "evidence_ref": "Workflow log: production_evidence:video_candidate_review_incomplete:8."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737623157",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "IBM_NATIVE_PLAYER_UNINITIALIZED",
+      "reason": "IBM MediaCenter exposed a video node with NaN duration and no advancing full program.",
+      "evidence_ref": "Protected receipt request_sha256 8e993d2f."
+    }
+  ]
+}
