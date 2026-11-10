@@ -1,4 +1,4 @@
-**🟨 RELEASE PARTIAL**
+**🟩 RELEASE COMPLETE**
 **TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟪 VISUAL QA 24/24 PASS**
 
 # Daily AI Brief — Unified Production After-Action Report
@@ -6,11 +6,9 @@
 **Primary public reader:** [Open 2026-11-10 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-10/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 7m 00s** · **Compiler final seal window 6m 50s** · **Premium Images 102m 58s** (evidence-bounded elapsed times; the start/end events differ).
-
-> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Evidence reconciliation
 
@@ -99,7 +97,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **16** | Image worker AAR; no estimation |
 | Rejected candidates | **10** | Image worker AAR |
-| Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
+| Final worker checkpoint reconciliation | **PASS** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **24 / 24 PASS** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
@@ -355,6 +353,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Native saved-pixel inspection | Object ports and connectors are now correct. The first dark heading pixels are at y38 and the bottom beta text extends past y590. | Only repair safe margins: move the top heading and calendar group down by 26 pixels, leaving the topmost 52 final pixels blank white. Move the detached beta note up by 20 pixels, with all glyphs above y578. Preserve arrow starts on calendar and folder ports and endpoints on the draft tray. |
 | Native saved-pixel inspection | Digest has simulated lines of writing. The email arrow starts on the review housing before the approval checkpoint. The caveat descender reaches below y590 and the delivery label approaches x1168. | Replace all digest text bars with plain blank solid paper. Replace the second arrow's source with the tip of a clearly separate physical approval bridge beside an unmistakable red blocked blind slot; the arrow from that bridge alone touches the envelope tray. Leave the unapproved slot with no arrow. Move email wording left 24 final pixels and the detached caveat up 28 final pixels without changing font sizes. Keep the first arrow and named source rows. |
 | Native saved-pixel inspection | The blank digest pages and separate approval bridge are corrected. The detached note's descender still reaches about y607. | Keep every component and both connector endpoints. Move the existing detached Log recurring corrections text and placard up by 42 final pixels AND right by 68 final pixels so it sits immediately below the two right modules. Place the placard center at x760 y555 on the final canvas, and leave all text above y575. Erase the previous lower placard entirely to white. Do not make any text smaller. |
+| GitHub Pages deployment | Two fresh deployments timed out after Pages accepted the upload. A rerun of the original job also encountered duplicate artifact names. | Protected PR #350 gave Pages more time and isolated artifacts by run and attempt. Run 42759129617 published the approved bytes without regenerating art. |
+| Public release receipt | The public index was stale and the release receipt returned HTTP 404 after image publication. Early metadata sync attempts encountered a transient 503 and then a missing protected review. | Protected PR #351 saved the actual 24 reviewed screenshots and hashes. The existing metadata-only workflow then verified the receipt, index, images, and all 17 protected October 8 objects. |
 
 > **OPERATIONAL NOTE**
 > This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.
@@ -400,8 +400,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-10/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfdec8fd6709a1c784bc02631d12ceca2e74ed9f/signals/ai-topic-top10/2026-11-09.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dfdec8fd6709a1c784bc02631d12ceca2e74ed9f/signals/ai-topic-top10/2026-11-09.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-09.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02370667524f4b9ef85dc3d2d9e42de3ef41f37b/signals/ai-topic-top10/2026-11-09.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-10/shadow-runs/2026-11-10/editorial/trend-search-coverage.json) |
 
