@@ -1,8 +1,8 @@
 {
   "schema_version": "daily-compiler-fallback-search-evidence-v1",
   "edition_date": "2026-11-10",
-  "recorded_at": "2026-11-10T02:21:45.025Z",
-  "selection_locked_at": "2026-11-10T02:21:45.025Z",
+  "recorded_at": "2026-11-10T02:34:05.232Z",
+  "selection_locked_at": "2026-11-10T02:34:05.232Z",
   "scope": "Actual targeted searches and lane-relevant alternatives preserved before selection. Extended-window choices have item-specific comparisons; limited scope is disclosed.",
   "search_receipts": [
     {
@@ -64,12 +64,14 @@
     {
       "query": "current substantive AI videos six candidates three publishers signed-out full player",
       "format": "video",
-      "outcome": "Direct YouTube and embedded fallbacks were blocked; native PBS, Fox and TED programs passed the final exact protected request. CBS passed playback but was rejected for exact 2026-11-09 archive reuse. PBS and Fox were selected, with TED retained as the valid third-publisher backup.",
+      "outcome": "After direct and embedded failures, the protected runner passed Fox, archive-new CBS and archive-new TED in one exact request. Earlier playback-passing CBS, PBS and TED programs were rejected when full-history checks found exact reuse. Fox and the new CBS program were selected; TED remains the valid backup.",
       "urls": [
-        "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
         "https://www.foxnews.com/video/6407416427112",
-        "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
-        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/"
+        "https://www.cbsnews.com/video/the-risks-of-trusting-personal-ai-agents-with-your-money-data/",
+        "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai",
+        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+        "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
+        "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect"
       ]
     },
     {
@@ -138,6 +140,20 @@
       "url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
       "original_date": "2026-10-27",
       "reason": "Content qualified, but using it beside the selected PBS NewsHour program failed the required three-distinct-publisher pre-seal request."
+    },
+    {
+      "candidate_id": "VID-PBS-COXON",
+      "lane": "Media",
+      "url": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
+      "original_date": "2026-09-17",
+      "reason": "Protected full-history gate found exact reuse in the published 2026-10-31 edition."
+    },
+    {
+      "candidate_id": "VID-TED-CEARNS",
+      "lane": "Media",
+      "url": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+      "original_date": "2026-10-26",
+      "reason": "Published archive search found exact reuse in the 2026-11-04 edition, so it was not retained as backup."
     }
   ],
   "limitation": "Preselection source scope remains limited to the explicitly inspected 13 of 109 eligible indexes plus actual Top 10 and broader searches. Automated census is separate and no absence claim is inferred for unreviewed indexes."
