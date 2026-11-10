@@ -78,3 +78,18 @@ test('current compiler timing and editorial coverage use their original distinct
  state.state='BUNDLE_READY';
  assert.equal(summarizeNov02Evidence(edition,inputs).compiler_timing.public_verification_at,null);
 });
+
+test('structured preselection inspection rows count only with exact eligible IDs and genuine earlier review time',()=>{
+ const d='2026-11-10',lock='2026-11-10T02:34:05.232Z';
+ const index={eligible:3,eligible_ids:['a','b','c'],inspected:[
+  {resource_id:'a',index_url:'https://example.org/a',scope:'Original dated index inspected'},
+  {resource_id:'b',index_url:'https://example.org/b',scope:'Second dated index inspected'}],
+  inspected_ids:['a','b'],unreviewed_ids:['c'],inaccessible_ids:[],reviewed_at:'2026-11-10T01:33:08.386Z'};
+ const e={'edition-bundle':{edition_date:d,editorial_provenance:{selection_locked_at:lock},
+  source_discovery_audit:{index_review:index}}};
+ const result=()=>summarizeNov02Evidence(d,e).source_index_coverage;
+ assert.equal(result().inspected,2);assert.equal(result().inspected_percent,66.7);
+ assert.equal(result().unreviewed,1);assert.equal(result().automated_index_scan,null);
+ index.inspected[1].resource_id='c';assert.equal(result().inspected,null);
+ index.inspected[1].resource_id='b';index.reviewed_at='2026-11-10T03:00:00Z';assert.equal(result().inspected,null);
+});
