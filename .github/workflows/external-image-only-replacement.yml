@@ -41,7 +41,7 @@ concurrency:
 jobs:
   image-only:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 50
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -73,8 +73,15 @@ jobs:
           [[ "$PACKAGE_PR_HEAD" =~ ^[a-f0-9]{40}$ ]]
           [[ "$PACKAGE_MERGE_HEAD" =~ ^[a-f0-9]{40}$ ]]
           [[ "$HISTORY_HEAD" =~ ^[a-f0-9]{40}$ ]]
-          test "$(git rev-parse HEAD)" = "$PACKAGE_MERGE_HEAD"
-          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$PACKAGE_MERGE_HEAD"
+          test "$GITHUB_REF" = refs/heads/main
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
+          if [[ "$GITHUB_SHA" != "$PACKAGE_MERGE_HEAD" ]]; then
+            # A protected workflow-only repair can redeploy the original approved package.
+            test "$GITHUB_EVENT_NAME" = workflow_dispatch
+            git merge-base --is-ancestor "$PACKAGE_MERGE_HEAD" "$GITHUB_SHA"
+            test "$(git diff --name-only --no-renames "$PACKAGE_MERGE_HEAD" "$GITHUB_SHA")" = '.github/workflows/external-image-only-replacement.yml'
+          fi
           gh api "repos/$GITHUB_REPOSITORY/rulesets/24610983" |
             jq -e '.enforcement=="active" and (.bypass_actors|length)==0' >/dev/null
           gh api "repos/$GITHUB_REPOSITORY/pulls/$PACKAGE_PR" |
@@ -160,14 +167,18 @@ jobs:
           BROWSER="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
           test -n "$BROWSER"
           echo "CHROME_BINARY=$BROWSER" >> "$GITHUB_ENV"
-          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$PACKAGE_MERGE_HEAD"
+          test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
           test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/patched
+          name: image-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: image-pages-${{ github.run_id }}-${{ github.run_attempt }}
+          timeout: 1200000
       - name: Independently verify changed pages/PNGs, unchanged controls and Oct 8 live SHA-256
         run: |
           node scripts/verify-external-image-live.mjs \
@@ -231,11 +242,12 @@ jobs:
         if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
         with:
           path: build/patched
-          name: image-final-metadata-${{ github.run_id }}
+          name: image-final-metadata-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/deploy-pages@v4
         if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
         with:
-          artifact_name: image-final-metadata-${{ github.run_id }}
+          artifact_name: image-final-metadata-${{ github.run_id }}-${{ github.run_attempt }}
+          timeout: 1200000
       - name: I4 independently confirm index and receipt public status
         if: env.IMAGE_PUBLIC_SYNC_MODE == 'public_sync_v2'
         shell: bash
