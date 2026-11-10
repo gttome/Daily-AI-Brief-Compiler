@@ -42,7 +42,7 @@
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
     "outcome": "Exact Top 10 searches produced qualified leads and three bundle links, while broader discovery supplied four stories and the final PBS/Fox video pair. Eleven protected failures were corrected through narrow same-edition recovery; this records execution evidence, not incremental benefit or causal uplift.",
-    "publication_failures": 13,
+    "publication_failures": 14,
     "publication_failure_causes": [
       "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
       "RECEIPT_PUSH_NON_FAST_FORWARD",
@@ -280,6 +280,13 @@
       "root_cause_code": "BUNDLE_STATUS_NOT_READY",
       "reason": "The exact bundle digest was present but state.bundle.status used ready instead of the protected BUNDLE_READY literal.",
       "evidence_ref": "Correct only state.bundle.status at the current exact head; bundle bytes remain unchanged."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742718467",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "INVALID_SEAL_CLOCK_OR_ORDER",
+      "reason": "A status-only source-readiness repair advanced state.updated_at more than 60 seconds beyond the prior bundle seal.",
+      "evidence_ref": "Reseal unchanged bundle content at the current clock and bind state.updated_at to the same timestamp."
     }
   ]
 }
