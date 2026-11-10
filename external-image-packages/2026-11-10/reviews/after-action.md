@@ -1,6 +1,6 @@
 # 2026-11-10 premium image after-action report
 
-**Status: READY_FOR_PROTECTED_PR**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 4671c971dbee5b29a18b753eedc2682e4cb376a4 |
 | Executor observed run start | 2026-11-10T03:15:37.000Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-10T03:22:52.000Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_CI |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-10T04:59:10.935Z |
+| Final saved-context review | PASS, 24 of 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -58,6 +58,12 @@ The exact dated reader, index, immutable job, source commit and source-bundle ha
 
 Local Chrome was unable to create its process socket. The existing protected workflow capture and connected artifact download were checked as the release review route. No owner computer or paid service was used.
 
-All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. The 24 live semantic reviews remain pending. Usage is UNKNOWN.
+All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. All 24 live placements passed semantic review after publication. Usage is UNKNOWN.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
+
+## Publication recovery
+
+Two fresh Pages runs timed out after upload. [PR #350](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/350) isolated deployment artifacts by attempt and increased the polling budget. The [image deployment](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42759129617) published the six approved PNGs. The [24 visual reviews](https://github.com/gttome/Daily-AI-Brief-Compiler/pull/351) passed and the [metadata-only sync](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42760592385) verified the public receipt and index, six image hashes, 12 placements and 17 protected October 8 files.
+
+Visual review completed at 2026-11-10T05:05:37Z, was first committed at 2026-11-10T05:09:09Z, and merged at 2026-11-10T05:11:26Z. The owner requested immediate recovery. The result is recorded as assisted recovery.

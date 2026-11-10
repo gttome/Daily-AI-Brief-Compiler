@@ -5,7 +5,7 @@
   "original_source_commit_sha": "6d1bf5f3117ab04ca1ee935a61dbc2fb7375b2d7",
   "original_bundle_sha256": "668124c60175e312667bb57dcf3215704d909a8cb702483d908535da4284e82b",
   "cycle_date": "2026-11-09",
-  "status": "READY_FOR_PROTECTED_PR",
+  "status": "PUBLISHED_COMPLETE",
   "human_readable_path": "external-image-packages/2026-11-10/reviews/after-action.md",
   "production": {
     "actual_generation_count": 16,
@@ -209,16 +209,48 @@
         ],
         "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec534f4184203a94d4464c8a5c345854d9179274/external-image-packages/2026-11-10/reviews/asset-5-2-rejection.json"
       }
+    },
+    {
+      "phase": "GitHub Pages deployment",
+      "issue": "Two fresh deployments timed out after Pages accepted the upload. A rerun of the original job also encountered duplicate artifact names.",
+      "correction": "Protected PR #350 gave Pages more time and isolated artifacts by run and attempt. Run 42759129617 published the approved bytes without regenerating art.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/350"
+    },
+    {
+      "phase": "Public release receipt",
+      "issue": "The public index was stale and the release receipt returned HTTP 404 after image publication. Early metadata sync attempts encountered a transient 503 and then a missing protected review.",
+      "correction": "Protected PR #351 saved the actual 24 reviewed screenshots and hashes. The existing metadata-only workflow then verified the receipt, index, images, and all 17 protected October 8 objects.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42760592385"
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_CI",
-    "verified_at": null
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-11-10T04:59:10.935Z",
+    "actions_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42759129617",
+    "public_brief_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-10/",
+    "public_release_receipt_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-10/release.json",
+    "protected_package_pr": 349,
+    "package_head_sha": "99a33d25110887e9570e0bbe8d187ab111738883",
+    "protected_main_merge_sha": "92e20477c191cdbe4c5f9b1d0a8954e608685eba",
+    "validation_workflow_run_id": 42751311652,
+    "required_exact_head_ci": "PRE_PR_PACKAGE_PASS",
+    "live_png_hashes_verified": 6,
+    "story_image_pairings_verified": 12,
+    "protected_oct8_objects_verified": 17,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "metadata_sync_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42760592385",
+    "accepted_image_regenerations": 0,
+    "placeholder_replacement_replays": 0
   },
   "visual_review": {
-    "result": "PENDING",
-    "reviewed_targets": 0,
-    "review_path": "external-image-packages/2026-11-10/reviews/live/semantic-pixel-review.json"
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "review_path": "external-image-packages/2026-11-10/reviews/live/semantic-pixel-review.json",
+    "completed_at": "2026-11-10T05:05:37Z",
+    "first_committed_at": "2026-11-10T05:09:09Z",
+    "first_committed_sha": "3fd8b6dc9495403259cd366aab620c05881ba472",
+    "merged_at": "2026-11-10T05:11:26Z",
+    "merge_commit_sha": "971d78e90c770b24967ba6ea8a13b528aefbb8e3"
   },
   "usage": {
     "work_usage_percent": null,
@@ -229,6 +261,7 @@
     "The first-pass goal of at least 3 of 6 was missed with 0 of 6. Three images took more than two attempts. Quality requirements were applied throughout. The cumulative effectiveness review remains due November 11.",
     "The exact dated reader, index, immutable job, source commit and source-bundle hash were checked. The canonical candidate branch was atomically claimed and subsequent mutations used expected-head non-force updates. Capability-route preflight passed separately from scheduler origin, which remains unproven.",
     "Local Chrome was unable to create its process socket. The existing protected workflow capture and connected artifact download were checked as the release review route. No owner computer or paid service was used.",
-    "All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. The 24 live semantic reviews remain pending. Usage is UNKNOWN."
+    "All six accepted native PNGs passed strict saved-export decoding, 320px readability review and exact immutable GitHub binary readback. All 24 live placements passed semantic review after publication. Usage is UNKNOWN.",
+    "Publication recovery used the approved package and verified public metadata after the owner requested immediate intervention. The observed recovery is not attributed to the unattended schedule."
   ]
 }
