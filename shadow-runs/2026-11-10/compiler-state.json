@@ -2,20 +2,26 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-10",
   "execution_id": "daily-compiler-2026-11-10-primary",
-  "state": "BUNDLE_READY",
-  "stage": "BUNDLE",
+  "state": "RESEARCH",
+  "stage": "EDITORIAL",
   "base_commit": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
   "branch": "shadow/2026-11-10",
   "initial_execution_observed_at": "2026-11-10T01:16:31.139Z",
   "started_at": "2026-11-10T01:16:31.139Z",
-  "updated_at": "2026-11-10T02:28:02.005Z",
+  "updated_at": "2026-11-10T02:31:18.816Z",
   "images": {
     "required": 6,
     "accepted": [],
     "mode": "images_pending",
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
-  "blocker": null,
+  "blocker": {
+    "stage": "MEDIA_HISTORY",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742963466",
+    "failing_program": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
+    "next_candidate": "https://www.cbsnews.com/video/the-risks-of-trusting-personal-ai-agents-with-your-money-data/",
+    "ownership_state": "PRIMARY_ACTIVE_REPROBE"
+  },
   "evidence": {
     "trend_input": "shadow-runs/2026-11-10/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-10/editorial/trend-search-coverage.json",
@@ -29,7 +35,7 @@
     "preseal_video_receipt": "shadow-runs/2026-11-10/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": true,
+    "bundle_ready": false,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -38,14 +44,14 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Final exact-request protected video receipt PASS is bound; continue through bundle-ready signal, protected compile, deployment, live reader verification, and immutable image handoff.",
+  "continuation": "Recovery research state for exact protected native-player re-probe; execution start and all unrelated editorial work remain preserved.",
   "source_main_sha": "ddb2ed06207b81e2613a5d1e0745684c75fb89df",
   "owner_task_id": "6ac9868490b88191ac91f84d5f555994",
-  "retryable": false,
-  "last_error": null,
+  "retryable": true,
+  "last_error": "MEDIA_HISTORY: PBS Coxon video reused from published 2026-10-31; TED Cearns backup also appears in the published 2026-11-04 archive. Re-probing Fox, archive-new CBS, and archive-new TED only.",
   "bundle": {
-    "status": "BUNDLE_READY",
-    "digest": "76066f486808fc9da89498f8f65d6465be90056406713a10f2945d266583c427"
+    "status": "pending",
+    "digest": null
   },
   "editorial_bundle": {
     "status": "complete",
@@ -56,7 +62,5 @@
     "selection_locked_at": "2026-11-10T02:21:45.025Z",
     "sealed_at": "2026-11-10T02:28:02.005Z"
   },
-  "selection_locked_at": "2026-11-10T02:21:45.025Z",
-  "sealed_at": "2026-11-10T02:28:02.005Z",
-  "bundle_sha256": "76066f486808fc9da89498f8f65d6465be90056406713a10f2945d266583c427"
+  "bundle_sha256": null
 }
