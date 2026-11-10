@@ -1,8 +1,8 @@
 {
   "schema_version": "daily-compiler-fallback-search-evidence-v1",
   "edition_date": "2026-11-10",
-  "recorded_at": "2026-11-10T01:49:41.831Z",
-  "selection_locked_at": "2026-11-10T01:49:41.831Z",
+  "recorded_at": "2026-11-10T02:21:45.025Z",
+  "selection_locked_at": "2026-11-10T02:21:45.025Z",
   "scope": "Actual targeted searches and lane-relevant alternatives preserved before selection. Extended-window choices have item-specific comparisons; limited scope is disclosed.",
   "search_receipts": [
     {
@@ -64,11 +64,12 @@
     {
       "query": "current substantive AI videos six candidates three publishers signed-out full player",
       "format": "video",
-      "outcome": "Direct YouTube and embedded fallbacks were blocked; exact publisher-native PBS, CBS and Fox programs then passed one protected request, with CBS and Fox selected",
+      "outcome": "Direct YouTube and embedded fallbacks were blocked; native PBS, Fox and TED programs passed the final exact protected request. CBS passed playback but was rejected for exact 2026-11-09 archive reuse. PBS and Fox were selected, with TED retained as the valid third-publisher backup.",
       "urls": [
         "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
-        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
-        "https://www.foxnews.com/video/6407416427112"
+        "https://www.foxnews.com/video/6407416427112",
+        "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+        "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/"
       ]
     },
     {
@@ -123,6 +124,20 @@
       "url": "https://mediacenter.ibm.com/media/Multi%E2%80%91Agent%2BSystems%3A%2BWhen%2BOne%2BAI%2BBrain%2BIsn%E2%80%99t%2BEnough/1_t3mpz3sr",
       "original_date": "2026-05-28",
       "reason": "IBM player remained uninitialized and the program was older than the selected current newsroom alternatives."
+    },
+    {
+      "candidate_id": "VID-CBS-DEEPFAKES",
+      "lane": "Media",
+      "url": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+      "original_date": "2026-11-02",
+      "reason": "Protected media-history gate identified exact reuse in the published 2026-11-09 edition; the program was removed without reopening unrelated editorial work."
+    },
+    {
+      "candidate_id": "VID-PBS-DEADLOCK-AI",
+      "lane": "Media",
+      "url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
+      "original_date": "2026-10-27",
+      "reason": "Content qualified, but using it beside the selected PBS NewsHour program failed the required three-distinct-publisher pre-seal request."
     }
   ],
   "limitation": "Preselection source scope remains limited to the explicitly inspected 13 of 109 eligible indexes plus actual Top 10 and broader searches. Automated census is separate and no absence claim is inferred for unreviewed indexes."
