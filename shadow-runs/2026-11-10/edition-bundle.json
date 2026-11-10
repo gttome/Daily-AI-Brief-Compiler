@@ -1,0 +1,3023 @@
+{
+  "schema_version": "daily-compiler-edition-bundle-v1",
+  "edition_date": "2026-11-10",
+  "editorial_contract_version": "daily-compiler-editorial-contract-v1",
+  "editorial_provenance": {
+    "selection_locked_at": "2026-11-10T01:49:41.831Z",
+    "sealed_at": "2026-11-10T01:54:27.594Z"
+  },
+  "images": [
+    {
+      "story_id": "nov10-t1-fable-mythos",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Two compute paths branch from one model core into a broadly available lane and a verified research lane."
+    },
+    {
+      "story_id": "nov10-t2-muse-ember",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A long document stream enters a model window while a smaller retrieval path runs beside it for comparison."
+    },
+    {
+      "story_id": "nov10-k1-label-confirmation",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A document label receives a user checkmark while an audit trail remains visible beside the file."
+    },
+    {
+      "story_id": "nov10-k2-asana-meetings-tables",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Meeting notes flow into proposed tasks beside a structured table awaiting human approval."
+    },
+    {
+      "story_id": "nov10-a1-inloox-agents",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A portfolio manager reviews a scheduled agent draft linked to several project boards."
+    },
+    {
+      "story_id": "nov10-a2-smartsheet-scheduled-prompts",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A weekly calendar triggers a read-only exception digest that pauses at an approval checkpoint before email delivery."
+    }
+  ],
+  "image_representation": {
+    "status": "images_pending",
+    "placeholder_id": "illustration-pending-1200x630-v1",
+    "width": 1200,
+    "height": 630
+  },
+  "stories": [
+    {
+      "id": "nov10-t1-fable-mythos",
+      "headline": "Anthropic splits one frontier model into two compute modes",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "Claude Fable 5.2 and Mythos 5.2",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "published_at": "2026-11-09T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete release, pricing, serving-mode distinction, benchmark tables, safeguards, availability guidance and linked system-card scope.",
+        "freshness_reason": "Published within the latest 24-hour window and selected from the accepted event-specific Top 10 lead.",
+        "retrieved_at": "2026-11-10T01:48:08.006Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-10T01:48:08.006Z",
+          "scope": "Reviewed the complete release, pricing, serving-mode distinction, benchmark tables, safeguards, availability guidance and linked system-card scope."
+        }
+      },
+      "topics": [
+        "Model routing",
+        "Inference tradeoffs",
+        "Safety safeguards"
+      ],
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Model routing",
+        "Inference tradeoffs"
+      ],
+      "summary": "Anthropic introduced Fable 5.2 and Mythos 5.2 as two serving modes of one underlying model. The company says Fable targets broad access while Mythos supports verified high-risk research, with shared safeguards and a system card. Its speed, pricing, benchmark, and safety claims remain vendor-reported rather than independently replicated.",
+      "why_it_matters": "Compare both modes on the same representative workload before changing defaults. Record latency, output quality, token use, and failure cases, then route only tasks that justify Mythos access while keeping Fable for broadly available work.",
+      "related_coverage": "Reviewed Anthropic's model relationship, safeguards, pricing, benchmark claims, access boundaries and system-card references.",
+      "image_alt_intent": "Two compute paths branch from one model core into a broadly available lane and a verified research lane.",
+      "permanent_route": "/stories/2026-11-10/nov10-t1-fable-mythos/",
+      "reading_time_minutes": 8
+    },
+    {
+      "id": "nov10-t2-muse-ember",
+      "headline": "Meta’s Muse Ember stretches context to one million tokens",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "Muse Ember",
+        "publisher": "Meta AI",
+        "url": "https://research.meta.ai/blog/muse-ember",
+        "published_at": "2026-11-09T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete model announcement, context and output limits, pricing, intended workloads, evaluation references and availability details.",
+        "freshness_reason": "Published within the latest 24-hour window and selected from the accepted event-specific Top 10 lead.",
+        "retrieved_at": "2026-11-10T01:48:08.006Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-10T01:48:08.006Z",
+          "scope": "Reviewed the complete model announcement, context and output limits, pricing, intended workloads, evaluation references and availability details."
+        }
+      },
+      "topics": [
+        "Long context",
+        "Output scaling",
+        "Cost evaluation"
+      ],
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Long context",
+        "Cost evaluation"
+      ],
+      "summary": "Meta says Muse Ember supports a one-million-token context window and up to 512,000 output tokens at low published prices. The release targets long codebases, reports, and multimodal inputs. Meta also cites external evaluation results, but those scores and cost-performance comparisons need independent reproduction on workloads that resemble your own.",
+      "why_it_matters": "Run a bounded retrieval and generation test before adopting a very long context window. Measure relevant evidence found, omitted constraints, latency, and total cost; compare chunked retrieval so context size does not become a substitute for information architecture.",
+      "related_coverage": "Reviewed Meta's published context limits, output limits, pricing, workload claims and evaluation references without treating them as independent replication.",
+      "image_alt_intent": "A long document stream enters a model window while a smaller retrieval path runs beside it for comparison.",
+      "permanent_route": "/stories/2026-11-10/nov10-t2-muse-ember/",
+      "reading_time_minutes": 6
+    },
+    {
+      "id": "nov10-k1-label-confirmation",
+      "headline": "Google Workspace shortens classification-label confirmation",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "Quickly confirm system-applied classification labels in Google Drive, Docs, Sheets and Slides",
+        "publisher": "Google Workspace Updates",
+        "url": "https://workspaceupdates.googleblog.com/2026/11/quickly-confirm-system-applied-classification-labels-in-Google-Drive-Docs-Sheets-and-Slides.html",
+        "published_at": "2026-11-09T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete feature description, administrator controls, user confirmation behavior, supported applications, rollout and availability.",
+        "freshness_reason": "Published within the latest 24-hour window and selected after original Workspace index inspection.",
+        "retrieved_at": "2026-11-10T01:48:08.006Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-10T01:48:08.006Z",
+          "scope": "Reviewed the complete feature description, administrator controls, user confirmation behavior, supported applications, rollout and availability."
+        }
+      },
+      "topics": [
+        "Classification labels",
+        "Document governance",
+        "User confirmation"
+      ],
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Classification labels",
+        "Document governance"
+      ],
+      "summary": "Google Workspace added a one-click way for users to confirm system-applied classification labels in Drive, Docs, Sheets, and Slides. Admins still control label policies and availability. The change reduces a recurring confirmation step; it does not prove a file was correctly classified or remove the need for review.",
+      "why_it_matters": "Pilot the shortcut on a small document set and sample confirmed labels for accuracy. Keep escalation paths for ambiguous or sensitive files, and track false confirmations before treating reduced friction as evidence that governance quality improved.",
+      "related_coverage": "Reviewed the exact confirmation flow, administrator role, application coverage, rollout and availability.",
+      "image_alt_intent": "A document label receives a user checkmark while an audit trail remains visible beside the file.",
+      "permanent_route": "/stories/2026-11-10/nov10-k1-label-confirmation/",
+      "reading_time_minutes": 3
+    },
+    {
+      "id": "nov10-k2-asana-meetings-tables",
+      "headline": "Asana turns meetings and structured records into reviewable work",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "Introducing AI Meetings and Tables",
+        "publisher": "Asana",
+        "url": "https://asana.com/inside-asana/introducing-ai-meetings-and-tables",
+        "published_at": "2026-11-05T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete announcement covering Zoom and Teams capture, proposed tasks and assignees, human review, Tables imports, permissions, plan availability and rollout limits.",
+        "freshness_reason": "This 120-hour extended fallback was selected after a limited inspected sample found no newer qualified nonduplicate source covering both meeting follow-up and governed structured records.",
+        "retrieved_at": "2026-11-10T01:48:08.006Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-10T01:48:08.006Z",
+          "scope": "Reviewed the complete announcement covering Zoom and Teams capture, proposed tasks and assignees, human review, Tables imports, permissions, plan availability and rollout limits."
+        }
+      },
+      "topics": [
+        "Meeting follow-up",
+        "Structured records",
+        "Human review"
+      ],
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Meeting follow-up",
+        "Human review"
+      ],
+      "summary": "Asana introduced AI Meetings, which transcribes Zoom and Teams calls and proposes tasks and assignees for human review, plus Tables for structured records imported through CSV, APIs, or MCP. Availability depends on plan and rollout. The product announcement establishes features, not independent evidence of time saved or task accuracy.",
+      "why_it_matters": "Test meeting capture against a known action log and require owners to approve assignments. For Tables, start with one stable dataset, document field mappings and permissions, and measure correction work before expanding the workflow.",
+      "related_coverage": "Reviewed the meeting capture, assignment review, structured-record import, permissions and plan limitations.",
+      "image_alt_intent": "Meeting notes flow into proposed tasks beside a structured table awaiting human approval.",
+      "permanent_route": "/stories/2026-11-10/nov10-k2-asana-meetings-tables/",
+      "reading_time_minutes": 7
+    },
+    {
+      "id": "nov10-a1-inloox-agents",
+      "headline": "InLoox adds scheduled agents across project portfolios",
+      "focus": "Agents for Everyone",
+      "agent_skills": false,
+      "source": {
+        "title": "What's new in InLoox",
+        "publisher": "InLoox",
+        "url": "https://docs.inloox.com/whats-new/",
+        "published_at": "2026-11-09T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete current documentation for cross-project answers, recurring agents, draft review, permissions, beta status and credit use.",
+        "freshness_reason": "Published within the latest 24-hour window and selected for a noncoding portfolio-management audience.",
+        "retrieved_at": "2026-11-10T01:48:08.006Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-10T01:48:08.006Z",
+          "scope": "Reviewed the complete current documentation for cross-project answers, recurring agents, draft review, permissions, beta status and credit use."
+        }
+      },
+      "topics": [
+        "Portfolio answers",
+        "Recurring agents",
+        "Draft review"
+      ],
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Portfolio answers",
+        "Draft review"
+      ],
+      "summary": "InLoox’s beta adds cross-project AI answers and agents that can run on recurring schedules. The documentation says agents draft results for review, inherit user permissions, and consume credits. The feature could help portfolio coordination, but beta status and vendor documentation leave reliability, cost, and workload impact unestablished.",
+      "why_it_matters": "Begin with a read-only weekly portfolio question and compare every draft with source projects. Record missing items, permission surprises, credit use, and review time; keep any follow-up action manual until the beta behaves consistently.",
+      "related_coverage": "Reviewed the beta workflow, cross-project scope, schedule behavior, permission inheritance, credit use and human-review boundary.",
+      "image_alt_intent": "A portfolio manager reviews a scheduled agent draft linked to several project boards.",
+      "permanent_route": "/stories/2026-11-10/nov10-a1-inloox-agents/",
+      "reading_time_minutes": 4,
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Project and portfolio managers who coordinate recurring status questions across several workspaces.",
+        "practical_action": "Schedule one read-only portfolio question and compare its draft against the underlying project records.",
+        "review_action": "Check missing projects, permission boundaries, credit consumption, and every proposed conclusion before sharing.",
+        "usable_outcome": "A bounded weekly portfolio brief whose errors and review cost can be measured before wider use."
+      }
+    },
+    {
+      "id": "nov10-a2-smartsheet-scheduled-prompts",
+      "headline": "A scheduled Smartsheet prompt becomes a reusable exception digest",
+      "focus": "Agents for Everyone",
+      "agent_skills": true,
+      "source": {
+        "title": "Schedule prompts to run automatically",
+        "publisher": "Smartsheet",
+        "url": "https://www.smartsheet.com/content-center/schedule-prompts-run-automatically",
+        "published_at": "2026-11-04T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete feature update and help guidance covering prompt schedules, read-only summaries, approval, email delivery, examples and permission boundaries.",
+        "freshness_reason": "This 144-hour extended fallback supplied the one reusable Agent Skills procedure; the limited inspected sample found no newer supported nonduplicate scheduled-prompt procedure.",
+        "retrieved_at": "2026-11-10T01:48:08.006Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-10T01:48:08.006Z",
+          "scope": "Reviewed the complete feature update and help guidance covering prompt schedules, read-only summaries, approval, email delivery, examples and permission boundaries."
+        }
+      },
+      "topics": [
+        "Scheduled prompts",
+        "Exception digest",
+        "Approval workflow"
+      ],
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Agent Skills",
+        "Approval workflow"
+      ],
+      "summary": "Smartsheet now lets users schedule prompts to run automatically and email generated summaries after approval. Its examples include recurring risk and status reviews, while the product remains read-only for these summaries. The release supports a reusable exception-digest procedure, but Smartsheet provides no independent productivity or accuracy measurement.",
+      "why_it_matters": "Create one weekly exception digest with a fixed prompt, named source sheet, approval owner, and recipient list. Compare each draft with the underlying rows, log corrections, and revise the prompt only after a recurring error pattern appears.",
+      "related_coverage": "Reviewed scheduling, read-only behavior, approval, delivery, example prompts and permission limits; procedure: choose one sheet, write a fixed exception prompt, schedule weekly, review every draft, send only after approval, and log corrections.",
+      "image_alt_intent": "A weekly calendar triggers a read-only exception digest that pauses at an approval checkpoint before email delivery.",
+      "permanent_route": "/stories/2026-11-10/nov10-a2-smartsheet-scheduled-prompts/",
+      "reading_time_minutes": 4,
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Operations managers who maintain recurring status or risk sheets and already review weekly summaries.",
+        "practical_action": "Configure one fixed weekly exception prompt with a named source sheet, owner, and recipient list.",
+        "review_action": "Compare every generated exception with its source row, record corrections, and approve only accurate drafts.",
+        "usable_outcome": "A reusable weekly digest process with visible review effort, correction history, and a human release decision."
+      }
+    }
+  ],
+  "videos": [
+    {
+      "title": "Deepfakes infiltrating midterm elections",
+      "source": "CBS News",
+      "url": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+      "original_date": "2026-11-02",
+      "duration_minutes": 3.7333333333,
+      "focus": "Independent reporting on election deepfakes and practical verification limits",
+      "summary": "CBS News MoneyWatch reports on AI-generated political deepfakes and why voters cannot rely on visual clues alone. The program and companion reporting distinguish documented campaign examples from vendor claims and recommend checking original sources, multiple trusted outlets, and independently obtained contact channels.",
+      "why_it_matters": "Use a verification routine for consequential political media: locate the original, compare trusted reporting, and confirm urgent requests through a separately obtained channel.",
+      "verified": true,
+      "verified_at": "2026-11-10T01:46:03.591Z",
+      "content_retrieved_at": "2026-11-10T01:48:08.006Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "content_reviewed": true,
+        "playback_verified": true,
+        "checked_at": "2026-11-10T01:46:03.591Z",
+        "runtime_source_url": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+        "content_review_basis": "Complete 03:44 CBS News program and companion reporting reviewed, covering election deepfake examples, unreliable visual tells, weak disclosure, and source-verification steps.",
+        "playback_evidence": {
+          "method": "Protected GitHub Actions signed-out Chrome on the exact publisher program page",
+          "result": "Duration-matched player advanced from 7.84 to 10.48 seconds; observed duration 224.324 seconds.",
+          "checked_at": "2026-11-10T01:46:03.591Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "November 10 editorial",
+        "reviewed_at": "2026-11-10T01:49:40.229Z",
+        "editorial_relevance": "Independent reporting on election deepfakes and practical verification limits",
+        "reader_value": "Use a verification routine for consequential political media: locate the original, compare trusted reporting, and confirm urgent requests through a separately obtained channel.",
+        "learning_objective": "Readers get a concrete verification method for political media while seeing the limits of visual detection and the need to corroborate consequential claims.",
+        "selected_over_alternatives": "Selected after complete content review, archive screening, distinct-publisher comparison, and the fresh exact-request protected playback PASS; failed YouTube and embed candidates remain recorded.",
+        "content_evidence": {
+          "kind": "news_analysis",
+          "url": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+          "scope": "Complete 03:44 CBS News program and companion reporting reviewed, covering election deepfake examples, unreliable visual tells, weak disclosure, and source-verification steps."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "practical_action": "Use a verification routine for consequential political media: locate the original, compare trusted reporting, and confirm urgent requests through a separately obtained channel.",
+        "promotional_assessment": "Independent newsroom reporting without a product sale or commercial call to action.",
+        "editorial_value_basis": "Readers get a concrete verification method for political media while seeing the limits of visual detection and the need to corroborate consequential claims."
+      }
+    },
+    {
+      "title": "US banks scramble to contain risks from rogue AI agents",
+      "source": "Fox News",
+      "url": "https://www.foxnews.com/video/6407416427112",
+      "original_date": "2026-10-26",
+      "duration_minutes": 3.5333333333,
+      "focus": "Attributed interview on unauthorized agent transactions and account safeguards",
+      "summary": "Fox News interviews Kurt Knutsson about unauthorized AI-agent transactions and an AI-enabled romance scam. The program offers permission, alert, and account-monitoring steps, while its threat framing and dollar-loss example remain attributed to the guest rather than treated as independent incidence measurements.",
+      "why_it_matters": "Review which services can initiate transactions, enable account alerts, and inspect unusual activity. Treat the interview’s examples as prompts for controls, not as evidence that every agent poses the same risk.",
+      "verified": true,
+      "verified_at": "2026-11-10T01:46:05.074Z",
+      "content_retrieved_at": "2026-11-10T01:48:08.006Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "content_reviewed": true,
+        "playback_verified": true,
+        "checked_at": "2026-11-10T01:46:05.074Z",
+        "runtime_source_url": "https://www.foxnews.com/video/6407416427112",
+        "content_review_basis": "Complete 03:32 Fox News program reviewed, including unauthorized transaction risk, permission review, account alerts, monitoring advice, and an attributed romance-scam example.",
+        "playback_evidence": {
+          "method": "Protected GitHub Actions signed-out Chrome on the exact publisher program page",
+          "result": "Duration-matched player advanced from 0.08 to 3.03 seconds; observed duration 212.367 seconds.",
+          "checked_at": "2026-11-10T01:46:05.074Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "November 10 editorial",
+        "reviewed_at": "2026-11-10T01:49:40.229Z",
+        "editorial_relevance": "Attributed interview on unauthorized agent transactions and account safeguards",
+        "reader_value": "Review which services can initiate transactions, enable account alerts, and inspect unusual activity. Treat the interview’s examples as prompts for controls, not as evidence that every agent poses the same risk.",
+        "learning_objective": "Readers can translate an attributed risk interview into bounded account-control checks without accepting the guest's broader threat framing as independently measured fact.",
+        "selected_over_alternatives": "Selected after complete content review, archive screening, distinct-publisher comparison, and the fresh exact-request protected playback PASS; failed YouTube and embed candidates remain recorded.",
+        "content_evidence": {
+          "kind": "news_analysis",
+          "url": "https://www.foxnews.com/video/6407416427112",
+          "scope": "Complete 03:32 Fox News program reviewed, including unauthorized transaction risk, permission review, account alerts, monitoring advice, and an attributed romance-scam example."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "practical_action": "Review which services can initiate transactions, enable account alerts, and inspect unusual activity. Treat the interview’s examples as prompts for controls, not as evidence that every agent poses the same risk.",
+        "promotional_assessment": "Newsroom interview containing attributed guest claims and no product sale or commercial call to action.",
+        "editorial_value_basis": "Readers can translate an attributed risk interview into bounded account-control checks without accepting the guest's broader threat framing as independently measured fact."
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "How Stanford Teaches AI-Native Engineering — Mihail Eric, Monaco",
+      "source": "Latent Space",
+      "url": "https://latent.space/p/cs146s/",
+      "original_date": "2026-11-08T00:00:00Z",
+      "duration_minutes": 115,
+      "episode_identifier": "Latent Space episode published 2026-11-08",
+      "summary": "Latent Space interviews Stanford instructor and Monaco AI lead Mihail Eric about revising an AI-native engineering course, maintainer-reviewed open-source work, agent harnesses, context engineering, skills, code review, security, infrastructure, and team adoption. The publisher provides a complete transcript and detailed chapter schedule.",
+      "why_it_matters": "Use the syllabus and workplace comparisons to decide which agent skills deserve structured practice, external review, and production evidence.",
+      "verified": true,
+      "verified_at": "2026-11-10T01:48:08.006Z",
+      "content_retrieved_at": "2026-11-10T01:48:08.006Z",
+      "written_reading_time_minutes": 115,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "content_reviewed": true,
+        "playback_verified": false,
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "runtime_source_url": "https://latent.space/p/cs146s/",
+        "episode_url": "https://latent.space/p/cs146s/",
+        "episode_identifier": "Latent Space episode published 2026-11-08",
+        "content_review_basis": "Reviewed the complete publisher transcript, show notes and timestamp schedule from 0:00 through the 1:52:16 final chapter."
+      },
+      "quality_review": {
+        "reviewer": "November 10 editorial",
+        "reviewed_at": "2026-11-10T01:49:40.229Z",
+        "learning_objective": "Distinguish teachable agent workflows from shortcuts by comparing syllabus design with production engineering practice.",
+        "practical_action": "Choose one course exercise and require an external maintainer or teammate to review the result.",
+        "selected_over_alternatives": "Selected for exact episode identity, complete transcript, detailed whole-episode chapters, source diversity and no show use in the prior three editions.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://latent.space/p/cs146s/",
+          "scope": "Complete 115-minute transcript and timestamp schedule reviewed from the course redesign through team autonomy."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "Original practitioner interview includes event and product references, but the full transcript supports independent editorial review across many topics.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 1444,
+            "kind": "ai",
+            "topic": "Course redesign, junior engineering skills, and maintainer-reviewed open-source assignments"
+          },
+          {
+            "start_seconds": 1444,
+            "end_seconds": 2295,
+            "kind": "ai",
+            "topic": "Agent loops, tool harnesses, context engineering, and understanding generated diffs"
+          },
+          {
+            "start_seconds": 2295,
+            "end_seconds": 3700,
+            "kind": "ai",
+            "topic": "Monaco workflows, sales questions, engineering workspaces, and build-versus-buy decisions"
+          },
+          {
+            "start_seconds": 3700,
+            "end_seconds": 5077,
+            "kind": "ai",
+            "topic": "Repository readiness, on-call investigation, code-review bottlenecks, security, and permissions"
+          },
+          {
+            "start_seconds": 5077,
+            "end_seconds": 6250,
+            "kind": "ai",
+            "topic": "Background agents, infrastructure portals, and software-factory operating models"
+          },
+          {
+            "start_seconds": 6250,
+            "end_seconds": 6900,
+            "kind": "ai",
+            "topic": "Remaining developer responsibilities and the transition from personal adoption to team autonomy"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "A complete original interview connects a named course syllabus to production engineering decisions, limitations, security and organizational review.",
+        "independently_verified_sources": []
+      }
+    },
+    {
+      "title": "AI fixes AI in MIT study, Mistral's open model & Google Genie 4",
+      "source": "Mixture of Experts",
+      "url": "https://www.ibm.com/think/podcasts/mixture-of-experts/ai-self-improvement-mistral-genie",
+      "original_date": "2026-11-06T00:00:00Z",
+      "duration_minutes": 35.9166666667,
+      "episode_identifier": "Mixture of Experts episode 132 published 2026-11-06",
+      "summary": "IBM’s Mixture of Experts panel examines AI-assisted model modification, Mistral and NVIDIA open models, and Google DeepMind’s Genie 4. The publisher supplies exact chapter times and identifies the panelists. Claims and forecasts remain attributed to the speakers, with the episode’s four-part structure covering the full runtime.",
+      "why_it_matters": "Use the panel’s three topics to separate demonstrated research techniques, model-release positioning, and speculation about world-model understanding.",
+      "verified": true,
+      "verified_at": "2026-11-10T01:48:08.006Z",
+      "content_retrieved_at": "2026-11-10T01:48:08.006Z",
+      "written_reading_time_minutes": 6,
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "content_reviewed": true,
+        "playback_verified": false,
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "runtime_source_url": "https://podfollow.com/mixture-of-experts/episode/63a982eaf46a2d1d39984a5f77cb8dde1480cdbd/view",
+        "episode_url": "https://www.ibm.com/think/podcasts/mixture-of-experts/ai-self-improvement-mistral-genie",
+        "episode_identifier": "Mixture of Experts episode 132 published 2026-11-06",
+        "content_review_basis": "Reviewed the complete publisher chapter schedule: intro, AI self-improvement, Mistral and NVIDIA open models, and Genie 4 world models."
+      },
+      "quality_review": {
+        "reviewer": "November 10 editorial",
+        "reviewed_at": "2026-11-10T01:49:40.229Z",
+        "learning_objective": "Separate demonstrated model-modification research from broader recursive-improvement and world-model claims.",
+        "practical_action": "Classify each panel claim as demonstrated result, product release, attributed forecast, or unresolved evaluation question.",
+        "selected_over_alternatives": "Selected for exact episode identity, complete whole-episode chapter coverage, independently corroborated runtime, source diversity and no show use in the prior three editions.",
+        "content_evidence": {
+          "kind": "timecoded_agenda",
+          "url": "https://www.ibm.com/think/podcasts/mixture-of-experts/ai-self-improvement-mistral-genie",
+          "scope": "Complete 35:55 publisher chapter schedule reviewed from introduction through all three substantive panel topics."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "medium",
+        "promotional_assessment": "Publisher-produced expert panel contains IBM framing but covers external research and releases without a direct product sales call.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 68,
+            "kind": "ai",
+            "topic": "Episode framing and introduction of the model-improvement, open-model, and world-model questions"
+          },
+          {
+            "start_seconds": 68,
+            "end_seconds": 988,
+            "kind": "ai",
+            "topic": "MIT weight-space research, AI-assisted model development, recursive improvement, and reward-hacking risk"
+          },
+          {
+            "start_seconds": 988,
+            "end_seconds": 1527,
+            "kind": "ai",
+            "topic": "Mistral and NVIDIA open-model releases, developer choice, and frontier-capability comparisons"
+          },
+          {
+            "start_seconds": 1527,
+            "end_seconds": 2155,
+            "kind": "ai",
+            "topic": "Google DeepMind Genie 4, simulated physics, world-model understanding, and evaluation limits"
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "expert_analysis",
+        "editorial_form_rationale": "A named multi-expert panel analyzes three current AI developments with publisher-provided whole-episode chapters and explicit opinion attribution.",
+        "independently_verified_sources": []
+      }
+    }
+  ],
+  "video_prequalification": {
+    "candidates": [
+      {
+        "title": "Claude Code Is Wasting Tokens... Microsoft Built a Fix",
+        "publisher": "Better Stack",
+        "url": "https://gridvids.com/better-stack/microsoft-s-new-plugin-cut-ai-coding-costs-by-31-tokeneconomizer",
+        "original_date": "2026-11-08",
+        "duration_minutes": 12.25,
+        "editorial_evidence": "Reviewed the full chapter sequence and publisher description covering TokenEconomizer installation, micro-skills, tool pruning, failure-loop detection, benchmark claims, limitations, and a worked repository test.",
+        "research_disposition": "Qualified as a substantive independently published technical explainer; benchmark percentages remain attributed to Microsoft Research and UC Berkeley rather than treated as independent verification.",
+        "content_evidence_url": "https://gridvids.com/better-stack/microsoft-s-new-plugin-cut-ai-coding-costs-by-31-tokeneconomizer",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:36:05.614Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact publisher-program page or publisher-specific public program page was reviewed as the original-publisher fallback after the direct YouTube signed-out probe was blocked; playback remains for the protected runner."
+        }
+      },
+      {
+        "title": "Your AI Agent Is Hiding Its Mistakes From You",
+        "publisher": "AI Engineer",
+        "url": "https://ai.engineer/talks/pz74r-4dGfQ-your-ai-agent-is-hiding-its-mistakes",
+        "original_date": "2026-11-06",
+        "duration_minutes": 19.3166666667,
+        "editorial_evidence": "Reviewed the complete original talk transcript: Ben Holmes explains using agent traces to find hidden retries, port errors and configuration gaps, then feeding recurring failure patterns into skills and harness changes.",
+        "research_disposition": "Qualified as an expert conference talk with a distinct observability objective and no product sales call; operational claims are limited to the speaker's demonstrated trace-review workflow.",
+        "content_evidence_url": "https://ai.engineer/talks/pz74r-4dGfQ-your-ai-agent-is-hiding-its-mistakes",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:36:05.614Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact publisher-program page or publisher-specific public program page was reviewed as the original-publisher fallback after the direct YouTube signed-out probe was blocked; playback remains for the protected runner."
+        }
+      },
+      {
+        "title": "Your KV Cache Can Spot Attacks on Your AI Agents",
+        "publisher": "AI Engineer",
+        "url": "https://www.youtube.com/watch?v=1NWnSwCB4NM",
+        "original_date": "2026-11-09",
+        "duration_minutes": 7.2,
+        "editorial_evidence": "Reviewed the complete transcript evidence describing two cache-level detection integration points, a hidden voice-instruction case and benchmark alerts, including the speaker's limits on what anomaly signals prove.",
+        "research_disposition": "Qualified as a concise technical security talk; it is a backup because selecting two programs from the same original channel would reduce publisher diversity.",
+        "content_evidence_url": "https://ainotes.us/summary/your-kv-cache-can-spot-attacks-on-your-ai-agents-ari-azarafrooz-intrinsec-ai",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:29:05.333Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact public individual-program URL and independently indexed runtime were reviewed; advancing playback remains exclusively for the protected pre-seal runner.",
+          "publisher_channel_id": "UCLKPca3kwwd-B59HNr-_lvA",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCLKPca3kwwd-B59HNr-_lvA",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Will AI Agents Pretend to Be Human to Get Past a Check?",
+        "publisher": "AI Engineer",
+        "url": "https://www.youtube.com/watch?v=LF8V0RGJU0I",
+        "original_date": "2026-11-09",
+        "duration_minutes": 17.95,
+        "editorial_evidence": "Reviewed the full transcript evidence for an agent-vault experiment in which tool-enabled agents found voice material and attempted human-verification calls; percentages remain attributed to the presented study.",
+        "research_disposition": "Qualified as substantive agent-safety research reporting; held as a backup because the proposed pair already contains a different AI Engineer program and needs distinct original publishers.",
+        "content_evidence_url": "https://ainotes.us/summary/will-ai-agents-pretend-to-be-human-to-get-past-a-check-maty-bohacek-stanford",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:29:05.333Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact public individual-program URL and independently indexed runtime were reviewed; advancing playback remains exclusively for the protected pre-seal runner.",
+          "publisher_channel_id": "UCLKPca3kwwd-B59HNr-_lvA",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCLKPca3kwwd-B59HNr-_lvA",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "Teach Your AI Agent to Build Products Everyone Can Use",
+        "publisher": "AI Engineer",
+        "url": "https://www.youtube.com/watch?v=YV1x6gCdgQA",
+        "original_date": "2026-11-09",
+        "duration_minutes": 14.65,
+        "editorial_evidence": "Reviewed the complete talk evidence on accessibility requirements, design, reusable components, implementation and testing, including the speaker's warning that a one-off agent run is not empirical proof.",
+        "research_disposition": "Qualified as a practitioner talk with bounded claims and a distinct inclusive-design objective; retained as an archive-new backup rather than duplicating the selected channel.",
+        "content_evidence_url": "https://aietalks.com/talks/teach-your-ai-agent-to-build-products-everyone-can-use",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:29:05.333Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact public individual-program URL and independently indexed runtime were reviewed; advancing playback remains exclusively for the protected pre-seal runner.",
+          "publisher_channel_id": "UCLKPca3kwwd-B59HNr-_lvA",
+          "publisher_channel_url": "https://www.youtube.com/channel/UCLKPca3kwwd-B59HNr-_lvA",
+          "publisher_channel_verified": true
+        }
+      },
+      {
+        "title": "The PHP emergency: How AI has changed hacking forever",
+        "publisher": "BBC World Service",
+        "url": "https://www.kenyamoja.com/video/php-emergency-how-ai-has-changed-hacking-forever-bbc-africa-bbc-africa-528789",
+        "original_date": "2026-11-08",
+        "duration_minutes": 5.6333333333,
+        "editorial_evidence": "Reviewed the complete BBC report scope on the PHP security emergency, affected sites, the patching scramble, disclosure pressure, and how stronger AI systems alter both vulnerability discovery and exploitation risk.",
+        "research_disposition": "Qualified as independent original news reporting and the third-publisher probe program; selected status remains pending the exact signed-out duration-matched protected playback receipt.",
+        "content_evidence_url": "https://www.kenyamoja.com/video/php-emergency-how-ai-has-changed-hacking-forever-bbc-africa-bbc-africa-528789",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:36:05.614Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact publisher-program page or publisher-specific public program page was reviewed as the original-publisher fallback after the direct YouTube signed-out probe was blocked; playback remains for the protected runner."
+        }
+      },
+      {
+        "title": "Multi-Agent Systems: When One AI Brain Isn't Enough",
+        "publisher": "IBM Technology",
+        "url": "https://mediacenter.ibm.com/media/Multi%E2%80%91Agent%2BSystems%3A%2BWhen%2BOne%2BAI%2BBrain%2BIsn%E2%80%99t%2BEnough/1_t3mpz3sr",
+        "original_date": "2026-05-28",
+        "duration_minutes": 10.9166666667,
+        "editorial_evidence": "Reviewed the complete publisher description and independently indexed 10:55 chapter evidence: Bri Kopecki contrasts single-agent confidence with generator, verifier, and adversarial roles for high-stakes decisions, while framing the architecture as a risk-control pattern rather than proof of error elimination.",
+        "research_disposition": "Qualified as a substantive IBM technical explainer with a clearly bounded architecture lesson; its age and first-party origin are disclosed, and it is used only because newer independent programs failed the protected public-player gate.",
+        "content_evidence_url": "https://mediacenter.ibm.com/media/Multi%E2%80%91Agent%2BSystems%3A%2BWhen%2BOne%2BAI%2BBrain%2BIsn%E2%80%99t%2BEnough/1_t3mpz3sr",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:40:13.460Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact IBM MediaCenter program page and independently indexed 10:55 runtime reviewed; advancing full-length playback remains exclusively for the protected runner."
+        }
+      },
+      {
+        "title": "Deepfakes infiltrating midterm elections",
+        "publisher": "CBS News",
+        "url": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+        "original_date": "2026-11-02",
+        "duration_minutes": 3.7333333333,
+        "editorial_evidence": "Reviewed the complete CBS News program page and companion reporting: Megan Cerullo explains how campaign deepfakes can mislead voters, why visual clues are unreliable, and why consequential claims need source and cross-outlet verification.",
+        "research_disposition": "Qualified as concise independent news reporting with practical verification value; consecutive CBS exposure is an editorial rotation advisory caused by protected-player availability, not an exact-program repeat.",
+        "content_evidence_url": "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:45:09.575Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact CBS News individual program page identifies the 3:44 runtime; advancing full-length playback remains exclusively for the protected runner."
+        }
+      },
+      {
+        "title": "US banks scramble to contain risks from rogue AI agents",
+        "publisher": "Fox News",
+        "url": "https://www.foxnews.com/video/6407416427112",
+        "original_date": "2026-10-26",
+        "duration_minutes": 3.5333333333,
+        "editorial_evidence": "Reviewed the complete Fox program identity and scope: Kurt Knutsson discusses unauthorized AI-agent transactions and an AI-enabled romance scam, with concrete advice to review permissions, alerts, and account activity rather than treating every automation as trusted.",
+        "research_disposition": "Retained only as a third-publisher native-player probe because its interview format and repeated Fox exposure make it weaker than the proposed IBM and CBS selections.",
+        "content_evidence_url": "https://www.foxnews.com/video/6407416427112",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:45:09.575Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact Fox News individual program page identifies the 3:32 runtime; advancing full-length playback remains exclusively for the protected runner."
+        }
+      },
+      {
+        "title": "As AI behavior raises concerns, ex-researcher Jacob Coxon warns what may lie ahead",
+        "publisher": "PBS NewsHour",
+        "url": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
+        "original_date": "2026-09-17",
+        "duration_minutes": 10.2,
+        "editorial_evidence": "Reviewed the complete PBS NewsHour transcript and program page: former Anthropic and OpenAI researcher Jacob Coxon distinguishes occasional unauthorized behavior from intent, explains the limits of current control, and makes clearly attributed arguments about tail risk.",
+        "research_disposition": "Qualified as independent expert-interview reporting with explicit distinctions between evidence and prediction; its age and recent PBS publisher exposure are disclosed, so it is primarily the third-publisher native-player probe.",
+        "content_evidence_url": "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
+        "content_reviewed": true,
+        "public_player_checked": true,
+        "checked_at": "2026-11-10T01:45:09.575Z",
+        "verification": {
+          "identity_verified": true,
+          "duration_verified": true,
+          "playback_verified": false,
+          "player_check_scope": "Exact PBS NewsHour clip page and transcript identify the 10:12 runtime; advancing full-length playback remains exclusively for the protected runner."
+        }
+      }
+    ],
+    "selected_urls": [
+      "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+      "https://www.foxnews.com/video/6407416427112"
+    ],
+    "reviewed_at": "2026-11-10T01:45:09.575Z",
+    "requirements": {
+      "minimum_candidates": 6,
+      "minimum_publishers": 3,
+      "distinct_selected_publishers": true
+    }
+  },
+  "watchlist": {
+    "schema_version": "editorial-watchlist-v1",
+    "edition_date": "2026-11-10",
+    "new": [
+      {
+        "topic": "Frontier-model serving modes",
+        "topic_id": "dab-topic-frontier-model-serving-modes",
+        "why": "Added after Anthropic released two access and compute modes of one underlying model.",
+        "summary": "Frontier-model serving modes route workloads through different compute, access and safeguard boundaries.",
+        "why_now": "Anthropic published Fable 5.2 and Mythos 5.2 with distinct access guidance, prices and safeguards.",
+        "practical_value": "Teams can compare quality, latency, cost and blocked tasks before changing model-routing defaults.",
+        "evidence": {
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "date": "2026-11-09",
+          "publisher": "Anthropic",
+          "title": "Claude Fable 5.2 and Mythos 5.2",
+          "checked_at": "2026-11-10T01:48:08.006Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The reviewed serving-mode evidence introduces a distinct operational choice not represented by the prior item."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original publisher documents the feature boundaries and limitations used for this assessment."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The main capability evidence comes from one publisher and lacks independent reproduction in this review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable serving-mode measure has two dated numerical observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can run a bounded evaluation and record corrections before expanding this workflow."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "The underlying review, routing, and approval practice remains useful across product changes."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable serving-mode measure has two dated numerical observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Scheduled prompt operations",
+        "topic_id": "dab-topic-scheduled-prompt-operations",
+        "why": "Added after Smartsheet documented recurring prompts with approval and email delivery.",
+        "summary": "Scheduled prompt operations turn a fixed request into a recurring draft, review and delivery workflow.",
+        "why_now": "Smartsheet published a dated update describing schedules, read-only summaries, approval and delivery controls.",
+        "practical_value": "Operations teams can test one exception digest and measure corrections, review time and delivery accuracy.",
+        "evidence": {
+          "url": "https://www.smartsheet.com/content-center/schedule-prompts-run-automatically",
+          "date": "2026-11-04",
+          "publisher": "Smartsheet",
+          "title": "Schedule prompts to run automatically",
+          "checked_at": "2026-11-10T01:48:08.006Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 3,
+            "reason": "The reviewed scheduled-prompt evidence introduces a distinct operational choice not represented by the prior item."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The original publisher documents the feature boundaries and limitations used for this assessment."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The main capability evidence comes from one publisher and lacks independent reproduction in this review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable scheduled-prompt measure has two dated numerical observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can run a bounded evaluation and record corrections before expanding this workflow."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "The underlying review, routing, and approval practice remains useful across product changes."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable scheduled-prompt measure has two dated numerical observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        }
+      }
+    ],
+    "updated": [],
+    "carried_forward": [
+      {
+        "topic": "Persistent command approvals",
+        "topic_id": "dab-topic-persistent-command-approvals",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Persistent command approvals let agents repeat exact operations without asking a user again.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Teams can audit approval stores, rotate exposed secrets and replace broad exceptions with narrow patterns.",
+        "evidence": {
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+          "date": "2026-11-05",
+          "publisher": "Apiiro",
+          "title": "Coding agents are leaking secrets through “Don’t Ask Again”",
+          "checked_at": "2026-11-09T01:31:28.914Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Repository-scale inspection connects persistent approvals to exact stored commands containing secrets."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original report publishes search scope, file counts, secret classes and mechanism details."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Apiiro supplies the main measurements; public reactions add context but not an independent replication."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable approval-exposure measure has two distinct dated numeric observations."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can directly audit saved approvals and remove credentials before repository publication."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Least-privilege approvals and secret scanning remain useful across coding-agent products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable approval-exposure measure has two distinct dated numeric observations.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was reviewed for this edition."
+      },
+      {
+        "topic": "Multi-agent deception benchmarks",
+        "topic_id": "dab-topic-multi-agent-deception-benchmarks",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Multi-agent deception benchmarks test coordination, conflicting information and strategic misrepresentation over extended interactions.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Evaluation teams can inspect transcripts for failure patterns while keeping game scores separate from deployment claims.",
+        "evidence": {
+          "url": "https://www.dwarkesh.com/p/clocktower",
+          "date": "2026-11-05",
+          "publisher": "Dwarkesh Patel",
+          "title": "The benchmark where AIs have to lie to win",
+          "checked_at": "2026-11-09T01:31:28.914Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The benchmark combines long-horizon coordination, private roles and deception within repeated multi-agent games."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The author publishes rules, sample size and reported results, but independent reproduction remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The benchmark designer also conducted and interpreted the reported evaluation runs."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable deception-benchmark measure has two distinct dated numeric observations."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Agent teams can study coordination and misleading behavior in a bounded transcript-rich setting."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Adversarial role-play and transcript review remain useful as agent models change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable deception-benchmark measure has two distinct dated numeric observations.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was reviewed for this edition."
+      },
+      {
+        "topic": "Offline agent memory correction",
+        "topic_id": "dab-topic-offline-agent-memory-correction",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Offline memory correction replays prior sessions to verify and rewrite stored agent notes.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Workflow owners can audit each changed note against original transcripts and replay previously failing cases.",
+        "evidence": {
+          "url": "https://www.anthropic.com/research/components-of-agent-memory",
+          "date": "2026-11-06",
+          "publisher": "Anthropic",
+          "title": "The components of agent memory",
+          "checked_at": "2026-11-08T02:57:16.597Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Replaying transcripts to correct stored notes tests a distinct maintenance step before future sessions."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original article provides several experiments, task boundaries and comparison scores."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The results come from Anthropic and independent replication was not verified."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "There are no comparable observations from two separate dates for momentum scoring."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Operators can inspect and correct persistent context before later tasks depend on it."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Checking memory edits against original logs remains useful across models and runtimes."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "There are no comparable observations from two separate dates for momentum scoring.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was reviewed for this edition."
+      },
+      {
+        "topic": "Wet-lab agent evaluation",
+        "topic_id": "dab-topic-wet-lab-agent-evaluation",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "summary": "Wet-lab agent evaluation tests raw protocols, controls, images and contextual scientific decisions.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Laboratory teams can reproduce control and image failures before relying on agent recommendations.",
+        "evidence": {
+          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+          "date": "2026-11-06",
+          "publisher": "OpenAI",
+          "title": "Measuring how AI agents handle everyday wet-lab science",
+          "checked_at": "2026-11-07T02:16:00Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Raw protocols and contextual decisions extend beyond polished question-answer tasks."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Methods, confidence bounds and failures are published, but independent replication remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "Reviewed benchmark evidence comes from OpenAI without independent reproduction this edition."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Laboratory teams need reproducible controls before relying on agent recommendations."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Protocol interpretation and failure reproduction remain useful as models change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      },
+      {
+        "topic": "Long-horizon state tracking benchmarks",
+        "topic_id": "dab-topic-long-horizon-state-tracking",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "summary": "Long-horizon state tracking benchmarks test whether models preserve evolving variables, dependencies and final values across extended instruction sequences.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Agent teams can replay representative state transitions, inspect failure levels and compare memory architectures before trusting long operational sequences.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "date": "2026-11-03",
+          "publisher": "Ai2",
+          "title": "StateBench: Evaluating State Tracking in Language Models",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "StateBench separates direct, indirect, event and general state updates while testing extrapolation beyond training sequence lengths."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Ai2 publishes benchmark construction and reported results, but external reproduction and broader variable settings remain unavailable."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The reviewed capability evidence comes from Ai2 and has not yet been independently reproduced in this editorial cycle."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Agent engineers can directly test whether workflows preserve changing operational state rather than relying on context-window size."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Explicit state-transition testing remains useful as memory architectures, model families and context lengths continue to change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      },
+      {
+        "topic": "Consumer agent task permissions",
+        "topic_id": "dab-topic-consumer-agent-task-permissions",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "summary": "Consumer agent task permissions define which user context, corporate resources and consequential actions an assistant may access or perform.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Security teams can test one assistant workflow by separating user and agent identity, restricting resources and requiring confirmation for consequential actions.",
+        "evidence": {
+          "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+          "date": "2026-11-04",
+          "publisher": "Cloudflare",
+          "title": "Personal agents need visibility and control",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update adds named visibility and per-agent policy controls to the prior task-permission and confirmation baseline."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Cloudflare documents specific early-access product behavior, but measured security outcomes and failure rates remain unavailable."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Cloudflare and earlier OpenAI or ServiceNow evidence show separate implementations, though all reviewed accounts remain vendor-authored."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Security owners can immediately bound assistant resources, confirmations, logs and exception handling for one routine workflow."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separate user authority, agent identity and least-privilege resource access remain durable across changing assistant products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      },
+      {
+        "topic": "Weight-space model repair",
+        "topic_id": "dab-topic-weight-space-model-repair",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Weight-space model repair lets an agent inspect and change selected neural-network parameters to correct a targeted behavior without a conventional training run.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Model teams can reproduce one bounded repair, compare regressions and compute cost, and preserve the exact edited parameters before considering deployment.",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "evidence": {
+          "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+          "date": "2026-11-02",
+          "publisher": "MIT CSAIL researchers",
+          "title": "The First AI Scientist That Writes Into Weight Space",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The project applies an agent to direct parameter repair rather than prompting, fine-tuning or ordinary gradient-based retraining."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The authors publish the setup, edited-weight share, benchmark results and limitations, but independent reproduction remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed capability evidence comes from the project authors and has not been independently reproduced in this cycle."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Model teams could use targeted repair experiments to test specific failures while measuring regressions and compute cost."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Parameter-level diagnosis, reproducibility and regression testing remain useful even as repair agents and model architectures change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Professional-task agent benchmarks",
+        "topic_id": "dab-topic-professional-task-agent-benchmarks",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Professional-task agent benchmarks evaluate reviewable workplace deliverables across multiple domains, rather than relying only on short synthetic prompts or isolated tool calls.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Evaluation teams can adapt the task, artifact, grading and cost structure while keeping domain results separate and limitations visible.",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "evidence": {
+          "url": "https://gdpx.semianalysis.com/",
+          "date": "2026-11-02",
+          "publisher": "SemiAnalysis",
+          "title": "GDPx — Measuring Frontier Model Capabilities in Real-World Professional Tasks",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The benchmark combines expert-designed professional artifacts, multiple attempts, costs and domain-equal aggregation in one public framework."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The publisher documents 206 tasks, 11 domains, partner participation, grading and cost methodology, with configuration limits still present."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Fourteen organizations contributed task expertise, but the benchmark publisher controls the aggregate methodology and presentation."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable benchmark measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Agent builders need realistic deliverables, grading evidence and cost records before claiming professional task readiness."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Task artifacts, domain reporting and disclosed grading remain useful as models and harnesses change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable benchmark measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "AI-ready public science artifacts",
+        "topic_id": "dab-topic-ai-ready-public-science-artifacts",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "AI-ready public science artifacts pair datasets, models, metadata, provenance and reproducible baselines so others can inspect and extend funded research.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Research teams can package one public project with licenses, lineage, metadata and a baseline, then record which gaps still block reuse.",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/protostar",
+          "date": "2026-10-29",
+          "publisher": "Hugging Face",
+          "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The challenge treats provenance-rich reusable artifacts, not model output alone, as the deliverable."
+          },
+          "evidence": {
+            "score": 2,
+            "reason": "The launch defines dates and artifact goals, but no completed projects or outcome evaluation exist yet."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "Current evidence comes from the challenge organizer, without independent outcome or reuse assessment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Metadata and provenance directly affect whether scientific datasets and models can be reviewed or reused."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Licensing, lineage and reproducible baselines remain useful after this individual challenge ends."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Frontier model misalignment monitoring",
+        "topic_id": "dab-topic-frontier-training-containment",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Frontier model misalignment monitoring combines broad workload coverage, high-recall screening, contextual review, investigation and intervention authority to detect unauthorized agent behavior.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Safety teams can compare workload coverage, sampling, escalation context, review latency and intervention ownership before relying on monitoring claims.",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "evidence": {
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "date": "2026-10-29",
+          "publisher": "OpenAI",
+          "title": "How we detect frontier model misalignment",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source publishes a concrete multilayer monitoring architecture and an acknowledged evaluation coverage gap."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "OpenAI reports workload coverage, review layers and incidents, but independent reproduction and recall measurements remain limited."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "All reviewed implementation and incident evidence comes from the system operator describing its own monitoring program."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Frontier labs and deployers need explicit coverage, escalation and intervention ownership for consequential agent behavior."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Monitoring coverage and investigative escalation remain necessary as models, harnesses, evaluations and threats change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Synthetic enterprise evaluation environments",
+        "topic_id": "dab-topic-synthetic-enterprise-evaluation-environments",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Synthetic enterprise evaluation environments recreate organizational data, permissions and work patterns so AI assistants can be tested without exposing live confidential records.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Evaluation teams can construct bounded permission, retrieval and workflow tests before a copilot reaches real employees or sensitive production data.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "date": "2026-10-30",
+          "publisher": "Microsoft Research",
+          "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source joins synthetic organizational data, realistic permissions and task evaluation into one preproduction enterprise testing environment."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Microsoft Research describes concrete construction and evaluation practices, but provides limited independent replication or public comparative outcome data."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Microsoft alone and has not been independently reproduced on another enterprise copilot environment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Enterprise teams can directly test retrieval, permission and workflow failures before exposing live employees or confidential records."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Safe preproduction evaluation with representative data and permissions remains necessary as copilots, models and enterprise systems change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was reviewed for this edition."
+      },
+      {
+        "topic": "Task-scoped virtual model routing",
+        "topic_id": "dab-topic-task-scoped-virtual-model-routing",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Task-scoped virtual model routing lets applications call a stable identifier while administrators change providers, fallbacks and data-retention policy separately.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Teams can test model substitutions, failure recovery, retention rules and rollback under one stable application interface.",
+        "evidence": {
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "date": "2026-10-28",
+          "publisher": "Vercel",
+          "title": "Introducing Virtual Models on AI Gateway",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Virtual identifiers move provider selection and fallback policy out of application deployments into a separately governed routing layer."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Vercel documents concrete configuration behavior and availability, but supplies no independent latency, quality or failure benchmark."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Vercel alone, without an independent operator reproducing the virtual routing behavior."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Engineering teams can directly test provider swaps, fallback, retention rules and rollback without changing application code."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separating application interfaces from model-routing policy remains useful as providers, models and compliance requirements change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was reviewed for this edition."
+      },
+      {
+        "topic": "Continuous multi-level agent evaluation",
+        "topic_id": "dab-topic-continuous-multi-level-agent-evaluation",
+        "what_changed": "No material evidence change was reviewed for this edition.",
+        "summary": "Continuous multi-level agent evaluation tests business facts, tools, APIs, orchestration quality, security and cost across development and live operation.",
+        "why_now": "The prior evidence remains relevant; no material change was reviewed during the November 10 source cycle.",
+        "practical_value": "Teams can design a bounded release and runtime gate that names quality thresholds, cost limits, intervention owners, approval steps and recovery tests.",
+        "evidence": {
+          "url": "https://www.salesforce.com/news/stories/agent-fabric-catch-failures-control-ai-costs/",
+          "date": "2026-10-27",
+          "publisher": "Salesforce",
+          "title": "Salesforce Expands Agent Fabric to Catch Failures and Control Costs",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update connects familiar evaluation methods to explicit cross-platform runtime interventions and enforceable budget controls."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Salesforce describes named product behaviors and availability, but customer outcomes and performance remain vendor-reported."
+          },
+          "independence": {
+            "score": 3,
+            "reason": "Separate AWS and Salesforce implementations support the workflow pattern, though neither supplies an independent comparative audit."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The two publications use different measures and provide no comparable dated numeric observations for a momentum score."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can directly translate quality, API and cost failures into approval, quarantine, kill-switch and recovery policies."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Connecting evaluation evidence to bounded intervention remains necessary across changing agents, models, tools and infrastructure."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "Independent publisher implementations broaden the pattern, but no stable comparable numeric measure establishes momentum.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      }
+    ],
+    "dropped": [
+      {
+        "topic": "Native multimodal world simulation",
+        "topic_id": "dab-topic-native-multimodal-world-simulation",
+        "why": "Carried forward after the October 29 review found no material evidence change requiring a new assessment.",
+        "summary": "Native multimodal world simulation generates interactive scenes, movement, dialogue and ambient sound together while responding to user steering in real time.",
+        "why_now": "The topic remains archived because this edition found no material evidence change requiring reinstatement.",
+        "practical_value": "Research teams can retain the prior evaluation plan but should wait for comparable task results before treating further demonstrations as momentum.",
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Genie 4 combines steerable interactive world generation with native audio and dialogue in one research system."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Google publishes detailed demonstrations and limitations, but access is restricted and no independent benchmark is available."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed capability evidence comes from Google DeepMind without independent reproduction during this editorial review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Simulation teams can evaluate continuity, object permanence, latency and audio alignment before considering training use."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Testing coherence and controllability remains useful as world-model architectures and media capabilities continue to change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable measure has two dated numerical observations, so momentum remains unestablished for Genie 4.",
+          "metric": null,
+          "observations": []
+        },
+        "reason": "Archived from the active watchlist after the review found no independently comparable measurement that changed the prior assessment.",
+        "previous_evidence": {
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+          "date": "2026-10-27",
+          "publisher": "Google DeepMind",
+          "title": "Genie 4: A new generation of world simulation",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        }
+      }
+    ],
+    "refreshed_at": "2026-11-10T01:49:40.229Z"
+  },
+  "book_mappings": [
+    {
+      "story_id": "nov10-t1-fable-mythos",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Model evaluation",
+      "connection": "Two serving modes require task-specific evidence rather than benchmark-only routing.",
+      "what_to_study_next": "Run one workload across both modes and compare quality, latency, cost and blocked tasks."
+    },
+    {
+      "story_id": "nov10-t2-muse-ember",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Context-window design",
+      "connection": "A million-token window does not remove retrieval, ordering or evidence-selection problems.",
+      "what_to_study_next": "Compare full-context and chunked-retrieval variants on the same long document set."
+    },
+    {
+      "story_id": "nov10-k1-label-confirmation",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Governed workflows",
+      "connection": "Faster confirmation still needs clear policy, sampling and escalation instructions.",
+      "what_to_study_next": "Write a confirmation checklist and audit a small labeled document sample."
+    },
+    {
+      "story_id": "nov10-a2-smartsheet-scheduled-prompts",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable workflow practice",
+      "connection": "A fixed prompt, schedule, source, reviewer and correction log form a reusable Agent Skill.",
+      "what_to_study_next": "Test the weekly digest on a sample sheet and review every exception before delivery."
+    }
+  ],
+  "source_discovery_audit": {
+    "reviewed_at": "2026-11-10T01:48:08.006Z",
+    "candidates": [
+      {
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "publisher": "Anthropic",
+        "original_date": "2026-11-09T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full original-source review, archive comparison, lane allocation, freshness assessment and reader-value review."
+      },
+      {
+        "url": "https://research.meta.ai/blog/muse-ember",
+        "publisher": "Meta AI",
+        "original_date": "2026-11-09T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full original-source review, archive comparison, lane allocation, freshness assessment and reader-value review."
+      },
+      {
+        "url": "https://workspaceupdates.googleblog.com/2026/11/quickly-confirm-system-applied-classification-labels-in-Google-Drive-Docs-Sheets-and-Slides.html",
+        "publisher": "Google Workspace Updates",
+        "original_date": "2026-11-09T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full original-source review, archive comparison, lane allocation, freshness assessment and reader-value review."
+      },
+      {
+        "url": "https://asana.com/inside-asana/introducing-ai-meetings-and-tables",
+        "publisher": "Asana",
+        "original_date": "2026-11-05T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full original-source review, archive comparison, lane allocation, freshness assessment and reader-value review."
+      },
+      {
+        "url": "https://docs.inloox.com/whats-new/",
+        "publisher": "InLoox",
+        "original_date": "2026-11-09T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full original-source review, archive comparison, lane allocation, freshness assessment and reader-value review."
+      },
+      {
+        "url": "https://www.smartsheet.com/content-center/schedule-prompts-run-automatically",
+        "publisher": "Smartsheet",
+        "original_date": "2026-11-04T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected after full original-source review, archive comparison, lane allocation, freshness assessment and reader-value review."
+      },
+      {
+        "url": "https://github.com/microsoft/TokenEconomizer",
+        "publisher": "Microsoft Research",
+        "original_date": "2026-10-30T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "considered",
+        "disposition_reason": "Qualified but displaced by two exact November 9 releases in the fixed Technical allocation."
+      },
+      {
+        "url": "https://caleb.software/posts/claude-to-pi.html",
+        "publisher": "Caleb Fox",
+        "original_date": "2026-11-09T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "rejected",
+        "disposition_reason": "Coding-harness workflow did not meet the noncoding Agents-for-Everyone audience requirement."
+      },
+      {
+        "url": "https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max",
+        "publisher": "Google Cloud",
+        "original_date": "2026-11-09T00:00:00Z",
+        "checked_at": "2026-11-10T01:48:08.006Z",
+        "disposition": "considered",
+        "disposition_reason": "Credible hardware release but lower marginal reader value than the selected Technical stories."
+      }
+    ],
+    "fallback_decisions": [
+      {
+        "story_id": "nov10-k2-asana-meetings-tables",
+        "why_selected_over_recent_options": "Selected for a combined meeting-to-task and structured-record workflow after newer inspected items did not provide the same nonduplicate Applied coverage.",
+        "newer_sources_considered": [
+          "https://workspaceupdates.googleblog.com/2026/11/quickly-confirm-system-applied-classification-labels-in-Google-Drive-Docs-Sheets-and-Slides.html"
+        ]
+      },
+      {
+        "story_id": "nov10-a2-smartsheet-scheduled-prompts",
+        "why_selected_over_recent_options": "Selected as the one reusable noncoding Agent Skills procedure; newer agent items did not provide an equally concrete scheduled prompt, approval and delivery workflow.",
+        "newer_sources_considered": [
+          "https://docs.inloox.com/whats-new/"
+        ]
+      }
+    ],
+    "index_review": {
+      "schema_version": "daily-compiler-index-review-v1",
+      "edition_date": "2026-11-10",
+      "reviewed_at": "2026-11-10T01:33:08.386Z",
+      "eligible": 109,
+      "eligible_ids": [
+        "acl-anthology",
+        "anthropic",
+        "anthropic-news",
+        "article-databricks-ai-research",
+        "article-ibm-research-ai",
+        "article-nvidia-technical-ai",
+        "arxiv-cs-ai",
+        "arxiv-cs-cl",
+        "arxiv-cs-lg",
+        "berkeley-bair",
+        "deepseek-news",
+        "github-ai-agents",
+        "github-generative-ai",
+        "github-llm",
+        "github-trending",
+        "google-deepmind-blog",
+        "hacker-news-newest",
+        "hacker-news-show",
+        "hugging-face-daily-papers",
+        "hugging-face-datasets",
+        "hugging-face-models",
+        "hugging-face-spaces",
+        "iclr",
+        "icml",
+        "meta-ai-blog",
+        "mistral-news",
+        "mit-csail",
+        "neurips",
+        "openai-news",
+        "openreview",
+        "podcast-a16z-show",
+        "podcast-agora-briefing",
+        "podcast-ai-daily-brief",
+        "podcast-ai-for-humans",
+        "podcast-ai-future-work",
+        "podcast-ai-inside",
+        "podcast-artificial-intelligence-show",
+        "podcast-cognitive-revolution",
+        "podcast-data-exchange",
+        "podcast-everyday-ai",
+        "podcast-eye-on-ai",
+        "podcast-gradient-dissent",
+        "podcast-latent-space",
+        "podcast-no-priors",
+        "podcast-nvidia-ai",
+        "podcast-practical-ai",
+        "podcast-twiml",
+        "qwen-blog",
+        "reddit-localllama",
+        "reddit-machinelearning",
+        "specialized-discords",
+        "stanford-hai",
+        "the-batch",
+        "x-research-feeds",
+        "xai-news",
+        "youtube-anthropic",
+        "youtube-google-deepmind",
+        "youtube-openai",
+        "research-20261026-a01",
+        "research-20261026-a04",
+        "research-20261026-a05",
+        "research-20261026-a12",
+        "research-20261026-v01",
+        "research-20261026-v02",
+        "research-20261026-v04",
+        "research-20261026-v05",
+        "research-20261026-v06",
+        "research-20261026-v07",
+        "research-20261026-p03",
+        "deep-20261026-a01-google-research",
+        "deep-20261026-a02-microsoft-ai",
+        "deep-20261026-a03-nvidia-news",
+        "deep-20261026-p02-data-skeptic",
+        "deep-20261026-v01-two-minute-papers",
+        "directory-935fbe5ba89ff5f91fc8c69b",
+        "directory-411bf5f837e28f35220736eb",
+        "directory-fd36049347d409f38c9f9a67",
+        "directory-3ccc18a956cae0b1e24b5968",
+        "directory-242c2a2fc81a43d41f199129",
+        "directory-9ad7c274f2d56274bcd5ddcc",
+        "directory-c6b8a33e7fa162cc41136fa5",
+        "directory-a74f303f4b0c39344c1314cf",
+        "directory-9c0885bdb370f69c9262b88c",
+        "directory-64f0886a6793aa8858a4b62d",
+        "directory-8ec4fd458a38bc0447f4cded",
+        "directory-6ea6e283349c7b62ac1ced9d",
+        "directory-d6cf3f9fa167b8173a35228b",
+        "directory-8df3614a9972a25fc59475ed",
+        "directory-1c6f5db2559c3c226a112873",
+        "directory-b93e2368e85f0f95c066463e",
+        "directory-d5428d030dfff7d4639258e3",
+        "directory-79e16cd5beb5c662c4022a9f",
+        "directory-e7b100b6b999ac748e052327",
+        "directory-4c16d138c4a736e78a68127e",
+        "directory-ecf69ec2f036e803388f40ca",
+        "directory-db682c52794328eb69ebc377",
+        "directory-8263ca4c9f560c8d9c4df0de",
+        "directory-970506fbc577e6091a33c64d",
+        "directory-4852e367f74118ff2dc1eec9",
+        "directory-3834a0112c0e3a754320b557",
+        "directory-e2f33b502b264e51983a338a",
+        "directory-9f7087ce2c030a4b9da58499",
+        "directory-5c5d3d02a420135949164552",
+        "directory-48665d874f6008894d0d9385",
+        "directory-f8085f0f6e72cfbdfde3a0f8",
+        "directory-d1527db7c06b4e83370b7546",
+        "directory-54d90ff964a74ff98851ae11",
+        "directory-0dffb60aadd4ba31b5c090dc",
+        "universe-20261026-every-ai-editorial"
+      ],
+      "inspected": [
+        {
+          "resource_id": "acl-anthology",
+          "index_url": "https://aclanthology.org/",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Dated AACL-IJCNLP 2026 original paper links inspected; no stronger same-lane replacement selected."
+        },
+        {
+          "resource_id": "anthropic-news",
+          "index_url": "https://www.anthropic.com/news",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Dated original Fable and Mythos 5.2 announcement fully read."
+        },
+        {
+          "resource_id": "meta-ai-blog",
+          "index_url": "https://ai.meta.com/blog/",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Dated original Muse Ember post and Meta research index inspected."
+        },
+        {
+          "resource_id": "podcast-a16z-show",
+          "index_url": "https://podcasts.apple.com/us/podcast/the-a16z-show/id842818711",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Oldest unreviewed podcast index from the prior AAR inspected; no current November episode qualified."
+        },
+        {
+          "resource_id": "podcast-eye-on-ai",
+          "index_url": "https://www.eye-on.ai/podcast-archive",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Exact November 6 Andrew Barto episode identity, publisher description and runtime inspected."
+        },
+        {
+          "resource_id": "podcast-latent-space",
+          "index_url": "https://www.latent.space/podcast",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Exact November 8 CS146S episode, chapters and complete transcript inspected."
+        },
+        {
+          "resource_id": "research-20261026-v04",
+          "index_url": "https://openai.com/academy/using-chatgpt/",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "OpenAI Academy video index inspected; a November 4 item was identified but not selected."
+        },
+        {
+          "resource_id": "research-20261026-v05",
+          "index_url": "https://aitinkerers.org/",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "AI Tinkerers current hackathon video index inspected; no final media selection made."
+        },
+        {
+          "resource_id": "research-20261026-v06",
+          "index_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-tutorial-meet-microsoft-365-copilot",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Exact Microsoft Copilot tutorial inspected; 2:08 runtime is below the candidate gate."
+        },
+        {
+          "resource_id": "directory-242c2a2fc81a43d41f199129",
+          "index_url": "https://workspaceupdates.googleblog.com/",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "Dated November 9 Workspace classification-label update fully read."
+        },
+        {
+          "resource_id": "directory-1c6f5db2559c3c226a112873",
+          "index_url": "https://ai.engineer/",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "AI Engineer index and exact individual talk transcripts inspected before media selection."
+        },
+        {
+          "resource_id": "directory-b93e2368e85f0f95c066463e",
+          "index_url": "https://www.ibm.com/think/videos",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "IBM Think index and November 6 episode page inspected before media selection."
+        },
+        {
+          "resource_id": "directory-5c5d3d02a420135949164552",
+          "index_url": "https://www.coreweave.com/builder",
+          "outcome": "dated_original_item_links_inspected",
+          "scope": "CoreWeave Builder index inspected; no current qualifying November individual program found."
+        }
+      ],
+      "inspected_ids": [
+        "acl-anthology",
+        "anthropic-news",
+        "meta-ai-blog",
+        "podcast-a16z-show",
+        "podcast-eye-on-ai",
+        "podcast-latent-space",
+        "research-20261026-v04",
+        "research-20261026-v05",
+        "research-20261026-v06",
+        "directory-242c2a2fc81a43d41f199129",
+        "directory-1c6f5db2559c3c226a112873",
+        "directory-b93e2368e85f0f95c066463e",
+        "directory-5c5d3d02a420135949164552"
+      ],
+      "inaccessible": [],
+      "inaccessible_ids": [],
+      "unreviewed": [
+        {
+          "resource_id": "anthropic",
+          "index_url": "https://www.anthropic.com/engineering",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "article-databricks-ai-research",
+          "index_url": "https://www.databricks.com/blog/category/research/ai-research",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "article-ibm-research-ai",
+          "index_url": "https://research.ibm.com/blog?tag=artificial-intelligence",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "article-nvidia-technical-ai",
+          "index_url": "https://developer.nvidia.com/blog/tag/machine-learning-and-artificial-intelligence/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "arxiv-cs-ai",
+          "index_url": "https://arxiv.org/list/cs.AI/recent",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "arxiv-cs-cl",
+          "index_url": "https://arxiv.org/list/cs.CL/recent",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "arxiv-cs-lg",
+          "index_url": "https://arxiv.org/list/cs.LG/recent",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "berkeley-bair",
+          "index_url": "https://bair.berkeley.edu/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "deepseek-news",
+          "index_url": "https://api-docs.deepseek.com/news",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "github-ai-agents",
+          "index_url": "https://github.com/topics/ai-agents",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "github-generative-ai",
+          "index_url": "https://github.com/topics/generative-ai",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "github-llm",
+          "index_url": "https://github.com/topics/llm",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "github-trending",
+          "index_url": "https://github.com/trending",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "google-deepmind-blog",
+          "index_url": "https://deepmind.google/discover/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "hacker-news-newest",
+          "index_url": "https://news.ycombinator.com/newest",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "hacker-news-show",
+          "index_url": "https://news.ycombinator.com/show",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "hugging-face-daily-papers",
+          "index_url": "https://huggingface.co/papers",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "hugging-face-datasets",
+          "index_url": "https://huggingface.co/datasets?sort=trending",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "hugging-face-models",
+          "index_url": "https://huggingface.co/models?sort=trending",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "hugging-face-spaces",
+          "index_url": "https://huggingface.co/spaces?sort=trending",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "iclr",
+          "index_url": "https://iclr.cc/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "icml",
+          "index_url": "https://icml.cc/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "mistral-news",
+          "index_url": "https://mistral.ai/news/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "mit-csail",
+          "index_url": "https://www.csail.mit.edu/news",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "neurips",
+          "index_url": "https://neurips.cc/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "openai-news",
+          "index_url": "https://openai.com/news/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "openreview",
+          "index_url": "https://openreview.net/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-agora-briefing",
+          "index_url": "https://agora-intelligence.com/en/podcast/2026-10-16",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-ai-daily-brief",
+          "index_url": "https://aidailybrief.ai/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-ai-for-humans",
+          "index_url": "https://www.aiforhumans.show/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-ai-future-work",
+          "index_url": "https://podcasts.apple.com/us/podcast/ai-and-the-future-of-work-artificial/id1476885647",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-ai-inside",
+          "index_url": "https://podcasts.apple.com/us/podcast/ai-inside/id1726128797",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-artificial-intelligence-show",
+          "index_url": "https://podcast.smarterx.ai/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-cognitive-revolution",
+          "index_url": "https://www.cognitiverevolution.ai/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-data-exchange",
+          "index_url": "https://thedataexchange.media/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-everyday-ai",
+          "index_url": "https://www.youreverydayai.com/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-gradient-dissent",
+          "index_url": "https://podcasts.apple.com/us/podcast/gradient-dissent-conversations-on-ai/id1504567418",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-no-priors",
+          "index_url": "https://podcasts.apple.com/us/podcast/no-priors-artificial-intelligence-technology-startups/id1668002688",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-nvidia-ai",
+          "index_url": "https://www.nvidia.com/en-us/about-nvidia/rss/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-practical-ai",
+          "index_url": "https://practicalai.show/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "podcast-twiml",
+          "index_url": "https://twimlai.com/podcast/twimlai/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "qwen-blog",
+          "index_url": "https://qwen.ai/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "reddit-localllama",
+          "index_url": "https://www.reddit.com/r/LocalLLaMA/new/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "reddit-machinelearning",
+          "index_url": "https://www.reddit.com/r/MachineLearning/new/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "specialized-discords",
+          "index_url": "https://discord.com/discovery",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "stanford-hai",
+          "index_url": "https://hai.stanford.edu/news",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "the-batch",
+          "index_url": "https://www.deeplearning.ai/the-batch/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "x-research-feeds",
+          "index_url": "https://x.com/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "xai-news",
+          "index_url": "https://x.ai/news",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "youtube-anthropic",
+          "index_url": "https://www.youtube.com/@anthropic-ai",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "youtube-google-deepmind",
+          "index_url": "https://www.youtube.com/@googledeepmind",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "youtube-openai",
+          "index_url": "https://www.youtube.com/@OpenAI",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-a01",
+          "index_url": "https://developers.openai.com/cookbook/topic/agents",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-a04",
+          "index_url": "https://pydantic.dev/articles",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-a05",
+          "index_url": "https://github.com/google/adk-python/releases",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-a12",
+          "index_url": "https://blog.n8n.io/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-v01",
+          "index_url": "https://www.youtube.com/@GoogleDevelopers/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-v02",
+          "index_url": "https://www.youtube.com/@n8n-io/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-v07",
+          "index_url": "https://arize.com/resources/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "research-20261026-p03",
+          "index_url": "https://tessl.io/podcast",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "deep-20261026-a01-google-research",
+          "index_url": "https://research.google/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "deep-20261026-a02-microsoft-ai",
+          "index_url": "https://microsoft.ai/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "deep-20261026-a03-nvidia-news",
+          "index_url": "https://blogs.nvidia.com/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "deep-20261026-p02-data-skeptic",
+          "index_url": "https://dataskeptic.com/podcast",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "deep-20261026-v01-two-minute-papers",
+          "index_url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+          "index_url": "https://huggingface.co/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-411bf5f837e28f35220736eb",
+          "index_url": "https://www.microsoft.com/en-us/research/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-fd36049347d409f38c9f9a67",
+          "index_url": "https://www.langchain.com/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-3ccc18a956cae0b1e24b5968",
+          "index_url": "https://www.llamaindex.ai/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-9ad7c274f2d56274bcd5ddcc",
+          "index_url": "https://github.blog/changelog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-c6b8a33e7fa162cc41136fa5",
+          "index_url": "https://cohere.com/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-a74f303f4b0c39344c1314cf",
+          "index_url": "https://blog.cloudflare.com/tag/ai/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-9c0885bdb370f69c9262b88c",
+          "index_url": "https://cursor.com/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-64f0886a6793aa8858a4b62d",
+          "index_url": "https://vercel.com/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-8ec4fd458a38bc0447f4cded",
+          "index_url": "https://arize.com/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-6ea6e283349c7b62ac1ced9d",
+          "index_url": "https://langfuse.com/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-d6cf3f9fa167b8173a35228b",
+          "index_url": "https://www.braintrust.dev/blog",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-8df3614a9972a25fc59475ed",
+          "index_url": "https://metr.org/blog/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-d5428d030dfff7d4639258e3",
+          "index_url": "https://www.youtube.com/@IBMTechnology/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-79e16cd5beb5c662c4022a9f",
+          "index_url": "https://www.youtube.com/@msftmechanics/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-e7b100b6b999ac748e052327",
+          "index_url": "https://www.youtube.com/@GoogleWorkspace/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-4c16d138c4a736e78a68127e",
+          "index_url": "https://www.youtube.com/@github/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-ecf69ec2f036e803388f40ca",
+          "index_url": "https://www.youtube.com/@LangChain/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-db682c52794328eb69ebc377",
+          "index_url": "https://www.youtube.com/@LlamaIndex/videos",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
+          "index_url": "https://www.youtube.com/@Deeplearningai",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-970506fbc577e6091a33c64d",
+          "index_url": "https://www.youtube.com/@stanfordhai",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-4852e367f74118ff2dc1eec9",
+          "index_url": "https://www.youtube.com/@googlecloudtech",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-3834a0112c0e3a754320b557",
+          "index_url": "https://www.youtube.com/@MicrosoftDeveloper",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-e2f33b502b264e51983a338a",
+          "index_url": "https://www.youtube.com/@AWSDevelopers",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-9f7087ce2c030a4b9da58499",
+          "index_url": "https://www.youtube.com/@NVIDIADeveloper",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-48665d874f6008894d0d9385",
+          "index_url": "https://www.youtube.com/@HuggingFace",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
+          "index_url": "https://www.youtube.com/@Databricks",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-d1527db7c06b4e83370b7546",
+          "index_url": "https://www.youtube.com/@CohereAI",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-54d90ff964a74ff98851ae11",
+          "index_url": "https://every.to/podcast",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "directory-0dffb60aadd4ba31b5c090dc",
+          "index_url": "https://emerj.com/ai-in-business-podcast/",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        },
+        {
+          "resource_id": "universe-20261026-every-ai-editorial",
+          "index_url": "https://every.to/newsletter",
+          "reason": "not substantively inspected as an original publisher index before selection lock"
+        }
+      ],
+      "unreviewed_ids": [
+        "anthropic",
+        "article-databricks-ai-research",
+        "article-ibm-research-ai",
+        "article-nvidia-technical-ai",
+        "arxiv-cs-ai",
+        "arxiv-cs-cl",
+        "arxiv-cs-lg",
+        "berkeley-bair",
+        "deepseek-news",
+        "github-ai-agents",
+        "github-generative-ai",
+        "github-llm",
+        "github-trending",
+        "google-deepmind-blog",
+        "hacker-news-newest",
+        "hacker-news-show",
+        "hugging-face-daily-papers",
+        "hugging-face-datasets",
+        "hugging-face-models",
+        "hugging-face-spaces",
+        "iclr",
+        "icml",
+        "mistral-news",
+        "mit-csail",
+        "neurips",
+        "openai-news",
+        "openreview",
+        "podcast-agora-briefing",
+        "podcast-ai-daily-brief",
+        "podcast-ai-for-humans",
+        "podcast-ai-future-work",
+        "podcast-ai-inside",
+        "podcast-artificial-intelligence-show",
+        "podcast-cognitive-revolution",
+        "podcast-data-exchange",
+        "podcast-everyday-ai",
+        "podcast-gradient-dissent",
+        "podcast-no-priors",
+        "podcast-nvidia-ai",
+        "podcast-practical-ai",
+        "podcast-twiml",
+        "qwen-blog",
+        "reddit-localllama",
+        "reddit-machinelearning",
+        "specialized-discords",
+        "stanford-hai",
+        "the-batch",
+        "x-research-feeds",
+        "xai-news",
+        "youtube-anthropic",
+        "youtube-google-deepmind",
+        "youtube-openai",
+        "research-20261026-a01",
+        "research-20261026-a04",
+        "research-20261026-a05",
+        "research-20261026-a12",
+        "research-20261026-v01",
+        "research-20261026-v02",
+        "research-20261026-v07",
+        "research-20261026-p03",
+        "deep-20261026-a01-google-research",
+        "deep-20261026-a02-microsoft-ai",
+        "deep-20261026-a03-nvidia-news",
+        "deep-20261026-p02-data-skeptic",
+        "deep-20261026-v01-two-minute-papers",
+        "directory-935fbe5ba89ff5f91fc8c69b",
+        "directory-411bf5f837e28f35220736eb",
+        "directory-fd36049347d409f38c9f9a67",
+        "directory-3ccc18a956cae0b1e24b5968",
+        "directory-9ad7c274f2d56274bcd5ddcc",
+        "directory-c6b8a33e7fa162cc41136fa5",
+        "directory-a74f303f4b0c39344c1314cf",
+        "directory-9c0885bdb370f69c9262b88c",
+        "directory-64f0886a6793aa8858a4b62d",
+        "directory-8ec4fd458a38bc0447f4cded",
+        "directory-6ea6e283349c7b62ac1ced9d",
+        "directory-d6cf3f9fa167b8173a35228b",
+        "directory-8df3614a9972a25fc59475ed",
+        "directory-d5428d030dfff7d4639258e3",
+        "directory-79e16cd5beb5c662c4022a9f",
+        "directory-e7b100b6b999ac748e052327",
+        "directory-4c16d138c4a736e78a68127e",
+        "directory-ecf69ec2f036e803388f40ca",
+        "directory-db682c52794328eb69ebc377",
+        "directory-8263ca4c9f560c8d9c4df0de",
+        "directory-970506fbc577e6091a33c64d",
+        "directory-4852e367f74118ff2dc1eec9",
+        "directory-3834a0112c0e3a754320b557",
+        "directory-e2f33b502b264e51983a338a",
+        "directory-9f7087ce2c030a4b9da58499",
+        "directory-48665d874f6008894d0d9385",
+        "directory-f8085f0f6e72cfbdfde3a0f8",
+        "directory-d1527db7c06b4e83370b7546",
+        "directory-54d90ff964a74ff98851ae11",
+        "directory-0dffb60aadd4ba31b5c090dc",
+        "universe-20261026-every-ai-editorial"
+      ],
+      "separate_census_note": "This is the pre-selection editorial index review. The later automated source-item census is separate and is not evidence that an editor inspected an index or that newer qualifying stories were absent.",
+      "coverage": {
+        "eligible": 109,
+        "inspected": 13,
+        "inaccessible": 0,
+        "unreviewed": 96
+      }
+    }
+  },
+  "video_source_sweep": {
+    "schema_version": "daily-video-source-sweep-v1",
+    "edition_date": "2026-11-10",
+    "registry_roster_sha256": "97aa080041a110caa0cdf17f4ebf2a0f32c7274249f6541804a70b17bc72c98c",
+    "registered_count": 29,
+    "enabled_count": 28,
+    "qualification_only_count": 1,
+    "registry_snapshot": [
+      {
+        "resource_id": "deep-20261026-v01-two-minute-papers",
+        "url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Two Minute Papers — AI Research Explainers"
+      },
+      {
+        "resource_id": "directory-1c6f5db2559c3c226a112873",
+        "url": "https://ai.engineer/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "AI Engineer"
+      },
+      {
+        "resource_id": "directory-3834a0112c0e3a754320b557",
+        "url": "https://www.youtube.com/@MicrosoftDeveloper",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Microsoft Developer YouTube"
+      },
+      {
+        "resource_id": "directory-4852e367f74118ff2dc1eec9",
+        "url": "https://www.youtube.com/@googlecloudtech",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Google Cloud Tech YouTube"
+      },
+      {
+        "resource_id": "directory-48665d874f6008894d0d9385",
+        "url": "https://www.youtube.com/@HuggingFace",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Hugging Face YouTube"
+      },
+      {
+        "resource_id": "directory-4c16d138c4a736e78a68127e",
+        "url": "https://www.youtube.com/@github/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "GitHub YouTube"
+      },
+      {
+        "resource_id": "directory-5c5d3d02a420135949164552",
+        "url": "https://www.coreweave.com/builder",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Weights & Biases / CoreWeave Videos"
+      },
+      {
+        "resource_id": "directory-79e16cd5beb5c662c4022a9f",
+        "url": "https://www.youtube.com/@msftmechanics/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Microsoft Mechanics YouTube"
+      },
+      {
+        "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
+        "url": "https://www.youtube.com/@Deeplearningai",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "DeepLearning.AI YouTube"
+      },
+      {
+        "resource_id": "directory-970506fbc577e6091a33c64d",
+        "url": "https://www.youtube.com/@stanfordhai",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Stanford HAI YouTube"
+      },
+      {
+        "resource_id": "directory-9f7087ce2c030a4b9da58499",
+        "url": "https://www.youtube.com/@NVIDIADeveloper",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "NVIDIA Developer YouTube"
+      },
+      {
+        "resource_id": "directory-b93e2368e85f0f95c066463e",
+        "url": "https://www.ibm.com/think/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "IBM Think Videos"
+      },
+      {
+        "resource_id": "directory-d1527db7c06b4e83370b7546",
+        "url": "https://www.youtube.com/@CohereAI",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Cohere YouTube"
+      },
+      {
+        "resource_id": "directory-d5428d030dfff7d4639258e3",
+        "url": "https://www.youtube.com/@IBMTechnology/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "IBM Technology YouTube"
+      },
+      {
+        "resource_id": "directory-db682c52794328eb69ebc377",
+        "url": "https://www.youtube.com/@LlamaIndex/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "LlamaIndex YouTube"
+      },
+      {
+        "resource_id": "directory-e2f33b502b264e51983a338a",
+        "url": "https://www.youtube.com/@AWSDevelopers",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "AWS Developers YouTube"
+      },
+      {
+        "resource_id": "directory-e7b100b6b999ac748e052327",
+        "url": "https://www.youtube.com/@GoogleWorkspace/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Google Workspace YouTube"
+      },
+      {
+        "resource_id": "directory-ecf69ec2f036e803388f40ca",
+        "url": "https://www.youtube.com/@LangChain/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "LangChain YouTube"
+      },
+      {
+        "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
+        "url": "https://www.youtube.com/@Databricks",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Databricks YouTube"
+      },
+      {
+        "resource_id": "research-20261026-v01",
+        "url": "https://www.youtube.com/@GoogleDevelopers/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Google for Developers Video Channel"
+      },
+      {
+        "resource_id": "research-20261026-v02",
+        "url": "https://www.youtube.com/@n8n-io/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "n8n Official Tutorial Channel"
+      },
+      {
+        "resource_id": "research-20261026-v03",
+        "url": "https://www.youtube.com/@Zapier/videos",
+        "enabled": false,
+        "search_mode": "site_search",
+        "name": "Zapier Official Tutorials"
+      },
+      {
+        "resource_id": "research-20261026-v04",
+        "url": "https://openai.com/academy/using-chatgpt/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "OpenAI Academy On-Demand Workshops"
+      },
+      {
+        "resource_id": "research-20261026-v05",
+        "url": "https://aitinkerers.org/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "AI Tinkerers Talk and Demo Library"
+      },
+      {
+        "resource_id": "research-20261026-v06",
+        "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-tutorial-meet-microsoft-365-copilot",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Microsoft Copilot Tutorial Videos"
+      },
+      {
+        "resource_id": "research-20261026-v07",
+        "url": "https://arize.com/resources/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Arize Agent Evaluation Video Guides"
+      },
+      {
+        "resource_id": "youtube-anthropic",
+        "url": "https://www.youtube.com/@anthropic-ai",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "Anthropic on YouTube"
+      },
+      {
+        "resource_id": "youtube-google-deepmind",
+        "url": "https://www.youtube.com/@googledeepmind",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "Google DeepMind on YouTube"
+      },
+      {
+        "resource_id": "youtube-openai",
+        "url": "https://www.youtube.com/@OpenAI",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "OpenAI on YouTube"
+      }
+    ],
+    "observations": [
+      {
+        "resource_id": "deep-20261026-v01-two-minute-papers",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://www.artificial-intelligence.video/channels/two-minute-papers/"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-1c6f5db2559c3c226a112873",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://ai.engineer/",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://ai.engineer/talks/pz74r-4dGfQ-your-ai-agent-is-hiding-its-mistakes"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-3834a0112c0e3a754320b557",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@MicrosoftDeveloper",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "directory-4852e367f74118ff2dc1eec9",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@googlecloudtech",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://subvolts.com/google-gemini/official/videos/"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-48665d874f6008894d0d9385",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@HuggingFace",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://ai.lounge.ai/learn/v/3372b291-b3a7-489d-93fb-527929688265"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-4c16d138c4a736e78a68127e",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@github/videos",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://buildunfiltered.com/watch/aXK0wctLk5U/"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-5c5d3d02a420135949164552",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.coreweave.com/builder",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://www.coreweave.com/resources/videos/coreweave-fully-connected-2026-keynote-introducing-coreweave-forge-built-for-adoption"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-79e16cd5beb5c662c4022a9f",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@msftmechanics/videos",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@Deeplearningai",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://newsletters.fru.dev/newsletters/deeplearningai"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-970506fbc577e6091a33c64d",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@stanfordhai",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://www.dutchstartup.ai/en/tv/confronting-our-ai-future-lightning-talks"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-9f7087ce2c030a4b9da58499",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@NVIDIADeveloper",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://newsletters.fru.dev/newsletters/nvidia-developer"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-b93e2368e85f0f95c066463e",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.ibm.com/think/videos",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://www.ibm.com/think/podcasts/mixture-of-experts/ai-self-improvement-mistral-genie/jcr%3Acontent"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-d1527db7c06b4e83370b7546",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@CohereAI",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://ai.lounge.ai/learn/v/76d4bf86-3da9-4c71-b5dd-26c75eb8d8b9"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-d5428d030dfff7d4639258e3",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@IBMTechnology/videos",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://newsletters.fru.dev/newsletters/ibm-technology"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-db682c52794328eb69ebc377",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@LlamaIndex/videos",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "directory-e2f33b502b264e51983a338a",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@AWSDevelopers",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://trari.com/en/c/awsdevelopers/"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-e7b100b6b999ac748e052327",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@GoogleWorkspace/videos",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "directory-ecf69ec2f036e803388f40ca",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@LangChain/videos",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://newsletters.fru.dev/newsletters/langchain"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@Databricks",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "research-20261026-v01",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@GoogleDevelopers/videos",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "research-20261026-v02",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@n8n-io/videos",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "research-20261026-v03",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@Zapier/videos",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "research-20261026-v04",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://openai.com/academy/using-chatgpt/",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://academy.openai.com/public/content?category=video"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "research-20261026-v05",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://aitinkerers.org/",
+        "outcome": "CANDIDATES_FOUND",
+        "candidate_urls": [
+          "https://aitinkerers.org/hackathons"
+        ],
+        "reason": "A source-specific public search returned at least one dated individual program or current publisher index lead; content quality, duration and playback remain separate gates."
+      },
+      {
+        "resource_id": "research-20261026-v06",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-tutorial-meet-microsoft-365-copilot",
+        "outcome": "REVIEWED_UNQUALIFIED",
+        "candidate_urls": [],
+        "reason": "The exact first-party tutorial player was reviewed, but its stated 2:08 runtime is below the three-minute candidate minimum."
+      },
+      {
+        "resource_id": "research-20261026-v07",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://arize.com/resources/",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "youtube-anthropic",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@anthropic-ai",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "youtube-google-deepmind",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@googledeepmind",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      },
+      {
+        "resource_id": "youtube-openai",
+        "attempted_at": "2026-11-10T01:33:08.386Z",
+        "method": "PUBLIC_SEARCH",
+        "checked_url": "https://www.youtube.com/@OpenAI",
+        "outcome": "NO_NEW_ITEMS",
+        "candidate_urls": [],
+        "reason": "A source-specific public search was attempted before selection, but it returned no usable current dated individual program link for this edition."
+      }
+    ],
+    "rule": "Attempt discovery at every registered video source, including disabled qualification leads. Record actual source-specific results before selection lock. A plan is not evidence of an attempt; disabled leads remain unapproved for selection until independently qualified."
+  },
+  "producer_receipt": {
+    "result": "PASS",
+    "owner_intervention": false,
+    "work_used": true,
+    "codex_used": true,
+    "paid_model_api_used": false,
+    "local_computer_used": false,
+    "accepted_image_regenerations": 0,
+    "semantic_stages_complete": [
+      "research",
+      "selection",
+      "seal"
+    ],
+    "scheduler_origin": "UNPROVEN",
+    "owner_recovery_scope": null
+  },
+  "status": "BUNDLE_READY",
+  "video_editorial_rotation_review": {
+    "selected_family_exception": null,
+    "other_video_policy": "CBS News and Fox News are distinct original publishers with archive-new exact URLs and fresh native-player PASS evidence. CBS supplies low-promotion independent reporting; Fox is a medium-risk attributed interview. Consecutive publisher exposure remains an editorial advisory caused by public-player availability, not an exact-program repeat.",
+    "failed_run_urls": [
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736096411",
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736938302",
+      "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737623157"
+    ]
+  }
+}
