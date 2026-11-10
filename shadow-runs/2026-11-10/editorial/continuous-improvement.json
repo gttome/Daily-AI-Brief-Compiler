@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-10",
-  "recorded_at": "2026-11-10T02:21:45.025Z",
+  "recorded_at": "2026-11-10T02:34:05.232Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
     "aar_cycle_date": "2026-11-08",
@@ -41,8 +41,8 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": false,
-    "outcome": "Exact Top 10 searches produced qualified leads and three bundle links, while broader discovery supplied four stories and the final PBS/Fox video pair. Eleven protected failures were corrected through narrow same-edition recovery; this records execution evidence, not incremental benefit or causal uplift.",
-    "publication_failures": 14,
+    "outcome": "Top 10 searches yielded three bundle links, while broader discovery supplied four stories and the final Fox/CBS video pair. Fifteen protected failures were corrected through narrow same-edition recovery; these are execution measurements, not causal uplift.",
+    "publication_failures": 15,
     "publication_failure_causes": [
       "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
       "RECEIPT_PUSH_NON_FAST_FORWARD",
@@ -57,17 +57,17 @@
       "PRESEAL_VIDEO_THREE_DISTINCT_PUBLISHERS_REQUIRED"
     ],
     "preseal_video_probe": {
-      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741853860",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42743339595",
       "result": "PASS",
       "passed_slots": 3,
       "selected_slots": 2,
       "selected_urls": [
-        "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
-        "https://www.foxnews.com/video/6407416427112"
+        "https://www.foxnews.com/video/6407416427112",
+        "https://www.cbsnews.com/video/the-risks-of-trusting-personal-ai-agents-with-your-money-data/"
       ],
-      "qualified_backup_url": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
-      "request_sha256": "5c0af31e914368a8da6f1d90fa203ae26b73f1b489f8476aa4f2cd5c3bd989b1",
-      "source_head": "62666d9aa77f940403090f04afcdf8ea69a427c0"
+      "qualified_backup_url": "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai",
+      "request_sha256": "f99c5b9e5d3e02d20a351e036cfe976951f902e656c682f0fc428c853c3dabcf",
+      "source_head": "ff8da15d6f8d48f3738b3227a12034333eab0424"
     },
     "preseal_video_probe_attempts": [
       {
@@ -149,6 +149,16 @@
         "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742433287",
         "result": "FAILED",
         "reason": "Source readiness rejected state.bundle.status=ready; the protected contract requires the literal BUNDLE_READY."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742963466",
+        "result": "FAILED",
+        "reason": "Full media history found the PBS Coxon interview already published on 2026-10-31."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42743339595",
+        "result": "PASS",
+        "reason": "Fox, archive-new CBS and archive-new TED each produced duration-matched signed-out advancement on the exact final request."
       }
     ]
   },
@@ -160,7 +170,8 @@
       "Preserved every failed video program and exact receipt, then moved only through the contract's original-publisher recovery path.",
       "Kept all fourteen approved change evaluations pending for the November 11 due edition.",
       "Rejected a playback-passing CBS program after exact archive reuse was discovered, then re-probed only the video scope.",
-      "Bound the final PBS/Fox selection and TED backup to one exact protected PASS request with three distinct publishers."
+      "Ran full-history recovery twice: removed exact-reused CBS, then exact-reused PBS and TED, without reopening six stories, podcasts, Watchlist or images.",
+      "Bound the final Fox/CBS selection and TED backup to exact protected PASS run 42743339595."
     ],
     "interpretation": "Input adoption, search coverage, candidate yield and admission-gate completion are measured for this edition. No evidence establishes that trend-linked selection caused better reader outcomes.",
     "more_sources_success": null,
@@ -287,6 +298,13 @@
       "root_cause_code": "INVALID_SEAL_CLOCK_OR_ORDER",
       "reason": "A status-only source-readiness repair advanced state.updated_at more than 60 seconds beyond the prior bundle seal.",
       "evidence_ref": "Reseal unchanged bundle content at the current clock and bind state.updated_at to the same timestamp."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742963466",
+      "failing_stage": "MEDIA_HISTORY",
+      "root_cause_code": "EXACT_MEDIA_REUSE",
+      "reason": "The selected PBS Coxon program exactly matched the published 2026-10-31 media archive; the TED Cearns backup also matched the 2026-11-04 archive.",
+      "evidence_ref": "Removed both reused exact programs and re-probed Fox, archive-new CBS, and archive-new TED."
     }
   ]
 }
