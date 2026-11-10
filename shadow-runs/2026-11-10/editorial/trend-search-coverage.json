@@ -3,7 +3,7 @@
   "edition_date": "2026-11-10",
   "cycle_date": "2026-11-09",
   "baseline_id": "nov03-2026-v1",
-  "generated_at": "2026-11-10T02:21:45.025Z",
+  "generated_at": "2026-11-10T02:34:05.232Z",
   "report": {
     "source_path": "signals/ai-topic-top10/2026-11-09.json",
     "source_commit": "5e08dbb93bb9560aae1283b5955199c1caeacd87",
@@ -670,7 +670,9 @@
       "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
       "https://www.foxnews.com/video/6407416427112",
       "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
-      "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/"
+      "https://www.cbsnews.com/video/political-ai-deepfakes-infiltrating-midterm-elections-pose-risks-voters/",
+      "https://www.cbsnews.com/video/the-risks-of-trusting-personal-ai-agents-with-your-money-data/",
+      "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai"
     ],
     "useful_qualified_candidate_ids": [
       "ART-ANTHROPIC-FABLE-52",
@@ -702,7 +704,9 @@
       "VID-FOX-ROGUE-AGENTS",
       "VID-PBS-COXON",
       "POD-IBM-MOE-132",
-      "VID-TED-CEARNS"
+      "VID-TED-CEARNS",
+      "VID-CBS-PERSONAL-AGENT-RISKS",
+      "VID-TED-LIAMPOTI"
     ],
     "rejection_reasons": [
       {
@@ -732,6 +736,14 @@
       {
         "candidate_id": "VID-PBS-DEADLOCK-AI",
         "reason": "A request containing two PBS programs failed the three-distinct-publisher pre-seal requirement."
+      },
+      {
+        "candidate_id": "VID-PBS-COXON",
+        "reason": "Protected full media history found exact reuse in the published 2026-10-31 edition."
+      },
+      {
+        "candidate_id": "VID-TED-CEARNS",
+        "reason": "Published archive search found exact reuse in the 2026-11-04 edition."
       }
     ],
     "gaps": [
@@ -795,7 +807,9 @@
       "https://www.foxnews.com/video/6407416427112",
       "https://www.pbs.org/video/ai-researcher-jacob-coxon-warns-what-may-lie-ahead-1789684475/",
       "https://www.ibm.com/think/podcasts/mixture-of-experts/ai-self-improvement-mistral-genie",
-      "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect"
+      "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+      "https://www.cbsnews.com/video/the-risks-of-trusting-personal-ai-agents-with-your-money-data/",
+      "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai"
     ],
     "causal_uplift": null
   },
@@ -865,6 +879,11 @@
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742718467",
       "root_cause_code": "INVALID_SEAL_CLOCK_OR_ORDER",
       "resolution": "Resealed unchanged bundle content and synchronized state.updated_at within the protected one-minute window."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742963466",
+      "root_cause_code": "EXACT_MEDIA_REUSE",
+      "resolution": "Removed exact-reused PBS and TED programs and re-probed archive-new CBS and TED alternatives."
     }
   ]
 }
