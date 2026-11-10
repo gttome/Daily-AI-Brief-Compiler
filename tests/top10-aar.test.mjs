@@ -331,3 +331,20 @@ test('a skipped topic-format pair cannot be attributed to a published selection'
  assert.equal(summary.selection_mapping_status,'INVALID');
  assert.deepEqual(summary.selected_mappings,[]);
 });
+
+test('raw noncanonical trend receipts are diagnosed but never promoted to validated searches',()=>{
+ const {e,h}=fixture();
+ e['trend-search-coverage'].searches[0].outcome='candidate_discovered';
+ e['trend-search-coverage'].selected_mappings[0]={
+  topic_sequence:1,format:'article',candidate_id:'a',selected_item_id:'story-1',
+  selected_url:'https://example.com/article/1',match_basis:'Selected article'};
+ const result=summarizeTop10(cycle,edition,e,h);
+ assert.equal(result.search_status,'INVALID');
+ assert.equal(result.selection_mapping_status,'INVALID');
+ assert.equal(result.receipt_diagnostics.raw_search_rows,30);
+ assert.equal(result.receipt_diagnostics.raw_distinct_topic_format_pairs,30);
+ assert.deepEqual(result.receipt_diagnostics.noncanonical_outcomes,['candidate_discovered']);
+ assert.equal(result.receipt_diagnostics.noncanonical_mapping_rows,1);
+ assert.equal(result.selected_mappings.length,0);
+ assert.match(renderTop10Section(result),/Raw, unverified Top 10 receipt observations/);
+});

@@ -114,6 +114,15 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   coverage?.schema_version==='daily-ai-topic-top10-search-coverage-v1'&&scoped(coverage,cycle,edition)&&
   coverage.report_sha256===input.report_sha256&&coverage.source_commit===input.source_commit&&
   searchesValid&&mappingValid&&covered.size===topics.length*FORMATS.length);
+ // Raw producer rows are a diagnostic inventory, not verified attempts or bundle selections.
+ const receiptDiagnostics=coverage?{
+  raw_search_rows:searches.length,
+  raw_distinct_topic_format_pairs:new Set(searches.filter(r=>text(r?.topic_id)&&FORMATS.includes(r?.format)).map(r=>r.topic_id+':'+r.format)).size,
+  noncanonical_outcomes:[...new Set(searches.map(r=>r?.outcome).filter(v=>!OUTCOMES.has(v)))].sort(),
+  raw_selected_mapping_rows:mappings.length,
+  noncanonical_mapping_rows:mappings.filter(m=>!clean(m)||!text(m.topic_id)||!text(m.item_id)||!https(m.url)||!text(m.reason)).length,
+  interpretation:'Unverified producer rows are retained for diagnosis only; they do not count as schema-valid searches or bundle-verified selections.'
+ }:null;
  const searchStatus=!coverage?(applicable?'NOT_OBSERVED':'NOT_APPLICABLE'):coverageValid?'RECEIPTS_OBSERVED':'INVALID';
  if(coverage&&!coverageValid)defects.push('Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input.');
  const notAttempted=Object.values(searchCounts).reduce((n,f)=>n+f.not_attempted,0);
@@ -154,7 +163,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   source_commit:sourceBound?source.source_commit:null,source_blob_sha:sourceBound?source.source_blob_sha:null,
   report_sha256:sourceBound?rawHash:null,consumed_source_commit:handoff==='RECEIVED_SNAPSHOT_BOUND'?input.source_commit:null,
   consumed_commit_independently_verified:consumedVerified,
-  handoff_status:handoff,search_status:searchStatus,search_counts:searchCounts,
+  handoff_status:handoff,search_status:searchStatus,search_counts:searchCounts,receipt_diagnostics:receiptDiagnostics,
   selection_mapping_status:mappingStatus,selection_mappings_reported:mappings.length,
   selected_mappings:coverageValid&&mappingStatus==='MATCHES_EDITION_BUNDLE'?mappings:[],end_to_end_ready:endToEnd,
   started_at:aar?timestamp(aar.started_at):null,finished_at:aar?timestamp(aar.finished_at):null,elapsed_minutes:elapsed,
@@ -333,6 +342,13 @@ export function renderTop10Section(s){
  if(s.selected_mappings.length)lines.push('| Topic | Format | Selected item | Reason |','|---|---|---|---|',
   ...s.selected_mappings.map(m=>`| ${cell(m.topic_id)} | ${cell(m.format)} | ${cell(m.item_id)} · ${link(m.url)} | ${cell(m.reason)} |`),'');
  else lines.push('No validated selection-to-topic mapping was recorded.','');
+ if(s.search_status==='INVALID'&&s.receipt_diagnostics){
+  const d=s.receipt_diagnostics;
+  lines.push('**Raw, unverified Top 10 receipt observations:** '+d.raw_search_rows+
+   ' search rows across '+d.raw_distinct_topic_format_pairs+' topic/format pairs; '+d.raw_selected_mapping_rows+
+   ' claimed mapping rows ('+d.noncanonical_mapping_rows+' with noncanonical fields). Noncanonical outcomes: '+
+   (d.noncanonical_outcomes.join(', ')||'none')+'. These counts are NOT validated search attempts or verified selections.','');
+ }
  const issues=[...s.defects,...s.limitations];
  if(issues.length)lines.push('**Gaps and limitations:**','',...issues.map(x=>'- '+cell(x)),'');
  for(const [heading,items] of [['Recorded run issues',s.errors],['Recorded improvements',s.improvements]])
