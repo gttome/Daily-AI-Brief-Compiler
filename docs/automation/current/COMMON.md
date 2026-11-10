@@ -11,6 +11,19 @@ Version: **2026-11-03.2**, effective November 4 editions onward. Owner approved 
 - No paid model APIs, TinyFish, metered browser/service, new CI job/service, additional scheduled AI task or owner-computer dependency. Existing protected PR/CI/Pages/reporting workflows are authorized. Compiler/Recovery use their ordinary connected capabilities; Images use the existing fresh Work/native Image Creation lane. Host-mode labels, scheduler IDs and local Node availability are not admission gates. Never invent capability, execution or first-party scheduler proof.
 - Use expected-current-SHA writes, protected PRs, exact-head required checks and permitted merge. Preserve current ownership/leases; ambiguous ownership means yield. Never bypass a gate or force-push. Make the smallest authorized repair and continue to actual verified completion when safe; preserve progress and report a precise unresolved blocker otherwise.
 
+## Daily completion and handoff
+
+The first execution of the 5:00 p.m. Chicago Top 10 task opens the next dated edition's production cycle. Keep that cycle open across tasks and handoffs until all four outcomes are verified:
+
+1. The dated Top 10 handoff and its AAR are saved, and the compiler records whether it used the handoff.
+2. The dated public brief is live and its required content, media checks and immutable image job are verified.
+3. All six premium images are verified on the live edition and the image release receipt is saved.
+4. The combined daily AAR is saved with evidence from Top 10, compiler and image production, plus any recovery actions and remaining uncertainties.
+
+Each existing role owns its stage and verifies the next handoff. When a stage fails, diagnose the original failure and correct the smallest authorized cause immediately. Resume from saved checkpoints, reuse accepted work and verify the result. A failed invocation, a pending image release or a partial report leaves the edition open. If another writer owns the work, or a protected gate or missing capability prevents a repair, persist the exact blocker, evidence, responsible role and next eligible action. The next existing owner or Recovery Guard checkpoint checks and resumes that edition when its ownership rules allow. Routine recovery does not wait for an owner status request.
+
+Use the existing task boundaries, schedules, protected checks and reporting routes. The closeout requirement tracks completion of the full cycle. It does not make the combined AAR a prerequisite for the initial reader publication.
+
 ## Evidence and daily learning
 
 Before work, consult the latest earlier edition's `operations-reports/daily/C/combined.json`, charts and `improvement-metrics.json` when present. Distinguish actual research, publication, image quality and scheduler autonomy. Unknown is not zero; a successful check is not proof of improved future outcomes. Missing reporting evidence never adds a publication blocker.
