@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-11",
-  "recorded_at": "2026-11-11T02:07:18.304Z",
+  "recorded_at": "2026-11-11T02:09:59.719Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
     "aar_cycle_date": "2026-11-08",
@@ -189,7 +189,7 @@
     "final_bundle_verified_selections": 6,
     "public_reader_completion": null,
     "outcome": "Six stories now resolve to five organizations after replacing only the third Google source; protected publication and reader outcomes remain pending.",
-    "publication_failures": 9,
+    "publication_failures": 10,
     "publication_failure_causes": [
       "VIDEO_CANDIDATE_DURATION_OUT_OF_BOUNDS",
       "IBM_NATIVE_PLAYER_UNINITIALIZED",
@@ -199,7 +199,8 @@
       "SOURCE_READ_AFTER_SELECTION",
       "NONTECHNICAL_AUDIENCE_EVIDENCE_REQUIRED",
       "SUBSTANTIVE_VIDEO_CONTENT_EVIDENCE_REQUIRED",
-      "PODCAST_AI_FRACTION_DISAGREES_WITH_SEGMENTS"
+      "PODCAST_AI_FRACTION_DISAGREES_WITH_SEGMENTS",
+      "VIDEO_SOURCE_SWEEP_WRONG_SCHEMA"
     ],
     "preseal_video_probe": {
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939568208",
@@ -426,6 +427,13 @@
       "root_cause_code": "PODCAST_AI_FRACTION_DISAGREES_WITH_SEGMENTS",
       "reason": "The four recorded AI segments cover the entire 52:02 episode, while the summary field understated the reviewed fraction as 0.95.",
       "evidence_ref": "Corrected only estimated_editorial_ai_fraction to 1.0; segment boundaries and episode content were unchanged."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42943828210",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "VIDEO_SOURCE_SWEEP_WRONG_SCHEMA",
+      "reason": "The bundle embedded the detailed editorial sweep receipt instead of the protected normalized registry-ledger schema.",
+      "evidence_ref": "Preserved the detailed editorial file and replaced only the bundle field with the 29-row normalized roster, digest, methods and outcomes."
     }
   ]
 }
