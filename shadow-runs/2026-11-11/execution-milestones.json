@@ -52,6 +52,35 @@
         "sealed_commit": "04cdbaf045a94796c0aa8ec5d59e8cbef6f47773",
         "bundle_sha256": "7475f4e20b4b26207c50e7d2e357641d0b1a6bfe11d3c61145714fc4a86a8881"
       }
+    },
+    {
+      "event": "FAILURE",
+      "observed_at": "2026-11-11T01:51:12.276Z",
+      "details": {
+        "run_id": 42941845560,
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "EDITORIAL_CONTRACT_MISMATCH",
+        "failing_value": "2026-11-03.2",
+        "required_value": "daily-compiler-editorial-contract-v1"
+      }
+    },
+    {
+      "event": "RECOVERY",
+      "observed_at": "2026-11-11T01:51:58.861Z",
+      "details": {
+        "run_id": 42941845560,
+        "stage": "SEMANTIC_PREFLIGHT",
+        "correction": "Changed only editorial_contract_version to the protected schema identifier and rebound the digest."
+      }
+    },
+    {
+      "event": "BUNDLE_SEALED",
+      "observed_at": "2026-11-11T01:51:58.861Z",
+      "details": {
+        "selection_locked_at": "2026-11-11T01:38:43.217Z",
+        "bundle_sha256": "7e4d9d72a31068014e272977ba615359e38b2bd7632b6cc728c2b04507cdd0e9",
+        "reason": "validator metadata correction"
+      }
     }
   ],
   "scheduler_origin_attested": false
