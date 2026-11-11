@@ -492,18 +492,8 @@
       "candidate_ids": [
         "ART-DEEPMIND-ALPHAPROOF-CODE"
       ],
-      "selected_mappings": [
-        {
-          "topic_sequence": 5,
-          "topic_identity": "alphaproof-code-signal-nov10",
-          "format": "article",
-          "candidate_id": "ART-DEEPMIND-ALPHAPROOF-CODE",
-          "selected_item_id": "nov11-t1-alphaproof-code",
-          "selected_url": "https://deepmind.google/blog/introducing-alphaproof-code/",
-          "match_basis": "Exact original AlphaProof Code event and selected Technical story."
-        }
-      ],
-      "selection_status": "selected"
+      "selected_mappings": [],
+      "selection_status": "not_selected"
     },
     {
       "topic_id": "gemini-carbon-public-rollout-nov10",
@@ -531,8 +521,18 @@
         "ART-IBM-SPEC-DRIVEN",
         "VID-IBM-SPEC-DRIVEN"
       ],
-      "selected_mappings": [],
-      "selection_status": "not_selected"
+      "selected_mappings": [
+        {
+          "topic_sequence": 7,
+          "topic_identity": "ibm-spec-driven-waterfall-nov09",
+          "format": "video",
+          "candidate_id": "VID-IBM-SPEC-DRIVEN",
+          "selected_item_id": "nov11-t1-spec-driven",
+          "selected_url": "https://www.youtube.com/watch?v=GpZ5T51jE4U",
+          "match_basis": "Exact original IBM Technology program selected as the Technical story source after publisher-diversity recovery."
+        }
+      ],
+      "selection_status": "selected"
     },
     {
       "topic_id": "greg-isenberg-marketing-agents-nov09",
@@ -607,15 +607,6 @@
       "match_basis": "Exact original Control Room event and selected Technical story."
     },
     {
-      "topic_sequence": 5,
-      "topic_identity": "alphaproof-code-signal-nov10",
-      "format": "article",
-      "candidate_id": "ART-DEEPMIND-ALPHAPROOF-CODE",
-      "selected_item_id": "nov11-t1-alphaproof-code",
-      "selected_url": "https://deepmind.google/blog/introducing-alphaproof-code/",
-      "match_basis": "Exact original AlphaProof Code event and selected Technical story."
-    },
-    {
       "topic_sequence": 8,
       "topic_identity": "greg-isenberg-marketing-agents-nov09",
       "format": "podcast",
@@ -632,6 +623,15 @@
       "selected_item_id": "nov11-k1-claude-artifacts",
       "selected_url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
       "match_basis": "Exact original Claude release selected in Applied lane."
+    },
+    {
+      "topic_sequence": 7,
+      "topic_identity": "ibm-spec-driven-waterfall-nov09",
+      "format": "video",
+      "candidate_id": "VID-IBM-SPEC-DRIVEN",
+      "selected_item_id": "nov11-t1-spec-driven",
+      "selected_url": "https://www.youtube.com/watch?v=GpZ5T51jE4U",
+      "match_basis": "Exact original IBM Technology program selected as the Technical story source after publisher-diversity recovery."
     }
   ],
   "impact_observations": {
@@ -700,7 +700,8 @@
       "Fable 5.2 duplicated the November 10 story topic.",
       "Modern Web Guidance was coding-oriented for the noncoding Agents lane.",
       "TokenEconomizer fell outside the preferred window and had lower marginal value.",
-      "Video leads without stable original advancing players, compliant duration, or archive novelty were rejected."
+      "Video leads without stable original advancing players, compliant duration, or archive novelty were rejected.",
+      "AlphaProof Code was qualified but rejected after the protected publisher-diversity gate identified a third Google source."
     ],
     "gaps": [
       "Input status is partial; discovery-sequence integers are not popularity ranks.",
@@ -855,6 +856,13 @@
       "root_cause_code": "IBM_NATIVE_PLAYER_UNINITIALIZED",
       "reason": "IBM MediaCenter exposed an uninitialized player and no duration-matched advancement.",
       "evidence_ref": "Replaced only IBM in the protected URL set with the already reviewed TED fallback."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42942038013",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "ARTICLE_PUBLISHER_DIVERSITY_VIOLATION",
+      "reason": "AlphaProof Code plus two Workspace stories resolved to three Google selections, leaving only four independent organizations.",
+      "evidence_ref": "Replaced only the AlphaProof story with the already discovered current IBM Technology spec-driven program and retained the other five stories."
     }
   ]
 }

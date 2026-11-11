@@ -81,6 +81,39 @@
         "bundle_sha256": "7e4d9d72a31068014e272977ba615359e38b2bd7632b6cc728c2b04507cdd0e9",
         "reason": "validator metadata correction"
       }
+    },
+    {
+      "event": "FAILURE",
+      "observed_at": "2026-11-11T01:53:00.312Z",
+      "details": {
+        "run_id": 42942038013,
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "ARTICLE_PUBLISHER_DIVERSITY_VIOLATION",
+        "counts": {
+          "google": 3,
+          "openai": 1,
+          "claude.com": 1,
+          "plinkhq.com": 1
+        }
+      }
+    },
+    {
+      "event": "RECOVERY",
+      "observed_at": "2026-11-11T01:55:28.352Z",
+      "details": {
+        "run_id": 42942038013,
+        "stage": "SEMANTIC_PREFLIGHT",
+        "correction": "Replaced only the third Google Technical story with the current IBM Technology spec-driven program."
+      }
+    },
+    {
+      "event": "BUNDLE_SEALED",
+      "observed_at": "2026-11-11T01:55:28.352Z",
+      "details": {
+        "selection_locked_at": "2026-11-11T01:38:43.217Z",
+        "reason": "publisher diversity recovery",
+        "bundle_sha256": "036fffb0e81f21032516d0307564103bc628480030aa60f3710e15b26b5dd875"
+      }
     }
   ],
   "scheduler_origin_attested": false
