@@ -135,6 +135,8 @@ jobs:
             # are distinct evidence. Missing inputs never imply successful handoff.
             git show "$ref:shadow-runs/$edition/editorial/trend-input.json" > "$in/trend-input.json" 2>/dev/null || rm -f "$in/trend-input.json"
             git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
+            # Optional original scientific-paper selection evidence, edition-scoped only.
+            git show "$ref:shadow-runs/$edition/editorial/scientific-paper-coverage.json" > "$in/scientific-paper-coverage.json" 2>/dev/null || rm -f "$in/scientific-paper-coverage.json"
             node "$tmp/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
             if [ -n "$reports_source_commit" ]; then
               # Optional original guard receipt. Missing timing/cause evidence remains unknown.

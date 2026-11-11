@@ -16,7 +16,7 @@ const FILES=['top10-baseline','top10-outcome-baseline','top10-previous-report','
  'compiler-task-origin','image-task-origin','publication-health','video-playback-failures','owner-intervention-incident',
  'source-route-coverage','source-item-census','source-qualification',
  'source-item-retries','postpublication-incidents','postpublish-video-playback',
- 'top10-report','top10-after-action','top10-report-source','trend-input','trend-search-coverage'];
+ 'top10-report','top10-after-action','top10-report-source','trend-input','trend-search-coverage','scientific-paper-coverage'];
 const TASKS={
  compiler:'6ac9868490b88191ac91f84d5f555994',
  images:'6acac88cff048191ba02e5b2bcb3becb'
@@ -123,6 +123,12 @@ function compilerAar(cycle,date,e){
   original_postpublish_video_playback:postpublishVideo?.result??null,
   editorial_index_retry_counts:indexRetry?.counts??null,
   source_discovery_evidence:discovery,
+  scientific_paper_receipt_status:validFor(e['scientific-paper-coverage'],date)?
+    e['scientific-paper-coverage'].review_status:'NOT_RECORDED',
+  scientific_paper_led_stories:validFor(e['scientific-paper-coverage'],date)&&
+    e['scientific-paper-coverage'].review_status==='VERIFIED'&&
+    Array.isArray(e['scientific-paper-coverage'].published_papers)?
+    e['scientific-paper-coverage'].published_papers.length:null,
   selected_video_publication_dates:(job?.editorial_context?.videos??[]).map(x=>({
     title:x.title??null,publisher:x.source??null,original_date:x.original_date??null})),
   last_failed_gate:health?.last_recorded_blocker?.stage??null,

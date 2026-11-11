@@ -24,6 +24,7 @@ function generateUnified(cycle,e,hashes={}) {
   const publishedVideoCheck=obj("postpublish-video-playback");
   const incidentLedger=obj("postpublication-incidents");
   const indexRetry=obj("source-item-retries");
+  const scientificPaperReceipt=obj("scientific-paper-coverage");
   const readerIncidents=Array.isArray(incidentLedger?.incidents)?incidentLedger.incidents.filter(i=>
     i&&typeof i.incident_id==="string"&&typeof i.impact==="string"&&typeof i.status==="string"):[];
   const confirmedOwnerRecovery=ownerIncident?.owner_intervention?.required_in_observed_sequence===true||
@@ -83,6 +84,20 @@ function generateUnified(cycle,e,hashes={}) {
   const nice=s=>String(s??"Not reported").replace(/\|/g,"/").replace(/\r?\n/g," ");
   const dateString=new Date(edition+"T12:00:00Z").toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"});
   const stories=Array.isArray(bundle?.stories)?bundle.stories:[];
+  // This is a source-bound producer report, not independent proof of full-paper reading.
+  const paperRows=scientificPaperReceipt?.published_papers;
+  const paperIdentityValid=scientificPaperReceipt?.schema_version==="daily-scientific-paper-coverage-v1"&&
+    scientificPaperReceipt?.review_status==="VERIFIED"&&Array.isArray(paperRows)&&
+    new Set(paperRows.map(x=>x?.story_id)).size===paperRows.length&&
+    paperRows.every(x=>typeof x?.title==="string"&&typeof x?.original_paper_url==="string"&&
+      x.original_paper_url.startsWith("https://")&&["PREPRINT","PEER_REVIEWED"].includes(x?.publication_status)&&
+      stories.some(s=>s.id===x.story_id));
+  const paperCoverage={status:paperIdentityValid?"PRODUCER_REPORTED_BUNDLE_MATCH":
+    scientificPaperReceipt?"UNVERIFIED_RECEIPT":"NOT_RECORDED",
+    paper_led_stories:paperIdentityValid?paperRows.length:null,
+    target_paper_led_stories_per_seven_editions:1,window_editions:7,
+    selected_story_ids:paperIdentityValid?paperRows.map(x=>x.story_id):[],
+    caveat:"One in seven is a quality-first editorial target, not a release quota. Reported paper reading and peer-review status require independently inspectable original-paper evidence."};
   const watch=e["published-watchlist"]?.edition_date===edition?e["published-watchlist"]:null;
   const watchActive=(watch?.topics||[]).filter(t=>t.status!=="archived");
   const normalizeTitle=v=>String(v??"").toLowerCase().normalize("NFKD")
@@ -140,6 +155,7 @@ function generateUnified(cycle,e,hashes={}) {
     !requestedAarPath.split('/').includes('..')?requestedAarPath:'external-image-packages/'+edition+'/reviews/after-action.md';
   const sourceInfo=[["Compiler state",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler-state.json`],["Compiler compile receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/compile-receipt.json`],["Compiler public integrity",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-integrity.json`],["Image release receipt",`${gh}/blob/shadow-pages-history/site/image-jobs/${edition}/release.json`],["Image review",`${gh}/blob/main/external-image-packages/${edition}/reviews/live/${pixelVisualOk?"semantic-pixel-review.json":"image-element24/semantic-reviews.json"}`],["Original image AAR",`${gh}/blob/main/${aarPath}`]];
   if(indexRetry)sourceInfo.push(["Observed editorial index retries",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/source-item-retries.json`]);
+  if(scientificPaperReceipt)sourceInfo.push(["Scientific paper selection review",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/editorial/scientific-paper-coverage.json`]);
   if(incidentLedger)sourceInfo.push(["Postpublication incident register",`${gh}/blob/main/docs/after-action/incidents/${edition}.json`]);
   if(publishedVideoCheck)sourceInfo.push(["Published player playback receipt",`${gh}/blob/shadow/${edition}/shadow-runs/${edition}/compiler/postpublish-video-playback.json`]);
   const top10SourceRef=/^[a-f0-9]{40}$/.test(top10.source_commit||'')?top10.source_commit:'operations-reports';
@@ -191,6 +207,7 @@ renderAarChartsMarkdown(charts),
 `| **Unattended autonomy (separate from publication)** | **${autonomy}** | Owner incident receipt takes precedence over unverified producer self-attestation |`,
 `| Recorded protected publishing gate failures | **${protectionEvents.length}** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |`,
 `| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
+`| Original scientific-paper-led articles | **${paperCoverage.paper_led_stories??"Not recorded"}** | Rolling target: one qualified original paper in seven editions; ${paperCoverage.status}. Preprints are not peer-reviewed by default |`,
 `| Verified original sources within preceding 24 hours | **${withinOneDay} / ${stories.length}** | Original publisher dates only; other sources require a documented fallback rationale |`,
 `| Distinct selected article publishers | **${distinctArticlePublishers}** | Six different primary organizations preferred |`,
 `| Videos over seven days old | **${mediaOld}** | Must be labeled evergreen, not a new development |`,
@@ -258,6 +275,12 @@ renderTop10Section(top10),
 "| Lane | Story |",
 "|---|---|",
 ...stories.map(s=>`| ${nice(s.focus)} | ${nice(s.headline)} |`),
+"",
+"### Scientific paper opportunity and publication evidence",
+"",
+`**Current edition:** ${paperCoverage.status}; **paper-led stories:** ${paperCoverage.paper_led_stories??"Not recorded"}. Editorial target: at least one genuinely qualified original-paper-based story in seven editions, with methods, limitations, and an explicit preprint/peer-review distinction. No stale or weak paper is selected solely to fill a quota.`,
+...(paperIdentityValid?paperRows.map(p=>`- ${nice(p.title)} (${nice(p.publication_status)}): ${nice(p.original_paper_url)} — linked article: ${nice(p.story_id)}.`):[]),
+"",
 "",
 "## Track 2 — Premium images",
 "",
@@ -366,14 +389,14 @@ imgCols,
 "*Generated deterministically from cycle- and edition-specific GitHub records. The report combines the Top 10 discovery priorities, its Compiler handoff and searches, the published Brief, and the image run; original research, Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*",
 ""
 ].join("\n");
-  const json={schema_version:"daily-compiler-unified-aar-v1",evidence_reconciliation:reconciled,oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:reconciled.image_capability_preflight_recorded||originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
+  const json={schema_version:"daily-compiler-unified-aar-v1",evidence_reconciliation:reconciled,oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:reconciled.image_capability_preflight_recorded||originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,scientific_paper_coverage:paperCoverage,source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   if(charts)json.charts=charts;
   return {markdown:md,json,charts};
 }
 
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
-const keys=["top10-baseline","top10-outcome-baseline","top10-previous-report","top10-previous-aar","top10-improvement","execution-milestones","fallback-search-evidence","trend-consumed-source","trend-consumed-report","image-route-preflight","compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage"];
+const keys=["top10-baseline","top10-outcome-baseline","top10-previous-report","top10-previous-aar","top10-improvement","execution-milestones","fallback-search-evidence","trend-consumed-source","trend-consumed-report","image-route-preflight","compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage","scientific-paper-coverage"];
 const ev={},hashes={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;const bytes=fs.readFileSync(p);hashes[k]=crypto.createHash("sha256").update(bytes).digest("hex");try{ev[k]=JSON.parse(bytes.toString("utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json,charts}=generateUnified(cycle,ev,hashes);
 fs.mkdirSync(outDir,{recursive:true});
