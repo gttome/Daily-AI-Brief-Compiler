@@ -33,6 +33,7 @@ Eligible source indexes: 87; editorial inspections reported: 6 (6.9%); inaccessi
 | **Unattended autonomy (separate from publication)** | **UNPROVEN** | Owner incident receipt takes precedence over unverified producer self-attestation |
 | Recorded protected publishing gate failures | **2** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
+| Original scientific-paper-led articles | **Not recorded** | Rolling target: one qualified original paper in seven editions; NOT_RECORDED. Preprints are not peer-reviewed by default |
 | Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
@@ -142,6 +143,11 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 | Applied Generative AI for Knowledge Workers | Cohere maps a citation-first assistant for financial filings |
 | Agents for Everyone | Managed Deep Agents adds browser handoff and background helpers |
 | Agents for Everyone | A commitments tally turns passing promises into reviewable work |
+
+### Scientific paper opportunity and publication evidence
+
+**Current edition:** NOT_RECORDED; **paper-led stories:** Not recorded. Editorial target: at least one genuinely qualified original-paper-based story in seven editions, with methods, limitations, and an explicit preprint/peer-review distinction. No stale or weak paper is selected solely to fill a quota.
+
 
 ## Track 2 — Premium images
 

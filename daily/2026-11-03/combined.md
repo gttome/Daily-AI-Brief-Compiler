@@ -75,6 +75,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Unattended autonomy (separate from publication)** | **FAIL_OWNER_RECOVERY** | Owner incident receipt takes precedence over unverified producer self-attestation |
 | Recorded protected publishing gate failures | **3** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
+| Original scientific-paper-led articles | **Not recorded** | Rolling target: one qualified original paper in seven editions; NOT_RECORDED. Preprints are not peer-reviewed by default |
 | Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
@@ -283,6 +284,11 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 | Agents for Everyone | Meet can show policy notices before Gemini notes |
 | Agents for Everyone | Use a three-check brief before delegating to an agent |
 
+### Scientific paper opportunity and publication evidence
+
+**Current edition:** NOT_RECORDED; **paper-led stories:** Not recorded. Editorial target: at least one genuinely qualified original-paper-based story in seven editions, with methods, limitations, and an explicit preprint/peer-review distinction. No stale or weak paper is selected solely to fill a quota.
+
+
 ## Track 2 — Premium images
 
 **Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 21 · **Rejected candidates:** 15.
@@ -406,8 +412,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-04/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ba66155f2c3089b65d75930fbe1ed12b569e29ae/signals/ai-topic-top10/2026-11-03.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ba66155f2c3089b65d75930fbe1ed12b569e29ae/signals/ai-topic-top10/2026-11-03.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ad8de0834c245f404f43a665b8444ddae6e358b7/signals/ai-topic-top10/2026-11-03.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ad8de0834c245f404f43a665b8444ddae6e358b7/signals/ai-topic-top10/2026-11-03.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-04/shadow-runs/2026-11-04/editorial/trend-search-coverage.json) |
 
