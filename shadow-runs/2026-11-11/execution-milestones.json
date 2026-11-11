@@ -327,6 +327,39 @@
         "stage": "SEMANTIC_PREFLIGHT",
         "correction": "Added the complete editorial checkpoint and exact bundle SHA to state; bundle bytes unchanged."
       }
+    },
+    {
+      "event": "FAILURE",
+      "observed_at": "2026-11-11T02:16:36.482Z",
+      "details": {
+        "run_id": 42944824686,
+        "stage": "MEDIA_HISTORY",
+        "cause": "EXACT_MEDIA_REUSE",
+        "program_url": "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
+        "prior_date": "2026-11-03"
+      }
+    },
+    {
+      "event": "RECOVERY",
+      "observed_at": "2026-11-11T02:18:45.579Z",
+      "details": {
+        "run_id": 42944824686,
+        "stage": "MEDIA_HISTORY",
+        "correction": "Removed only CBS and promoted the exact-request PASS-qualified PBS backup.",
+        "selected_urls": [
+          "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
+          "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai"
+        ]
+      }
+    },
+    {
+      "event": "BUNDLE_SEALED",
+      "observed_at": "2026-11-11T02:18:45.579Z",
+      "details": {
+        "selection_locked_at": "2026-11-11T02:18:45.328Z",
+        "reason": "media-history recovery",
+        "bundle_sha256": "708d6acb0cb96de5a688fdda291785af46868809ab61db0fb4a8d6bb691634cd"
+      }
     }
   ],
   "scheduler_origin_attested": false

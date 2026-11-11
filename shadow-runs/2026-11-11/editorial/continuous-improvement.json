@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-11",
-  "recorded_at": "2026-11-11T02:15:27.314Z",
+  "recorded_at": "2026-11-11T02:18:45.579Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
     "aar_cycle_date": "2026-11-08",
@@ -188,8 +188,8 @@
     },
     "final_bundle_verified_selections": 6,
     "public_reader_completion": null,
-    "outcome": "Six stories now resolve to five organizations after replacing only the third Google source; protected publication and reader outcomes remain pending.",
-    "publication_failures": 12,
+    "outcome": "Semantic preflight passed; full media history removed exact-reused CBS and promoted the already PASS-qualified PBS backup. Protected publication and reader outcomes remain pending.",
+    "publication_failures": 13,
     "publication_failure_causes": [
       "VIDEO_CANDIDATE_DURATION_OUT_OF_BOUNDS",
       "IBM_NATIVE_PLAYER_UNINITIALIZED",
@@ -202,7 +202,8 @@
       "PODCAST_AI_FRACTION_DISAGREES_WITH_SEGMENTS",
       "VIDEO_SOURCE_SWEEP_WRONG_SCHEMA",
       "SOURCE_READ_METHOD_INVALID",
-      "EDITORIAL_CHECKPOINT_MISSING"
+      "EDITORIAL_CHECKPOINT_MISSING",
+      "EXACT_MEDIA_REUSE"
     ],
     "preseal_video_probe": {
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939568208",
@@ -210,10 +211,10 @@
       "passed_slots": 0,
       "selected_slots": 2,
       "selected_urls": [
-        "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
+        "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
         "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai"
       ],
-      "qualified_backup_url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
+      "qualified_backup_url": null,
       "request_sha256": "6856c10c9f44c23dbd49a4592dc166cf98509af23bec85d2f71d98cb212686fa",
       "source_head": "e94bb5017eab367a72b91ba5f86916c654b7ff94"
     },
@@ -450,6 +451,13 @@
       "root_cause_code": "EDITORIAL_CHECKPOINT_MISSING",
       "reason": "The state had the exact bundle digest but omitted the explicit completed editorial checkpoint required for pending-image publication.",
       "evidence_ref": "Added editorial_bundle complete counts and bundle_sha256 without changing sealed bundle bytes."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42944824686",
+      "failing_stage": "MEDIA_HISTORY",
+      "root_cause_code": "EXACT_MEDIA_REUSE",
+      "reason": "The selected CBS program exactly matched the published November 3 media archive.",
+      "evidence_ref": "Removed only CBS and promoted the exact-request PASS-qualified, archive-new PBS program; stories, podcasts, Watchlist and images remained unchanged."
     }
   ]
 }
