@@ -1,0 +1,374 @@
+{
+  "schema_version": "daily-compiler-continuous-improvement-v1",
+  "edition_date": "2026-11-11",
+  "recorded_at": "2026-11-11T01:46:56.152Z",
+  "latest_comparable_aar": {
+    "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
+    "aar_cycle_date": "2026-11-08",
+    "reconciled_edition_date": "2026-11-09",
+    "combined_path": "daily/2026-11-08/combined.json",
+    "charts_path": "daily/2026-11-08/charts.json",
+    "metrics_path": "daily/2026-11-08/improvement-metrics.json"
+  },
+  "prior_observations": {
+    "preselection_index_coverage": {
+      "eligible": 109,
+      "inspected": 13,
+      "inaccessible": 0,
+      "unreviewed": 96
+    },
+    "video_source_sweep": {
+      "attempted": 29,
+      "registered": 29,
+      "candidate_bearing": 16,
+      "inaccessible": 0
+    },
+    "top10_searches": {
+      "attempted": 30,
+      "formats": [
+        "article",
+        "video",
+        "podcast"
+      ],
+      "selected_linkage": "three bundle-bound mappings: two articles and one podcast"
+    },
+    "final_bundle_verified_selections": 6,
+    "public_reader_completion": true,
+    "outcome": "Top 10 searches yielded three bundle links, broader discovery supplied four stories and the final Fox/CBS video pair, and protected run 42743810709 verified the live reader plus the immutable six-story PUBLISHED_PENDING image handoff. Fifteen protected failures were corrected through narrow same-edition recovery; these are execution measurements, not causal uplift.",
+    "publication_failures": 15,
+    "publication_failure_causes": [
+      "YOUTUBE_SIGNIN_OR_EMBED_BLOCK",
+      "RECEIPT_PUSH_NON_FAST_FORWARD",
+      "PUBLISHER_FALLBACK_NO_ADVANCING_PLAYER",
+      "VIDEO_CANDIDATE_BELOW_THREE_MINUTES",
+      "IBM_NATIVE_PLAYER_UNINITIALIZED",
+      "RECENT_SOURCE_FALLBACK_REASON_MISSING",
+      "INVALID_SEAL_CLOCK_OR_ORDER",
+      "MEDIA_CHRONOLOGY_INCONSISTENT",
+      "AGENT_SKILLS_EVIDENCE_MISSING",
+      "EXACT_MEDIA_REUSE",
+      "PRESEAL_VIDEO_THREE_DISTINCT_PUBLISHERS_REQUIRED"
+    ],
+    "preseal_video_probe": {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42743339595",
+      "result": "PASS",
+      "passed_slots": 3,
+      "selected_slots": 2,
+      "selected_urls": [
+        "https://www.foxnews.com/video/6407416427112",
+        "https://www.cbsnews.com/video/the-risks-of-trusting-personal-ai-agents-with-your-money-data/"
+      ],
+      "qualified_backup_url": "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai",
+      "request_sha256": "f99c5b9e5d3e02d20a351e036cfe976951f902e656c682f0fc428c853c3dabcf",
+      "source_head": "ff8da15d6f8d48f3738b3227a12034333eab0424"
+    },
+    "preseal_video_probe_attempts": [
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736096411",
+        "result": "BLOCKED",
+        "reason": "Three exact direct YouTube programs did not advance signed-out in the protected runner."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736401936",
+        "result": "FAILED",
+        "reason": "The probe produced a receipt locally but concurrent evidence commits advanced the remote head and rejected the push."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42736938302",
+        "result": "BLOCKED",
+        "reason": "GridVids returned HTTP 403 and AI Engineer/BBC fallbacks exposed nonadvancing YouTube embeds."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737424830",
+        "result": "FAILED",
+        "reason": "The first Fox probe clip was 2:12, below the three-minute candidate floor."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737623157",
+        "result": "BLOCKED",
+        "reason": "CBS and Fox passed, while IBM MediaCenter remained uninitialized."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42737994315",
+        "result": "PASS",
+        "reason": "PBS NewsHour, CBS News and Fox News all produced duration-matched signed-out advancement."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739273752",
+        "result": "FAILED",
+        "reason": "Semantic preflight required item-specific extended-window fallback reasons."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739492573",
+        "result": "FAILED",
+        "reason": "Semantic preflight rejected an invalid seal clock/order."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42739980542",
+        "result": "FAILED",
+        "reason": "Semantic preflight rejected video retrieval timestamps later than protected playback checks."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740231377",
+        "result": "FAILED",
+        "reason": "Semantic preflight required dedicated reusable Agent Skills procedure evidence."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740462047",
+        "result": "FAILED",
+        "reason": "Media history found the exact CBS program in the published 2026-11-09 edition."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42740964425",
+        "result": "PASS",
+        "reason": "PBS, CBS and Fox advanced, but the later media-history check disqualified CBS from final selection."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741259447",
+        "result": "FAILED",
+        "reason": "The PBS/PBS/Fox request did not contain three distinct original publishers."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42741853860",
+        "result": "PASS",
+        "reason": "PBS, Fox and TED each produced duration-matched signed-out advancement on the exact final request."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742353837",
+        "result": "FAILED",
+        "reason": "Source readiness rejected state.bundle.status=ready; the protected contract requires the literal BUNDLE_READY."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742433287",
+        "result": "FAILED",
+        "reason": "Source readiness rejected state.bundle.status=ready; the protected contract requires the literal BUNDLE_READY."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42742963466",
+        "result": "FAILED",
+        "reason": "Full media history found the PBS Coxon interview already published on 2026-10-31."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42743339595",
+        "result": "PASS",
+        "reason": "Fox, archive-new CBS and archive-new TED each produced duration-matched signed-out advancement on the exact final request."
+      }
+    ],
+    "image_handoff": {
+      "status": "PUBLISHED_PENDING",
+      "verified": true,
+      "story_count": 6,
+      "job_url": "https://raw.githubusercontent.com/gttome/Daily-AI-Brief-Compiler/shadow-pages-history/site/image-jobs/2026-11-10/job.json",
+      "job_sha256": "768cd921ce521e960c93d2767e90bdf1ee52c6f44b62d3a0814f5f99d380b94e",
+      "bundle_sha256": "668124c60175e312667bb57dcf3215704d909a8cb702483d908535da4284e82b",
+      "source_commit_sha": "6d1bf5f3117ab04ca1ee935a61dbc2fb7375b2d7"
+    }
+  },
+  "current_observations": {
+    "preselection_index_coverage": {
+      "eligible": 109,
+      "inspected": 27,
+      "inaccessible": 5,
+      "unreviewed": 77
+    },
+    "video_source_sweep": {
+      "attempted": 29,
+      "registered": 29,
+      "candidate_bearing": 1,
+      "inaccessible": 5
+    },
+    "top10_searches": {
+      "attempted": 30,
+      "formats": [
+        "article",
+        "video",
+        "podcast"
+      ],
+      "selected_linkage": "four exact bundle-bound mappings: three articles and one podcast"
+    },
+    "final_bundle_verified_selections": 6,
+    "public_reader_completion": null,
+    "outcome": "Six stories, two podcasts and the CBS/TED pair are sealed from actual reviewed evidence. Protected publication and reader outcomes are pending; implementation does not prove benefit.",
+    "publication_failures": 2,
+    "publication_failure_causes": [
+      "VIDEO_CANDIDATE_DURATION_OUT_OF_BOUNDS",
+      "IBM_NATIVE_PLAYER_UNINITIALIZED"
+    ],
+    "preseal_video_probe": {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939568208",
+      "result": "PASS",
+      "passed_slots": 0,
+      "selected_slots": 2,
+      "selected_urls": [
+        "https://www.cbsnews.com/video/ai-whos-keeping-it-in-check/",
+        "https://www.ted.com/talks/amaryllis_liampoti_love_trust_and_marketing_in_the_age_of_ai"
+      ],
+      "qualified_backup_url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
+      "request_sha256": "6856c10c9f44c23dbd49a4592dc166cf98509af23bec85d2f71d98cb212686fa",
+      "source_head": "e94bb5017eab367a72b91ba5f86916c654b7ff94"
+    },
+    "preseal_video_probe_attempts": [
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939095485",
+        "result": "FAILED",
+        "reason": "Two research-only candidates were outside the protected duration range."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939255558",
+        "result": "BLOCKED",
+        "reason": "CBS and PBS passed while IBM MediaCenter remained uninitialized."
+      },
+      {
+        "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939568208",
+        "result": "PASS",
+        "reason": "CBS, TED and PBS each produced duration-matched signed-out advancement on the exact saved request."
+      }
+    ],
+    "image_handoff": {
+      "status": "pending protected publication",
+      "verified": false,
+      "story_count": 6,
+      "job_url": null,
+      "job_sha256": null,
+      "bundle_sha256": null,
+      "source_commit_sha": null
+    }
+  },
+  "comparison": {
+    "source_or_method_changes": [
+      "Completed all 30 Top 10 topic-format searches and bound only four exact final mappings.",
+      "Partitioned all 109 enabled editorial indexes into 27 inspected, 5 inaccessible and 77 unreviewed resource IDs before selection.",
+      "Attempted all 29 registered video sources, retained failures, and changed only the protected video slot that failed.",
+      "Evaluated all fourteen due improvement-register changes against measured receipts; reader and efficiency effects remain unknown.",
+      "Preserved the frozen November 3 baseline while using the actual November 10 report pinned to its immutable source commit."
+    ],
+    "interpretation": "Input adoption, coverage, candidate yield and admission-gate completion are measured. No evidence establishes that trend linkage or added sources caused better reader outcomes.",
+    "more_sources_success": null,
+    "causal_uplift": null
+  },
+  "approved_improvement_register": {
+    "frozen_baseline_id": "nov03-2026-v1",
+    "due_edition": "2026-11-11",
+    "evaluations_due_now": [
+      "NOV03-01",
+      "NOV03-02",
+      "NOV03-03",
+      "NOV03-04",
+      "AAR-01",
+      "AAR-02",
+      "AAR-04",
+      "AAR-05",
+      "AAR-06",
+      "AAR-07",
+      "AAR-09",
+      "AAR-10",
+      "AAR-03",
+      "AAR-08"
+    ],
+    "completed_change_evaluations": [
+      {
+        "change_id": "NOV03-01",
+        "decision": "keep",
+        "outcome": "inconclusive",
+        "evidence": "All 30 searches completed and four bundle mappings were verified, but no causal reader benefit is measurable."
+      },
+      {
+        "change_id": "NOV03-02",
+        "decision": "revise",
+        "outcome": "inconclusive",
+        "evidence": "All 29 registered video sources were attempted, yet the final playable pair still used overexposed CBS and TED families."
+      },
+      {
+        "change_id": "NOV03-03",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Every selected mapping matches an exact final bundle item and URL."
+      },
+      {
+        "change_id": "NOV03-04",
+        "decision": "keep",
+        "outcome": "inconclusive",
+        "evidence": "Frozen-baseline comparison fields are preserved; outcome uplift remains unknown."
+      },
+      {
+        "change_id": "AAR-01",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-02",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-04",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-05",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-06",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-07",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-09",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-10",
+        "decision": "keep",
+        "outcome": "met",
+        "evidence": "Required execution evidence was captured and is bundle- or receipt-verifiable for this cycle."
+      },
+      {
+        "change_id": "AAR-03",
+        "decision": "keep",
+        "outcome": "inconclusive",
+        "evidence": "Candidate yield is measured, but the effect on reader value remains unknown."
+      },
+      {
+        "change_id": "AAR-08",
+        "decision": "keep",
+        "outcome": "inconclusive",
+        "evidence": "Timing was observed, but comparable end-to-end cost and reader-outcome evidence remains incomplete."
+      }
+    ],
+    "pending_change_evaluations": [],
+    "efficacy_conclusion": "mixed and noncausal: evidence capture and exact mapping met; video-source expansion remained inconclusive and requires revision"
+  },
+  "next_improvement": "Replace channel-shell-heavy video discovery with a rotating publisher-native individual-program shortlist, measure qualified playable yield per reviewed source, and retain the 29-source accountability ledger.",
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939095485",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "VIDEO_CANDIDATE_DURATION_OUT_OF_BOUNDS",
+      "reason": "Two research-only candidates fell outside the protected three-to-twenty-minute candidate range.",
+      "evidence_ref": "Removed those two noncompliant candidates from the saved request without changing reviewed editorial work."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939255558",
+      "failing_stage": "PRESEAL_VIDEO",
+      "root_cause_code": "IBM_NATIVE_PLAYER_UNINITIALIZED",
+      "reason": "IBM MediaCenter exposed an uninitialized player and no duration-matched advancement.",
+      "evidence_ref": "Replaced only IBM in the protected URL set with the already reviewed TED fallback."
+    }
+  ]
+}

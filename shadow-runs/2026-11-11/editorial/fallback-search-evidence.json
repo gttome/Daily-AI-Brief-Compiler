@@ -1,0 +1,107 @@
+{
+  "schema_version": "daily-compiler-fallback-search-evidence-v1",
+  "edition_date": "2026-11-11",
+  "recorded_at": "2026-11-11T01:38:43.217Z",
+  "selection_locked_at": "2026-11-11T01:38:43.217Z",
+  "scope": {
+    "preferred_hours": 24,
+    "normal_fallback_hours": 72,
+    "extended_fallback_hours": 168,
+    "search_scope": "Four original article indexes plus all 29 registered video sources, bounded Top 10 searches across all three formats, and two exact podcast episode indexes were substantively reviewed; 77 enabled editorial indexes remained unreviewed."
+  },
+  "search_receipts": [
+    {
+      "lane": "Technical AI Engineering",
+      "selected_candidate_id": "ART-DEEPMIND-ALPHAPROOF-CODE",
+      "selected_url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "search_completed_at": "2026-11-11T01:22:00.000Z",
+      "fallback_reason": "Date-only publication is handled conservatively as a normal 72-hour fallback after newer-lane comparison and full source review.",
+      "newer_candidates_considered": []
+    },
+    {
+      "lane": "Technical AI Engineering",
+      "selected_candidate_id": "ART-OPENAI-CONTROL-ROOM",
+      "selected_url": "https://openai.com/index/control-room/",
+      "search_completed_at": "2026-11-11T01:22:00.000Z",
+      "fallback_reason": "Selected as a 72-hour fallback for a distinct inference-control pattern after the newer AlphaProof item filled the other Technical slot.",
+      "newer_candidates_considered": [
+        {
+          "candidate_id": "ART-DEEPMIND-ALPHAPROOF-CODE",
+          "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "published_at": "2026-11-10",
+          "reason": "Selected in the other Technical slot; it covers formal verification rather than inference authorization."
+        }
+      ]
+    },
+    {
+      "lane": "Applied Generative AI for Knowledge Workers",
+      "selected_candidate_id": "ART-CLAUDE-COLLABORATIVE-ARTIFACTS",
+      "selected_url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+      "search_completed_at": "2026-11-11T01:22:00.000Z",
+      "fallback_reason": "Date-only publication is handled conservatively as a normal 72-hour fallback after newer-lane comparison and full source review.",
+      "newer_candidates_considered": []
+    },
+    {
+      "lane": "Applied Generative AI for Knowledge Workers",
+      "selected_candidate_id": "ART-GOOGLE-GMAIL-GEMINI",
+      "selected_url": "https://workspaceupdates.googleblog.com/2026/11/expanding-gemini-in-gmail-to-more-Google-Workspace-users.html",
+      "search_completed_at": "2026-11-11T01:31:00.000Z",
+      "fallback_reason": "Date-only publication is handled conservatively as a normal 72-hour fallback after newer-lane comparison and full source review.",
+      "newer_candidates_considered": []
+    },
+    {
+      "lane": "Agents for Everyone",
+      "selected_candidate_id": "ART-GOOGLE-WORKSPACE-SKILLS",
+      "selected_url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+      "search_completed_at": "2026-11-11T01:31:00.000Z",
+      "fallback_reason": "Date-only publication is handled conservatively as a normal 72-hour fallback after newer-lane comparison and full source review.",
+      "newer_candidates_considered": []
+    },
+    {
+      "lane": "Agents for Everyone",
+      "selected_candidate_id": "POD-STARTUP-IDEAS-MARKETING-AGENTS",
+      "selected_url": "https://plinkhq.com/i/1593424985/e/1000800824847",
+      "search_completed_at": "2026-11-11T01:31:00.000Z",
+      "fallback_reason": "Selected as a 72-hour fallback for a distinct noncoding marketing workflow after the newer Workspace Skills story filled the dedicated Skills slot.",
+      "newer_candidates_considered": [
+        {
+          "candidate_id": "ART-GOOGLE-WORKSPACE-SKILLS",
+          "url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+          "published_at": "2026-11-10",
+          "reason": "Selected in the dedicated Agent Skills slot; the marketing workflow supplies a distinct noncoding outcome."
+        }
+      ]
+    }
+  ],
+  "lane_relevant_rejected_candidates": [
+    {
+      "candidate_id": "ART-ADOBE-CX-COWORKER",
+      "lane": "Agents for Everyone",
+      "url": "https://business.adobe.com/blog/the-latest/adobe-cx-coworker",
+      "published_at": "2026-11-10",
+      "rejection_reason": "The matching registry source was disabled and qualification-only; it was not silently admitted."
+    },
+    {
+      "candidate_id": "ART-CHROME-MODERN-WEB-GUIDANCE",
+      "lane": "Agents for Everyone",
+      "url": "https://developer.chrome.com/blog/modern-web-guidance-v1",
+      "published_at": "2026-11-10",
+      "rejection_reason": "Coding-oriented browser guidance did not meet the noncoding Agents-for-Everyone requirement and displaced no stronger Technical selection."
+    },
+    {
+      "candidate_id": "ART-MS-TOKENECONOMIZER",
+      "lane": "Technical AI Engineering",
+      "url": "https://github.com/microsoft/TokenEconomizer",
+      "published_at": "2026-10-30",
+      "rejection_reason": "Qualified but outside the preferred window and displaced by fresher, distinct Technical items."
+    },
+    {
+      "candidate_id": "ART-GOOGLE-CARBON-ROLLOUT",
+      "lane": "Technical AI Engineering",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "published_at": "2026-11-10",
+      "rejection_reason": "Credible release but lower marginal reader value than the selected formal-verification and inference-control patterns."
+    }
+  ],
+  "limitation": "The source review is explicit but incomplete: 77 enabled editorial indexes were unreviewed before selection. No claim is made that newer qualifying stories were absent from the full registry."
+}
