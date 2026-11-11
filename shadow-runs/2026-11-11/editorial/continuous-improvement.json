@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-continuous-improvement-v1",
   "edition_date": "2026-11-11",
-  "recorded_at": "2026-11-11T02:02:38.817Z",
+  "recorded_at": "2026-11-11T02:05:01.040Z",
   "latest_comparable_aar": {
     "operations_reports_commit": "c3ab4d1b391c8395cff1e6238f5a2d7b247c76fa",
     "aar_cycle_date": "2026-11-08",
@@ -189,7 +189,7 @@
     "final_bundle_verified_selections": 6,
     "public_reader_completion": null,
     "outcome": "Six stories now resolve to five organizations after replacing only the third Google source; protected publication and reader outcomes remain pending.",
-    "publication_failures": 7,
+    "publication_failures": 8,
     "publication_failure_causes": [
       "VIDEO_CANDIDATE_DURATION_OUT_OF_BOUNDS",
       "IBM_NATIVE_PLAYER_UNINITIALIZED",
@@ -197,7 +197,8 @@
       "ARTICLE_PUBLISHER_DIVERSITY_VIOLATION",
       "RECENT_SOURCE_FALLBACK_REASON_INVALID",
       "SOURCE_READ_AFTER_SELECTION",
-      "NONTECHNICAL_AUDIENCE_EVIDENCE_REQUIRED"
+      "NONTECHNICAL_AUDIENCE_EVIDENCE_REQUIRED",
+      "SUBSTANTIVE_VIDEO_CONTENT_EVIDENCE_REQUIRED"
     ],
     "preseal_video_probe": {
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42939568208",
@@ -410,6 +411,13 @@
       "root_cause_code": "NONTECHNICAL_AUDIENCE_EVIDENCE_REQUIRED",
       "reason": "The marketing-agent audience evidence used an unsupported prerequisite label even though the workflow itself required no programming.",
       "evidence_ref": "Changed only prerequisite_level to the protected general_office_tools vocabulary; audience actions and story content were preserved."
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42943277925",
+      "failing_stage": "SEMANTIC_PREFLIGHT",
+      "root_cause_code": "SUBSTANTIVE_VIDEO_CONTENT_EVIDENCE_REQUIRED",
+      "reason": "The TED program used the descriptive label expert_talk instead of a protected evidence taxonomy value.",
+      "evidence_ref": "Changed only the TED evidence kind to research_presentation; also normalized the already timestamped podcast evidence to timecoded_agenda."
     }
   ]
 }
