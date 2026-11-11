@@ -4,41 +4,77 @@
   "cycle_date": "2026-11-10",
   "owner_token": "native-nov11-031519-6e51f708",
   "claimed_at": "2026-11-11T03:15:19Z",
-  "lease_expires_at": "2026-11-11T04:01:52.000Z",
+  "lease_expires_at": "2026-11-11T04:04:04.000Z",
   "lease_status": "ACTIVE",
-  "phase": "GENERATING",
+  "phase": "PACKAGE_READY_AWAITING_PROTECTED_CI",
   "job_sha256": "33e99f034d5899216669f96967cdf91383c58030cb2056fc6cf7cd84267a1432",
   "original_source_commit_sha": "ca035064596eca272cee583cf090897cd65e248c",
   "original_bundle_sha256": "708d6acb0cb96de5a688fdda291785af46868809ab61db0fb4a8d6bb691634cd",
   "generation_count": 11,
   "accepted_hashes": [
+    "61c121e63bc733b556182657e302165c764ee3fea4bf9b0565addeb105174edf",
+    "82fb82b438b60d1c790dbc71f5e81b1431e5ba113e5938887c8d38d75d764e44",
+    "e40ab8db298b96e077aa76c1577ea9af18b4f27065b67a0b119c27f7a680c6dd",
+    "a6ac737d73a102252b4d024f4e2c5563c89dc346afe0e6747c04a8a47dad3188",
+    "223cd9973177de2acc6a49d00637c7ed7d7c92659bcade1dc87bc5946faf3856",
+    "2aebe3bb3b5bd9eac241f2fe65496f11f2edbaca205dffeb338f84c3a9edb416"
+  ],
+  "next_action": "Run local exact candidate preflight, open sole protected image PR, wait for exact-head CI and deploy.",
+  "host_execution_observed_at": "2026-11-11T03:14:30Z",
+  "scheduler_origin": "UNPROVEN",
+  "last_progress_at": "2026-11-11T03:41:52Z",
+  "task_id": "6ad6310597b0819096a8d0f1b46bffc9",
+  "updated_at": "2026-11-11T03:44:04Z",
+  "actual_generation_count": 11,
+  "accepted_images": [
     {
       "story_id": "nov11-t1-spec-driven",
-      "sha256": "61c121e63bc733b556182657e302165c764ee3fea4bf9b0565addeb105174edf"
+      "sha256": "61c121e63bc733b556182657e302165c764ee3fea4bf9b0565addeb105174edf",
+      "bytes": 804374,
+      "git_blob_sha": "6aa4da45b7bd13e4fda856382ef1b1614dd12258",
+      "generation_attempts": 2
     },
     {
       "story_id": "nov11-t2-control-room",
-      "sha256": "82fb82b438b60d1c790dbc71f5e81b1431e5ba113e5938887c8d38d75d764e44"
+      "sha256": "82fb82b438b60d1c790dbc71f5e81b1431e5ba113e5938887c8d38d75d764e44",
+      "bytes": 734492,
+      "git_blob_sha": "f173abae8543b14949df9b608ff1cf574ad5112e",
+      "generation_attempts": 2
     },
     {
       "story_id": "nov11-k1-claude-artifacts",
-      "sha256": "e40ab8db298b96e077aa76c1577ea9af18b4f27065b67a0b119c27f7a680c6dd"
+      "sha256": "e40ab8db298b96e077aa76c1577ea9af18b4f27065b67a0b119c27f7a680c6dd",
+      "bytes": 659145,
+      "git_blob_sha": "5ebe6108907ee2d865e04f2ac9ae38cc47b2a8e1",
+      "generation_attempts": 2
     },
     {
       "story_id": "nov11-k2-gmail-gemini",
-      "sha256": "a6ac737d73a102252b4d024f4e2c5563c89dc346afe0e6747c04a8a47dad3188"
+      "sha256": "a6ac737d73a102252b4d024f4e2c5563c89dc346afe0e6747c04a8a47dad3188",
+      "bytes": 646178,
+      "git_blob_sha": "bb6dd22072018aec8d79faf33ac282a6fa88b4b8",
+      "generation_attempts": 1
     },
     {
       "story_id": "nov11-a1-workspace-skills",
-      "sha256": "223cd9973177de2acc6a49d00637c7ed7d7c92659bcade1dc87bc5946faf3856"
+      "sha256": "223cd9973177de2acc6a49d00637c7ed7d7c92659bcade1dc87bc5946faf3856",
+      "bytes": 787037,
+      "git_blob_sha": "55c2ad9768691dbef1bf01ee8275d8bb1cbf9095",
+      "generation_attempts": 2
     },
     {
       "story_id": "nov11-a2-marketing-agents",
-      "sha256": "2aebe3bb3b5bd9eac241f2fe65496f11f2edbaca205dffeb338f84c3a9edb416"
+      "sha256": "2aebe3bb3b5bd9eac241f2fe65496f11f2edbaca205dffeb338f84c3a9edb416",
+      "bytes": 733219,
+      "git_blob_sha": "13106d693ebe8b0a77d9d26306fd719a3fdc212d",
+      "generation_attempts": 2
     }
   ],
-  "next_action": "Continue missing assets, preserve 6 accepted images",
-  "host_execution_observed_at": "2026-11-11T03:14:30Z",
-  "scheduler_origin": "UNPROVEN",
-  "last_progress_at": "2026-11-11T03:41:52Z"
+  "slot": "EVENING_PRIMARY",
+  "generation_started_at": "2026-11-11T03:24:52Z",
+  "generation_start_source": "executor_observed_before_first_native_call",
+  "host_execution_observation_source": "executor_observed_in_same_invocation",
+  "first_accepted_png_commit": "72b5bba9be4db2621848efc8d0eb09b2af0ff1b7",
+  "expected_pages_history_head": "4c0c4489fa9f5a2871828b4352d50e4b7ceeb17a",
+  "package_ready_at": "2026-11-11T03:44:04Z"
 }
