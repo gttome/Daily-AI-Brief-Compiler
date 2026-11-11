@@ -376,9 +376,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-11T03:51:01Z",
+      "review_record_commit_at": "2026-11-11T03:52:49.000Z",
+      "review_merge_at": "2026-11-11T03:55:41.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -386,7 +386,7 @@
   "oct28_source_readiness": null,
   "cycle_date": "2026-11-10",
   "edition_date": "2026-11-11",
-  "result": "PARTIAL",
+  "result": "COMPLETE",
   "top10": {
     "schema_version": "daily-ai-topic-top10-aar-v1",
     "lane": "top10",
@@ -652,7 +652,7 @@
       "independence": "Claude launch has several named publishers plus a separate community; Carbon has HN and a metadata-only reviewer listing. All other topics rely on one observed attention family.",
       "usefulness": "Brief fit and claim confidence are separate editorial judgments; popularity does not qualify an item."
     },
-    "source_commit": "c645fa5d12a227ee6541f42cd3a840dca5fecb8d",
+    "source_commit": "ba66155f2c3089b65d75930fbe1ed12b569e29ae",
     "source_blob_sha": "c5cae89631c8b56425317ed97dd50f81e9cd4904",
     "report_sha256": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
     "consumed_source_commit": "88fb5867c7101bbc6d53295e0200ddcb76adb972",
@@ -801,7 +801,7 @@
       },
       "previous_cycle": "2026-11-09",
       "previous_report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
-      "previous_aar_sha256": "d85b90bf8aaec19d2ae199651fac7b312aa628b535853084ccdb317d4ba749fd",
+      "previous_aar_sha256": "14c3efc140dade829692a863cb8169b1a0a9af9e8be35c59188f762db3225c5c",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1090,10 +1090,13 @@
   "latest_publication_health": "READER_VERIFIED",
   "provenance_warnings": [],
   "image_aar_warning": null,
-  "worker_closeout_verified": false,
+  "worker_closeout_verified": true,
   "worker_checkpoint_consistency": {
-    "result": "MISMATCH",
-    "reason": "worker_not_closed_for_exact_job"
+    "result": "PASS",
+    "accepted_images": 6,
+    "actual_generations": 11,
+    "content_changed": false,
+    "first_party_scheduler_attested": false
   },
   "watchlist_title_collisions": 0,
   "postpublication_incidents_recorded": null,
@@ -1108,14 +1111,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": false,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-11T03:24:52.000Z",
   "scheduler_start_attested": false,
   "source_urls": [
     {
@@ -1136,7 +1139,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-11/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-11/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -1152,11 +1155,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c645fa5d12a227ee6541f42cd3a840dca5fecb8d/signals/ai-topic-top10/2026-11-10.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ba66155f2c3089b65d75930fbe1ed12b569e29ae/signals/ai-topic-top10/2026-11-10.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c645fa5d12a227ee6541f42cd3a840dca5fecb8d/signals/ai-topic-top10/2026-11-10.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ba66155f2c3089b65d75930fbe1ed12b569e29ae/signals/ai-topic-top10/2026-11-10.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1601,7 +1604,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": true,
-      "finding_count": 4,
+      "finding_count": 5,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -1619,7 +1622,7 @@
           "owner": "Compiler / Recovery",
           "observation": "12 failed protected publication gates were recorded (12 unclassified causes).",
           "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
+          "timing": "NEXT_GENUINE_CYCLE",
           "kind": "RECURRENCE_PREVENTION"
         },
         {
@@ -1630,6 +1633,15 @@
           "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
           "timing": "NEXT_GENUINE_CYCLE",
           "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "5 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
         },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
