@@ -1,6 +1,6 @@
 # 2026-11-11 premium image after-action report
 
-**Status: PACKAGE_READY_AWAITING_PROTECTED_CI**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 72b5bba9be4db2621848efc8d0eb09b2af0ff1b7 |
 | Executor observed run start | 2026-11-11T03:14:30Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-11T03:24:52Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_CI_AND_DEPLOYMENT |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXT_CAPTURE; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-11T03:48:00.503Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -36,6 +36,7 @@
 | Native saved-pixel inspection | The administrator arrow tail starts on the Admin control label placard instead of an illustrated availability object. Other arrow endpoints, six exact labels and 40px margins pass on saved export and 320px rendition. | Preserve all upper artifacts, the permission aperture, both existing arrow directions, exact text and safe caveat. Add a small separate solid availability bar immediately ABOVE the Admin control placard, separated from the placard by white space. Make the vertical arrow tail touch the TOP of that availability bar, and its head touch the BOTTOM of the governed-data slab. It must never start on the label placard or its border. This bar is an abstract availability constraint, not a product toggle or UI control. Do not add any text or arrows. |
 | Native saved-pixel inspection | The lower-left template pane contains three ruled writing lines beside checkbox-like squares. They simulate a checklist despite the exact-label allowlist. Six exact labels and the two object-port connectors otherwise pass. | Keep every word, both arrows, the test comparison pieces, independent binder and detached file-access caveat unchanged. Erase the THREE horizontal writing lines AND their three empty checkbox squares from the lower-left template pane. Replace that entire small pane with one smooth BLANK cream template sheet and a single large unmarked ochre corner tab. No short strokes, lines, checkboxes or new glyphs anywhere on that sheet. Preserve the paper sleeve above it. |
 | Native saved-pixel inspection | The saved creative-tools assembly adds an invented ribbed control knob, the ad proof plates contain mountain/sun scenery, and a narrow bar reads as simulated writing. The two anchored arrows, closed release tray and six exact labels otherwise pass. | Keep all labels, all placements, two arrows, blank objects, review shelf and the closed publication tray unchanged. Remove the lone small ribbed knob protruding from the top of the center Creative tools assembly, leaving its roof flat. Replace the mountain-and-sun pictures in both proof plates with a simple abstract offset square and circle on solid cream, without scenery. Remove the lone thin horizontal stripe on the third proof and leave three large color blocks only. No new controls, no small writing strokes, no new symbols or text. |
+| Connected GitHub readback | One comparison incorrectly treated the API's base64 line breaks as byte differences after staging the inference image. | Normalized transport whitespace and repeated readback at the same immutable commit. Accepted bytes and hashes were preserved. |
 
 ## Evidence and limitations
 
@@ -43,7 +44,7 @@ Job SHA-256: 33e99f034d5899216669f96967cdf91383c58030cb2056fc6cf7cd84267a1432. O
 
 The actual generation start is 2026-11-11T03:24:52Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-11/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Exact November 11 job, bundle, source commit and all six story IDs on the public reader were verified before the first native call. Both current contracts were read at protected main 942b1baf37858c03449ab09572e177ab97eeeded. The evening slot targets the following Chicago edition; scheduler origin remains unproven.
 
@@ -55,6 +56,10 @@ The pixel corrections directly addressed two edge-note overflows, one connector 
 
 Six actual 1200x630 RGB PNGs passed saved-pixel and actual 320px rendition checks, exact GitHub binary readback and set differentiation review. Fine secondary detail remains accessible at full size. The two accepted files over 750 KiB passed existing fixed-offset reassembly and identical byte checks.
 
-No accepted PNG was regenerated. Publication, the 17 frozen October 8 objects, 12 pairings, 24 semantic live contexts and combined AAR convergence are still pending protected release evidence. Usage is unknown.
+Protected PR #354 passed exact-head package admission and required validate CI, then merged. The original image-only release verified six live hashes and public metadata. Independent HTTP checks verified twelve correct story/image pairings and all 17 protected October 8 objects. No accepted PNG was regenerated and no release was replayed.
+
+The exact release ZIP digest and every screenshot digest were checked. Actual 1440px desktop and 320px mobile image regions were inspected in all 24 contexts. Main labels are recognizable on mobile and fine secondary text has full-size access. The saved pixel proof passed 24/24; automated capture status remains unreviewed in the original artifact.
+
+The existing reporting-only protected closeout records the six accepted hashes and terminal worker receipt. Actual semantic review completion and first evidence commit are separate observations; the protected review merge is derived from Git history after it occurs. The unified reporter reconciles the combined AAR. Usage and scheduler origin are unknown.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.

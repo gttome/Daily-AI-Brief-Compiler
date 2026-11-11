@@ -5,7 +5,7 @@
   "original_source_commit_sha": "ca035064596eca272cee583cf090897cd65e248c",
   "original_bundle_sha256": "708d6acb0cb96de5a688fdda291785af46868809ab61db0fb4a8d6bb691634cd",
   "cycle_date": "2026-11-10",
-  "status": "PACKAGE_READY_AWAITING_PROTECTED_CI",
+  "status": "PUBLISHED_COMPLETE",
   "human_readable_path": "external-image-packages/2026-11-11/reviews/after-action.md",
   "production": {
     "actual_generation_count": 11,
@@ -136,15 +136,39 @@
         ],
         "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0ad98bc0c6c8995623d4018ba0fa6e3de5ea8896/external-image-packages/2026-11-11/reviews/nov11-a2-marketing-agents-attempt-1-rejection.json"
       }
+    },
+    {
+      "phase": "Connected GitHub readback",
+      "issue": "One comparison incorrectly treated the API's base64 line breaks as byte differences after staging the inference image.",
+      "correction": "Normalized transport whitespace and repeated readback at the same immutable commit. Accepted bytes and hashes were preserved."
     }
   ],
   "publication": {
-    "result": "PENDING_PROTECTED_CI_AND_DEPLOYMENT",
-    "public_brief_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-11/"
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-11-11T03:48:00.503Z",
+    "actions_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42955000482",
+    "public_brief_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-11/",
+    "public_release_receipt_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-11/release.json",
+    "protected_package_pr": 354,
+    "package_head_sha": "a449b67232885b3febbbe03680af0555635bbaa6",
+    "protected_main_merge_sha": "89cbc7d3dceacde4f5eff2e26ce728026395eec7",
+    "validation_workflow_run_id": 42954795008,
+    "required_exact_head_ci": "PRE_PR_PACKAGE_PASS",
+    "live_png_hashes_verified": 6,
+    "story_image_pairings_verified": 12,
+    "protected_oct8_objects_verified": 17,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "accepted_image_regenerations": 0,
+    "placeholder_replacement_replays": 0
   },
   "visual_review": {
-    "result": "PENDING_LIVE_CONTEXT_CAPTURE",
-    "reviewed_targets": 0
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "review_path": "external-image-packages/2026-11-11/reviews/live/semantic-pixel-review.json",
+    "completed_at": "2026-11-11T03:51:01Z",
+    "first_committed_at": "2026-11-11T03:52:49Z",
+    "first_committed_sha": "df36ebcdd3e671090ebb1204d2fde5a69c7e1367",
+    "protected_merge_timing_basis": "DERIVED_FROM_PROTECTED_MAIN_FIRST_PARENT"
   },
   "usage": {
     "work_usage_percent": null,
@@ -157,7 +181,9 @@
     "November 10 combined AAR, charts and improvement metrics at https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-09/ recorded 16 attempts, 0 first-pass, and three images exceeding two attempts. November 11 used 11 attempts, 1 first-pass, zero above two. The first-pass goal was missed; the per-image attempt target was met. Comparability is limited by story and composition differences. The seven earlier editions had a median of 16 attempts and zero first-pass passes. The most recent approved changes have only one new edition of outcome evidence.",
     "The pixel corrections directly addressed two edge-note overflows, one connector attached to a placard, a simulated checklist and a decorative knob/scenery/stripe. Raised note planning helped subsequent exports remain within the actual 40px glyph floor. This observation does not establish causal effectiveness.",
     "Six actual 1200x630 RGB PNGs passed saved-pixel and actual 320px rendition checks, exact GitHub binary readback and set differentiation review. Fine secondary detail remains accessible at full size. The two accepted files over 750 KiB passed existing fixed-offset reassembly and identical byte checks.",
-    "No accepted PNG was regenerated. Publication, the 17 frozen October 8 objects, 12 pairings, 24 semantic live contexts and combined AAR convergence are still pending protected release evidence. Usage is unknown."
+    "Protected PR #354 passed exact-head package admission and required validate CI, then merged. The original image-only release verified six live hashes and public metadata. Independent HTTP checks verified twelve correct story/image pairings and all 17 protected October 8 objects. No accepted PNG was regenerated and no release was replayed.",
+    "The exact release ZIP digest and every screenshot digest were checked. Actual 1440px desktop and 320px mobile image regions were inspected in all 24 contexts. Main labels are recognizable on mobile and fine secondary text has full-size access. The saved pixel proof passed 24/24; automated capture status remains unreviewed in the original artifact.",
+    "The existing reporting-only protected closeout records the six accepted hashes and terminal worker receipt. Actual semantic review completion and first evidence commit are separate observations; the protected review merge is derived from Git history after it occurs. The unified reporter reconciles the combined AAR. Usage and scheduler origin are unknown."
   ],
   "change_evaluations": [
     {
@@ -202,5 +228,15 @@
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-09/improvement-metrics.json"
       ]
     }
-  ]
+  ],
+  "timing": {
+    "semantic_review_completed_at": "2026-11-11T03:51:01Z",
+    "host_to_semantic_review_seconds": 2191,
+    "generation_observation_to_semantic_review_seconds": 1569,
+    "review_record_commit": "df36ebcdd3e671090ebb1204d2fde5a69c7e1367",
+    "review_record_commit_at": "2026-11-11T03:52:49Z",
+    "protected_review_merge": "DERIVED_FROM_PROTECTED_MAIN_GIT",
+    "semantic_review_is_not_commit_or_merge": true,
+    "final_seal_window_is_not_total_runtime": true
+  }
 }
