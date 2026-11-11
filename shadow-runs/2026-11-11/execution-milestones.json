@@ -114,6 +114,34 @@
         "reason": "publisher diversity recovery",
         "bundle_sha256": "036fffb0e81f21032516d0307564103bc628480030aa60f3710e15b26b5dd875"
       }
+    },
+    {
+      "event": "FAILURE",
+      "observed_at": "2026-11-11T01:56:36.303Z",
+      "details": {
+        "run_id": 42942455263,
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "RECENT_SOURCE_FALLBACK_REASON_INVALID",
+        "story_id": "nov11-t1-spec-driven"
+      }
+    },
+    {
+      "event": "RECOVERY",
+      "observed_at": "2026-11-11T01:58:00.904Z",
+      "details": {
+        "run_id": 42942455263,
+        "stage": "SEMANTIC_PREFLIGHT",
+        "correction": "Rewrote fallback comparisons as exact candidate URL arrays with distinct item-specific reasons; selections unchanged."
+      }
+    },
+    {
+      "event": "BUNDLE_SEALED",
+      "observed_at": "2026-11-11T01:58:00.904Z",
+      "details": {
+        "selection_locked_at": "2026-11-11T01:38:43.217Z",
+        "reason": "fallback ledger correction",
+        "bundle_sha256": "8c648e7525e99eac9751a71d71bc1536eb5166a8a8fce4e906ad88fc3cc8b1ae"
+      }
     }
   ],
   "scheduler_origin_attested": false
