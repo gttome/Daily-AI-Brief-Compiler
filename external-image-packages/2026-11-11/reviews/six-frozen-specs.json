@@ -1,0 +1,1890 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-11",
+    "story_id": "nov11-t1-spec-driven",
+    "source_url": "https://www.youtube.com/watch?v=GpZ5T51jE4U",
+    "visual_thesis": "A living specification is revised with validation findings instead of becoming a frozen handoff.",
+    "mechanism_metaphor": "Versioned folio and test jigs around a feedback path",
+    "story_anchors": [
+      "Version-controlled evolving specifications give AI coding agents explicit context.",
+      "Build and validation cycles discover changes that refine the specification."
+    ],
+    "required_labels": [
+      "Living spec",
+      "Build",
+      "Validate",
+      "Revise",
+      "Versioned together",
+      "Validation still required"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Version-controlled evolving specifications give AI coding agents explicit context.",
+        "supporting_source_excerpt": "Keep Specifications Version-Controlled with Code",
+        "source_url": "https://www.youtube.com/watch?v=GpZ5T51jE4U",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Build and validation cycles discover changes that refine the specification.",
+        "supporting_source_excerpt": "Build with an Iterative Spec-Driven Loop",
+        "source_url": "https://www.youtube.com/watch?v=GpZ5T51jE4U",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Build",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Living spec"
+      },
+      {
+        "to": "Validate",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Build"
+      },
+      {
+        "to": "Revise",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Validate"
+      },
+      {
+        "to": "Living spec",
+        "support_claim_id": "claim-2",
+        "direction": "feedback_verified",
+        "relation_supported_by_semantic_review": true,
+        "from": "Revise"
+      }
+    ],
+    "excluded_claims": [
+      "No percentages, automatic correctness, fake code, document strokes, security badges, product logos or extra arrows. Version nodes are unnumbered."
+    ],
+    "composition_signature": {
+      "grammar": "Open rectangular iteration loop",
+      "layout": "Open rectangular clockwise loop: upper left a blank layered specification folio with acceptance tabs, upper right interlocking implementation pieces, lower right a visibly open comparison jig with expected and actual pieces, lower left a revised folio with changed tab and nondirectional version-node lineage. Four arrows only, each tail and head physically touches its own object port. Leave a broad empty central space; no central machine. Twelve meaningful objects include acceptance tabs, specification sheets, bounded workpiece, implementation joint, expected test piece, actual test piece, comparison gap, edge-case piece, revision folio, changed tab, previous version node, current version node. No measured productivity claim.",
+      "metaphor": "Versioned folio and test jigs around a feedback path",
+      "annotation": "Four corner stage labels with detached qualification",
+      "palette": "Cobalt and warm amber"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Living spec",
+          "region_id": "spec",
+          "region": "Upper-left living specification",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 80,
+            "width": 340,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Build",
+          "region_id": "build",
+          "region": "Upper-right bounded implementation",
+          "bounding_box_px": {
+            "x": 735,
+            "y": 80,
+            "width": 260,
+            "height": 50
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Validate",
+          "region_id": "validate",
+          "region": "Lower-right test comparison",
+          "bounding_box_px": {
+            "x": 735,
+            "y": 305,
+            "width": 330,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Revise",
+          "region_id": "revise",
+          "region": "Lower-left revision and version lineage",
+          "bounding_box_px": {
+            "x": 100,
+            "y": 305,
+            "width": 300,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Versioned together",
+          "region_id": "revise",
+          "region": "Lower-left revision and version lineage",
+          "bounding_box_px": {
+            "x": 95,
+            "y": 425,
+            "width": 355,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Validation still required",
+          "region_id": "note",
+          "region": "Detached lower qualification",
+          "bounding_box_px": {
+            "x": 380,
+            "y": 528,
+            "width": 520,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Validation still required",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Living spec",
+        "Build"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Version-controlled evolving specifications give AI coding agents explicit context.",
+          "allowed_path": "Living spec to Build",
+          "blocked_path": "No percentages, automatic correctness, fake code, document strokes, security badges, product logos or extra arrows. Version nodes are unnumbered."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Build and validation cycles discover changes that refine the specification.",
+          "allowed_path": "Build to Validate",
+          "blocked_path": "No percentages, automatic correctness, fake code, document strokes, security badges, product logos or extra arrows. Version nodes are unnumbered."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Build and validation cycles discover changes that refine the specification.",
+          "allowed_path": "Validate to Revise",
+          "blocked_path": "No percentages, automatic correctness, fake code, document strokes, security badges, product logos or extra arrows. Version nodes are unnumbered."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Build and validation cycles discover changes that refine the specification.",
+          "allowed_path": "Revise to Living spec",
+          "blocked_path": "No percentages, automatic correctness, fake code, document strokes, security badges, product logos or extra arrows. Version nodes are unnumbered."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Living spec",
+        "Validate",
+        "Revise"
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Build",
+          "support_claim_id": "claim-1",
+          "origin_region": "spec actual object port",
+          "target_region": "build actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Living spec"
+        },
+        {
+          "to": "Validate",
+          "support_claim_id": "claim-2",
+          "origin_region": "build actual object port",
+          "target_region": "validate actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Build"
+        },
+        {
+          "to": "Revise",
+          "support_claim_id": "claim-2",
+          "origin_region": "validate actual object port",
+          "target_region": "revise actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Validate"
+        },
+        {
+          "to": "Living spec",
+          "support_claim_id": "claim-2",
+          "origin_region": "revise actual object port",
+          "target_region": "spec actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Revise"
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "spec",
+            "description": "Upper-left living specification",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 65,
+              "width": 430,
+              "height": 180
+            }
+          },
+          {
+            "id": "build",
+            "description": "Upper-right bounded implementation",
+            "bounding_box_px": {
+              "x": 690,
+              "y": 65,
+              "width": 430,
+              "height": 180
+            }
+          },
+          {
+            "id": "validate",
+            "description": "Lower-right test comparison",
+            "bounding_box_px": {
+              "x": 690,
+              "y": 290,
+              "width": 430,
+              "height": 190
+            }
+          },
+          {
+            "id": "revise",
+            "description": "Lower-left revision and version lineage",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 290,
+              "width": 430,
+              "height": 190
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached lower qualification",
+            "bounding_box_px": {
+              "x": 340,
+              "y": 520,
+              "width": 600,
+              "height": 50
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "to": "Build",
+            "support_claim_id": "claim-1",
+            "from_region_id": "spec",
+            "to_region_id": "build",
+            "origin_px": {
+              "x": 455,
+              "y": 200
+            },
+            "target_px": {
+              "x": 710,
+              "y": 200
+            },
+            "from": "Living spec"
+          },
+          {
+            "to": "Validate",
+            "support_claim_id": "claim-2",
+            "from_region_id": "build",
+            "to_region_id": "validate",
+            "origin_px": {
+              "x": 1000,
+              "y": 235
+            },
+            "target_px": {
+              "x": 1000,
+              "y": 370
+            },
+            "from": "Build"
+          },
+          {
+            "to": "Revise",
+            "support_claim_id": "claim-2",
+            "from_region_id": "validate",
+            "to_region_id": "revise",
+            "origin_px": {
+              "x": 710,
+              "y": 390
+            },
+            "target_px": {
+              "x": 465,
+              "y": 390
+            },
+            "from": "Validate"
+          },
+          {
+            "to": "Living spec",
+            "support_claim_id": "claim-2",
+            "from_region_id": "revise",
+            "to_region_id": "spec",
+            "origin_px": {
+              "x": 220,
+              "y": 375
+            },
+            "target_px": {
+              "x": 220,
+              "y": 230
+            },
+            "from": "Revise"
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 11 source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "834b54b41dc15284eda70fec5d990cad13351234167f5b9bfafb683cdc194715"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 11 source and geometry review",
+      "source_url": "https://www.youtube.com/watch?v=GpZ5T51jE4U",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: illustration-story. Create one premium static educational editorial illustration at exact 1200x630 landscape. Pure white background, refined dark linework, Cobalt and warm amber accents, sophisticated conceptual cutaways, readable factual explanation. It is an editorial illustration, not a machine-readable technical diagram.\n\nA living specification is revised with validation findings instead of becoming a frozen handoff.\n\nOpen rectangular clockwise loop: upper left a blank layered specification folio with acceptance tabs, upper right interlocking implementation pieces, lower right a visibly open comparison jig with expected and actual pieces, lower left a revised folio with changed tab and nondirectional version-node lineage. Four arrows only, each tail and head physically touches its own object port. Leave a broad empty central space; no central machine. Twelve meaningful objects include acceptance tabs, specification sheets, bounded workpiece, implementation joint, expected test piece, actual test piece, comparison gap, edge-case piece, revision folio, changed tab, previous version node, current version node. No measured productivity claim.\n\nNo percentages, automatic correctness, fake code, document strokes, security badges, product logos or extra arrows. Version nodes are unnumbered.\n\nRender only these exact labels, each once: \"Living spec\", \"Build\", \"Validate\", \"Revise\", \"Versioned together\", \"Validation still required\". No other writing, marks resembling text, numbers, logos, people, faces, humanoids, shields, gears, invented controls, generic dashboards or scenery. Every paper or object face is solid and blank. At least twelve meaningful mechanism components; density from explanation, never decoration. Typography: priority labels at least 40px and all other labels at least 28px on the final 1200x630 canvas. Use the exact bounding regions below. Keep ALL glyphs at least 52px from every canvas edge. Detached qualification lives only in its bottom note region and must remain wholly above y570. Every arrow endpoint physically touches the actual object port, not a label, whitespace, board edge or placard. Only the explicitly allowed arrows; no decorative leaders or extra arrows. Do not print the geometry metadata.\n\n\nTargeted edit to the supplied candidate: keep the four object-to-object causal arrows, all objects, every other word and all typography unchanged. Move ONLY the entire detached Validation still required label upward by 22 final pixels, leaving its bottommost dark glyph above y578. Erase its old position to pure white. Do not shrink it. Keep a clean white gap from the folios above.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"spec\",\"description\":\"Upper-left living specification\",\"bounding_box_px\":{\"x\":65,\"y\":65,\"width\":430,\"height\":180}},{\"id\":\"build\",\"description\":\"Upper-right bounded implementation\",\"bounding_box_px\":{\"x\":690,\"y\":65,\"width\":430,\"height\":180}},{\"id\":\"validate\",\"description\":\"Lower-right test comparison\",\"bounding_box_px\":{\"x\":690,\"y\":290,\"width\":430,\"height\":190}},{\"id\":\"revise\",\"description\":\"Lower-left revision and version lineage\",\"bounding_box_px\":{\"x\":65,\"y\":290,\"width\":430,\"height\":190}},{\"id\":\"note\",\"description\":\"Detached lower qualification\",\"bounding_box_px\":{\"x\":340,\"y\":520,\"width\":600,\"height\":50}}],\"labels\":[{\"label\":\"Living spec\",\"region_id\":\"spec\",\"region\":\"Upper-left living specification\",\"bounding_box_px\":{\"x\":90,\"y\":80,\"width\":340,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Build\",\"region_id\":\"build\",\"region\":\"Upper-right bounded implementation\",\"bounding_box_px\":{\"x\":735,\"y\":80,\"width\":260,\"height\":50},\"minimum_font_px\":28},{\"label\":\"Validate\",\"region_id\":\"validate\",\"region\":\"Lower-right test comparison\",\"bounding_box_px\":{\"x\":735,\"y\":305,\"width\":330,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Revise\",\"region_id\":\"revise\",\"region\":\"Lower-left revision and version lineage\",\"bounding_box_px\":{\"x\":100,\"y\":305,\"width\":300,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Versioned together\",\"region_id\":\"revise\",\"region\":\"Lower-left revision and version lineage\",\"bounding_box_px\":{\"x\":95,\"y\":425,\"width\":355,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Validation still required\",\"region_id\":\"note\",\"region\":\"Detached lower qualification\",\"bounding_box_px\":{\"x\":380,\"y\":528,\"width\":520,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"to\":\"Build\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"spec\",\"to_region_id\":\"build\",\"origin_px\":{\"x\":455,\"y\":200},\"target_px\":{\"x\":710,\"y\":200},\"from\":\"Living spec\"},{\"to\":\"Validate\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"build\",\"to_region_id\":\"validate\",\"origin_px\":{\"x\":1000,\"y\":235},\"target_px\":{\"x\":1000,\"y\":370},\"from\":\"Build\"},{\"to\":\"Revise\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"validate\",\"to_region_id\":\"revise\",\"origin_px\":{\"x\":710,\"y\":390},\"target_px\":{\"x\":465,\"y\":390},\"from\":\"Validate\"},{\"to\":\"Living spec\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"revise\",\"to_region_id\":\"spec\",\"origin_px\":{\"x\":220,\"y\":375},\"target_px\":{\"x\":220,\"y\":230},\"from\":\"Revise\"}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-11",
+    "story_id": "nov11-t2-control-room",
+    "source_url": "https://openai.com/index/control-room/",
+    "visual_thesis": "The authorization stop lives inside inference, while the research job can remain alive.",
+    "mechanism_metaphor": "Surviving workload beside a closed inference aperture",
+    "story_anchors": [
+      "A research job sends inference requests with its job identifier to the inference engine.",
+      "The engine checks Control Room authorization; a stopped job is refused while workload code may remain alive."
+    ],
+    "required_labels": [
+      "Research job",
+      "Inference gate",
+      "Control service",
+      "Job stays alive",
+      "Output denied",
+      "Research infrastructure only"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "A research job sends inference requests with its job identifier to the inference engine.",
+        "supporting_source_excerpt": "passing the job_id",
+        "source_url": "https://openai.com/index/control-room/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The engine checks Control Room authorization; a stopped job is refused while workload code may remain alive.",
+        "supporting_source_excerpt": "workload code remains running",
+        "source_url": "https://openai.com/index/control-room/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Inference gate",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Research job"
+      },
+      {
+        "to": "Inference gate",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Control service"
+      }
+    ],
+    "excluded_claims": [
+      "No instantaneous shutdown claim, entire-workload termination, external serving coverage, invented signed tokens, security shield, fake UI or unapproved numeric timer."
+    ],
+    "composition_signature": {
+      "grammar": "Nested authorization cutaway",
+      "layout": "Show a large left open workload enclosure containing a request tile, job-identity tag, continuing non-inference stack and live unnumbered process path. At center a sectional inference housing has request inlet, authorization aperture visibly closed, denied-output blank tray, shared engine layers and separate return-refusal shape. At upper right a control-service assembly shows job register, stopped identity token, bounded authorization-cache leaf and unavailable-service closed state grouped without extra arrows. Exactly two arrows: request tile to inference inlet, control decision port to gate actuator. Output remains physically blocked; no output arrow. No shield, power button, dashboard or actual model logo. This is an internal research pattern; no external serving-stack claim.",
+      "metaphor": "Surviving workload beside a closed inference aperture",
+      "annotation": "Nested boundary labels with separate service link",
+      "palette": "Burgundy and cool slate"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Research job",
+          "region_id": "job",
+          "region": "Left surviving workload and request",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 115,
+            "width": 280,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Inference gate",
+          "region_id": "engine",
+          "region": "Center inference authorization boundary",
+          "bounding_box_px": {
+            "x": 460,
+            "y": 195,
+            "width": 300,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Control service",
+          "region_id": "control",
+          "region": "Upper-right control service with stop state",
+          "bounding_box_px": {
+            "x": 815,
+            "y": 80,
+            "width": 290,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Job stays alive",
+          "region_id": "job",
+          "region": "Left surviving workload and request",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 415,
+            "width": 300,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Output denied",
+          "region_id": "engine",
+          "region": "Center inference authorization boundary",
+          "bounding_box_px": {
+            "x": 475,
+            "y": 420,
+            "width": 290,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Research infrastructure only",
+          "region_id": "note",
+          "region": "Detached lower scope",
+          "bounding_box_px": {
+            "x": 355,
+            "y": 528,
+            "width": 590,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Research infrastructure only",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Research job",
+        "Inference gate"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "A research job sends inference requests with its job identifier to the inference engine.",
+          "allowed_path": "Research job to Inference gate",
+          "blocked_path": "No instantaneous shutdown claim, entire-workload termination, external serving coverage, invented signed tokens, security shield, fake UI or unapproved numeric timer."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "The engine checks Control Room authorization; a stopped job is refused while workload code may remain alive.",
+          "allowed_path": "Control service to Inference gate",
+          "blocked_path": "No instantaneous shutdown claim, entire-workload termination, external serving coverage, invented signed tokens, security shield, fake UI or unapproved numeric timer."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Research job",
+        "Inference gate",
+        "Output denied"
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Inference gate",
+          "support_claim_id": "claim-1",
+          "origin_region": "job actual object port",
+          "target_region": "engine actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Research job"
+        },
+        {
+          "to": "Inference gate",
+          "support_claim_id": "claim-2",
+          "origin_region": "control actual object port",
+          "target_region": "engine actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Control service"
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "job",
+            "description": "Left surviving workload and request",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 100,
+              "width": 330,
+              "height": 380
+            }
+          },
+          {
+            "id": "engine",
+            "description": "Center inference authorization boundary",
+            "bounding_box_px": {
+              "x": 440,
+              "y": 180,
+              "width": 350,
+              "height": 300
+            }
+          },
+          {
+            "id": "control",
+            "description": "Upper-right control service with stop state",
+            "bounding_box_px": {
+              "x": 800,
+              "y": 65,
+              "width": 320,
+              "height": 200
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached lower scope",
+            "bounding_box_px": {
+              "x": 330,
+              "y": 520,
+              "width": 640,
+              "height": 50
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "to": "Inference gate",
+            "support_claim_id": "claim-1",
+            "from_region_id": "job",
+            "to_region_id": "engine",
+            "origin_px": {
+              "x": 355,
+              "y": 280
+            },
+            "target_px": {
+              "x": 470,
+              "y": 280
+            },
+            "from": "Research job"
+          },
+          {
+            "to": "Inference gate",
+            "support_claim_id": "claim-2",
+            "from_region_id": "control",
+            "to_region_id": "engine",
+            "origin_px": {
+              "x": 850,
+              "y": 210
+            },
+            "target_px": {
+              "x": 750,
+              "y": 300
+            },
+            "from": "Control service"
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 11 source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "0376510cb56f142d128aa153db6b9f36375124d1ad9a291382630dd9bc62932f"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 11 source and geometry review",
+      "source_url": "https://openai.com/index/control-room/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: illustration-story. Create one premium static educational editorial illustration at exact 1200x630 landscape. Pure white background, refined dark linework, Burgundy and cool slate accents, sophisticated conceptual cutaways, readable factual explanation. It is an editorial illustration, not a machine-readable technical diagram.\n\nThe authorization stop lives inside inference, while the research job can remain alive.\n\nShow a large left open workload enclosure containing a request tile, job-identity tag, continuing non-inference stack and live unnumbered process path. At center a sectional inference housing has request inlet, authorization aperture visibly closed, denied-output blank tray, shared engine layers and separate return-refusal shape. At upper right a control-service assembly shows job register, stopped identity token, bounded authorization-cache leaf and unavailable-service closed state grouped without extra arrows. Exactly two arrows: request tile to inference inlet, control decision port to gate actuator. Output remains physically blocked; no output arrow. No shield, power button, dashboard or actual model logo. This is an internal research pattern; no external serving-stack claim.\n\nNo instantaneous shutdown claim, entire-workload termination, external serving coverage, invented signed tokens, security shield, fake UI or unapproved numeric timer.\n\nRender only these exact labels, each once: \"Research job\", \"Inference gate\", \"Control service\", \"Job stays alive\", \"Output denied\", \"Research infrastructure only\". No other writing, marks resembling text, numbers, logos, people, faces, humanoids, shields, gears, invented controls, generic dashboards or scenery. Every paper or object face is solid and blank. At least twelve meaningful mechanism components; density from explanation, never decoration. Typography: priority labels at least 40px and all other labels at least 28px on the final 1200x630 canvas. Use the exact bounding regions below. Keep ALL glyphs at least 52px from every canvas edge. Detached qualification lives only in its bottom note region and must remain wholly above y570. Every arrow endpoint physically touches the actual object port, not a label, whitespace, board edge or placard. Only the explicitly allowed arrows; no decorative leaders or extra arrows. Do not print the geometry metadata.\n\n\nTargeted edit of supplied candidate: keep every object, the two existing correctly anchored arrows, all other labels, and the closed inference aperture unchanged. Move ONLY the detached Research infrastructure only placard and its exact text upward by 24 final pixels. Keep its size and dark lettering, with every bottom glyph above y578 and a white gap below the workload. Erase its previous location to white.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"job\",\"description\":\"Left surviving workload and request\",\"bounding_box_px\":{\"x\":65,\"y\":100,\"width\":330,\"height\":380}},{\"id\":\"engine\",\"description\":\"Center inference authorization boundary\",\"bounding_box_px\":{\"x\":440,\"y\":180,\"width\":350,\"height\":300}},{\"id\":\"control\",\"description\":\"Upper-right control service with stop state\",\"bounding_box_px\":{\"x\":800,\"y\":65,\"width\":320,\"height\":200}},{\"id\":\"note\",\"description\":\"Detached lower scope\",\"bounding_box_px\":{\"x\":330,\"y\":520,\"width\":640,\"height\":50}}],\"labels\":[{\"label\":\"Research job\",\"region_id\":\"job\",\"region\":\"Left surviving workload and request\",\"bounding_box_px\":{\"x\":90,\"y\":115,\"width\":280,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Inference gate\",\"region_id\":\"engine\",\"region\":\"Center inference authorization boundary\",\"bounding_box_px\":{\"x\":460,\"y\":195,\"width\":300,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Control service\",\"region_id\":\"control\",\"region\":\"Upper-right control service with stop state\",\"bounding_box_px\":{\"x\":815,\"y\":80,\"width\":290,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Job stays alive\",\"region_id\":\"job\",\"region\":\"Left surviving workload and request\",\"bounding_box_px\":{\"x\":85,\"y\":415,\"width\":300,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Output denied\",\"region_id\":\"engine\",\"region\":\"Center inference authorization boundary\",\"bounding_box_px\":{\"x\":475,\"y\":420,\"width\":290,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Research infrastructure only\",\"region_id\":\"note\",\"region\":\"Detached lower scope\",\"bounding_box_px\":{\"x\":355,\"y\":528,\"width\":590,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"to\":\"Inference gate\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"job\",\"to_region_id\":\"engine\",\"origin_px\":{\"x\":355,\"y\":280},\"target_px\":{\"x\":470,\"y\":280},\"from\":\"Research job\"},{\"to\":\"Inference gate\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"control\",\"to_region_id\":\"engine\",\"origin_px\":{\"x\":850,\"y\":210},\"target_px\":{\"x\":750,\"y\":300},\"from\":\"Control service\"}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-11",
+    "story_id": "nov11-k1-claude-artifacts",
+    "source_url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+    "visual_thesis": "Collaborative sheets, whiteboards and governed data are different work surfaces with permission and administrator constraints.",
+    "mechanism_metaphor": "Separate collaborative artifact anatomies above a governed connector cross-section",
+    "story_anchors": [
+      "Claude works within existing permissions when connected to business tools.",
+      "Enterprise administrators control which products and connectors are available."
+    ],
+    "required_labels": [
+      "Shared sheets",
+      "Shared whiteboards",
+      "Governed data",
+      "Existing permissions",
+      "Admin control",
+      "Gains are not established"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Claude works within existing permissions when connected to business tools.",
+        "supporting_source_excerpt": "works within your existing permissions",
+        "source_url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Enterprise administrators control which products and connectors are available.",
+        "supporting_source_excerpt": "admins decide who can use which products and connectors",
+        "source_url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Existing permissions",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Governed data"
+      },
+      {
+        "to": "Governed data",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Admin control"
+      }
+    ],
+    "excluded_claims": [
+      "No live connector feed into Sheets or Whiteboards, automatic productivity gain, universal access, human icons, formula simulated writing or meeting capability."
+    ],
+    "composition_signature": {
+      "grammar": "Three-surface exploded atlas",
+      "layout": "Two separate upper exploded objects, with no causal arrow between them: left spreadsheet grid, selected cell group, formula relationship through cell grouping, multiple sheet tabs, shared edit edge; right canvas with grouped geometric ideas, movable cluster, summary sheet and shared arrangement. Below them a broad data-boundary cutaway contains source database cylinder, governed definition slab, connector coupler, permission aperture, administrator availability bar and analysis output tile. The two short lower arrows only are the governed connection ending at the permission boundary, and admin availability acting on the data connection port. Do not draw a dashboard or imply Sheets pulls live connected data. No actual text in the spreadsheet cells or canvas shapes.",
+      "metaphor": "Separate collaborative artifact anatomies above a governed connector cross-section",
+      "annotation": "Direct anatomy headings and lower permission bracket",
+      "palette": "Forest green and muted gold"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Shared sheets",
+          "region_id": "sheets",
+          "region": "Upper-left collaborative spreadsheet anatomy",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 80,
+            "width": 385,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Shared whiteboards",
+          "region_id": "boards",
+          "region": "Upper-right shared idea canvas",
+          "bounding_box_px": {
+            "x": 665,
+            "y": 80,
+            "width": 435,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Governed data",
+          "region_id": "data",
+          "region": "Lower governed data and connector boundary",
+          "bounding_box_px": {
+            "x": 250,
+            "y": 305,
+            "width": 370,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Existing permissions",
+          "region_id": "data",
+          "region": "Lower governed data and connector boundary",
+          "bounding_box_px": {
+            "x": 620,
+            "y": 415,
+            "width": 340,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Admin control",
+          "region_id": "data",
+          "region": "Lower governed data and connector boundary",
+          "bounding_box_px": {
+            "x": 270,
+            "y": 425,
+            "width": 290,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Gains are not established",
+          "region_id": "note",
+          "region": "Detached lower evidence caveat",
+          "bounding_box_px": {
+            "x": 355,
+            "y": 510,
+            "width": 570,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Gains are not established",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Shared sheets",
+        "Shared whiteboards"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Claude works within existing permissions when connected to business tools.",
+          "allowed_path": "Governed data to Existing permissions",
+          "blocked_path": "No live connector feed into Sheets or Whiteboards, automatic productivity gain, universal access, human icons, formula simulated writing or meeting capability."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Enterprise administrators control which products and connectors are available.",
+          "allowed_path": "Admin control to Governed data",
+          "blocked_path": "No live connector feed into Sheets or Whiteboards, automatic productivity gain, universal access, human icons, formula simulated writing or meeting capability."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Shared sheets",
+        "Shared whiteboards",
+        "Governed data"
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Existing permissions",
+          "support_claim_id": "claim-1",
+          "origin_region": "data actual object port",
+          "target_region": "data actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Governed data"
+        },
+        {
+          "to": "Governed data",
+          "support_claim_id": "claim-2",
+          "origin_region": "data actual object port",
+          "target_region": "data actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Admin control"
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "sheets",
+            "description": "Upper-left collaborative spreadsheet anatomy",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 65,
+              "width": 490,
+              "height": 190
+            }
+          },
+          {
+            "id": "boards",
+            "description": "Upper-right shared idea canvas",
+            "bounding_box_px": {
+              "x": 635,
+              "y": 65,
+              "width": 485,
+              "height": 190
+            }
+          },
+          {
+            "id": "data",
+            "description": "Lower governed data and connector boundary",
+            "bounding_box_px": {
+              "x": 220,
+              "y": 285,
+              "width": 780,
+              "height": 205
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached lower evidence caveat",
+            "bounding_box_px": {
+              "x": 330,
+              "y": 500,
+              "width": 620,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "to": "Existing permissions",
+            "support_claim_id": "claim-1",
+            "from_region_id": "data",
+            "to_region_id": "data",
+            "origin_px": {
+              "x": 580,
+              "y": 380
+            },
+            "target_px": {
+              "x": 750,
+              "y": 400
+            },
+            "from": "Governed data"
+          },
+          {
+            "to": "Governed data",
+            "support_claim_id": "claim-2",
+            "from_region_id": "data",
+            "to_region_id": "data",
+            "origin_px": {
+              "x": 410,
+              "y": 420
+            },
+            "target_px": {
+              "x": 410,
+              "y": 375
+            },
+            "from": "Admin control"
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 11 source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "9c170bc66a517981a88c3710f2ee01c973688dc811b2237bea2afbe081f02627"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 11 source and geometry review",
+      "source_url": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: illustration-story. Create one premium static educational editorial illustration at exact 1200x630 landscape. Pure white background, refined dark linework, Forest green and muted gold accents, sophisticated conceptual cutaways, readable factual explanation. It is an editorial illustration, not a machine-readable technical diagram.\n\nCollaborative sheets, whiteboards and governed data are different work surfaces with permission and administrator constraints.\n\nTwo separate upper exploded objects, with no causal arrow between them: left spreadsheet grid, selected cell group, formula relationship through cell grouping, multiple sheet tabs, shared edit edge; right canvas with grouped geometric ideas, movable cluster, summary sheet and shared arrangement. Below them a broad data-boundary cutaway contains source database cylinder, governed definition slab, connector coupler, permission aperture, administrator availability bar and analysis output tile. The two short lower arrows only are the governed connection ending at the permission boundary, and admin availability acting on the data connection port. Do not draw a dashboard or imply Sheets pulls live connected data. No actual text in the spreadsheet cells or canvas shapes.\n\nNo live connector feed into Sheets or Whiteboards, automatic productivity gain, universal access, human icons, formula simulated writing or meeting capability.\n\nRender only these exact labels, each once: \"Shared sheets\", \"Shared whiteboards\", \"Governed data\", \"Existing permissions\", \"Admin control\", \"Gains are not established\". No other writing, marks resembling text, numbers, logos, people, faces, humanoids, shields, gears, invented controls, generic dashboards or scenery. Every paper or object face is solid and blank. At least twelve meaningful mechanism components; density from explanation, never decoration. Typography: priority labels at least 40px and all other labels at least 28px on the final 1200x630 canvas. Use the exact bounding regions below. Keep ALL glyphs at least 52px from every canvas edge. Detached qualification lives only in its bottom note region and must remain wholly above y550. Every arrow endpoint physically touches the actual object port, not a label, whitespace, board edge or placard. Only the explicitly allowed arrows; no decorative leaders or extra arrows. Do not print the geometry metadata.\n\n\nThe lower caveat is NOT a footer: it belongs centered at y530 and the entire bottommost 70 pixels of the final canvas must remain blank white. Do not push it against the canvas edge.\n\nTargeted edit of supplied candidate: Preserve all upper artifacts, the permission aperture, both existing arrow directions, exact text and safe caveat. Add a small separate solid availability bar immediately ABOVE the Admin control placard, separated from the placard by white space. Make the vertical arrow tail touch the TOP of that availability bar, and its head touch the BOTTOM of the governed-data slab. It must never start on the label placard or its border. This bar is an abstract availability constraint, not a product toggle or UI control. Do not add any text or arrows.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"sheets\",\"description\":\"Upper-left collaborative spreadsheet anatomy\",\"bounding_box_px\":{\"x\":65,\"y\":65,\"width\":490,\"height\":190}},{\"id\":\"boards\",\"description\":\"Upper-right shared idea canvas\",\"bounding_box_px\":{\"x\":635,\"y\":65,\"width\":485,\"height\":190}},{\"id\":\"data\",\"description\":\"Lower governed data and connector boundary\",\"bounding_box_px\":{\"x\":220,\"y\":285,\"width\":780,\"height\":205}},{\"id\":\"note\",\"description\":\"Detached lower evidence caveat\",\"bounding_box_px\":{\"x\":330,\"y\":500,\"width\":620,\"height\":70}}],\"labels\":[{\"label\":\"Shared sheets\",\"region_id\":\"sheets\",\"region\":\"Upper-left collaborative spreadsheet anatomy\",\"bounding_box_px\":{\"x\":90,\"y\":80,\"width\":385,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Shared whiteboards\",\"region_id\":\"boards\",\"region\":\"Upper-right shared idea canvas\",\"bounding_box_px\":{\"x\":665,\"y\":80,\"width\":435,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Governed data\",\"region_id\":\"data\",\"region\":\"Lower governed data and connector boundary\",\"bounding_box_px\":{\"x\":250,\"y\":305,\"width\":370,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Existing permissions\",\"region_id\":\"data\",\"region\":\"Lower governed data and connector boundary\",\"bounding_box_px\":{\"x\":620,\"y\":415,\"width\":340,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Admin control\",\"region_id\":\"data\",\"region\":\"Lower governed data and connector boundary\",\"bounding_box_px\":{\"x\":270,\"y\":425,\"width\":290,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Gains are not established\",\"region_id\":\"note\",\"region\":\"Detached lower evidence caveat\",\"bounding_box_px\":{\"x\":355,\"y\":510,\"width\":570,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"to\":\"Existing permissions\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"data\",\"to_region_id\":\"data\",\"origin_px\":{\"x\":580,\"y\":380},\"target_px\":{\"x\":750,\"y\":400},\"from\":\"Governed data\"},{\"to\":\"Governed data\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"data\",\"to_region_id\":\"data\",\"origin_px\":{\"x\":410,\"y\":420},\"target_px\":{\"x\":410,\"y\":375},\"from\":\"Admin control\"}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-11",
+    "story_id": "nov11-k2-gmail-gemini",
+    "source_url": "https://workspaceupdates.googleblog.com/2026/11/expanding-gemini-in-gmail-to-more-Google-Workspace-users.html",
+    "visual_thesis": "One email conversation supports a summary and a draft reply, with review rather than an automatic send.",
+    "mechanism_metaphor": "Folded correspondence separates into summary and draft trays",
+    "story_anchors": [
+      "AI Overview synthesizes key points and replies in long email conversations.",
+      "Help me write generates a draft or refines text from prompts; it does not establish autonomous send authority."
+    ],
+    "required_labels": [
+      "Email thread",
+      "Thread summary",
+      "Draft reply",
+      "Review before sending",
+      "Default on",
+      "Admins and users can disable"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "AI Overview synthesizes key points and replies in long email conversations.",
+        "supporting_source_excerpt": "synthesize key points and replies",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/11/expanding-gemini-in-gmail-to-more-Google-Workspace-users.html",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Help me write generates a draft or refines text from prompts; it does not establish autonomous send authority.",
+        "supporting_source_excerpt": "Generate complete email drafts or refine existing text",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/11/expanding-gemini-in-gmail-to-more-Google-Workspace-users.html",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Thread summary",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Email thread"
+      },
+      {
+        "to": "Draft reply",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Email thread"
+      }
+    ],
+    "excluded_claims": [
+      "No automatic send, factual accuracy guarantee, personalized drafting claim, fake message lines, switch controls or people."
+    ],
+    "composition_signature": {
+      "grammar": "Accordion conversation bifurcation",
+      "layout": "A left tall accordion conversation has alternating folded message envelopes, distinct reply folds and context tabs, all unmarked. The top output is a compact summary tray with three large solid colored topic blocks, synthesis layers and a context hold edge. The bottom output is a draft reply leaf, editing tab, review stop and unsent envelope. Exactly two arrows, from two separate actual accordion ports into the two actual tray inlets. No arrow leaves the reply draft. Bottom control wording is a detached factual note, no toggles, buttons or invented UI. At least twelve meaningful components are the message envelope, reply folds, context tabs, two inlet ports, summary grouping blocks, synthesis layers, context hold edge, draft leaf, edit tab, review stop and unsent envelope.",
+      "metaphor": "Folded correspondence separates into summary and draft trays",
+      "annotation": "Two staggered output headings beside a common input",
+      "palette": "Indigo and coral"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Email thread",
+          "region_id": "thread",
+          "region": "Left email conversation accordion",
+          "bounding_box_px": {
+            "x": 90,
+            "y": 115,
+            "width": 295,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Thread summary",
+          "region_id": "summary",
+          "region": "Upper-right synthesized summary",
+          "bounding_box_px": {
+            "x": 630,
+            "y": 80,
+            "width": 420,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Draft reply",
+          "region_id": "draft",
+          "region": "Lower-right editable reply draft",
+          "bounding_box_px": {
+            "x": 650,
+            "y": 305,
+            "width": 350,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Review before sending",
+          "region_id": "draft",
+          "region": "Lower-right editable reply draft",
+          "bounding_box_px": {
+            "x": 610,
+            "y": 425,
+            "width": 460,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Default on",
+          "region_id": "note",
+          "region": "Detached availability and control note",
+          "bounding_box_px": {
+            "x": 180,
+            "y": 510,
+            "width": 225,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Admins and users can disable",
+          "region_id": "note",
+          "region": "Detached availability and control note",
+          "bounding_box_px": {
+            "x": 450,
+            "y": 510,
+            "width": 575,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Admins and users can disable",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Email thread",
+        "Thread summary"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "AI Overview synthesizes key points and replies in long email conversations.",
+          "allowed_path": "Email thread to Thread summary",
+          "blocked_path": "No automatic send, factual accuracy guarantee, personalized drafting claim, fake message lines, switch controls or people."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Help me write generates a draft or refines text from prompts; it does not establish autonomous send authority.",
+          "allowed_path": "Email thread to Draft reply",
+          "blocked_path": "No automatic send, factual accuracy guarantee, personalized drafting claim, fake message lines, switch controls or people."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Email thread",
+        "Thread summary",
+        "Draft reply"
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Thread summary",
+          "support_claim_id": "claim-1",
+          "origin_region": "thread actual object port",
+          "target_region": "summary actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Email thread"
+        },
+        {
+          "to": "Draft reply",
+          "support_claim_id": "claim-2",
+          "origin_region": "thread actual object port",
+          "target_region": "draft actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Email thread"
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "thread",
+            "description": "Left email conversation accordion",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 100,
+              "width": 330,
+              "height": 360
+            }
+          },
+          {
+            "id": "summary",
+            "description": "Upper-right synthesized summary",
+            "bounding_box_px": {
+              "x": 560,
+              "y": 65,
+              "width": 560,
+              "height": 180
+            }
+          },
+          {
+            "id": "draft",
+            "description": "Lower-right editable reply draft",
+            "bounding_box_px": {
+              "x": 560,
+              "y": 290,
+              "width": 560,
+              "height": 190
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached availability and control note",
+            "bounding_box_px": {
+              "x": 160,
+              "y": 500,
+              "width": 890,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "to": "Thread summary",
+            "support_claim_id": "claim-1",
+            "from_region_id": "thread",
+            "to_region_id": "summary",
+            "origin_px": {
+              "x": 360,
+              "y": 210
+            },
+            "target_px": {
+              "x": 590,
+              "y": 210
+            },
+            "from": "Email thread"
+          },
+          {
+            "to": "Draft reply",
+            "support_claim_id": "claim-2",
+            "from_region_id": "thread",
+            "to_region_id": "draft",
+            "origin_px": {
+              "x": 360,
+              "y": 365
+            },
+            "target_px": {
+              "x": 590,
+              "y": 385
+            },
+            "from": "Email thread"
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 11 source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "b39d25103f2aed3cb2c1394389abbb4387e99d8e63ae9292da90b11200f66f18"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 11 source and geometry review",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/11/expanding-gemini-in-gmail-to-more-Google-Workspace-users.html",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: illustration-story. Create one premium static educational editorial illustration at exact 1200x630 landscape. Pure white background, refined dark linework, Indigo and coral accents, sophisticated conceptual cutaways, readable factual explanation. It is an editorial illustration, not a machine-readable technical diagram.\n\nOne email conversation supports a summary and a draft reply, with review rather than an automatic send.\n\nA left tall accordion conversation has alternating folded message envelopes, distinct reply folds and context tabs, all unmarked. The top output is a compact summary tray with three large solid colored topic blocks, synthesis layers and a context hold edge. The bottom output is a draft reply leaf, editing tab, review stop and unsent envelope. Exactly two arrows, from two separate actual accordion ports into the two actual tray inlets. No arrow leaves the reply draft. Bottom control wording is a detached factual note, no toggles, buttons or invented UI. At least twelve meaningful components are the message envelope, reply folds, context tabs, two inlet ports, summary grouping blocks, synthesis layers, context hold edge, draft leaf, edit tab, review stop and unsent envelope.\n\nNo automatic send, factual accuracy guarantee, personalized drafting claim, fake message lines, switch controls or people.\n\nRender only these exact labels, each once: \"Email thread\", \"Thread summary\", \"Draft reply\", \"Review before sending\", \"Default on\", \"Admins and users can disable\". No other writing, marks resembling text, numbers, logos, people, faces, humanoids, shields, gears, invented controls, generic dashboards or scenery. Every paper or object face is solid and blank. At least twelve meaningful mechanism components; density from explanation, never decoration. Typography: priority labels at least 40px and all other labels at least 28px on the final 1200x630 canvas. Use the exact bounding regions below. Keep ALL glyphs at least 52px from every canvas edge. Detached qualification lives only in its bottom note region and must remain wholly above y550. Every arrow endpoint physically touches the actual object port, not a label, whitespace, board edge or placard. Only the explicitly allowed arrows; no decorative leaders or extra arrows. Do not print the geometry metadata.\n\n\nThe lower caveat is NOT a footer: it belongs centered at y530 and the entire bottommost 70 pixels of the final canvas must remain blank white. Do not push it against the canvas edge.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"thread\",\"description\":\"Left email conversation accordion\",\"bounding_box_px\":{\"x\":65,\"y\":100,\"width\":330,\"height\":360}},{\"id\":\"summary\",\"description\":\"Upper-right synthesized summary\",\"bounding_box_px\":{\"x\":560,\"y\":65,\"width\":560,\"height\":180}},{\"id\":\"draft\",\"description\":\"Lower-right editable reply draft\",\"bounding_box_px\":{\"x\":560,\"y\":290,\"width\":560,\"height\":190}},{\"id\":\"note\",\"description\":\"Detached availability and control note\",\"bounding_box_px\":{\"x\":160,\"y\":500,\"width\":890,\"height\":70}}],\"labels\":[{\"label\":\"Email thread\",\"region_id\":\"thread\",\"region\":\"Left email conversation accordion\",\"bounding_box_px\":{\"x\":90,\"y\":115,\"width\":295,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Thread summary\",\"region_id\":\"summary\",\"region\":\"Upper-right synthesized summary\",\"bounding_box_px\":{\"x\":630,\"y\":80,\"width\":420,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Draft reply\",\"region_id\":\"draft\",\"region\":\"Lower-right editable reply draft\",\"bounding_box_px\":{\"x\":650,\"y\":305,\"width\":350,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Review before sending\",\"region_id\":\"draft\",\"region\":\"Lower-right editable reply draft\",\"bounding_box_px\":{\"x\":610,\"y\":425,\"width\":460,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Default on\",\"region_id\":\"note\",\"region\":\"Detached availability and control note\",\"bounding_box_px\":{\"x\":180,\"y\":510,\"width\":225,\"height\":38},\"minimum_font_px\":28},{\"label\":\"Admins and users can disable\",\"region_id\":\"note\",\"region\":\"Detached availability and control note\",\"bounding_box_px\":{\"x\":450,\"y\":510,\"width\":575,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"to\":\"Thread summary\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"thread\",\"to_region_id\":\"summary\",\"origin_px\":{\"x\":360,\"y\":210},\"target_px\":{\"x\":590,\"y\":210},\"from\":\"Email thread\"},{\"to\":\"Draft reply\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"thread\",\"to_region_id\":\"draft\",\"origin_px\":{\"x\":360,\"y\":365},\"target_px\":{\"x\":590,\"y\":385},\"from\":\"Email thread\"}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-11",
+    "story_id": "nov11-a1-workspace-skills",
+    "source_url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+    "visual_thesis": "A reusable instruction is tested before sharing an independent copy; sharing the skill does not grant file access.",
+    "mechanism_metaphor": "Bound instruction package, test specimen and detached copy",
+    "story_anchors": [
+      "Teams create skills from rules, templates and reference files, then test the generated results.",
+      "Sharing gives an independent copy that teammates can review, customize and turn on; referenced files require separate access."
+    ],
+    "required_labels": [
+      "Team instructions",
+      "Reference files",
+      "Test examples",
+      "Independent copy",
+      "Manual or scheduled",
+      "Files need shared access"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Teams create skills from rules, templates and reference files, then test the generated results.",
+        "supporting_source_excerpt": "Create, test, and share skills",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "Sharing gives an independent copy that teammates can review, customize and turn on; referenced files require separate access.",
+        "supporting_source_excerpt": "independent copy",
+        "source_url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Test examples",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Team instructions"
+      },
+      {
+        "to": "Independent copy",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Test examples"
+      }
+    ],
+    "excluded_claims": [
+      "No automatic copy synchronization, file access from skill sharing, Sheets or Meet support, non-English capability, fake file text, success badge or unreviewed automatic activation."
+    ],
+    "composition_signature": {
+      "grammar": "Detachable recipe replication",
+      "layout": "Left an open instruction binder with rule tab, template insert, reference-file sleeve and bounded task outline. Center a known-example specimen beside expected geometry, generated-result geometry, comparison gap and review tray. Right an independent closed copy binder has editable tab, separate manual-invocation token and unnumbered schedule grid. Exactly two arrows: original instruction binder port into the test tray; test tray reviewed-output port into the independent copy inlet. No feedback arrow, no synchronization between original and copy, no access-grant arrow. File-access note below is detached. Blank paper, no SKILL filename or simulated writing. These are conceptual educational objects, no people or logos.",
+      "metaphor": "Bound instruction package, test specimen and detached copy",
+      "annotation": "Three chapter headings with reference-access footnote",
+      "palette": "Deep teal and ochre"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Team instructions",
+          "region_id": "recipe",
+          "region": "Left reusable instruction package",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 90,
+            "width": 310,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Reference files",
+          "region_id": "recipe",
+          "region": "Left reusable instruction package",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 405,
+            "width": 300,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Test examples",
+          "region_id": "test",
+          "region": "Center test examples and review",
+          "bounding_box_px": {
+            "x": 460,
+            "y": 90,
+            "width": 300,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Independent copy",
+          "region_id": "copy",
+          "region": "Right independent copy and invocation",
+          "bounding_box_px": {
+            "x": 825,
+            "y": 90,
+            "width": 285,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Manual or scheduled",
+          "region_id": "copy",
+          "region": "Right independent copy and invocation",
+          "bounding_box_px": {
+            "x": 825,
+            "y": 405,
+            "width": 285,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Files need shared access",
+          "region_id": "note",
+          "region": "Detached sharing-permission caveat",
+          "bounding_box_px": {
+            "x": 300,
+            "y": 510,
+            "width": 660,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Files need shared access",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Team instructions",
+        "Reference files"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Teams create skills from rules, templates and reference files, then test the generated results.",
+          "allowed_path": "Team instructions to Test examples",
+          "blocked_path": "No automatic copy synchronization, file access from skill sharing, Sheets or Meet support, non-English capability, fake file text, success badge or unreviewed automatic activation."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "Sharing gives an independent copy that teammates can review, customize and turn on; referenced files require separate access.",
+          "allowed_path": "Test examples to Independent copy",
+          "blocked_path": "No automatic copy synchronization, file access from skill sharing, Sheets or Meet support, non-English capability, fake file text, success badge or unreviewed automatic activation."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Team instructions",
+        "Test examples",
+        "Independent copy"
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Test examples",
+          "support_claim_id": "claim-1",
+          "origin_region": "recipe actual object port",
+          "target_region": "test actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Team instructions"
+        },
+        {
+          "to": "Independent copy",
+          "support_claim_id": "claim-2",
+          "origin_region": "test actual object port",
+          "target_region": "copy actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Test examples"
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "recipe",
+            "description": "Left reusable instruction package",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 75,
+              "width": 340,
+              "height": 405
+            }
+          },
+          {
+            "id": "test",
+            "description": "Center test examples and review",
+            "bounding_box_px": {
+              "x": 445,
+              "y": 75,
+              "width": 330,
+              "height": 405
+            }
+          },
+          {
+            "id": "copy",
+            "description": "Right independent copy and invocation",
+            "bounding_box_px": {
+              "x": 815,
+              "y": 75,
+              "width": 305,
+              "height": 405
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached sharing-permission caveat",
+            "bounding_box_px": {
+              "x": 270,
+              "y": 500,
+              "width": 720,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "to": "Test examples",
+            "support_claim_id": "claim-1",
+            "from_region_id": "recipe",
+            "to_region_id": "test",
+            "origin_px": {
+              "x": 365,
+              "y": 255
+            },
+            "target_px": {
+              "x": 475,
+              "y": 255
+            },
+            "from": "Team instructions"
+          },
+          {
+            "to": "Independent copy",
+            "support_claim_id": "claim-2",
+            "from_region_id": "test",
+            "to_region_id": "copy",
+            "origin_px": {
+              "x": 740,
+              "y": 255
+            },
+            "target_px": {
+              "x": 840,
+              "y": 255
+            },
+            "from": "Test examples"
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 11 source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "0cd0f3d361a2329171d2fa842f2c46f7b87e9c9edc79dc707f8e1f86e7785a80"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 11 source and geometry review",
+      "source_url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: illustration-story. Create one premium static educational editorial illustration at exact 1200x630 landscape. Pure white background, refined dark linework, Deep teal and ochre accents, sophisticated conceptual cutaways, readable factual explanation. It is an editorial illustration, not a machine-readable technical diagram.\n\nA reusable instruction is tested before sharing an independent copy; sharing the skill does not grant file access.\n\nLeft an open instruction binder with rule tab, template insert, reference-file sleeve and bounded task outline. Center a known-example specimen beside expected geometry, generated-result geometry, comparison gap and review tray. Right an independent closed copy binder has editable tab, separate manual-invocation token and unnumbered schedule grid. Exactly two arrows: original instruction binder port into the test tray; test tray reviewed-output port into the independent copy inlet. No feedback arrow, no synchronization between original and copy, no access-grant arrow. File-access note below is detached. Blank paper, no SKILL filename or simulated writing. These are conceptual educational objects, no people or logos.\n\nNo automatic copy synchronization, file access from skill sharing, Sheets or Meet support, non-English capability, fake file text, success badge or unreviewed automatic activation.\n\nRender only these exact labels, each once: \"Team instructions\", \"Reference files\", \"Test examples\", \"Independent copy\", \"Manual or scheduled\", \"Files need shared access\". No other writing, marks resembling text, numbers, logos, people, faces, humanoids, shields, gears, invented controls, generic dashboards or scenery. Every paper or object face is solid and blank. At least twelve meaningful mechanism components; density from explanation, never decoration. Typography: priority labels at least 40px and all other labels at least 28px on the final 1200x630 canvas. Use the exact bounding regions below. Keep ALL glyphs at least 52px from every canvas edge. Detached qualification lives only in its bottom note region and must remain wholly above y550. Every arrow endpoint physically touches the actual object port, not a label, whitespace, board edge or placard. Only the explicitly allowed arrows; no decorative leaders or extra arrows. Do not print the geometry metadata.\n\n\nThe lower caveat is NOT a footer: it belongs centered at y530 and the entire bottommost 70 pixels of the final canvas must remain blank white. Do not push it against the canvas edge.\n\nTargeted edit of supplied candidate: Keep every word, both arrows, the test comparison pieces, independent binder and detached file-access caveat unchanged. Erase the THREE horizontal writing lines AND their three empty checkbox squares from the lower-left template pane. Replace that entire small pane with one smooth BLANK cream template sheet and a single large unmarked ochre corner tab. No short strokes, lines, checkboxes or new glyphs anywhere on that sheet. Preserve the paper sleeve above it.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"recipe\",\"description\":\"Left reusable instruction package\",\"bounding_box_px\":{\"x\":65,\"y\":75,\"width\":340,\"height\":405}},{\"id\":\"test\",\"description\":\"Center test examples and review\",\"bounding_box_px\":{\"x\":445,\"y\":75,\"width\":330,\"height\":405}},{\"id\":\"copy\",\"description\":\"Right independent copy and invocation\",\"bounding_box_px\":{\"x\":815,\"y\":75,\"width\":305,\"height\":405}},{\"id\":\"note\",\"description\":\"Detached sharing-permission caveat\",\"bounding_box_px\":{\"x\":270,\"y\":500,\"width\":720,\"height\":70}}],\"labels\":[{\"label\":\"Team instructions\",\"region_id\":\"recipe\",\"region\":\"Left reusable instruction package\",\"bounding_box_px\":{\"x\":85,\"y\":90,\"width\":310,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Reference files\",\"region_id\":\"recipe\",\"region\":\"Left reusable instruction package\",\"bounding_box_px\":{\"x\":85,\"y\":405,\"width\":300,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Test examples\",\"region_id\":\"test\",\"region\":\"Center test examples and review\",\"bounding_box_px\":{\"x\":460,\"y\":90,\"width\":300,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Independent copy\",\"region_id\":\"copy\",\"region\":\"Right independent copy and invocation\",\"bounding_box_px\":{\"x\":825,\"y\":90,\"width\":285,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Manual or scheduled\",\"region_id\":\"copy\",\"region\":\"Right independent copy and invocation\",\"bounding_box_px\":{\"x\":825,\"y\":405,\"width\":285,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Files need shared access\",\"region_id\":\"note\",\"region\":\"Detached sharing-permission caveat\",\"bounding_box_px\":{\"x\":300,\"y\":510,\"width\":660,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"to\":\"Test examples\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"recipe\",\"to_region_id\":\"test\",\"origin_px\":{\"x\":365,\"y\":255},\"target_px\":{\"x\":475,\"y\":255},\"from\":\"Team instructions\"},{\"to\":\"Independent copy\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"test\",\"to_region_id\":\"copy\",\"origin_px\":{\"x\":740,\"y\":255},\"target_px\":{\"x\":840,\"y\":255},\"from\":\"Test examples\"}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-11",
+    "story_id": "nov11-a2-marketing-agents",
+    "source_url": "https://plinkhq.com/i/1593424985/e/1000800824847",
+    "visual_thesis": "Campaign context and tools produce draft ads, while creative review and publication authority remain distinct.",
+    "mechanism_metaphor": "Draft-only creative atelier with a stopped release boundary",
+    "story_anchors": [
+      "Campaign warehouse data and creative references provide context for agent-generated marketing drafts.",
+      "The demonstrated creative workflow includes review and platform access; publication and spending remain consequential permissions."
+    ],
+    "required_labels": [
+      "Campaign data",
+      "Creative tools",
+      "Draft ads",
+      "Creative review",
+      "Permission to publish",
+      "Presenter claims"
+    ],
+    "source_claim_map": [
+      {
+        "id": "claim-1",
+        "proposition": "Campaign warehouse data and creative references provide context for agent-generated marketing drafts.",
+        "supporting_source_excerpt": "data in a warehouse",
+        "source_url": "https://plinkhq.com/i/1593424985/e/1000800824847",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "claim-2",
+        "proposition": "The demonstrated creative workflow includes review and platform access; publication and spending remain consequential permissions.",
+        "supporting_source_excerpt": "The role of Creative Director",
+        "source_url": "https://plinkhq.com/i/1593424985/e/1000800824847",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "to": "Draft ads",
+        "support_claim_id": "claim-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Campaign data"
+      },
+      {
+        "to": "Creative review",
+        "support_claim_id": "claim-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true,
+        "from": "Draft ads"
+      }
+    ],
+    "excluded_claims": [
+      "No advertised cost, productivity multiplier, promised ROI, automatic spend, invented permission product, humanoid avatar, actual ad copy, gauges or fake scoring marks."
+    ],
+    "composition_signature": {
+      "grammar": "Editorial proofing workbench",
+      "layout": "Left an open warehouse cylinder, campaign-data layers, reference-library folio and brief tile form a source workbench. Center a creative-tool assembly produces three distinct geometric ad proofs: image field, headline-area blank slab, layout alternative, reference-color chip and crop frame. Right a review rack holds selected proof, claim-evidence token, permission boundary and a physically closed publication tray. Exactly two arrows: data port to draft bench inlet and draft proof port to review rack inlet. No arrow passes the closed release boundary; permission wording identifies that boundary rather than an asserted built-in tool gate. This illustrates the article recommendation for bounded piloting, not a claim the demo enforces human approval. No avatars even though video discusses avatar ads.",
+      "metaphor": "Draft-only creative atelier with a stopped release boundary",
+      "annotation": "Offset input and proof labels with an independent permissions rail",
+      "palette": "Plum and warm orange"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 12,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "pre_generation_checks": {
+      "source_caveat_detached": true,
+      "no_simulated_writing": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mobile_inline_390px_review_planned": true,
+      "mobile_inline_320px_review_planned": true,
+      "label_layout": [
+        {
+          "label": "Campaign data",
+          "region_id": "inputs",
+          "region": "Left campaign data and reference context",
+          "bounding_box_px": {
+            "x": 85,
+            "y": 105,
+            "width": 310,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Creative tools",
+          "region_id": "drafts",
+          "region": "Center creative tools and candidate ads",
+          "bounding_box_px": {
+            "x": 460,
+            "y": 80,
+            "width": 300,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Draft ads",
+          "region_id": "drafts",
+          "region": "Center creative tools and candidate ads",
+          "bounding_box_px": {
+            "x": 460,
+            "y": 325,
+            "width": 300,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Creative review",
+          "region_id": "review",
+          "region": "Right editorial review boundary",
+          "bounding_box_px": {
+            "x": 825,
+            "y": 105,
+            "width": 285,
+            "height": 50
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Permission to publish",
+          "region_id": "review",
+          "region": "Right editorial review boundary",
+          "bounding_box_px": {
+            "x": 825,
+            "y": 410,
+            "width": 285,
+            "height": 40
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Presenter claims",
+          "region_id": "note",
+          "region": "Detached attribution caveat",
+          "bounding_box_px": {
+            "x": 375,
+            "y": 510,
+            "width": 480,
+            "height": 38
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "source_caveat": "Presenter claims",
+      "mechanism_canvas_percent": 70,
+      "explanatory_substage_labels": [
+        "Campaign data",
+        "Creative tools"
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "causal_state_checks": [
+        {
+          "support_claim_id": "claim-1",
+          "condition": "Campaign warehouse data and creative references provide context for agent-generated marketing drafts.",
+          "allowed_path": "Campaign data to Draft ads",
+          "blocked_path": "No advertised cost, productivity multiplier, promised ROI, automatic spend, invented permission product, humanoid avatar, actual ad copy, gauges or fake scoring marks."
+        },
+        {
+          "support_claim_id": "claim-2",
+          "condition": "The demonstrated creative workflow includes review and platform access; publication and spending remain consequential permissions.",
+          "allowed_path": "Draft ads to Creative review",
+          "blocked_path": "No advertised cost, productivity multiplier, promised ROI, automatic spend, invented permission product, humanoid avatar, actual ad copy, gauges or fake scoring marks."
+        }
+      ],
+      "thumbnail_priority_labels": [
+        "Campaign data",
+        "Draft ads",
+        "Creative review"
+      ],
+      "connector_origin_reviews": [
+        {
+          "to": "Draft ads",
+          "support_claim_id": "claim-1",
+          "origin_region": "inputs actual object port",
+          "target_region": "drafts actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Campaign data"
+        },
+        {
+          "to": "Creative review",
+          "support_claim_id": "claim-2",
+          "origin_region": "drafts actual object port",
+          "target_region": "review actual object port",
+          "disallowed_paths_visually_blocked": true,
+          "from": "Draft ads"
+        }
+      ],
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "inputs",
+            "description": "Left campaign data and reference context",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 90,
+              "width": 340,
+              "height": 390
+            }
+          },
+          {
+            "id": "drafts",
+            "description": "Center creative tools and candidate ads",
+            "bounding_box_px": {
+              "x": 445,
+              "y": 65,
+              "width": 330,
+              "height": 415
+            }
+          },
+          {
+            "id": "review",
+            "description": "Right editorial review boundary",
+            "bounding_box_px": {
+              "x": 815,
+              "y": 90,
+              "width": 305,
+              "height": 390
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached attribution caveat",
+            "bounding_box_px": {
+              "x": 350,
+              "y": 500,
+              "width": 530,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "to": "Draft ads",
+            "support_claim_id": "claim-1",
+            "from_region_id": "inputs",
+            "to_region_id": "drafts",
+            "origin_px": {
+              "x": 365,
+              "y": 255
+            },
+            "target_px": {
+              "x": 475,
+              "y": 275
+            },
+            "from": "Campaign data"
+          },
+          {
+            "to": "Creative review",
+            "support_claim_id": "claim-2",
+            "from_region_id": "drafts",
+            "to_region_id": "review",
+            "origin_px": {
+              "x": 740,
+              "y": 280
+            },
+            "target_px": {
+              "x": 840,
+              "y": 280
+            },
+            "from": "Draft ads"
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 11 source and geometry review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "f00764c050a64f02ba7d8583c4e81f17e6cf0a633a9200555f09aace1909edb2"
+        }
+      }
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 11 source and geometry review",
+      "source_url": "https://plinkhq.com/i/1593424985/e/1000800824847",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "native_generation_prompt": "Use case: illustration-story. Create one premium static educational editorial illustration at exact 1200x630 landscape. Pure white background, refined dark linework, Plum and warm orange accents, sophisticated conceptual cutaways, readable factual explanation. It is an editorial illustration, not a machine-readable technical diagram.\n\nCampaign context and tools produce draft ads, while creative review and publication authority remain distinct.\n\nLeft an open warehouse cylinder, campaign-data layers, reference-library folio and brief tile form a source workbench. Center a creative-tool assembly produces three distinct geometric ad proofs: image field, headline-area blank slab, layout alternative, reference-color chip and crop frame. Right a review rack holds selected proof, claim-evidence token, permission boundary and a physically closed publication tray. Exactly two arrows: data port to draft bench inlet and draft proof port to review rack inlet. No arrow passes the closed release boundary; permission wording identifies that boundary rather than an asserted built-in tool gate. This illustrates the article recommendation for bounded piloting, not a claim the demo enforces human approval. No avatars even though video discusses avatar ads.\n\nNo advertised cost, productivity multiplier, promised ROI, automatic spend, invented permission product, humanoid avatar, actual ad copy, gauges or fake scoring marks.\n\nRender only these exact labels, each once: \"Campaign data\", \"Creative tools\", \"Draft ads\", \"Creative review\", \"Permission to publish\", \"Presenter claims\". No other writing, marks resembling text, numbers, logos, people, faces, humanoids, shields, gears, invented controls, generic dashboards or scenery. Every paper or object face is solid and blank. At least twelve meaningful mechanism components; density from explanation, never decoration. Typography: priority labels at least 40px and all other labels at least 28px on the final 1200x630 canvas. Use the exact bounding regions below. Keep ALL glyphs at least 52px from every canvas edge. Detached qualification lives only in its bottom note region and must remain wholly above y550. Every arrow endpoint physically touches the actual object port, not a label, whitespace, board edge or placard. Only the explicitly allowed arrows; no decorative leaders or extra arrows. Do not print the geometry metadata.\n\n\nThe lower caveat is NOT a footer: it belongs centered at y530 and the entire bottommost 70 pixels of the final canvas must remain blank white. Do not push it against the canvas edge.\n\nTargeted edit of supplied candidate: Keep all labels, all placements, two arrows, blank objects, review shelf and the closed publication tray unchanged. Remove the lone small ribbed knob protruding from the top of the center Creative tools assembly, leaving its roof flat. Replace the mountain-and-sun pictures in both proof plates with a simple abstract offset square and circle on solid cream, without scenery. Remove the lone thin horizontal stripe on the third proof and leave three large color blocks only. No new controls, no small writing strokes, no new symbols or text.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"inputs\",\"description\":\"Left campaign data and reference context\",\"bounding_box_px\":{\"x\":65,\"y\":90,\"width\":340,\"height\":390}},{\"id\":\"drafts\",\"description\":\"Center creative tools and candidate ads\",\"bounding_box_px\":{\"x\":445,\"y\":65,\"width\":330,\"height\":415}},{\"id\":\"review\",\"description\":\"Right editorial review boundary\",\"bounding_box_px\":{\"x\":815,\"y\":90,\"width\":305,\"height\":390}},{\"id\":\"note\",\"description\":\"Detached attribution caveat\",\"bounding_box_px\":{\"x\":350,\"y\":500,\"width\":530,\"height\":70}}],\"labels\":[{\"label\":\"Campaign data\",\"region_id\":\"inputs\",\"region\":\"Left campaign data and reference context\",\"bounding_box_px\":{\"x\":85,\"y\":105,\"width\":310,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Creative tools\",\"region_id\":\"drafts\",\"region\":\"Center creative tools and candidate ads\",\"bounding_box_px\":{\"x\":460,\"y\":80,\"width\":300,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Draft ads\",\"region_id\":\"drafts\",\"region\":\"Center creative tools and candidate ads\",\"bounding_box_px\":{\"x\":460,\"y\":325,\"width\":300,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Creative review\",\"region_id\":\"review\",\"region\":\"Right editorial review boundary\",\"bounding_box_px\":{\"x\":825,\"y\":105,\"width\":285,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Permission to publish\",\"region_id\":\"review\",\"region\":\"Right editorial review boundary\",\"bounding_box_px\":{\"x\":825,\"y\":410,\"width\":285,\"height\":40},\"minimum_font_px\":28},{\"label\":\"Presenter claims\",\"region_id\":\"note\",\"region\":\"Detached attribution caveat\",\"bounding_box_px\":{\"x\":375,\"y\":510,\"width\":480,\"height\":38},\"minimum_font_px\":28}],\"connector_anchors\":[{\"to\":\"Draft ads\",\"support_claim_id\":\"claim-1\",\"from_region_id\":\"inputs\",\"to_region_id\":\"drafts\",\"origin_px\":{\"x\":365,\"y\":255},\"target_px\":{\"x\":475,\"y\":275},\"from\":\"Campaign data\"},{\"to\":\"Creative review\",\"support_claim_id\":\"claim-2\",\"from_region_id\":\"drafts\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":740,\"y\":280},\"target_px\":{\"x\":840,\"y\":280},\"from\":\"Draft ads\"}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]
