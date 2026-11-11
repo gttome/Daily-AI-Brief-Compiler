@@ -652,7 +652,7 @@
       "independence": "Claude launch has several named publishers plus a separate community; Carbon has HN and a metadata-only reviewer listing. All other topics rely on one observed attention family.",
       "usefulness": "Brief fit and claim confidence are separate editorial judgments; popularity does not qualify an item."
     },
-    "source_commit": "88fb5867c7101bbc6d53295e0200ddcb76adb972",
+    "source_commit": "c645fa5d12a227ee6541f42cd3a840dca5fecb8d",
     "source_blob_sha": "c5cae89631c8b56425317ed97dd50f81e9cd4904",
     "report_sha256": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
     "consumed_source_commit": "88fb5867c7101bbc6d53295e0200ddcb76adb972",
@@ -801,7 +801,7 @@
       },
       "previous_cycle": "2026-11-09",
       "previous_report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
-      "previous_aar_sha256": "70f85c7eb4ee9bb093be558a0b8d0671dd065a5a59e43951b143100d34d5ed5c",
+      "previous_aar_sha256": "d85b90bf8aaec19d2ae199651fac7b312aa628b535853084ccdb317d4ba749fd",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1110,9 +1110,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1152,11 +1152,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/88fb5867c7101bbc6d53295e0200ddcb76adb972/signals/ai-topic-top10/2026-11-10.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c645fa5d12a227ee6541f42cd3a840dca5fecb8d/signals/ai-topic-top10/2026-11-10.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/88fb5867c7101bbc6d53295e0200ddcb76adb972/signals/ai-topic-top10/2026-11-10.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c645fa5d12a227ee6541f42cd3a840dca5fecb8d/signals/ai-topic-top10/2026-11-10.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1183,8 +1183,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov11-t1-spec-driven",
+            "label": "IBM keeps AI coding specs alive through validation loops",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov11-t2-control-room",
+            "label": "OpenAI moves emergency model shutdown into inference",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov11-k1-claude-artifacts",
+            "label": "Claude adds shared sheets, canvases and governed data work",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov11-k2-gmail-gemini",
+            "label": "Gemini summaries and drafting expand across Workspace Gmail",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov11-a1-workspace-skills",
+            "label": "Google Workspace turns team standards into reusable skills",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov11-a2-marketing-agents",
+            "label": "A marketing-agent demo keeps humans over data, claims and spend",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 11,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1273,8 +1317,8 @@
         "coverage_percent": null,
         "coverage_numerator": null,
         "coverage_denominator": null,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 1,
+        "image_attempts": 11,
         "top10_linked_items": null,
         "publication_failures": 12
       }
@@ -1285,12 +1329,12 @@
         "median": 6.5
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 15
+        "recorded_editions": 7,
+        "median": 14
       },
       "top10_linked_items": {
         "recorded_editions": 1,
@@ -1557,18 +1601,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": true,
-      "finding_count": 5,
-      "open_production_blockers": 1,
+      "finding_count": 4,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -3438,52 +3473,56 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 53,
+      "recorded_editions": 7,
+      "total_rejected": 58,
       "unclassified": 8,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 31,
+          "rejected_attempts": 33,
           "editions": [
             "2026-11-05",
             "2026-11-08",
             "2026-11-09",
-            "2026-11-10"
+            "2026-11-10",
+            "2026-11-11"
           ],
           "recurring": true
         },
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 26,
+          "rejected_attempts": 27,
           "editions": [
             "2026-11-05",
             "2026-11-07",
             "2026-11-08",
             "2026-11-09",
-            "2026-11-10"
+            "2026-11-10",
+            "2026-11-11"
           ],
           "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 13,
+          "rejected_attempts": 15,
           "editions": [
             "2026-11-05",
             "2026-11-07",
             "2026-11-08",
             "2026-11-09",
-            "2026-11-10"
+            "2026-11-10",
+            "2026-11-11"
           ],
           "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 7,
+          "rejected_attempts": 8,
           "editions": [
             "2026-11-05",
             "2026-11-09",
-            "2026-11-10"
+            "2026-11-10",
+            "2026-11-11"
           ],
           "recurring": true
         },

@@ -12,7 +12,8 @@
     "image-job.json": "33e99f034d5899216669f96967cdf91383c58030cb2056fc6cf7cd84267a1432",
     "image-manifest.json": "0e146d84749788d2ca228d2d3cd9615128e1bcf6fed503f314e794d3d27aadb4",
     "image-recurring-assignment.json": "1894550389452c94152e0dfcafed02419c5a6945547ec57c423f4f3a34ff56b1",
-    "image-timing.json": "2c8f0d88b89a7a86d6ab77a086a81e0a9ade2c44c680a52c20e2c703efd01693",
+    "image-release.json": "f2bb5adc1722ad68d6eeaa47112590d73d686ad337564d97b3f9230f364d7f9d",
+    "image-timing.json": "e0f0fe16af4720cdb46181bb2a8938feaf8ceff152e99923b4c79021bd065d17",
     "image-worker-state.json": "895c4bf2aaeae6e72c2b23b7710cc1672efc9243ef6a9f8c8ac18ea65b52e35e",
     "postpublish-integrity.json": "444b0848021bebda9116bee0acb76f53374a64fa46f18bf11a450762d9553a28",
     "postpublish-video-playback.json": "a6bd4fb08a26237c95af4113ed6191bcb2e06d0bb77380e05041052fa18b37a4",
@@ -23,19 +24,19 @@
     "top10-after-action.json": "fd60623dad7af2faba96cfbbffee84381a1225b28d88446238dc63c08bfdb432",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "70f85c7eb4ee9bb093be558a0b8d0671dd065a5a59e43951b143100d34d5ed5c",
+    "top10-previous-aar.json": "d85b90bf8aaec19d2ae199651fac7b312aa628b535853084ccdb317d4ba749fd",
     "top10-previous-report.json": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
-    "top10-report-source.json": "ea562688fb3b34b3345d1a8727d5a27fded7e6bc16b14870772fbf40ef9fb6cf",
+    "top10-report-source.json": "39131ecb2c522ce37b9527c36bcc554b35cdae44bc7c508733a43ff3ab945d36",
     "top10-report.json": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
     "trend-consumed-report.json": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
-    "trend-consumed-source.json": "4b59840abe32f2ce347db88f3345d4b3fa001abedd51e7cc44543d5ffefe4473",
+    "trend-consumed-source.json": "20efc33d051c971dbdcc52db146427b1fedb645b7f96f2d083c8fef6741fac61",
     "trend-input.json": "5fe236028440bc9d125fe899a7045b26a60c8429a2f690fde0bb9df4072e97b9",
     "trend-search-coverage.json": "70cd4a53c4a35961c1871632812e3361e864300f4f77b721991232a6a0dfa27d",
     "video-playback-failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "INVALID",
     "autonomy": "UNPROVEN"
   },
@@ -157,8 +158,8 @@
     "coverage_percent": null,
     "coverage_numerator": null,
     "coverage_denominator": null,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 1,
+    "image_attempts": 11,
     "top10_linked_items": null,
     "publication_failures": 12
   },
@@ -279,7 +280,53 @@
   "inspections": [],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 5,
+    "classified": [
+      {
+        "story_id": "nov11-t1-spec-driven",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0ad98bc0c6c8995623d4018ba0fa6e3de5ea8896/external-image-packages/2026-11-11/reviews/nov11-t1-spec-driven-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov11-t2-control-room",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0ad98bc0c6c8995623d4018ba0fa6e3de5ea8896/external-image-packages/2026-11-11/reviews/nov11-t2-control-room-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov11-k1-claude-artifacts",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0ad98bc0c6c8995623d4018ba0fa6e3de5ea8896/external-image-packages/2026-11-11/reviews/nov11-k1-claude-artifacts-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov11-a1-workspace-skills",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0ad98bc0c6c8995623d4018ba0fa6e3de5ea8896/external-image-packages/2026-11-11/reviews/nov11-a1-workspace-skills-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov11-a2-marketing-agents",
+        "attempt": 1,
+        "defect_codes": [
+          "OTHER",
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0ad98bc0c6c8995623d4018ba0fa6e3de5ea8896/external-image-packages/2026-11-11/reviews/nov11-a2-marketing-agents-attempt-1-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "PARTIAL",
     "reviewed_topics": 2,
