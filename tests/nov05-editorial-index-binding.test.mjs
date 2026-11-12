@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {attachEditorialIndexReview} from '../scripts/attach-editorial-index-review.mjs';
+import {attachEditorialIndexReview,validateEditorialIndexReview} from '../scripts/attach-editorial-index-review.mjs';
 
 function fixture(){
  return {
@@ -23,6 +23,27 @@ test('binds genuine source IDs and original review clock without touching candid
  assert.equal(idx.reviewed_at,'2026-11-06T00:15:00Z');
  assert.equal(got.source_discovery_audit.reviewed_at,'2026-11-06T00:19:00Z');
  assert.deepEqual(input.bundle.source_discovery_audit.index_review,undefined);
+});
+
+test('records qualification-only leads outside the eligible partition and preserves actual inspection depth',()=>{
+ const input=fixture();
+ input.registry.resources[3].content_types=['video'];
+ input.indexReview.qualification_only_ids=['disabled'];
+ input.indexReview.inspection_rows=[
+  {resource_id:'a',index_url:'https://articles.example/index',observed_at:'2026-11-06T00:14:00Z',
+   outcome:'full_dated_item_read',original_item_url:'https://articles.example/article'},
+  {resource_id:'p',index_url:'https://audio.example/index',observed_at:'2026-11-06T00:15:00Z',
+   outcome:'bounded_public_index_search'}
+ ];
+ const index=validateEditorialIndexReview(input);
+ assert.equal(index.eligible,3);
+ assert.deepEqual(index.qualification_only_ids,['disabled']);
+ assert.equal(index.inspection_rows[0].original_item_url,'https://articles.example/article');
+ input.indexReview.inspection_rows[0].original_item_url=undefined;
+ assert.throws(()=>validateEditorialIndexReview(input),/INSPECTION_EVIDENCE/);
+ input.indexReview.inspection_rows[0].original_item_url='https://articles.example/article';
+ input.indexReview.inspected_ids=['a','disabled'];
+ assert.throws(()=>validateEditorialIndexReview(input),/PARTITION/);
 });
 test('rejects false partitions, stale clocks, disabled entries and sealed bundles',()=>{
  for(const mutate of [

@@ -119,6 +119,7 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  const inspectionRowsMatch=!inspectionRows||inspectionRows.every((row,i)=>row?.resource_id===index.inspected_ids?.[i]&&
    typeof row.index_url==='string'&&row.index_url.startsWith('https://'));
  if(Array.isArray(index?.inspected_ids)&&stamp(inspectedAt)&&stamp(locked)&&Date.parse(inspectedAt)<=Date.parse(locked)&&
+    (edition<'2026-11-13'||combined.evidence_reconciliation?.source_index_coverage?.partition_status==='VALID')&&
     inspectionCount===index.inspected_ids.length&&inspectionRowsMatch&&
     unique(index.inspected_ids).length===index.inspected_ids.length&&index.inspected_ids.every(id=>knownIds.has(id)))
   inspections.push(...index.inspected_ids.map(resource_id=>({resource_id,reviewed_at:inspectedAt,edition_date:edition})));
@@ -141,6 +142,9 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  }
  const evaluations=[...list(top10?.daily_improvement?.change_log?.change_evaluations),
   ...list(coverage?.change_evaluations),...list(aar?.change_evaluations),...list(recovery?.change_evaluations)].filter(Boolean);
+ const presealFailures = list(combined.evidence_reconciliation?.video_preseal_attempts?.attempts)
+  .filter(row => ['ARCHIVE_REPEAT', 'PLAYBACK_UNVERIFIED'].includes(row.result))
+  .map(row => ({run_url:row.run_url, observed_at:row.run_observed_at}));
  const production_state={
   compiler:combined.compiler_verified===true?'VERIFIED':combined.latest_publication_health==='BLOCKED_PUBLICATION'?'BLOCKED':'NOT_VERIFIED',
   premium_images:combined.images_released===true&&combined.visual_24_pass===true?'RELEASE_AND_VISUAL_VERIFIED':
@@ -154,21 +158,36 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
    coverage_numerator:research?.status==='OBSERVED'?research.rows[0].value:null,coverage_denominator:research?.status==='OBSERVED'?research.total:null,
    first_pass_accepted:image?.status==='OBSERVED'?image.first_pass_accepted:null,image_attempts:image?.status==='OBSERVED'?image.total_attempts:null,
    top10_linked_items:selection?.status==='OBSERVED'?selection.linked_items:null,publication_failures:failures?.length??null},
-  failures,recovery:recoveryTiming(recovery,edition,events||[]),inspections,source_reviews:reviews,
+  failures,recovery:recoveryTiming(recovery,edition,[...(events||[]), ...presealFailures]),inspections,source_reviews:reviews,
   source_review_missing_resource_ids:reviewValid?coverage.candidate_reviews.records.filter(r=>!knownIds.has(r.resource_id)).length:null,
   image_rejections:image?.status==='OBSERVED'?{total:image.total_attempts-6,classified:rejectionRows,unclassified:image.total_attempts-6-rejectionRows.length}:null,
   resilience:publisherResilience({report:evidence['top10-report'],summary:top10}),change_evaluations:evaluations};
+}
+
+function validChangeReview(review) {
+ return date(review?.reviewed_edition) && ['keep','revise','retire'].includes(review.decision) &&
+  ['met','not_met','inconclusive'].includes(review.result) && text(review.reason) && review.reason.length >= 40 &&
+  Array.isArray(review.evidence_refs) && review.evidence_refs.length > 0 && review.evidence_refs.every(https);
 }
 
 export function improvementRegister(register,observations,edition){
  if(register?.schema_version!=='daily-aar-improvement-register-v1'||!Array.isArray(register.changes))throw Error('INVALID_IMPROVEMENT_REGISTER');
  const ids=register.changes.map(c=>c.change_id);
  if(unique(ids).length!==ids.length||register.changes.some(c=>!text(c.change_id)||!date(c.effective_edition)||!date(c.review_due_edition)||c.review_due_edition<c.effective_edition||!text(c.metric)))throw Error('INVALID_IMPROVEMENT_REGISTER');
+ const supplemental = register.evidence_reviews ?? [];
+ if (!Array.isArray(supplemental) || supplemental.some(review =>
+  !validChangeReview(review) || !ids.includes(review.change_id) ||
+  !date(review.available_from_edition) || review.available_from_edition <= review.reviewed_edition ||
+  review.reviewed_edition < register.changes.find(change => change.change_id === review.change_id).effective_edition)) {
+  throw Error('INVALID_IMPROVEMENT_EVIDENCE_REVIEW');
+ }
  return register.changes.map(c=>{
   const eligible=observations.filter(o=>o.edition_date>=c.effective_edition&&o.edition_date<=edition);
-  const reviews=eligible.flatMap(o=>list(o.change_evaluations).filter(r=>r?.change_id===c.change_id&&date(r.reviewed_edition)&&r.reviewed_edition===o.edition_date&&
-   ['keep','revise','retire'].includes(r.decision)&&['met','not_met','inconclusive'].includes(r.result)&&text(r.reason)&&r.reason.length>=40&&
-   Array.isArray(r.evidence_refs)&&r.evidence_refs.length>0&&r.evidence_refs.every(https))).sort((a,b)=>a.reviewed_edition.localeCompare(b.reviewed_edition));
+  const reviews = [
+   ...eligible.flatMap(o => list(o.change_evaluations).filter(r =>
+    r?.change_id === c.change_id && r.reviewed_edition === o.edition_date && validChangeReview(r))),
+   ...supplemental.filter(r => r.change_id === c.change_id && r.available_from_edition <= edition)
+  ].sort((a,b) => a.reviewed_edition.localeCompare(b.reviewed_edition));
   const latest=reviews.at(-1)??null;
   return {...c,implementation_status:'PROTECTED_MAIN_IMPLEMENTATION',outcome_status:latest?'REVIEWED':edition<c.effective_edition?'NOT_YET_EFFECTIVE':edition>c.review_due_edition?'OVERDUE':'PENDING',latest_review:latest};
  });
@@ -316,6 +335,7 @@ export function renderCauseSvg(title,rows,valueKey,known,footnote){
 
 export function renderMetricsMarkdown(m){
  const actions=m.daily_action_review??{findings:[],finding_count:0,next_cumulative_review:null,open_production_blockers:0};
+ const supplementalReviews = m.change_register.filter(r => r.latest_review?.available_from_edition);
  const lines=['## Continuous improvement review','',`Edition **${m.edition_date}**. Measurements use ${m.window.recorded_editions}/7 recorded editions in this window. Missing data stays **Not recorded**.`,
   '', '### Daily corrective-action review',
   '', `**${actions.finding_count} evidence-based findings**; open production blockers: ${actions.open_production_blockers}. Cumulative evaluation checkpoint: **${actions.next_cumulative_review??'Not recorded'}**. The daily review never waits for that date to act on a safe live problem.`,
@@ -325,6 +345,9 @@ export function renderMetricsMarkdown(m){
   '', '### Approved change evaluations','','| Change | Evaluate by | Outcome status | Latest decision |','|---|---|---|---|',
   ...m.change_register.map(r=>`| ${tableCell(r.change_id+' — '+r.title)} | ${r.review_due_edition} | ${r.outcome_status} | ${tableCell(r.latest_review?.decision)} |`),
   '',`Pending: ${m.change_review_counts.pending}; overdue: ${m.change_review_counts.overdue}; reviewed: ${m.change_review_counts.reviewed}. Implemented controls await measured results; review decisions do not disable controls.`,
+  ...(supplementalReviews.length ? ['', '#### Reviews of production evidence', '',
+   ...supplementalReviews.map(({change_id, latest_review:r}) =>
+    `- **${change_id} · ${r.reviewed_edition} · ${r.result.replaceAll('_', ' ')}.** ${tableCell(r.reason)} ${r.evidence_refs.map((ref, i) => `[Evidence ${i+1}](${ref})`).join(' · ')}`)] : []),
   '', '### Seven-edition trends','','![Seven-edition trends](charts/seven-edition-trends.svg)','','| Edition | Coverage | First pass / 6 | Image attempts | Publishing failures | Top 10 links |','|---|---|---:|---:|---:|---:|',
   ...m.series.map(r=>`| ${r.edition_date} | ${r.coverage_percent===null?'Not recorded':r.coverage_numerator+'/'+r.coverage_denominator+' ('+r.coverage_percent+'%)'} | ${tableCell(r.first_pass_accepted)} | ${tableCell(r.image_attempts)} | ${tableCell(r.publication_failures)} | ${tableCell(r.top10_linked_items)} |`),
   '', '| Measure | Recorded editions | Window median |','|---|---:|---:|',...Object.entries(m.summary).map(([k,v])=>`| ${k.replaceAll('_',' ')} | ${v.recorded_editions} | ${tableCell(v.median)} |`),

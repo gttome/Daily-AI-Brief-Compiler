@@ -95,6 +95,17 @@ function restrictCoveragePeriodToArticles(root){
   fs.writeFileSync(file,content.replace(video,'  // Older evergreen media are excluded from article coverage dates.')
     .replace(audio,'  // Podcast dates stay in media metadata, not article coverage period.'));
 }
+
+function showDatedVideoCoverage(root) {
+  const file = path.join(root, '_generator', 'lib', 'render.mjs');
+  const source = fs.readFileSync(file, 'utf8');
+  const heading = '  return `${heading}\n\n### ${slot.title}\n\n';
+  const label = '${renderReadingSupport(slot, `dab-video-${briefDate}-${slotId}`, briefDate, "Video")}\n\n';
+  if (source.split(heading).length !== 2) {
+    throw Error('upstream dated video renderer changed: review video coverage overlay');
+  }
+  fs.writeFileSync(file, source.replace(heading, () => heading + label), 'utf8');
+}
 // Remove only demonstrably empty metadata and exact duplicated podcast explanations.
 export function removeEmptyAndRepeatedMediaCopy(value){
   return String(value)
@@ -340,6 +351,7 @@ export async function materializeReaderSource({bundle,repoRoot='.',outDir,enviro
   patchFeedbackRuntime(outDir,environment);
   suppressRepeatedReaderContext(outDir);
   restrictCoveragePeriodToArticles(outDir);
+  if (bundle.edition_date >= '2026-11-13') showDatedVideoCoverage(outDir);
   if(!fs.existsSync(path.join(outDir,'README.md')))writeText(path.join(outDir,'README.md'),'# Daily Generative AI Brief\n\n## Archive\n');
 
   const watchModule=await import(pathToFileURL(path.join(outDir,'_generator','lib','watchlist.mjs')).href);

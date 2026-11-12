@@ -124,6 +124,33 @@ function previousItems(root,date,type){
     return {type,date,title:pageTitle(html),url:sourceLink(html),source:sourceLabel(html),file};
   }).filter(x=>x.title&&x.url);
 }
+
+export function reviewVideoArchive({edition, candidates, historyRoot, historyCommit}){
+  if (!historyRoot || !/^[a-f0-9]{40}$/.test(historyCommit || '')) {
+    throw Error('PRESEAL_VIDEO_ARCHIVE_HISTORY_REQUIRED');
+  }
+  const dates = fs.readdirSync(path.join(historyRoot, 'videos'), {withFileTypes:true})
+    .filter(entry => entry.isDirectory() && DATE.test(entry.name) && entry.name < edition)
+    .map(entry => entry.name).sort().reverse();
+  const previous = dates.flatMap(date => previousItems(historyRoot, date, 'video'));
+  if (!previous.length || previous[0].date !== dates[0]) {
+    throw Error('PRESEAL_VIDEO_ARCHIVE_HISTORY_REQUIRED');
+  }
+  const programs = candidates.map(candidate => ({
+    url: candidate.url,
+    matches: previous
+      .filter(prior => sameMedia({...candidate, type:'video'}, prior))
+      .map(prior => ({date:prior.date, title:prior.title, url:prior.url,
+        route:path.relative(historyRoot, prior.file).split(path.sep).join('/')}))
+  }));
+  return {
+    result: programs.some(program => program.matches.length) ? 'BLOCKED' : 'CLEAR',
+    history_commit: historyCommit,
+    checked_editions: dates.length,
+    archived_programs: previous.length,
+    programs
+  };
+}
 // Compare the podcast PROGRAM, not only the specific episode URL.
 // Keep source labels and Apple's stable show ID as independent equivalence keys.
 export function podcastShowKeys(item){

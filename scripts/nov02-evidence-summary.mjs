@@ -1,6 +1,50 @@
 // Advisory reporting only. Evidence gaps never become invented search coverage.
 const stamp=x=>typeof x==='string'&&Number.isFinite(Date.parse(x))?x:null;
 const seconds=(a,b)=>stamp(a)&&stamp(b)&&Date.parse(b)>=Date.parse(a)?(Date.parse(b)-Date.parse(a))/1000:null;
+const APPROVED_AAR_EFFECTIVE = '2026-11-13';
+
+function summarizePresealAttempts(edition, receipts) {
+ const attempts = [];
+ const publishers = new Map();
+ const seen = new Set();
+ for (const receipt of Array.isArray(receipts) ? receipts : []) {
+  const review = receipt?.archive_review;
+  if (receipt?.edition_date !== edition || receipt.schema_version !== 'daily-compiler-preseal-video-receipt-v1' ||
+      !/^https:\/\/github\.com\/gttome\/Daily-AI-Brief-Compiler\/actions\/runs\/\d+$/.test(receipt.run_url || '') ||
+      !/^[a-f0-9]{64}$/.test(receipt.request_sha256 || '') || !stamp(receipt.checked_at) ||
+      !['CLEAR', 'BLOCKED'].includes(review?.result) || !Array.isArray(review.programs) || review.programs.length !== 3 ||
+      !Array.isArray(receipt.checks) || receipt.checks.length !== 3 || seen.has(receipt.run_url) ||
+      review.programs.some((program, i) => typeof program?.publisher !== 'string' ||
+       !program.publisher || typeof program.url !== 'string' || !Array.isArray(program.matches) ||
+       typeof receipt.checks[i]?.result !== 'string' || receipt.checks[i].title !== program.title)) continue;
+  seen.add(receipt.run_url);
+  for (const [i, program] of review.programs.entries()) {
+   const check = receipt.checks[i];
+   const result = program.matches.length ? 'ARCHIVE_REPEAT' : review.result === 'BLOCKED' ? 'NOT_PROBED' :
+    check.result === 'SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS' && check.playback_verified === true ?
+     'PLAYBACK_PASS' : 'PLAYBACK_UNVERIFIED';
+   attempts.push({publisher:program.publisher, title:program.title, url:program.url, result,
+    archive_matches:program.matches, run_url:receipt.run_url, checked_at:check.checked_at,
+    run_observed_at:receipt.checked_at, original_result:check.result,
+    ...(typeof check.error === 'string' && {error:check.error})});
+   const row = publishers.get(program.publisher) ?? {
+    programs:new Set(), archive_rejections:0, playback_passes:0, playback_failures:0, not_probed:0
+   };
+   row.programs.add(program.url);
+   if (result === 'ARCHIVE_REPEAT') row.archive_rejections++;
+   else if (result === 'NOT_PROBED') row.not_probed++;
+   else if (result === 'PLAYBACK_PASS') row.playback_passes++;
+   else row.playback_failures++;
+   publishers.set(program.publisher, row);
+  }
+ }
+ return attempts.length ? {
+  attempts,
+  publishers:[...publishers].sort(([a], [b]) => a.localeCompare(b))
+   .map(([publisher, row]) => ({publisher, ...row, programs:row.programs.size}))
+ } : null;
+}
+
 export function summarizeNov02Evidence(edition,e={}){
  const scoped=k=>e[k]?.edition_date===edition?e[k]:null;
  const state=scoped('compiler-state'), milestones=scoped('execution-milestones');
@@ -40,11 +84,31 @@ export function summarizeNov02Evidence(edition,e={}){
    stamp(bundle?.editorial_provenance?.selection_locked_at)&&
    Date.parse(editorial.reviewed_at)<=Date.parse(bundle.editorial_provenance.selection_locked_at)?
    inspectionRows.length:null;
- const editorialCount=Number.isSafeInteger(editorial?.inspected)&&editorial.inspected>=0&&editorial.inspected<=eligible?
+ const declaredEditorialCount=Number.isSafeInteger(editorial?.inspected)&&editorial.inspected>=0&&editorial.inspected<=eligible?
    editorial.inspected:inspectedFromRows;
  const explicitUnreviewed=Array.isArray(editorial?.unreviewed_ids)?editorial.unreviewed_ids:
   Array.isArray(editorial?.unreviewed)?editorial.unreviewed:null;
  const editorialInaccessible=Array.isArray(editorial?.inaccessible_ids)?editorial.inaccessible_ids:null;
+ const qualificationIds = new Set(videoRoster.filter(row => row.enabled === false).map(row => row.resource_id));
+ const partition = [...(inspectionIds ?? []), ...(editorialInaccessible ?? []), ...(explicitUnreviewed ?? [])];
+ const partitionValid = Boolean(eligibleIds && inspectionIds && editorialInaccessible && explicitUnreviewed &&
+  eligibleIds.length === eligible && new Set(eligibleIds).size === eligible &&
+  eligibleIds.every(id => typeof id === 'string' && id && !qualificationIds.has(id)) &&
+  new Set(partition).size === eligible && partition.length === eligible && partition.every(id => eligibleIds.includes(id)) &&
+  declaredEditorialCount === inspectionIds.length && stamp(editorial.reviewed_at) &&
+  stamp(bundle?.editorial_provenance?.selection_locked_at) &&
+  Date.parse(editorial.reviewed_at) <= Date.parse(bundle.editorial_provenance.selection_locked_at));
+ const editorialCount = edition >= APPROVED_AAR_EFFECTIVE && !partitionValid ? null : declaredEditorialCount;
+ const detailedInspections = editorial?.inspection_rows;
+ const detailedInspectionsValid = partitionValid && Array.isArray(detailedInspections) &&
+  detailedInspections.length === inspectionIds.length &&
+  new Set(detailedInspections.map(row => row?.resource_id)).size === inspectionIds.length &&
+  detailedInspections.every(row => inspectionIds.includes(row?.resource_id) &&
+   typeof row.index_url === 'string' && row.index_url.startsWith('https://') &&
+   stamp(row.observed_at) && Date.parse(row.observed_at) <= Date.parse(editorial.reviewed_at) &&
+   (row.outcome === 'bounded_public_index_search' ||
+    (row.outcome === 'full_dated_item_read' && typeof row.original_item_url === 'string' &&
+     row.original_item_url.startsWith('https://'))));
  const receipt=scoped('fallback-search-evidence');
  const selected=bundle?.stories||[],selectedUrls=new Set(selected.map(x=>x.source?.url));
  const fallbacks=(receipt?.fallbacks||[]).map(row=>{
@@ -84,6 +148,16 @@ export function summarizeNov02Evidence(edition,e={}){
    inspected_percent:editorialCount===null?null:Number((editorialCount/eligible*100).toFixed(1)),
    inspected_ids:Array.isArray(editorial?.inspected_ids)?editorial.inspected_ids:null,
    inaccessible_ids:editorialInaccessible,unreviewed_ids:explicitUnreviewed,
+   ...(edition >= APPROVED_AAR_EFFECTIVE && {
+    partition_status:partitionValid ? 'VALID' : editorial ? 'INVALID' : 'NOT_RECORDED',
+    full_dated_item_reads:detailedInspectionsValid ?
+     detailedInspections.filter(row => row.outcome === 'full_dated_item_read').length : null,
+    bounded_index_searches:detailedInspectionsValid ?
+     detailedInspections.filter(row => row.outcome === 'bounded_public_index_search').length : null,
+    qualification_only_sources:Array.isArray(editorial?.qualification_only_ids) &&
+     editorial.qualification_only_ids.every(id => qualificationIds.has(id)) ?
+     new Set(editorial.qualification_only_ids).size : null
+   }),
    automated_index_scan:census?{processed:inspected.length,inaccessible:inaccessible.length,not_attempted:unreviewed.length,
     created_at:stamp(census.created_at),post_editorial_selection:stamp(census.created_at)&&stamp(bundle?.source_discovery_audit?.reviewed_at)?Date.parse(census.created_at)>Date.parse(bundle.source_discovery_audit.reviewed_at):null}:null,
    scope:'Editorial counts are recorded claims from the selection audit. Automated index parsing is separate and never proves editorial inspection or fallback search completeness.'}:null,
@@ -93,11 +167,17 @@ export function summarizeNov02Evidence(edition,e={}){
    attempted:attemptedVideoRows.length,unattempted:Math.max(0,videoRoster.length-attemptedVideoRows.length),
    candidate_sources:videoRows.filter(r=>r.outcome==='CANDIDATES_FOUND').length,
    outcomes:videoCounts,completeness:videoSweepCompleteness?'REPORTED_ALL_ATTEMPTED':'INCOMPLETE',
-   source_outcomes:videoRows.map(r=>({resource_id:r.resource_id,outcome:r.outcome,
-     attempted_at:stamp(r.attempted_at),checked_url:r.checked_url})),
+   source_outcomes:videoRows.map(r=>{
+    const source = videoRoster.find(row => row.resource_id === r.resource_id);
+    return {resource_id:r.resource_id,outcome:r.outcome,
+     attempted_at:stamp(r.attempted_at),checked_url:r.checked_url,
+     ...(edition >= APPROVED_AAR_EFFECTIVE && {source_name:source?.name ?? r.resource_id,
+      eligible:source?.enabled ?? null, candidate_urls:Array.isArray(r.candidate_urls) ? new Set(r.candidate_urls).size : null})};
+   }),
    caveat:'Declared source attempt ledger only. The editorial release gate validates its structure; this AAR does not independently prove retrieval, content review or signed-out playback.'
   }:{registered:null,enabled:null,qualification_only:null,attempted:null,unattempted:null,
    candidate_sources:null,outcomes:null,completeness:'NOT_RECORDED'},
+  ...(edition >= APPROVED_AAR_EFFECTIVE && {video_preseal_attempts:summarizePresealAttempts(edition, e['preseal-video-attempts'])}),
   fallback_search_evidence:receipt?fallbacks:null,
   image_capability_preflight_recorded:route?.result==='CAPABILITY_ROUTE_PROVEN'&&Array.isArray(route.blockers)&&route.blockers.length===0,
   image_scheduler_origin_attested:false,

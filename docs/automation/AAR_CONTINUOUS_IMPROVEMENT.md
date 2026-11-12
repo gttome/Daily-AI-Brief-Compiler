@@ -29,6 +29,8 @@ Append `change_evaluations` in the existing role receipt: Top 10 `daily_improvem
 
 This is a schema example, not a completed evaluation. Decision is keep/revise/retire; result is met/not_met/inconclusive. At least one real exact evidence URL is required. Evaluation belongs to its actual edition, at or after the change effective date. Later reports retain the latest valid review; “retire” is a recommendation, never silent disabling of a gate. Due-date evaluation must acknowledge insufficient sample size rather than invent success. Reevaluate after material changes via a newly recorded review date.
 
+The eight November 12 evaluations are recorded as protected `evidence_reviews` in `config/aar-improvement-register.json` with their observed edition and original evidence links. Each supplemental review has `available_from_edition`, which is later than the edition examined. The reporter includes these decisions from the first applicable edition. The original role receipts remain the source for later observed outcomes.
+
 ### Publication causes and recovery timing
 
 In the existing Compiler coverage receipt, owner incident record or Recovery receipt, add `cause_reviews[]`: `run_url`, `stage`, `root_cause_code` (stable uppercase snake case), `reason` (at least forty characters), `evidence_ref` to the original job/log, and optional nonnegative `documented_delay_seconds` supported by that evidence. The run/stage must match the actual publication-health failure; duplicate/conflicting classifications are unclassified. Record root cause only after reading the exact failure. Do not allocate the full edition delay to each failure.
@@ -38,6 +40,8 @@ In same-edition Recovery receipt, add `timing_observations[]`: `failure_run_url`
 ### Source inspections and contribution
 
 Continue `bundle.source_discovery_audit.index_review` with true `eligible`, exact `eligible_ids`, `inspected`, exact `inspected_ids`, `inaccessible_ids` and `unreviewed`, plus actual audit `reviewed_at` no later than `editorial_provenance.selection_locked_at`. Count/IDs must agree and be unique registry IDs. The original eligible-ID snapshot establishes source membership; a later registry cannot reconstruct it. Never reconstruct missing November 3 inspected IDs from its aggregate count.
+
+From November 13, the index audit can bind `inspection_rows` with the checked source URL, scope, timestamp and original item URL for full reads. Use `qualification_only_ids` for disabled video leads and preserve their genuine outcomes in the full discovery sweep. The AAR reports full reads, bounded index searches and qualification-only leads separately. Protected preseal attempt receipts support original publisher and per-program archive/playback counts.
 
 Each existing valid `trend-search-coverage.candidate_reviews.records[]` may add `resource_id` matching an enabled registry entry actually used to discover/review that candidate. Preserve all v1 method, identity, chronology and quality fields. A URL hostname alone cannot establish attribution. Metadata-only entries do not count as substantive reviews. Without complete verified bundle evidence, selected remains unknown.
 
