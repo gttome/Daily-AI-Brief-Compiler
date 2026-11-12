@@ -12,7 +12,8 @@
     "image-job.json": "3294a7f7ff88e801c67c3baccd443aa64b4b5309b2953d742f8b397a2ce633b9",
     "image-manifest.json": "2233c5b73f4806ad239f4e5cc93344b4986e77294ae11a2183ad881205b96c24",
     "image-recurring-assignment.json": "84885b18d9a1520112818558ba2dda53720682e0d4ec52194ea14c4d919dfaf2",
-    "image-timing.json": "ab7625ed92d7ed2e718062086de45c29aa4abba280bc57abb6a44243d56d1087",
+    "image-release.json": "872611d57ca6dd56304fa95584a3769fc71671c5867adbbbd8557ef619335578",
+    "image-timing.json": "821be7bd6981f972d85c48ab4a36f6732798cc30cdce7fff7e74cb9a6c188666",
     "image-worker-state.json": "aa0ba113ede1e8ebc571a3de5fecf76ca984224b984b97f8c8c4ebd57566ad51",
     "postpublish-integrity.json": "105ad46658b042ffbcd2b8594fe12b6a15bcd3672adddf3296f5c8c4951dce71",
     "postpublish-video-playback.json": "abe6268f1338cba5652ad7fc826c625da118dc5ba5481e4273ff38519613cff7",
@@ -24,19 +25,19 @@
     "top10-after-action.json": "5e5f2d8249c4837707d4ef1964ce1b3b1d00d2cc8620407d5738ea85525e022a",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "c932933c8d415bfa4dc36389bdc5b974b97c0676f376476fd20678d2721b693f",
+    "top10-previous-aar.json": "30804b5c0a021cfeb24cfee0fc3aa4fe3383f04fd012de4177cd687c11c2d347",
     "top10-previous-report.json": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
-    "top10-report-source.json": "3f4b06104ffb52de266e1e700db48acf1a484d2e8b4c20fb920f0beaac68e1e7",
+    "top10-report-source.json": "6a4edee0178c71dcb9003c29ac3757e072a628947c2758d88257742ae748b29c",
     "top10-report.json": "a2e6b159c848fffc809a58bde78ec1066092d3c3ef0a4f5cda66dc925c61d076",
     "trend-consumed-report.json": "a2e6b159c848fffc809a58bde78ec1066092d3c3ef0a4f5cda66dc925c61d076",
-    "trend-consumed-source.json": "5171365733502312eb3d2a637428ada63f955ba8166307e11856afbde0cca78a",
+    "trend-consumed-source.json": "d47835dccee6185a1e0ae197b101d134dc5088ff35fb23b72c870129ee324642",
     "trend-input.json": "a4ef133093113cf3ddd308ff825b367562f3636ae18a2c25b0694d0cdd549fd0",
     "trend-search-coverage.json": "03f39c36d5341e96cbdd3c859ed86fb30ef150d4ab643ebe2ebaaa9f81975d15",
     "video-playback-failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -158,8 +159,8 @@
     "coverage_percent": null,
     "coverage_numerator": null,
     "coverage_denominator": null,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 1,
+    "image_attempts": 12,
     "top10_linked_items": 5,
     "publication_failures": 0
   },
@@ -171,7 +172,64 @@
   "inspections": [],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 6,
+    "classified": [
+      {
+        "story_id": "nov12-t1-alphaproof-code",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/nov12-t1-alphaproof-code-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov12-t2-ecostatkg",
+        "attempt": 1,
+        "defect_codes": [
+          "UNSUPPORTED_CLAIM",
+          "UNALLOWLISTED_TEXT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/nov12-t2-ecostatkg-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov12-t2-ecostatkg",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/nov12-t2-ecostatkg-attempt-2-rejection.json"
+      },
+      {
+        "story_id": "nov12-k1-qwen-preview",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/nov12-k1-qwen-preview-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov12-k2-voice-migration",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/nov12-k2-voice-migration-attempt-1-rejection.json"
+      },
+      {
+        "story_id": "nov12-a2-maya-correction",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/nov12-a2-maya-correction-attempt-1-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,

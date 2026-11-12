@@ -622,7 +622,7 @@
       "attention": "Event-matched videos first when available, then distinct public discussions and tracked announcements. Stronger placement reflects corroboration and freshness. Same-program rounded interval deltas are retained separately.",
       "limitation": "Mixed formats and unknown clock or audience overlap preclude precise popularity ranking. No newness claim is inferred from a new screening result."
     },
-    "source_commit": "6e6911d0a393a3117160841950ecf3b2c3665777",
+    "source_commit": "357cc1cb8a940d06f930a509d4c146ec2c8483c6",
     "source_blob_sha": "6150b534d32c78de199208c74ed52b60f216df74",
     "report_sha256": "a2e6b159c848fffc809a58bde78ec1066092d3c3ef0a4f5cda66dc925c61d076",
     "consumed_source_commit": "6e6911d0a393a3117160841950ecf3b2c3665777",
@@ -799,7 +799,7 @@
       },
       "previous_cycle": "2026-11-10",
       "previous_report_sha256": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
-      "previous_aar_sha256": "c932933c8d415bfa4dc36389bdc5b974b97c0676f376476fd20678d2721b693f",
+      "previous_aar_sha256": "30804b5c0a021cfeb24cfee0fc3aa4fe3383f04fd012de4177cd687c11c2d347",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1026,9 +1026,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1082,11 +1082,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/6e6911d0a393a3117160841950ecf3b2c3665777/signals/ai-topic-top10/2026-11-11.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/357cc1cb8a940d06f930a509d4c146ec2c8483c6/signals/ai-topic-top10/2026-11-11.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/6e6911d0a393a3117160841950ecf3b2c3665777/signals/ai-topic-top10/2026-11-11.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/357cc1cb8a940d06f930a509d4c146ec2c8483c6/signals/ai-topic-top10/2026-11-11.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1113,8 +1113,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov12-t1-alphaproof-code",
+            "label": "AlphaProof Code checks Signal machine code against human-approved claims",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov12-t2-ecostatkg",
+            "label": "A knowledge graph restores answers only after retrieval is tuned",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov12-k1-qwen-preview",
+            "label": "Qwen4-Max opens a bounded preview with one-million-token context",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov12-k2-voice-migration",
+            "label": "ChatGPT voice moves to GPT-Live while video waits",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov12-a1-business-agent",
+            "label": "Businesses can publish a clearly labeled agent after a bounded preview",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov12-a2-maya-correction",
+            "label": "A Maya-site claim shows why agents must search prior literature",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 12,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1221,8 +1265,8 @@
         "coverage_percent": null,
         "coverage_numerator": null,
         "coverage_denominator": null,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 1,
+        "image_attempts": 12,
         "top10_linked_items": 5,
         "publication_failures": 0
       }
@@ -1233,12 +1277,12 @@
         "median": 6.5
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
-        "median": 0.5
+        "recorded_editions": 7,
+        "median": 1
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 12.5
+        "recorded_editions": 7,
+        "median": 12
       },
       "top10_linked_items": {
         "recorded_editions": 2,
@@ -1504,18 +1548,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 3,
-      "open_production_blockers": 1,
+      "finding_count": 2,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "SOURCE_INSPECTION_EVIDENCE_MISSING",
           "priority": "P1",
@@ -3365,72 +3400,78 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 47,
+      "recorded_editions": 7,
+      "total_rejected": 53,
       "unclassified": 8,
       "rows": [
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 24,
+          "rejected_attempts": 25,
           "editions": [
             "2026-11-07",
             "2026-11-08",
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
+            "2026-11-11",
+            "2026-11-12"
           ],
           "recurring": true
         },
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 23,
+          "rejected_attempts": 25,
           "editions": [
             "2026-11-08",
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
+            "2026-11-11",
+            "2026-11-12"
           ],
           "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 13,
+          "rejected_attempts": 15,
           "editions": [
             "2026-11-07",
             "2026-11-08",
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
-          ],
-          "recurring": true
-        },
-        {
-          "cause": "UNSUPPORTED_CLAIM",
-          "rejected_attempts": 5,
-          "editions": [
-            "2026-11-07",
-            "2026-11-08",
-            "2026-11-09"
+            "2026-11-11",
+            "2026-11-12"
           ],
           "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 4,
+          "rejected_attempts": 7,
           "editions": [
             "2026-11-09",
             "2026-11-10",
-            "2026-11-11"
+            "2026-11-11",
+            "2026-11-12"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "UNSUPPORTED_CLAIM",
+          "rejected_attempts": 6,
+          "editions": [
+            "2026-11-07",
+            "2026-11-08",
+            "2026-11-09",
+            "2026-11-12"
           ],
           "recurring": true
         },
         {
           "cause": "UNALLOWLISTED_TEXT",
-          "rejected_attempts": 1,
+          "rejected_attempts": 2,
           "editions": [
-            "2026-11-09"
+            "2026-11-09",
+            "2026-11-12"
           ],
-          "recurring": false
+          "recurring": true
         }
       ]
     },
