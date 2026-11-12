@@ -1,6 +1,6 @@
 // Planning is not source inspection. Preserve every currently enabled editorial ID.
 import crypto from 'node:crypto';
-import {validateResourceRegistry} from './resources.mjs';
+import {enabledEditorialResources,validateResourceRegistry} from './resources.mjs';
 import {buildVideoSourceSweepPlan} from './video-source-sweep.mjs';
 import {buildScientificPaperCadence} from './scientific-paper-cadence.mjs';
 const roles=['article','video','podcast'];
@@ -16,7 +16,7 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
  const previous=validDate(previousAar?.edition_date)&&previousAar.edition_date<editionDate?previousAar:null;
  const priorIds=previous?.evidence_reconciliation?.source_index_coverage?.unreviewed_ids;
  const unreviewed=new Set(Array.isArray(priorIds)?priorIds:[]);
- const eligible=registry.resources.filter(r=>r.enabled&&r.content_types.some(t=>roles.includes(t))).sort((a,b)=>a.resource_id.localeCompare(b.resource_id));
+ const eligible=enabledEditorialResources(registry).sort((a,b)=>a.resource_id.localeCompare(b.resource_id));
  const days=Math.floor(Date.parse(editionDate+'T00:00:00Z')/86400000);
  const first=interleave(rotate(eligible.filter(r=>unreviewed.has(r.resource_id)),days));
  const rest=interleave(rotate(eligible.filter(r=>!unreviewed.has(r.resource_id)),days));

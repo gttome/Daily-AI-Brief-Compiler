@@ -9,6 +9,34 @@ import {oct27SourceReadiness,renderOct27SourceSection} from './oct27-source-read
 import {summarizeTop10,renderTop10Section} from './top10-aar.mjs';
 import {buildAarCharts,renderAarChartsMarkdown,writeAarCharts} from './aar-charts.mjs';
 
+function renderPresealEvidence(evidence) {
+  const cell = value => String(value ?? 'Not recorded').replace(/[|\r\n]/g, ' ');
+  const index = evidence.source_index_coverage;
+  const lines = index?.partition_status ? [
+    `Eligible source partition **${index.partition_status}**. Full original-item reads **${index.full_dated_item_reads ?? 'Not recorded'}**. Bounded index searches **${index.bounded_index_searches ?? 'Not recorded'}**. Qualification-only sources recorded separately **${index.qualification_only_sources ?? 'Not recorded'}**.`,
+    ''
+  ] : [];
+  const candidateRoutes = evidence.video_source_sweep?.source_outcomes?.filter(row =>
+    row.source_name && row.outcome === 'CANDIDATES_FOUND') ?? [];
+  if (candidateRoutes.length) {
+    lines.push('### Video candidate discovery', '',
+      '| Discovery source | Eligibility | Candidate URLs |', '|---|---|---:|',
+      ...candidateRoutes.map(row => `| ${cell(row.source_name)} | ${row.eligible ? 'Enabled' : 'Qualification only'} | ${cell(row.candidate_urls)} |`), '');
+  }
+  const review = evidence.video_preseal_attempts;
+  if (review) {
+    lines.push('### Protected preseal video outcomes', '',
+      '| Original publisher | Distinct programs submitted | Archive rejects | Playback passes | Playback unverified | Probes skipped |',
+      '|---|---:|---:|---:|---:|---:|',
+      ...review.publishers.map(row => `| ${cell(row.publisher)} | ${row.programs} | ${row.archive_rejections} | ${row.playback_passes} | ${row.playback_failures} | ${row.not_probed} |`),
+      '', 'Outcomes count observed checks across all saved requests. Programs can be submitted again after a different slot changes.', '',
+      ...review.attempts.filter(row => ['ARCHIVE_REPEAT', 'PLAYBACK_UNVERIFIED'].includes(row.result)).map(row =>
+        `- ${cell(row.title)} received ${row.original_result}.${row.archive_matches.length ? ' Earlier editions ' + row.archive_matches.map(match => cell(match.date)).join(', ') + '.' : ''} [Original run](${row.run_url})`),
+      '');
+  }
+  return lines;
+}
+
 function generateUnified(cycle,e,hashes={}) {
   const d = new Date(cycle+"T00:00:00Z"); if(!Number.isFinite(d.getTime())||d.toISOString().slice(0,10)!==cycle)throw Error("invalid-cycle-date");d.setUTCDate(d.getUTCDate()+1);
   const edition=d.toISOString().slice(0,10), gh="https://github.com/gttome/Daily-AI-Brief-Compiler", pub="https://gttome.github.io/Daily-AI-Brief-Compiler/";
@@ -193,6 +221,7 @@ indicators,
 ...(reconciled.video_source_sweep?.registered!==null&&reconciled.video_source_sweep?.registered!==undefined?
 [`Registered video sources: ${reconciled.video_source_sweep.registered}; attempted this edition: ${reconciled.video_source_sweep.attempted??"Unknown"}; unattempted: ${reconciled.video_source_sweep.unattempted??"Unknown"}; enabled: ${reconciled.video_source_sweep.enabled??"Unknown"}; qualification-only: ${reconciled.video_source_sweep.qualification_only??"Unknown"}; sources yielding candidate URLs: ${reconciled.video_source_sweep.candidate_sources??"Unknown"}. Status: ${reconciled.video_source_sweep.completeness}. Attempt evidence is not automatic proof of source-content review or playback.`]:[]),
 "",
+...renderPresealEvidence(reconciled),
 renderAarChartsMarkdown(charts),
 "## Performance dashboard",
 "",
@@ -397,6 +426,7 @@ imgCols,
 const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
 const keys=["top10-baseline","top10-outcome-baseline","top10-previous-report","top10-previous-aar","top10-improvement","execution-milestones","fallback-search-evidence","trend-consumed-source","trend-consumed-report","image-route-preflight","compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage","scientific-paper-coverage"];
+keys.push('preseal-video-attempts');
 const ev={},hashes={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;const bytes=fs.readFileSync(p);hashes[k]=crypto.createHash("sha256").update(bytes).digest("hex");try{ev[k]=JSON.parse(bytes.toString("utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json,charts}=generateUnified(cycle,ev,hashes);
 fs.mkdirSync(outDir,{recursive:true});

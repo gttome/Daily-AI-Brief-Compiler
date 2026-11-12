@@ -1,6 +1,12 @@
 export const RESOURCE_REGISTRY_SCHEMA='daily-compiler-resource-registry-v1';
 export const RESOURCE_OBSERVATION_SCHEMA='daily-compiler-resource-observation-v1';
 
+export function enabledEditorialResources(registry) {
+  return registry.resources.filter(resource => resource?.enabled === true &&
+    Array.isArray(resource.content_types) &&
+    resource.content_types.some(type => ['article', 'video', 'podcast'].includes(type)));
+}
+
 export function validateResourceRegistry(registry={}){
   const errors=[];
   if(registry.schema_version!==RESOURCE_REGISTRY_SCHEMA) errors.push('resource_registry_schema');
