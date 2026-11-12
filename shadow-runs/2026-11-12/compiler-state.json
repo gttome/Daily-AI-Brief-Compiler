@@ -8,18 +8,31 @@
   "branch": "shadow/2026-11-12",
   "initial_execution_observed_at": "2026-11-12T01:22:10.261Z",
   "started_at": "2026-11-12T01:22:10.261Z",
-  "updated_at": "2026-11-12T01:22:10.261Z",
+  "updated_at": "2026-11-12T01:34:00.000Z",
   "images": {
     "required": 6,
     "accepted": [],
     "mode": "images_pending",
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
-  "blocker": null,
+  "blocker": {
+    "code": "PRESEAL_VIDEO_PENDING",
+    "stage": "PRESEAL_VIDEO",
+    "message": "Exact protected three-program receipt is pending.",
+    "retryable": true,
+    "next_action": "Allow existing bundle-ready-signal to run the exact request."
+  },
   "evidence": {
     "trend_input": "shadow-runs/2026-11-12/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-12/editorial/trend-search-coverage.json",
-    "execution_milestones": "shadow-runs/2026-11-12/execution-milestones.json"
+    "execution_milestones": "shadow-runs/2026-11-12/execution-milestones.json",
+    "candidate_pool": "shadow-runs/2026-11-12/editorial/candidate-pool.json",
+    "index_review": "shadow-runs/2026-11-12/editorial/index-review.json",
+    "fallback_search_evidence": "shadow-runs/2026-11-12/editorial/fallback-search-evidence.json",
+    "continuous_improvement": "shadow-runs/2026-11-12/editorial/continuous-improvement.json",
+    "video_source_sweep": "shadow-runs/2026-11-12/editorial/video-source-sweep.json",
+    "scientific_paper_coverage": "shadow-runs/2026-11-12/editorial/scientific-paper-coverage.json",
+    "preseal_video_request": "shadow-runs/2026-11-12/editorial/preseal-video-request.json"
   },
   "publication": {
     "bundle_ready": false,
