@@ -1,0 +1,2574 @@
+{
+  "schema_version": "daily-aar-continuous-improvement-v1",
+  "edition_date": "2026-11-12",
+  "window": {
+    "first": "2026-11-06",
+    "last": "2026-11-12",
+    "expected_editions": 7,
+    "recorded_editions": 7
+  },
+  "series": [
+    {
+      "edition_date": "2026-11-06",
+      "coverage_percent": 9,
+      "coverage_numerator": 8,
+      "coverage_denominator": 87,
+      "first_pass_accepted": 0,
+      "image_attempts": 14,
+      "top10_linked_items": 3,
+      "publication_failures": 1
+    },
+    {
+      "edition_date": "2026-11-07",
+      "coverage_percent": 4,
+      "coverage_numerator": 4,
+      "coverage_denominator": 109,
+      "first_pass_accepted": 2,
+      "image_attempts": 11,
+      "top10_linked_items": null,
+      "publication_failures": 0
+    },
+    {
+      "edition_date": "2026-11-08",
+      "coverage_percent": null,
+      "coverage_numerator": null,
+      "coverage_denominator": null,
+      "first_pass_accepted": 0,
+      "image_attempts": 20,
+      "top10_linked_items": null,
+      "publication_failures": 4
+    },
+    {
+      "edition_date": "2026-11-09",
+      "coverage_percent": 3,
+      "coverage_numerator": 3,
+      "coverage_denominator": 109,
+      "first_pass_accepted": 1,
+      "image_attempts": 11,
+      "top10_linked_items": null,
+      "publication_failures": 15
+    },
+    {
+      "edition_date": "2026-11-10",
+      "coverage_percent": 12,
+      "coverage_numerator": 13,
+      "coverage_denominator": 109,
+      "first_pass_accepted": 0,
+      "image_attempts": 16,
+      "top10_linked_items": null,
+      "publication_failures": 11
+    },
+    {
+      "edition_date": "2026-11-11",
+      "coverage_percent": null,
+      "coverage_numerator": null,
+      "coverage_denominator": null,
+      "first_pass_accepted": 1,
+      "image_attempts": 11,
+      "top10_linked_items": null,
+      "publication_failures": 12
+    },
+    {
+      "edition_date": "2026-11-12",
+      "coverage_percent": null,
+      "coverage_numerator": null,
+      "coverage_denominator": null,
+      "first_pass_accepted": null,
+      "image_attempts": null,
+      "top10_linked_items": 5,
+      "publication_failures": 0
+    }
+  ],
+  "summary": {
+    "coverage_percent": {
+      "recorded_editions": 4,
+      "median": 6.5
+    },
+    "first_pass_accepted": {
+      "recorded_editions": 6,
+      "median": 0.5
+    },
+    "image_attempts": {
+      "recorded_editions": 6,
+      "median": 12.5
+    },
+    "top10_linked_items": {
+      "recorded_editions": 2,
+      "median": 4
+    },
+    "publication_failures": {
+      "recorded_editions": 7,
+      "median": 4
+    }
+  },
+  "coverage_registry_changed": true,
+  "coverage_source_set_comparable": true,
+  "change_register": [
+    {
+      "change_id": "NOV03-01",
+      "title": "Earlier publication checks and precise recovery",
+      "owner": "Compiler / Recovery",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Avoidable failed publishing gates; genuine owner-assisted vs scheduled recovery",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "NOV03-02",
+      "title": "Broader genuine source review",
+      "owner": "Compiler",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Inspected source IDs, original-date evidence and publisher variety",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "NOV03-03",
+      "title": "Source-bound image rejection lessons",
+      "owner": "Images",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "First-pass accepts and actual attempts; preserve quality",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "REVIEWED",
+      "latest_review": {
+        "change_id": "NOV03-03",
+        "reviewed_edition": "2026-11-12",
+        "decision": "revise",
+        "result": "not_met",
+        "reason": "Current recorded generation and first-pass results can be compared descriptively with the previous 11 attempts and one first-pass accept. The story and composition mix changes daily, so the outcome does not establish causal improvement.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/worker-state.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-10/improvement-metrics.json"
+        ]
+      }
+    },
+    {
+      "change_id": "NOV03-04",
+      "title": "Substantive Top 10 review evidence",
+      "owner": "Top 10 / Compiler",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Validated candidate reviews and observed selections",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "REVIEWED",
+      "latest_review": {
+        "change_id": "NOV03-04",
+        "reviewed_edition": "2026-11-12",
+        "decision": "revise",
+        "result": "inconclusive",
+        "reason": "Prior input was bound but actual selection mappings remained invalid. Today's original documents deepen topic review while video playback is still unavailable. Validated downstream candidate selection remains unknown.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/6297ca4a448b969218b30cd9244aa7cc194c5ec6/daily/2026-11-10/combined.md",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/6297ca4a448b969218b30cd9244aa7cc194c5ec6/daily/2026-11-10/improvement-metrics.json"
+        ]
+      }
+    },
+    {
+      "change_id": "AAR-01",
+      "title": "Current conclusions separated from historical claims",
+      "owner": "Reporting",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Unlabeled status conflicts in rendered AAR: target zero",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "AAR-02",
+      "title": "Consolidated current task contracts",
+      "owner": "All four tasks",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Conflicting active instructions: target zero; prompt character counts with requirement audit",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "REVIEWED",
+      "latest_review": {
+        "change_id": "AAR-02",
+        "reviewed_edition": "2026-11-11",
+        "decision": "keep",
+        "result": "inconclusive",
+        "reason": "The protected common and image contracts plus the owner's explicit morning override resolved the current image workflow. This invocation did not inspect actual prompt counts or contract conflicts across the other three production roles.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/942b1baf37858c03449ab09572e177ab97eeeded/docs/automation/current/IMAGES.md"
+        ]
+      }
+    },
+    {
+      "change_id": "AAR-03",
+      "title": "Dated improvement evaluations",
+      "owner": "All four tasks",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Pending/overdue reviews and evidence-supported keep/revise/retire decisions",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "REVIEWED",
+      "latest_review": {
+        "change_id": "AAR-03",
+        "reviewed_edition": "2026-11-11",
+        "decision": "keep",
+        "result": "inconclusive",
+        "reason": "This image lane supplies dated November 11 assessments using original and cumulative records. System-wide pending or overdue review counts cannot be certified until the existing reporter reads all role receipts.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-09/improvement-metrics.json"
+        ]
+      }
+    },
+    {
+      "change_id": "AAR-04",
+      "title": "Seven-edition trend charts",
+      "owner": "Reporting",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Comparable observation counts and medians; missing dates remain gaps",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "AAR-05",
+      "title": "Recurring publication failure causes",
+      "owner": "Compiler / Recovery",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Observed failures, repeated causes and documented delay samples",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "AAR-06",
+      "title": "Recovery interval reporting",
+      "owner": "Recovery",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Detection, queue, repair and verification seconds by recorded intervention mode",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "AAR-07",
+      "title": "Source inspection history",
+      "owner": "Compiler",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Exact inspected source IDs and editions since last actual inspection",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "AAR-08",
+      "title": "Rolling source contribution",
+      "owner": "Compiler",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Attributed unique substantive reviews, qualified and selected candidates with denominators",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "OVERDUE",
+      "latest_review": null
+    },
+    {
+      "change_id": "AAR-09",
+      "title": "Recurring image defect categories",
+      "owner": "Images",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Rejected attempts by actual defect code and repeated causes across editions",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "REVIEWED",
+      "latest_review": {
+        "change_id": "AAR-09",
+        "reviewed_edition": "2026-11-12",
+        "decision": "keep",
+        "result": "met",
+        "reason": "Actual rejected candidates were captured with per-attempt categories and saved evidence references. Defect counts support diagnosis while keeping defects separate from release quality.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/003533c1358f69fb8d3ad41b669cb8f166151475/external-image-packages/2026-11-12/reviews/worker-state.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-10/improvement-metrics.json"
+        ]
+      }
+    },
+    {
+      "change_id": "AAR-10",
+      "title": "Top 10 publisher-family sensitivity",
+      "owner": "Top 10",
+      "effective_edition": "2026-11-04",
+      "review_due_edition": "2026-11-11",
+      "metric": "Topics with valid per-family removal assessments and documented weaker bands",
+      "baseline": "November 3 where comparable; otherwise NOT_RECORDED. Do not redefine the frozen baseline.",
+      "evaluation_rule": "Use real post-activation observations; met/not_met/inconclusive and keep/revise/retire require evidence. No automatic gate retirement.",
+      "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+      "outcome_status": "REVIEWED",
+      "latest_review": {
+        "change_id": "AAR-10",
+        "reviewed_edition": "2026-11-12",
+        "decision": "keep",
+        "result": "inconclusive",
+        "reason": "The November 11 combined AAR accepted only two of ten assessments. Today uses the documented insufficient enum and validates family partitions. The next combined AAR must independently confirm that the producer correction was collected.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/6297ca4a448b969218b30cd9244aa7cc194c5ec6/daily/2026-11-10/improvement-metrics.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/6297ca4a448b969218b30cd9244aa7cc194c5ec6/signals/ai-topic-top10/2026-11-10.json"
+        ]
+      }
+    }
+  ],
+  "change_review_counts": {
+    "pending": 0,
+    "overdue": 8,
+    "reviewed": 6
+  },
+  "daily_action_review": {
+    "schema_version": "daily-aar-action-review-v1",
+    "edition_date": "2026-11-12",
+    "mode": "DAILY_EVIDENCE_LED_TRIAGE",
+    "next_cumulative_review": "2026-11-11",
+    "cumulative_review_due_today": false,
+    "finding_count": 3,
+    "open_production_blockers": 1,
+    "findings": [
+      {
+        "id": "IMAGE_RELEASE_NOT_VERIFIED",
+        "priority": "P0",
+        "owner": "Images",
+        "observation": "Editorial publication is verified but the image release is not verified.",
+        "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
+        "timing": "CURRENT_CYCLE_IF_OWNED",
+        "kind": "OPEN_PRODUCTION_BLOCKER"
+      },
+      {
+        "id": "SOURCE_INSPECTION_EVIDENCE_MISSING",
+        "priority": "P1",
+        "owner": "Compiler",
+        "observation": "Source inspection coverage is not verifiable from the current bundled receipts.",
+        "action": "Bind genuine exact source IDs and original preselection review times into the next draft bundle; do not infer inspection from HTTP access.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EVIDENCE_GAP"
+      },
+      {
+        "id": "SCHEDULER_ORIGIN_UNPROVEN",
+        "priority": "P2",
+        "owner": "Compiler / Recovery",
+        "observation": "Publication success does not independently attest the originating scheduler.",
+        "action": "Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EVIDENCE_GAP"
+      }
+    ],
+    "limitations": [
+      "This report records findings and next actions; it does not execute corrections.",
+      "Existing owners must fix safe same-cycle faults immediately, without waiting for the cumulative review date.",
+      "A released edition remains immutable; lessons apply prospectively to the next genuine cycle.",
+      "Missing observations are not zero; no causality, autonomous recovery or effectiveness is inferred."
+    ]
+  },
+  "publication_failures": {
+    "recorded_editions": 7,
+    "rows": [
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "UNCLASSIFIED",
+        "count": 16,
+        "editions": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "delay_samples": [],
+        "recurring": true,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "VIDEO_PLAYBACK",
+        "cause": "UNCLASSIFIED",
+        "count": 6,
+        "editions": [
+          "2026-11-06",
+          "2026-11-08",
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": true,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "PRESEAL_VIDEO",
+        "cause": "UNCLASSIFIED",
+        "count": 5,
+        "editions": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "delay_samples": [],
+        "recurring": true,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "MEDIA_HISTORY",
+        "cause": "UNCLASSIFIED",
+        "count": 4,
+        "editions": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "delay_samples": [],
+        "recurring": true,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SOURCE_READY",
+        "cause": "UNCLASSIFIED",
+        "count": 2,
+        "editions": [
+          "2026-11-10"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "MEDIA_HISTORY",
+        "cause": "ARTICLE_REUSE_VIOLATION",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "MEDIA_HISTORY",
+        "cause": "PODCAST_SHOW_ROTATION_VIOLATION",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "EDITORIAL_CHECKPOINT_STATUS_MISMATCH",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "MEDIA_SELECTION_LOCK_PRECEDED_REPLACEMENT",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "SOURCE_CONSIDERATION_SCHEMA_MISMATCH",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "SOURCE_READ_METHOD_ENUM_INVALID",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "VIDEO_CANDIDATE_REVIEW_INCOMPLETE",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SEMANTIC_PREFLIGHT",
+        "cause": "VIDEO_EVIDENCE_SCOPE_TOO_SHORT",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SOURCE_READY",
+        "cause": "BUNDLE_DIGEST_MISMATCH",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      },
+      {
+        "stage": "SOURCE_READY",
+        "cause": "EXPECTED_BUNDLE_STAGE",
+        "count": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "delay_samples": [],
+        "recurring": false,
+        "median_documented_delay_seconds": null
+      }
+    ],
+    "classified": 10
+  },
+  "recovery": {
+    "rows": [],
+    "summary": []
+  },
+  "source_inspection_age": [
+    {
+      "resource_id": "acl-anthology",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "anthropic",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "anthropic-news",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "article-databricks-ai-research",
+      "last_inspected_at": "2026-11-06T01:32:50.000Z",
+      "last_inspected_edition": "2026-11-06",
+      "editions_since_inspection": 6,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "article-ibm-research-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "article-nvidia-technical-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "arxiv-cs-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "arxiv-cs-cl",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "arxiv-cs-lg",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "berkeley-bair",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "deep-20261026-a01-google-research",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "deep-20261026-a02-microsoft-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "deep-20261026-a03-nvidia-news",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "deep-20261026-p02-data-skeptic",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "deep-20261026-v01-two-minute-papers",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "deepseek-news",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-0dffb60aadd4ba31b5c090dc",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-1c6f5db2559c3c226a112873",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-242c2a2fc81a43d41f199129",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-3834a0112c0e3a754320b557",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-3ccc18a956cae0b1e24b5968",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-411bf5f837e28f35220736eb",
+      "last_inspected_at": "2026-11-09T01:31:28.914Z",
+      "last_inspected_edition": "2026-11-09",
+      "editions_since_inspection": 3,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-4852e367f74118ff2dc1eec9",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-48665d874f6008894d0d9385",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-4c16d138c4a736e78a68127e",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-54d90ff964a74ff98851ae11",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-5c5d3d02a420135949164552",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-64f0886a6793aa8858a4b62d",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-6ea6e283349c7b62ac1ced9d",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-79e16cd5beb5c662c4022a9f",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-8df3614a9972a25fc59475ed",
+      "last_inspected_at": "2026-11-07T01:55:00Z",
+      "last_inspected_edition": "2026-11-07",
+      "editions_since_inspection": 5,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-8ec4fd458a38bc0447f4cded",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-970506fbc577e6091a33c64d",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-9ad7c274f2d56274bcd5ddcc",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-9c0885bdb370f69c9262b88c",
+      "last_inspected_at": "2026-11-07T01:55:00Z",
+      "last_inspected_edition": "2026-11-07",
+      "editions_since_inspection": 5,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-9f7087ce2c030a4b9da58499",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-a74f303f4b0c39344c1314cf",
+      "last_inspected_at": "2026-11-06T01:32:50.000Z",
+      "last_inspected_edition": "2026-11-06",
+      "editions_since_inspection": 6,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-b93e2368e85f0f95c066463e",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "directory-c6b8a33e7fa162cc41136fa5",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-d1527db7c06b4e83370b7546",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-d5428d030dfff7d4639258e3",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-d6cf3f9fa167b8173a35228b",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-db682c52794328eb69ebc377",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-e2f33b502b264e51983a338a",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-e7b100b6b999ac748e052327",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-ecf69ec2f036e803388f40ca",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "directory-fd36049347d409f38c9f9a67",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "github-ai-agents",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "github-generative-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "github-llm",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "github-trending",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "google-deepmind-blog",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "hacker-news-newest",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "hacker-news-show",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "hugging-face-daily-papers",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "hugging-face-datasets",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "hugging-face-models",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "hugging-face-spaces",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "iclr",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "icml",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "meta-ai-blog",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "mistral-news",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "mit-csail",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "neurips",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "openai-news",
+      "last_inspected_at": "2026-11-09T01:31:28.914Z",
+      "last_inspected_edition": "2026-11-09",
+      "editions_since_inspection": 3,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "openreview",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-a16z-show",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "podcast-agora-briefing",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-ai-daily-brief",
+      "last_inspected_at": "2026-11-06T01:32:50.000Z",
+      "last_inspected_edition": "2026-11-06",
+      "editions_since_inspection": 6,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "podcast-ai-for-humans",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-ai-future-work",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-ai-inside",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-artificial-intelligence-show",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-cognitive-revolution",
+      "last_inspected_at": "2026-11-06T01:32:50.000Z",
+      "last_inspected_edition": "2026-11-06",
+      "editions_since_inspection": 6,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "podcast-data-exchange",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-everyday-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-eye-on-ai",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "podcast-gradient-dissent",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-latent-space",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "podcast-no-priors",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-nvidia-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-practical-ai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "podcast-twiml",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "qwen-blog",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "reddit-localllama",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "reddit-machinelearning",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-a01",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-a04",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-a05",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-a12",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-p03",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-v01",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-v02",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "research-20261026-v04",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "research-20261026-v05",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "research-20261026-v06",
+      "last_inspected_at": "2026-11-10T01:33:08.386Z",
+      "last_inspected_edition": "2026-11-10",
+      "editions_since_inspection": 2,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "research-20261026-v07",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "specialized-discords",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "stanford-hai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "the-batch",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "universe-20261026-every-ai-editorial",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "x-research-feeds",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "xai-news",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "youtube-anthropic",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    },
+    {
+      "resource_id": "youtube-google-deepmind",
+      "last_inspected_at": "2026-11-06T01:32:50.000Z",
+      "last_inspected_edition": "2026-11-06",
+      "editions_since_inspection": 6,
+      "status": "OBSERVED"
+    },
+    {
+      "resource_id": "youtube-openai",
+      "last_inspected_at": null,
+      "last_inspected_edition": null,
+      "editions_since_inspection": null,
+      "status": "NOT_RECORDED"
+    }
+  ],
+  "source_contribution": [
+    {
+      "resource_id": "acl-anthology",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "anthropic",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "anthropic-news",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "article-databricks-ai-research",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "article-ibm-research-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "article-nvidia-technical-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "arxiv-cs-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "arxiv-cs-cl",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "arxiv-cs-lg",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "berkeley-bair",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "deep-20261026-a01-google-research",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "deep-20261026-a02-microsoft-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "deep-20261026-a03-nvidia-news",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "deep-20261026-p02-data-skeptic",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "deep-20261026-v01-two-minute-papers",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "deepseek-news",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-0dffb60aadd4ba31b5c090dc",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-1c6f5db2559c3c226a112873",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-242c2a2fc81a43d41f199129",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-3834a0112c0e3a754320b557",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-3ccc18a956cae0b1e24b5968",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-411bf5f837e28f35220736eb",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-4852e367f74118ff2dc1eec9",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-48665d874f6008894d0d9385",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-4c16d138c4a736e78a68127e",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-54d90ff964a74ff98851ae11",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-5c5d3d02a420135949164552",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-64f0886a6793aa8858a4b62d",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-6ea6e283349c7b62ac1ced9d",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-79e16cd5beb5c662c4022a9f",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-8df3614a9972a25fc59475ed",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-8ec4fd458a38bc0447f4cded",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-970506fbc577e6091a33c64d",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-9ad7c274f2d56274bcd5ddcc",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-9c0885bdb370f69c9262b88c",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-9f7087ce2c030a4b9da58499",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-a74f303f4b0c39344c1314cf",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-b93e2368e85f0f95c066463e",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-c6b8a33e7fa162cc41136fa5",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-d1527db7c06b4e83370b7546",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-d5428d030dfff7d4639258e3",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-d6cf3f9fa167b8173a35228b",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-db682c52794328eb69ebc377",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-e2f33b502b264e51983a338a",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-e7b100b6b999ac748e052327",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-ecf69ec2f036e803388f40ca",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "directory-fd36049347d409f38c9f9a67",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "github-ai-agents",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "github-generative-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "github-llm",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "github-trending",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "google-deepmind-blog",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "hacker-news-newest",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "hacker-news-show",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "hugging-face-daily-papers",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "hugging-face-datasets",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "hugging-face-models",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "hugging-face-spaces",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "iclr",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "icml",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "meta-ai-blog",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "mistral-news",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "mit-csail",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "neurips",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "openai-news",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "openreview",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-a16z-show",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-agora-briefing",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-ai-daily-brief",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-ai-for-humans",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-ai-future-work",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-ai-inside",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-artificial-intelligence-show",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-cognitive-revolution",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-data-exchange",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-everyday-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-eye-on-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-gradient-dissent",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-latent-space",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-no-priors",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-nvidia-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-practical-ai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "podcast-twiml",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "qwen-blog",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "reddit-localllama",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "reddit-machinelearning",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-a01",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-a04",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-a05",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-a12",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-p03",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-v01",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-v02",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-v04",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-v05",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-v06",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "research-20261026-v07",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "specialized-discords",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "stanford-hai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "the-batch",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "universe-20261026-every-ai-editorial",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "x-research-feeds",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "xai-news",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "youtube-anthropic",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "youtube-google-deepmind",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    },
+    {
+      "resource_id": "youtube-openai",
+      "reviewed": null,
+      "qualified": null,
+      "selected": null,
+      "qualification_rate": null,
+      "recorded_editions": 0
+    }
+  ],
+  "image_defects": {
+    "recorded_editions": 6,
+    "total_rejected": 47,
+    "unclassified": 8,
+    "rows": [
+      {
+        "cause": "CAUSAL_CONNECTOR",
+        "rejected_attempts": 24,
+        "editions": [
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "LAYOUT",
+        "rejected_attempts": 23,
+        "editions": [
+          "2026-11-08",
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "PSEUDO_WRITING",
+        "rejected_attempts": 13,
+        "editions": [
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "UNSUPPORTED_CLAIM",
+        "rejected_attempts": 5,
+        "editions": [
+          "2026-11-07",
+          "2026-11-08",
+          "2026-11-09"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "OTHER",
+        "rejected_attempts": 4,
+        "editions": [
+          "2026-11-09",
+          "2026-11-10",
+          "2026-11-11"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "UNALLOWLISTED_TEXT",
+        "rejected_attempts": 1,
+        "editions": [
+          "2026-11-09"
+        ],
+        "recurring": false
+      }
+    ]
+  },
+  "top10_resilience": {
+    "status": "RECORDED",
+    "reviewed_topics": 10,
+    "weakened_topics": 8,
+    "topics": [
+      {
+        "topic_id": "claude-fable-mythos-52-nov09",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 4,
+        "weakened": false,
+        "removals": [
+          {
+            "family_id": "ai-explained",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=GipTWtfaiLs",
+              "https://www.youtube.com/watch?v=eUmiy54xhqQ",
+              "https://x.com/claudeai/status/2119867114450268322"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          },
+          {
+            "family_id": "theaigrid",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=583ThJIqQ7k",
+              "https://www.youtube.com/watch?v=eUmiy54xhqQ",
+              "https://x.com/claudeai/status/2119867114450268322"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          },
+          {
+            "family_id": "aidan-stanik",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=583ThJIqQ7k",
+              "https://www.youtube.com/watch?v=GipTWtfaiLs",
+              "https://x.com/claudeai/status/2119867114450268322"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          },
+          {
+            "family_id": "anthropic",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=583ThJIqQ7k",
+              "https://www.youtube.com/watch?v=GipTWtfaiLs",
+              "https://www.youtube.com/watch?v=eUmiy54xhqQ"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "gemini-carbon-public-rollout-nov10",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 4,
+        "weakened": false,
+        "removals": [
+          {
+            "family_id": "sam-witteveen",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=0GSvcg9wncc",
+              "https://news.ycombinator.com/item?id=50442303",
+              "https://x.com/GoogleAI/status/2120187753329791341"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          },
+          {
+            "family_id": "bijan-bowen",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=l32KKNKdpIk",
+              "https://news.ycombinator.com/item?id=50442303",
+              "https://x.com/GoogleAI/status/2120187753329791341"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          },
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=l32KKNKdpIk",
+              "https://www.youtube.com/watch?v=0GSvcg9wncc",
+              "https://x.com/GoogleAI/status/2120187753329791341"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          },
+          {
+            "family_id": "google",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=l32KKNKdpIk",
+              "https://www.youtube.com/watch?v=0GSvcg9wncc",
+              "https://news.ycombinator.com/item?id=50442303"
+            ],
+            "attention_band": "broader",
+            "reason": "Several named event-matched publisher or community signals remain. Audience overlap and comparable reach remain unknown."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "alphaproof-code-signal-nov10",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [
+              "https://x.com/pushmeet/status/2120127611137634376"
+            ],
+            "attention_band": "limited",
+            "reason": "The remaining event-specific signals support limited attention given their publisher dependence, timing and sample breadth."
+          },
+          {
+            "family_id": "google-deepmind",
+            "remaining_evidence_urls": [
+              "https://news.ycombinator.com/item?id=50439193"
+            ],
+            "attention_band": "limited",
+            "reason": "The remaining event-specific signals support limited attention given their publisher dependence, timing and sample breadth."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "openai-businesses-chatgpt-beta-nov10",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "openai",
+            "remaining_evidence_urls": [
+              "https://www.reddit.com/r/WebsiteSEO/comments/1xt9wss/chatgpt_now_has_verified_business_profiles_has/"
+            ],
+            "attention_band": "insufficient",
+            "reason": "The remaining indexed Reddit count is small and has no refresh clock. It is insufficient on its own for this watchlist placement."
+          },
+          {
+            "family_id": "reddit-websiteseo",
+            "remaining_evidence_urls": [
+              "https://x.com/OpenAI/status/2120216592395174382"
+            ],
+            "attention_band": "limited",
+            "reason": "The remaining event-specific signals support limited attention given their publisher dependence, timing and sample breadth."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "gemini-robotics-25-nov10",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "google-deepmind",
+            "remaining_evidence_urls": [
+              "https://www.reddit.com/r/Bard/comments/1xsqio0/gemini_robotics_25_accelerates_realworld_general/"
+            ],
+            "attention_band": "insufficient",
+            "reason": "The remaining indexed Reddit count is small and has no refresh clock. It is insufficient on its own for this watchlist placement."
+          },
+          {
+            "family_id": "reddit-bard",
+            "remaining_evidence_urls": [
+              "https://x.com/GoogleDeepMind/status/2120169787896525104"
+            ],
+            "attention_band": "limited",
+            "reason": "The remaining event-specific signals support limited attention given their publisher dependence, timing and sample breadth."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "qwen4-max-preview-nov10",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "alibaba-qwen",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing this family leaves no event-matched attention measurement. Claim documents remain available for verification."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "maya-lidar-rediscovery-correction-nov11",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing this family leaves no event-matched attention measurement. Claim documents remain available for verification."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "chatgpt-gpt-live-voice-retirement-nov10",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "openai",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing this family leaves no event-matched attention measurement. Claim documents remain available for verification."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "gemini-decisions-api-nov11",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [
+              "https://www.reddit.com/r/accelerate/comments/1xtq5fl/logan_kilpatrick_on_x_introducing_gemini_decision/"
+            ],
+            "attention_band": "insufficient",
+            "reason": "The remaining indexed Reddit count is small and has no refresh clock. It is insufficient on its own for this watchlist placement."
+          },
+          {
+            "family_id": "reddit-accelerate",
+            "remaining_evidence_urls": [
+              "https://news.ycombinator.com/item?id=50456791"
+            ],
+            "attention_band": "limited",
+            "reason": "The remaining event-specific signals support limited attention given their publisher dependence, timing and sample breadth."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      },
+      {
+        "topic_id": "apple-amortized-mips-highlight-nov05",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing this family leaves no event-matched attention measurement. Claim documents remain available for verification."
+          }
+        ],
+        "reviewed_at": "2026-11-11T23:05:09Z"
+      }
+    ],
+    "interpretation": "A documented editorial sensitivity check, not a popularity score or proof of publisher independence."
+  },
+  "limits": [
+    "Seven calendar edition dates; missing observations are gaps, never zero.",
+    "Source counts and registry/method changes limit comparison; no causal improvement claim.",
+    "Source contribution covers only resource-attributed substantive review records; it is not an exhaustive source ranking.",
+    "No last inspection record means not recorded, not proof the source was never read.",
+    "Image defects may have multiple codes per rejected attempt; category totals are not attempt totals.",
+    "Recorded recovery mode is not first-party scheduler attestation.",
+    "Keep/revise/retire reviews do not automatically change production controls."
+  ]
+}
