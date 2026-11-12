@@ -1,6 +1,6 @@
 # 2026-11-12 premium image after-action report
 
-**Status: PRE_PR_PACKAGE_READY**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 84a725da8a02d86993d519cd55aef758748f2789 |
 | Executor observed run start | 2026-11-12T03:15:14Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-12T03:22:19Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PR_AND_CI |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CAPTURE; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-12T03:47:11.698Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -53,5 +53,11 @@ Reviewed the prior combined AAR and recurring layout, connector and pseudo-writi
 The Qwen console URL returned an unavailable response in this executor. Alibaba Cloud's public official documentation supplied the same preview facts. The EcoStatKG visual explicitly limits near-baseline filtering to the held-out condition.
 
 A validated pre-generation plan and saved PNG review are distinct from protected CI and all 24 eventual live semantic checks.
+
+Protected PR #357 passed exact-head admission and required compiler-validation. Release workflow 43150394497 succeeded. Independent live inspection verified six exact PNG hashes, all twelve story-image pairings, public status metadata and all seventeen October 8 protected objects.
+
+Exact ZIP size, digest and all twenty-four screenshot digests matched. All actual desktop/mobile image regions passed semantic inspection. At 320px the EcoStatKG caveat is easier to read in the full-size view.
+
+One first-pass acceptance missed the target of three, and EcoStatKG took three attempts. Twelve generations met the total-attempt target. Accepted PNGs were reused verbatim after one transient post-write ref read; the existing Business Agent commit was verified before continuing.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
