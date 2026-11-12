@@ -8,7 +8,7 @@
   "branch": "shadow/2026-11-12",
   "initial_execution_observed_at": "2026-11-12T01:22:10.261Z",
   "started_at": "2026-11-12T01:22:10.261Z",
-  "updated_at": "2026-11-12T01:34:00.000Z",
+  "updated_at": "2026-11-12T01:42:00.000Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -16,11 +16,24 @@
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
   "blocker": {
-    "code": "PRESEAL_VIDEO_PENDING",
+    "code": "PRESEAL_VIDEO_BLOCKED",
     "stage": "PRESEAL_VIDEO",
-    "message": "Exact protected three-program receipt is pending.",
+    "message": "Run 43135837818 blocked three embedded programs; replacement request uses three reviewed original-publisher players.",
     "retryable": true,
-    "next_action": "Allow existing bundle-ready-signal to run the exact request."
+    "failing_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43135837818",
+    "failing_source_head": "2813c37abacb09fb357fbbe46fbb4fa111148c44",
+    "failing_programs": [
+      "Daily Diff AlphaProof",
+      "AI Engineer financial planners",
+      "Microsoft Copilot Harness"
+    ],
+    "next_candidate_evidence": [
+      "https://www.ted.com/talks/anil_seth_why_ai_isn_t_going_to_become_conscious",
+      "https://www.pbs.org/video/clip2-ianlwl/",
+      "https://www.cbsnews.com/video/unauthorized-ai-agents-detected-inside-accounts-at-major-banks/"
+    ],
+    "ownership_state": "PRIMARY_CONTINUING_SAME_INVOCATION",
+    "next_action": "Run the changed exact request through the existing signal workflow."
   },
   "evidence": {
     "trend_input": "shadow-runs/2026-11-12/editorial/trend-input.json",
