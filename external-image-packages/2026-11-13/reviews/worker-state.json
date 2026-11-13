@@ -4,10 +4,10 @@
   "cycle_date": "2026-11-12",
   "owner_token": "owner-directed-native-blob-stage-20261113-1442",
   "claimed_at": "2026-11-13T14:42:47.261Z",
-  "updated_at": "2026-11-13T14:42:47.261Z",
+  "updated_at": "2026-11-13T14:45:13.060Z",
   "lease_expires_at": "2026-11-13T15:02:47.261Z",
-  "lease_status": "ACTIVE",
-  "phase": "COMMITTING_NATIVE_CANDIDATES",
+  "lease_status": "RELEASED",
+  "phase": "BINARY_STAGED_PENDING_QA",
   "job_sha256": "f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05",
   "source_commit_sha": "3da32365d3173fac3d7b414342346859bfc0bc7e",
   "bundle_sha256": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32",
@@ -15,7 +15,7 @@
   "accepted_hashes": [],
   "scheduler_origin": "UNPROVEN",
   "slot": "OWNER_DIRECTED_RECOVERY",
-  "next_action": "One bounded exact-blob staging pass then release lease for fresh Work image QC.",
+  "next_action": "The existing 08:45 Chicago Fresh Work owner must take the released checkpoint; verify the six real native PNGs now committed on canonical branch and exact Git binary hashes, source-fidelity and 320px quality. Correct exact-label/frozen-spec mismatches with genuine current native prompt/source evidence; do NOT falsely approve post-hoc specs. When six pass, prepare manifest/recurring assignment/AAR, protected exact-head pre-PR CI, PR merge, image-only Pages release and 24 live semantic checks.",
   "draft_staged_count": 6,
   "actual_generation_count": 2,
   "accepted_images": [],
@@ -72,15 +72,17 @@
   "transport_progress": {
     "expected_new_pngs": 6,
     "git_blobs_verified": 6,
-    "package_commit_still_pending": true,
+    "package_commit_completed": true,
+    "package_commit_sha": "57dd908e79191172e2e54646d50f8027e61b5553",
     "accepted_count": 0,
     "handoff": "external-image-packages/2026-11-13/reviews/native-generated-candidates-handoff.json"
   },
-  "lease_released_at": "2026-11-13T14:21:27.975Z",
+  "lease_released_at": "2026-11-13T14:45:13.060Z",
   "blocker": {
-    "status": "BLOCKED_INCOMPLETE",
-    "code": "EXACT_LABEL_SOURCE_FREEZE_AND_PACKAGE_COMMIT_NOT_CERTIFIED",
-    "details": "New user-directed six separate PNGs were natively generated and transferred as six matching Git blob objects (5,740,340 total bytes). They are not yet on the package branch. Original pre-generation prompt geometry source lock and final 320px/1200px exact-label semantic review are not satisfied, so protected package must not be submitted as PASS. No PR and no Pages deployment."
+    "status": "PENDING_QA",
+    "code": "SIX_NATIVE_PNGS_COMMITTED_NOT_REVIEWED",
+    "details": "All six separate native illustrations staged on canonical branch at 57dd908e, replacing preliminary SVG drafts. Exact saved local files and pre-commit Git blob identities match. Native renders not yet certified against frozen source-label plans, so no manifest/PR/deployment yet. Image owner task has next existing 08:45 morning catch-up."
   },
-  "transferred_blob_count": 6
+  "transferred_blob_count": 6,
+  "binary_stage_commit": "57dd908e79191172e2e54646d50f8027e61b5553"
 }
