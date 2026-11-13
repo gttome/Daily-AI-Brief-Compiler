@@ -48,7 +48,7 @@ test('current producer and recovery contracts explicitly own the forward-only ow
  const compiler=read('docs/automation/current/COMPILER.md');
  const recovery=read('docs/automation/current/RECOVERY.md');
  const policy=read('docs/automation/NOV13_AAR_AUTONOMY_VIDEO_DIVERSITY.md');
- for(const value of ['four of fourteen','five distinct','last three','protected','original']) {
+ for(const value of ['four of fourteen','five distinct','next three','protected','original']) {
    assert.ok(compiler.toLowerCase().includes(value), 'compiler missing '+value);
  }
  for(const value of ['no owner-prompt dependency','six assets','protected','active writer']){
