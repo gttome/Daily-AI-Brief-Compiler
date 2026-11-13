@@ -1,6 +1,6 @@
 # 2026-11-13 premium image after-action report
 
-**Status: PACKAGE_QA_COMPLETE_PENDING_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 320020d8e14520f8a3d93386cce6fa8ea58ac0f4 |
 | Executor observed run start | 2026-11-13T14:49:49Z (self-attested, not scheduler telemetry) |
 | First native generation clock | Not recorded (UNKNOWN; not captured before first call) |
-| Public release | PUBLISHED_PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | NOT_STARTED; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-13T17:50:11.469Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -39,12 +39,18 @@ Job SHA-256: f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05. O
 
 The actual generation start is Not recorded; its provenance is Not recorded. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-13/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 The 19 story-attributed attempts include 11 during this invocation and eight earlier. Two earlier wrong-subject collages lack story bindings and are reported separately. Previous SVG drafts are not counted as native generations.
 
 Prior November 12 source-feedback was applied to real corrections for connectors, white space, blank document surfaces and readable detached caveats.
 
 November 13 exact six-image one-time AAR-only recovery: the real first-native-call clock was not separately observed. It remains null/UNKNOWN, is never inferred from task schedules or Git, and will not be used in stage-duration claims. The six accepted PNG bytes, image quality checks, original source, protected PR and post-release 24-context gates are unchanged.
+
+Post-publication reporting-only closeout: Nov13 six exact PNGs were released at 2026-11-13T17:50:11.469Z through protected PR #362 and workflow 43476561230. The assistant reviewed the 24 original protected desktop/mobile capture PNGs, independently checked their saved screenshot hashes, and recorded an artifact-backed 24-context semantic visual review. Fine mobile text uses the existing full-size viewer. The screenshot binary archive remains in GitHub Actions artifact retention rather than separate repository capture paths.
+
+Owner repeatedly requested missing images; therefore the Nov13 edition is an owner-assisted recovery and NOT a verified fully autonomous production outcome. Seven-edition publisher-family concentration also missed the new target, and future improvements await observed results.
+
+First-generation clock was not observed and remains null/UNKNOWN permanently. Reporting-only PR #361 handles this exact edition and six accepted hashes; there is no backward reconstruction or general exemption.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
