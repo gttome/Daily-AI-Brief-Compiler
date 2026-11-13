@@ -1,9 +1,50 @@
-# November 13 premium image after-action report
+# 2026-11-13 premium image after-action report
 
-**BLOCKED_INCOMPLETE**
+**Status: PACKAGE_QA_COMPLETE_PENDING_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
 
-All six distinct illustrations passed saved-pixel review. The canonical GitHub paths match all six reviewed originals byte for byte.
+| Metric | Observed result |
+|---|---|
+| Native generations | 19 |
+| Accepted images | 6 |
+| Rejected candidates | 13 |
+| Accepted-image regeneration | 0 |
+| First accepted binary commit | 320020d8e14520f8a3d93386cce6fa8ea58ac0f4 |
+| Executor observed run start | 2026-11-13T14:49:49Z (self-attested, not scheduler telemetry) |
+| First native generation clock | Not recorded (UNKNOWN; not captured before first call) |
+| Public release | PUBLISHED_PENDING |
+| Public verified time | Not recorded |
+| Final saved-context review | NOT_STARTED; 0 targets |
+| Weekly usage | UNKNOWN |
 
-The required clock observation immediately before the first native call is unavailable. Protected package admission and public release remain pending. No live contexts have passed.
+## Per-story effort
 
-There were 19 story-attributed native attempts, including 11 in this recovery. Two earlier wrong-subject outputs lack story attribution. First-pass accepts were 0 of 6 and four images exceeded two attempts. Usage is unknown.
+| Story | Attempts | Accepted SHA-256 |
+|---|---:|---|
+| nov13-t1-hydrogen | 5 | e628668c7b844c11a91e5ee4556b8c84f9b27ecf24ee614765ffe84942302377 |
+| nov13-t2-datacenter-costs | 3 | f60508d44675e98e5588e6b91032a3f24d08bc389cca4a2a27e42102bdf31e06 |
+| nov13-k1-adobe-agents | 3 | 0e8bd2467fbffbfc26588dc0cf8c5e559edb5c32f5c086661b0cf9b36d5b443a |
+| nov13-k2-united-agent-policy | 2 | e3de476f8901658372f230da584ba44ae1c5139930a5cb6150556df1dd777922 |
+| nov13-a1-nod-skill | 4 | cae52e20c503788c946350e5306340896317c9b4baa09aa42266588d8750b938 |
+| nov13-a2-genie | 2 | 9a2993813476366c196b49cc4af13d09ca553c1f04e20a6980822812ff7d20b7 |
+
+## Corrections
+
+| Stage | Issue | Correction |
+|---|---|---|
+| Protected package admission | Six corrected, source-bound native PNGs passed individual and set review and the exact canonical bytes were independently verified. This invocation observed its start clock but did not capture a separate observation immediately before its first native call. The protected AAR schema requires this actual observation. No independently retrievable same-invocation start evidence was available. | Recover genuine execution observation if it exists. Retain all six exact accepted assets. |
+
+## Evidence and limitations
+
+Job SHA-256: f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05. Original source: 3da32365d3173fac3d7b414342346859bfc0bc7e. Original bundle: 247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32.
+
+The actual generation start is Not recorded; its provenance is Not recorded. No precise active native runtime is inferred.
+
+Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+
+The 19 story-attributed attempts include 11 during this invocation and eight earlier. Two earlier wrong-subject collages lack story bindings and are reported separately. Previous SVG drafts are not counted as native generations.
+
+Prior November 12 source-feedback was applied to real corrections for connectors, white space, blank document surfaces and readable detached caveats.
+
+November 13 exact six-image one-time AAR-only recovery: the real first-native-call clock was not separately observed. It remains null/UNKNOWN, is never inferred from task schedules or Git, and will not be used in stage-duration claims. The six accepted PNG bytes, image quality checks, original source, protected PR and post-release 24-context gates are unchanged.
+
+Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
