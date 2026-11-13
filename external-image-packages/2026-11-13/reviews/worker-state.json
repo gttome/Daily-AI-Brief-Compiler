@@ -4,22 +4,66 @@
   "cycle_date": "2026-11-12",
   "owner_token": "465c466348df6c72d4cbb07a4e4c1df736f376ca7cd97cd5e870740bf0cd1ccb",
   "claimed_at": "2026-11-13T14:51:46.000Z",
-  "updated_at": "2026-11-13T15:06:51.000Z",
-  "lease_expires_at": "2026-11-13T15:26:51.000Z",
+  "updated_at": "2026-11-13T15:07:53.000Z",
+  "lease_expires_at": "2026-11-13T15:27:53.000Z",
   "lease_status": "ACTIVE",
-  "phase": "CORRECTING_NATIVE",
+  "phase": "PACKAGE_STAGING",
   "job_sha256": "f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05",
   "source_commit_sha": "3da32365d3173fac3d7b414342346859bfc0bc7e",
   "bundle_sha256": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32",
-  "generation_count": 13,
-  "accepted_hashes": [],
+  "generation_count": 19,
+  "accepted_hashes": [
+    "e628668c7b844c11a91e5ee4556b8c84f9b27ecf24ee614765ffe84942302377",
+    "f60508d44675e98e5588e6b91032a3f24d08bc389cca4a2a27e42102bdf31e06",
+    "0e8bd2467fbffbfc26588dc0cf8c5e559edb5c32f5c086661b0cf9b36d5b443a",
+    "e3de476f8901658372f230da584ba44ae1c5139930a5cb6150556df1dd777922",
+    "cae52e20c503788c946350e5306340896317c9b4baa09aa42266588d8750b938",
+    "9a2993813476366c196b49cc4af13d09ca553c1f04e20a6980822812ff7d20b7"
+  ],
   "scheduler_origin": "UNPROVEN",
   "slot": "MORNING_CATCH_UP_CLOCK_INFERRED",
-  "next_action": "Finish the remaining native corrections and final six-image set QA.",
+  "next_action": "Verify six accepted paths byte-for-byte and complete the protected package receipts.",
   "draft_staged_count": 6,
-  "actual_generation_count": 2,
-  "accepted_images": [],
-  "source_art_method": "deterministic_svg_raster_not_native_tool_proven",
+  "actual_generation_count": 19,
+  "accepted_images": [
+    {
+      "story_id": "nov13-t1-hydrogen",
+      "sha256": "e628668c7b844c11a91e5ee4556b8c84f9b27ecf24ee614765ffe84942302377",
+      "bytes": 1018837,
+      "git_blob_sha": "de079f228bd626823bc7453355ef34ccb369bd48"
+    },
+    {
+      "story_id": "nov13-t2-datacenter-costs",
+      "sha256": "f60508d44675e98e5588e6b91032a3f24d08bc389cca4a2a27e42102bdf31e06",
+      "bytes": 857234,
+      "git_blob_sha": "beadbeabc0c898f7533a5603f8fba6aadfc3ee6c"
+    },
+    {
+      "story_id": "nov13-k1-adobe-agents",
+      "sha256": "0e8bd2467fbffbfc26588dc0cf8c5e559edb5c32f5c086661b0cf9b36d5b443a",
+      "bytes": 961736,
+      "git_blob_sha": "27f923a219030d6e0e6b9c4209ff2bb0386ce566"
+    },
+    {
+      "story_id": "nov13-k2-united-agent-policy",
+      "sha256": "e3de476f8901658372f230da584ba44ae1c5139930a5cb6150556df1dd777922",
+      "bytes": 1025384,
+      "git_blob_sha": "03b388a3b30ddbd247f84824382fb79399915c58"
+    },
+    {
+      "story_id": "nov13-a1-nod-skill",
+      "sha256": "cae52e20c503788c946350e5306340896317c9b4baa09aa42266588d8750b938",
+      "bytes": 878377,
+      "git_blob_sha": "379fde0c9bbaba98a05576bcde0793f54f9ee389"
+    },
+    {
+      "story_id": "nov13-a2-genie",
+      "sha256": "9a2993813476366c196b49cc4af13d09ca553c1f04e20a6980822812ff7d20b7",
+      "bytes": 1068292,
+      "git_blob_sha": "d7104cb8c404805fe587903b644f5cad7924081c"
+    }
+  ],
+  "source_art_method": "native_image_creation_with_exact_source_bound_prompts",
   "binary_readback_evidence": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f7b0a2a2d7ed4a1e2317f2b2ea4215afbf1e68d9/external-image-packages/2026-11-13/reviews/recovery-handoff.json",
   "ownership_history": [
     {
@@ -165,11 +209,7 @@
     "accepted_count": 0,
     "handoff": "external-image-packages/2026-11-13/reviews/native-generated-candidates-handoff.json"
   },
-  "blocker": {
-    "status": "PENDING_QA",
-    "code": "SIX_NATIVE_PNGS_COMMITTED_NOT_REVIEWED",
-    "details": "All six separate native illustrations staged on canonical branch at 57dd908e, replacing preliminary SVG drafts. Exact saved local files and pre-commit Git blob identities match. Native renders not yet certified against frozen source-label plans, so no manifest/PR/deployment yet. Image owner task has next existing 08:45 morning catch-up."
-  },
+  "blocker": null,
   "transferred_blob_count": 6,
   "binary_stage_commit": "57dd908e79191172e2e54646d50f8027e61b5553",
   "candidate_pixel_review": {
