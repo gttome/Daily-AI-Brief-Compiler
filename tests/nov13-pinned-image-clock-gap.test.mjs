@@ -55,7 +55,7 @@ test('only the six exact Nov 13 accepted images can retain UNKNOWN first-call ti
  assert.equal(v.first_native_generation_clock,'UNKNOWN_NOT_CAPTURED');
  assert.equal(v.exception_scope,'PINNED_2026_11_13_IMAGE_ONLY_REPORTING_GAP');
  const report=renderImageAar(f);
- assert.match(report,/First native generation clock \\| Not recorded/);
+ assert.ok(report.includes('| First native generation clock | Not recorded (UNKNOWN; not captured before first call) |'));
  assert.match(report,/No precise active native runtime is inferred/);
 });
 test('the missing clock cannot be used for other editions, another image, absent source evidence, or invented observations',()=>{
