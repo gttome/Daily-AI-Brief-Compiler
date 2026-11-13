@@ -16,7 +16,9 @@ export function renderImageAar({aar,job,manifest}){
  '| First accepted binary commit | '+p.github_binary_stage_commit+' |',
  ...(job.edition_date>='2026-10-22'?[
   '| Executor observed run start | '+cell(p.host_execution_observed_at)+' (self-attested, not scheduler telemetry) |',
-  '| First native generation clock | '+cell(p.generation_started_at)+' (observed before tool call) |'
+  '| First native generation clock | '+cell(p.generation_started_at)+
+    (p.generation_start_source==='executor_observed_before_first_native_call'?
+     ' (observed before tool call)':' (UNKNOWN; not captured before first call)')+' |'
  ]:[]),
  '| Public release | '+cell(aar.publication?.result)+' |',
  '| Public verified time | '+cell(aar.publication?.verified_at)+' |',
