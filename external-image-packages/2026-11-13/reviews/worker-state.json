@@ -4,10 +4,10 @@
   "cycle_date": "2026-11-12",
   "owner_token": "nov13-pinned-timing-reporting-release-257bce5d",
   "claimed_at": "2026-11-13T17:42:07.674Z",
-  "updated_at": "2026-11-13T17:42:07.674Z",
+  "updated_at": "2026-11-13T19:18:35.679Z",
   "lease_expires_at": "2026-11-13T18:02:07.674Z",
-  "lease_status": "ACTIVE",
-  "phase": "REPORTING_GAP_REPAIR",
+  "lease_status": "RELEASED",
+  "phase": "PUBLISHED_COMPLETE",
   "job_sha256": "f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05",
   "source_commit_sha": "3da32365d3173fac3d7b414342346859bfc0bc7e",
   "bundle_sha256": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32",
@@ -22,7 +22,7 @@
   ],
   "scheduler_origin": "UNPROVEN",
   "slot": "MORNING_CATCH_UP_CLOCK_INFERRED",
-  "next_action": "Merge protected PR #361 clock-gap fix into existing exact six-image branch, re-render AAR faithfully, run protected package CI, publish only after merge, verify 24 live contexts.",
+  "next_action": "No further generation or image release for the verified November 13 edition. Reconcile the combined daily AAR against the public six-image release, actual 24-context semantic review and owner-assisted recovery. Preserve accepted hashes and historical images.",
   "draft_staged_count": 6,
   "actual_generation_count": 19,
   "accepted_images": [
@@ -230,11 +230,7 @@
     "accepted_count": 0,
     "handoff": "external-image-packages/2026-11-13/reviews/native-generated-candidates-handoff.json"
   },
-  "blocker": {
-    "status": "BLOCKED_INCOMPLETE",
-    "code": "FIRST_NATIVE_START_CLOCK_OBSERVATION_MISSING",
-    "details": "Six corrected, source-bound native PNGs passed individual and set review and the exact canonical bytes were independently verified. This invocation observed its start clock but did not capture a separate observation immediately before its first native call. The protected AAR schema requires this actual observation. No independently retrievable same-invocation start evidence was available."
-  },
+  "blocker": null,
   "transferred_blob_count": 6,
   "binary_stage_commit": "57dd908e79191172e2e54646d50f8027e61b5553",
   "candidate_pixel_review": {
@@ -253,7 +249,17 @@
       "Genie: unsupported threshold widgets and simulated inbox writing, missing preview qualification."
     ]
   },
-  "lease_released_at": "2026-11-13T15:09:27Z",
+  "lease_released_at": "2026-11-13T19:18:35.679Z",
   "first_accepted_png_commit": "320020d8e14520f8a3d93386cce6fa8ea58ac0f4",
-  "expected_pages_history_head": "65ab5aa4e7f37b753fe9588beb1687808f33c0d9"
+  "expected_pages_history_head": "65ab5aa4e7f37b753fe9588beb1687808f33c0d9",
+  "closeout": {
+    "status": "PUBLISHED_COMPLETE",
+    "public_release_verified_at": "2026-11-13T17:50:11.469Z",
+    "semantic_review_path": "external-image-packages/2026-11-13/reviews/live/semantic-pixel-review.json",
+    "semantic_reviewed_at": "2026-11-13T19:18:35.679Z",
+    "reviewed_targets": 24,
+    "source_artifact_id": 14063372405,
+    "owner_assisted_recovery": true,
+    "generation_start_clock": "UNKNOWN"
+  }
 }
