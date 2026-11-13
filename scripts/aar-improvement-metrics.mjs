@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import {verifiedVideoFamilies,verifiedVideoDiscovery,rollingVideoDiversity} from './video-publisher-analytics.mjs';
 import {fileURLToPath} from 'node:url';
 
 export const METRICS_SCHEMA='daily-aar-continuous-improvement-v1';
@@ -145,6 +146,17 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
  const presealFailures = list(combined.evidence_reconciliation?.video_preseal_attempts?.attempts)
   .filter(row => ['ARCHIVE_REPEAT', 'PLAYBACK_UNVERIFIED'].includes(row.result))
   .map(row => ({run_url:row.run_url, observed_at:row.run_observed_at}));
+ const video_publisher_families=verifiedVideoFamilies(bundle,edition,combined.compiler_verified);
+ const video_discovery=verifiedVideoDiscovery(
+   combined.evidence_reconciliation?.video_source_sweep,edition);
+ const ownerIncident=scoped(evidence,'owner-intervention-incident',edition);
+ // A pre-release snapshot's false intervention field is NOT proof that the
+ // owner never had to request publication. Require a source-bound incident.
+ const owner_prompt_evidence=typeof ownerIncident?.owner_prompt_required==='boolean'&&
+   Array.isArray(ownerIncident.evidence_refs)&&ownerIncident.evidence_refs.length&&
+   ownerIncident.evidence_refs.every(https)?
+   {status:'RECORDED',required:ownerIncident.owner_prompt_required,
+     evidence_refs:ownerIncident.evidence_refs}: {status:'NOT_RECORDED',required:null};
  const production_state={
   compiler:combined.compiler_verified===true?'VERIFIED':combined.latest_publication_health==='BLOCKED_PUBLICATION'?'BLOCKED':'NOT_VERIFIED',
   premium_images:combined.images_released===true&&combined.visual_24_pass===true?'RELEASE_AND_VISUAL_VERIFIED':
@@ -161,7 +173,8 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
   failures,recovery:recoveryTiming(recovery,edition,[...(events||[]), ...presealFailures]),inspections,source_reviews:reviews,
   source_review_missing_resource_ids:reviewValid?coverage.candidate_reviews.records.filter(r=>!knownIds.has(r.resource_id)).length:null,
   image_rejections:image?.status==='OBSERVED'?{total:image.total_attempts-6,classified:rejectionRows,unclassified:image.total_attempts-6-rejectionRows.length}:null,
-  resilience:publisherResilience({report:evidence['top10-report'],summary:top10}),change_evaluations:evaluations};
+  resilience:publisherResilience({report:evidence['top10-report'],summary:top10}),change_evaluations:evaluations,
+  video_publisher_families,video_discovery,owner_prompt_evidence};
 }
 
 function validChangeReview(review) {
@@ -287,6 +300,35 @@ export function buildMetrics({edition,observations,registry,register}){
  const defects=[...defectMap.values()].map(x=>({...x,editions:unique(x.editions),recurring:unique(x.editions).length>1})).sort((a,b)=>b.rejected_attempts-a.rejected_attempts||a.cause.localeCompare(b.cause));
  const imageWindows=window.filter(o=>o.image_rejections),registered=improvementRegister(register,valid,edition);
  const actionReview=buildDailyActionReview({edition,observation:byDate.get(edition),registered});
+ const video_publisher_diversity=rollingVideoDiversity(window,edition);
+ const video_source_yield=series.map((r)=>{
+   const a=byDate.get(r.edition_date)?.video_discovery;
+   return {edition_date:r.edition_date,
+     status:a?.status??'NOT_RECORDED',
+     registered:a?.status==='RECORDED'?a.registered:null,
+     attempted:a?.status==='RECORDED'?a.attempted:null,
+     candidate_sources:a?.status==='RECORDED'?a.candidate_sources:null,
+     candidate_yield_percent:a?.status==='RECORDED'?a.candidate_yield_percent:null};
+ });
+ const owner_prompt_observations=series.map(r=>{
+   const evidence=byDate.get(r.edition_date)?.owner_prompt_evidence;
+   return {edition_date:r.edition_date,
+     status:evidence?.status??'NOT_RECORDED',
+     owner_prompt_required:evidence?.status==='RECORDED'?evidence.required:null};
+ });
+ if(video_publisher_diversity.variety_target_status==='NOT_MET'){
+   actionReview.findings.push({
+    id:'VIDEO_PUBLISHER_CONCENTRATION',priority:'P0',owner:'Compiler',
+    observation:video_publisher_diversity.distinct_families+
+     ' original video publisher families filled '+video_publisher_diversity.selected_slots+
+     ' slots; largest family used '+video_publisher_diversity.largest_family_selections+
+     ' times in the completed seven-edition window.',
+    action:'Before the next seal, review underexposed original publishers and exact playable alternatives. Keep all media-quality and signed-out playback checks.',
+    timing:'NEXT_GENUINE_CYCLE',kind:'RECURRENCE_PREVENTION'
+   });
+   actionReview.finding_count=actionReview.findings.length;
+ }
+
  return {schema_version:METRICS_SCHEMA,edition_date:edition,window:{first:shift(edition,-6),last:edition,expected_editions:7,recorded_editions:window.length},
   series,summary,coverage_registry_changed:unique(window.filter(o=>text(o.source_set_sha256)).map(o=>o.source_set_sha256)).length>1||unique(series.map(r=>r.coverage_denominator).filter(number)).length>1,
   coverage_source_set_comparable:window.filter(o=>number(o.metrics.coverage_percent)).every(o=>text(o.source_set_sha256))&&window.some(o=>number(o.metrics.coverage_percent)),
@@ -296,6 +338,7 @@ export function buildMetrics({edition,observations,registry,register}){
   recovery:{rows:recovery,summary:recoverySummary},source_inspection_age:age,source_contribution:contribution,
   image_defects:{recorded_editions:imageWindows.length,total_rejected:imageWindows.length?imageWindows.reduce((n,o)=>n+o.image_rejections.total,0):null,
    unclassified:imageWindows.length?imageWindows.reduce((n,o)=>n+o.image_rejections.unclassified,0):null,rows:defects},
+  video_publisher_diversity,video_source_yield,owner_prompt_observations,
   top10_resilience:byDate.get(edition)?.resilience??{status:'NOT_RECORDED',topics:[]},
   limits:['Seven calendar edition dates; missing observations are gaps, never zero.','Source counts and registry/method changes limit comparison; no causal improvement claim.',
    'Source contribution covers only resource-attributed substantive review records; it is not an exhaustive source ranking.','No last inspection record means not recorded, not proof the source was never read.',
@@ -367,6 +410,17 @@ export function renderMetricsMarkdown(m){
   '', '### Image rejection causes','','![Image rejection causes](charts/image-defects.svg)','','| Recorded defect | Rejected attempts with defect | Recurred across editions |','|---|---:|---|',
   ...m.image_defects.rows.map(r=>`| ${r.cause} | ${r.rejected_attempts} | ${r.recurring?'Yes':'No within observed window'} |`),
   '',`Total rejected: ${tableCell(m.image_defects.total_rejected)}; unclassified: ${tableCell(m.image_defects.unclassified)}. A rejected attempt can have several defect codes.`,
+  '', '### Video publisher diversity and candidate qualification',
+  '', `Seven-edition measurement: **${m.video_publisher_diversity?.status??'NOT_RECORDED'}**. Publisher families: **${tableCell(m.video_publisher_diversity?.distinct_families)}**; largest family's slots: **${tableCell(m.video_publisher_diversity?.largest_family_selections)}**; HHI: **${tableCell(m.video_publisher_diversity?.concentration_hhi)}**; prospective variety target: **${m.video_publisher_diversity?.variety_target_status??'NOT_EVALUABLE'}**.`,
+  '', '| Verified family | Actual selections in window |','|---|---:|',
+  ...Object.entries(m.video_publisher_diversity?.selected_family_counts??{}).map(([family,n])=>`| ${family} | ${n} |`),
+  '', '| Edition | Sources attempted | Candidate-bearing routes | Qualified/played from routes |','|---|---:|---:|---|',
+  ...(m.video_source_yield??[]).map(v=>`| ${v.edition_date} | ${tableCell(v.attempted)} | ${tableCell(v.candidate_sources)} | Not established by discovery sweep |`),
+  '', 'A discovered URL is not a fully reviewed, correctly dated and signed-out playable video. Unverified publisher identities or missing editions prohibit a numeric seven-edition target result.',
+  '', '### Owner-independent recovery evidence',
+  '', '| Edition | Owner request needed | Evidence |','|---|---|---|',
+  ...(m.owner_prompt_observations??[]).map(v=>`| ${v.edition_date} | ${v.owner_prompt_required===null?'Not recorded':v.owner_prompt_required?'Yes':'No'} | ${v.status} |`),
+  '', 'A pre-release AAR marking intervention false does not prove nobody later prompted a recovery. Missing incident evidence remains unknown.',
   '', '### Top 10 publisher-family sensitivity','','| Topic | Review status | Families | Evidence weakened after removal |','|---|---|---:|---|',
   ...m.top10_resilience.topics.map(r=>`| ${tableCell(r.topic_id)} | ${r.status} | ${tableCell(r.publisher_families)} | ${r.weakened===undefined?'Not recorded':r.weakened?'Yes':'No in recorded assessment'} |`),
   '',`Overall status: **${m.top10_resilience.status}**. Band changes are documented editorial assessments; source counts do not establish popularity.`,
