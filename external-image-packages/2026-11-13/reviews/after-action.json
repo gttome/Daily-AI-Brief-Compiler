@@ -1,0 +1,108 @@
+{
+  "schema_version": "external-image-after-action-v1",
+  "edition_date": "2026-11-13",
+  "job_sha256": "f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05",
+  "original_source_commit_sha": "3da32365d3173fac3d7b414342346859bfc0bc7e",
+  "original_bundle_sha256": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32",
+  "execution_id": "daily-compiler-2026-11-13-primary",
+  "cycle_date": "2026-11-12",
+  "status": "BLOCKED_INCOMPLETE",
+  "human_readable_path": "external-image-packages/2026-11-13/reviews/after-action.md",
+  "production": {
+    "actual_generation_count": 19,
+    "rejected_count": 13,
+    "accepted_count": 6,
+    "accepted_art_regenerated_after_lock": 0,
+    "github_binary_stage_commit": "320020d8e14520f8a3d93386cce6fa8ea58ac0f4",
+    "first_historical_locked_png_commit": "320020d8e14520f8a3d93386cce6fa8ea58ac0f4",
+    "host_execution_observed_at": "2026-11-13T14:49:49Z",
+    "host_execution_observation_source": "executor_observed_in_same_invocation",
+    "generation_started_at": null,
+    "generation_start_source": null,
+    "first_pass_accepts": 0,
+    "first_pass_target": 3,
+    "first_pass_target_met": false,
+    "per_image_attempt_target": 2,
+    "images_exceeding_attempt_target": [
+      "nov13-t1-hydrogen",
+      "nov13-t2-datacenter-costs",
+      "nov13-k1-adobe-agents",
+      "nov13-a1-nod-skill"
+    ],
+    "slot": "MORNING_CATCH_UP_CLOCK_INFERRED",
+    "scheduler_origin": "UNPROVEN",
+    "additional_wrong_subject_native_outputs_unassigned": 2
+  },
+  "images": [
+    {
+      "story_id": "nov13-t1-hydrogen",
+      "sha256": "e628668c7b844c11a91e5ee4556b8c84f9b27ecf24ee614765ffe84942302377",
+      "generation_attempts": 5,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov13-t2-datacenter-costs",
+      "sha256": "f60508d44675e98e5588e6b91032a3f24d08bc389cca4a2a27e42102bdf31e06",
+      "generation_attempts": 3,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov13-k1-adobe-agents",
+      "sha256": "0e8bd2467fbffbfc26588dc0cf8c5e559edb5c32f5c086661b0cf9b36d5b443a",
+      "generation_attempts": 3,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov13-k2-united-agent-policy",
+      "sha256": "e3de476f8901658372f230da584ba44ae1c5139930a5cb6150556df1dd777922",
+      "generation_attempts": 2,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov13-a1-nod-skill",
+      "sha256": "cae52e20c503788c946350e5306340896317c9b4baa09aa42266588d8750b938",
+      "generation_attempts": 4,
+      "first_pass_accepted": false
+    },
+    {
+      "story_id": "nov13-a2-genie",
+      "sha256": "9a2993813476366c196b49cc4af13d09ca553c1f04e20a6980822812ff7d20b7",
+      "generation_attempts": 2,
+      "first_pass_accepted": false
+    }
+  ],
+  "errors": [
+    {
+      "phase": "Protected package admission",
+      "issue": "Six corrected, source-bound native PNGs passed individual and set review and the exact canonical bytes were independently verified. This invocation observed its start clock but did not capture a separate observation immediately before its first native call. The protected AAR schema requires this actual observation. No independently retrievable same-invocation start evidence was available.",
+      "correction": "Recover genuine execution observation if it exists. Retain all six exact accepted assets."
+    }
+  ],
+  "publication": {
+    "result": "PUBLISHED_PENDING"
+  },
+  "visual_review": {
+    "result": "NOT_STARTED",
+    "reviewed_targets": 0
+  },
+  "usage": {
+    "work_usage_percent": null
+  },
+  "notes": [
+    "The 19 story-attributed attempts include 11 during this invocation and eight earlier. Two earlier wrong-subject collages lack story bindings and are reported separately. Previous SVG drafts are not counted as native generations.",
+    "Prior November 12 source-feedback was applied to real corrections for connectors, white space, blank document surfaces and readable detached caveats."
+  ],
+  "change_evaluations": [
+    {
+      "change_id": "NOV03-03",
+      "reviewed_edition": "2026-11-13",
+      "decision": "revise",
+      "result": "not_met",
+      "reason": "There were no first-pass acceptances among the six earlier source-bound candidates and four story totals exceeded two attempts. Targeted connector and label edits corrected visible defects, but overall effort missed both targets.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/tree/320020d8e14520f8a3d93386cce6fa8ea58ac0f4/external-image-packages/2026-11-13/reviews",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-11/improvement-metrics.json"
+      ]
+    }
+  ]
+}

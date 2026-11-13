@@ -4,10 +4,10 @@
   "cycle_date": "2026-11-12",
   "owner_token": "465c466348df6c72d4cbb07a4e4c1df736f376ca7cd97cd5e870740bf0cd1ccb",
   "claimed_at": "2026-11-13T14:51:46.000Z",
-  "updated_at": "2026-11-13T15:07:53.000Z",
+  "updated_at": "2026-11-13T15:09:27Z",
   "lease_expires_at": "2026-11-13T15:27:53.000Z",
-  "lease_status": "ACTIVE",
-  "phase": "PACKAGE_STAGING",
+  "lease_status": "RELEASED",
+  "phase": "BLOCKED_INCOMPLETE",
   "job_sha256": "f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05",
   "source_commit_sha": "3da32365d3173fac3d7b414342346859bfc0bc7e",
   "bundle_sha256": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32",
@@ -22,7 +22,7 @@
   ],
   "scheduler_origin": "UNPROVEN",
   "slot": "MORNING_CATCH_UP_CLOCK_INFERRED",
-  "next_action": "Verify six accepted paths byte-for-byte and complete the protected package receipts.",
+  "next_action": "Use the six locked PNGs and completed review receipts. Recover genuine first-call timing evidence and resolve the protected AAR gate before opening a single package PR; then verify the release and all 24 live contexts.",
   "draft_staged_count": 6,
   "actual_generation_count": 19,
   "accepted_images": [
@@ -209,7 +209,11 @@
     "accepted_count": 0,
     "handoff": "external-image-packages/2026-11-13/reviews/native-generated-candidates-handoff.json"
   },
-  "blocker": null,
+  "blocker": {
+    "status": "BLOCKED_INCOMPLETE",
+    "code": "FIRST_NATIVE_START_CLOCK_OBSERVATION_MISSING",
+    "details": "Six corrected, source-bound native PNGs passed individual and set review and the exact canonical bytes were independently verified. This invocation observed its start clock but did not capture a separate observation immediately before its first native call. The protected AAR schema requires this actual observation. No independently retrievable same-invocation start evidence was available."
+  },
   "transferred_blob_count": 6,
   "binary_stage_commit": "57dd908e79191172e2e54646d50f8027e61b5553",
   "candidate_pixel_review": {
@@ -227,5 +231,8 @@
       "Nod: unallowlisted controls and supplier examples, small checklist text, missing research-preview qualification.",
       "Genie: unsupported threshold widgets and simulated inbox writing, missing preview qualification."
     ]
-  }
+  },
+  "lease_released_at": "2026-11-13T15:09:27Z",
+  "first_accepted_png_commit": "320020d8e14520f8a3d93386cce6fa8ea58ac0f4",
+  "expected_pages_history_head": "65ab5aa4e7f37b753fe9588beb1687808f33c0d9"
 }
