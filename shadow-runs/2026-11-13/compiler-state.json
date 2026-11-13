@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-13",
   "execution_id": "daily-compiler-2026-11-13-primary",
-  "state": "RESEARCH",
-  "stage": "EDITORIAL",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "a36c6eadcf8420decbd0d7f85d86fa48aa111619",
   "branch": "shadow/2026-11-13",
   "initial_execution_observed_at": "2026-11-13T01:22:05.000Z",
   "started_at": "2026-11-13T01:22:05.000Z",
-  "updated_at": "2026-11-13T01:22:05.000Z",
+  "updated_at": "2026-11-13T02:26:00.427Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -20,10 +20,18 @@
     "trend_input": "shadow-runs/2026-11-13/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-13/editorial/trend-search-coverage.json",
     "execution_milestones": "shadow-runs/2026-11-13/execution-milestones.json",
-    "research_plan": "shadow-runs/2026-11-13/editorial/research-plan.json"
+    "research_plan": "shadow-runs/2026-11-13/editorial/research-plan.json",
+    "candidate_pool": "shadow-runs/2026-11-13/editorial/candidate-pool.json",
+    "index_review": "shadow-runs/2026-11-13/editorial/index-review.json",
+    "fallback_search_evidence": "shadow-runs/2026-11-13/editorial/fallback-search-evidence.json",
+    "continuous_improvement": "shadow-runs/2026-11-13/editorial/continuous-improvement.json",
+    "video_source_sweep": "shadow-runs/2026-11-13/editorial/video-source-sweep.json",
+    "scientific_paper_coverage": "shadow-runs/2026-11-13/editorial/scientific-paper-coverage.json",
+    "preseal_video_request": "shadow-runs/2026-11-13/editorial/preseal-video-request.json",
+    "preseal_video_receipt": "shadow-runs/2026-11-13/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -32,12 +40,23 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Research is active on the sole current edition branch; no selection is locked.",
-  "selection_locked_at": null,
-  "sealed_at": null,
-  "bundle": null,
-  "bundle_sha256": null,
-  "editorial_bundle": null,
-  "retryable": true,
+  "continuation": "Protected video receipt PASS is bound to the exact saved request; bundle is ready for the existing protected compiler workflow.",
+  "selection_locked_at": "2026-11-13T02:26:00.427Z",
+  "sealed_at": "2026-11-13T02:26:00.427Z",
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32"
+  },
+  "bundle_sha256": "247f2f668a3bac15d7a05290c8d441f1a77d6d0e4e8aaee9ecdcc6c943bf9c32",
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-13T02:26:00.427Z",
+    "sealed_at": "2026-11-13T02:26:00.427Z"
+  },
+  "retryable": false,
   "last_error": null
 }
