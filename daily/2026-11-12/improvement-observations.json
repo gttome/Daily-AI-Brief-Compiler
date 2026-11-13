@@ -12,7 +12,8 @@
     "image-job.json": "f1c3e17e778de6689cdf74265f42c33d7804aeb9af066487d26a12570d2a7b05",
     "image-manifest.json": "fefd39b5b50abe1afc55592379f84ecc82e4aa0465dabced651ecd821c5288cf",
     "image-recurring-assignment.json": "9177984e443a646ad7fe692628a402bfd6dc3cca9fcd37df5a1c7ade4d3d0b1a",
-    "image-timing.json": "270ebff81686878a330bd6cac0862d6d655f04e74b60639ae103d1f6095cfd11",
+    "image-release.json": "172cc9b393d44f15d948ef86e746d9e9fc1ea2fab7cdd1240ea0818e5203dab2",
+    "image-timing.json": "f97ff0c4a13e3f385f1d9cd5217206eda5e54dd93086ecf708ffaa83745e9c91",
     "image-worker-state.json": "aeb0e363919582cec119931d309906093322ac369ff340d98b500477a10c01ba",
     "postpublish-integrity.json": "b3ac5c9ff71fcb83acc7a3e60193fd693136c4b925a2ffe066198f5641fdb21c",
     "postpublish-video-playback.json": "dda9a64c2d97b1cc66b3dc2ca7c3ad80b2895146eecf647a760ad09bcc45765c",
@@ -25,19 +26,19 @@
     "top10-after-action.json": "c6ac507fc767e363a38f172817378f016e7b1f2d4f202b3a361ca42bc69372cd",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "4f3a5176d7655c6c7004ea3adcc7360f084bcaaeb4cb1672c82914e6a8a6026f",
+    "top10-previous-aar.json": "4cdb60e3d22e9e3f47e2fba41108438f4496db3cee2db78366b329e771d3774a",
     "top10-previous-report.json": "a2e6b159c848fffc809a58bde78ec1066092d3c3ef0a4f5cda66dc925c61d076",
-    "top10-report-source.json": "c964c36c96c9a7a686a367641816911c3b477722a41d6afa3080b0418faa0259",
+    "top10-report-source.json": "498d7115faed26d490fbec4a6376e41fcde245adb12161da1d8e384c56180bfe",
     "top10-report.json": "c0ce08748a88b4c50e672c4d650e608c8a0c42986a4af0767854afb6b03859dd",
     "trend-consumed-report.json": "c0ce08748a88b4c50e672c4d650e608c8a0c42986a4af0767854afb6b03859dd",
-    "trend-consumed-source.json": "e171b092cab9ebbd797243059393536c07fcc9d837f948941c359574c65ec74a",
+    "trend-consumed-source.json": "425377d8f35d104e7ed5a7fce87555836f20061924876534d85cec4fbf0efa6b",
     "trend-input.json": "e8e08c9e3d5cf5b90eb5eb3e39ab132b6275591a52e98c5ff5d91c6eb06ea157",
     "trend-search-coverage.json": "48f21d074bb4b34cbedaca85c43d043d7d4ba335ee5e21fc0174353d2d4791ff",
     "video-playback-failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -159,8 +160,8 @@
     "coverage_percent": 29,
     "coverage_numerator": 32,
     "coverage_denominator": 109,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 19,
     "top10_linked_items": 5,
     "publication_failures": 1
   },
@@ -343,7 +344,11 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 13,
+    "classified": [],
+    "unclassified": 13
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,

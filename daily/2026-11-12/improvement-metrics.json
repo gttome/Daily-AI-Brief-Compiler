@@ -73,8 +73,8 @@
       "coverage_percent": 29,
       "coverage_numerator": 32,
       "coverage_denominator": 109,
-      "first_pass_accepted": null,
-      "image_attempts": null,
+      "first_pass_accepted": 0,
+      "image_attempts": 19,
       "top10_linked_items": 5,
       "publication_failures": 1
     }
@@ -85,12 +85,12 @@
       "median": 8
     },
     "first_pass_accepted": {
-      "recorded_editions": 6,
+      "recorded_editions": 7,
       "median": 1
     },
     "image_attempts": {
-      "recorded_editions": 6,
-      "median": 11.5
+      "recorded_editions": 7,
+      "median": 12
     },
     "top10_linked_items": {
       "recorded_editions": 2,
@@ -443,18 +443,9 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-11",
     "cumulative_review_due_today": false,
-    "finding_count": 3,
-    "open_production_blockers": 1,
+    "finding_count": 2,
+    "open_production_blockers": 0,
     "findings": [
-      {
-        "id": "IMAGE_RELEASE_NOT_VERIFIED",
-        "priority": "P0",
-        "owner": "Images",
-        "observation": "Editorial publication is verified but the image release is not verified.",
-        "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
-        "kind": "OPEN_PRODUCTION_BLOCKER"
-      },
       {
         "id": "PROTECTED_GATE_FAILURES",
         "priority": "P1",
@@ -2304,9 +2295,9 @@
     }
   ],
   "image_defects": {
-    "recorded_editions": 6,
-    "total_rejected": 45,
-    "unclassified": 0,
+    "recorded_editions": 7,
+    "total_rejected": 58,
+    "unclassified": 13,
     "rows": [
       {
         "cause": "CAUSAL_CONNECTOR",
