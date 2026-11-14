@@ -1,242 +1,242 @@
-# Daily Generative AI Brief — November 13, 2026
+# Daily Generative AI Brief — November 14, 2026
 
-**Published:** November 13, 2026  
-**Coverage period:** November 9–12, 2026
+**Published:** November 14, 2026  
+**Coverage period:** November 11–13, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-13-m12">Nod turns a recurring invoice chore into a permission-bounded Agent Skill</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-13-m14">Databricks adds an always-on agent that escalates decisions through an inbox</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-13-m10">Adobe previews local agent control while keeping project files editable</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-13-m11">United restricts unauthorized personal AI agents from customer accounts</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-11-13-m01">Gemini Hydrogen adds automatic model switching to agent workflows</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-13-m02">A data-center study models who may absorb grid expansion costs</a><span>Article · about 7 min source read</span></li><li><a href="#general">Pressing Matters: AI and the future of work</a><span>Video · 6:39</span></li><li><a href="#agents-for-non-technical-people">AI finds bug affecting up to 70% of internet</a><span>Video · 4:57</span></li><li><a href="#podcast-dab-podcast-2026-11-13-1">Powering AI-driven drug discovery with Isomorphic Labs president Max Jaderberg</a><span>Podcast · 39:16</span></li><li><a href="#podcast-dab-podcast-2026-11-13-2">AlphaGenome 2: teaching AI to read the entire human genome</a><span>Podcast · 39:47</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-14-m12">Claude Meetings turns live discussion into shared work artifacts</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-14-m14">Agent Skill: approve a ChatGPT Wallet purchase without surrendering control</a><span>Article · about 7 min source read</span></li><li><a href="#reading-dab-story-2026-11-14-m10">MiniMax opens H3-Image for fast reference-guided editing</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-14-m11">Perplexity trains decision models to return the evidence span</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-14-m01">GitHub adds policy APIs for repository-wide AI Scan</a><span>Article · about 5 min source read</span></li><li><a href="#reading-dab-story-2026-11-14-m02">Self-hosted Claude agents move the control plane, not every data flow</a><span>Article · about 6 min source read</span></li><li><a href="#general">Jensen Huang Steps Down: Will It Lead To The End of the AI Boom?</a><span>Video · 13:22</span></li><li><a href="#agents-for-non-technical-people">The market will look for alternatives after Nvidia leadership change</a><span>Video · 4:42</span></li><li><a href="#podcast-dab-podcast-2026-11-14-1">Why the AI World Will Never Be the Same</a><span>Podcast · 19:24</span></li><li><a href="#podcast-dab-podcast-2026-11-14-2">NVIDIA, OpenAI, Gemini, Chicago: Convenience Takes Control</a><span>Podcast · 13:44</span></li></ol></section>
 <!-- reader-release:end -->
 
-<span id="reading-dab-story-2026-11-13-m12"></span>
+<span id="reading-dab-story-2026-11-14-m12"></span>
 
-## 1. Nod turns a recurring invoice chore into a permission-bounded Agent Skill
+## 1. Claude Meetings turns live discussion into shared work artifacts
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 10 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 12 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Agents for Everyone**
 
-**Date:** November 10, 2026
+**Date:** November 12, 2026
 
-**Topics:** Invoice collection, Permission checks, Agent receipts
+**Topics:** Meeting agents, Shared artifacts, Consent boundaries
 
-<span class="story-data" data-story-id="dab-story-2026-11-13-m12" data-story-url="/stories/2026-11-13/nov13-a1-nod-skill/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-14-m12" data-story-url="/stories/2026-11-14/nov14-a1-claude-meetings/" hidden></span>
 
-<a href="{{ '/stories/2026-11-13/nov13-a1-nod-skill/' | relative_url }}" data-item-id="dab-story-2026-11-13-m12" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-14/nov14-a1-claude-meetings/' | relative_url }}" data-item-id="dab-story-2026-11-14-m12" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Nod turns a recurring invoice chore into a permission-bounded Agent Skill. Planned illustration: A monthly invoice skill moves through approved supplier portals, a local sandbox, a new-domain approval and a final receipt checklist.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-13/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Claude Meetings turns live discussion into shared work artifacts. Planned illustration: A visible meeting agent drafts a shared whiteboard while consent, tool access, transcript retention and correction ownership remain labeled.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-14/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** n8n Labs released Nod as an open-source research preview for personal jobs across apps and websites. It runs in a local sandbox, keeps saved credentials away from the model, logs actions and costs, and asks before uncovered sends, payments, posts or deletions. The permission check can fail, laptops can sleep, and users supply their own model access.
+**Summary:** Anthropic’s Claude Meetings beta lets Team and Enterprise users add a visible Claude participant to Google Meet, where it can answer questions and build documents or whiteboards during the call. The meeting page retains notes, transcript and artifacts, while external guests start disabled and some regulated or encrypted account configurations are excluded.
 
-**Why it matters:** Create one monthly invoice skill: name approved supplier portals and destination folder, forbid sending or paying, require approval for new domains, run on a copied month, then validate the receipt against the portal list, files, dates, totals and recorded cost.
+**Why it matters:** Pilot the agent in one low-risk internal meeting with a named facilitator. Announce recording and retention, restrict connected tools, compare artifacts with human notes, correct attribution errors, and decide who can reuse the transcript before enabling it for recurring or external calls.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable Agent Skills — Run the invoice procedure on one copied month and compare the receipt against files, dates, totals and approved portals.</p><p>Approved portals, forbidden actions, a validation checklist and a cost receipt make invoice collection reusable and teachable.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Meeting memory practice loop — Draft a pilot policy and reflection checklist naming meeting eligibility, tool scope, transcript access and correction owner.</p><p>Live meeting agents turn conversation into reusable artifacts, making consent, access, correction and reflection part of the learning workflow.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://blog.n8n.io/meet-nod/" data-item-id="dab-story-2026-11-13-m12" data-edition-date="2026-11-13" data-action="source_clicks">Meet Nod: a standalone personal agent from n8n Labs that runs on your computer</a>
+**Source:** <a href="https://claude.com/resources/articles/claude-meetings" data-item-id="dab-story-2026-11-14-m12" data-edition-date="2026-11-14" data-action="source_clicks">Introducing Claude Meetings, now in beta</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-story-compiler-2026-11-13-nov13-a1-nod-skill">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-story-compiler-2026-11-14-nov14-a1-claude-meetings">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-13-m14"></span>
+<span id="reading-dab-story-2026-11-14-m14"></span>
 
-## 2. Databricks adds an always-on agent that escalates decisions through an inbox
+## 2. Agent Skill: approve a ChatGPT Wallet purchase without surrendering control
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 7 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 13 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Agents for Everyone**
+
+**Date:** November 13, 2026
+
+**Topics:** Agent payments, Purchase approval, Authorization record
+
+<span class="story-data" data-story-id="dab-story-2026-11-14-m14" data-story-url="/stories/2026-11-14/nov14-a2-wallet-skill/" hidden></span>
+
+<a href="{{ '/stories/2026-11-14/nov14-a2-wallet-skill/' | relative_url }}" data-item-id="dab-story-2026-11-14-m14" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Agent Skill: approve a ChatGPT Wallet purchase without surrendering control. Planned illustration: A purchase approval sheet checks item, merchant, total, recurrence and card before biometric confirmation, with matching wallet and merchant receipts.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-14/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** OpenAI’s limited U.S. rollout lets eligible ChatGPT Pro users save a card and approve purchases initiated through compatible dots. Each current purchase requires review and device authentication; the merchant remains the seller, tokenized credentials replace raw card details, and OpenAI’s terms direct disputes to card issuers, merchants or other payment participants.
+
+**Why it matters:** Use a five-field approval check before authenticating: item, merchant, total, recurrence and selected card. Reject unclear substitutions or future charges, save the confirmation and merchant receipt, then verify both records match. Never paste card numbers, security codes or verification codes into chat.
+
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Bounded transaction instructions — Practice the five-field approval and two-receipt validation on a low-risk eligible purchase.</p><p>Payment agents require explicit transaction fields, device approval and retained confirmation evidence.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+
+**Source:** <a href="https://openai.com/index/introducing-chatgpt-wallet/" data-item-id="dab-story-2026-11-14-m14" data-edition-date="2026-11-14" data-action="source_clicks">Introducing ChatGPT Wallet</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-story-compiler-2026-11-14-nov14-a2-wallet-skill">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-14-m10"></span>
+
+## 3. MiniMax opens H3-Image for fast reference-guided editing
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 11 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
-**Focus: Agents for Everyone**
-
-**Date:** November 11, 2026
-
-**Topics:** Always-on agents, Decision inbox, Governed context
-
-<span class="story-data" data-story-id="dab-story-2026-11-13-m14" data-story-url="/stories/2026-11-13/nov13-a2-genie/" hidden></span>
-
-<a href="{{ '/stories/2026-11-13/nov13-a2-genie/' | relative_url }}" data-item-id="dab-story-2026-11-13-m14" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Databricks adds an always-on agent that escalates decisions through an inbox. Planned illustration: An always-on agent watches governed business sources and routes only threshold-crossing decisions into a human priority inbox.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-13/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Databricks announced a second-generation Genie that can run background jobs, delegate to subagents and surface decisions through a priority inbox and email. Its actions inherit Unity Catalog and Gateway controls, while an ontology supplies business definitions and relationships. Core Genie is generally available, but the new always-on mode, search and ontology-management features are preview or beta.
-
-**Why it matters:** Choose one low-risk monitoring goal with named data sources, an approval threshold and a spending cap. Review every alert for relevance, permission scope and evidence links, then measure false escalations and missed decisions before allowing broader background work.
-
-
-
-**Source:** <a href="https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex" data-item-id="dab-story-2026-11-13-m14" data-edition-date="2026-11-13" data-action="source_clicks">Databricks Launches New Always-on Genie: Autonomous AI for Complex Enterprise Work</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-story-compiler-2026-11-13-nov13-a2-genie">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-13-m10"></span>
-
-## 3. Adobe previews local agent control while keeping project files editable
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 10 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Applied Generative AI for Knowledge Workers**
-
-**Date:** November 10, 2026
-
-**Topics:** Creative agents, Local MCP, Editable projects
-
-<span class="story-data" data-story-id="dab-story-2026-11-13-m10" data-story-url="/stories/2026-11-13/nov13-k1-adobe-agents/" hidden></span>
-
-<a href="{{ '/stories/2026-11-13/nov13-k1-adobe-agents/' | relative_url }}" data-item-id="dab-story-2026-11-13-m10" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Adobe previews local agent control while keeping project files editable. Planned illustration: A creative brief passes through a local MCP boundary into editable Photoshop, Premiere and Illustrator layers with a human review checkpoint.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-13/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Adobe expanded Creative Agent across Creative Cloud and previewed local MCP integrations for third-party agents. The proposed workflow lets an agent change native Photoshop, Illustrator, Premiere and After Effects files on a user’s computer while layers and sequences remain editable. Most Creative Agent features are beta; local MCP integrations are scheduled for private beta in early 2027.
-
-**Why it matters:** Pilot one reversible production task with a copied project file. Define permitted apps, folders and delivery destinations, inspect every native change, and record where the agent loses editability or brand fidelity before connecting briefs, storage and messaging tools.
-
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Reversible creative delegation — Delegate one reversible project edit, preserve the original and inspect every changed layer before connecting more tools.</p><p>Copied projects, editable native layers and explicit tool permissions turn a broad creative request into a reviewable experiment.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
-
-**Source:** <a href="https://news.adobe.com/news/2026/11/adobe-transforms-creative-cloud-tools" data-item-id="dab-story-2026-11-13-m10" data-edition-date="2026-11-13" data-action="source_clicks">Adobe Transforms its Creative Cloud Tools into Agentic Workflows Built with the Precision and Control Pros Expect, Giving Creatives More Time for Their Craft</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-story-compiler-2026-11-13-nov13-k1-adobe-agents">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-13-m11"></span>
-
-## 4. United restricts unauthorized personal AI agents from customer accounts
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 5 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 11 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
 **Focus: Applied Generative AI for Knowledge Workers**
 
 **Date:** November 11, 2026
 
-**Topics:** Agent access policy, Credential risk, Human acknowledgment
+**Topics:** Reference editing, Open weights, Creative workflows
 
-<span class="story-data" data-story-id="dab-story-2026-11-13-m11" data-story-url="/stories/2026-11-13/nov13-k2-united-agent-policy/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-14-m10" data-story-url="/stories/2026-11-14/nov14-k1-h3-image/" hidden></span>
 
-<a href="{{ '/stories/2026-11-13/nov13-k2-united-agent-policy/' | relative_url }}" data-item-id="dab-story-2026-11-13-m11" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-14/nov14-k1-h3-image/' | relative_url }}" data-item-id="dab-story-2026-11-14-m10" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for United restricts unauthorized personal AI agents from customer accounts. Planned illustration: A travel assistant approaches account data, purchases and check-in attestations through separate permission gates and a visible revocation control.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-13/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for MiniMax opens H3-Image for fast reference-guided editing. Planned illustration: A design desk compares one reference set across local and hosted H3-Image edits with rights, latency, artifacts and cost visible.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-14/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** United says it is restricting unauthorized third-party personal AI agents across its digital platforms, travel agencies and aggregators. The airline cites shared credentials, sensitive information, unintended purchases or account changes, loyalty-point use and required human acknowledgments during check-in. The notice states a policy direction; it does not document measured incident rates or a universal industry rule.
+**Summary:** MiniMax released H3-Image as an open-weight image model for generation, editing and reference-guided work, with up to 16 reference images and claimed 4K output in under ten seconds. The company’s speed, quality and pricing comparisons are vendor results, while local deployment still requires teams to review licensing, memory needs, reference rights and output risk.
 
-**Why it matters:** Map every assistant that can reach a customer account, then separate reading, recommendation and transaction permissions. Require explicit user confirmation for purchases and regulated attestations, prohibit credential sharing, and publish a revocation path before allowing agent-mediated service actions.
+**Why it matters:** Build a small rights-cleared reference set and compare local and hosted runs on instruction fidelity, identity preservation, artifacts, latency and cost. Keep vendor benchmark claims separate from your measurements, and record licensing plus review requirements before generated assets enter production.
 
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Evidence-based creative context — Create a fixed reference set and score local versus hosted edits with the same rubric.</p><p>Reference-guided generation needs rights-cleared inputs and measured fidelity, artifacts, latency and cost.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
 
+**Source:** <a href="https://www.minimax.io/blog/minimax-h3-image" data-item-id="dab-story-2026-11-14-m10" data-edition-date="2026-11-14" data-action="source_clicks">MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era</a>
 
-**Source:** <a href="https://united.mediaroom.com/news-releases?item=125496" data-item-id="dab-story-2026-11-13-m11" data-edition-date="2026-11-13" data-action="source_clicks">United Restricts Access for Third-Party AI Agents</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-story-compiler-2026-11-13-nov13-k2-united-agent-policy">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-story-compiler-2026-11-14-nov14-k1-h3-image">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-13-m01"></span>
+<span id="reading-dab-story-2026-11-14-m11"></span>
 
-## 5. Gemini Hydrogen adds automatic model switching to agent workflows
+## 4. Perplexity trains decision models to return the evidence span
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 12 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 12 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Applied Generative AI for Knowledge Workers**
+
+**Date:** November 12, 2026
+
+**Topics:** Decision models, Evidence spans, Workflow routing
+
+<span class="story-data" data-story-id="dab-story-2026-11-14-m11" data-story-url="/stories/2026-11-14/nov14-k2-decider/" hidden></span>
+
+<a href="{{ '/stories/2026-11-14/nov14-k2-decider/' | relative_url }}" data-item-id="dab-story-2026-11-14-m11" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Perplexity trains decision models to return the evidence span. Planned illustration: A document triage queue shows a decision label linked to one highlighted evidence span, an abstain threshold and a human override.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-14/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Perplexity’s Decider v1.3 models classify text and can return the exact source span behind a decision instead of generating a free-form answer. The open weights may support routing, moderation and document triage, but the published accuracy tables are vendor evaluations, so teams still need domain labels, abstention rules and held-out tests.
+
+**Why it matters:** Start with one narrow decision whose reviewers already agree on labels. Measure precision, recall, calibration and unsupported spans against a held-out set, require abstention below a threshold, and keep a human override path before the model routes records or triggers work.
+
+
+
+**Source:** <a href="https://www.perplexity.ai/hub/blog/perplexity-decider" data-item-id="dab-story-2026-11-14-m11" data-edition-date="2026-11-14" data-action="source_clicks">Perplexity Decider v1.3: Training, eval, and use cases</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-story-compiler-2026-11-14-nov14-k2-decider">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-14-m01"></span>
+
+## 5. GitHub adds policy APIs for repository-wide AI Scan
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 5 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 13 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Technical AI Engineering**
+
+**Date:** November 13, 2026
+
+**Topics:** AI code scanning, Policy inheritance, REST controls
+
+<span class="story-data" data-story-id="dab-story-2026-11-14-m01" data-story-url="/stories/2026-11-14/nov14-t1-ai-scan-api/" hidden></span>
+
+<a href="{{ '/stories/2026-11-14/nov14-t1-ai-scan-api/' | relative_url }}" data-item-id="dab-story-2026-11-14-m01" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for GitHub adds policy APIs for repository-wide AI Scan. Planned illustration: An organization policy tree governs repository AI Scan settings while separate controls show enablement, scan launch, permissions and credit use.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-14/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** GitHub’s public preview adds REST controls for enabling AI Scan on repository backlogs at organization and repository levels. Organization policy constrains repository choices, combined pull-request and repository updates fail atomically when blocked, and enabling the setting does not start a scan. Actual scans still require write access, eligible GitHub security products and AI credits.
+
+**Why it matters:** Treat enablement and execution as separate controls. Test inherited policy, blocked updates, opt-outs, role permissions and credit consumption in a small organization, then log who may change settings and who may launch scans before automating a wider rollout.
+
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Governed automation boundaries — Model organization inheritance, repository opt-outs, launch roles, blocked updates and credit limits before rollout.</p><p>Repository AI scanning separates inherited enablement policy from authorized scan execution, product eligibility, and measurable credit use.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+
+**Source:** <a href="https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/" data-item-id="dab-story-2026-11-14-m01" data-edition-date="2026-11-14" data-action="source_clicks">Manage AI Scan for repositories using the REST API</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-story-compiler-2026-11-14-nov14-t1-ai-scan-api">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-14-m02"></span>
+
+## 6. Self-hosted Claude agents move the control plane, not every data flow
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 12 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Technical AI Engineering**
 
 **Date:** November 12, 2026
 
-**Topics:** Model orchestration, Agent routing, Benchmark limits
+**Topics:** Self-hosted agents, Security perimeter, Provider traffic
 
-<span class="story-data" data-story-id="dab-story-2026-11-13-m01" data-story-url="/stories/2026-11-13/nov13-t1-hydrogen/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-14-m02" data-story-url="/stories/2026-11-14/nov14-t2-managed-agents/" hidden></span>
 
-<a href="{{ '/stories/2026-11-13/nov13-t1-hydrogen/' | relative_url }}" data-item-id="dab-story-2026-11-13-m01" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Gemini Hydrogen adds automatic model switching to agent workflows. Planned illustration: A routing console sends one agent task to Hydrogen and Carbon lanes while quality, cost, latency and permissions remain visible.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-13/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Google says Gemini 4 Hydrogen is a faster execution model for everyday coding and agent work. Its Antigravity Orchestrator can switch between Hydrogen and Carbon inside one session; Google reports near-Carbon task success with lower quota use and faster completion. Those figures are vendor benchmarks, so teams still need workload-specific quality, cost, latency and permission tests.
-
-**Why it matters:** Route a small, known-answer workload through each model separately before enabling automatic switching. Capture task success, latency, token cost, tool errors and permission exceptions, then compare the orchestrator against a fixed-model baseline instead of accepting aggregate launch benchmarks.
-
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Model routing evaluation — Run one known-answer workload through each fixed model and the router, then compare quality, latency, cost and tool errors.</p><p>Automatic model switching needs fixed-model baselines, measured task success and explicit permission exceptions.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
-
-**Source:** <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/" data-item-id="dab-story-2026-11-13-m01" data-edition-date="2026-11-13" data-action="source_clicks">Introducing Gemini 4 Hydrogen</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-story-compiler-2026-11-13-nov13-t1-hydrogen">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-13-m02"></span>
-
-## 6. A data-center study models who may absorb grid expansion costs
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 7 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 09 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Technical AI Engineering**
-
-**Date:** November 9, 2026
-
-**Topics:** Grid cost allocation, Data-center planning, Distributional impacts
-
-<span class="story-data" data-story-id="dab-story-2026-11-13-m02" data-story-url="/stories/2026-11-13/nov13-t2-datacenter-costs/" hidden></span>
-
-<a href="{{ '/stories/2026-11-13/nov13-t2-datacenter-costs/' | relative_url }}" data-item-id="dab-story-2026-11-13-m02" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-14/nov14-t2-managed-agents/' | relative_url }}" data-item-id="dab-story-2026-11-14-m02" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for A data-center study models who may absorb grid expansion costs. Planned illustration: A data-center grid map overlays projected facilities with rural and lower-income household cost scenarios and an assumptions panel.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-13/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Self-hosted Claude agents move the control plane, not every data flow. Planned illustration: A self-hosted agent control plane sits inside an enterprise perimeter while labeled model requests cross an external inference boundary.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-14/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** A Nature Energy study led by Cornell researchers models where U.S. data-center electricity costs and infrastructure burdens may fall. The analysis links projected facilities, grid investment and household geography, finding that lower-income and rural residents can face disproportionate costs. Results depend on buildout, utility and allocation assumptions; they are not a measured bill forecast for every community.
+**Summary:** Anthropic’s private beta lets organizations run Claude Managed Agents’ harness, sandboxes, database, credentials and workers in their own infrastructure. Model calls still send conversations and tool results to the chosen inference provider, so self-hosting changes the control boundary without eliminating external data flows, operational hardening, upgrade work or provider dependence.
 
-**Why it matters:** Before approving AI capacity, add household bill exposure and local grid investment to the site review. Test multiple buildout and cost-allocation assumptions, publish who bears each scenario, and treat modeled distributional effects as planning evidence rather than certain future charges.
+**Why it matters:** Map every credential, log, tool result and model request before treating self-hosting as a privacy answer. Test network egress, worker isolation, backup recovery and upgrade ownership, then document which data still leaves the perimeter and which team owns each failure mode.
 
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Infrastructure context boundaries — Add geography, grid investment and cost-allocation assumptions to one AI capacity review before comparing scenarios.</p><p>Grid and household context changes whether compute growth looks efficient, affordable or locally harmful.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
 
-**Source:** <a href="https://www.nature.com/articles/s41560-026-02163-x" data-item-id="dab-story-2026-11-13-m02" data-edition-date="2026-11-13" data-action="source_clicks">Data centres need power, but lower-income, rural residents pay the price</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-story-compiler-2026-11-13-nov13-t2-datacenter-costs">
+**Source:** <a href="https://claude.com/resources/articles/self-hosted-claude-managed-agents" data-item-id="dab-story-2026-11-14-m02" data-edition-date="2026-11-14" data-action="source_clicks">Operate Claude Managed Agents inside your security perimeter</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-story-compiler-2026-11-14-nov14-t2-managed-agents">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -249,27 +249,27 @@
 
 ## 7. General
 
-### Pressing Matters: AI and the future of work
+### Jensen Huang Steps Down: Will It Lead To The End of the AI Boom?
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Evergreen instructional video</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent instructional video fallback</span></div></aside>
 <!-- reader-release:end -->
 
-<a href="{{ '/videos/2026-11-13/general/' | relative_url }}" data-item-id="dab-video-2026-11-13-general" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** PBS / WCMU  
-**Date:** October 26, 2026  
-**Duration:** 6:39  
+<a href="{{ '/videos/2026-11-14/general/' | relative_url }}" data-item-id="dab-video-2026-11-14-general" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent video page</a>  
+**Channel:** Fortune  
+**Date:** November 11, 2026  
+**Duration:** 13:22 · Longer selection today: no suitable video of 10 minutes or less was found.  
 **Format:** Video
 
-**Summary:** WCMU’s Pressing Matters examines which jobs may evolve or disappear as artificial intelligence spreads, how students and higher-education leaders can prepare, and why human judgment still matters. The public-media discussion offers practical workforce framing without claiming that every occupation will change on one timetable.
+**Summary:** Fortune’s AI editor and senior AI reporter examine Nvidia leadership change through the company’s private investments, pending regulation and the wider question of whether one dominant supplier has become too central to the AI boom. Their discussion is analysis rather than a measured forecast, so the edition preserves its assumptions and uncertainty.
 
-**Why it matters:** Use the program to classify one team’s tasks as augmented, redesigned or still human-only. Add the training, review and judgment each category requires, then revisit the map when actual work evidence changes rather than relying on broad labor forecasts.
+**Why it matters:** Use the program to audit leadership, financing, supplier and regulatory concentration in an AI plan. Name an owner and observable trigger for each risk, then test whether alternative hardware, regions or contract terms are operationally ready rather than merely listed.
 
 
 
-**Source:** <a href="https://www.pbs.org/video/pressing-matters-ai-shfca1/" data-item-id="dab-video-2026-11-13-general" data-edition-date="2026-11-13" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on PBS / WCMU</a>
+**Source:** <a href="https://fortune.com/media/embed/cb14d298-fd1c-41eb-a005-a5a8e7a036e6/" data-item-id="dab-video-2026-11-14-general" data-edition-date="2026-11-14" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Fortune</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-video-compiler-2026-11-13-general">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-video-compiler-2026-11-14-general">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -280,27 +280,27 @@
 
 ## 8. Agents for Everyone
 
-### AI finds bug affecting up to 70% of internet
+### The market will look for alternatives after Nvidia leadership change
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Evergreen instructional video</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New instructional video</span></div></aside>
 <!-- reader-release:end -->
 
-<a href="{{ '/videos/2026-11-13/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-13-agent-skills" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** CBS News / The Takeout  
-**Date:** October 21, 2026  
-**Duration:** 4:57  
+<a href="{{ '/videos/2026-11-14/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-14-agent-skills" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent video page</a>  
+**Channel:** Euronews  
+**Date:** November 13, 2026  
+**Duration:** 4:42  
 **Format:** Video
 
-**Summary:** CBS interviews SentinelOne research leadership about an AI-assisted investigation that surfaced a PHP vulnerability and why the language’s broad deployment increases remediation stakes. The segment distinguishes discovery support from proof that AI alone found or fixed every affected system.
+**Summary:** Euronews interviews CEPS research director Andrea Renda about Nvidia’s leadership crisis, corporate security, China’s technology ambitions and the market search for alternatives. The concise expert discussion frames concentration as a strategic risk without treating any single replacement path or geopolitical outcome as certain.
 
-**Why it matters:** Ask security teams to document the model’s role, the human verification step, affected versions, exposure evidence and remediation status. Treat broad deployment estimates as a prioritization signal, then confirm whether your own systems actually run vulnerable components.
+**Why it matters:** Add supplier leadership, corporate security and geopolitical exposure to an infrastructure decision record. Separate facts from expert forecasts, define signals that would change the plan, and verify that claimed alternatives can satisfy workload, procurement and compliance needs before relying on them.
 
 
 
-**Source:** <a href="https://www.cbsnews.com/video/ai-discovers-bug-up-to-70-percent-websites-at-risk/" data-item-id="dab-video-2026-11-13-agent-skills" data-edition-date="2026-11-13" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on CBS News / The Takeout</a>
+**Source:** <a href="https://www.euronews.com/video/2026/11/13/the-market-will-look-for-alternatives-on-huang-resignation-says-andrea-renda-digital-econo" data-item-id="dab-video-2026-11-14-agent-skills" data-edition-date="2026-11-14" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Euronews</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-video-compiler-2026-11-13-agent-skills">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-video-compiler-2026-11-14-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -309,70 +309,70 @@
 
 ## Worth Listening — Podcasts
 
-<span id="podcast-dab-podcast-2026-11-13-1"></span>
+<span id="podcast-dab-podcast-2026-11-14-1"></span>
 
-### 9. Powering AI-driven drug discovery with Isomorphic Labs president Max Jaderberg
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New AI podcast episode</span></div></aside>
-<!-- reader-release:end -->
-
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-13-1" data-podcast-title="Powering AI-driven drug discovery with Isomorphic Labs president Max Jaderberg" data-podcast-url="/podcasts/2026-11-13/powering-ai-driven-drug-discovery-with-isomorphic-labs-president-max-jaderberg/" hidden></span>
-
-<a href="{{ '/podcasts/2026-11-13/powering-ai-driven-drug-discovery-with-isomorphic-labs-president-max-jaderberg/' | relative_url }}" data-item-id="dab-podcast-2026-11-13-1" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent podcast page</a>
-
-**Show:** No Priors  
-**Focus:** Agents for Everyone  
-**Date:** November 12, 2026  
-**Duration:** 39:16  
-
-**Summary:** No Priors interviews Isomorphic Labs president Max Jaderberg about drug-discovery stagnation, predictive models, deliberately generated datasets, human-relevant endpoints, automated laboratories, partnerships, multidrug approaches and risk appetite. The timecoded episode presents an operator’s thesis rather than independent clinical evidence, so speed, probability-of-success and longevity claims remain attributed.
-
-**Why it matters:** Use the episode to audit an AI-biology proposal: separate data strategy, predictive accuracy, laboratory automation, endpoint choice, partner dependency and clinical evidence, then label each claim as measured outcome, operating assumption or executive forecast.
-
-
-
-**Coverage:** Selected for this edition.
-
-
-**Listen / watch:** <a href="https://www.iheart.com/podcast/867-no-priors-artificial-intel-110460921/episode/powering-ai-driven-drug-discovery-with-president-349865789/" data-item-id="dab-podcast-2026-11-13-1" data-edition-date="2026-11-13" data-action="source_clicks" target="_blank" rel="noopener noreferrer">No Priors</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-podcast-compiler-2026-11-13-1">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="podcast-dab-podcast-2026-11-13-2"></span>
-
-### 10. AlphaGenome 2: teaching AI to read the entire human genome
+### 9. Why the AI World Will Never Be the Same
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI podcast episode fallback</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-13-2" data-podcast-title="AlphaGenome 2: teaching AI to read the entire human genome" data-podcast-url="/podcasts/2026-11-13/alphagenome-2-teaching-ai-to-read-the-entire-human-genome/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-14-1" data-podcast-title="Why the AI World Will Never Be the Same" data-podcast-url="/podcasts/2026-11-14/why-the-ai-world-will-never-be-the-same/" hidden></span>
 
-<a href="{{ '/podcasts/2026-11-13/alphagenome-2-teaching-ai-to-read-the-entire-human-genome/' | relative_url }}" data-item-id="dab-podcast-2026-11-13-2" data-edition-date="2026-11-13" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-11-14/why-the-ai-world-will-never-be-the-same/' | relative_url }}" data-item-id="dab-podcast-2026-11-14-1" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** Google DeepMind: The Podcast  
+**Show:** Machine Gods  
 **Focus:** Agents for Everyone  
-**Date:** November 11, 2026  
-**Duration:** 39:47  
+**Date:** November 12, 2026  
+**Duration:** 19:24  
 
-**Summary:** Google DeepMind’s podcast interviews AlphaGenome 2 researchers Žiga Avsec and Adam Gayoso about genotype and phenotype, genome mapping, rare-disease cases, single-cell variant prediction and future research. Because the show and guests come from the developing organization, capability claims remain primary-source explanation rather than independent reproduction or clinical readiness.
+**Summary:** Machine Gods presents Kevin Roose’s analysis of Jensen Huang’s three roles in the AI boom: compute gatekeeper, acceleration advocate and central dealmaker. The episode treats Nvidia leadership concentration as a systemic risk argument, not a prediction that one resignation will determine the industry’s outcome, and preserves reporting updates recorded after production.
 
-**Why it matters:** Listen for where a model prediction becomes a biological hypothesis rather than an answer. Record data scope, comparison set, cell context and wet-lab validation needed before using variant scores in research or health decisions.
+**Why it matters:** Use the episode to separate a supplier’s technical capacity from leadership, allocation, financing and narrative dependence. For one critical vendor, list which commitments rely on a person, which rely on contracts, and which have tested substitutes before calling the relationship resilient.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://podcasts.apple.com/sg/podcast/alphagenome-2-teaching-ai-to-read-the-entire-human-genome/id1476316441?i=1000801283717" data-item-id="dab-podcast-2026-11-13-2" data-edition-date="2026-11-13" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Google DeepMind: The Podcast</a>
+**Listen / watch:** <a href="https://www.npr.org/2026/11/12/nx-s1-6039359/why-the-ai-world-will-never-be-the-same" data-item-id="dab-podcast-2026-11-14-1" data-edition-date="2026-11-14" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Machine Gods</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-13" data-feedback-story-id="dab-podcast-compiler-2026-11-13-2">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-podcast-compiler-2026-11-14-1">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="podcast-dab-podcast-2026-11-14-2"></span>
+
+### 10. NVIDIA, OpenAI, Gemini, Chicago: Convenience Takes Control
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI podcast episode fallback</span></div></aside>
+<!-- reader-release:end -->
+
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-14-2" data-podcast-title="NVIDIA, OpenAI, Gemini, Chicago: Convenience Takes Control" data-podcast-url="/podcasts/2026-11-14/nvidia-openai-gemini-chicago-convenience-takes-control/" hidden></span>
+
+<a href="{{ '/podcasts/2026-11-14/nvidia-openai-gemini-chicago-convenience-takes-control/' | relative_url }}" data-item-id="dab-podcast-2026-11-14-2" data-edition-date="2026-11-14" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+
+**Show:** AI Signal Daily  
+**Focus:** Agents for Everyone  
+**Date:** November 12, 2026  
+**Duration:** 13:44  
+
+**Summary:** AI Signal Daily connects compute concentration, hidden reasoning, credential leaks, bundled school controls, external audits, model pricing, meeting agents, policy checks and voice timing through one governance question: who controls the switch. Its full transcript cites each underlying story and frames convenience as delegated authority rather than automatic organizational benefit.
+
+**Why it matters:** Choose one convenience feature your team recently enabled and trace the control path: model choice, credentials, memory, audit access, refusal, rollback and accountable owner. If any switch is invisible or unowned, fix that boundary before expanding the feature to more people or data.
+
+
+
+**Coverage:** Selected for this edition.
+
+
+**Listen / watch:** <a href="https://www.buzzsprout.com/2614078/episodes/20118477" data-item-id="dab-podcast-2026-11-14-2" data-edition-date="2026-11-14" data-action="source_clicks" target="_blank" rel="noopener noreferrer">AI Signal Daily</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-14" data-feedback-story-id="dab-podcast-compiler-2026-11-14-2">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -382,14 +382,14 @@
 <!-- reader-release:start -->
 
 
-<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="1 New today · 0 Updated today · 52 Carried forward · 1 Archived / dropped recently"><strong>1 new today · 0 updated · 52 carried forward. 1 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Dynamic multi-model agent orchestration</li></ul><p><strong>Updated today:</strong> None</p><p><strong>Carried forward:</strong> 52</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Continuous multi-level agent evaluation — Carried forward without claiming a new measurement or material evidence change.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
+<section class="watchlist-preview" aria-labelledby="watchlist-preview-heading"><h2 id="watchlist-preview-heading">Emerging AI Watchlist</h2><div class="watchlist-daily-summary" aria-label="Changed today:"><p class="watchlist-daily-counts" aria-label="1 New today · 0 Updated today · 52 Carried forward · 2 Archived / dropped recently"><strong>1 new today · 0 updated · 52 carried forward. 2 archived / dropped recently.</strong></p><p><strong>New today:</strong> </p><ul class="watchlist-daily-items"><li>Agent payment authorization records</li></ul><p><strong>Updated today:</strong> None</p><p><strong>Carried forward:</strong> 52</p><p><strong>Archived / dropped recently:</strong> </p><ul class="watchlist-daily-items"><li>Continuous multi-level agent evaluation — Carried forward without claiming a new measurement or material evidence change.</li><li>Dynamic multi-model agent orchestration — Carried forward without claiming a new measurement or material evidence change.</li></ul></div><p>Help choose what we investigate next. Explore emerging ideas and tell us which interest you.</p><div data-watchlist-preview></div><p><a href="{{ '/watchlist/' | relative_url }}">Explore the watchlist and vote →</a></p></section>
 
 
 <!-- reader-release:end -->
 
 ## Editorial takeaway
 
-Route a small, known-answer workload through each model separately before enabling automatic switching. Capture task success, latency, token cost, tool errors and permission exceptions, then compare the orchestrator against a fixed-model baseline instead of accepting aggregate launch benchmarks.
+Treat enablement and execution as separate controls. Test inherited policy, blocked updates, opt-outs, role permissions and credit consumption in a small organization, then log who may change settings and who may launch scans before automating a wider rollout.
 
 <!-- reader-release:start -->
 <aside class="series-invitation" id="explore-series"><p class="book-kicker">CONTINUE LEARNING</p><h2>Explore the Generative AI Professional Series</h2><p>Take the next step from today’s developments to deeper professional learning with books on prompting, context, and reliable AI.</p><p><a class="book-cta" href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Explore the books ↗</a></p><p class="small-note">Purchasing a book supports continued development of the series and the Daily Generative AI Brief.</p></aside>
