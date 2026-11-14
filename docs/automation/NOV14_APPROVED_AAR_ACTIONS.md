@@ -1,0 +1,42 @@
+# November 14 Daily AI Brief AAR — approved forward-only improvements
+
+**Owner approval:** November 13, 2026. **First eligible edition:** November 15, 2026. **Evidence:** [completed November 14 unified AAR](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-13/combined.md), [six-image after-action](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-14/reviews/after-action.md) and [repaired combined AAR workflow](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43553614057).
+
+**Boundary:** No regeneration, change, replay, reseal or replacement of the already verified November 14 edition. Retain the existing 17:00 Top 10, 19:15 Compiler, 21:15 native-image Worker and bounded Recovery Guard. No additional task, paid service, new CI workflow, paid API, TinyFish, metered browser or change to protected-main admission. Use only the owner-approved original workflows and existing CI. Record genuine improvements only when a later finished edition independently proves them.
+
+## Approved corrections and executable evidence targets
+
+| Priority | Owner | Improvement | Prospective action / acceptance |
+|---|---|---|---|
+| P0 | Compiler | Stop event-level media duplication even when video publishers differ | Before selection lock, read all four exact programs' original editorial material and bind `media_topic_review`. Four unique genuine dated events, six pairwise comparisons, two different original video publishers and meaningful distinct reader questions. No title-based fake difference. Existing media-quality and playback checks stay mandatory. |
+| P1 | Images | Raise first-pass image acceptance without lowering quality | Review Nov 14's six first-attempt rejection records. Plan at least 72px text-box interior clearance when possible (40px real saved-pixel floor remains the protected minimum); preflight actual arrow endpoints, detached caveats, unsupported bars, object faces, generically glossy motifs. Target ≥3/6 first pass, ≤2 attempts each, six distinct 1200×630 verified PNGs and 24/24 live desktop/mobile captures. Never cap correction attempts. |
+| P1 | Compiler | Make source-inspection coverage auditable, not an index-fetch proxy | Bind the actual enabled source-ID partition plus genuine preselection `inspection_rows`, times, exact URL and limited scope. `validateBoundEditorialIndex` checks each ID and row before sealing for new editions. Separately report 109-source historical November 14 census (9 candidate-bearing, 69 no eligible items, 26 errors, five access blocks) as automated discovery only. |
+| P1 | Compiler | Qualify media before final lock | Preserve existing six real candidates/three publishers, three-program protected preseal, signed-out advancing playback, full archive novelty, correct original dates and show rotation. When a candidate fails, keep accepted parts and replace only the failed program. |
+| P1 | Compiler / protected deploy | Prevent duplicate Pages artifact on an Actions retry | Same workflow now names uploaded Pages artifacts with run ID **and run attempt**; deploy refers to exactly that name. Tests verify matching upload/deploy and all preservation gates. Verify at next genuine run; do not deliberately trigger an expensive/redundant deployment or replay a completed edition. |
+| P1 | Top 10 + Compiler | Improve Top 10 relevance beyond article-only selection | Keep ten genuine per-format searches as advisory, no video/podcast quota. Each selected media program must have original substantive evidence, appropriate audience value and a dated, genuinely witnessed relation to a Top 10 event if one exists. Report the observed November 14 5 article/0 video/0 podcast mapping baseline and future comparable change. |
+| P2 | Compiler | Give original scientific papers a repeated opportunity | Apply the existing rolling seven-edition research-paper target, original manuscript methods/limitations and novelty/24h fallback. No forced paper, no substitution of a vendor blog for an original study; report all real candidate and no-paper reasons. |
+| P2 | Compiler / Recovery | Demonstrate owner-independent completion | Record first-party scheduled invocation, actual initial execution, detection, remedy, verification and terminal handoff by the real role when accessible. Otherwise keep scheduler/autonomy `UNPROVEN`, never equate an eventual green Actions run with unattended success. |
+| P1 | Reporting | Preserve reliable combined AAR | The missing `video-publisher-analytics.mjs` dependency was already corrected and a real `daily-operations-report` run succeeded. Do **not** repeat that repair; continue the existing unified AAR and rolling charts. |
+
+## Prospective media topic evidence
+
+For each new **unsealed** edition E ≥ 2026-11-15, `bundle.media_topic_review` must contain:
+
+- `schema_version: "daily-brief-media-topic-review-v1"`, `reviewed_at` before `editorial_provenance.selection_locked_at`, and real `reviewer`.
+- Exactly four `programs` binding the two selected `video` and two `podcast` HTTPS URLs. Each has `program_url`, `format`, a canonical original event/date slug `event_id` (`YYYY-MM-DD-descriptive-event`), `source_evidence_url`, actual `source_scope`, `reader_question`, `distinct_contribution` and genuine prelock `reviewed_at`.
+- Exactly six unique `comparisons`, one per pair of final media URLs: `left_url`, `right_url`, `same_event: false` supported by real source-specific `distinct_event_evidence`.
+- If two candidates turn out to be different reactions to **one actual event**, use the *same canonical event ID* and replace one before locking. Do not relabel the incident as another event, alter the timestamp, or fabricate six independence reviews. A video about an original study and a separate podcast about a different study may both share the broad field “AI safety” without sharing a dated event. An article can cover the same development as a media program when the article adds independent value; the four-media rule protects against four duplicate programs.
+
+The deterministic validator only proves that the structured event comparison is complete and noncontradictory. Original media reading, editorial semantic truth, first-party claims, signed-out playback and archive uniqueness remain separate review duties.
+
+## Source inspection scope and failure taxonomy
+
+For the next genuine draft, use the existing `scripts/attach-editorial-index-review.mjs` **before sealing**. The source-ID set must equal the current enabled article/video/podcast resources; no disabled lead may enter the eligible denominator. Every resource is exclusively `inspected`, `inaccessible` or `unreviewed`, and every inspected ID must have one `inspection_rows` record with genuine time, URL and type (`full_dated_item_read` or `bounded_public_index_search`). No automated census, HTTP success, route availability or generic homepage GET is proof of substantive original reading. If none was inspected, report zero with a truthful partition rather than inventing a numerator. Report inaccessible sources as failures where actually observed; rotate the genuine unreviewed sources first.
+
+For novel publication faults, classify the original failed job log or exception and record failure stage, exact cause and subsequent timestamps. The November 14 Pages first dispatch saw propagation delay; retrying the failed job uploaded another identical Pages artifact name and caused an ambiguous duplicate. The newly attempt-scoped artifact names address that particular failure mode without a fresh deployment job.
+
+## Next-edition verification
+
+The existing combined report must show four distinct media events, original publishers, actual 109-source partition (or the new registry count), true row-level inspection depth, first-pass image acceptances and total attempts, Pages CI/deploy result, Top 10 searches and selected-format mapping, scientific-paper cadence, and scheduler provenance separately. Compare with November 14 and the frozen November 3 Top 10 baseline; no fabricated rates or causal improvement claims. Measure success only from the next actual published edition.
+
+**Status at implementation time:** source/media checks and retry-name change staged for protected PR/CI review; all other role-specific corrections are documented for their next genuine execution. This document itself does not prove future outcomes.
