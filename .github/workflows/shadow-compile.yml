@@ -157,11 +157,16 @@ jobs:
           if [ "$IMAGE_MODE" = 'images_pending' ]; then
             node scripts/verify-publication-preservation.mjs preflight "$HISTORY_DIR" build/shadow build/reader-source/build-manifest.json 'https://gttome.github.io/Daily-AI-Brief-Compiler/' build/prepublish-integrity.json
           fi
+      # Retried jobs share a run ID but not the attempt. Keep each Pages artifact
+      # unique so deploy-pages never encounters two same-named retry uploads.
       - uses: actions/upload-pages-artifact@v3
         with:
+          name: daily-compiler-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: build/shadow
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: daily-compiler-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Verify exact live canonical reader
         run: node scripts/verify-live.mjs "${{ steps.deployment.outputs.page_url }}" "$TARGET_DATE" build/reader-source build/shadow build/live-verification.json
       - name: Advisory recheck two links actually published to readers
