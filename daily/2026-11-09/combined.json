@@ -637,7 +637,7 @@
       "freshness_reference_at": "2026-11-09T23:06:40Z"
     },
     "ranking_basis": "Retain named events with measured, event-specific attention. Give broader confidence to distinct observed audience families. Claim-verifying reports and research are separate from popularity. Order within the limited band reflects discovery usefulness and freshness after evidence checks.",
-    "source_commit": "2582246e6d57d92f40acbc9ce79e7aaf64ddbce5",
+    "source_commit": "8674a4766ecba0eddfad7a961a4767a382d54924",
     "source_blob_sha": "4150fcb8330aa08bbc415ec8fd80cbf4adf54ef3",
     "report_sha256": "ed5ffc92830010487dabf31713530c69947b58a2e68103756a4928583fa8b17d",
     "consumed_source_commit": "5e08dbb93bb9560aae1283b5955199c1caeacd87",
@@ -773,7 +773,7 @@
       },
       "previous_cycle": "2026-11-08",
       "previous_report_sha256": "55b57b5085e0a4bb79e28f22f20da8d8298a4106ea4275766423e37b971115aa",
-      "previous_aar_sha256": "eaddd7fc1ee89ca6c94c28d3faaa81569e37a08c99f7f7357a89424c1c09652f",
+      "previous_aar_sha256": "e48bafc8b8cbb7d18acdd3476ae5cd0bd0adac5fe93edd738a942a70aa903114",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": 1,
@@ -1002,11 +1002,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2582246e6d57d92f40acbc9ce79e7aaf64ddbce5/signals/ai-topic-top10/2026-11-09.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8674a4766ecba0eddfad7a961a4767a382d54924/signals/ai-topic-top10/2026-11-09.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2582246e6d57d92f40acbc9ce79e7aaf64ddbce5/signals/ai-topic-top10/2026-11-09.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8674a4766ecba0eddfad7a961a4767a382d54924/signals/ai-topic-top10/2026-11-09.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1403,7 +1403,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 4,
+      "finding_count": 5,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -1441,6 +1441,15 @@
           "action": "Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success.",
           "timing": "NEXT_GENUINE_CYCLE",
           "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "VIDEO_PUBLISHER_CONCENTRATION",
+          "priority": "P0",
+          "owner": "Compiler",
+          "observation": "4 original video publisher families filled 14 slots; largest family used 4 times in the completed seven-edition window.",
+          "action": "Before the next seal, review underexposed original publishers and exact playable alternatives. Keep all media-quality and signed-out playback checks.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "RECURRENCE_PREVENTION"
         }
       ],
       "limitations": [
@@ -3357,6 +3366,126 @@
         }
       ]
     },
+    "video_publisher_diversity": {
+      "status": "COMPLETE",
+      "window_first": "2026-11-04",
+      "window_last": "2026-11-10",
+      "recorded_editions": 7,
+      "required_editions": 7,
+      "selected_slots": 14,
+      "distinct_families": 4,
+      "selected_family_counts": {
+        "cbs": 4,
+        "fox-news": 3,
+        "pbs": 4,
+        "ted": 3
+      },
+      "largest_family_selections": 4,
+      "largest_family_share": 0.2857,
+      "concentration_hhi": 0.2551,
+      "adjacent_edition_family_repeats": 8,
+      "variety_target_status": "NOT_MET",
+      "goals": {
+        "minimum_distinct_families": 5,
+        "maximum_one_family_in_fourteen": 4
+      },
+      "interpretation": "Seven fully observed editions are required for a pass/fail variety finding. Publisher identities and playable eligibility must not be inferred from a source registry."
+    },
+    "video_source_yield": [
+      {
+        "edition_date": "2026-11-04",
+        "status": "NOT_RECORDED",
+        "registered": null,
+        "attempted": null,
+        "candidate_sources": null,
+        "candidate_yield_percent": null
+      },
+      {
+        "edition_date": "2026-11-05",
+        "status": "NOT_RECORDED",
+        "registered": null,
+        "attempted": null,
+        "candidate_sources": null,
+        "candidate_yield_percent": null
+      },
+      {
+        "edition_date": "2026-11-06",
+        "status": "NOT_RECORDED",
+        "registered": null,
+        "attempted": null,
+        "candidate_sources": null,
+        "candidate_yield_percent": null
+      },
+      {
+        "edition_date": "2026-11-07",
+        "status": "RECORDED",
+        "registered": 29,
+        "attempted": 29,
+        "candidate_sources": 9,
+        "candidate_yield_percent": 31
+      },
+      {
+        "edition_date": "2026-11-08",
+        "status": "RECORDED",
+        "registered": 29,
+        "attempted": 29,
+        "candidate_sources": 0,
+        "candidate_yield_percent": 0
+      },
+      {
+        "edition_date": "2026-11-09",
+        "status": "RECORDED",
+        "registered": 29,
+        "attempted": 29,
+        "candidate_sources": 0,
+        "candidate_yield_percent": 0
+      },
+      {
+        "edition_date": "2026-11-10",
+        "status": "RECORDED",
+        "registered": 29,
+        "attempted": 29,
+        "candidate_sources": 16,
+        "candidate_yield_percent": 55.2
+      }
+    ],
+    "owner_prompt_observations": [
+      {
+        "edition_date": "2026-11-04",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      },
+      {
+        "edition_date": "2026-11-05",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      },
+      {
+        "edition_date": "2026-11-06",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      },
+      {
+        "edition_date": "2026-11-07",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      },
+      {
+        "edition_date": "2026-11-08",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      },
+      {
+        "edition_date": "2026-11-09",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      },
+      {
+        "edition_date": "2026-11-10",
+        "status": "NOT_RECORDED",
+        "owner_prompt_required": null
+      }
+    ],
     "top10_resilience": {
       "status": "RECORDED",
       "reviewed_topics": 10,

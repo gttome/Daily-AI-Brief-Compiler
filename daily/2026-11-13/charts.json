@@ -1,0 +1,93 @@
+{
+  "schema_version": "daily-ai-brief-aar-charts-v1",
+  "edition_date": "2026-11-14",
+  "charts": [
+    {
+      "id": "research-coverage",
+      "title": "Research coverage",
+      "description": "Editorial source-index inspection; automated fetches are excluded.",
+      "status": "NOT_RECORDED",
+      "rows": null,
+      "note": "Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories."
+    },
+    {
+      "id": "image-rework",
+      "title": "Image attempts and rework",
+      "description": "Accepted and rejected candidates for each final image.",
+      "status": "OBSERVED",
+      "rows": [
+        {
+          "id": "nov14-t1-ai-scan-api",
+          "label": "GitHub adds policy APIs for repository-wide AI Scan",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov14-t2-managed-agents",
+          "label": "Self-hosted Claude agents move the control plane, not every data flow",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov14-k1-h3-image",
+          "label": "MiniMax opens H3-Image for fast reference-guided editing",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov14-k2-decider",
+          "label": "Perplexity trains decision models to return the evidence span",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov14-a1-claude-meetings",
+          "label": "Claude Meetings turns live discussion into shared work artifacts",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov14-a2-wallet-skill",
+          "label": "Agent Skill: approve a ChatGPT Wallet purchase without surrendering control",
+          "accepted": 1,
+          "rejected": 1
+        }
+      ],
+      "total_attempts": 12,
+      "first_pass_accepted": 0,
+      "target": {
+        "first_pass": 3,
+        "max_attempts": 2,
+        "window": "ongoing from November 8"
+      },
+      "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
+    },
+    {
+      "id": "top10-selection",
+      "title": "Top 10 links to published items",
+      "description": "Unique published items by format, not the number of topic mappings.",
+      "status": "OBSERVED",
+      "rows": [
+        {
+          "label": "Articles",
+          "linked": 5,
+          "other": 1
+        },
+        {
+          "label": "Videos",
+          "linked": 0,
+          "other": 2
+        },
+        {
+          "label": "Podcasts",
+          "linked": 0,
+          "other": 2
+        }
+      ],
+      "linked_items": 5,
+      "total_items": 10,
+      "note": "No selection quota. Topic linkage does not establish better quality, popularity or causal improvement."
+    }
+  ],
+  "interpretation": "One edition at a time. Missing evidence is not zero. Trend claims require comparable recorded cycles."
+}

@@ -443,7 +443,7 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-11",
     "cumulative_review_due_today": false,
-    "finding_count": 2,
+    "finding_count": 3,
     "open_production_blockers": 0,
     "findings": [
       {
@@ -463,6 +463,15 @@
         "action": "Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success.",
         "timing": "NEXT_GENUINE_CYCLE",
         "kind": "EVIDENCE_GAP"
+      },
+      {
+        "id": "VIDEO_PUBLISHER_CONCENTRATION",
+        "priority": "P0",
+        "owner": "Compiler",
+        "observation": "4 original video publisher families filled 14 slots; largest family used 6 times in the completed seven-edition window.",
+        "action": "Before the next seal, review underexposed original publishers and exact playable alternatives. Keep all media-quality and signed-out playback checks.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "RECURRENCE_PREVENTION"
       }
     ],
     "limitations": [
@@ -2370,6 +2379,126 @@
       }
     ]
   },
+  "video_publisher_diversity": {
+    "status": "COMPLETE",
+    "window_first": "2026-11-07",
+    "window_last": "2026-11-13",
+    "recorded_editions": 7,
+    "required_editions": 7,
+    "selected_slots": 14,
+    "distinct_families": 4,
+    "selected_family_counts": {
+      "cbs": 6,
+      "fox-news": 3,
+      "pbs": 3,
+      "ted": 2
+    },
+    "largest_family_selections": 6,
+    "largest_family_share": 0.4286,
+    "concentration_hhi": 0.2959,
+    "adjacent_edition_family_repeats": 6,
+    "variety_target_status": "NOT_MET",
+    "goals": {
+      "minimum_distinct_families": 5,
+      "maximum_one_family_in_fourteen": 4
+    },
+    "interpretation": "Seven fully observed editions are required for a pass/fail variety finding. Publisher identities and playable eligibility must not be inferred from a source registry."
+  },
+  "video_source_yield": [
+    {
+      "edition_date": "2026-11-07",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 9,
+      "candidate_yield_percent": 31
+    },
+    {
+      "edition_date": "2026-11-08",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 0,
+      "candidate_yield_percent": 0
+    },
+    {
+      "edition_date": "2026-11-09",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 0,
+      "candidate_yield_percent": 0
+    },
+    {
+      "edition_date": "2026-11-10",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 16,
+      "candidate_yield_percent": 55.2
+    },
+    {
+      "edition_date": "2026-11-11",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 1,
+      "candidate_yield_percent": 3.4
+    },
+    {
+      "edition_date": "2026-11-12",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 5,
+      "candidate_yield_percent": 17.2
+    },
+    {
+      "edition_date": "2026-11-13",
+      "status": "RECORDED",
+      "registered": 29,
+      "attempted": 29,
+      "candidate_sources": 5,
+      "candidate_yield_percent": 17.2
+    }
+  ],
+  "owner_prompt_observations": [
+    {
+      "edition_date": "2026-11-07",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    },
+    {
+      "edition_date": "2026-11-08",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    },
+    {
+      "edition_date": "2026-11-09",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    },
+    {
+      "edition_date": "2026-11-10",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    },
+    {
+      "edition_date": "2026-11-11",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    },
+    {
+      "edition_date": "2026-11-12",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    },
+    {
+      "edition_date": "2026-11-13",
+      "status": "NOT_RECORDED",
+      "owner_prompt_required": null
+    }
+  ],
   "top10_resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,

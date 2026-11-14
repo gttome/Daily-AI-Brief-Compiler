@@ -130,7 +130,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
 | Video discovery source attempts | **29 / 29** | Attempt evidence across enabled and qualification-only leads; REPORTED_ALL_ATTEMPTED. Not a claim of full content review or player verification | 
-| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Verified postpublication video corrections | **NOT_RECORDED** | Incident register tracks correction PR, actual playback evidence and reader preservation |
@@ -524,8 +524,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2582246e6d57d92f40acbc9ce79e7aaf64ddbce5/signals/ai-topic-top10/2026-11-12.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2582246e6d57d92f40acbc9ce79e7aaf64ddbce5/signals/ai-topic-top10/2026-11-12.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8674a4766ecba0eddfad7a961a4767a382d54924/signals/ai-topic-top10/2026-11-12.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8674a4766ecba0eddfad7a961a4767a382d54924/signals/ai-topic-top10/2026-11-12.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/trend-search-coverage.json) |
 
@@ -542,12 +542,13 @@ Edition **2026-11-13**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**2 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**3 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
 | P1 | 1 failed protected publication gates were recorded (1 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Immediate, if ownership and gates allow |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
+| P0 | 4 original video publisher families filled 14 slots; largest family used 6 times in the completed seven-edition window. | Compiler: Before the next seal, review underexposed original publishers and exact playable alternatives. Keep all media-quality and signed-out playback checks. | Next genuine run |
 
 Findings are observational and do not claim a repair was executed by the reporter.
 
@@ -775,6 +776,43 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 | UNALLOWLISTED_TEXT | 2 | Yes |
 
 Total rejected: 58; unclassified: 13. A rejected attempt can have several defect codes.
+
+### Video publisher diversity and candidate qualification
+
+Seven-edition measurement: **COMPLETE**. Publisher families: **4**; largest family's slots: **6**; HHI: **0.2959**; prospective variety target: **NOT_MET**.
+
+| Verified family | Actual selections in window |
+|---|---:|
+| cbs | 6 |
+| fox-news | 3 |
+| pbs | 3 |
+| ted | 2 |
+
+| Edition | Sources attempted | Candidate-bearing routes | Qualified/played from routes |
+|---|---:|---:|---|
+| 2026-11-07 | 29 | 9 | Not established by discovery sweep |
+| 2026-11-08 | 29 | 0 | Not established by discovery sweep |
+| 2026-11-09 | 29 | 0 | Not established by discovery sweep |
+| 2026-11-10 | 29 | 16 | Not established by discovery sweep |
+| 2026-11-11 | 29 | 1 | Not established by discovery sweep |
+| 2026-11-12 | 29 | 5 | Not established by discovery sweep |
+| 2026-11-13 | 29 | 5 | Not established by discovery sweep |
+
+A discovered URL is not a fully reviewed, correctly dated and signed-out playable video. Unverified publisher identities or missing editions prohibit a numeric seven-edition target result.
+
+### Owner-independent recovery evidence
+
+| Edition | Owner request needed | Evidence |
+|---|---|---|
+| 2026-11-07 | Not recorded | NOT_RECORDED |
+| 2026-11-08 | Not recorded | NOT_RECORDED |
+| 2026-11-09 | Not recorded | NOT_RECORDED |
+| 2026-11-10 | Not recorded | NOT_RECORDED |
+| 2026-11-11 | Not recorded | NOT_RECORDED |
+| 2026-11-12 | Not recorded | NOT_RECORDED |
+| 2026-11-13 | Not recorded | NOT_RECORDED |
+
+A pre-release AAR marking intervention false does not prove nobody later prompted a recovery. Missing incident evidence remains unknown.
 
 ### Top 10 publisher-family sensitivity
 

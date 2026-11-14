@@ -410,8 +410,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-08/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2582246e6d57d92f40acbc9ce79e7aaf64ddbce5/signals/ai-topic-top10/2026-11-07.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/2582246e6d57d92f40acbc9ce79e7aaf64ddbce5/signals/ai-topic-top10/2026-11-07.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8674a4766ecba0eddfad7a961a4767a382d54924/signals/ai-topic-top10/2026-11-07.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/8674a4766ecba0eddfad7a961a4767a382d54924/signals/ai-topic-top10/2026-11-07.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-08/shadow-runs/2026-11-08/editorial/trend-search-coverage.json) |
 
@@ -642,6 +642,43 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 | TYPOGRAPHY | 1 | No within observed window |
 
 Total rejected: 59; unclassified: 14. A rejected attempt can have several defect codes.
+
+### Video publisher diversity and candidate qualification
+
+Seven-edition measurement: **INCOMPLETE**. Publisher families: **4**; largest family's slots: **4**; HHI: **0.2917**; prospective variety target: **NOT_EVALUABLE**.
+
+| Verified family | Actual selections in window |
+|---|---:|
+| cbs | 3 |
+| fox-news | 1 |
+| pbs | 4 |
+| ted | 4 |
+
+| Edition | Sources attempted | Candidate-bearing routes | Qualified/played from routes |
+|---|---:|---:|---|
+| 2026-11-02 | Not recorded | Not recorded | Not established by discovery sweep |
+| 2026-11-03 | Not recorded | Not recorded | Not established by discovery sweep |
+| 2026-11-04 | Not recorded | Not recorded | Not established by discovery sweep |
+| 2026-11-05 | Not recorded | Not recorded | Not established by discovery sweep |
+| 2026-11-06 | Not recorded | Not recorded | Not established by discovery sweep |
+| 2026-11-07 | 29 | 9 | Not established by discovery sweep |
+| 2026-11-08 | 29 | 0 | Not established by discovery sweep |
+
+A discovered URL is not a fully reviewed, correctly dated and signed-out playable video. Unverified publisher identities or missing editions prohibit a numeric seven-edition target result.
+
+### Owner-independent recovery evidence
+
+| Edition | Owner request needed | Evidence |
+|---|---|---|
+| 2026-11-02 | Not recorded | NOT_RECORDED |
+| 2026-11-03 | Not recorded | NOT_RECORDED |
+| 2026-11-04 | Not recorded | NOT_RECORDED |
+| 2026-11-05 | Not recorded | NOT_RECORDED |
+| 2026-11-06 | Not recorded | NOT_RECORDED |
+| 2026-11-07 | Not recorded | NOT_RECORDED |
+| 2026-11-08 | Not recorded | NOT_RECORDED |
+
+A pre-release AAR marking intervention false does not prove nobody later prompted a recovery. Missing incident evidence remains unknown.
 
 ### Top 10 publisher-family sensitivity
 
