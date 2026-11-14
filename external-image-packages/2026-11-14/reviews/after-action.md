@@ -1,6 +1,6 @@
 # 2026-11-14 premium image after-action report
 
-**Status: PACKAGE_QA_COMPLETE_PENDING_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 7709682259b4d7f7588d7ba64dc1666caa77f1e5 |
 | Executor observed run start | 2026-11-14T03:21:35Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-14T03:24:27Z (observed before tool call) |
-| Public release | PUBLISHED_PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | NOT_STARTED; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-14T03:41:09.348Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -44,10 +44,12 @@ Job SHA-256: d1e9da1d6d3f62d6a5bf96394d73ebef2e22ca8005deb4b2f0564255e6ea8448. O
 
 The actual generation start is 2026-11-14T03:24:27Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-14/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Reviewed the November 13 combined AAR and seven-edition trend metrics. Planned blank document faces, grounded connector ports, and detached label rectangles with a 52 px buffer. The clock was observed and saved before the first call. Each candidate still needed a targeted second pass.
 
 The 3/6 first-pass target was missed. Every story passed within two attempts, compared with four stories above that target on November 13.
+
+Independent live verification matched all six accepted PNG SHA-256 digests, 12 page placements and all 17 protected October 8 objects. All 24 desktop and mobile captures passed semantic review.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
