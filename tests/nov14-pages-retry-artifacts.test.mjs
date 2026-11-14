@@ -4,7 +4,7 @@ import fs from 'node:fs';
 
 test('publication retry uploads its own Pages artifact and targets that exact attempt',()=>{
  const wf=fs.readFileSync('.github/workflows/shadow-compile.yml','utf8');
- const unique='daily-compiler-pages-'+String.raw`${{ github.run_id }}-${{ github.run_attempt }}`;
+ const unique='daily-compiler-pages-'+'${{ github.run_id }}-${{ github.run_attempt }}';
  const marker='name: '+unique;
  const selector='artifact_name: '+unique;
  assert.ok(wf.includes(marker),'upload must use run ID and attempt ID');
