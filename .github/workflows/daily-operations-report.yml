@@ -183,7 +183,9 @@ jobs:
             git show "refs/remotes/origin/main:external-image-packages/$edition/recurring-assignment.json" > "$in/image-recurring-assignment.json" 2>/dev/null || rm -f "$in/image-recurring-assignment.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/after-action.json" > "$in/image-after-action.json" 2>/dev/null || rm -f "$in/image-after-action.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/worker-state.json" > "$in/image-worker-state.json" 2>/dev/null || rm -f "$in/image-worker-state.json"
-            git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/route-preflight.json" > "$in/image-route-preflight.json" 2>/dev/null || rm -f "$in/image-route-preflight.json"
+            git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/route-preflight.json" > "$in/image-route-preflight.json" 2>/dev/null || \
+              git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/image-app-route-preflight.json" > "$in/image-route-preflight.json" 2>/dev/null || \
+              rm -f "$in/image-route-preflight.json"
             git show "$ref:shadow-runs/$edition/execution-milestones.json" > "$in/execution-milestones.json" 2>/dev/null || rm -f "$in/execution-milestones.json"
             git show "$ref:shadow-runs/$edition/editorial/fallback-search-evidence.json" > "$in/fallback-search-evidence.json" 2>/dev/null || rm -f "$in/fallback-search-evidence.json"
             git show "refs/remotes/origin/main:external-image-packages/$edition/reviews/task-origin.json" > "$in/image-task-origin.json" 2>/dev/null || rm -f "$in/image-task-origin.json"
