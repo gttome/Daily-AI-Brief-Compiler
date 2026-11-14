@@ -2,48 +2,36 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-14",
   "execution_id": "daily-compiler-2026-11-14-primary",
-  "state": "RESEARCH",
-  "stage": "EDITORIAL",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "644e880a6a1688552ca55bff1bc1a3715d76e563",
   "branch": "shadow/2026-11-14",
   "initial_execution_observed_at": "2026-11-14T01:22:26.771Z",
   "started_at": "2026-11-14T01:22:26.771Z",
-  "updated_at": "2026-11-14T01:55:20.000Z",
+  "updated_at": "2026-11-14T02:09:55.093Z",
   "images": {
     "required": 6,
     "accepted": [],
     "mode": "images_pending",
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
-  "blocker": {
-    "stage": "PRESEAL_VIDEO",
-    "result": "BLOCKED",
-    "source_head": "faa9f1cb69d174f360eb6198986c36464be8188c",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43543107427",
-    "failed_programs": [
-      {
-        "url": "https://abcnews.com/video/138088649/",
-        "reason": "The protected runner observed only an 86.7-second advancing preroll, not the expected 6:17 report."
-      }
-    ],
-    "retained_programs": [
-      "https://fortune.com/media/embed/cb14d298-fd1c-41eb-a005-a5a8e7a036e6/",
-      "https://www.euronews.com/video/2026/11/13/the-market-will-look-for-alternatives-on-huang-resignation-says-andrea-renda-digital-econo"
-    ],
-    "next_candidates": [
-      "https://www.foxbusiness.com/video/6408309991112"
-    ],
-    "ownership": "PRIMARY_CONTINUING"
-  },
+  "blocker": null,
   "evidence": {
     "trend_input": "shadow-runs/2026-11-14/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-14/editorial/trend-search-coverage.json",
     "execution_milestones": "shadow-runs/2026-11-14/execution-milestones.json",
     "research_plan": "shadow-runs/2026-11-14/editorial/research-plan.json",
-    "preseal_video_request": "shadow-runs/2026-11-14/editorial/preseal-video-request.json"
+    "preseal_video_request": "shadow-runs/2026-11-14/editorial/preseal-video-request.json",
+    "candidate_pool": "shadow-runs/2026-11-14/editorial/candidate-pool.json",
+    "index_review": "shadow-runs/2026-11-14/editorial/index-review.json",
+    "fallback_search_evidence": "shadow-runs/2026-11-14/editorial/fallback-search-evidence.json",
+    "scientific_paper_coverage": "shadow-runs/2026-11-14/editorial/scientific-paper-coverage.json",
+    "continuous_improvement": "shadow-runs/2026-11-14/editorial/continuous-improvement.json",
+    "preseal_video_receipt": "shadow-runs/2026-11-14/editorial/preseal-video-receipt.json",
+    "video_source_sweep": "shadow-runs/2026-11-14/editorial/video-source-sweep.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -52,12 +40,24 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "The primary preserved archive-clear Fortune and Euronews PASS programs. After seven outside-family programs were reviewed and five failed protected playback, only the failed ABC slot is replaced by a reviewed Fox Business reserve; the two final selections remain outside the overexposed families.",
-  "selection_locked_at": null,
-  "sealed_at": null,
-  "bundle": null,
-  "bundle_sha256": null,
-  "editorial_bundle": null,
-  "retryable": true,
-  "last_error": null
+  "continuation": "The exact protected video receipt is PASS and bound to the saved request; the sealed bundle is ready for protected-main compilation.",
+  "selection_locked_at": "2026-11-14T01:58:00.563Z",
+  "sealed_at": "2026-11-14T02:09:55.093Z",
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "c66a7389013c47a1adf868108c710bf19caca595fb4d86e7a44e1bf62b41c273"
+  },
+  "bundle_sha256": "c66a7389013c47a1adf868108c710bf19caca595fb4d86e7a44e1bf62b41c273",
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-14T01:58:00.563Z",
+    "sealed_at": "2026-11-14T02:09:55.093Z"
+  },
+  "retryable": false,
+  "last_error": null,
+  "bundle_path": "shadow-runs/2026-11-14/edition-bundle.json"
 }
