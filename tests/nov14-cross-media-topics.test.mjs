@@ -45,7 +45,7 @@ test('missing media, invented comparisons, post-lock review and absent evidence 
   b=>b.media_topic_review.programs[0].source_scope='not reviewed',
   b=>b.media_topic_review.reviewed_at='2026-11-14T23:59:00Z',
   b=>b.media_topic_review.programs[0].program_url='https://made-up.example/program',
-  b=>b.media_topic_review.comparisons[0].left_url=urls[0],
+  b=>b.media_topic_review.comparisons[0].left_url=urls[2],
   b=>b.media_topic_review.comparisons[0].right_url=urls[0],
   b=>b.media_topic_review.programs[0].reviewed_at='2026-11-15T00:00:00Z'
  ];
