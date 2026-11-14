@@ -28,7 +28,7 @@ export function validateBoundEditorialIndex({bundle,registry}){
     idx.inaccessible!==idx.inaccessible_ids.length||
     idx.unreviewed!==idx.unreviewed_ids.length)
   fail('not_a_complete_exclusive_enabled_source_partition');
- const rows=idx.inspection_rows;
+ const rows=idx.inspection_rows??(idx.inspected_ids.length===0?[]:null);
  if(!Array.isArray(rows)||rows.length!==idx.inspected_ids.length||
     !unique(rows.map(r=>r.resource_id)))
   fail('inspected_ids_require_one_actual_source_read_row_each');
