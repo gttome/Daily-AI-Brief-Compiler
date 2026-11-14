@@ -19,7 +19,7 @@
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
-| Local capability preflight (separate from origin) | NOT OBSERVED |
+| Local capability preflight (separate from origin) | RECORDED |
 | Timing basis | First persisted accepted image Git bytes to first recorded 24-context review; scheduled window is separate and not exact generator runtime. |
 | Next run readiness | UNKNOWN |
 
