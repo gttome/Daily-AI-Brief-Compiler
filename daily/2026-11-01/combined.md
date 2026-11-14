@@ -38,6 +38,7 @@ Eligible source indexes: 87; editorial inspections reported: 8 (9.2%); inaccessi
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **2** | Must be labeled evergreen, not a new development |
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
+| Cross-media topic diversity | **HISTORICAL_NOT_REQUIRED** | Four video/podcast events and six pairwise original-source comparisons; editorial claims remain producer-attested |
 | Video discovery source attempts | **NOT_RECORDED / NOT_RECORDED** | Attempt evidence across enabled and qualification-only leads; NOT_RECORDED. Not a claim of full content review or player verification | 
 | Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
