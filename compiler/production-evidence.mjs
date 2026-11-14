@@ -2,6 +2,7 @@
 import {articlePublisherKey} from './source-diversity.mjs';
 import {validateMediaEducationalValue,MEDIA_QUALITY_EFFECTIVE} from './media-quality.mjs';
 import {validateVideoEditorialBalance} from './video-editorial-balance.mjs';
+import {validateMediaTopicDiversity} from './media-topic-diversity.mjs';
 export const PRODUCTION_EVIDENCE_EFFECTIVE='2026-10-21';
 const fail=s=>{throw Error('production_evidence:'+s);};
 const text=(s,n=30)=>typeof s==='string'&&s.trim().length>=n;
@@ -151,6 +152,7 @@ export function validateMediaPrecision(bundle){
   if(v.playback_verified===true&&(!text(v.playback_evidence?.method,10)||!text(v.playback_evidence?.result,10)||
     !Number.isFinite(Date.parse(v.playback_evidence?.checked_at))))fail('playback_evidence_required');
  }
+ validateMediaTopicDiversity(bundle);
  const educational_value=validateMediaEducationalValue(bundle);
  return {result:'PASS',video_publishers:[...publishers],video_diversity_exception:publishers.size<2,prequalification,playback_not_inferred:true,educational_value};
 }
