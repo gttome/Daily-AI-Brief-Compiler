@@ -2,26 +2,32 @@
   "schema_version": "daily-compiler-publication-health-v1",
   "edition_date": "2026-11-14",
   "status": "BLOCKED_PUBLICATION",
-  "observed_at": "2026-11-14T01:36:33.790Z",
+  "observed_at": "2026-11-14T02:14:22.957Z",
   "events": [
     {
       "status": "BLOCKED_PUBLICATION",
       "stage": "PRESEAL_VIDEO",
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43541542046",
       "observed_at": "2026-11-14T01:36:33.790Z"
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "PUBLICATION_PIPELINE",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43544999096",
+      "observed_at": "2026-11-14T02:14:22.957Z"
     }
   ],
   "outstanding_blocker": {
-    "stage": "PRESEAL_VIDEO",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43541542046",
-    "first_observed_at": "2026-11-14T01:36:33.790Z",
-    "next_action": "Inspect original failed Action and preserve completed stages."
+    "stage": "PUBLICATION_PIPELINE",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43544999096",
+    "first_observed_at": "2026-11-14T02:14:22.957Z",
+    "next_action": "Inspect first failed protected stage and retry only safe idempotent operations."
   },
   "last_recorded_blocker": {
     "status": "BLOCKED_PUBLICATION",
-    "stage": "PRESEAL_VIDEO",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43541542046",
-    "observed_at": "2026-11-14T01:36:33.790Z"
+    "stage": "PUBLICATION_PIPELINE",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43544999096",
+    "observed_at": "2026-11-14T02:14:22.957Z"
   },
   "public_reader_verified": false,
   "unattended_recovery_proven": false,
