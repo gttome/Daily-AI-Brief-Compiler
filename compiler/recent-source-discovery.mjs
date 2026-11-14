@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import {validateBoundEditorialIndex} from './editorial-index-certification.mjs';
 // Source discovery is an editorial evidence ledger; no network calls or dates are inferred.
 const fail=msg=>{throw Error('recent_source_discovery:'+msg);};
 const note=(v,min=45)=>typeof v==='string'&&v.trim().length>=min;
@@ -6,6 +8,10 @@ const date=v=>typeof v==='string'&&Number.isFinite(Date.parse(v))&&
 const domain=value=>{try{const u=new URL(value);return u.protocol==='https:'?u.hostname.replace(/^www\./,'').toLowerCase():null;}catch{return null;}};
 export function validateRecentSourceDiscovery(bundle){
  if(bundle?.edition_date<'2026-10-24')return {result:'SKIPPED_HISTORICAL'};
+ if(bundle.edition_date>='2026-11-15'){
+   const registry=JSON.parse(fs.readFileSync(new URL('../config/resource-registry.json',import.meta.url),'utf8'));
+   validateBoundEditorialIndex({bundle,registry});
+ }
  const audit=bundle.source_discovery_audit;
  const candidates=audit?.candidates,decisions=audit?.fallback_decisions;
  if(!date(audit?.reviewed_at)||!Array.isArray(candidates)||candidates.length<8||
