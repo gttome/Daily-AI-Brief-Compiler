@@ -50,6 +50,8 @@ test('full list, exact bytes and separate search receipts remain inspectable wit
  const {e,h}=fixture();const s=summarizeTop10(cycle,edition,e,h);
  assert.equal(s.report_valid,true);assert.equal(s.report_status,'provisional');assert.equal(s.topic_count,10);
  assert.equal(s.handoff_status,'RECEIVED_SNAPSHOT_BOUND');assert.equal(s.search_status,'RECEIPTS_OBSERVED');
+ const withObservedAlias=fixture(); withObservedAlias.e['trend-input'].schema_version='daily-ai-topic-top10-trend-input-v1';
+ assert.equal(summarizeTop10(cycle,edition,withObservedAlias.e,withObservedAlias.h).handoff_status,'RECEIVED_SNAPSHOT_BOUND');
  assert.equal(s.end_to_end_ready,true);assert.equal(s.autonomy_status,'UNPROVEN');assert.equal(s.elapsed_minutes,30);
  assert.equal(s.source_commit,commit);assert.equal(s.consumed_source_commit,'c'.repeat(40));
  assert.equal(s.search_counts.podcast.attempted,10);assert.equal(s.selected_mappings[0].item_id,'story-1');
