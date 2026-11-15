@@ -1,13 +1,14 @@
 // Byte-accurate corroboration for the consumed Top 10 report.
 // A claim recorded in the compiler input is not independent Git proof.
 import crypto from 'node:crypto';
+import {isTop10InputSchema} from './top10-input-identity.mjs';
 const SHA40=/^[a-f0-9]{40}$/;
 const SHA64=/^[a-f0-9]{64}$/;
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
 const canonical=o=>JSON.stringify(o,(_,v)=>v&&typeof v==='object'&&!Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v);
 export function verifyConsumedTop10Report({input,cycle,edition,sourcePath,commit,blob,raw}){
  const failures=[];
- if(input?.schema_version!=='daily-ai-topic-top10-input-v1'||input.cycle_date!==cycle||
+ if(!isTop10InputSchema(input?.schema_version)||input.cycle_date!==cycle||
    input.edition_date!==edition||input.report_date!==cycle||input.source_path!==sourcePath||
    input.source_commit!==commit||!SHA40.test(commit||'')||!SHA40.test(blob||''))
    failures.push('WRONG_CYCLE_EDITION_OR_CONSUMED_SOURCE');
