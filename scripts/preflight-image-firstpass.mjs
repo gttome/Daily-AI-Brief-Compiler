@@ -155,6 +155,33 @@ export function validateFrozenImageSpecification({spec,story}){
    allowed_edges:spec.allowed_causal_edges.length,
    textual_review_only_not_saved_pixel_acceptance:true};
 }
+// Forward-only style reservations. Planned diversity is not saved-pixel proof.
+export function preflightDistinctArtDirections(specifications,editionDate){
+ if(editionDate<'2026-11-16')return {required:false};
+ if(!Array.isArray(specifications)||specifications.length!==6)
+   fail('six_editorial_style_reservations_required');
+ const styles=specifications.map(s=>s.pre_generation_checks?.editorial_style_plan);
+ for(let i=0;i<6;i++){
+   const v=styles[i];
+   if(!v||['format_family','dominant_grammar','medium_treatment','perspective',
+     'information_hierarchy','palette_family','subject_specific_visual_thesis',
+     'difference_from_earlier_story_images'].some(k=>!clean(v[k]))||
+     typeof v.first_pass_risk_mitigation!=='string'||v.first_pass_risk_mitigation.length<70||
+     typeof v.difference_from_earlier_story_images!=='string'||
+     v.difference_from_earlier_story_images.length<65)
+     fail('missing_source_specific_style_or_first_pass_risk_plan:'+specifications[i].story_id);
+   if(v.dominant_grammar!==specifications[i].composition_signature?.grammar)
+     fail('style_plan_disagrees_with_composition_grammar:'+specifications[i].story_id);
+ }
+ const variety=k=>new Set(styles.map(v=>v[k].trim().toLowerCase())).size;
+ for(const [key,minimum] of Object.entries({format_family:4,dominant_grammar:4,
+   medium_treatment:4,perspective:3,information_hierarchy:4,palette_family:4}))
+   if(variety(key)<minimum)fail('repeated_pre_generation_style_'+key);
+ return {required:true,distinct_formats:variety('format_family'),
+   distinct_treatments:variety('medium_treatment'),
+   pixel_quality_still_unverified:true};
+}
+
 export function verifySixFrozenImageSpecifications({job,specifications}){
  if(job?.schema_version!=='external-compiler-image-job-v1'||job.stories?.length!==6||
    !Array.isArray(specifications)||specifications.length!==6)fail('exact_six_story_assignments');
@@ -171,6 +198,7 @@ export function verifySixFrozenImageSpecifications({job,specifications}){
    annotations.add(comp.annotation);
  }
  if(job.edition_date>='2026-10-21'&&grammars.size!==6)fail('six_distinct_story_compositions_required');
+ const stylePreflight=preflightDistinctArtDirections(specifications,job.edition_date);
  if(done.size!==6||grammars.size<4||metaphors.size<4||annotations.size<3||
    Math.max(...grammars.values())>2)fail('six_set_visual_convergence');
  return {schema_version:'external-image-firstpass-set-v1',
