@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-15",
   "execution_id": "daily-compiler-2026-11-15-primary",
-  "state": "RESEARCH",
-  "stage": "RESEARCH",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "f040f343a5d4c8bb8283bf1af5634f782c160e0f",
   "branch": "shadow/2026-11-15",
   "initial_execution_observed_at": "2026-11-15T01:21:32.606Z",
   "started_at": "2026-11-15T01:21:32.606Z",
-  "updated_at": "2026-11-15T01:54:00.000Z",
+  "updated_at": "2026-11-15T02:14:02.000Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -17,10 +17,15 @@
   },
   "blocker": null,
   "evidence": {
-    "preseal_video_request": "shadow-runs/2026-11-15/editorial/preseal-video-request.json"
+    "trend_input": "shadow-runs/2026-11-15/editorial/trend-input.json",
+    "trend_search_coverage": "shadow-runs/2026-11-15/editorial/trend-search-coverage.json",
+    "execution_milestones": "shadow-runs/2026-11-15/execution-milestones.json",
+    "preseal_video_request": "shadow-runs/2026-11-15/editorial/preseal-video-request.json",
+    "preseal_video_receipt": "shadow-runs/2026-11-15/editorial/preseal-video-receipt.json",
+    "index_review": "shadow-runs/2026-11-15/editorial/index-review.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -29,5 +34,24 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Research is active. PBS and Fox passed the protected player while ABC exposed only a preroll; the request now uses the reviewed Fortune full-length fallback and awaits its exact receipt before selection lock."
+  "continuation": "Exact BUNDLE_READY bytes await protected bundle-ready signal, compile, Pages deployment and live verification.",
+  "selection_locked_at": "2026-11-15T02:13:30.000Z",
+  "sealed_at": "2026-11-15T02:14:02.000Z",
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "223bfe4fa7c2101a1555b48bc51d8b3cbcc9a6997c486edd1995c6c82a0389f8"
+  },
+  "bundle_sha256": "223bfe4fa7c2101a1555b48bc51d8b3cbcc9a6997c486edd1995c6c82a0389f8",
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-15T02:13:30.000Z",
+    "sealed_at": "2026-11-15T02:14:02.000Z"
+  },
+  "retryable": false,
+  "last_error": null,
+  "bundle_path": "shadow-runs/2026-11-15/edition-bundle.json"
 }
