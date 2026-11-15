@@ -168,7 +168,7 @@
         "reviewed_edition": "2026-11-15",
         "decision": "revise",
         "result": "not_met",
-        "reason": "Observed 0 first-pass acceptances in 13 attempts, with 1 illustrations taking more than two attempts. Compared with zero first-pass accepts and twelve attempts on November 14. Protected release and live inspection are still pending.",
+        "reason": "Observed 0 first-pass acceptances in 13 attempts, with 1 illustrations taking more than two attempts. Compared with zero first-pass accepts and twelve attempts on November 14. All six images later passed protected release and 24 individual live checks.",
         "evidence_refs": [
           "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/331b17e4b9ad535e95d7b8e22252b042c4a5884b/external-image-packages/2026-11-15/reviews/source-feedback-preflight.json",
           "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/operations-reports/daily/2026-11-13/improvement-metrics.json"
@@ -443,7 +443,7 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-11",
     "cumulative_review_due_today": false,
-    "finding_count": 3,
+    "finding_count": 4,
     "open_production_blockers": 0,
     "findings": [
       {
@@ -461,8 +461,17 @@
         "owner": "Compiler / Recovery",
         "observation": "6 failed protected publication gates were recorded (6 unclassified causes).",
         "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
+        "timing": "NEXT_GENUINE_CYCLE",
         "kind": "RECURRENCE_PREVENTION"
+      },
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "7 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
       },
       {
         "id": "SCHEDULER_ORIGIN_UNPROVEN",
