@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Future external image edition-wide visual diversity review",
+  "description": "Effective 2026-11-16; validated through operations/image-set-diversity.mjs. Reviewer-observed actual saved pixels, not prompt signatures, computer vision, or owner acceptance.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "method",
+    "source",
+    "owner_acceptance_not_inferred",
+    "reviewer",
+    "reviewed_at",
+    "reviewed_sha256s",
+    "contact_sheet_path",
+    "contact_sheet_sha256",
+    "stories",
+    "pairwise"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "external-image-editorial-diversity-v1"
+    },
+    "status": {
+      "const": "PASS"
+    },
+    "method": {
+      "const": "six_up_saved_png_pixel_comparison"
+    },
+    "source": {
+      "const": "saved_committed_png_pixels"
+    },
+    "owner_acceptance_not_inferred": {
+      "const": true
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 3
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_sha256s": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "contact_sheet_path": {
+      "type": "string"
+    },
+    "contact_sheet_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "stories": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object"
+      }
+    },
+    "pairwise": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
