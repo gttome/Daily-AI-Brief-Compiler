@@ -1,5 +1,6 @@
 // Deterministic reporting only: this module neither researches topics nor changes release gates.
 import crypto from 'node:crypto';
+import {isTop10InputSchema} from '../operations/top10-input-identity.mjs';
 
 const EFFECTIVE_CYCLE='2026-11-02';
 const SHA=/^[a-f0-9]{40}$/;
@@ -56,7 +57,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   const age=received&&generated?Date.parse(received)-Date.parse(generated):null;
   const fresh=age!==null&&age>=0&&age<=86400000;
   if(reportValid&&received)freshness=fresh?'FRESH_AT_CONSUMPTION':age<0?'FUTURE_AT_CONSUMPTION':'STALE_AT_CONSUMPTION';
-  const inputValid=reportValid&&sourceBound&&input.schema_version==='daily-ai-topic-top10-input-v1'&&
+  const inputValid=reportValid&&sourceBound&&isTop10InputSchema(input.schema_version)&&
    scoped(input,cycle,edition)&&input.report_date===cycle&&input.source_path===expectedPath&&
    SHA.test(input.source_commit??'')&&input.source_blob_sha===source.source_blob_sha&&
    input.report_sha256===rawHash&&clean(input.report)&&digest(input.report)===digest(report)&&fresh&&
