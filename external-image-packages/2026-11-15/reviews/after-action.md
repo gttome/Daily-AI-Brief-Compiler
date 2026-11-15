@@ -1,6 +1,6 @@
 # 2026-11-15 premium image after-action report
 
-**Status: PACKAGE_READY**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | a048a1ec772b9d90b4f3b1d91535768f83ff1c96 |
 | Executor observed run start | 2026-11-15T03:15:58Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-15T03:20:58Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_CI_AND_DEPLOYMENT |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CAPTURE; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-15T03:36:18.228Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -50,5 +50,7 @@ Visual review path: external-image-packages/2026-11-15/reviews/live/semantic-pix
 November 14 combined AAR, charts, source preflight and six first-attempt rejection records informed the November 15 plans. Every text box planned a generous edge buffer, fully blank marked surfaces, story-specific artwork, and connectors terminating at physical ports.
 
 The observed first-native-call clock, job hash, source binding and owner token were written and checked before the first attempt. The generated assets were individually checked at full resolution and 320 px, and then the six accepted uploads were matched byte for byte at immutable GitHub commits.
+
+Independent reader checks matched six live PNG hashes, twelve exact story placements and all 17 protected October 8 object hashes. All twenty-four saved desktop and mobile targets passed individual inspection. The first-pass goal was missed. One of six images exceeded two attempts.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
