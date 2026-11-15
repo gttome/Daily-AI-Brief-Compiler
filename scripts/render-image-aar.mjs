@@ -7,7 +7,7 @@ const cell=s=>String(s??'Not recorded').replaceAll('|','/').replace(/\r?\n/g,' '
 export function renderImageAar({aar,job,manifest}){
  validateImageAfterAction({aar,job,manifest});
  const p=aar.production;
- const diversity=verifyEditorialDiversityEvidence(manifest);
+ const diversity=verifyEditorialDiversityEvidence({...manifest,edition_date:manifest?.edition_date??job.edition_date});
  return [
  '# '+aar.edition_date+' premium image after-action report','',
  '**Status: '+cell(aar.status)+'**. This is image-lane status, not unattended certification of the editorial producer.','',
