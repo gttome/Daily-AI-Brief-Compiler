@@ -1,6 +1,7 @@
 // Deterministic reporting only: this module neither researches topics nor changes release gates.
 import crypto from 'node:crypto';
-import {isTop10InputSchema} from '../operations/top10-input-identity.mjs';
+const isTop10InputSchema=s=>s==='daily-ai-topic-top10-input-v1'||
+  s==='daily-ai-topic-top10-trend-input-v1'; // Keep this renderer standalone in copied AAR workflow.
 
 const EFFECTIVE_CYCLE='2026-11-02';
 const SHA=/^[a-f0-9]{40}$/;
