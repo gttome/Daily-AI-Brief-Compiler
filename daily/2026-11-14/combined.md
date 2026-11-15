@@ -444,6 +444,10 @@ No current-edition postpublication incident register was available; this is **NO
 
 *Generated deterministically from cycle- and edition-specific GitHub records. The report combines the Top 10 discovery priorities, its Compiler handoff and searches, the published Brief, and the image run; original research, Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*
 
+### Owner visual review — edition-wide diversity (2026-11-14)
+
+**OPEN · P1 · proposed correction, not implemented.** After the six November 15 images were published, the owner reported that they are **far too similar in visual style and format**. This qualitative, edition-wide assessment is distinct from the 24/24 per-image desktop and mobile semantic/pixel passes; those checks did not measure whether the set was visually varied. For future editions, art direction must follow each article's own explanatory needs instead of copying a previous image's visual grammar. Require six-image side-by-side review, intentional variety in composition and representational approach, and a recorded package-level diversity decision. Do not claim the issue was resolved merely because the individual PNGs passed existing checks. Preserve the published edition and its historical verification receipts.
+
 <!-- continuous-improvement:start -->
 ## Continuous improvement review
 
@@ -451,13 +455,14 @@ Edition **2026-11-15**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**4 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**5 corrective-action findings** (4 production-receipt findings and 1 owner-reported visual-quality issue); open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
 | P1 | 6 failed protected publication gates were recorded (6 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Next genuine run |
 | P1 | 7 rejected image candidates preceded the verified six-image release. | Images: Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation. | Next genuine run |
+| P1 | **Owner-reported image-style repetition (OPEN):** all six November 15 illustrations look too similar in visual style, composition and format despite 24/24 individual desktop/mobile visual checks. The existing checks did not certify diversity across the six-image set. | Images: Give each article its own subject-driven art direction; deliberately vary composition, viewpoint, visual metaphor, media treatment and information hierarchy rather than only changing colors or labels. Add a six-up, edition-level contact-sheet review at desktop and 320 px, with a separate visual-diversity PASS/FAIL. Reject packages that reuse essentially the same template; record style plan, observed differences and any diversity rework in the next image AAR. Preserve existing factual, no-people, white-background and legibility safeguards. | Next genuine image run |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
 Findings are observational and do not claim a repair was executed by the reporter.
