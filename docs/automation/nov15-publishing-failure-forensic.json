@@ -1,0 +1,83 @@
+{
+  "schema_version": "nov15-protected-failure-original-log-review-v1",
+  "edition_date": "2026-11-15",
+  "historical_record_is_immutable": true,
+  "purpose": "Supplemental original job log cause review; does not retroactively rewrite protected outcomes or claim autonomous recovery.",
+  "events": [
+    {
+      "edition_date": "2026-11-15",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43662900216",
+      "stage": "PRESEAL_VIDEO",
+      "original_log_diagnostic": "production_evidence:video_candidate_review_incomplete:0",
+      "root_cause_code": "PRESEAL_VIDEO_SUBSTANTIVE_REVIEW_INCOMPLETE",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43662900216",
+      "evidence_scope": "original failed GitHub Actions job log",
+      "explanation": "Original job reported incomplete video-candidate review; the trailing diagnostic index is retained without interpreting its meaning.",
+      "preventive_action": "Before requesting the protected probe, ensure six original, genuinely reviewed video candidates across sufficient publishers, and verify each review record."
+    },
+    {
+      "edition_date": "2026-11-15",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43664007906",
+      "stage": "PRESEAL_VIDEO",
+      "original_log_diagnostic": "production_evidence:video_candidate_review_incomplete:3",
+      "root_cause_code": "PRESEAL_VIDEO_SUBSTANTIVE_REVIEW_INCOMPLETE",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43664007906",
+      "evidence_scope": "original failed GitHub Actions job log",
+      "explanation": "Original job reported incomplete candidate review with diagnostic index 3; retain original source and do not guess the precise missing field.",
+      "preventive_action": "Before requesting the protected probe, ensure six original, genuinely reviewed video candidates across sufficient publishers, and verify each review record."
+    },
+    {
+      "edition_date": "2026-11-15",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43664164536",
+      "stage": "PRESEAL_VIDEO",
+      "original_log_diagnostic": "production_evidence:video_candidate_review_incomplete:3",
+      "root_cause_code": "PRESEAL_VIDEO_SUBSTANTIVE_REVIEW_INCOMPLETE",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43664164536",
+      "evidence_scope": "original failed GitHub Actions job log",
+      "explanation": "Original job reported incomplete candidate review with diagnostic index 3; evidence of full original-program review remains necessary.",
+      "preventive_action": "Before requesting the protected probe, ensure six original, genuinely reviewed video candidates across sufficient publishers, and verify each review record."
+    },
+    {
+      "edition_date": "2026-11-15",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43664335207",
+      "stage": "PRESEAL_VIDEO",
+      "original_log_diagnostic": "production_evidence:six_prequalified_substantive_video_candidates_required",
+      "root_cause_code": "PRESEAL_VIDEO_POOL_INCOMPLETE",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43664335207",
+      "evidence_scope": "original failed GitHub Actions job log",
+      "explanation": "Original protected probe required six genuinely prequalified, substantive candidates before preseal; it rejected the available pool.",
+      "preventive_action": "Before requesting the protected probe, ensure six original, genuinely reviewed video candidates across sufficient publishers, and verify each review record."
+    },
+    {
+      "edition_date": "2026-11-15",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43666976376",
+      "stage": "SOURCE_READY",
+      "original_log_diagnostic": "SOURCE_READY_BLOCKED: BUNDLE_INVALID_OR_WRONG_EDITION",
+      "root_cause_code": "SOURCE_READY_BUNDLE_OR_EDITION_INVALID",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43666976376",
+      "evidence_scope": "original failed GitHub Actions job log",
+      "explanation": "Original readiness job reported bundle invalid OR wrong edition; the log does not isolate which, so both must be checked before another signal.",
+      "preventive_action": "Before signaling SOURCE_READY, validate the exact current edition bundle and source binding at current head."
+    },
+    {
+      "edition_date": "2026-11-15",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43667358993",
+      "stage": "MEDIA_HISTORY",
+      "original_log_diagnostic": "EDITORIAL_NEAR_DUPLICATE_REQUIRES_RESELECTION",
+      "root_cause_code": "EDITORIAL_SKILLS_NEAR_DUPLICATE",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43667358993",
+      "evidence_scope": "original failed GitHub Actions job log",
+      "explanation": "Original history check rejected a recurring generic Skills lesson; the article required re-selection to a distinct task-specific procedure.",
+      "preventive_action": "Before requesting MEDIA_HISTORY readiness, compare the proposed Skills reader lesson with the complete historical Skills archive; replace only the duplicate."
+    }
+  ],
+  "summary": {
+    "protected_failures": 6,
+    "preseal_video": 4,
+    "source_ready": 1,
+    "media_history": 1,
+    "fully_specific_root_causes_unavailable": 1,
+    "notes": "SOURCE_READY original error is disjunctive; other diagnostics identify the actual failed validation condition, not an established deeper systemic cause."
+  },
+  "next_cycle_policy": "Use exact first failing log/step before bounded repair. Before gate submission independently validate candidate review completeness, pool size, exact bundle/edition binding, full archive novelty. Reuse accepted work and preserve required gates."
+}

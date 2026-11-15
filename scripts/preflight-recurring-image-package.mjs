@@ -1,6 +1,7 @@
 import {renderImageAar} from './render-image-aar.mjs';
 import {verifySixFrozenImageSpecifications} from './preflight-image-firstpass.mjs';
 import {validateImageAfterAction,IMAGE_AAR_EFFECTIVE} from './image-aar-contract.mjs';
+import {verifyEditorialDiversityEvidence} from '../operations/image-set-diversity.mjs';
 // Exact-current-cycle, pre-FIRST-image-PR admission. Run on a pushed candidate
 // branch with current origin/main, origin/shadow-pages-history and source fetched.
 // This is deterministic receipt and byte validation, NOT a semantic pixel review.
@@ -142,6 +143,17 @@ export async function preflightRecurringImagePackage({
   if(admission.edition_date!==date||assignment.cycle_date!==cycle)
     fail('ASSIGNMENT_NOT_CURRENT_CHICAGO_CYCLE');
   verifyReviewFiles(root,manifest,job);
+  const diversity=verifyEditorialDiversityEvidence(manifest);
+  if(diversity.required){
+    // The six-up sheet is committed with this exact six-image package and
+    // shares its immutable job/hash provenance. It cannot be a remote link,
+    // uncommitted screenshot, or another edition's review.
+    if(!changed.includes(diversity.contact_sheet_path))fail('SIX_UP_CONTACT_SHEET_NOT_IN_PR');
+    const sheet=committedFile(root,diversity.contact_sheet_path);
+    if(hash(sheet)!==diversity.contact_sheet_sha256||
+       !sheet.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])))
+       fail('SIX_UP_CONTACT_SHEET_HASH_OR_PNG_INVALID');
+  }
   if(date>=IMAGE_AAR_EFFECTIVE){
     verifySixFrozenImageSpecifications({job,specifications:readJson(committedFile(root,prefix+'reviews/six-frozen-specs.json'),'FROZEN_SPECS')});
     const aarPath=prefix+'reviews/after-action.json';

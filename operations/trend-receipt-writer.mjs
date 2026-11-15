@@ -1,5 +1,6 @@
 // Canonical prospectively observed Top 10 receipts; never reconstruct a past search.
 // These helpers only shape/validate an observation supplied by the actual editorial worker.
+import {isTop10InputSchema} from './top10-input-identity.mjs';
 const formats=new Set(['article','video','podcast']);
 const outcomes=new Set(['searched','selected','rejected','qualified_not_selected','not_found','unavailable']);
 const time=s=>typeof s==='string'&&/^\d{4}-\d\d-\d\dT.+(?:Z|[+-]\d\d:\d\d)$/.test(s)&&Number.isFinite(Date.parse(s));
@@ -7,7 +8,7 @@ const https=s=>{try{const u=new URL(s);return u.protocol==='https:'&&!u.username
 const fail=why=>{throw Error('TREND_RECEIPT_'+why);};
 const asText=s=>typeof s==='string'&&s.trim().length>0;
 const verifiedIdentity=(coverage,input)=>coverage?.schema_version==='daily-ai-topic-top10-search-coverage-v1'&&
-  input?.schema_version==='daily-ai-topic-top10-input-v1'&&
+  isTop10InputSchema(input?.schema_version)&&
   coverage.edition_date===input.edition_date&&coverage.cycle_date===input.cycle_date&&
   coverage.source_commit===input.source_commit&&coverage.report_sha256===input.report_sha256;
 const selectionTime=record=>record?.editorial_provenance?.selection_locked_at;
