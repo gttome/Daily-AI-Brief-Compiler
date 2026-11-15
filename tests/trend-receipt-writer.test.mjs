@@ -19,6 +19,8 @@ const good={topic_id:'topic-1',format:'article',query:'original paper about reli
 test('current genuine source observation is written in canonical fields without mutating the input',()=>{
  const before=base(),next=recordTrendSearch(before,input,good);
  assert.equal(before.searches[0].outcome,'not_attempted');assert.equal(next.searches[0].outcome,'searched');
+ const realAlias=recordTrendSearch(base(),{...input,schema_version:'daily-ai-topic-top10-trend-input-v1'},good);
+ assert.equal(realAlias.searches[0].outcome,'searched');
  assert.deepEqual(next.searches[0].source_urls,good.source_urls);
  assert.equal(next.searches[0].attempted_at,good.attempted_at);
 });
