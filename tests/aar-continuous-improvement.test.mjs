@@ -103,7 +103,7 @@ test('workflow adds measurements to existing reporting job and preserves schedul
  const w=fs.readFileSync('.github/workflows/daily-operations-report.yml','utf8');assert.match(w,/cp scripts\/aar-improvement-metrics.mjs/);assert.match(w,/recovery\/\$edition.json/);assert.match(w,/node "\$tmp\/aar-improvement-metrics.mjs" daily/);
  assert.equal((w.match(/runs-on:/g)||[]).length,1);assert.equal((w.match(/cron:/g)||[]).length,1);
  const source=fs.readFileSync('scripts/top10-aar.mjs','utf8');assert.match(source,/Historical producer observations \(not current status\)/);assert.match(source,/Current reconciled conclusion/);
- const changes=JSON.parse(fs.readFileSync('config/aar-improvement-register.json'));assert.equal(changes.changes.length,14);assert.equal(new Set(changes.changes.map(x=>x.change_id)).size,14);
+ const changes=JSON.parse(fs.readFileSync('config/aar-improvement-register.json'));assert.equal(changes.changes.length,19);assert.equal(new Set(changes.changes.map(x=>x.change_id)).size,19);
 });
 test('consolidated prompts retain all four task identities and mapped requirements with inactive archived history',()=>{
  const prompts=JSON.parse(fs.readFileSync('config/automation-prompts.json')),audit=JSON.parse(fs.readFileSync('docs/automation/current/requirements-audit.json'));
