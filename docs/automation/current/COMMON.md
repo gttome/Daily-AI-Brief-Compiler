@@ -60,3 +60,7 @@ Read `docs/automation/NOV11_APPROVED_AAR_ACTIONS.md` at each existing new-editio
 ## November 14 owner-approved AAR — apply only to future unlocked editions
 
 At the next genuine start, read [NOV14_APPROVED_AAR_ACTIONS.md](../NOV14_APPROVED_AAR_ACTIONS.md). Distinguish editorial publication, source-inspection evidence, image-first-pass efficiency, event-level video/podcast diversity, Pages deployment retry integrity and first-party autonomy. Completed November 14 content, six accepted images, prior released history, the existing four tasks and their schedules are immutable. The AAR reporting dependency repair is already merged and validated; do not redo it.
+
+## Owner-approved November 15 follow-through (next unlocked edition)
+
+Read docs/automation/NOV15_APPROVED_AAR_IMPLEMENTATION.md before the next genuine edition. Track NOV15-01 to NOV15-05 in the existing AAR. The new six-up image diversity review and art-direction first-pass gates apply from 2026-11-16 forward; protect historical assets. Validate exact Top 10 bytes/search receipts, preflight original video candidate completeness and Skills novelty before submitting existing protected gates, and preserve first-party scheduler evidence or label it UNPROVEN. No duplicate scheduled work, paid tools or publication bypass.
