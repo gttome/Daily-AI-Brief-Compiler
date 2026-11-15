@@ -2,10 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateImageAfterAction} from './image-aar-contract.mjs';
+import {verifyEditorialDiversityEvidence} from '../operations/image-set-diversity.mjs';
 const cell=s=>String(s??'Not recorded').replaceAll('|','/').replace(/\r?\n/g,' ');
 export function renderImageAar({aar,job,manifest}){
  validateImageAfterAction({aar,job,manifest});
  const p=aar.production;
+ const diversity=verifyEditorialDiversityEvidence(manifest);
  return [
  '# '+aar.edition_date+' premium image after-action report','',
  '**Status: '+cell(aar.status)+'**. This is image-lane status, not unattended certification of the editorial producer.','',
@@ -26,6 +28,20 @@ export function renderImageAar({aar,job,manifest}){
  '| Weekly usage | '+(aar.usage?.work_usage_percent??'UNKNOWN')+' |','',
  '## Per-story effort','', '| Story | Attempts | Accepted SHA-256 |','|---|---:|---|',
  ...aar.images.map(i=>'| '+cell(i.story_id)+' | '+i.generation_attempts+' | '+i.sha256+' |'),'',
+ ...(diversity.required?[
+ '## Six-image visual diversity review','',
+ '**Status: '+cell(diversity.status)+'**. This is a reviewer-observed, hash-bound saved-pixel comparison, not owner acceptance or proof of visually different pixels by code alone.','',
+ 'Six-up contact sheet: '+cell(diversity.contact_sheet_path)+
+ ' · SHA-256: '+cell(diversity.contact_sheet_sha256)+'.','',
+ 'Distinct format families: '+diversity.distinct_format_families+
+ '. Pairwise actual-image observations: '+diversity.pairwise_reviews+'/15.','',
+ '| Story | Observed format | Medium | Perspective | Visual distinction |',
+ '|---|---|---|---|---|',
+ ...manifest.set_review.editorial_diversity.stories.map(i=>'| '+cell(i.story_id)+' | '+
+    cell(i.format_family)+' | '+cell(i.medium_treatment)+' | '+cell(i.perspective)+' | '+
+    cell(i.observed_distinctiveness)+' |'),'',
+ 'Retain the full 15 pairwise observations in the immutable manifest. Repeat the complete set review on any changed image; do not use color or renamed diagram tags alone as differentiation.',''
+ ]:[]),
  '## Corrections','', '| Stage | Issue | Correction |','|---|---|---|',
  ...aar.errors.map(e=>'| '+cell(e.phase)+' | '+cell(e.issue)+' | '+cell(e.correction)+' |'),'',
  '## Evidence and limitations','',
