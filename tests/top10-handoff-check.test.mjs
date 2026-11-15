@@ -13,6 +13,8 @@ const verify=i=>verifyConsumedTop10Report({input:i,cycle:'2026-11-15',edition:'2
  sourcePath:input.source_path,commit:input.source_commit,blob:'b'.repeat(40),raw});
 test('consumed report requires exact original Git bytes and matching input snapshot',()=>{
  assert.equal(verify(input).result,'EXACT_GIT_REPORT_VERIFIED');
+ assert.equal(verify({...input,schema_version:'daily-ai-topic-top10-trend-input-v1'}).result,'EXACT_GIT_REPORT_VERIFIED');
+ assert.equal(verify({...input,schema_version:'unrecognized-input-v1'}).result,'UNVERIFIED');
  assert.ok(verify({...input,report_sha256:'c'.repeat(64)}).reasons.includes('CONSUMED_REPORT_BYTES_OR_BLOB_MISMATCH'));
  assert.ok(verify({...input,report:{...report,topics:[{name:'fabricated'}]}}).reasons.includes('CONSUMED_SNAPSHOT_NOT_EXACT_SOURCE_REPORT'));
  assert.ok(verify({...input,edition_date:'2026-11-15'}).reasons.includes('WRONG_CYCLE_EDITION_OR_CONSUMED_SOURCE'));
