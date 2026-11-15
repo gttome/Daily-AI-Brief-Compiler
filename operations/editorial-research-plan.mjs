@@ -1,5 +1,6 @@
 // Planning is not source inspection. Preserve every currently enabled editorial ID.
 import crypto from 'node:crypto';
+import {isTop10InputSchema} from './top10-input-identity.mjs';
 import {enabledEditorialResources,validateResourceRegistry} from './resources.mjs';
 import {buildVideoSourceSweepPlan} from './video-source-sweep.mjs';
 import {buildScientificPaperCadence} from './scientific-paper-cadence.mjs';
@@ -44,7 +45,7 @@ function initializeTrendSearchCoverage(editionDate,input){
  const cycle=input.cycle_date;
  const reportAge=Date.parse(input.retrieved_at)-Date.parse(report?.generated_at);
  const topics=report?.topics;
- if(input.schema_version!=='daily-ai-topic-top10-input-v1'||
+ if(!isTop10InputSchema(input.schema_version)||
     !validDate(cycle)||Date.parse(editionDate)-Date.parse(cycle)!==86400000||
     input.edition_date!==editionDate||input.report_date!==cycle||
     report?.schema_version!=='daily-ai-topic-top10-v1'||report.report_date!==cycle||
