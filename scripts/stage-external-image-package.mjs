@@ -1,4 +1,5 @@
 import {OCT9_RECOVERY_BRANCH} from '../compiler/oct9-owner-exception.mjs';
+import {verifyEditorialDiversityEvidence} from '../operations/image-set-diversity.mjs';
 // Verifies a separately produced package already committed to Git. No image creation.
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -86,6 +87,9 @@ function validateContext({job,jobBytes,manifest}){
     manifest.set_review.differentiation_evidence.length<60||
     manifest.set_review.reviewed_sha256s?.length!==6||
     new Set(manifest.set_review.reviewed_sha256s).size!==6)fail('independent_six_image_review_evidence');
+  // Effective on new editions only. Descriptive visual signatures alone did
+  // not catch owner-observed lookalike images on November 15.
+  verifyEditorialDiversityEvidence(manifest);
   return job.stories;
 }
 export function validateExternalImagePackage({job,jobBytes,manifest,repoRoot}){
