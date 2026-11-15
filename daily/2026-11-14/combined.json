@@ -1025,7 +1025,7 @@
       "attention": "Event-matched video where available, independently attributed publisher breadth and public discussion. No pooling of platform metrics.",
       "limitations": "Mixed provenance and clocks leave confidence in precise order low."
     },
-    "source_commit": "7f74dca0d851ac12a7ed7f62edb25d2541e9c74b",
+    "source_commit": "d395919e84e5e5e30bbab6cccf8e6d0441cb0777",
     "source_blob_sha": "71498f6da979081d255aff37c4fd2ed4e5adc623",
     "report_sha256": "d98a22fe3ed2717accccea48ff980a7a5f7c3a6251eb68516df7bbda356721e9",
     "consumed_source_commit": null,
@@ -1158,7 +1158,7 @@
       },
       "previous_cycle": "2026-11-13",
       "previous_report_sha256": "d95a1e3be576cf9f6b5608e7c8a2f9ce329fccd88f7fa793baacffcc53ff8bf7",
-      "previous_aar_sha256": "646d22145bc71dce815e9bb0d7478a964775fe6b206a1c29d48cb3e7d242db51",
+      "previous_aar_sha256": "5db70d04f137d8a7b1f8a91263c9eece49ee3eda96fbd94bad5b2ae498b48330",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1347,9 +1347,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1403,11 +1403,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7f74dca0d851ac12a7ed7f62edb25d2541e9c74b/signals/ai-topic-top10/2026-11-14.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d395919e84e5e5e30bbab6cccf8e6d0441cb0777/signals/ai-topic-top10/2026-11-14.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7f74dca0d851ac12a7ed7f62edb25d2541e9c74b/signals/ai-topic-top10/2026-11-14.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d395919e84e5e5e30bbab6cccf8e6d0441cb0777/signals/ai-topic-top10/2026-11-14.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1445,8 +1445,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov15-t1-llama-v1",
+            "label": "llama.cpp 1.0 makes library compatibility explicit",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov15-t2-teamwork-science",
+            "label": "Google reports multi-agent results across proofs and systems",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov15-k1-freelance-work",
+            "label": "Freelance postings show broader AI project scopes",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov15-k2-decisions-api",
+            "label": "Gemini Decisions scores bounded choices in one pass",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov15-a1-release-triage",
+            "label": "Copilot Chat standardizes release-note risk triage",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov15-a2-creative-agent",
+            "label": "Adobe extends editable agent workflows across Creative Cloud",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 13,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1535,8 +1579,8 @@
         "coverage_percent": 3,
         "coverage_numerator": 3,
         "coverage_denominator": 109,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 13,
         "top10_linked_items": null,
         "publication_failures": 6
       }
@@ -1547,11 +1591,11 @@
         "median": 7.5
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
-        "median": 0.5
+        "recorded_editions": 7,
+        "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 12
       },
       "top10_linked_items": {
@@ -1905,18 +1949,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-11",
       "cumulative_review_due_today": false,
-      "finding_count": 4,
-      "open_production_blockers": 1,
+      "finding_count": 3,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -3789,9 +3824,9 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 45,
-      "unclassified": 19,
+      "recorded_editions": 7,
+      "total_rejected": 52,
+      "unclassified": 26,
       "rows": [
         {
           "cause": "LAYOUT",
