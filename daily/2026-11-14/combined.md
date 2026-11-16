@@ -6,7 +6,7 @@
 **Primary public reader:** [Open 2026-11-15 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-15/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **INVALID**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 9m 56s** · **Compiler final seal window 5m 18s** · **Premium Images 16m 49s** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -98,7 +98,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 |:--|:--:|:--|
 | Entire-system evidence | **PARTIAL** | Full Top 10 list, bound Compiler input, all-format search receipts and existing release checks; separate from publication and autonomy |
 | Top 10 report | **partial · 10 topics** | Same Chicago cycle report; provisional/partial coverage remains disclosed |
-| Top 10 received by Compiler | **INVALID** | Exact report snapshot bytes; consumed commit separately corroborated: UNPROVEN |
+| Top 10 received by Compiler | **RECEIVED_SNAPSHOT_BOUND** | Exact report snapshot bytes; consumed commit separately corroborated: YES |
 | Top 10 guided article/video/podcast searches | **INVALID** | Actual source-search receipts and selected/rejected topic outcomes |
 | Top 10 stage duration | **9m 56s** | Same-cycle run receipt only; no runtime or usage estimate |
 | Editorial publication | **PASS** | State and public reader integrity receipt |
@@ -112,7 +112,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Distinct selected video publishers | **2** | One channel is one publisher even across multiple videos |
 | Cross-media topic diversity | **FOUR_DISTINCT_EVENTS_REVIEW_RECORDED** | Four video/podcast events and six pairwise original-source comparisons; editorial claims remain producer-attested |
 | Video discovery source attempts | **29 / 29** | Attempt evidence across enabled and qualification-only leads; REPORTED_ALL_ATTEMPTED. Not a claim of full content review or player verification | 
-| Duplicate active Watchlist display titles | **0** | Published canonical Watchlist only; historical evidence retained |
+| Duplicate active Watchlist display titles | **Not recorded** | Published canonical Watchlist only; historical evidence retained |
 | Original-release video playback (historical) | **TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS** | Later reader corrections may replace these originally verified videos; see incident register | 
 | Postpublication reader incidents | **NOT_RECORDED** | Edition-specific owner reports and corrective PRs, not inferred absence | 
 | Verified postpublication video corrections | **NOT_RECORDED** | Incident register tracks correction PR, actual playback evidence and reader preservation |
@@ -164,7 +164,7 @@ flowchart TD
 | Run/report result | PARTIAL |
 | Report status / topics | partial / 10 |
 | Freshness | FRESH\_AT\_CONSUMPTION |
-| Compiler handoff | INVALID |
+| Compiler handoff | RECEIVED\_SNAPSHOT\_BOUND |
 | Search coverage | INVALID |
 | Selection mapping verification | INVALID |
 | Observed start / finish | 2026-11-14T23:01:44Z / 2026-11-14T23:11:40Z |
@@ -172,7 +172,7 @@ flowchart TD
 | Usage percent | Not reported |
 | Cost USD | Not reported |
 | Independent scheduler autonomy | UNPROVEN |
-| Compiler-recorded consumed commit | Not reported |
+| Compiler-recorded consumed commit | 7f74dca0d851ac12a7ed7f62edb25d2541e9c74b |
 | Report SHA-256 | d98a22fe3ed2717accccea48ff980a7a5f7c3a6251eb68516df7bbda356721e9 |
 
 | Discovery order | AI topic | Summary | Confidence | Evidence |
@@ -204,14 +204,12 @@ No validated selection-to-topic mapping was recorded.
 
 **Gaps and limitations:**
 
-- Compiler trend input is not a fresh, date-correct, exact-report snapshot bound to independently collected bytes.
 - Claimed trend-to-selection mappings are not verified against the same-edition selected bundle.
 - Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input.
 - The report labels its research partial.
 - Video watch routes throttled or returned metadata shells. Zero verified playbacks, transcript bodies or direct YouTube measurements.
 - An old YouTube measurement clock remained unchanged. No audience growth, velocity or rank movement inferred.
 - Several topics depend on one identifiable signal. The sample is too limited for exact popularity ranking.
-- The exact Compiler-consumed commit has not been independently corroborated.
 
 **Recorded run issues:**
 
@@ -433,8 +431,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-15/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-15/shadow-runs/2026-11-15/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-15/shadow-runs/2026-11-15/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-14.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-14.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-14.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-14.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-15/shadow-runs/2026-11-15/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-15/shadow-runs/2026-11-15/editorial/trend-search-coverage.json) |
 
@@ -444,10 +442,6 @@ No current-edition postpublication incident register was available; this is **NO
 
 *Generated deterministically from cycle- and edition-specific GitHub records. The report combines the Top 10 discovery priorities, its Compiler handoff and searches, the published Brief, and the image run; original research, Compiler, image, hash, and review receipts remain immutable. This reporting action creates no stories, images, releases, extra AI tasks, or schedule changes.*
 
-### Owner visual review — edition-wide diversity (2026-11-14)
-
-**OPEN · P1 · proposed correction, not implemented.** After the six November 15 images were published, the owner reported that they are **far too similar in visual style and format**. This qualitative, edition-wide assessment is distinct from the 24/24 per-image desktop and mobile semantic/pixel passes; those checks did not measure whether the set was visually varied. For future editions, art direction must follow each article's own explanatory needs instead of copying a previous image's visual grammar. Require six-image side-by-side review, intentional variety in composition and representational approach, and a recorded package-level diversity decision. Do not claim the issue was resolved merely because the individual PNGs passed existing checks. Preserve the published edition and its historical verification receipts.
-
 <!-- continuous-improvement:start -->
 ## Continuous improvement review
 
@@ -455,14 +449,13 @@ Edition **2026-11-15**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**5 corrective-action findings** (4 production-receipt findings and 1 owner-reported visual-quality issue); open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-11**. The daily review never waits for that date to act on a safe live problem.
+**4 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-17**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
 | P1 | 6 failed protected publication gates were recorded (6 unclassified causes). | Compiler / Recovery: Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition. | Next genuine run |
 | P1 | 7 rejected image candidates preceded the verified six-image release. | Images: Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation. | Next genuine run |
-| P1 | **Owner-reported image-style repetition (OPEN):** all six November 15 illustrations look too similar in visual style, composition and format despite 24/24 individual desktop/mobile visual checks. The existing checks did not certify diversity across the six-image set. | Images: Give each article its own subject-driven art direction; deliberately vary composition, viewpoint, visual metaphor, media treatment and information hierarchy rather than only changing colors or labels. Add a six-up, edition-level contact-sheet review at desktop and 320 px, with a separate visual-diversity PASS/FAIL. Reject packages that reuse essentially the same template; record style plan, observed differences and any diversity rework in the next image AAR. Preserve existing factual, no-people, white-background and legibility safeguards. | Next genuine image run |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
 Findings are observational and do not claim a repair was executed by the reporter.
@@ -485,6 +478,11 @@ Findings are observational and do not claim a repair was executed by the reporte
 | AAR-08 — Rolling source contribution | 2026-11-11 | REVIEWED | revise |
 | AAR-09 — Recurring image defect categories | 2026-11-11 | REVIEWED | keep |
 | AAR-10 — Top 10 publisher-family sensitivity | 2026-11-11 | REVIEWED | keep |
+| NOV15-01 — Six premium images must not share an editorial template | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-02 — Exact Top 10 handoff and three-format search use | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-03 — Original failed protected gate causes and early prevention | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-04 — Improve image first-pass acceptance without weakening quality | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-05 — Independently attest unattended scheduler-to-release autonomy | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
 
 Pending: 0; overdue: 0; reviewed: 14. Implemented controls await measured results; review decisions do not disable controls.
 

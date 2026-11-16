@@ -1025,12 +1025,12 @@
       "attention": "Event-matched video where available, independently attributed publisher breadth and public discussion. No pooling of platform metrics.",
       "limitations": "Mixed provenance and clocks leave confidence in precise order low."
     },
-    "source_commit": "defbda84df29bed1b261b91230075b3d5c425dae",
+    "source_commit": "22c8635fa41d8bb4e4c136abee32bc9ac8e62196",
     "source_blob_sha": "71498f6da979081d255aff37c4fd2ed4e5adc623",
     "report_sha256": "d98a22fe3ed2717accccea48ff980a7a5f7c3a6251eb68516df7bbda356721e9",
-    "consumed_source_commit": null,
-    "consumed_commit_independently_verified": false,
-    "handoff_status": "INVALID",
+    "consumed_source_commit": "7f74dca0d851ac12a7ed7f62edb25d2541e9c74b",
+    "consumed_commit_independently_verified": true,
+    "handoff_status": "RECEIVED_SNAPSHOT_BOUND",
     "search_status": "INVALID",
     "search_counts": {
       "article": {
@@ -1101,7 +1101,6 @@
       }
     ],
     "defects": [
-      "Compiler trend input is not a fresh, date-correct, exact-report snapshot bound to independently collected bytes.",
       "Claimed trend-to-selection mappings are not verified against the same-edition selected bundle.",
       "Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input."
     ],
@@ -1109,8 +1108,7 @@
       "The report labels its research partial.",
       "Video watch routes throttled or returned metadata shells. Zero verified playbacks, transcript bodies or direct YouTube measurements.",
       "An old YouTube measurement clock remained unchanged. No audience growth, velocity or rank movement inferred.",
-      "Several topics depend on one identifiable signal. The sample is too limited for exact popularity ranking.",
-      "The exact Compiler-consumed commit has not been independently corroborated."
+      "Several topics depend on one identifiable signal. The sample is too limited for exact popularity ranking."
     ],
     "note": "Report, source-readback and search receipts are separate observations. Snapshot binding verifies the collected report bytes; the consumed commit is independently corroborated only when the separately fetched source bytes match. These records do not independently attest scheduler identity or source truth. Top 10 reporting does not change Brief/image release status.",
     "ranking_status": "provisional",
@@ -1158,7 +1156,7 @@
       },
       "previous_cycle": "2026-11-13",
       "previous_report_sha256": "d95a1e3be576cf9f6b5608e7c8a2f9ce329fccd88f7fa793baacffcc53ff8bf7",
-      "previous_aar_sha256": "c1112c971bb132f103008dbf7b47d7d93b9b25b60c88ee101723c633f87f89d2",
+      "previous_aar_sha256": "49359197181dd74fb50b87239976f9c75f08e89ecd68472d1784d903f46eca84",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1335,7 +1333,7 @@
     "content_changed": false,
     "first_party_scheduler_attested": false
   },
-  "watchlist_title_collisions": 0,
+  "watchlist_title_collisions": null,
   "postpublication_incidents_recorded": null,
   "postpublication_video_corrections_verified": null,
   "editorial_index_retry_counts": {
@@ -1406,11 +1404,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-14.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-14.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-14.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-14.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1939,6 +1937,71 @@
             "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dc9e3dc6b3a768c371a4e22ea9371af519674e16/daily/2026-11-11/improvement-metrics.json"
           ]
         }
+      },
+      {
+        "change_id": "NOV15-01",
+        "title": "Six premium images must not share an editorial template",
+        "owner": "Images",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Actual six-up contact sheet, 15 visual pair judgments, at least 4 demonstrated format and medium families; subsequent owner review",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-02",
+        "title": "Exact Top 10 handoff and three-format search use",
+        "owner": "Top 10 / Compiler",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Bound original report commit/blob/hash and compiler snapshot; observed article/video/podcast searches and same-edition mappings",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-03",
+        "title": "Original failed protected gate causes and early prevention",
+        "owner": "Compiler / Recovery",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Original run-log diagnostics and cause_reviews; prevent repeated preseal missing review/pool, source-ready bundle error and Skills near duplicate",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-04",
+        "title": "Improve image first-pass acceptance without weakening quality",
+        "owner": "Images",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Frozen six story-specific art-direction/risk-preflight records, first-pass accepts >=3/6 target and <=2 attempts per image target, actual attempts",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-05",
+        "title": "Independently attest unattended scheduler-to-release autonomy",
+        "owner": "All four tasks / Recovery",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Actual first-party scheduler evidence, task entry and checkpoint continuity through release and combined AAR; UNPROVEN without external attestation",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
       }
     ],
     "change_review_counts": {
@@ -1950,7 +2013,7 @@
       "schema_version": "daily-aar-action-review-v1",
       "edition_date": "2026-11-15",
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
-      "next_cumulative_review": "2026-11-11",
+      "next_cumulative_review": "2026-11-17",
       "cumulative_review_due_today": false,
       "finding_count": 4,
       "open_production_blockers": 0,

@@ -953,7 +953,7 @@
       "attention": "Comparable same-video observations where available, dated and event-matched video metadata, breadth of independently attributed sources, and corroborating public discussion. Measurements across platforms and formats are kept separate.",
       "limitations": "Coverage, rounding, unknown clocks and overlapping audiences prevent a precise popularity order. Brief fit remains a separate judgment."
     },
-    "source_commit": "defbda84df29bed1b261b91230075b3d5c425dae",
+    "source_commit": "22c8635fa41d8bb4e4c136abee32bc9ac8e62196",
     "source_blob_sha": "63b14778bf67341876e31cb66aea06347b9d51b8",
     "report_sha256": "d95a1e3be576cf9f6b5608e7c8a2f9ce329fccd88f7fa793baacffcc53ff8bf7",
     "consumed_source_commit": "8674a4766ecba0eddfad7a961a4767a382d54924",
@@ -1129,7 +1129,7 @@
       },
       "previous_cycle": "2026-11-12",
       "previous_report_sha256": "c0ce08748a88b4c50e672c4d650e608c8a0c42986a4af0767854afb6b03859dd",
-      "previous_aar_sha256": "2e51f597615b7dd1a1d2ea6c31ba90b1a8f63767e5ed33e7e3b543ac5f6c8f6c",
+      "previous_aar_sha256": "db23d7e7ff7b6b702531bd9b3faa73057975cb1fe7a871dffe199f86483abcc4",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1371,11 +1371,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-13.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-13.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-13.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-13.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1911,6 +1911,71 @@
             "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/dc9e3dc6b3a768c371a4e22ea9371af519674e16/daily/2026-11-11/improvement-metrics.json"
           ]
         }
+      },
+      {
+        "change_id": "NOV15-01",
+        "title": "Six premium images must not share an editorial template",
+        "owner": "Images",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Actual six-up contact sheet, 15 visual pair judgments, at least 4 demonstrated format and medium families; subsequent owner review",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-02",
+        "title": "Exact Top 10 handoff and three-format search use",
+        "owner": "Top 10 / Compiler",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Bound original report commit/blob/hash and compiler snapshot; observed article/video/podcast searches and same-edition mappings",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-03",
+        "title": "Original failed protected gate causes and early prevention",
+        "owner": "Compiler / Recovery",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Original run-log diagnostics and cause_reviews; prevent repeated preseal missing review/pool, source-ready bundle error and Skills near duplicate",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-04",
+        "title": "Improve image first-pass acceptance without weakening quality",
+        "owner": "Images",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Frozen six story-specific art-direction/risk-preflight records, first-pass accepts >=3/6 target and <=2 attempts per image target, actual attempts",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV15-05",
+        "title": "Independently attest unattended scheduler-to-release autonomy",
+        "owner": "All four tasks / Recovery",
+        "effective_edition": "2026-11-16",
+        "review_due_edition": "2026-11-17",
+        "metric": "Actual first-party scheduler evidence, task entry and checkpoint continuity through release and combined AAR; UNPROVEN without external attestation",
+        "baseline": "Observed 2026-11-15 condition; future results only when independently recorded. Do not change November 3 frozen baseline.",
+        "evaluation_rule": "Use original post-activation receipts; evaluate as met/not_met/inconclusive with exact refs. No code change, prompt edit, or reviewer claim alone counts as an improved result.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
       }
     ],
     "change_review_counts": {
@@ -1922,7 +1987,7 @@
       "schema_version": "daily-aar-action-review-v1",
       "edition_date": "2026-11-14",
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
-      "next_cumulative_review": "2026-11-11",
+      "next_cumulative_review": "2026-11-17",
       "cumulative_review_due_today": false,
       "finding_count": 5,
       "open_production_blockers": 0,

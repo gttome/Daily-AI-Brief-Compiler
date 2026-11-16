@@ -404,8 +404,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-07/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-06.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/defbda84df29bed1b261b91230075b3d5c425dae/signals/ai-topic-top10/2026-11-06.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-06.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-06.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-07/shadow-runs/2026-11-07/editorial/trend-input.json) |
 
 **Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/42384104653).
@@ -447,6 +447,11 @@ Findings are observational and do not claim a repair was executed by the reporte
 | AAR-08 — Rolling source contribution | 2026-11-11 | PENDING | Not recorded |
 | AAR-09 — Recurring image defect categories | 2026-11-11 | PENDING | Not recorded |
 | AAR-10 — Top 10 publisher-family sensitivity | 2026-11-11 | PENDING | Not recorded |
+| NOV15-01 — Six premium images must not share an editorial template | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-02 — Exact Top 10 handoff and three-format search use | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-03 — Original failed protected gate causes and early prevention | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-04 — Improve image first-pass acceptance without weakening quality | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV15-05 — Independently attest unattended scheduler-to-release autonomy | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
 
 Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured results; review decisions do not disable controls.
 

@@ -1,0 +1,86 @@
+{
+  "schema_version": "daily-ai-brief-aar-charts-v1",
+  "edition_date": "2026-11-16",
+  "charts": [
+    {
+      "id": "research-coverage",
+      "title": "Research coverage",
+      "description": "Editorial source-index inspection; automated fetches are excluded.",
+      "status": "OBSERVED",
+      "rows": [
+        {
+          "label": "Inspected",
+          "value": 5
+        },
+        {
+          "label": "Not inspected",
+          "value": 104
+        }
+      ],
+      "total": 109,
+      "inspected_percent": 5,
+      "note": "Not inspected includes every index without a recorded editorial inspection; this is not proof of missed stories."
+    },
+    {
+      "id": "image-rework",
+      "title": "Image attempts and rework",
+      "description": "Accepted and rejected candidates for each final image.",
+      "status": "OBSERVED",
+      "rows": [
+        {
+          "id": "nov16-t1-wikitrace",
+          "label": "WikiTrace links agent memory back to evidence",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov16-t2-code-trust",
+          "label": "A trust pyramid turns generated code into evidence",
+          "accepted": 1,
+          "rejected": 0
+        },
+        {
+          "id": "nov16-k1-style-atlas",
+          "label": "A 3D style atlas makes visual prompts inspectable",
+          "accepted": 1,
+          "rejected": 1
+        },
+        {
+          "id": "nov16-k2-h200-procurement",
+          "label": "Procurement records expose an H200 compliance gap",
+          "accepted": 1,
+          "rejected": 0
+        },
+        {
+          "id": "nov16-a1-workflow-redesign",
+          "label": "Agent pilots start with workflow evidence, not ambition",
+          "accepted": 1,
+          "rejected": 0
+        },
+        {
+          "id": "nov16-a2-rsi-assumptions",
+          "label": "Recursive self-improvement depends on inspectable assumptions",
+          "accepted": 1,
+          "rejected": 1
+        }
+      ],
+      "total_attempts": 9,
+      "first_pass_accepted": 3,
+      "target": {
+        "first_pass": 3,
+        "max_attempts": 2,
+        "window": "ongoing from November 8"
+      },
+      "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
+    },
+    {
+      "id": "top10-selection",
+      "title": "Top 10 links to published items",
+      "description": "Unique published items by format, not the number of topic mappings.",
+      "status": "NOT_RECORDED",
+      "rows": null,
+      "note": "No selection quota. Topic linkage does not establish better quality, popularity or causal improvement."
+    }
+  ],
+  "interpretation": "One edition at a time. Missing evidence is not zero. Trend claims require comparable recorded cycles."
+}

@@ -7,7 +7,7 @@
 | Compiler | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED","autonomy_status":"UNPROVEN","owner_intervention_required":null} |
 | Images | {"execution":"START_OBSERVED","result":"SUCCESS","publication":"VERIFIED"} |
 | Top 10 report | partial |
-| Top 10 received by Compiler | INVALID |
+| Top 10 received by Compiler | RECEIVED_SNAPSHOT_BOUND |
 | Topic-guided searches | INVALID |
 | Publication and image result | SUCCESS |
 | Whole-system evidence | PARTIAL |
@@ -26,7 +26,7 @@
 | Run/report result | PARTIAL |
 | Report status / topics | partial / 10 |
 | Freshness | FRESH\_AT\_CONSUMPTION |
-| Compiler handoff | INVALID |
+| Compiler handoff | RECEIVED\_SNAPSHOT\_BOUND |
 | Search coverage | INVALID |
 | Selection mapping verification | INVALID |
 | Observed start / finish | 2026-11-14T23:01:44Z / 2026-11-14T23:11:40Z |
@@ -34,7 +34,7 @@
 | Usage percent | Not reported |
 | Cost USD | Not reported |
 | Independent scheduler autonomy | UNPROVEN |
-| Compiler-recorded consumed commit | Not reported |
+| Compiler-recorded consumed commit | 7f74dca0d851ac12a7ed7f62edb25d2541e9c74b |
 | Report SHA-256 | d98a22fe3ed2717accccea48ff980a7a5f7c3a6251eb68516df7bbda356721e9 |
 
 | Discovery order | AI topic | Summary | Confidence | Evidence |
@@ -66,14 +66,12 @@ No validated selection-to-topic mapping was recorded.
 
 **Gaps and limitations:**
 
-- Compiler trend input is not a fresh, date-correct, exact-report snapshot bound to independently collected bytes.
 - Claimed trend-to-selection mappings are not verified against the same-edition selected bundle.
 - Per-topic article/video/podcast search coverage is incomplete, invalid or bound to a different input.
 - The report labels its research partial.
 - Video watch routes throttled or returned metadata shells. Zero verified playbacks, transcript bodies or direct YouTube measurements.
 - An old YouTube measurement clock remained unchanged. No audience growth, velocity or rank movement inferred.
 - Several topics depend on one identifiable signal. The sample is too limited for exact popularity ranking.
-- The exact Compiler-consumed commit has not been independently corroborated.
 
 **Recorded run issues:**
 
