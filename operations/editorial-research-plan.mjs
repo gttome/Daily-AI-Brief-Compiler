@@ -30,6 +30,15 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
   ...(trendInput && {trend_search_coverage:initializeTrendSearchCoverage(editionDate,trendInput)}),
   video_source_sweep:buildVideoSourceSweepPlan({editionDate,registry}),
   scientific_papers,
+  prelock_research_targets:{
+    genuine_source_index_reviews:15,
+    first_day_qualified_originals_when_available:2,
+    verified_outside_family_video_candidates_when_available:2,
+    earliest_freshness_priority_hours:24,
+    nonbinding_quality_targets:true,
+    timestamps_must_precede_selection_lock:true,
+    count_only_actual_item_or_index_reviews:true
+  },
   video_discovery_fallbacks:eligible.filter(r=>r.video_discovery_fallback?.status==='DISCOVERY_ONLY')
    .map(r=>({resource_id:r.resource_id,...r.video_discovery_fallback})),
   resources:[...first,...rest].map((r,i)=>({order:i+1,resource_id:r.resource_id,url:r.url,
@@ -40,7 +49,7 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
 
 // Initialize dispositions from the already verified and pinned Compiler snapshot.
 // Planning records no actual attempts or selection mappings.
-function initializeTrendSearchCoverage(editionDate,input){
+export function initializeTrendSearchCoverage(editionDate,input){
  const report=input.report;
  const cycle=input.cycle_date;
  const reportAge=Date.parse(input.retrieved_at)-Date.parse(report?.generated_at);
