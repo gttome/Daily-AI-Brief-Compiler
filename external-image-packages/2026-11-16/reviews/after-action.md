@@ -1,6 +1,6 @@
 # 2026-11-16 premium image after-action report
 
-**Status: PACKAGE_READY**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | c144518eedd7b57d7559a76c51d0a720fd2cea71 |
 | Executor observed run start | 2026-11-16T03:10:43Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-16T03:17:15.000Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_CI_AND_DEPLOYMENT |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CAPTURE; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-16T03:36:19.006Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -66,6 +66,10 @@ The exact immutable job and dated source bundle matched their SHA-256 bindings, 
 
 The earlier image AAR, combined AAR, charts and improvement metrics informed freeze review. Art plans used distinct dominant structures, with detached caveats, blank document surfaces and physical connector ports. Four intact native frames were uniformly fit within the final white canvas to meet saved-pixel margins.
 
-Observed nine attempts, three first-pass acceptances and no story requiring a third attempt. The six-up review records fifteen actual visible distinctions. Owner visual feedback and final live context checks remain pending.
+Observed nine attempts, three first-pass acceptances and no story requiring a third attempt. The six-up review records fifteen actual visible distinctions. Owner visual feedback remains unavailable.
+
+Independent live checks matched all six accepted PNG hashes and 12 dated/permanent story placements, verified public receipt and index parity, and rechecked all 17 protected October 8 object hashes.
+
+All 24 distinct saved context captures were inspected at their actual 1440 px desktop or 320 px mobile viewports. Each displayed the correct full story asset, and key labels remained recognizable.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
