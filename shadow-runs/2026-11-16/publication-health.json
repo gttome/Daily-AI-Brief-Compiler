@@ -2,26 +2,32 @@
   "schema_version": "daily-compiler-publication-health-v1",
   "edition_date": "2026-11-16",
   "status": "BLOCKED_PUBLICATION",
-  "observed_at": "2026-11-16T02:08:40.188Z",
+  "observed_at": "2026-11-16T02:15:21.347Z",
   "events": [
     {
       "status": "BLOCKED_PUBLICATION",
       "stage": "VIDEO_PLAYBACK",
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43790267089",
       "observed_at": "2026-11-16T02:08:40.188Z"
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "PUBLICATION_PIPELINE",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43790794583",
+      "observed_at": "2026-11-16T02:15:21.347Z"
     }
   ],
   "outstanding_blocker": {
-    "stage": "VIDEO_PLAYBACK",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43790267089",
-    "first_observed_at": "2026-11-16T02:08:40.188Z",
-    "next_action": "Reselect only failed videos from actual publisher-reviewed backups; require advancing duration-matched signed-out player."
+    "stage": "PUBLICATION_PIPELINE",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43790794583",
+    "first_observed_at": "2026-11-16T02:15:21.347Z",
+    "next_action": "Inspect first failed protected stage and retry only safe idempotent operations."
   },
   "last_recorded_blocker": {
     "status": "BLOCKED_PUBLICATION",
-    "stage": "VIDEO_PLAYBACK",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43790267089",
-    "observed_at": "2026-11-16T02:08:40.188Z"
+    "stage": "PUBLICATION_PIPELINE",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43790794583",
+    "observed_at": "2026-11-16T02:15:21.347Z"
   },
   "public_reader_verified": false,
   "unattended_recovery_proven": false,
