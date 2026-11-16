@@ -69,3 +69,36 @@ test('report packaging keeps the collector and its transitive operations modules
  assert.match(workflow,/cp operations\/top10-handoff-check\.mjs operations\/top10-input-identity\.mjs "\$tmp\/operations\/"/);
  assert.match(workflow,/cp scripts\/top10-aar\.mjs "\$tmp\/top10-aar\.mjs"/);
 });
+
+test('paper-cadence upgrade changes only prospective editions, not historical seven-edition evidence',async()=>{
+ const {buildScientificPaperCadence}=await import('../operations/scientific-paper-cadence.mjs');
+ const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+ assert.equal(buildScientificPaperCadence({editionDate:'2026-11-16',registry}).window_editions,7);
+ const future=buildScientificPaperCadence({editionDate:edition,registry});
+ assert.equal(future.window_editions,3);
+ assert.equal(future.nonblocking,true);
+ assert.match(future.selection_rule,/three|3 editions/);
+});
+test('bounded receipt repair never upgrades invalid search rows into completed research',async()=>{
+ const {spawnSync}=await import('node:child_process');
+ const os=await import('node:os'),path=await import('node:path');
+ const folder=fs.mkdtempSync(path.join(os.tmpdir(),'top10-exact-'));
+ try{
+  const f=fixture();
+  const input=path.join(folder,'input.json'),old=path.join(folder,'old.json'),out=path.join(folder,'output.json');
+  const coverage=f.e['trend-search-coverage'];
+  coverage.searches[0].topic_id='topic-01';
+  coverage.searches[1].query='unrelated search';
+  coverage.searches[2].source_urls=['https://www.google.com/search'];
+  fs.writeFileSync(input,JSON.stringify(f.e['trend-input']));
+  fs.writeFileSync(old,JSON.stringify(coverage));
+  const run=spawnSync(process.execPath,['scripts/prepare-top10-search-receipts.mjs',input,old,out],{encoding:'utf8'});
+  assert.equal(run.status,0,run.stderr);
+  const got=JSON.parse(fs.readFileSync(out));
+  assert.equal(got.searches.length,30);
+  assert.equal(got.receipt_recovery.genuine_attempts_preserved,27);
+  assert.equal(got.receipt_recovery.remaining_real_searches,3);
+  assert.equal(got.searches.filter(x=>x.outcome==='not_attempted').length,3);
+  assert.equal(got.selected_mappings.length,0);
+ }finally{fs.rmSync(folder,{recursive:true,force:true});}
+});
