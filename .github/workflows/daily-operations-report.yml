@@ -75,7 +75,10 @@ jobs:
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
           cp scripts/top10-aar.mjs "$tmp/top10-aar.mjs"
           cp scripts/nov02-evidence-summary.mjs "$tmp/nov02-evidence-summary.mjs"
-          cp scripts/collect-top10-consumed-report.mjs "$tmp/collect-top10-consumed-report.mjs"
+          # Keep the collector's relative imports intact across the evidence checkout.
+          mkdir -p "$tmp/scripts" "$tmp/operations"
+          cp scripts/collect-top10-consumed-report.mjs "$tmp/scripts/"
+          cp operations/top10-handoff-check.mjs operations/top10-input-identity.mjs "$tmp/operations/"
           cp scripts/oct27-source-readiness.mjs "$tmp/oct27-source-readiness.mjs"
           cp scripts/task-origin-evidence.mjs "$tmp/task-origin-evidence.mjs"
           cp scripts/render-unified-production-aar.mjs "$tmp/render-unified-production-aar.mjs"
@@ -144,7 +147,7 @@ jobs:
             git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
             # Optional original scientific-paper selection evidence, edition-scoped only.
             git show "$ref:shadow-runs/$edition/editorial/scientific-paper-coverage.json" > "$in/scientific-paper-coverage.json" 2>/dev/null || rm -f "$in/scientific-paper-coverage.json"
-            node "$tmp/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
+            node "$tmp/scripts/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
             if [ -n "$reports_source_commit" ]; then
               # Optional original guard receipt. Missing timing/cause evidence remains unknown.
               git show "$reports_source_commit:recovery/$edition.json" > "$in/recovery-receipt.json" 2>/dev/null || rm -f "$in/recovery-receipt.json"
