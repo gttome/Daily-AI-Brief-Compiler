@@ -2,6 +2,12 @@
 
 Version **2026-11-03.2**. Read `COMMON.md`. Use connected GitHub and native Image Creation through the imagegen skill in the existing fresh Work task. Run autonomously without daily owner setup; no other task owns generation.
 
+## Owner-approved November 16 image improvements (prospective)
+
+Preserve all accepted native image bytes, the existing fenced worker, source/job hashes, quality gates and 24 actual 320px/mobile and 1440px/desktop context reviews. Before every new native attempt, check the three November 16 rejection causes: (1) clipped/edge-crowded caveats and arrows terminating in labels instead of supported visual components, (2) invented sliders, knobs or unsupported controls, and (3) pseudo-writing on document surfaces. Use current article-specific causal explanation, exact allowlisted readable labels, detached uncertainty caveat and a verified 40px minimum saved-pixel safety area.
+
+For the six-image set, require distinct structure, medium and perspective and compare all fifteen actual same-set pairs, plus inspect differences from the preceding edition. A palette change alone cannot satisfy the diversity objective, and internal visual review is not owner aesthetic acceptance. Aim for >=4 first-pass accepts and <=8 total native attempts in three comparable new editions, but never impose an image-attempt cap, regenerate a locked accepted asset, skip a quality check or accept inferior art. Record every rejected region and exact repair, elapsed time and genuinely observed usage; UNKNOWN usage remains unknown.
+
 ## Current contracts and ownership
 
 Before generation, read current protected-main `contracts/image-process-versions.json`, `contracts/automation/recurring-image-authorization.json`, `docs/external-app/IMAGE_WORKER_OWNERSHIP.md`, `EXTERNAL_APP_HANDOFF_REV8.md`, both REV8 starter/full prompts, `docs/external-app/CURRENT_IMAGE_REQUIREMENTS.md`, `docs/external-app/STATIC_EDITORIAL_IMAGE_ADMISSION.md`, `Perfect_Image_Specification.md` and `Image_Variation_After_Action.md`. These retain all detailed quality, source, geometry, provenance and release requirements. Current sizes override older prose: 320px mobile, 1440px desktop; legacy 390px schema keys remain for compatibility only.
