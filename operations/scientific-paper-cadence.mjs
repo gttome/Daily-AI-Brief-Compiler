@@ -3,6 +3,7 @@
 import {validateResourceRegistry} from './resources.mjs';
 
 export const SCIENTIFIC_PAPER_WINDOW=7;
+export const SCIENTIFIC_PAPER_WINDOW_FROM_NOV17=3;
 const paperIds=new Set(['acl-anthology','arxiv-cs-ai','arxiv-cs-cl','arxiv-cs-lg',
   'openreview','iclr','icml','neurips','hugging-face-daily-papers']);
 const date=s=>typeof s==='string'&&/^20\d{2}-\d{2}-\d{2}$/.test(s)&&
@@ -56,7 +57,8 @@ export function validateScientificPaperEditionReceipt(receipt,{editionDate,bundl
 
 export function buildScientificPaperCadence({editionDate,registry,recentCoverage=[]}){
   assert(date(editionDate)&&!validateResourceRegistry(registry).length&&Array.isArray(recentCoverage),'INVALID_INPUT');
-  const priorDates=Array.from({length:SCIENTIFIC_PAPER_WINDOW},(_,i)=>shift(editionDate,-i-1));
+  const cadenceWindow=editionDate>='2026-11-17'?SCIENTIFIC_PAPER_WINDOW_FROM_NOV17:SCIENTIFIC_PAPER_WINDOW;
+  const priorDates=Array.from({length:cadenceWindow},(_,i)=>shift(editionDate,-i-1));
   const entries=new Map();
   for(const receipt of recentCoverage){
     if(!receipt||!priorDates.includes(receipt.edition_date))continue;
@@ -66,18 +68,18 @@ export function buildScientificPaperCadence({editionDate,registry,recentCoverage
   }
   const confirmed=[...entries.values()].filter(x=>x.review_status==='VERIFIED');
   const known=confirmed.reduce((n,x)=>n+x.published_papers.length,0);
-  const full=confirmed.length===SCIENTIFIC_PAPER_WINDOW;
+  const full=confirmed.length===cadenceWindow;
   const sourceIds=registry.resources.filter(x=>x.enabled&&x.content_types.includes('article')&&
     paperIds.has(x.resource_id)).map(x=>({resource_id:x.resource_id,url:x.url}));
   return {schema_version:'daily-scientific-paper-cadence-plan-v1',edition_date:editionDate,
-    recent_edition_dates:priorDates,window_editions:SCIENTIFIC_PAPER_WINDOW,
+    recent_edition_dates:priorDates,window_editions:cadenceWindow,
     target_paper_led_stories:1,verified_edition_receipts:confirmed.length,
     unverified_edition_dates:priorDates.filter(d=>!entries.has(d)||entries.get(d).review_status!=='VERIFIED'),
     known_paper_led_stories:known,prior_target_status:known>=1?'MET':
       full?'NOT_MET':'UNKNOWN_HISTORY_INCOMPLETE',
     paper_review_priority:known>=1?'NORMAL':'PRIORITY',
     eligible_discovery_sources:sourceIds,
-    selection_rule:'Seek one genuinely qualifying original-paper-led story within every rolling seven editions. Record real methods, sample, limitations, venue and original paper link. Distinguish preprint from peer review. Never force an unqualified or stale paper, change 2/2/2, or bypass freshness/novelty/protected gates.',
+    selection_rule:'Seek one genuinely qualifying original-paper-led story within every rolling '+cadenceWindow+' editions. Record real methods, sample, limitations, venue and original paper link. Distinguish preprint from peer review. Never force an unqualified or stale paper, change 2/2/2, or bypass freshness/novelty/protected gates.',
     nonblocking:true,
     evidence_caveat:'Verified means reported in explicit edition receipts; neither source discovery nor this planner proves a published paper or independent peer-review status.'};
 }

@@ -20,27 +20,42 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
  const eligible=enabledEditorialResources(registry).sort((a,b)=>a.resource_id.localeCompare(b.resource_id));
  const days=Math.floor(Date.parse(editionDate+'T00:00:00Z')/86400000);
  const first=interleave(rotate(eligible.filter(r=>unreviewed.has(r.resource_id)),days));
- const rest=interleave(rotate(eligible.filter(r=>!unreviewed.has(r.resource_id)),days));
+ // The preceding edition's independently recorded inaccessible indexes
+ // receive a bounded revisit after prior unreviewed sources, not a fake read.
+ const inaccessible=new Set(Array.isArray(previous?.evidence_reconciliation?.source_index_coverage?.inaccessible_ids)?
+   previous.evidence_reconciliation.source_index_coverage.inaccessible_ids:[]);
+ const retry=interleave(rotate(eligible.filter(r=>!unreviewed.has(r.resource_id)&&inaccessible.has(r.resource_id)),days));
+ const rest=interleave(rotate(eligible.filter(r=>!unreviewed.has(r.resource_id)&&!inaccessible.has(r.resource_id)),days));
  const scientific_papers=buildScientificPaperCadence({editionDate,registry,recentCoverage:recentScientificPaperEvidence});
  const paperSourceIds=new Set(scientific_papers.eligible_discovery_sources.map(x=>x.resource_id));
  return {schema_version:'daily-compiler-editorial-research-plan-v1',edition_date:editionDate,
   previous_edition_date:previous?.edition_date??null,
   registry_sha256:crypto.createHash('sha256').update(JSON.stringify(registry)).digest('hex'),
-  eligible_count:eligible.length,previously_unreviewed_prioritized:first.length,
+  eligible_count:eligible.length,previously_unreviewed_prioritized:first.length,prior_inaccessible_retry_prioritized:retry.length,
   ...(trendInput && {trend_search_coverage:initializeTrendSearchCoverage(editionDate,trendInput)}),
   video_source_sweep:buildVideoSourceSweepPlan({editionDate,registry}),
   scientific_papers,
+  prelock_research_targets:{
+    genuine_source_index_reviews:15,
+    first_day_qualified_originals_when_available:2,
+    verified_outside_family_video_candidates_when_available:2,
+    earliest_freshness_priority_hours:24,
+    nonbinding_quality_targets:true,
+    timestamps_must_precede_selection_lock:true,
+    count_only_actual_item_or_index_reviews:true
+  },
   video_discovery_fallbacks:eligible.filter(r=>r.video_discovery_fallback?.status==='DISCOVERY_ONLY')
    .map(r=>({resource_id:r.resource_id,...r.video_discovery_fallback})),
-  resources:[...first,...rest].map((r,i)=>({order:i+1,resource_id:r.resource_id,url:r.url,
-   roles:r.content_types.filter(t=>roles.includes(t)),priority_reason:unreviewed.has(r.resource_id)?'PREVIOUSLY_UNREVIEWED':'REGULAR_ROTATION',
+  resources:[...first,...retry,...rest].map((r,i)=>({order:i+1,resource_id:r.resource_id,url:r.url,
+   roles:r.content_types.filter(t=>roles.includes(t)),priority_reason:unreviewed.has(r.resource_id)?
+    'PREVIOUSLY_UNREVIEWED':inaccessible.has(r.resource_id)?'PRIOR_INACCESSIBLE_BOUNDED_RETRY':'REGULAR_ROTATION',
    scientific_paper_source:paperSourceIds.has(r.resource_id),inspection_status:'NOT_YET_RECORDED'})),
   rule:'Plan enabled editorial sources as before; prioritize qualified original scientific-paper leads when the seven-edition paper target is due or historical evidence is missing, without forcing publication. Separately account for every registered video lead, including disabled qualification-only leads. The video_source_sweep plan never proves retrieval; write and validate actual per-source attempts before new-edition selection lock. Disabled resources stay unqualified unless independently admitted.'};
 }
 
 // Initialize dispositions from the already verified and pinned Compiler snapshot.
 // Planning records no actual attempts or selection mappings.
-function initializeTrendSearchCoverage(editionDate,input){
+export function initializeTrendSearchCoverage(editionDate,input){
  const report=input.report;
  const cycle=input.cycle_date;
  const reportAge=Date.parse(input.retrieved_at)-Date.parse(report?.generated_at);

@@ -8,6 +8,17 @@ const SHA=/^[a-f0-9]{40}$/;
 const SHA256=/^[a-f0-9]{64}$/;
 const FORMATS=['article','video','podcast'];
 const OUTCOMES=new Set(['searched','selected','rejected','qualified_not_selected','not_found','unavailable','not_attempted']);
+ // Prospective only: accepted search receipts must belong to the exact
+ // same Top 10 event and carry the publisher's own suggested query.
+ // Historical AAR observations remain immutable and honestly INVALID when appropriate.
+ const STRICT_SEARCH_IDENTITY_EFFECTIVE='2026-11-17';
+ const bareSearchLanding=raw=>{
+   try {
+     const u=new URL(raw),h=u.hostname.replace(/^www\./,'').toLowerCase();
+     return (h==='google.com'&&u.pathname==='/search'&&!u.searchParams.get('q'))||
+       (h==='youtube.com'&&u.pathname==='/results'&&!u.searchParams.get('search_query'));
+   }catch{return true;}
+ };
 const clean=x=>x&&typeof x==='object'&&!Array.isArray(x)&&!x._evidence_parse_error&&!x.parse_error;
 const text=x=>typeof x==='string'&&x.trim()?x.trim():null;
 const timestamp=x=>typeof x==='string'&&/^\d{4}-\d\d-\d\dT.+(?:Z|[+-]\d\d:\d\d)$/.test(x)&&Number.isFinite(Date.parse(x))?x:null;
@@ -75,6 +86,9 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  // lock, never to the separate Top 10 provenance-collector observation time.
  const selectionLock=timestamp(bundle?.editorial_provenance?.selection_locked_at)||
   timestamp(coverage?.impact_observations?.timing?.selection_locked_at);
+ const strictSearchIdentity=edition>=STRICT_SEARCH_IDENTITY_EFFECTIVE;
+ const expectedSearchQueries=new Map(topics.flatMap(topic=>FORMATS.map(format=>
+   [topic.topic_id+':'+format,topic.suggested_searches?.[format]])));
  const covered=new Set(),attemptedPairs=new Set(),observations=new Set();let searchesValid=true;
  for(const row of searches){
   const key=row?.topic_id+':'+row?.format;
@@ -88,8 +102,9 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   const searched=!!(!noAttempt&&text(row.query)&&attempted&&timestamp(input?.retrieved_at)&&
    Date.parse(attempted)>=Date.parse(input.retrieved_at)&&
    (!selectionLock||Date.parse(attempted)<=Date.parse(selectionLock))&&
-   sourceUrls&&sourceUrls.length>0&&sourceUrls.every(https));
+   sourceUrls&&sourceUrls.length>0&&sourceUrls.every(u=>https(u)&&(!strictSearchIdentity||!bareSearchLanding(u))));
   const valid=clean(row)&&ids.has(row.topic_id)&&FORMATS.includes(row.format)&&OUTCOMES.has(row.outcome)&&
+   (!strictSearchIdentity||(!covered.has(key)&&row.query===expectedSearchQueries.get(key)))&&
    !observations.has(observation)&&text(row.reason)&&candidateIds&&candidateIds.every(text)&&
    (noAttempt?skipped:searched);
   if(!valid){searchesValid=false;continue;}
@@ -166,6 +181,7 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
   report_sha256:sourceBound?rawHash:null,consumed_source_commit:handoff==='RECEIVED_SNAPSHOT_BOUND'?input.source_commit:null,
   consumed_commit_independently_verified:consumedVerified,
   handoff_status:handoff,search_status:searchStatus,search_counts:searchCounts,receipt_diagnostics:receiptDiagnostics,
+  search_identity_policy:strictSearchIdentity?'EXACT_CONSUMED_TOPIC_AND_FORMAT_QUERY':'HISTORICAL_COMPATIBILITY',
   selection_mapping_status:mappingStatus,selection_mappings_reported:mappings.length,
   selected_mappings:coverageValid&&mappingStatus==='MATCHES_EDITION_BUNDLE'?mappings:[],end_to_end_ready:endToEnd,
   started_at:aar?timestamp(aar.started_at):null,finished_at:aar?timestamp(aar.finished_at):null,elapsed_minutes:elapsed,

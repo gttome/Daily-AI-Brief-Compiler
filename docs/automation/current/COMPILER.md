@@ -2,6 +2,32 @@
 
 Version **2026-11-03.2**. Read `COMMON.md`. This is the sole scheduled editorial producer; never generate premium images or change the image task.
 
+## Approved November 16 AAR corrective requirements (effective November 17 edition)
+
+All twelve November 16 recommendations are owner-approved. Apply prospectively, never reopen already published November 16 work, and distinguish implemented controls from later unmeasured outcomes. Targets are advisory unless an existing safety or integrity gate independently requires stopping.
+
+**P0-01 Top 10 identity.** Use the exact same-cycle consumed Top 10 event IDs and per-format suggested queries. Before editorial lock, initialize all 10 x 3 slots through scripts/prepare-top10-search-receipts.mjs and genuinely research each slot; use scripts/check-trend-search-coverage.mjs to test the resulting 30 exact event/format search receipts. A mismatched query, generic positional topic ID, fabricated search time or bare generic landing URL is INVALID, not a search attempt. A bounded repair may preserve existing authentic rows but never convert planned NOT_ATTEMPTED into completed.
+
+**P0-02 Prelock original-source review.** Target >=15 distinct substantive first-party source-index inspections in the actual selection window. Record source ID, real index URL, observation time, scope and dated original item when applicable. Attempt all enabled registry sources, but never count the post-selection census as research that informed an earlier seal. Classify inspected, inaccessible and unreviewed separately; if 15 genuine inspections are not feasible, publish with an explicit limitation rather than fabricate them.
+
+**P0-03 Genuine video supply.** Seek two usable outside-family publisher-native videos before sealing where publicly obtainable. Prefer sources beyond frequently used CBS, Fox, PBS and TED. Independently check actual original date, editorial substance, low promotion, duration, exact program ID and signed-out advancing full-length playback. Do not accept preview-only content, private videos or unplayable alternatives. Publisher family repeats require the exact failed alternative evidence in existing audit receipts; do not falsely declare diversity achieved.
+
+**P1-05 Fresh originals.** Prioritize the first rolling 24 hours, then bounded 72-hour and seven-day fallbacks. Aim for two of six 0-1-day qualified originals when substantive sources exist. For each older story record actual newer candidates reviewed and why their evidence or reader value was inferior. Do not lower source fidelity for freshness.
+
+**P1-06 Source health.** Distinguish the November 16 70 no-eligible results from 26 SOURCE_ERROR and 4 ACCESS_BLOCKED results. Route real transient failures to bounded retry, lawful first-party feeds, public sitemaps and verified publisher search routes. Never represent access failure as proof there were no new items. Target <=15 blocked/error in three comparable editions if feasible without new costs.
+
+**P1-08 Media title identity.** NFC / straight-vs-smart apostrophe equivalence applies to presentation text only. Preserve immutable video request digest, exact source URL/program ID, original publisher, full duration, archive novelty and real playback requirement.
+
+**P1-09 Top 10 impact.** Attribute exact item candidates to validated event IDs and selection decisions. Search 10 x article/video/podcast with real result URLs and explicit noncandidate reasons. Record sourced Top 10 candidates versus independent discovery; do not impose a selection quota, backfill a fabricated uplift or promote uncertain viewer counters.
+
+**P1-10 Paper and vendor evidence.** Prospectively seek one qualified original scientific-paper-led story within three editions when available, clearly distinguishing preprint from peer-reviewed work. Attribute vendor customer performance claims or independently corroborate them.
+
+**P1-11 Unattended evidence.** Record genuine task-entry time, scheduler origin and same-invocation capability proof when independently available. Repository commits are not first-party scheduler authentication. If origin is unavailable, report UNKNOWN; never self-attest autonomy.
+
+**P2-12 Seven-edition evaluation.** Preserve existing charts and historical baseline; record attempts vs actual inspections, article age, video family repetition, Top 10 query validity and item yield, image first-pass attempts, root-cause-specific failures and real recovery durations. Keep missing observations N/A and carry keep/revise/retire decisions in the approved register.
+
+Protect the six-story 2/2/2 split, exactly one Agent Skills item, two videos, two podcasts, six source-faithful images, 24 live contexts, all verified historical objects, existing task ownership and schedules. No paid API, TinyFish, metered browser or unnecessary regeneration is authorized.
+
 ## Start, ownership and sources
 
 Read current `docs/SEMANTIC-PRODUCER-CONTRACT.md`, `docs/EDITORIAL-CONTRACT.md`, `contracts/editorial-contract.json`, `docs/automation/TWO_TASK_DAILY_RUNBOOK.md`, `docs/automation/TOP10_UNIFIED_AAR.md` and current `config/resource-registry.json`. Inspect same-date shadow branch/state, actual main, required checks, live reader, prior releases and competing writer. Reuse a valid nonterminal execution and checkpoints; otherwise allocate one `shadow/E` branch from actual main. A terminal edition is verification-only. Save substantive work, not diagnostic status churn.

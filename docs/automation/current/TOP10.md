@@ -1,5 +1,10 @@
 # Current Top 10 task contract
 
+## Owner-approved November 16 Top 10 precision changes
+
+For every real Chicago cycle, preserve ten stable event-specific IDs and three meaningful per-topic queries (article/video/podcast) in the exact Git- and SHA-bound handoff. Positional placeholder IDs are not substantive research topics. The Compiler must be able to reconstruct all 30 canonical slots from the consumed report and report missing research instead of manufacturing attempts. Expand original-source and independent attention coverage where accessible; separate direct from tracker counters, original documents from metadata and a partial transcript from a full watch. Keep provisional ranking semantics explicit. The downstream incremental yield, candidate decisions and whether search changed selection must be measured, never inferred from report receipt alone.
+
+
 Version **2026-11-03.2**. Read `COMMON.md`, current protected-main `docs/automation/TOP10_UNIFIED_AAR.md`, and operations-reports `signals/ai-topic-top10/README.md`, `METHOD.md` and `validation-resources.json`. These schemas and specific-event/evidence rules remain binding. This task owns research reports only, not publication or images.
 
 ## Research and evidence

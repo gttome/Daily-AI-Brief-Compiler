@@ -51,5 +51,8 @@ export function validateBoundEditorialIndex({bundle,registry}){
    inaccessible:idx.inaccessible,unreviewed:idx.unreviewed,
    index_only_rows:rows.filter(r=>r.outcome==='bounded_public_index_search').length,
    full_original_item_rows:rows.filter(r=>r.outcome==='full_dated_item_read').length,
-   full_article_read_never_inferred_from_index:true};
+   full_article_read_never_inferred_from_index:true,
+   prospective_target:bundle.edition_date>='2026-11-17'?15:null,
+   prospective_target_met:bundle.edition_date>='2026-11-17'?rows.length>=15:null,
+   target_advisory_only:true};
 }

@@ -10,7 +10,12 @@ const require=createRequire(import.meta.url);
 const ARCHIVE_PREFLIGHT_EFFECTIVE = '2026-11-13';
 const digest=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const fail=message=>{throw Error('PRESEAL_VIDEO_'+message);};
-const key=v=>JSON.stringify([playback.safeUrl(v.url),v.title,v.duration_minutes*60]);
+// Normalize only presentation-equivalent apostrophe and Unicode composition.
+ // Program URL, duration, publisher, immutable request hash and real playback
+ // remain exact and cannot be normalized away.
+ export const canonicalVideoTitle=value=>String(value??'').normalize('NFC')
+   .replace(/[\u2018\u2019\u02bc]/g,"'").replace(/\s+/g,' ').trim();
+ const key=v=>JSON.stringify([playback.safeUrl(v.url),canonicalVideoTitle(v.title),v.duration_minutes*60]);
 const stamp=v=>typeof v==='string'&&Number.isFinite(Date.parse(v))?Date.parse(v):NaN;
 
 export function presealCandidates(request,edition){
@@ -44,7 +49,7 @@ export function verifyPresealReceipt({requestBytes,receipt,bundle}){
  }
  for(const [i,candidate] of requested.entries()){
   const c=receipt.checks[i],checked=stamp(c?.checked_at);
-  if(!c||c.url!==playback.safeUrl(candidate.url)||c.title!==candidate.title||c.expected_seconds!==candidate.duration_minutes*60||
+  if(!c||c.url!==playback.safeUrl(candidate.url)||canonicalVideoTitle(c.title)!==canonicalVideoTitle(candidate.title)||c.expected_seconds!==candidate.duration_minutes*60||
      !Number.isFinite(checked)||checked>finished||checked<finished-5*60000||c.signed_out!==true||
      !playback.assessPlaybackAdmission(bundle.edition_date,[c]).approved||
      !playback.durationOk(c.expected_seconds,c.observed_duration_seconds)||!(c.playback_end_seconds-c.playback_start_seconds>1.2))

@@ -1,5 +1,10 @@
 # Current Daily Brief task contract
 
+## Owner-approved November 16 AAR measurement contract
+
+The 12 new register entries NOV16-P0-01 through NOV16-P2-12 are effective prospectively. Preserve the frozen November 3 baseline and existing correct reader/history controls. Count real source attempts and distinct substantive inspections separately; distinguish 30 genuine Top 10 handoff-aligned per-format searches from 30 placeholders; preserve failed gate chronology, valid video publisher-family exposure, original article freshness, image first-pass results and actual 24-context reviews. Seven-edition comparisons must display missing values as N/A, not zero. Release success, source quality, Top 10 integration, scheduled origin, human owner assistance and artistic acceptance must remain separate. Do not add paid APIs, new hosted metered browser work, duplicate tasks, schedules or unjustified repeat image generation.
+
+
 Version: **2026-11-03.2**, effective November 4 editions onward. Owner approved all ten follow-up improvements on November 3. These current role contracts replace accumulated task-prompt amendments. Archived prompts preserve history and are not active instructions. Original protected validators and ownership contracts still apply; historical exceptions never authorize changes to a completed edition.
 
 ## Authority and invariants
