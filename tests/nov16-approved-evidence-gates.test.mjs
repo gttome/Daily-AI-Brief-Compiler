@@ -102,3 +102,22 @@ test('bounded receipt repair never upgrades invalid search rows into completed r
   assert.equal(got.selected_mappings.length,0);
  }finally{fs.rmSync(folder,{recursive:true,force:true});}
 });
+
+test('source research plan rechecks prior inaccessible IDs without counting a source read',async()=>{
+ const {buildEditorialResearchPlan}=await import('../operations/editorial-research-plan.mjs');
+ const registry=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+ const eligible=registry.resources.filter(r=>r.enabled&&
+  r.content_types.some(t=>['article','video','podcast'].includes(t)));
+ const unreviewed=eligible[0].resource_id,unavailable=eligible.find(r=>r.resource_id!==unreviewed).resource_id;
+ const previousAar={edition_date:'2026-11-16',evidence_reconciliation:{
+  source_index_coverage:{unreviewed_ids:[unreviewed],inaccessible_ids:[unavailable]}}};
+ const plan=buildEditorialResearchPlan({editionDate:edition,registry,previousAar});
+ assert.equal(plan.previously_unreviewed_prioritized,1);
+ assert.equal(plan.prior_inaccessible_retry_prioritized,1);
+ assert.equal(plan.resources[0].resource_id,unreviewed);
+ assert.equal(plan.resources[1].resource_id,unavailable);
+ assert.equal(plan.resources[1].priority_reason,'PRIOR_INACCESSIBLE_BOUNDED_RETRY');
+ assert.equal(plan.resources[1].inspection_status,'NOT_YET_RECORDED');
+ assert.equal(new Set(plan.resources.map(r=>r.resource_id)).size,plan.eligible_count);
+ assert.equal(plan.prelock_research_targets.genuine_source_index_reviews,15);
+});
