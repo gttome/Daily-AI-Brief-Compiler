@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-16",
   "execution_id": "daily-compiler-2026-11-16-primary",
-  "state": "RESEARCH",
-  "stage": "RESEARCH",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "ec6b83ecb51286f1ff053814defff9e22fac31dc",
   "branch": "shadow/2026-11-16",
   "initial_execution_observed_at": "2026-11-16T01:23:41.783Z",
   "started_at": "2026-11-16T01:23:41.783Z",
-  "updated_at": "2026-11-16T01:33:12.631Z",
+  "updated_at": "2026-11-16T02:06:19.412Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -17,19 +17,45 @@
   },
   "blocker": null,
   "evidence": {
-    "preseal_video_request": "shadow-runs/2026-11-16/editorial/preseal-video-request.json",
     "trend_input": "shadow-runs/2026-11-16/editorial/trend-input.json",
-    "execution_milestones": "shadow-runs/2026-11-16/execution-milestones.json"
+    "trend_search_coverage": "shadow-runs/2026-11-16/editorial/trend-search-coverage.json",
+    "execution_milestones": "shadow-runs/2026-11-16/execution-milestones.json",
+    "preseal_video_request": "shadow-runs/2026-11-16/editorial/preseal-video-request.json",
+    "preseal_video_receipt": "shadow-runs/2026-11-16/editorial/preseal-video-receipt.json",
+    "index_review": "shadow-runs/2026-11-16/editorial/index-review.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
   "unknowns": {
     "scheduler_invocation_identity": "UNPROVEN",
-    "scheduler_origin": "UNPROVEN",
+    "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Research is active. Await the exact-head protected pre-seal playback receipt before selection lock."
+  "continuation": "Exact BUNDLE_READY bytes await protected bundle-ready signal, compile, Pages deployment and live verification.",
+  "selection_locked_at": "2026-11-16T02:06:19.412Z",
+  "sealed_at": "2026-11-16T02:06:19.412Z",
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "919673bb1628677471fa785204dd6325e8f3c1b63d767c967c124006d14e27b2"
+  },
+  "bundle_sha256": "919673bb1628677471fa785204dd6325e8f3c1b63d767c967c124006d14e27b2",
+  "editorial_bundle": {
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-16T02:06:19.412Z",
+    "sealed_at": "2026-11-16T02:06:19.412Z"
+  },
+  "retryable": false,
+  "last_error": null,
+  "bundle_path": "shadow-runs/2026-11-16/edition-bundle.json",
+  "preview": {
+    "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/",
+    "bundle_digest": "919673bb1628677471fa785204dd6325e8f3c1b63d767c967c124006d14e27b2"
+  }
 }
