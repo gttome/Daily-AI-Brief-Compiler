@@ -181,7 +181,7 @@ export function summarizeNov02Evidence(edition,e={}){
   fallback_search_evidence:receipt?fallbacks:null,
   image_capability_preflight_recorded:route?.result==='CAPABILITY_ROUTE_PROVEN'&&Array.isArray(route.blockers)&&route.blockers.length===0,
   image_scheduler_origin_attested:false,
-  image_efficiency:{measurement_window:(edition>='2026-11-03'&&edition<='2026-11-05')||edition>='2026-11-08',first_pass_accepted:attemptsValid?attempts.filter(x=>x.attempts===1).length:null,total_attempts:attemptsValid?attempts.reduce((n,x)=>n+x.attempts,0):null,per_image:attemptsValid?attempts:null,target_first_pass:3,target_max_attempts_per_image:2,quality_floor_unchanged:true},
+  image_efficiency:{measurement_window:(edition>='2026-11-03'&&edition<='2026-11-05')||edition>='2026-11-08',first_pass_accepted:attemptsValid?attempts.filter(x=>x.attempts===1).length:null,total_attempts:attemptsValid?attempts.reduce((n,x)=>n+x.attempts,0):null,per_image:attemptsValid?attempts:null,target_first_pass:edition>='2026-11-17'?4:3,target_total_attempts:edition>='2026-11-17'?8:null,target_max_attempts_per_image:2,efficiency_targets_advisory:true,quality_floor_unchanged:true},
   image_review:{semantic_review_completed_at:stamp(review?.reviewed_at??review?.completed_at),
    review_record_commit_at:stamp(timing?.events?.final_live_review_approved_commit),
    review_merge_at:stamp(timing?.events?.final_live_review_merge_at)},
