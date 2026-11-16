@@ -480,8 +480,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-06/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-05.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/22c8635fa41d8bb4e4c136abee32bc9ac8e62196/signals/ai-topic-top10/2026-11-05.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c0826afd879ad306b3b1c20ed0ea6073f70bcdd6/signals/ai-topic-top10/2026-11-05.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c0826afd879ad306b3b1c20ed0ea6073f70bcdd6/signals/ai-topic-top10/2026-11-05.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-06/shadow-runs/2026-11-06/editorial/trend-search-coverage.json) |
 
@@ -530,6 +530,18 @@ Findings are observational and do not claim a repair was executed by the reporte
 | NOV15-03 — Original failed protected gate causes and early prevention | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
 | NOV15-04 — Improve image first-pass acceptance without weakening quality | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
 | NOV15-05 — Independently attest unattended scheduler-to-release autonomy | 2026-11-17 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P0-01 — Exact Top 10 event-format search receipts | 2026-11-18 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P0-02 — Substantive source inspections before selection lock | 2026-11-19 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P0-03 — Outside-family playable video sourcing | 2026-11-19 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P0-04 — Unified AAR packaging regression coverage | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-05 — Fresh-first original article discovery | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-06 — Classify and reduce failing source indexes | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-07 — Image first-pass yield and visual differentiation | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-08 — Exact video identity with punctuation-only normalization | 2026-11-18 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-09 — Attributable Top 10 incremental research yield | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-10 — Three-edition original paper priority and vendor attribution | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P1-11 — Verify unattended scheduler provenance without self-attestation | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV16-P2-12 — Seven-edition improvement decision dashboard | 2026-11-23 | NOT_YET_EFFECTIVE | Not recorded |
 
 Pending: 14; overdue: 0; reviewed: 0. Implemented controls await measured results; review decisions do not disable controls.
 
