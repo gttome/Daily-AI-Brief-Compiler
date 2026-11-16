@@ -1,5 +1,10 @@
 # Current Recovery Guard contract
 
+## Approved November 16 reporting recovery behavior
+
+The November 16 unified AAR missing-module failure was subsequently corrected and the workflow succeeded. Do not re-run the finished release or recreate accepted image assets. On a new reporting-only failure, inspect the original job, verify whether an exact fix or later successful rerun already exists, and only then apply a bounded, protected-PR repair that preserves the temporary collector and its relative operations dependencies. Reporting problems must not mutate editorial, image or Pages outputs. The recovery result, owner intervention and genuine scheduler identity have separate evidence; Git commits are not proof of unattended autonomy.
+
+
 Version **2026-11-03.2**. Read `COMMON.md`, current `docs/automation/TWO_TASK_DAILY_RUNBOOK.md`, `docs/automation/NOV02_PUBLICATION_RECOVERY.md`, `docs/SEMANTIC-PRODUCER-CONTRACT.md` and `operations/publication-recovery.mjs`. This is the existing bounded checkpoint, not a second routine editorial or image producer. Diagnose and safely repair authorized routine failures without waiting for the owner to ask.
 
 ## Target and ownership
