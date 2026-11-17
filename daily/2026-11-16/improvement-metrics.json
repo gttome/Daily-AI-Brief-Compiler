@@ -444,12 +444,13 @@
       "outcome_status": "REVIEWED",
       "latest_review": {
         "change_id": "NOV15-01",
-        "reviewed_edition": "2026-11-16",
+        "reviewed_edition": "2026-11-17",
         "decision": "keep",
         "result": "inconclusive",
-        "reason": "Saved-pixel set review found six visual arrangements and recorded all fifteen comparisons. Current owner feedback is unavailable.",
+        "reason": "The committed six-up image and 15 pair judgments show distinct observed arrangements, media and perspectives. Owner visual feedback has not been recorded.",
         "evidence_refs": [
-          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-16-native-primary/external-image-packages/2026-11-16/reviews/six-up-contact-sheet.png"
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/six-up-contact-sheet.png",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/manifest.json"
         ]
       }
     },
@@ -512,13 +513,14 @@
       "outcome_status": "REVIEWED",
       "latest_review": {
         "change_id": "NOV15-04",
-        "reviewed_edition": "2026-11-16",
+        "reviewed_edition": "2026-11-17",
         "decision": "keep",
         "result": "met",
-        "reason": "Three images passed the first native attempt and every image passed within two, versus zero and one exceeding two in the November 15 set.",
+        "reason": "Four images passed on the first attempt and none took more than two. The preceding verified edition had three first-pass accepts and nine total attempts.",
         "evidence_refs": [
-          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-16-native-primary/external-image-packages/2026-11-16/reviews/firstpass-preflight.json",
-          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec6b83ecb51286f1ff053814defff9e22fac31dc/external-image-packages/2026-11-15/reviews/after-action.json"
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/firstpass-preflight.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/after-action.json",
+          "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-17/release.json"
         ]
       }
     },
@@ -736,9 +738,18 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-17",
     "cumulative_review_due_today": true,
-    "finding_count": 1,
+    "finding_count": 2,
     "open_production_blockers": 0,
     "findings": [
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "2 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
+      },
       {
         "id": "SCHEDULER_ORIGIN_UNPROVEN",
         "priority": "P2",

@@ -669,9 +669,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-17T03:42:31Z",
+      "review_record_commit_at": "2026-11-17T03:43:02.000Z",
+      "review_merge_at": "2026-11-17T03:45:17.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -679,7 +679,7 @@
   "oct28_source_readiness": null,
   "cycle_date": "2026-11-16",
   "edition_date": "2026-11-17",
-  "result": "PARTIAL",
+  "result": "COMPLETE",
   "top10": {
     "schema_version": "daily-ai-topic-top10-aar-v1",
     "lane": "top10",
@@ -929,7 +929,7 @@
       "attention": "Event-matched video metadata, matched rounded time series, independently attributable corroboration and bounded public discussion.",
       "limitations": "Program counts cover entire videos; platform measures and unknown clocks cannot be combined."
     },
-    "source_commit": "44d408203abc6ae2889629857f488b4e25599502",
+    "source_commit": "fd8a5863f02f665b258e8f4601fd7616b6ca5e7f",
     "source_blob_sha": "913be462975ad172d2a959a0e4d36064d19fc564",
     "report_sha256": "7e88ea5c8d43a2ffcb761c19c820c5049d3e6c5cfd154bd7f4305faaf92d7c47",
     "consumed_source_commit": "04c0b557e2cd8f5afa8b77b6b6d68c9280dac742",
@@ -1093,7 +1093,7 @@
       },
       "previous_cycle": "2026-11-15",
       "previous_report_sha256": "f4ad8ac0c2adee96badfc4a8a866d628ac8af98cb580d61c67cafe006da9c53b",
-      "previous_aar_sha256": "e373aae4bb8ffb0816b5d1419801c72f5f73ae41c532fb44234863d1d18dc1ac",
+      "previous_aar_sha256": "009fe1be78d34e7b8e3fc05dd7c556ffc3edf246209ceaff1d3732bafd039559",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1333,10 +1333,13 @@
   "latest_publication_health": "READER_VERIFIED",
   "provenance_warnings": [],
   "image_aar_warning": null,
-  "worker_closeout_verified": false,
+  "worker_closeout_verified": true,
   "worker_checkpoint_consistency": {
-    "result": "MISMATCH",
-    "reason": "worker_not_closed_for_exact_job"
+    "result": "PASS",
+    "accepted_images": 6,
+    "actual_generations": 8,
+    "content_changed": false,
+    "first_party_scheduler_attested": false
   },
   "watchlist_title_collisions": 0,
   "postpublication_incidents_recorded": null,
@@ -1351,14 +1354,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": true,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-17T03:17:09.000Z",
   "scheduler_start_attested": false,
   "scientific_paper_coverage": {
     "status": "PRODUCER_REPORTED_BUNDLE_MATCH",
@@ -1393,7 +1396,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-17/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-17/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -1413,11 +1416,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44d408203abc6ae2889629857f488b4e25599502/signals/ai-topic-top10/2026-11-16.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/fd8a5863f02f665b258e8f4601fd7616b6ca5e7f/signals/ai-topic-top10/2026-11-16.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44d408203abc6ae2889629857f488b4e25599502/signals/ai-topic-top10/2026-11-16.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/fd8a5863f02f665b258e8f4601fd7616b6ca5e7f/signals/ai-topic-top10/2026-11-16.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1978,12 +1981,13 @@
         "outcome_status": "REVIEWED",
         "latest_review": {
           "change_id": "NOV15-01",
-          "reviewed_edition": "2026-11-16",
+          "reviewed_edition": "2026-11-17",
           "decision": "keep",
           "result": "inconclusive",
-          "reason": "Saved-pixel set review found six visual arrangements and recorded all fifteen comparisons. Current owner feedback is unavailable.",
+          "reason": "The committed six-up image and 15 pair judgments show distinct observed arrangements, media and perspectives. Owner visual feedback has not been recorded.",
           "evidence_refs": [
-            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-16-native-primary/external-image-packages/2026-11-16/reviews/six-up-contact-sheet.png"
+            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/six-up-contact-sheet.png",
+            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/manifest.json"
           ]
         }
       },
@@ -2046,13 +2050,14 @@
         "outcome_status": "REVIEWED",
         "latest_review": {
           "change_id": "NOV15-04",
-          "reviewed_edition": "2026-11-16",
+          "reviewed_edition": "2026-11-17",
           "decision": "keep",
           "result": "met",
-          "reason": "Three images passed the first native attempt and every image passed within two, versus zero and one exceeding two in the November 15 set.",
+          "reason": "Four images passed on the first attempt and none took more than two. The preceding verified edition had three first-pass accepts and nine total attempts.",
           "evidence_refs": [
-            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/image-package/2026-11-16-native-primary/external-image-packages/2026-11-16/reviews/firstpass-preflight.json",
-            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/ec6b83ecb51286f1ff053814defff9e22fac31dc/external-image-packages/2026-11-15/reviews/after-action.json"
+            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/firstpass-preflight.json",
+            "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/after-action.json",
+            "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-17/release.json"
           ]
         }
       },
@@ -2270,9 +2275,18 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-17",
       "cumulative_review_due_today": true,
-      "finding_count": 1,
+      "finding_count": 2,
       "open_production_blockers": 0,
       "findings": [
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "2 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
+        },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
           "priority": "P2",

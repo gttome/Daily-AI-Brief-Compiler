@@ -8,14 +8,15 @@
     "edition-bundle.json": "df0083b6ef80f6da760e4dd2804f29071ef68ed417f212abe33f650544185f86",
     "execution-milestones.json": "fe7902f1bc4cd9ea916db024a07b0932916d643327d9e15f1e750e872f8fd070",
     "fallback-search-evidence.json": "66947084694371438a4b34df6dc267e58898c07ca2bcbc33cdff5e7e01016e75",
-    "image-after-action.json": "20c25aa18544ed09d7808498d4a97abfdcf8982a30e4ef0ae21e59673f3bd7e4",
+    "image-after-action.json": "cd1fd15696a4eeddb8dbe28302a0b3a9ecde47e32b98cc5d7f30c3809dcacd7e",
+    "image-context-reviews.json": "7095b219c48920828f30f7b85e7ea629d32939d90c057340b375b539786414a9",
     "image-job.json": "c0e1548de22d3e5783289cc225a101752c21b27eae9e8dc548058b16a9975d8d",
     "image-manifest.json": "4aad97301edccd153f560dd8319754c4a590c1928a51fca71352e5b5c35c3035",
     "image-recurring-assignment.json": "f1293f6cc1f10ffa8e70a63d16952c37b32c3eed30f9cc53b943321c3b299a5d",
     "image-release.json": "2b742106d4ff3aa71a65de0ef7eec8b0b0cf5de87898c4878f3a3561ae50af90",
     "image-route-preflight.json": "7ee1fe794d354c782b24ce984be567b59f5d50fbb4b282e935fbf5fb52cafef4",
-    "image-timing.json": "348fdc6868b2e715c91dc1ac3e2c976b07c0f8a93f498e927c5fe1bedc7cc2a7",
-    "image-worker-state.json": "2e25e2cfe532d34275970751248e4ea8d13ac464980121d6be4bb17dcc59de27",
+    "image-timing.json": "63bec509577b13f3e76472b0fd1fefc56e60b64b80fe1762096ab23d902fff05",
+    "image-worker-state.json": "e3754994c29724e2e0efd53c8a1ba24aefbd931dbcde460451804bc1325139bf",
     "postpublish-integrity.json": "26a90343d4537a1897002458f09b76ee5bcd239e9888f9224acd24c446d4292e",
     "postpublish-video-playback.json": "bd484c4ab5921befbd6583477caa9d15942b0415511d540a674f4b9277cd5af6",
     "preseal-video-attempts.json": "cb2718c1c277e68144c51bd9046d8f2836386205652841e08970865ae5b5b31b",
@@ -27,12 +28,12 @@
     "top10-after-action.json": "3121053c24daf2a45ca8a5400c8149c98d4bc62270846c148311e37e3858d411",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "e373aae4bb8ffb0816b5d1419801c72f5f73ae41c532fb44234863d1d18dc1ac",
+    "top10-previous-aar.json": "009fe1be78d34e7b8e3fc05dd7c556ffc3edf246209ceaff1d3732bafd039559",
     "top10-previous-report.json": "f4ad8ac0c2adee96badfc4a8a866d628ac8af98cb580d61c67cafe006da9c53b",
-    "top10-report-source.json": "651c7941e6687e7f0e0e5d88a0f65baf5a2a73535e4e09e4f2c659f009c8e39a",
+    "top10-report-source.json": "8452a783e7b2206f05dee39e74525a873ba4722933cf42c1a697a91ee8d0187b",
     "top10-report.json": "7e88ea5c8d43a2ffcb761c19c820c5049d3e6c5cfd154bd7f4305faaf92d7c47",
     "trend-consumed-report.json": "7e88ea5c8d43a2ffcb761c19c820c5049d3e6c5cfd154bd7f4305faaf92d7c47",
-    "trend-consumed-source.json": "f2257bf5e6d21c834612780e9d97e196da59a3bfd52f0ccbe4be3023707dce40",
+    "trend-consumed-source.json": "6ee24f2c20debe936d0301cf75bff5b3883e2dcbbb4dcedcfafc7eb8be771af2",
     "trend-consumed-verification.json": "7c3932b7b4fd833a0f2dcd7f8fe913e8bd7906ff6a9b623fb941ae46ce16f10b",
     "trend-input.json": "7d5a3ae7d275ad8cafd10330d4dea0bbf7678af41abd00292799577c1cfa8683",
     "trend-search-coverage.json": "272c7eb2658d47942aaa45375cc9fd91b56f789a6c6e320a31380baf2416def7",
@@ -40,7 +41,7 @@
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "NOT_RECORDED",
+    "premium_images": "RELEASE_AND_VISUAL_VERIFIED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -518,6 +519,29 @@
       "reason": "The current execution preserved checkpoint continuity without owner assistance, but first-party scheduler invocation identity remains UNPROVEN and cannot be inferred from release success.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/compiler-state.json"
+      ]
+    },
+    {
+      "change_id": "NOV15-01",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "The committed six-up image and 15 pair judgments show distinct observed arrangements, media and perspectives. Owner visual feedback has not been recorded.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/six-up-contact-sheet.png",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/manifest.json"
+      ]
+    },
+    {
+      "change_id": "NOV15-04",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Four images passed on the first attempt and none took more than two. The preceding verified edition had three first-pass accepts and nine total attempts.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/firstpass-preflight.json",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/after-action.json",
+        "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-17/release.json"
       ]
     }
   ],
