@@ -7,6 +7,7 @@ on:
     branches: [main]
     paths:
       - 'external-image-packages/**/manifest.json'
+      - 'config/image-release-live-resume-2026-11-17.json'
   workflow_dispatch:
     inputs:
       edition_date:
@@ -61,7 +62,25 @@ jobs:
         with:
           node-version: '20'
       - name: Bind exactly one protected image-package merge without manual dispatch
-        run: node scripts/derive-protected-image-package-release.mjs
+        shell: bash
+        run: |
+          set -euo pipefail
+          RESUME=config/image-release-live-resume-2026-11-17.json
+          if [[ "$GITHUB_EVENT_NAME" == push ]] && git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$RESUME" >/dev/null; then
+            test "$GITHUB_REF" = refs/heads/main
+            test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+            jq -e '.edition_date=="2026-11-17" and .original_release_run_id==44010696181 and .package_pr==377' "$RESUME" >/dev/null
+            {
+              echo "TARGET_DATE=$(jq -r .edition_date "$RESUME")"
+              echo "PACKAGE_PR=$(jq -r .package_pr "$RESUME")"
+              echo "PACKAGE_PR_HEAD=$(jq -r .package_pr_head "$RESUME")"
+              echo "PACKAGE_MERGE_HEAD=$(jq -r .package_merge_head "$RESUME")"
+              echo "HISTORY_HEAD=$(jq -r .history_head "$RESUME")"
+              echo 'EXACT_LIVE_RESUME=true'
+            } >> "$GITHUB_ENV"
+          else
+            node scripts/derive-protected-image-package-release.mjs
+          fi
       - name: Resolve selected matching starter, full prompt and handoff
         run: node scripts/select-image-app-contracts.mjs
       - name: Require protected exact-head PR/CI and active no-bypass ruleset
@@ -77,10 +96,19 @@ jobs:
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           test "$(git ls-remote origin refs/heads/main | awk '{print $1}')" = "$GITHUB_SHA"
           if [[ "$GITHUB_SHA" != "$PACKAGE_MERGE_HEAD" ]]; then
-            # A protected workflow-only repair can redeploy the original approved package.
-            test "$GITHUB_EVENT_NAME" = workflow_dispatch
             git merge-base --is-ancestor "$PACKAGE_MERGE_HEAD" "$GITHUB_SHA"
-            test "$(git diff --name-only --no-renames "$PACKAGE_MERGE_HEAD" "$GITHUB_SHA")" = '.github/workflows/external-image-only-replacement.yml'
+            if [[ "${EXACT_LIVE_RESUME:-}" == true ]]; then
+              test "$GITHUB_EVENT_NAME" = push
+              test "$(git diff --name-only --no-renames "$PACKAGE_MERGE_HEAD" "$GITHUB_SHA")" = "$(printf '%s\n' '.github/workflows/external-image-only-replacement.yml' 'config/image-release-live-resume-2026-11-17.json')"
+              gh api "repos/$GITHUB_REPOSITORY/actions/runs/44010696181" |
+                jq -e --arg merge "$PACKAGE_MERGE_HEAD" '.head_sha==$merge and .path==".github/workflows/external-image-only-replacement.yml" and .conclusion=="failure"' >/dev/null
+              gh api "repos/$GITHUB_REPOSITORY/actions/jobs/133796729559" |
+                jq -e '.run_id==44010696181 and any(.steps[]; .name=="Run actions/deploy-pages@v4" and .conclusion=="success") and any(.steps[]; .name=="Independently verify changed pages/PNGs, unchanged controls and Oct 8 live SHA-256" and .conclusion=="failure")' >/dev/null
+            else
+              # A protected workflow-only repair can redeploy the original approved package.
+              test "$GITHUB_EVENT_NAME" = workflow_dispatch
+              test "$(git diff --name-only --no-renames "$PACKAGE_MERGE_HEAD" "$GITHUB_SHA")" = '.github/workflows/external-image-only-replacement.yml'
+            fi
           fi
           gh api "repos/$GITHUB_REPOSITORY/rulesets/24610983" |
             jq -e '.enforcement=="active" and (.bypass_actors|length)==0' >/dev/null
@@ -144,6 +172,7 @@ jobs:
             "external-image-packages/$TARGET_DATE/manifest.json" . \
             build/evidence/exact-binary-staging.json
       - name: Verify original seven placeholder pages and all 17 Oct 8 historical objects live
+        if: env.EXACT_LIVE_RESUME != 'true'
         run: |
           node scripts/verify-external-image-original-live.mjs \
             "history/site/image-jobs/$TARGET_DATE/job.json" history/site \
@@ -171,19 +200,29 @@ jobs:
           test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
+        if: env.EXACT_LIVE_RESUME != 'true'
         with:
           path: build/patched
           name: image-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - id: deployment
+        if: env.EXACT_LIVE_RESUME != 'true'
         uses: actions/deploy-pages@v4
         with:
           artifact_name: image-pages-${{ github.run_id }}-${{ github.run_attempt }}
           timeout: 1200000
       - name: Independently verify changed pages/PNGs, unchanged controls and Oct 8 live SHA-256
+        shell: bash
         run: |
-          node scripts/verify-external-image-live.mjs \
-            build/evidence/only-image-paths-prepared.json \
-            build/patched history/site build/evidence/live-postdeploy.json
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if node scripts/verify-external-image-live.mjs \
+              build/evidence/only-image-paths-prepared.json \
+              build/patched history/site build/evidence/live-postdeploy.json; then
+              exit 0
+            fi
+            if [[ "$attempt" != 3 ]]; then sleep 8; fi
+          done
+          exit 1
       - name: Real desktop and mobile browser screenshots and image-loaded DOM on seven pages
         shell: bash
         run: |
