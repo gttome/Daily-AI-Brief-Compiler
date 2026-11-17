@@ -929,7 +929,7 @@
       "attention": "Event-matched video metadata, matched rounded time series, independently attributable corroboration and bounded public discussion.",
       "limitations": "Program counts cover entire videos; platform measures and unknown clocks cannot be combined."
     },
-    "source_commit": "c22ad18388a0c6dceb7cd761e8b87d0353aed529",
+    "source_commit": "44d408203abc6ae2889629857f488b4e25599502",
     "source_blob_sha": "913be462975ad172d2a959a0e4d36064d19fc564",
     "report_sha256": "7e88ea5c8d43a2ffcb761c19c820c5049d3e6c5cfd154bd7f4305faaf92d7c47",
     "consumed_source_commit": "04c0b557e2cd8f5afa8b77b6b6d68c9280dac742",
@@ -1093,7 +1093,7 @@
       },
       "previous_cycle": "2026-11-15",
       "previous_report_sha256": "f4ad8ac0c2adee96badfc4a8a866d628ac8af98cb580d61c67cafe006da9c53b",
-      "previous_aar_sha256": "0a2145cfc8ac0d75db71db0ecf5b1a2502e83bb55a5a5b11dfce158b4b397be9",
+      "previous_aar_sha256": "e373aae4bb8ffb0816b5d1419801c72f5f73ae41c532fb44234863d1d18dc1ac",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1353,9 +1353,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1413,11 +1413,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c22ad18388a0c6dceb7cd761e8b87d0353aed529/signals/ai-topic-top10/2026-11-16.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44d408203abc6ae2889629857f488b4e25599502/signals/ai-topic-top10/2026-11-16.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c22ad18388a0c6dceb7cd761e8b87d0353aed529/signals/ai-topic-top10/2026-11-16.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44d408203abc6ae2889629857f488b4e25599502/signals/ai-topic-top10/2026-11-16.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1455,8 +1455,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov17-t1-ca-agent-controls",
+            "label": "California lawsuit turns agent safeguards into evidence questions",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov17-t2-code-mode",
+            "label": "Claude Code Mode batches tool calls into programs",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov17-k1-qwen4-max",
+            "label": "Qwen4-Max targets broader work with fewer tokens",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov17-k2-hy4-flash",
+            "label": "Tencent’s Hy4 Flash targets cheaper everyday workflows",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov17-a1-healthcare-computer-use",
+            "label": "Healthcare computer-use agents move into supervised operations",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov17-a2-agent-authority-skill",
+            "label": "Agent authority starts with four operating questions",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 8,
+        "first_pass_accepted": 4,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1563,8 +1607,8 @@
         "coverage_percent": 16,
         "coverage_numerator": 17,
         "coverage_denominator": 109,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 4,
+        "image_attempts": 8,
         "top10_linked_items": 5,
         "publication_failures": 0
       }
@@ -1575,11 +1619,11 @@
         "median": 10.5
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
-        "median": 0.5
+        "recorded_editions": 7,
+        "median": 1
       },
       "image_attempts": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 12
       },
       "top10_linked_items": {
@@ -2226,18 +2270,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-17",
       "cumulative_review_due_today": true,
-      "finding_count": 2,
-      "open_production_blockers": 1,
+      "finding_count": 1,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
           "priority": "P2",
@@ -3976,9 +4011,9 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 40,
-      "unclassified": 29,
+      "recorded_editions": 7,
+      "total_rejected": 42,
+      "unclassified": 31,
       "rows": [
         {
           "cause": "LAYOUT",

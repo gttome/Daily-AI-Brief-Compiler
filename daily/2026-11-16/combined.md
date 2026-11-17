@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 17, 2026 · **Production evening:** 2026-11-16 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-17 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-17/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 7m 05s** · **Compiler final seal window 10m 44s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -62,9 +62,20 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**8 attempts; 4 of 6 images accepted on their first attempt.**
+
+Recorded ongoing from November 8 target: at least 3/6 first-pass accepts; no more than 2 attempts per image. This is an efficiency target, not a quality cutoff.
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| California lawsuit turns agent safeguards into evidence questions | 1 | 0 | 1 |
+| Claude Code Mode batches tool calls into programs | 1 | 0 | 1 |
+| Qwen4-Max targets broader work with fewer tokens | 1 | 1 | 2 |
+| Tencent’s Hy4 Flash targets cheaper everyday workflows | 1 | 0 | 1 |
+| Healthcare computer-use agents move into supervised operations | 1 | 0 | 1 |
+| Agent authority starts with four operating questions | 1 | 1 | 2 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -119,12 +130,12 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **8** | Image worker AAR; no estimation |
 | Rejected candidates | **2** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -376,7 +387,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 8 · **Rejected candidates:** 2.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 8 · **Rejected candidates:** 2.
 
 ### Image production duration — Git-verified milestones
 
@@ -399,21 +410,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| California lawsuit turns agent safeguards into evidence questions | 1 | 0.81 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m01.png) |
+| Claude Code Mode batches tool calls into programs | 1 | 0.43 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m02.png) |
+| Qwen4-Max targets broader work with fewer tokens | 2 | 0.61 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m10.png) |
+| Tencent’s Hy4 Flash targets cheaper everyday workflows | 1 | 0.96 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m11.png) |
+| Healthcare computer-use agents move into supervised operations | 1 | 0.80 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m12.png) |
+| Agent authority starts with four operating questions | 2 | 0.78 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m01.png" alt="Diagram for nov17-t1-ca-agent-controls" width="420"/></a><br/><b>California lawsuit turns agent safeguards into evidence questions</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m02.png" alt="Diagram for nov17-t2-code-mode" width="420"/></a><br/><b>Claude Code Mode batches tool calls into programs</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m10.png" alt="Diagram for nov17-k1-qwen4-max" width="420"/></a><br/><b>Qwen4-Max targets broader work with fewer tokens</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m11.png" alt="Diagram for nov17-k2-hy4-flash" width="420"/></a><br/><b>Tencent’s Hy4 Flash targets cheaper everyday workflows</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m12.png" alt="Diagram for nov17-a1-healthcare-computer-use" width="420"/></a><br/><b>Healthcare computer-use agents move into supervised operations</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-17/dab-edition-2026-11-17-m14.png" alt="Diagram for nov17-a2-agent-authority-skill" width="420"/></a><br/><b>Agent authority starts with four operating questions</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -475,12 +496,12 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c22ad18388a0c6dceb7cd761e8b87d0353aed529/signals/ai-topic-top10/2026-11-16.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/c22ad18388a0c6dceb7cd761e8b87d0353aed529/signals/ai-topic-top10/2026-11-16.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44d408203abc6ae2889629857f488b4e25599502/signals/ai-topic-top10/2026-11-16.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/44d408203abc6ae2889629857f488b4e25599502/signals/ai-topic-top10/2026-11-16.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/editorial/trend-search-coverage.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44011648664).
 
 ---
 
@@ -493,11 +514,10 @@ Edition **2026-11-17**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**2 evidence-based findings**; open production blockers: 1. Cumulative evaluation checkpoint: **2026-11-17**. The daily review never waits for that date to act on a safe live problem.
+**1 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-17**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
-| P0 | Editorial publication is verified but the image release is not verified. | Images: Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker. | Immediate, if ownership and gates allow |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
 Findings are observational and do not claim a repair was executed by the reporter.
@@ -563,13 +583,13 @@ Pending: 12; overdue: 0; reviewed: 19. Implemented controls await measured resul
 | 2026-11-14 | Not recorded | 0 | 12 | 2 | 5 |
 | 2026-11-15 | 3/109 (3%) | 0 | 13 | 6 | Not recorded |
 | 2026-11-16 | 5/109 (5%) | 3 | 9 | 2 | Not recorded |
-| 2026-11-17 | 17/109 (16%) | Not recorded | Not recorded | 0 | 5 |
+| 2026-11-17 | 17/109 (16%) | 4 | 8 | 0 | 5 |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 4 | 10.5 |
-| first pass accepted | 6 | 0.5 |
-| image attempts | 6 | 12 |
+| first pass accepted | 7 | 1 |
+| image attempts | 7 | 12 |
 | top10 linked items | 4 | 5 |
 | publication failures | 7 | 2 |
 
@@ -733,7 +753,7 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 | UNALLOWLISTED_TEXT | 1 | No within observed window |
 | UNSUPPORTED_CLAIM | 1 | No within observed window |
 
-Total rejected: 40; unclassified: 29. A rejected attempt can have several defect codes.
+Total rejected: 42; unclassified: 31. A rejected attempt can have several defect codes.
 
 ### Video publisher diversity and candidate qualification
 
