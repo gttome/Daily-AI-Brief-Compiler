@@ -437,7 +437,43 @@
       "reason": "Exact podcast query was run against the cited event routes, but no individually qualified podcast candidate was admitted."
     }
   ],
-  "selected_mappings": [],
+  "selected_mappings": [
+    {
+      "topic_id": "qwen4-max-release-nov16",
+      "format": "article",
+      "item_id": "nov17-k1-qwen4-max",
+      "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1",
+      "reason": "Exact event match with complete original announcement review."
+    },
+    {
+      "topic_id": "california-openai-cyber-complaint-nov16",
+      "format": "article",
+      "item_id": "nov17-t1-ca-agent-controls",
+      "url": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over",
+      "reason": "Exact event match with complete primary government release review."
+    },
+    {
+      "topic_id": "tencent-hy4-flash-launch-nov16",
+      "format": "article",
+      "item_id": "nov17-k2-hy4-flash",
+      "url": "https://www.tencent.com/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows/",
+      "reason": "Exact event match with complete original release and benchmark-scope review."
+    },
+    {
+      "topic_id": "claude-code-code-mode-21325-nov13",
+      "format": "article",
+      "item_id": "nov17-t2-code-mode",
+      "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323",
+      "reason": "Exact release match with official release note and complete documentation review."
+    },
+    {
+      "topic_id": "openai-computer-use-healthcare-nov16",
+      "format": "article",
+      "item_id": "nov17-a1-healthcare-computer-use",
+      "url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/",
+      "reason": "Exact event match with complete original healthcare workflow article review."
+    }
+  ],
   "receipt_recovery": {
     "schema_version": "bounded-top10-recovery-v1",
     "source": "exact_consumed_report",
@@ -509,5 +545,62 @@
       "https://www.youtube.com/watch?v=RX05VvDYqqI",
       "https://ctrlai.com/base/cnn-2026-11-13-nvidia-chips-blacklisted-chinese-buyer"
     ]
-  }
+  },
+  "cause_reviews": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43996032327",
+      "stage": "PRESEAL_VIDEO",
+      "root_cause_code": "PUBLISHER_PLAYER_UNAVAILABLE",
+      "reason": "Reuters returned HTTP 401, Bloomberg returned HTTP 403, and BBC YouTube exposed no admissible signed-out advancing full-length player.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43996032327"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43997199176",
+      "stage": "PRESEAL_VIDEO",
+      "root_cause_code": "PROTECTED_PROBE_TIMEOUT",
+      "reason": "The exact protected browser job reached its five-minute limit before producing a receipt; no candidate result was inferred from cancellation.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43997199176"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43998135326",
+      "stage": "PRESEAL_VIDEO",
+      "root_cause_code": "PREVIEW_DURATION_MISMATCH",
+      "reason": "ABC advanced only a 92-second preview for the expected 6:17 report; Fortune and CBS passed but the three-program request correctly remained blocked.",
+      "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43998135326"
+    }
+  ],
+  "change_evaluations": [
+    {
+      "change_id": "NOV15-02",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "met",
+      "reason": "The exact immutable Top 10 input produced 30 genuine topic-format searches and five bundle-bound article mappings; causal incremental benefit remains unproven.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/editorial/trend-search-coverage.json"
+      ]
+    },
+    {
+      "change_id": "NOV15-03",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Original job logs were read and three distinct current causes were classified, but one completed cycle cannot establish that all earlier failure classes are prevented.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43996032327",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43997199176",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/43998135326"
+      ]
+    },
+    {
+      "change_id": "NOV15-05",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "not_met",
+      "reason": "The current execution preserved checkpoint continuity without owner assistance, but first-party scheduler invocation identity remains UNPROVEN and cannot be inferred from release success.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-17/shadow-runs/2026-11-17/compiler-state.json"
+      ]
+    }
+  ]
 }
