@@ -6,7 +6,7 @@
   "original_bundle_sha256": "df0083b6ef80f6da760e4dd2804f29071ef68ed417f212abe33f650544185f86",
   "execution_id": "daily-compiler-2026-11-17-primary",
   "cycle_date": "2026-11-16",
-  "status": "PACKAGE_READY_PENDING_PROTECTED_VERIFICATION",
+  "status": "PUBLISHED_COMPLETE",
   "human_readable_path": "external-image-packages/2026-11-17/reviews/after-action.md",
   "production": {
     "actual_generation_count": 8,
@@ -25,7 +25,8 @@
     "per_image_attempt_target": 2,
     "images_exceeding_attempt_target": [],
     "slot": "EVENING_PRIMARY",
-    "scheduler_origin": "UNPROVEN"
+    "scheduler_origin": "UNPROVEN",
+    "first_attempt_to_final_review_elapsed_seconds": 1522
   },
   "images": [
     {
@@ -91,15 +92,51 @@
         ],
         "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/147bf1242a00c49d4434b80ffa2d9f21fabd3a6c/external-image-packages/2026-11-17/reviews/nov17-a2-agent-authority-skill-attempt-1-rejection.json"
       }
+    },
+    {
+      "phase": "Independent Pages readback",
+      "issue": "GitHub returned HTTP 503 during the October 8 archive audit after Pages had deployed the six accepted images. The existing job retry then correctly rejected the already replaced placeholders.",
+      "correction": "Independently matched all 44 protected live byte checks to the original release artifact. Protected PR 378 resumed verification from that exact live deployment and synchronized the release metadata without replacing the illustrations.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44010696181",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/378",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44011648664"
+      ]
     }
   ],
   "publication": {
-    "result": "PENDING",
-    "public_brief_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-17/"
+    "result": "RELEASED_VERIFIED",
+    "public_brief_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-17/",
+    "verified_at": "2026-11-17T03:39:20.307Z",
+    "actions_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44011648664",
+    "public_release_receipt_url": "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-17/release.json",
+    "protected_package_pr": 377,
+    "package_head_sha": "a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f",
+    "protected_main_merge_sha": "98de67f039ee61a34c615f28204228a0c26ff2d3",
+    "validation_workflow_run_id": 44010420061,
+    "required_exact_head_ci": "PRE_PR_PACKAGE_PASS",
+    "live_png_hashes_verified": 6,
+    "story_image_pairings_verified": 12,
+    "homepage_pairings_verified": 6,
+    "protected_oct8_objects_verified": 17,
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "accepted_image_regenerations": 0,
+    "placeholder_replacement_replays": 0,
+    "recovery_pr": 378,
+    "original_release_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44010696181",
+    "original_failed_job_id": 133796729559,
+    "retry_failed_job_id": 133797502381
   },
   "visual_review": {
-    "result": "PENDING_LIVE_RELEASE",
-    "reviewed_targets": 0
+    "result": "PASS",
+    "reviewed_targets": 24,
+    "review_path": "external-image-packages/2026-11-17/reviews/live/semantic-pixel-review.json",
+    "completed_at": "2026-11-17T03:42:31Z",
+    "evidence_source_run_id": 44011648664,
+    "evidence_source_artifact_id": 14296334338,
+    "capture_archive_source": "Exact protected release artifact ZIP. The archive digest, saved screenshot hashes and all 24 RGB image-region proofs matched.",
+    "first_committed_sha": "d72c1fa89ba1fabd0d966edf77abeb9021bf0643",
+    "first_committed_at": "2026-11-17T03:43:02Z"
   },
   "usage": {
     "work_usage_percent": null
@@ -107,6 +144,32 @@
   "notes": [
     "The exact dated job and source bundle matched the immutable hashes, the dated reader served the six stories, and the fenced owner and both executor clock observations were persisted.",
     "The six plans applied the prior edition’s observed label-margin, pseudo-writing, control and arrow failures. Set comparison used the underlying six final PNGs.",
-    "The November 16 prospective target is at least four first-pass accepts and at most eight attempts across comparable editions. This report records one edition’s results. Work usage remains unknown."
+    "The November 16 prospective target is at least four first-pass accepts and at most eight attempts across comparable editions. This report records one edition’s results. Work usage remains unknown.",
+    "The six accepted images are live at their dated and permanent placements and on the homepage. All 24 captured desktop/mobile contexts passed actual semantic-pixel review. The first of three comparable production editions reached the newer four-first-pass and eight-attempt targets."
+  ],
+  "change_evaluations": [
+    {
+      "change_id": "NOV15-01",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "The committed six-up image and 15 pair judgments show distinct observed arrangements, media and perspectives. Owner visual feedback has not been recorded.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/six-up-contact-sheet.png",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/manifest.json"
+      ]
+    },
+    {
+      "change_id": "NOV15-04",
+      "reviewed_edition": "2026-11-17",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Four images passed on the first attempt and none took more than two. The preceding verified edition had three first-pass accepts and nine total attempts.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/firstpass-preflight.json",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/after-action.json",
+        "https://gttome.github.io/Daily-AI-Brief-Compiler/image-jobs/2026-11-17/release.json"
+      ]
+    }
   ]
 }
