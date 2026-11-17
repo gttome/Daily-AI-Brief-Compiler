@@ -1,6 +1,6 @@
 # 2026-11-17 premium image after-action report
 
-**Status: PACKAGE_READY_PENDING_PROTECTED_VERIFICATION**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | fe87777e77220ad8e906293d0098bf89f88d4891 |
 | Executor observed run start | 2026-11-17T03:11:36Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-17T03:17:09Z (observed before tool call) |
-| Public release | PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_RELEASE; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-17T03:39:20.307Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -52,6 +52,7 @@ Retain the full 15 pairwise observations in the immutable manifest. Repeat the c
 |---|---|---|
 | Native saved-pixel review | The lower left sample-to-workload arrow crosses the central vendor-test specimen and suggests buyer samples pass through a vendor test rather than a separate workload trial. | Keep the amber cobalt cut-paper composition and all four exact labels. Route the one arrow below the central vendor tray through clear white space, with the origin and target still on the sample holder and receiving slot. Keep the detached caveat below that path. Do not let the line touch the vendor evidence specimen, tray, or label. |
 | Native saved-pixel review | The four function groups sit on four isolated pedestals and read as a two-by-two panel collage. The frozen visual direction calls for one radial inspection assembly. | Replace the four isolated pedestals with one continuous open diamond-shaped inspection frame supporting all four lenses around a single empty center. Use one connected assembly, no individual frames or panels. Place the exact four labels on the outside of the shared arrangement, and retain the blank green monitor-to-audit strip with exactly one leftward connector. Preserve the mulberry-green woodcut, exact fifth caveat, and generous edge whitespace. No wheel or radial arrows, and no invented controls or gears. |
+| Independent Pages readback | GitHub returned HTTP 503 during the October 8 archive audit after Pages had deployed the six accepted images. The existing job retry then correctly rejected the already replaced placeholders. | Independently matched all 44 protected live byte checks to the original release artifact. Protected PR 378 resumed verification from that exact live deployment and synchronized the release metadata without replacing the illustrations. |
 
 ## Evidence and limitations
 
@@ -59,12 +60,14 @@ Job SHA-256: c0e1548de22d3e5783289cc225a101752c21b27eae9e8dc548058b16a9975d8d. O
 
 The actual generation start is 2026-11-17T03:17:09Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-17/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 The exact dated job and source bundle matched the immutable hashes, the dated reader served the six stories, and the fenced owner and both executor clock observations were persisted.
 
 The six plans applied the prior edition’s observed label-margin, pseudo-writing, control and arrow failures. Set comparison used the underlying six final PNGs.
 
 The November 16 prospective target is at least four first-pass accepts and at most eight attempts across comparable editions. This report records one edition’s results. Work usage remains unknown.
+
+The six accepted images are live at their dated and permanent placements and on the homepage. All 24 captured desktop/mobile contexts passed actual semantic-pixel review. The first of three comparable production editions reached the newer four-first-pass and eight-attempt targets.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
