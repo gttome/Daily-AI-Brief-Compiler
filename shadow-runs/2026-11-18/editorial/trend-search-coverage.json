@@ -410,21 +410,66 @@
       "reason": "The exact query was executed and the cited result routes were inspected, but no individually identified same-event candidate in this format was found."
     }
   ],
-  "selected_mappings": [],
+  "selected_mappings": [
+    {
+      "topic_id": "gpt-62-astra-sol-launch-nov17",
+      "format": "article",
+      "item_id": "nov18-k1-gpt62",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "reason": "Exact event match with complete original release, evaluation, pricing and disclosed-limitation review."
+    },
+    {
+      "topic_id": "microsoft-mai-code-2-copilot-launch-nov17",
+      "format": "article",
+      "item_id": "nov18-t2-mai-code2",
+      "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+      "reason": "Exact event match with complete original launch and model-card scope review."
+    },
+    {
+      "topic_id": "gemini-tasks-free-six-countries-nov17",
+      "format": "article",
+      "item_id": "nov18-a1-gemini-tasks",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "reason": "Exact event match with complete original rollout, safeguard and limitation review."
+    }
+  ],
   "baseline_id": "nov03-2026-v1",
   "impact_observations": {
     "observed_at": "2026-11-18T01:25:54.493Z",
-    "qualified_candidate_ids": [],
-    "source_additions": [],
-    "freshness_rejections": [],
-    "duplicate_rejections": [],
-    "promotion_rejections": [],
+    "qualified_candidate_ids": [
+      "CAND-ART-GPT62-LAUNCH",
+      "CAND-ART-MAI-CODE2",
+      "CAND-ART-GEMINI-TASKS-FREE"
+    ],
+    "source_additions": [
+      "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+      "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+    ],
+    "freshness_rejections": [
+      {
+        "candidate_id": "CAND-ART-N8N-NOD",
+        "reason": "The November 10 original article was outside the 168-hour maximum at selection time."
+      }
+    ],
+    "duplicate_rejections": [
+      {
+        "candidate_id": "CAND-VID-WORLDOFAI-QWEN4",
+        "reason": "The same Qwen4 event was already represented in the November 17 edition and offered insufficient marginal reader value."
+      }
+    ],
+    "promotion_rejections": [
+      {
+        "candidate_id": "CAND-ART-OPENCODE-BROWSE",
+        "reason": "The launch pages were product-led and did not displace stronger original evidence for the fixed six-story allocation."
+      }
+    ],
     "gaps": [
       "Most exact podcast queries produced no same-event episode lead; searches remain recorded without implying selection value."
     ],
     "observed_search_duration_minutes": 4,
     "observed_cost_usd": 0,
     "causal_uplift": null,
-    "notes": "All 30 exact query strings were executed before selection lock. Candidate IDs identify search leads only, not admitted bundle items."
+    "notes": "All 30 exact query strings were executed before selection lock. Three exact-event article leads were admitted after full original-source review; no trend-linked video or podcast was forced into the bundle. Candidate IDs identify search leads, and mappings do not establish causal uplift."
   }
 }
