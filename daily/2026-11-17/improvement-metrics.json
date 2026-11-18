@@ -444,13 +444,13 @@
       "outcome_status": "REVIEWED",
       "latest_review": {
         "change_id": "NOV15-01",
-        "reviewed_edition": "2026-11-17",
+        "reviewed_edition": "2026-11-18",
         "decision": "keep",
         "result": "inconclusive",
-        "reason": "The committed six-up image and 15 pair judgments show distinct observed arrangements, media and perspectives. Owner visual feedback has not been recorded.",
+        "reason": "Six distinct observed arrangements and all 15 pixel comparisons were saved. Owner aesthetic feedback is unknown.",
         "evidence_refs": [
-          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/reviews/six-up-contact-sheet.png",
-          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a4bbeb8615b09868fb8ba5e307ac9bbc6e790a3f/external-image-packages/2026-11-17/manifest.json"
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5cf63806df0ed8f9ee8c1c7e2571e1a6446e5248/external-image-packages/2026-11-18/reviews/six-up-contact-sheet.png",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/be147832e968f2919b39832e3f87987b3c74e489/external-image-packages/2026-11-18/reviews/live/semantic-pixel-review.json"
         ]
       }
     },
@@ -737,7 +737,7 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-18",
     "cumulative_review_due_today": true,
-    "finding_count": 2,
+    "finding_count": 3,
     "open_production_blockers": 0,
     "findings": [
       {
@@ -746,8 +746,17 @@
         "owner": "Compiler / Recovery",
         "observation": "1 failed protected publication gates were recorded (1 unclassified causes).",
         "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
+        "timing": "NEXT_GENUINE_CYCLE",
         "kind": "RECURRENCE_PREVENTION"
+      },
+      {
+        "id": "PREMIUM_IMAGE_REWORK",
+        "priority": "P1",
+        "owner": "Images",
+        "observation": "4 rejected image candidates preceded the verified six-image release.",
+        "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+        "timing": "NEXT_GENUINE_CYCLE",
+        "kind": "EFFICIENCY_LESSON"
       },
       {
         "id": "SCHEDULER_ORIGIN_UNPROVEN",
