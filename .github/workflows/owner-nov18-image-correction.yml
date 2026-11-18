@@ -1,6 +1,12 @@
 name: owner-nov18-image-correction
 # One-shot owner-requested postpublication revision, not a daily producer or schedule.
 on:
+  pull_request:
+    paths:
+      - 'external-image-revisions/2026-11-18/owner-quality-r2/**'
+      - 'scripts/owner-nov18-image-revision.mjs'
+      - 'scripts/capture-owner-nov18-image-revision.mjs'
+      - '.github/workflows/owner-nov18-image-correction.yml'
   push:
     branches: [main]
     paths:
@@ -15,7 +21,34 @@ concurrency:
   group: daily-compiler-pages-deploy
   cancel-in-progress: false
 jobs:
+  owner-nov18-preflight:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Inspect exact existing history and dry-run only image routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/shadow-pages-history:refs/remotes/origin/shadow-pages-history'
+          HISTORY_HEAD="$(git rev-parse refs/remotes/origin/shadow-pages-history)"
+          git worktree add --detach history "$HISTORY_HEAD"
+          mkdir -p build/evidence
+          node scripts/owner-nov18-image-revision.mjs stage . history/site build/patched \
+            build/evidence/staging.json "$HISTORY_HEAD"
+          test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
+          node -e "let r=require('./build/evidence/staging.json');if(r.changed_count!==13&&r.changed_count!==14)process.exit(1);if(r.images.length!==6||r.original_six_png_bytes_preserved!==true)process.exit(1)"
   owner-nov18-image-revision:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     environment:
