@@ -1,6 +1,6 @@
 # 2026-11-18 premium image after-action report
 
-**Status: PACKAGE_READY**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | fe6671724b024b506c86e6c2aa38cb25aa191f00 |
 | Executor observed run start | 2026-11-18T03:16:25Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-18T03:23:52Z (observed before tool call) |
-| Public release | PROTECTED_PACKAGE_PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | LIVE_REVIEW_PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-18T03:41:35.725Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -67,6 +67,8 @@ November 18 was the first eligible edition for the approved mechanism-detail pil
 
 The November 17 reference set reached four first-pass accepts in eight generations. The November 18 results reflect saved artwork inspection. Owner aesthetic feedback is unknown.
 
-All six committed PNGs matched the local reviewed bytes. Protected release and desktop/mobile live contexts remain pending at this package checkpoint.
+All six exact public PNGs matched. Dated and permanent placements, homepage, 24 saved mobile and desktop contexts, and 17 protected archive objects were verified.
+
+The six subjects use distinct cutaway, track, press, balance, architectural and folio arrangements. Compared with the October 7 craft references, the new set prioritizes fewer larger labels and exposes targeted internal detail. The November 17 set had four first-pass accepts in eight attempts. This set had two in ten. Repeated gears, simulated writing, margins and connector placement drove corrections. Each final image required at most two attempts.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
