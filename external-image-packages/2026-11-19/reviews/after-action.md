@@ -1,6 +1,6 @@
 # 2026-11-19 premium image after-action report
 
-**Status: PACKAGE_COMPLETE_RELEASE_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 845c0b08dbb2feb95c9820b827c51af7e7ae3446 |
 | Executor observed run start | 2026-11-19T03:14:17Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-19T03:23:03Z (observed before tool call) |
-| Public release | PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXTS; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-19T03:49:04.840Z |
+| Final saved-context review | VISUAL_24_VERIFIED; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -64,7 +64,7 @@ Job SHA-256: 21f44a70e14db70a78e71a8507b4c5ad83645c33aaee64067fb903da16fffa5a. O
 
 The actual generation start is 2026-11-19T03:23:03Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: external-image-packages/2026-11-19/reviews/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-19/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 All six source-bound specifications were committed/read back before native creation. The actual first-native-call clock was observed, written and read back before that tool call.
 
@@ -76,6 +76,8 @@ Repeated unplanned arrowheads were a common cause. Future unlocked specification
 
 Earlier combined AAR and charts from operations-reports/daily/2026-11-17 were reviewed. Prior production used ten calls, four rejections and two first-pass accepts. This edition does not demonstrate better first-pass efficiency.
 
-Native originals and rejected exports are retained. Only six locked accepted PNGs enter production. Actual 24-context live review and publication remain pending.
+All six locked PNG hashes passed live readback and all 24 saved desktop/mobile contexts passed actual pixel review. Fine secondary mobile labels use the existing full-size viewer. No accepted art was regenerated; owner aesthetic acceptance and metered usage remain UNKNOWN.
+
+A local automatic review rejected a combined restore/preflight command. No restoration ran; read-only hash evidence confirmed all PNGs intact and standalone package preflight passed.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
