@@ -55,6 +55,15 @@ if(historyDir&&historyDir!=='-'&&fs.existsSync(historyDir)){
     if(fs.existsSync(newJobs))fs.rmSync(newJobs,{recursive:true,force:true});
     copyDir(oldJobs,newJobs);
   }
+  // Versioned owner-approved postpublication image revisions deliberately keep
+  // the original image job immutable. Preserve their public verification
+  // receipts alongside the versioned PNGs copied with briefs/images above.
+  const oldRevisions=path.join(historyDir,'image-revisions');
+  if(fs.existsSync(oldRevisions)){
+    const newRevisions=path.join(outDir,'image-revisions');
+    if(fs.existsSync(newRevisions))fs.rmSync(newRevisions,{recursive:true,force:true});
+    copyDir(oldRevisions,newRevisions);
+  }
 }
 
 const receipt={
