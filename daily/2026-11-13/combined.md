@@ -446,8 +446,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-14/shadow-runs/2026-11-14/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-14/shadow-runs/2026-11-14/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-14/shadow-runs/2026-11-14/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02bfea494e52be492fcb9480d5b3c1e2806185fa/signals/ai-topic-top10/2026-11-13.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/02bfea494e52be492fcb9480d5b3c1e2806185fa/signals/ai-topic-top10/2026-11-13.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5dddab667f61b8776c3b8b324583562ab5e6a165/signals/ai-topic-top10/2026-11-13.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5dddab667f61b8776c3b8b324583562ab5e6a165/signals/ai-topic-top10/2026-11-13.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-14/shadow-runs/2026-11-14/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-14/shadow-runs/2026-11-14/editorial/trend-search-coverage.json) |
 
@@ -511,6 +511,14 @@ Findings are observational and do not claim a repair was executed by the reporte
 | NOV16-P1-10 — Three-edition original paper priority and vendor attribution | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
 | NOV16-P1-11 — Verify unattended scheduler provenance without self-attestation | 2026-11-20 | NOT_YET_EFFECTIVE | Not recorded |
 | NOV16-P2-12 — Seven-edition improvement decision dashboard | 2026-11-23 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-01 — Useful internal detail | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-02 — Distinct visual identity | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-03 — Novelty across days | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-04 — Better first-attempt yield | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-05 — Margins and legibility | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-06 — Reliable reporting | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-07 — Evidence of artistic improvement | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
+| IMG19-08 — Reusable learning without repeated shells | 2026-11-22 | NOT_YET_EFFECTIVE | Not recorded |
 
 Pending: 0; overdue: 0; reviewed: 14. Implemented controls await measured results; review decisions do not disable controls.
 
