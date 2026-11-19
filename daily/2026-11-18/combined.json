@@ -877,7 +877,7 @@
       "ordering": "Qualitative discovery priorities, not an exact global popularity ranking. No composite score, view-age velocity or audience sum.",
       "limitations": "Platform/format differences, unknown measurement clocks and inaccessible direct counters preclude precise popularity comparisons."
     },
-    "source_commit": "f2601c9e3595f62f71c00cac7f620b958478fff8",
+    "source_commit": "518d7a2e8246ef7f822ab8662ceeca33c0a7cccc",
     "source_blob_sha": "4b6a231337d60e046bc2e054512600952f74f117",
     "report_sha256": "b4d7702af7a0b5918c57c57b4d9b40f8d9e2996b27ce9523846c72d09b2157b1",
     "consumed_source_commit": "f2601c9e3595f62f71c00cac7f620b958478fff8",
@@ -1047,7 +1047,7 @@
       },
       "previous_cycle": "2026-11-17",
       "previous_report_sha256": "87787d447c8a7a213075317fbaa835f8a1252c4be2dd0004e174d4acd6aa2467",
-      "previous_aar_sha256": "5001c22672b7f753ed6d034432a2217f8526289af6de813039b012aa07fa6cfb",
+      "previous_aar_sha256": "db841267b43f9122b6ad1fd4003f30e8f07c5a90f065b7a65eb256fb4c4430fe",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1291,9 +1291,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1347,11 +1347,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f2601c9e3595f62f71c00cac7f620b958478fff8/signals/ai-topic-top10/2026-11-18.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/518d7a2e8246ef7f822ab8662ceeca33c0a7cccc/signals/ai-topic-top10/2026-11-18.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f2601c9e3595f62f71c00cac7f620b958478fff8/signals/ai-topic-top10/2026-11-18.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/518d7a2e8246ef7f822ab8662ceeca33c0a7cccc/signals/ai-topic-top10/2026-11-18.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1389,8 +1389,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov19-t1-pypi",
+            "label": "Malicious PyPI releases turn an agent import into credential theft",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov19-t2-neon",
+            "label": "Gemini 4 Neon trades maximum capability for fast, economical task volume",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov19-k1-hy4-flash",
+            "label": "Hy4 Flash pairs open weights with a bounded productivity-workflow test",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov19-k2-embeddinggemma",
+            "label": "A compact multimodal embedding model broadens local knowledge retrieval",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov19-a1-cowork-skill",
+            "label": "Build a reusable Cowork skill around sources, approvals and a visible deliverable",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov19-a2-next-gen-zaps",
+            "label": "Next Gen Zaps adds agentic editing while keeping workflow steps inspectable",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 12,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1497,8 +1541,8 @@
         "coverage_percent": 14,
         "coverage_numerator": 15,
         "coverage_denominator": 109,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 12,
         "top10_linked_items": 4,
         "publication_failures": 3
       }
@@ -1509,12 +1553,12 @@
         "median": 15
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
-        "median": 1
+        "recorded_editions": 7,
+        "median": 0
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 11
+        "recorded_editions": 7,
+        "median": 12
       },
       "top10_linked_items": {
         "recorded_editions": 5,
@@ -2159,18 +2203,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-19",
       "cumulative_review_due_today": true,
-      "finding_count": 3,
-      "open_production_blockers": 1,
+      "finding_count": 2,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "PROTECTED_GATE_FAILURES",
           "priority": "P1",
@@ -3909,10 +3944,35 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 35,
+      "recorded_editions": 7,
+      "total_rejected": 41,
       "unclassified": 35,
-      "rows": []
+      "rows": [
+        {
+          "cause": "CAUSAL_CONNECTOR",
+          "rejected_attempts": 5,
+          "editions": [
+            "2026-11-19"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "LAYOUT",
+          "rejected_attempts": 3,
+          "editions": [
+            "2026-11-19"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "PSEUDO_WRITING",
+          "rejected_attempts": 1,
+          "editions": [
+            "2026-11-19"
+          ],
+          "recurring": false
+        }
+      ]
     },
     "video_publisher_diversity": {
       "status": "COMPLETE",

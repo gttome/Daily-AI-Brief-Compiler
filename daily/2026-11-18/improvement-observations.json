@@ -11,7 +11,8 @@
     "image-job.json": "21f44a70e14db70a78e71a8507b4c5ad83645c33aaee64067fb903da16fffa5a",
     "image-manifest.json": "3e9afcede22c0436cdc99245cd80ab2ef37b513b2907b71b6d7a63767e26a151",
     "image-recurring-assignment.json": "549c8a66c4f4747fcd6f40990e6db4b28ccb7ef2519d45a470f2733dc3182fa0",
-    "image-timing.json": "dc6150dfd27b4545d7ed1d744b17db32c810d588b1404ab6f8933ed442877181",
+    "image-release.json": "80749bc86644fd534dbfe0c2d0b2b55f5b08add83e284c4ba1db8dea47c2fada",
+    "image-timing.json": "41db8b3cd98e8636d82599766cab123f256f8c5e35dc19a16f630b89912f05df",
     "image-worker-state.json": "33372f597062b3ac4a89fe1847cf8d6304893d73ec71c2ecdad5eebc1ab48754",
     "postpublish-integrity.json": "ad752bdb01fedb15394e4b779d45cb3621be0453bd9ddb0a2bc9eb2f1c4ff6bf",
     "postpublish-video-playback.json": "83b5b826987efc27d8f2dd11ede38a045885d83de2cffa9e3df8e1d659b5ed61",
@@ -23,12 +24,12 @@
     "top10-after-action.json": "f04912122cbbee343ae4e1f963435c51b42aaeac27b1cf6776623d7a8e653ea1",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "5001c22672b7f753ed6d034432a2217f8526289af6de813039b012aa07fa6cfb",
+    "top10-previous-aar.json": "db841267b43f9122b6ad1fd4003f30e8f07c5a90f065b7a65eb256fb4c4430fe",
     "top10-previous-report.json": "87787d447c8a7a213075317fbaa835f8a1252c4be2dd0004e174d4acd6aa2467",
-    "top10-report-source.json": "366bfc074d27d787b8fb21f6d836afa3befe84644a597069efbebebfca54c146",
+    "top10-report-source.json": "65a7d425c9c5c363c0d64d502d55b044b8c421ab813842deabee87bb11e8b735",
     "top10-report.json": "b4d7702af7a0b5918c57c57b4d9b40f8d9e2996b27ce9523846c72d09b2157b1",
     "trend-consumed-report.json": "b4d7702af7a0b5918c57c57b4d9b40f8d9e2996b27ce9523846c72d09b2157b1",
-    "trend-consumed-source.json": "66efb6c1a9c70b9e82a0c9d7303eba4156443a48df67802f7bf286e8f2fb5142",
+    "trend-consumed-source.json": "90ac736948413e4b7154f5d7174a8a1a3c11ef18094622f77b38a8f7c4d66709",
     "trend-consumed-verification.json": "4d3719baeff6dfb745c1583f95229676f65fe9f590206cc5454b97e695a5a397",
     "trend-input.json": "a9b43b988c9474cdd97c634a1331b5869032acf8827fdb1d69fef5f8178bb1e7",
     "trend-search-coverage.json": "e3264e40ed988229bdfbfa65f36973fcc416a24b7cf237eb2ad15072c1ecc1ec",
@@ -36,7 +37,7 @@
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -158,8 +159,8 @@
     "coverage_percent": 14,
     "coverage_numerator": 15,
     "coverage_denominator": 109,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 0,
+    "image_attempts": 12,
     "top10_linked_items": 4,
     "publication_failures": 3
   },
@@ -275,7 +276,63 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 6,
+    "classified": [
+      {
+        "story_id": "nov19-a1-cowork-skill",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0d211ffbbea31c250b802ff0d8efc4291f098859/external-image-packages/2026-11-19/reviews/nov19-a1-cowork-skill-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov19-a2-next-gen-zaps",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0d211ffbbea31c250b802ff0d8efc4291f098859/external-image-packages/2026-11-19/reviews/nov19-a2-next-gen-zaps-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov19-k1-hy4-flash",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0d211ffbbea31c250b802ff0d8efc4291f098859/external-image-packages/2026-11-19/reviews/nov19-k1-hy4-flash-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov19-k2-embeddinggemma",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0d211ffbbea31c250b802ff0d8efc4291f098859/external-image-packages/2026-11-19/reviews/nov19-k2-embeddinggemma-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov19-t1-pypi",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0d211ffbbea31c250b802ff0d8efc4291f098859/external-image-packages/2026-11-19/reviews/nov19-t1-pypi-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov19-t2-neon",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0d211ffbbea31c250b802ff0d8efc4291f098859/external-image-packages/2026-11-19/reviews/nov19-t2-neon-attempt1-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,
