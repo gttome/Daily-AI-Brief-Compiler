@@ -1,0 +1,1891 @@
+[
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-19",
+    "story_id": "nov19-t1-pypi",
+    "source_url": "https://research.jfrog.com/post/agent-framework-hijack/",
+    "visual_thesis": "At phone width: a malicious wheel runs a startup hook and steals credentials, while its source archive can stay clean. Expose the wheel-installed hook and independent Python-start execution as substages; at full size compare package contents and the distinct secret stores. This is a conceptual artifact dissection, not a software screenshot.",
+    "mechanism_metaphor": "A large continuous exploded wheel-package cutaway occupies the center-left. Its upper transparent package sleeve reveals an embedded hook strip. A Python-start ignition path enters that actual strip from above. The strip is physically connected through a single red collection conduit to three distinct blank secret containers, and that conduit leaves toward a detached destination vessel at the right. The clean folded source archive sits above-left with no connection to the theft path. Use an open cutaway, never a row of boxes. No human attacker, padlock badge, gear or fake code. Internal package face, hook strip, startup entry, execution junction, environment container, cloud credential file, key container, collector inlet, collector sleeve, outbound conduit, destination vessel, independent source archive and artifact-content comparison lip are meaningful parts.",
+    "story_anchors": [
+      "Independent clean source archive; no execution connector",
+      "Exploded malicious wheel, internal startup-hook strip and execution junction",
+      "Python initialization entry above the hook"
+    ],
+    "required_labels": [
+      "Clean source archive",
+      "Malicious wheel",
+      "Startup hook",
+      "Python starts",
+      "Credential theft",
+      "Secrets",
+      "Wheel differs from source"
+    ],
+    "source_claim_map": [
+      {
+        "id": "primary-1",
+        "proposition": "The wheel installs a startup hook that runs when Python starts, even without importing the framework.",
+        "supporting_source_excerpt": "the next Python command",
+        "source_url": "https://research.jfrog.com/post/agent-framework-hijack/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "primary-2",
+        "proposition": "The collector takes environment and cloud credentials and sends them away.",
+        "supporting_source_excerpt": "exfiltrates secrets again",
+        "source_url": "https://research.jfrog.com/post/agent-framework-hijack/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "primary-3",
+        "proposition": "Source distributions may remain clean while wheel contents are malicious.",
+        "supporting_source_excerpt": "repacked the clean wheel locally",
+        "source_url": "https://research.jfrog.com/post/agent-framework-hijack/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Python starts",
+        "to": "Startup hook",
+        "support_claim_id": "primary-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Startup hook",
+        "to": "Credential theft",
+        "support_claim_id": "primary-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No import-only trigger, no infection of the clean source archive, no fabricated keys or code, no suggestion that installing alone executes the stealer."
+    ],
+    "composition_signature": {
+      "grammar": "Wheel anatomy with diverted startup path",
+      "metaphor": "A large continuous exploded wheel-package cutaway occupies the center-left. Its upper transparent package sleeve reveals an embedded hook strip. A Python-start ignition path enters that actual strip from above. The strip is physically connected through a single red collection conduit to three distinct blank secret containers, and that conduit leaves toward a detached destination vessel at the right. The clean folded source archive sits above-left with no connection to the theft path. Use an open cutaway, never a row of boxes. No human attacker, padlock badge, gear or fake code. Internal package face, hook strip, startup entry, execution junction, environment container, cloud credential file, key container, collector inlet, collector sleeve, outbound conduit, destination vessel, independent source archive and artifact-content comparison lip are meaningful parts.",
+      "annotation": "Subject-specific integrated labels for Wheel anatomy with diverted startup path",
+      "layout": "Independent clean source archive; no execution connector / Exploded malicious wheel, internal startup-hook strip and execution junction / Python initialization entry above the hook / Secret stores, collection route and outbound destination",
+      "palette": "Vermilion charcoal parchment",
+      "hierarchy": "Dominant exposed wheel hook with smaller independent clean archive",
+      "perspective": "Large oblique sectional view"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 19 native image worker",
+      "source_url": "https://research.jfrog.com/post/agent-framework-hijack/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Clean source archive",
+          "region_id": "archive",
+          "region": "Independent clean source archive; no execution connector",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 88,
+            "width": 330,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Malicious wheel",
+          "region_id": "wheel",
+          "region": "Exploded malicious wheel, internal startup-hook strip and execution junction",
+          "bounding_box_px": {
+            "x": 108,
+            "y": 473,
+            "width": 330,
+            "height": 52
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Startup hook",
+          "region_id": "wheel",
+          "region": "Exploded malicious wheel, internal startup-hook strip and execution junction",
+          "bounding_box_px": {
+            "x": 450,
+            "y": 130,
+            "width": 270,
+            "height": 46
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Python starts",
+          "region_id": "start",
+          "region": "Python initialization entry above the hook",
+          "bounding_box_px": {
+            "x": 460,
+            "y": 76,
+            "width": 280,
+            "height": 45
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Credential theft",
+          "region_id": "theft",
+          "region": "Secret stores, collection route and outbound destination",
+          "bounding_box_px": {
+            "x": 813,
+            "y": 475,
+            "width": 300,
+            "height": 52
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Secrets",
+          "region_id": "theft",
+          "region": "Secret stores, collection route and outbound destination",
+          "bounding_box_px": {
+            "x": 816,
+            "y": 273,
+            "width": 190,
+            "height": 42
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Wheel differs from source",
+          "region_id": "archive",
+          "region": "Independent clean source archive; no execution connector",
+          "bounding_box_px": {
+            "x": 83,
+            "y": 160,
+            "width": 360,
+            "height": 42
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Wheel differs from source",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 79,
+      "explanatory_substage_labels": [
+        "Python starts",
+        "Startup hook"
+      ],
+      "thumbnail_priority_labels": [
+        "Malicious wheel",
+        "Startup hook",
+        "Credential theft"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "condition": "The wheel installs a startup hook that runs when Python starts, even without importing the framework.",
+          "allowed_path": "Python starts to Startup hook",
+          "blocked_path": "No import-only trigger, no infection of the clean source archive, no fabricated keys or code, no suggestion that installing alone executes the stealer.",
+          "support_claim_id": "primary-1"
+        },
+        {
+          "condition": "The collector takes environment and cloud credentials and sends them away.",
+          "allowed_path": "Startup hook to Credential theft",
+          "blocked_path": "No import-only trigger, no infection of the clean source archive, no fabricated keys or code, no suggestion that installing alone executes the stealer.",
+          "support_claim_id": "primary-2"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Python starts",
+          "to": "Startup hook",
+          "support_claim_id": "primary-1",
+          "origin_region": "Python initialization entry above the hook",
+          "target_region": "Exploded malicious wheel, internal startup-hook strip and execution junction",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Startup hook",
+          "to": "Credential theft",
+          "support_claim_id": "primary-2",
+          "origin_region": "Exploded malicious wheel, internal startup-hook strip and execution junction",
+          "target_region": "Secret stores, collection route and outbound destination",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "editorial_style_plan": {
+        "format_family": "Wheel anatomy with diverted startup path",
+        "dominant_grammar": "Wheel anatomy with diverted startup path",
+        "medium_treatment": "Copperplate security engraving with flat vermilion dissection",
+        "perspective": "Large oblique sectional view",
+        "information_hierarchy": "Dominant exposed wheel hook with smaller independent clean archive",
+        "palette_family": "Vermilion charcoal parchment",
+        "subject_specific_visual_thesis": "At phone width: a malicious wheel runs a startup hook and steals credentials, while its source archive can stay clean. Expose the wheel-installed hook and independent Python-start execution as substages; at full size compare package contents and the distinct secret stores. This is a conceptual artifact dissection, not a software screenshot.",
+        "difference_from_earlier_story_images": "Uses Wheel anatomy with diverted startup path with Large oblique sectional view and Dominant exposed wheel hook with smaller independent clean archive. It avoids the November 18 repeated four-label four-region object vignette defaults.",
+        "first_pass_risk_mitigation": "All glyph boxes reserve safe margins. No gear or control, no simulated document writing, no arrow terminating on text. Preserve the distinct silhouette. No import-only trigger, no infection of the clean source archive, no fabricated keys or code, no suggestion that installing alone executes the stealer."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "archive",
+            "description": "Independent clean source archive; no execution connector",
+            "bounding_box_px": {
+              "x": 60,
+              "y": 60,
+              "width": 390,
+              "height": 180
+            }
+          },
+          {
+            "id": "wheel",
+            "description": "Exploded malicious wheel, internal startup-hook strip and execution junction",
+            "bounding_box_px": {
+              "x": 75,
+              "y": 120,
+              "width": 700,
+              "height": 430
+            }
+          },
+          {
+            "id": "start",
+            "description": "Python initialization entry above the hook",
+            "bounding_box_px": {
+              "x": 445,
+              "y": 60,
+              "width": 330,
+              "height": 150
+            }
+          },
+          {
+            "id": "theft",
+            "description": "Secret stores, collection route and outbound destination",
+            "bounding_box_px": {
+              "x": 790,
+              "y": 220,
+              "width": 340,
+              "height": 330
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Python starts",
+            "to": "Startup hook",
+            "support_claim_id": "primary-1",
+            "from_region_id": "start",
+            "to_region_id": "wheel",
+            "origin_px": {
+              "x": 750,
+              "y": 165
+            },
+            "target_px": {
+              "x": 710,
+              "y": 219
+            }
+          },
+          {
+            "from": "Startup hook",
+            "to": "Credential theft",
+            "support_claim_id": "primary-2",
+            "from_region_id": "wheel",
+            "to_region_id": "theft",
+            "origin_px": {
+              "x": 725,
+              "y": 320
+            },
+            "target_px": {
+              "x": 846,
+              "y": 360
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 19 image source and prompt review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "bcbeb6d943a45682b47c9df91f73a9735526e2195e0d887e94fc3ff1a8651ab7"
+        }
+      }
+    },
+    "native_generation_prompt": "Create exactly one premium finished static factual editorial illustration, 1200 x 630 wide PNG on pure white. This is conceptual educational raster art, not a measured engineering diagram. No panel collage.\nVisual thesis: At phone width: a malicious wheel runs a startup hook and steals credentials, while its source archive can stay clean. Expose the wheel-installed hook and independent Python-start execution as substages; at full size compare package contents and the distinct secret stores. This is a conceptual artifact dissection, not a software screenshot.\nComposition: A large continuous exploded wheel-package cutaway occupies the center-left. Its upper transparent package sleeve reveals an embedded hook strip. A Python-start ignition path enters that actual strip from above. The strip is physically connected through a single red collection conduit to three distinct blank secret containers, and that conduit leaves toward a detached destination vessel at the right. The clean folded source archive sits above-left with no connection to the theft path. Use an open cutaway, never a row of boxes. No human attacker, padlock badge, gear or fake code. Internal package face, hook strip, startup entry, execution junction, environment container, cloud credential file, key container, collector inlet, collector sleeve, outbound conduit, destination vessel, independent source archive and artifact-content comparison lip are meaningful parts.\nMedium: Copperplate security engraving with flat vermilion dissection. View: Large oblique sectional view. Palette: Vermilion charcoal parchment. Make internal parts rich, purposeful, crisp and professionally finished; avoid isolated icons and generic flat cards. Keep all art at least 40 pixels inside export edges.\nOnly visible text, verbatim: [\"Clean source archive\",\"Malicious wheel\",\"Startup hook\",\"Python starts\",\"Credential theft\",\"Secrets\",\"Wheel differs from source\"]. No other lettering, numerals, faux text or symbols. Use bold dark high-contrast typography at the planned sizes and positions. Blank all other document surfaces.\nSupported relationship scope: The wheel installs a startup hook that runs when Python starts, even without importing the framework. The collector takes environment and cloud credentials and sends them away. Source distributions may remain clean while wheel contents are malicious.\nDraw only the allowed arrow paths in the attached composition geometry. Arrowheads touch the actual depicted object ports, never text or whitespace. Detached caveat has no connector. No invented causal links.\nExclusions: No import-only trigger, no infection of the clean source archive, no fabricated keys or code, no suggestion that installing alone executes the stealer. No people, faces, avatars, humanoids, logos, branded icons, photography, realistic product gloss, fake writing, decorative ticks, unsupported sliders, knobs, gears, scenery, dashboards, success badges or charts with invented data.\nCorrection of the attached first candidate: Preserve the detailed engraved wheel, clear clean-source distinction, and source-faithful startup-to-theft route. The rightmost word theft crossed the 40px glyph floor, and the major objects crowd all canvas edges. Recompose within the reserved regions and leave a generous 72px white perimeter for all labels and objects. In particular put the entire Credential theft text at x813..1113, y475..527, rather than beside the right edge. Maintain 40px priority and at least 28px secondary fonts at final 1200x630. Move the archive fully inward. Keep all exact words unchanged, with no extra text, ornaments or additional arrows.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"archive\",\"description\":\"Independent clean source archive; no execution connector\",\"bounding_box_px\":{\"x\":60,\"y\":60,\"width\":390,\"height\":180}},{\"id\":\"wheel\",\"description\":\"Exploded malicious wheel, internal startup-hook strip and execution junction\",\"bounding_box_px\":{\"x\":75,\"y\":120,\"width\":700,\"height\":430}},{\"id\":\"start\",\"description\":\"Python initialization entry above the hook\",\"bounding_box_px\":{\"x\":445,\"y\":60,\"width\":330,\"height\":150}},{\"id\":\"theft\",\"description\":\"Secret stores, collection route and outbound destination\",\"bounding_box_px\":{\"x\":790,\"y\":220,\"width\":340,\"height\":330}}],\"labels\":[{\"label\":\"Clean source archive\",\"region_id\":\"archive\",\"region\":\"Independent clean source archive; no execution connector\",\"bounding_box_px\":{\"x\":80,\"y\":88,\"width\":330,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Malicious wheel\",\"region_id\":\"wheel\",\"region\":\"Exploded malicious wheel, internal startup-hook strip and execution junction\",\"bounding_box_px\":{\"x\":108,\"y\":473,\"width\":330,\"height\":52},\"minimum_font_px\":42},{\"label\":\"Startup hook\",\"region_id\":\"wheel\",\"region\":\"Exploded malicious wheel, internal startup-hook strip and execution junction\",\"bounding_box_px\":{\"x\":450,\"y\":130,\"width\":270,\"height\":46},\"minimum_font_px\":40},{\"label\":\"Python starts\",\"region_id\":\"start\",\"region\":\"Python initialization entry above the hook\",\"bounding_box_px\":{\"x\":460,\"y\":76,\"width\":280,\"height\":45},\"minimum_font_px\":36},{\"label\":\"Credential theft\",\"region_id\":\"theft\",\"region\":\"Secret stores, collection route and outbound destination\",\"bounding_box_px\":{\"x\":813,\"y\":475,\"width\":300,\"height\":52},\"minimum_font_px\":40},{\"label\":\"Secrets\",\"region_id\":\"theft\",\"region\":\"Secret stores, collection route and outbound destination\",\"bounding_box_px\":{\"x\":816,\"y\":273,\"width\":190,\"height\":42},\"minimum_font_px\":30},{\"label\":\"Wheel differs from source\",\"region_id\":\"archive\",\"region\":\"Independent clean source archive; no execution connector\",\"bounding_box_px\":{\"x\":83,\"y\":160,\"width\":360,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Python starts\",\"to\":\"Startup hook\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"start\",\"to_region_id\":\"wheel\",\"origin_px\":{\"x\":750,\"y\":165},\"target_px\":{\"x\":710,\"y\":219}},{\"from\":\"Startup hook\",\"to\":\"Credential theft\",\"support_claim_id\":\"primary-2\",\"from_region_id\":\"wheel\",\"to_region_id\":\"theft\",\"origin_px\":{\"x\":725,\"y\":320},\"target_px\":{\"x\":846,\"y\":360}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-19",
+    "story_id": "nov19-t2-neon",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+    "visual_thesis": "At phone width: test the same task with Neon and a baseline before assuming speed lowers total effort. Reveal identical source inputs and matched review as substages; full size exposes retry and review-work considerations without invented performance bars.",
+    "mechanism_metaphor": "One continuous flat folded test strip splits into two long unequal-shaped ribbons with equal unnumbered task specimens, then meets a common inspection frame. Upper Neon route is a slim wave; lower baseline route is a broad angular fold. Do not encode measured speed, cost or superiority by ribbon length. Inside both routes expose task input, processing fold, output specimen and correction loop as recommended experiment structure. A detached publisher-claims note at upper right is outside every path. No charts, scores, gauges or screens. Shared source pack, split junction, two task specimens, upper processing fold, lower processing fold, upper output, lower output, rubric frame, review aperture, correction flap, timing observation tag, cost observation tag and separate claims note explain the comparison.",
+    "story_anchors": [
+      "Shared specimen source pack and split junction",
+      "Slim upper Neon trial route",
+      "Angular lower baseline trial route"
+    ],
+    "required_labels": [
+      "Same task",
+      "Neon",
+      "Baseline",
+      "Matched review",
+      "Accuracy and retries",
+      "Speed and total cost",
+      "Test publisher claims"
+    ],
+    "source_claim_map": [
+      {
+        "id": "concept-1",
+        "proposition": "A recommended comparison supplies the same task and input pack to Neon and a baseline.",
+        "supporting_source_excerpt": "Neon ranks ahead of comparable models",
+        "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      },
+      {
+        "id": "primary-2",
+        "proposition": "Google positions Neon as fast and efficient but its evaluation claims need task-specific checks.",
+        "supporting_source_excerpt": "Bringing frontier-level intelligence with fast end-to-end task completion",
+        "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Same task",
+        "to": "Neon",
+        "support_claim_id": "concept-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Same task",
+        "to": "Baseline",
+        "support_claim_id": "concept-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No numerical scores, cost ratios, guarantee of lower total cost, actual UI, measured ranking geometry, or claims that an output automatically passes review."
+    ],
+    "composition_signature": {
+      "grammar": "Shared specimen twin-route comparison",
+      "metaphor": "One continuous flat folded test strip splits into two long unequal-shaped ribbons with equal unnumbered task specimens, then meets a common inspection frame. Upper Neon route is a slim wave; lower baseline route is a broad angular fold. Do not encode measured speed, cost or superiority by ribbon length. Inside both routes expose task input, processing fold, output specimen and correction loop as recommended experiment structure. A detached publisher-claims note at upper right is outside every path. No charts, scores, gauges or screens. Shared source pack, split junction, two task specimens, upper processing fold, lower processing fold, upper output, lower output, rubric frame, review aperture, correction flap, timing observation tag, cost observation tag and separate claims note explain the comparison.",
+      "annotation": "Subject-specific integrated labels for Shared specimen twin-route comparison",
+      "layout": "Shared specimen source pack and split junction / Slim upper Neon trial route / Angular lower baseline trial route / Matched output inspection frame, review effort and total cost / Independent caveat above trial route",
+      "palette": "Ultramarine ochre ivory",
+      "hierarchy": "Shared task at left, paired model paths, common review at right",
+      "perspective": "Top-down comparison plate"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 14,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 19 native image worker",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Same task",
+          "region_id": "inputs",
+          "region": "Shared specimen source pack and split junction",
+          "bounding_box_px": {
+            "x": 84,
+            "y": 266,
+            "width": 230,
+            "height": 55
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Neon",
+          "region_id": "upper",
+          "region": "Slim upper Neon trial route",
+          "bounding_box_px": {
+            "x": 422,
+            "y": 127,
+            "width": 180,
+            "height": 51
+          },
+          "minimum_font_px": 44
+        },
+        {
+          "label": "Baseline",
+          "region_id": "lower",
+          "region": "Angular lower baseline trial route",
+          "bounding_box_px": {
+            "x": 399,
+            "y": 448,
+            "width": 240,
+            "height": 55
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Matched review",
+          "region_id": "review",
+          "region": "Matched output inspection frame, review effort and total cost",
+          "bounding_box_px": {
+            "x": 832,
+            "y": 286,
+            "width": 290,
+            "height": 50
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Accuracy and retries",
+          "region_id": "review",
+          "region": "Matched output inspection frame, review effort and total cost",
+          "bounding_box_px": {
+            "x": 808,
+            "y": 393,
+            "width": 310,
+            "height": 43
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Speed and total cost",
+          "region_id": "review",
+          "region": "Matched output inspection frame, review effort and total cost",
+          "bounding_box_px": {
+            "x": 808,
+            "y": 452,
+            "width": 310,
+            "height": 43
+          },
+          "minimum_font_px": 28
+        },
+        {
+          "label": "Test publisher claims",
+          "region_id": "claims",
+          "region": "Independent caveat above trial route",
+          "bounding_box_px": {
+            "x": 737,
+            "y": 77,
+            "width": 360,
+            "height": 47
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Test publisher claims",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 73,
+      "explanatory_substage_labels": [
+        "Same task",
+        "Neon"
+      ],
+      "thumbnail_priority_labels": [
+        "Same task",
+        "Neon",
+        "Baseline"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "condition": "A recommended comparison supplies the same task and input pack to Neon and a baseline.",
+          "allowed_path": "Same task to Neon",
+          "blocked_path": "No numerical scores, cost ratios, guarantee of lower total cost, actual UI, measured ranking geometry, or claims that an output automatically passes review.",
+          "support_claim_id": "concept-1"
+        },
+        {
+          "condition": "A recommended comparison supplies the same task and input pack to Neon and a baseline.",
+          "allowed_path": "Same task to Baseline",
+          "blocked_path": "No numerical scores, cost ratios, guarantee of lower total cost, actual UI, measured ranking geometry, or claims that an output automatically passes review.",
+          "support_claim_id": "concept-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Same task",
+          "to": "Neon",
+          "support_claim_id": "concept-1",
+          "origin_region": "Shared specimen source pack and split junction",
+          "target_region": "Slim upper Neon trial route",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Same task",
+          "to": "Baseline",
+          "support_claim_id": "concept-1",
+          "origin_region": "Shared specimen source pack and split junction",
+          "target_region": "Angular lower baseline trial route",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "editorial_style_plan": {
+        "format_family": "Shared specimen twin-route comparison",
+        "dominant_grammar": "Shared specimen twin-route comparison",
+        "medium_treatment": "Flat lithographic ribbons with precise dark ink annotation",
+        "perspective": "Top-down comparison plate",
+        "information_hierarchy": "Shared task at left, paired model paths, common review at right",
+        "palette_family": "Ultramarine ochre ivory",
+        "subject_specific_visual_thesis": "At phone width: test the same task with Neon and a baseline before assuming speed lowers total effort. Reveal identical source inputs and matched review as substages; full size exposes retry and review-work considerations without invented performance bars.",
+        "difference_from_earlier_story_images": "Uses Shared specimen twin-route comparison with Top-down comparison plate and Shared task at left, paired model paths, common review at right. It avoids the November 18 repeated four-label four-region object vignette defaults.",
+        "first_pass_risk_mitigation": "All glyph boxes reserve safe margins. No gear or control, no simulated document writing, no arrow terminating on text. Preserve the distinct silhouette. No numerical scores, cost ratios, guarantee of lower total cost, actual UI, measured ranking geometry, or claims that an output automatically passes review."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "inputs",
+            "description": "Shared specimen source pack and split junction",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 185,
+              "width": 285,
+              "height": 245
+            }
+          },
+          {
+            "id": "upper",
+            "description": "Slim upper Neon trial route",
+            "bounding_box_px": {
+              "x": 355,
+              "y": 105,
+              "width": 398,
+              "height": 190
+            }
+          },
+          {
+            "id": "lower",
+            "description": "Angular lower baseline trial route",
+            "bounding_box_px": {
+              "x": 350,
+              "y": 340,
+              "width": 405,
+              "height": 210
+            }
+          },
+          {
+            "id": "review",
+            "description": "Matched output inspection frame, review effort and total cost",
+            "bounding_box_px": {
+              "x": 790,
+              "y": 255,
+              "width": 350,
+              "height": 300
+            }
+          },
+          {
+            "id": "claims",
+            "description": "Independent caveat above trial route",
+            "bounding_box_px": {
+              "x": 722,
+              "y": 60,
+              "width": 395,
+              "height": 85
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Same task",
+            "to": "Neon",
+            "support_claim_id": "concept-1",
+            "from_region_id": "inputs",
+            "to_region_id": "upper",
+            "origin_px": {
+              "x": 306,
+              "y": 244
+            },
+            "target_px": {
+              "x": 432,
+              "y": 215
+            }
+          },
+          {
+            "from": "Same task",
+            "to": "Baseline",
+            "support_claim_id": "concept-1",
+            "from_region_id": "inputs",
+            "to_region_id": "lower",
+            "origin_px": {
+              "x": 306,
+              "y": 364
+            },
+            "target_px": {
+              "x": 426,
+              "y": 401
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 19 image source and prompt review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "a40b21cff66ba0c325f57a905feb7444b8c6dac9a604ff656c5e03306c7f7233"
+        }
+      }
+    },
+    "native_generation_prompt": "Create exactly one premium finished static factual editorial illustration, 1200 x 630 wide PNG on pure white. This is conceptual educational raster art, not a measured engineering diagram. No panel collage.\nVisual thesis: At phone width: test the same task with Neon and a baseline before assuming speed lowers total effort. Reveal identical source inputs and matched review as substages; full size exposes retry and review-work considerations without invented performance bars.\nComposition: One continuous flat folded test strip splits into two long unequal-shaped ribbons with equal unnumbered task specimens, then meets a common inspection frame. Upper Neon route is a slim wave; lower baseline route is a broad angular fold. Do not encode measured speed, cost or superiority by ribbon length. Inside both routes expose task input, processing fold, output specimen and correction loop as recommended experiment structure. A detached publisher-claims note at upper right is outside every path. No charts, scores, gauges or screens. Shared source pack, split junction, two task specimens, upper processing fold, lower processing fold, upper output, lower output, rubric frame, review aperture, correction flap, timing observation tag, cost observation tag and separate claims note explain the comparison.\nMedium: Flat lithographic ribbons with precise dark ink annotation. View: Top-down comparison plate. Palette: Ultramarine ochre ivory. Make internal parts rich, purposeful, crisp and professionally finished; avoid isolated icons and generic flat cards. Keep all art at least 40 pixels inside export edges.\nOnly visible text, verbatim: [\"Same task\",\"Neon\",\"Baseline\",\"Matched review\",\"Accuracy and retries\",\"Speed and total cost\",\"Test publisher claims\"]. No other lettering, numerals, faux text or symbols. Use bold dark high-contrast typography at the planned sizes and positions. Blank all other document surfaces.\nSupported relationship scope: A recommended comparison supplies the same task and input pack to Neon and a baseline. Google positions Neon as fast and efficient but its evaluation claims need task-specific checks.\nDraw only the allowed arrow paths in the attached composition geometry. Arrowheads touch the actual depicted object ports, never text or whitespace. Detached caveat has no connector. No invented causal links.\nExclusions: No numerical scores, cost ratios, guarantee of lower total cost, actual UI, measured ranking geometry, or claims that an output automatically passes review. No people, faces, avatars, humanoids, logos, branded icons, photography, realistic product gloss, fake writing, decorative ticks, unsupported sliders, knobs, gears, scenery, dashboards, success badges or charts with invented data.\nTargeted correction: Preserve the paired ribbon comparison, seven exact labels and cobalt/ochre lithographic finish. Remove EVERY dark horizontal stroke from all document faces: all sheets must be completely blank. Remove the circular retry arrows, intermediate arrowheads and arrows entering the review frame; retain only the two allowed source-pack-to-route connectors specified in frozen geometry. Show corrections by a plain folded flap, with no feedback arrow. Keep the complete Same task and Matched review labels at least72 pixels inside the canvas edges; do not shrink any label below its planned minimum font size.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"inputs\",\"description\":\"Shared specimen source pack and split junction\",\"bounding_box_px\":{\"x\":65,\"y\":185,\"width\":285,\"height\":245}},{\"id\":\"upper\",\"description\":\"Slim upper Neon trial route\",\"bounding_box_px\":{\"x\":355,\"y\":105,\"width\":398,\"height\":190}},{\"id\":\"lower\",\"description\":\"Angular lower baseline trial route\",\"bounding_box_px\":{\"x\":350,\"y\":340,\"width\":405,\"height\":210}},{\"id\":\"review\",\"description\":\"Matched output inspection frame, review effort and total cost\",\"bounding_box_px\":{\"x\":790,\"y\":255,\"width\":350,\"height\":300}},{\"id\":\"claims\",\"description\":\"Independent caveat above trial route\",\"bounding_box_px\":{\"x\":722,\"y\":60,\"width\":395,\"height\":85}}],\"labels\":[{\"label\":\"Same task\",\"region_id\":\"inputs\",\"region\":\"Shared specimen source pack and split junction\",\"bounding_box_px\":{\"x\":84,\"y\":266,\"width\":230,\"height\":55},\"minimum_font_px\":42},{\"label\":\"Neon\",\"region_id\":\"upper\",\"region\":\"Slim upper Neon trial route\",\"bounding_box_px\":{\"x\":422,\"y\":127,\"width\":180,\"height\":51},\"minimum_font_px\":44},{\"label\":\"Baseline\",\"region_id\":\"lower\",\"region\":\"Angular lower baseline trial route\",\"bounding_box_px\":{\"x\":399,\"y\":448,\"width\":240,\"height\":55},\"minimum_font_px\":42},{\"label\":\"Matched review\",\"region_id\":\"review\",\"region\":\"Matched output inspection frame, review effort and total cost\",\"bounding_box_px\":{\"x\":832,\"y\":286,\"width\":290,\"height\":50},\"minimum_font_px\":36},{\"label\":\"Accuracy and retries\",\"region_id\":\"review\",\"region\":\"Matched output inspection frame, review effort and total cost\",\"bounding_box_px\":{\"x\":808,\"y\":393,\"width\":310,\"height\":43},\"minimum_font_px\":28},{\"label\":\"Speed and total cost\",\"region_id\":\"review\",\"region\":\"Matched output inspection frame, review effort and total cost\",\"bounding_box_px\":{\"x\":808,\"y\":452,\"width\":310,\"height\":43},\"minimum_font_px\":28},{\"label\":\"Test publisher claims\",\"region_id\":\"claims\",\"region\":\"Independent caveat above trial route\",\"bounding_box_px\":{\"x\":737,\"y\":77,\"width\":360,\"height\":47},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Same task\",\"to\":\"Neon\",\"support_claim_id\":\"concept-1\",\"from_region_id\":\"inputs\",\"to_region_id\":\"upper\",\"origin_px\":{\"x\":306,\"y\":244},\"target_px\":{\"x\":432,\"y\":215}},{\"from\":\"Same task\",\"to\":\"Baseline\",\"support_claim_id\":\"concept-1\",\"from_region_id\":\"inputs\",\"to_region_id\":\"lower\",\"origin_px\":{\"x\":306,\"y\":364},\"target_px\":{\"x\":426,\"y\":401}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-19",
+    "story_id": "nov19-k1-hy4-flash",
+    "source_url": "https://huggingface.co/tencent/Hy4-flash",
+    "visual_thesis": "At phone width: open weights still require license and infrastructure review. Reveal image encoding then model processing as supported internal substages. At full size identify the vision-to-backbone connection and the distinct deployment envelope, without showing a turnkey laptop claim.",
+    "mechanism_metaphor": "A tall central exploded model assembly has an image mosaic slab at upper left, vision encoder wafer below it, a narrow projector bridge seated into the central language-backbone stack, and an adjacent text-input ribbon entering a separate stack port. Layered model plates have blank smooth faces and sparse structurally meaningful routing, never decorative chips or pin grids. At lower right a separate infrastructure cradle and license folio constrain deployment; they are not generated outputs. Text outputs are represented by a blank folded document emerging at central right. No invented GUI, gears, cooling scenery, benchmark chart or counts. Image sample, vision wafer, projection bridge, text ribbon, input port, backbone stack, routed branch, shared branch, output port, text folio, deployment cradle, license folio and quality-review tab are substantive parts.",
+    "story_anchors": [
+      "Image, vision encoder and projector link on upper left",
+      "Text entry above central stack",
+      "Central exploded backbone and output folio"
+    ],
+    "required_labels": [
+      "Image input",
+      "Vision encoder",
+      "Text input",
+      "Open weights",
+      "Text output",
+      "License and infrastructure"
+    ],
+    "source_claim_map": [
+      {
+        "id": "primary-1",
+        "proposition": "A vision encoder connects to the language backbone through an MLP projector; text and image inputs produce text.",
+        "supporting_source_excerpt": "connected to the backbone through an MLP projector",
+        "source_url": "https://huggingface.co/tencent/Hy4-flash",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "primary-2",
+        "proposition": "Open-weight deployment has license and serving requirements.",
+        "supporting_source_excerpt": "we recommend using vLLM or SGLang",
+        "source_url": "https://huggingface.co/tencent/Hy4-flash",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Image input",
+        "to": "Vision encoder",
+        "support_claim_id": "primary-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Vision encoder",
+        "to": "Open weights",
+        "support_claim_id": "primary-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No claim of open-source licensing, cheap laptop deployment, images as generated outputs, made-up model counts, or guaranteed productivity savings."
+    ],
+    "composition_signature": {
+      "grammar": "Exploded multimodal dependency assembly",
+      "metaphor": "A tall central exploded model assembly has an image mosaic slab at upper left, vision encoder wafer below it, a narrow projector bridge seated into the central language-backbone stack, and an adjacent text-input ribbon entering a separate stack port. Layered model plates have blank smooth faces and sparse structurally meaningful routing, never decorative chips or pin grids. At lower right a separate infrastructure cradle and license folio constrain deployment; they are not generated outputs. Text outputs are represented by a blank folded document emerging at central right. No invented GUI, gears, cooling scenery, benchmark chart or counts. Image sample, vision wafer, projection bridge, text ribbon, input port, backbone stack, routed branch, shared branch, output port, text folio, deployment cradle, license folio and quality-review tab are substantive parts.",
+      "annotation": "Subject-specific integrated labels for Exploded multimodal dependency assembly",
+      "layout": "Image, vision encoder and projector link on upper left / Text entry above central stack / Central exploded backbone and output folio / Independent deployment envelope and license constraint below",
+      "palette": "Forest green graphite warm cream",
+      "hierarchy": "Tall central open-weight backbone, flanking input and deployment constraints",
+      "perspective": "Upright exploded axonometric assembly"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 19 native image worker",
+      "source_url": "https://huggingface.co/tencent/Hy4-flash",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Image input",
+          "region_id": "vision",
+          "region": "Image, vision encoder and projector link on upper left",
+          "bounding_box_px": {
+            "x": 82,
+            "y": 100,
+            "width": 260,
+            "height": 46
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Vision encoder",
+          "region_id": "vision",
+          "region": "Image, vision encoder and projector link on upper left",
+          "bounding_box_px": {
+            "x": 83,
+            "y": 263,
+            "width": 265,
+            "height": 46
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Text input",
+          "region_id": "text",
+          "region": "Text entry above central stack",
+          "bounding_box_px": {
+            "x": 488,
+            "y": 81,
+            "width": 230,
+            "height": 46
+          },
+          "minimum_font_px": 36
+        },
+        {
+          "label": "Open weights",
+          "region_id": "model",
+          "region": "Central exploded backbone and output folio",
+          "bounding_box_px": {
+            "x": 443,
+            "y": 433,
+            "width": 300,
+            "height": 55
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Text output",
+          "region_id": "model",
+          "region": "Central exploded backbone and output folio",
+          "bounding_box_px": {
+            "x": 808,
+            "y": 249,
+            "width": 280,
+            "height": 47
+          },
+          "minimum_font_px": 34
+        },
+        {
+          "label": "License and infrastructure",
+          "region_id": "deploy",
+          "region": "Independent deployment envelope and license constraint below",
+          "bounding_box_px": {
+            "x": 677,
+            "y": 500,
+            "width": 440,
+            "height": 47
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "License and infrastructure",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 76,
+      "explanatory_substage_labels": [
+        "Image input",
+        "Vision encoder"
+      ],
+      "thumbnail_priority_labels": [
+        "Image input",
+        "Open weights"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "condition": "A vision encoder connects to the language backbone through an MLP projector; text and image inputs produce text.",
+          "allowed_path": "Image input to Vision encoder",
+          "blocked_path": "No claim of open-source licensing, cheap laptop deployment, images as generated outputs, made-up model counts, or guaranteed productivity savings.",
+          "support_claim_id": "primary-1"
+        },
+        {
+          "condition": "A vision encoder connects to the language backbone through an MLP projector; text and image inputs produce text.",
+          "allowed_path": "Vision encoder to Open weights",
+          "blocked_path": "No claim of open-source licensing, cheap laptop deployment, images as generated outputs, made-up model counts, or guaranteed productivity savings.",
+          "support_claim_id": "primary-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Image input",
+          "to": "Vision encoder",
+          "support_claim_id": "primary-1",
+          "origin_region": "Image, vision encoder and projector link on upper left",
+          "target_region": "Image, vision encoder and projector link on upper left",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Vision encoder",
+          "to": "Open weights",
+          "support_claim_id": "primary-1",
+          "origin_region": "Image, vision encoder and projector link on upper left",
+          "target_region": "Central exploded backbone and output folio",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "editorial_style_plan": {
+        "format_family": "Exploded multimodal dependency assembly",
+        "dominant_grammar": "Exploded multimodal dependency assembly",
+        "medium_treatment": "Matte technical colored-pencil section with sharp type",
+        "perspective": "Upright exploded axonometric assembly",
+        "information_hierarchy": "Tall central open-weight backbone, flanking input and deployment constraints",
+        "palette_family": "Forest green graphite warm cream",
+        "subject_specific_visual_thesis": "At phone width: open weights still require license and infrastructure review. Reveal image encoding then model processing as supported internal substages. At full size identify the vision-to-backbone connection and the distinct deployment envelope, without showing a turnkey laptop claim.",
+        "difference_from_earlier_story_images": "Uses Exploded multimodal dependency assembly with Upright exploded axonometric assembly and Tall central open-weight backbone, flanking input and deployment constraints. It avoids the November 18 repeated four-label four-region object vignette defaults.",
+        "first_pass_risk_mitigation": "All glyph boxes reserve safe margins. No gear or control, no simulated document writing, no arrow terminating on text. Preserve the distinct silhouette. No claim of open-source licensing, cheap laptop deployment, images as generated outputs, made-up model counts, or guaranteed productivity savings."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "vision",
+            "description": "Image, vision encoder and projector link on upper left",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 75,
+              "width": 365,
+              "height": 300
+            }
+          },
+          {
+            "id": "text",
+            "description": "Text entry above central stack",
+            "bounding_box_px": {
+              "x": 458,
+              "y": 60,
+              "width": 320,
+              "height": 170
+            }
+          },
+          {
+            "id": "model",
+            "description": "Central exploded backbone and output folio",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 214,
+              "width": 720,
+              "height": 285
+            }
+          },
+          {
+            "id": "deploy",
+            "description": "Independent deployment envelope and license constraint below",
+            "bounding_box_px": {
+              "x": 650,
+              "y": 485,
+              "width": 480,
+              "height": 70
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Image input",
+            "to": "Vision encoder",
+            "support_claim_id": "primary-1",
+            "from_region_id": "vision",
+            "to_region_id": "vision",
+            "origin_px": {
+              "x": 230,
+              "y": 183
+            },
+            "target_px": {
+              "x": 230,
+              "y": 242
+            }
+          },
+          {
+            "from": "Vision encoder",
+            "to": "Open weights",
+            "support_claim_id": "primary-1",
+            "from_region_id": "vision",
+            "to_region_id": "model",
+            "origin_px": {
+              "x": 380,
+              "y": 307
+            },
+            "target_px": {
+              "x": 495,
+              "y": 338
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 19 image source and prompt review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "d6af064046e43be98e6af5e7da3593554fc1ac652e36244121c11764c0597096"
+        }
+      }
+    },
+    "native_generation_prompt": "Create exactly one premium finished static factual editorial illustration, 1200 x 630 wide PNG on pure white. This is conceptual educational raster art, not a measured engineering diagram. No panel collage.\nVisual thesis: At phone width: open weights still require license and infrastructure review. Reveal image encoding then model processing as supported internal substages. At full size identify the vision-to-backbone connection and the distinct deployment envelope, without showing a turnkey laptop claim.\nComposition: A tall central exploded model assembly has an image mosaic slab at upper left, vision encoder wafer below it, a narrow projector bridge seated into the central language-backbone stack, and an adjacent text-input ribbon entering a separate stack port. Layered model plates have blank smooth faces and sparse structurally meaningful routing, never decorative chips or pin grids. At lower right a separate infrastructure cradle and license folio constrain deployment; they are not generated outputs. Text outputs are represented by a blank folded document emerging at central right. No invented GUI, gears, cooling scenery, benchmark chart or counts. Image sample, vision wafer, projection bridge, text ribbon, input port, backbone stack, routed branch, shared branch, output port, text folio, deployment cradle, license folio and quality-review tab are substantive parts.\nMedium: Matte technical colored-pencil section with sharp type. View: Upright exploded axonometric assembly. Palette: Forest green graphite warm cream. Make internal parts rich, purposeful, crisp and professionally finished; avoid isolated icons and generic flat cards. Keep all art at least 40 pixels inside export edges.\nOnly visible text, verbatim: [\"Image input\",\"Vision encoder\",\"Text input\",\"Open weights\",\"Text output\",\"License and infrastructure\"]. No other lettering, numerals, faux text or symbols. Use bold dark high-contrast typography at the planned sizes and positions. Blank all other document surfaces.\nSupported relationship scope: A vision encoder connects to the language backbone through an MLP projector; text and image inputs produce text. Open-weight deployment has license and serving requirements.\nDraw only the allowed arrow paths in the attached composition geometry. Arrowheads touch the actual depicted object ports, never text or whitespace. Detached caveat has no connector. No invented causal links.\nExclusions: No claim of open-source licensing, cheap laptop deployment, images as generated outputs, made-up model counts, or guaranteed productivity savings. No people, faces, avatars, humanoids, logos, branded icons, photography, realistic product gloss, fake writing, decorative ticks, unsupported sliders, knobs, gears, scenery, dashboards, success badges or charts with invented data.\nTargeted correction: Preserve green colored-pencil assembly and all six labels. Move the entire lower license/infrastructure cradle upward until its caption glyphs fit y500..547 in the final1200x630 image, with at least72px white edge clearance. The two source-approved arrows are image-to-encoder and encoder-to-backbone only. Remove the Text input arrowhead and the Text output arrowhead, keeping those routes as simple unarrowed physical strips. Do not add any other arrows. Make the interior backbone less opaque: show its existing routed and shared dependency branches inside one cutaway layer, as conceptual qualitative paths without numbers, knobs or circuit decoration.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"vision\",\"description\":\"Image, vision encoder and projector link on upper left\",\"bounding_box_px\":{\"x\":65,\"y\":75,\"width\":365,\"height\":300}},{\"id\":\"text\",\"description\":\"Text entry above central stack\",\"bounding_box_px\":{\"x\":458,\"y\":60,\"width\":320,\"height\":170}},{\"id\":\"model\",\"description\":\"Central exploded backbone and output folio\",\"bounding_box_px\":{\"x\":410,\"y\":214,\"width\":720,\"height\":285}},{\"id\":\"deploy\",\"description\":\"Independent deployment envelope and license constraint below\",\"bounding_box_px\":{\"x\":650,\"y\":485,\"width\":480,\"height\":70}}],\"labels\":[{\"label\":\"Image input\",\"region_id\":\"vision\",\"region\":\"Image, vision encoder and projector link on upper left\",\"bounding_box_px\":{\"x\":82,\"y\":100,\"width\":260,\"height\":46},\"minimum_font_px\":40},{\"label\":\"Vision encoder\",\"region_id\":\"vision\",\"region\":\"Image, vision encoder and projector link on upper left\",\"bounding_box_px\":{\"x\":83,\"y\":263,\"width\":265,\"height\":46},\"minimum_font_px\":30},{\"label\":\"Text input\",\"region_id\":\"text\",\"region\":\"Text entry above central stack\",\"bounding_box_px\":{\"x\":488,\"y\":81,\"width\":230,\"height\":46},\"minimum_font_px\":36},{\"label\":\"Open weights\",\"region_id\":\"model\",\"region\":\"Central exploded backbone and output folio\",\"bounding_box_px\":{\"x\":443,\"y\":433,\"width\":300,\"height\":55},\"minimum_font_px\":42},{\"label\":\"Text output\",\"region_id\":\"model\",\"region\":\"Central exploded backbone and output folio\",\"bounding_box_px\":{\"x\":808,\"y\":249,\"width\":280,\"height\":47},\"minimum_font_px\":34},{\"label\":\"License and infrastructure\",\"region_id\":\"deploy\",\"region\":\"Independent deployment envelope and license constraint below\",\"bounding_box_px\":{\"x\":677,\"y\":500,\"width\":440,\"height\":47},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Image input\",\"to\":\"Vision encoder\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"vision\",\"to_region_id\":\"vision\",\"origin_px\":{\"x\":230,\"y\":183},\"target_px\":{\"x\":230,\"y\":242}},{\"from\":\"Vision encoder\",\"to\":\"Open weights\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"vision\",\"to_region_id\":\"model\",\"origin_px\":{\"x\":380,\"y\":307},\"target_px\":{\"x\":495,\"y\":338}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-19",
+    "story_id": "nov19-k2-embeddinggemma",
+    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/",
+    "visual_thesis": "At phone width: different media map into one shared embedding space. Reveal modality inputs and shared representation as two substages; full size shows cross-modal neighborhood relationships as qualitative geometry, never measured distance or a performance chart.",
+    "mechanism_metaphor": "A large continuous tilted translucent semantic surface sweeps across the image like a folded atlas. On its left edge four distinct forms enter at different heights: blank text folio, image mosaic with no face, audio wave ribbon and filmstrip with abstract blank frames. Their paths gather at one embedding seam, then appear as distinct shape tokens interleaved in shared unnumbered neighborhoods on the open surface. Use a few clear nondirectional similarity threads inside the field, not a fully connected decorative network. A small separate retrieval-test sieve at lower right remains an editorial recommendation, not model internals. No axes, scores, numeric vector strings, fake document writing or dimensional guarantees. Four media forms, four input paths, embedding seam, shared field, mixed neighborhood, similarity thread, query token and retrieval-test sieve provide meaningful structure.",
+    "story_anchors": [
+      "Four differently shaped source media along the left edge",
+      "Continuous shared semantic surface, embedding seam and mixed neighborhoods",
+      "Separate qualitative retrieval-test recommendation"
+    ],
+    "required_labels": [
+      "Text",
+      "Images",
+      "Audio",
+      "Video",
+      "Shared embedding space",
+      "Test retrieval by modality"
+    ],
+    "source_claim_map": [
+      {
+        "id": "primary-1",
+        "proposition": "Text, images, audio and video are mapped into one embedding space.",
+        "supporting_source_excerpt": "maps text, images, audio, and video",
+        "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "primary-2",
+        "proposition": "The model uses a compact backbone and publishes training and evaluation detail.",
+        "supporting_source_excerpt": "a more compact profile",
+        "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Images",
+        "to": "Shared embedding space",
+        "support_claim_id": "primary-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Audio",
+        "to": "Shared embedding space",
+        "support_claim_id": "primary-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No quantified distances, invented retrieval scores, claims of perfect similarity, private-data guarantees, or unsupported product controls."
+    ],
+    "composition_signature": {
+      "grammar": "Multimodal convergence into a semantic field",
+      "metaphor": "A large continuous tilted translucent semantic surface sweeps across the image like a folded atlas. On its left edge four distinct forms enter at different heights: blank text folio, image mosaic with no face, audio wave ribbon and filmstrip with abstract blank frames. Their paths gather at one embedding seam, then appear as distinct shape tokens interleaved in shared unnumbered neighborhoods on the open surface. Use a few clear nondirectional similarity threads inside the field, not a fully connected decorative network. A small separate retrieval-test sieve at lower right remains an editorial recommendation, not model internals. No axes, scores, numeric vector strings, fake document writing or dimensional guarantees. Four media forms, four input paths, embedding seam, shared field, mixed neighborhood, similarity thread, query token and retrieval-test sieve provide meaningful structure.",
+      "annotation": "Subject-specific integrated labels for Multimodal convergence into a semantic field",
+      "layout": "Four differently shaped source media along the left edge / Continuous shared semantic surface, embedding seam and mixed neighborhoods / Separate qualitative retrieval-test recommendation",
+      "palette": "Teal aubergine ivory",
+      "hierarchy": "Four differentiated media paths converge on one dominant open field",
+      "perspective": "Elevated plan over a continuous curved semantic surface"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 15,
+      "major_regions": 3,
+      "dominant_internal_substages": 3,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 19 native image worker",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Text",
+          "region_id": "media",
+          "region": "Four differently shaped source media along the left edge",
+          "bounding_box_px": {
+            "x": 87,
+            "y": 110,
+            "width": 170,
+            "height": 44
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Images",
+          "region_id": "media",
+          "region": "Four differently shaped source media along the left edge",
+          "bounding_box_px": {
+            "x": 87,
+            "y": 215,
+            "width": 170,
+            "height": 44
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Audio",
+          "region_id": "media",
+          "region": "Four differently shaped source media along the left edge",
+          "bounding_box_px": {
+            "x": 87,
+            "y": 318,
+            "width": 170,
+            "height": 44
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Video",
+          "region_id": "media",
+          "region": "Four differently shaped source media along the left edge",
+          "bounding_box_px": {
+            "x": 87,
+            "y": 421,
+            "width": 170,
+            "height": 44
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Shared embedding space",
+          "region_id": "field",
+          "region": "Continuous shared semantic surface, embedding seam and mixed neighborhoods",
+          "bounding_box_px": {
+            "x": 446,
+            "y": 81,
+            "width": 650,
+            "height": 57
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Test retrieval by modality",
+          "region_id": "tests",
+          "region": "Separate qualitative retrieval-test recommendation",
+          "bounding_box_px": {
+            "x": 676,
+            "y": 496,
+            "width": 430,
+            "height": 48
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Test retrieval by modality",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 82,
+      "explanatory_substage_labels": [
+        "Images",
+        "Shared embedding space"
+      ],
+      "thumbnail_priority_labels": [
+        "Text",
+        "Shared embedding space"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "condition": "Text, images, audio and video are mapped into one embedding space.",
+          "allowed_path": "Images to Shared embedding space",
+          "blocked_path": "No quantified distances, invented retrieval scores, claims of perfect similarity, private-data guarantees, or unsupported product controls.",
+          "support_claim_id": "primary-1"
+        },
+        {
+          "condition": "Text, images, audio and video are mapped into one embedding space.",
+          "allowed_path": "Audio to Shared embedding space",
+          "blocked_path": "No quantified distances, invented retrieval scores, claims of perfect similarity, private-data guarantees, or unsupported product controls.",
+          "support_claim_id": "primary-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Images",
+          "to": "Shared embedding space",
+          "support_claim_id": "primary-1",
+          "origin_region": "Four differently shaped source media along the left edge",
+          "target_region": "Continuous shared semantic surface, embedding seam and mixed neighborhoods",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Audio",
+          "to": "Shared embedding space",
+          "support_claim_id": "primary-1",
+          "origin_region": "Four differently shaped source media along the left edge",
+          "target_region": "Continuous shared semantic surface, embedding seam and mixed neighborhoods",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "editorial_style_plan": {
+        "format_family": "Multimodal convergence into a semantic field",
+        "dominant_grammar": "Multimodal convergence into a semantic field",
+        "medium_treatment": "Translucent watercolor topology with rigorous ink edges",
+        "perspective": "Elevated plan over a continuous curved semantic surface",
+        "information_hierarchy": "Four differentiated media paths converge on one dominant open field",
+        "palette_family": "Teal aubergine ivory",
+        "subject_specific_visual_thesis": "At phone width: different media map into one shared embedding space. Reveal modality inputs and shared representation as two substages; full size shows cross-modal neighborhood relationships as qualitative geometry, never measured distance or a performance chart.",
+        "difference_from_earlier_story_images": "Uses Multimodal convergence into a semantic field with Elevated plan over a continuous curved semantic surface and Four differentiated media paths converge on one dominant open field. It avoids the November 18 repeated four-label four-region object vignette defaults.",
+        "first_pass_risk_mitigation": "All glyph boxes reserve safe margins. No gear or control, no simulated document writing, no arrow terminating on text. Preserve the distinct silhouette. No quantified distances, invented retrieval scores, claims of perfect similarity, private-data guarantees, or unsupported product controls."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "media",
+            "description": "Four differently shaped source media along the left edge",
+            "bounding_box_px": {
+              "x": 70,
+              "y": 80,
+              "width": 310,
+              "height": 420
+            }
+          },
+          {
+            "id": "field",
+            "description": "Continuous shared semantic surface, embedding seam and mixed neighborhoods",
+            "bounding_box_px": {
+              "x": 405,
+              "y": 65,
+              "width": 720,
+              "height": 420
+            }
+          },
+          {
+            "id": "tests",
+            "description": "Separate qualitative retrieval-test recommendation",
+            "bounding_box_px": {
+              "x": 650,
+              "y": 482,
+              "width": 480,
+              "height": 75
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Images",
+            "to": "Shared embedding space",
+            "support_claim_id": "primary-1",
+            "from_region_id": "media",
+            "to_region_id": "field",
+            "origin_px": {
+              "x": 325,
+              "y": 278
+            },
+            "target_px": {
+              "x": 495,
+              "y": 270
+            }
+          },
+          {
+            "from": "Audio",
+            "to": "Shared embedding space",
+            "support_claim_id": "primary-1",
+            "from_region_id": "media",
+            "to_region_id": "field",
+            "origin_px": {
+              "x": 325,
+              "y": 370
+            },
+            "target_px": {
+              "x": 495,
+              "y": 356
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 19 image source and prompt review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "f5a6a05e83b9dbde758f3456f27f4a6bd959770593b38af8fa53ecb0c32b6474"
+        }
+      }
+    },
+    "native_generation_prompt": "Create exactly one premium finished static factual editorial illustration, 1200 x 630 wide PNG on pure white. This is conceptual educational raster art, not a measured engineering diagram. No panel collage.\nVisual thesis: At phone width: different media map into one shared embedding space. Reveal modality inputs and shared representation as two substages; full size shows cross-modal neighborhood relationships as qualitative geometry, never measured distance or a performance chart.\nComposition: A large continuous tilted translucent semantic surface sweeps across the image like a folded atlas. On its left edge four distinct forms enter at different heights: blank text folio, image mosaic with no face, audio wave ribbon and filmstrip with abstract blank frames. Their paths gather at one embedding seam, then appear as distinct shape tokens interleaved in shared unnumbered neighborhoods on the open surface. Use a few clear nondirectional similarity threads inside the field, not a fully connected decorative network. A small separate retrieval-test sieve at lower right remains an editorial recommendation, not model internals. No axes, scores, numeric vector strings, fake document writing or dimensional guarantees. Four media forms, four input paths, embedding seam, shared field, mixed neighborhood, similarity thread, query token and retrieval-test sieve provide meaningful structure.\nMedium: Translucent watercolor topology with rigorous ink edges. View: Elevated plan over a continuous curved semantic surface. Palette: Teal aubergine ivory. Make internal parts rich, purposeful, crisp and professionally finished; avoid isolated icons and generic flat cards. Keep all art at least 40 pixels inside export edges.\nOnly visible text, verbatim: [\"Text\",\"Images\",\"Audio\",\"Video\",\"Shared embedding space\",\"Test retrieval by modality\"]. No other lettering, numerals, faux text or symbols. Use bold dark high-contrast typography at the planned sizes and positions. Blank all other document surfaces.\nSupported relationship scope: Text, images, audio and video are mapped into one embedding space. The model uses a compact backbone and publishes training and evaluation detail.\nDraw only the allowed arrow paths in the attached composition geometry. Arrowheads touch the actual depicted object ports, never text or whitespace. Detached caveat has no connector. No invented causal links.\nExclusions: No quantified distances, invented retrieval scores, claims of perfect similarity, private-data guarantees, or unsupported product controls. No people, faces, avatars, humanoids, logos, branded icons, photography, realistic product gloss, fake writing, decorative ticks, unsupported sliders, knobs, gears, scenery, dashboards, success badges or charts with invented data.\nTargeted correction: Preserve this distinctive continuous watercolor semantic atlas, every medium form, six exact labels, qualitative mixed neighborhoods and detached retrieval-test sieve. Remove ONLY the arrowhead on the upper Text ribbon and the arrowhead on the lower Video ribbon, leaving those paths as smooth unarrowed colored ribbons entering the seam. Retain exactly the two frozen arrowheads from Images and Audio into the shared field. Do not add any other arrowhead, text, shape count, controls or performance metric. Keep all current passing text sizes and safe margins.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"media\",\"description\":\"Four differently shaped source media along the left edge\",\"bounding_box_px\":{\"x\":70,\"y\":80,\"width\":310,\"height\":420}},{\"id\":\"field\",\"description\":\"Continuous shared semantic surface, embedding seam and mixed neighborhoods\",\"bounding_box_px\":{\"x\":405,\"y\":65,\"width\":720,\"height\":420}},{\"id\":\"tests\",\"description\":\"Separate qualitative retrieval-test recommendation\",\"bounding_box_px\":{\"x\":650,\"y\":482,\"width\":480,\"height\":75}}],\"labels\":[{\"label\":\"Text\",\"region_id\":\"media\",\"region\":\"Four differently shaped source media along the left edge\",\"bounding_box_px\":{\"x\":87,\"y\":110,\"width\":170,\"height\":44},\"minimum_font_px\":38},{\"label\":\"Images\",\"region_id\":\"media\",\"region\":\"Four differently shaped source media along the left edge\",\"bounding_box_px\":{\"x\":87,\"y\":215,\"width\":170,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Audio\",\"region_id\":\"media\",\"region\":\"Four differently shaped source media along the left edge\",\"bounding_box_px\":{\"x\":87,\"y\":318,\"width\":170,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Video\",\"region_id\":\"media\",\"region\":\"Four differently shaped source media along the left edge\",\"bounding_box_px\":{\"x\":87,\"y\":421,\"width\":170,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Shared embedding space\",\"region_id\":\"field\",\"region\":\"Continuous shared semantic surface, embedding seam and mixed neighborhoods\",\"bounding_box_px\":{\"x\":446,\"y\":81,\"width\":650,\"height\":57},\"minimum_font_px\":42},{\"label\":\"Test retrieval by modality\",\"region_id\":\"tests\",\"region\":\"Separate qualitative retrieval-test recommendation\",\"bounding_box_px\":{\"x\":676,\"y\":496,\"width\":430,\"height\":48},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Images\",\"to\":\"Shared embedding space\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"media\",\"to_region_id\":\"field\",\"origin_px\":{\"x\":325,\"y\":278},\"target_px\":{\"x\":495,\"y\":270}},{\"from\":\"Audio\",\"to\":\"Shared embedding space\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"media\",\"to_region_id\":\"field\",\"origin_px\":{\"x\":325,\"y\":370},\"target_px\":{\"x\":495,\"y\":356}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-19",
+    "story_id": "nov19-a1-cowork-skill",
+    "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+    "visual_thesis": "At phone width: a reusable skill produces an inspectable packet and external actions need approval. Expose evidence selection and source-linked compilation as internal substages. Full size reveals missing-record flags, citations and review log as an editorial supplier-review example, not built-in product promises.",
+    "mechanism_metaphor": "One large open folded review packet dominates the center, its paper layers cut away to reveal a source-folder inlet at lower left, missing-evidence gap and citation ties passing through the folio spine. Those ties terminate in actual source tabs, not label plates. A narrow action strip descends from the packet to a solid approval boundary on the right; it stops before an external-action envelope. No connector crosses the boundary. A known-case comparison insert and action-log leaf remain part of the same continuous folio, not separate pedestals or collage panels. Evidence folder, source leaves, missing gap, gap flag, citation ties, packet spine, compiled leaf, test-case insert, correction overlay, action-log leaf, boundary, stopped action strip and external envelope are meaningful elements. All document faces blank.",
+    "story_anchors": [
+      "Approved evidence folder feeding the folio spine",
+      "Open connected source-linked review folio with case and log inserts",
+      "Action approval boundary and stopped external-action strip"
+    ],
+    "required_labels": [
+      "Approved evidence",
+      "Missing records",
+      "Source-linked packet",
+      "Known-case test",
+      "Approval first",
+      "Supplier-review example"
+    ],
+    "source_claim_map": [
+      {
+        "id": "concept-1",
+        "proposition": "The article recommends a supplier-review skill that compiles approved sources into an inspectable packet.",
+        "supporting_source_excerpt": "delegate multistep work to Cowork",
+        "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      },
+      {
+        "id": "primary-2",
+        "proposition": "Source product examples hold case updates for review before commitment.",
+        "supporting_source_excerpt": "case updates held for review",
+        "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+        "evidence_kind": "primary_source_fact"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Approved evidence",
+        "to": "Source-linked packet",
+        "support_claim_id": "concept-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No built-in supplier-review feature claim, guaranteed audit correctness, automatic approval, external send without approval, fake paragraphs, check marks, or people."
+    ],
+    "composition_signature": {
+      "grammar": "Evidence-bound folio with a consequential action boundary",
+      "metaphor": "One large open folded review packet dominates the center, its paper layers cut away to reveal a source-folder inlet at lower left, missing-evidence gap and citation ties passing through the folio spine. Those ties terminate in actual source tabs, not label plates. A narrow action strip descends from the packet to a solid approval boundary on the right; it stops before an external-action envelope. No connector crosses the boundary. A known-case comparison insert and action-log leaf remain part of the same continuous folio, not separate pedestals or collage panels. Evidence folder, source leaves, missing gap, gap flag, citation ties, packet spine, compiled leaf, test-case insert, correction overlay, action-log leaf, boundary, stopped action strip and external envelope are meaningful elements. All document faces blank.",
+      "annotation": "Subject-specific integrated labels for Evidence-bound folio with a consequential action boundary",
+      "layout": "Approved evidence folder feeding the folio spine / Open connected source-linked review folio with case and log inserts / Action approval boundary and stopped external-action strip / Detached editorial example qualification",
+      "palette": "Burnt sienna navy paper white",
+      "hierarchy": "Large source-linked packet above an explicit action boundary",
+      "perspective": "Close frontal section through one connected review packet"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 4,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 19 native image worker",
+      "source_url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Approved evidence",
+          "region_id": "sources",
+          "region": "Approved evidence folder feeding the folio spine",
+          "bounding_box_px": {
+            "x": 82,
+            "y": 435,
+            "width": 330,
+            "height": 51
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Missing records",
+          "region_id": "packet",
+          "region": "Open connected source-linked review folio with case and log inserts",
+          "bounding_box_px": {
+            "x": 438,
+            "y": 78,
+            "width": 290,
+            "height": 48
+          },
+          "minimum_font_px": 32
+        },
+        {
+          "label": "Source-linked packet",
+          "region_id": "packet",
+          "region": "Open connected source-linked review folio with case and log inserts",
+          "bounding_box_px": {
+            "x": 440,
+            "y": 250,
+            "width": 620,
+            "height": 58
+          },
+          "minimum_font_px": 42
+        },
+        {
+          "label": "Known-case test",
+          "region_id": "packet",
+          "region": "Open connected source-linked review folio with case and log inserts",
+          "bounding_box_px": {
+            "x": 441,
+            "y": 415,
+            "width": 330,
+            "height": 47
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Approval first",
+          "region_id": "boundary",
+          "region": "Action approval boundary and stopped external-action strip",
+          "bounding_box_px": {
+            "x": 829,
+            "y": 366,
+            "width": 280,
+            "height": 50
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Supplier-review example",
+          "region_id": "note",
+          "region": "Detached editorial example qualification",
+          "bounding_box_px": {
+            "x": 80,
+            "y": 80,
+            "width": 320,
+            "height": 44
+          },
+          "minimum_font_px": 28
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Supplier-review example",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 81,
+      "explanatory_substage_labels": [
+        "Approved evidence",
+        "Source-linked packet"
+      ],
+      "thumbnail_priority_labels": [
+        "Approved evidence",
+        "Source-linked packet",
+        "Approval first"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "condition": "The article recommends a supplier-review skill that compiles approved sources into an inspectable packet.",
+          "allowed_path": "Approved evidence to Source-linked packet",
+          "blocked_path": "No built-in supplier-review feature claim, guaranteed audit correctness, automatic approval, external send without approval, fake paragraphs, check marks, or people.",
+          "support_claim_id": "concept-1"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Approved evidence",
+          "to": "Source-linked packet",
+          "support_claim_id": "concept-1",
+          "origin_region": "Approved evidence folder feeding the folio spine",
+          "target_region": "Open connected source-linked review folio with case and log inserts",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "editorial_style_plan": {
+        "format_family": "Evidence-bound folio with a consequential action boundary",
+        "dominant_grammar": "Evidence-bound folio with a consequential action boundary",
+        "medium_treatment": "Layered paper sculpture illustration with dry ink contours",
+        "perspective": "Close frontal section through one connected review packet",
+        "information_hierarchy": "Large source-linked packet above an explicit action boundary",
+        "palette_family": "Burnt sienna navy paper white",
+        "subject_specific_visual_thesis": "At phone width: a reusable skill produces an inspectable packet and external actions need approval. Expose evidence selection and source-linked compilation as internal substages. Full size reveals missing-record flags, citations and review log as an editorial supplier-review example, not built-in product promises.",
+        "difference_from_earlier_story_images": "Uses Evidence-bound folio with a consequential action boundary with Close frontal section through one connected review packet and Large source-linked packet above an explicit action boundary. It avoids the November 18 repeated four-label four-region object vignette defaults.",
+        "first_pass_risk_mitigation": "All glyph boxes reserve safe margins. No gear or control, no simulated document writing, no arrow terminating on text. Preserve the distinct silhouette. No built-in supplier-review feature claim, guaranteed audit correctness, automatic approval, external send without approval, fake paragraphs, check marks, or people."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "sources",
+            "description": "Approved evidence folder feeding the folio spine",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 310,
+              "width": 360,
+              "height": 210
+            }
+          },
+          {
+            "id": "packet",
+            "description": "Open connected source-linked review folio with case and log inserts",
+            "bounding_box_px": {
+              "x": 420,
+              "y": 65,
+              "width": 710,
+              "height": 420
+            }
+          },
+          {
+            "id": "boundary",
+            "description": "Action approval boundary and stopped external-action strip",
+            "bounding_box_px": {
+              "x": 805,
+              "y": 330,
+              "width": 325,
+              "height": 215
+            }
+          },
+          {
+            "id": "note",
+            "description": "Detached editorial example qualification",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 65,
+              "width": 345,
+              "height": 85
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Approved evidence",
+            "to": "Source-linked packet",
+            "support_claim_id": "concept-1",
+            "from_region_id": "sources",
+            "to_region_id": "packet",
+            "origin_px": {
+              "x": 360,
+              "y": 373
+            },
+            "target_px": {
+              "x": 495,
+              "y": 340
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 19 image source and prompt review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "30fc83669a7e706a2631dd12cf7bbf5ad884ab077c95b2ce460e204d63596f57"
+        }
+      }
+    },
+    "native_generation_prompt": "Create exactly one premium finished static factual editorial illustration, 1200 x 630 wide PNG on pure white. This is conceptual educational raster art, not a measured engineering diagram. No panel collage.\nVisual thesis: At phone width: a reusable skill produces an inspectable packet and external actions need approval. Expose evidence selection and source-linked compilation as internal substages. Full size reveals missing-record flags, citations and review log as an editorial supplier-review example, not built-in product promises.\nComposition: One large open folded review packet dominates the center, its paper layers cut away to reveal a source-folder inlet at lower left, missing-evidence gap and citation ties passing through the folio spine. Those ties terminate in actual source tabs, not label plates. A narrow action strip descends from the packet to a solid approval boundary on the right; it stops before an external-action envelope. No connector crosses the boundary. A known-case comparison insert and action-log leaf remain part of the same continuous folio, not separate pedestals or collage panels. Evidence folder, source leaves, missing gap, gap flag, citation ties, packet spine, compiled leaf, test-case insert, correction overlay, action-log leaf, boundary, stopped action strip and external envelope are meaningful elements. All document faces blank.\nMedium: Layered paper sculpture illustration with dry ink contours. View: Close frontal section through one connected review packet. Palette: Burnt sienna navy paper white. Make internal parts rich, purposeful, crisp and professionally finished; avoid isolated icons and generic flat cards. Keep all art at least 40 pixels inside export edges.\nOnly visible text, verbatim: [\"Approved evidence\",\"Missing records\",\"Source-linked packet\",\"Known-case test\",\"Approval first\",\"Supplier-review example\"]. No other lettering, numerals, faux text or symbols. Use bold dark high-contrast typography at the planned sizes and positions. Blank all other document surfaces.\nSupported relationship scope: The article recommends a supplier-review skill that compiles approved sources into an inspectable packet. Source product examples hold case updates for review before commitment.\nDraw only the allowed arrow paths in the attached composition geometry. Arrowheads touch the actual depicted object ports, never text or whitespace. Detached caveat has no connector. No invented causal links.\nExclusions: No built-in supplier-review feature claim, guaranteed audit correctness, automatic approval, external send without approval, fake paragraphs, check marks, or people. No people, faces, avatars, humanoids, logos, branded icons, photography, realistic product gloss, fake writing, decorative ticks, unsupported sliders, knobs, gears, scenery, dashboards, success badges or charts with invented data.\nTargeted correction: Preserve the detailed single connected open folio, source ties, missing-record gap, blank paper faces, six exact labels and the one arrow from Approved evidence to the source-linked folio. Remove ONLY the arrowhead from the bottom action strip: it must be an unarrowed strip stopping visibly before the approval boundary, with no path across it. Move the right approval gate and envelope about60px left in the original-sized art so every Approval first glyph has at least72px white clearance at the final right edge. Keep all other lettering unchanged and current source distinctions intact.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"sources\",\"description\":\"Approved evidence folder feeding the folio spine\",\"bounding_box_px\":{\"x\":65,\"y\":310,\"width\":360,\"height\":210}},{\"id\":\"packet\",\"description\":\"Open connected source-linked review folio with case and log inserts\",\"bounding_box_px\":{\"x\":420,\"y\":65,\"width\":710,\"height\":420}},{\"id\":\"boundary\",\"description\":\"Action approval boundary and stopped external-action strip\",\"bounding_box_px\":{\"x\":805,\"y\":330,\"width\":325,\"height\":215}},{\"id\":\"note\",\"description\":\"Detached editorial example qualification\",\"bounding_box_px\":{\"x\":65,\"y\":65,\"width\":345,\"height\":85}}],\"labels\":[{\"label\":\"Approved evidence\",\"region_id\":\"sources\",\"region\":\"Approved evidence folder feeding the folio spine\",\"bounding_box_px\":{\"x\":82,\"y\":435,\"width\":330,\"height\":51},\"minimum_font_px\":38},{\"label\":\"Missing records\",\"region_id\":\"packet\",\"region\":\"Open connected source-linked review folio with case and log inserts\",\"bounding_box_px\":{\"x\":438,\"y\":78,\"width\":290,\"height\":48},\"minimum_font_px\":32},{\"label\":\"Source-linked packet\",\"region_id\":\"packet\",\"region\":\"Open connected source-linked review folio with case and log inserts\",\"bounding_box_px\":{\"x\":440,\"y\":250,\"width\":620,\"height\":58},\"minimum_font_px\":42},{\"label\":\"Known-case test\",\"region_id\":\"packet\",\"region\":\"Open connected source-linked review folio with case and log inserts\",\"bounding_box_px\":{\"x\":441,\"y\":415,\"width\":330,\"height\":47},\"minimum_font_px\":30},{\"label\":\"Approval first\",\"region_id\":\"boundary\",\"region\":\"Action approval boundary and stopped external-action strip\",\"bounding_box_px\":{\"x\":829,\"y\":366,\"width\":280,\"height\":50},\"minimum_font_px\":38},{\"label\":\"Supplier-review example\",\"region_id\":\"note\",\"region\":\"Detached editorial example qualification\",\"bounding_box_px\":{\"x\":80,\"y\":80,\"width\":320,\"height\":44},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Approved evidence\",\"to\":\"Source-linked packet\",\"support_claim_id\":\"concept-1\",\"from_region_id\":\"sources\",\"to_region_id\":\"packet\",\"origin_px\":{\"x\":360,\"y\":373},\"target_px\":{\"x\":495,\"y\":340}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  },
+  {
+    "schema_version": "external-image-firstpass-freeze-v1",
+    "edition_date": "2026-11-19",
+    "story_id": "nov19-a2-next-gen-zaps",
+    "source_url": "https://help.zapier.com/hc/en-us/articles/48391476448141-Get-started-with-Next-Gen-Zaps",
+    "visual_thesis": "At phone width: describe work, inspect its generated steps and test before live use. Expose app connection and step testing as substages. At full size reveal the run-record trail while the detached early-access caveat prevents implying full governance parity.",
+    "mechanism_metaphor": "A single continuous stepped ribbon rises from a description scroll at lower left, folds through visible connection couplings and three inspectable workflow steps, then passes a test-data seam near upper right before a live-run end fold. Each step has a different functional shape: input receptacle, transformation fold and output tray, with blank faces. Under the ribbon a separate thin run-record trail mirrors the executed step sequence without a feedback arrow. A detached early-access caveat sits left above the rise, not as an output. No product screenshot, UI buttons, historical-version controls, approval guarantee, invented analytics or fake writing. Description scroll, build fold, input connector, app coupling, input step, transform step, output step, test sample, test seam, result specimen, live end fold, run trail and record leaves explain the mechanism.",
+    "story_anchors": [
+      "Description scroll and build entry at lower left",
+      "Continuous visible workflow steps and app connections",
+      "Test seam and controlled run above right"
+    ],
+    "required_labels": [
+      "Describe work",
+      "Inspect steps",
+      "Test data",
+      "Review run records",
+      "Early access has limits",
+      "App connections"
+    ],
+    "source_claim_map": [
+      {
+        "id": "primary-1",
+        "proposition": "A description can be used to build a workflow with app connections and visible steps.",
+        "supporting_source_excerpt": "Your AI chooses the right app connections, wires up the steps, and deploys the workflow",
+        "source_url": "https://help.zapier.com/hc/en-us/articles/48391476448141-Get-started-with-Next-Gen-Zaps",
+        "evidence_kind": "primary_source_fact"
+      },
+      {
+        "id": "concept-2",
+        "proposition": "The editorial recommendation is to inspect and test a reversible workflow before live actions.",
+        "supporting_source_excerpt": "You can monitor your workflow in the Workflow Manager.",
+        "source_url": "https://help.zapier.com/hc/en-us/articles/48391476448141-Get-started-with-Next-Gen-Zaps",
+        "evidence_kind": "explicitly_approved_conceptual_metaphor"
+      }
+    ],
+    "allowed_causal_edges": [
+      {
+        "from": "Describe work",
+        "to": "Inspect steps",
+        "support_claim_id": "primary-1",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      },
+      {
+        "from": "Inspect steps",
+        "to": "Test data",
+        "support_claim_id": "concept-2",
+        "direction": "conditional",
+        "relation_supported_by_semantic_review": true
+      }
+    ],
+    "excluded_claims": [
+      "No claim that per-asset change history, publish approvals or full Enterprise governance are supported; source lists these as unsupported or unconfirmed. No implied automatic approval or unobserved external actions."
+    ],
+    "composition_signature": {
+      "grammar": "Inspectable workflow ribbon with a test-before-live seam",
+      "metaphor": "A single continuous stepped ribbon rises from a description scroll at lower left, folds through visible connection couplings and three inspectable workflow steps, then passes a test-data seam near upper right before a live-run end fold. Each step has a different functional shape: input receptacle, transformation fold and output tray, with blank faces. Under the ribbon a separate thin run-record trail mirrors the executed step sequence without a feedback arrow. A detached early-access caveat sits left above the rise, not as an output. No product screenshot, UI buttons, historical-version controls, approval guarantee, invented analytics or fake writing. Description scroll, build fold, input connector, app coupling, input step, transform step, output step, test sample, test seam, result specimen, live end fold, run trail and record leaves explain the mechanism.",
+      "annotation": "Subject-specific integrated labels for Inspectable workflow ribbon with a test-before-live seam",
+      "layout": "Description scroll and build entry at lower left / Continuous visible workflow steps and app connections / Test seam and controlled run above right / Run-record trail below right / Detached early-access qualification above left",
+      "palette": "Cobalt coral warm white",
+      "hierarchy": "Large stepped ribbon from description through visible test seam",
+      "perspective": "Side-on continuous folded workflow"
+    },
+    "quality_review_plan": {
+      "explanatory_components": 13,
+      "major_regions": 5,
+      "dominant_internal_substages": 2,
+      "secondary_supported_links": 2
+    },
+    "editorial_semantic_review": {
+      "result": "PASS",
+      "method": "semantic_primary_source_review",
+      "reviewer": "November 19 native image worker",
+      "source_url": "https://help.zapier.com/hc/en-us/articles/48391476448141-Get-started-with-Next-Gen-Zaps",
+      "labels_verified": true,
+      "causal_edges_verified": true,
+      "unsupported_claims_excluded": true,
+      "approved_before_generation": true
+    },
+    "pre_generation_checks": {
+      "label_layout": [
+        {
+          "label": "Describe work",
+          "region_id": "describe",
+          "region": "Description scroll and build entry at lower left",
+          "bounding_box_px": {
+            "x": 83,
+            "y": 452,
+            "width": 300,
+            "height": 52
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Inspect steps",
+          "region_id": "steps",
+          "region": "Continuous visible workflow steps and app connections",
+          "bounding_box_px": {
+            "x": 434,
+            "y": 165,
+            "width": 310,
+            "height": 53
+          },
+          "minimum_font_px": 40
+        },
+        {
+          "label": "Test data",
+          "region_id": "test",
+          "region": "Test seam and controlled run above right",
+          "bounding_box_px": {
+            "x": 809,
+            "y": 80,
+            "width": 260,
+            "height": 50
+          },
+          "minimum_font_px": 38
+        },
+        {
+          "label": "Review run records",
+          "region_id": "records",
+          "region": "Run-record trail below right",
+          "bounding_box_px": {
+            "x": 724,
+            "y": 453,
+            "width": 370,
+            "height": 48
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "Early access has limits",
+          "region_id": "limits",
+          "region": "Detached early-access qualification above left",
+          "bounding_box_px": {
+            "x": 83,
+            "y": 82,
+            "width": 415,
+            "height": 47
+          },
+          "minimum_font_px": 30
+        },
+        {
+          "label": "App connections",
+          "region_id": "steps",
+          "region": "Continuous visible workflow steps and app connections",
+          "bounding_box_px": {
+            "x": 429,
+            "y": 347,
+            "width": 310,
+            "height": 45
+          },
+          "minimum_font_px": 30
+        }
+      ],
+      "safe_margin_px": 40,
+      "no_simulated_writing": true,
+      "no_false_success_symbols": true,
+      "no_decorative_scenery": true,
+      "source_caveat": "Early access has limits",
+      "source_caveat_detached": true,
+      "no_simulated_document_strokes": true,
+      "no_unsupported_chart_or_score_marks": true,
+      "no_avatars_shields_gears_control_knobs": true,
+      "no_unsupported_memory_or_permission_flow": true,
+      "no_pseudotext_decorative_microstrokes": true,
+      "mechanism_canvas_percent": 75,
+      "explanatory_substage_labels": [
+        "Describe work",
+        "Inspect steps"
+      ],
+      "thumbnail_priority_labels": [
+        "Describe work",
+        "Inspect steps",
+        "Test data"
+      ],
+      "mobile_inline_390px_review_planned": true,
+      "causal_state_checks": [
+        {
+          "condition": "A description can be used to build a workflow with app connections and visible steps.",
+          "allowed_path": "Describe work to Inspect steps",
+          "blocked_path": "No claim that per-asset change history, publish approvals or full Enterprise governance are supported; source lists these as unsupported or unconfirmed. No implied automatic approval or unobserved external actions.",
+          "support_claim_id": "primary-1"
+        },
+        {
+          "condition": "The editorial recommendation is to inspect and test a reversible workflow before live actions.",
+          "allowed_path": "Inspect steps to Test data",
+          "blocked_path": "No claim that per-asset change history, publish approvals or full Enterprise governance are supported; source lists these as unsupported or unconfirmed. No implied automatic approval or unobserved external actions.",
+          "support_claim_id": "concept-2"
+        }
+      ],
+      "native_export_legibility_plan": {
+        "canvas_width": 1200,
+        "canvas_height": 630,
+        "mobile_fullsize_review_planned": true,
+        "thumbnail_readability_check_planned": true
+      },
+      "connector_origin_reviews": [
+        {
+          "from": "Describe work",
+          "to": "Inspect steps",
+          "support_claim_id": "primary-1",
+          "origin_region": "Description scroll and build entry at lower left",
+          "target_region": "Continuous visible workflow steps and app connections",
+          "disallowed_paths_visually_blocked": true
+        },
+        {
+          "from": "Inspect steps",
+          "to": "Test data",
+          "support_claim_id": "concept-2",
+          "origin_region": "Continuous visible workflow steps and app connections",
+          "target_region": "Test seam and controlled run above right",
+          "disallowed_paths_visually_blocked": true
+        }
+      ],
+      "editorial_style_plan": {
+        "format_family": "Inspectable workflow ribbon with a test-before-live seam",
+        "dominant_grammar": "Inspectable workflow ribbon with a test-before-live seam",
+        "medium_treatment": "Screenprint process ribbon with offset ink shadow and exact labels",
+        "perspective": "Side-on continuous folded workflow",
+        "information_hierarchy": "Large stepped ribbon from description through visible test seam",
+        "palette_family": "Cobalt coral warm white",
+        "subject_specific_visual_thesis": "At phone width: describe work, inspect its generated steps and test before live use. Expose app connection and step testing as substages. At full size reveal the run-record trail while the detached early-access caveat prevents implying full governance parity.",
+        "difference_from_earlier_story_images": "Uses Inspectable workflow ribbon with a test-before-live seam with Side-on continuous folded workflow and Large stepped ribbon from description through visible test seam. It avoids the November 18 repeated four-label four-region object vignette defaults.",
+        "first_pass_risk_mitigation": "All glyph boxes reserve safe margins. No gear or control, no simulated document writing, no arrow terminating on text. Preserve the distinct silhouette. No claim that per-asset change history, publish approvals or full Enterprise governance are supported; source lists these as unsupported or unconfirmed. No implied automatic approval or unobserved external actions."
+      },
+      "composition_geometry": {
+        "schema_version": "image-composition-geometry-v1",
+        "regions": [
+          {
+            "id": "describe",
+            "description": "Description scroll and build entry at lower left",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 290,
+              "width": 340,
+              "height": 250
+            }
+          },
+          {
+            "id": "steps",
+            "description": "Continuous visible workflow steps and app connections",
+            "bounding_box_px": {
+              "x": 410,
+              "y": 135,
+              "width": 360,
+              "height": 290
+            }
+          },
+          {
+            "id": "test",
+            "description": "Test seam and controlled run above right",
+            "bounding_box_px": {
+              "x": 790,
+              "y": 65,
+              "width": 335,
+              "height": 300
+            }
+          },
+          {
+            "id": "records",
+            "description": "Run-record trail below right",
+            "bounding_box_px": {
+              "x": 695,
+              "y": 390,
+              "width": 430,
+              "height": 150
+            }
+          },
+          {
+            "id": "limits",
+            "description": "Detached early-access qualification above left",
+            "bounding_box_px": {
+              "x": 65,
+              "y": 65,
+              "width": 450,
+              "height": 90
+            }
+          }
+        ],
+        "connector_anchors": [
+          {
+            "from": "Describe work",
+            "to": "Inspect steps",
+            "support_claim_id": "primary-1",
+            "from_region_id": "describe",
+            "to_region_id": "steps",
+            "origin_px": {
+              "x": 332,
+              "y": 365
+            },
+            "target_px": {
+              "x": 461,
+              "y": 290
+            }
+          },
+          {
+            "from": "Inspect steps",
+            "to": "Test data",
+            "support_claim_id": "concept-2",
+            "from_region_id": "steps",
+            "to_region_id": "test",
+            "origin_px": {
+              "x": 707,
+              "y": 262
+            },
+            "target_px": {
+              "x": 855,
+              "y": 218
+            }
+          }
+        ],
+        "prompt_geometry_review": {
+          "result": "PASS",
+          "reviewer": "November 19 image source and prompt review",
+          "regions_match_composition": true,
+          "labels_match_regions": true,
+          "connectors_match_source": true,
+          "geometry_sha256": "29b23ab76985b743a72fa1ac01513905efb1d5b2292a8809238ff03c649a75d2"
+        }
+      }
+    },
+    "native_generation_prompt": "Create exactly one premium finished static factual editorial illustration, 1200 x 630 wide PNG on pure white. This is conceptual educational raster art, not a measured engineering diagram. No panel collage.\nVisual thesis: At phone width: describe work, inspect its generated steps and test before live use. Expose app connection and step testing as substages. At full size reveal the run-record trail while the detached early-access caveat prevents implying full governance parity.\nComposition: A single continuous stepped ribbon rises from a description scroll at lower left, folds through visible connection couplings and three inspectable workflow steps, then passes a test-data seam near upper right before a live-run end fold. Each step has a different functional shape: input receptacle, transformation fold and output tray, with blank faces. Under the ribbon a separate thin run-record trail mirrors the executed step sequence without a feedback arrow. A detached early-access caveat sits left above the rise, not as an output. No product screenshot, UI buttons, historical-version controls, approval guarantee, invented analytics or fake writing. Description scroll, build fold, input connector, app coupling, input step, transform step, output step, test sample, test seam, result specimen, live end fold, run trail and record leaves explain the mechanism.\nMedium: Screenprint process ribbon with offset ink shadow and exact labels. View: Side-on continuous folded workflow. Palette: Cobalt coral warm white. Make internal parts rich, purposeful, crisp and professionally finished; avoid isolated icons and generic flat cards. Keep all art at least 40 pixels inside export edges.\nOnly visible text, verbatim: [\"Describe work\",\"Inspect steps\",\"Test data\",\"Review run records\",\"Early access has limits\",\"App connections\"]. No other lettering, numerals, faux text or symbols. Use bold dark high-contrast typography at the planned sizes and positions. Blank all other document surfaces.\nSupported relationship scope: A description can be used to build a workflow with app connections and visible steps. The editorial recommendation is to inspect and test a reversible workflow before live actions.\nDraw only the allowed arrow paths in the attached composition geometry. Arrowheads touch the actual depicted object ports, never text or whitespace. Detached caveat has no connector. No invented causal links.\nExclusions: No claim that per-asset change history, publish approvals or full Enterprise governance are supported; source lists these as unsupported or unconfirmed. No implied automatic approval or unobserved external actions. No people, faces, avatars, humanoids, logos, branded icons, photography, realistic product gloss, fake writing, decorative ticks, unsupported sliders, knobs, gears, scenery, dashboards, success badges or charts with invented data.\nTargeted correction: Preserve the continuous ascending cobalt/coral screenprint ribbon, six exact labels, visible app couplings, blank-faced workflow parts, controlled test seam, unarrowed run-record trail and detached early-access caveat. Keep ONLY two arrowheads: the curved left entry from Describe work into Inspect steps, and the curve entering the Test data segment. Remove the two horizontal arrowheads between the three central step objects and the final arrowhead beyond the test seam on the far-right live fold. Keep those places as smooth continuous unarrowed ribbon. Do not add controls, faux writing, approval or version-history guarantees, new text or numeric performance signals.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"describe\",\"description\":\"Description scroll and build entry at lower left\",\"bounding_box_px\":{\"x\":65,\"y\":290,\"width\":340,\"height\":250}},{\"id\":\"steps\",\"description\":\"Continuous visible workflow steps and app connections\",\"bounding_box_px\":{\"x\":410,\"y\":135,\"width\":360,\"height\":290}},{\"id\":\"test\",\"description\":\"Test seam and controlled run above right\",\"bounding_box_px\":{\"x\":790,\"y\":65,\"width\":335,\"height\":300}},{\"id\":\"records\",\"description\":\"Run-record trail below right\",\"bounding_box_px\":{\"x\":695,\"y\":390,\"width\":430,\"height\":150}},{\"id\":\"limits\",\"description\":\"Detached early-access qualification above left\",\"bounding_box_px\":{\"x\":65,\"y\":65,\"width\":450,\"height\":90}}],\"labels\":[{\"label\":\"Describe work\",\"region_id\":\"describe\",\"region\":\"Description scroll and build entry at lower left\",\"bounding_box_px\":{\"x\":83,\"y\":452,\"width\":300,\"height\":52},\"minimum_font_px\":40},{\"label\":\"Inspect steps\",\"region_id\":\"steps\",\"region\":\"Continuous visible workflow steps and app connections\",\"bounding_box_px\":{\"x\":434,\"y\":165,\"width\":310,\"height\":53},\"minimum_font_px\":40},{\"label\":\"Test data\",\"region_id\":\"test\",\"region\":\"Test seam and controlled run above right\",\"bounding_box_px\":{\"x\":809,\"y\":80,\"width\":260,\"height\":50},\"minimum_font_px\":38},{\"label\":\"Review run records\",\"region_id\":\"records\",\"region\":\"Run-record trail below right\",\"bounding_box_px\":{\"x\":724,\"y\":453,\"width\":370,\"height\":48},\"minimum_font_px\":30},{\"label\":\"Early access has limits\",\"region_id\":\"limits\",\"region\":\"Detached early-access qualification above left\",\"bounding_box_px\":{\"x\":83,\"y\":82,\"width\":415,\"height\":47},\"minimum_font_px\":30},{\"label\":\"App connections\",\"region_id\":\"steps\",\"region\":\"Continuous visible workflow steps and app connections\",\"bounding_box_px\":{\"x\":429,\"y\":347,\"width\":310,\"height\":45},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Describe work\",\"to\":\"Inspect steps\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"describe\",\"to_region_id\":\"steps\",\"origin_px\":{\"x\":332,\"y\":365},\"target_px\":{\"x\":461,\"y\":290}},{\"from\":\"Inspect steps\",\"to\":\"Test data\",\"support_claim_id\":\"concept-2\",\"from_region_id\":\"steps\",\"to_region_id\":\"test\",\"origin_px\":{\"x\":707,\"y\":262},\"target_px\":{\"x\":855,\"y\":218}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+  }
+]
