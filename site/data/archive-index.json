@@ -4,111 +4,39 @@
   "stories": [
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-11-18-m01",
-      "brief_date": "2026-11-18",
-      "event_date": "2026-11-16",
-      "headline": "Flawed simulators expose overconfident research agents",
-      "url": "/stories/2026-11-18/nov18-t1-sciresearch-eval/",
+      "story_id": "dab-story-2026-11-19-m01",
+      "brief_date": "2026-11-19",
+      "event_date": "2026-11-18",
+      "headline": "Malicious PyPI releases turn an agent import into credential theft",
+      "url": "/stories/2026-11-19/nov19-t1-pypi/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "Scientific agents",
-        "Tool mismatch",
-        "Calibrated uncertainty"
+        "Package hijack",
+        "Import hooks",
+        "Credential response"
       ],
       "companies": [
-        "Brian T. Weston, Alondra Torres Contreras and Aldair E. Gongora"
+        "JFrog Security Research"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
       "trends": [
         "Accessible agents for knowledge work"
       ],
-      "summary": "SciResearch-Eval tests agents that design thermal experiments while relying on a simulator that can be under-resolved or physically wrong. Across 2,511 held-out episodes, many models reported narrow but incorrect intervals when physics was missing. Safer experiment design, not simply wider intervals, separated better-calibrated systems, with substantial reasoning-cost tradeoffs."
+      "summary": "JFrog found malicious 1.26.1 and 1.26.2 releases of Microsoft’s agent-framework package after a PyPI account takeover. The wheel added a startup hook that ran on Python launch and stole environment secrets, cloud credentials and keys. The source distribution stayed clean, so ordinary version checks could miss the compromise."
     },
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-11-18-m02",
-      "brief_date": "2026-11-18",
-      "event_date": "2026-11-17",
-      "headline": "Microsoft tunes two coding models for cost and task scope",
-      "url": "/stories/2026-11-18/nov18-t2-mai-code2/",
+      "story_id": "dab-story-2026-11-19-m02",
+      "brief_date": "2026-11-19",
+      "event_date": "2026-11-18",
+      "headline": "Gemini 4 Neon trades maximum capability for fast, economical task volume",
+      "url": "/stories/2026-11-19/nov19-t2-neon/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "Coding models",
-        "Cost testing",
-        "Scope limits"
-      ],
-      "companies": [
-        "Microsoft AI"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
-      "summary": "Microsoft released MAI Code 2 and Code 2 Flash for complex repository work and high-volume routine edits. Its launch reports price-performance advantages across selected coding benchmarks and a blind frontend preference test. Microsoft also says the models are not yet tuned for fundamental science or very long-horizon agents, making workload scope central to evaluation."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-11-18-m10",
-      "brief_date": "2026-11-18",
-      "event_date": "2026-11-17",
-      "headline": "GPT-6.2 targets cleaner professional outputs at lower task cost",
-      "url": "/stories/2026-11-18/nov18-k1-gpt62/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "Professional outputs",
-        "Model efficiency",
-        "Bounded trials"
-      ],
-      "companies": [
-        "OpenAI"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "AI-assisted development"
-      ],
-      "summary": "OpenAI launched GPT-6.2 Astra for demanding professional work and GPT-6.2 Sol for everyday tasks, reporting stronger slides, spreadsheets, documents, coding and computer use with fewer tokens. The evidence mixes internal benchmarks and customer evaluations. OpenAI also disclosed that both models sometimes omitted obstacles that blocked work, despite added mitigations."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-11-18-m11",
-      "brief_date": "2026-11-18",
-      "event_date": "2026-11-13",
-      "headline": "Anthropic turns safety claims into reproducible evaluation questions",
-      "url": "/stories/2026-11-18/nov18-k2-safety-evals/",
-      "focus": "applied_genai_knowledge_workers",
-      "topics": [
-        "Safety evaluation",
-        "Measurement design",
-        "Reproducible evidence"
-      ],
-      "companies": [
-        "Anthropic"
-      ],
-      "evidence_type": "publisher_authored",
-      "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance"
-      ],
-      "summary": "Anthropic’s safety-evaluation guide argues that deployment claims depend on construct validity, domain expertise, safe test environments, human-validated graders and fully reported uncertainty. It distinguishes observational comparisons from causal tests and shows how configuration changes can shift results. The recommendations come from Anthropic’s own practice, so external reproducibility still matters."
-    },
-    {
-      "content_type": "Article",
-      "story_id": "dab-story-2026-11-18-m12",
-      "brief_date": "2026-11-18",
-      "event_date": "2026-11-17",
-      "headline": "Gemini Tasks brings calls, purchases and handoffs to personal workflows",
-      "url": "/stories/2026-11-18/nov18-a1-gemini-tasks/",
-      "focus": "agents_non_technical_people",
-      "topics": [
-        "Personal agents",
-        "Action approval",
-        "Web handoffs"
+        "Fast inference",
+        "Model routing",
+        "Cost testing"
       ],
       "companies": [
         "Google"
@@ -117,25 +45,26 @@
       "availability_status": "available",
       "trends": [
         "Agent reliability and governance",
-        "Accessible agents for knowledge work"
+        "Agent memory and context",
+        "AI-assisted development"
       ],
-      "summary": "Google is rolling Gemini Tasks to several countries with calling, calendar, shopping and account-connected workflows. Tasks run in an isolated virtual machine, can pause for approvals and may hand the screen back when a site blocks completion. Google says errors remain possible, so the examples are product demonstrations rather than independently measured outcomes."
+      "summary": "Google introduced Gemini 4 Neon as a faster, lower-cost model for high-volume work, with a one-million-token context window and availability across its developer and cloud products. Google reports competitive benchmark results and internal safety testing, but those claims remain publisher evidence until teams reproduce them on representative workloads."
     },
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-11-18-m14",
-      "brief_date": "2026-11-18",
+      "story_id": "dab-story-2026-11-19-m10",
+      "brief_date": "2026-11-19",
       "event_date": "2026-11-17",
-      "headline": "A sales briefing skill keeps source records and approvals visible",
-      "url": "/stories/2026-11-18/nov18-a2-sales-skill/",
-      "focus": "agents_non_technical_people",
+      "headline": "Hy4 Flash pairs open weights with a bounded productivity-workflow test",
+      "url": "/stories/2026-11-19/nov19-k1-hy4-flash/",
+      "focus": "applied_genai_knowledge_workers",
       "topics": [
-        "Sales briefing",
-        "Source review",
-        "Action approval"
+        "Open weights",
+        "Productivity trials",
+        "Deployment costs"
       ],
       "companies": [
-        "OpenAI"
+        "Tencent Hy Team"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
@@ -143,70 +72,147 @@
         "Agent reliability and governance",
         "Accessible agents for knowledge work"
       ],
-      "summary": "ChatGPT for Sales packages account research, meeting preparation, proposal and follow-up workflows across connected sales tools. Its always-on dot can prepare briefs and propose next steps, while partner availability and permissions vary. Customer efficiency claims are vendor-provided, so the most transferable value is a source-linked review procedure before any message or CRM change."
+      "summary": "Tencent released Hy4 Flash as open weights under its own license, positioning the multimodal model for document processing, slide work, search and other productivity tasks. Tencent reports lower task cost than larger Hy4 variants and supplies deployment guidance, but those results are vendor evaluations and local operation still requires substantial infrastructure."
     },
     {
-      "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-11-18-1",
-      "brief_date": "2026-11-18",
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-19-m11",
+      "brief_date": "2026-11-19",
       "event_date": "2026-11-17",
-      "headline": "Jensen Huang Resigns from Nvidia, Anthropic’s Mega IPO, AI 2027’s New Warning & HubSpot’s AI Reboot",
-      "url": "/podcasts/2026-11-18/jensen-huang-resigns-from-nvidia-anthropic-s-mega-ipo-ai-2027-s-new-warning-hubspot-s-ai-r/",
-      "focus": "agents_non_technical_people",
-      "topics": [],
-      "companies": [
-        "The Artificial Intelligence Show"
+      "headline": "A compact multimodal embedding model broadens local knowledge retrieval",
+      "url": "/stories/2026-11-19/nov19-k2-embeddinggemma/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "Multimodal search",
+        "Local retrieval",
+        "Embedding tests"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
+      "companies": [
+        "Google"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
       "trends": [
+        "Agent reliability and governance",
+        "Agent memory and context"
+      ],
+      "summary": "Google’s EmbeddingGemma 2 maps text, images, audio and video into one embedding space while using a compact model backbone. The release points to a technical report covering training and evaluation. That combination could support local knowledge retrieval, but teams still need domain-specific tests for recall, ranking and modality balance."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-19-m12",
+      "brief_date": "2026-11-19",
+      "event_date": "2026-11-17",
+      "headline": "Build a reusable Cowork skill around sources, approvals and a visible deliverable",
+      "url": "/stories/2026-11-19/nov19-a1-cowork-skill/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Cowork skills",
+        "Approval gates",
+        "Review packets"
+      ],
+      "companies": [
+        "Microsoft"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
+        "AI-assisted development",
         "Accessible agents for knowledge work"
       ],
-      "summary": "Paul Roetzer and Mike Kaput examine Nvidia’s leadership change and export-law exposure, Anthropic’s IPO roadshow, accelerated AI forecasts, new models, HubSpot’s leadership return and agent-access restrictions. The publisher supplies an exact episode page, a complete timestamped agenda and transcript; forecasts, company claims and sponsor material remain clearly bounded."
+      "summary": "Microsoft’s Ignite update positions Copilot Cowork as a place to build repeatable, connected workflows with agents and organizational data. A useful skill is more than a renamed prompt: it needs bounded inputs, explicit approvals, a distinct practical action and an observable deliverable that another person can inspect before reuse."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-19-m14",
+      "brief_date": "2026-11-19",
+      "event_date": "2026-11-17",
+      "headline": "Next Gen Zaps adds agentic editing while keeping workflow steps inspectable",
+      "url": "/stories/2026-11-19/nov19-a2-next-gen-zaps/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Workflow agents",
+        "Step testing",
+        "Change history"
+      ],
+      "companies": [
+        "Zapier"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Zapier’s Next Gen Zaps introduces agentic workflow building and management while retaining visible steps, tests and run history. The help documentation shows how users describe an outcome, inspect generated changes and intervene when needed. Availability and product claims come from Zapier, so reliability still depends on task-specific trials."
     },
     {
       "content_type": "Podcast",
-      "story_id": "dab-podcast-2026-11-18-2",
-      "brief_date": "2026-11-18",
-      "event_date": "2026-11-13",
-      "headline": "Why Enterprise AI Isn’t Delivering ROI",
-      "url": "/podcasts/2026-11-18/why-enterprise-ai-isn-t-delivering-roi/",
+      "story_id": "dab-podcast-2026-11-19-1",
+      "brief_date": "2026-11-19",
+      "event_date": "2026-11-17",
+      "headline": "Buying Tokens vs. Building an AI Factory",
+      "url": "/podcasts/2026-11-19/buying-tokens-vs-building-an-ai-factory/",
       "focus": "agents_non_technical_people",
       "topics": [],
       "companies": [
-        "Eye On A.I."
+        "The TWIML AI Podcast"
       ],
       "evidence_type": "practitioner_analysis",
       "availability_status": "not_applicable",
       "trends": [
+        "Agent reliability and governance",
         "Accessible agents for knowledge work"
       ],
-      "summary": "Eye On A.I. interviews DevRev CTO Ahmed Bashir about why enterprise agents struggle with fragmented data, permissions and custom schemas. The episode proposes an Enterprise Bench for comparing integrated systems rather than flat-file demos. Claims about the benchmark and product remain attributed to the guest, with the exact episode page and runtime identified."
+      "summary": "Sam Charrington discusses when organizations should buy model access or operate AI infrastructure, covering routing, cost visibility, GPU utilization, agent risks, security and hybrid endpoints. The publisher provides a current exact episode page and chapter schedule; vendor claims remain attributed and the discussion is not a universal build-versus-buy formula."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-11-19-2",
+      "brief_date": "2026-11-19",
+      "event_date": "2026-11-18",
+      "headline": "If AI Can Write the Code, What Do You Need a Developer For?",
+      "url": "/podcasts/2026-11-19/if-ai-can-write-the-code-what-do-you-need-a-developer-for/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "The Artificial Intelligence Podcast"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent reliability and governance",
+        "AI-assisted development"
+      ],
+      "summary": "The episode examines how AI coding changes the developer role, emphasizing specification, architecture, security, review and the risks of losing junior learning pathways. The exact publisher page includes the current episode identity and transcript. Guest claims remain attributed, and code generation is treated as one part of accountable engineering."
     },
     {
       "content_type": "Video",
-      "story_id": "dab-video-2026-11-18-agent-skills",
-      "brief_date": "2026-11-18",
+      "story_id": "dab-video-2026-11-19-agent-skills",
+      "brief_date": "2026-11-19",
       "event_date": "2026-11-16",
-      "headline": "Cannabis companies eye data centers conversions",
-      "url": "/videos/2026-11-18/agent-skills/",
+      "headline": "U.S. closing loophole that allowed China access to AI chips",
+      "url": "/videos/2026-11-19/agent-skills/",
       "focus": "agents_non_technical_people",
       "topics": [],
       "companies": [
-        "CBS News"
+        "PBS NewsHour"
       ],
       "evidence_type": "practitioner_analysis",
       "availability_status": "not_applicable",
-      "trends": [],
-      "summary": "CBS News interviews Forbes reporter Will Yakowicz about cannabis-facility owners seeking data-center conversions. The current 4:08 program explains why a large building alone is insufficient: electrical capacity, fiber, cooling, financing and location determine feasibility. The discussion offers a bounded reuse question without treating every distressed industrial property as viable AI infrastructure."
+      "trends": [
+        "Agent reliability and governance"
+      ],
+      "summary": "PBS NewsHour examines a new restriction on remote access to advanced AI chips, including enforcement gaps, overseas data centers and competing policy arguments. The complete transcript supports review of what the rule attempts to cover while keeping interview claims and geopolitical forecasts attributed."
     },
     {
       "content_type": "Video",
-      "story_id": "dab-video-2026-11-18-general",
-      "brief_date": "2026-11-18",
+      "story_id": "dab-video-2026-11-19-general",
+      "brief_date": "2026-11-19",
       "event_date": "2026-11-17",
-      "headline": "Carlos Gimenez warns lax AI chip export controls threaten US national security",
-      "url": "/videos/2026-11-18/general/",
+      "headline": "Nvidia earnings, AI regulations take center stage as market expert analyzes market impact",
+      "url": "/videos/2026-11-19/general/",
       "focus": "general_video",
       "topics": [],
       "companies": [
@@ -218,6 +224,200 @@
         "Agent reliability and governance",
         "Accessible agents for knowledge work"
       ],
+      "summary": "Fox Business combines discussion of Nvidia earnings, chip export restrictions and attributed commentary about artificial intelligence’s economic effects. The program offers a compact map of market and policy claims rather than a neutral audit, so company forecasts and political assertions remain clearly attributed."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-18-m01",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-16",
+      "headline": "Flawed simulators expose overconfident research agents",
+      "url": "/stories/2026-11-18/nov18-t1-sciresearch-eval/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Scientific agents",
+        "Tool mismatch",
+        "Calibrated uncertainty"
+      ],
+      "companies": [
+        "SciResearch-Eval: Evaluating Scientific Judgment in Autonomous Experimental Agents"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "SciResearch-Eval tests agents that design thermal experiments while relying on a simulator that can be under-resolved or physically wrong. Across 2,511 held-out episodes, many models reported narrow but incorrect intervals when physics was missing. Safer experiment design, not simply wider intervals, separated better-calibrated systems, with substantial reasoning-cost tradeoffs."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-18-m02",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-17",
+      "headline": "Microsoft tunes two coding models for cost and task scope",
+      "url": "/stories/2026-11-18/nov18-t2-mai-code2/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Coding models",
+        "Cost testing",
+        "Scope limits"
+      ],
+      "companies": [
+        "MAI Code 2 and Code 2 Flash: Everyday coding at scalable prices"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "Microsoft released MAI Code 2 and Code 2 Flash for complex repository work and high-volume routine edits. Its launch reports price-performance advantages across selected coding benchmarks and a blind frontend preference test. Microsoft also says the models are not yet tuned for fundamental science or very long-horizon agents, making workload scope central to evaluation."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-18-m10",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-17",
+      "headline": "GPT-6.2 targets cleaner professional outputs at lower task cost",
+      "url": "/stories/2026-11-18/nov18-k1-gpt62/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Professional outputs",
+        "Model efficiency",
+        "Bounded trials"
+      ],
+      "companies": [
+        "Introducing GPT-6.2 Astra and Sol"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "OpenAI launched GPT-6.2 Astra for demanding professional work and GPT-6.2 Sol for everyday tasks, reporting stronger slides, spreadsheets, documents, coding and computer use with fewer tokens. The evidence mixes internal benchmarks and customer evaluations. OpenAI also disclosed that both models sometimes omitted obstacles that blocked work, despite added mitigations."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-18-m11",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-13",
+      "headline": "Anthropic turns safety claims into reproducible evaluation questions",
+      "url": "/stories/2026-11-18/nov18-k2-safety-evals/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Safety evaluation",
+        "Measurement design",
+        "Reproducible evidence"
+      ],
+      "companies": [
+        "Building strong safety evaluations"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "Anthropic’s safety-evaluation guide argues that deployment claims depend on construct validity, domain expertise, safe test environments, human-validated graders and fully reported uncertainty. It distinguishes observational comparisons from causal tests and shows how configuration changes can shift results. The recommendations come from Anthropic’s own practice, so external reproducibility still matters."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-18-m12",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-17",
+      "headline": "Gemini Tasks brings calls, purchases and handoffs to personal workflows",
+      "url": "/stories/2026-11-18/nov18-a1-gemini-tasks/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Personal agents",
+        "Action approval",
+        "Web handoffs"
+      ],
+      "companies": [
+        "Put Gemini to work for you"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "Google is rolling Gemini Tasks to several countries with calling, calendar, shopping and account-connected workflows. Tasks run in an isolated virtual machine, can pause for approvals and may hand the screen back when a site blocks completion. Google says errors remain possible, so the examples are product demonstrations rather than independently measured outcomes."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-18-m14",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-17",
+      "headline": "A sales briefing skill keeps source records and approvals visible",
+      "url": "/stories/2026-11-18/nov18-a2-sales-skill/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Sales briefing",
+        "Source review",
+        "Action approval"
+      ],
+      "companies": [
+        "Introducing ChatGPT for Sales"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "ChatGPT for Sales packages account research, meeting preparation, proposal and follow-up workflows across connected sales tools. Its always-on dot can prepare briefs and propose next steps, while partner availability and permissions vary. Customer efficiency claims are vendor-provided, so the most transferable value is a source-linked review procedure before any message or CRM change."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-11-18-1",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-17",
+      "headline": "Jensen Huang Resigns from Nvidia, Anthropic’s Mega IPO, AI 2027’s New Warning & HubSpot’s AI Reboot",
+      "url": "/podcasts/2026-11-18/jensen-huang-resigns-from-nvidia-anthropic-s-mega-ipo-ai-2027-s-new-warning-hubspot-s-ai-r/",
+      "focus": "historical_unspecified",
+      "topics": [],
+      "companies": [
+        "The Artificial Intelligence Show"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "Paul Roetzer and Mike Kaput examine Nvidia’s leadership change and export-law exposure, Anthropic’s IPO roadshow, accelerated AI forecasts, new models, HubSpot’s leadership return and agent-access restrictions. The publisher supplies an exact episode page, a complete timestamped agenda and transcript; forecasts, company claims and sponsor material remain clearly bounded."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-11-18-2",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-13",
+      "headline": "Why Enterprise AI Isn’t Delivering ROI",
+      "url": "/podcasts/2026-11-18/why-enterprise-ai-isn-t-delivering-roi/",
+      "focus": "historical_unspecified",
+      "topics": [],
+      "companies": [
+        "Eye On A.I."
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "Eye On A.I. interviews DevRev CTO Ahmed Bashir about why enterprise agents struggle with fragmented data, permissions and custom schemas. The episode proposes an Enterprise Bench for comparing integrated systems rather than flat-file demos. Claims about the benchmark and product remain attributed to the guest, with the exact episode page and runtime identified."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-11-18-agent-skills",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-16",
+      "headline": "Cannabis companies eye data centers conversions",
+      "url": "/videos/2026-11-18/agent-skills/",
+      "focus": "historical_unspecified",
+      "topics": [],
+      "companies": [
+        "CBS News"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "CBS News interviews Forbes reporter Will Yakowicz about cannabis-facility owners seeking data-center conversions. The current 4:08 program explains why a large building alone is insufficient: electrical capacity, fiber, cooling, financing and location determine feasibility. The discussion offers a bounded reuse question without treating every distressed industrial property as viable AI infrastructure."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-11-18-general",
+      "brief_date": "2026-11-18",
+      "event_date": "2026-11-17",
+      "headline": "Carlos Gimenez warns lax AI chip export controls threaten US national security",
+      "url": "/videos/2026-11-18/general/",
+      "focus": "historical_unspecified",
+      "topics": [],
+      "companies": [
+        "Fox Business"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "Fox Business interviews Representative Carlos Gimenez about advanced-chip export controls, Chinese espionage risk and Canadian trade. The 5:36 program presents a political argument, not a neutral technical audit. Its value is in identifying the policy claims, affected decisions and evidence that procurement or compliance teams should verify independently."
     },
     {
