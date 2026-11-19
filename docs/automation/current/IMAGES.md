@@ -2,6 +2,10 @@
 
 Version **2026-11-03.2**. Read `COMMON.md`. Use connected GitHub and native Image Creation through the imagegen skill in the existing fresh Work task. Run autonomously without daily owner setup; no other task owns generation.
 
+## November 19 image AAR improvements approved November 18
+
+Before the next eligible unfrozen edition dated November 20 or later, read `docs/automation/NOV19_APPROVED_IMAGE_IMPROVEMENTS.md` in full. Apply all eight approved actions through this existing worker. Map meaningful detail to source claims, design different text architectures, inspect seven earlier released sets and their current verified revisions, name each closest prior image, and enumerate every causal arrow and noncausal guide before freezing. Use the local reference-index and complete-review-byte helpers described there. Record actual saved-pixel outcomes in the optional `after-action.json.editorial_quality_review` evidence; the existing individual and unified AAR renderers expose it without inventing scores or owner approval. Evaluate the next three genuinely eligible editions using the existing >=4/6 first-pass and <=8-call goals, never attempt caps. Keep accepted November 19 images, all existing safeguards, ownership, four task IDs and schedules unchanged. This contract pointer is already read by the existing scheduled image task; no additional task or prompt amendment is needed.
+
 ## Owner-approved November 16 image improvements (prospective)
 
 Preserve all accepted native image bytes, the existing fenced worker, source/job hashes, quality gates and 24 actual 320px/mobile and 1440px/desktop context reviews. Before every new native attempt, check the three November 16 rejection causes: (1) clipped/edge-crowded caveats and arrows terminating in labels instead of supported visual components, (2) invented sliders, knobs or unsupported controls, and (3) pseudo-writing on document surfaces. Use current article-specific causal explanation, exact allowlisted readable labels, detached uncertainty caveat and a verified 40px minimum saved-pixel safety area.

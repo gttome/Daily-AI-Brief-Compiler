@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {verifiedVideoFamilies,verifiedVideoDiscovery,rollingVideoDiversity} from './video-publisher-analytics.mjs';
+import {IMAGE_EDITORIAL_FEEDBACK_EFFECTIVE,collectImageEditorialFeedback,renderImageEditorialFeedback} from './image-editorial-feedback.mjs';
 import {fileURLToPath} from 'node:url';
 
 export const METRICS_SCHEMA='daily-aar-continuous-improvement-v1';
@@ -164,6 +165,9 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
   top10_search:typeof top10?.search_status==='string'?top10.search_status:'NOT_RECORDED',
   autonomy:typeof combined.autonomy_status==='string'?combined.autonomy_status:'NOT_RECORDED'
  };
+ const imageEditorial=edition>=IMAGE_EDITORIAL_FEEDBACK_EFFECTIVE?
+  collectImageEditorialFeedback({edition,aar,manifest:scoped(evidence,'image-manifest',edition)}):null;
+ if(imageEditorial?.status==='INVALID')invalid.push('image-editorial-quality-review');
  return {schema_version:OBSERVATION_SCHEMA,edition_date:edition,cycle_date:combined.cycle_date,evidence_hashes:evidenceHashes,production_state,
   registry_sha256:hash(JSON.stringify(registry)),source_set_sha256:sourceSet,eligible_resource_ids:[...knownIds],invalid_evidence:unique(invalid),
   metrics:{coverage_percent:research?.status==='OBSERVED'?research.inspected_percent:null,
@@ -174,7 +178,8 @@ export function collectObservations({combined,evidence={},registry={},evidenceHa
   source_review_missing_resource_ids:reviewValid?coverage.candidate_reviews.records.filter(r=>!knownIds.has(r.resource_id)).length:null,
   image_rejections:image?.status==='OBSERVED'?{total:image.total_attempts-6,classified:rejectionRows,unclassified:image.total_attempts-6-rejectionRows.length}:null,
   resilience:publisherResilience({report:evidence['top10-report'],summary:top10}),change_evaluations:evaluations,
-  video_publisher_families,video_discovery,owner_prompt_evidence};
+  video_publisher_families,video_discovery,owner_prompt_evidence,
+  ...(imageEditorial?{image_editorial_quality:imageEditorial}:{})};
 }
 
 function validChangeReview(review) {
@@ -339,6 +344,12 @@ export function buildMetrics({edition,observations,registry,register}){
   image_defects:{recorded_editions:imageWindows.length,total_rejected:imageWindows.length?imageWindows.reduce((n,o)=>n+o.image_rejections.total,0):null,
    unclassified:imageWindows.length?imageWindows.reduce((n,o)=>n+o.image_rejections.unclassified,0):null,rows:defects},
   video_publisher_diversity,video_source_yield,owner_prompt_observations,
+  ...(edition>=IMAGE_EDITORIAL_FEEDBACK_EFFECTIVE?{
+   image_editorial_quality:byDate.get(edition)?.image_editorial_quality??collectImageEditorialFeedback({edition}),
+   image_editorial_history:window.filter(o=>o.image_editorial_quality).map(o=>({edition_date:o.edition_date,
+    status:o.image_editorial_quality.status,reviewed_stories:o.image_editorial_quality.reviewed_stories,
+    nearest_prior_comparisons:o.image_editorial_quality.nearest_prior_comparisons,
+    owner_feedback:o.image_editorial_quality.owner_feedback}))}:{}),
   top10_resilience:byDate.get(edition)?.resilience??{status:'NOT_RECORDED',topics:[]},
   limits:['Seven calendar edition dates; missing observations are gaps, never zero.','Source counts and registry/method changes limit comparison; no causal improvement claim.',
    'Source contribution covers only resource-attributed substantive review records; it is not an exhaustive source ranking.','No last inspection record means not recorded, not proof the source was never read.',
@@ -410,6 +421,11 @@ export function renderMetricsMarkdown(m){
   '', '### Image rejection causes','','![Image rejection causes](charts/image-defects.svg)','','| Recorded defect | Rejected attempts with defect | Recurred across editions |','|---|---:|---|',
   ...m.image_defects.rows.map(r=>`| ${r.cause} | ${r.rejected_attempts} | ${r.recurring?'Yes':'No within observed window'} |`),
   '',`Total rejected: ${tableCell(m.image_defects.total_rejected)}; unclassified: ${tableCell(m.image_defects.unclassified)}. A rejected attempt can have several defect codes.`,
+  ...(m.image_editorial_quality?['',renderImageEditorialFeedback(m.image_editorial_quality),'',
+   '| Edition | Artistic review evidence | Stories reviewed | Prior image comparisons | Owner feedback |',
+   '|---|---|---:|---:|---|',
+   ...(m.image_editorial_history??[]).map(r=>`| ${r.edition_date} | ${r.status} | ${tableCell(r.reviewed_stories)} | ${tableCell(r.nearest_prior_comparisons)} | ${r.owner_feedback} |`),
+   '', 'Compare the next three genuinely eligible editions; these observations do not establish a causal improvement or create a publication gate.']:[]),
   '', '### Video publisher diversity and candidate qualification',
   '', `Seven-edition measurement: **${m.video_publisher_diversity?.status??'NOT_RECORDED'}**. Publisher families: **${tableCell(m.video_publisher_diversity?.distinct_families)}**; largest family's slots: **${tableCell(m.video_publisher_diversity?.largest_family_selections)}**; HHI: **${tableCell(m.video_publisher_diversity?.concentration_hhi)}**; prospective variety target: **${m.video_publisher_diversity?.variety_target_status??'NOT_EVALUABLE'}**.`,
   '', '| Verified family | Actual selections in window |','|---|---:|',
