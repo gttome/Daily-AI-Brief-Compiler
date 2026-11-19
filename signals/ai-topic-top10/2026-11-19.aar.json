@@ -1,0 +1,252 @@
+{
+  "schema_version": "daily-ai-topic-top10-run-aar-v1",
+  "cycle_date": "2026-11-19",
+  "edition_date": "2026-11-20",
+  "timezone": "America/Chicago",
+  "started_at": "2026-11-19T23:01:26Z",
+  "finished_at": "2026-11-19T23:08:07Z",
+  "protected_main_commit": "3a5b324133e5348a9c33107508d9812d8879b106",
+  "report_commit": "006ecbb0f4369b6f7e3dc7c5a3c0e1e353f8435f",
+  "report_blob_sha": "1abd262c3885923f5a73ab995b6ebe8b820ce62f",
+  "report_sha256": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
+  "report_path": "signals/ai-topic-top10/2026-11-19.json",
+  "report_bytes": 133583,
+  "report_status": "partial",
+  "topic_count": 10,
+  "usage_percent": null,
+  "cost_usd": null,
+  "readback": {
+    "verified_at": "2026-11-19T23:07:44Z",
+    "result": "EXACT_COMMITTED_BYTES_VERIFIED",
+    "schema_validation": "PASS",
+    "canonical_query_slots": 30,
+    "publisher_resilience_status": "RECORDED",
+    "reviewed_topics": 10,
+    "weakened_topics": 8,
+    "prior_report_exact_bytes_verified": true
+  },
+  "sample_scope": {
+    "metadata_screened_videos": 42,
+    "unique_videos": 42,
+    "distinct_screened_channels": 30,
+    "full_video_reviews": 0,
+    "direct_youtube_counter_verifications": 0,
+    "full_transcript_reviews": 0,
+    "partial_original_publisher_transcript_reviews": 1,
+    "substantive_original_event_document_reviews": 9,
+    "original_watch_attempts": 42,
+    "original_watch_outcomes": {
+      "throttled": 35,
+      "title_shell": 5,
+      "unexpected_status": 2
+    },
+    "comparable_video_observations": 5,
+    "freshness_reference_at": "2026-11-19T23:06:21Z",
+    "notes": "Prioritized24h, widened72h then7d. Long-form known only where duration visible; date-only records excluded from exact hourly bins. Full-video40–80 target unmet. Partial transcript was an older mismatched podcast, rejected as current.",
+    "freshness_counts": {
+      "within_24h_timestamped": 3,
+      "additional_within_72h_timestamped": 11,
+      "additional_within_7d_timestamped": 2,
+      "date_only": 26,
+      "older": 0
+    }
+  },
+  "research_coverage": {
+    "screened_total": 61,
+    "by_category": {
+      "video": {
+        "screened": 42,
+        "retained": 12
+      },
+      "primary": {
+        "screened": 15,
+        "retained": 12
+      },
+      "independent": {
+        "screened": 1,
+        "retained": 1
+      },
+      "discussion": {
+        "screened": 3,
+        "retained": 3
+      }
+    },
+    "tracker_or_aggregator_count": 4,
+    "definition": "Distinct inspected item URLs; one category each. Trackers separately counted, index text and original bodies distinguished. Failed-only routes excluded.",
+    "topics_with_multiple_attention_families": 5,
+    "topics_with_family_removal_reviews": 10,
+    "ledger_location": "2026-11-19.json#/research_coverage/screening_ledger"
+  },
+  "daily_improvement": {
+    "baseline_id": "nov03-2026-v1",
+    "previous_report_date": "2026-11-18",
+    "previous_method_version": "2026-11-03.2-event-review",
+    "method_version": "2026-11-03.2-event-review",
+    "feedback": {
+      "aar_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/combined.json",
+      "charts_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/charts.json",
+      "metrics_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/improvement-metrics.json",
+      "observation": "November19 edition records bound consumption, observed searches and four article mappings, zero video/podcast mappings; source inspections15/109; images12 attempts and zero first-pass acceptances. These are independent dimensions, not causal quality evidence."
+    },
+    "changes": [
+      {
+        "change": "Reviewed original Code Mode permission mechanics and original release documents before retaining fresh event leads.",
+        "reason": "Prior AAR still lacks selected video/podcast linkage; metadata does not establish verification depth.",
+        "expected_effect": "Give Compiler exact bounded claims and preserve original-date and format qualification gaps."
+      }
+    ],
+    "resource_candidates": [
+      {
+        "url": "https://code.claude.com/docs/en/code-mode",
+        "role": "Original technical documentation",
+        "access": "Public original text",
+        "review_scope": "Script/tool visibility, per-tool permissions, hooks and classifier limitations.",
+        "independence": "Anthropic source; same family as vendor attention post.",
+        "decision": "accepted",
+        "reason": "Exact current event with substantive permission boundaries.",
+        "contribution": "Avoids assuming script batching bypasses tool permissions."
+      },
+      {
+        "url": "https://www.dwarkesh.com/p/paul-christiano",
+        "role": "Original podcast transcript candidate",
+        "access": "Public original text",
+        "review_scope": "Overview and partial transcript; date/context do not match the new indexed clip.",
+        "independence": "Original Dwarkesh publisher, not a new independent measured event.",
+        "decision": "rejected",
+        "reason": "Old episode context cannot establish freshness of the November18 excerpt.",
+        "contribution": "Prevented a false fresh podcast recommendation."
+      },
+      {
+        "url": "https://github.com/coleam00/skills/tree/main/.claude/skills/edit-video",
+        "role": "Creator skill source",
+        "access": "Specific tree and raw file routes unavailable; repository overview accessible.",
+        "review_scope": "Overview only; skill implementation unverified.",
+        "independence": "Same family as the video creator.",
+        "decision": "deferred",
+        "reason": "Unavailable specific file prevents substantive procedure review.",
+        "contribution": "Kept demonstration confidence low and left Skills qualification with Compiler."
+      }
+    ],
+    "observed_effects": [
+      {
+        "observation": "42 distinct video metadata records and five comparable video pairs versus prior51 and one pair.",
+        "effect": "Different sample, no full playbacks; smaller count and stronger comparable subset do not independently prove quality."
+      }
+    ],
+    "next_improvement": "Inspect next independently bound Compiler candidate dispositions and original playable media. Broader metadata counts are secondary to exact event depth.",
+    "limitations": [
+      "November10 pilot inactive.",
+      "Usage, costs, scheduler origin and current downstream outcomes unknown."
+    ],
+    "change_evaluations": [
+      {
+        "change_id": "NOV16-P1-09",
+        "reviewed_edition": "2026-11-19",
+        "decision": "keep",
+        "result": "inconclusive",
+        "reason": "Latest earlier AAR verifies four article mappings and no media mappings; these associations do not establish incremental candidate yield or causal selection improvement. Due-edition outcome20 is not yet observed.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/combined.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/improvement-metrics.json"
+        ]
+      },
+      {
+        "change_id": "NOV15-02",
+        "reviewed_edition": "2026-11-19",
+        "decision": "keep",
+        "result": "met",
+        "reason": "Latest earlier AAR independently records a bound consumed snapshot, observed search receipts and four article mappings. That proves integration for that edition, not better future quality.",
+        "evidence_refs": [
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/combined.json",
+          "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/81ccd09e77e80946e0097b1a358df1d413f69fc9/daily/2026-11-18/charts.json"
+        ]
+      }
+    ]
+  },
+  "original_route_fallbacks": [
+    {
+      "video_id": "UCL4K36SHp0",
+      "source_url": "https://ai.engineer/code/2026/talks/brandon-thomas",
+      "observed_at": "2026-11-19T23:03:37Z",
+      "access_result": "Watch throttled; original organizer summary accessible.",
+      "content_scope": "Approximation versus full parity and workflow fit; not playback."
+    },
+    {
+      "video_id": "a90pZ1DSyls",
+      "source_url": "https://github.com/coleam00/skills/tree/main/.claude/skills/edit-video",
+      "observed_at": "2026-11-19T23:03:37Z",
+      "access_result": "Watch throttled; specific skill tree and raw routes unavailable; repository overview accessible.",
+      "content_scope": "Overview only, no verified skill implementation."
+    },
+    {
+      "video_id": "R0rXSJmymTc",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "observed_at": "2026-11-19T23:03:37Z",
+      "access_result": "Watch shell; original event announcement readable.",
+      "content_scope": "Model task positioning and internal benchmark caveats; no playback."
+    }
+  ],
+  "errors": [
+    {
+      "issue": "Original watch routes throttled, returned unexpected status or page shells.",
+      "effect": "No verified full playback, complete program transcripts or direct YouTube counters.",
+      "correction": "Original event documents and bounded metadata retained; report remains partial."
+    },
+    {
+      "issue": "Specific video-editing skill tree and raw-file routes unavailable.",
+      "effect": "Cannot verify the advertised procedure or qualify it as the Brief Skills item.",
+      "correction": "Repository overview only, low confidence; Compiler owns qualification."
+    },
+    {
+      "issue": "Old Dwarkesh transcript does not match the newly indexed excerpt.",
+      "effect": "Cannot establish fresh podcast eligibility from that original route.",
+      "correction": "Rejected the mismatched episode as a current podcast candidate; retained no fabricated media match."
+    },
+    {
+      "issue": "Copied validator module required newly added image-editorial-feedback dependency.",
+      "effect": "Initial local validation import failed before evaluating report.",
+      "correction": "Fetched exact dependency at the same protected-main commit; validation passed against saved and committed report bytes."
+    }
+  ],
+  "improvements": [
+    {
+      "change": "Reviewed original Code Mode permission mechanics and original release documents before retaining fresh event leads.",
+      "reason": "Prior AAR still lacks selected video/podcast linkage; metadata does not establish verification depth.",
+      "expected_effect": "Give Compiler exact bounded claims and preserve original-date and format qualification gaps.",
+      "status": "implemented_in_current_research"
+    }
+  ],
+  "cycle_closeout": {
+    "status": "OPEN_DOWNSTREAM_PENDING",
+    "compiler_consumption": "NOT_OBSERVED",
+    "actual_searches": "NOT_OBSERVED",
+    "selected_mappings": "NOT_OBSERVED",
+    "publication": "NOT_OBSERVED",
+    "image_release": "NOT_OBSERVED",
+    "scheduler_attestation": null,
+    "producer_handoff": "PERSISTED_EXACT_BYTES_VERIFIED",
+    "incremental_yield": null,
+    "combined_aar": "NOT_OBSERVED",
+    "responsible_roles": [
+      {
+        "role": "Existing Compiler",
+        "next_eligible_action": "Bind exact current report bytes and record real article/video/podcast queries, candidates, dispositions and selected mappings under unchanged editorial gates."
+      },
+      {
+        "role": "Existing image worker",
+        "next_eligible_action": "Continue only its eligible immutable image assignment."
+      },
+      {
+        "role": "Existing report collector",
+        "next_eligible_action": "Independently reconcile consumed snapshot, actual searches, selection mappings and production evidence."
+      }
+    ]
+  },
+  "limitations": [
+    "Partial research: zero verified full-video reviews, complete transcripts and direct YouTube counters.",
+    "42 metadata-screened videos do not satisfy40–80 full-video reviews; one indexed identity conflict was excluded.",
+    "Missing counters, durations, subscribers and sponsorship are unavailable/null. Promotional titles are not verified capability claims.",
+    "Five rounded same-source comparisons describe specific videos only, not global topic velocity. No CTR, retention, global coverage or composite score invented.",
+    "Report receipt does not establish Compiler searches, selection impact, publication, images or scheduler origin."
+  ]
+}
