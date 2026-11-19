@@ -26,6 +26,40 @@ const slug=url=>{
     fail('invalid_permanent_story_route');
   return rest+'index.html';
 };
+const approvedRevision=(historyRoot,candidateRoot,date,storyIds)=>{
+  // The owner-authorized November 18 correction is deliberately versioned: the
+  // original accepted PNGs and release receipt remain immutable while the
+  // public page points at a separately verified six-image revision.
+  if(date!=='2026-11-18')return null;
+  const revisionId='owner-quality-r2';
+  const route=`image-revisions/${date}/${revisionId}/release.json`;
+  if(!fs.existsSync(path.join(historyRoot,route)))return null;
+  const oldReceipt=read(historyRoot,route),newReceipt=read(candidateRoot,route);
+  if(!oldReceipt.equals(newReceipt))fail('image_revision_receipt_drift:'+date+':'+revisionId);
+  const release=JSON.parse(oldReceipt.toString('utf8'));
+  if(release.schema_version!=='owner-nov18-image-revision-release-v1'||
+     release.edition_date!==date||release.revision_id!==revisionId||
+     release.result!=='LIVE_HASH_AND_24_CAPTURES_VERIFIED'||
+     release.original_accepted_images_preserved!==true||
+     release.original_release_receipt_preserved!==true||
+     release.original_bundle_unchanged!==true||release.owner_requested!==true||
+     release.images?.length!==6)
+    fail('untrusted_image_revision_receipt:'+date+':'+revisionId);
+  const byStory=new Map(release.images.map(x=>[x.story_id,x]));
+  if(byStory.size!==6||storyIds.some(id=>!byStory.has(id)))
+    fail('image_revision_story_set_mismatch:'+date+':'+revisionId);
+  for(const image of byStory.values()){
+    if(!image.route.startsWith(`briefs/images/${date}/${revisionId}/dab-edition-${date}-`)||
+       !image.route.endsWith('.png')||!/^[a-f0-9]{64}$/.test(image.sha256)||
+       !Number.isSafeInteger(image.bytes)||image.bytes<100)
+      fail('image_revision_identity_incomplete:'+date+':'+image.story_id);
+    const prior=read(historyRoot,image.route),currentImage=read(candidateRoot,image.route);
+    if(prior.length!==image.bytes||hash(prior)!==image.sha256||
+       currentImage.length!==image.bytes||hash(currentImage)!==image.sha256)
+      fail('accepted_image_revision_bytes_changed:'+image.route);
+  }
+  return byStory;
+};
 export function assertPublishedImageContinuity({historyRoot,candidateRoot}){
   if(!historyRoot||historyRoot==='-'||!fs.existsSync(historyRoot))
     return {result:'PASS',released_editions:0,accepted_images:0,article_image_pairings:0};
@@ -69,6 +103,12 @@ export function assertPublishedImageContinuity({historyRoot,candidateRoot}){
          currentImage.length!==image.bytes||hash(currentImage)!==image.sha256)
         fail('accepted_image_bytes_changed:'+image.route);
       acceptedImages++;
+    }
+    const pairingByStory=approvedRevision(
+      historyRoot,candidateRoot,date,job.stories.map(story=>story.story_id)
+    )||imageByStory;
+    for(const story of job.stories){
+      const image=pairingByStory.get(story.story_id);
       const imageUrl=BASE+image.route+'?v='+image.sha256.slice(0,12);
       for(const [pageName,content] of [
         ['briefs/'+date+'/index.html',datedPage],
