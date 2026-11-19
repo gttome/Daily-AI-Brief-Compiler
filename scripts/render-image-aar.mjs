@@ -3,11 +3,13 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateImageAfterAction} from './image-aar-contract.mjs';
 import {verifyEditorialDiversityEvidence} from '../operations/image-set-diversity.mjs';
+import {collectImageEditorialFeedback,renderImageEditorialFeedback} from './image-editorial-feedback.mjs';
 const cell=s=>String(s??'Not recorded').replaceAll('|','/').replace(/\r?\n/g,' ');
 export function renderImageAar({aar,job,manifest}){
  validateImageAfterAction({aar,job,manifest});
  const p=aar.production;
  const diversity=verifyEditorialDiversityEvidence({...manifest,edition_date:manifest?.edition_date??job.edition_date});
+ const editorial=renderImageEditorialFeedback(collectImageEditorialFeedback({edition:job.edition_date,aar,manifest}));
  return [
  '# '+aar.edition_date+' premium image after-action report','',
  '**Status: '+cell(aar.status)+'**. This is image-lane status, not unattended certification of the editorial producer.','',
@@ -42,6 +44,7 @@ export function renderImageAar({aar,job,manifest}){
     cell(i.observed_distinctiveness)+' |'),'',
  'Retain the full 15 pairwise observations in the immutable manifest. Repeat the complete set review on any changed image; do not use color or renamed diagram tags alone as differentiation.',''
  ]:[]),
+ ...(editorial?[editorial,'']:[]),
  '## Corrections','', '| Stage | Issue | Correction |','|---|---|---|',
  ...aar.errors.map(e=>'| '+cell(e.phase)+' | '+cell(e.issue)+' | '+cell(e.correction)+' |'),'',
  '## Evidence and limitations','',
