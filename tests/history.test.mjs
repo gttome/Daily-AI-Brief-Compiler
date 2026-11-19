@@ -14,8 +14,10 @@ test('history merge preserves authoritative prior pages, images and image-releas
   fs.mkdirSync(path.join(history,'archive'),{recursive:true});
   fs.mkdirSync(path.join(history,'briefs','images','2026-10-06'),{recursive:true});
   fs.mkdirSync(path.join(history,'image-jobs'),{recursive:true});
+  fs.mkdirSync(path.join(history,'image-revisions','2026-10-06','owner-r2'),{recursive:true});
   fs.writeFileSync(path.join(history,'briefs','images','2026-10-06','accepted.png'),Buffer.from('verified prior image bytes'));
   fs.writeFileSync(path.join(history,'image-jobs','index.json'),'{"editions":[{"edition_date":"2026-10-06","status":"RELEASED_VERIFIED"}]}');
+  fs.writeFileSync(path.join(history,'image-revisions','2026-10-06','owner-r2','release.json'),'{"result":"LIVE_VERIFIED"}');
   fs.writeFileSync(path.join(history,'briefs','2026-10-06','index.html'),'<html>old edition</html>');
   fs.writeFileSync(path.join(history,'stories','2026-10-06','old-story','index.html'),'<html>old story</html>');
   fs.writeFileSync(path.join(history,'archive','index.html'),'<html>legacy custom archive</html>');
@@ -37,6 +39,7 @@ test('history merge preserves authoritative prior pages, images and image-releas
   assert.equal(fs.readFileSync(path.join(out,'briefs','2026-10-06','index.html'),'utf8'),'<html>old edition</html>');
   assert.equal(fs.readFileSync(path.join(out,'briefs','images','2026-10-06','accepted.png'),'utf8'),'verified prior image bytes');
   assert.ok(fs.existsSync(path.join(out,'image-jobs','index.json')));
+  assert.equal(fs.readFileSync(path.join(out,'image-revisions','2026-10-06','owner-r2','release.json'),'utf8'),'{"result":"LIVE_VERIFIED"}');
   assert.ok(fs.existsSync(path.join(out,'stories','2026-10-06','old-story','index.html')));
   assert.ok(fs.existsSync(path.join(out,'briefs','2026-10-07','index.html')));
   assert.equal(fs.readFileSync(path.join(out,'briefs-archive','index.html'),'utf8'),'<html>canonical archive</html>');
