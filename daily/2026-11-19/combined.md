@@ -37,6 +37,21 @@ Outcomes count observed checks across all saved requests. Programs can be submit
 - AI giant's IPO one of the biggest ever - but has it already peaked? received PUBLIC_VIDEO_PLAYBACK_UNVERIFIED. [Original run](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44653929258)
 - How AI is impacting learning in the classroom received PUBLIC_VIDEO_PLAYBACK_UNVERIFIED. [Original run](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44653929258)
 
+## Approved November 20 improvement evidence
+
+Editorial runtime declarations: **DECLARED_RESTRICTED_EDITORIAL_RUNTIME**. Actual billing and scheduled origin remain unknown.
+
+Video candidate evidence: **NOT_RECORDED**; substantive candidates Not recorded, non-news Not recorded, original publisher families Not recorded, selected non-news Not recorded. Targets 12 / 8 / 6 / 2 are advisory; unchanged duration, promotion, novelty and full-program playback checks still apply.
+
+Source failure categories: RESPONSE_SIZE_LIMIT 25, ACCESS_BLOCKED 5, PARSER_OR_OTHER 1. Empty, blocked, oversized and unreviewed sources are distinct.
+
+Original-paper cadence: one qualified paper within 3 editions when available. Current review timing POSTPUBLICATION; postpublication review is not evidence of preselection reading.
+
+- Open-weight inference shifts inside managed routing markets: published 86, unchanged-rubric calculation 86, retained original source links 1.
+- Workplace AI changes task time before meeting load: published 90, unchanged-rubric calculation 90, retained original source links 1.
+
+IMG19 artistic changes retain their existing November 22 three-eligible-edition evaluation. Missing pixels, owner feedback and usage remain unknown; no retrospective source, query or artwork acceptance is invented.
+
 ## Daily AAR charts
 
 These charts use this edition’s receipts. Missing data is not zero.
@@ -98,7 +113,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Unattended autonomy (separate from publication)** | **UNPROVEN** | Owner incident receipt takes precedence over unverified producer self-attestation |
 | Recorded protected publishing gate failures | **0** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |
 | Articles | **6** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |
-| Original scientific-paper-led articles | **Not recorded** | Rolling target: one qualified original paper in seven editions; NOT_RECORDED. Preprints are not peer-reviewed by default |
+| Original scientific-paper-led articles | **1** | Rolling target: one qualified original paper in 3 editions; POSTPUBLICATION_REVIEW_BUNDLE_MATCH. Preprints are not peer-reviewed by default |
 | Verified original sources within preceding 24 hours | **0 / 6** | Original publisher dates only; other sources require a documented fallback rationale |
 | Distinct selected article publishers | **6** | Six different primary organizations preferred |
 | Videos over seven days old | **0** | Must be labeled evergreen, not a new development |
@@ -308,7 +323,8 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ### Scientific paper opportunity and publication evidence
 
-**Current edition:** NOT_RECORDED; **paper-led stories:** Not recorded. Editorial target: at least one genuinely qualified original-paper-based story in seven editions, with methods, limitations, and an explicit preprint/peer-review distinction. No stale or weak paper is selected solely to fill a quota.
+**Current edition:** POSTPUBLICATION_REVIEW_BUNDLE_MATCH; **paper-led stories:** 1. Editorial target: at least one genuinely qualified original-paper-based story in seven editions, with methods, limitations, and an explicit preprint/peer-review distinction. No stale or weak paper is selected solely to fill a quota.
+- Reliable Mining of Heterogeneous AI Coding-Agent Data: Context-Aware Prediction and Resource-Aware Ranking (PREPRINT): https://arxiv.org/abs/2611.20297 — linked article: nov20-t2-agent-prs.
 
 
 ## Track 2 — Premium images
@@ -427,9 +443,10 @@ No current-edition postpublication incident register was available; this is **NO
 | Image review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-20/reviews/live/semantic-pixel-review.json) |
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-20/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/source-item-retries.json) |
+| Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7a2cfc269da53a7027d939ff920af721506a55a0/signals/ai-topic-top10/2026-11-19.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7a2cfc269da53a7027d939ff920af721506a55a0/signals/ai-topic-top10/2026-11-19.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/21371f45527a8e89f48324be70a7932de8cdbc93/signals/ai-topic-top10/2026-11-19.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/21371f45527a8e89f48324be70a7932de8cdbc93/signals/ai-topic-top10/2026-11-19.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/trend-search-coverage.json) |
 
@@ -499,8 +516,20 @@ Findings are observational and do not claim a repair was executed by the reporte
 | IMG19-06 — Reliable reporting | 2026-11-22 | PENDING | Not recorded |
 | IMG19-07 — Evidence of artistic improvement | 2026-11-22 | PENDING | Not recorded |
 | IMG19-08 — Reusable learning without repeated shells | 2026-11-22 | PENDING | Not recorded |
+| NOV20-01 — Canonical Top 10 search and selected-candidate association | 2026-11-24 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV20-02 — Original source date and citation metadata | 2026-11-24 | PENDING | Not recorded |
+| NOV20-03 — Truthful runtime policy reconciliation | 2026-11-24 | PENDING | Not recorded |
+| NOV20-04 — More substantive preselection source reads | 2026-11-24 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV20-05 — Broader non-news video discovery | 2026-11-24 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV20-06 — First-pass image geometry and connector planning | 2026-11-24 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV20-07 — Watchlist score and corroboration retention | 2026-11-24 | PENDING | Not recorded |
+| NOV20-08 — Specific newer lane alternatives | 2026-11-24 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV20-09 — Original-paper review and three-edition cadence | 2026-11-24 | NOT_YET_EFFECTIVE | Not recorded |
+| NOV20-10 — Separate completion and evidence statuses | 2026-11-24 | PENDING | Not recorded |
+| NOV20-11 — Neutral AI video coverage badges | 2026-11-24 | PENDING | Not recorded |
+| NOV20-12 — Continue existing IMG19 evaluation | 2026-11-22 | PENDING | Not recorded |
 
-Pending: 15; overdue: 4; reviewed: 20. Implemented controls await measured results; review decisions do not disable controls.
+Pending: 21; overdue: 4; reviewed: 20. Implemented controls await measured results; review decisions do not disable controls.
 
 #### Reviews of production evidence
 
@@ -666,6 +695,14 @@ Unclassified means the original gate is known but no structured cause review is 
 | stanford-hai | 2026-11-17 | 3 |
 | the-batch | Not recorded | Not recorded |
 | universe-20261026-every-ai-editorial | Not recorded | Not recorded |
+| video-20261120-3blue1brown | Not recorded | Not recorded |
+| video-20261120-ai-coffee-break | Not recorded | Not recorded |
+| video-20261120-computerphile | Not recorded | Not recorded |
+| video-20261120-full-stack-deep-learning | Not recorded | Not recorded |
+| video-20261120-mit-csail-video | Not recorded | Not recorded |
+| video-20261120-mit-embodied-intelligence | Not recorded | Not recorded |
+| video-20261120-pytorch-foundation | Not recorded | Not recorded |
+| video-20261120-statquest | Not recorded | Not recorded |
 | x-research-feeds | Not recorded | Not recorded |
 | xai-news | Not recorded | Not recorded |
 | youtube-anthropic | 2026-11-20 | 0 |

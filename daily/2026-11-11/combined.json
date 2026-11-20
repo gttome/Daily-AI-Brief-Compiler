@@ -624,7 +624,7 @@
       "attention": "Event-matched videos first when available, then distinct public discussions and tracked announcements. Stronger placement reflects corroboration and freshness. Same-program rounded interval deltas are retained separately.",
       "limitation": "Mixed formats and unknown clock or audience overlap preclude precise popularity ranking. No newness claim is inferred from a new screening result."
     },
-    "source_commit": "7a2cfc269da53a7027d939ff920af721506a55a0",
+    "source_commit": "21371f45527a8e89f48324be70a7932de8cdbc93",
     "source_blob_sha": "6150b534d32c78de199208c74ed52b60f216df74",
     "report_sha256": "a2e6b159c848fffc809a58bde78ec1066092d3c3ef0a4f5cda66dc925c61d076",
     "consumed_source_commit": "6e6911d0a393a3117160841950ecf3b2c3665777",
@@ -802,7 +802,7 @@
       },
       "previous_cycle": "2026-11-10",
       "previous_report_sha256": "caefe744d1e87f47846ca8d629d69d63106d54b7dd7636ed4afe57ad5e4a6bef",
-      "previous_aar_sha256": "2b98808708ca9a01a5858ba6f6c3c7e4a5c512ab4136d9965decc57d1eacf05f",
+      "previous_aar_sha256": "80a2a3c280dcf48057d56331796946dbdf2a3cdb239f0e512def1aa82fd89dc2",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1042,12 +1042,13 @@
   "scientific_paper_coverage": {
     "status": "PRODUCER_REPORTED_BUNDLE_MATCH",
     "paper_led_stories": 1,
+    "target_paper_led_stories": 1,
     "target_paper_led_stories_per_seven_editions": 1,
     "window_editions": 7,
     "selected_story_ids": [
       "nov12-t2-ecostatkg"
     ],
-    "caveat": "One in seven is a quality-first editorial target, not a release quota. Reported paper reading and peer-review status require independently inspectable original-paper evidence."
+    "caveat": "The current paper window is an advisory quality-first target, not a release quota. Reported paper reading and peer-review status require independently inspectable original-paper evidence."
   },
   "media_topic_diversity": {
     "status": "HISTORICAL_NOT_REQUIRED",
@@ -1094,11 +1095,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7a2cfc269da53a7027d939ff920af721506a55a0/signals/ai-topic-top10/2026-11-11.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/21371f45527a8e89f48324be70a7932de8cdbc93/signals/ai-topic-top10/2026-11-11.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7a2cfc269da53a7027d939ff920af721506a55a0/signals/ai-topic-top10/2026-11-11.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/21371f45527a8e89f48324be70a7932de8cdbc93/signals/ai-topic-top10/2026-11-11.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1201,6 +1202,78 @@
       }
     ],
     "interpretation": "One edition at a time. Missing evidence is not zero. Trend claims require comparable recorded cycles."
+  },
+  "approved_nov20_improvements": {
+    "schema_version": "nov20-approved-aar-evidence-v1",
+    "edition_date": "2026-11-12",
+    "runtime_policy": {
+      "status": "DECLARED_RESTRICTED_EDITORIAL_RUNTIME",
+      "declared_flags": {
+        "work_used": true,
+        "codex_used": true,
+        "paid_model_api_used": false
+      },
+      "requires_reconciliation": [
+        "work_used",
+        "codex_used"
+      ],
+      "actual_billing": null,
+      "scheduler_origin": "UNPROVEN",
+      "caveat": "Producer declarations do not establish actual execution or charges; preserve conflicting historical evidence. Image-lane authorization is separate."
+    },
+    "watchlist_score_reconciliation": [],
+    "source_failure_categories": {
+      "RESPONSE_SIZE_LIMIT": 25,
+      "ACCESS_BLOCKED": 5,
+      "PARSER_OR_OTHER": 1
+    },
+    "video_candidate_discovery": {
+      "status": "NOT_RECORDED",
+      "substantive_candidates": null,
+      "non_news_candidates": null,
+      "publisher_families": null,
+      "selected_non_news": null,
+      "selected_news": null,
+      "news_fallback_exception": null,
+      "target": {
+        "substantive_candidates": 12,
+        "publisher_families": 6,
+        "non_news_candidates": 8,
+        "selected_non_news": 2,
+        "advisory": true
+      },
+      "playback_not_inferred": true
+    },
+    "paper_window_editions": 7,
+    "scientific_paper_review_timing": "NOT_RECORDED",
+    "source_metadata_observations": null,
+    "source_metadata_postpublication_review": null,
+    "image_efficiency_target": {
+      "first_pass": 4,
+      "maximum_calls": 8,
+      "advisory": true,
+      "attempt_limit": null
+    },
+    "image_three_edition_evaluation": {
+      "change_ids": "IMG19-01 through IMG19-08",
+      "eligible_editions": [
+        "2026-11-20",
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      "review_due": "2026-11-22",
+      "owner_artwork_acceptance": "UNKNOWN",
+      "implementation_is_not_efficacy": true
+    }
+  },
+  "status_dimensions": {
+    "publication": "VERIFIED",
+    "images": "RELEASED_AND_24_CONTEXTS_VERIFIED",
+    "top10": "RECEIPTS_OBSERVED",
+    "system": "PARTIAL",
+    "autonomy": "UNPROVEN",
+    "runtime_policy": "DECLARED_RESTRICTED_EDITORIAL_RUNTIME",
+    "usage": "UNKNOWN"
   },
   "continuous_improvement": {
     "schema_version": "daily-aar-continuous-improvement-v1",
@@ -1909,6 +1982,162 @@
         "baseline": "The earlier plan already identified the October 7 explanatory routes and November 16 to 17 legibility strengths.",
         "evaluation_rule": "Apply only to eligible unfrozen new work. Review the next three actual eligible editions with original saved-pixel and production evidence; fewer observations means inconclusive. No new publication gate, score, attempt cap, schedule or retrospective image rework. Implementation alone does not establish artistic or efficiency improvement.",
         "implementation_reference": "docs/automation/NOV19_APPROVED_IMAGE_IMPROVEMENTS.md",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-01",
+        "title": "Canonical Top 10 search and selected-candidate association",
+        "owner": "Top 10 / Compiler",
+        "effective_edition": "2026-11-21",
+        "review_due_edition": "2026-11-24",
+        "metric": "Real thirty-slot observations and candidate-bound selected mappings",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-02",
+        "title": "Original source date and citation metadata",
+        "owner": "Compiler / Reader",
+        "effective_edition": "2026-11-20",
+        "review_due_edition": "2026-11-24",
+        "metric": "Observed publisher title/date matches and protected reader correction",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-03",
+        "title": "Truthful runtime policy reconciliation",
+        "owner": "Compiler / Reporting",
+        "effective_edition": "2026-11-20",
+        "review_due_edition": "2026-11-24",
+        "metric": "Preserved declarations, independently evidenced execution/cost if available",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-04",
+        "title": "More substantive preselection source reads",
+        "owner": "Compiler",
+        "effective_edition": "2026-11-21",
+        "review_due_edition": "2026-11-24",
+        "metric": "Full item reads before lock; distinct census failure types and actual retries",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-05",
+        "title": "Broader non-news video discovery",
+        "owner": "Compiler",
+        "effective_edition": "2026-11-21",
+        "review_due_edition": "2026-11-24",
+        "metric": "Reviewed candidates 12, families 6, non-news candidates 8, selected non-news 2 advisory",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-06",
+        "title": "First-pass image geometry and connector planning",
+        "owner": "Images",
+        "effective_edition": "2026-11-21",
+        "review_due_edition": "2026-11-24",
+        "metric": "At least four first-pass accepts and eight calls advisory, unchanged quality",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-07",
+        "title": "Watchlist score and corroboration retention",
+        "owner": "Compiler / Reporting",
+        "effective_edition": "2026-11-20",
+        "review_due_edition": "2026-11-24",
+        "metric": "Unchanged-rubric scores; retained original supporting URLs",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-08",
+        "title": "Specific newer lane alternatives",
+        "owner": "Compiler",
+        "effective_edition": "2026-11-21",
+        "review_due_edition": "2026-11-24",
+        "metric": "Genuine newer same-focus comparisons and honest no-result gaps",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-09",
+        "title": "Original-paper review and three-edition cadence",
+        "owner": "Compiler / Reporting",
+        "effective_edition": "2026-11-21",
+        "review_due_edition": "2026-11-24",
+        "metric": "Actual methods/results receipt, preprint labels, rolling observed count",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-10",
+        "title": "Separate completion and evidence statuses",
+        "owner": "Reporting",
+        "effective_edition": "2026-11-20",
+        "review_due_edition": "2026-11-24",
+        "metric": "Publication, images, Top 10, autonomy, runtime and usage separately exposed",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-11",
+        "title": "Neutral AI video coverage badges",
+        "owner": "Reader",
+        "effective_edition": "2026-11-20",
+        "review_due_edition": "2026-11-24",
+        "metric": "No instructional-only fallback wording on corrected/new routes",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
+        "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
+        "outcome_status": "NOT_YET_EFFECTIVE",
+        "latest_review": null
+      },
+      {
+        "change_id": "NOV20-12",
+        "title": "Continue existing IMG19 evaluation",
+        "owner": "Images / Reporting",
+        "effective_edition": "2026-11-20",
+        "review_due_edition": "2026-11-22",
+        "metric": "Observe existing November 20–22 eligible editions without restarting experiment",
+        "baseline": "November 20 AAR; preserve all original observations and the frozen November 3 baseline.",
+        "evaluation_rule": "Assess actual post-activation outcomes; implementation is not efficacy. Missing observations remain unknown. NOV20-12 references existing IMG19-01 through IMG19-08 rather than starting a second experiment.",
         "implementation_status": "PROTECTED_MAIN_IMPLEMENTATION",
         "outcome_status": "NOT_YET_EFFECTIVE",
         "latest_review": null
@@ -2885,6 +3114,62 @@
         "status": "NOT_RECORDED"
       },
       {
+        "resource_id": "video-20261120-3blue1brown",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-ai-coffee-break",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-computerphile",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-full-stack-deep-learning",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-mit-csail-video",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-mit-embodied-intelligence",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-pytorch-foundation",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
+        "resource_id": "video-20261120-statquest",
+        "last_inspected_at": null,
+        "last_inspected_edition": null,
+        "editions_since_inspection": null,
+        "status": "NOT_RECORDED"
+      },
+      {
         "resource_id": "x-research-feeds",
         "last_inspected_at": null,
         "last_inspected_edition": null,
@@ -3747,6 +4032,70 @@
       },
       {
         "resource_id": "universe-20261026-every-ai-editorial",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-3blue1brown",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-ai-coffee-break",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-computerphile",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-full-stack-deep-learning",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-mit-csail-video",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-mit-embodied-intelligence",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-pytorch-foundation",
+        "reviewed": null,
+        "qualified": null,
+        "selected": null,
+        "qualification_rate": null,
+        "recorded_editions": 0
+      },
+      {
+        "resource_id": "video-20261120-statquest",
         "reviewed": null,
         "qualified": null,
         "selected": null,
