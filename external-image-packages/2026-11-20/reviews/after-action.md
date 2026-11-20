@@ -1,6 +1,6 @@
 # 2026-11-20 premium image after-action report
 
-**Status: PACKAGE_READY_RELEASE_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | c8b5868be06eb59dd080e046d42f793c82b89bd1 |
 | Executor observed run start | 2026-11-20T03:15:06Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-20T03:26:50Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_PACKAGE_PR |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_RELEASE; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-20T04:10:03.453Z |
+| Final saved-context review | VISUAL_24_VERIFIED; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -84,7 +84,7 @@ Job SHA-256: 288b2b75258aa89f2f7da4fa7c48b51c7bf5e23f8e1c9f41fd20a5984c0c2b28. O
 
 The actual generation start is 2026-11-20T03:26:50Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-20/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Exact job and bundle hashes verified; sole canonical branch claimed and original owner token retained. UTC clocks observed and read back before first native call. Scheduler origin remains unproven.
 
@@ -96,6 +96,6 @@ Current primary HF page shows November16 whereas sealed job says November19; ori
 
 All eight approved IMG19 actions applied within genuine current work; one observation is insufficient for November22 efficacy review.
 
-Six live hashes, twelve pairings,24 real desktop/mobile saved-pixel contexts,17 historical objects and protected CI/merge/deployment remain pending; do not infer completion from package readiness.
+Protected package PR392 exact-head CI passed and merged; image-only release44672447221 succeeded. All6 live PNG hashes,12 story pairings,24 actual desktop/mobile saved-pixel contexts and17 historical objects verified. Independent public index and release receipt hashes match. No image regenerated after lock. Worker released after actual review; scheduler origin and usage remain UNKNOWN.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
