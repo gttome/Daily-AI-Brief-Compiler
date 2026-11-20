@@ -15,6 +15,17 @@ export const MANDATORY_FLOOR=Object.freeze({
   no_unsupported_causal_claims:true,no_low_quality_fallback:true,
   corrections_until_pass:true,accepted_images_immutable:true
 });
+export function assessFirstPassPlanningRisks(spec){
+ if(spec?.edition_date<'2026-11-21')return {status:'HISTORICAL_UNCHANGED',risks:[]};
+ const labels=spec?.pre_generation_checks?.label_layout||[];
+ const risks=labels.filter(l=>{const b=l.bounding_box_px;return b&&
+  (b.x<60||b.y<60||b.x+b.width>1140||b.y+b.height>570);})
+  .map(l=>({code:'LABEL_NEAR_MANDATORY_EDGE',label:l.label,
+   recommendation:'Plan a 60 pixel inset where possible; retain the mandatory 40 pixel saved-export floor.'}));
+ return {status:risks.length?'ADVISORY_REVISION_RECOMMENDED':'NO_EDGE_RISK_RECORDED',risks,
+  planned_inset_target_px:60,mandatory_floor_px:40,new_publication_gate:false,
+  pixel_acceptance_not_inferred:true,attempt_limit:null};
+}
 export function validateFrozenImageSpecification({spec,story}){
  if(spec?.schema_version!=='external-image-firstpass-freeze-v1'||!story||
    spec.story_id!==story.story_id||spec.source_url!==story.primary_source?.url||
@@ -151,6 +162,7 @@ export function validateFrozenImageSpecification({spec,story}){
    review.unsupported_claims_excluded!==true||review.approved_before_generation!==true)
    fail('independent_semantic_review_not_proven:'+spec.story_id);
  return {story_id:spec.story_id,result:'FROZEN_PREGENERATION_SPEC_PASS',
+   first_pass_risk_review:assessFirstPassPlanningRisks(spec),
    required_labels:spec.required_labels.length,
    allowed_edges:spec.allowed_causal_edges.length,
    textual_review_only_not_saved_pixel_acceptance:true};

@@ -116,6 +116,10 @@ export function summarizeTop10(cycle,edition,evidence={},hashes={}){
  const mappingValid=mappings.every(m=>clean(m)&&ids.has(m.topic_id)&&FORMATS.includes(m.format)&&
   text(m.item_id)&&https(m.url)&&text(m.reason)&&attemptedPairs.has(m.topic_id+':'+m.format));
  const selectedMatch=m=>{
+  // Nov 21+: a selected item must also be a candidate genuinely encountered in
+  // this exact topic-format observation, not merely another selected URL.
+  if(edition>='2026-11-21'&&!searches.some(r=>r.topic_id===m.topic_id&&r.format===m.format&&
+    r.outcome!=='not_attempted'&&r.source_urls?.includes(m.url)&&r.candidate_ids?.includes(m.candidate_id??m.item_id)))return false;
   const records=bundle?.[m.format==='article'?'stories':m.format==='video'?'videos':'podcasts'];
   return Array.isArray(records)&&records.some(item=>{
    const url=item?.source?.url??item?.url;

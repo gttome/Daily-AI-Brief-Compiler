@@ -262,7 +262,16 @@ function adaptWatchTopic(item,{date,kind,index,fallbackEvidence,topicId,prior}){
       review_depth:'Preserved edition evidence reference.',
       checked_at:date,
       development_id:`compiler-${kind}-${index+1}`
-    }],
+    },...(date>='2026-11-21'&&Array.isArray(item.supporting_evidence)?
+      item.supporting_evidence.map((row,n)=>{
+        if(typeof row?.url!=='string'||!row.url.startsWith('https://')||
+           typeof row.title!=='string'||!row.title.trim()||typeof row.review_scope!=='string'||!row.review_scope.trim())
+          throw Error('Watchlist supporting source requires exact URL title and review scope');
+        return {kind:row.kind||'primary',url:row.url,title:row.title,
+          publisher:row.publisher||evidencePublisher(row.url),publication_date:row.date||null,
+          review_depth:row.review_scope,checked_at:row.checked_at||date,
+          development_id:row.development_id||`compiler-${kind}-${index+1}-support-${n+1}`};
+      }):[])],
     limitations:'The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.',
     research_score:null, // populated from the rubric by publicWatchlist()
     rubric:topicRubric,

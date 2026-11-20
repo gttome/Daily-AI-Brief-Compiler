@@ -42,11 +42,11 @@ function structuredArticleItems(html){
     seen.add(node);
     if(Array.isArray(node)){for(const x of node)visit(x,depth+1);return;}
     const types=[node['@type']].flat().map(String);
-    if(types.some(t=>/^(?:Article|NewsArticle|BlogPosting|Report)$/i.test(t))){
+    if(types.some(t=>/^(?:Article|NewsArticle|BlogPosting|Report|VideoObject)$/i.test(t))){
       const url=node.url||node.mainEntityOfPage?.['@id']||
         (typeof node.mainEntityOfPage==='string'?node.mainEntityOfPage:null);
       entries.push({title:clean(node.headline||node.name),
-        url:typeof url==='string'?url:null,date:dateIso(node.datePublished)});
+        url:typeof url==='string'?url:null,date:dateIso(node.datePublished||node.uploadDate)});
     }
     for(const k of ['@graph','itemListElement','mainEntity','hasPart'])if(node[k])visit(node[k],depth+1);
   }
@@ -105,7 +105,7 @@ async function boundedGet(url,{timeoutMs=5000,maxBytes=1048576,fetchImpl=fetch}=
   if(!reader)throw Error('response body unavailable');
   const chunks=[];let size=0;
   for(;;){const part=await reader.read();if(part.done)break;
-   size+=part.value.length;if(size>maxBytes){await reader.cancel();throw Error('source index exceeds 1 MiB');}
+   size+=part.value.length;if(size>maxBytes){await reader.cancel();throw Error('source index exceeds '+(maxBytes/1048576)+' MiB');}
    chunks.push(part.value);
   }
   return {status:r.status,text:Buffer.concat(chunks).toString('utf8')};
@@ -116,7 +116,9 @@ export async function inspectEditorialIndex(row,{now=new Date().toISOString(),fe
  const isPodcast=row.roles.includes('podcast'),isVideo=row.roles.includes('video');
  let evidence_method=isPodcast?'podcast_show':isVideo?'video_channel':'publisher_index';
  try{
-  const response=await boundedGet(row.url,{fetchImpl,timeoutMs});
+  // Some first-party channel indexes exceed the old 1 MiB article limit.
+  // Keep an explicit finite video-only bound; do not retry blocked endpoints.
+  const response=await boundedGet(row.url,{fetchImpl,timeoutMs,maxBytes:isVideo?4194304:1048576});
   if([401,403,407,429,451].includes(response.status)){
     outcome='ACCESS_BLOCKED';reason='Original publisher index refused a public reading with HTTP '+response.status+'; no item is qualified.';
   }else if(response.status!==200){
@@ -130,7 +132,10 @@ export async function inspectEditorialIndex(row,{now=new Date().toISOString(),fe
       'Visited first-party index but found no qualifying dated first-party linked item within 168 hours; this is not a full-content assessment.';
   }
  }catch(e){reason='Could not inspect original publisher index: '+String(e?.message||e).slice(0,220)+'; no items qualified.';}
- return {resource_id:row.resource_id,outcome,checked_at:now,source_index_url:row.url,evidence_method,items,reason};
+ const failure_kind=outcome==='ACCESS_BLOCKED'?'ACCESS_BLOCKED':outcome!=='SOURCE_ERROR'?null:
+   /exceeds.*MiB/.test(reason)?'RESPONSE_SIZE_LIMIT':
+   /abort|timeout|network|fetch failed/i.test(reason)?'TRANSIENT_NETWORK':'PARSER_OR_OTHER';
+ return {resource_id:row.resource_id,outcome,checked_at:now,source_index_url:row.url,evidence_method,items,reason,failure_kind};
 }
 async function run(){
  const [edition_date,execution_id,outputPath,registryPath='config/resource-registry.json']=process.argv.slice(2);

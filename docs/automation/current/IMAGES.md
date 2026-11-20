@@ -1,5 +1,10 @@
 # Current Image task contract
 
+## Owner-approved November 20 actions — current precedence
+
+Read `docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md` before the next genuine role checkpoint and apply its relevant actions. All twelve actions and the broader non-news video discovery are approved. Preserve current task ownership, schedules, completed bundles and accepted images. Scientific-paper cadence is now consistently one qualified paper in three editions (effective November 17); image efficiency targets are four first-pass accepts and eight total calls, advisory without an attempt cap. Truthful source/search/runtime observations and separate completion dimensions remain required. Only the explicitly authorized protected November 20 metadata/badge/source-link correction may touch that completed reader.
+
+
 Version **2026-11-03.2**. Read `COMMON.md`. Use connected GitHub and native Image Creation through the imagegen skill in the existing fresh Work task. Run autonomously without daily owner setup; no other task owns generation.
 
 ## November 19 image AAR improvements approved November 18
