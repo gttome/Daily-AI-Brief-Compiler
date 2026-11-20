@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-20",
   "execution_id": "daily-compiler-2026-11-20-primary",
-  "state": "RESEARCH",
-  "stage": "RESEARCH",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "3a5b324133e5348a9c33107508d9812d8879b106",
   "branch": "shadow/2026-11-20",
   "initial_execution_observed_at": "2026-11-20T01:17:12.000Z",
   "started_at": "2026-11-20T01:17:12.000Z",
-  "updated_at": "2026-11-20T01:18:29.631Z",
+  "updated_at": "2026-11-20T01:36:20.000Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -22,10 +22,11 @@
     "execution_milestones": "shadow-runs/2026-11-20/execution-milestones.json",
     "preseal_video_request": "shadow-runs/2026-11-20/editorial/preseal-video-request.json",
     "preseal_video_receipt": "shadow-runs/2026-11-20/editorial/preseal-video-receipt.json",
-    "index_review": "shadow-runs/2026-11-20/editorial/index-review.json"
+    "index_review": "shadow-runs/2026-11-20/editorial/index-review.json",
+    "watchlist_research": "shadow-runs/2026-11-20/editorial/watchlist-research-receipt.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -34,21 +35,26 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Current protected-main contract and prior AAR loaded; genuine editorial and Watchlist discovery in progress.",
-  "selection_locked_at": null,
-  "sealed_at": null,
-  "retryable": true,
+  "continuation": "Full editorial bundle assembled; exact protected playback receipt passed and protected release remains required.",
+  "selection_locked_at": "2026-11-20T01:36:00.000Z",
+  "sealed_at": "2026-11-20T01:36:20.000Z",
+  "retryable": false,
   "last_error": null,
-  "bundle": null,
+  "bundle": {
+    "status": "BUNDLE_READY",
+    "digest": "d585cbb586552a01529c2f343fc5df2272a715eb95466c165bd9628250764b37"
+  },
   "editorial_bundle": {
-    "status": "research",
-    "stories": 0,
-    "videos": 0,
-    "podcasts": 0,
-    "watchlist_refreshed": false
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true,
+    "selection_locked_at": "2026-11-20T01:36:00.000Z",
+    "sealed_at": "2026-11-20T01:36:20.000Z"
   },
   "bundle_path": "shadow-runs/2026-11-20/edition-bundle.json",
-  "bundle_sha256": null,
+  "bundle_sha256": "d585cbb586552a01529c2f343fc5df2272a715eb95466c165bd9628250764b37",
   "preview": null,
   "reader_parity": null
 }
