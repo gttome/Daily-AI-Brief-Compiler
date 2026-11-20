@@ -5,13 +5,13 @@
 | Dimension | Observed evidence |
 |---|---|
 | Execution | START_OBSERVED |
-| Result | PARTIAL |
+| Result | SUCCESS |
 | Publication | VERIFIED |
 | Scheduled runtime | UNPROVEN |
 | GitHub capability | UNPROVEN |
 | Started | 2026-11-20T03:33:33.000Z |
-| Finished | UNKNOWN |
-| Duration (min) | UNKNOWN |
+| Finished | 2026-11-20T04:17:52.000Z |
+| Duration (min) | 44.32 |
 | Autonomy independent of publication | UNPROVEN |
 | Owner intervention required | UNKNOWN |
 | Prior protected gate failures recorded | NOT_RECORDED |
@@ -19,13 +19,13 @@
 | Task origin | UNPROVEN |
 | First-party scheduler | UNPROVEN |
 | Same-invocation route preflight | NOT_RECORDED |
-| Local capability preflight (separate from origin) | NOT OBSERVED |
+| Local capability preflight (separate from origin) | RECORDED |
 | Timing basis | First persisted accepted image Git bytes to first recorded 24-context review; scheduled window is separate and not exact generator runtime. |
 | Next run readiness | UNKNOWN |
 
 ## Evidence and limitations
 
-- 24 semantic desktop/mobile context reviews not independently evidenced in this report input
+- No defect recorded in available edition-scoped evidence; this does not establish zero defects
 
 ## Operational result
 

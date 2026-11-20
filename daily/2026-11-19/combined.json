@@ -539,7 +539,7 @@
       ]
     },
     "fallback_search_evidence": [],
-    "image_capability_preflight_recorded": false,
+    "image_capability_preflight_recorded": true,
     "image_scheduler_origin_attested": false,
     "image_efficiency": {
       "measurement_window": true,
@@ -578,9 +578,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-20T04:16:49Z",
+      "review_record_commit_at": "2026-11-20T04:17:52.000Z",
+      "review_merge_at": "2026-11-20T04:20:23.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -588,7 +588,7 @@
   "oct28_source_readiness": null,
   "cycle_date": "2026-11-19",
   "edition_date": "2026-11-20",
-  "result": "PARTIAL",
+  "result": "COMPLETE",
   "top10": {
     "schema_version": "daily-ai-topic-top10-aar-v1",
     "lane": "top10",
@@ -833,7 +833,7 @@
       "attention": "Named-event video reach and same-source interval accumulation, independent reporting and public discussion; no cross-platform audience sum.",
       "limitations": "Incomplete original video access, unknown index measurement clocks and no channel-relative baselines prevent precise popularity ordering."
     },
-    "source_commit": "5ea18524ca57edfdae0cebe5fe8ca293c8948a77",
+    "source_commit": "7a2cfc269da53a7027d939ff920af721506a55a0",
     "source_blob_sha": "1abd262c3885923f5a73ab995b6ebe8b820ce62f",
     "report_sha256": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
     "consumed_source_commit": "eb47fa37e8631a1063e345c8b300f8ff919bed41",
@@ -966,7 +966,7 @@
       },
       "previous_cycle": "2026-11-18",
       "previous_report_sha256": "b4d7702af7a0b5918c57c57b4d9b40f8d9e2996b27ce9523846c72d09b2157b1",
-      "previous_aar_sha256": "fc33de76f537d0eaa37e3abe4c7982f59cb1ed0471ef9172955f718030c1f3c2",
+      "previous_aar_sha256": "4078fb7134861d598113b7a27a53ecb41a9cc230940c3a58b4ce3c045a00ecca",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1137,10 +1137,13 @@
   "latest_publication_health": "READER_VERIFIED",
   "provenance_warnings": [],
   "image_aar_warning": null,
-  "worker_closeout_verified": false,
+  "worker_closeout_verified": true,
   "worker_checkpoint_consistency": {
-    "result": "MISMATCH",
-    "reason": "worker_not_closed_for_exact_job"
+    "result": "PASS",
+    "accepted_images": 6,
+    "actual_generations": 14,
+    "content_changed": false,
+    "first_party_scheduler_attested": false
   },
   "watchlist_title_collisions": 0,
   "postpublication_incidents_recorded": null,
@@ -1153,16 +1156,16 @@
     "editorial_content_admission": "NOT_PROVEN_FROM_INDEX_RETRIES"
   },
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
-  "image_route_preflight_recorded": false,
+  "image_route_preflight_recorded": true,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-20T03:26:50.000Z",
   "scheduler_start_attested": false,
   "scientific_paper_coverage": {
     "status": "NOT_RECORDED",
@@ -1197,7 +1200,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-20/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-20/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -1213,11 +1216,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5ea18524ca57edfdae0cebe5fe8ca293c8948a77/signals/ai-topic-top10/2026-11-19.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7a2cfc269da53a7027d939ff920af721506a55a0/signals/ai-topic-top10/2026-11-19.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5ea18524ca57edfdae0cebe5fe8ca293c8948a77/signals/ai-topic-top10/2026-11-19.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7a2cfc269da53a7027d939ff920af721506a55a0/signals/ai-topic-top10/2026-11-19.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -2179,7 +2182,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-20",
       "cumulative_review_due_today": true,
-      "finding_count": 2,
+      "finding_count": 3,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -2190,6 +2193,15 @@
           "action": "Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle.",
           "timing": "NEXT_GENUINE_CYCLE",
           "kind": "EVIDENCE_GAP"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "8 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
         },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
