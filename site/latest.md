@@ -130,12 +130,12 @@
 ## 4. Hugging Face and OpenRouter expose where open-weight inference is moving
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 16 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
-**Date:** November 19, 2026
+**Date:** November 16, 2026
 
 **Topics:** Open-weight inference, Managed routing, Population limits
 
@@ -154,7 +154,7 @@
 
 
 
-**Source:** <a href="https://huggingface.co/blog/openrouter" data-item-id="dab-story-2026-11-20-m11" data-edition-date="2026-11-20" data-action="source_clicks">OpenRouter joins Hugging Face</a>
+**Source:** <a href="https://huggingface.co/blog/openrouter" data-item-id="dab-story-2026-11-20-m11" data-edition-date="2026-11-20" data-action="source_clicks">Hugging Face and OpenRouter join forces to make open-weight models easy to run</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-20" data-feedback-story-id="dab-story-compiler-2026-11-20-nov20-k2-openrouter-hf">
   <span class="feedback-prompt">How useful was this?</span>
@@ -234,7 +234,7 @@
 <aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Evaluation context — Track attribution, review depth and disposition with stable denominators.</p><p>Repository context and agent mix materially change how merge outcomes should be interpreted.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://arxiv.org/abs/2611.20297" data-item-id="dab-story-2026-11-20-m02" data-edition-date="2026-11-20" data-action="source_clicks">How do teams evaluate code changes attributed to AI agents?</a>
+**Source:** <a href="https://arxiv.org/abs/2611.20297" data-item-id="dab-story-2026-11-20-m02" data-edition-date="2026-11-20" data-action="source_clicks">Reliable Mining of Heterogeneous AI Coding-Agent Data: Context-Aware Prediction and Resource-Aware Ranking</a>
 
 <div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-20" data-feedback-story-id="dab-story-compiler-2026-11-20-nov20-t2-agent-prs">
   <span class="feedback-prompt">How useful was this?</span>
@@ -252,7 +252,7 @@
 ### Paris Hilton pushes for law against sexual deepfakes
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent instructional video fallback</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI video fallback</span></div></aside>
 <!-- reader-release:end -->
 
 <a href="{{ '/videos/2026-11-20/general/' | relative_url }}" data-item-id="dab-video-2026-11-20-general" data-edition-date="2026-11-20" data-action="permanent_page_clicks">Open the permanent video page</a>  
@@ -283,7 +283,7 @@
 ### Anthropic to go public Thursday in what could be one of the largest IPOs in history
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent instructional video fallback</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI video fallback</span></div></aside>
 <!-- reader-release:end -->
 
 <a href="{{ '/videos/2026-11-20/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-20-agent-skills" data-edition-date="2026-11-20" data-action="permanent_page_clicks">Open the permanent video page</a>  
