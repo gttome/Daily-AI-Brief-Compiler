@@ -18,7 +18,7 @@ test('second-wave admission increases discovery to 27 of the same 29 registered 
  assert.equal(wave2.schema_version,'daily-video-source-qualification-review-v1');
  assert.equal(wave2.prior_registry.enabled_video,prior.proposed_registry.enabled_video);
  assert.equal(wave2.prior_registry.disabled_video,prior.proposed_registry.disabled_video);
- assert.equal(video.length,wave2.proposed_registry.registered_video);
+ assert.equal(video.filter(v=>!v.discovery_qualification || v.discovery_qualification.effective_from_edition<='2026-11-07').length,wave2.proposed_registry.registered_video);
  assert.ok(now.length>=wave2.proposed_registry.enabled_video); // post-wave2 additions can qualify later
  assert.equal(wave2On.length,wave2.new_discovery_qualifications);
  assert.equal(pending.length,wave2.pending_qualifications);

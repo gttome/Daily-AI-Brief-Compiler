@@ -6,7 +6,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {
-  renderBriefBuilderSummary,sourceRegistrySummary
+  renderBriefBuilderSummary
 } from '../compiler/source-transparency.mjs';
 import {BRIEF_BUILDER_MD} from '../compiler/brief-builder-pages.mjs';
 import {assertBuiltBriefPage} from './stage-brief-builder-pages.mjs';
@@ -40,8 +40,11 @@ function updateSourcesHtml(before){
   fail('new_sources_summary_missing_hobby_or_evolution');
  let html=original.slice(0,pos)+summary+original.slice(end+'</section>'.length);
  html=normalizeBriefExplainerPage(html,{page:'sources'});
- const srcStats=sourceRegistrySummary(JSON.parse(fs.readFileSync('config/resource-registry.json','utf8')));
- if((html.match(/class="src-source-card"/g)||[]).length!==srcStats.registered)
+ // This historical two-page correction preserves the directory actually
+ // published in its hash-bound input. Later append-only registry expansion
+ // must not make replay depend on today's different source count.
+ const originalCards=(original.match(/class="src-source-card"/g)||[]).length;
+ if(originalCards===0||(html.match(/class="src-source-card"/g)||[]).length!==originalCards)
   fail('source_directory_count_changed');
  if(!html.includes('id="source-directory"')||!html.includes('id="src-search"'))
   fail('source_directory_interaction_missing');
