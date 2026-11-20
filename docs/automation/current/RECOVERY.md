@@ -1,5 +1,10 @@
 # Current Recovery Guard contract
 
+## Owner-approved November 20 actions — current precedence
+
+Read `docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md` before the next genuine role checkpoint and apply its relevant actions. All twelve actions and the broader non-news video discovery are approved. Preserve current task ownership, schedules, completed bundles and accepted images. Scientific-paper cadence is now consistently one qualified paper in three editions (effective November 17); image efficiency targets are four first-pass accepts and eight total calls, advisory without an attempt cap. Truthful source/search/runtime observations and separate completion dimensions remain required. Only the explicitly authorized protected November 20 metadata/badge/source-link correction may touch that completed reader.
+
+
 ## Approved November 16 reporting recovery behavior
 
 The November 16 unified AAR missing-module failure was subsequently corrected and the workflow succeeded. Do not re-run the finished release or recreate accepted image assets. On a new reporting-only failure, inspect the original job, verify whether an exact fix or later successful rerun already exists, and only then apply a bounded, protected-PR repair that preserves the temporary collector and its relative operations dependencies. Reporting problems must not mutate editorial, image or Pages outputs. The recovery result, owner intervention and genuine scheduler identity have separate evidence; Git commits are not proof of unattended autonomy.

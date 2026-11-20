@@ -1,5 +1,10 @@
 # Current Top 10 task contract
 
+## Owner-approved November 20 actions — current precedence
+
+Read `docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md` before the next genuine role checkpoint and apply its relevant actions. All twelve actions and the broader non-news video discovery are approved. Preserve current task ownership, schedules, completed bundles and accepted images. Scientific-paper cadence is now consistently one qualified paper in three editions (effective November 17); image efficiency targets are four first-pass accepts and eight total calls, advisory without an attempt cap. Truthful source/search/runtime observations and separate completion dimensions remain required. Only the explicitly authorized protected November 20 metadata/badge/source-link correction may touch that completed reader.
+
+
 ## Owner-approved November 16 Top 10 precision changes
 
 For every real Chicago cycle, preserve ten stable event-specific IDs and three meaningful per-topic queries (article/video/podcast) in the exact Git- and SHA-bound handoff. Positional placeholder IDs are not substantive research topics. The Compiler must be able to reconstruct all 30 canonical slots from the consumed report and report missing research instead of manufacturing attempts. Expand original-source and independent attention coverage where accessible; separate direct from tracker counters, original documents from metadata and a partial transcript from a full watch. Keep provisional ranking semantics explicit. The downstream incremental yield, candidate decisions and whether search changed selection must be measured, never inferred from report receipt alone.

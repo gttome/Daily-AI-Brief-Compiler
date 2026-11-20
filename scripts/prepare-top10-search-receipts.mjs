@@ -51,6 +51,9 @@ const attemptedKeys=new Set(expected.searches.filter(s=>s.outcome!=='not_attempt
 const selected_mappings=validPrior&&Array.isArray(prior?.selected_mappings)&&bundle?
  prior.selected_mappings.filter(m=>{
   if(!attemptedKeys.has(m?.topic_id+':'+m?.format))return false;
+  const observation=expected.searches.find(s=>s.topic_id===m.topic_id&&s.format===m.format);
+  if(input.edition_date>='2026-11-21'&&(!observation?.source_urls.includes(m.url)||
+     !observation?.candidate_ids.includes(m.candidate_id??m.item_id)))return false;
   const records=bundle[m.format==='article'?'stories':m.format==='video'?'videos':'podcasts'];
   return Array.isArray(records)&&records.some(r=>(r?.source?.url??r?.url)===m.url&&
    (r?.id??(r?.source?.url??r?.url))===m.item_id);

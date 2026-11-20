@@ -2,7 +2,8 @@
 // These helpers only shape/validate an observation supplied by the actual editorial worker.
 import {isTop10InputSchema} from './top10-input-identity.mjs';
 const formats=new Set(['article','video','podcast']);
-const outcomes=new Set(['searched','selected','rejected','qualified_not_selected','not_found','unavailable']);
+export const TREND_SEARCH_OUTCOMES=Object.freeze(['searched','selected','rejected','qualified_not_selected','not_found','unavailable']);
+const outcomes=new Set(TREND_SEARCH_OUTCOMES);
 const time=s=>typeof s==='string'&&/^\d{4}-\d\d-\d\dT.+(?:Z|[+-]\d\d:\d\d)$/.test(s)&&Number.isFinite(Date.parse(s));
 const https=s=>{try{const u=new URL(s);return u.protocol==='https:'&&!u.username&&!u.password;}catch{return false;}};
 const fail=why=>{throw Error('TREND_RECEIPT_'+why);};
@@ -18,7 +19,7 @@ export function recordTrendSearch(coverage,input,observation,{selectionLockedAt=
  if(!formats.has(observation?.format)||!asText(observation?.topic_id))fail('FORMAT_OR_TOPIC');
  const existing=coverage.searches?.filter(s=>s.topic_id===observation.topic_id&&s.format===observation.format);
  if(existing?.length!==1||existing[0].outcome!=='not_attempted')fail('UNKNOWN_OR_ALREADY_OBSERVED_PAIR');
- if(!outcomes.has(observation.outcome))fail('NONCANONICAL_OUTCOME');
+ if(!outcomes.has(observation.outcome))fail('NONCANONICAL_OUTCOME_use_'+TREND_SEARCH_OUTCOMES.join('_or_'));
  if(!time(input.retrieved_at)||!time(observation.attempted_at)||
    Date.parse(observation.attempted_at)<Date.parse(input.retrieved_at)||
    (selectionLockedAt&&(!time(selectionLockedAt)||Date.parse(observation.attempted_at)>Date.parse(selectionLockedAt))))
@@ -49,6 +50,9 @@ export function recordSelectedTrendMapping(coverage,input,bundle,mapping){
  const searched=coverage.searches?.find(s=>s.topic_id===mapping.topic_id&&s.format===mapping.format&&
    s.outcome!=='not_attempted'&&s.source_urls.includes(mapping.url));
  if(!searched)fail('SELECTED_URL_NOT_IN_ACTUAL_SEARCH');
+ if(coverage.edition_date>='2026-11-21'&&
+    !searched.candidate_ids?.includes(mapping.candidate_id??mapping.item_id))
+   fail('SELECTED_ITEM_NOT_IN_RECORDED_CANDIDATES');
  const selected=bundle[mapping.format==='article'?'stories':mapping.format==='video'?'videos':'podcasts'];
  if(!Array.isArray(selected)||!selected.some(x=>
    (x.id??(x.source?.url??x.url))===mapping.item_id&&(x.source?.url??x.url)===mapping.url))
@@ -58,5 +62,6 @@ export function recordSelectedTrendMapping(coverage,input,bundle,mapping){
  const copy=structuredClone(coverage);
  copy.selected_mappings.push({topic_id:mapping.topic_id,format:mapping.format,
   item_id:mapping.item_id,url:mapping.url,reason:mapping.reason});
+ if(mapping.candidate_id)copy.selected_mappings.at(-1).candidate_id=mapping.candidate_id;
  return copy;
 }

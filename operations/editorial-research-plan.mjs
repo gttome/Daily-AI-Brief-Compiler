@@ -4,6 +4,8 @@ import {isTop10InputSchema} from './top10-input-identity.mjs';
 import {enabledEditorialResources,validateResourceRegistry} from './resources.mjs';
 import {buildVideoSourceSweepPlan} from './video-source-sweep.mjs';
 import {buildScientificPaperCadence} from './scientific-paper-cadence.mjs';
+import {buildVideoDiscoveryWorklist} from './video-discovery-quality.mjs';
+import {TREND_SEARCH_OUTCOMES} from './trend-receipt-writer.mjs';
 const roles=['article','video','podcast'];
 const validDate=d=>/^20\d\d-\d\d-\d\d$/.test(d||'')&&Number.isFinite(Date.parse(d+'T00:00:00Z'))&&new Date(d+'T00:00:00Z').toISOString().slice(0,10)===d;
 function rotate(rows,days){const at=rows.length?days%rows.length:0;return rows.slice(at).concat(rows.slice(0,at));}
@@ -34,6 +36,7 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
   eligible_count:eligible.length,previously_unreviewed_prioritized:first.length,prior_inaccessible_retry_prioritized:retry.length,
   ...(trendInput && {trend_search_coverage:initializeTrendSearchCoverage(editionDate,trendInput)}),
   video_source_sweep:buildVideoSourceSweepPlan({editionDate,registry}),
+  video_candidate_worklist:buildVideoDiscoveryWorklist({editionDate,registry}),
   scientific_papers,
   prelock_research_targets:{
     genuine_source_index_reviews:15,
@@ -42,7 +45,9 @@ export function buildEditorialResearchPlan({editionDate,registry,previousAar=nul
     earliest_freshness_priority_hours:24,
     nonbinding_quality_targets:true,
     timestamps_must_precede_selection_lock:true,
-    count_only_actual_item_or_index_reviews:true
+    count_only_actual_item_or_index_reviews:true,
+    substantive_item_reads:editionDate>='2026-11-21'?15:null,
+    source_census_timing:'Before selection when actually executable; a later census never counts as preselection research'
   },
   video_discovery_fallbacks:eligible.filter(r=>r.video_discovery_fallback?.status==='DISCOVERY_ONLY')
    .map(r=>({resource_id:r.resource_id,...r.video_discovery_fallback})),
@@ -78,6 +83,11 @@ export function initializeTrendSearchCoverage(editionDate,input){
    throw Error('RESEARCH_PLAN_INVALID_TREND_INPUT');
  return {schema_version:'daily-ai-topic-top10-search-coverage-v1',cycle_date:cycle,edition_date:editionDate,
   source_commit:input.source_commit,report_sha256:input.report_sha256,
+  observation_contract:{writer:'operations/trend-receipt-writer.mjs',
+    allowed_attempt_outcomes:[...TREND_SEARCH_OUTCOMES],
+    source_urls_required_even_for_no_candidate:true,
+    selected_mapping_requires_actual_candidate:true,
+    no_automatic_outcome_conversion:true},
   searches:topics.flatMap(t=>roles.map(format=>({topic_id:t.topic_id,format,query:t.suggested_searches[format],
     attempted_at:null,source_urls:[],candidate_ids:[],outcome:'not_attempted',
     reason:'Initialized from the pinned discovery plan. No attempt has been recorded.'}))),

@@ -1,4 +1,5 @@
 import {summarizeNov02Evidence} from './nov02-evidence-summary.mjs';
+import {summarizeNov20Evidence,renderNov20Evidence} from './nov20-evidence-review.mjs';
 import {validateImageAfterAction} from './image-aar-contract.mjs';
 import {verifyFinalImageCheckpoint} from './worker-checkpoint-consistency.mjs';
 import fs from "node:fs";
@@ -42,6 +43,7 @@ function generateUnified(cycle,e,hashes={}) {
   const edition=d.toISOString().slice(0,10), gh="https://github.com/gttome/Daily-AI-Brief-Compiler", pub="https://gttome.github.io/Daily-AI-Brief-Compiler/";
   const top10=summarizeTop10(cycle,edition,e,hashes);
   const reconciled=summarizeNov02Evidence(edition,e);
+  const nov20=summarizeNov20Evidence(edition,e);
   const obj=k=>e[k]&&e[k].edition_date===edition?e[k]:null;
   const sourceReadiness=oct27SourceReadiness(edition,{routeCoverage:obj('source-route-coverage'),
     itemCensus:obj('source-item-census'),qualifications:obj('source-qualification')});
@@ -120,12 +122,13 @@ function generateUnified(cycle,e,hashes={}) {
     paperRows.every(x=>typeof x?.title==="string"&&typeof x?.original_paper_url==="string"&&
       x.original_paper_url.startsWith("https://")&&["PREPRINT","PEER_REVIEWED"].includes(x?.publication_status)&&
       stories.some(s=>s.id===x.story_id));
-  const paperCoverage={status:paperIdentityValid?"PRODUCER_REPORTED_BUNDLE_MATCH":
+  const paperCoverage={status:paperIdentityValid?(scientificPaperReceipt.review_timing==='POSTPUBLICATION'?
+    "POSTPUBLICATION_REVIEW_BUNDLE_MATCH":"PRODUCER_REPORTED_BUNDLE_MATCH"):
     scientificPaperReceipt?"UNVERIFIED_RECEIPT":"NOT_RECORDED",
     paper_led_stories:paperIdentityValid?paperRows.length:null,
-    target_paper_led_stories_per_seven_editions:1,window_editions:7,
+    target_paper_led_stories:1,target_paper_led_stories_per_seven_editions:1,window_editions:nov20.paper_window_editions,
     selected_story_ids:paperIdentityValid?paperRows.map(x=>x.story_id):[],
-    caveat:"One in seven is a quality-first editorial target, not a release quota. Reported paper reading and peer-review status require independently inspectable original-paper evidence."};
+    caveat:"The current paper window is an advisory quality-first target, not a release quota. Reported paper reading and peer-review status require independently inspectable original-paper evidence."};
   const watch=e["published-watchlist"]?.edition_date===edition?e["published-watchlist"]:null;
   const watchActive=(watch?.topics||[]).filter(t=>t.status!=="archived");
   const normalizeTitle=v=>String(v??"").toLowerCase().normalize("NFKD")
@@ -230,6 +233,7 @@ indicators,
 [`Registered video sources: ${reconciled.video_source_sweep.registered}; attempted this edition: ${reconciled.video_source_sweep.attempted??"Unknown"}; unattempted: ${reconciled.video_source_sweep.unattempted??"Unknown"}; enabled: ${reconciled.video_source_sweep.enabled??"Unknown"}; qualification-only: ${reconciled.video_source_sweep.qualification_only??"Unknown"}; sources yielding candidate URLs: ${reconciled.video_source_sweep.candidate_sources??"Unknown"}. Status: ${reconciled.video_source_sweep.completeness}. Attempt evidence is not automatic proof of source-content review or playback.`]:[]),
 "",
 ...renderPresealEvidence(reconciled),
+...(edition>='2026-11-20'?[renderNov20Evidence(nov20)]:[]),
 renderAarChartsMarkdown(charts),
 "## Performance dashboard",
 "",
@@ -244,7 +248,7 @@ renderAarChartsMarkdown(charts),
 `| **Unattended autonomy (separate from publication)** | **${autonomy}** | Owner incident receipt takes precedence over unverified producer self-attestation |`,
 `| Recorded protected publishing gate failures | **${protectionEvents.length}** | Actual same-edition GitHub failure sidecar only; earlier unrecorded failures remain unknown |`,
 `| Articles | **${stories.length||"Not recorded"}** | Exactly 2 technical / 2 knowledge-worker / 2 agents required |`,
-`| Original scientific-paper-led articles | **${paperCoverage.paper_led_stories??"Not recorded"}** | Rolling target: one qualified original paper in seven editions; ${paperCoverage.status}. Preprints are not peer-reviewed by default |`,
+`| Original scientific-paper-led articles | **${paperCoverage.paper_led_stories??"Not recorded"}** | Rolling target: one qualified original paper in ${nov20.paper_window_editions} editions; ${paperCoverage.status}. Preprints are not peer-reviewed by default |`,
 `| Verified original sources within preceding 24 hours | **${withinOneDay} / ${stories.length}** | Original publisher dates only; other sources require a documented fallback rationale |`,
 `| Distinct selected article publishers | **${distinctArticlePublishers}** | Six different primary organizations preferred |`,
 `| Videos over seven days old | **${mediaOld}** | Must be labeled evergreen, not a new development |`,
@@ -429,6 +433,11 @@ imgCols,
 ].join("\n");
   const json={schema_version:"daily-compiler-unified-aar-v1",evidence_reconciliation:reconciled,oct28_source_readiness:sourceReadiness,cycle_date:cycle,edition_date:edition,result:badge,top10,end_to_end_system_status:systemStatus,autonomy_status:autonomy,confirmed_owner_intervention:confirmedOwnerRecovery,owner_intervention_incident_id:ownerIncidentId,owner_assisted_correction_pr:recoveryPr,protected_publication_failure_count:protectionEvents.length,latest_publication_health:publicationHealth?.status??null,provenance_warnings:[...new Set(provenanceWarnings)],image_aar_warning:aarWarning,worker_closeout_verified:workerClosed,worker_checkpoint_consistency:checkpoint,watchlist_title_collisions:watch?watchCollisions.length:null,postpublication_incidents_recorded:incidentLedger?readerIncidents.length:null,postpublication_video_corrections_verified:incidentLedger?readerIncidents.filter(i=>i.status==="CORRECTED_LIVE_VERIFIED").length:null,editorial_index_retry_counts:indexRetry?.counts??null,postpublication_video_playback_status:publishedVideoCheck?.result??null,image_route_preflight_recorded:reconciled.image_capability_preflight_recorded||originImages?.capability_preflight?.result==='CAPABILITY_ROUTE_PROVEN',ci_incomplete_staging_failures_audited:false,publication_and_visual_complete:!!(compilerOk&&imagesOk&&visualOk),compiler_verified:!!compilerOk,images_released:!!imagesOk,visual_24_pass:!!visualOk,image_count:imgb.length,work_usage_percent:amount,work_usage_source:amount===null?null:"owner_reported",generation_start_observed_at:timingEvents.native_generation_first_observed_at??null,scheduler_start_attested:false,scientific_paper_coverage:paperCoverage,media_topic_diversity:{status:mediaEventStatus,documented_events:eventIds.length===4?new Set(eventIds).size:null,pairwise_reviews:Array.isArray(eventReview?.comparisons)?eventReview.comparisons.length:null,original_source_truth_independently_verified:false},source_urls:sourceInfo.map(([title,url])=>({title,url}))};
   if(charts)json.charts=charts;
+  json.approved_nov20_improvements=nov20;
+  json.status_dimensions={publication:compilerOk?'VERIFIED':'NOT_VERIFIED',
+   images:imagesOk&&visualOk?'RELEASED_AND_24_CONTEXTS_VERIFIED':'INCOMPLETE',
+   top10:top10.search_status,system:systemStatus,autonomy,
+   runtime_policy:nov20.runtime_policy.status,usage:amount===null?'UNKNOWN':'OWNER_REPORTED'};
   return {markdown:md,json,charts};
 }
 
@@ -436,6 +445,7 @@ const [cycle,inputDir,outDir] = process.argv.slice(2);
 if(!cycle||!inputDir||!outDir)throw Error("usage: node scripts/render-unified-production-aar.mjs YYYY-MM-DD evidence_dir output_dir");
 const keys=["top10-baseline","top10-outcome-baseline","top10-previous-report","top10-previous-aar","top10-improvement","execution-milestones","fallback-search-evidence","trend-consumed-source","trend-consumed-report","image-route-preflight","compiler-state","compile-receipt","postpublish-integrity","edition-bundle","image-job","image-release","image-manifest","image-after-action","image-context-reviews","image-timing","image-worker-state","owner-usage","image-task-origin","published-watchlist","publication-health","owner-intervention-incident","source-route-coverage","source-item-census","source-qualification","source-item-retries","postpublication-incidents","postpublish-video-playback","top10-report","top10-after-action","top10-report-source","trend-input","trend-search-coverage","scientific-paper-coverage"];
 keys.push('preseal-video-attempts');
+keys.push('postpublication-source-metadata');
 const ev={},hashes={};for(const k of keys){const p=path.join(inputDir,k+".json");if(!fs.existsSync(p))continue;const bytes=fs.readFileSync(p);hashes[k]=crypto.createHash("sha256").update(bytes).digest("hex");try{ev[k]=JSON.parse(bytes.toString("utf8"));}catch{ev[k]={parse_error:true}}}
 const {markdown,json,charts}=generateUnified(cycle,ev,hashes);
 fs.mkdirSync(outDir,{recursive:true});

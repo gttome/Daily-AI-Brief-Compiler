@@ -1,5 +1,10 @@
 # Current Daily Brief task contract
 
+## Owner-approved November 20 actions — current precedence
+
+Read `docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md` before the next genuine role checkpoint and apply its relevant actions. All twelve actions and the broader non-news video discovery are approved. Preserve current task ownership, schedules, completed bundles and accepted images. Scientific-paper cadence is now consistently one qualified paper in three editions (effective November 17); image efficiency targets are four first-pass accepts and eight total calls, advisory without an attempt cap. Truthful source/search/runtime observations and separate completion dimensions remain required. Only the explicitly authorized protected November 20 metadata/badge/source-link correction may touch that completed reader.
+
+
 ## Owner-approved November 16 AAR measurement contract
 
 The 12 new register entries NOV16-P0-01 through NOV16-P2-12 are effective prospectively. Preserve the frozen November 3 baseline and existing correct reader/history controls. Count real source attempts and distinct substantive inspections separately; distinguish 30 genuine Top 10 handoff-aligned per-format searches from 30 placeholders; preserve failed gate chronology, valid video publisher-family exposure, original article freshness, image first-pass results and actual 24-context reviews. Seven-edition comparisons must display missing values as N/A, not zero. Release success, source quality, Top 10 integration, scheduled origin, human owner assistance and artistic acceptance must remain separate. Do not add paid APIs, new hosted metered browser work, duplicate tasks, schedules or unjustified repeat image generation.
@@ -60,7 +65,7 @@ Before each next **genuine** role invocation, use [the ten approved corrections]
 
 ## November 11 approved AAR actions and original scientific research
 
-Read `docs/automation/NOV11_APPROVED_AAR_ACTIONS.md` at each existing new-edition role checkpoint. The twelve November 11 failed protected gates now have exact original GitHub job-log causes; a failed stage label alone is not the reason. Preserve the historic edition and use its actual lessons before a **new** readiness request. Do not reopen finished content or repeat work already verified. The recurring **scientific-paper editorial target is one qualified original-paper-led story in a rolling seven published editions**, not a quota or permission to weaken source freshness, nontechnical audience value, the 2/2/2 allocation, one Skills item or protected gates. A missing study/history receipt remains unknown. The existing deterministic AAR reports actual paper evidence and next action when a new edition has it. All previously approved November 3–10 requirements remain effective; no new automation, source enablement, paid API or owner intervention is authorized.
+Read `docs/automation/NOV11_APPROVED_AAR_ACTIONS.md` at each existing new-edition role checkpoint. The twelve November 11 failed protected gates now have exact original GitHub job-log causes; a failed stage label alone is not the reason. Preserve the historic edition and use its actual lessons before a **new** readiness request. Do not reopen finished content or repeat work already verified. The recurring **scientific-paper editorial target is one qualified original-paper-led story in a rolling three published editions (November 17 onward)**, not a quota or permission to weaken source freshness, nontechnical audience value, the 2/2/2 allocation, one Skills item or protected gates. A missing study/history receipt remains unknown. The existing deterministic AAR reports actual paper evidence and next action when a new edition has it. All previously approved November 3–10 requirements remain effective; no new automation, source enablement, paid API or owner intervention is authorized.
 
 ## November 14 owner-approved AAR — apply only to future unlocked editions
 

@@ -6,6 +6,7 @@ import {validateArticleSourceDiversity} from './source-diversity.mjs';
 import {validateRecentSourceDiscovery} from './recent-source-discovery.mjs';
 import fs from 'node:fs';
 import {validateVideoSourceSweep,VIDEO_SWEEP_EFFECTIVE_DATE} from '../operations/video-source-sweep.mjs';
+import {validateObservedSourceMetadata,validateSpecificFallbackComparisons} from '../operations/editorial-metadata-checkpoint.mjs';
 // Strict evidence gate for a NEW unattended Release 1 pending-figure edition.
 // This is not invoked by fixture/reader preview compilation or legacy illustrated editions.
 const fail=s=>{throw new Error('Release 1 editorial evidence: '+s);};
@@ -49,6 +50,8 @@ export function validateNewPendingEditorial({bundle,state}){
   // Prospective source diversity is checked before sealing, not retroactively.
   validateArticleSourceDiversity(bundle);
   validateRecentSourceDiscovery(bundle);
+  validateObservedSourceMetadata(bundle);
+  validateSpecificFallbackComparisons(bundle);
   validateEditorialChronology({bundle,state});
   validateNontechnicalAudience(bundle);
   validateMediaPrecision(bundle);

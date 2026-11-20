@@ -52,6 +52,7 @@ function run(overrides={},relocated=false){
   fs.copyFileSync(path.join(root,'scripts/oct27-source-readiness.mjs'),path.join(tmp,'oct27-source-readiness.mjs'));
   fs.copyFileSync(path.join(root,'scripts/top10-aar.mjs'),path.join(tmp,'top10-aar.mjs'));
   fs.copyFileSync(path.join(root,'scripts/nov02-evidence-summary.mjs'),path.join(tmp,'nov02-evidence-summary.mjs'));
+  fs.copyFileSync(path.join(root,'scripts/nov20-evidence-review.mjs'),path.join(tmp,'nov20-evidence-review.mjs'));
  }
  const res=spawnSync(process.execPath,[executable,cy,input,output],{encoding:'utf8'});
  assert.equal(res.status,0,res.stderr||res.stdout);

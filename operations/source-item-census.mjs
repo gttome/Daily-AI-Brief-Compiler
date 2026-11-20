@@ -46,6 +46,8 @@ export function recordEditorialSourceObservation(ledger,o){
   !['publisher_index','publisher_article','rss_or_atom','video_channel','podcast_show','independent_source_index'].includes(o.evidence_method)||
   !Array.isArray(o.items)||typeof o.reason!=='string'||o.reason.length<25)
   fail('MISSING_VISIT_EVIDENCE');
+ if(o.failure_kind!=null&&!['ACCESS_BLOCKED','RESPONSE_SIZE_LIMIT','TRANSIENT_NETWORK','PARSER_OR_OTHER'].includes(o.failure_kind))
+  fail('INVALID_FAILURE_KIND');
  // A different publisher/index hostname needs an independently verified index
  // receipt; it cannot silently be accepted as a visit to this original source.
  if(hostname(o.source_index_url)!==hostname(r.url)&&
@@ -59,7 +61,7 @@ export function recordEditorialSourceObservation(ledger,o){
  }else if(o.items.length)fail('NO_ELIGIBLE_BUT_HAS_ITEMS');
  Object.assign(r,{outcome:o.outcome,checked_at:o.checked_at,
   source_index_url:o.source_index_url,evidence_method:o.evidence_method,
-  items:o.items,reason:o.reason});
+  items:o.items,reason:o.reason,...(o.failure_kind?{failure_kind:o.failure_kind}:{})});
  ledger.counts=itemCensusCounts(ledger);
  return ledger;
 }

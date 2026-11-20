@@ -15,6 +15,8 @@ on:
       - 'docs/after-action/incidents/*.json'
       - 'docs/after-action/*-unified-production-aar.md'
       - 'docs/after-action/timing/*.json'
+      - 'docs/after-action/source-metadata/*.json'
+      - 'docs/after-action/scientific-papers/*.json'
       - 'scripts/derive-image-stage-timing.mjs'
       - 'scripts/render-unified-production-aar.mjs'
       - 'scripts/aar-charts.mjs'
@@ -24,6 +26,7 @@ on:
       - 'scripts/compile-daily-aar.mjs'
       - 'scripts/top10-aar.mjs'
       - 'scripts/nov02-evidence-summary.mjs'
+      - 'scripts/nov20-evidence-review.mjs'
       - 'scripts/collect-top10-consumed-report.mjs'
       - 'scripts/worker-checkpoint-consistency.mjs'
   # Reconcile immediately after the existing image-only release finishes; this is reporting only.
@@ -76,6 +79,7 @@ jobs:
           cp scripts/compile-daily-aar.mjs "$tmp/compile-daily-aar.mjs"
           cp scripts/top10-aar.mjs "$tmp/top10-aar.mjs"
           cp scripts/nov02-evidence-summary.mjs "$tmp/nov02-evidence-summary.mjs"
+          cp scripts/nov20-evidence-review.mjs "$tmp/nov20-evidence-review.mjs"
           # Keep the collector's relative imports intact across the evidence checkout.
           mkdir -p "$tmp/scripts" "$tmp/operations"
           cp scripts/collect-top10-consumed-report.mjs "$tmp/scripts/"
@@ -149,6 +153,10 @@ jobs:
             git show "$ref:shadow-runs/$edition/editorial/trend-search-coverage.json" > "$in/trend-search-coverage.json" 2>/dev/null || rm -f "$in/trend-search-coverage.json"
             # Optional original scientific-paper selection evidence, edition-scoped only.
             git show "$ref:shadow-runs/$edition/editorial/scientific-paper-coverage.json" > "$in/scientific-paper-coverage.json" 2>/dev/null || rm -f "$in/scientific-paper-coverage.json"
+            if [ ! -s "$in/scientific-paper-coverage.json" ]; then
+              git show "refs/remotes/origin/main:docs/after-action/scientific-papers/$edition.json" > "$in/scientific-paper-coverage.json" 2>/dev/null || rm -f "$in/scientific-paper-coverage.json"
+            fi
+            git show "refs/remotes/origin/main:docs/after-action/source-metadata/$edition.json" > "$in/postpublication-source-metadata.json" 2>/dev/null || rm -f "$in/postpublication-source-metadata.json"
             node "$tmp/scripts/collect-top10-consumed-report.mjs" "$cycle" "$edition" "$in"
             if [ -n "$reports_source_commit" ]; then
               # Optional original guard receipt. Missing timing/cause evidence remains unknown.

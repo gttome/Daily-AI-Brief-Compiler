@@ -128,8 +128,17 @@ function suppressRepeatedReaderContext(root){
   const marker='const contextBlock=x?';
   if(source.split(marker).length!==2)
     throw new Error('vendored reading-support template changed; duplicate-copy prevention must be reviewed');
-  const corrected=source.replace(marker,"const contextBlock=date>='2026-10-14'?'':x?");
+  const corrected=neutralVideoCoverageReaderOverlay(source.replace(marker,"const contextBlock=date>='2026-10-14'?'':x?"));
   fs.writeFileSync(file,corrected,'utf8');
+}
+
+// Keep the pinned vendor immutable; update the temporary validator in step
+// with generated coverage labels for prospective editions only.
+export function neutralVideoCoverageReaderOverlay(source){
+  const before="const noun=type==='video'?'instructional video':'AI podcast episode';";
+  const after="const noun=type==='video'?(editionDate>='2026-11-21'?'AI video':'instructional video'):'AI podcast episode';";
+  if(source.split(before).length!==2)throw Error('review neutral video coverage reader overlay');
+  return source.replace(before,after);
 }
 
 function applyFeedbackIdentities(content,registry){
@@ -184,7 +193,7 @@ export function mediaCoverageLabel(editionDate,originalDate,type){
   if(!/^\d{4}-\d{2}-\d{2}$/.test(day)||!Number.isFinite(parsed)||!Number.isFinite(published)||parsed>published)
     throw Error('media_original_date_invalid:'+type+':'+originalDate);
   const age=Math.floor((published-parsed)/86400000);
-  const noun=type==='video'?'instructional video':'AI podcast episode';
+  const noun=type==='video'?(editionDate>='2026-11-21'?'AI video':'instructional video'):'AI podcast episode';
   return age<=1?'New '+noun:age<=7?'Recent '+noun+' fallback':'Evergreen '+noun;
 }
 function mergeReadingSupport(root,bundle,edition,environment,priorArchive){
