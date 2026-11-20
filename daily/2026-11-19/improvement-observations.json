@@ -12,7 +12,8 @@
     "image-job.json": "288b2b75258aa89f2f7da4fa7c48b51c7bf5e23f8e1c9f41fd20a5984c0c2b28",
     "image-manifest.json": "288b4606d2b132f07004c81c61a4817c821d4d9c9542d1590ac3136945bef824",
     "image-recurring-assignment.json": "284e70ecc4be6cd5fd2f3a2dd5c613b5621a27a8a8502c1776b5ae21481b8450",
-    "image-timing.json": "719cd321e878ce2e477793c47c5fc294a6bf62f319c44c222a44c869a95269d6",
+    "image-release.json": "8195c83acb4614b6048accd9ac1c5c1094b8cd441747ba29e4b4f2c60719014b",
+    "image-timing.json": "a6573e9cc7c04b356fec4460955e67ca4505dc2212bc9161064a8f1daf631c36",
     "image-worker-state.json": "07d84508e4ae173550cdcbb9e9284fcff42bdf080f341e9b288d099ef0f6b054",
     "postpublish-integrity.json": "b861fc11cca927b8eded876d337467c989b51570c06429410bb6f47e522048e3",
     "postpublish-video-playback.json": "545cf25c892318aa30c3a9e7cbc21ce407904cfb3fa55c063f69d14378c18768",
@@ -24,12 +25,12 @@
     "top10-after-action.json": "39a0df87a95dc97d5081217b03d891a4a8a8cf26572a63d46b8655ba728d4203",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "7e296aef1c76f47a751334191d0b9999bceea69cb86fbe7cccad4ec45282826a",
+    "top10-previous-aar.json": "fc33de76f537d0eaa37e3abe4c7982f59cb1ed0471ef9172955f718030c1f3c2",
     "top10-previous-report.json": "b4d7702af7a0b5918c57c57b4d9b40f8d9e2996b27ce9523846c72d09b2157b1",
-    "top10-report-source.json": "9b9dfd10f00da7a9bb0e94479ea43d0d6c8c46b548a48bda6aa5d2b18263a9a8",
+    "top10-report-source.json": "749a4b163a7aada8c8f1d354f0ef83b2cefa808f9358ba1cb29c9d5e404312a5",
     "top10-report.json": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
     "trend-consumed-report.json": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
-    "trend-consumed-source.json": "1bfbd5f1ff3c218ad436c7444aa333097ae23f6c9a4f7817343fb5a206491083",
+    "trend-consumed-source.json": "f4c80181ad700d6419ced5e22b151e45fe904597846fd74c3802d892012ed128",
     "trend-consumed-verification.json": "13b561efbd8068c2eb8f1f48eddca14c005c3f0d01717826ba665d9a27d831dc",
     "trend-input.json": "385980fea3ddee75d741731e49a096249e7c86bd81a79e292e2f9455579a34cf",
     "trend-search-coverage.json": "d67f7a0680127b231206853f61407e598c260673df3757d9902f510d885e3c6f",
@@ -37,7 +38,7 @@
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "INVALID",
     "autonomy": "UNPROVEN"
   },
@@ -159,8 +160,8 @@
     "coverage_percent": 14,
     "coverage_numerator": 15,
     "coverage_denominator": 109,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 1,
+    "image_attempts": 14,
     "top10_linked_items": null,
     "publication_failures": 0
   },
@@ -248,7 +249,82 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 8,
+    "classified": [
+      {
+        "story_id": "nov20-a1-governed-context",
+        "attempt": 1,
+        "defect_codes": [
+          "OTHER",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-a1-governed-context-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov20-a1-governed-context",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-a1-governed-context-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov20-k1-workplace-time",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING",
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-k1-workplace-time-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov20-k2-openrouter-hf",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT",
+          "UNSUPPORTED_CLAIM",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-k2-openrouter-hf-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov20-k2-openrouter-hf",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-k2-openrouter-hf-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov20-t1-performance-factory",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-t1-performance-factory-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov20-t1-performance-factory",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-t1-performance-factory-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov20-t2-agent-prs",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5a523e5e325b136dc7e61694de9756ded0fcec26/external-image-packages/2026-11-20/reviews/nov20-t2-agent-prs-attempt1-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,

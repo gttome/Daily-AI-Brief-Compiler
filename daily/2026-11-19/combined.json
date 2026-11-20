@@ -833,7 +833,7 @@
       "attention": "Named-event video reach and same-source interval accumulation, independent reporting and public discussion; no cross-platform audience sum.",
       "limitations": "Incomplete original video access, unknown index measurement clocks and no channel-relative baselines prevent precise popularity ordering."
     },
-    "source_commit": "eb47fa37e8631a1063e345c8b300f8ff919bed41",
+    "source_commit": "5ea18524ca57edfdae0cebe5fe8ca293c8948a77",
     "source_blob_sha": "1abd262c3885923f5a73ab995b6ebe8b820ce62f",
     "report_sha256": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
     "consumed_source_commit": "eb47fa37e8631a1063e345c8b300f8ff919bed41",
@@ -966,7 +966,7 @@
       },
       "previous_cycle": "2026-11-18",
       "previous_report_sha256": "b4d7702af7a0b5918c57c57b4d9b40f8d9e2996b27ce9523846c72d09b2157b1",
-      "previous_aar_sha256": "7e296aef1c76f47a751334191d0b9999bceea69cb86fbe7cccad4ec45282826a",
+      "previous_aar_sha256": "fc33de76f537d0eaa37e3abe4c7982f59cb1ed0471ef9172955f718030c1f3c2",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1157,9 +1157,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1213,11 +1213,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eb47fa37e8631a1063e345c8b300f8ff919bed41/signals/ai-topic-top10/2026-11-19.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5ea18524ca57edfdae0cebe5fe8ca293c8948a77/signals/ai-topic-top10/2026-11-19.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eb47fa37e8631a1063e345c8b300f8ff919bed41/signals/ai-topic-top10/2026-11-19.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5ea18524ca57edfdae0cebe5fe8ca293c8948a77/signals/ai-topic-top10/2026-11-19.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1255,8 +1255,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov20-t1-performance-factory",
+            "label": "OpenAI turns slow-session reports into measured performance fixes",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov20-t2-agent-prs",
+            "label": "A 71,677-PR study complicates claims about coding-agent quality",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov20-k1-workplace-time",
+            "label": "Frequent AI users report less time gathering information and writing",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov20-k2-openrouter-hf",
+            "label": "Hugging Face and OpenRouter expose where open-weight inference is moving",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov20-a1-governed-context",
+            "label": "Informatica brings governed business context into Copilot workflows",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov20-a2-video-skill",
+            "label": "A reusable editing skill makes every media cut auditable",
+            "accepted": 1,
+            "rejected": 0
+          }
+        ],
+        "total_attempts": 14,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1345,8 +1389,8 @@
         "coverage_percent": 14,
         "coverage_numerator": 15,
         "coverage_denominator": 109,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 1,
+        "image_attempts": 14,
         "top10_linked_items": null,
         "publication_failures": 0
       }
@@ -1357,12 +1401,12 @@
         "median": 14
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 1
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 11
+        "recorded_editions": 7,
+        "median": 12
       },
       "top10_linked_items": {
         "recorded_editions": 4,
@@ -2135,18 +2179,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-20",
       "cumulative_review_due_today": true,
-      "finding_count": 3,
-      "open_production_blockers": 1,
+      "finding_count": 2,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -3884,31 +3919,58 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 28,
+      "recorded_editions": 7,
+      "total_rejected": 36,
       "unclassified": 22,
       "rows": [
         {
-          "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 5,
+          "cause": "LAYOUT",
+          "rejected_attempts": 9,
           "editions": [
-            "2026-11-19"
+            "2026-11-19",
+            "2026-11-20"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
-          "cause": "LAYOUT",
-          "rejected_attempts": 3,
+          "cause": "CAUSAL_CONNECTOR",
+          "rejected_attempts": 7,
           "editions": [
-            "2026-11-19"
+            "2026-11-19",
+            "2026-11-20"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "OTHER",
+          "rejected_attempts": 2,
+          "editions": [
+            "2026-11-20"
           ],
           "recurring": false
         },
         {
           "cause": "PSEUDO_WRITING",
+          "rejected_attempts": 2,
+          "editions": [
+            "2026-11-19",
+            "2026-11-20"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "UNSUPPORTED_CLAIM",
+          "rejected_attempts": 2,
+          "editions": [
+            "2026-11-20"
+          ],
+          "recurring": false
+        },
+        {
+          "cause": "UNALLOWLISTED_TEXT",
           "rejected_attempts": 1,
           "editions": [
-            "2026-11-19"
+            "2026-11-20"
           ],
           "recurring": false
         }

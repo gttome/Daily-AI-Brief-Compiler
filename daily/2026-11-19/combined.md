@@ -1,12 +1,12 @@
 **🟨 RELEASE PARTIAL**
-**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟨 IMAGES NOT YET COMPLETE** · **🟨 VISUAL QA NOT YET VERIFIED**
+**TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟨 VISUAL QA NOT YET VERIFIED**
 
 # Daily AI Brief — Unified Production After-Action Report
 **Edition:** November 20, 2026 · **Production evening:** 2026-11-19 · **Timezone:** America/Chicago
 **Primary public reader:** [Open 2026-11-20 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-20/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **not complete**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **INVALID**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **not yet evidenced**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 6m 41s** · **Compiler final seal window 16m 45s** · **Premium Images Not independently recorded** (evidence-bounded elapsed times; the start/end events differ).
 
@@ -58,9 +58,20 @@ Not inspected includes every index without a recorded editorial inspection; this
 
 ### Image attempts and rework
 
-![Image attempts and rework: not recorded](charts/image-rework.svg)
+![Image attempts and rework: recorded results](charts/image-rework.svg)
 
-**Not recorded:** current-edition evidence is missing or inconsistent.
+**14 attempts; 1 of 6 images accepted on their first attempt.**
+
+Recorded ongoing from November 8 target: at least 3/6 first-pass accepts; no more than 2 attempts per image. This is an efficiency target, not a quality cutoff.
+
+| Image | Accepted | Rejected | Total attempts |
+|---|---:|---:|---:|
+| OpenAI turns slow-session reports into measured performance fixes | 1 | 2 | 3 |
+| A 71,677-PR study complicates claims about coding-agent quality | 1 | 1 | 2 |
+| Frequent AI users report less time gathering information and writing | 1 | 1 | 2 |
+| Hugging Face and OpenRouter expose where open-weight inference is moving | 1 | 2 | 3 |
+| Informatica brings governed business context into Copilot workflows | 1 | 2 | 3 |
+| A reusable editing skill makes every media cut auditable | 1 | 0 | 1 |
 
 Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate.
 
@@ -109,12 +120,12 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | **Image processing stage duration** | **Not independently recorded** | First accepted PNG Git checkpoint → final 24/24 review; auditable stage elapsed time |
 | Image scheduled-to-final-review window | **Not independently recorded** | Only with a saved one-cycle schedule anchor; does not attest exact generation start |
 | Executor-observed generation-to-final-review | **Not independently recorded** | Only if the worker recorded a same-execution clock before its first native call; not independently verified provider runtime |
-| Accepted premium PNGs | **Not complete / 6** | Exact package and public release hashes |
+| Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **14** | Image worker AAR; no estimation |
 | Rejected candidates | **8** | Image worker AAR |
 | Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **Unverified** | Dated/permanent desktop/mobile review |
-| Public SHA-256 checks | **Not recorded** | Image release receipt |
+| Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
 | **Owner-reported weekly Work usage for this run** | **Not reported** | No per-cycle usage supplied |
 
@@ -304,7 +315,7 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 ## Track 2 — Premium images
 
-**Public status:** `NOT_OBSERVED` · **Saved images:** 0/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
+**Public status:** `RELEASED_VERIFIED` · **Saved images:** 6/6 · **Actual generation attempts:** 14 · **Rejected candidates:** 8.
 
 ### Image production duration — Git-verified milestones
 
@@ -327,21 +338,31 @@ Report, source-readback and search receipts are separate observations. Snapshot 
 
 | Source-bound image | Attempts | File size | Public page |
 |---|---:|---:|---|
+| OpenAI turns slow-session reports into measured performance fixes | 3 | 0.82 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m01.png) |
+| A 71,677-PR study complicates claims about coding-agent quality | 2 | 0.69 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m02.png) |
+| Frequent AI users report less time gathering information and writing | 2 | 1.10 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m10.png) |
+| Hugging Face and OpenRouter expose where open-weight inference is moving | 3 | 0.68 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m11.png) |
+| Informatica brings governed business context into Copilot workflows | 3 | 1.14 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m12.png) |
+| A reusable editing skill makes every media cut auditable | 1 | 1.01 MiB | [View original](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m14.png) |
 
 **Immutable-release and visual gates:**
 
 | Release gate | Result |
 |---|:---:|
-| Protected public image receipt | Not yet evidenced |
-| Accepted-image Git hash bindings | Not yet evidenced |
-| Six live PNGs | Not verified |
-| Dated/permanent story placements | Not verified |
+| Protected public image receipt | ✅ |
+| Accepted-image Git hash bindings | ✅ |
+| Six live PNGs | 6/6 |
+| Dated/permanent story placements | 12/12 recorded in release evidence |
 | Desktop/mobile visual inspection | Not verified |
-| Historical Oct 8 integrity | Not verified |
+| Historical Oct 8 integrity | 17/17 |
 
 ### Published premium illustrations
 
-No six-image public release gallery available yet.
+<table>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m01.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m01.png" alt="Diagram for nov20-t1-performance-factory" width="420"/></a><br/><b>OpenAI turns slow-session reports into measured performance fixes</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m02.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m02.png" alt="Diagram for nov20-t2-agent-prs" width="420"/></a><br/><b>A 71,677-PR study complicates claims about coding-agent quality</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m10.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m10.png" alt="Diagram for nov20-k1-workplace-time" width="420"/></a><br/><b>Frequent AI users report less time gathering information and writing</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m11.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m11.png" alt="Diagram for nov20-k2-openrouter-hf" width="420"/></a><br/><b>Hugging Face and OpenRouter expose where open-weight inference is moving</b></td></tr>
+<tr><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m12.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m12.png" alt="Diagram for nov20-a1-governed-context" width="420"/></a><br/><b>Informatica brings governed business context into Copilot workflows</b></td><td width="50%"><a href="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m14.png"><img src="https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-20/dab-edition-2026-11-20-m14.png" alt="Diagram for nov20-a2-video-skill" width="420"/></a><br/><b>A reusable editing skill makes every media cut auditable</b></td></tr>
+</table>
 
 ## Incidents, corrections and learning
 
@@ -409,12 +430,12 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-20/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eb47fa37e8631a1063e345c8b300f8ff919bed41/signals/ai-topic-top10/2026-11-19.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eb47fa37e8631a1063e345c8b300f8ff919bed41/signals/ai-topic-top10/2026-11-19.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5ea18524ca57edfdae0cebe5fe8ca293c8948a77/signals/ai-topic-top10/2026-11-19.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5ea18524ca57edfdae0cebe5fe8ca293c8948a77/signals/ai-topic-top10/2026-11-19.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-20/shadow-runs/2026-11-20/editorial/trend-search-coverage.json) |
 
-**Image workflow:** Not yet available.
+**Image workflow:** [Workflow evidence](https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44672447221).
 
 ---
 
@@ -427,11 +448,10 @@ Edition **2026-11-20**. Measurements use 7/7 recorded editions in this window. M
 
 ### Daily corrective-action review
 
-**3 evidence-based findings**; open production blockers: 1. Cumulative evaluation checkpoint: **2026-11-20**. The daily review never waits for that date to act on a safe live problem.
+**2 evidence-based findings**; open production blockers: 0. Cumulative evaluation checkpoint: **2026-11-20**. The daily review never waits for that date to act on a safe live problem.
 
 | Priority | Observed issue | Existing owner / next correction | When |
 |---|---|---|---|
-| P0 | Editorial publication is verified but the image release is not verified. | Images: Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker. | Immediate, if ownership and gates allow |
 | P1 | This edition has invalid Top 10 search-coverage receipts. | Compiler: Verify event-to-format searches and actual selected mappings in the next unlocked edition; do not rewrite a sealed historical bundle. | Next genuine run |
 | P2 | Publication success does not independently attest the originating scheduler. | Compiler / Recovery: Capture real first-party scheduler and execution evidence if available; do not convert unknown provenance into a failure or a success. | Next genuine run |
 
@@ -506,13 +526,13 @@ Pending: 15; overdue: 4; reviewed: 20. Implemented controls await measured resul
 | 2026-11-17 | 17/109 (16%) | 4 | 8 | 0 | 5 |
 | 2026-11-18 | 17/109 (16%) | 2 | 10 | 1 | 3 |
 | 2026-11-19 | 15/109 (14%) | 0 | 12 | 3 | 4 |
-| 2026-11-20 | 15/109 (14%) | Not recorded | Not recorded | 0 | Not recorded |
+| 2026-11-20 | 15/109 (14%) | 1 | 14 | 0 | Not recorded |
 
 | Measure | Recorded editions | Window median |
 |---|---:|---:|
 | coverage percent | 6 | 14 |
-| first pass accepted | 6 | 1 |
-| image attempts | 6 | 11 |
+| first pass accepted | 7 | 1 |
+| image attempts | 7 | 12 |
 | top10 linked items | 4 | 4.5 |
 | publication failures | 7 | 2 |
 
@@ -668,11 +688,14 @@ Only exact inspected source IDs and pre-selection review timestamps count. No ob
 
 | Recorded defect | Rejected attempts with defect | Recurred across editions |
 |---|---:|---|
-| CAUSAL_CONNECTOR | 5 | No within observed window |
-| LAYOUT | 3 | No within observed window |
-| PSEUDO_WRITING | 1 | No within observed window |
+| LAYOUT | 9 | Yes |
+| CAUSAL_CONNECTOR | 7 | Yes |
+| OTHER | 2 | No within observed window |
+| PSEUDO_WRITING | 2 | Yes |
+| UNSUPPORTED_CLAIM | 2 | No within observed window |
+| UNALLOWLISTED_TEXT | 1 | No within observed window |
 
-Total rejected: 28; unclassified: 22. A rejected attempt can have several defect codes.
+Total rejected: 36; unclassified: 22. A rejected attempt can have several defect codes.
 
 ### Useful image detail and recent artwork comparisons
 
