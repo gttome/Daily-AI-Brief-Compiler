@@ -66,6 +66,9 @@ test('missing, duplicated, unregistered, wrong-date and stale observations fail'
 });
 test('registry additions/removals require same-edition coverage, not a fixed count',()=>{
   const mod=structuredClone(registry);
+  // This scenario changes the registry before the test edition's lock. A real
+  // later registry refresh may legitimately replay its archived pinned roster.
+  mod.updated_at='2026-11-07T01:00:00Z';
   mod.resources.push({...videoRows[0],resource_id:'new-video-source-example',
     name:'New discovery qualification lead',
     url:'https://research.example.net/videos/',enabled:false});

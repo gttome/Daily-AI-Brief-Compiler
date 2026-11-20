@@ -10,15 +10,15 @@ const videos=reg.resources.filter(r=>r.content_types.includes('video'));
 const wb=videos.find(r=>r.resource_id==='directory-5c5d3d02a420135949164552');
 const zap=videos.find(r=>r.resource_id==='research-20261026-v03');
 
-test('current live video registry follows evidence to 28 enabled and exactly one pending',()=>{
+test('original November 6 cohort retains 28 enabled and exactly one pending',()=>{
  assert.deepEqual(validateResourceRegistry(reg),[]);
- assert.equal(videos.length,29);
- assert.equal(videos.filter(v=>v.enabled).length,28);
+ assert.equal(videos.filter(v=>!v.discovery_qualification || v.discovery_qualification.effective_from_edition<='2026-11-07').length,29);
+ assert.equal(videos.filter(v=>v.enabled && (!v.discovery_qualification || v.discovery_qualification.effective_from_edition<='2026-11-07')).length,28);
  assert.equal(videos.filter(v=>!v.enabled).length,1);
  assert.equal(ledger.proposed_registry.enabled_video,28);
  assert.equal(ledger.proposed_registry.disabled_video,1);
  assert.equal(ledger.prior_registry.enabled_video,27);
- assert.equal(activeDiscoveryResources(reg,'video').length,28);
+ assert.equal(activeDiscoveryResources(reg,'video').length,videos.filter(v=>v.enabled).length);
 });
 test('original W&B publishing lineage is bound to a dated CoreWeave-owned video route',()=>{
  assert.equal(wb.enabled,true);
@@ -43,9 +43,9 @@ test('Zapier remains unqualified and all 29 remain in dynamic discovery sweep',(
  assert.equal(ledger.qualifications[1].resource_id,zap.resource_id);
  assert.equal(ledger.qualifications[1].individual_program_playback_verified,false);
  const sweep=buildVideoSourceSweepPlan({editionDate:'2026-11-07',registry:reg});
- assert.equal(sweep.registered_count,29);
- assert.equal(sweep.enabled_count,28);
+ assert.equal(sweep.registered_count,videos.length);
+ assert.equal(sweep.enabled_count,videos.filter(v=>v.enabled).length);
  assert.equal(sweep.qualification_only_count,1);
- assert.equal(sweep.observations.length,29);
+ assert.equal(sweep.observations.length,videos.length);
  assert.ok(sweep.observations.some(o=>o.resource_id===zap.resource_id&&o.outcome==='NOT_ATTEMPTED'));
 });
