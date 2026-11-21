@@ -1,0 +1,287 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-21",
+  "story_id": "nov21-t2-harness-adapters",
+  "source_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+  "visual_thesis": "A fixed base model can acquire harness-specific behavior without proving broad transfer. At 320px see the frozen core and fitted adapter; full size separates task validation, in-harness trajectories, held-out evaluation and distribution-shift caution.",
+  "mechanism_metaphor": "An exploded diagonal adapter assembly, with one large charcoal immutable core lower-left and one thin violet adapter lifted above its matching keyed socket. Four distinct physical layers represent unchanged base weights, harness interface, recorded rollout stream and learned low-rank update. Upper-left validated task specimens have a valid-reference specimen and distinct rejected wrong-answer control, joined by headless eligibility braces. A single violet arrow from the task training port reaches the thin adapter port. The adapter and core align through headless dashed registration guides, not extra causal arrows. To the right two separate matched test sleeves expose in-harness task and unseen-distribution task shapes, with blank result comparison faces: no invented bar heights or scores. Meaningful parts: base layers, harness socket, rollout trace channel, token stream, low-rank leaf, task specimen, reference control, wrong-answer control, validation bracket, held-out sleeve, unseen task sleeve, comparison join and distribution boundary. No server dashboard, knobs, fake terminal writing or guarantee.",
+  "story_anchors": [
+    "Task validation and exact harness rollout collection",
+    "Diagonal immutable base and lifted learned adapter",
+    "Separate held-out and unseen-distribution comparisons"
+  ],
+  "required_labels": [
+    "Harness training",
+    "Frozen base",
+    "Fitted adapter",
+    "Held-out tasks",
+    "Check token use",
+    "Transfer unresolved"
+  ],
+  "source_claim_map": [
+    {
+      "id": "primary-1",
+      "proposition": "LoRA training occurs inside the target harness while base model weights remain fixed.",
+      "supporting_source_excerpt": "freeze those weights",
+      "source_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "primary-2",
+      "proposition": "Validation rejects defective verifiers; difficulty screening finds partly solvable tasks.",
+      "supporting_source_excerpt": "accepts wrong answers",
+      "source_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "primary-3",
+      "proposition": "In-harness efficiency gains do not establish out-of-distribution transfer.",
+      "supporting_source_excerpt": "an out-of-distribution check",
+      "source_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Harness training",
+      "to": "Fitted adapter",
+      "support_claim_id": "primary-1",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results."
+  ],
+  "composition_signature": {
+    "grammar": "Keyed adapter assembly",
+    "metaphor": "An exploded diagonal adapter assembly, with one large charcoal immutable core lower-left and one thin violet adapter lifted above its matching keyed socket. Four distinct physical layers represent unchanged base weights, harness interface, recorded rollout stream and learned low-rank update. Upper-left validated task specimens have a valid-reference specimen and distinct rejected wrong-answer control, joined by headless eligibility braces. A single violet arrow from the task training port reaches the thin adapter port. The adapter and core align through headless dashed registration guides, not extra causal arrows. To the right two separate matched test sleeves expose in-harness task and unseen-distribution task shapes, with blank result comparison faces: no invented bar heights or scores. Meaningful parts: base layers, harness socket, rollout trace channel, token stream, low-rank leaf, task specimen, reference control, wrong-answer control, validation bracket, held-out sleeve, unseen task sleeve, comparison join and distribution boundary. No server dashboard, knobs, fake terminal writing or guarantee.",
+    "layout": "Task validation and exact harness rollout collection; Diagonal immutable base and lifted learned adapter; Separate held-out and unseen-distribution comparisons",
+    "palette": "Violet charcoal white",
+    "hierarchy": "Dominant frozen core and thin offset update with subordinate test sleeves",
+    "perspective": "Exploded diagonal axonometric",
+    "annotation": "Integrated layer captions and open side callouts"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 13,
+    "major_regions": 3,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November 21 source reviewer",
+    "source_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Harness training",
+        "region_id": "train",
+        "region": "Task validation and exact harness rollout collection",
+        "bounding_box_px": {
+          "x": 78,
+          "y": 82,
+          "width": 355,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Frozen base",
+        "region_id": "core",
+        "region": "Diagonal immutable base and lifted learned adapter",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 445,
+          "width": 290,
+          "height": 50
+        },
+        "minimum_font_px": 42
+      },
+      {
+        "label": "Fitted adapter",
+        "region_id": "core",
+        "region": "Diagonal immutable base and lifted learned adapter",
+        "bounding_box_px": {
+          "x": 460,
+          "y": 112,
+          "width": 300,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Held-out tasks",
+        "region_id": "tests",
+        "region": "Separate held-out and unseen-distribution comparisons",
+        "bounding_box_px": {
+          "x": 770,
+          "y": 200,
+          "width": 340,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Check token use",
+        "region_id": "tests",
+        "region": "Separate held-out and unseen-distribution comparisons",
+        "bounding_box_px": {
+          "x": 775,
+          "y": 395,
+          "width": 335,
+          "height": 40
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Transfer unresolved",
+        "region_id": "tests",
+        "region": "Separate held-out and unseen-distribution comparisons",
+        "bounding_box_px": {
+          "x": 750,
+          "y": 525,
+          "width": 380,
+          "height": 40
+        },
+        "minimum_font_px": 30
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Transfer unresolved",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 70,
+    "explanatory_substage_labels": [
+      "Harness training",
+      "Frozen base"
+    ],
+    "thumbnail_priority_labels": [
+      "Harness training",
+      "Frozen base",
+      "Fitted adapter"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "LoRA training occurs inside the target harness while base model weights remain fixed.",
+        "allowed_path": "Harness training to Fitted adapter",
+        "blocked_path": "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results.",
+        "support_claim_id": "primary-1"
+      },
+      {
+        "condition": "Validation rejects defective verifiers; difficulty screening finds partly solvable tasks.",
+        "allowed_path": "Noncausal source qualification and evidence association only",
+        "blocked_path": "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results.",
+        "support_claim_id": "primary-2"
+      },
+      {
+        "condition": "In-harness efficiency gains do not establish out-of-distribution transfer.",
+        "allowed_path": "Noncausal source qualification and evidence association only",
+        "blocked_path": "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results.",
+        "support_claim_id": "primary-3"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Harness training",
+        "to": "Fitted adapter",
+        "support_claim_id": "primary-1",
+        "origin_region": "Task validation and exact harness rollout collection",
+        "target_region": "Diagonal immutable base and lifted learned adapter",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Exploded adapter anatomy",
+      "dominant_grammar": "Keyed adapter assembly",
+      "medium_treatment": "Violet and charcoal screenprint with crisp technical hatching",
+      "perspective": "Exploded diagonal axonometric",
+      "information_hierarchy": "Dominant frozen core and thin offset update with subordinate test sleeves",
+      "palette_family": "Violet charcoal white",
+      "subject_specific_visual_thesis": "A fixed base model can acquire harness-specific behavior without proving broad transfer. At 320px see the frozen core and fitted adapter; full size separates task validation, in-harness trajectories, held-out evaluation and distribution-shift caution.",
+      "difference_from_earlier_story_images": "2026-11-14 nov14-t2-managed-agents: The earlier managed-agent image encloses servers inside an infrastructure boundary; this isolates a thin trained update above unchanged weights and separates unseen task distributions.",
+      "first_pass_risk_mitigation": "The November 20 saved failures included edge-descenders, unplanned arrows and fake document writing. This story reserves detached caveat space, explicit physical connector ports and only the named blank source-grounded parts; target 60px inset, mandatory 40px exported floor."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "train",
+          "description": "Task validation and exact harness rollout collection",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 60,
+            "width": 395,
+            "height": 280
+          }
+        },
+        {
+          "id": "core",
+          "description": "Diagonal immutable base and lifted learned adapter",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 100,
+            "width": 710,
+            "height": 430
+          }
+        },
+        {
+          "id": "tests",
+          "description": "Separate held-out and unseen-distribution comparisons",
+          "bounding_box_px": {
+            "x": 750,
+            "y": 160,
+            "width": 390,
+            "height": 410
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Harness training",
+          "to": "Fitted adapter",
+          "support_claim_id": "primary-1",
+          "from_region_id": "train",
+          "to_region_id": "core",
+          "origin_px": {
+            "x": 340,
+            "y": 240
+          },
+          "target_px": {
+            "x": 550,
+            "y": 245
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source and composition reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "511da5a834545eed7043e2b64d382352ce7ffd1d110ca1355673d81f83e02aab"
+      }
+    }
+  },
+  "native_generation_prompt": "Create ONE finished premium static factual editorial raster illustration, landscape 1200:630 aspect ratio, pure white background. This is conceptual editorial art, not engineering source, a guaranteed data chart or interactive behavior. No collage or panels.\nVISUAL THESIS: A fixed base model can acquire harness-specific behavior without proving broad transfer. At 320px see the frozen core and fitted adapter; full size separates task validation, in-harness trajectories, held-out evaluation and distribution-shift caution.\nCOMPOSITION: An exploded diagonal adapter assembly, with one large charcoal immutable core lower-left and one thin violet adapter lifted above its matching keyed socket. Four distinct physical layers represent unchanged base weights, harness interface, recorded rollout stream and learned low-rank update. Upper-left validated task specimens have a valid-reference specimen and distinct rejected wrong-answer control, joined by headless eligibility braces. A single violet arrow from the task training port reaches the thin adapter port. The adapter and core align through headless dashed registration guides, not extra causal arrows. To the right two separate matched test sleeves expose in-harness task and unseen-distribution task shapes, with blank result comparison faces: no invented bar heights or scores. Meaningful parts: base layers, harness socket, rollout trace channel, token stream, low-rank leaf, task specimen, reference control, wrong-answer control, validation bracket, held-out sleeve, unseen task sleeve, comparison join and distribution boundary. No server dashboard, knobs, fake terminal writing or guarantee.\nMEDIUM: Violet and charcoal screenprint with crisp technical hatching. VIEW: Exploded diagonal axonometric. HIERARCHY: Dominant frozen core and thin offset update with subordinate test sleeves. PALETTE: Violet charcoal white. TEXT ARCHITECTURE: Integrated layer captions and open side callouts.\nONLY VISIBLE TEXT verbatim: [\"Harness training\",\"Frozen base\",\"Fitted adapter\",\"Held-out tasks\",\"Check token use\",\"Transfer unresolved\"]. These exact labels are mandatory, no other words, digits or simulated writing. Priority labels at least 40px, secondary at least 28px at final 1200x630. All glyphs at least 40px inside edges, target 60px; follow planned boxes including descenders. Keep all document faces genuinely blank.\nFACTUAL SCOPE: LoRA training occurs inside the target harness while base model weights remain fixed. Validation rejects defective verifiers; difficulty screening finds partly solvable tasks. In-harness efficiency gains do not establish out-of-distribution transfer.\nEXACT DIRECTED CONNECTIONS: Harness training to Fitted adapter only; physical ports {\"x\":340,\"y\":240} and {\"x\":550,\"y\":245}. Only these arrowheads are permitted. All described braces, ties, registration guides and comparisons are NONDIRECTIONAL with NO arrowheads. No edge enters or leaves the detached caveat. Attach every directed connector to a visible illustrated object, never to a label or empty space.\nEXCLUSIONS: No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results. No glossy product rendering, shields, gears, knobs, fake document strokes or dashboard cards. Meaningful detail must clarify the named relationships. Crisp professional finish and legible thumbnail hierarchy.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"train\",\"description\":\"Task validation and exact harness rollout collection\",\"bounding_box_px\":{\"x\":60,\"y\":60,\"width\":395,\"height\":280}},{\"id\":\"core\",\"description\":\"Diagonal immutable base and lifted learned adapter\",\"bounding_box_px\":{\"x\":60,\"y\":100,\"width\":710,\"height\":430}},{\"id\":\"tests\",\"description\":\"Separate held-out and unseen-distribution comparisons\",\"bounding_box_px\":{\"x\":750,\"y\":160,\"width\":390,\"height\":410}}],\"labels\":[{\"label\":\"Harness training\",\"region_id\":\"train\",\"region\":\"Task validation and exact harness rollout collection\",\"bounding_box_px\":{\"x\":78,\"y\":82,\"width\":355,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Frozen base\",\"region_id\":\"core\",\"region\":\"Diagonal immutable base and lifted learned adapter\",\"bounding_box_px\":{\"x\":80,\"y\":445,\"width\":290,\"height\":50},\"minimum_font_px\":42},{\"label\":\"Fitted adapter\",\"region_id\":\"core\",\"region\":\"Diagonal immutable base and lifted learned adapter\",\"bounding_box_px\":{\"x\":460,\"y\":112,\"width\":300,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Held-out tasks\",\"region_id\":\"tests\",\"region\":\"Separate held-out and unseen-distribution comparisons\",\"bounding_box_px\":{\"x\":770,\"y\":200,\"width\":340,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Check token use\",\"region_id\":\"tests\",\"region\":\"Separate held-out and unseen-distribution comparisons\",\"bounding_box_px\":{\"x\":775,\"y\":395,\"width\":335,\"height\":40},\"minimum_font_px\":30},{\"label\":\"Transfer unresolved\",\"region_id\":\"tests\",\"region\":\"Separate held-out and unseen-distribution comparisons\",\"bounding_box_px\":{\"x\":750,\"y\":525,\"width\":380,\"height\":40},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Harness training\",\"to\":\"Fitted adapter\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"train\",\"to_region_id\":\"core\",\"origin_px\":{\"x\":340,\"y\":240},\"target_px\":{\"x\":550,\"y\":245}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}
