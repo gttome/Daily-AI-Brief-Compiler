@@ -1,4 +1,4 @@
-**🟨 RELEASE PARTIAL**
+**🟩 RELEASE COMPLETE**
 **TOP 10 PARTIAL** · **🟩 COMPILER VERIFIED** · **🟦 IMAGES 6/6 RELEASED** · **🟪 VISUAL QA 24/24 PASS**
 
 # Daily AI Brief — Unified Production After-Action Report
@@ -6,11 +6,9 @@
 **Primary public reader:** [Open 2026-11-21 Brief](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/2026-11-21/) · **Repository:** [Daily-AI-Brief-Compiler](https://github.com/gttome/Daily-AI-Brief-Compiler)
 
 > **IMPORTANT — VERIFIED PRODUCTION RESULT**
-> **Executive release result: PARTIAL.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
+> **Executive release result: COMPLETE.** This is the single management-facing report covering Top 10 topic discovery, the editorial Compiler, published Brief and premium-image run. **Entire-system evidence: PARTIAL.** Top 10 report: **partial**; Compiler handoff: **RECEIVED_SNAPSHOT_BOUND**; guided searches: **RECEIPTS_OBSERVED**. Compiler public status: **VERIFIED**. Image release: **RELEASED_VERIFIED**. Direct 24-context visual quality: **24/24 PASS**. Autonomous completion: **UNPROVEN**. Missing evidence must not be promoted to a success claim.
 
 **🕒 Production stage durations:** **Top 10 9m 47s** · **Compiler final seal window 4m 55s** · **Premium Images 36m 04s** (evidence-bounded elapsed times; the start/end events differ).
-
-> **CLOSEOUT WARNING:** The exact image worker has not released its lease and recorded PUBLISHED_COMPLETE with the six accepted hashes.
 
 ## Evidence reconciliation
 
@@ -152,7 +150,7 @@ One edition at a time. Missing evidence is not zero. Trend claims require compar
 | Accepted premium PNGs | **6 / 6** | Exact package and public release hashes |
 | Native image generation attempts | **14** | Image worker AAR; no estimation |
 | Rejected candidates | **8** | Image worker AAR |
-| Final worker checkpoint reconciliation | **MISMATCH** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
+| Final worker checkpoint reconciliation | **PASS** | Oct25+ verifies exact generation count, per-story attempts, six accepted story/image/hash bindings and final release |
 | Saved visual contexts | **24 / 24 PASS** | Dated/permanent desktop/mobile review |
 | Public SHA-256 checks | **44** | Image release receipt |
 | October 8 immutable history | **17 / 17** | Independent content-preservation checks |
@@ -417,7 +415,9 @@ No current-edition postpublication incident register was available; this is **NO
 | Native generation saved-pixel rejection | Actual full-size and320px saved PNG inspected. Extra arrowhead and plot mesh removed; open captions replace plaques. Research evidence begins near x30; right comparison ends near x1180 and caveat near x1172, failing40px floor. Mechanism otherwise preserved. | Move only those three labels inward; keep existing font sizes and all art. Every right glyph must end<=1130 and left glyph begin>=75. |
 | Native generation saved-pixel rejection | Actual full saved1200x630 and320px inspected. One correctly anchored training-to-adapter arrow and headless registration guides; distinct base versus low-rank leaf, validation controls and held-out shapes. But validation has prohibited check and cross success symbols, and Transfer unresolved extends too close to right edge. Six exact labels otherwise read. | Preserve the exploded purple adapter above the unchanged charcoal base, exact one training-to-adapter arrow and all six exact labels. Remove both circled checkmark and circled X from task-validation specimens completely; leave those two source faces blank and use no success/failure symbols or extra marks. Move ONLY Transfer unresolved LEFT by at least90 final pixels so its last glyph ends at x1100 or earlier; keep font size. All labels must remain fully inside x60..1140 and y60..570. Do not add heads to dashed registration guides, symbols, text, metrics or controls. Keep source caveat disconnected. |
 | Final acceptance audit correction | Initial visual checks incorrectly provisionally locked three candidates before the final glyph audit isolated1–2px floor defects. Their exact bytes and original reviews are retained. | Superseded provisional acceptance honestly, preserved immutable predecessor PNGs and prepared source-bound versioned successors only for the actual saved-pixel defect. No final qualified image was regenerated for Git, CI or deployment. |
-| Final status metadata deployment | Original image-only release44863696999 deployed images, verified six hashes/12 pairings and17 protected objects, and captured24 contexts. Final Pages metadata artifact lookup failed despite uploaded artifact. Existing connector lacks dispatch; cloud is signed out. | Preserve every accepted image. Protect the actual24-context semantic review and exact captures; add a current-edition-only receipt-merge resume to existing metadata-sync workflow, with original-run/history/review/manifest binding and all existing postrelease verification gates. Outcome pending. |
+| Final status metadata deployment | Original image-only release44863696999 deployed images, verified six hashes/12 pairings and17 protected objects, and captured24 contexts. Final Pages metadata artifact lookup failed despite uploaded artifact. Existing connector lacks dispatch; cloud is signed out. | Preserve every accepted image. Protect the actual24-context semantic review and exact captures; add a current-edition-only receipt-merge resume to existing metadata-sync workflow, with original-run/history/review/manifest binding and all existing postrelease verification gates. Outcome pending. Verified outcome: existing metadata-sync run 44865220417 succeeded, reusing the exact protected24-context review and preserving all accepted PNGs. |
+| Metadata sync attempt1 | Existing sync44864730831 attempt1 uploaded artifact14691566314 but immediate Pages lookup reported zero artifacts. The exact service-side cause of visibility lag is unknown. | Protected PR398 added bounded exact-attempt artifact visibility proof before the same existing deploy-pages action; no accepted image changed. |
+| Metadata sync attempt2 | Normal failed-job retry uploaded artifact14691710261 under the same run-only name; Pages then found two matching artifacts and failed closed. | Protected PR398 made upload/deploy names unique by run_id plus run_attempt and resumed the same current-edition metadata lane. Final observed successful run is https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44865220417 |
 
 > **OPERATIONAL NOTE**
 > This report distinguishes a published and verified production outcome from scheduler metadata exposed to another conversation. Lack of a live host heartbeat in a separate normal chat is not a Compiler production failure.
@@ -464,8 +464,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a1098d987ba20ff3d545b56f7aa58ddaac821a91/signals/ai-topic-top10/2026-11-20.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a1098d987ba20ff3d545b56f7aa58ddaac821a91/signals/ai-topic-top10/2026-11-20.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/073fd2124a996f873ad535ca2efd8c36b1154ddc/signals/ai-topic-top10/2026-11-20.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/073fd2124a996f873ad535ca2efd8c36b1154ddc/signals/ai-topic-top10/2026-11-20.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-21/shadow-runs/2026-11-21/editorial/trend-search-coverage.json) |
 
@@ -527,14 +527,14 @@ Findings are observational and do not claim a repair was executed by the reporte
 | NOV16-P1-10 — Three-edition original paper priority and vendor attribution | 2026-11-20 | OVERDUE | Not recorded |
 | NOV16-P1-11 — Verify unattended scheduler provenance without self-attestation | 2026-11-20 | OVERDUE | Not recorded |
 | NOV16-P2-12 — Seven-edition improvement decision dashboard | 2026-11-23 | PENDING | Not recorded |
-| IMG19-01 — Useful internal detail | 2026-11-22 | PENDING | Not recorded |
-| IMG19-02 — Distinct visual identity | 2026-11-22 | PENDING | Not recorded |
-| IMG19-03 — Novelty across days | 2026-11-22 | PENDING | Not recorded |
-| IMG19-04 — Better first-attempt yield | 2026-11-22 | PENDING | Not recorded |
-| IMG19-05 — Margins and legibility | 2026-11-22 | PENDING | Not recorded |
-| IMG19-06 — Reliable reporting | 2026-11-22 | PENDING | Not recorded |
-| IMG19-07 — Evidence of artistic improvement | 2026-11-22 | PENDING | Not recorded |
-| IMG19-08 — Reusable learning without repeated shells | 2026-11-22 | PENDING | Not recorded |
+| IMG19-01 — Useful internal detail | 2026-11-22 | REVIEWED | keep |
+| IMG19-02 — Distinct visual identity | 2026-11-22 | REVIEWED | keep |
+| IMG19-03 — Novelty across days | 2026-11-22 | REVIEWED | keep |
+| IMG19-04 — Better first-attempt yield | 2026-11-22 | REVIEWED | revise |
+| IMG19-05 — Margins and legibility | 2026-11-22 | REVIEWED | revise |
+| IMG19-06 — Reliable reporting | 2026-11-22 | REVIEWED | keep |
+| IMG19-07 — Evidence of artistic improvement | 2026-11-22 | REVIEWED | keep |
+| IMG19-08 — Reusable learning without repeated shells | 2026-11-22 | REVIEWED | keep |
 | NOV20-01 — Canonical Top 10 search and selected-candidate association | 2026-11-24 | REVIEWED | keep |
 | NOV20-02 — Original source date and citation metadata | 2026-11-24 | PENDING | Not recorded |
 | NOV20-03 — Truthful runtime policy reconciliation | 2026-11-24 | PENDING | Not recorded |
@@ -548,7 +548,7 @@ Findings are observational and do not claim a repair was executed by the reporte
 | NOV20-11 — Neutral AI video coverage badges | 2026-11-24 | PENDING | Not recorded |
 | NOV20-12 — Continue existing IMG19 evaluation | 2026-11-22 | REVIEWED | keep |
 
-Pending: 18; overdue: 9; reviewed: 24. Implemented controls await measured results; review decisions do not disable controls.
+Pending: 10; overdue: 9; reviewed: 32. Implemented controls await measured results; review decisions do not disable controls.
 
 #### Reviews of production evidence
 
@@ -759,7 +759,7 @@ Review evidence: **RECORDED**. Stories reviewed: 6; exact earlier-image comparis
 
 | Story | Useful internal detail | Text architecture | Closest earlier image | Recorded assessment |
 |---|---|---|---|---|
-| nov21-t1-medchembench | Full saved1200x630 and actual320px inspected: molecular source/reconstruction feeds property reasoning through exactly one directed arrow. Cell activity, membrane permeability and metabolism assays form headless associations; withheld comparison remains separate. Six exact labels are now safely inset; pseudo-plot and extra arrow removed. No drug-discovery claim. Priority explanation is readable inline; fine assay detail and secondary comparison text benefit from full-size view. Set comparison still pending. | Direct open scientific annotations. Actual saved text was inspected against all exact labels; set review compares framing and reading paths. | 2026-11-18 / nov18-t1-sciresearch-eval: 2026-11-18 nov18-t1-sciresearch-eval: Unlike the earlier separate heating and model-fit housings, this is one continuous scientific specimen section with a visibly isolated withheld-evidence sleeve. | inconclusive |
+| nov21-t1-medchembench | Full saved1200x630 and actual320px inspected: molecular source/reconstruction feeds property reasoning through exactly one directed arrow. Cell activity, membrane permeability and metabolism assays form headless associations; withheld comparison remains separate. Six exact labels are now safely inset; pseudo-plot and extra arrow removed. No drug-discovery claim. Priority explanation is readable inline; fine assay detail and secondary comparison text benefit from full-size view. Set comparison subsequently completed with all15 current pairs recorded in the locked manifest. | Direct open scientific annotations. Actual saved text was inspected against all exact labels; set review compares framing and reading paths. | 2026-11-18 / nov18-t1-sciresearch-eval: 2026-11-18 nov18-t1-sciresearch-eval: Unlike the earlier separate heating and model-fit housings, this is one continuous scientific specimen section with a visibly isolated withheld-evidence sleeve. | inconclusive |
 | nov21-t2-harness-adapters | Actual complete1200x630 and320px inspected: one training-to-adapter arrow terminates at a visible low-rank leaf port above unchanged base weights. Registration guides remain headless; validation controls are blank, and held-out versus unfamiliar task shapes are separated by a distribution boundary. Check and cross symbols removed; six exact labels now fit mandatory glyph margins. No transferable-general-intelligence claim or plotted benchmark. The purple diagonal etched assembly contrasts with the teal chemistry specimen section. Main labels are recognizable at320px; fine low-rank and test-shape details benefit from full-size viewing. All fifteen current-set pairs subsequently inspected. | Integrated layer captions and open side callouts. Actual saved text was inspected against all exact labels; set review compares framing and reading paths. | 2026-11-14 / nov14-t2-managed-agents: 2026-11-14 nov14-t2-managed-agents: The earlier managed-agent image encloses servers inside an infrastructure boundary; this isolates a thin trained update above unchanged weights and separates unseen task distributions. | inconclusive |
 | nov21-k1-feedback-quality-bar | Full saved1200x630 and real320px inspected. The continuous coral/navy fan preserves conversation context, reviewer ratings/tags/comments/expected-output roles, curated expected outputs and separate rubric inspection. Exactly two causal arrows now attach at the trace annotation join and visible dataset inlet port; comparison braces remain headless. Star and X removed. Seven exact labels fit40px glyph margins and explain evaluation rather than model training. Distinct fan silhouette, woven seams and curved text architecture contrast with chemistry dissection and exploded adapter. At320px main headings and relationship read; fine blank specimen roles and secondary text benefit from full-size viewing. All fifteen current-set pairs subsequently inspected.  Final targeted successor raises the detached caveat; original y591 predecessor retained. New full-size glyphs remain above mandatory floor. | Labels integrated with open fan margins. Actual saved text was inspected against all exact labels; set review compares framing and reading paths. | 2026-11-16 / nov16-a2-rsi-assumptions: 2026-11-16 nov16-a2-rsi-assumptions: Earlier research feedback uses a circular compute wheel; this fan preserves expected outputs and separates rubric generation from response comparison, with no autonomous learning loop. | inconclusive |
 | nov21-k2-governed-context | Complete saved1200x630 and320px inspected. Two distinct governed-definition and curated-document bridge spans share three scoped table strata and converge through exactly two arrows on visible answer ports. Definition plate, domain boundary, explanatory page, instruction fold and document retrieval remain distinct. End-to-end comparison brace is headless and local-rule maintenance plus vendor-study caveat stay detached. Seven exact labels are inset beyond40px; five ornate label frames removed. Copper/forest engraved bridge silhouette differs from the prior canopy context image and the current fan, adapter and chemistry section. Primary relationship reads at320px; fine domain and retrieval parts benefit from full-size viewing. No benchmark guarantee or invented numerical results. All fifteen current-set pairs subsequently inspected.  Final targeted successor raises maintenance and vendor-study glyphs above safety floor; exact predecessor retained. | Open architectural captions and headless provenance guides. Actual saved text was inspected against all exact labels; set review compares framing and reading paths. | 2026-11-20 / nov20-a1-governed-context: 2026-11-20 nov20-a1-governed-context: Earlier context image uses a metadata canopy over an access gate; this bridge separates definition and document answer routes, with a common data bed and no permission-to-correctness implication. | inconclusive |
