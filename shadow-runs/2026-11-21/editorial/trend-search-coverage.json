@@ -454,14 +454,39 @@
       "reason": "The exact product post was checked for an episode or transcript, but no distinct original podcast program was identified in this query."
     }
   ],
-  "selected_mappings": [],
+  "selected_mappings": [
+    {
+      "topic_id": "gemini4-neon-launch-nov18",
+      "format": "podcast",
+      "item_id": "https://www.owenonthenet.com/podcast/2026-11-20/",
+      "url": "https://www.owenonthenet.com/podcast/2026-11-20/",
+      "reason": "This exact transcript-bearing episode was selected for its independent task-completion cost framing of Gemini Neon and competing model releases.",
+      "candidate_id": "jesse-owen-neon-cost"
+    },
+    {
+      "topic_id": "chatgpt-accounting-launch-nov18",
+      "format": "article",
+      "item_id": "nov21-a2-accounting-skill",
+      "url": "https://help.openai.com/en/articles/20001709-using-chatgpt-for-accounting-work",
+      "reason": "This exact full guide supports the selected bounded accounting Skill, including permitted records, citations, duplicate checks, uncertainty and human sign-off.",
+      "candidate_id": "openai-accounting-help"
+    },
+    {
+      "topic_id": "chatgpt-accounting-launch-nov18",
+      "format": "podcast",
+      "item_id": "https://daylift.io/signal/accounting-ai-permissions-just-became-strategy-589",
+      "url": "https://daylift.io/signal/accounting-ai-permissions-just-became-strategy-589",
+      "reason": "This exact dated episode was selected for its bounded independent analysis of accounting connector permissions, write-back risk and approval ownership.",
+      "candidate_id": "daylift-accounting-ai-permissions"
+    }
+  ],
   "receipt_recovery": {
     "schema_version": "bounded-top10-recovery-v1",
     "source": "exact_consumed_report",
-    "genuine_attempts_preserved": 0,
+    "genuine_attempts_preserved": 30,
     "invalid_or_duplicate_rows_discarded": 0,
-    "remaining_real_searches": 30,
-    "status": "NEEDS_REAL_SEARCH",
+    "remaining_real_searches": 0,
+    "status": "OBSERVED_EXACT_SOURCE",
     "no_fabricated_attempts": true
   }
 }
