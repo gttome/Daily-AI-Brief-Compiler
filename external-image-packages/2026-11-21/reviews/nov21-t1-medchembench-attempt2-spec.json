@@ -1,0 +1,286 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-21",
+  "story_id": "nov21-t1-medchembench",
+  "source_url": "https://openai.com/index/introducing-medchembench/",
+  "visual_thesis": "Reading a molecular structure is different from predicting its properties. At phone scale distinguish evidence, prediction and withheld experimental comparison; full size exposes separate reconstruction, reasoning, selection and prediction tasks, without implying drug discovery.",
+  "mechanism_metaphor": "A single continuous oblique scientific specimen section, not a machine. At left a folded research archive exposes a plain source sheet, a connected abstract molecular scaffold and a distinct reconstructed scaffold. At center a broad translucent analytical section contains a structure-match layer, an evidence-explanation layer and two diverging property tracks: cell activity and permeability/metabolism are conceptual unnumbered assay shapes. At right a withheld-evidence sleeve slides beside the predicted specimen, with paired comparison tabs, a ranking tray and a numerical-prediction specimen. The separate experimental sleeve is visibly not part of model input. Twelve meaningful roles: source sheet, input scaffold, reconstructed scaffold, structure comparison, explanation layer, activity path, permeability path, metabolism path, proposed ranking, numerical prediction specimen, withheld evidence sleeve and comparison join. No literal chemical formula, invented compound identity, data plot, dial or medical outcome.",
+  "story_anchors": [
+    "Source research and molecular reconstruction",
+    "Internal structure and property reasoning section",
+    "Separate withheld-evidence comparison and detached limitation"
+  ],
+  "required_labels": [
+    "Research evidence",
+    "Read structures",
+    "Predict properties",
+    "Compare withheld results",
+    "Selection remains harder",
+    "Not drug discovery proof"
+  ],
+  "source_claim_map": [
+    {
+      "id": "primary-1",
+      "proposition": "Published structures and earlier findings supply context for reconstruction, explanation, selection and property prediction.",
+      "supporting_source_excerpt": "context available at a chosen point",
+      "source_url": "https://openai.com/index/introducing-medchembench/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "primary-2",
+      "proposition": "Predictions are compared with withheld later experimental evidence; competing properties can trade off.",
+      "supporting_source_excerpt": "withheld from the model",
+      "source_url": "https://openai.com/index/introducing-medchembench/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "primary-3",
+      "proposition": "Benchmark credit does not establish new drug discovery or improved laboratory decisions.",
+      "supporting_source_excerpt": "do not establish whether models",
+      "source_url": "https://openai.com/index/introducing-medchembench/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Research evidence",
+      "to": "Predict properties",
+      "support_claim_id": "primary-1",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results."
+  ],
+  "composition_signature": {
+    "grammar": "Evidence-to-assay section",
+    "metaphor": "A single continuous oblique scientific specimen section, not a machine. At left a folded research archive exposes a plain source sheet, a connected abstract molecular scaffold and a distinct reconstructed scaffold. At center a broad translucent analytical section contains a structure-match layer, an evidence-explanation layer and two diverging property tracks: cell activity and permeability/metabolism are conceptual unnumbered assay shapes. At right a withheld-evidence sleeve slides beside the predicted specimen, with paired comparison tabs, a ranking tray and a numerical-prediction specimen. The separate experimental sleeve is visibly not part of model input. Twelve meaningful roles: source sheet, input scaffold, reconstructed scaffold, structure comparison, explanation layer, activity path, permeability path, metabolism path, proposed ranking, numerical prediction specimen, withheld evidence sleeve and comparison join. No literal chemical formula, invented compound identity, data plot, dial or medical outcome.",
+    "layout": "Source research and molecular reconstruction; Internal structure and property reasoning section; Separate withheld-evidence comparison and detached limitation",
+    "palette": "Teal cobalt white",
+    "hierarchy": "Large property section, smaller source archive and separate held-out sleeve",
+    "perspective": "Oblique continuous cutaway",
+    "annotation": "Direct open scientific annotations"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 3,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November 21 source reviewer",
+    "source_url": "https://openai.com/index/introducing-medchembench/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Research evidence",
+        "region_id": "input",
+        "region": "Source research and molecular reconstruction",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 95,
+          "width": 340,
+          "height": 52
+        },
+        "minimum_font_px": 42
+      },
+      {
+        "label": "Read structures",
+        "region_id": "input",
+        "region": "Source research and molecular reconstruction",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 435,
+          "width": 310,
+          "height": 48
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Predict properties",
+        "region_id": "analysis",
+        "region": "Internal structure and property reasoning section",
+        "bounding_box_px": {
+          "x": 430,
+          "y": 78,
+          "width": 390,
+          "height": 52
+        },
+        "minimum_font_px": 42
+      },
+      {
+        "label": "Compare withheld results",
+        "region_id": "test",
+        "region": "Separate withheld-evidence comparison and detached limitation",
+        "bounding_box_px": {
+          "x": 715,
+          "y": 440,
+          "width": 400,
+          "height": 48
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Selection remains harder",
+        "region_id": "analysis",
+        "region": "Internal structure and property reasoning section",
+        "bounding_box_px": {
+          "x": 420,
+          "y": 490,
+          "width": 460,
+          "height": 40
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Not drug discovery proof",
+        "region_id": "test",
+        "region": "Separate withheld-evidence comparison and detached limitation",
+        "bounding_box_px": {
+          "x": 680,
+          "y": 535,
+          "width": 450,
+          "height": 34
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Not drug discovery proof",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 72,
+    "explanatory_substage_labels": [
+      "Research evidence",
+      "Read structures"
+    ],
+    "thumbnail_priority_labels": [
+      "Research evidence",
+      "Predict properties"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "Published structures and earlier findings supply context for reconstruction, explanation, selection and property prediction.",
+        "allowed_path": "Research evidence to Predict properties",
+        "blocked_path": "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results.",
+        "support_claim_id": "primary-1"
+      },
+      {
+        "condition": "Predictions are compared with withheld later experimental evidence; competing properties can trade off.",
+        "allowed_path": "Noncausal source qualification and evidence association only",
+        "blocked_path": "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results.",
+        "support_claim_id": "primary-2"
+      },
+      {
+        "condition": "Benchmark credit does not establish new drug discovery or improved laboratory decisions.",
+        "allowed_path": "Noncausal source qualification and evidence association only",
+        "blocked_path": "No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results.",
+        "support_claim_id": "primary-3"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Research evidence",
+        "to": "Predict properties",
+        "support_claim_id": "primary-1",
+        "origin_region": "Source research and molecular reconstruction",
+        "target_region": "Internal structure and property reasoning section",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Scientific specimen dissection",
+      "dominant_grammar": "Evidence-to-assay section",
+      "medium_treatment": "Restrained blue pencil with translucent teal scientific wash",
+      "perspective": "Oblique continuous cutaway",
+      "information_hierarchy": "Large property section, smaller source archive and separate held-out sleeve",
+      "palette_family": "Teal cobalt white",
+      "subject_specific_visual_thesis": "Reading a molecular structure is different from predicting its properties. At phone scale distinguish evidence, prediction and withheld experimental comparison; full size exposes separate reconstruction, reasoning, selection and prediction tasks, without implying drug discovery.",
+      "difference_from_earlier_story_images": "2026-11-18 nov18-t1-sciresearch-eval: Unlike the earlier separate heating and model-fit housings, this is one continuous scientific specimen section with a visibly isolated withheld-evidence sleeve.",
+      "first_pass_risk_mitigation": "The November 20 saved failures included edge-descenders, unplanned arrows and fake document writing. This story reserves detached caveat space, explicit physical connector ports and only the named blank source-grounded parts; target 60px inset, mandatory 40px exported floor."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "input",
+          "description": "Source research and molecular reconstruction",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 60,
+            "width": 360,
+            "height": 445
+          }
+        },
+        {
+          "id": "analysis",
+          "description": "Internal structure and property reasoning section",
+          "bounding_box_px": {
+            "x": 410,
+            "y": 60,
+            "width": 470,
+            "height": 500
+          }
+        },
+        {
+          "id": "test",
+          "description": "Separate withheld-evidence comparison and detached limitation",
+          "bounding_box_px": {
+            "x": 680,
+            "y": 155,
+            "width": 460,
+            "height": 423
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Research evidence",
+          "to": "Predict properties",
+          "support_claim_id": "primary-1",
+          "from_region_id": "input",
+          "to_region_id": "analysis",
+          "origin_px": {
+            "x": 365,
+            "y": 290
+          },
+          "target_px": {
+            "x": 455,
+            "y": 290
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source and composition reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "c7513ba486f4f42832b815987c0372438957d9b3cf051d510ff8137c9858f9e6"
+      }
+    }
+  },
+  "native_generation_prompt": "Create ONE finished premium static factual editorial raster illustration, landscape 1200:630 aspect ratio, pure white background. This is conceptual editorial art, not engineering source, a guaranteed data chart or interactive behavior. No collage or panels.\nVISUAL THESIS: Reading a molecular structure is different from predicting its properties. At phone scale distinguish evidence, prediction and withheld experimental comparison; full size exposes separate reconstruction, reasoning, selection and prediction tasks, without implying drug discovery.\nCOMPOSITION: A single continuous oblique scientific specimen section, not a machine. At left a folded research archive exposes a plain source sheet, a connected abstract molecular scaffold and a distinct reconstructed scaffold. At center a broad translucent analytical section contains a structure-match layer, an evidence-explanation layer and two diverging property tracks: cell activity and permeability/metabolism are conceptual unnumbered assay shapes. At right a withheld-evidence sleeve slides beside the predicted specimen, with paired comparison tabs, a ranking tray and a numerical-prediction specimen. The separate experimental sleeve is visibly not part of model input. Twelve meaningful roles: source sheet, input scaffold, reconstructed scaffold, structure comparison, explanation layer, activity path, permeability path, metabolism path, proposed ranking, numerical prediction specimen, withheld evidence sleeve and comparison join. No literal chemical formula, invented compound identity, data plot, dial or medical outcome.\nMEDIUM: Restrained blue pencil with translucent teal scientific wash. VIEW: Oblique continuous cutaway. HIERARCHY: Large property section, smaller source archive and separate held-out sleeve. PALETTE: Teal cobalt white. TEXT ARCHITECTURE: Direct open scientific annotations.\nONLY VISIBLE TEXT verbatim: [\"Research evidence\",\"Read structures\",\"Predict properties\",\"Compare withheld results\",\"Selection remains harder\",\"Not drug discovery proof\"]. These exact labels are mandatory, no other words, digits or simulated writing. Priority labels at least 40px, secondary at least 28px at final 1200x630. All glyphs at least 40px inside edges, target 60px; follow planned boxes including descenders. Keep all document faces genuinely blank.\nFACTUAL SCOPE: Published structures and earlier findings supply context for reconstruction, explanation, selection and property prediction. Predictions are compared with withheld later experimental evidence; competing properties can trade off. Benchmark credit does not establish new drug discovery or improved laboratory decisions.\nEXACT DIRECTED CONNECTIONS: Research evidence to Predict properties only; physical ports {\"x\":365,\"y\":290} and {\"x\":455,\"y\":290}. Only these arrowheads are permitted. All described braces, ties, registration guides and comparisons are NONDIRECTIONAL with NO arrowheads. No edge enters or leaves the detached caveat. Attach every directed connector to a visible illustrated object, never to a label or empty space.\nEXCLUSIONS: No unsupported arrows, scores, controls, simulated writing, false success, people, avatars, logos, photographs or scenic filler. The detached source caveat never connects to a process. Conceptual dimensions are not measured results. No glossy product rendering, shields, gears, knobs, fake document strokes or dashboard cards. Meaningful detail must clarify the named relationships. Crisp professional finish and legible thumbnail hierarchy.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"input\",\"description\":\"Source research and molecular reconstruction\",\"bounding_box_px\":{\"x\":60,\"y\":60,\"width\":360,\"height\":445}},{\"id\":\"analysis\",\"description\":\"Internal structure and property reasoning section\",\"bounding_box_px\":{\"x\":410,\"y\":60,\"width\":470,\"height\":500}},{\"id\":\"test\",\"description\":\"Separate withheld-evidence comparison and detached limitation\",\"bounding_box_px\":{\"x\":680,\"y\":155,\"width\":460,\"height\":423}}],\"labels\":[{\"label\":\"Research evidence\",\"region_id\":\"input\",\"region\":\"Source research and molecular reconstruction\",\"bounding_box_px\":{\"x\":80,\"y\":95,\"width\":340,\"height\":52},\"minimum_font_px\":42},{\"label\":\"Read structures\",\"region_id\":\"input\",\"region\":\"Source research and molecular reconstruction\",\"bounding_box_px\":{\"x\":80,\"y\":435,\"width\":310,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Predict properties\",\"region_id\":\"analysis\",\"region\":\"Internal structure and property reasoning section\",\"bounding_box_px\":{\"x\":430,\"y\":78,\"width\":390,\"height\":52},\"minimum_font_px\":42},{\"label\":\"Compare withheld results\",\"region_id\":\"test\",\"region\":\"Separate withheld-evidence comparison and detached limitation\",\"bounding_box_px\":{\"x\":715,\"y\":440,\"width\":400,\"height\":48},\"minimum_font_px\":32},{\"label\":\"Selection remains harder\",\"region_id\":\"analysis\",\"region\":\"Internal structure and property reasoning section\",\"bounding_box_px\":{\"x\":420,\"y\":490,\"width\":460,\"height\":40},\"minimum_font_px\":30},{\"label\":\"Not drug discovery proof\",\"region_id\":\"test\",\"region\":\"Separate withheld-evidence comparison and detached limitation\",\"bounding_box_px\":{\"x\":680,\"y\":535,\"width\":450,\"height\":34},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Research evidence\",\"to\":\"Predict properties\",\"support_claim_id\":\"primary-1\",\"from_region_id\":\"input\",\"to_region_id\":\"analysis\",\"origin_px\":{\"x\":365,\"y\":290},\"target_px\":{\"x\":455,\"y\":290}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nLOCALIZED CORRECTION TO ATTACHED CANDIDATE: Preserve six exact labels and useful molecular/assay anatomy, but remove all three large enclosing board housings and all label plaques. Let scientific components form one continuous oblique specimen section on open pure white. Retain exactly ONE arrowhead, the left source-to-prediction arrow. Remove the left-pointing arrowhead on the central three-assay brace: make that a headless association brace. Replace the right wavy plotted surface with two plain paired physical comparison specimens, no curves, axes or plot mesh. The right withheld-evidence sleeve must be visibly separate from model input. All glyphs must end at x1130 or earlier, begin at x70 or later and remain within y60..570; reposition right comparison caption and detached caveat well inside. Place labels directly on white without plaques. Do not add arrows, numbers, panels, controls or writing. Preserve conceptual source fidelity and distinct useful internal stages."
+}
