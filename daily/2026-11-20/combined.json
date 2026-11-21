@@ -964,7 +964,7 @@
       "attention": "Specific-event video reach, two same-source interval comparisons, public discussion and independent coverage. No sum of overlapping audiences or platform scores.",
       "limitations": "Direct counters and full playback unavailable; exact ranking unverified. Useful topics without matched attention stay outside retained ten."
     },
-    "source_commit": "63bb1d49855af609e2a39419ad3fe551095ee2ad",
+    "source_commit": "d22bdd9df99b33229746943be0a47ad9a5b2a752",
     "source_blob_sha": "b0ce8390eb21e13193f4278821fa492089874afb",
     "report_sha256": "cf942b03927669e156088adb64ab698e340a975bcfa9e5803004978e67556b68",
     "consumed_source_commit": "63bb1d49855af609e2a39419ad3fe551095ee2ad",
@@ -1129,7 +1129,7 @@
       },
       "previous_cycle": "2026-11-19",
       "previous_report_sha256": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
-      "previous_aar_sha256": "9ffa37da4f490354c64bbc8af452f8fb9f867a1ad815f66a4a3ecfd05b155922",
+      "previous_aar_sha256": "5565bc11aca90f277c4559a9111102440027952999e0c8c628f67ebbc745428a",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1411,9 +1411,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1472,11 +1472,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/63bb1d49855af609e2a39419ad3fe551095ee2ad/signals/ai-topic-top10/2026-11-20.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d22bdd9df99b33229746943be0a47ad9a5b2a752/signals/ai-topic-top10/2026-11-20.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/63bb1d49855af609e2a39419ad3fe551095ee2ad/signals/ai-topic-top10/2026-11-20.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d22bdd9df99b33229746943be0a47ad9a5b2a752/signals/ai-topic-top10/2026-11-20.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1514,8 +1514,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov21-t1-medchembench",
+            "label": "MedChemBench tests frontier models on medicinal-chemistry decisions",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov21-t2-harness-adapters",
+            "label": "Harness adapters improve one coding agent without proving transfer",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov21-k1-feedback-quality-bar",
+            "label": "Turn reviewer annotations into a reusable agent quality bar",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov21-k2-governed-context",
+            "label": "Governed context lifts agent answers beyond curated instructions alone",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov21-a1-duplex-calling",
+            "label": "Gemini extends Duplex from restaurant calls to broader business tasks",
+            "accepted": 1,
+            "rejected": 0
+          },
+          {
+            "id": "nov21-a2-accounting-skill",
+            "label": "Build a reviewable accounting Skill from a recurring reconciliation",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 14,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1694,8 +1738,8 @@
         "coverage_percent": 13,
         "coverage_numerator": 15,
         "coverage_denominator": 117,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 1,
+        "image_attempts": 14,
         "top10_linked_items": 3,
         "publication_failures": 2
       }
@@ -1706,12 +1750,12 @@
         "median": 14
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
-        "median": 1.5
+        "recorded_editions": 7,
+        "median": 1
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 11
+        "recorded_editions": 7,
+        "median": 12
       },
       "top10_linked_items": {
         "recorded_editions": 4,
@@ -2676,18 +2720,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-22",
       "cumulative_review_due_today": false,
-      "finding_count": 3,
-      "open_production_blockers": 1,
+      "finding_count": 2,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "PROTECTED_GATE_FAILURES",
           "priority": "P1",
@@ -4555,35 +4590,47 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 30,
+      "recorded_editions": 7,
+      "total_rejected": 38,
       "unclassified": 16,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 9,
+          "rejected_attempts": 16,
           "editions": [
             "2026-11-19",
-            "2026-11-20"
+            "2026-11-20",
+            "2026-11-21"
           ],
           "recurring": true
         },
         {
           "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 7,
+          "rejected_attempts": 9,
           "editions": [
             "2026-11-19",
-            "2026-11-20"
+            "2026-11-20",
+            "2026-11-21"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "UNSUPPORTED_CLAIM",
+          "rejected_attempts": 5,
+          "editions": [
+            "2026-11-20",
+            "2026-11-21"
           ],
           "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 2,
+          "rejected_attempts": 3,
           "editions": [
-            "2026-11-20"
+            "2026-11-20",
+            "2026-11-21"
           ],
-          "recurring": false
+          "recurring": true
         },
         {
           "cause": "PSEUDO_WRITING",
@@ -4593,14 +4640,6 @@
             "2026-11-20"
           ],
           "recurring": true
-        },
-        {
-          "cause": "UNSUPPORTED_CLAIM",
-          "rejected_attempts": 2,
-          "editions": [
-            "2026-11-20"
-          ],
-          "recurring": false
         },
         {
           "cause": "UNALLOWLISTED_TEXT",

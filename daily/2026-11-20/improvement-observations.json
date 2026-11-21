@@ -12,8 +12,9 @@
     "image-job.json": "4344338c3160e69b5b77f70f32a292b7b071b481233919c9f14096b3c6ecf6be",
     "image-manifest.json": "14ad7c6732ccb361e57672a8b8b7f81d34962ad950ef4554c67ece57f674ee12",
     "image-recurring-assignment.json": "7d7e0ed2418fbb81854fd269204db42527aa8d4b2a3dd2c41c1ea47b6692051f",
+    "image-release.json": "24a7aa544beeaf805a5c42d4198433afe6cc2cca30b823bb9ef0bf24b16166f0",
     "image-route-preflight.json": "4fec5f13f431ead9389a2578550fdcd0ef5442841520d00b0cbb5d8225474304",
-    "image-timing.json": "63bfa11ef4696594f0bc679b2bc865c61cb44230acdcc720d18f3791584a0047",
+    "image-timing.json": "b77c2f972ac635c2350275e0ec2ee896611fe5e3bd11192b2a9a98664439ac9e",
     "image-worker-state.json": "cddd0e3c6d681dad4dd4d6f68b19c25fc0c4e5d2cd5b391e763ea8d025b5a158",
     "postpublish-integrity.json": "56744a2adc180a3f456bdc65080bf2a991e43e1532d19661ba852419a2b4b26c",
     "postpublish-video-playback.json": "0a6d79385f569ae7d06b6012a999d8dfd0e64753b8bd610c6bcb50a66f9cec2e",
@@ -26,12 +27,12 @@
     "top10-after-action.json": "1d381507a1d983784be97510d763934ce3051e36eacd6c0d2e8fa1f90a4d3f2b",
     "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
     "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
-    "top10-previous-aar.json": "9ffa37da4f490354c64bbc8af452f8fb9f867a1ad815f66a4a3ecfd05b155922",
+    "top10-previous-aar.json": "5565bc11aca90f277c4559a9111102440027952999e0c8c628f67ebbc745428a",
     "top10-previous-report.json": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
-    "top10-report-source.json": "173e214ac2f2cac9cfa3c55800d84002650adfa3b5215538aabd333865db9c13",
+    "top10-report-source.json": "dd9f4d9d87c97b795114b1018865e2ce4b1df4c9412de5f89ceb3ea8618c7c15",
     "top10-report.json": "cf942b03927669e156088adb64ab698e340a975bcfa9e5803004978e67556b68",
     "trend-consumed-report.json": "cf942b03927669e156088adb64ab698e340a975bcfa9e5803004978e67556b68",
-    "trend-consumed-source.json": "1917e2463493cbc732cfb1ad394fa4a7804e48c3c7bcb89638b5eea79584583d",
+    "trend-consumed-source.json": "c122515bdbec40541937677265c2047433d955c60b32cc7c4a7d196450688527",
     "trend-consumed-verification.json": "81db7e75c7a2321eca5d71726b43ae51aa91616260f9790553625f40d8e3f162",
     "trend-input.json": "6fc92836522ae0d18d50aaa771568ece8a3383d1e441b4a2df370f523dc27536",
     "trend-search-coverage.json": "55778444763e11264e47c0f60d2848173e7c7fb9cb235721bafbcf3cec272483",
@@ -39,7 +40,7 @@
   },
   "production_state": {
     "compiler": "VERIFIED",
-    "premium_images": "RELEASE_NOT_VERIFIED",
+    "premium_images": "NOT_RECORDED",
     "top10_search": "RECEIPTS_OBSERVED",
     "autonomy": "UNPROVEN"
   },
@@ -169,8 +170,8 @@
     "coverage_percent": 13,
     "coverage_numerator": 15,
     "coverage_denominator": 117,
-    "first_pass_accepted": null,
-    "image_attempts": null,
+    "first_pass_accepted": 1,
+    "image_attempts": 14,
     "top10_linked_items": 3,
     "publication_failures": 2
   },
@@ -277,7 +278,81 @@
   ],
   "source_reviews": null,
   "source_review_missing_resource_ids": null,
-  "image_rejections": null,
+  "image_rejections": {
+    "total": 8,
+    "classified": [
+      {
+        "story_id": "nov21-a2-accounting-skill",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-a2-accounting-skill-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov21-k1-feedback-quality-bar",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-k1-feedback-quality-bar-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov21-k1-feedback-quality-bar",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-k1-feedback-quality-bar-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov21-k2-governed-context",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT",
+          "OTHER"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-k2-governed-context-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov21-k2-governed-context",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-k2-governed-context-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov21-t1-medchembench",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR",
+          "LAYOUT",
+          "UNSUPPORTED_CLAIM"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-t1-medchembench-attempt1-rejection.json"
+      },
+      {
+        "story_id": "nov21-t1-medchembench",
+        "attempt": 2,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-t1-medchembench-attempt2-rejection.json"
+      },
+      {
+        "story_id": "nov21-t2-harness-adapters",
+        "attempt": 1,
+        "defect_codes": [
+          "UNSUPPORTED_CLAIM",
+          "LAYOUT"
+        ],
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/nov21-t2-harness-adapters-attempt1-rejection.json"
+      }
+    ],
+    "unclassified": 0
+  },
   "resilience": {
     "status": "RECORDED",
     "reviewed_topics": 10,
