@@ -1,6 +1,10 @@
 name: external-image-postrelease-verify
-# Manual-only verify/metadata-sync; no new schedule, generation or owner GO.
+# Existing verify/metadata-sync; one exact protected Nov21 receipt-merge resume, no new schedule or generation.
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json'
   workflow_dispatch:
     inputs:
       edition_date:
@@ -45,6 +49,31 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Bind exact November 21 protected visual-review merge for metadata-only resume
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = refs/heads/main
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git merge-base --is-ancestor 35db628ee665e28df9cb6c517cf8745aacda0659 HEAD
+          REVIEW=external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json
+          git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$REVIEW"
+          test "$(sha256sum "$REVIEW" | cut -d' ' -f1)" = 634a586ee89fba6098b8588b670f708fcbc059ff083ee77ebe830bb0de747c33
+          test "$(sha256sum external-image-packages/2026-11-21/manifest.json | cut -d' ' -f1)" = 14ad7c6732ccb361e57672a8b8b7f81d34962ad950ef4554c67ece57f674ee12
+          # Original deployment and byte/context capture succeeded; only its final
+          # metadata deployment failed. Reuse the exact protected capture review.
+          gh api repos/gttome/Daily-AI-Brief-Compiler/actions/runs/44863696999 |
+            jq -e '.head_sha=="35db628ee665e28df9cb6c517cf8745aacda0659" and .conclusion=="failure" and .path==".github/workflows/external-image-only-replacement.yml"' >/dev/null
+          gh api repos/gttome/Daily-AI-Brief-Compiler/actions/jobs/136722543835 |
+            jq -e '.run_id==44863696999 and any(.steps[]; .name=="I3 actual 24 target image-area captures (not a subjective review)" and .conclusion=="success")' >/dev/null
+          {
+            echo TARGET_DATE=2026-11-21
+            echo EXPECTED_HISTORY_HEAD=72f541447da6ae0349b97e0f5f2ffb712b47da7b
+            echo MODE=sync_metadata
+          } >> "$GITHUB_ENV"
       - name: Require selected flags and exact main/history heads
         shell: bash
         run: |
