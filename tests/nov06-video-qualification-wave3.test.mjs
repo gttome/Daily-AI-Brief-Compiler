@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {activeDiscoveryResources,validateResourceRegistry} from '../operations/resources.mjs';
 import {buildVideoSourceSweepPlan} from '../operations/video-source-sweep.mjs';
 
-const reg=JSON.parse(fs.readFileSync('config/resource-registry.json','utf8'));
+const reg=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov21-source-qualification.json','utf8'));
 const ledger=JSON.parse(fs.readFileSync('config/video-source-qualification/2026-11-06-wave3.json','utf8'));
 const videos=reg.resources.filter(r=>r.content_types.includes('video'));
 const wb=videos.find(r=>r.resource_id==='directory-5c5d3d02a420135949164552');
