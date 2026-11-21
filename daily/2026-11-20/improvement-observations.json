@@ -1,0 +1,860 @@
+{
+  "schema_version": "daily-aar-improvement-observations-v1",
+  "edition_date": "2026-11-21",
+  "cycle_date": "2026-11-20",
+  "evidence_hashes": {
+    "compile-receipt.json": "f74d474cfa8df849c8d130d54f1bfd86f1e425d2b5432702225080a3afad012f",
+    "compiler-state.json": "3bc7ba988ce7a88f5f6423fc1a4eafda70d0a5d7316b2b757a5a7d14518992b0",
+    "edition-bundle.json": "5176fde9d72652cc7f25161e21acf4512397e04abe152266c7822aac6b98cfbf",
+    "execution-milestones.json": "54fbae0fbcfcf757bdce4ab3cf03c09f474af320c0bf4e042de9a6be025c2e43",
+    "fallback-search-evidence.json": "d3b67ea2a6a97ad1ff332193c287286a700ebbfb24b794f622a2094b63929aab",
+    "image-after-action.json": "32c84ea10be8924251d6330fdc2326f21e270716ed8a696b83dd87b7e6ae8cce",
+    "image-job.json": "4344338c3160e69b5b77f70f32a292b7b071b481233919c9f14096b3c6ecf6be",
+    "image-manifest.json": "14ad7c6732ccb361e57672a8b8b7f81d34962ad950ef4554c67ece57f674ee12",
+    "image-recurring-assignment.json": "7d7e0ed2418fbb81854fd269204db42527aa8d4b2a3dd2c41c1ea47b6692051f",
+    "image-route-preflight.json": "4fec5f13f431ead9389a2578550fdcd0ef5442841520d00b0cbb5d8225474304",
+    "image-timing.json": "63bfa11ef4696594f0bc679b2bc865c61cb44230acdcc720d18f3791584a0047",
+    "image-worker-state.json": "cddd0e3c6d681dad4dd4d6f68b19c25fc0c4e5d2cd5b391e763ea8d025b5a158",
+    "postpublish-integrity.json": "56744a2adc180a3f456bdc65080bf2a991e43e1532d19661ba852419a2b4b26c",
+    "postpublish-video-playback.json": "0a6d79385f569ae7d06b6012a999d8dfd0e64753b8bd610c6bcb50a66f9cec2e",
+    "preseal-video-attempts.json": "ebec4c41ba13a03456c726d1d7413577fe07596169a6d388522e6b9dfb94e0cd",
+    "publication-health.json": "d6f30810314b9a018bfbaf31dadc5f63e3abaec19ffba940807d1760d84742ad",
+    "published-watchlist.json": "03dd59f98c38dcba16c1db22f301a5ec326c5989c73ecad4f575bb93ca58d24c",
+    "scientific-paper-coverage.json": "3d036b0a14641193edffc81a9b1140a25712adc82db5a4aa41dcec62dea6c1c3",
+    "source-item-census.json": "390779677c32afcba47ddfa158cf7691073a002c0e7fd40ebcca217df20b6eeb",
+    "source-item-retries.json": "682b4620438947a83ead1120205c50d231630592c8951706d6e2724d23e213b6",
+    "top10-after-action.json": "1d381507a1d983784be97510d763934ce3051e36eacd6c0d2e8fa1f90a4d3f2b",
+    "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
+    "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
+    "top10-previous-aar.json": "9ffa37da4f490354c64bbc8af452f8fb9f867a1ad815f66a4a3ecfd05b155922",
+    "top10-previous-report.json": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
+    "top10-report-source.json": "173e214ac2f2cac9cfa3c55800d84002650adfa3b5215538aabd333865db9c13",
+    "top10-report.json": "cf942b03927669e156088adb64ab698e340a975bcfa9e5803004978e67556b68",
+    "trend-consumed-report.json": "cf942b03927669e156088adb64ab698e340a975bcfa9e5803004978e67556b68",
+    "trend-consumed-source.json": "1917e2463493cbc732cfb1ad394fa4a7804e48c3c7bcb89638b5eea79584583d",
+    "trend-consumed-verification.json": "81db7e75c7a2321eca5d71726b43ae51aa91616260f9790553625f40d8e3f162",
+    "trend-input.json": "6fc92836522ae0d18d50aaa771568ece8a3383d1e441b4a2df370f523dc27536",
+    "trend-search-coverage.json": "55778444763e11264e47c0f60d2848173e7c7fb9cb235721bafbcf3cec272483",
+    "video-playback-failures.json": "7bc916f44a76ceb6e35ee2a92114f1ce56c051916f84fc912522018aef66aa0c"
+  },
+  "production_state": {
+    "compiler": "VERIFIED",
+    "premium_images": "RELEASE_NOT_VERIFIED",
+    "top10_search": "RECEIPTS_OBSERVED",
+    "autonomy": "UNPROVEN"
+  },
+  "registry_sha256": "5d8c9853cf75c22a7f0dc2e05b13313da719f00e88af3eac4e4087ab6b339d1b",
+  "source_set_sha256": "7e413b66e23ab74522bd7ce80ea027d84fbf960080996be2e3d2ecfbec6b4462",
+  "eligible_resource_ids": [
+    "acl-anthology",
+    "anthropic",
+    "anthropic-news",
+    "article-databricks-ai-research",
+    "article-ibm-research-ai",
+    "article-nvidia-technical-ai",
+    "arxiv-cs-ai",
+    "arxiv-cs-cl",
+    "arxiv-cs-lg",
+    "berkeley-bair",
+    "deepseek-news",
+    "github-ai-agents",
+    "github-generative-ai",
+    "github-llm",
+    "github-trending",
+    "google-deepmind-blog",
+    "hacker-news-newest",
+    "hacker-news-show",
+    "hugging-face-daily-papers",
+    "hugging-face-datasets",
+    "hugging-face-models",
+    "hugging-face-spaces",
+    "iclr",
+    "icml",
+    "meta-ai-blog",
+    "mistral-news",
+    "mit-csail",
+    "neurips",
+    "openai-news",
+    "openreview",
+    "podcast-a16z-show",
+    "podcast-agora-briefing",
+    "podcast-ai-daily-brief",
+    "podcast-ai-for-humans",
+    "podcast-ai-future-work",
+    "podcast-ai-inside",
+    "podcast-artificial-intelligence-show",
+    "podcast-cognitive-revolution",
+    "podcast-data-exchange",
+    "podcast-everyday-ai",
+    "podcast-eye-on-ai",
+    "podcast-gradient-dissent",
+    "podcast-latent-space",
+    "podcast-no-priors",
+    "podcast-nvidia-ai",
+    "podcast-practical-ai",
+    "podcast-twiml",
+    "qwen-blog",
+    "reddit-localllama",
+    "reddit-machinelearning",
+    "specialized-discords",
+    "stanford-hai",
+    "the-batch",
+    "x-research-feeds",
+    "xai-news",
+    "youtube-anthropic",
+    "youtube-google-deepmind",
+    "youtube-openai",
+    "research-20261026-a01",
+    "research-20261026-a04",
+    "research-20261026-a05",
+    "research-20261026-a12",
+    "research-20261026-v01",
+    "research-20261026-v02",
+    "research-20261026-v04",
+    "research-20261026-v05",
+    "research-20261026-v06",
+    "research-20261026-v07",
+    "research-20261026-p03",
+    "deep-20261026-a01-google-research",
+    "deep-20261026-a02-microsoft-ai",
+    "deep-20261026-a03-nvidia-news",
+    "deep-20261026-p02-data-skeptic",
+    "deep-20261026-v01-two-minute-papers",
+    "directory-935fbe5ba89ff5f91fc8c69b",
+    "directory-411bf5f837e28f35220736eb",
+    "directory-fd36049347d409f38c9f9a67",
+    "directory-3ccc18a956cae0b1e24b5968",
+    "directory-242c2a2fc81a43d41f199129",
+    "directory-9ad7c274f2d56274bcd5ddcc",
+    "directory-c6b8a33e7fa162cc41136fa5",
+    "directory-a74f303f4b0c39344c1314cf",
+    "directory-9c0885bdb370f69c9262b88c",
+    "directory-64f0886a6793aa8858a4b62d",
+    "directory-8ec4fd458a38bc0447f4cded",
+    "directory-6ea6e283349c7b62ac1ced9d",
+    "directory-d6cf3f9fa167b8173a35228b",
+    "directory-8df3614a9972a25fc59475ed",
+    "directory-1c6f5db2559c3c226a112873",
+    "directory-b93e2368e85f0f95c066463e",
+    "directory-d5428d030dfff7d4639258e3",
+    "directory-79e16cd5beb5c662c4022a9f",
+    "directory-e7b100b6b999ac748e052327",
+    "directory-4c16d138c4a736e78a68127e",
+    "directory-ecf69ec2f036e803388f40ca",
+    "directory-db682c52794328eb69ebc377",
+    "directory-8263ca4c9f560c8d9c4df0de",
+    "directory-970506fbc577e6091a33c64d",
+    "directory-4852e367f74118ff2dc1eec9",
+    "directory-3834a0112c0e3a754320b557",
+    "directory-e2f33b502b264e51983a338a",
+    "directory-9f7087ce2c030a4b9da58499",
+    "directory-5c5d3d02a420135949164552",
+    "directory-48665d874f6008894d0d9385",
+    "directory-f8085f0f6e72cfbdfde3a0f8",
+    "directory-d1527db7c06b4e83370b7546",
+    "directory-54d90ff964a74ff98851ae11",
+    "directory-0dffb60aadd4ba31b5c090dc",
+    "universe-20261026-every-ai-editorial",
+    "video-20261120-computerphile",
+    "video-20261120-3blue1brown",
+    "video-20261120-statquest",
+    "video-20261120-ai-coffee-break",
+    "video-20261120-mit-csail-video",
+    "video-20261120-mit-embodied-intelligence",
+    "video-20261120-pytorch-foundation",
+    "video-20261120-full-stack-deep-learning"
+  ],
+  "invalid_evidence": [],
+  "metrics": {
+    "coverage_percent": 13,
+    "coverage_numerator": 15,
+    "coverage_denominator": 117,
+    "first_pass_accepted": null,
+    "image_attempts": null,
+    "top10_linked_items": 3,
+    "publication_failures": 2
+  },
+  "failures": [
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "VIDEO_PLAYBACK",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44853495639",
+      "observed_at": "2026-11-21T02:01:57.268Z",
+      "root_cause": "UNCLASSIFIED",
+      "cause_evidence_ref": null,
+      "documented_delay_seconds": null
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "VIDEO_PLAYBACK",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44854060544",
+      "observed_at": "2026-11-21T02:08:19.292Z",
+      "root_cause": "PUBLISHER_HTTP_ACCESS",
+      "cause_evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44854060544",
+      "documented_delay_seconds": null
+    }
+  ],
+  "recovery": {
+    "status": "NOT_RECORDED",
+    "rows": []
+  },
+  "inspections": [
+    {
+      "resource_id": "openai-news",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "directory-935fbe5ba89ff5f91fc8c69b",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "deep-20261026-a01-google-research",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "article-databricks-ai-research",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "deep-20261026-a02-microsoft-ai",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "google-deepmind-blog",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "article-ibm-research-ai",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "arxiv-cs-ai",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "arxiv-cs-cl",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "arxiv-cs-lg",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "qwen-blog",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "directory-1c6f5db2559c3c226a112873",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "directory-d5428d030dfff7d4639258e3",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "directory-3834a0112c0e3a754320b557",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    },
+    {
+      "resource_id": "podcast-practical-ai",
+      "reviewed_at": "2026-11-21T01:38:00.000Z",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "source_reviews": null,
+  "source_review_missing_resource_ids": null,
+  "image_rejections": null,
+  "resilience": {
+    "status": "RECORDED",
+    "reviewed_topics": 10,
+    "weakened_topics": 8,
+    "topics": [
+      {
+        "topic_id": "anthropic-nasdaq-debut-nov19",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 4,
+        "weakened": false,
+        "removals": [
+          {
+            "family_id": "cnn",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=DrZ9yxyXtgc",
+              "https://www.youtube.com/watch?v=iYq5Ot9qEZg",
+              "https://news.ycombinator.com/item?id=50562754"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          },
+          {
+            "family_id": "bbc-news",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=MGZPIGffCxU",
+              "https://www.youtube.com/watch?v=iYq5Ot9qEZg",
+              "https://news.ycombinator.com/item?id=50562754"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          },
+          {
+            "family_id": "wsj-news",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=MGZPIGffCxU",
+              "https://www.youtube.com/watch?v=DrZ9yxyXtgc",
+              "https://news.ycombinator.com/item?id=50562754"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          },
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=MGZPIGffCxU",
+              "https://www.youtube.com/watch?v=DrZ9yxyXtgc",
+              "https://www.youtube.com/watch?v=iYq5Ot9qEZg"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "gpt-62-astra-sol-launch-nov17",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "ai-search",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=jm_h5nRZoCg"
+            ],
+            "attention_band": "limited",
+            "reason": "Only one originating family remains, weakening independent breadth even if the remaining audience count is large."
+          },
+          {
+            "family_id": "bijan-bowen",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=rYsIpPP6QY4"
+            ],
+            "attention_band": "limited",
+            "reason": "Only one originating family remains, weakening independent breadth even if the remaining audience count is large."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "gemini4-neon-launch-nov18",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 3,
+        "weakened": false,
+        "removals": [
+          {
+            "family_id": "prompt-engineering",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=90vN0xFeLcQ",
+              "https://www.youtube.com/watch?v=5eON_8rgKzk"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          },
+          {
+            "family_id": "bijan-bowen",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=Q0ShBenKyqo",
+              "https://www.youtube.com/watch?v=5eON_8rgKzk"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          },
+          {
+            "family_id": "matthew-berman",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=Q0ShBenKyqo",
+              "https://www.youtube.com/watch?v=90vN0xFeLcQ"
+            ],
+            "attention_band": "broader",
+            "reason": "Several attributable event-matched families remain; qualitative breadth persists without certifying numerical popularity or independent replication."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "chatgpt-accounting-launch-nov18",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "openai",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "No attributable event-matched attention remains; claim documents cannot substitute for current attention evidence."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "greg-isenberg-grokbot-media-workflow-nov18",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "greg-isenberg",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "No attributable event-matched attention remains; claim documents cannot substitute for current attention evidence."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "alphagenome2-explainer-nov19",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "two-minute-papers",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "No attributable event-matched attention remains; claim documents cannot substitute for current attention evidence."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "claude-black-hole-preprints-attention-nov19",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "hacker-news",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "No attributable event-matched attention remains; claim documents cannot substitute for current attention evidence."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "deepmind-koray-hannah-fry-interview-nov19",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "google",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "No attributable event-matched attention remains; claim documents cannot substitute for current attention evidence."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "thariq-sweet-side-bitter-lesson-talk-nov12",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "ai-engineer",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "No attributable event-matched attention remains; claim documents cannot substitute for current attention evidence."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      },
+      {
+        "topic_id": "gemini-mac-computer-use-nov19",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "google",
+            "remaining_evidence_urls": [
+              "https://appleinsider.com/articles/26/11/19/gemini-can-now-control-mac-apps-but-you-still-shouldnt-let-it"
+            ],
+            "attention_band": "limited",
+            "reason": "Only one originating family remains, weakening independent breadth even if the remaining audience count is large."
+          },
+          {
+            "family_id": "appleinsider",
+            "remaining_evidence_urls": [
+              "https://x.com/GeminiApp/status/2123513203745538423"
+            ],
+            "attention_band": "limited",
+            "reason": "Only one originating family remains, weakening independent breadth even if the remaining audience count is large."
+          }
+        ],
+        "reviewed_at": "2026-11-20T23:02:15Z"
+      }
+    ],
+    "interpretation": "A documented editorial sensitivity check, not a popularity score or proof of publisher independence."
+  },
+  "change_evaluations": [
+    {
+      "change_id": "NOV16-P1-09",
+      "reviewed_edition": "2026-11-20",
+      "decision": "revise",
+      "result": "not_met",
+      "reason": "Due-edition AAR marks searchesINVALID and provides no verified selected mappings. The evidence criterion was not met; actual unrecorded searches and causal selection yield remain unknown rather than zero.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0898773cbb7e9b74b4b194ab577670195bc4a3bb/daily/2026-11-19/combined.json",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0898773cbb7e9b74b4b194ab577670195bc4a3bb/daily/2026-11-19/improvement-metrics.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-01",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Producer preserves ten real identities and30 useful queries. Prospective Compiler canonical searches, candidate associations and selections are not yet independently observed.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md"
+      ]
+    },
+    {
+      "change_id": "NOV20-05",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "All eight added discovery routes were genuinely screened, with two MIT routes grouped. Zero complete program reviews were possible; candidate-pool and final video outcomes belong to Compiler and remain unobserved.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/docs/automation/NOV20_APPROVED_AAR_IMPLEMENTATION.md"
+      ]
+    },
+    {
+      "change_id": "NOV20-06",
+      "reviewed_edition": "2026-11-21",
+      "decision": "revise",
+      "result": "not_met",
+      "reason": "Observed14 native calls and only1 first-pass acceptance miss both advisory efficiency goals; final glyph audit exposed three provisionally missed defects. Source and saved-pixel quality gates remain unchanged.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/six-frozen-specs.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-12",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Continue existing IMG19 November20–22 evaluation without restarting. Only two eligible edition observations are available and current live release plus owner artistic response are not yet verified.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/recent-reference-index.json"
+      ]
+    }
+  ],
+  "video_publisher_families": {
+    "status": "VERIFIED",
+    "families": [
+      "fox-news",
+      "cbs"
+    ],
+    "original_programs": 2,
+    "source_urls": [
+      "https://www.foxnews.com/video/6408385442112",
+      "https://www.cbsnews.com/video/this-doctor-saved-his-own-life-now-he-hopes-ai-can-discover-new-uses-for-old-drugs/"
+    ],
+    "evidence": "validated_original_publisher_identity_in_selected_edition_bundle"
+  },
+  "video_discovery": {
+    "status": "RECORDED",
+    "registered": 37,
+    "attempted": 37,
+    "candidate_sources": 3,
+    "candidate_yield_percent": 8.1,
+    "interpretation": "Candidate-bearing discovery routes; not proof of original-program playback or editorial qualification."
+  },
+  "owner_prompt_evidence": {
+    "status": "NOT_RECORDED",
+    "required": null
+  },
+  "image_editorial_quality": {
+    "status": "RECORDED",
+    "reviewed_stories": 6,
+    "nearest_prior_comparisons": 6,
+    "reviewed_at": "2026-11-21T03:52:53.205931Z",
+    "reviewer": "Executing fenced November21 image reviewer",
+    "reference_editions": [
+      "2026-11-20",
+      "2026-11-19",
+      "2026-11-18",
+      "2026-11-17",
+      "2026-11-16",
+      "2026-11-15",
+      "2026-11-14"
+    ],
+    "owner_feedback": "UNKNOWN",
+    "owner_feedback_evidence": null,
+    "set_observation": "Actual final six-up has six distinct silhouettes and text architectures, with useful source-specific internal detail. Serif weight and some cream label surfaces recur, but dominant shapes, media, focal masses and reading paths differ in all fifteen pairs. Earlier edge defects required targeted successors. Owner reception remains unknown.",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/six-frozen-specs.json",
+    "stories": [
+      {
+        "story_id": "nov21-t1-medchembench",
+        "sha256": "0522b0ab07ca178fac4fd1c2f45b556fcfb10dfbe620f360fba2aa9c83874b6f",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Full saved1200x630 and actual320px inspected: molecular source/reconstruction feeds property reasoning through exactly one directed arrow. Cell activity, membrane permeability and metabolism assays form headless associations; withheld comparison remains separate. Six exact labels are now safely inset; pseudo-plot and extra arrow removed. No drug-discovery claim. Priority explanation is readable inline; fine assay detail and secondary comparison text benefit from full-size view. Set comparison still pending.",
+        "text_architecture_observation": "Direct open scientific annotations. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
+        "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
+        "assessment": "inconclusive",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/bcd19073d469301980f9cf8cfc8e6ebe30f92cd8/external-image-packages/2026-11-21/images/nov21-t1-medchembench.png",
+        "supported_substages": [
+          {
+            "description": "Published structures and earlier findings supply context for reconstruction, explanation, selection and property prediction.",
+            "support_claim_id": "primary-1"
+          },
+          {
+            "description": "Predictions are compared with withheld later experimental evidence; competing properties can trade off.",
+            "support_claim_id": "primary-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Predictions are compared with withheld later experimental evidence; competing properties can trade off.",
+            "support_claim_id": "primary-2"
+          },
+          {
+            "description": "Benchmark credit does not establish new drug discovery or improved laboratory decisions.",
+            "support_claim_id": "primary-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-18",
+          "story_id": "nov18-t1-sciresearch-eval",
+          "asset_sha256": "febada1f00a1d50e328c48073e35367d5d904215b4966dde04f675207b676710",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/external-image-packages/2026-11-18/images/nov18-t1-sciresearch-eval.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "2026-11-18 nov18-t1-sciresearch-eval: Unlike the earlier separate heating and model-fit housings, this is one continuous scientific specimen section with a visibly isolated withheld-evidence sleeve."
+        }
+      },
+      {
+        "story_id": "nov21-t2-harness-adapters",
+        "sha256": "ee96afbc1b1a97d6b3d57aea3f3bb5584f7f4a0ce138ee5cb267c79d6ff215c4",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Actual complete1200x630 and320px inspected: one training-to-adapter arrow terminates at a visible low-rank leaf port above unchanged base weights. Registration guides remain headless; validation controls are blank, and held-out versus unfamiliar task shapes are separated by a distribution boundary. Check and cross symbols removed; six exact labels now fit mandatory glyph margins. No transferable-general-intelligence claim or plotted benchmark. The purple diagonal etched assembly contrasts with the teal chemistry specimen section. Main labels are recognizable at320px; fine low-rank and test-shape details benefit from full-size viewing. All fifteen current-set pairs subsequently inspected.",
+        "text_architecture_observation": "Integrated layer captions and open side callouts. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
+        "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
+        "assessment": "inconclusive",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/0b9819271f83dfd2e83a6b684809262d1a7a3458/external-image-packages/2026-11-21/images/nov21-t2-harness-adapters.png",
+        "supported_substages": [
+          {
+            "description": "LoRA training occurs inside the target harness while base model weights remain fixed.",
+            "support_claim_id": "primary-1"
+          },
+          {
+            "description": "Validation rejects defective verifiers; difficulty screening finds partly solvable tasks.",
+            "support_claim_id": "primary-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Validation rejects defective verifiers; difficulty screening finds partly solvable tasks.",
+            "support_claim_id": "primary-2"
+          },
+          {
+            "description": "In-harness efficiency gains do not establish out-of-distribution transfer.",
+            "support_claim_id": "primary-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-14",
+          "story_id": "nov14-t2-managed-agents",
+          "asset_sha256": "b662456ebcef9234449ab383529cecd457504068da0b154e92e5bfbb2f962302",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/external-image-packages/2026-11-14/images/nov14-t2-managed-agents.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "2026-11-14 nov14-t2-managed-agents: The earlier managed-agent image encloses servers inside an infrastructure boundary; this isolates a thin trained update above unchanged weights and separates unseen task distributions."
+        }
+      },
+      {
+        "story_id": "nov21-k1-feedback-quality-bar",
+        "sha256": "b7e428cbb586265257aca23feefb945477697d60f1ffe652ae54f5c6fa5e6861",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Full saved1200x630 and real320px inspected. The continuous coral/navy fan preserves conversation context, reviewer ratings/tags/comments/expected-output roles, curated expected outputs and separate rubric inspection. Exactly two causal arrows now attach at the trace annotation join and visible dataset inlet port; comparison braces remain headless. Star and X removed. Seven exact labels fit40px glyph margins and explain evaluation rather than model training. Distinct fan silhouette, woven seams and curved text architecture contrast with chemistry dissection and exploded adapter. At320px main headings and relationship read; fine blank specimen roles and secondary text benefit from full-size viewing. All fifteen current-set pairs subsequently inspected.\n Final targeted successor raises the detached caveat; original y591 predecessor retained. New full-size glyphs remain above mandatory floor.",
+        "text_architecture_observation": "Labels integrated with open fan margins. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
+        "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
+        "assessment": "inconclusive",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/40d55278d1889266d8272f9a7ccddeb7b29bce22/external-image-packages/2026-11-21/images/nov21-k1-feedback-quality-bar.png",
+        "supported_substages": [
+          {
+            "description": "Reviewers annotate production traces with ratings, tags, comments and expected outputs.",
+            "support_claim_id": "primary-1"
+          },
+          {
+            "description": "Selected annotated traces become curated datasets and reviewed task-specific rubric criteria.",
+            "support_claim_id": "primary-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Selected annotated traces become curated datasets and reviewed task-specific rubric criteria.",
+            "support_claim_id": "primary-2"
+          },
+          {
+            "description": "Expected outputs are preserved; sensitive trace retention and access need review.",
+            "support_claim_id": "primary-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-16",
+          "story_id": "nov16-a2-rsi-assumptions",
+          "asset_sha256": "db317e62d1d4d82578d738e1ce0ebb902b036974519727dfc5549de93e23a5e1",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/external-image-packages/2026-11-16/images/nov16-a2-rsi-assumptions.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "2026-11-16 nov16-a2-rsi-assumptions: Earlier research feedback uses a circular compute wheel; this fan preserves expected outputs and separates rubric generation from response comparison, with no autonomous learning loop."
+        }
+      },
+      {
+        "story_id": "nov21-k2-governed-context",
+        "sha256": "5cf53fddbb9708469c5e7ebc01436e43693a76bd08a70f3b86235518caea2f23",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Complete saved1200x630 and320px inspected. Two distinct governed-definition and curated-document bridge spans share three scoped table strata and converge through exactly two arrows on visible answer ports. Definition plate, domain boundary, explanatory page, instruction fold and document retrieval remain distinct. End-to-end comparison brace is headless and local-rule maintenance plus vendor-study caveat stay detached. Seven exact labels are inset beyond40px; five ornate label frames removed. Copper/forest engraved bridge silhouette differs from the prior canopy context image and the current fan, adapter and chemistry section. Primary relationship reads at320px; fine domain and retrieval parts benefit from full-size viewing. No benchmark guarantee or invented numerical results. All fifteen current-set pairs subsequently inspected.\n Final targeted successor raises maintenance and vendor-study glyphs above safety floor; exact predecessor retained.",
+        "text_architecture_observation": "Open architectural captions and headless provenance guides. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
+        "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
+        "assessment": "inconclusive",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/395b023631c67fa2528ca13d2940af8979ca5f02/external-image-packages/2026-11-21/images/nov21-k2-governed-context.png",
+        "supported_substages": [
+          {
+            "description": "Governed Metric Views and Pages make business definitions accessible through different answer routes.",
+            "support_claim_id": "primary-1"
+          },
+          {
+            "description": "Curated agents supplied document access while the governed layer resolved definition questions.",
+            "support_claim_id": "primary-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Curated agents supplied document access while the governed layer resolved definition questions.",
+            "support_claim_id": "primary-2"
+          },
+          {
+            "description": "Test end-to-end answers and maintain business logic left in agents; results come from fictional businesses.",
+            "support_claim_id": "primary-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-20",
+          "story_id": "nov20-a1-governed-context",
+          "asset_sha256": "cc99b1602e88117fb27306817ed0196a26b938d776af985c9689a66b68287fa4",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/external-image-packages/2026-11-20/images/nov20-a1-governed-context.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "2026-11-20 nov20-a1-governed-context: Earlier context image uses a metadata canopy over an access gate; this bridge separates definition and document answer routes, with a common data bed and no permission-to-correctness implication."
+        }
+      },
+      {
+        "story_id": "nov21-a1-duplex-calling",
+        "sha256": "5b7d13c8d481da92006473c62767985207a5f7b67b36e498982d8d03f44df2c5",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Full saved1200x630 and actual320px inspected. Turquoise/ochre acoustic S-section has bounded task input, interleaved understanding/planning/dialogue leaves, compressed speech membrane and separate background-noise envelope, two permitted arrows to core and physical phone-line port, integrated disclosure, stopped merchant opt-out and headless call-summary association. Seven exact labels fit40px glyph safety. No brand mark, people, extra arrows or automatic-payment promise. Large flowing acoustic silhouette and watercolor medium differ from the bridge, etched adapter, fan and chemistry specimen. Priority labels remain readable at320px; fine acoustic texture and minor captions benefit from full size. Operator-account caveat is detached. All fifteen current-set pairs subsequently inspected.",
+        "text_architecture_observation": "Integrated acoustic labels on open white. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
+        "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
+        "assessment": "inconclusive",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/9229a60733aecac65ffdd969be8d65923d6501a3/external-image-packages/2026-11-21/images/nov21-a1-duplex-calling.png",
+        "supported_substages": [
+          {
+            "description": "A free-text task is handled by unified multimodal understanding, planning and dialogue generation.",
+            "support_claim_id": "primary-1"
+          },
+          {
+            "description": "Live calls disclose the automated agent and merchants can opt out.",
+            "support_claim_id": "primary-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Live calls disclose the automated agent and merchants can opt out.",
+            "support_claim_id": "primary-2"
+          },
+          {
+            "description": "Noisy acoustic telephony and conversation cadence remain specific operating challenges.",
+            "support_claim_id": "primary-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-18",
+          "story_id": "nov18-a1-gemini-tasks",
+          "asset_sha256": "efd218b48eec99f05fd7114b9c320ed88eec4e3f3a7dd4e292c6b69b0daf5fbc",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/external-image-packages/2026-11-18/images/nov18-a1-gemini-tasks.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "2026-11-18 nov18-a1-gemini-tasks: Earlier task image uses a glass room and separate buying barrier; this is a non-scenic acoustic section with a visible disclosure tab and merchant-controlled stopped call branch."
+        }
+      },
+      {
+        "story_id": "nov21-a2-accounting-skill",
+        "sha256": "a4b9102a5fba33e9c6b1b7bab0faaac90bb8c66d4d5fdc865d2534d752389b83",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Complete saved1200x630 and actual320px inspected. Two crossed authorized record rails align through company/period/rule scope tabs and cited notched matches; duplicate pair, missing-record gap and uncertainty flag remain in a separate exception channel. Exactly two arrows lead from authorized source object to proposed matches and into physical reviewer-boundary port; no arrow continues to the posting specimen. Seven exact labels fit40px saved glyph margins. Blank record faces contain no writing or invented amounts. The graphite/burgundy forensic spread differs from earlier film Skill and current acoustic S-section, copper bridge, coral fan, violet adapter and teal chemistry section. Priority labels and review boundary recognizable at320px; fine record-notch detail uses full-size viewer. All fifteen current-set pairs subsequently inspected.\n Final targeted successor insets Reviewer sign-off and lower no-posting caption; exact predecessor retained after final audit.",
+        "text_architecture_observation": "Open marginal captions and integrated scope tabs. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
+        "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
+        "assessment": "inconclusive",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/images/nov21-a2-accounting-skill.png",
+        "supported_substages": [
+          {
+            "description": "Same-period bank and ledger records produce proposed matches with source row references and separately listed exceptions.",
+            "support_claim_id": "primary-1"
+          },
+          {
+            "description": "Review company, destination and amounts before approving an entry; uncertainty and duplicate checks remain explicit.",
+            "support_claim_id": "primary-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Review company, destination and amounts before approving an entry; uncertainty and duplicate checks remain explicit.",
+            "support_claim_id": "primary-2"
+          },
+          {
+            "description": "A reviewed recurring format and checks can be saved as a Skill, with new period records each run.",
+            "support_claim_id": "primary-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-20",
+          "story_id": "nov20-a2-video-skill",
+          "asset_sha256": "d54a319dc41026c191d8248eebe03d244b55d885c29e70c4458cdcbf87977d10",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a021413138e92358bb5b6c5bffc08cb5e5e915c5/external-image-packages/2026-11-20/images/nov20-a2-video-skill.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "2026-11-20 nov20-a2-video-skill: Earlier reusable editing procedure has a diagonal film spine with validation branches; this crosses two same-period record rails and isolates accounting exceptions before sign-off, without a folio or media metaphor."
+        }
+      }
+    ],
+    "artistic_success_not_inferred": true,
+    "source_support_independently_verified": false
+  }
+}
