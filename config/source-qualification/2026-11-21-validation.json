@@ -1,0 +1,35 @@
+{
+  "schema_version": "source-development-validation-v1",
+  "observed_at": "2026-11-21T16:54:33.714940+00:00",
+  "scope": "SOURCE_QUALIFICATION_ONLY_NOT_PRODUCTION_OUTCOME",
+  "full_test_run": {
+    "runtime": "Node v20.20.2 (matching existing protected CI major version)",
+    "tests": 820,
+    "passed": 820,
+    "failed": 0,
+    "log_sha256": "734803b8bb06a26d8a692d90285f584365e963f272314178b9d8a2e47ad5f7f1"
+  },
+  "checks": {
+    "bootstrap": "PASS",
+    "fixture_e2e": "PASS",
+    "reader_parity": "PASS",
+    "registry_schema": "PASS",
+    "prior_128_enabled_objects_field_identical": "PASS",
+    "all_216_ids_preserved": "PASS",
+    "nine_repaired_routes_actual_http_200": "PASS"
+  },
+  "earlier_test_failure": {
+    "runtime": "Node v24.22.3",
+    "tests": 820,
+    "passed": 814,
+    "failed": 6,
+    "causes": [
+      "Five historical admission assertions read a mutable current registry; their exact historical expectations now run against the preserved pre-November-21 snapshot. Current admissions have separate tests.",
+      "One unchanged image-job copy test hit Node 24 ERR_FS_CP_EEXIST; the same full suite passed under the existing CI Node 20 version. No image implementation or safeguard was altered."
+    ]
+  },
+  "protected_ci": "Required on exact PR head before permitted merge; not inferred from local checks",
+  "limitations": [
+    "No selected story quality, full media playback, publication, scheduled execution, billing or future source yield certified."
+  ]
+}

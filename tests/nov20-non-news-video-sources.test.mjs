@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {buildVideoSourceSweepPlan} from '../operations/video-source-sweep.mjs';
 import {validateResourceRegistry} from '../operations/resources.mjs';
-const registry=JSON.parse(fs.readFileSync('config/resource-registry.json'));
+// Preserve the November 20 source expansion baseline; November 21 admission is tested separately.
+const registry=JSON.parse(fs.readFileSync('fixtures/resource-registry-pre-nov21-source-qualification.json'));
 const ledger=JSON.parse(fs.readFileSync('config/video-source-qualification/2026-11-20-non-news.json'));
 test('eight evidenced non-news discovery routes extend rather than replace the existing portfolio',()=>{
  assert.deepEqual(validateResourceRegistry(registry),[]);
