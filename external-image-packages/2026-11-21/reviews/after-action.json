@@ -4,7 +4,7 @@
   "job_sha256": "4344338c3160e69b5b77f70f32a292b7b071b481233919c9f14096b3c6ecf6be",
   "original_source_commit_sha": "53ff037378901892ca3dc9e95619847fa91d4b42",
   "original_bundle_sha256": "5176fde9d72652cc7f25161e21acf4512397e04abe152266c7822aac6b98cfbf",
-  "status": "LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING",
+  "status": "PUBLISHED_COMPLETE",
   "human_readable_path": "external-image-packages/2026-11-21/reviews/after-action.md",
   "production": {
     "actual_generation_count": 14,
@@ -22,7 +22,10 @@
     "original_cycle_date": "2026-11-20",
     "provisional_acceptance_revoked_for_saved_pixel_defect": 3,
     "immutable_predecessors_preserved": true,
-    "final_qualified_asset_regenerated_for_transport_ci_or_deployment": 0
+    "final_qualified_asset_regenerated_for_transport_ci_or_deployment": 0,
+    "elapsed_basis": "Difference of actual same-invocation trusted UTC start and public completion observations; includes generation/reviews/CI/deployment recovery, not invocation finish, native-only compute or billable usage.",
+    "public_completion_observed_at": "2026-11-21T04:17:19Z",
+    "observed_execution_to_public_completion_seconds": 3758
   },
   "images": [
     {
@@ -174,12 +177,22 @@
     {
       "phase": "Final status metadata deployment",
       "issue": "Original image-only release44863696999 deployed images, verified six hashes/12 pairings and17 protected objects, and captured24 contexts. Final Pages metadata artifact lookup failed despite uploaded artifact. Existing connector lacks dispatch; cloud is signed out.",
-      "correction": "Preserve every accepted image. Protect the actual24-context semantic review and exact captures; add a current-edition-only receipt-merge resume to existing metadata-sync workflow, with original-run/history/review/manifest binding and all existing postrelease verification gates. Outcome pending."
+      "correction": "Preserve every accepted image. Protect the actual24-context semantic review and exact captures; add a current-edition-only receipt-merge resume to existing metadata-sync workflow, with original-run/history/review/manifest binding and all existing postrelease verification gates. Outcome pending. Verified outcome: existing metadata-sync run 44865220417 succeeded, reusing the exact protected24-context review and preserving all accepted PNGs."
+    },
+    {
+      "phase": "Metadata sync attempt1",
+      "issue": "Existing sync44864730831 attempt1 uploaded artifact14691566314 but immediate Pages lookup reported zero artifacts. The exact service-side cause of visibility lag is unknown.",
+      "correction": "Protected PR398 added bounded exact-attempt artifact visibility proof before the same existing deploy-pages action; no accepted image changed."
+    },
+    {
+      "phase": "Metadata sync attempt2",
+      "issue": "Normal failed-job retry uploaded artifact14691710261 under the same run-only name; Pages then found two matching artifacts and failed closed.",
+      "correction": "Protected PR398 made upload/deploy names unique by run_id plus run_attempt and resumed the same current-edition metadata lane. Final observed successful run is https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44865220417"
     }
   ],
   "publication": {
-    "result": "LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING",
-    "verified_at": "2026-11-21T03:58:46.275Z",
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-11-21T04:17:19Z",
     "actions_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44863696999",
     "package_pr": 396,
     "package_merge_sha": "35db628ee665e28df9cb6c517cf8745aacda0659",
@@ -187,7 +200,12 @@
     "live_hashes_verified": 6,
     "article_pairings_verified": 12,
     "protected_oct8_objects_verified": 17,
-    "public_status": "PENDING_METADATA_SYNC"
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "metadata_sync_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44865220417",
+    "metadata_only": true,
+    "accepted_image_replacements_during_sync": 0,
+    "metadata_sync_artifact_id": 14691835466,
+    "metadata_sync_archive_sha256": "3cd60f8f47792b2e75e0de2453dc7a135145fb4baf11422fd9cbdc27916d337c"
   },
   "visual_review": {
     "result": "PASS",
@@ -205,7 +223,8 @@
     "Fourteen actual calls, one first-pass accept and eight rejected candidates miss the advisory four-first-pass/eight-call goals. Three final-audit corrections were needed after erroneous provisional acceptance; this is an observed review weakness, not proof of better artistic outcomes.",
     "All six final exact RGB PNGs have complete export, saved full-size/320px review and immutable GitHub byte readbacks. Fifteen current-set comparisons and seven-edition history evidence recorded. All24 captured live contexts now visually inspected and PASS; raw capture bytes preserved.",
     "Owner artistic acceptance, actual billing and sourced usage remain UNKNOWN. No new tasks, schedules, services, paid model API or change to completed history.",
-    "The three provisional margin misses require moving precise glyph audit before provisional lock in future genuine work. Four-first-pass/eight-call advisory goals were not met; implementation does not establish efficacy. IMG19-01..08 three-edition Nov20\u201322 evaluation remains due Nov22."
+    "The three provisional margin misses require moving precise glyph audit before provisional lock in future genuine work. Four-first-pass/eight-call advisory goals were not met; implementation does not establish efficacy. IMG19-01..08 three-edition Nov20\u201322 evaluation remains due Nov22.",
+    "Final metadata-only sync succeeded and independently verified public receipt/index status with all six live accepted hashes,12 pairings and17 protected Oct8 bytes. All24 actual captured contexts PASS and exact remote capture/review byte readbacks match. No native call was made after final accepted lock."
   ],
   "editorial_quality_review": {
     "schema_version": "image-editorial-quality-review-v1",
@@ -233,7 +252,7 @@
         "sha256": "0522b0ab07ca178fac4fd1c2f45b556fcfb10dfbe620f360fba2aa9c83874b6f",
         "fullsize_pixels_inspected": true,
         "mobile_320_pixels_inspected": true,
-        "detail_observation": "Full saved1200x630 and actual320px inspected: molecular source/reconstruction feeds property reasoning through exactly one directed arrow. Cell activity, membrane permeability and metabolism assays form headless associations; withheld comparison remains separate. Six exact labels are now safely inset; pseudo-plot and extra arrow removed. No drug-discovery claim. Priority explanation is readable inline; fine assay detail and secondary comparison text benefit from full-size view. Set comparison still pending.",
+        "detail_observation": "Full saved1200x630 and actual320px inspected: molecular source/reconstruction feeds property reasoning through exactly one directed arrow. Cell activity, membrane permeability and metabolism assays form headless associations; withheld comparison remains separate. Six exact labels are now safely inset; pseudo-plot and extra arrow removed. No drug-discovery claim. Priority explanation is readable inline; fine assay detail and secondary comparison text benefit from full-size view. Set comparison subsequently completed with all15 current pairs recorded in the locked manifest.",
         "text_architecture_observation": "Direct open scientific annotations. Actual saved text was inspected against all exact labels; set review compares framing and reading paths.",
         "mobile_observation": "Primary relationship and priority labels were inspected at actual320px; fine internal details and smaller caveats benefit from the existing full-size viewer.",
         "assessment": "inconclusive",
@@ -480,10 +499,114 @@
       "reviewed_edition": "2026-11-21",
       "decision": "keep",
       "result": "inconclusive",
-      "reason": "Continue existing IMG19 November20\u201322 evaluation without restarting. Only two eligible edition observations are available and current live release plus owner artistic response are not yet verified.",
+      "reason": "Continue the same IMG19 November20\u201322 experiment without restarting. Two eligible editions now each show14 calls and1 first-pass accept. Current image/live/status completion is verified; artistic efficacy and three-edition results remain inconclusive until the due November22 observation.",
       "evidence_refs": [
         "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/eefe31327651186612fccad0f66218d5389e22e9/external-image-packages/2026-11-21/reviews/recent-reference-index.json"
       ]
+    },
+    {
+      "change_id": "IMG19-01",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Two required substages and source-supported secondary relationships were checked in each full-size image. Current saved-pixel evidence exists for six assets; two eligible editions cannot establish improved usefulness or owner artistic acceptance.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/six-frozen-specs.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-02",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Actual six-up and all15 current pairs show molecular section, exploded adapter, woven fan, architectural bridge, acoustic S-section and record rails. Some cream surfaces and serif weight recur; owner reception and three-edition efficacy remain unknown.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/six-frozen-specs.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-03",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Each image retains an exact prior asset hash/reference and actual saved-pixel nearest-neighbor distinction. Seven preceding sets were reviewed; the current two eligible-edition sample cannot establish sustained novelty or owner preference.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/recent-reference-index.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-04",
+      "reviewed_edition": "2026-11-21",
+      "decision": "revise",
+      "result": "not_met",
+      "reason": "The current eligible edition needed14 native calls and1 first-pass acceptance, matching November20 totals and missing both advisory goals. Eight true rejections have localized receipts; do not cap attempts or lower quality. The complete three-edition experiment remains due November22.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/after-action.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-05",
+      "reviewed_edition": "2026-11-21",
+      "decision": "revise",
+      "result": "not_met",
+      "reason": "Saved full-size and320px checks ultimately yielded six final qualified images, but three provisional locks missed1\u20132px glyph-margin defects found in the final audit. Preserve predecessors and move precise glyph auditing before provisional lock in future genuine work; no improved first-pass margin result is claimed.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/six-frozen-specs.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-06",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "The complete67158-byte24-target semantic review and all24 raw capture binaries matched exact GitHub readbacks. Metadata deployment failed separately and was repaired without image regeneration. Final existing report reconciliation will be checked; three-edition reporting reliability is not yet established.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-07",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Internal saved-pixel and24-context PASS provides technical and editorial review evidence only. No new owner aesthetic feedback exists in this invocation; artistic improvement remains unknown and the third eligible edition has not occurred.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/after-action.json"
+      ]
+    },
+    {
+      "change_id": "IMG19-08",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Borrowed open annotation, visible source ports and a detached caveat while changing the source-driven compositions. Actual nearest-prior comparisons are recorded instead of copying a single shell. Two eligible editions and absent owner feedback cannot establish lasting artistic improvement.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/six-frozen-specs.json"
+      ]
+    },
+    {
+      "change_id": "AAR-09",
+      "reviewed_edition": "2026-11-21",
+      "decision": "keep",
+      "result": "met",
+      "reason": "All8 actual rejected generation attempts have unique story/attempt identities, saved-pixel defect codes and exact correction receipts. The three metadata deployment failures are separate transport/release events and do not inflate generation defects.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/1aef849a0efef828a4ca68747c05021a604804de/external-image-packages/2026-11-21/reviews/after-action.json"
+      ]
     }
-  ]
+  ],
+  "completion_dimensions": {
+    "reader_publication": "VERIFIED",
+    "images": "SIX_LIVE_HASHES_VERIFIED",
+    "image_contexts": "24_OF_24_ACTUAL_PIXELS_PASS",
+    "public_status_metadata": "VERIFIED",
+    "protected_oct8_bytes": "17_OF_17_VERIFIED",
+    "top10": "OUTSIDE_IMAGE_ROLE",
+    "overall_editorial_evidence": "NOT_CERTIFIED_BY_IMAGE_ROLE",
+    "autonomy": "UNPROVEN",
+    "runtime": "Native Image Creation actually invoked14 times; GitHub CI/Pages actually observed",
+    "billing": "UNKNOWN",
+    "usage": "UNKNOWN",
+    "owner_artistic_acceptance": "UNKNOWN"
+  }
 }
