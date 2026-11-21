@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json'
+      - 'config/image-metadata-sync-resume-2026-11-21.json'
   workflow_dispatch:
     inputs:
       edition_date:
@@ -24,6 +25,7 @@ on:
         required: true
         default: verify_only
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -60,7 +62,11 @@ jobs:
           test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           git merge-base --is-ancestor 35db628ee665e28df9cb6c517cf8745aacda0659 HEAD
           REVIEW=external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json
-          git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$REVIEW"
+          if ! git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$REVIEW"; then
+            RESUME=config/image-metadata-sync-resume-2026-11-21.json
+            git diff --name-only "$GITHUB_SHA^1" "$GITHUB_SHA" | grep -Fx "$RESUME"
+            jq -e '.edition_date=="2026-11-21" and .original_release_run_id==44863696999 and .failed_sync_run_id==44864730831 and .history_head=="72f541447da6ae0349b97e0f5f2ffb712b47da7b"' "$RESUME" >/dev/null
+          fi
           test "$(sha256sum "$REVIEW" | cut -d' ' -f1)" = 634a586ee89fba6098b8588b670f708fcbc059ff083ee77ebe830bb0de747c33
           test "$(sha256sum external-image-packages/2026-11-21/manifest.json | cut -d' ' -f1)" = 14ad7c6732ccb361e57672a8b8b7f81d34962ad950ef4554c67ece57f674ee12
           # Original deployment and byte/context capture succeeded; only its final
@@ -220,12 +226,35 @@ jobs:
         if: env.MODE == 'sync_metadata'
         with:
           path: history/site
-          name: image-metadata-sync-${{ github.run_id }}
+          name: image-metadata-sync-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for this exact attempt artifact before existing Pages deployment
+        if: env.MODE == 'sync_metadata'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: image-metadata-sync-${{ github.run_id }}-${{ github.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 15); do
+            artifacts="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?per_page=100")"
+            count="$(jq --arg name "$ARTIFACT_NAME" '[.artifacts[] | select(.name==$name and .expired==false and .size_in_bytes>0)] | length' <<< "$artifacts")"
+            if [ "$count" = 1 ]; then
+              echo "EXACT_ATTEMPT_ARTIFACT_VISIBLE name=$ARTIFACT_NAME"
+              exit 0
+            fi
+            if [ "$count" -gt 1 ]; then
+              echo '::error::AMBIGUOUS_CURRENT_ATTEMPT_ARTIFACT'
+              exit 1
+            fi
+            if [ "$attempt" -lt 15 ]; then sleep 2; fi
+          done
+          echo '::error::CURRENT_ATTEMPT_ARTIFACT_NOT_VISIBLE'
+          exit 1
       - id: deployment
         if: env.MODE == 'sync_metadata'
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: image-metadata-sync-${{ github.run_id }}
+          artifact_name: image-metadata-sync-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Verify metadata and live assets again after optional deployment
         if: env.MODE == 'sync_metadata'
         shell: bash
