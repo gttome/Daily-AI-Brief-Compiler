@@ -701,9 +701,9 @@
       "quality_floor_unchanged": true
     },
     "image_review": {
-      "semantic_review_completed_at": null,
-      "review_record_commit_at": null,
-      "review_merge_at": null
+      "semantic_review_completed_at": "2026-11-21T04:04:41Z",
+      "review_record_commit_at": "2026-11-21T04:07:28.000Z",
+      "review_merge_at": "2026-11-21T04:09:59.000Z"
     },
     "usage_percent": null,
     "usage_caveat": "No inferred usage or cost; use independently provided usage evidence only."
@@ -964,7 +964,7 @@
       "attention": "Specific-event video reach, two same-source interval comparisons, public discussion and independent coverage. No sum of overlapping audiences or platform scores.",
       "limitations": "Direct counters and full playback unavailable; exact ranking unverified. Useful topics without matched attention stay outside retained ten."
     },
-    "source_commit": "d22bdd9df99b33229746943be0a47ad9a5b2a752",
+    "source_commit": "a1098d987ba20ff3d545b56f7aa58ddaac821a91",
     "source_blob_sha": "b0ce8390eb21e13193f4278821fa492089874afb",
     "report_sha256": "cf942b03927669e156088adb64ab698e340a975bcfa9e5803004978e67556b68",
     "consumed_source_commit": "63bb1d49855af609e2a39419ad3fe551095ee2ad",
@@ -1129,7 +1129,7 @@
       },
       "previous_cycle": "2026-11-19",
       "previous_report_sha256": "cb7b50fa363cc2ffae6fcef05e2a9e2dd936683032a9964abac568902ad274e1",
-      "previous_aar_sha256": "5565bc11aca90f277c4559a9111102440027952999e0c8c628f67ebbc745428a",
+      "previous_aar_sha256": "0cc7c5180b910329655f14a243013b2894a9a8295d0494751988b03d63466228",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1409,14 +1409,14 @@
   "postpublication_video_playback_status": "TWO_PUBLISHED_VIDEOS_PLAYBACK_PASS",
   "image_route_preflight_recorded": true,
   "ci_incomplete_staging_failures_audited": false,
-  "publication_and_visual_complete": false,
+  "publication_and_visual_complete": true,
   "compiler_verified": true,
   "images_released": true,
-  "visual_24_pass": false,
+  "visual_24_pass": true,
   "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
-  "generation_start_observed_at": null,
+  "generation_start_observed_at": "2026-11-21T03:25:19.000Z",
   "scheduler_start_attested": false,
   "scientific_paper_coverage": {
     "status": "PRODUCER_REPORTED_BUNDLE_MATCH",
@@ -1452,7 +1452,7 @@
     },
     {
       "title": "Image review",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-21/reviews/live/image-element24/semantic-reviews.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json"
     },
     {
       "title": "Original image AAR",
@@ -1472,11 +1472,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d22bdd9df99b33229746943be0a47ad9a5b2a752/signals/ai-topic-top10/2026-11-20.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a1098d987ba20ff3d545b56f7aa58ddaac821a91/signals/ai-topic-top10/2026-11-20.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d22bdd9df99b33229746943be0a47ad9a5b2a752/signals/ai-topic-top10/2026-11-20.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/a1098d987ba20ff3d545b56f7aa58ddaac821a91/signals/ai-topic-top10/2026-11-20.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1656,7 +1656,7 @@
   },
   "status_dimensions": {
     "publication": "VERIFIED",
-    "images": "INCOMPLETE",
+    "images": "RELEASED_AND_24_CONTEXTS_VERIFIED",
     "top10": "RECEIPTS_OBSERVED",
     "system": "PARTIAL",
     "autonomy": "UNPROVEN",
@@ -2720,7 +2720,7 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-22",
       "cumulative_review_due_today": false,
-      "finding_count": 2,
+      "finding_count": 3,
       "open_production_blockers": 0,
       "findings": [
         {
@@ -2729,8 +2729,17 @@
           "owner": "Compiler / Recovery",
           "observation": "2 failed protected publication gates were recorded (1 unclassified causes).",
           "action": "Read original failed job logs, record real causes and move the relevant existing validation before the next readiness signal; do not replay the released edition.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
+          "timing": "NEXT_GENUINE_CYCLE",
           "kind": "RECURRENCE_PREVENTION"
+        },
+        {
+          "id": "PREMIUM_IMAGE_REWORK",
+          "priority": "P1",
+          "owner": "Images",
+          "observation": "8 rejected image candidates preceded the verified six-image release.",
+          "action": "Inspect saved rejection evidence and apply source-specific geometry, causal-arrow and label corrections before the next native generation.",
+          "timing": "NEXT_GENUINE_CYCLE",
+          "kind": "EFFICIENCY_LESSON"
         },
         {
           "id": "SCHEDULER_ORIGIN_UNPROVEN",
