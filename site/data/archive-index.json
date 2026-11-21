@@ -4,19 +4,65 @@
   "stories": [
     {
       "content_type": "Article",
-      "story_id": "dab-story-2026-11-20-m01",
-      "brief_date": "2026-11-20",
-      "event_date": "2026-11-19",
-      "headline": "OpenAI turns slow-session reports into measured performance fixes",
-      "url": "/stories/2026-11-20/nov20-t1-performance-factory/",
+      "story_id": "dab-story-2026-11-21-m01",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-20",
+      "headline": "MedChemBench tests frontier models on medicinal-chemistry decisions",
+      "url": "/stories/2026-11-21/nov21-t1-medchembench/",
       "focus": "technical_ai_engineering",
       "topics": [
-        "Latency diagnosis",
-        "Adversarial review",
-        "Recovery checks"
+        "Medicinal chemistry",
+        "Benchmark design",
+        "Property prediction"
       ],
       "companies": [
         "OpenAI"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [],
+      "summary": "OpenAI’s MedChemBench evaluates models on 99 medicinal-chemistry problems drawn from 117 papers and patents, covering 761 chemical structures. GPT-6.2 Astra scored 84.5%, while harder numerical property-prediction and selection questions remained weaker. The benchmark exposes source material, scoring rules and task structure so teams can inspect where apparent scientific competence breaks down."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-21-m02",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-20",
+      "headline": "Harness adapters improve one coding agent without proving transfer",
+      "url": "/stories/2026-11-21/nov21-t2-harness-adapters/",
+      "focus": "technical_ai_engineering",
+      "topics": [
+        "Harness adapters",
+        "Agent evaluation",
+        "Distribution shift"
+      ],
+      "companies": [
+        "Hugging Face"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent reliability and governance",
+        "Agent memory and context",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Hugging Face trained a separate LoRA adapter for each coding-agent harness using Qwen3.8-27B. The Pi adapter raised the reported score from 39% to 55% while cutting average tokens from 2,900 to 1,500. Out-of-distribution AutomationBench results stayed near the base model, leaving transfer beyond the trained harness unresolved."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-21-m10",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-18",
+      "headline": "Turn reviewer annotations into a reusable agent quality bar",
+      "url": "/stories/2026-11-21/nov21-k1-feedback-quality-bar/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "Human feedback",
+        "Golden datasets",
+        "Task rubrics"
+      ],
+      "companies": [
+        "Microsoft"
       ],
       "evidence_type": "publisher_authored",
       "availability_status": "available",
@@ -24,6 +70,169 @@
         "Agent reliability and governance",
         "Accessible agents for knowledge work"
       ],
+      "summary": "Microsoft describes a feedback loop that converts traces and reviewer annotations into golden datasets and task-level rubrics for agent evaluation. In its HelpSteer3 example, reported alignment with one human rose from 65% to 81%, versus 89% agreement between two people. The post also flags privacy, retention and access controls around collected feedback."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-21-m11",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-19",
+      "headline": "Governed context lifts agent answers beyond curated instructions alone",
+      "url": "/stories/2026-11-21/nov21-k2-governed-context/",
+      "focus": "applied_genai_knowledge_workers",
+      "topics": [
+        "Governed context",
+        "Agent accuracy",
+        "Business definitions"
+      ],
+      "companies": [
+        "Databricks"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Agent memory and context",
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Databricks tested 125 questions three times in a fictional insurance setting. Raw tables answered 64% correctly; curated agents and a governed semantic layer each reached 83%, while combining them reached 95%. Separate tests showed definitions and documents resolved different failures, and a 12-question change test checked whether updated policies propagated."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-21-m12",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-20",
+      "headline": "Gemini extends Duplex from restaurant calls to broader business tasks",
+      "url": "/stories/2026-11-21/nov21-a1-duplex-calling/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Voice agents",
+        "Business calling",
+        "Disclosure controls"
+      ],
+      "companies": [
+        "Google Research"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Google Research explains how Duplex evolved into Tasks in Gemini, which can call businesses on a user’s behalf. Gemini now unifies multimodal understanding, planning and dialogue while handling noisy calls with low latency. The system identifies itself as automated, supports merchant opt-outs and reuses approved details, but the account is operator-reported."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-21-m14",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-18",
+      "headline": "Build a reviewable accounting Skill from a recurring reconciliation",
+      "url": "/stories/2026-11-21/nov21-a2-accounting-skill/",
+      "focus": "agents_non_technical_people",
+      "topics": [
+        "Accounting Skills",
+        "Source citations",
+        "Reconciliation review"
+      ],
+      "companies": [
+        "OpenAI"
+      ],
+      "evidence_type": "publisher_authored",
+      "availability_status": "available",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "OpenAI’s accounting guide shows how to connect authorized records, specify company, period and accounting rules, then run reconciliation, invoice-entry, reporting and audit-support workflows. It recommends record citations, uncertainty flags, duplicate checks and human review. A stable recurring procedure can then be saved as a Skill without removing professional judgment."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-11-21-1",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-20",
+      "headline": "Gemini Neon and the cost of getting AI work finished",
+      "url": "/podcasts/2026-11-21/gemini-neon-and-the-cost-of-getting-ai-work-finished/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "Owen on the Net"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Accessible agents for knowledge work"
+      ],
+      "summary": "Jesse Owen’s dated episode reviews Gemini Neon, GPT-6.2 and related workflow changes through the cost of finishing real work rather than benchmark rank alone. The full transcript makes each claim inspectable, while the roundup format means listeners should follow the cited primary releases before treating any model comparison as settled."
+    },
+    {
+      "content_type": "Podcast",
+      "story_id": "dab-podcast-2026-11-21-2",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-20",
+      "headline": "Accounting AI Permissions Just Became Strategy",
+      "url": "/podcasts/2026-11-21/accounting-ai-permissions-just-became-strategy/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "DayLift Signal"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [],
+      "summary": "DayLift’s short episode analyzes accounting AI through connector permissions, source access and the difference between reading records and writing back to systems. The publisher discloses an AI-cloned voice and AI-assisted, human-reviewed production. Its practical value is a permission review, not independent proof that any accounting integration is safe."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-11-21-agent-skills",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-12",
+      "headline": "Doctor hopes AI can find rare disease cures",
+      "url": "/videos/2026-11-21/agent-skills/",
+      "focus": "agents_non_technical_people",
+      "topics": [],
+      "companies": [
+        "CBS News"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [],
+      "summary": "CBS Mornings profiles physician-researcher David Fajgenbaum, whose work identified an existing drug that helped treat his Castleman disease. The feature asks whether AI could search biomedical evidence for other repurposing candidates. It is an applied research story, not validation of an AI-discovered cure; claims should remain tied to clinical evidence and expert review."
+    },
+    {
+      "content_type": "Video",
+      "story_id": "dab-video-2026-11-21-general",
+      "brief_date": "2026-11-21",
+      "event_date": "2026-11-14",
+      "headline": "The fallout from the fall of Jensen Huang",
+      "url": "/videos/2026-11-21/general/",
+      "focus": "general_video",
+      "topics": [],
+      "companies": [
+        "Fox News"
+      ],
+      "evidence_type": "practitioner_analysis",
+      "availability_status": "not_applicable",
+      "trends": [
+        "Agent reliability and governance"
+      ],
+      "summary": "The Journal Editorial Report interview examines a hypothetical Nvidia leadership disruption and its possible effects on AI-chip production, market confidence and national-security policy. The discussion is useful as bounded scenario analysis, not evidence that a disruption has occurred. Readers should separate the stated assumptions, dependencies and policy judgments from verified operating facts."
+    },
+    {
+      "content_type": "Article",
+      "story_id": "dab-story-2026-11-20-m01",
+      "brief_date": "2026-11-20",
+      "event_date": "2026-11-19",
+      "headline": "OpenAI turns slow-session reports into measured performance fixes",
+      "url": "/stories/2026-11-20/nov20-t1-performance-factory/",
+      "focus": "historical_unspecified",
+      "topics": [
+        "Latency diagnosis",
+        "Adversarial review",
+        "Recovery checks"
+      ],
+      "companies": [
+        "How OpenAI Performance Factory keeps ChatGPT fast"
+      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "OpenAI says its Performance Factory investigated 1,700 slow-session reports and identified more than 600 root causes in just over three months. Engineers manually reviewed 100 generated suggestions: 70% were accurate while 30% needed refinement. The workflow adds an adversarial reviewer, engineer approval and post-deployment recovery checks before treating a diagnosis as resolved."
     },
     {
@@ -33,22 +242,18 @@
       "event_date": "2026-11-15",
       "headline": "A 71,677-PR study complicates claims about coding-agent quality",
       "url": "/stories/2026-11-20/nov20-t2-agent-prs/",
-      "focus": "technical_ai_engineering",
+      "focus": "historical_unspecified",
       "topics": [
         "Agent pull requests",
         "Review allocation",
         "Merge outcomes"
       ],
       "companies": [
-        "arXiv"
+        "Reliable Mining of Heterogeneous AI Coding-Agent Data: Context-Aware Prediction and Resource-Aware Ranking"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "Agent memory and context",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
+      "trends": [],
       "summary": "Researchers analyzed 71,677 pull requests attributed to six coding agents. Pooled coauthored changes merged less often than agent-only changes, but removing one dominant agent reversed that pattern, exposing composition effects. Adding context features improved reported merge prediction from 0.774 to 0.832 AUC. The observational study does not establish that any review practice caused acceptance."
     },
     {
@@ -58,16 +263,16 @@
       "event_date": "2026-11-16",
       "headline": "Frequent AI users report less time gathering information and writing",
       "url": "/stories/2026-11-20/nov20-k1-workplace-time/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "Workplace AI use",
         "Task time",
         "Survey limits"
       ],
       "companies": [
-        "Gallup"
+        "AI Is Changing How Employees Spend Time at Work"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
       "trends": [],
       "summary": "Gallup surveyed 21,648 U.S. employees in August and found 32% used AI frequently. Among frequent users, 52% reported spending less time gathering information and 47% less time writing, while meetings were largely unchanged. These are self-reported task shifts, not measured productivity. A separate field experiment provides different evidence and should not be blended."
@@ -76,19 +281,19 @@
       "content_type": "Article",
       "story_id": "dab-story-2026-11-20-m11",
       "brief_date": "2026-11-20",
-      "event_date": "2026-11-19",
+      "event_date": "2026-11-16",
       "headline": "Hugging Face and OpenRouter expose where open-weight inference is moving",
       "url": "/stories/2026-11-20/nov20-k2-openrouter-hf/",
-      "focus": "applied_genai_knowledge_workers",
+      "focus": "historical_unspecified",
       "topics": [
         "Open-weight inference",
         "Managed routing",
         "Population limits"
       ],
       "companies": [
-        "Hugging Face"
+        "Hugging Face and OpenRouter join forces to make open-weight models easy to run"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
       "trends": [],
       "summary": "Hugging Face and OpenRouter announced a managed inference integration while publishing OpenRouter traffic estimates that put open-weight models at 71.7% of tokens by late September, up from 26.8% in October 2025. The series describes one routing marketplace, not enterprise adoption. Vercel and Menlo provide different populations that require separate interpretation."
@@ -100,23 +305,18 @@
       "event_date": "2026-11-17",
       "headline": "Informatica brings governed business context into Copilot workflows",
       "url": "/stories/2026-11-20/nov20-a1-governed-context/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [
         "Governed context",
         "Data lineage",
         "Agent access"
       ],
       "companies": [
-        "Salesforce"
+        "Informatica from Salesforce brings Trusted Enterprise Data into Microsoft Copilot, Microsoft Foundry, and Microsoft Fabric"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Agent memory and context",
-        "AI-assisted development",
-        "Accessible agents for knowledge work"
-      ],
+      "trends": [],
       "summary": "Salesforce says Informatica now exposes business definitions, data quality, lineage and governance context inside Microsoft Copilot and Teams, with additional identity and audit controls for Foundry agents. The announcement includes a marketing-manager example and availability details, but it remains vendor evidence. Teams must verify what metadata, permissions and records their own deployment exposes."
     },
     {
@@ -126,21 +326,18 @@
       "event_date": "2026-11-14",
       "headline": "A reusable editing skill makes every media cut auditable",
       "url": "/stories/2026-11-20/nov20-a2-video-skill/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [
         "Agent Skills",
         "Transcript cuts",
         "Media validation"
       ],
       "companies": [
-        "Cole Medin"
+        "Edit video skill"
       ],
-      "evidence_type": "publisher_authored",
+      "evidence_type": "historical_unspecified",
       "availability_status": "available",
-      "trends": [
-        "Agent reliability and governance",
-        "Accessible agents for knowledge work"
-      ],
+      "trends": [],
       "summary": "Cole Medin’s video-editing skill defines a local-first workflow: run environment checks, transcribe media, make forced-alignment cuts, then validate word differences, frame grids, loudness and synchronization before human approval. An optional OpenRouter-assisted mode is separate and sponsored; the reusable core does not require it. The repository is a procedure, not evidence of editing quality."
     },
     {
@@ -150,16 +347,14 @@
       "event_date": "2026-11-19",
       "headline": "Building Human-Centered AI",
       "url": "/podcasts/2026-11-20/building-human-centered-ai/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "Practical AI"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Accessible agents for knowledge work"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "The Practical AI hosts discuss enterprise adoption, agentic systems, trust, regulation and banking constraints through a human-centered design lens. The exact publisher page identifies the episode and runtime. Sponsor messages and guest claims remain distinct from evidence, and the conversation is most useful as a checklist of adoption questions rather than proof of outcomes."
     },
     {
@@ -169,13 +364,13 @@
       "event_date": "2026-11-19",
       "headline": "Superintelligence Needs the Physical World with Arda CEO Bob McGrew",
       "url": "/podcasts/2026-11-20/superintelligence-needs-the-physical-world-with-arda-ceo-bob-mcgrew/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "No Priors"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
       "trends": [],
       "summary": "No Priors interviews Arda cofounder Bob McGrew about physical-world AI, automated research, flexible manufacturing, actuator iteration and factory deployment. The chaptered original episode distinguishes the company’s product thesis from broader evidence. It provides useful implementation questions, while claims about build speed, research automation and market scale remain attributed to the guest."
     },
@@ -186,16 +381,14 @@
       "event_date": "2026-11-18",
       "headline": "Anthropic to go public Thursday in what could be one of the largest IPOs in history",
       "url": "/videos/2026-11-20/agent-skills/",
-      "focus": "agents_non_technical_people",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "CBS News"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
-      "trends": [
-        "Agent memory and context"
-      ],
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
+      "trends": [],
       "summary": "CBS News reports on Anthropic’s scheduled public-market debut and the scale expected for the offering. The segment provides current event context rather than an independent valuation model. Pricing, demand forecasts and comparisons with other AI companies remain attributed, and readers should use the filed prospectus and final exchange notices for decisions."
     },
     {
@@ -205,13 +398,13 @@
       "event_date": "2026-11-18",
       "headline": "Paris Hilton pushes for law against sexual deepfakes",
       "url": "/videos/2026-11-20/general/",
-      "focus": "general_video",
+      "focus": "historical_unspecified",
       "topics": [],
       "companies": [
         "PBS NewsHour"
       ],
-      "evidence_type": "practitioner_analysis",
-      "availability_status": "not_applicable",
+      "evidence_type": "historical_unspecified",
+      "availability_status": "available",
       "trends": [],
       "summary": "PBS NewsHour reports on Paris Hilton’s push for federal protections against nonconsensual sexual deepfakes, combining a survivor’s account with the proposed legal response. The segment is substantive original reporting, not a technical detection tutorial; legal scope, platform duties and enforcement claims should be checked against the enacted text."
     },
