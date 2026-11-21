@@ -1,6 +1,6 @@
 # 2026-11-21 premium image after-action report
 
-**Status: PACKAGE_READY_NOT_PUBLISHED**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | bcd19073d469301980f9cf8cfc8e6ebe30f92cd8 |
 | Executor observed run start | 2026-11-21T03:14:41Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-21T03:25:19Z (observed before tool call) |
-| Public release | NOT_YET_RELEASED |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING_LIVE_CONTEXTS; 0 targets |
+| Public release | LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING |
+| Public verified time | 2026-11-21T03:58:46.275Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -77,6 +77,7 @@ These are source-bound reviewer observations, not computer-vision scores, an ind
 | Native generation saved-pixel rejection | Actual full-size and320px saved PNG inspected. Extra arrowhead and plot mesh removed; open captions replace plaques. Research evidence begins near x30; right comparison ends near x1180 and caveat near x1172, failing40px floor. Mechanism otherwise preserved. | Move only those three labels inward; keep existing font sizes and all art. Every right glyph must end<=1130 and left glyph begin>=75. |
 | Native generation saved-pixel rejection | Actual full saved1200x630 and320px inspected. One correctly anchored training-to-adapter arrow and headless registration guides; distinct base versus low-rank leaf, validation controls and held-out shapes. But validation has prohibited check and cross success symbols, and Transfer unresolved extends too close to right edge. Six exact labels otherwise read. | Preserve the exploded purple adapter above the unchanged charcoal base, exact one training-to-adapter arrow and all six exact labels. Remove both circled checkmark and circled X from task-validation specimens completely; leave those two source faces blank and use no success/failure symbols or extra marks. Move ONLY Transfer unresolved LEFT by at least90 final pixels so its last glyph ends at x1100 or earlier; keep font size. All labels must remain fully inside x60..1140 and y60..570. Do not add heads to dashed registration guides, symbols, text, metrics or controls. Keep source caveat disconnected. |
 | Final acceptance audit correction | Initial visual checks incorrectly provisionally locked three candidates before the final glyph audit isolated1–2px floor defects. Their exact bytes and original reviews are retained. | Superseded provisional acceptance honestly, preserved immutable predecessor PNGs and prepared source-bound versioned successors only for the actual saved-pixel defect. No final qualified image was regenerated for Git, CI or deployment. |
+| Final status metadata deployment | Original image-only release44863696999 deployed images, verified six hashes/12 pairings and17 protected objects, and captured24 contexts. Final Pages metadata artifact lookup failed despite uploaded artifact. Existing connector lacks dispatch; cloud is signed out. | Preserve every accepted image. Protect the actual24-context semantic review and exact captures; add a current-edition-only receipt-merge resume to existing metadata-sync workflow, with original-run/history/review/manifest binding and all existing postrelease verification gates. Outcome pending. |
 
 ## Evidence and limitations
 
@@ -84,7 +85,7 @@ Job SHA-256: 4344338c3160e69b5b77f70f32a292b7b071b481233919c9f14096b3c6ecf6be. O
 
 The actual generation start is 2026-11-21T03:25:19Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-21/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Evening primary targets November21 from original Chicago cycle November20. First actual executor clock and immediate pre-native clock persisted/read back under source-bound fenced owner; origin remains unproven.
 
@@ -92,8 +93,10 @@ Prior November20 AAR, three chart datasets, improvement metrics and eight actual
 
 Fourteen actual calls, one first-pass accept and eight rejected candidates miss the advisory four-first-pass/eight-call goals. Three final-audit corrections were needed after erroneous provisional acceptance; this is an observed review weakness, not proof of better artistic outcomes.
 
-All six final exact RGB PNGs have complete export, saved full-size/320px review and immutable GitHub byte readbacks. Fifteen current-set comparisons and seven-edition history evidence recorded. Actual24 live contexts remain pending until protected release.
+All six final exact RGB PNGs have complete export, saved full-size/320px review and immutable GitHub byte readbacks. Fifteen current-set comparisons and seven-edition history evidence recorded. All24 captured live contexts now visually inspected and PASS; raw capture bytes preserved.
 
 Owner artistic acceptance, actual billing and sourced usage remain UNKNOWN. No new tasks, schedules, services, paid model API or change to completed history.
+
+The three provisional margin misses require moving precise glyph audit before provisional lock in future genuine work. Four-first-pass/eight-call advisory goals were not met; implementation does not establish efficacy. IMG19-01..08 three-edition Nov20–22 evaluation remains due Nov22.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
