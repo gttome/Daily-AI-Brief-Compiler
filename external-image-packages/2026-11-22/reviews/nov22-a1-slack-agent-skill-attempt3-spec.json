@@ -1,0 +1,366 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-22",
+  "story_id": "nov22-a1-slack-agent-skill",
+  "source_url": "https://slack.com/blog/productivity/bring-agents-into-your-workflows",
+  "visual_thesis": "An event can trigger an agent draft, but the content pauses for editing and approval before a business record changes. A reusable Skill freezes context and format; escalation is an editorial procedure.",
+  "mechanism_metaphor": "A single diagonal accordion of meaningful sheets, not a board of cards. Entry event tab explicitly says New message, leading into a prompt fold with an approved-source spine labeled Approved context. The front draft leaf says Weekly status; a visible next sheet says Draft so its information role is explicit. The central review fold remains visibly open and unpassed, labeled Review and edit. Beyond its fold is a destination row sheet labeled Write after approval. A small separate exception pocket says Route exceptions and remains closed, representing editorial escalation advice rather than a vendor-guaranteed automatic feature. Twelve meaningful components: message tab, event seam, prompt fold, approved source spine, source attachment notch, status leaf, draft sheet, editable review layer, approval fold, destination row sheet, exception pocket and reusable binding strip. Exactly two arrows: event tab port to draft fold port, then draft fold port to review fold port. No arrow crosses the approval fold; it must never look automatically approved. No check marks, hands, user icons, faux rows or simulated status text.",
+  "story_anchors": [
+    "New-message trigger and approved-context spine",
+    "Concrete weekly-status draft fold",
+    "Unpassed editing and approval fold"
+  ],
+  "required_labels": [
+    "New message",
+    "Approved context",
+    "Weekly status",
+    "Draft",
+    "Review and edit",
+    "Write after approval",
+    "Route exceptions",
+    "Vendor workflow; test first"
+  ],
+  "source_claim_map": [
+    {
+      "id": "source-1",
+      "proposition": "Message events can start tasks, while workflow variables and knowledge sources guide agents.",
+      "supporting_source_excerpt": "message posted",
+      "source_url": "https://slack.com/blog/productivity/bring-agents-into-your-workflows",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "source-2",
+      "proposition": "Workflow Builder pauses AI content for editing and approval before writing to tools.",
+      "supporting_source_excerpt": "Only then does the workflow send it",
+      "source_url": "https://slack.com/blog/productivity/bring-agents-into-your-workflows",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "source-3",
+      "proposition": "The published Skill procedure adds a named exception owner and test cases; that part is editorial guidance.",
+      "supporting_source_excerpt": "Humans stay in control at every step",
+      "source_url": "https://slack.com/blog/productivity/bring-agents-into-your-workflows",
+      "evidence_kind": "explicitly_approved_conceptual_metaphor"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "New message",
+      "to": "Weekly status",
+      "support_claim_id": "source-1",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Weekly status",
+      "to": "Review and edit",
+      "support_claim_id": "source-2",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560."
+  ],
+  "composition_signature": {
+    "grammar": "Reviewed draft folding sequence",
+    "metaphor": "A single diagonal accordion of meaningful sheets, not a board of cards. Entry event tab explicitly says New message, leading into a prompt fold with an approved-source spine labeled Approved context. The front draft leaf says Weekly status; a visible next sheet says Draft so its information role is explicit. The central review fold remains visibly open and unpassed, labeled Review and edit. Beyond its fold is a destination row sheet labeled Write after approval. A small separate exception pocket says Route exceptions and remains closed, representing editorial escalation advice rather than a vendor-guaranteed automatic feature. Twelve meaningful components: message tab, event seam, prompt fold, approved source spine, source attachment notch, status leaf, draft sheet, editable review layer, approval fold, destination row sheet, exception pocket and reusable binding strip. Exactly two arrows: event tab port to draft fold port, then draft fold port to review fold port. No arrow crosses the approval fold; it must never look automatically approved. No check marks, hands, user icons, faux rows or simulated status text.",
+    "layout": "New-message trigger and approved-context spine; Concrete weekly-status draft fold; Unpassed editing and approval fold; Downstream record beyond approval and detached caveat; Closed exception pocket representing editorial routing advice",
+    "palette": "Raspberry charcoal white",
+    "hierarchy": "Large review pause between a concrete weekly-status draft and downstream record",
+    "perspective": "Flat diagonal folding sequence",
+    "annotation": "Open headings and terms printed on the front of meaningful sheets"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 5,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November 22 source reviewer",
+    "source_url": "https://slack.com/blog/productivity/bring-agents-into-your-workflows",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "New message",
+        "region_id": "trigger",
+        "region": "New-message trigger and approved-context spine",
+        "bounding_box_px": {
+          "x": 75,
+          "y": 85,
+          "width": 310,
+          "height": 48
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Approved context",
+        "region_id": "trigger",
+        "region": "New-message trigger and approved-context spine",
+        "bounding_box_px": {
+          "x": 75,
+          "y": 280,
+          "width": 350,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Weekly status",
+        "region_id": "draft",
+        "region": "Concrete weekly-status draft fold",
+        "bounding_box_px": {
+          "x": 410,
+          "y": 175,
+          "width": 310,
+          "height": 48
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Draft",
+        "region_id": "draft",
+        "region": "Concrete weekly-status draft fold",
+        "bounding_box_px": {
+          "x": 430,
+          "y": 340,
+          "width": 180,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Review and edit",
+        "region_id": "review",
+        "region": "Unpassed editing and approval fold",
+        "bounding_box_px": {
+          "x": 735,
+          "y": 95,
+          "width": 385,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Write after approval",
+        "region_id": "write",
+        "region": "Downstream record beyond approval and detached caveat",
+        "bounding_box_px": {
+          "x": 760,
+          "y": 365,
+          "width": 360,
+          "height": 48
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Route exceptions",
+        "region_id": "exception",
+        "region": "Closed exception pocket representing editorial routing advice",
+        "bounding_box_px": {
+          "x": 190,
+          "y": 485,
+          "width": 330,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Vendor workflow; test first",
+        "region_id": "write",
+        "region": "Downstream record beyond approval and detached caveat",
+        "bounding_box_px": {
+          "x": 650,
+          "y": 520,
+          "width": 480,
+          "height": 42
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Vendor workflow; test first",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 76,
+    "explanatory_substage_labels": [
+      "New message",
+      "Approved context"
+    ],
+    "thumbnail_priority_labels": [
+      "New message",
+      "Review and edit"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "Message events can start tasks, while workflow variables and knowledge sources guide agents.",
+        "allowed_path": "Only the named conditional source-supported connections and headless comparison guides.",
+        "blocked_path": "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560.",
+        "support_claim_id": "source-1"
+      },
+      {
+        "condition": "Workflow Builder pauses AI content for editing and approval before writing to tools.",
+        "allowed_path": "Only the named conditional source-supported connections and headless comparison guides.",
+        "blocked_path": "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560.",
+        "support_claim_id": "source-2"
+      },
+      {
+        "condition": "The published Skill procedure adds a named exception owner and test cases; that part is editorial guidance.",
+        "allowed_path": "Only the named conditional source-supported connections and headless comparison guides.",
+        "blocked_path": "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560.",
+        "support_claim_id": "source-3"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "New message",
+        "to": "Weekly status",
+        "support_claim_id": "source-1",
+        "origin_region": "New-message trigger and approved-context spine",
+        "target_region": "Concrete weekly-status draft fold",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Weekly status",
+        "to": "Review and edit",
+        "support_claim_id": "source-2",
+        "origin_region": "Concrete weekly-status draft fold",
+        "target_region": "Unpassed editing and approval fold",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Editorial linocut",
+      "dominant_grammar": "Reviewed draft folding sequence",
+      "medium_treatment": "Raspberry and charcoal hand-inked linocut with coarse edge grain",
+      "perspective": "Flat diagonal folding sequence",
+      "information_hierarchy": "Large review pause between a concrete weekly-status draft and downstream record",
+      "palette_family": "Raspberry charcoal white",
+      "subject_specific_visual_thesis": "An event can trigger an agent draft, but the content pauses for editing and approval before a business record changes. A reusable Skill freezes context and format; escalation is an editorial procedure.",
+      "difference_from_earlier_story_images": "Unlike November 21’s burgundy accounting ledger with matching records and mostly empty surfaces, this raspberry linocut unfolds a named weekly-status draft into an unpassed editable review boundary before a downstream write.",
+      "first_pass_risk_mitigation": "November 21 errors were one-pixel caveat descenders, right-edge text, extra arrowheads and arrowheads on labels. This design reserves generous insets, exact explicit physical ports and source-bound content on meaningful surfaces; all saved full-size and 320px pixels must still pass."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "trigger",
+          "description": "New-message trigger and approved-context spine",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 65,
+            "width": 370,
+            "height": 330
+          }
+        },
+        {
+          "id": "draft",
+          "description": "Concrete weekly-status draft fold",
+          "bounding_box_px": {
+            "x": 410,
+            "y": 150,
+            "width": 320,
+            "height": 300
+          }
+        },
+        {
+          "id": "review",
+          "description": "Unpassed editing and approval fold",
+          "bounding_box_px": {
+            "x": 720,
+            "y": 75,
+            "width": 420,
+            "height": 230
+          }
+        },
+        {
+          "id": "write",
+          "description": "Downstream record beyond approval and detached caveat",
+          "bounding_box_px": {
+            "x": 640,
+            "y": 325,
+            "width": 500,
+            "height": 245
+          }
+        },
+        {
+          "id": "exception",
+          "description": "Closed exception pocket representing editorial routing advice",
+          "bounding_box_px": {
+            "x": 150,
+            "y": 465,
+            "width": 400,
+            "height": 80
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "New message",
+          "to": "Weekly status",
+          "support_claim_id": "source-1",
+          "direction": "conditional",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "trigger",
+          "to_region_id": "draft",
+          "origin_px": {
+            "x": 350,
+            "y": 200
+          },
+          "target_px": {
+            "x": 450,
+            "y": 240
+          }
+        },
+        {
+          "from": "Weekly status",
+          "to": "Review and edit",
+          "support_claim_id": "source-2",
+          "direction": "conditional",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "draft",
+          "to_region_id": "review",
+          "origin_px": {
+            "x": 690,
+            "y": 260
+          },
+          "target_px": {
+            "x": 780,
+            "y": 260
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source/composition reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "c52a98acd8858cedd2468888e9071688900abcd17f12fe416708d717ebee1f6a"
+      }
+    }
+  },
+  "native_generation_prompt": "Wide LANDSCAPE 1200x630 composition, aspect ratio1.90476:1. Preserve this wide canvas; never return a square or3:2 composition. EDIT only the content of three currently blank front faces in the attached linocut; preserve every existing word, object, fold and exactly two port-bound arrows. Inside the New message body put the exact short category Status request. Inside the Review and edit body put the exact visible state Awaiting approval. Inside the Write after approval body put the exact downstream artifact type Status row. These three terms are conceptual labels for the bounded reusable weekly-status procedure; do not invent a message, record, quotation, person, date, number or paragraph. Keep Weekly status and Draft on the central artifact. All faces remain otherwise smooth white, with no writing-like strokes. The review stage is visibly unpassed; no check, output arrow or approval claim. Keep the source qualification Vendor workflow; test first detached, raising it slightly so every descender is above y560 at final1200x630. All foreground and text inside x80..1120,y65..560, priority40px+, new labels30px+. Do not change the raspberry/charcoal linocut medium, accordion connection or exception pocket.\nExact visible text only: [\"New message\",\"Approved context\",\"Weekly status\",\"Draft\",\"Review and edit\",\"Write after approval\",\"Route exceptions\",\"Vendor workflow; test first\"]. Static editorial illustration; no people, humanoids, logos, photos, invented quantities, unsupported arrows, fake writing or decorative marks.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"trigger\",\"description\":\"New-message trigger and approved-context spine\",\"bounding_box_px\":{\"x\":60,\"y\":65,\"width\":370,\"height\":330}},{\"id\":\"draft\",\"description\":\"Concrete weekly-status draft fold\",\"bounding_box_px\":{\"x\":410,\"y\":150,\"width\":320,\"height\":300}},{\"id\":\"review\",\"description\":\"Unpassed editing and approval fold\",\"bounding_box_px\":{\"x\":720,\"y\":75,\"width\":420,\"height\":230}},{\"id\":\"write\",\"description\":\"Downstream record beyond approval and detached caveat\",\"bounding_box_px\":{\"x\":640,\"y\":325,\"width\":500,\"height\":245}},{\"id\":\"exception\",\"description\":\"Closed exception pocket representing editorial routing advice\",\"bounding_box_px\":{\"x\":150,\"y\":465,\"width\":400,\"height\":80}}],\"labels\":[{\"label\":\"New message\",\"region_id\":\"trigger\",\"region\":\"New-message trigger and approved-context spine\",\"bounding_box_px\":{\"x\":75,\"y\":85,\"width\":310,\"height\":48},\"minimum_font_px\":40},{\"label\":\"Approved context\",\"region_id\":\"trigger\",\"region\":\"New-message trigger and approved-context spine\",\"bounding_box_px\":{\"x\":75,\"y\":280,\"width\":350,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Weekly status\",\"region_id\":\"draft\",\"region\":\"Concrete weekly-status draft fold\",\"bounding_box_px\":{\"x\":410,\"y\":175,\"width\":310,\"height\":48},\"minimum_font_px\":36},{\"label\":\"Draft\",\"region_id\":\"draft\",\"region\":\"Concrete weekly-status draft fold\",\"bounding_box_px\":{\"x\":430,\"y\":340,\"width\":180,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Review and edit\",\"region_id\":\"review\",\"region\":\"Unpassed editing and approval fold\",\"bounding_box_px\":{\"x\":735,\"y\":95,\"width\":385,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Write after approval\",\"region_id\":\"write\",\"region\":\"Downstream record beyond approval and detached caveat\",\"bounding_box_px\":{\"x\":760,\"y\":365,\"width\":360,\"height\":48},\"minimum_font_px\":32},{\"label\":\"Route exceptions\",\"region_id\":\"exception\",\"region\":\"Closed exception pocket representing editorial routing advice\",\"bounding_box_px\":{\"x\":190,\"y\":485,\"width\":330,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Vendor workflow; test first\",\"region_id\":\"write\",\"region\":\"Downstream record beyond approval and detached caveat\",\"bounding_box_px\":{\"x\":650,\"y\":520,\"width\":480,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"New message\",\"to\":\"Weekly status\",\"support_claim_id\":\"source-1\",\"direction\":\"conditional\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"trigger\",\"to_region_id\":\"draft\",\"origin_px\":{\"x\":350,\"y\":200},\"target_px\":{\"x\":450,\"y\":240}},{\"from\":\"Weekly status\",\"to\":\"Review and edit\",\"support_claim_id\":\"source-2\",\"direction\":\"conditional\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"draft\",\"to_region_id\":\"review\",\"origin_px\":{\"x\":690,\"y\":260},\"target_px\":{\"x\":780,\"y\":260}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}
