@@ -460,8 +460,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Original image AAR | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-19/reviews/after-action.md) |
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-19/shadow-runs/2026-11-19/editorial/source-item-retries.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-19/shadow-runs/2026-11-19/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f044ea6a9c73e3e60184c5539c2dac11cfe71adc/signals/ai-topic-top10/2026-11-18.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f044ea6a9c73e3e60184c5539c2dac11cfe71adc/signals/ai-topic-top10/2026-11-18.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/feb0ecb24334122341a452609313c1e0d1a4ebad/signals/ai-topic-top10/2026-11-18.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/feb0ecb24334122341a452609313c1e0d1a4ebad/signals/ai-topic-top10/2026-11-18.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-19/shadow-runs/2026-11-19/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-19/shadow-runs/2026-11-19/editorial/trend-search-coverage.json) |
 
