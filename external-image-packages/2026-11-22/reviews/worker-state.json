@@ -8,16 +8,53 @@
   "source_commit_sha": "ef12ded83bbe01b79fe8bc9af50a987248b9ef83",
   "bundle_sha256": "eb72cfa44c1d20393e920bd438c876f0620089e0edbace4ceccc726f0cbcd1db",
   "claimed_at": "2026-11-22T03:13:31Z",
-  "lease_expires_at": "2026-11-22T04:09:05.000Z",
+  "lease_expires_at": "2026-11-22T04:10:51.000Z",
   "lease_status": "ACTIVE",
-  "phase": "GENERATION_ADMITTED",
-  "generation_count": 0,
-  "accepted_hashes": [],
+  "phase": "PACKAGE_REVIEW",
+  "generation_count": 16,
+  "accepted_hashes": [
+    {
+      "story_id": "nov22-t1-adversarial-distillation",
+      "sha256": "67a0e622427c5eb9c1563b5cd4ee15d6b205cb38c133e538ef2073c36f65a383"
+    },
+    {
+      "story_id": "nov22-t2-society-ai-scientists",
+      "sha256": "5a3426abbe5e373edadfc38d38b1fea6454a2f61d82f3cd7b6d79d84677d8079"
+    },
+    {
+      "story_id": "nov22-k1-task-price-tests",
+      "sha256": "455aea781da464a7af1c313e6e70329e4d24fbe873f4938f9fdbfc03e905bb76"
+    },
+    {
+      "story_id": "nov22-k2-model-flexibility",
+      "sha256": "e7fa10215ef8a9c14df0d6ac09e7e74bcb36ecaf56071885c6ceb2ac63e9b346"
+    },
+    {
+      "story_id": "nov22-a1-slack-agent-skill",
+      "sha256": "b1b606537a4eba5aed9541b25542cd300c0ed91401e8a809ea21af59e2a8baca"
+    },
+    {
+      "story_id": "nov22-a2-copilot-agent-workflows",
+      "sha256": "0fbfd34e48e5cd3b3b3513c03b1daaf0878b8cd5a23bbc6955d33ca39bae5f84"
+    }
+  ],
   "host_execution_observed_at": "2026-11-22T03:11:34Z",
   "host_execution_observation_source": "executor_observed_in_same_invocation",
-  "next_action": "Immediately make first source-bound native call; no accepted image yet.",
+  "next_action": "Complete actual six-up style review, manifest/assignment/AAR and protected exact-head package admission; do not regenerate accepted PNGs",
   "generation_started_at": "2026-11-22T03:23:45Z",
   "generation_start_source": "executor_observed_before_first_native_call",
   "frozen_spec_commit": "deb610a5570dc7ed7ad54bd77d56f446678c0a70",
-  "updated_at": "2026-11-22T03:49:05Z"
+  "updated_at": "2026-11-22T03:50:51Z",
+  "progress_counter_correction": {
+    "observed_at": "2026-11-22T03:50:50Z",
+    "reason": "Intermediate orchestration load calls returned copies, so progress counter mutations were not saved; corrected from the actual sixteen native calls and six persisted hash-bound acceptance reviews. Earlier receipts preserved.",
+    "actual_attempt_counts": [
+      3,
+      3,
+      2,
+      3,
+      3,
+      2
+    ]
+  }
 }
