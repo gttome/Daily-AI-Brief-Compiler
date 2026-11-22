@@ -4,7 +4,7 @@
   "job_sha256": "8b52684f257ba4c0fb852b3b3e1adfa82138a9e2b4a307d55afcba6bb9b55878",
   "original_source_commit_sha": "ef12ded83bbe01b79fe8bc9af50a987248b9ef83",
   "original_bundle_sha256": "eb72cfa44c1d20393e920bd438c876f0620089e0edbace4ceccc726f0cbcd1db",
-  "status": "LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING",
+  "status": "RELEASED_VERIFIED",
   "human_readable_path": "external-image-packages/2026-11-22/reviews/after-action.md",
   "production": {
     "actual_generation_count": 16,
@@ -253,18 +253,20 @@
     {
       "phase": "Final public metadata deployment",
       "issue": "Release run44983173414 deployed six images and completed 24 captures, then deploy-pages reported no exact final-metadata artifact although the artifact was finalized at the same second. An artifact visibility race is suspected, not proved.",
-      "correction": "Existing postrelease verify/metadata-sync workflow, protected exact-Nov22 visual review and same-content history deployment; no image regeneration or placeholder replacement."
+      "correction": "Existing postrelease verify/metadata-sync workflow, protected exact-Nov22 visual review and same-content history deployment; no image regeneration or placeholder replacement. Existing metadata-only recovery completed; final independent HTTP public-index and release-receipt hashes matched, with six accepted image hashes and 12 correct article bindings."
     }
   ],
   "publication": {
-    "result": "LIVE_SIX_IMAGE_BYTES_AND_BINDINGS_PASS_METADATA_SYNC_PENDING",
-    "verified_at": "2026-11-22T04:08:43.075606Z",
+    "result": "RELEASED_VERIFIED",
+    "verified_at": "2026-11-22T04:15:17.180704Z",
     "release_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44983173414",
     "protected_pr_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/pull/401",
     "protected_main_commit": "0a133a818ae8eb82e9b6c877b6a9e770436e2492",
-    "history_head": "f681f99c",
-    "public_status": "PENDING_METADATA_SYNC",
-    "independent_verification_path": "external-image-packages/2026-11-22/reviews/live/independent-postrelease.json"
+    "history_head": "f681f99c8006c31f87e89ac626603143be584ced",
+    "public_status": "PUBLIC_STATUS_VERIFIED",
+    "independent_verification_path": "external-image-packages/2026-11-22/reviews/live/independent-postrelease.json",
+    "metadata_sync_run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/44984057577",
+    "final_verification_path": "external-image-packages/2026-11-22/reviews/live/final-public-verification.json"
   },
   "visual_review": {
     "result": "PASS",
@@ -284,7 +286,8 @@
     "Top10 final impact table: https://github.com/gttome/Daily-AI-Brief-Compiler/blob/7868fafef2ee77f0cd8741469c6d427c6b5222d5/external-image-packages/2026-11-22/reviews/top10-impact.md",
     "Formal starter-array omissions are disclosed in source-label-reconciliation.json; actual exact correction prompts and their original pre-native commits are preserved. No fabricated earlier geometry, approval or time is claimed.",
     "Prior November21 combined AAR charts and improvement metrics were read from operations-reports/daily/2026-11-20. Prior original seven sets were viewed; later November18 revision pixels were not independently re-certified in this run.",
-    "Actual current primary-source review identified an inaccessible older Slack URL and a November21 paper date/human-operated-lab distinction versus sealed editorial metadata. Artwork follows inspected source facts; immutable editorial job and bundle remain unchanged."
+    "Actual current primary-source review identified an inaccessible older Slack URL and a November21 paper date/human-operated-lab distinction versus sealed editorial metadata. Artwork follows inspected source facts; immutable editorial job and bundle remain unchanged.",
+    "All 24 original live capture PNGs were independently read back from exact protected closeout head 5c2021c8c62d2c0ce293594cb34d8c2e055b63f9 and matched receipt SHA256/length. Complete 85797-byte semantic review readback matched efa882fed503416da0969ebf07065ddb69a3327aa20efc8094500cd5417962e1. No native call occurred after lock."
   ],
   "change_evaluations": [
     {
@@ -489,11 +492,11 @@
         "supported_substages": [
           {
             "description": "Same task",
-            "support_claim_id": "source-1"
+            "support_claim_id": "source-3"
           },
           {
             "description": "Acceptable output",
-            "support_claim_id": "source-1"
+            "support_claim_id": "source-3"
           }
         ],
         "secondary_relationships": [
@@ -532,7 +535,7 @@
           },
           {
             "description": "Stable workflow",
-            "support_claim_id": "source-1"
+            "support_claim_id": "source-2"
           }
         ],
         "secondary_relationships": [
@@ -610,7 +613,7 @@
           },
           {
             "description": "Permitted tools",
-            "support_claim_id": "source-1"
+            "support_claim_id": "source-3"
           }
         ],
         "secondary_relationships": [

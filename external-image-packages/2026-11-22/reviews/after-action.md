@@ -1,6 +1,6 @@
 # 2026-11-22 premium image after-action report
 
-**Status: LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: RELEASED_VERIFIED**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,8 +11,8 @@
 | First accepted binary commit | 57aae2dd46b11c2c50ab5fb6076a72b5a2918130 |
 | Executor observed run start | 2026-11-22T03:11:34Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-22T03:23:45Z (observed before tool call) |
-| Public release | LIVE_SIX_IMAGE_BYTES_AND_BINDINGS_PASS_METADATA_SYNC_PENDING |
-| Public verified time | 2026-11-22T04:08:43.075606Z |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-22T04:15:17.180704Z |
 | Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
@@ -72,7 +72,7 @@ These are source-bound reviewer observations, not computer-vision scores, an ind
 | Native generation saved-pixel rejection | The radial continuous paper assembly improves set variety and meaningful surfaces, but the native output changed to3:2 instead of required1200:630 composition. Stretching it is not an admissible export. Null-result leaf remains blank while its label is outside. | Return to wide1.90476:1 native composition with a broad white border and print Null results count directly on its front leaf. Preserve other source-bound paper anatomy and exact labels. |
 | Progress checkpoint reporting | Intermediate orchestration load calls returned copies; attempted mutations of progress counts were not retained, leaving prior checkpoint counters at zero despite real native calls and persisted PNG reviews. | Preserved earlier checkpoints, reconciled actual sixteen native calls and six hash-bound assets in current worker state; copied real first-clock observations unchanged. |
 | Visible-text metadata reconciliation | Three correction prompts froze additional exact words and face placement before generation, while typed starter-label arrays did not retain those additions. | Preserved actual pre-native prompts and geometry; recorded explicit prompt references and all final authorized terms in current saved-pixel reviews without backdating a typed-array fix. |
-| Final public metadata deployment | Release run44983173414 deployed six images and completed 24 captures, then deploy-pages reported no exact final-metadata artifact although the artifact was finalized at the same second. An artifact visibility race is suspected, not proved. | Existing postrelease verify/metadata-sync workflow, protected exact-Nov22 visual review and same-content history deployment; no image regeneration or placeholder replacement. |
+| Final public metadata deployment | Release run44983173414 deployed six images and completed 24 captures, then deploy-pages reported no exact final-metadata artifact although the artifact was finalized at the same second. An artifact visibility race is suspected, not proved. | Existing postrelease verify/metadata-sync workflow, protected exact-Nov22 visual review and same-content history deployment; no image regeneration or placeholder replacement. Existing metadata-only recovery completed; final independent HTTP public-index and release-receipt hashes matched, with six accepted image hashes and 12 correct article bindings. |
 
 ## Evidence and limitations
 
@@ -91,5 +91,7 @@ Formal starter-array omissions are disclosed in source-label-reconciliation.json
 Prior November21 combined AAR charts and improvement metrics were read from operations-reports/daily/2026-11-20. Prior original seven sets were viewed; later November18 revision pixels were not independently re-certified in this run.
 
 Actual current primary-source review identified an inaccessible older Slack URL and a November21 paper date/human-operated-lab distinction versus sealed editorial metadata. Artwork follows inspected source facts; immutable editorial job and bundle remain unchanged.
+
+All 24 original live capture PNGs were independently read back from exact protected closeout head 5c2021c8c62d2c0ce293594cb34d8c2e055b63f9 and matched receipt SHA256/length. Complete 85797-byte semantic review readback matched efa882fed503416da0969ebf07065ddb69a3327aa20efc8094500cd5417962e1. No native call occurred after lock.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
