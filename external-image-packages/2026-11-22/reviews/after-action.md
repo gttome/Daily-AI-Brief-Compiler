@@ -1,6 +1,6 @@
 # 2026-11-22 premium image after-action report
 
-**Status: LIVE_IMAGES_VERIFIED_METADATA_SYNC_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: RELEASED_VERIFIED**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,8 +11,8 @@
 | First accepted binary commit | 57aae2dd46b11c2c50ab5fb6076a72b5a2918130 |
 | Executor observed run start | 2026-11-22T03:11:34Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-22T03:23:45Z (observed before tool call) |
-| Public release | LIVE_SIX_IMAGE_BYTES_AND_BINDINGS_PASS_METADATA_SYNC_PENDING |
-| Public verified time | 2026-11-22T04:08:43.075606Z |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-22T04:15:17.180704Z |
 | Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
@@ -48,10 +48,18 @@ Retain the full 15 pairwise observations in the immutable manifest. Repeat the c
 
 ### Useful image detail and recent artwork comparisons
 
-Review evidence: **INVALID**. Stories reviewed: Not recorded; exact earlier-image comparisons: Not recorded. Owner feedback: **UNKNOWN**.
+Review evidence: **RECORDED**. Stories reviewed: 6; exact earlier-image comparisons: 6. Owner feedback: **UNKNOWN**.
 
 | Story | Useful internal detail | Text architecture | Closest earlier image | Recorded assessment |
 |---|---|---|---|---|
+| nov22-t1-adversarial-distillation | Adaptive attacks on the upper trace bundle; Tool arguments on the central output channel; stopped extraction at the left core; Final answer on the right output strip. | Indigo copperplate engraving exposes one longitudinal protective shell, a dark reasoning core, screened output channels and a separate campaign lens. Dense crosshatching and ribbon entry differ from every other current treatment. | 2026-11-21 / nov21-t1-medchembench: Unlike the November 21 medicinal-chemistry specimen, this longitudinal engraved shell separates hidden reasoning from two public output surfaces and a campaign evidence comb. | inconclusive |
+| nov22-t2-society-ai-scientists | Paper, Code and Data on central front leaves; Null results count on the lower-right folded leaf; matched rerun shapes at right; withdrawn claim at lower left. | Moss/terracotta cut-paper relief opens radially around a bound Paper/Code/Data commons, with a withdrawn claim pocket and matched rerun shapes. Visible paper edges and unequal folding silhouettes differ from the engineered shells. | 2026-11-21 / nov21-k1-feedback-quality-bar: Unlike the November 21 coral fan, this paper relief has an off-center circular commons with explicit Paper, Code and Data leaves, output replay and a withdrawn claim, without repeated blank trace bubbles. | inconclusive |
+| nov22-k1-task-price-tests | Code edit on the left task object; Needs review on the central candidate; separate Retries, Review time and Recovery strata directly inside the cost specimen. | Ochre/graphite matte clay sculpture exposes completed-task cost strata with a thick pending-review result section, one input port and a detached vendor sample. Smooth material volume and heavy frontal mass differ from ink and paper. | 2026-11-19 / nov19-t2-neon: Unlike November 19 Neon’s two ribbon races into a score board, this matte scientific specimen exposes unmeasured retry, review and recovery strata inside a single completed task; it has no quantitative race or ledger. | inconclusive |
+| nov22-k2-model-flexibility | Webinar transcript and Blog draft inside their own artifact faces; distinct keyed model inserts above the socket; Same input and Expected output on separate lower test specimens. | Forest/pale-blue ink-gouache side section uses an exposed removable model joint inside one invariant rail, two differently keyed inserts and paired paper tests. Open captions and narrow architectural outlines make the reading path planar. | 2026-11-20 / nov20-k2-openrouter-hf: Unlike the November 20 cyan routing triangle and provider loops, this side section isolates one mechanically removable joint inside an invariant rail, with explicit transcript, draft and expected-output surfaces rather than abstract provider paths. | inconclusive |
+| nov22-a1-slack-agent-skill | Status request inside trigger; Awaiting approval inside review; Status row inside downstream artifact; physical arrows stop before an unpassed approval boundary. | Raspberry/charcoal linocut forms a sloping accordion with specific request/draft/awaiting-approval/status-row states and a closed exception envelope. Coarse edge grain and unpassed review boundary differ from the model and journal illustrations. | 2026-11-21 / nov21-a2-accounting-skill: Unlike November 21’s burgundy accounting ledger with matching records and mostly empty surfaces, this raspberry linocut unfolds a named weekly-status draft into an unpassed editable review boundary before a downstream write. | inconclusive |
+| nov22-a2-copilot-agent-workflows | Session identity and Session state inside left cutaway; Messages/Tool calls/Results on the journal layers; Other session on the isolated upper-right specimen; one arrow into Resume history. | Teal/aubergine translucent pastel anatomy exposes a cylindrical session and a three-layer durable journal, with one curved resumption cable and a separate isolated session. Rounded translucency and vertical history hierarchy differ from other materials. | 2026-11-20 / nov20-a1-governed-context: Unlike November 20’s green horizontal evidence book and recommendation tube, this upright translucent journal anatomy exposes Messages, Tool calls and Results, and couples persisted history to a separate resumed runtime without conflating identity with action approval. | inconclusive |
+
+Six visibly distinct media and silhouettes with specific information printed inside relevant artifacts. Native drafts repeatedly introduced faux document strokes, unintended foliage and marginal overflow; all final saved artifacts were corrected. Current owner acceptance remains unknown.
 
 These are source-bound reviewer observations, not computer-vision scores, an independent source audit or owner artwork approval. Missing evidence remains unknown. See the original image AAR for exact PNG hashes, source-claim references, mobile notes and prior-image links.
 
@@ -72,7 +80,8 @@ These are source-bound reviewer observations, not computer-vision scores, an ind
 | Native generation saved-pixel rejection | The radial continuous paper assembly improves set variety and meaningful surfaces, but the native output changed to3:2 instead of required1200:630 composition. Stretching it is not an admissible export. Null-result leaf remains blank while its label is outside. | Return to wide1.90476:1 native composition with a broad white border and print Null results count directly on its front leaf. Preserve other source-bound paper anatomy and exact labels. |
 | Progress checkpoint reporting | Intermediate orchestration load calls returned copies; attempted mutations of progress counts were not retained, leaving prior checkpoint counters at zero despite real native calls and persisted PNG reviews. | Preserved earlier checkpoints, reconciled actual sixteen native calls and six hash-bound assets in current worker state; copied real first-clock observations unchanged. |
 | Visible-text metadata reconciliation | Three correction prompts froze additional exact words and face placement before generation, while typed starter-label arrays did not retain those additions. | Preserved actual pre-native prompts and geometry; recorded explicit prompt references and all final authorized terms in current saved-pixel reviews without backdating a typed-array fix. |
-| Final public metadata deployment | Release run44983173414 deployed six images and completed 24 captures, then deploy-pages reported no exact final-metadata artifact although the artifact was finalized at the same second. An artifact visibility race is suspected, not proved. | Existing postrelease verify/metadata-sync workflow, protected exact-Nov22 visual review and same-content history deployment; no image regeneration or placeholder replacement. |
+| Final public metadata deployment | Release run44983173414 deployed six images and completed 24 captures, then deploy-pages reported no exact final-metadata artifact although the artifact was finalized at the same second. An artifact visibility race is suspected, not proved. | Existing postrelease verify/metadata-sync workflow, protected exact-Nov22 visual review and same-content history deployment; no image regeneration or placeholder replacement. Existing metadata-only recovery completed; final independent HTTP public-index and release-receipt hashes matched, with six accepted image hashes and 12 correct article bindings. |
+| Editorial observation reporting repair | The optional artistic-feedback decoder rejected two substage observations per story because those descriptions contained only short labels rather than the required descriptive observations. | Expanded the twelve observations from the actually inspected saved pixels and corrected their existing source-claim references. No image, source freeze, prior timestamp, owner acceptance or admission evidence changed. |
 
 ## Evidence and limitations
 
@@ -91,5 +100,7 @@ Formal starter-array omissions are disclosed in source-label-reconciliation.json
 Prior November21 combined AAR charts and improvement metrics were read from operations-reports/daily/2026-11-20. Prior original seven sets were viewed; later November18 revision pixels were not independently re-certified in this run.
 
 Actual current primary-source review identified an inaccessible older Slack URL and a November21 paper date/human-operated-lab distinction versus sealed editorial metadata. Artwork follows inspected source facts; immutable editorial job and bundle remain unchanged.
+
+All 24 original live capture PNGs were independently read back from exact protected closeout head 5c2021c8c62d2c0ce293594cb34d8c2e055b63f9 and matched receipt SHA256/length. Complete 85797-byte semantic review readback matched efa882fed503416da0969ebf07065ddb69a3327aa20efc8094500cd5417962e1. No native call occurred after lock.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
