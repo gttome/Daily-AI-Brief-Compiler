@@ -1,242 +1,242 @@
-# Daily Generative AI Brief — November 21, 2026
+# Daily Generative AI Brief — November 22, 2026
 
-**Published:** November 21, 2026  
-**Coverage period:** November 18–20, 2026
+**Published:** November 22, 2026  
+**Coverage period:** November 17–20, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-21-m12">Gemini extends Duplex from restaurant calls to broader business tasks</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-21-m14">Build a reviewable accounting Skill from a recurring reconciliation</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-21-m10">Turn reviewer annotations into a reusable agent quality bar</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-21-m11">Governed context lifts agent answers beyond curated instructions alone</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-21-m01">MedChemBench tests frontier models on medicinal-chemistry decisions</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-21-m02">Harness adapters improve one coding agent without proving transfer</a><span>Article · about 6 min source read</span></li><li><a href="#general">The fallout from the fall of Jensen Huang</a><span>Video · 6:33</span></li><li><a href="#agents-for-non-technical-people">Doctor hopes AI can find rare disease cures</a><span>Video · 4:40</span></li><li><a href="#podcast-dab-podcast-2026-11-21-1">Gemini Neon and the cost of getting AI work finished</a><span>Podcast · 18:04</span></li><li><a href="#podcast-dab-podcast-2026-11-21-2">Accounting AI Permissions Just Became Strategy</a><span>Podcast · 4:46</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-22-m12">Turn one Slack agent workflow into a bounded reusable Skill</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-22-m14">Microsoft packages agents around sessions, journals and approvals</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-22-m10">Microsoft’s model price claims need task-level local tests</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-22-m11">Model-flexible workflows need stable tests before provider switches</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-22-m01">OpenAI tests defenses against adversarial model distillation</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-22-m02">A large multi-agent study exposes research coordination limits</a><span>Article · about 7 min source read</span></li><li><a href="#general">Who should profit when AI comes to town?</a><span>Video · 10:25</span></li><li><a href="#agents-for-non-technical-people">Machine Learning &amp; A.I. - Crash Course Computer Science #34</a><span>Video · 11:34</span></li><li><a href="#podcast-dab-podcast-2026-11-22-1">Spend the Lead on Safety: Biden AI Advisors Ben Buchanan &amp; Tantum Collins on the Fate of the World</a><span>Podcast · 1:47:42</span></li><li><a href="#podcast-dab-podcast-2026-11-22-2">Your Software Factory Needs a Bill of Materials | Daniel Meppiel</a><span>Podcast · 1:01:00</span></li></ol></section>
 <!-- reader-release:end -->
 
-<span id="reading-dab-story-2026-11-21-m12"></span>
+<span id="reading-dab-story-2026-11-22-m12"></span>
 
-## 1. Gemini extends Duplex from restaurant calls to broader business tasks
+## 1. Turn one Slack agent workflow into a bounded reusable Skill
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 18 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Agents for Everyone**
+
+**Date:** November 18, 2026
+
+**Topics:** Agent Skills, Workflow triggers, Human review
+
+<span class="story-data" data-story-id="dab-story-2026-11-22-m12" data-story-url="/stories/2026-11-22/nov22-a1-slack-agent-skill/" hidden></span>
+
+<a href="{{ '/stories/2026-11-22/nov22-a1-slack-agent-skill/' | relative_url }}" data-item-id="dab-story-2026-11-22-m12" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Turn one Slack agent workflow into a bounded reusable Skill. Planned illustration: A Slack workflow trigger passes approved context into a reusable agent Skill, then routes drafts and exceptions to a named human reviewer.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-22/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Slack shows how agents can enter Workflow Builder after a defined trigger, use approved channel or document context and return a draft for human review. The guide is first-party product evidence, not proof of general productivity. A reusable Skill should therefore bind the trigger, permitted sources, output format, exception path and measurable result.
+
+**Why it matters:** Teams can convert one recurring Slack request into a reviewable Skill. Define the trigger, restrict context, specify the draft format, route exceptions to a named owner and measure one outcome such as resolved requests or review time before expanding automation.
+
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable Agent Skills — Test known normal and exception cases before wider reuse.</p><p>A Slack-triggered Skill binds approved context, output shape, exception handling and human review.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+
+**Source:** <a href="https://slack.com/blog/productivity/bring-agents-into-your-workflows" data-item-id="dab-story-2026-11-22-m12" data-edition-date="2026-11-22" data-action="source_clicks">Bring agents into your workflows</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-story-compiler-2026-11-22-nov22-a1-slack-agent-skill">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-22-m14"></span>
+
+## 2. Microsoft packages agents around sessions, journals and approvals
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 17 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Agents for Everyone**
+
+**Date:** November 17, 2026
+
+**Topics:** Agent sessions, Approval journals, Workflow boundaries
+
+<span class="story-data" data-story-id="dab-story-2026-11-22-m14" data-story-url="/stories/2026-11-22/nov22-a2-copilot-agent-workflows/" hidden></span>
+
+<a href="{{ '/stories/2026-11-22/nov22-a2-copilot-agent-workflows/' | relative_url }}" data-item-id="dab-story-2026-11-22-m14" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Microsoft packages agents around sessions, journals and approvals. Planned illustration: A workplace agent session connects approved tools through a journal, tenant boundary, human approval checkpoint and exception owner.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-22/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Microsoft’s Copilot SDK 2.0 architecture separates agent sessions, journals and tenant boundaries while exposing tools and approval points to applications. Although the article targets builders, the operating model helps workplace owners ask who can see a session, what actions are recorded and where approval is required. Production outcomes remain first-party and unproven.
+
+**Why it matters:** Nontechnical workflow owners can require a simple control map before adopting an agent: name the session boundary, permitted tools, retained journal, approval step and escalation owner. Test one realistic exception so the documented controls are observable rather than labels on an architecture diagram.
+
+
+
+**Source:** <a href="https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/" data-item-id="dab-story-2026-11-22-m14" data-edition-date="2026-11-22" data-action="source_clicks">Microsoft Copilot SDK 2.0 and GitHub</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-story-compiler-2026-11-22-nov22-a2-copilot-agent-workflows">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-22-m10"></span>
+
+## 3. Microsoft’s model price claims need task-level local tests
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 17 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Applied Generative AI for Knowledge Workers**
+
+**Date:** November 17, 2026
+
+**Topics:** Task economics, Local evaluation, Model limits
+
+<span class="story-data" data-story-id="dab-story-2026-11-22-m10" data-story-url="/stories/2026-11-22/nov22-k1-task-price-tests/" hidden></span>
+
+<a href="{{ '/stories/2026-11-22/nov22-k1-task-price-tests/' | relative_url }}" data-item-id="dab-story-2026-11-22-m10" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Microsoft’s model price claims need task-level local tests. Planned illustration: Seven model routes face the same workplace test cases while a ledger compares accepted outputs, retries, review time, recovery and total completed-work cost.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-22/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Microsoft announced seven models spanning coding, cybersecurity, images, speech and decision routing, emphasizing benchmark quality per dollar. The article and linked model cards also describe availability and intended-use limits. Because the comparisons and prices are operator-selected, knowledge teams should test completed tasks, retries, review time and failure costs on representative work before switching.
+
+**Why it matters:** Procurement teams can turn price-performance claims into a task-level test. Freeze representative cases, define acceptable outputs, record retries and human review, include failure recovery and compare total completed-work cost instead of multiplying token prices by optimistic benchmark scores.
+
+
+
+**Source:** <a href="https://microsoft.ai/news/microsoft-ignite-2026/" data-item-id="dab-story-2026-11-22-m10" data-edition-date="2026-11-22" data-action="source_clicks">Seven new world-class models at scalable price-performance</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-story-compiler-2026-11-22-nov22-k1-task-price-tests">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-22-m11"></span>
+
+## 4. Model-flexible workflows need stable tests before provider switches
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Applied Generative AI for Knowledge Workers**
 
 **Date:** November 20, 2026
 
-**Topics:** Voice agents, Business calling, Disclosure controls
+**Topics:** Model flexibility, Workflow tests, Provider fallback
 
-<span class="story-data" data-story-id="dab-story-2026-11-21-m12" data-story-url="/stories/2026-11-21/nov21-a1-duplex-calling/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-22-m11" data-story-url="/stories/2026-11-22/nov22-k2-model-flexibility/" hidden></span>
 
-<a href="{{ '/stories/2026-11-21/nov21-a1-duplex-calling/' | relative_url }}" data-item-id="dab-story-2026-11-21-m12" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-22/nov22-k2-model-flexibility/' | relative_url }}" data-item-id="dab-story-2026-11-22-m11" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Gemini extends Duplex from restaurant calls to broader business tasks. Planned illustration: A voice agent prepares a bounded business call, discloses that it is automated, handles noisy dialogue and returns price and commitment details for human confirmation.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-21/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Model-flexible workflows need stable tests before provider switches. Planned illustration: A stable workflow test suite routes identical cases through multiple model providers with quality, latency, permissions and rollback checks.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-22/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Google Research explains how Duplex evolved into Tasks in Gemini, which can call businesses on a user’s behalf. Gemini now unifies multimodal understanding, planning and dialogue while handling noisy calls with low latency. The system identifies itself as automated, supports merchant opt-outs and reuses approved details, but the account is operator-reported.
+**Summary:** Zapier argues that workflow owners should separate a business process from any one model provider, then compare substitutes against stable inputs and acceptance checks. The guide covers routing, fallback and data-handling differences while warning that models are not interchangeable. Its examples are vendor-authored, so teams should validate quality, latency, permissions and failure behavior independently.
 
-**Why it matters:** People can delegate one bounded phone task while keeping the transaction reviewable. Specify the exact request, limit reusable personal details, confirm any price or commitment before approval and treat disclosure and merchant opt-out as minimum safeguards, not proof of accuracy.
+**Why it matters:** Operations teams can reduce switching risk by freezing representative inputs, expected outputs and approval boundaries before changing providers. Compare quality, latency, cost, retention rules and fallback behavior on the same cases, then keep a tested rollback instead of assuming API compatibility means workflow equivalence.
 
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Stable evaluation cases — Freeze one workload and compare quality, latency, cost and permissions.</p><p>Representative inputs and acceptance checks make model-provider substitutions reviewable rather than cosmetic.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
 
+**Source:** <a href="https://zapier.com/blog/ai-model-flexibility/" data-item-id="dab-story-2026-11-22-m11" data-edition-date="2026-11-22" data-action="source_clicks">Prevent lock-in with AI model flexibility</a>
 
-**Source:** <a href="https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/" data-item-id="dab-story-2026-11-21-m12" data-edition-date="2026-11-21" data-action="source_clicks">How Google Duplex evolved to also call businesses for you in Gemini</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-story-compiler-2026-11-21-nov21-a1-duplex-calling">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-story-compiler-2026-11-22-nov22-k2-model-flexibility">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-21-m14"></span>
+<span id="reading-dab-story-2026-11-22-m01"></span>
 
-## 2. Build a reviewable accounting Skill from a recurring reconciliation
+## 5. OpenAI tests defenses against adversarial model distillation
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 18 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
-**Focus: Agents for Everyone**
+**Focus: Technical AI Engineering**
 
-**Date:** November 18, 2026
+**Date:** November 20, 2026
 
-**Topics:** Accounting Skills, Source citations, Reconciliation review
+**Topics:** Model extraction, Adaptive attacks, Defense evaluation
 
-<span class="story-data" data-story-id="dab-story-2026-11-21-m14" data-story-url="/stories/2026-11-21/nov21-a2-accounting-skill/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-22-m01" data-story-url="/stories/2026-11-22/nov22-t1-adversarial-distillation/" hidden></span>
 
-<a href="{{ '/stories/2026-11-21/nov21-a2-accounting-skill/' | relative_url }}" data-item-id="dab-story-2026-11-21-m14" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-22/nov22-t1-adversarial-distillation/' | relative_url }}" data-item-id="dab-story-2026-11-22-m01" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Build a reviewable accounting Skill from a recurring reconciliation. Planned illustration: An accounting reconciliation Skill connects authorized records to cited matches, duplicate and uncertainty flags, an exception sample and a final authorized sign-off.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-21/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for OpenAI tests defenses against adversarial model distillation. Planned illustration: An adaptive extraction loop tests a model defense while separate gauges track attacker success, normal-user utility and independent reproduction.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-22/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** OpenAI’s accounting guide shows how to connect authorized records, specify company, period and accounting rules, then run reconciliation, invoice-entry, reporting and audit-support workflows. It recommends record citations, uncertainty flags, duplicate checks and human review. A stable recurring procedure can then be saved as a Skill without removing professional judgment.
+**Summary:** OpenAI describes an adaptive evaluation for adversarial distillation, where an attacker repeatedly queries a model to reproduce valuable behavior. The research compares defenses against changing extraction strategies instead of one fixed attack. Results come from internal tests, so the reported gains establish a security method and threat model rather than independent proof of broad protection.
 
-**Why it matters:** Accountants can turn one repeated reconciliation into a reusable, bounded Skill. Define permitted sources, period and rules; require cited records, duplicate detection and uncertainty flags; test exceptions on a known sample; then keep final posting and sign-off with an authorized reviewer.
+**Why it matters:** Model providers can evaluate extraction defenses against attackers that adapt after each failure. Define the protected capability, measure utility loss for normal users, vary the adversary’s strategy and require independent reproduction before treating one internal benchmark as durable security evidence.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable Agent Skills — Validate known matches and exceptions before routine reuse.</p><p>A bounded reconciliation Skill preserves sources, rules, exceptions and human posting authority.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Adaptive security evaluation — Compare attacker success with normal-user utility and independent reproduction.</p><p>Adaptive extraction tests separate fixed-attack performance from defenses that survive changing adversary behavior.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://help.openai.com/en/articles/20001709-using-chatgpt-for-accounting-work" data-item-id="dab-story-2026-11-21-m14" data-edition-date="2026-11-21" data-action="source_clicks">Using ChatGPT for accounting work</a>
+**Source:** <a href="https://openai.com/index/combatting-adversarial-distillation/" data-item-id="dab-story-2026-11-22-m01" data-edition-date="2026-11-22" data-action="source_clicks">Combatting adversarial distillation</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-story-compiler-2026-11-21-nov21-a2-accounting-skill">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-story-compiler-2026-11-22-nov22-t1-adversarial-distillation">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-21-m10"></span>
+<span id="reading-dab-story-2026-11-22-m02"></span>
 
-## 3. Turn reviewer annotations into a reusable agent quality bar
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 18 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Applied Generative AI for Knowledge Workers**
-
-**Date:** November 18, 2026
-
-**Topics:** Human feedback, Golden datasets, Task rubrics
-
-<span class="story-data" data-story-id="dab-story-2026-11-21-m10" data-story-url="/stories/2026-11-21/nov21-k1-feedback-quality-bar/" hidden></span>
-
-<a href="{{ '/stories/2026-11-21/nov21-k1-feedback-quality-bar/' | relative_url }}" data-item-id="dab-story-2026-11-21-m10" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Turn reviewer annotations into a reusable agent quality bar. Planned illustration: Reviewer annotations flow from agent traces into a golden dataset and task rubric, with separate privacy, retention and access-control gates.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-21/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Microsoft describes a feedback loop that converts traces and reviewer annotations into golden datasets and task-level rubrics for agent evaluation. In its HelpSteer3 example, reported alignment with one human rose from 65% to 81%, versus 89% agreement between two people. The post also flags privacy, retention and access controls around collected feedback.
-
-**Why it matters:** Knowledge teams can promote repeated review comments into explicit tests instead of re-litigating them case by case. Start with one task, label accepted and rejected outputs, define a rubric and review who may retain or reuse the underlying traces.
+## 6. A large multi-agent study exposes research coordination limits
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Evaluation rubrics — Turn one recurring correction into a labeled test case.</p><p>Repeated reviewer feedback becomes an explicit dataset and task-level acceptance rubric.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 7 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/turn-human-feedback-into-a-reusable-quality-bar-for-ai-agents/4574554" data-item-id="dab-story-2026-11-21-m10" data-edition-date="2026-11-21" data-action="source_clicks">Turn human feedback into a reusable quality bar for AI agents</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-story-compiler-2026-11-21-nov21-k1-feedback-quality-bar">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-21-m11"></span>
-
-## 4. Governed context lifts agent answers beyond curated instructions alone
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Applied Generative AI for Knowledge Workers**
+**Focus: Technical AI Engineering**
 
 **Date:** November 19, 2026
 
-**Topics:** Governed context, Agent accuracy, Business definitions
+**Topics:** Multi-agent science, Research coordination, Audit limits
 
-<span class="story-data" data-story-id="dab-story-2026-11-21-m11" data-story-url="/stories/2026-11-21/nov21-k2-governed-context/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-22-m02" data-story-url="/stories/2026-11-22/nov22-t2-society-ai-scientists/" hidden></span>
 
-<a href="{{ '/stories/2026-11-21/nov21-k2-governed-context/' | relative_url }}" data-item-id="dab-story-2026-11-21-m11" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Governed context lifts agent answers beyond curated instructions alone. Planned illustration: A four-column insurance-agent evaluation compares raw tables, curated instructions, governed context and their combination, followed by a policy-change propagation check.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-21/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Databricks tested 125 questions three times in a fictional insurance setting. Raw tables answered 64% correctly; curated agents and a governed semantic layer each reached 83%, while combining them reached 95%. Separate tests showed definitions and documents resolved different failures, and a 12-question change test checked whether updated policies propagated.
-
-**Why it matters:** Teams can distinguish prompt curation from governed business context. Build a representative question set, isolate definitions, documents and table access, repeat runs and test a policy change before assuming that adding more instructions will make an agent reliable.
-
-
-
-**Source:** <a href="https://www.databricks.com/blog/genie-one-accuracy-why-curated-agents-need-governed-context" data-item-id="dab-story-2026-11-21-m11" data-edition-date="2026-11-21" data-action="source_clicks">Genie One accuracy: Why curated agents need governed context</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-story-compiler-2026-11-21-nov21-k2-governed-context">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-21-m01"></span>
-
-## 5. MedChemBench tests frontier models on medicinal-chemistry decisions
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Technical AI Engineering**
-
-**Date:** November 20, 2026
-
-**Topics:** Medicinal chemistry, Benchmark design, Property prediction
-
-<span class="story-data" data-story-id="dab-story-2026-11-21-m01" data-story-url="/stories/2026-11-21/nov21-t1-medchembench/" hidden></span>
-
-<a href="{{ '/stories/2026-11-21/nov21-t1-medchembench/' | relative_url }}" data-item-id="dab-story-2026-11-21-m01" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-22/nov22-t2-society-ai-scientists/' | relative_url }}" data-item-id="dab-story-2026-11-22-m02" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for MedChemBench tests frontier models on medicinal-chemistry decisions. Planned illustration: A medicinal-chemistry benchmark board separates structure recognition, numerical property prediction and compound selection, with a chemist review checkpoint beside the aggregate score.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-21/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for A large multi-agent study exposes research coordination limits. Planned illustration: Thirty-five simulated laboratories exchange reviewed research artifacts while an external audit gate remains visibly unresolved.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-22/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** OpenAI’s MedChemBench evaluates models on 99 medicinal-chemistry problems drawn from 117 papers and patents, covering 761 chemical structures. GPT-6.2 Astra scored 84.5%, while harder numerical property-prediction and selection questions remained weaker. The benchmark exposes source material, scoring rules and task structure so teams can inspect where apparent scientific competence breaks down.
+**Summary:** The alphaXiv paper reports a twelve-week study coordinating 936 agents across 35 simulated laboratories to produce research artifacts. Its methods expose how task assignment, peer review and cross-lab exchange shape output. The scale is unusual, but the platform controls the experiment and independent replication, external code audit and durable scientific impact remain unestablished.
 
-**Why it matters:** Research teams can use the benchmark as a template for domain evaluation: preserve source provenance, separate recognition from numerical prediction, inspect error classes and require chemist review before treating a high aggregate score as evidence for real discovery work.
-
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Domain evaluation — Compare recognition, numerical prediction and selection errors before deployment.</p><p>Source-grounded benchmark tasks separate aggregate model scores from chemist-reviewed scientific decisions.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
-
-**Source:** <a href="https://openai.com/index/introducing-medchembench/" data-item-id="dab-story-2026-11-21-m01" data-edition-date="2026-11-21" data-action="source_clicks">Introducing MedChemBench</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-story-compiler-2026-11-21-nov21-t1-medchembench">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-21-m02"></span>
-
-## 6. Harness adapters improve one coding agent without proving transfer
+**Why it matters:** Research-agent teams can borrow the study’s separation of roles, review stages and shared records without copying its scale. Preserve prompts, code, failed attempts and reviewer decisions, then test whether independent experts can reproduce one result before claiming autonomous scientific progress.
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Multi-agent coordination — Preserve failed attempts and reproduce one artifact independently.</p><p>Role boundaries, shared records and review stages shape long-running multi-agent research behavior.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Focus: Technical AI Engineering**
+**Source:** <a href="https://www.alphaxiv.org/abs/2611.society-ai-scientists" data-item-id="dab-story-2026-11-22-m02" data-edition-date="2026-11-22" data-action="source_clicks">A Society of AI Scientists</a>
 
-**Date:** November 20, 2026
-
-**Topics:** Harness adapters, Agent evaluation, Distribution shift
-
-<span class="story-data" data-story-id="dab-story-2026-11-21-m02" data-story-url="/stories/2026-11-21/nov21-t2-harness-adapters/" hidden></span>
-
-<a href="{{ '/stories/2026-11-21/nov21-t2-harness-adapters/' | relative_url }}" data-item-id="dab-story-2026-11-21-m02" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Harness adapters improve one coding agent without proving transfer. Planned illustration: One base coding model branches into harness-specific adapters, with Pi performance and token-use gains on one side and a flat out-of-distribution transfer test on the other.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-21/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Hugging Face trained a separate LoRA adapter for each coding-agent harness using Qwen3.8-27B. The Pi adapter raised the reported score from 39% to 55% while cutting average tokens from 2,900 to 1,500. Out-of-distribution AutomationBench results stayed near the base model, leaving transfer beyond the trained harness unresolved.
-
-**Why it matters:** Agent teams can test whether behavior belongs to the model or its surrounding harness. Hold the base model constant, train against one interface, measure token use and then run a separate task distribution before claiming a reusable capability gain.
-
-<!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Harness context — Test the same adapter against a separate task distribution.</p><p>Holding the base model constant reveals how an agent harness changes behavior and token use.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
-<!-- reader-release:end -->
-
-**Source:** <a href="https://huggingface.co/blog/harness-adapters-at-scale" data-item-id="dab-story-2026-11-21-m02" data-edition-date="2026-11-21" data-action="source_clicks">Harness adapters at scale</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-story-compiler-2026-11-21-nov21-t2-harness-adapters">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-story-compiler-2026-11-22-nov22-t2-society-ai-scientists">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -249,27 +249,27 @@
 
 ## 7. General
 
-### The fallout from the fall of Jensen Huang
+### Who should profit when AI comes to town?
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI video fallback</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Evergreen AI video</span></div></aside>
 <!-- reader-release:end -->
 
-<a href="{{ '/videos/2026-11-21/general/' | relative_url }}" data-item-id="dab-video-2026-11-21-general" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** Fox News  
-**Date:** November 14, 2026  
-**Duration:** 6:33  
+<a href="{{ '/videos/2026-11-22/general/' | relative_url }}" data-item-id="dab-video-2026-11-22-general" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent video page</a>  
+**Channel:** TED  
+**Date:** October 1, 2026  
+**Duration:** 10:25 · Longer selection today: no suitable video of 10 minutes or less was found.  
 **Format:** Video
 
-**Summary:** The Journal Editorial Report interview examines a hypothetical Nvidia leadership disruption and its possible effects on AI-chip production, market confidence and national-security policy. The discussion is useful as bounded scenario analysis, not evidence that a disruption has occurred. Readers should separate the stated assumptions, dependencies and policy judgments from verified operating facts.
+**Summary:** Brian Janous argues that communities hosting AI data centers should share more directly in their economic benefits. The TED talk connects electricity demand, water, tax incentives and local opposition to mechanisms for community investment. Janous brings industry experience, so readers should treat the proposal as a disclosed perspective and verify local numbers independently.
 
-**Why it matters:** Use the interview as a scenario prompt, not a forecast: identify leadership concentration, manufacturing dependencies and government exposure, then name the evidence and contingency trigger that would change your operational plan.
+**Why it matters:** Use the talk to structure a data-center decision: list local power, water and tax costs; identify who receives the benefits; require public assumptions; and compare community-benefit mechanisms before treating construction jobs or regional growth claims as settled.
 
 
 
-**Source:** <a href="https://www.foxnews.com/video/6408385442112" data-item-id="dab-video-2026-11-21-general" data-edition-date="2026-11-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Fox News</a>
+**Source:** <a href="https://www.ted.com/talks/brian_janous_who_should_profit_when_ai_comes_to_town" data-item-id="dab-video-2026-11-22-general" data-edition-date="2026-11-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on TED</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-video-compiler-2026-11-21-general">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-video-compiler-2026-11-22-general">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -280,27 +280,27 @@
 
 ## 8. Agents for Everyone
 
-### Doctor hopes AI can find rare disease cures
+### Machine Learning & A.I. - Crash Course Computer Science #34
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Evergreen AI video</span></div></aside>
 <!-- reader-release:end -->
 
-<a href="{{ '/videos/2026-11-21/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-21-agent-skills" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** CBS News  
-**Date:** November 12, 2026  
-**Duration:** 4:40  
+<a href="{{ '/videos/2026-11-22/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-22-agent-skills" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent video page</a>  
+**Channel:** Crash Course Computer Science / PBS  
+**Date:** November 1, 2017  
+**Duration:** 11:34 · Longer selection today: no suitable video of 10 minutes or less was found.  
 **Format:** Video
 
-**Summary:** CBS Mornings profiles physician-researcher David Fajgenbaum, whose work identified an existing drug that helped treat his Castleman disease. The feature asks whether AI could search biomedical evidence for other repurposing candidates. It is an applied research story, not validation of an AI-discovered cure; claims should remain tied to clinical evidence and expert review.
+**Summary:** Crash Course explains machine learning through classification, features, labeled data, decision boundaries, neural networks and reinforcement learning. The examples remain clear and nonpromotional, but the program was published in 2017, so it should serve as a conceptual foundation rather than a guide to current frontier systems, safety practices or deployment capabilities.
 
-**Why it matters:** Use the feature to frame AI drug repurposing as candidate generation, not medical proof. Require traceable literature, disease-specific expertise, safety review and prospective clinical evidence before moving a suggested existing drug toward patient care.
+**Why it matters:** Use the explainer to give a team shared vocabulary before evaluating a modern system. Ask which features, labels, objective and feedback loop produce each output, then supplement the nine-year-old foundation with current evidence about model limits, data provenance and oversight.
 
 
 
-**Source:** <a href="https://www.cbsnews.com/video/this-doctor-saved-his-own-life-now-he-hopes-ai-can-discover-new-uses-for-old-drugs/" data-item-id="dab-video-2026-11-21-agent-skills" data-edition-date="2026-11-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on CBS News</a>
+**Source:** <a href="https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/" data-item-id="dab-video-2026-11-22-agent-skills" data-edition-date="2026-11-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Crash Course Computer Science / PBS</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-video-compiler-2026-11-21-agent-skills">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-video-compiler-2026-11-22-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -309,70 +309,70 @@
 
 ## Worth Listening — Podcasts
 
-<span id="podcast-dab-podcast-2026-11-21-1"></span>
+<span id="podcast-dab-podcast-2026-11-22-1"></span>
 
-### 9. Gemini Neon and the cost of getting AI work finished
+### 9. Spend the Lead on Safety: Biden AI Advisors Ben Buchanan & Tantum Collins on the Fate of the World
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New AI podcast episode</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-21-1" data-podcast-title="Gemini Neon and the cost of getting AI work finished" data-podcast-url="/podcasts/2026-11-21/gemini-neon-and-the-cost-of-getting-ai-work-finished/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-22-1" data-podcast-title="Spend the Lead on Safety: Biden AI Advisors Ben Buchanan &amp; Tantum Collins on the Fate of the World" data-podcast-url="/podcasts/2026-11-22/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-/" hidden></span>
 
-<a href="{{ '/podcasts/2026-11-21/gemini-neon-and-the-cost-of-getting-ai-work-finished/' | relative_url }}" data-item-id="dab-podcast-2026-11-21-1" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-11-22/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-/' | relative_url }}" data-item-id="dab-podcast-2026-11-22-1" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** Owen on the Net  
+**Show:** The Cognitive Revolution  
 **Focus:** Agents for Everyone  
-**Date:** November 20, 2026  
-**Duration:** 18:04  
+**Date:** November 21, 2026  
+**Duration:** 1:47:42  
 
-**Summary:** Jesse Owen’s dated episode reviews Gemini Neon, GPT-6.2 and related workflow changes through the cost of finishing real work rather than benchmark rank alone. The full transcript makes each claim inspectable, while the roundup format means listeners should follow the cited primary releases before treating any model comparison as settled.
+**Summary:** Nathan Labenz interviews former White House AI advisers Ben Buchanan and Tantum Collins about frontier-model policy, national security and the tradeoffs between capability leadership and enforceable safeguards. The full transcript exposes the speakers’ reasoning and disagreements. Their government experience is relevant context, but listeners should distinguish policy judgment from measured safety outcomes.
 
-**Why it matters:** Use the episode to build a task-level comparison: define completion, record retries and tool friction, then compare total cost and review time across two models. Keep vendor benchmark claims separate from your own observed work.
+**Why it matters:** Use the discussion to stress-test an AI policy proposal: identify the protected capability, credible threat, enforcement mechanism, responsible institution and evidence that would change the policy. Keep strategic urgency separate from proof that a chosen safeguard works.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://www.owenonthenet.com/podcast/2026-11-20/" data-item-id="dab-podcast-2026-11-21-1" data-edition-date="2026-11-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Owen on the Net</a>
+**Listen / watch:** <a href="https://www.cognitiverevolution.ai/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-world/" data-item-id="dab-podcast-2026-11-22-1" data-edition-date="2026-11-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The Cognitive Revolution</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-podcast-compiler-2026-11-21-1">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-podcast-compiler-2026-11-22-1">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="podcast-dab-podcast-2026-11-21-2"></span>
+<span id="podcast-dab-podcast-2026-11-22-2"></span>
 
-### 10. Accounting AI Permissions Just Became Strategy
+### 10. Your Software Factory Needs a Bill of Materials | Daniel Meppiel
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New AI podcast episode</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI podcast episode fallback</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-21-2" data-podcast-title="Accounting AI Permissions Just Became Strategy" data-podcast-url="/podcasts/2026-11-21/accounting-ai-permissions-just-became-strategy/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-22-2" data-podcast-title="Your Software Factory Needs a Bill of Materials | Daniel Meppiel" data-podcast-url="/podcasts/2026-11-22/your-software-factory-needs-a-bill-of-materials-daniel-meppiel/" hidden></span>
 
-<a href="{{ '/podcasts/2026-11-21/accounting-ai-permissions-just-became-strategy/' | relative_url }}" data-item-id="dab-podcast-2026-11-21-2" data-edition-date="2026-11-21" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-11-22/your-software-factory-needs-a-bill-of-materials-daniel-meppiel/' | relative_url }}" data-item-id="dab-podcast-2026-11-22-2" data-edition-date="2026-11-22" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** DayLift Signal  
+**Show:** AI Native Dev  
 **Focus:** Agents for Everyone  
-**Date:** November 20, 2026  
-**Duration:** 4:46  
+**Date:** November 19, 2026  
+**Duration:** 1:01:00  
 
-**Summary:** DayLift’s short episode analyzes accounting AI through connector permissions, source access and the difference between reading records and writing back to systems. The publisher discloses an AI-cloned voice and AI-assisted, human-reviewed production. Its practical value is a permission review, not independent proof that any accounting integration is safe.
+**Summary:** Daniel Meppiel discusses why AI-assisted software factories need a bill of materials for models, tools, prompts, dependencies and generated artifacts. The episode’s timecoded agenda makes the workflow inspectable, but its recommendations remain practitioner guidance rather than measured proof. Teams should connect inventory records to review, provenance, licensing and rollback decisions.
 
-**Why it matters:** Use the episode to inventory every connector before enabling an accounting agent. Separate read, draft and write permissions; identify who approves changes; log source records and revoke access that is broader than the workflow requires.
+**Why it matters:** Engineering leaders can inventory one AI-assisted delivery path before scaling it. Record models, tools, prompts, dependencies, generated artifacts and approvals; attach provenance and license checks; then test whether the record supports rollback and incident review when a component changes.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://daylift.io/signal/accounting-ai-permissions-just-became-strategy-589" data-item-id="dab-podcast-2026-11-21-2" data-edition-date="2026-11-21" data-action="source_clicks" target="_blank" rel="noopener noreferrer">DayLift Signal</a>
+**Listen / watch:** <a href="https://podcasts.apple.com/us/podcast/your-software-factory-needs-a-bill-of-materials/id1756073806?i=1000802928169" data-item-id="dab-podcast-2026-11-22-2" data-edition-date="2026-11-22" data-action="source_clicks" target="_blank" rel="noopener noreferrer">AI Native Dev</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-21" data-feedback-story-id="dab-podcast-compiler-2026-11-21-2">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-22" data-feedback-story-id="dab-podcast-compiler-2026-11-22-2">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -389,7 +389,7 @@
 
 ## Editorial takeaway
 
-Research teams can use the benchmark as a template for domain evaluation: preserve source provenance, separate recognition from numerical prediction, inspect error classes and require chemist review before treating a high aggregate score as evidence for real discovery work.
+Model providers can evaluate extraction defenses against attackers that adapt after each failure. Define the protected capability, measure utility loss for normal users, vary the adversary’s strategy and require independent reproduction before treating one internal benchmark as durable security evidence.
 
 <!-- reader-release:start -->
 <aside class="series-invitation" id="explore-series"><p class="book-kicker">CONTINUE LEARNING</p><h2>Explore the Generative AI Professional Series</h2><p>Take the next step from today’s developments to deeper professional learning with books on prompting, context, and reliable AI.</p><p><a class="book-cta" href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Explore the books ↗</a></p><p class="small-note">Purchasing a book supports continued development of the series and the Daily Generative AI Brief.</p></aside>
