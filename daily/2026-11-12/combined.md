@@ -525,8 +525,8 @@ No current-edition postpublication incident register was available; this is **NO
 | Observed editorial index retries | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/source-item-retries.json) |
 | Scientific paper selection review | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/scientific-paper-coverage.json) |
 | Published player playback receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/compiler/postpublish-video-playback.json) |
-| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/073fd2124a996f873ad535ca2efd8c36b1154ddc/signals/ai-topic-top10/2026-11-12.json) |
-| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/073fd2124a996f873ad535ca2efd8c36b1154ddc/signals/ai-topic-top10/2026-11-12.aar.json) |
+| Top 10 ranked topic report | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/35b822be2542a58b846fa65abef0d6d36e786633/signals/ai-topic-top10/2026-11-12.json) |
+| Top 10 run after-action receipt | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/35b822be2542a58b846fa65abef0d6d36e786633/signals/ai-topic-top10/2026-11-12.aar.json) |
 | Compiler Top 10 input snapshot | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/trend-input.json) |
 | Top 10 article/video/podcast search coverage | [Open receipt](https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-13/shadow-runs/2026-11-13/editorial/trend-search-coverage.json) |
 
@@ -694,43 +694,92 @@ Unclassified means the original gate is known but no structured cause review is 
 | deep-20261026-a01-google-research | Not recorded | Not recorded |
 | deep-20261026-a02-microsoft-ai | Not recorded | Not recorded |
 | deep-20261026-a03-nvidia-news | Not recorded | Not recorded |
+| deep-20261026-p01-lex | Not recorded | Not recorded |
 | deep-20261026-p02-data-skeptic | Not recorded | Not recorded |
 | deep-20261026-v01-two-minute-papers | 2026-11-13 | 0 |
 | deepseek-news | Not recorded | Not recorded |
+| directory-055badde01b32d19771532e7 | Not recorded | Not recorded |
+| directory-06aa5423549ae7ab03534d6d | Not recorded | Not recorded |
+| directory-0be5c22bd2fbf2c24835cdf8 | Not recorded | Not recorded |
 | directory-0dffb60aadd4ba31b5c090dc | Not recorded | Not recorded |
 | directory-1c6f5db2559c3c226a112873 | 2026-11-13 | 0 |
+| directory-207b781e953be997d6f84c93 | Not recorded | Not recorded |
+| directory-22bfce3172fd5a67ebfcdde4 | Not recorded | Not recorded |
 | directory-242c2a2fc81a43d41f199129 | 2026-11-10 | 3 |
+| directory-2f92b46f1e169255a4c25763 | Not recorded | Not recorded |
+| directory-30c771704ce20d310317aee8 | Not recorded | Not recorded |
 | directory-3834a0112c0e3a754320b557 | 2026-11-13 | 0 |
+| directory-3c29ebc2d9cbcc9f11312e28 | Not recorded | Not recorded |
+| directory-3c8435418a50bbe5096c415b | Not recorded | Not recorded |
 | directory-3ccc18a956cae0b1e24b5968 | Not recorded | Not recorded |
+| directory-3d9b47e80ca1f30e4b17fff2 | Not recorded | Not recorded |
 | directory-411bf5f837e28f35220736eb | 2026-11-09 | 4 |
 | directory-4852e367f74118ff2dc1eec9 | 2026-11-13 | 0 |
 | directory-48665d874f6008894d0d9385 | 2026-11-13 | 0 |
 | directory-4c16d138c4a736e78a68127e | 2026-11-13 | 0 |
 | directory-54d90ff964a74ff98851ae11 | Not recorded | Not recorded |
+| directory-581aeefb9198185f59bfc7df | Not recorded | Not recorded |
 | directory-5c5d3d02a420135949164552 | 2026-11-13 | 0 |
+| directory-5e90c3904ae9e6147f058897 | Not recorded | Not recorded |
+| directory-64b811560a52e317d4a76b1f | Not recorded | Not recorded |
 | directory-64f0886a6793aa8858a4b62d | Not recorded | Not recorded |
+| directory-6bb864602986d830dee61c52 | Not recorded | Not recorded |
+| directory-6e0e32e58ba2e488ad8c4c61 | Not recorded | Not recorded |
 | directory-6ea6e283349c7b62ac1ced9d | Not recorded | Not recorded |
+| directory-6fc2c16051b6c5876b5c143e | Not recorded | Not recorded |
+| directory-76ddf221aa9a485fd35e51d6 | Not recorded | Not recorded |
 | directory-79e16cd5beb5c662c4022a9f | 2026-11-13 | 0 |
+| directory-7f3807ea3e16f9a7ad5c1e52 | Not recorded | Not recorded |
 | directory-8263ca4c9f560c8d9c4df0de | 2026-11-13 | 0 |
+| directory-85ee8e554a07476bacde4af4 | Not recorded | Not recorded |
+| directory-86ca1c8904dd91903440c2a9 | Not recorded | Not recorded |
+| directory-88944f584a55367d3844df62 | Not recorded | Not recorded |
+| directory-89818f9d7e6b4cd85a2537d5 | Not recorded | Not recorded |
+| directory-8b0eaafedc559312fb655fc6 | Not recorded | Not recorded |
 | directory-8df3614a9972a25fc59475ed | 2026-11-07 | 6 |
 | directory-8ec4fd458a38bc0447f4cded | Not recorded | Not recorded |
+| directory-8f73fa03dd8761b82ed67771 | Not recorded | Not recorded |
+| directory-8ff038a44faf8336fd28b74b | Not recorded | Not recorded |
 | directory-935fbe5ba89ff5f91fc8c69b | Not recorded | Not recorded |
 | directory-970506fbc577e6091a33c64d | 2026-11-13 | 0 |
+| directory-985e561bc559a1cd2b93119f | Not recorded | Not recorded |
 | directory-9ad7c274f2d56274bcd5ddcc | Not recorded | Not recorded |
 | directory-9c0885bdb370f69c9262b88c | 2026-11-07 | 6 |
+| directory-9d99ff8f4466a1f65bfc4917 | Not recorded | Not recorded |
+| directory-9daf9da90f479955fe3e7700 | Not recorded | Not recorded |
 | directory-9f7087ce2c030a4b9da58499 | 2026-11-13 | 0 |
+| directory-a639b4426b7c8da8a060bd66 | Not recorded | Not recorded |
+| directory-a65ed82afa514bd8b255231d | Not recorded | Not recorded |
 | directory-a74f303f4b0c39344c1314cf | 2026-11-06 | 7 |
+| directory-b51c54b09007109b0ed9dd27 | Not recorded | Not recorded |
+| directory-b73c74c7240ac52cda5485c4 | Not recorded | Not recorded |
 | directory-b93e2368e85f0f95c066463e | 2026-11-13 | 0 |
+| directory-bb4f514f62ba0e0a08d6af6b | Not recorded | Not recorded |
+| directory-c15ce5b4a9c1e9e23b12e5c5 | Not recorded | Not recorded |
+| directory-c511698feee38a8793924c12 | Not recorded | Not recorded |
 | directory-c6b8a33e7fa162cc41136fa5 | Not recorded | Not recorded |
+| directory-c831ea242dd43dc46401a87a | Not recorded | Not recorded |
+| directory-cc8c40e66ad241091baabb53 | Not recorded | Not recorded |
 | directory-d1527db7c06b4e83370b7546 | 2026-11-13 | 0 |
+| directory-d2316acd033bdfbce6d25fa2 | Not recorded | Not recorded |
+| directory-d4bdf42a0b23db56b0e5a7b1 | Not recorded | Not recorded |
 | directory-d5428d030dfff7d4639258e3 | 2026-11-13 | 0 |
 | directory-d6cf3f9fa167b8173a35228b | Not recorded | Not recorded |
+| directory-d7d6951e0913cca8d43e64dc | Not recorded | Not recorded |
+| directory-d8bbfa9efb621702f6eb9672 | Not recorded | Not recorded |
 | directory-db682c52794328eb69ebc377 | 2026-11-13 | 0 |
+| directory-dbb55a0c7c63ce90174a69ac | Not recorded | Not recorded |
+| directory-dbdbb37cd61bd05d3daa5975 | Not recorded | Not recorded |
+| directory-e09ae3dc4358cf271491a3ac | Not recorded | Not recorded |
 | directory-e2f33b502b264e51983a338a | 2026-11-13 | 0 |
+| directory-e645db24d69ee7a0f21d8767 | Not recorded | Not recorded |
 | directory-e7b100b6b999ac748e052327 | 2026-11-13 | 0 |
 | directory-ecf69ec2f036e803388f40ca | 2026-11-13 | 0 |
+| directory-f333686bf009f24fa95a8068 | Not recorded | Not recorded |
+| directory-f771d4f56ad4dbaab6f21e0e | Not recorded | Not recorded |
 | directory-f8085f0f6e72cfbdfde3a0f8 | 2026-11-13 | 0 |
 | directory-fd36049347d409f38c9f9a67 | Not recorded | Not recorded |
+| directory-ffef3b45859d4601fbc60c69 | Not recorded | Not recorded |
 | github-ai-agents | Not recorded | Not recorded |
 | github-generative-ai | Not recorded | Not recorded |
 | github-llm | Not recorded | Not recorded |
@@ -771,12 +820,28 @@ Unclassified means the original gate is known but no structured cause review is 
 | reddit-localllama | Not recorded | Not recorded |
 | reddit-machinelearning | Not recorded | Not recorded |
 | research-20261026-a01 | Not recorded | Not recorded |
+| research-20261026-a03 | Not recorded | Not recorded |
 | research-20261026-a04 | Not recorded | Not recorded |
 | research-20261026-a05 | Not recorded | Not recorded |
+| research-20261026-a06 | Not recorded | Not recorded |
+| research-20261026-a07 | Not recorded | Not recorded |
+| research-20261026-a08 | Not recorded | Not recorded |
+| research-20261026-a09 | Not recorded | Not recorded |
+| research-20261026-a10 | Not recorded | Not recorded |
+| research-20261026-a11 | Not recorded | Not recorded |
 | research-20261026-a12 | 2026-11-13 | 0 |
+| research-20261026-a13 | Not recorded | Not recorded |
+| research-20261026-a14 | Not recorded | Not recorded |
+| research-20261026-p01 | Not recorded | Not recorded |
+| research-20261026-p02 | Not recorded | Not recorded |
 | research-20261026-p03 | Not recorded | Not recorded |
+| research-20261026-p04 | Not recorded | Not recorded |
+| research-20261026-p05 | Not recorded | Not recorded |
+| research-20261026-p06 | Not recorded | Not recorded |
+| research-20261026-p07 | Not recorded | Not recorded |
 | research-20261026-v01 | 2026-11-13 | 0 |
 | research-20261026-v02 | 2026-11-13 | 0 |
+| research-20261026-v03 | Not recorded | Not recorded |
 | research-20261026-v04 | 2026-11-13 | 0 |
 | research-20261026-v05 | 2026-11-13 | 0 |
 | research-20261026-v06 | 2026-11-13 | 0 |
