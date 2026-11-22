@@ -1,0 +1,328 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-22",
+  "story_id": "nov22-a2-copilot-agent-workflows",
+  "source_url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+  "visual_thesis": "Session identity, tool scope and a durable journal are distinct controls. A journal lets another runtime resume the same history; host-owned tools and approvals still govern actions.",
+  "mechanism_metaphor": "One upright translucent session envelope cut open to expose separate identity leaf, state stack, tool rail and external journal spine. The journal front has three explicit large terms Messages, Tool calls and Results, each on its own substantial visible layer, not tiny fake log lines. A restarted-runtime socket at lower right receives the same journal spine; its coupling is labeled Resume history and does not connect to another tenant. An unpassed approval partition separates the tool rail from any side effect. An adjacent tenant silhouette stays separated by a clear air gap with no path between tenants. Twelve meaningful parts: session envelope, identity leaf, state stack, tool rail, three journal layers, persisted spine, resumed-runtime socket, approval partition, tenant separation and detached scope qualifier. One arrow only: journal spine port to resumed-runtime socket. Headless thin ties associate the identity and tools with the same session. No security shield, guarantee mark, avatars, code, fake log strokes, invented metrics or universal approval guarantee. Approval shown as application-owned policy, not automatic for every architecture.",
+  "story_anchors": [
+    "Bounded session identity, tools and detached host-policy caveat",
+    "Durable journal with substantive message, tool-call and result layers",
+    "Resumed runtime and unpassed application approval partition"
+  ],
+  "required_labels": [
+    "Session scope",
+    "Permitted tools",
+    "Messages",
+    "Tool calls",
+    "Results",
+    "Durable journal",
+    "Resume history",
+    "Approval before action",
+    "Host policy matters"
+  ],
+  "source_claim_map": [
+    {
+      "id": "source-1",
+      "proposition": "A session has its own state, credentials, tools, files and history.",
+      "supporting_source_excerpt": "Each session has its own state",
+      "source_url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "source-2",
+      "proposition": "The journal appends messages, tool calls and results, enabling resumption across runtimes.",
+      "supporting_source_excerpt": "can resume the session with its full history",
+      "source_url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "source-3",
+      "proposition": "Host-owned tools and policies determine available action; some isolated architectures require approval.",
+      "supporting_source_excerpt": "tools you register run in your process",
+      "source_url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Durable journal",
+      "to": "Resume history",
+      "support_claim_id": "source-2",
+      "direction": "conditional",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560."
+  ],
+  "composition_signature": {
+    "grammar": "Durable session layered anatomy",
+    "metaphor": "One upright translucent session envelope cut open to expose separate identity leaf, state stack, tool rail and external journal spine. The journal front has three explicit large terms Messages, Tool calls and Results, each on its own substantial visible layer, not tiny fake log lines. A restarted-runtime socket at lower right receives the same journal spine; its coupling is labeled Resume history and does not connect to another tenant. An unpassed approval partition separates the tool rail from any side effect. An adjacent tenant silhouette stays separated by a clear air gap with no path between tenants. Twelve meaningful parts: session envelope, identity leaf, state stack, tool rail, three journal layers, persisted spine, resumed-runtime socket, approval partition, tenant separation and detached scope qualifier. One arrow only: journal spine port to resumed-runtime socket. Headless thin ties associate the identity and tools with the same session. No security shield, guarantee mark, avatars, code, fake log strokes, invented metrics or universal approval guarantee. Approval shown as application-owned policy, not automatic for every architecture.",
+    "layout": "Bounded session identity, tools and detached host-policy caveat; Durable journal with substantive message, tool-call and result layers; Resumed runtime and unpassed application approval partition",
+    "palette": "Teal aubergine white",
+    "hierarchy": "One durable journal spine bridges session state and resumed instance; tools branch only within the session boundary",
+    "perspective": "Vertical oblique layered anatomy",
+    "annotation": "Labels integrated into exposed layers with a detached caveat"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 3,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing November 22 source reviewer",
+    "source_url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Session scope",
+        "region_id": "session",
+        "region": "Bounded session identity, tools and detached host-policy caveat",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 95,
+          "width": 340,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Permitted tools",
+        "region_id": "session",
+        "region": "Bounded session identity, tools and detached host-policy caveat",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 385,
+          "width": 340,
+          "height": 45
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Messages",
+        "region_id": "journal",
+        "region": "Durable journal with substantive message, tool-call and result layers",
+        "bounding_box_px": {
+          "x": 440,
+          "y": 155,
+          "width": 245,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Tool calls",
+        "region_id": "journal",
+        "region": "Durable journal with substantive message, tool-call and result layers",
+        "bounding_box_px": {
+          "x": 470,
+          "y": 255,
+          "width": 240,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Results",
+        "region_id": "journal",
+        "region": "Durable journal with substantive message, tool-call and result layers",
+        "bounding_box_px": {
+          "x": 510,
+          "y": 350,
+          "width": 180,
+          "height": 44
+        },
+        "minimum_font_px": 32
+      },
+      {
+        "label": "Durable journal",
+        "region_id": "journal",
+        "region": "Durable journal with substantive message, tool-call and result layers",
+        "bounding_box_px": {
+          "x": 420,
+          "y": 75,
+          "width": 360,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Resume history",
+        "region_id": "resume",
+        "region": "Resumed runtime and unpassed application approval partition",
+        "bounding_box_px": {
+          "x": 810,
+          "y": 350,
+          "width": 310,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Approval before action",
+        "region_id": "resume",
+        "region": "Resumed runtime and unpassed application approval partition",
+        "bounding_box_px": {
+          "x": 760,
+          "y": 460,
+          "width": 365,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Host policy matters",
+        "region_id": "session",
+        "region": "Bounded session identity, tools and detached host-policy caveat",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 520,
+          "width": 370,
+          "height": 42
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Host policy matters",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 77,
+    "explanatory_substage_labels": [
+      "Session scope",
+      "Permitted tools"
+    ],
+    "thumbnail_priority_labels": [
+      "Session scope",
+      "Durable journal",
+      "Resume history"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "A session has its own state, credentials, tools, files and history.",
+        "allowed_path": "Only the named conditional source-supported connections and headless comparison guides.",
+        "blocked_path": "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560.",
+        "support_claim_id": "source-1"
+      },
+      {
+        "condition": "The journal appends messages, tool calls and results, enabling resumption across runtimes.",
+        "allowed_path": "Only the named conditional source-supported connections and headless comparison guides.",
+        "blocked_path": "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560.",
+        "support_claim_id": "source-2"
+      },
+      {
+        "condition": "Host-owned tools and policies determine available action; some isolated architectures require approval.",
+        "allowed_path": "Only the named conditional source-supported connections and headless comparison guides.",
+        "blocked_path": "No people, faces, avatars, humanoids, logos, photorealism, scenic props, generic dashboards, panel collages, decorative machinery, fake writing, unlisted text or symbols, invented controls, measured ratios or unsupported causal arrows. Background white. Keep every foreground component and all glyph extents at least 60px inside where feasible and always at least 40px; plan caveats above y560.",
+        "support_claim_id": "source-3"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Durable journal",
+        "to": "Resume history",
+        "support_claim_id": "source-2",
+        "origin_region": "Durable journal with substantive message, tool-call and result layers",
+        "target_region": "Resumed runtime and unpassed application approval partition",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Chromatic scientific cross-section",
+      "dominant_grammar": "Durable session layered anatomy",
+      "medium_treatment": "Teal and aubergine translucent chalk-pastel scientific cross-section",
+      "perspective": "Vertical oblique layered anatomy",
+      "information_hierarchy": "One durable journal spine bridges session state and resumed instance; tools branch only within the session boundary",
+      "palette_family": "Teal aubergine white",
+      "subject_specific_visual_thesis": "Session identity, tool scope and a durable journal are distinct controls. A journal lets another runtime resume the same history; host-owned tools and approvals still govern actions.",
+      "difference_from_earlier_story_images": "Unlike November 20’s green horizontal evidence book and recommendation tube, this upright translucent journal anatomy exposes Messages, Tool calls and Results, and couples persisted history to a separate resumed runtime without conflating identity with action approval.",
+      "first_pass_risk_mitigation": "November 21 errors were one-pixel caveat descenders, right-edge text, extra arrowheads and arrowheads on labels. This design reserves generous insets, exact explicit physical ports and source-bound content on meaningful surfaces; all saved full-size and 320px pixels must still pass."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "session",
+          "description": "Bounded session identity, tools and detached host-policy caveat",
+          "bounding_box_px": {
+            "x": 60,
+            "y": 65,
+            "width": 395,
+            "height": 505
+          }
+        },
+        {
+          "id": "journal",
+          "description": "Durable journal with substantive message, tool-call and result layers",
+          "bounding_box_px": {
+            "x": 420,
+            "y": 60,
+            "width": 370,
+            "height": 410
+          }
+        },
+        {
+          "id": "resume",
+          "description": "Resumed runtime and unpassed application approval partition",
+          "bounding_box_px": {
+            "x": 750,
+            "y": 300,
+            "width": 390,
+            "height": 220
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Durable journal",
+          "to": "Resume history",
+          "support_claim_id": "source-2",
+          "direction": "conditional",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "journal",
+          "to_region_id": "resume",
+          "origin_px": {
+            "x": 750,
+            "y": 300
+          },
+          "target_px": {
+            "x": 820,
+            "y": 320
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source/composition reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "b044f7a6dead2e45cdda3c4a8a40a2f7ccef37ef4ce750fd776c1705fa6ca87e"
+      }
+    }
+  },
+  "native_generation_prompt": "Wide LANDSCAPE 1200x630 composition, aspect ratio1.90476:1. Preserve this wide canvas; never return a square or3:2 composition. EDIT the attached teal/aubergine translucent pastel session anatomy. Preserve the Durable journal with its substantive Messages, Tool calls and Results layers, the single cable arrow into the physical Resume history port, and the unpassed Approval before action partition. Replace the BOTANICAL LEAF inside the left session with a smooth rectangular PAPER IDENTITY PAGE, bearing exactly Session identity; no plant, stem or vein. Print Session state on the front of the left state stack. Print Other session directly on the upper-right separate purple session specimen; retain its visible air gap and NO connector to it. Remove all three small arrowheads from the left session association bracket; it must be entirely HEADLESS. Exactly ONE arrowhead in the whole illustration: journal to resumed-runtime port. Move Host policy matters out of the session base into detached open white below it, clear of all connectors, at y515..550. Keep all other words exact and no fake records, log strokes, code, score, success mark or security guarantee. All content-bearing front surfaces have their specific category term; otherwise remain smooth and blank. Every object, shadow and glyph inside x80..1120,y65..560 at final1200x630; priority40px+, secondary30px+. This is a source-grounded conceptual cross-section, not a measured engineering drawing.\nExact visible text only: [\"Session scope\",\"Permitted tools\",\"Messages\",\"Tool calls\",\"Results\",\"Durable journal\",\"Resume history\",\"Approval before action\",\"Host policy matters\"]. Static editorial illustration; no people, humanoids, logos, photos, invented quantities, unsupported arrows, fake writing or decorative marks.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"session\",\"description\":\"Bounded session identity, tools and detached host-policy caveat\",\"bounding_box_px\":{\"x\":60,\"y\":65,\"width\":395,\"height\":505}},{\"id\":\"journal\",\"description\":\"Durable journal with substantive message, tool-call and result layers\",\"bounding_box_px\":{\"x\":420,\"y\":60,\"width\":370,\"height\":410}},{\"id\":\"resume\",\"description\":\"Resumed runtime and unpassed application approval partition\",\"bounding_box_px\":{\"x\":750,\"y\":300,\"width\":390,\"height\":220}}],\"labels\":[{\"label\":\"Session scope\",\"region_id\":\"session\",\"region\":\"Bounded session identity, tools and detached host-policy caveat\",\"bounding_box_px\":{\"x\":80,\"y\":95,\"width\":340,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Permitted tools\",\"region_id\":\"session\",\"region\":\"Bounded session identity, tools and detached host-policy caveat\",\"bounding_box_px\":{\"x\":80,\"y\":385,\"width\":340,\"height\":45},\"minimum_font_px\":32},{\"label\":\"Messages\",\"region_id\":\"journal\",\"region\":\"Durable journal with substantive message, tool-call and result layers\",\"bounding_box_px\":{\"x\":440,\"y\":155,\"width\":245,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Tool calls\",\"region_id\":\"journal\",\"region\":\"Durable journal with substantive message, tool-call and result layers\",\"bounding_box_px\":{\"x\":470,\"y\":255,\"width\":240,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Results\",\"region_id\":\"journal\",\"region\":\"Durable journal with substantive message, tool-call and result layers\",\"bounding_box_px\":{\"x\":510,\"y\":350,\"width\":180,\"height\":44},\"minimum_font_px\":32},{\"label\":\"Durable journal\",\"region_id\":\"journal\",\"region\":\"Durable journal with substantive message, tool-call and result layers\",\"bounding_box_px\":{\"x\":420,\"y\":75,\"width\":360,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Resume history\",\"region_id\":\"resume\",\"region\":\"Resumed runtime and unpassed application approval partition\",\"bounding_box_px\":{\"x\":810,\"y\":350,\"width\":310,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Approval before action\",\"region_id\":\"resume\",\"region\":\"Resumed runtime and unpassed application approval partition\",\"bounding_box_px\":{\"x\":760,\"y\":460,\"width\":365,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Host policy matters\",\"region_id\":\"session\",\"region\":\"Bounded session identity, tools and detached host-policy caveat\",\"bounding_box_px\":{\"x\":80,\"y\":520,\"width\":370,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Durable journal\",\"to\":\"Resume history\",\"support_claim_id\":\"source-2\",\"direction\":\"conditional\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"journal\",\"to_region_id\":\"resume\",\"origin_px\":{\"x\":750,\"y\":300},\"target_px\":{\"x\":820,\"y\":320}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]"
+}
