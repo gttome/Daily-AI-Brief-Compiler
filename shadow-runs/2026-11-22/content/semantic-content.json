@@ -1,0 +1,1851 @@
+{
+  "schema_version": "daily-compiler-semantic-content-v1",
+  "edition_date": "2026-11-22",
+  "bundle_sha256": "001a3386af979b63d445aad1962bfc6e2f10b5fec842e8eebe0ea325fb00daf0",
+  "stories": [
+    {
+      "id": "nov22-t1-adversarial-distillation",
+      "headline": "OpenAI tests defenses against adversarial model distillation",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "Combatting adversarial distillation",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/combatting-adversarial-distillation/",
+        "published_at": "2026-11-20T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete research article, including adaptive extraction attacks, the evaluation setup, reported defense results, threat assumptions and the limitation that the evidence comes from internal tests.",
+        "freshness_reason": "Published two days before the edition; retained after complete original-source review and lane comparison.",
+        "retrieved_at": "2026-11-22T01:20:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-22T01:20:00.000Z",
+          "scope": "Reviewed the complete research article, including adaptive extraction attacks, the evaluation setup, reported defense results, threat assumptions and the limitation that the evidence comes from internal tests."
+        }
+      },
+      "topics": [
+        "Model extraction",
+        "Adaptive attacks",
+        "Defense evaluation"
+      ],
+      "summary": "OpenAI describes an adaptive evaluation for adversarial distillation, where an attacker repeatedly queries a model to reproduce valuable behavior. The research compares defenses against changing extraction strategies instead of one fixed attack. Results come from internal tests, so the reported gains establish a security method and threat model rather than independent proof of broad protection.",
+      "why_it_matters": "Model providers can evaluate extraction defenses against attackers that adapt after each failure. Define the protected capability, measure utility loss for normal users, vary the adversary’s strategy and require independent reproduction before treating one internal benchmark as durable security evidence.",
+      "image_alt_intent": "An adaptive extraction loop tests a model defense while separate gauges track attacker success, normal-user utility and independent reproduction.",
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Current AI",
+        "Evidence"
+      ],
+      "related_coverage": "Selected after complete original-source review and comparison with current security and model-engineering candidates.",
+      "permanent_route": "/stories/2026-11-22/nov22-t1-adversarial-distillation/",
+      "reading_time_minutes": 6
+    },
+    {
+      "id": "nov22-t2-society-ai-scientists",
+      "headline": "A large multi-agent study exposes research coordination limits",
+      "focus": "Technical AI Engineering",
+      "agent_skills": false,
+      "source": {
+        "title": "A Society of AI Scientists",
+        "publisher": "alphaXiv",
+        "url": "https://www.alphaxiv.org/abs/2611.society-ai-scientists",
+        "published_at": "2026-11-19T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the original manuscript page and full paper, including 936 agents across 35 laboratories, the twelve-week protocol, coordination mechanisms, reported outputs, audit limitations and the absence of independent replication.",
+        "freshness_reason": "Published three days before the edition; admitted as a qualified original-paper fallback after full methods and limitations review.",
+        "retrieved_at": "2026-11-22T01:21:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-22T01:21:00.000Z",
+          "scope": "Reviewed the original manuscript page and full paper, including 936 agents across 35 laboratories, the twelve-week protocol, coordination mechanisms, reported outputs, audit limitations and the absence of independent replication."
+        }
+      },
+      "topics": [
+        "Multi-agent science",
+        "Research coordination",
+        "Audit limits"
+      ],
+      "summary": "The alphaXiv paper reports a twelve-week study coordinating 936 agents across 35 simulated laboratories to produce research artifacts. Its methods expose how task assignment, peer review and cross-lab exchange shape output. The scale is unusual, but the platform controls the experiment and independent replication, external code audit and durable scientific impact remain unestablished.",
+      "why_it_matters": "Research-agent teams can borrow the study’s separation of roles, review stages and shared records without copying its scale. Preserve prompts, code, failed attempts and reviewer decisions, then test whether independent experts can reproduce one result before claiming autonomous scientific progress.",
+      "image_alt_intent": "Thirty-five simulated laboratories exchange reviewed research artifacts while an external audit gate remains visibly unresolved.",
+      "coverage_labels": [
+        "Technical AI Engineering",
+        "Current AI",
+        "Evidence"
+      ],
+      "related_coverage": "Selected as the edition’s original-paper item after full methods, results and limitations review.",
+      "permanent_route": "/stories/2026-11-22/nov22-t2-society-ai-scientists/",
+      "reading_time_minutes": 7
+    },
+    {
+      "id": "nov22-k1-gemini-neon",
+      "headline": "Gemini 4 Neon shifts model comparison toward completed work",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "Introducing Gemini 4 Neon",
+        "publisher": "Google",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "published_at": "2026-11-18T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete launch article together with the model card, covering task-completion claims, tool use, benchmark results, availability, safety evaluations and operator-reported limitations.",
+        "freshness_reason": "Four-day fallback retained because the original launch and model card support a distinct task-completion decision.",
+        "retrieved_at": "2026-11-22T01:22:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-22T01:22:00.000Z",
+          "scope": "Reviewed the complete launch article together with the model card, covering task-completion claims, tool use, benchmark results, availability, safety evaluations and operator-reported limitations."
+        }
+      },
+      "topics": [
+        "Task completion",
+        "Model routing",
+        "Tool reliability"
+      ],
+      "summary": "Google positions Gemini 4 Neon around completing longer, tool-using work rather than producing a single answer. The launch and model card report gains across coding and knowledge tasks, describe availability and document safety evaluations. Because the evidence is operator-reported, teams still need representative acceptance tests that count retries, tool errors, review time and total cost.",
+      "why_it_matters": "Knowledge teams can compare models on finished deliverables instead of headline scores. Define one acceptance standard, preserve every retry and tool failure, measure human review time and route only the workloads where the newer system improves quality without unacceptable cost or control loss.",
+      "image_alt_intent": "Two model routes attempt the same knowledge-work deliverable while a completion ledger counts retries, tool errors, review time and cost.",
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Current AI",
+        "Evidence"
+      ],
+      "related_coverage": "Selected after reviewing both the original launch and its model card against current workflow evidence.",
+      "permanent_route": "/stories/2026-11-22/nov22-k1-gemini-neon/",
+      "reading_time_minutes": 6
+    },
+    {
+      "id": "nov22-k2-model-flexibility",
+      "headline": "Model-flexible workflows need stable tests before provider switches",
+      "focus": "Applied Generative AI for Knowledge Workers",
+      "agent_skills": false,
+      "source": {
+        "title": "Prevent lock-in with AI model flexibility",
+        "publisher": "Zapier",
+        "url": "https://zapier.com/blog/ai-model-flexibility/",
+        "published_at": "2026-11-20T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete practitioner guide covering model substitution, workflow boundaries, provider-specific behavior, fallback design, evaluation, data handling and the limits of treating models as interchangeable.",
+        "freshness_reason": "Published two days before the edition; retained after full practitioner-source review and lane comparison.",
+        "retrieved_at": "2026-11-22T01:23:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-22T01:23:00.000Z",
+          "scope": "Reviewed the complete practitioner guide covering model substitution, workflow boundaries, provider-specific behavior, fallback design, evaluation, data handling and the limits of treating models as interchangeable."
+        }
+      },
+      "topics": [
+        "Model flexibility",
+        "Workflow tests",
+        "Provider fallback"
+      ],
+      "summary": "Zapier argues that workflow owners should separate a business process from any one model provider, then compare substitutes against stable inputs and acceptance checks. The guide covers routing, fallback and data-handling differences while warning that models are not interchangeable. Its examples are vendor-authored, so teams should validate quality, latency, permissions and failure behavior independently.",
+      "why_it_matters": "Operations teams can reduce switching risk by freezing representative inputs, expected outputs and approval boundaries before changing providers. Compare quality, latency, cost, retention rules and fallback behavior on the same cases, then keep a tested rollback instead of assuming API compatibility means workflow equivalence.",
+      "image_alt_intent": "A stable workflow test suite routes identical cases through multiple model providers with quality, latency, permissions and rollback checks.",
+      "coverage_labels": [
+        "Applied Generative AI for Knowledge Workers",
+        "Current AI",
+        "Evidence"
+      ],
+      "related_coverage": "Selected after complete practitioner-source review and comparison with other current applied candidates.",
+      "permanent_route": "/stories/2026-11-22/nov22-k2-model-flexibility/",
+      "reading_time_minutes": 6
+    },
+    {
+      "id": "nov22-a1-slack-agent-skill",
+      "headline": "Turn one Slack agent workflow into a bounded reusable Skill",
+      "focus": "Agents for Everyone",
+      "agent_skills": true,
+      "source": {
+        "title": "Bring agents into your workflows",
+        "publisher": "Slack",
+        "url": "https://slack.com/blog/productivity/bring-agents-into-your-workflows",
+        "published_at": "2026-11-18T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete product workflow guide covering triggers, channel and document context, agent steps, human review, permissions, exception handling and measurable workflow outcomes.",
+        "freshness_reason": "Four-day fallback retained because the full guide supports a distinct reusable noncoding procedure.",
+        "retrieved_at": "2026-11-22T01:24:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-22T01:24:00.000Z",
+          "scope": "Reviewed the complete product workflow guide covering triggers, channel and document context, agent steps, human review, permissions, exception handling and measurable workflow outcomes."
+        }
+      },
+      "topics": [
+        "Agent Skills",
+        "Workflow triggers",
+        "Human review"
+      ],
+      "summary": "Slack shows how agents can enter Workflow Builder after a defined trigger, use approved channel or document context and return a draft for human review. The guide is first-party product evidence, not proof of general productivity. A reusable Skill should therefore bind the trigger, permitted sources, output format, exception path and measurable result.",
+      "why_it_matters": "Teams can convert one recurring Slack request into a reviewable Skill. Define the trigger, restrict context, specify the draft format, route exceptions to a named owner and measure one outcome such as resolved requests or review time before expanding automation.",
+      "image_alt_intent": "A Slack workflow trigger passes approved context into a reusable agent Skill, then routes drafts and exceptions to a named human reviewer.",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Teams repeating a bounded Slack request that can produce a draft without autonomous external action.",
+        "practical_action": "Define one trigger, approved context, output format, exception owner and measurable workflow result.",
+        "review_action": "Test known normal and exception cases, inspect every source and keep final approval with the named reviewer.",
+        "usable_outcome": "A reusable Slack Skill that returns consistent drafts and visible exceptions for human approval."
+      },
+      "agent_skills_evidence": "The source supports a reusable noncoding procedure: bind a recurring trigger to approved context, constrain the output, route exceptions, require named review and measure the workflow result before wider reuse.",
+      "agent_skill_novelty_review": {
+        "comparison_scope": "Compared body, primary source, practical action and reader outcome against recent accounting, transcript-editing and reusable-workspace Skills.",
+        "body": "This procedure coordinates a Slack-triggered request, approved conversation context, a constrained draft and exception routing rather than reconciliation or media editing.",
+        "primary_source": "The body is grounded in Slack’s complete Workflow Builder agent guide, not a retitled earlier Skills source.",
+        "distinct_practical_action": "Configure one Slack trigger, allowed sources, draft format, exception owner and measurable result, then test known cases.",
+        "reader_outcome": "The reader obtains a bounded reusable workflow that produces reviewable drafts and explicit exceptions without autonomous publication."
+      },
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Current AI",
+        "Evidence"
+      ],
+      "related_coverage": "Selected as the edition’s only Agent Skills story after body, source, action and outcome comparison.",
+      "permanent_route": "/stories/2026-11-22/nov22-a1-slack-agent-skill/",
+      "reading_time_minutes": 6
+    },
+    {
+      "id": "nov22-a2-copilot-agent-workflows",
+      "headline": "Microsoft packages agents around sessions, journals and approvals",
+      "focus": "Agents for Everyone",
+      "agent_skills": false,
+      "source": {
+        "title": "Microsoft Copilot SDK 2.0 and GitHub",
+        "publisher": "Microsoft",
+        "url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+        "published_at": "2026-11-17T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete architecture article covering session isolation, journals, multi-tenant runtime boundaries, tool connections, approval points and the distinction between prototype behavior and governed production use.",
+        "freshness_reason": "Five-day fallback retained because its architecture supports a distinct noncoding workflow decision and was compared with newer lane candidates.",
+        "retrieved_at": "2026-11-22T01:25:00.000Z",
+        "read_evidence": {
+          "status": "verified",
+          "full_source_read": true,
+          "method": "publisher_main_text",
+          "read_at": "2026-11-22T01:25:00.000Z",
+          "scope": "Reviewed the complete architecture article covering session isolation, journals, multi-tenant runtime boundaries, tool connections, approval points and the distinction between prototype behavior and governed production use."
+        }
+      },
+      "topics": [
+        "Agent sessions",
+        "Approval journals",
+        "Workflow boundaries"
+      ],
+      "summary": "Microsoft’s Copilot SDK 2.0 architecture separates agent sessions, journals and tenant boundaries while exposing tools and approval points to applications. Although the article targets builders, the operating model helps workplace owners ask who can see a session, what actions are recorded and where approval is required. Production outcomes remain first-party and unproven.",
+      "why_it_matters": "Nontechnical workflow owners can require a simple control map before adopting an agent: name the session boundary, permitted tools, retained journal, approval step and escalation owner. Test one realistic exception so the documented controls are observable rather than labels on an architecture diagram.",
+      "image_alt_intent": "A workplace agent session connects approved tools through a journal, tenant boundary, human approval checkpoint and exception owner.",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "Workflow owners evaluating whether an agent deployment exposes clear session, record and approval boundaries.",
+        "practical_action": "Ask the operator to map permitted tools, session scope, journal retention, approval point and exception owner for one workflow.",
+        "review_action": "Run one realistic exception and confirm the journal, approval and escalation path match the documented control map.",
+        "usable_outcome": "A bounded adoption decision supported by an observable control map rather than a generic agent promise."
+      },
+      "coverage_labels": [
+        "Agents for Everyone",
+        "Current AI",
+        "Evidence"
+      ],
+      "related_coverage": "Selected after full architecture review and comparison with current noncoding agent candidates.",
+      "permanent_route": "/stories/2026-11-22/nov22-a2-copilot-agent-workflows/",
+      "reading_time_minutes": 6
+    }
+  ],
+  "watchlist": {
+    "refreshed_at": "2026-11-22T01:50:00.000Z",
+    "new": [],
+    "updated": [],
+    "carried_forward": [
+      {
+        "topic": "Supervised computer-use agents in healthcare",
+        "topic_id": "dab-topic-supervised-healthcare-computer-use",
+        "why": "Added after OpenAI documented computer-use agents operating across existing healthcare software with explicit high-stakes oversight boundaries.",
+        "summary": "Healthcare computer-use agents navigate existing administrative systems while approvals, privacy controls and record reconciliation remain human responsibilities.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can pilot one administrative task with explicit permissions, exception review and source-record reconciliation before expanding access.",
+        "evidence": {
+          "url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/",
+          "date": "2026-11-16",
+          "publisher": "OpenAI",
+          "title": "Advancing computer-use agents for healthcare teams",
+          "checked_at": "2026-11-17T01:53:16.255Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Computer-use access across legacy healthcare interfaces extends agents beyond isolated chat or document workflows."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The original release supplies demonstrations and customer examples, but outcomes remain vendor reported."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed operating evidence comes from OpenAI without an independent healthcare deployment audit."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable healthcare computer-use measure has two dated numeric observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Healthcare operations teams can directly test a bounded administrative workflow with explicit oversight."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Authorization, privacy, exception handling and record reconciliation remain durable controls as interfaces change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable healthcare computer-use measure has two dated numeric observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Evidence-linked agent memory",
+        "topic_id": "dab-topic-evidence-linked-agent-memory",
+        "why": "Added after WikiTrace reported evidence-linked memory gains and memory-degradation analysis across five agent benchmarks.",
+        "summary": "Evidence-linked agent memory preserves insights together with supporting rationale, source evidence and prior task trajectories.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Agent teams can test whether linked evidence improves retrieval quality while logging harmful memory-induced decisions.",
+        "evidence": {
+          "url": "https://arxiv.org/abs/2611.14320",
+          "date": "2026-11-10",
+          "publisher": "arXiv",
+          "title": "WikiTrace: Learning Evidence-Linked Memory for Long-Horizon Agents",
+          "checked_at": "2026-11-16T02:06:19.412Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Linking retrieved insights to rationale, evidence and trajectories extends ordinary episodic agent memory."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The paper reports five benchmark evaluations and a same-insights comparison with documented degradation cases."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Multiple authors and benchmarks are present, but independent replication of WikiTrace remains unavailable."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable memory measure has two dated numeric observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Long-running agent teams can directly test evidence-linked retrieval against simpler memory baselines."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Preserving evidence and reasoning links remains useful as models, benchmarks and storage systems change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable memory measure has two dated numeric observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Machine-checked multi-agent research campaigns",
+        "topic_id": "dab-topic-machine-checked-multi-agent-research",
+        "why": "Added after Google reported multi-agent campaigns using formal proof kernels, unmodified tests and objective hardware evaluators.",
+        "summary": "Multi-agent research campaigns coordinate specialized models around artifacts that external tools can check independently.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can pilot one bounded research task while preserving tests, proof artifacts, run logs and expert review.",
+        "evidence": {
+          "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/",
+          "date": "2026-11-13",
+          "publisher": "Google Research",
+          "title": "Advancing science & engineering with Antigravity’s /teamwork",
+          "checked_at": "2026-11-15T02:08:10.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The reviewed campaigns combine long-horizon multi-agent orchestration with independently checkable technical artifacts."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The original report names proof artifacts and evaluators, but outcomes remain predominantly publisher reported."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Academic collaborators are named, yet independent replication of the full campaigns remains limited."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable campaign measure has two dated numeric observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Research and engineering teams can apply the evaluator-first pattern to bounded internal pilots."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Proof kernels, unmodified tests and objective benchmarks remain durable verification mechanisms."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable campaign measure has two dated numeric observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Agent payment authorization records",
+        "topic_id": "dab-topic-agent-payment-authorization-records",
+        "why": "Added after ChatGPT Wallet launched a user-approved tokenized payment flow with explicit transaction and dispute boundaries.",
+        "summary": "Agent payment authorization records bind a proposed purchase to item, merchant, total, recurrence and selected funding source.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Users can compare Wallet and merchant receipts before accepting substitutions, recurring charges or disputed amounts.",
+        "evidence": {
+          "url": "https://openai.com/index/introducing-chatgpt-wallet/",
+          "date": "2026-11-13",
+          "publisher": "OpenAI",
+          "title": "Introducing ChatGPT Wallet",
+          "checked_at": "2026-11-14T01:57:30.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "A native agent payment credential adds a distinct authorization layer beyond ordinary checkout assistance."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "OpenAI publishes product, terms and privacy boundaries, but operating outcomes remain vendor-controlled."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed transaction mechanics come from OpenAI without independent operational audit evidence."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable wallet-authorization measure has two dated numeric observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Eligible users can immediately apply a bounded five-field approval and receipt-matching procedure."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Explicit merchant, amount, recurrence and funding approval remains useful across payment-agent products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable wallet-authorization measure has two dated numeric observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Retrieval-aware numerical hallucination evaluation",
+        "topic_id": "dab-topic-retrieval-numerical-hallucination",
+        "why": "Added after a peer-reviewed ecological statistics benchmark separated wrong retrieval from hallucination after correct evidence injection.",
+        "summary": "Retrieval-aware evaluation measures whether numerical errors originate in evidence selection, missing records or generation after correct context.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can hold out answer-bearing records, tune retrieval thresholds and measure wrong-retrieval errors before changing generation models.",
+        "evidence": {
+          "url": "https://aclanthology.org/2026.aacl-long.119/",
+          "date": "2026-11-06",
+          "publisher": "ACL Anthology",
+          "title": "EcoStatKG: A Knowledge Graph for Ecological Statistics and Numerical Hallucination Evaluation",
+          "checked_at": "2026-11-12T01:29:00.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The reviewed retrieval-evaluation evidence adds a distinct evaluation pattern beyond the previous active topics."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original source supplies concrete methods, results and limitations used in this assessment."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The evidence includes an original source, but independent reproduction remains limited in this review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable retrieval-evaluation metric has two dated numeric observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can apply a bounded test with explicit inputs, review steps and observable failure signals."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "The underlying verification and evidence-review practice should remain useful as products change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable retrieval-evaluation metric has two dated numeric observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Agent-assisted formal code verification",
+        "topic_id": "dab-topic-agent-formal-code-verification",
+        "why": "Updated after full technical review established the human-approved specification boundary, machine-code scope and trusted assumptions.",
+        "summary": "Agent-assisted formal verification turns human-approved code properties into machine-checkable proofs over selected compiled cryptographic routines.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Engineering teams can pilot one critical routine while recording specifications, trusted contracts, regressions and reviewer thresholds.",
+        "evidence": {
+          "url": "https://google-deepmind.github.io/code-verification/",
+          "date": "2026-11-10",
+          "publisher": "Google DeepMind",
+          "title": "AlphaProof Code: formal verification for real-world cryptographic code",
+          "checked_at": "2026-11-12T01:28:00.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The reviewed formal-verification evidence adds a distinct evaluation pattern beyond the previous active topics."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original source supplies concrete methods, results and limitations used in this assessment."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The evidence includes an original source, but independent reproduction remains limited in this review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable formal-verification metric has two dated numeric observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can apply a bounded test with explicit inputs, review steps and observable failure signals."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "The underlying verification and evidence-review practice should remain useful as products change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable formal-verification metric has two dated numeric observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Reusable Workspace skills",
+        "topic_id": "dab-topic-reusable-workspace-skills",
+        "why": "Added after Google began rolling reusable team instructions across Workspace Studio and office applications.",
+        "summary": "Reusable Workspace skills package team rules, templates, and reference files for repeated office workflows.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can test one approved procedure on known examples before automatic invocation or broader sharing.",
+        "evidence": {
+          "url": "https://workspaceupdates.googleblog.com/2026/11/skills-in-workspace.html?m=1",
+          "date": "2026-11-10",
+          "publisher": "Google Workspace Updates",
+          "title": "Scale customized AI across your team with skills in Google Workspace and Workspace Studio",
+          "checked_at": "2026-11-11T01:31:00.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The reviewed reusable-skill evidence adds a distinct operational pattern not represented by the prior item."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original publisher documents the reusable-skill workflow, boundaries, and limitations used here."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The principal reusable-skill evidence comes from one publisher and lacks independent reproduction here."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable reusable-skill metric has two dated numerical observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can test the reusable-skill pattern with bounded inputs, review, and an observable validation check."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "The underlying verification and review practice should remain useful as products change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable reusable-skill metric has two dated numerical observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Frontier-model serving modes",
+        "topic_id": "dab-topic-frontier-model-serving-modes",
+        "why": "Added after Anthropic released two access and compute modes of one underlying model.",
+        "summary": "Frontier-model serving modes route workloads through different compute, access and safeguard boundaries.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can compare quality, latency, cost and blocked tasks before changing model-routing defaults.",
+        "evidence": {
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "date": "2026-11-09",
+          "publisher": "Anthropic",
+          "title": "Claude Fable 5.2 and Mythos 5.2",
+          "checked_at": "2026-11-10T01:48:08.006Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The reviewed serving-mode evidence introduces a distinct operational choice not represented by the prior item."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original publisher documents the feature boundaries and limitations used for this assessment."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The main capability evidence comes from one publisher and lacks independent reproduction in this review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable serving-mode measure has two dated numerical observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can run a bounded evaluation and record corrections before expanding this workflow."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "The underlying review, routing, and approval practice remains useful across product changes."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable serving-mode measure has two dated numerical observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Scheduled prompt operations",
+        "topic_id": "dab-topic-scheduled-prompt-operations",
+        "why": "Added after Smartsheet documented recurring prompts with approval and email delivery.",
+        "summary": "Scheduled prompt operations turn a fixed request into a recurring draft, review and delivery workflow.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Operations teams can test one exception digest and measure corrections, review time and delivery accuracy.",
+        "evidence": {
+          "url": "https://www.smartsheet.com/content-center/schedule-prompts-run-automatically",
+          "date": "2026-11-04",
+          "publisher": "Smartsheet",
+          "title": "Schedule prompts to run automatically",
+          "checked_at": "2026-11-10T01:48:08.006Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 3,
+            "reason": "The reviewed scheduled-prompt evidence introduces a distinct operational choice not represented by the prior item."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The original publisher documents the feature boundaries and limitations used for this assessment."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The main capability evidence comes from one publisher and lacks independent reproduction in this review."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable scheduled-prompt measure has two dated numerical observations, so momentum remains unknown."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Readers can run a bounded evaluation and record corrections before expanding this workflow."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "The underlying review, routing, and approval practice remains useful across product changes."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable scheduled-prompt measure has two dated numerical observations, so momentum remains unknown.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Persistent command approvals",
+        "topic_id": "dab-topic-persistent-command-approvals",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Persistent command approvals let agents repeat exact operations without asking a user again.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can audit approval stores, rotate exposed secrets and replace broad exceptions with narrow patterns.",
+        "evidence": {
+          "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+          "date": "2026-11-05",
+          "publisher": "Apiiro",
+          "title": "Coding agents are leaking secrets through “Don’t Ask Again”",
+          "checked_at": "2026-11-09T01:31:28.914Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Repository-scale inspection connects persistent approvals to exact stored commands containing secrets."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original report publishes search scope, file counts, secret classes and mechanism details."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Apiiro supplies the main measurements; public reactions add context but not an independent replication."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable approval-exposure measure has two distinct dated numeric observations."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Teams can directly audit saved approvals and remove credentials before repository publication."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Least-privilege approvals and secret scanning remain useful across coding-agent products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable approval-exposure measure has two distinct dated numeric observations.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Multi-agent deception benchmarks",
+        "topic_id": "dab-topic-multi-agent-deception-benchmarks",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Multi-agent deception benchmarks test coordination, conflicting information and strategic misrepresentation over extended interactions.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Evaluation teams can inspect transcripts for failure patterns while keeping game scores separate from deployment claims.",
+        "evidence": {
+          "url": "https://www.dwarkesh.com/p/clocktower",
+          "date": "2026-11-05",
+          "publisher": "Dwarkesh Patel",
+          "title": "The benchmark where AIs have to lie to win",
+          "checked_at": "2026-11-09T01:31:28.914Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The benchmark combines long-horizon coordination, private roles and deception within repeated multi-agent games."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The author publishes rules, sample size and reported results, but independent reproduction remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The benchmark designer also conducted and interpreted the reported evaluation runs."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable deception-benchmark measure has two distinct dated numeric observations."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Agent teams can study coordination and misleading behavior in a bounded transcript-rich setting."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Adversarial role-play and transcript review remain useful as agent models change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable deception-benchmark measure has two distinct dated numeric observations.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Offline agent memory correction",
+        "topic_id": "dab-topic-offline-agent-memory-correction",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Offline memory correction replays prior sessions to verify and rewrite stored agent notes.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Workflow owners can audit each changed note against original transcripts and replay previously failing cases.",
+        "evidence": {
+          "url": "https://www.anthropic.com/research/components-of-agent-memory",
+          "date": "2026-11-06",
+          "publisher": "Anthropic",
+          "title": "The components of agent memory",
+          "checked_at": "2026-11-08T02:57:16.597Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Replaying transcripts to correct stored notes tests a distinct maintenance step before future sessions."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The original article provides several experiments, task boundaries and comparison scores."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The results come from Anthropic and independent replication was not verified."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "There are no comparable observations from two separate dates for momentum scoring."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Operators can inspect and correct persistent context before later tasks depend on it."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Checking memory edits against original logs remains useful across models and runtimes."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "There are no comparable observations from two separate dates for momentum scoring.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Wet-lab agent evaluation",
+        "topic_id": "dab-topic-wet-lab-agent-evaluation",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "summary": "Wet-lab agent evaluation tests raw protocols, controls, images and contextual scientific decisions.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Laboratory teams can reproduce control and image failures before relying on agent recommendations.",
+        "evidence": {
+          "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+          "date": "2026-11-06",
+          "publisher": "OpenAI",
+          "title": "Measuring how AI agents handle everyday wet-lab science",
+          "checked_at": "2026-11-07T02:16:00Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Raw protocols and contextual decisions extend beyond polished question-answer tasks."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Methods, confidence bounds and failures are published, but independent replication remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "Reviewed benchmark evidence comes from OpenAI without independent reproduction this edition."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Laboratory teams need reproducible controls before relying on agent recommendations."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Protocol interpretation and failure reproduction remain useful as models change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      },
+      {
+        "topic": "Long-horizon state tracking benchmarks",
+        "topic_id": "dab-topic-long-horizon-state-tracking",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "summary": "Long-horizon state tracking benchmarks test whether models preserve evolving variables, dependencies and final values across extended instruction sequences.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Agent teams can replay representative state transitions, inspect failure levels and compare memory architectures before trusting long operational sequences.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/allenai/statebench",
+          "date": "2026-11-03",
+          "publisher": "Ai2",
+          "title": "StateBench: Evaluating State Tracking in Language Models",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "StateBench separates direct, indirect, event and general state updates while testing extrapolation beyond training sequence lengths."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Ai2 publishes benchmark construction and reported results, but external reproduction and broader variable settings remain unavailable."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "The reviewed capability evidence comes from Ai2 and has not yet been independently reproduced in this editorial cycle."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Agent engineers can directly test whether workflows preserve changing operational state rather than relying on context-window size."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Explicit state-transition testing remains useful as memory architectures, model families and context lengths continue to change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable state-tracking metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      },
+      {
+        "topic": "Consumer agent task permissions",
+        "topic_id": "dab-topic-consumer-agent-task-permissions",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "summary": "Consumer agent task permissions define which user context, corporate resources and consequential actions an assistant may access or perform.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Security teams can test one assistant workflow by separating user and agent identity, restricting resources and requiring confirmation for consequential actions.",
+        "evidence": {
+          "url": "https://blog.cloudflare.com/personal-agents-visibility-control/",
+          "date": "2026-11-04",
+          "publisher": "Cloudflare",
+          "title": "Personal agents need visibility and control",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The update adds named visibility and per-agent policy controls to the prior task-permission and confirmation baseline."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Cloudflare documents specific early-access product behavior, but measured security outcomes and failure rates remain unavailable."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Cloudflare and earlier OpenAI or ServiceNow evidence show separate implementations, though all reviewed accounts remain vendor-authored."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Security owners can immediately bound assistant resources, confirmations, logs and exception handling for one routine workflow."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separate user authority, agent identity and least-privilege resource access remain durable across changing assistant products."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times.",
+          "metric": null,
+          "observations": []
+        },
+        "why": "Carried forward without claiming a new measurement or material evidence change."
+      },
+      {
+        "topic": "Weight-space model repair",
+        "topic_id": "dab-topic-weight-space-model-repair",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Weight-space model repair lets an agent inspect and change selected neural-network parameters to correct a targeted behavior without a conventional training run.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Model teams can reproduce one bounded repair, compare regressions and compute cost, and preserve the exact edited parameters before considering deployment.",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "evidence": {
+          "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+          "date": "2026-11-02",
+          "publisher": "MIT CSAIL researchers",
+          "title": "The First AI Scientist That Writes Into Weight Space",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The project applies an agent to direct parameter repair rather than prompting, fine-tuning or ordinary gradient-based retraining."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "The authors publish the setup, edited-weight share, benchmark results and limitations, but independent reproduction remains unavailable."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed capability evidence comes from the project authors and has not been independently reproduced in this cycle."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Model teams could use targeted repair experiments to test specific failures while measuring regressions and compute cost."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Parameter-level diagnosis, reproducibility and regression testing remain useful even as repair agents and model architectures change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable weight-repair measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Professional-task agent benchmarks",
+        "topic_id": "dab-topic-professional-task-agent-benchmarks",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Professional-task agent benchmarks evaluate reviewable workplace deliverables across multiple domains, rather than relying only on short synthetic prompts or isolated tool calls.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Evaluation teams can adapt the task, artifact, grading and cost structure while keeping domain results separate and limitations visible.",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "evidence": {
+          "url": "https://gdpx.semianalysis.com/",
+          "date": "2026-11-02",
+          "publisher": "SemiAnalysis",
+          "title": "GDPx — Measuring Frontier Model Capabilities in Real-World Professional Tasks",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The benchmark combines expert-designed professional artifacts, multiple attempts, costs and domain-equal aggregation in one public framework."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "The publisher documents 206 tasks, 11 domains, partner participation, grading and cost methodology, with configuration limits still present."
+          },
+          "independence": {
+            "score": 2,
+            "reason": "Fourteen organizations contributed task expertise, but the benchmark publisher controls the aggregate methodology and presentation."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No stable comparable benchmark measure has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Agent builders need realistic deliverables, grading evidence and cost records before claiming professional task readiness."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Task artifacts, domain reporting and disclosed grading remain useful as models and harnesses change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No stable comparable benchmark measure has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "AI-ready public science artifacts",
+        "topic_id": "dab-topic-ai-ready-public-science-artifacts",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "AI-ready public science artifacts pair datasets, models, metadata, provenance and reproducible baselines so others can inspect and extend funded research.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Research teams can package one public project with licenses, lineage, metadata and a baseline, then record which gaps still block reuse.",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/protostar",
+          "date": "2026-10-29",
+          "publisher": "Hugging Face",
+          "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The challenge treats provenance-rich reusable artifacts, not model output alone, as the deliverable."
+          },
+          "evidence": {
+            "score": 2,
+            "reason": "The launch defines dates and artifact goals, but no completed projects or outcome evaluation exist yet."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "Current evidence comes from the challenge organizer, without independent outcome or reuse assessment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 4,
+            "reason": "Metadata and provenance directly affect whether scientific datasets and models can be reviewed or reused."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Licensing, lineage and reproducible baselines remain useful after this individual challenge ends."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable artifact-quality metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Frontier model misalignment monitoring",
+        "topic_id": "dab-topic-frontier-training-containment",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Frontier model misalignment monitoring combines broad workload coverage, high-recall screening, contextual review, investigation and intervention authority to detect unauthorized agent behavior.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Safety teams can compare workload coverage, sampling, escalation context, review latency and intervention ownership before relying on monitoring claims.",
+        "what_changed": "No material evidence change was established during the November 22 review.",
+        "evidence": {
+          "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+          "date": "2026-10-29",
+          "publisher": "OpenAI",
+          "title": "How we detect frontier model misalignment",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source publishes a concrete multilayer monitoring architecture and an acknowledged evaluation coverage gap."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "OpenAI reports workload coverage, review layers and incidents, but independent reproduction and recall measurements remain limited."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "All reviewed implementation and incident evidence comes from the system operator describing its own monitoring program."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Frontier labs and deployers need explicit coverage, escalation and intervention ownership for consequential agent behavior."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Monitoring coverage and investigative escalation remain necessary as models, harnesses, evaluations and threats change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable monitoring metric has two dated numeric observations, so momentum remains unestablished.",
+          "metric": null,
+          "observations": []
+        }
+      },
+      {
+        "topic": "Synthetic enterprise evaluation environments",
+        "topic_id": "dab-topic-synthetic-enterprise-evaluation-environments",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Synthetic enterprise evaluation environments recreate organizational data, permissions and work patterns so AI assistants can be tested without exposing live confidential records.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Evaluation teams can construct bounded permission, retrieval and workflow tests before a copilot reaches real employees or sensitive production data.",
+        "evidence": {
+          "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+          "date": "2026-10-30",
+          "publisher": "Microsoft Research",
+          "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The source joins synthetic organizational data, realistic permissions and task evaluation into one preproduction enterprise testing environment."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Microsoft Research describes concrete construction and evaluation practices, but provides limited independent replication or public comparative outcome data."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Microsoft alone and has not been independently reproduced on another enterprise copilot environment."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Enterprise teams can directly test retrieval, permission and workflow failures before exposing live employees or confidential records."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Safe preproduction evaluation with representative data and permissions remains necessary as copilots, models and enterprise systems change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable evaluation metric has two dated numerical observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Task-scoped virtual model routing",
+        "topic_id": "dab-topic-task-scoped-virtual-model-routing",
+        "why": "Carried forward without claiming a new measurement or material evidence change.",
+        "summary": "Task-scoped virtual model routing lets applications call a stable identifier while administrators change providers, fallbacks and data-retention policy separately.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can test model substitutions, failure recovery, retention rules and rollback under one stable application interface.",
+        "evidence": {
+          "url": "https://vercel.com/blog/ai-gateway-virtual-models",
+          "date": "2026-10-28",
+          "publisher": "Vercel",
+          "title": "Introducing Virtual Models on AI Gateway",
+          "checked_at": "2026-11-06T01:33:20.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "Virtual identifiers move provider selection and fallback policy out of application deployments into a separately governed routing layer."
+          },
+          "evidence": {
+            "score": 3,
+            "reason": "Vercel documents concrete configuration behavior and availability, but supplies no independent latency, quality or failure benchmark."
+          },
+          "independence": {
+            "score": 1,
+            "reason": "The reviewed evidence comes from Vercel alone, without an independent operator reproducing the virtual routing behavior."
+          },
+          "momentum": {
+            "score": null,
+            "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Engineering teams can directly test provider swaps, fallback, retention rules and rollback without changing application code."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Separating application interfaces from model-routing policy remains useful as providers, models and compliance requirements change."
+          }
+        },
+        "momentum": {
+          "classification": "baseline",
+          "score": null,
+          "reason": "No comparable numerical routing measure has two dated observations, so momentum remains unestablished for this new topic.",
+          "metric": null,
+          "observations": []
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Open-weight inference shifts inside managed routing markets",
+        "topic_id": "dab-topic-open-weight-managed-routing",
+        "why": "Added after two independent operator series showed materially rising open-weight request shares in distinct managed-routing populations.",
+        "summary": "Managed model routers are carrying a growing share of open-weight inference, but each traffic series represents a specific platform population.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Platform teams can compare quality, latency, cost and provider concentration on representative workloads before changing managed-inference procurement.",
+        "evidence": {
+          "url": "https://huggingface.co/blog/openrouter",
+          "date": "2026-11-19",
+          "publisher": "Hugging Face and OpenRouter",
+          "title": "OpenRouter joins Hugging Face",
+          "checked_at": "2026-11-20T01:25:00.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The evidence describes a material routing-market shift, not merely another open-weight model release."
+          },
+          "evidence": {
+            "score": 4,
+            "reason": "OpenRouter supplies dated token shares, while population limits prevent treating them as universal adoption."
+          },
+          "independence": {
+            "score": 4,
+            "reason": "Vercel reports a separately sampled gateway series, although both sources operate routing products."
+          },
+          "momentum": {
+            "score": 5,
+            "reason": "The same OpenRouter token-share series rises sharply across two valid dated observations."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Inference buyers can directly test provider mix, latency, quality and cost before procurement changes."
+          },
+          "durability": {
+            "score": 4,
+            "reason": "Routing concentration and open-weight hosting remain durable platform decisions even as models change."
+          }
+        },
+        "momentum": {
+          "classification": "rising",
+          "score": 5,
+          "reason": "OpenRouter open-weight token share increased from 26.8% in October 2025 to 71.7% by late September 2026.",
+          "metric": "Open-weight share of tokens routed through OpenRouter",
+          "observations": [
+            {
+              "observed_at": "2025-10-31T00:00:00Z",
+              "value": 26.8,
+              "source_url": "https://huggingface.co/blog/openrouter"
+            },
+            {
+              "observed_at": "2026-09-30T00:00:00Z",
+              "value": 71.7,
+              "source_url": "https://huggingface.co/blog/openrouter"
+            }
+          ]
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      },
+      {
+        "topic": "Workplace AI changes task time before meeting load",
+        "topic_id": "dab-topic-workplace-ai-time-allocation",
+        "why": "Added after a recurring workforce survey and a separate field experiment converged on reduced writing or email time while meetings changed little.",
+        "summary": "Frequent workplace AI use is associated with different task-time allocation, but survey reports and observed field experiments measure different populations.",
+        "why_now": "The November 22 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
+        "practical_value": "Teams can measure one recurring task before and after adoption while keeping self-reports, system logs and output quality separate.",
+        "evidence": {
+          "url": "https://www.gallup.com/workplace/716585/ai-changing-employees-spend-time-work.aspx",
+          "date": "2026-11-16",
+          "publisher": "Gallup",
+          "title": "AI Is Changing How Employees Spend Time at Work",
+          "checked_at": "2026-11-20T01:25:00.000Z"
+        },
+        "rubric": {
+          "novelty": {
+            "score": 4,
+            "reason": "The evidence shifts attention from adoption counts to where employees actually reallocate task time."
+          },
+          "evidence": {
+            "score": 5,
+            "reason": "Gallup surveyed 21,648 employees and the field experiment observed 7,137 workers over six months."
+          },
+          "independence": {
+            "score": 4,
+            "reason": "Gallup and NBER use separately sampled populations and distinct methods with explicit limitations."
+          },
+          "momentum": {
+            "score": 4,
+            "reason": "Gallup frequent-use share increased modestly across comparable waves using the same recurring series."
+          },
+          "relevance": {
+            "score": 5,
+            "reason": "Managers can instrument a recurring task and verify whether time shifts without assuming productivity."
+          },
+          "durability": {
+            "score": 5,
+            "reason": "Task allocation, meeting load and output review remain durable workforce decisions across specific tools."
+          }
+        },
+        "momentum": {
+          "classification": "rising",
+          "score": 4,
+          "reason": "Gallup frequent workplace AI use increased from 30% in May 2026 to 32% in August 2026 within the recurring survey series.",
+          "metric": "Share of U.S. employees using AI frequently at work",
+          "observations": [
+            {
+              "observed_at": "2026-05-31T00:00:00Z",
+              "value": 30,
+              "source_url": "https://www.gallup.com/workplace/716585/ai-changing-employees-spend-time-work.aspx"
+            },
+            {
+              "observed_at": "2026-08-19T00:00:00Z",
+              "value": 32,
+              "source_url": "https://www.gallup.com/workplace/716585/ai-changing-employees-spend-time-work.aspx"
+            }
+          ]
+        },
+        "what_changed": "No material evidence change was established during the November 22 review."
+      }
+    ],
+    "dropped": []
+  },
+  "videos": [
+    {
+      "title": "Who should profit when AI comes to town?",
+      "source": "TED",
+      "url": "https://www.ted.com/talks/brian_janous_who_should_profit_when_ai_comes_to_town",
+      "original_date": "2026-10-01",
+      "duration_minutes": 10.416666666666666,
+      "focus": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits.",
+      "summary": "Brian Janous argues that communities hosting AI data centers should share more directly in their economic benefits. The TED talk connects electricity demand, water, tax incentives and local opposition to mechanisms for community investment. Janous brings industry experience, so readers should treat the proposal as a disclosed perspective and verify local numbers independently.",
+      "why_it_matters": "Use the talk to structure a data-center decision: list local power, water and tax costs; identify who receives the benefits; require public assumptions; and compare community-benefit mechanisms before treating construction jobs or regional growth claims as settled.",
+      "editorial_form": "research_talk",
+      "evidence_kind": "expert_talk",
+      "selected_over": "Released November 20 from an October 2026 talk; selected over failed current YouTube explainers because the archive-clear native player passed and the program offers substantive non-news analysis.",
+      "value_basis": "The talk converts abstract infrastructure debate into a concrete distributional decision while keeping the speaker’s industry perspective visible.",
+      "segment_topic": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits.",
+      "form_rationale": "Publisher-native research talk with complete content review and exact protected signed-out advancing-player evidence.",
+      "freshness_reason": "Released November 20 from an October 2026 talk; selected over failed current YouTube explainers because the archive-clear native player passed and the program offers substantive non-news analysis.",
+      "review_scope": "Reviewed the complete 10:25 TED talk in which Brian Janous explains community opposition to AI data centers and proposes mechanisms for sharing local economic benefits, with his industry role treated as a disclosed perspective.",
+      "kind": "expert_talk",
+      "editorial_relevance": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits.",
+      "reader_value": "Use the talk to structure a data-center decision: list local power, water and tax costs; identify who receives the benefits; require public assumptions; and compare community-benefit mechanisms before treating construction jobs or regional growth claims as settled.",
+      "learning_objective": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits.",
+      "practical_action": "Use the talk to structure a data-center decision: list local power, water and tax costs; identify who receives the benefits; require public assumptions; and compare community-benefit mechanisms before treating construction jobs or regional growth claims as settled.",
+      "promotional_assessment": "Publisher-native conference talk; the speaker’s industry background is disclosed and no direct product sale was identified.",
+      "content_retrieved_at": "2026-11-22T01:42:00.000Z",
+      "verified": true,
+      "verified_at": "2026-11-22T01:56:10.982Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "playback_verified": true,
+        "player_check_scope": "Exact publisher-native title, date, duration and editorial scope were reviewed; protected signed-out advancing playback passed.",
+        "content_reviewed": true,
+        "checked_at": "2026-11-22T01:56:10.982Z",
+        "runtime_source_url": "https://www.ted.com/talks/brian_janous_who_should_profit_when_ai_comes_to_town",
+        "content_review_basis": "Reviewed the complete 10:25 TED talk in which Brian Janous explains community opposition to AI data centers and proposes mechanisms for sharing local economic benefits, with his industry role treated as a disclosed perspective.",
+        "playback_evidence": {
+          "method": "Protected GitHub Actions signed-out Chrome on the exact original-publisher page",
+          "result": "Observed duration 619.1290000000004 seconds; player advanced from 0.061593 to 2.681361 seconds.",
+          "checked_at": "2026-11-22T01:56:10.982Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "November 22 editorial",
+        "reviewed_at": "2026-11-22T01:56:40.000Z",
+        "editorial_relevance": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits.",
+        "reader_value": "Use the talk to structure a data-center decision: list local power, water and tax costs; identify who receives the benefits; require public assumptions; and compare community-benefit mechanisms before treating construction jobs or regional growth claims as settled.",
+        "learning_objective": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits.",
+        "selected_over_alternatives": "Released November 20 from an October 2026 talk; selected over failed current YouTube explainers because the archive-clear native player passed and the program offers substantive non-news analysis.",
+        "content_evidence": {
+          "kind": "direct_playback",
+          "url": "https://www.ted.com/talks/brian_janous_who_should_profit_when_ai_comes_to_town",
+          "scope": "Reviewed the complete 10:25 TED talk in which Brian Janous explains community opposition to AI data centers and proposes mechanisms for sharing local economic benefits, with his industry role treated as a disclosed perspective."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "practical_action": "Use the talk to structure a data-center decision: list local power, water and tax costs; identify who receives the benefits; require public assumptions; and compare community-benefit mechanisms before treating construction jobs or regional growth claims as settled.",
+        "promotional_assessment": "Publisher-native conference talk; the speaker’s industry background is disclosed and no direct product sale was identified.",
+        "editorial_value_basis": "The talk converts abstract infrastructure debate into a concrete distributional decision while keeping the speaker’s industry perspective visible.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 619,
+            "kind": "ai",
+            "topic": "Examine who bears the local costs of AI data centers and how host communities could share their economic benefits."
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "research_talk",
+        "editorial_form_rationale": "Publisher-native research talk with complete content review and exact protected signed-out advancing-player evidence.",
+        "independently_verified_sources": []
+      }
+    },
+    {
+      "title": "Machine Learning & A.I. - Crash Course Computer Science #34",
+      "source": "Crash Course Computer Science / PBS",
+      "url": "https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/",
+      "original_date": "2017-11-01",
+      "duration_minutes": 11.566666666666666,
+      "focus": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning.",
+      "summary": "Crash Course explains machine learning through classification, features, labeled data, decision boundaries, neural networks and reinforcement learning. The examples remain clear and nonpromotional, but the program was published in 2017, so it should serve as a conceptual foundation rather than a guide to current frontier systems, safety practices or deployment capabilities.",
+      "why_it_matters": "Use the explainer to give a team shared vocabulary before evaluating a modern system. Ask which features, labels, objective and feedback loop produce each output, then supplement the nine-year-old foundation with current evidence about model limits, data provenance and oversight.",
+      "editorial_form": "educational_explainer",
+      "evidence_kind": "educational_explainer",
+      "selected_over": "Nine-year-old archive-clear educational fallback selected only after current independent YouTube and embedded programs failed protected playback; the original age is an explicit editorial advisory.",
+      "value_basis": "The exact program supplies durable conceptual vocabulary without news framing or product promotion, while its age is clearly bounded.",
+      "segment_topic": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning.",
+      "form_rationale": "Publisher-native educational explainer with complete content review and exact protected signed-out advancing-player evidence.",
+      "freshness_reason": "Nine-year-old archive-clear educational fallback selected only after current independent YouTube and embedded programs failed protected playback; the original age is an explicit editorial advisory.",
+      "review_scope": "Reviewed the complete 11:34 educational program and transcript explaining classification, features, labeled data, decision trees, support-vector machines, neural networks, narrow AI and reinforcement learning through concrete examples.",
+      "kind": "educational_explainer",
+      "editorial_relevance": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning.",
+      "reader_value": "Use the explainer to give a team shared vocabulary before evaluating a modern system. Ask which features, labels, objective and feedback loop produce each output, then supplement the nine-year-old foundation with current evidence about model limits, data provenance and oversight.",
+      "learning_objective": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning.",
+      "practical_action": "Use the explainer to give a team shared vocabulary before evaluating a modern system. Ask which features, labels, objective and feedback loop produce each output, then supplement the nine-year-old foundation with current evidence about model limits, data provenance and oversight.",
+      "promotional_assessment": "Independent educational program on a PBS player; no product sale or promotional filler was identified.",
+      "content_retrieved_at": "2026-11-22T01:42:00.000Z",
+      "verified": true,
+      "verified_at": "2026-11-22T01:56:15.388Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "playback_verified": true,
+        "player_check_scope": "Exact publisher-native title, date, duration and editorial scope were reviewed; protected signed-out advancing playback passed.",
+        "content_reviewed": true,
+        "checked_at": "2026-11-22T01:56:15.388Z",
+        "runtime_source_url": "https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/",
+        "content_review_basis": "Reviewed the complete 11:34 educational program and transcript explaining classification, features, labeled data, decision trees, support-vector machines, neural networks, narrow AI and reinforcement learning through concrete examples.",
+        "playback_evidence": {
+          "method": "Protected GitHub Actions signed-out Chrome on the exact original-publisher page",
+          "result": "Observed duration 693.659999999998 seconds; player advanced from 0.469802 to 3.037236 seconds.",
+          "checked_at": "2026-11-22T01:56:15.388Z"
+        }
+      },
+      "quality_review": {
+        "reviewer": "November 22 editorial",
+        "reviewed_at": "2026-11-22T01:56:40.000Z",
+        "editorial_relevance": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning.",
+        "reader_value": "Use the explainer to give a team shared vocabulary before evaluating a modern system. Ask which features, labels, objective and feedback loop produce each output, then supplement the nine-year-old foundation with current evidence about model limits, data provenance and oversight.",
+        "learning_objective": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning.",
+        "selected_over_alternatives": "Nine-year-old archive-clear educational fallback selected only after current independent YouTube and embedded programs failed protected playback; the original age is an explicit editorial advisory.",
+        "content_evidence": {
+          "kind": "direct_playback",
+          "url": "https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/",
+          "scope": "Reviewed the complete 11:34 educational program and transcript explaining classification, features, labeled data, decision trees, support-vector machines, neural networks, narrow AI and reinforcement learning through concrete examples."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "practical_action": "Use the explainer to give a team shared vocabulary before evaluating a modern system. Ask which features, labels, objective and feedback loop produce each output, then supplement the nine-year-old foundation with current evidence about model limits, data provenance and oversight.",
+        "promotional_assessment": "Independent educational program on a PBS player; no product sale or promotional filler was identified.",
+        "editorial_value_basis": "The exact program supplies durable conceptual vocabulary without news framing or product promotion, while its age is clearly bounded.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 693,
+            "kind": "ai",
+            "topic": "Build a conceptual map of classification, features, labeled data, decision trees, neural networks and reinforcement learning."
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "educational_explainer",
+        "editorial_form_rationale": "Publisher-native educational explainer with complete content review and exact protected signed-out advancing-player evidence.",
+        "independently_verified_sources": []
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "title": "Spend the Lead on Safety: Biden AI Advisors Ben Buchanan & Tantum Collins on the Fate of the World",
+      "source": "The Cognitive Revolution",
+      "url": "https://www.cognitiverevolution.ai/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-world/",
+      "original_date": "2026-11-21T00:00:00Z",
+      "duration_minutes": 107.7,
+      "episode_identifier": "The Cognitive Revolution episode published November 21, 2026",
+      "summary": "Nathan Labenz interviews former White House AI advisers Ben Buchanan and Tantum Collins about frontier-model policy, national security and the tradeoffs between capability leadership and enforceable safeguards. The full transcript exposes the speakers’ reasoning and disagreements. Their government experience is relevant context, but listeners should distinguish policy judgment from measured safety outcomes.",
+      "why_it_matters": "Use the discussion to stress-test an AI policy proposal: identify the protected capability, credible threat, enforcement mechanism, responsible institution and evidence that would change the policy. Keep strategic urgency separate from proof that a chosen safeguard works.",
+      "written_reading_time_minutes": 12,
+      "content_review_basis": "Reviewed the complete 1:47:42 publisher transcript and chapter structure, including capability leadership, national-security threats, safety policy, institutional capacity and explicit disagreements.",
+      "learning_objective": "Separate strategic AI policy arguments from measurable safety evidence and enforceable controls.",
+      "practical_action": "Map one policy proposal to its threat, protected capability, enforcement mechanism, accountable institution and falsifying evidence.",
+      "selected_over": "Selected as the newest full-transcript expert interview from a show absent from the previous three editions.",
+      "promotional_assessment": "Independent expert interview; the complete transcript exposes claims and no undisclosed product sale was identified.",
+      "editorial_form": "original_interview",
+      "form_rationale": "Long-form policy interview with a complete publisher transcript and clearly attributable expert positions.",
+      "independent_sources": [],
+      "segments": [
+        {
+          "start_seconds": 0,
+          "end_seconds": 1500,
+          "kind": "ai",
+          "topic": "Frontier model capability leadership and the strategic assumptions behind national AI policy."
+        },
+        {
+          "start_seconds": 1500,
+          "end_seconds": 3100,
+          "kind": "ai",
+          "topic": "National-security threat models, export controls and the institutional capacity needed for enforcement."
+        },
+        {
+          "start_seconds": 3100,
+          "end_seconds": 4700,
+          "kind": "ai",
+          "topic": "Safety safeguards, evaluation evidence and disagreements about how urgently policy should constrain capability."
+        },
+        {
+          "start_seconds": 4700,
+          "end_seconds": 6462,
+          "kind": "ai",
+          "topic": "Government accountability, implementation tradeoffs and evidence that could change the speakers’ policy judgments."
+        }
+      ],
+      "verified": true,
+      "verified_at": "2026-11-22T01:50:00.000Z",
+      "content_retrieved_at": "2026-11-22T01:26:00.000Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "content_reviewed": true,
+        "playback_verified": false,
+        "checked_at": "2026-11-22T01:50:00.000Z",
+        "runtime_source_url": "https://www.cognitiverevolution.ai/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-world/",
+        "episode_url": "https://www.cognitiverevolution.ai/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-world/",
+        "episode_identifier": "The Cognitive Revolution episode published November 21, 2026",
+        "content_review_basis": "Reviewed the complete 1:47:42 publisher transcript and chapter structure, including capability leadership, national-security threats, safety policy, institutional capacity and explicit disagreements."
+      },
+      "quality_review": {
+        "reviewer": "November 22 editorial",
+        "reviewed_at": "2026-11-22T01:50:00.000Z",
+        "learning_objective": "Separate strategic AI policy arguments from measurable safety evidence and enforceable controls.",
+        "practical_action": "Map one policy proposal to its threat, protected capability, enforcement mechanism, accountable institution and falsifying evidence.",
+        "selected_over_alternatives": "Selected as the newest full-transcript expert interview from a show absent from the previous three editions.",
+        "content_evidence": {
+          "kind": "whole_episode_transcript",
+          "url": "https://www.cognitiverevolution.ai/spend-the-lead-on-safety-biden-ai-advisors-ben-buchanan-tantum-collins-on-the-fate-of-the-world/",
+          "scope": "Reviewed the complete 1:47:42 publisher transcript and chapter structure, including capability leadership, national-security threats, safety policy, institutional capacity and explicit disagreements."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "Independent expert interview; the complete transcript exposes claims and no undisclosed product sale was identified.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 1500,
+            "kind": "ai",
+            "topic": "Frontier model capability leadership and the strategic assumptions behind national AI policy."
+          },
+          {
+            "start_seconds": 1500,
+            "end_seconds": 3100,
+            "kind": "ai",
+            "topic": "National-security threat models, export controls and the institutional capacity needed for enforcement."
+          },
+          {
+            "start_seconds": 3100,
+            "end_seconds": 4700,
+            "kind": "ai",
+            "topic": "Safety safeguards, evaluation evidence and disagreements about how urgently policy should constrain capability."
+          },
+          {
+            "start_seconds": 4700,
+            "end_seconds": 6462,
+            "kind": "ai",
+            "topic": "Government accountability, implementation tradeoffs and evidence that could change the speakers’ policy judgments."
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "Long-form policy interview with a complete publisher transcript and clearly attributable expert positions.",
+        "independently_verified_sources": []
+      }
+    },
+    {
+      "title": "Your Software Factory Needs a Bill of Materials | Daniel Meppiel",
+      "source": "AI Native Dev",
+      "url": "https://podcasts.apple.com/us/podcast/your-software-factory-needs-a-bill-of-materials/id1756073806?i=1000802928169",
+      "original_date": "2026-11-19T13:00:00Z",
+      "duration_minutes": 61,
+      "episode_identifier": "AI Native Dev episode 133, Apple episode 1000802928169",
+      "summary": "Daniel Meppiel discusses why AI-assisted software factories need a bill of materials for models, tools, prompts, dependencies and generated artifacts. The episode’s timecoded agenda makes the workflow inspectable, but its recommendations remain practitioner guidance rather than measured proof. Teams should connect inventory records to review, provenance, licensing and rollback decisions.",
+      "why_it_matters": "Engineering leaders can inventory one AI-assisted delivery path before scaling it. Record models, tools, prompts, dependencies, generated artifacts and approvals; attach provenance and license checks; then test whether the record supports rollback and incident review when a component changes.",
+      "written_reading_time_minutes": 8,
+      "content_review_basis": "Reviewed the complete episode identity, one-hour runtime and detailed timecoded agenda covering software-factory components, provenance, dependency inventory, generated artifacts and governance decisions.",
+      "learning_objective": "Build a reviewable bill of materials for an AI-assisted software delivery path.",
+      "practical_action": "Inventory models, tools, prompts, dependencies, generated artifacts, approvals, provenance and licenses for one delivery path.",
+      "selected_over": "Selected as a current exact episode from a distinct practitioner show with a detailed timecoded agenda and no recent archive reuse.",
+      "promotional_assessment": "Practitioner interview; product references remain contextual and the workflow can be evaluated independently.",
+      "editorial_form": "original_interview",
+      "form_rationale": "One-hour practitioner interview with an exact episode identity and detailed timecoded agenda.",
+      "segments": [
+        {
+          "start_seconds": 0,
+          "end_seconds": 900,
+          "kind": "ai",
+          "topic": "Software-factory architecture and the need to inventory models, tools and prompts."
+        },
+        {
+          "start_seconds": 900,
+          "end_seconds": 1800,
+          "kind": "ai",
+          "topic": "Dependency provenance, generated artifacts and traceability across AI-assisted delivery steps."
+        },
+        {
+          "start_seconds": 1800,
+          "end_seconds": 2750,
+          "kind": "ai",
+          "topic": "Approval boundaries, licensing decisions and governance records for software-factory changes."
+        },
+        {
+          "start_seconds": 2750,
+          "end_seconds": 3660,
+          "kind": "ai",
+          "topic": "Rollback, audit and practical bill-of-materials maintenance across an AI-assisted delivery path."
+        }
+      ],
+      "verified": true,
+      "verified_at": "2026-11-22T01:50:00.000Z",
+      "content_retrieved_at": "2026-11-22T01:27:00.000Z",
+      "verification": {
+        "identity_verified": true,
+        "duration_verified": true,
+        "content_reviewed": true,
+        "playback_verified": false,
+        "checked_at": "2026-11-22T01:50:00.000Z",
+        "runtime_source_url": "https://podcasts.apple.com/us/podcast/your-software-factory-needs-a-bill-of-materials/id1756073806?i=1000802928169",
+        "episode_url": "https://podcasts.apple.com/us/podcast/your-software-factory-needs-a-bill-of-materials/id1756073806?i=1000802928169",
+        "episode_identifier": "AI Native Dev episode 133, Apple episode 1000802928169",
+        "content_review_basis": "Reviewed the complete episode identity, one-hour runtime and detailed timecoded agenda covering software-factory components, provenance, dependency inventory, generated artifacts and governance decisions."
+      },
+      "quality_review": {
+        "reviewer": "November 22 editorial",
+        "reviewed_at": "2026-11-22T01:50:00.000Z",
+        "learning_objective": "Build a reviewable bill of materials for an AI-assisted software delivery path.",
+        "practical_action": "Inventory models, tools, prompts, dependencies, generated artifacts, approvals, provenance and licenses for one delivery path.",
+        "selected_over_alternatives": "Selected as a current exact episode from a distinct practitioner show with a detailed timecoded agenda and no recent archive reuse.",
+        "content_evidence": {
+          "kind": "timecoded_agenda",
+          "url": "https://podcasts.apple.com/us/podcast/your-software-factory-needs-a-bill-of-materials/id1756073806?i=1000802928169",
+          "scope": "Reviewed the complete episode identity, one-hour runtime and detailed timecoded agenda covering software-factory components, provenance, dependency inventory, generated artifacts and governance decisions."
+        },
+        "is_advertisement": false,
+        "promotional_risk": "low",
+        "promotional_assessment": "Practitioner interview; product references remain contextual and the workflow can be evaluated independently.",
+        "editorial_segments": [
+          {
+            "start_seconds": 0,
+            "end_seconds": 900,
+            "kind": "ai",
+            "topic": "Software-factory architecture and the need to inventory models, tools and prompts."
+          },
+          {
+            "start_seconds": 900,
+            "end_seconds": 1800,
+            "kind": "ai",
+            "topic": "Dependency provenance, generated artifacts and traceability across AI-assisted delivery steps."
+          },
+          {
+            "start_seconds": 1800,
+            "end_seconds": 2750,
+            "kind": "ai",
+            "topic": "Approval boundaries, licensing decisions and governance records for software-factory changes."
+          },
+          {
+            "start_seconds": 2750,
+            "end_seconds": 3660,
+            "kind": "ai",
+            "topic": "Rollback, audit and practical bill-of-materials maintenance across an AI-assisted delivery path."
+          }
+        ],
+        "estimated_editorial_ai_fraction": 1,
+        "editorial_form": "original_interview",
+        "editorial_form_rationale": "One-hour practitioner interview with an exact episode identity and detailed timecoded agenda.",
+        "independently_verified_sources": []
+      }
+    }
+  ],
+  "book_mappings": [
+    {
+      "story_id": "nov22-t1-adversarial-distillation",
+      "book": "Reliable Generative AI",
+      "concept_or_chapter": "Adaptive security evaluation",
+      "connection": "Adaptive extraction tests separate fixed-attack performance from defenses that survive changing adversary behavior.",
+      "what_to_study_next": "Compare attacker success with normal-user utility and independent reproduction."
+    },
+    {
+      "story_id": "nov22-t2-society-ai-scientists",
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Multi-agent coordination",
+      "connection": "Role boundaries, shared records and review stages shape long-running multi-agent research behavior.",
+      "what_to_study_next": "Preserve failed attempts and reproduce one artifact independently."
+    },
+    {
+      "story_id": "nov22-k2-model-flexibility",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Stable evaluation cases",
+      "connection": "Representative inputs and acceptance checks make model-provider substitutions reviewable rather than cosmetic.",
+      "what_to_study_next": "Freeze one workload and compare quality, latency, cost and permissions."
+    },
+    {
+      "story_id": "nov22-a1-slack-agent-skill",
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Reusable Agent Skills",
+      "connection": "A Slack-triggered Skill binds approved context, output shape, exception handling and human review.",
+      "what_to_study_next": "Test known normal and exception cases before wider reuse."
+    }
+  ],
+  "images": [
+    {
+      "story_id": "nov22-t1-adversarial-distillation",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "An adaptive extraction loop tests a model defense while separate gauges track attacker success, normal-user utility and independent reproduction."
+    },
+    {
+      "story_id": "nov22-t2-society-ai-scientists",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Thirty-five simulated laboratories exchange reviewed research artifacts while an external audit gate remains visibly unresolved."
+    },
+    {
+      "story_id": "nov22-k1-gemini-neon",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "Two model routes attempt the same knowledge-work deliverable while a completion ledger counts retries, tool errors, review time and cost."
+    },
+    {
+      "story_id": "nov22-k2-model-flexibility",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A stable workflow test suite routes identical cases through multiple model providers with quality, latency, permissions and rollback checks."
+    },
+    {
+      "story_id": "nov22-a1-slack-agent-skill",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A Slack workflow trigger passes approved context into a reusable agent Skill, then routes drafts and exceptions to a named human reviewer."
+    },
+    {
+      "story_id": "nov22-a2-copilot-agent-workflows",
+      "status": "pending",
+      "accepted": false,
+      "placeholder_id": "illustration-pending-1200x630-v1",
+      "alt": "A workplace agent session connects approved tools through a journal, tenant boundary, human approval checkpoint and exception owner."
+    }
+  ]
+}
