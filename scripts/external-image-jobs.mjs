@@ -179,7 +179,11 @@ export function writeExternalImageJob({job,historyRoot,outputRoot}){
   if(path.resolve(historyRoot)===path.resolve(outputRoot))fail('history_is_read_only');
   const dst=path.resolve(outputRoot),src=path.join(path.resolve(historyRoot),'image-jobs');
   fs.mkdirSync(dst,{recursive:true});
-  if(fs.existsSync(src))fs.cpSync(src,dst,{recursive:true,force:false,errorOnExist:true});
+  if(fs.existsSync(src)){
+    for(const name of fs.readdirSync(src)){
+      fs.cpSync(path.join(src,name),path.join(dst,name),{recursive:true,force:false,errorOnExist:true});
+    }
+  }
   const date=job.edition_date;
   const dest=path.join(dst,date,'job.json');
   const body=json(job);
