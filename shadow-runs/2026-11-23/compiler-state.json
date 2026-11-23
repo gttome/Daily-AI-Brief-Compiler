@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-23",
   "execution_id": "daily-compiler-2026-11-23-primary",
-  "state": "SHADOW_VERIFIED",
-  "stage": "VERIFY",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "0728fda37d2226f2259bb6cc613be9ed49199e32",
   "branch": "shadow/2026-11-23",
   "initial_execution_observed_at": "2026-11-23T01:22:03.000Z",
   "started_at": "2026-11-23T01:22:03.000Z",
-  "updated_at": "2026-11-23T02:33:58.097Z",
+  "updated_at": "2026-11-23T03:31:31.708Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -33,14 +33,14 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Exact protected video receipt PASS is bound to the final saved request. Six stories, two non-news videos, two podcasts and the carried-forward Watchlist remain sealed; protected Pages artifact-index recovery merged through PRs 404 and 405, and premium images remain pending for the existing image lane.",
-  "selection_locked_at": "2026-11-23T02:05:32.689Z",
-  "sealed_at": "2026-11-23T02:05:32.689Z",
+  "continuation": "Owner-approved postpublication Inkling correction. Reverify the revised reader before issuing the corrected image job.",
+  "selection_locked_at": "2026-11-23T03:31:31.708Z",
+  "sealed_at": "2026-11-23T03:31:31.708Z",
   "retryable": false,
   "last_error": null,
   "bundle": {
     "status": "BUNDLE_READY",
-    "digest": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870"
+    "digest": "8d1678c3e746b802dfa505d6083d23bc64ed8c237c9b86fc763706fb7b97cc40"
   },
   "editorial_bundle": {
     "status": "complete",
@@ -50,18 +50,16 @@
     "watchlist_refreshed": true
   },
   "bundle_path": "shadow-runs/2026-11-23/edition-bundle.json",
-  "bundle_sha256": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870",
-  "preview": {
-    "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/",
-    "bundle_digest": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870"
-  },
-  "reader_parity": {
-    "result": "PASS",
-    "image_representation": "images_pending",
-    "october8_public_objects_preserved": 17,
-    "contract": "reader-surface-parity-v2",
-    "production_reader_source_sha": "912248e5add14b2ec08d7a5eefed43cbf3af485f",
-    "semantic_rework": 0,
-    "accepted_image_regenerations": 0
+  "bundle_sha256": "8d1678c3e746b802dfa505d6083d23bc64ed8c237c9b86fc763706fb7b97cc40",
+  "postpublication_correction": {
+    "story_id": "nov23-t2-inkling-mini-control",
+    "source_url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+    "original_bundle_sha256": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870",
+    "original_verified_commit": "a2ca0c10d379e45777a05411fe095560ed9eafdd",
+    "original_image_job_sha256": "cc104d848cc79ce49cacc4fa8c82f76739e2fa6101d78ef957a31a02b6b575bd",
+    "owner_approved": true,
+    "reason": "Replace unsupported generation controls with the model’s fixed three-pass architecture.",
+    "original_selection_locked_at": "2026-11-23T02:05:32.689Z",
+    "original_sealed_at": "2026-11-23T02:05:32.689Z"
   }
 }
