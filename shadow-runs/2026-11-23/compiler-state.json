@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-23",
   "execution_id": "daily-compiler-2026-11-23-primary",
-  "state": "RESEARCH",
-  "stage": "EDITORIAL",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "0728fda37d2226f2259bb6cc613be9ed49199e32",
   "branch": "shadow/2026-11-23",
   "initial_execution_observed_at": "2026-11-23T01:22:03.000Z",
   "started_at": "2026-11-23T01:22:03.000Z",
-  "updated_at": "2026-11-23T01:33:49.248Z",
+  "updated_at": "2026-11-23T02:05:32.689Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -19,10 +19,12 @@
   "evidence": {
     "trend_input": "shadow-runs/2026-11-23/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-23/editorial/trend-search-coverage.json",
-    "execution_milestones": "shadow-runs/2026-11-23/execution-milestones.json"
+    "execution_milestones": "shadow-runs/2026-11-23/execution-milestones.json",
+    "index_review": "shadow-runs/2026-11-23/editorial/index-review.json",
+    "video_receipt": "shadow-runs/2026-11-23/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -31,22 +33,22 @@
     "host_identity": "UNPROVEN",
     "usage_metrics": null
   },
-  "continuation": "Primary research is active. The unchanged protected request tests two preferred non-news selections and the first non-news reserve before selection lock.",
-  "selection_locked_at": null,
-  "sealed_at": null,
-  "retryable": true,
+  "continuation": "Exact protected video receipt PASS is bound to the final saved request. Six stories, two non-news videos, two podcasts and the carried-forward Watchlist are sealed for protected compilation; premium images remain pending for the existing image lane.",
+  "selection_locked_at": "2026-11-23T02:05:32.689Z",
+  "sealed_at": "2026-11-23T02:05:32.689Z",
+  "retryable": false,
   "last_error": null,
   "bundle": {
-    "status": "DRAFT",
-    "digest": null
+    "status": "BUNDLE_READY",
+    "digest": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870"
   },
   "editorial_bundle": {
-    "status": "research",
-    "stories": 0,
-    "videos": 0,
-    "podcasts": 0,
-    "watchlist_refreshed": false
+    "status": "complete",
+    "stories": 6,
+    "videos": 2,
+    "podcasts": 2,
+    "watchlist_refreshed": true
   },
   "bundle_path": "shadow-runs/2026-11-23/edition-bundle.json",
-  "bundle_sha256": null
+  "bundle_sha256": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870"
 }

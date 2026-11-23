@@ -30,7 +30,8 @@
         "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
       ],
       "candidate_ids": [
-        "trend-01-article-lead"
+        "trend-01-article-lead",
+        "lean-riemann-formal-artifact"
       ],
       "outcome": "searched",
       "reason": "Performed the pinned article query as a bounded public search. Results were treated as leads only; source identity, dates, novelty, promotion risk and full-item evidence remained separate qualification decisions."
@@ -75,10 +76,12 @@
       "source_urls": [
         "https://www.youtube.com/watch?v=SAc7Eq64L1I",
         "https://www.youtube.com/watch?v=OdMpNiByntM",
-        "https://www.youtube.com/watch?v=cUuVObUqbn0"
+        "https://www.youtube.com/watch?v=cUuVObUqbn0",
+        "https://thinkingmachines.ai/news/inkling-2-mini/"
       ],
       "candidate_ids": [
-        "trend-02-article-lead"
+        "trend-02-article-lead",
+        "inkling2-mini-primary"
       ],
       "outcome": "searched",
       "reason": "Performed the pinned article query as a bounded public search. Results were treated as leads only; source identity, dates, novelty, promotion risk and full-item evidence remained separate qualification decisions."
@@ -383,10 +386,12 @@
       "attempted_at": "2026-11-23T01:56:06.094Z",
       "source_urls": [
         "https://www.youtube.com/watch?v=FORdPIWOH5k",
-        "https://sozai.app/transcript/gemini-path-to-agi-koray-kavukcuoglu/"
+        "https://sozai.app/transcript/gemini-path-to-agi-koray-kavukcuoglu/",
+        "https://podcasts.apple.com/us/podcast/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/id1476316441?i=1000802991291"
       ],
       "candidate_ids": [
-        "trend-08-podcast-lead"
+        "trend-08-podcast-lead",
+        "deepmind-gemini-agi-podcast"
       ],
       "outcome": "searched",
       "reason": "Performed the pinned podcast query as a bounded public search. Results were treated as leads only; source identity, dates, novelty, promotion risk and full-item evidence remained separate qualification decisions."
@@ -482,7 +487,32 @@
       "reason": "Performed the pinned podcast query as a bounded public search. Results were treated as leads only; source identity, dates, novelty, promotion risk and full-item evidence remained separate qualification decisions."
     }
   ],
-  "selected_mappings": [],
+  "selected_mappings": [
+    {
+      "topic_id": "claude-alpoge-riemann-proof-announcement-nov20",
+      "format": "article",
+      "item_id": "nov23-t1-lean-riemann-verification",
+      "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+      "candidate_id": "lean-riemann-formal-artifact",
+      "reason": "The selected technical story is the exact Lean community artifact discovered and fully read during the rank-one article search."
+    },
+    {
+      "topic_id": "inkling2-mini-launch-nov20",
+      "format": "article",
+      "item_id": "nov23-t2-inkling-mini-control",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "candidate_id": "inkling2-mini-primary",
+      "reason": "The selected technical story is the exact Thinking Machines primary source discovered and fully read during the rank-two article search."
+    },
+    {
+      "topic_id": "deepmind-koray-hannah-fry-interview-nov19",
+      "format": "podcast",
+      "item_id": "podcast-google-deepmind-gemini-agi",
+      "url": "https://podcasts.apple.com/us/podcast/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/id1476316441?i=1000802991291",
+      "candidate_id": "deepmind-gemini-agi-podcast",
+      "reason": "The published podcast is the exact Koray Kavukcuoglu interview represented by the rank-eight lead, with its complete transcript reviewed."
+    }
+  ],
   "receipt_recovery": {
     "schema_version": "bounded-top10-recovery-v1",
     "source": "exact_consumed_report",
@@ -496,17 +526,116 @@
   "impact_observations": [
     {
       "kind": "source_addition",
-      "value": "Lean community statement and Thinking Machines primary model evidence expanded the technical lane beyond vendor launch summaries.",
+      "value": "Rank-one and rank-two research produced exact primary-source article selections, while rank eight produced a transcript-reviewed podcast selection.",
       "source_links": [
         "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
-        "https://thinkingmachines.ai/news/inkling-2-mini/"
+        "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "https://podcasts.apple.com/us/podcast/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/id1476316441?i=1000802991291"
+      ]
+    },
+    {
+      "kind": "qualified_candidate_yield",
+      "value": "Thirty format searches across ten unranked qualitative topics yielded three exact bundle-verified mappings; this observation does not establish incremental or causal uplift.",
+      "source_links": [
+        "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+        "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "https://podcasts.apple.com/us/podcast/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/id1476316441?i=1000802991291"
+      ]
+    },
+    {
+      "kind": "rejection_reasons",
+      "value": "Other trend leads were rejected for archive reuse, incomplete longitudinal evidence, thin announcements, category balance, promotional risk or unavailable protected playback.",
+      "source_links": [
+        "https://openai.com/index/combatting-adversarial-distillation/",
+        "https://arxiv.org/abs/2611.20297",
+        "https://www.youtube.com/watch?v=FORdPIWOH5k"
       ]
     },
     {
       "kind": "gap",
-      "value": "YouTube sign-in and embedded-player risk remained unresolved before the protected preseal job; publisher-native reserves were prepared.",
+      "value": "No candidate established comparable longitudinal momentum for a new Watchlist score; momentum and any causal benefit from trend-linked selection remain unknown.",
       "source_links": [
-        "https://www.youtube.com/watch?v=GXTC-G_oOtQ"
+        "https://huggingface.co/blog/openrouter",
+        "https://www.gallup.com/workplace/716585/ai-changing-employees-spend-time-work.aspx"
+      ]
+    },
+    {
+      "kind": "observed_timing_and_cost",
+      "value": "Editorial source reads began at 01:23 UTC and the final protected three-program playback PASS completed at 01:58 UTC; paid model API and metered-service cost were not used, while total platform cost remains unknown.",
+      "source_links": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45097440816"
+      ]
+    }
+  ],
+  "change_evaluations": [
+    {
+      "change_id": "NOV20-01",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "observed",
+      "reason": "All ten topics have three format searches and the three selected mappings reconcile exact final URLs to candidate identifiers.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/editorial/trend-search-coverage.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-04",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "observed",
+      "reason": "Twenty complete items were read before selection; twelve are bound to registered resource IDs and separated from route scans.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/editorial/index-review.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-05",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "observed",
+      "reason": "All 37 registered video routes were searched, the final pair is non-news, and one selected family is new to the prior seven releases.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/editorial/video-editorial-audit.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-07",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Eight Watchlist leads across eight source families were examined, but none had sufficient independent longitudinal evidence for 85+.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/editorial/watchlist-research-receipt.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-08",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "observed",
+      "reason": "Every older selection records a distinct lane-specific comparison with an authentic November 22 candidate and explicit search gap.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/editorial/fallback-search-evidence.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-09",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "observed",
+      "reason": "The current original paper was reviewed but not forced into the bundle; the November 22 paper keeps the one-in-three advisory cadence satisfied.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/editorial/scientific-paper-coverage.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-10",
+      "reviewed_edition": "2026-11-23",
+      "decision": "keep",
+      "result": "pending",
+      "reason": "Editorial and protected playback evidence are complete, while reader publication and image-lane completion remain pending until their workflows finish.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/shadow/2026-11-23/shadow-runs/2026-11-23/compiler-state.json"
       ]
     }
   ]
