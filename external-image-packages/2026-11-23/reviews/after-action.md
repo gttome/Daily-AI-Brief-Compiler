@@ -1,6 +1,6 @@
 # 2026-11-23 premium image after-action report
 
-**Status: SIX_ACCEPTED_PENDING_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | 198e25047a708fdebaecd69e9b3010413491ad15 |
 | Executor observed run start | 2026-11-23T03:40:52.544Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-23T03:44:30.665Z (observed before tool call) |
-| Public release | PENDING_PROTECTED_RELEASE |
-| Public verified time | Not recorded |
-| Final saved-context review | SAVED_EXPORTS_VERIFIED_LIVE_CONTEXTS_PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-23T04:06:18.980129+00:00 |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -74,7 +74,7 @@ Job SHA-256: 9f4cf2591daae5d523b8f833eeff54313926771437d52db5c25f7ad2f3dbd4e1. O
 
 The actual generation start is 2026-11-23T03:44:30.665Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-23/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 The owner approved a postpublication editorial correction. Twelve native calls produced six accepted images. The advisory eight-call and four first-pass goals were missed. No paid model API or new task was used.
 
