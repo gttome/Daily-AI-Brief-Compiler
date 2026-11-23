@@ -191,7 +191,7 @@ export function writeExternalImageJob({job,historyRoot,outputRoot}){
   // The owner approved a revised November 23 story after the first job stopped before generation.
   // Admit only the reviewed predecessor and corrected bundle; historical Git objects stay addressable.
   const previousJobHash='cc104d848cc79ce49cacc4fa8c82f76739e2fa6101d78ef957a31a02b6b575bd';
-  const correctedBundleHash='975862441eade4ae1b218a33f41f8a311e1c46a120a85142d4d2f10c86f98f24';
+  const correctedBundleHash='8d1678c3e746b802dfa505d6083d23bc64ed8c237c9b86fc763706fb7b97cc40';
   const indexFile=path.join(dst,'index.json');
   const old=fs.existsSync(indexFile)?readJson(indexFile):{schema_version:IMAGE_INDEX_SCHEMA,editions:[]};
   const present=old.editions.find(x=>x.edition_date===date);
