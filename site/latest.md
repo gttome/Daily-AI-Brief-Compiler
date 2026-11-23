@@ -4,7 +4,7 @@
 **Coverage period:** November 19–21, 2026
 
 <!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-23-m12">Gemini’s Mac agent puts approvals inside a live preview</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m14">Build an editable short-video review handoff</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m10">Cheap tokens did not guarantee cheaper accepted tasks</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m11">Textract Insights grounds document extraction to source pages</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m01">Lean’s Riemann artifact makes assumptions inspectable</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m02">Inkling 2 Mini tests control during generation</a><span>Article · about 6 min source read</span></li><li><a href="#general">ADDIE — Fine Cut</a><span>Video · 11:36</span></li><li><a href="#agents-for-non-technical-people">SpecGuard: Automated Fit Audit for Factory Samples</a><span>Video · 4:28</span></li><li><a href="#podcast-dab-podcast-2026-11-23-1">Gemini and the path to AGI with Koray Kavukcuoglu</a><span>Podcast · 46:57</span></li><li><a href="#podcast-dab-podcast-2026-11-23-2">Can Anthropic afford to put safety first?</a><span>Podcast · 37:00</span></li></ol></section>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-23-m12">Gemini’s Mac agent puts approvals inside a live preview</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m14">Build an editable short-video review handoff</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m10">Cheap tokens did not guarantee cheaper accepted tasks</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m11">Textract Insights grounds document extraction to source pages</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m01">Lean’s Riemann artifact makes assumptions inspectable</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m02">Inkling 2 Mini repeats its middle layers</a><span>Article · about 6 min source read</span></li><li><a href="#general">ADDIE — Fine Cut</a><span>Video · 11:36</span></li><li><a href="#agents-for-non-technical-people">SpecGuard: Automated Fit Audit for Factory Samples</a><span>Video · 4:28</span></li><li><a href="#podcast-dab-podcast-2026-11-23-1">Gemini and the path to AGI with Koray Kavukcuoglu</a><span>Podcast · 46:57</span></li><li><a href="#podcast-dab-podcast-2026-11-23-2">Can Anthropic afford to put safety first?</a><span>Podcast · 37:00</span></li></ol></section>
 <!-- reader-release:end -->
 
 <span id="reading-dab-story-2026-11-23-m12"></span>
@@ -205,7 +205,7 @@
 
 <span id="reading-dab-story-2026-11-23-m02"></span>
 
-## 6. Inkling 2 Mini tests control during generation
+## 6. Inkling 2 Mini repeats its middle layers
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
@@ -215,7 +215,7 @@
 
 **Date:** November 20, 2026
 
-**Topics:** Generation control, Model intervention, Evaluation limits
+**Topics:** Looped transformers, Inference compute, Model evaluation
 
 <span class="story-data" data-story-id="dab-story-2026-11-23-m02" data-story-url="/stories/2026-11-23/nov23-t2-inkling-mini-control/" hidden></span>
 
@@ -224,14 +224,14 @@
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Inkling 2 Mini tests control during generation. Planned illustration: A live generation stream passes through a visible control interface while matched prompt-only baselines and failure tests compare behavior, quality and intervention cost.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Inkling 2 Mini repeats its middle layers. Planned illustration: For one token, a prelude feeds three passes through the same middle 12 layers. Arrows carry the previous pass’s output into passes two and three before the final layers produce a next-token prediction.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Thinking Machines presents Inkling 2 Mini as a small model whose behavior can be steered during generation through a control interface. The article explains training, intervention examples and evaluation limits, positioning real-time control as distinct from rewriting prompts between runs. Results are first-party, so independent comparisons and failure tests remain necessary before deployment.
+**Summary:** Thinking Machines Lab reports that Inkling 2 Mini runs its middle 12 transformer layers three times for every token. The second and third passes use information from the previous pass. The released model has a fixed loop count. The researchers used a separate variable-loop model to study how repeated computation affects capability and the visibility of reasoning.
 
-**Why it matters:** Engineers can evaluate controllable generation by defining a target behavior, measuring whether interventions work mid-run, and checking quality after control is applied. Compare the same tasks with prompt-only baselines and record failure modes before assuming a new control surface improves reliability.
+**Why it matters:** When comparing a looped model with a conventional transformer, measure task accuracy and elapsed time on the same inputs. Token counts alone hide differences in computation. Report the released model’s three-pass results separately from variable-loop experiments.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Runtime control surfaces — Compare matched tasks before and after control is applied.</p><p>Generation-time interventions add a control layer whose quality and failures must be evaluated against prompt-only baselines.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Evaluation under matched conditions — Compare accuracy, elapsed time and output length on the same task.</p><p>Repeated internal computation changes the cost of generating each token. Model comparisons need matched tasks and explicit measurements.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
 **Source:** <a href="https://thinkingmachines.ai/news/inkling-2-mini/" data-item-id="dab-story-2026-11-23-m02" data-edition-date="2026-11-23" data-action="source_clicks">Introducing Inkling 2 Mini</a>
