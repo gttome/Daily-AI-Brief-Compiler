@@ -1,8 +1,8 @@
 {
   "schema_version": "daily-compiler-publication-health-v1",
   "edition_date": "2026-11-23",
-  "status": "READER_VERIFIED",
-  "observed_at": "2026-11-23T02:33:58.122Z",
+  "status": "BLOCKED_PUBLICATION",
+  "observed_at": "2026-11-23T03:34:22.471Z",
   "events": [
     {
       "status": "BLOCKED_PUBLICATION",
@@ -21,16 +21,27 @@
       "stage": "READER_PUBLICATION",
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45100644936",
       "observed_at": "2026-11-23T02:33:58.122Z"
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "READER_COMPATIBILITY",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45106685214",
+      "observed_at": "2026-11-23T03:34:22.471Z"
     }
   ],
-  "outstanding_blocker": null,
+  "outstanding_blocker": {
+    "stage": "READER_COMPATIBILITY",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45106685214",
+    "first_observed_at": "2026-11-23T03:34:22.471Z",
+    "next_action": "Read the exact failed job; check original source dates, fallback comparisons, reader and Watchlist schema. Correct only the observed cause and rerun the existing gate."
+  },
   "last_recorded_blocker": {
     "status": "BLOCKED_PUBLICATION",
-    "stage": "PUBLICATION_PIPELINE",
-    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45099844257",
-    "observed_at": "2026-11-23T02:24:36.441Z"
+    "stage": "READER_COMPATIBILITY",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45106685214",
+    "observed_at": "2026-11-23T03:34:22.471Z"
   },
-  "public_reader_verified": true,
+  "public_reader_verified": false,
   "unattended_recovery_proven": false,
   "owner_intervention": "UNKNOWN_NOT_ATTESTED_BY_GITHUB",
   "image_job_verified": false,
