@@ -1,0 +1,63 @@
+{
+  "schema_version": "image-source-preflight-blocker-v1",
+  "edition_date": "2026-11-23",
+  "cycle_date": "2026-11-22",
+  "job_sha256": "cc104d848cc79ce49cacc4fa8c82f76739e2fa6101d78ef957a31a02b6b575bd",
+  "original_source_commit_sha": "a2ca0c10d379e45777a05411fe095560ed9eafdd",
+  "original_bundle_sha256": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870",
+  "observed_at": "2026-11-23T03:19:24Z",
+  "reviewer": "Existing sole native image worker",
+  "result": "BLOCKED_INCOMPLETE",
+  "blocker_code": "STORY_PRIMARY_SOURCE_MECHANISM_MISMATCH",
+  "story_id": "nov23-t2-inkling-mini-control",
+  "protected_main_read": "d97c600121f2f9ce39941c2e6a3bac2a4e5515fc",
+  "job_hash_and_bundle_hash_verified": true,
+  "history_commit_read": "fe6a17b49d423da678a4c7699fe997d52d9620e2",
+  "primary_source_url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+  "source_review": {
+    "method": "web primary-source full article review; targeted architecture/monitorability section rereads and term searches",
+    "scope": "Introduction, capabilities and limitations, architecture/training, no-CoT capabilities, CoT monitorability/controllability, agentic monitorability, interpretability and release/access sections.",
+    "observations": [
+      {
+        "location": "Architecture and training / Looping design; Monitorability of looped transformers",
+        "finding": "The released model repeats its middle layers with fixed loop count. A separate variable-loop research model supports comparisons between loop counts."
+      },
+      {
+        "location": "CoT monitorability / Controllability",
+        "finding": "The experiment prompts models with constraints on their reasoning text and reports poor ability to meet those constraints. It does not describe a live user interface for mid-generation intervention."
+      },
+      {
+        "location": "Full article text searches",
+        "finding": "The retrieved article contains no matching text for interface, intervention, or during generation. This corroborates the substantive reading; word absence alone is not the decision basis."
+      }
+    ],
+    "direct_runtime_fetch": {
+      "result": "HTTP_403",
+      "note": "Direct urllib publisher retrieval failed; the successful web primary-source retrieval remains the evidence. No exact publisher raw-byte digest is claimed."
+    }
+  },
+  "conflicting_handoff_fields": [
+    "complete_compiler_story.headline",
+    "complete_compiler_story.summary",
+    "complete_compiler_story.why_it_matters",
+    "complete_compiler_story.image_alt_intent",
+    "visual_specification.source_faithful_mechanism"
+  ],
+  "conflict": "The bound story and image recipe describe behavior steered during generation through a live control interface, mid-run interventions and prompt-only baselines. Those are not the mechanism documented in the cited launch article.",
+  "live_reader": {
+    "url": "https://gttome.github.io/Daily-AI-Brief-Compiler/stories/2026-11-23/nov23-t2-inkling-mini-control/",
+    "method": "Runtime urllib HTTP read",
+    "http_status": 200,
+    "byte_count": 14921,
+    "sha256": "ed8e6eba2d97dcdfbb8a49727af4398d01a9d46172fe389ed3d5685be783b076",
+    "contains_control_interface": true,
+    "contains_mid_run": true,
+    "visual_render_review_performed": false
+  },
+  "decision": "Do not freeze a source-fidelity PASS or generate an unsupported control-interface image. An architecture illustration would explain the source but diverge from the assigned central story mechanism. The image-only lane must not silently rewrite the immutable bundle or published editorial story.",
+  "next_owner": "Existing Compiler / Recovery",
+  "next_action": "Resolve the published story/source discrepancy through the supported protected editorial correction process and provide a consistent image-eligible handoff. Preserve original bundle/job history; no silent replacement of sealed bytes. The next eligible existing image owner revalidates job/index/source identity and resumes the same canonical package under ownership rules.",
+  "native_calls": 0,
+  "accepted_images": 0,
+  "protected_image_pr_opened": false
+}
