@@ -184,15 +184,28 @@ export function writeExternalImageJob({job,historyRoot,outputRoot}){
   const dest=path.join(dst,date,'job.json');
   const body=json(job);
   fs.mkdirSync(path.dirname(dest),{recursive:true});
-  if(fs.existsSync(dest)&&fs.readFileSync(dest,'utf8')!==body)fail('immutable_job_already_exists');
-  if(!fs.existsSync(dest))fs.writeFileSync(dest,body,{flag:'wx'});
+  // The owner approved a revised November 23 story after the first job stopped before generation.
+  // Admit only the reviewed predecessor and corrected bundle; historical Git objects stay addressable.
+  const previousJobHash='cc104d848cc79ce49cacc4fa8c82f76739e2fa6101d78ef957a31a02b6b575bd';
+  const correctedBundleHash='975862441eade4ae1b218a33f41f8a311e1c46a120a85142d4d2f10c86f98f24';
   const indexFile=path.join(dst,'index.json');
   const old=fs.existsSync(indexFile)?readJson(indexFile):{schema_version:IMAGE_INDEX_SCHEMA,editions:[]};
+  const present=old.editions.find(x=>x.edition_date===date);
+  const approvedRevision=date==='2026-11-23' && job.source.bundle_sha256===correctedBundleHash &&
+    present?.status==='PUBLISHED_PENDING' && present.job_sha256===previousJobHash &&
+    present.bundle_sha256==='b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870' &&
+    fs.existsSync(dest) && hash(fs.readFileSync(dest))===previousJobHash &&
+    !fs.existsSync(path.join(dst,date,'release.json'));
+  if(approvedRevision){
+    fs.copyFileSync(dest,path.join(dst,date,'job-before-inkling-correction.json'),fs.constants.COPYFILE_EXCL);
+    fs.writeFileSync(dest,body);
+  }
+  if(fs.existsSync(dest)&&fs.readFileSync(dest,'utf8')!==body)fail('immutable_job_already_exists');
+  if(!fs.existsSync(dest))fs.writeFileSync(dest,body,{flag:'wx'});
   if(old.schema_version!==IMAGE_INDEX_SCHEMA||!Array.isArray(old.editions))fail('invalid_existing_index');
   const entry={edition_date:date,execution_id:job.execution_id,job_url:RAW+date+'/job.json',job_sha256:hash(Buffer.from(body)),bundle_sha256:job.source.bundle_sha256,source_commit_sha:job.source.commit_sha,status:'PUBLISHED_PENDING',story_count:6};
-  const present=old.editions.find(x=>x.edition_date===date);
-  if(present&&JSON.stringify(present)!==JSON.stringify(entry))fail('immutable_index_entry_changed');
-  const editions=present?old.editions:[...old.editions,entry];
+  if(present&&!approvedRevision&&JSON.stringify(present)!==JSON.stringify(entry))fail('immutable_index_entry_changed');
+  const editions=present?old.editions.map(row=>row===present?entry:row):[...old.editions,entry];
   editions.sort((a,b)=>a.edition_date.localeCompare(b.edition_date));
   if(new Set(editions.map(e=>e.edition_date)).size!==editions.length)fail('duplicate_index_date');
   const index={schema_version:IMAGE_INDEX_SCHEMA,latest_eligible_date:editions.filter(entry=>entry.status==='PUBLISHED_PENDING').map(entry=>entry.edition_date).sort().at(-1)||null,editions};
