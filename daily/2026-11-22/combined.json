@@ -1141,7 +1141,7 @@
       "attention": "YouTube specific-program attention and distinct creator breadth lead discovery; current timed social snapshots supplement them. No overlapping audience totals, fabricated scores or channel-relative baselines.",
       "uncertainty": "Most individual metric fields unavailable. Current video source clock06:01Chicago, X06:00; other index clocks unknown. Exact rank is unsupported. Claim/usefulness/attention and final qualification remain distinct."
     },
-    "source_commit": "744c8252af555ed630ac966497c3a4a6ad03af27",
+    "source_commit": "5c9d576499de2ae6059bdfcec8fe0eaaa0e33fa1",
     "source_blob_sha": "8e2f34ec7ca404a82c160a5b9915fb9550426b5f",
     "report_sha256": "0448b621989d59e8a4481477f2448c97decf2c13057e20ba95e3baebacc3c193",
     "consumed_source_commit": "744c8252af555ed630ac966497c3a4a6ad03af27",
@@ -1272,7 +1272,7 @@
       },
       "previous_cycle": "2026-11-21",
       "previous_report_sha256": "1d00e2ed2ea02bbbc6212a9b162b9400cc7d515092db65b75faf52bab9cf917d",
-      "previous_aar_sha256": "96ef26a767124c8df085130c4d7e22d0fbd855e7e520420ea5927d6b4bc9e3db",
+      "previous_aar_sha256": "eae83d5860976901fc6cc86b26a9581dfce69377a4d962244b31e1fb67bbceec",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1582,9 +1582,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1643,11 +1643,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/744c8252af555ed630ac966497c3a4a6ad03af27/signals/ai-topic-top10/2026-11-22.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5c9d576499de2ae6059bdfcec8fe0eaaa0e33fa1/signals/ai-topic-top10/2026-11-22.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/744c8252af555ed630ac966497c3a4a6ad03af27/signals/ai-topic-top10/2026-11-22.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/5c9d576499de2ae6059bdfcec8fe0eaaa0e33fa1/signals/ai-topic-top10/2026-11-22.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1685,8 +1685,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov23-t1-lean-riemann-verification",
+            "label": "Lean’s Riemann artifact makes assumptions inspectable",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov23-t2-inkling-mini-control",
+            "label": "Inkling 2 Mini repeats its middle layers",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov23-k1-gemini-task-cost",
+            "label": "Cheap tokens did not guarantee cheaper accepted tasks",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov23-k2-textract-insights",
+            "label": "Textract Insights grounds document extraction to source pages",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov23-a1-gemini-mac-computer-use",
+            "label": "Gemini’s Mac agent puts approvals inside a live preview",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov23-a2-capcut-editable-video",
+            "label": "Build an editable short-video review handoff",
+            "accepted": 1,
+            "rejected": 0
+          }
+        ],
+        "total_attempts": 12,
+        "first_pass_accepted": 1,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -1902,8 +1946,8 @@
         "coverage_percent": 7,
         "coverage_numerator": 12,
         "coverage_denominator": 182,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 1,
+        "image_attempts": 12,
         "top10_linked_items": null,
         "publication_failures": 3
       }
@@ -1914,12 +1958,12 @@
         "median": 14
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 1
       },
       "image_attempts": {
-        "recorded_editions": 6,
-        "median": 13
+        "recorded_editions": 7,
+        "median": 12
       },
       "top10_linked_items": {
         "recorded_editions": 5,
@@ -2992,18 +3036,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-23",
       "cumulative_review_due_today": true,
-      "finding_count": 3,
-      "open_production_blockers": 1,
+      "finding_count": 2,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "PROTECTED_GATE_FAILURES",
           "priority": "P1",
@@ -5846,9 +5881,9 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 38,
-      "unclassified": 6,
+      "recorded_editions": 7,
+      "total_rejected": 44,
+      "unclassified": 12,
       "rows": [
         {
           "cause": "LAYOUT",
