@@ -45,7 +45,7 @@
     },
     {
       "id": "nov23-t2-inkling-mini-control",
-      "headline": "Inkling 2 Mini tests control during generation",
+      "headline": "Inkling 2 Mini repeats its middle layers",
       "focus": "Technical AI Engineering",
       "agent_skills": false,
       "source": {
@@ -54,25 +54,25 @@
         "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
         "published_at": "2026-11-20T00:00:00Z",
         "publication_precision": "day",
-        "scope": "Reviewed the complete technical article covering the model, intervention interface, training approach, behavioral examples, evaluations, comparisons and first-party evidence limitations.",
+        "scope": "Postpublication source review of the released model’s three fixed passes through the middle 12 layers, prior-pass messages, and the separate variable-loop research model used in monitorability experiments.",
         "freshness_reason": "Selected after complete original-source review, current lane comparison and explicit disclosure of the source age and evidence limits.",
         "retrieved_at": "2026-11-23T01:24:00.000Z",
         "read_evidence": {
           "status": "verified",
           "full_source_read": true,
           "method": "publisher_main_text",
-          "read_at": "2026-11-23T01:24:00.000Z",
-          "scope": "Reviewed the complete technical article covering the model, intervention interface, training approach, behavioral examples, evaluations, comparisons and first-party evidence limitations."
+          "read_at": "2026-11-23T03:27:18.643Z",
+          "scope": "Postpublication source review of the released model’s three fixed passes through the middle 12 layers, prior-pass messages, and the separate variable-loop research model used in monitorability experiments."
         }
       },
       "topics": [
-        "Generation control",
-        "Model intervention",
-        "Evaluation limits"
+        "Looped transformers",
+        "Inference compute",
+        "Model evaluation"
       ],
-      "summary": "Thinking Machines presents Inkling 2 Mini as a small model whose behavior can be steered during generation through a control interface. The article explains training, intervention examples and evaluation limits, positioning real-time control as distinct from rewriting prompts between runs. Results are first-party, so independent comparisons and failure tests remain necessary before deployment.",
-      "why_it_matters": "Engineers can evaluate controllable generation by defining a target behavior, measuring whether interventions work mid-run, and checking quality after control is applied. Compare the same tasks with prompt-only baselines and record failure modes before assuming a new control surface improves reliability.",
-      "image_alt_intent": "A live generation stream passes through a visible control interface while matched prompt-only baselines and failure tests compare behavior, quality and intervention cost.",
+      "summary": "Thinking Machines Lab reports that Inkling 2 Mini runs its middle 12 transformer layers three times for every token. The second and third passes use information from the previous pass. The released model has a fixed loop count. The researchers used a separate variable-loop model to study how repeated computation affects capability and the visibility of reasoning.",
+      "why_it_matters": "Token counts alone can hide differences in the work a model performs. When comparing a looped model with a conventional transformer, measure both task accuracy and elapsed time on the same inputs. Distinguish results for the released three-pass model from experiments that vary the number of passes.",
+      "image_alt_intent": "For one token, a prelude feeds three passes through the same middle 12 layers. Arrows carry the previous pass’s output into passes two and three before the final layers produce a next-token prediction.",
       "related_coverage": "Selected after complete technical review and comparison with current model-engineering alternatives.",
       "reading_time_minutes": 6,
       "coverage_labels": [
@@ -1787,9 +1787,9 @@
     {
       "story_id": "nov23-t2-inkling-mini-control",
       "book": "Reliable Generative AI Context Engineering",
-      "concept_or_chapter": "Runtime control surfaces",
-      "connection": "Generation-time interventions add a control layer whose quality and failures must be evaluated against prompt-only baselines.",
-      "what_to_study_next": "Compare matched tasks before and after control is applied."
+      "concept_or_chapter": "Evaluation under matched conditions",
+      "connection": "Repeated internal computation changes the cost of generating each token. Model comparisons need matched tasks and explicit measurements.",
+      "what_to_study_next": "Compare accuracy, elapsed time and output length on the same task."
     },
     {
       "story_id": "nov23-k1-gemini-task-cost",
@@ -1819,7 +1819,7 @@
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "A live generation stream passes through a visible control interface while matched prompt-only baselines and failure tests compare behavior, quality and intervention cost."
+      "alt": "For one token, a prelude feeds three passes through the same middle 12 layers. Arrows carry the previous pass’s output into passes two and three before the final layers produce a next-token prediction."
     },
     {
       "story_id": "nov23-k1-gemini-task-cost",
