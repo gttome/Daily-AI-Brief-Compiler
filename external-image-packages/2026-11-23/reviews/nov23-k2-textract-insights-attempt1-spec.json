@@ -1,0 +1,85 @@
+{
+  "story_id": "nov23-k2-textract-insights",
+  "attempt": 1,
+  "prompt": "Print only the eight exact labels in the frozen list. Source explanations are nonprinting background. Use purposeful LARGE labels on the actual document surfaces, no paper text lines and no fake writing, empty dashboard boxes, people, hands or logos. Unfilled page space should show how a bounding rectangle on an original page matches the field under its translucent overlay.\nCreate one beautiful professional technical-book editorial illustration with white paper, 1200 by 630 landscape. Layered forensic paper study; mixed packet fans toward a matched blueprint on translucent vellum. A large extracted field is tethered to a precise rectangular region of a source page. Explicit and inferred fields have distinct edges. A low-confidence value rests under a review magnifier. No synthetic line text inside documents; use clean evidenced type names and a strong paper-edge silhouette. Use Exploded paper detail and Sage and plum. Depict only the source facts: Splitting produces logical documents matched to blueprints. Each value includes a confidence score and the page and bounding box it was drawn from. A reviewer can confirm a result against the original document. Preserve very large print labels with a 72 px inset; source detail on every meaningful surface. Required visible text exactly once each: Mixed packet | Split documents | Match blueprint | Extract field | Confidence | Page and box | Review value | Review uncertain fields. Draw only the named connections at object ports, separate caveat, no caption strip, no badge wall, no other text or frame. Geometry below is for art direction and must never appear printed.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"entry\",\"description\":\"Textract Insights grounds document extraction to source pages origin\",\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":440,\"height\":520}},{\"id\":\"focus\",\"description\":\"Page grounding interior\",\"bounding_box_px\":{\"x\":385,\"y\":55,\"width\":440,\"height\":520}},{\"id\":\"result\",\"description\":\"Page grounding evidence\",\"bounding_box_px\":{\"x\":715,\"y\":55,\"width\":430,\"height\":520}}],\"labels\":[{\"label\":\"Mixed packet\",\"region_id\":\"entry\",\"region\":\"Textract Insights grounds document extraction to source pages origin\",\"bounding_box_px\":{\"x\":75,\"y\":85,\"width\":320,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Split documents\",\"region_id\":\"entry\",\"region\":\"Textract Insights grounds document extraction to source pages origin\",\"bounding_box_px\":{\"x\":75,\"y\":205,\"width\":320,\"height\":48},\"minimum_font_px\":30},{\"label\":\"Match blueprint\",\"region_id\":\"focus\",\"region\":\"Page grounding interior\",\"bounding_box_px\":{\"x\":405,\"y\":85,\"width\":320,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Extract field\",\"region_id\":\"focus\",\"region\":\"Page grounding interior\",\"bounding_box_px\":{\"x\":405,\"y\":205,\"width\":320,\"height\":48},\"minimum_font_px\":30},{\"label\":\"Confidence\",\"region_id\":\"focus\",\"region\":\"Page grounding interior\",\"bounding_box_px\":{\"x\":405,\"y\":365,\"width\":320,\"height\":48},\"minimum_font_px\":30},{\"label\":\"Page and box\",\"region_id\":\"result\",\"region\":\"Page grounding evidence\",\"bounding_box_px\":{\"x\":735,\"y\":85,\"width\":320,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Review value\",\"region_id\":\"result\",\"region\":\"Page grounding evidence\",\"bounding_box_px\":{\"x\":735,\"y\":205,\"width\":320,\"height\":48},\"minimum_font_px\":30},{\"label\":\"Review uncertain fields\",\"region_id\":\"result\",\"region\":\"Page grounding evidence\",\"bounding_box_px\":{\"x\":735,\"y\":365,\"width\":320,\"height\":48},\"minimum_font_px\":30}],\"connector_anchors\":[{\"from\":\"Mixed packet\",\"to\":\"Split documents\",\"support_claim_id\":\"source-1\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"entry\",\"to_region_id\":\"entry\",\"origin_px\":{\"x\":265,\"y\":285},\"target_px\":{\"x\":300,\"y\":305}},{\"from\":\"Match blueprint\",\"to\":\"Extract field\",\"support_claim_id\":\"source-2\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"focus\",\"to_region_id\":\"focus\",\"origin_px\":{\"x\":635,\"y\":305},\"target_px\":{\"x\":670,\"y\":325}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]",
+  "original_geometry": {
+    "schema_version": "image-composition-geometry-v1",
+    "regions": [
+      {
+        "id": "entry",
+        "description": "Textract Insights grounds document extraction to source pages origin",
+        "bounding_box_px": {
+          "x": 55,
+          "y": 55,
+          "width": 440,
+          "height": 520
+        }
+      },
+      {
+        "id": "focus",
+        "description": "Page grounding interior",
+        "bounding_box_px": {
+          "x": 385,
+          "y": 55,
+          "width": 440,
+          "height": 520
+        }
+      },
+      {
+        "id": "result",
+        "description": "Page grounding evidence",
+        "bounding_box_px": {
+          "x": 715,
+          "y": 55,
+          "width": 430,
+          "height": 520
+        }
+      }
+    ],
+    "connector_anchors": [
+      {
+        "from": "Mixed packet",
+        "to": "Split documents",
+        "support_claim_id": "source-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from_region_id": "entry",
+        "to_region_id": "entry",
+        "origin_px": {
+          "x": 265,
+          "y": 285
+        },
+        "target_px": {
+          "x": 300,
+          "y": 305
+        }
+      },
+      {
+        "from": "Match blueprint",
+        "to": "Extract field",
+        "support_claim_id": "source-2",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from_region_id": "focus",
+        "to_region_id": "focus",
+        "origin_px": {
+          "x": 635,
+          "y": 305
+        },
+        "target_px": {
+          "x": 670,
+          "y": 325
+        }
+      }
+    ],
+    "prompt_geometry_review": {
+      "result": "PASS",
+      "reviewer": "Editorial illustration source and geometry review",
+      "regions_match_composition": true,
+      "labels_match_regions": true,
+      "connectors_match_source": true,
+      "geometry_sha256": "9301b73847a5a3ee1b2b440516f6e0d612fa64fa0f8b16fa063e05eb4446294a"
+    }
+  },
+  "reason": ""
+}
