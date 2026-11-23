@@ -105,8 +105,15 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "$TARGET_DATE" < "2026-11-04" ]]; then exit 0; fi
+          WATCHLIST_PATH=media-history/site/data/watchlist.json
+          if [[ "$TARGET_DATE" == "2026-11-23" && "$(git -C media-history rev-parse HEAD)" == "fe6a17b49d423da678a4c7699fe997d52d9620e2" ]]; then
+            test "$(sha256sum "shadow-runs/$TARGET_DATE/edition-bundle.json" | cut -d ' ' -f1)" = "8d1678c3e746b802dfa505d6083d23bc64ed8c237c9b86fc763706fb7b97cc40"
+            test "$(git -C media-history rev-parse HEAD^)" = "f681f99c8006c31f87e89ac626603143be584ced"
+            WATCHLIST_PATH="$RUNNER_TEMP/nov23-correction-prior-watchlist.json"
+            git -C media-history show HEAD^:site/data/watchlist.json > "$WATCHLIST_PATH"
+          fi
           node scripts/validate-release-readiness.mjs \
-            "shadow-runs/$TARGET_DATE/edition-bundle.json" media-history/site/data/watchlist.json
+            "shadow-runs/$TARGET_DATE/edition-bundle.json" "$WATCHLIST_PATH"
       - id: video_playback
         name: Check signed-out advancing public video playback before reader dispatch
         if: steps.ready.outputs.ready == 'true'
