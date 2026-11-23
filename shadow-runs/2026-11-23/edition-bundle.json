@@ -71,7 +71,7 @@
         "Model evaluation"
       ],
       "summary": "Thinking Machines Lab reports that Inkling 2 Mini runs its middle 12 transformer layers three times for every token. The second and third passes use information from the previous pass. The released model has a fixed loop count. The researchers used a separate variable-loop model to study how repeated computation affects capability and the visibility of reasoning.",
-      "why_it_matters": "Token counts alone can hide differences in the work a model performs. When comparing a looped model with a conventional transformer, measure both task accuracy and elapsed time on the same inputs. Distinguish results for the released three-pass model from experiments that vary the number of passes.",
+      "why_it_matters": "When comparing a looped model with a conventional transformer, measure task accuracy and elapsed time on the same inputs. Token counts alone hide differences in computation. Report the released model’s three-pass results separately from variable-loop experiments.",
       "image_alt_intent": "For one token, a prelude feeds three passes through the same middle 12 layers. Arrows carry the previous pass’s output into passes two and three before the final layers produce a next-token prediction.",
       "related_coverage": "Selected after complete technical review and comparison with current model-engineering alternatives.",
       "reading_time_minutes": 6,
@@ -1857,8 +1857,8 @@
     "height": 630
   },
   "editorial_provenance": {
-    "selection_locked_at": "2026-11-23T02:05:32.689Z",
-    "sealed_at": "2026-11-23T02:05:32.689Z",
+    "selection_locked_at": "2026-11-23T03:31:31.708Z",
+    "sealed_at": "2026-11-23T03:31:31.708Z",
     "source_metadata": [
       {
         "story_id": "nov23-t1-lean-riemann-verification",
