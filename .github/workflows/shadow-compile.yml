@@ -163,6 +163,23 @@ jobs:
         with:
           name: daily-compiler-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: build/shadow
+      - name: Wait for Pages artifact registration
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_NAME: daily-compiler-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          for attempt in {1..12}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '.artifacts[].name' | grep -Fxq "$PAGES_ARTIFACT_NAME"; then
+              echo "PAGES_ARTIFACT_REGISTERED $PAGES_ARTIFACT_NAME attempt=$attempt"
+              exit 0
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          echo "Pages artifact did not register within the bounded wait: $PAGES_ARTIFACT_NAME" >&2
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
         with:
@@ -241,57 +258,3 @@ jobs:
             build/shadow/image-jobs/index.json \
             "build/shadow/image-jobs/$TARGET_DATE/job.json" \
             "run/shadow-runs/$TARGET_DATE/edition-bundle.json"
-      - name: Persist cumulative verified reader history
-        run: |
-          if [ "$HISTORY_EXISTS" = "true" ]; then
-            rm -rf history/site
-            mkdir -p history/site
-            cp -a build/shadow/. history/site/
-          else
-            git worktree add --detach history main
-            git -C history switch --orphan shadow-pages-history
-            git -C history rm -rf . >/dev/null 2>&1 || true
-            mkdir -p history/site
-            cp -a build/shadow/. history/site/
-          fi
-          git -C history config user.name "Daily Compiler"
-          git -C history config user.email "actions@users.noreply.github.com"
-          git -C history add site
-          if git -C history diff --cached --quiet; then
-            echo "Permanent reader history already current"
-            exit 0
-          fi
-          git -C history commit -m "Preserve canonical shadow reader through $TARGET_DATE"
-          git -C history push origin HEAD:shadow-pages-history
-      - name: Record actual blocked reader or image-handoff gate on same semantic branch
-        if: ${{ failure() }}
-        shell: bash
-        env:
-          FAILED_STAGE: ${{ steps.image_handoff.outcome == 'failure' && 'IMAGE_HANDOFF' || steps.video_playback.outcome == 'failure' && 'VIDEO_PLAYBACK' || steps.media_history.outcome == 'failure' && 'MEDIA_HISTORY' || steps.reader_materialize.outcome == 'failure' && 'READER_COMPATIBILITY' || 'PUBLICATION_PIPELINE' }}
-        run: |
-          set -euo pipefail
-          case "${TARGET_BRANCH:-}" in shadow/20??-??-??) ;; *) exit 0 ;; esac
-          if [ ! -e run/.git ]; then
-            echo "PUBLICATION_BLOCKED: no semantic worktree to preserve failure evidence"
-            exit 1
-          fi
-          node scripts/record-publication-health.mjs \
-            "run/shadow-runs/$TARGET_DATE/publication-health.json" \
-            "$TARGET_DATE" BLOCKED_PUBLICATION "$FAILED_STAGE" \
-            "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-          if [ "$FAILED_STAGE" = VIDEO_PLAYBACK ] && test -s build/video-public-playback.json; then
-            node scripts/record-video-playback-failure.mjs \
-              build/video-public-playback.json "$TARGET_DATE" \
-              "run/shadow-runs/$TARGET_DATE/editorial/video-playback-failure-$GITHUB_RUN_ID.json" READER_DEPLOY "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" || \
-              echo "Video diagnostic unavailable; original failed gate is still recorded"
-          fi
-          git -C run config user.name "Daily Brief Publication Health"
-          git -C run config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git -C run add "shadow-runs/$TARGET_DATE/publication-health.json"
-          if test -s "run/shadow-runs/$TARGET_DATE/editorial/video-playback-failure-$GITHUB_RUN_ID.json"; then
-            git -C run add "shadow-runs/$TARGET_DATE/editorial/video-playback-failure-$GITHUB_RUN_ID.json"
-          fi
-          if ! git -C run diff --cached --quiet; then
-            git -C run commit -m "Record authentic blocked protected publishing stage $FAILED_STAGE"
-            git -C run push origin "HEAD:refs/heads/$TARGET_BRANCH"
-          fi
