@@ -1,17 +1,81 @@
-# November 23 image AAR
+# 2026-11-23 premium image after-action report
 
-**BLOCKED_INCOMPLETE — source/story mechanism mismatch before generation.**
+**Status: SIX_ACCEPTED_PENDING_PROTECTED_RELEASE**. This is image-lane status, not unattended certification of the editorial producer.
 
-The exact November 23 PUBLISHED_PENDING job and original bundle hashes match their immutable bindings. The sole canonical branch was claimed and its fenced worker receipt read back. No prior accepted image exists for this edition.
+| Metric | Observed result |
+|---|---|
+| Native generations | 12 |
+| Accepted images | 6 |
+| Rejected candidates | 6 |
+| Accepted-image regeneration | 0 |
+| First accepted binary commit | 198e25047a708fdebaecd69e9b3010413491ad15 |
+| Executor observed run start | 2026-11-23T03:40:52.544Z (self-attested, not scheduler telemetry) |
+| First native generation clock | 2026-11-23T03:44:30.665Z (observed before tool call) |
+| Public release | PENDING_PROTECTED_RELEASE |
+| Public verified time | Not recorded |
+| Final saved-context review | SAVED_EXPORTS_VERIFIED_LIVE_CONTEXTS_PENDING; 0 targets |
+| Weekly usage | UNKNOWN |
 
-The published Inkling story describes a live control interface for mid-generation intervention. The cited publisher article instead describes a looped-transformer architecture, a separate variable-loop research model and monitorability experiments, including poor chain-of-thought controllability. The image recipe therefore cannot pass both article-fit and primary-source fidelity without editorial reconciliation. See [source review](source-preflight-blocker.json).
+## Per-story effort
 
-The live permanent story returned HTTP 200, 14,921 bytes, SHA-256 ed8e6eba2d97dcdfbb8a49727af4398d01a9d46172fe389ed3d5685be783b076, containing both control-interface and mid-run wording. Web primary-source text was successfully read. Direct publisher retrieval through urllib returned HTTP 403; no raw publisher hash is claimed.
+| Story | Attempts | Accepted SHA-256 |
+|---|---:|---|
+| nov23-t1-lean-riemann-verification | 2 | e0a6c176c61c73aa69ad1fda825e2d9aa498a0458d1ea4d0189cea151983e24c |
+| nov23-t2-inkling-mini-control | 2 | 49c16baa4349e2621d5e15fa07131c39e0cb2979e21817a450ff71821f625375 |
+| nov23-k1-gemini-task-cost | 2 | decf7621bed7b53e3e89794f6507c1296d3475652b5e36f153a83f4b2a5b8489 |
+| nov23-k2-textract-insights | 2 | 0d5acb6997dc05a60fa362f27e587670c3647d84ee8f11a039b2127f11a31590 |
+| nov23-a1-gemini-mac-computer-use | 3 | 845169e60d9096dfcb1fc63cbb8001089c0d2c5e2ab3affe8fce80f5310f4835 |
+| nov23-a2-capcut-editable-video | 1 | 3e71ace17d2b28a9ae01ae26235c9a5e332bb84bc611da4b48ba79ad408c1a33 |
 
-Native calls: **0**. Accepted: **0**. Rejected renders: **0**. First-pass yield, margins, six-style distribution, artistic acceptance and usage: **not observed**. No package PR, merge, deployment or 24-context visual completion is claimed. Source-bound six-spec admission was not passed, so no generation clock was fabricated.
+## Six-image visual diversity review
 
-The latest available combined report is stored under cycle November 21 and describes edition November 22. Its six charts and improvement metrics were read, alongside the original November 22 image AAR: 16 calls, zero first-pass accepts, ten rejected candidates, five margin correction rejections and six recorded styles. Existing IMG19 November 20–22 evaluations are preserved; this run supplies no new artistic outcome.
+**Status: DIVERSITY_EVIDENCE_RECORDED_NOT_OWNER_ART_APPROVAL**. This is a reviewer-observed, hash-bound saved-pixel comparison, not owner acceptance or proof of visually different pixels by code alone.
 
-**Next action — existing Compiler/Recovery role:** reconcile the published story with its primary source through the supported protected editorial correction process and supply a consistent image-eligible handoff. Preserve sealed bundle/job history. The next eligible existing image owner must revalidate exact source/job/index bindings and resume this same canonical package. The image lane cannot silently rewrite editorial content or waive source fidelity.
+Six-up contact sheet: external-image-packages/2026-11-23/reviews/six-up-contact-sheet.png · SHA-256: 7b89aaad1ebc6e3fc4a49f17f3eff8fbf86e8e734500d278d495e7843ced69b8.
 
-Worker lease released with this precise checkpoint. All prior accepted assets and completed history remain untouched.
+Distinct format families: 6. Pairwise actual-image observations: 15/15.
+
+| Story | Observed format | Medium | Perspective | Visual distinction |
+|---|---|---|---|---|
+| nov23-t1-lean-riemann-verification | Printmaker’s folio | Printmaker’s folio with restrained Burgundy and slate | Oblique registration view | A burgundy splayed folio compares two theorem statements on translucent sheets and distributes a single raw export to three independent checker prisms. |
+| nov23-t2-inkling-mini-control | Folded strata | Folded strata with restrained Teal and amber | Axonometric cutaway | A turquoise helical cutaway steps through the same paired core blocks three times before the amber path reaches the final layers. |
+| nov23-k1-gemini-task-cost | Expense ledger | Expense ledger with restrained Prussian blue and ochre | Flat comparative spread | An indigo and ochre ledger pairs two independent curling receipts with the task price printed in large type and a detached benchmark tag. |
+| nov23-k2-textract-insights | Translucent vellum | Translucent vellum with restrained Sage and plum | Exploded paper detail | Overlapping sage and plum vellum sheets reveal the same named pay field under a bounding box, an inspection beam and a magnifying glass. |
+| nov23-a1-gemini-mac-computer-use | Etched glass section | Etched glass section with restrained Indigo and coral | Side-on architectural section | The translucent violet screen section leaves the cursor on the foreground plane while the blue and amber leaf example sits inside the live preview. |
+| nov23-a2-capcut-editable-video | Film editing desk | Film editing desk with restrained Graphite and vermilion | Orthographic overhead | The graphite editorial work surface positions a mountain clip among two product shots, with a waveform, captions, red edit marks and the exported frame. |
+
+Retain the full 15 pairwise observations in the immutable manifest. Repeat the complete set review on any changed image; do not use color or renamed diagram tags alone as differentiation.
+
+### Useful image detail and recent artwork comparisons
+
+Review evidence: **NOT_RECORDED**. Stories reviewed: Not recorded; exact earlier-image comparisons: Not recorded. Owner feedback: **UNKNOWN**.
+
+| Story | Useful internal detail | Text architecture | Closest earlier image | Recorded assessment |
+|---|---|---|---|---|
+
+These are source-bound reviewer observations, not computer-vision scores, an independent source audit or owner artwork approval. Missing evidence remains unknown. See the original image AAR for exact PNG hashes, source-claim references, mobile notes and prior-image links.
+
+
+## Corrections
+
+| Stage | Issue | Correction |
+|---|---|---|
+| Editorial source preflight | The original Inkling story described unsupported live controls. | Published the owner-approved three-pass story, verified the reader and issued a new image job while preserving the original. |
+| Native generation review | First folio used human hands and simulated text. | Replaced hands with checker prisms and simplified the statement sheets. |
+| Native generation review | Early passes incorrectly connected directly to output. | Showed one serial traversal with only the third pass feeding final layers. |
+| Native generation review | Cost receipts contained model names, extra scores and text. | Used only the approved prices, labels and benchmark qualifier. |
+| Native generation review | The extracted value and its original page region were both empty. | Named the payslip field on both layers and tethered the two matching regions. |
+| Native generation review | The live preview contained only generic screen shapes. | Introduced the publisher’s batch color-grading example. |
+| Native generation review | The revised desktop illustration still contained simulated document lines. | Removed filler lines and used two colored leaf specimens in the preview. |
+
+## Evidence and limitations
+
+Job SHA-256: 9f4cf2591daae5d523b8f833eeff54313926771437d52db5c25f7ad2f3dbd4e1. Original source: 924b9a22ee024e112c9a0cc65eccb9485b80696f. Original bundle: 8d1678c3e746b802dfa505d6083d23bc64ed8c237c9b86fc763706fb7b97cc40.
+
+The actual generation start is 2026-11-23T03:44:30.665Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
+
+Visual review path: Not recorded. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+
+The owner approved a postpublication editorial correction. Twelve native calls produced six accepted images. The advisory eight-call and four first-pass goals were missed. No paid model API or new task was used.
+
+Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.

@@ -1,86 +1,156 @@
 {
   "schema_version": "external-image-after-action-v1",
   "edition_date": "2026-11-23",
-  "cycle_date": "2026-11-22",
-  "job_sha256": "cc104d848cc79ce49cacc4fa8c82f76739e2fa6101d78ef957a31a02b6b575bd",
-  "original_source_commit_sha": "a2ca0c10d379e45777a05411fe095560ed9eafdd",
-  "original_bundle_sha256": "b4ac965d41200c9218d2ffcf186431a7824674512f4db618722141b777dd5870",
-  "status": "BLOCKED_INCOMPLETE",
-  "result": "BLOCKED_INCOMPLETE",
-  "observed_at": "2026-11-23T03:19:24Z",
+  "job_sha256": "9f4cf2591daae5d523b8f833eeff54313926771437d52db5c25f7ad2f3dbd4e1",
+  "original_source_commit_sha": "924b9a22ee024e112c9a0cc65eccb9485b80696f",
+  "original_bundle_sha256": "8d1678c3e746b802dfa505d6083d23bc64ed8c237c9b86fc763706fb7b97cc40",
+  "status": "SIX_ACCEPTED_PENDING_PROTECTED_RELEASE",
   "human_readable_path": "external-image-packages/2026-11-23/reviews/after-action.md",
   "production": {
-    "actual_generation_count": 0,
-    "rejected_count": 0,
-    "accepted_count": 0,
-    "first_pass_accepts": null,
+    "actual_generation_count": 12,
+    "accepted_count": 6,
+    "rejected_count": 6,
+    "first_pass_accepts": 1,
     "accepted_art_regenerated_after_lock": 0,
-    "host_execution_observed_at": "2026-11-23T03:14:29Z",
-    "host_execution_observation_source": "executor_observed_in_same_invocation",
-    "generation_started_at": null,
-    "generation_start_source": null,
-    "slot": "evening_primary",
-    "original_cycle_date": "2026-11-22",
-    "scheduled_for_recorded": "2026-11-23T03:15:00Z",
-    "started_at_recorded": "2026-11-23T03:14:02.817191Z",
+    "github_binary_stage_commit": "198e25047a708fdebaecd69e9b3010413491ad15",
     "scheduler_origin": "UNPROVEN",
-    "source_preflight": "BLOCKED",
-    "frozen_specifications_complete": false,
-    "capability_route_result": "NOT_CERTIFIED_SOURCE_PREFLIGHT_STOP",
-    "native_image_tool_exposed": true,
-    "native_image_tool_invoked": false,
-    "usage_percent": null,
-    "billing": "UNKNOWN",
-    "paid_model_api_used": false,
-    "style_distribution": null,
-    "margin_corrections": null,
-    "live_context_reviews": 0
+    "slot": "owner_requested_evening_resumption",
+    "original_cycle_date": "2026-11-22",
+    "advisory_efficiency_met": false,
+    "verified_distinct_styles": 6,
+    "host_execution_observed_at": "2026-11-23T03:40:52.544Z",
+    "host_execution_observation_source": "executor_observed_in_same_invocation",
+    "generation_started_at": "2026-11-23T03:44:30.665Z",
+    "generation_start_source": "executor_observed_before_first_native_call"
   },
-  "images": [],
+  "images": [
+    {
+      "story_id": "nov23-t1-lean-riemann-verification",
+      "sha256": "e0a6c176c61c73aa69ad1fda825e2d9aa498a0458d1ea4d0189cea151983e24c",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "nov23-t2-inkling-mini-control",
+      "sha256": "49c16baa4349e2621d5e15fa07131c39e0cb2979e21817a450ff71821f625375",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "nov23-k1-gemini-task-cost",
+      "sha256": "decf7621bed7b53e3e89794f6507c1296d3475652b5e36f153a83f4b2a5b8489",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "nov23-k2-textract-insights",
+      "sha256": "0d5acb6997dc05a60fa362f27e587670c3647d84ee8f11a039b2127f11a31590",
+      "generation_attempts": 2
+    },
+    {
+      "story_id": "nov23-a1-gemini-mac-computer-use",
+      "sha256": "845169e60d9096dfcb1fc63cbb8001089c0d2c5e2ab3affe8fce80f5310f4835",
+      "generation_attempts": 3
+    },
+    {
+      "story_id": "nov23-a2-capcut-editable-video",
+      "sha256": "3e71ace17d2b28a9ae01ae26235c9a5e332bb84bc611da4b48ba79ad408c1a33",
+      "generation_attempts": 1
+    }
+  ],
   "errors": [
     {
-      "phase": "Pre-generation source-fidelity review",
-      "issue": "The bound story and image recipe describe behavior steered during generation through a live control interface, mid-run interventions and prompt-only baselines. Those are not the mechanism documented in the cited launch article.",
-      "correction": "Resolve the published story/source discrepancy through the supported protected editorial correction process and provide a consistent image-eligible handoff. Preserve original bundle/job history; no silent replacement of sealed bytes. The next eligible existing image owner revalidates job/index/source identity and resumes the same canonical package under ownership rules.",
-      "evidence_ref": "source-preflight-blocker.json",
-      "generation_rejection": null
-    }
-  ],
-  "prior_feedback": {
-    "report_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/744c8252af555ed630ac966497c3a4a6ad03af27/daily/2026-11-21/combined.json",
-    "report_cycle_date": "2026-11-21",
-    "report_edition_date": "2026-11-22",
-    "metrics_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/744c8252af555ed630ac966497c3a4a6ad03af27/daily/2026-11-21/improvement-metrics.json",
-    "charts_read": [
-      "research-coverage",
-      "image-rework",
-      "top10-selection",
-      "seven-edition-trends",
-      "image-defects",
-      "publication-failures"
-    ],
-    "nov22_native_calls": 16,
-    "nov22_first_pass_accepts": 0,
-    "nov22_rejected_candidates": 10,
-    "nov22_margin_correction_rejections": 5,
-    "nov22_recorded_distinct_styles": 6,
-    "feedback_applied": "Source-specific factual preflight caught a mechanism mismatch before native generation. Planned geometry, connector, saved-pixel and six-style execution remain pending; no artistic improvement is claimed.",
-    "existing_img19_evaluation": "November22 original receipt already records the November20–22 three-edition assessment; preserve it, do not restart or fabricate a new rendering sample.",
-    "owner_artistic_acceptance": "UNKNOWN"
-  },
-  "change_evaluations": [
+      "phase": "Editorial source preflight",
+      "issue": "The original Inkling story described unsupported live controls.",
+      "correction": "Published the owner-approved three-pass story, verified the reader and issued a new image job while preserving the original."
+    },
     {
-      "change_id": "NOV20-12",
-      "reviewed_edition": "2026-11-23",
-      "decision": "keep",
-      "result": "inconclusive",
-      "reason": "The existing November22 AAR already evaluates the three eligible November20–22 runs. This invocation stopped at a newly observed source mismatch with zero renders, so it adds no artistic or efficiency outcome and does not restart the experiment.",
-      "evidence_refs": [
-        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/d97c600121f2f9ce39941c2e6a3bac2a4e5515fc/external-image-packages/2026-11-22/reviews/after-action.json"
-      ]
+      "phase": "Native generation review",
+      "issue": "First folio used human hands and simulated text.",
+      "correction": "Replaced hands with checker prisms and simplified the statement sheets.",
+      "generation_rejection": {
+        "story_id": "nov23-t1-lean-riemann-verification",
+        "attempt": 1,
+        "defect_codes": [
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "external-image-packages/2026-11-23/reviews/nov23-t1-lean-riemann-verification-attempt1-rejection.json"
+      }
+    },
+    {
+      "phase": "Native generation review",
+      "issue": "Early passes incorrectly connected directly to output.",
+      "correction": "Showed one serial traversal with only the third pass feeding final layers.",
+      "generation_rejection": {
+        "story_id": "nov23-t2-inkling-mini-control",
+        "attempt": 1,
+        "defect_codes": [
+          "CAUSAL_CONNECTOR"
+        ],
+        "evidence_ref": "external-image-packages/2026-11-23/reviews/nov23-t2-inkling-mini-control-attempt1-rejection.json"
+      }
+    },
+    {
+      "phase": "Native generation review",
+      "issue": "Cost receipts contained model names, extra scores and text.",
+      "correction": "Used only the approved prices, labels and benchmark qualifier.",
+      "generation_rejection": {
+        "story_id": "nov23-k1-gemini-task-cost",
+        "attempt": 1,
+        "defect_codes": [
+          "UNALLOWLISTED_TEXT"
+        ],
+        "evidence_ref": "external-image-packages/2026-11-23/reviews/nov23-k1-gemini-task-cost-attempt1-rejection.json"
+      }
+    },
+    {
+      "phase": "Native generation review",
+      "issue": "The extracted value and its original page region were both empty.",
+      "correction": "Named the payslip field on both layers and tethered the two matching regions.",
+      "generation_rejection": {
+        "story_id": "nov23-k2-textract-insights",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "external-image-packages/2026-11-23/reviews/nov23-k2-textract-insights-attempt1-rejection.json"
+      }
+    },
+    {
+      "phase": "Native generation review",
+      "issue": "The live preview contained only generic screen shapes.",
+      "correction": "Introduced the publisher’s batch color-grading example.",
+      "generation_rejection": {
+        "story_id": "nov23-a1-gemini-mac-computer-use",
+        "attempt": 1,
+        "defect_codes": [
+          "LAYOUT"
+        ],
+        "evidence_ref": "external-image-packages/2026-11-23/reviews/nov23-a1-gemini-mac-computer-use-attempt1-rejection.json"
+      }
+    },
+    {
+      "phase": "Native generation review",
+      "issue": "The revised desktop illustration still contained simulated document lines.",
+      "correction": "Removed filler lines and used two colored leaf specimens in the preview.",
+      "generation_rejection": {
+        "story_id": "nov23-a1-gemini-mac-computer-use",
+        "attempt": 2,
+        "defect_codes": [
+          "PSEUDO_WRITING"
+        ],
+        "evidence_ref": "external-image-packages/2026-11-23/reviews/nov23-a1-gemini-mac-computer-use-attempt2-rejection.json"
+      }
     }
   ],
-  "next_owner": "Existing Compiler / Recovery",
-  "next_action": "Resolve the published story/source discrepancy through the supported protected editorial correction process and provide a consistent image-eligible handoff. Preserve original bundle/job history; no silent replacement of sealed bytes. The next eligible existing image owner revalidates job/index/source identity and resumes the same canonical package under ownership rules.",
-  "complete_package_admission_claimed": false
+  "publication": {
+    "result": "PENDING_PROTECTED_RELEASE"
+  },
+  "visual_review": {
+    "result": "SAVED_EXPORTS_VERIFIED_LIVE_CONTEXTS_PENDING",
+    "reviewed_targets": 0
+  },
+  "usage": {
+    "work_usage_percent": null
+  },
+  "notes": [
+    "The owner approved a postpublication editorial correction. Twelve native calls produced six accepted images. The advisory eight-call and four first-pass goals were missed. No paid model API or new task was used."
+  ]
 }
