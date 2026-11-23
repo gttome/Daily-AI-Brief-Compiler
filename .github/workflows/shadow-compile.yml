@@ -163,6 +163,23 @@ jobs:
         with:
           name: daily-compiler-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: build/shadow
+      - name: Wait for Pages artifact registration
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_NAME: daily-compiler-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          for attempt in {1..12}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '.artifacts[].name' | grep -Fxq "$PAGES_ARTIFACT_NAME"; then
+              echo "PAGES_ARTIFACT_REGISTERED $PAGES_ARTIFACT_NAME attempt=$attempt"
+              exit 0
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          echo "Pages artifact did not register within the bounded wait: $PAGES_ARTIFACT_NAME" >&2
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
         with:
