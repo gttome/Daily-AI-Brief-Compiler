@@ -84,7 +84,7 @@ jobs:
           if [[ "$TARGET_DATE" < "2026-11-04" ]]; then exit 0; fi
           node scripts/validate-semantic-bundle.mjs \
             "shadow-runs/$TARGET_DATE/compiler-state.json" \
-            "shadow-runs/$TARGET_DATE/edition-bundle.json"
+            "shadow-runs/$TARGET_DATE/edition-bundle.json" 2>&1 | tee "$RUNNER_TEMP/semantic-preflight.log"
       - id: media_history
         name: Reject previously published media using full history for Oct26+
         if: steps.ready.outputs.ready == 'true'
@@ -156,7 +156,8 @@ jobs:
           date="${GITHUB_REF_NAME#shadow/}"
           node scripts/record-publication-health.mjs \
             "shadow-runs/$date/publication-health.json" "$date" BLOCKED_PUBLICATION \
-            "$FAILED_STAGE" "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            "$FAILED_STAGE" "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            "$RUNNER_TEMP/semantic-preflight.log" "$GITHUB_SHA"
           if [ "$FAILED_STAGE" = VIDEO_PLAYBACK ] && test -s build/video-prepublish-playback.json; then
             node scripts/record-video-playback-failure.mjs \
               build/video-prepublish-playback.json "$date" \

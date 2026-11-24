@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
-import {nextPublicationHealth,HEALTH_SCHEMA} from '../scripts/record-publication-health.mjs';
+import {nextPublicationHealth,HEALTH_SCHEMA,semanticFailureDetail} from '../scripts/record-publication-health.mjs';
 import {verifyPendingImageHandoff} from '../scripts/verify-pending-image-handoff.mjs';
 import {publicationRecoveryDecision} from '../operations/publication-recovery.mjs';
 const edition='2026-10-26';
@@ -64,4 +64,18 @@ test('same-edition decision only resumes the existing authorized editor, never i
    state:{edition_date:edition,state:'SHADOW_VERIFIED'},
    imageIndex:{editions:[{edition_date:edition,status:'PUBLISHED_PENDING'}]}});
  assert.equal(complete.result,'PUBLIC_READER_READY_FOR_IMAGE_WORKER');
+});
+
+test('semantic failure records the original error and rejected source commit for recovery',()=>{
+ const head='a'.repeat(40);
+ const log='function fail(message) { throw new Error(message); }\nError: bundle schema_version mismatch\n    at validateEdition';
+ const detail=semanticFailureDetail(log,head);
+ assert.deepEqual(detail,{error:'bundle schema_version mismatch',source_head:head});
+ assert.equal(semanticFailureDetail('Process exited 1',head),null);
+ assert.equal(semanticFailureDetail(log,'unknown'),null);
+ const input={editionDate:edition,status:'BLOCKED_PUBLICATION',runUrl:url,observedAt:now,semanticFailure:detail};
+ const blocked=nextPublicationHealth({...input,stage:'SEMANTIC_PREFLIGHT'});
+ assert.deepEqual(blocked.outstanding_blocker.validator_failure,detail);
+ assert.deepEqual(blocked.events[0].validator_failure,detail);
+ assert.equal(nextPublicationHealth({...input,stage:'VIDEO_PLAYBACK'}).events[0].validator_failure,undefined);
 });
