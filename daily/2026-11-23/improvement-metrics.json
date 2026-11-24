@@ -73,8 +73,8 @@
       "coverage_percent": 4,
       "coverage_numerator": 8,
       "coverage_denominator": 182,
-      "first_pass_accepted": null,
-      "image_attempts": null,
+      "first_pass_accepted": 0,
+      "image_attempts": 13,
       "top10_linked_items": null,
       "publication_failures": 5
     }
@@ -85,11 +85,11 @@
       "median": 13
     },
     "first_pass_accepted": {
-      "recorded_editions": 6,
+      "recorded_editions": 7,
       "median": 1
     },
     "image_attempts": {
-      "recorded_editions": 6,
+      "recorded_editions": 7,
       "median": 13
     },
     "top10_linked_items": {
@@ -1210,18 +1210,9 @@
     "mode": "DAILY_EVIDENCE_LED_TRIAGE",
     "next_cumulative_review": "2026-11-24",
     "cumulative_review_due_today": true,
-    "finding_count": 4,
-    "open_production_blockers": 1,
+    "finding_count": 3,
+    "open_production_blockers": 0,
     "findings": [
-      {
-        "id": "IMAGE_RELEASE_NOT_VERIFIED",
-        "priority": "P0",
-        "owner": "Images",
-        "observation": "Editorial publication is verified but the image release is not verified.",
-        "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-        "timing": "CURRENT_CYCLE_IF_OWNED",
-        "kind": "OPEN_PRODUCTION_BLOCKER"
-      },
       {
         "id": "TOP10_SEARCH_EVIDENCE_INVALID",
         "priority": "P1",
@@ -4086,39 +4077,53 @@
     }
   ],
   "image_defects": {
-    "recorded_editions": 6,
-    "total_rejected": 42,
+    "recorded_editions": 7,
+    "total_rejected": 49,
     "unclassified": 10,
     "rows": [
       {
         "cause": "LAYOUT",
-        "rejected_attempts": 22,
+        "rejected_attempts": 25,
         "editions": [
           "2026-11-19",
           "2026-11-20",
           "2026-11-21",
-          "2026-11-22"
-        ],
-        "recurring": true
-      },
-      {
-        "cause": "CAUSAL_CONNECTOR",
-        "rejected_attempts": 12,
-        "editions": [
-          "2026-11-19",
-          "2026-11-20",
-          "2026-11-21",
-          "2026-11-22"
+          "2026-11-22",
+          "2026-11-24"
         ],
         "recurring": true
       },
       {
         "cause": "OTHER",
-        "rejected_attempts": 12,
+        "rejected_attempts": 16,
         "editions": [
           "2026-11-20",
           "2026-11-21",
-          "2026-11-22"
+          "2026-11-22",
+          "2026-11-24"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "CAUSAL_CONNECTOR",
+        "rejected_attempts": 14,
+        "editions": [
+          "2026-11-19",
+          "2026-11-20",
+          "2026-11-21",
+          "2026-11-22",
+          "2026-11-24"
+        ],
+        "recurring": true
+      },
+      {
+        "cause": "PSEUDO_WRITING",
+        "rejected_attempts": 7,
+        "editions": [
+          "2026-11-19",
+          "2026-11-20",
+          "2026-11-22",
+          "2026-11-24"
         ],
         "recurring": true
       },
@@ -4133,22 +4138,13 @@
         "recurring": true
       },
       {
-        "cause": "PSEUDO_WRITING",
-        "rejected_attempts": 5,
+        "cause": "UNALLOWLISTED_TEXT",
+        "rejected_attempts": 2,
         "editions": [
-          "2026-11-19",
           "2026-11-20",
-          "2026-11-22"
+          "2026-11-24"
         ],
         "recurring": true
-      },
-      {
-        "cause": "UNALLOWLISTED_TEXT",
-        "rejected_attempts": 1,
-        "editions": [
-          "2026-11-20"
-        ],
-        "recurring": false
       }
     ]
   },

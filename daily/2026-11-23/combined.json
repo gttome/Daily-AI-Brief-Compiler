@@ -1233,7 +1233,7 @@
       "attention": "YouTube program attention and creator breadth lead discovery, supplemented by timed social snapshots and community counters. No added overlapping audiences, invented scores or channel-normalized baselines.",
       "uncertainty": "WITL video clock07:04Eastern; other indexes lack counter clocks. Missing metrics stay null. One small creative demonstration has limited attention, not proven broad popularity. Claim strength and Brief value separate."
     },
-    "source_commit": "f2d9ec8bac7967abd623f578cbb6eb1e5c61f737",
+    "source_commit": "456f8a7f888fa3c74ae7c70333c8a3e5893e4972",
     "source_blob_sha": "93de0329172d962ddf19db592503f7273511b06f",
     "report_sha256": "93666c31516ddf53f7ef974291cbdb0b64dbab8237b0134d37fcf9d2d68d7bf2",
     "consumed_source_commit": null,
@@ -1372,7 +1372,7 @@
       },
       "previous_cycle": "2026-11-22",
       "previous_report_sha256": "0448b621989d59e8a4481477f2448c97decf2c13057e20ba95e3baebacc3c193",
-      "previous_aar_sha256": "132cf047470b349e7a6b5e02a6a900afbcaba0b1a4197b654ed6dfddcc84f8e0",
+      "previous_aar_sha256": "47e0e5610de6ed4eab4df7d88cd1a5c5af4c4f0d2a2ea8fc8b86b17816066ba0",
       "input_delta_from_previous": {
         "topic_count": 0,
         "validation_resource_count": null,
@@ -1738,9 +1738,9 @@
   "ci_incomplete_staging_failures_audited": false,
   "publication_and_visual_complete": false,
   "compiler_verified": true,
-  "images_released": false,
+  "images_released": true,
   "visual_24_pass": false,
-  "image_count": 0,
+  "image_count": 6,
   "work_usage_percent": null,
   "work_usage_source": null,
   "generation_start_observed_at": null,
@@ -1799,11 +1799,11 @@
     },
     {
       "title": "Top 10 ranked topic report",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f2d9ec8bac7967abd623f578cbb6eb1e5c61f737/signals/ai-topic-top10/2026-11-23.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/456f8a7f888fa3c74ae7c70333c8a3e5893e4972/signals/ai-topic-top10/2026-11-23.json"
     },
     {
       "title": "Top 10 run after-action receipt",
-      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/f2d9ec8bac7967abd623f578cbb6eb1e5c61f737/signals/ai-topic-top10/2026-11-23.aar.json"
+      "url": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/456f8a7f888fa3c74ae7c70333c8a3e5893e4972/signals/ai-topic-top10/2026-11-23.aar.json"
     },
     {
       "title": "Compiler Top 10 input snapshot",
@@ -1841,8 +1841,52 @@
         "id": "image-rework",
         "title": "Image attempts and rework",
         "description": "Accepted and rejected candidates for each final image.",
-        "status": "NOT_RECORDED",
-        "rows": null,
+        "status": "OBSERVED",
+        "rows": [
+          {
+            "id": "nov24-t1-perplexity-limits",
+            "label": "Prediction loss could become a shared safety pace signal",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov24-t2-glm54-loop",
+            "label": "GLM‑5.4 trades more repeated depth for the same parameters",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov24-a1-anthropic-ipo",
+            "label": "Anthropic closes a $119.5 billion combined capital event",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov24-a2-creative-labor",
+            "label": "Creative workers describe bargaining power moving before jobs vanish",
+            "accepted": 1,
+            "rejected": 1
+          },
+          {
+            "id": "nov24-g1-superhuman-go-approvals",
+            "label": "Superhuman Go puts approval and attribution around proactive work",
+            "accepted": 1,
+            "rejected": 2
+          },
+          {
+            "id": "nov24-g2-software-atelier",
+            "label": "Insert a human summary checkpoint before an agent’s final verification",
+            "accepted": 1,
+            "rejected": 1
+          }
+        ],
+        "total_attempts": 13,
+        "first_pass_accepted": 0,
+        "target": {
+          "first_pass": 3,
+          "max_attempts": 2,
+          "window": "ongoing from November 8"
+        },
         "note": "Generation attempts measure rework, not runtime or cost. Quality and publication checks remain separate."
       },
       {
@@ -2059,8 +2103,8 @@
         "coverage_percent": 4,
         "coverage_numerator": 8,
         "coverage_denominator": 182,
-        "first_pass_accepted": null,
-        "image_attempts": null,
+        "first_pass_accepted": 0,
+        "image_attempts": 13,
         "top10_linked_items": null,
         "publication_failures": 5
       }
@@ -2071,11 +2115,11 @@
         "median": 13
       },
       "first_pass_accepted": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 1
       },
       "image_attempts": {
-        "recorded_editions": 6,
+        "recorded_editions": 7,
         "median": 13
       },
       "top10_linked_items": {
@@ -3196,18 +3240,9 @@
       "mode": "DAILY_EVIDENCE_LED_TRIAGE",
       "next_cumulative_review": "2026-11-24",
       "cumulative_review_due_today": true,
-      "finding_count": 4,
-      "open_production_blockers": 1,
+      "finding_count": 3,
+      "open_production_blockers": 0,
       "findings": [
-        {
-          "id": "IMAGE_RELEASE_NOT_VERIFIED",
-          "priority": "P0",
-          "owner": "Images",
-          "observation": "Editorial publication is verified but the image release is not verified.",
-          "action": "Use the existing canonical image owner and protected release; do not regenerate accepted assets or create a competing worker.",
-          "timing": "CURRENT_CYCLE_IF_OWNED",
-          "kind": "OPEN_PRODUCTION_BLOCKER"
-        },
         {
           "id": "TOP10_SEARCH_EVIDENCE_INVALID",
           "priority": "P1",
@@ -6072,39 +6107,53 @@
       }
     ],
     "image_defects": {
-      "recorded_editions": 6,
-      "total_rejected": 42,
+      "recorded_editions": 7,
+      "total_rejected": 49,
       "unclassified": 10,
       "rows": [
         {
           "cause": "LAYOUT",
-          "rejected_attempts": 22,
+          "rejected_attempts": 25,
           "editions": [
             "2026-11-19",
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22"
-          ],
-          "recurring": true
-        },
-        {
-          "cause": "CAUSAL_CONNECTOR",
-          "rejected_attempts": 12,
-          "editions": [
-            "2026-11-19",
-            "2026-11-20",
-            "2026-11-21",
-            "2026-11-22"
+            "2026-11-22",
+            "2026-11-24"
           ],
           "recurring": true
         },
         {
           "cause": "OTHER",
-          "rejected_attempts": 12,
+          "rejected_attempts": 16,
           "editions": [
             "2026-11-20",
             "2026-11-21",
-            "2026-11-22"
+            "2026-11-22",
+            "2026-11-24"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "CAUSAL_CONNECTOR",
+          "rejected_attempts": 14,
+          "editions": [
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-21",
+            "2026-11-22",
+            "2026-11-24"
+          ],
+          "recurring": true
+        },
+        {
+          "cause": "PSEUDO_WRITING",
+          "rejected_attempts": 7,
+          "editions": [
+            "2026-11-19",
+            "2026-11-20",
+            "2026-11-22",
+            "2026-11-24"
           ],
           "recurring": true
         },
@@ -6119,22 +6168,13 @@
           "recurring": true
         },
         {
-          "cause": "PSEUDO_WRITING",
-          "rejected_attempts": 5,
+          "cause": "UNALLOWLISTED_TEXT",
+          "rejected_attempts": 2,
           "editions": [
-            "2026-11-19",
             "2026-11-20",
-            "2026-11-22"
+            "2026-11-24"
           ],
           "recurring": true
-        },
-        {
-          "cause": "UNALLOWLISTED_TEXT",
-          "rejected_attempts": 1,
-          "editions": [
-            "2026-11-20"
-          ],
-          "recurring": false
         }
       ]
     },
