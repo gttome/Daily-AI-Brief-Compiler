@@ -78,6 +78,7 @@ These are source-bound reviewer observations, not computer-vision scores, an ind
 | GitHub transport | Direct git push could not read a GitHub username in this runtime. | Used connected create_blob/tree/commit and expected-head update_ref on the sole canonical branch. |
 | GitHub binary readback | Contents API gave empty base64 for three files over 1 MiB; Git-data connector rejected binary response. | Read those exact immutable raw GitHub binaries and independently compared complete bytes, SHA-256, Git blob and length. |
 | Local browser capture | Playwright browser absent; system Chromium launch aborted because socket() was Operation not permitted. | Use the existing protected release runner for actual 24-context captures and inspect its completed artifact; no local capture PASS is asserted. |
+| Closeout reporting | Worker receipt used generation_count and object-shaped accepted_hashes; the reconciler requires actual_generation_count and six SHA strings. | Added canonical actual_generation_count=13 and six SHA strings, retaining all story-keyed rows, original observations and accepted image bytes. |
 
 ## Evidence and limitations
 
