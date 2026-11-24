@@ -1,10 +1,10 @@
 {
   "schema_version": "daily-video-editorial-audit-v1",
   "edition_date": "2026-11-24",
-  "reviewed_at": "2026-11-24T02:10:00.000Z",
+  "reviewed_at": "2026-11-24T02:12:00.000Z",
   "registered_routes": 37,
-  "substantive_exact_program_reviews": 14,
-  "publisher_families_researched": 11,
+  "substantive_exact_program_reviews": 15,
+  "publisher_families_researched": 12,
   "original_publisher_families": [
     "World Science Festival",
     "AI Engineer",
@@ -16,9 +16,11 @@
     "OpenAI Academy",
     "Crash Course / PBS",
     "Fine Cut / PBS",
-    "AI Tinkerers"
+    "AI Tinkerers",
+    "Fantasy / MIT EmTech AI",
+    "Fantasy"
   ],
-  "non_news_candidates": 14,
+  "non_news_candidates": 15,
   "news_selected": 0,
   "candidate_urls": [
     "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
@@ -27,21 +29,97 @@
     "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
     "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026",
     "https://www.youtube.com/watch?v=Cy7Wz6Z4TWU",
-    "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
     "https://www.youtube.com/watch?v=y9JtCCZP2MQ",
     "https://www.youtube.com/watch?v=sof3vW4mHTs",
     "https://www.youtube.com/watch?v=bNRhppHct54",
     "https://www.ted.com/talks/brian_janous_who_should_profit_when_ai_comes_to_town",
     "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
     "https://academy.openai.com/public/clubs/news-organizations-b9osl/videos/chatgpt-sites-for-newsroom-scheduling-2026-10-26",
-    "https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/"
+    "https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/",
+    "https://stream.mux.com/lHWSdcAFFKS2LCexCY64QB00L3GeHXz4e/high.mp4",
+    "https://player.vimeo.com/video/1239599908?autoplay=1"
   ],
-  "failed_attempts": [],
+  "failed_attempts": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45307461777",
+      "programs": [
+        "Has AI Solved Math’s Pinnacle Problem?",
+        "The Software Atelier",
+        "4 Types of AI Agent Loops: From Human-Led to Autonomous"
+      ],
+      "reason": "World Science Festival and AI Engineer exposed no advancing duration-matched player; IBM required YouTube sign-in and did not advance.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45307850731",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "AI and the Next Decade"
+      ],
+      "reason": "The PBS public-affairs fallback was already in the immutable archive; NVIDIA and TED were not probed because the request failed archive preflight.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45308348762",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "Machine Learning & A.I. - Crash Course Computer Science #34"
+      ],
+      "reason": "The Crash Course / PBS fallback was already in the immutable archive; NVIDIA and TED were not probed because the request failed archive preflight.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45308527550",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "ChatGPT Sites For Newsroom Scheduling"
+      ],
+      "reason": "NVIDIA and TED passed; the OpenAI Academy wrapper exposed no advancing duration-matched player in the protected runner.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45309317412",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "Conscious Interfaces: A Demo by Fantasy"
+      ],
+      "reason": "NVIDIA and TED passed; the Fantasy article wrapper exposed no advancing duration-matched player, so its exact public Mux program asset was retained for the next request.",
+      "result": "BLOCKED"
+    }
+  ],
   "final_selected_urls": [
-    "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
-    "https://ai.engineer/code/2026/talks/armin-ronacher"
+    "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
+    "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026"
   ],
-  "protected_pass_run": null,
+  "protected_pass_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45310273026",
   "owner_interventions": 0,
-  "outcome": "PROTECTED_PRESEAL_PENDING"
+  "outcome": "PASS",
+  "protected_request_sha256": "380c857187271236ec8d3f752dbebe0843f40078d235679e07e28a2d11723c65",
+  "protected_source_head": "71c6c117279eeb26191eaf3ec4658e6543e436a6",
+  "qualified_reserves": [
+    {
+      "candidate_id": "VID-FANTASY-CONSCIOUS-INTERFACES-MEDIA",
+      "publisher": "Fantasy",
+      "url": "https://stream.mux.com/lHWSdcAFFKS2LCexCY64QB00L3GeHXz4e/high.mp4",
+      "status": "protected_pass",
+      "replacement_order": 1,
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45309801478",
+      "checked_at": "2026-11-24T02:06:31.465Z",
+      "result": "SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS"
+    },
+    {
+      "candidate_id": "VID-OPENAI-ACADEMY-SITES-PLAYER",
+      "publisher": "OpenAI Academy",
+      "url": "https://player.vimeo.com/video/1239599908?autoplay=1",
+      "status": "protected_pass",
+      "replacement_order": 2,
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45310273026",
+      "checked_at": "2026-11-24T02:10:36.770Z",
+      "result": "SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS"
+    }
+  ]
 }
