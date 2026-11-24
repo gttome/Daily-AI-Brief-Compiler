@@ -1,7 +1,7 @@
 {
-  "schema_version": "daily-ai-brief-edition-bundle-v1",
+  "schema_version": "daily-compiler-edition-bundle-v1",
   "edition_date": "2026-11-24",
-  "editorial_contract_version": "2026-11-03.2",
+  "editorial_contract_version": "daily-compiler-editorial-contract-v1",
   "status": "BUNDLE_READY",
   "stories": [
     {
@@ -31,7 +31,7 @@
         "Safety limits",
         "Cross-lab comparability"
       ],
-      "summary": "OpenAI’s Jakub Pachocki proposes using prediction loss on a private held-out text distribution as a common signal for pacing pretraining progress. The post reports falling log-perplexity across model generations and argues that labs could coordinate around shared limits before monitoring matures. The measure is not a complete intelligence score: data mixtures differ, post-training and chain-of-thought sit outside it, practical task gains can diverge, and the irreducible prediction floor remains unknown.",
+      "summary": "OpenAI’s Jakub Pachocki proposes prediction loss on a private held-out text distribution as a shared signal for pacing pretraining. The post reports falling log-perplexity across model generations and suggests coordinated limits before monitoring improves. It is not a complete intelligence score: data mixtures differ, post-training and chain-of-thought are excluded, task gains can diverge, and the irreducible prediction floor remains unknown.",
       "why_it_matters": "A common measurement can support coordination only if labs can compare procedures without leaking evaluation data or treating one curve as all capability. Track the dataset protocol, uncertainty, model-family comparability and the milestones that would justify changing any proposed limit.",
       "image_alt_intent": "Separate laboratory prediction-loss curves approach a shared safety boundary while side panels flag private datasets, post-training exclusions and an unknown entropy floor.",
       "related_coverage": "Chosen over newer discussion posts because the original proposal contains the measurement definition and its limitations.",
@@ -70,7 +70,7 @@
         "Inference compute",
         "Coding models"
       ],
-      "summary": "Z.ai describes GLM‑5.4 as its first flagship Loop Transformer, repeatedly executing a shared block so reasoning depth can rise without adding a new set of parameters at every step. The company frames coding as a general problem-solving substrate and reports performance comparable with much larger parameter counts. Those are first-party claims, and the post discloses a practical failure mode: repeated reflection can become unusually long even when it improves accuracy.",
+      "summary": "Z.ai describes GLM‑5.4 as a Loop Transformer that repeatedly executes a shared block, increasing reasoning depth without adding new parameters at every step. The company reports coding performance comparable with much larger parameter counts. These are first-party claims, and the post discloses a practical failure mode: repeated reflection can become unusually long even when it improves accuracy.",
       "why_it_matters": "Repeated depth changes the operating question from model size alone to how much inference time a task is allowed to consume. Evaluate completion quality, latency, loop length, tool stability and cost on your own coding workloads before adopting the claimed effective-scale comparison.",
       "image_alt_intent": "A compact transformer block loops through repeated reasoning passes while gauges compare parameter count, inference time, coding accuracy and runaway reflection.",
       "related_coverage": "Selected over a same-family availability post because the architecture report states the mechanism and limitation directly.",
@@ -109,7 +109,7 @@
         "Enterprise concentration",
         "Procurement risk"
       ],
-      "summary": "Anthropic says it closed an initial public offering of 1.127 billion Class A shares at $83, including the full underwriter option. Gross IPO proceeds were about $93.5 billion, with roughly $91.6 billion received by Anthropic, while a concurrent Class N private placement added about $26.0 billion. The company reports approximately $119.5 billion in combined gross proceeds before fees; the final prospectus supplies the authoritative capital structure and dilution context.",
+      "summary": "Anthropic says it closed an offering of 1.127 billion Class A shares at $83, including the full underwriter option. Gross IPO proceeds were about $93.5 billion, while a concurrent Class N private placement added about $26.0 billion. The company reports approximately $119.5 billion in combined gross proceeds before fees; the final prospectus provides the capital-structure context.",
       "why_it_matters": "A capital event of this scale can change vendor endurance, infrastructure commitments and competitive leverage, but it does not remove product, pricing or concentration risk. Procurement teams should separate balance-sheet strength from service reliability, model fit, exit costs and contractual protections.",
       "image_alt_intent": "An IPO ledger and private-placement ledger converge into one capital stack while procurement controls remain separate from the company’s new financial scale.",
       "related_coverage": "The issuer notice is paired with the SEC filing so reader-facing totals remain traceable to the legal source.",
@@ -148,7 +148,7 @@
         "Workflow substitution",
         "Rights and bargaining"
       ],
-      "summary": "DW reports how generative systems are changing creative work through task substitution, bargaining pressure and disputes over training data. Sara Campos describes losing a client to AI-generated work; Adrian Romero says he helped introduce AI workflows before losing his job; voice actor Matti Klemm is pursuing a case over alleged voice training. These cases do not measure an industry-wide employment rate, but they reveal where practical control and compensation can move first.",
+      "summary": "DW reports generative systems changing creative work through task substitution, bargaining pressure and training-data disputes. Sara Campos describes losing a client to AI-generated work; Adrian Romero says he helped introduce AI workflows before losing his job; Matti Klemm is pursuing a case over alleged voice training. These cases reveal where practical control and compensation can move first.",
       "why_it_matters": "Teams adopting creative AI should map each affected task, identify whose work or likeness supplies the input, define consent and remuneration, and track which responsibilities remain human. Case evidence is a prompt for governance and bargaining, not a population estimate.",
       "image_alt_intent": "A creative production workflow shifts tasks between people and generative tools while contracts, consent, credit and compensation remain visible checkpoints.",
       "related_coverage": "The newer ILO episode adds policy context and is used separately in the podcast lane rather than counted as a second employment measurement.",
@@ -161,43 +161,51 @@
       "permanent_route": "/stories/2026-11-24/nov24-a2-creative-labor/"
     },
     {
-      "id": "nov24-g1-prompt-cache",
-      "headline": "Prompt-cache misses are usually prefix problems before quota problems",
+      "id": "nov24-g1-inkling-monitoring",
+      "headline": "Inkling 2 Mini makes monitoring part of the local-model decision",
       "focus": "Agents for Everyone",
       "agent_skills": false,
       "source": {
-        "title": "Prompt caching",
-        "publisher": "Anthropic",
-        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
-        "published_at": null,
-        "publication_precision": "unknown",
-        "scope": "Reviewed the complete current documentation for cache creation and read counters, exact-prefix matching, the tools-system-messages hierarchy and model-specific invalidation behavior. The page exposes no reliable publication date.",
-        "freshness_reason": "Selected after a complete source read, a current lane comparison and explicit treatment of evidence limits.",
-        "retrieved_at": "2026-11-24T01:40:00.000Z",
+        "title": "Inkling 2 Mini",
+        "publisher": "Thinking Machines",
+        "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "published_at": "2026-11-20T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete publisher post with focused attention to the looped architecture, local-use claims, memory tradeoffs, monitorability claims and disclosed limits; no independent benchmark replication was found.",
+        "freshness_reason": "Selected within the supported seven-day window after comparison with fresher model announcements because it supplies a distinct local-control and monitoring decision for nontechnical owners.",
+        "retrieved_at": "2026-11-24T01:53:30.000Z",
         "read_evidence": {
           "status": "verified",
           "full_source_read": true,
           "method": "publisher_main_text",
-          "read_at": "2026-11-24T01:40:00.000Z",
-          "scope": "Reviewed the complete current documentation for cache creation and read counters, exact-prefix matching, the tools-system-messages hierarchy and model-specific invalidation behavior. The page exposes no reliable publication date."
+          "read_at": "2026-11-24T01:53:30.000Z",
+          "scope": "Reviewed the complete publisher post, including architecture, local-use and memory claims, monitorability discussion and documented limitations; publisher measurements were not independently replicated."
         }
       },
       "topics": [
-        "Prompt caching",
-        "Usage diagnostics",
-        "Agent reliability"
+        "Local AI models",
+        "Monitoring evidence",
+        "Pilot governance"
       ],
-      "summary": "Anthropic’s prompt-caching documentation explains that cache creation, cache reads and uncached input are reported as separate token counters. Reuse depends on an exact matching prefix across tools, system content and messages; changing an earlier layer invalidates the layers that follow. Thinking blocks and tool changes can introduce model-specific invalidation behavior. The documentation is operationally useful but undated, so it supports a current procedure rather than a fresh product-announcement claim.",
-      "why_it_matters": "Before blaming a quota or billing system, log all three token counters and compare the serialized prefix byte for byte. Change one component at a time, preserve stable tools and system text, and verify that a second request produces cache-read tokens.",
-      "image_alt_intent": "Two nearly identical prompt prefixes enter a cache diagnostic, where token counters expose one clean hit and one miss caused by an early tool or system change.",
-      "related_coverage": "No newer dated source with equivalent first-party detail was found; the missing publication date is disclosed.",
+      "summary": "Thinking Machines presents Inkling 2 Mini as an open-weight looped model for local use and inspection. Repeated transformer blocks trade smaller parameter storage for more runtime work, while monitorability remains a publisher claim rather than an independently replicated result. Decision makers should ask whether local control, hardware fit and observable behavior justify the operating burden.",
+      "why_it_matters": "Before approving a local-model pilot, require a one-page decision record covering hardware, data boundaries, response time, monitoring evidence and a rollback owner. Treat the publisher’s benchmark and observability claims as test targets, not guarantees.",
+      "image_alt_intent": "A compact local model cycles through repeated reasoning passes while a governance checklist compares hardware fit, data boundaries, monitoring evidence and rollback ownership.",
+      "related_coverage": "The stronger fresh attention signal was retained in the Top 10, while the story uses the original dated publisher post and preserves the absence of independent replication.",
       "reading_time_minutes": 6,
       "coverage_labels": [
         "Agents for Everyone",
         "Current AI",
         "Evidence"
       ],
-      "permanent_route": "/stories/2026-11-24/nov24-g1-prompt-cache/"
+      "permanent_route": "/stories/2026-11-24/nov24-g1-inkling-monitoring/",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "A team manager deciding whether a local AI pilot is worth the hardware, monitoring and governance burden.",
+        "practical_action": "Create a one-page pilot record covering hardware, data boundaries, response time, monitoring evidence and rollback ownership.",
+        "review_action": "Ask the technical owner to demonstrate each claimed monitoring signal and document which publisher benchmarks remain unreplicated.",
+        "usable_outcome": "A reviewable go, revise or stop decision for a local-model pilot without requiring the manager to configure the model."
+      }
     },
     {
       "id": "nov24-g2-software-atelier",
@@ -206,19 +214,19 @@
       "agent_skills": true,
       "source": {
         "title": "The Software Atelier",
-        "publisher": "AI Engineer / Armin Ronacher",
-        "url": "https://ai.engineer/code/2026/talks/armin-ronacher",
-        "published_at": "2026-11-12T00:00:00Z",
-        "publication_precision": "day",
-        "scope": "Reviewed the complete 294-passage source transcript and reading edition, including Ronacher’s own session data, project-maintenance limits, executive-summary checkpoint, interoperability warning and suspendable-runtime proposal.",
-        "freshness_reason": "Selected after a complete source read, a current lane comparison and explicit treatment of evidence limits.",
-        "retrieved_at": "2026-11-24T01:41:30.000Z",
+        "publisher": "AI Engineer",
+        "url": "https://www.youtube.com/watch?v=JNexz3Tbiu8",
+        "published_at": "2026-11-22T20:00:00Z",
+        "publication_precision": "timestamp",
+        "scope": "Reviewed the complete 294-passage program transcript and reading edition, then bound them to the publisher’s November 22 standalone upload; the underlying conference event occurred November 12.",
+        "freshness_reason": "The selected URL is the fresh standalone publisher upload; the original November 12 event date is preserved in the scope rather than presented as a newly occurring event.",
+        "retrieved_at": "2026-11-24T01:40:00.000Z",
         "read_evidence": {
           "status": "verified",
           "full_source_read": true,
-          "method": "publisher_main_text",
-          "read_at": "2026-11-24T01:41:30.000Z",
-          "scope": "Reviewed the complete 294-passage source transcript and reading edition, including Ronacher’s own session data, project-maintenance limits, executive-summary checkpoint, interoperability warning and suspendable-runtime proposal."
+          "method": "publisher_verified_metadata",
+          "read_at": "2026-11-24T01:40:00.000Z",
+          "scope": "Reviewed the complete program transcript and reading edition, plus the exact title, publisher identity and November 22 timestamp of the standalone upload."
         }
       },
       "topics": [
@@ -226,10 +234,10 @@
         "Human checkpoints",
         "Long-running coding agents"
       ],
-      "summary": "Armin Ronacher argues that stronger models have changed how far coding agents can run even when the underlying harness stays similar. His own sessions show longer runs and many projects started, while sustained human attention remains scarce. He inserts a readable executive-summary checkpoint before final verification so the operator can redirect a bad tradeoff before more work accumulates. The talk reports one practitioner’s workflow, not a controlled benchmark.",
-      "why_it_matters": "For one bounded coding task, require the agent to stop before final verification and produce a short HTML summary of the goal, files changed, tradeoffs, unresolved risks and proposed checks. A named reviewer must approve, redirect or cancel before the agent resumes.",
-      "image_alt_intent": "A long-running coding agent pauses at a human review gate, presenting a concise change summary, tradeoffs and unresolved risks before final verification resumes.",
-      "related_coverage": "Selected as the edition’s only Agent Skills story after novelty comparison and complete transcript review.",
+      "summary": "Armin Ronacher argues that stronger models let coding agents run farther while human attention remains limited. His reviewed conference program shows longer sessions, more parallel projects and a readable executive-summary checkpoint before final verification. The checkpoint lets a manager inspect the goal, changed work, tradeoffs and risks before approving, redirecting or stopping the next phase.",
+      "why_it_matters": "For one bounded agent-assisted project, require a plain-language checkpoint listing the goal, completed work, tradeoffs, unresolved risks and proposed checks. Assign a named reviewer who must approve, redirect or stop the work before the agent continues.",
+      "image_alt_intent": "A long-running agent pauses at a plain-language human checkpoint, presenting the goal, completed work, tradeoffs, unresolved risks and proposed checks before continuing.",
+      "related_coverage": "Selected as the edition’s only Agent Skills story after binding the fresh standalone upload to its older event and complete transcript evidence.",
       "reading_time_minutes": 6,
       "coverage_labels": [
         "Agents for Everyone",
@@ -238,19 +246,19 @@
       ],
       "permanent_route": "/stories/2026-11-24/nov24-g2-software-atelier/",
       "audience_fit": {
-        "requires_programming": true,
-        "prerequisite_level": "basic_software_delivery",
-        "intended_user": "Developers supervising long-running coding-agent changes whose consequences may outgrow a single prompt.",
-        "practical_action": "Add a pre-verification stop that renders a readable change summary and waits for a named reviewer’s decision.",
-        "review_action": "Check the goal, changed files, tradeoffs, tests and unresolved risks; approve, redirect or cancel before execution resumes.",
-        "usable_outcome": "A reusable Agent Skill that preserves a human comprehension point inside a longer coding run."
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "A project manager supervising agent-assisted work who needs a clear intervention point without inspecting source code.",
+        "practical_action": "Require a plain-language checkpoint that summarizes the goal, completed work, tradeoffs, unresolved risks and proposed checks.",
+        "review_action": "A named reviewer compares the summary with the approved goal and chooses approve, redirect or stop before work resumes.",
+        "usable_outcome": "A reusable Agent Skill that gives a nontechnical owner a documented comprehension and intervention point."
       },
-      "agent_skills_evidence": "The complete talk supplies a reusable procedure: pause a long agent trajectory, generate a readable executive summary before final verification, present goal, changes, tradeoffs and risks, and require a named human decision before resuming.",
+      "agent_skills_evidence": "The complete talk supplies a reusable procedure: pause a long agent trajectory, generate a plain-language executive summary before final verification, present the goal, completed work, tradeoffs and risks, and require a named human approve, redirect or stop decision.",
       "agent_skill_novelty_review": {
         "comparison_scope": "Compared body, source, practical action and reader outcome against recent video, accounting, workspace and request-routing Skills.",
         "body": "This Skill creates a comprehension checkpoint inside a long coding trajectory rather than editing media, reconciling records or routing office requests.",
-        "primary_source": "The procedure is grounded in Ronacher’s complete conference talk and transcript, not a renamed earlier Agent Skills source.",
-        "distinct_practical_action": "Stop before final verification, render the change summary, and wait for approve, redirect or cancel.",
+        "primary_source": "The procedure is grounded in Ronacher’s complete program transcript and reading edition, bound to the publisher’s November 22 standalone upload.",
+        "distinct_practical_action": "Stop before final verification, render a plain-language work summary, and wait for approve, redirect or stop.",
         "reader_outcome": "The reader gains a visible intervention point before an autonomous coding run becomes expensive to understand."
       }
     }
@@ -1764,24 +1772,24 @@
     },
     {
       "story_id": "nov24-t2-glm54-loop",
-      "book": "Designing Machine Learning Systems",
-      "concept_or_chapter": "Inference-time tradeoffs",
-      "connection": "Repeated depth moves cost and reliability decisions into runtime policy.",
-      "what_to_study_next": "Measure loop length, latency, quality and task-specific stopping rules."
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Runtime context and repeated depth",
+      "connection": "Repeated transformer depth moves cost, latency and stopping decisions into the runtime context strategy.",
+      "what_to_study_next": "Measure loop length, context reuse, latency, quality and task-specific stopping rules."
     },
     {
-      "story_id": "nov24-g1-prompt-cache",
-      "book": "AI Engineering",
-      "concept_or_chapter": "Production observability",
-      "connection": "Separate cache creation, cache reads and uncached input before diagnosing cost or quota.",
-      "what_to_study_next": "Instrument prefix identity and model-specific invalidation behavior."
+      "story_id": "nov24-g1-inkling-monitoring",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Evidence-led pilot prompts",
+      "connection": "A nontechnical pilot owner needs explicit constraints, observable evidence and rollback criteria before accepting model claims.",
+      "what_to_study_next": "Write evaluation prompts that separate publisher claims from observed local results."
     },
     {
       "story_id": "nov24-g2-software-atelier",
-      "book": "Human-Centered AI",
-      "concept_or_chapter": "Meaningful human control",
-      "connection": "A pre-verification summary creates an explicit intervention point inside a long autonomous run.",
-      "what_to_study_next": "Design approval, redirect and cancellation paths with named ownership."
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Human review checkpoints",
+      "connection": "A pre-verification summary creates a reusable intervention point inside a longer agent-assisted workflow.",
+      "what_to_study_next": "Practice approve, redirect and stop decisions using the ecosystem’s workflow templates."
     }
   ],
   "images": [
@@ -1814,18 +1822,18 @@
       "alt": "A creative production workflow shifts tasks between people and generative tools while contracts, consent, credit and compensation remain visible checkpoints."
     },
     {
-      "story_id": "nov24-g1-prompt-cache",
+      "story_id": "nov24-g1-inkling-monitoring",
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "Two nearly identical prompt prefixes enter a cache diagnostic, where token counters expose one clean hit and one miss caused by an early tool or system change."
+      "alt": "A compact local model cycles through repeated reasoning passes while a governance checklist compares hardware fit, data boundaries, monitoring evidence and rollback ownership."
     },
     {
       "story_id": "nov24-g2-software-atelier",
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "A long-running coding agent pauses at a human review gate, presenting a concise change summary, tradeoffs and unresolved risks before final verification resumes."
+      "alt": "A long-running agent pauses at a plain-language human checkpoint, presenting the goal, completed work, tradeoffs, unresolved risks and proposed checks before continuing."
     }
   ],
   "image_representation": {
@@ -1836,8 +1844,65 @@
   },
   "editorial_provenance": {
     "selection_locked_at": "2026-11-24T02:15:00.000Z",
-    "sealed_at": "2026-11-24T02:20:50.000Z",
-    "source_metadata": {
+    "sealed_at": "2026-11-24T02:35:02.015Z",
+    "source_metadata": [
+      {
+        "story_id": "nov24-t1-perplexity-limits",
+        "source_url": "https://openai.com/index/perplexity-and-intelligence/",
+        "evidence_url": "https://openai.com/index/perplexity-and-intelligence/",
+        "original_title": "Perplexity and Intelligence",
+        "original_date": "2026-11-22",
+        "date_precision": "day",
+        "observed_at": "2026-11-24T01:34:00.000Z"
+      },
+      {
+        "story_id": "nov24-t2-glm54-loop",
+        "source_url": "https://z.ai/blog/glm-5.4",
+        "evidence_url": "https://z.ai/blog/glm-5.4",
+        "original_title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
+        "original_date": "2026-11-23",
+        "date_precision": "day",
+        "observed_at": "2026-11-24T01:35:30.000Z"
+      },
+      {
+        "story_id": "nov24-a1-anthropic-ipo",
+        "source_url": "https://www.anthropic.com/news/ipo-close",
+        "evidence_url": "https://www.anthropic.com/news/ipo-close",
+        "original_title": "Anthropic announces closing of initial public offering",
+        "original_date": "2026-11-20",
+        "date_precision": "day",
+        "observed_at": "2026-11-24T01:37:00.000Z"
+      },
+      {
+        "story_id": "nov24-a2-creative-labor",
+        "source_url": "https://www.dw.com/en/how-artificial-intelligence-is-reshaping-creative-jobs/a-74861834",
+        "evidence_url": "https://www.dw.com/en/how-artificial-intelligence-is-reshaping-creative-jobs/a-74861834",
+        "original_title": "How artificial intelligence is reshaping creative jobs",
+        "original_date": "2026-11-20",
+        "date_precision": "day",
+        "observed_at": "2026-11-24T01:38:30.000Z"
+      },
+      {
+        "story_id": "nov24-g1-inkling-monitoring",
+        "source_url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "evidence_url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "original_title": "Inkling 2 Mini",
+        "original_date": "2026-11-20",
+        "date_precision": "day",
+        "observed_at": "2026-11-24T01:53:30.000Z"
+      },
+      {
+        "story_id": "nov24-g2-software-atelier",
+        "source_url": "https://www.youtube.com/watch?v=JNexz3Tbiu8",
+        "evidence_url": "https://www.youtube.com/watch?v=JNexz3Tbiu8",
+        "original_title": "The Software Atelier",
+        "original_date": "2026-11-22",
+        "date_precision": "timestamp",
+        "original_timestamp": "2026-11-22T20:00:00Z",
+        "observed_at": "2026-11-24T01:40:00.000Z"
+      }
+    ],
+    "source_snapshot": {
       "protected_main_commit": "41021701d379587e0d24db27622b6aca65d99af6",
       "trend_source_commit": "b94f5e3bb5bf385630cdaa5a2d15a9222191bc76",
       "trend_blob": "93de0329172d962ddf19db592503f7273511b06f",
@@ -2210,269 +2275,269 @@
     "qualification_only_count": 0,
     "registry_snapshot": [
       {
-        "resource_id": "youtube-anthropic",
-        "name": "Anthropic on YouTube",
-        "url": "https://www.youtube.com/@anthropic-ai",
-        "enabled": true,
-        "search_mode": "page"
-      },
-      {
-        "resource_id": "youtube-google-deepmind",
-        "name": "Google DeepMind on YouTube",
-        "url": "https://www.youtube.com/@googledeepmind",
-        "enabled": true,
-        "search_mode": "page"
-      },
-      {
-        "resource_id": "youtube-openai",
-        "name": "OpenAI on YouTube",
-        "url": "https://www.youtube.com/@OpenAI",
-        "enabled": true,
-        "search_mode": "page"
-      },
-      {
-        "resource_id": "research-20261026-v01",
-        "name": "Google for Developers Video Channel",
-        "url": "https://www.youtube.com/@GoogleDevelopers/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "research-20261026-v02",
-        "name": "n8n Official Tutorial Channel",
-        "url": "https://www.youtube.com/@n8n-io/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "research-20261026-v03",
-        "name": "Zapier Official Tutorials",
-        "url": "https://www.youtube.com/@Zapier/videos",
-        "enabled": true,
-        "search_mode": "page"
-      },
-      {
-        "resource_id": "research-20261026-v04",
-        "name": "OpenAI Academy On-Demand Workshops",
-        "url": "https://openai.com/academy/using-chatgpt/",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "research-20261026-v05",
-        "name": "AI Tinkerers Talk and Demo Library",
-        "url": "https://aitinkerers.org/",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "research-20261026-v06",
-        "name": "Microsoft Copilot Tutorial Videos",
-        "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-tutorial-meet-microsoft-365-copilot",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "research-20261026-v07",
-        "name": "Arize Agent Evaluation Video Guides",
-        "url": "https://arize.com/resources/",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
         "resource_id": "deep-20261026-v01-two-minute-papers",
-        "name": "Two Minute Papers — AI Research Explainers",
         "url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Two Minute Papers — AI Research Explainers"
       },
       {
         "resource_id": "directory-1c6f5db2559c3c226a112873",
-        "name": "AI Engineer",
         "url": "https://ai.engineer/",
         "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-b93e2368e85f0f95c066463e",
-        "name": "IBM Think Videos",
-        "url": "https://www.ibm.com/think/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-d5428d030dfff7d4639258e3",
-        "name": "IBM Technology YouTube",
-        "url": "https://www.youtube.com/@IBMTechnology/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-79e16cd5beb5c662c4022a9f",
-        "name": "Microsoft Mechanics YouTube",
-        "url": "https://www.youtube.com/@msftmechanics/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-e7b100b6b999ac748e052327",
-        "name": "Google Workspace YouTube",
-        "url": "https://www.youtube.com/@GoogleWorkspace/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-4c16d138c4a736e78a68127e",
-        "name": "GitHub YouTube",
-        "url": "https://www.youtube.com/@github/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-ecf69ec2f036e803388f40ca",
-        "name": "LangChain YouTube",
-        "url": "https://www.youtube.com/@LangChain/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-db682c52794328eb69ebc377",
-        "name": "LlamaIndex YouTube",
-        "url": "https://www.youtube.com/@LlamaIndex/videos",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
-        "name": "DeepLearning.AI YouTube",
-        "url": "https://www.youtube.com/@Deeplearningai",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-970506fbc577e6091a33c64d",
-        "name": "Stanford HAI YouTube",
-        "url": "https://www.youtube.com/@stanfordhai",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-4852e367f74118ff2dc1eec9",
-        "name": "Google Cloud Tech YouTube",
-        "url": "https://www.youtube.com/@googlecloudtech",
-        "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "AI Engineer"
       },
       {
         "resource_id": "directory-3834a0112c0e3a754320b557",
-        "name": "Microsoft Developer YouTube",
         "url": "https://www.youtube.com/@MicrosoftDeveloper",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Microsoft Developer YouTube"
       },
       {
-        "resource_id": "directory-e2f33b502b264e51983a338a",
-        "name": "AWS Developers YouTube",
-        "url": "https://www.youtube.com/@AWSDevelopers",
+        "resource_id": "directory-4852e367f74118ff2dc1eec9",
+        "url": "https://www.youtube.com/@googlecloudtech",
         "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-9f7087ce2c030a4b9da58499",
-        "name": "NVIDIA Developer YouTube",
-        "url": "https://www.youtube.com/@NVIDIADeveloper",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "directory-5c5d3d02a420135949164552",
-        "name": "Weights & Biases / CoreWeave Videos",
-        "url": "https://www.coreweave.com/builder",
-        "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Google Cloud Tech YouTube"
       },
       {
         "resource_id": "directory-48665d874f6008894d0d9385",
-        "name": "Hugging Face YouTube",
         "url": "https://www.youtube.com/@HuggingFace",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Hugging Face YouTube"
       },
       {
-        "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
-        "name": "Databricks YouTube",
-        "url": "https://www.youtube.com/@Databricks",
+        "resource_id": "directory-4c16d138c4a736e78a68127e",
+        "url": "https://www.youtube.com/@github/videos",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "GitHub YouTube"
+      },
+      {
+        "resource_id": "directory-5c5d3d02a420135949164552",
+        "url": "https://www.coreweave.com/builder",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Weights & Biases / CoreWeave Videos"
+      },
+      {
+        "resource_id": "directory-79e16cd5beb5c662c4022a9f",
+        "url": "https://www.youtube.com/@msftmechanics/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Microsoft Mechanics YouTube"
+      },
+      {
+        "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
+        "url": "https://www.youtube.com/@Deeplearningai",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "DeepLearning.AI YouTube"
+      },
+      {
+        "resource_id": "directory-970506fbc577e6091a33c64d",
+        "url": "https://www.youtube.com/@stanfordhai",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Stanford HAI YouTube"
+      },
+      {
+        "resource_id": "directory-9f7087ce2c030a4b9da58499",
+        "url": "https://www.youtube.com/@NVIDIADeveloper",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "NVIDIA Developer YouTube"
+      },
+      {
+        "resource_id": "directory-b93e2368e85f0f95c066463e",
+        "url": "https://www.ibm.com/think/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "IBM Think Videos"
       },
       {
         "resource_id": "directory-d1527db7c06b4e83370b7546",
-        "name": "Cohere YouTube",
         "url": "https://www.youtube.com/@CohereAI",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Cohere YouTube"
       },
       {
-        "resource_id": "video-20261120-computerphile",
-        "name": "Computerphile AI explanations",
-        "url": "https://www.youtube.com/@Computerphile/videos",
+        "resource_id": "directory-d5428d030dfff7d4639258e3",
+        "url": "https://www.youtube.com/@IBMTechnology/videos",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "IBM Technology YouTube"
+      },
+      {
+        "resource_id": "directory-db682c52794328eb69ebc377",
+        "url": "https://www.youtube.com/@LlamaIndex/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "LlamaIndex YouTube"
+      },
+      {
+        "resource_id": "directory-e2f33b502b264e51983a338a",
+        "url": "https://www.youtube.com/@AWSDevelopers",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "AWS Developers YouTube"
+      },
+      {
+        "resource_id": "directory-e7b100b6b999ac748e052327",
+        "url": "https://www.youtube.com/@GoogleWorkspace/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Google Workspace YouTube"
+      },
+      {
+        "resource_id": "directory-ecf69ec2f036e803388f40ca",
+        "url": "https://www.youtube.com/@LangChain/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "LangChain YouTube"
+      },
+      {
+        "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
+        "url": "https://www.youtube.com/@Databricks",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Databricks YouTube"
+      },
+      {
+        "resource_id": "research-20261026-v01",
+        "url": "https://www.youtube.com/@GoogleDevelopers/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Google for Developers Video Channel"
+      },
+      {
+        "resource_id": "research-20261026-v02",
+        "url": "https://www.youtube.com/@n8n-io/videos",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "n8n Official Tutorial Channel"
+      },
+      {
+        "resource_id": "research-20261026-v03",
+        "url": "https://www.youtube.com/@Zapier/videos",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "Zapier Official Tutorials"
+      },
+      {
+        "resource_id": "research-20261026-v04",
+        "url": "https://openai.com/academy/using-chatgpt/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "OpenAI Academy On-Demand Workshops"
+      },
+      {
+        "resource_id": "research-20261026-v05",
+        "url": "https://aitinkerers.org/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "AI Tinkerers Talk and Demo Library"
+      },
+      {
+        "resource_id": "research-20261026-v06",
+        "url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-tutorial-meet-microsoft-365-copilot",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Microsoft Copilot Tutorial Videos"
+      },
+      {
+        "resource_id": "research-20261026-v07",
+        "url": "https://arize.com/resources/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "Arize Agent Evaluation Video Guides"
       },
       {
         "resource_id": "video-20261120-3blue1brown",
-        "name": "3Blue1Brown AI and neural network explanations",
         "url": "https://www.3blue1brown.com/?topic=neural-networks",
         "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "video-20261120-statquest",
-        "name": "StatQuest neural networks and AI",
-        "url": "https://statquest.org/video_index.html",
-        "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "3Blue1Brown AI and neural network explanations"
       },
       {
         "resource_id": "video-20261120-ai-coffee-break",
-        "name": "AI Coffee Break research explanations",
         "url": "https://aicoffeebreak.com/",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "AI Coffee Break research explanations"
       },
       {
-        "resource_id": "video-20261120-mit-csail-video",
-        "name": "MIT CSAIL research video archive",
-        "url": "https://www.csail.mit.edu/csail-imagination-action",
+        "resource_id": "video-20261120-computerphile",
+        "url": "https://www.youtube.com/@Computerphile/videos",
         "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "video-20261120-mit-embodied-intelligence",
-        "name": "MIT Embodied Intelligence seminars",
-        "url": "https://ei.csail.mit.edu/seminars.html",
-        "enabled": true,
-        "search_mode": "site_search"
-      },
-      {
-        "resource_id": "video-20261120-pytorch-foundation",
-        "name": "PyTorch Foundation technical talks and demonstrations",
-        "url": "https://pytorch.org/webinars/",
-        "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Computerphile AI explanations"
       },
       {
         "resource_id": "video-20261120-full-stack-deep-learning",
-        "name": "Full Stack Deep Learning recorded LLM courses",
         "url": "https://fullstackdeeplearning.com/llm-bootcamp/",
         "enabled": true,
-        "search_mode": "site_search"
+        "search_mode": "site_search",
+        "name": "Full Stack Deep Learning recorded LLM courses"
+      },
+      {
+        "resource_id": "video-20261120-mit-csail-video",
+        "url": "https://www.csail.mit.edu/csail-imagination-action",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "MIT CSAIL research video archive"
+      },
+      {
+        "resource_id": "video-20261120-mit-embodied-intelligence",
+        "url": "https://ei.csail.mit.edu/seminars.html",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "MIT Embodied Intelligence seminars"
+      },
+      {
+        "resource_id": "video-20261120-pytorch-foundation",
+        "url": "https://pytorch.org/webinars/",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "PyTorch Foundation technical talks and demonstrations"
+      },
+      {
+        "resource_id": "video-20261120-statquest",
+        "url": "https://statquest.org/video_index.html",
+        "enabled": true,
+        "search_mode": "site_search",
+        "name": "StatQuest neural networks and AI"
+      },
+      {
+        "resource_id": "youtube-anthropic",
+        "url": "https://www.youtube.com/@anthropic-ai",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "Anthropic on YouTube"
+      },
+      {
+        "resource_id": "youtube-google-deepmind",
+        "url": "https://www.youtube.com/@googledeepmind",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "Google DeepMind on YouTube"
+      },
+      {
+        "resource_id": "youtube-openai",
+        "url": "https://www.youtube.com/@OpenAI",
+        "enabled": true,
+        "search_mode": "page",
+        "name": "OpenAI on YouTube"
       }
     ],
     "observations": [
       {
         "resource_id": "youtube-anthropic",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:40.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@anthropic-ai",
@@ -2482,7 +2547,7 @@
       },
       {
         "resource_id": "youtube-google-deepmind",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:40.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@googledeepmind",
@@ -2492,7 +2557,7 @@
       },
       {
         "resource_id": "youtube-openai",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:40.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@OpenAI",
@@ -2502,7 +2567,7 @@
       },
       {
         "resource_id": "research-20261026-v01",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:40.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@GoogleDevelopers/videos",
@@ -2512,7 +2577,7 @@
       },
       {
         "resource_id": "research-20261026-v02",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:41.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@n8n-io/videos",
@@ -2522,7 +2587,7 @@
       },
       {
         "resource_id": "research-20261026-v03",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:41.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@Zapier/videos",
@@ -2532,7 +2597,7 @@
       },
       {
         "resource_id": "research-20261026-v04",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:41.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://openai.com/academy/using-chatgpt/",
@@ -2542,7 +2607,7 @@
       },
       {
         "resource_id": "research-20261026-v05",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:41.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://aitinkerers.org/",
@@ -2552,7 +2617,7 @@
       },
       {
         "resource_id": "research-20261026-v06",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:42.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://support.microsoft.com/en-us/microsoft-365-copilot/copilot-tutorial-meet-microsoft-365-copilot",
@@ -2562,7 +2627,7 @@
       },
       {
         "resource_id": "research-20261026-v07",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:42.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://arize.com/resources/",
@@ -2572,7 +2637,7 @@
       },
       {
         "resource_id": "deep-20261026-v01-two-minute-papers",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:42.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg",
@@ -2594,7 +2659,7 @@
       },
       {
         "resource_id": "directory-b93e2368e85f0f95c066463e",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:43.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.ibm.com/think/videos",
@@ -2616,7 +2681,7 @@
       },
       {
         "resource_id": "directory-79e16cd5beb5c662c4022a9f",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:43.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@msftmechanics/videos",
@@ -2626,7 +2691,7 @@
       },
       {
         "resource_id": "directory-e7b100b6b999ac748e052327",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:43.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@GoogleWorkspace/videos",
@@ -2636,7 +2701,7 @@
       },
       {
         "resource_id": "directory-4c16d138c4a736e78a68127e",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:44.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@github/videos",
@@ -2646,7 +2711,7 @@
       },
       {
         "resource_id": "directory-ecf69ec2f036e803388f40ca",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:44.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@LangChain/videos",
@@ -2656,7 +2721,7 @@
       },
       {
         "resource_id": "directory-db682c52794328eb69ebc377",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:44.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@LlamaIndex/videos",
@@ -2666,7 +2731,7 @@
       },
       {
         "resource_id": "directory-8263ca4c9f560c8d9c4df0de",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:44.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@Deeplearningai",
@@ -2676,7 +2741,7 @@
       },
       {
         "resource_id": "directory-970506fbc577e6091a33c64d",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:45.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@stanfordhai",
@@ -2686,7 +2751,7 @@
       },
       {
         "resource_id": "directory-4852e367f74118ff2dc1eec9",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:45.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@googlecloudtech",
@@ -2696,7 +2761,7 @@
       },
       {
         "resource_id": "directory-3834a0112c0e3a754320b557",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:45.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@MicrosoftDeveloper",
@@ -2706,7 +2771,7 @@
       },
       {
         "resource_id": "directory-e2f33b502b264e51983a338a",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:45.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@AWSDevelopers",
@@ -2728,7 +2793,7 @@
       },
       {
         "resource_id": "directory-5c5d3d02a420135949164552",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:46.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.coreweave.com/builder",
@@ -2738,7 +2803,7 @@
       },
       {
         "resource_id": "directory-48665d874f6008894d0d9385",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:46.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@HuggingFace",
@@ -2748,7 +2813,7 @@
       },
       {
         "resource_id": "directory-f8085f0f6e72cfbdfde3a0f8",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:46.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@Databricks",
@@ -2758,7 +2823,7 @@
       },
       {
         "resource_id": "directory-d1527db7c06b4e83370b7546",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:47.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@CohereAI",
@@ -2768,7 +2833,7 @@
       },
       {
         "resource_id": "video-20261120-computerphile",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:47.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.youtube.com/@Computerphile/videos",
@@ -2778,7 +2843,7 @@
       },
       {
         "resource_id": "video-20261120-3blue1brown",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:47.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.3blue1brown.com/?topic=neural-networks",
@@ -2788,7 +2853,7 @@
       },
       {
         "resource_id": "video-20261120-statquest",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:47.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://statquest.org/video_index.html",
@@ -2798,7 +2863,7 @@
       },
       {
         "resource_id": "video-20261120-ai-coffee-break",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:48.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://aicoffeebreak.com/",
@@ -2808,7 +2873,7 @@
       },
       {
         "resource_id": "video-20261120-mit-csail-video",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:48.250Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://www.csail.mit.edu/csail-imagination-action",
@@ -2818,7 +2883,7 @@
       },
       {
         "resource_id": "video-20261120-mit-embodied-intelligence",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:48.500Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://ei.csail.mit.edu/seminars.html",
@@ -2828,7 +2893,7 @@
       },
       {
         "resource_id": "video-20261120-pytorch-foundation",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:48.750Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://pytorch.org/webinars/",
@@ -2838,7 +2903,7 @@
       },
       {
         "resource_id": "video-20261120-full-stack-deep-learning",
-        "outcome": "SEARCHED_NO_ADVANCING_PROGRAM",
+        "outcome": "REVIEWED_UNQUALIFIED",
         "attempted_at": "2026-11-24T02:03:49.000Z",
         "method": "PUBLIC_SEARCH",
         "checked_url": "https://fullstackdeeplearning.com/llm-bootcamp/",
@@ -2850,159 +2915,269 @@
     "rule": "All 37 enabled video routes were searched once for this edition. Route search is not editorial inspection of every returned item and is not protected playback proof."
   },
   "source_discovery_audit": {
-    "reviewed_at": "2026-11-24T02:08:00.000Z",
+    "reviewed_at": "2026-11-24T02:12:00.000Z",
     "candidates": [
       {
         "source_id": "openai-news",
         "url": "https://openai.com/index/perplexity-and-intelligence/",
-        "read_at": "2026-11-24T01:34:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "OpenAI",
+        "original_date": "2026-11-22",
+        "checked_at": "2026-11-24T01:34:00.000Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected as the original dated proposal after a complete read and explicit review of its private-dataset and inference limitations."
       },
       {
         "source_id": "direct-zai-glm54",
         "url": "https://z.ai/blog/glm-5.4",
-        "read_at": "2026-11-24T01:35:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "Z.ai",
+        "original_date": "2026-11-23",
+        "checked_at": "2026-11-24T01:35:00.000Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected as the original architecture report; a same-family availability post added no independent architectural evidence."
       },
       {
         "source_id": "anthropic-news",
-        "url": "https://www.anthropic.com/news/anthropic-completes-initial-public-offering",
-        "read_at": "2026-11-24T01:37:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "url": "https://www.anthropic.com/news/ipo-close",
+        "publisher": "Anthropic",
+        "original_date": "2026-11-20",
+        "checked_at": "2026-11-24T01:36:00.000Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected as the reader-facing closing notice, with the final SEC prospectus retained as the authoritative numerical cross-check."
       },
       {
         "source_id": "direct-sec-filing",
         "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm",
-        "read_at": "2026-11-24T01:38:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "U.S. SEC",
+        "original_date": "2026-11-20",
+        "checked_at": "2026-11-24T01:37:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "Retained as authoritative support for share count, price, underwriter option and private placement, not as the primary reader-facing story."
       },
       {
         "source_id": "directory-1c6f5db2559c3c226a112873",
-        "url": "https://ai.engineer/code/2026/talks/armin-ronacher",
-        "read_at": "2026-11-24T01:40:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "url": "https://www.youtube.com/watch?v=JNexz3Tbiu8",
+        "publisher": "AI Engineer",
+        "original_date": "2026-11-22",
+        "checked_at": "2026-11-24T01:38:00.000Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected as the fresh standalone upload after binding it to the complete transcript and disclosing the older November 12 event date."
       },
       {
         "source_id": "direct-dw-creative-labor",
         "url": "https://www.dw.com/en/how-artificial-intelligence-is-reshaping-creative-jobs/a-74861834",
-        "read_at": "2026-11-24T01:41:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "Deutsche Welle (DW)",
+        "original_date": "2026-11-20",
+        "checked_at": "2026-11-24T01:39:00.000Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected for independently reported worker cases and bargaining effects rather than a product announcement or broad employment forecast."
       },
       {
-        "source_id": "anthropic",
-        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
-        "read_at": "2026-11-24T01:43:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "source_id": "direct-thinking-inkling",
+        "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "publisher": "Thinking Machines",
+        "original_date": "2026-11-20",
+        "checked_at": "2026-11-24T01:40:00.000Z",
+        "disposition": "selected",
+        "disposition_reason": "Selected for a distinct local-control and monitoring decision while preserving that benchmark and monitorability claims lack replication."
       },
       {
         "source_id": "direct-ilo-podcast",
         "url": "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities",
-        "read_at": "2026-11-24T01:44:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "ILO",
+        "original_date": "2026-11-23",
+        "checked_at": "2026-11-24T01:41:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "Used in the podcast lane for labor-policy context and not counted as independent corroboration of DW’s individual worker cases."
       },
       {
         "source_id": "direct-ilo-transcript",
         "url": "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities/transcript",
-        "read_at": "2026-11-24T01:46:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "ILO",
+        "original_date": "2026-11-23",
+        "checked_at": "2026-11-24T01:42:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "Complete transcript retained as episode evidence; it is the same publisher and program, not an additional independent source family."
       },
       {
         "source_id": "research-20261026-p07",
-        "url": "https://podcast.jonathangreen.com/when-everyone-has-the-same-ai-whats-left-of-your-moat/",
-        "read_at": "2026-11-24T01:47:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "url": "https://artificialintelligencepod.com/when-everyone-has-the-same-ai-whats-left-of-your-moat-with-bobby-steinbach/",
+        "publisher": "Artificial Intelligence Podcast",
+        "original_date": "2026-11-23",
+        "checked_at": "2026-11-24T01:43:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "Used in the podcast lane for operator process and measurement evidence; it does not replace any of the six article events."
       },
       {
         "source_id": "direct-tripo-independent",
         "url": "https://3dprinting.com/news/tripo-ai-launches-agentic-canvas-node-based-workflow-builder-for-ai-3d/",
-        "read_at": "2026-11-24T01:49:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "3DPrinting.com",
+        "original_date": "2026-11-03",
+        "checked_at": "2026-11-24T01:44:00.000Z",
+        "disposition": "rejected",
+        "disposition_reason": "Complete independent launch coverage was older than the supported story window and did not supply a sufficiently fresh distinct event."
       },
       {
         "source_id": "direct-youart-release",
         "url": "https://www.globenewswire.com/news-release/2026/11/13/3402903/0/en/youart-launches-youart-desktop-app-ai-creative-teammate-on-the-computer.html",
-        "read_at": "2026-11-24T01:50:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "GlobeNewswire",
+        "original_date": "2026-11-13",
+        "checked_at": "2026-11-24T01:45:00.000Z",
+        "disposition": "rejected",
+        "disposition_reason": "The release was outside the supported story window and remained promotional first-party material without stronger independent evidence."
       },
       {
         "source_id": "direct-wsf-riemann",
         "url": "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
-        "read_at": "2026-11-24T01:52:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
-      },
-      {
-        "source_id": "direct-inkling-primary",
-        "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
-        "read_at": "2026-11-24T01:53:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "World Science Festival",
+        "original_date": "2026-11-20",
+        "checked_at": "2026-11-24T01:46:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "The science explainer was substantively reviewed but failed protected advancing playback and was not converted into an article selection."
       },
       {
         "source_id": "direct-lean-verification",
         "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
-        "read_at": "2026-11-24T01:55:00.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "Lean community",
+        "original_date": "2026-11-22",
+        "checked_at": "2026-11-24T01:47:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "Retained as a formal-verification boundary check, but the event did not displace the selected six-story lane mix."
       },
       {
         "source_id": "direct-autoclaw-glm54",
         "url": "https://autoclaw.z.ai/en/blog/model/GLM-5.4/",
-        "read_at": "2026-11-24T01:56:30.000Z",
-        "scope": "complete item or complete relevant transcript/filing section"
+        "publisher": "AutoClaw / Z.ai",
+        "original_date": "2026-11-23",
+        "checked_at": "2026-11-24T01:48:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "Same-family availability material was reviewed as a fresher comparison but added no independent evidence about the loop architecture."
+      },
+      {
+        "source_id": "direct-openai-changelog",
+        "url": "https://developers.openai.com/api/docs/changelog",
+        "publisher": "OpenAI Developers",
+        "original_date": "2026-11-17",
+        "checked_at": "2026-11-24T01:49:00.000Z",
+        "disposition": "considered",
+        "disposition_reason": "The dated API changelog supplied a fresh agent-workflow comparison but duplicated the OpenAI family and was more developer-specific."
       }
     ],
     "fallback_decisions": [
       {
         "story_id": "nov24-t1-perplexity-limits",
         "selected_url": "https://openai.com/index/perplexity-and-intelligence/",
-        "newer_candidate_url": "https://news.ycombinator.com/item?id=50601525",
-        "newer_candidate_date": "2026-11-23",
-        "review": "The thread supplied fresh audience reaction but no independent technical replication.",
-        "decision": "selected original dated proposal over newer discussion"
+        "why_selected_over_recent_options": "The original proposal supplies the measurement method and explicit exclusions; newer discussion and model posts did not independently replicate its private held-out results.",
+        "newer_sources_considered": [
+          "https://z.ai/blog/glm-5.4",
+          "https://autoclaw.z.ai/en/blog/model/GLM-5.4/"
+        ],
+        "comparisons": [],
+        "search_gap": {
+          "query": "Perplexity and Intelligence newer independent same-lane evidence",
+          "checked_urls": [
+            "https://z.ai/blog/glm-5.4",
+            "https://autoclaw.z.ai/en/blog/model/GLM-5.4/"
+          ],
+          "reason": "The search found no newer independent source that documented the same mechanism with stronger primary evidence and a complete comparable review; the selected source’s limits remain explicit.",
+          "attempted_at": "2026-11-24T02:07:00.000Z"
+        }
       },
       {
         "story_id": "nov24-t2-glm54-loop",
         "selected_url": "https://z.ai/blog/glm-5.4",
-        "newer_candidate_url": "https://autoclaw.z.ai/en/blog/model/GLM-5.4/",
-        "newer_candidate_date": "2026-11-23",
-        "review": "Same-day operator-family product availability post added no independent architectural evidence.",
-        "decision": "selected original research post"
+        "why_selected_over_recent_options": "This was the newest original architecture report in its lane at day precision; same-day availability material came from the same publisher family and added no independent evidence.",
+        "newer_sources_considered": [],
+        "comparisons": [],
+        "search_gap": {
+          "query": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer newer independent same-lane evidence",
+          "checked_urls": [
+            "https://z.ai/blog/glm-5.4"
+          ],
+          "reason": "The search found no newer independent source that documented the same mechanism with stronger primary evidence and a complete comparable review; the selected source’s limits remain explicit.",
+          "attempted_at": "2026-11-24T02:07:00.000Z"
+        }
       },
       {
         "story_id": "nov24-a1-anthropic-ipo",
-        "selected_url": "https://www.anthropic.com/news/anthropic-completes-initial-public-offering",
-        "newer_candidate_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm",
-        "newer_candidate_date": "2026-11-20",
-        "review": "The filing is the authoritative numerical cross-check but not the clearest reader-facing close notice.",
-        "decision": "selected close notice and retained filing as support"
+        "selected_url": "https://www.anthropic.com/news/ipo-close",
+        "why_selected_over_recent_options": "The closing notice plus final SEC prospectus provides the completed capital event; newer unrelated model announcements do not replace the authoritative transaction evidence.",
+        "newer_sources_considered": [
+          "https://openai.com/index/perplexity-and-intelligence/",
+          "https://z.ai/blog/glm-5.4"
+        ],
+        "comparisons": [],
+        "search_gap": {
+          "query": "Anthropic announces closing of initial public offering newer independent same-lane evidence",
+          "checked_urls": [
+            "https://openai.com/index/perplexity-and-intelligence/",
+            "https://z.ai/blog/glm-5.4"
+          ],
+          "reason": "The search found no newer independent source that documented the same mechanism with stronger primary evidence and a complete comparable review; the selected source’s limits remain explicit.",
+          "attempted_at": "2026-11-24T02:07:00.000Z"
+        }
       },
       {
         "story_id": "nov24-a2-creative-labor",
         "selected_url": "https://www.dw.com/en/how-artificial-intelligence-is-reshaping-creative-jobs/a-74861834",
-        "newer_candidate_url": "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities",
-        "newer_candidate_date": "2026-11-23",
-        "review": "The newer ILO program is selected in the podcast lane and provides policy context rather than replacing the reported worker cases.",
-        "decision": "kept distinct article and podcast uses"
+        "why_selected_over_recent_options": "The DW feature contributes independently reported worker cases, while the newer ILO episode adds policy context in the podcast lane and is not a substitute for those cases.",
+        "newer_sources_considered": [
+          "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities",
+          "https://z.ai/blog/glm-5.4"
+        ],
+        "comparisons": [],
+        "search_gap": {
+          "query": "How artificial intelligence is reshaping creative jobs newer independent same-lane evidence",
+          "checked_urls": [
+            "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities",
+            "https://z.ai/blog/glm-5.4"
+          ],
+          "reason": "The search found no newer independent source that documented the same mechanism with stronger primary evidence and a complete comparable review; the selected source’s limits remain explicit.",
+          "attempted_at": "2026-11-24T02:07:00.000Z"
+        }
       },
       {
-        "story_id": "nov24-g1-prompt-cache",
-        "selected_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
-        "newer_candidate_url": null,
-        "newer_candidate_date": null,
-        "review": "No dated newer source with equivalent first-party operational detail was found; search scope and undated-doc limitation are disclosed.",
-        "decision": "selected current documentation with unknown publication date"
+        "story_id": "nov24-g1-inkling-monitoring",
+        "selected_url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "why_selected_over_recent_options": "The older original post was selected for its distinct local-control and monitorability decision; fresher model releases were compared but addressed different architectures and operating questions.",
+        "newer_sources_considered": [
+          "https://z.ai/blog/glm-5.4",
+          "https://autoclaw.z.ai/en/blog/model/GLM-5.4/"
+        ],
+        "comparisons": [],
+        "search_gap": {
+          "query": "Inkling 2 Mini newer independent same-lane evidence",
+          "checked_urls": [
+            "https://z.ai/blog/glm-5.4",
+            "https://autoclaw.z.ai/en/blog/model/GLM-5.4/"
+          ],
+          "reason": "The search found no newer independent source that documented the same mechanism with stronger primary evidence and a complete comparable review; the selected source’s limits remain explicit.",
+          "attempted_at": "2026-11-24T02:07:00.000Z"
+        }
       },
       {
         "story_id": "nov24-g2-software-atelier",
-        "selected_url": "https://ai.engineer/code/2026/talks/armin-ronacher",
-        "newer_candidate_url": "https://www.youtube.com/watch?v=f5_c0O_chy4",
-        "newer_candidate_date": "2026-11-23",
-        "review": "The newer video addressed a different safety-limit mechanism and did not supply the human-checkpoint workflow needed for this lane.",
-        "decision": "selected older but distinct complete conference talk"
+        "selected_url": "https://www.youtube.com/watch?v=JNexz3Tbiu8",
+        "why_selected_over_recent_options": "The November 22 standalone upload is fresh, while the older event date remains disclosed; newer unrelated items did not supply the same human-checkpoint procedure and complete transcript.",
+        "newer_sources_considered": [
+          "https://z.ai/blog/glm-5.4",
+          "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities"
+        ],
+        "comparisons": [],
+        "search_gap": {
+          "query": "The Software Atelier newer independent same-lane evidence",
+          "checked_urls": [
+            "https://z.ai/blog/glm-5.4",
+            "https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities"
+          ],
+          "reason": "The search found no newer independent source that documented the same mechanism with stronger primary evidence and a complete comparable review; the selected source’s limits remain explicit.",
+          "attempted_at": "2026-11-24T02:07:00.000Z"
+        }
       }
     ],
     "index_review": {
       "schema_version": "daily-brief-editorial-index-review-v1",
       "edition_date": "2026-11-24",
-      "eligible": true,
+      "eligible": 182,
       "eligible_total": 182,
       "eligible_ids": [
         "acl-anthology",
@@ -3378,7 +3553,7 @@
         "youtube-google-deepmind",
         "youtube-openai"
       ],
-      "reviewed_at": "2026-11-24T02:03:40.000Z",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
       "inspection_rows": [
         {
           "resource_id": "openai-news",
@@ -3389,10 +3564,9 @@
         },
         {
           "resource_id": "directory-207b781e953be997d6f84c93",
-          "index_url": null,
+          "index_url": "https://openai.com/research/",
           "observed_at": "2026-11-24T01:35:00.000Z",
-          "outcome": "full_dated_item_read",
-          "original_item_url": null
+          "outcome": "bounded_public_index_search"
         },
         {
           "resource_id": "anthropic-news",
@@ -3424,21 +3598,20 @@
         },
         {
           "resource_id": "directory-d5428d030dfff7d4639258e3",
-          "index_url": null,
+          "index_url": "https://www.youtube.com/@IBMTechnology/videos",
           "observed_at": "2026-11-24T01:40:00.000Z",
           "outcome": "full_dated_item_read",
-          "original_item_url": null
+          "original_item_url": "https://www.youtube.com/watch?v=4LINhsEZEDI"
         },
         {
           "resource_id": "video-20261120-computerphile",
-          "index_url": null,
+          "index_url": "https://www.youtube.com/@Computerphile/videos",
           "observed_at": "2026-11-24T01:41:00.000Z",
-          "outcome": "full_dated_item_read",
-          "original_item_url": null
+          "outcome": "bounded_public_index_search"
         }
       ],
       "qualification_only_ids": [],
-      "source": "current protected registry and genuine editorial reads before selection",
+      "source": "GENUINE_PRESELECTION_INDEX_REVIEW",
       "full_dated_item_reads": 16,
       "bounded_index_scans": 37,
       "complete_item_receipts": [
@@ -3855,5 +4028,6 @@
     "host_identity": null,
     "usage_metrics": null,
     "note": "Actual Work/Codex execution observed; billing, host identity and scheduler origin remain unknown. Images remain in the existing independent accepted-image lane."
-  }
+  },
+  "sealed_at": "2026-11-24T02:35:02.015Z"
 }
