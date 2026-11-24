@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-video-rotation-receipt-v1",
   "edition_date": "2026-11-24",
-  "reviewed_at": "2026-11-24T02:03:40.000Z",
+  "reviewed_at": "2026-11-24T02:12:00.000Z",
   "prior_seven": [
     "2026-11-17",
     "2026-11-18",
@@ -30,11 +30,13 @@
     "OpenAI Academy",
     "Crash Course / PBS",
     "Fine Cut / PBS",
-    "AI Tinkerers"
+    "AI Tinkerers",
+    "Fantasy / MIT EmTech AI",
+    "Fantasy"
   ],
   "preferred_final_families": [
-    "TED",
-    "Breaking the Deadlock / PBS"
+    "NVIDIA GTC",
+    "TED"
   ],
   "prior_four_news_cap_review": [
     {
@@ -84,8 +86,8 @@
       "url": "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
       "original_date": "2026-11-20",
       "review": "Reviewed the complete 3:01 publisher-native science explainer and program metadata. Brian Greene frames the Claude–Alpöge result conditionally and identifies formal verification as the remaining scientific question.",
-      "playback_status": "protected_pending",
-      "decision": "preferred_final"
+      "playback_status": "protected_failed_no_advancing_player",
+      "decision": "rejected_protected_playback"
     },
     {
       "candidate_id": "VID-AIENGINEER-ATELIER",
@@ -94,8 +96,8 @@
       "url": "https://ai.engineer/code/2026/talks/armin-ronacher",
       "original_date": "2026-11-12",
       "review": "Reviewed the complete 294-passage transcript and bounded source recording: agent runs lengthen while human attention remains finite, so Ronacher inserts an executive-summary checkpoint before final verification and calls for suspendable long-running workflows.",
-      "playback_status": "protected_pending",
-      "decision": "preferred_final"
+      "playback_status": "protected_failed_no_advancing_player",
+      "decision": "rejected_protected_playback"
     },
     {
       "candidate_id": "VID-IBM-AGENT-LOOPS-R24",
@@ -104,8 +106,8 @@
       "url": "https://www.youtube.com/watch?v=4LINhsEZEDI",
       "original_date": "2026-11-19",
       "review": "Retained the complete prior 9:08 explainer review and rechecked exact program identity during the current all-source sweep; the program separates interactive, delegated, scheduled and event-driven loops by triggers and stopping conditions.",
-      "playback_status": "protected_pending",
-      "decision": "reserve_1"
+      "playback_status": "protected_failed_youtube_sign_in_or_no_advancement",
+      "decision": "rejected_protected_playback"
     },
     {
       "candidate_id": "VID-NVIDIA-GTC-MICROSOFT",
@@ -114,8 +116,9 @@
       "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
       "original_date": "2026-03-01",
       "review": "Reviewed the complete 13:27 conference interview and publisher transcript on infrastructure, manufacturing and deployment tradeoffs; vendor claims remain attributed first-party evidence.",
-      "playback_status": "protected_pending",
-      "decision": "reviewed_not_selected"
+      "playback_status": "protected_pass",
+      "decision": "final_selected",
+      "protected_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45310273026"
     },
     {
       "candidate_id": "VID-TED-LANGUAGE",
@@ -124,8 +127,9 @@
       "url": "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026",
       "original_date": "2025-10-30",
       "review": "Reviewed the complete 13:00 research talk and publisher description on using language models as experimental objects for studying human language, while separating model behavior from claims about human cognition.",
-      "playback_status": "protected_pending",
-      "decision": "reviewed_not_selected"
+      "playback_status": "protected_pass",
+      "decision": "final_selected",
+      "protected_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45310273026"
     },
     {
       "candidate_id": "VID-TMP-ALPHAGENOME2",
@@ -144,8 +148,8 @@
       "url": "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
       "original_date": "2026-11-20",
       "review": "Reviewed the complete 3:01 Brian Greene research update explaining the claimed Riemann result, its potential significance and the need for ongoing independent mathematical verification.",
-      "playback_status": "protected_pending",
-      "decision": "preferred_final"
+      "playback_status": "protected_failed_no_advancing_player",
+      "decision": "rejected_protected_playback"
     },
     {
       "candidate_id": "VID-AIE-FACTORY",
@@ -194,8 +198,8 @@
       "url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
       "original_date": "2026-10-27",
       "review": "Reviewed the complete 4:19 public-affairs debate excerpt on AI regulation, labor rights, innovation and distributional effects; the program stages opposing expert views and is not a news bulletin, headline recap or syndicated news clip.",
-      "playback_status": "protected_pending",
-      "decision": "reviewed_not_selected"
+      "playback_status": "protected_archive_repeat",
+      "decision": "rejected_archive_repeat"
     },
     {
       "candidate_id": "VID-OPENAI-NEWSROOM-SITES",
@@ -204,8 +208,8 @@
       "url": "https://academy.openai.com/public/clubs/news-organizations-b9osl/videos/chatgpt-sites-for-newsroom-scheduling-2026-10-26",
       "original_date": "2026-10-26",
       "review": "Reviewed the complete 5:52 publisher-native demonstration and transcript showing how synthetic staffing, travel, live-shot, equipment and meal-break records become an interactive election-night planning hub, including explicit handling of uncertain assignments and source fidelity.",
-      "playback_status": "protected_pending",
-      "decision": "reviewed_not_selected"
+      "playback_status": "protected_failed_wrapper_no_advancing_player",
+      "decision": "replaced_by_exact_public_player"
     },
     {
       "candidate_id": "VID-PBS-CRASHCOURSE-MLAI",
@@ -214,43 +218,63 @@
       "url": "https://www.pbs.org/video/machine-learning-ai-crash-course-computer-science-34-wicjuu/",
       "original_date": "2017-11-01",
       "review": "Reviewed the complete 11:34 educational program and transcript explaining classification, features, labeled data, decision trees, support-vector machines, neural networks, narrow AI and reinforcement learning through concrete examples.",
-      "playback_status": "protected_pending",
-      "decision": "reviewed_not_selected"
+      "playback_status": "protected_archive_repeat",
+      "decision": "rejected_archive_repeat"
+    },
+    {
+      "candidate_id": "VID-FANTASY-CONSCIOUS-INTERFACES-MEDIA",
+      "title": "Conscious Interfaces: A Demo by Fantasy",
+      "publisher": "Fantasy",
+      "url": "https://stream.mux.com/lHWSdcAFFKS2LCexCY64QB00L3GeHXz4e/high.mp4",
+      "original_date": "2026-03-04",
+      "review": "Reviewed the complete 6:09 publisher-declared demonstration and exact public full-program Mux asset on adaptive interfaces; the protected runner matched duration and observed advancement.",
+      "playback_status": "protected_pass",
+      "decision": "qualified_reserve_1",
+      "protected_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45309801478"
+    },
+    {
+      "candidate_id": "VID-OPENAI-ACADEMY-SITES-PLAYER",
+      "title": "ChatGPT Sites For Newsroom Scheduling",
+      "publisher": "OpenAI Academy",
+      "url": "https://player.vimeo.com/video/1239599908?autoplay=1",
+      "original_date": "2026-10-26",
+      "review": "Reviewed the complete 5:52 publisher-native demonstration and transcript; the exact public Vimeo player matched duration and advanced in the protected runner.",
+      "playback_status": "protected_pass",
+      "decision": "qualified_reserve_2",
+      "protected_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45310273026"
     }
   ],
   "reserve_outcomes": [
     {
-      "candidate_id": "VID-NVIDIA-GTC-MICROSOFT",
-      "publisher": "NVIDIA GTC",
-      "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
-      "status": "protected_pending",
-      "replacement_order": 1
+      "candidate_id": "VID-FANTASY-CONSCIOUS-INTERFACES-MEDIA",
+      "publisher": "Fantasy",
+      "url": "https://stream.mux.com/lHWSdcAFFKS2LCexCY64QB00L3GeHXz4e/high.mp4",
+      "status": "protected_pass",
+      "replacement_order": 1,
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45309801478",
+      "checked_at": "2026-11-24T02:06:31.465Z",
+      "result": "SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS"
     },
     {
-      "candidate_id": "VID-TED-LANGUAGE",
-      "publisher": "TED",
-      "url": "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026",
-      "status": "protected_pending",
-      "replacement_order": 2
-    },
-    {
-      "candidate_id": "VID-PBS-AI-NEXT-DECADE",
-      "publisher": "Breaking the Deadlock / PBS",
-      "url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
-      "status": "protected_pending",
-      "replacement_order": 3
+      "candidate_id": "VID-OPENAI-ACADEMY-SITES-PLAYER",
+      "publisher": "OpenAI Academy",
+      "url": "https://player.vimeo.com/video/1239599908?autoplay=1",
+      "status": "protected_pass",
+      "replacement_order": 2,
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45310273026",
+      "checked_at": "2026-11-24T02:10:36.770Z",
+      "result": "SIGNED_OUT_FULL_EPISODE_PLAYBACK_PASS"
     }
   ],
   "replacement_order": [
-    "VID-NVIDIA-GTC-MICROSOFT",
-    "VID-TED-LANGUAGE",
-    "VID-PBS-AI-NEXT-DECADE"
+    "VID-FANTASY-CONSCIOUS-INTERFACES-MEDIA",
+    "VID-OPENAI-ACADEMY-SITES-PLAYER"
   ],
   "final_selected_urls": [
-    "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026",
-    "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/"
+    "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
+    "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026"
   ],
-  "decision": "Second protected request: three archive-clear non-news publisher-native programs after YouTube/embed failures; recent TED/PBS exposure is an explicit fallback cost.",
+  "decision": "PASS: NVIDIA GTC and TED are distinct non-news original publishers, archive-clear, protected signed-out playback PASS and bound to the exact saved request. Two distinct non-news reserves also passed.",
   "failed_attempts": [
     {
       "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45307461777",
@@ -259,7 +283,47 @@
         "The Software Atelier",
         "4 Types of AI Agent Loops: From Human-Led to Autonomous"
       ],
-      "reason": "World Science Festival and AI Engineer exposed no advancing duration-matched player; IBM required YouTube sign-in and its privacy embed did not advance.",
+      "reason": "World Science Festival and AI Engineer exposed no advancing duration-matched player; IBM required YouTube sign-in and did not advance.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45307850731",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "AI and the Next Decade"
+      ],
+      "reason": "The PBS public-affairs fallback was already in the immutable archive; NVIDIA and TED were not probed because the request failed archive preflight.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45308348762",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "Machine Learning & A.I. - Crash Course Computer Science #34"
+      ],
+      "reason": "The Crash Course / PBS fallback was already in the immutable archive; NVIDIA and TED were not probed because the request failed archive preflight.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45308527550",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "ChatGPT Sites For Newsroom Scheduling"
+      ],
+      "reason": "NVIDIA and TED passed; the OpenAI Academy wrapper exposed no advancing duration-matched player in the protected runner.",
+      "result": "BLOCKED"
+    },
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45309317412",
+      "programs": [
+        "NVIDIA GTC Studio | With Insights from Microsoft",
+        "Can AI show us how language works?",
+        "Conscious Interfaces: A Demo by Fantasy"
+      ],
+      "reason": "NVIDIA and TED passed; the Fantasy article wrapper exposed no advancing duration-matched player, so its exact public Mux program asset was retained for the next request.",
       "result": "BLOCKED"
     }
   ]
