@@ -7,6 +7,7 @@ on:
       - 'config/watchlist-editorial-revisions/*.json'
 
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -66,9 +67,32 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
+          name: watchlist-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: build/patched
+      - name: Wait for Pages artifact registration
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_NAME: watchlist-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          for attempt in {1..12}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '.artifacts[].name' | grep -Fxq "$PAGES_ARTIFACT_NAME"; then
+              echo "PAGES_ARTIFACT_REGISTERED $PAGES_ARTIFACT_NAME attempt=$attempt"
+              # The Pages deployment service uses a separate artifact index that
+              # can lag the Actions API briefly after the upload is finalized.
+              sleep 20
+              exit 0
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          echo "Pages artifact did not register within the bounded wait: $PAGES_ARTIFACT_NAME" >&2
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: watchlist-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Independently verify every changed live route byte for byte
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
