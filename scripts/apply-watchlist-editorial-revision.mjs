@@ -10,6 +10,8 @@ import {scoreTopic} from '../vendor/production-reader/snapshot/_generator/lib/wa
 import {renderWatchlistEvidence} from '../vendor/production-reader/snapshot/assets/js/watchlist-evidence.js';
 import {isSyntheticSixty,requireWatchlistRubric} from '../compiler/watchlist-rubric.mjs';
 
+import {materialWatchlistPages} from './watchlist-material-update.mjs';
+
 const fail=message=>{throw new Error('Watchlist text-only correction: '+message);};
 const sha=data=>crypto.createHash('sha256').update(data).digest('hex');
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -28,10 +30,11 @@ function walk(root){
   recur(root);return files.sort();
 }
 export function applyWatchlistRevision({revision,historySite,outSite}){
+  const material=revision?.scope==='watchlist_material_update';
   const scoreOnly=revision?.scope==='watchlist_score_only';
   const rubricOnly=revision?.scope==='watchlist_rubric_correction';
   const identityOnly=revision?.scope==='watchlist_identity_titles_only';
-  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||(!scoreOnly&&!rubricOnly&&!identityOnly&&revision.scope!=='watchlist_copy_only')||revision.requested_by!=='owner')fail('unsupported revision authorization');
+  if(revision?.schema_version!=='daily-compiler-watchlist-editorial-revision-v1'||(!material&&!scoreOnly&&!rubricOnly&&!identityOnly&&revision.scope!=='watchlist_copy_only')||revision.requested_by!=='owner')fail('unsupported revision authorization');
   if(!/^20\d\d-\d\d-\d\d$/.test(revision.edition_date))fail('invalid target date');
   if(scoreOnly){
     if(revision.items!==undefined||!Number.isInteger(revision.expected_topic_count)||!Number.isInteger(revision.expected_missing_score_count))fail('score-only correction requires an exact data audit and no editorial changes');
@@ -50,7 +53,11 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
   if(watch.edition_date!==revision.edition_date)fail('latest published Watchlist date differs from target; do not overwrite a newer edition');
   let html=fs.readFileSync(textFile(historySite,htmlRoute),'utf8');
   const seen=new Set();
-  if(identityOnly){
+  let pages=new Map();
+  if(material){
+    pages=materialWatchlistPages({revision,watch,historySite});
+    seen.add(revision.items[0].topic_id);
+  }else if(identityOnly){
     if(watch.topics.length!==revision.expected_topic_count)fail('concurrent Watchlist count changed');
     for(const item of revision.items){
       if(!/^dab-topic-[a-z0-9-]+$/.test(item.topic_id)||seen.has(item.topic_id)||
@@ -152,10 +159,11 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
   }
   fs.cpSync(historySite,outSite,{recursive:true,force:true});
   fs.writeFileSync(textFile(outSite,jsonRoute),JSON.stringify(watch,null,2)+'\n');
-  fs.writeFileSync(textFile(outSite,htmlRoute),html);
+  if(!material)pages.set(htmlRoute,html);
+  for(const [route,page] of pages)fs.writeFileSync(textFile(outSite,route),page);
   const before=walk(historySite),after=walk(outSite);
   if(JSON.stringify(before)!==JSON.stringify(after))fail('output file inventory changed');
-  const permitted=new Set([jsonRoute,htmlRoute]),changed=[],unchanged=[];
+  const permitted=new Set([jsonRoute,...pages.keys()]),changed=[],unchanged=[];
   for(const route of before){
     const old=sha(fs.readFileSync(textFile(historySite,route)));
     const next=sha(fs.readFileSync(textFile(outSite,route)));
@@ -165,12 +173,19 @@ export function applyWatchlistRevision({revision,historySite,outSite}){
       changed.push({route,previous_sha256:old,current_sha256:next});
     }
   }
-  if(changed.length!==2)fail('expected exactly 2 changed Watchlist reader routes');
+  if(changed.length!==permitted.size)fail('expected every Watchlist correction route to change');
   const unchangedImageFiles=unchanged.filter(p=>/\.(?:png|webp|jpe?g|svg)$/i.test(p));
   const currentImages=unchangedImageFiles.filter(p=>p.startsWith('briefs/images/'+revision.edition_date+'/'));
-  if(currentImages.filter(p=>p.endsWith('.png')).length!==6)fail('six current premium PNGs not independently preserved');
+  const premiumCount=currentImages.filter(p=>p.endsWith('.png')).length;
+  if(material && premiumCount===0){
+    const index=load(textFile(historySite,'image-jobs/index.json'));
+    const pending=index.editions.find(e=>e.edition_date===revision.edition_date);
+    const job=fs.readFileSync(textFile(historySite,'image-jobs/'+revision.edition_date+'/job.json'));
+    if(pending?.status!=='PUBLISHED_PENDING'||pending.story_count!==6||sha(job)!==pending.job_sha256)
+      fail('current image handoff is not a verified six-story pending job');
+  }else if(premiumCount!==6)fail('six current premium PNGs not independently preserved');
   if(unchanged.filter(p=>/2026-10-08\//.test(p)).length<17)fail('October 8 historical artifacts were not preserved');
-  return {schema_version:'daily-compiler-watchlist-text-only-patch-v1',result:'PASS',edition_date:revision.edition_date,scope:revision.scope,corrected_topics:scoreOnly?watch.topics.length:seen.size,missing_scores_before:scoreOnly?revision.expected_missing_score_count:null,missing_scores_after:scoreOnly?0:null,synthetic_sixties_before:rubricOnly?revision.expected_generic_score_count:null,synthetic_sixties_after:rubricOnly?0:null,changed,unchanged_file_count:unchanged.length,unchanged_image_count:unchangedImageFiles.length,current_premium_pngs_preserved:6,normal_compiler_rebuild:false,images_regenerated:0};
+  return {schema_version:'daily-compiler-watchlist-text-only-patch-v1',result:'PASS',edition_date:revision.edition_date,scope:revision.scope,corrected_topics:scoreOnly?watch.topics.length:seen.size,missing_scores_before:scoreOnly?revision.expected_missing_score_count:null,missing_scores_after:scoreOnly?0:null,synthetic_sixties_before:rubricOnly?revision.expected_generic_score_count:null,synthetic_sixties_after:rubricOnly?0:null,changed,unchanged_file_count:unchanged.length,unchanged_image_count:unchangedImageFiles.length,current_premium_pngs_preserved:premiumCount,normal_compiler_rebuild:false,images_regenerated:0};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
  const [revisionPath,historySite,outSite,receiptPath]=process.argv.slice(2);

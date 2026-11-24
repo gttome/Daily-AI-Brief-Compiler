@@ -2,6 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
+import crypto from 'node:crypto';
+import {renderDailyTopicGroups} from '../vendor/production-reader/snapshot/assets/js/watchlist-daily.js';
+import {renderWatchlistEvidence} from '../vendor/production-reader/snapshot/assets/js/watchlist-evidence.js';
 import path from 'node:path';
 import {applyWatchlistRevision} from '../scripts/apply-watchlist-editorial-revision.mjs';
 
@@ -143,5 +146,44 @@ test('rubric correction replaces only demonstrably synthetic 60/100 scores with 
   assert.throws(()=>applyWatchlistRevision({revision:stale,historySite:t.history,outSite:path.join(t.tmp,'stale')}),/exact existing-topic/);
   const weaker=structuredClone(revision);weaker.items[0].rubric.independence.score=4;
   assert.throws(()=>applyWatchlistRevision({revision:weaker,historySite:t.history,outSite:path.join(t.tmp,'weak')}),/single original source/);
+ }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
+});
+
+
+test('a material update moves one topic across every daily view while six images await publication',()=>{
+ const t=setup();
+ try{
+   const date=t.revision.edition_date;
+   const reviewedAt=date+'T15:00:00Z';
+   const revision=JSON.parse(fs.readFileSync(new URL('../config/watchlist-editorial-revisions/2026-11-24-consumer-agent-permissions.json',import.meta.url)));
+   const item=revision.items[0];
+   const topic={...good,topic_id:item.topic_id,name:'Test topic',first_detected:'2026-10-02',
+     updated_at:'2026-10-08',status:'under_research',confidence:'moderate',evidence:[],
+     rubric:item.rubric,research_score:60,momentum:{score:null},next_action:'Review evidence.',limitations:'Initial report.'};
+   const digest=data=>crypto.createHash('sha256').update(data).digest('hex');
+   item.expected_topic_sha256=digest(JSON.stringify(topic));
+   revision.edition_date=date;revision.reviewed_at=reviewedAt;
+   for(const e of item.evidence)e.checked_at=reviewedAt;
+   const watch={edition_date:date,topics:[topic]};
+   const write=(route,bytes)=>{const file=path.join(t.history,route);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,bytes);};
+   const card='<section class="wl-card" id="'+topic.topic_id+'"><h2>Test topic</h2><p>'+topic.summary+
+     '</p><p><strong>Why now:</strong> '+topic.why_now+'</p><p><strong>Potential value:</strong> '+topic.practical_value+'</p>'+renderWatchlistEvidence(topic)+'</section>';
+   const groups=renderDailyTopicGroups(watch);
+   const routes=['index.html','latest.html','latest.md','briefs/'+date+'/index.html','watchlist/research/index.html'];
+   for(const route of routes)write(route,groups+(route.startsWith('watchlist/')?card:''));
+   write('data/watchlist.json',JSON.stringify(watch));
+   fs.rmSync(path.join(t.history,'briefs/images/'+date),{recursive:true});
+   const job=JSON.stringify({edition_date:date,stories:[1,2,3,4,5,6]});
+   write('image-jobs/'+date+'/job.json',job);
+   write('image-jobs/index.json',JSON.stringify({editions:[{edition_date:date,status:'PUBLISHED_PENDING',story_count:6,job_sha256:digest(job)}]}));
+   const result=applyWatchlistRevision({revision,historySite:t.history,outSite:t.out});
+   assert.equal(result.changed.length,6);
+   for(const route of routes)assert.match(fs.readFileSync(path.join(t.out,route),'utf8'),/0 new today · 1 updated · 0 carried forward/);
+   const updated=JSON.parse(fs.readFileSync(path.join(t.out,'data/watchlist.json'))).topics[0];
+   assert.equal(updated.topic_id,topic.topic_id);
+   assert.equal(updated.first_detected,topic.first_detected);
+   assert.equal(updated.rubric.momentum.score,null);
+   assert.equal(updated.evidence.length,item.evidence.length);
+   assert.throws(()=>applyWatchlistRevision({revision,historySite:t.out,outSite:t.out+'-again'}),/exact previously published carried topic/);
  }finally{fs.rmSync(t.tmp,{recursive:true,force:true});}
 });

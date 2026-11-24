@@ -7,6 +7,7 @@ on:
       - 'config/watchlist-editorial-revisions/*.json'
 
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -49,12 +50,12 @@ jobs:
           git worktree add --detach history "$HISTORY_HEAD"
           test -f history/site/data/watchlist.json
           test -f history/site/watchlist/research/index.html
-      - name: Apply and audit exactly two Watchlist text/JSON files
+      - name: Apply and audit the authorized Watchlist reader changes
         run: |
           mkdir -p build
           node scripts/apply-watchlist-editorial-revision.mjs \
             "$REVISION_PATH" history/site build/patched build/watchlist-editorial-correction-receipt.json
-          node --input-type=module -e "import fs from 'node:fs';let r=JSON.parse(fs.readFileSync('build/watchlist-editorial-correction-receipt.json'));if(r.result!=='PASS'||r.changed.length!==2||r.current_premium_pngs_preserved!==6)process.exit(1)"
+          node --input-type=module -e "import fs from 'node:fs';let r=JSON.parse(fs.readFileSync('build/watchlist-editorial-correction-receipt.json'));if(r.result!=='PASS'||r.changed.length!==(r.scope==='watchlist_material_update'?6:2))process.exit(1)"
       - name: Preserve all previously published accepted images during Watchlist corrections
         run: node scripts/assert-published-image-continuity.mjs history/site build/patched
       - name: Reject stale Pages history and main before deployment
@@ -66,10 +67,33 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
+          name: watchlist-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: build/patched
+      - name: Wait for Pages artifact registration
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_NAME: watchlist-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          for attempt in {1..12}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq '.artifacts[].name' | grep -Fxq "$PAGES_ARTIFACT_NAME"; then
+              echo "PAGES_ARTIFACT_REGISTERED $PAGES_ARTIFACT_NAME attempt=$attempt"
+              # The Pages deployment service uses a separate artifact index that
+              # can lag the Actions API briefly after the upload is finalized.
+              sleep 20
+              exit 0
+            fi
+            if [ "$attempt" -lt 12 ]; then sleep 5; fi
+          done
+          echo "Pages artifact did not register within the bounded wait: $PAGES_ARTIFACT_NAME" >&2
+          exit 1
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Independently verify both changed live routes byte for byte
+        with:
+          artifact_name: watchlist-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Independently verify every changed live route byte for byte
         env:
           SITE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
@@ -102,12 +126,14 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git ls-remote origin refs/heads/shadow-pages-history | awk '{print $1}')" = "$HISTORY_HEAD"
-          cp build/patched/data/watchlist.json history/site/data/watchlist.json
-          cp build/patched/watchlist/research/index.html history/site/watchlist/research/index.html
+          mapfile -t routes < <(jq -r '.changed[].route' build/watchlist-editorial-correction-receipt.json)
+          for route in "${routes[@]}"; do
+            cp "build/patched/$route" "history/site/$route"
+            git -C history add -- "site/$route"
+          done
           git -C history config user.name 'Daily Compiler'
           git -C history config user.email 'actions@users.noreply.github.com'
-          git -C history add site/data/watchlist.json site/watchlist/research/index.html
           git -C history diff --cached --quiet && { echo 'No actual text changes'; exit 1; }
-          git -C history commit -m 'Apply verified Watchlist editorial copy-only correction'
+          git -C history commit -m 'Apply verified Watchlist editorial correction'
           git -C history push origin HEAD:shadow-pages-history
           echo "LIVE_WATCHLIST_CORRECTION_VERIFIED"
