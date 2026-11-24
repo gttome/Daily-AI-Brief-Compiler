@@ -34,6 +34,10 @@ Each existing role owns its stage and verifies the next handoff. When a stage fa
 
 Use the existing task boundaries, schedules, protected checks and reporting routes. The closeout requirement tracks completion of the full cycle. It does not make the combined AAR a prerequisite for the initial reader publication.
 
+### Owner status questions during an open edition
+
+When the owner asks for status or the cause of a production delay, answer the question promptly and keep the current edition open. If the owner explicitly requests inspection only, respect that scope. Otherwise, check the active writer and the dated recovery/E.json on operations-reports. When authorized to repair, advance the existing edition and verify the result. When another writer is active, record any new evidence in the dated recovery record and follow the writer’s result. A queued retry or a green intermediate check still requires verifying the dated public reader and its image handoff. Escalate only the specific dependency that actually requires owner action.
+
 ## Evidence and daily learning
 
 Before work, consult the latest earlier edition's `operations-reports/daily/C/combined.json`, charts and `improvement-metrics.json` when present. Distinguish actual research, publication, image quality and scheduler autonomy. Unknown is not zero; a successful check is not proof of improved future outcomes. Missing reporting evidence never adds a publication blocker.
