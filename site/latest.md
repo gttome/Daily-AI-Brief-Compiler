@@ -1,53 +1,15 @@
-# Daily Generative AI Brief — November 23, 2026
+# Daily Generative AI Brief — November 24, 2026
 
-**Published:** November 23, 2026  
-**Coverage period:** November 19–21, 2026
-
-<!-- reader-release:start -->
-<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-23-m12">Gemini’s Mac agent puts approvals inside a live preview</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m14">Build an editable short-video review handoff</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m10">Cheap tokens did not guarantee cheaper accepted tasks</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m11">Textract Insights grounds document extraction to source pages</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m01">Lean’s Riemann artifact makes assumptions inspectable</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-23-m02">Inkling 2 Mini repeats its middle layers</a><span>Article · about 6 min source read</span></li><li><a href="#general">ADDIE — Fine Cut</a><span>Video · 11:36</span></li><li><a href="#agents-for-non-technical-people">SpecGuard: Automated Fit Audit for Factory Samples</a><span>Video · 4:28</span></li><li><a href="#podcast-dab-podcast-2026-11-23-1">Gemini and the path to AGI with Koray Kavukcuoglu</a><span>Podcast · 46:57</span></li><li><a href="#podcast-dab-podcast-2026-11-23-2">Can Anthropic afford to put safety first?</a><span>Podcast · 37:00</span></li></ol></section>
-<!-- reader-release:end -->
-
-<span id="reading-dab-story-2026-11-23-m12"></span>
-
-## 1. Gemini’s Mac agent puts approvals inside a live preview
+**Published:** November 24, 2026  
+**Coverage period:** November 19–23, 2026
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Nov 2026</p></aside>
+<section class="edition-overview" id="edition-overview"><p class="book-kicker">IN THIS EDITION · 6 ARTICLES / 2 VIDEOS / 2 PODCASTS</p><h2>Choose what matters to your work</h2><ol><li><a href="#reading-dab-story-2026-11-24-m12">Superhuman Go puts approval and attribution around proactive work</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-24-m14">Insert a human summary checkpoint before an agent’s final verification</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-24-m10">Anthropic closes a $119.5 billion combined capital event</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-24-m11">Creative workers describe bargaining power moving before jobs vanish</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-24-m01">Prediction loss could become a shared safety pace signal</a><span>Article · about 6 min source read</span></li><li><a href="#reading-dab-story-2026-11-24-m02">GLM‑5.4 trades more repeated depth for the same parameters</a><span>Article · about 6 min source read</span></li><li><a href="#general">NVIDIA GTC Studio | With Insights from Microsoft</a><span>Video · 13:27</span></li><li><a href="#agents-for-non-technical-people">Can AI show us how language works?</a><span>Video · 13:00</span></li><li><a href="#podcast-dab-podcast-2026-11-24-1">Artificial intelligence and creative professions: threats or opportunities?</a><span>Podcast · 21:22</span></li><li><a href="#podcast-dab-podcast-2026-11-24-2">When Everyone Has the Same AI, What’s Left of Your Moat? with Bobby Steinbach</a><span>Podcast · 26:00</span></li></ol></section>
 <!-- reader-release:end -->
 
-**Focus: Agents for Everyone**
+<span id="reading-dab-story-2026-11-24-m12"></span>
 
-**Date:** November 19, 2026
-
-**Topics:** Computer use, Live preview, Approval controls
-
-<span class="story-data" data-story-id="dab-story-2026-11-23-m12" data-story-url="/stories/2026-11-23/nov23-a1-gemini-mac-computer-use/" hidden></span>
-
-<a href="{{ '/stories/2026-11-23/nov23-a1-gemini-mac-computer-use/' | relative_url }}" data-item-id="dab-story-2026-11-23-m12" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Gemini’s Mac agent puts approvals inside a live preview. Planned illustration: A background desktop agent works inside an isolated window while app permissions, live preview, pause, cancellation and human approval remain visible around the task.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Google’s Gemini app for Mac can operate websites and desktop applications inside an isolated background window while showing a live preview and pausing for approvals. The article documents permission and control surfaces, not independent reliability. Users should start with reversible chores and test interruptions, ambiguous screens and sensitive-data boundaries before broader delegation.
-
-**Why it matters:** Choose one reversible desktop chore, limit accessible apps and files, watch the live preview, and require approval before any external action. Test interruption, cancellation and recovery from a changed interface, then document what remains manual before trusting the agent with higher-risk work.
-
-
-
-**Source:** <a href="https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/" data-item-id="dab-story-2026-11-23-m12" data-edition-date="2026-11-23" data-action="source_clicks">Let Gemini tackle repetitive chores on your Mac</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-story-compiler-2026-11-23-nov23-a1-gemini-mac-computer-use">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-23-m14"></span>
-
-## 2. Build an editable short-video review handoff
+## 1. Superhuman Go puts approval and attribution around proactive work
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Nov 2026</p></aside>
@@ -57,186 +19,224 @@
 
 **Date:** November 19, 2026
 
-**Topics:** Agent Skills, Editable drafts, Approval workflow
+**Topics:** Proactive workplace agents, Human approval, Action attribution
 
-<span class="story-data" data-story-id="dab-story-2026-11-23-m14" data-story-url="/stories/2026-11-23/nov23-a2-capcut-editable-video/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-24-m12" data-story-url="/stories/2026-11-24/nov24-g1-superhuman-go-approvals/" hidden></span>
 
-<a href="{{ '/stories/2026-11-23/nov23-a2-capcut-editable-video/' | relative_url }}" data-item-id="dab-story-2026-11-23-m14" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-24/nov24-g1-superhuman-go-approvals/' | relative_url }}" data-item-id="dab-story-2026-11-24-m12" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Build an editable short-video review handoff. Planned illustration: A generated video draft enters an editable timeline where scenes, claims, captions, audio and pacing pass through review before a named approver unlocks export.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Superhuman Go puts approval and attribution around proactive work. Planned illustration: A workplace assistant surfaces priorities and proposed actions beside visible approval controls, connected-system boundaries and an attribution log for every completed change.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-24/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** CapCut’s guide shows how generated video clips move into editable timelines across its web and desktop tools, preserving access to captions, audio, pacing and export settings. The product guide is promotional first-party evidence, but it supports a bounded review sequence: generate a draft, inspect every scene, revise the timeline and export only after approval.
+**Summary:** Reworked reports that Superhuman’s Go assistant can flag priorities, suggest next steps and draft content while requiring user approval for every action. Go agents can work in Docs, Mail and Fathom, with actions tracked and attributed. Most capabilities are rolling out or in beta, so teams should test approval visibility, connection scope and audit records before relying on proactive work.
 
-**Why it matters:** For one repeated short-video request, define the brief, generate an editable draft, inspect every scene and claim, revise captions and pacing, then require a named approver before export. Measure revision time and rejected outputs before reusing the procedure.
+**Why it matters:** Pilot one recurring task with a named reviewer. Confirm which connected systems the assistant reads, where proposed actions appear, who approves them, and whether every change carries an attributable record before expanding beyond a controlled workflow.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Reusable Agent Skills — Test known briefs and exception cases before wider reuse.</p><p>A bounded video Skill preserves editable drafts, factual review and named approval before export.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Approval-aware workflow prompts — Design prompts that separate preparation from execution and make the approval checkpoint visible.</p><p>A proactive assistant needs explicit task boundaries, reviewer authority and attributable action records before it should act across workplace systems.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://www.capcut.com/resource/ai-video-generation-and-editing-in-one-workflow-how-capcut-fits" data-item-id="dab-story-2026-11-23-m14" data-edition-date="2026-11-23" data-action="source_clicks">AI Video Generation and Editing in One Workflow: How CapCut Fits</a>
+**Source:** <a href="https://www.reworked.co/collaboration-productivity/superhuman-launches-go-personal-ai-assistant-expands-go-across-docs-mail-fathom/" data-item-id="dab-story-2026-11-24-m12" data-edition-date="2026-11-24" data-action="source_clicks">Superhuman Launches Go Personal AI Assistant, Expands Go Across Docs, Mail, Fathom</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-story-compiler-2026-11-23-nov23-a2-capcut-editable-video">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-story-compiler-2026-11-24-nov24-g1-superhuman-go-approvals">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-23-m10"></span>
+<span id="reading-dab-story-2026-11-24-m14"></span>
 
-## 3. Cheap tokens did not guarantee cheaper accepted tasks
+## 2. Insert a human summary checkpoint before an agent’s final verification
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 19 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 22 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
-**Focus: Applied Generative AI for Knowledge Workers**
+**Focus: Agents for Everyone**
 
-**Date:** November 19, 2026
+**Date:** November 22, 2026
 
-**Topics:** Task economics, Accepted outputs, Local benchmarks
+**Topics:** Agent Skills, Human checkpoints, Long-running coding agents
 
-<span class="story-data" data-story-id="dab-story-2026-11-23-m10" data-story-url="/stories/2026-11-23/nov23-k1-gemini-task-cost/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-24-m14" data-story-url="/stories/2026-11-24/nov24-g2-software-atelier/" hidden></span>
 
-<a href="{{ '/stories/2026-11-23/nov23-k1-gemini-task-cost/' | relative_url }}" data-item-id="dab-story-2026-11-23-m10" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-24/nov24-g2-software-atelier/' | relative_url }}" data-item-id="dab-story-2026-11-24-m14" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Cheap tokens did not guarantee cheaper accepted tasks. Planned illustration: Two model routes process identical workplace cases while a ledger totals tokens, retries, reviewer time and cost per accepted result rather than list price alone.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Insert a human summary checkpoint before an agent’s final verification. Planned illustration: A long-running agent pauses at a plain-language human checkpoint, presenting the goal, completed work, tradeoffs, unresolved risks and proposed checks before continuing.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-24/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** 06.ai analyzes token prices and task-level index costs for Gemini 4 Neon and GPT-6.2 Astra, finding that a cheaper list price did not produce the lowest completed-task cost at the tested top setting. The calculation is transparent but narrow, so teams should reproduce it with their own workloads, retry policies and acceptance thresholds.
+**Summary:** Armin Ronacher argues that stronger models let coding agents run farther while human attention remains limited. His reviewed conference program shows longer sessions, more parallel projects and a readable executive-summary checkpoint before final verification. The checkpoint lets a manager inspect the goal, changed work, tradeoffs and risks before approving, redirecting or stopping the next phase.
 
-**Why it matters:** Budget decisions should compare accepted task outcomes, not token rates alone. Run representative cases at fixed quality thresholds, include retries and review time, and calculate cost per accepted result. A narrow external index can frame the method but cannot substitute for local workload evidence.
+**Why it matters:** For one bounded agent-assisted project, require a plain-language checkpoint listing the goal, completed work, tradeoffs, unresolved risks and proposed checks. Assign a named reviewer who must approve, redirect or stop the work before the agent continues.
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Professional Prompt Engineering Guide</h3><p class="chapter">Task-level evaluation — Measure retries, review time and cost per accepted result.</p><p>Representative cases and acceptance thresholds turn token pricing into completed-work economics.</p><p><a class="book-cta" href="https://leanpub.com/genaipromptingguide" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Generative AI Prompt Engineering Learning Ecosystem</h3><p class="chapter">Human review checkpoints — Practice approve, redirect and stop decisions using the ecosystem’s workflow templates.</p><p>A pre-verification summary creates a reusable intervention point inside a longer agent-assisted workflow.</p><p><a class="book-cta" href="https://leanpub.com/GenAILearn" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://06.ai/wire/w178/" data-item-id="dab-story-2026-11-23-m10" data-edition-date="2026-11-23" data-action="source_clicks">W.178 · At its top setting, Gemini 4 Neon cost 61% more per index task than Astra</a>
+**Source:** <a href="https://www.youtube.com/watch?v=JNexz3Tbiu8" data-item-id="dab-story-2026-11-24-m14" data-edition-date="2026-11-24" data-action="source_clicks">The Software Atelier</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-story-compiler-2026-11-23-nov23-k1-gemini-task-cost">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-story-compiler-2026-11-24-nov24-g2-software-atelier">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-23-m11"></span>
+<span id="reading-dab-story-2026-11-24-m10"></span>
 
-## 4. Textract Insights grounds document extraction to source pages
+## 3. Anthropic closes a $119.5 billion combined capital event
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
 **Focus: Applied Generative AI for Knowledge Workers**
 
 **Date:** November 20, 2026
 
-**Topics:** Document grounding, Confidence routing, Mixed packets
+**Topics:** AI capital markets, Enterprise concentration, Procurement risk
 
-<span class="story-data" data-story-id="dab-story-2026-11-23-m11" data-story-url="/stories/2026-11-23/nov23-k2-textract-insights/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-24-m10" data-story-url="/stories/2026-11-24/nov24-a1-anthropic-ipo/" hidden></span>
 
-<a href="{{ '/stories/2026-11-23/nov23-k2-textract-insights/' | relative_url }}" data-item-id="dab-story-2026-11-23-m11" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-24/nov24-a1-anthropic-ipo/' | relative_url }}" data-item-id="dab-story-2026-11-24-m10" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Textract Insights grounds document extraction to source pages. Planned illustration: A mixed document packet splits into typed sections while extracted fields retain page citations, confidence thresholds and a visible route to human review for exceptions.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Anthropic closes a $119.5 billion combined capital event. Planned illustration: An IPO ledger and private-placement ledger converge into one capital stack while procurement controls remain separate from the company’s new financial scale.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-24/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** AWS’s Textract Insights combines document splitting, classification and schema-based extraction in one managed request, returning page grounding and confidence for each value. The launch supports mixed packets up to 3,000 pages, but evidence remains first-party. Teams should validate thresholds, handwriting and domain-specific errors on representative files before automating review decisions.
+**Summary:** Anthropic says it closed an offering of 1.127 billion Class A shares at $83, including the full underwriter option. Gross IPO proceeds were about $93.5 billion, while a concurrent Class N private placement added about $26.0 billion. The company reports approximately $119.5 billion in combined gross proceeds before fees; the final prospectus provides the capital-structure context.
 
-**Why it matters:** Document teams can test a bounded packet workflow: define fields, preserve page citations, set a confidence threshold and route exceptions to people. Compare results with the current process on representative documents, including handwriting and mixed layouts, before expanding automation.
+**Why it matters:** A capital event of this scale can change vendor endurance, infrastructure commitments and competitive leverage, but it does not remove product, pricing or concentration risk. Procurement teams should separate balance-sheet strength from service reliability, model fit, exit costs and contractual protections.
 
 
 
-**Source:** <a href="https://aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents/" data-item-id="dab-story-2026-11-23-m11" data-edition-date="2026-11-23" data-action="source_clicks">Announcing Amazon Textract Insights: Verifiable generative AI for documents</a>
+**Source:** <a href="https://www.anthropic.com/news/ipo-close" data-item-id="dab-story-2026-11-24-m10" data-edition-date="2026-11-24" data-action="source_clicks">Anthropic announces closing of initial public offering</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-story-compiler-2026-11-23-nov23-k2-textract-insights">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-story-compiler-2026-11-24-nov24-a1-anthropic-ipo">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="reading-dab-story-2026-11-23-m01"></span>
+<span id="reading-dab-story-2026-11-24-m11"></span>
 
-## 5. Lean’s Riemann artifact makes assumptions inspectable
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 21 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Technical AI Engineering**
-
-**Date:** November 21, 2026
-
-**Topics:** Formal verification, Proof assumptions, Independent review
-
-<span class="story-data" data-story-id="dab-story-2026-11-23-m01" data-story-url="/stories/2026-11-23/nov23-t1-lean-riemann-verification/" hidden></span>
-
-<a href="{{ '/stories/2026-11-23/nov23-t1-lean-riemann-verification/' | relative_url }}" data-item-id="dab-story-2026-11-23-m01" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent story page</a>
-
-**Evidence:** Publisher Authored  
-**Availability:** Available
-
-![Illustration pending for Lean’s Riemann artifact makes assumptions inspectable. Planned illustration: A large formal-proof library narrows into an isolated Riemann statement while separate audit gates inspect imports, axioms, reproducibility and independent mathematical review.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
-
-**Summary:** Lean’s community blog documents a 17-million-line formal library presented as a proof of the Riemann Hypothesis, while emphasizing that formal verification does not replace mathematical scrutiny. The community isolated the theorem statement behind Mathlib imports so reviewers can audit assumptions. The extraordinary claim remains dependent on independent expert review of the construction and its foundations.
-
-**Why it matters:** Formal proof artifacts can make assumptions and dependencies inspectable, but size is not credibility. Review the isolated statement, imported axioms, build reproducibility and independent mathematical audits before treating a machine-checked library as settlement of a longstanding theorem.
+## 4. Creative workers describe bargaining power moving before jobs vanish
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Verification boundaries — Audit imports, axioms, reproducibility and independent mathematical review.</p><p>Formal artifacts expose assumptions and dependencies while independent review establishes whether the encoded claim is the intended one.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Extended recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" data-item-id="dab-story-2026-11-23-m01" data-edition-date="2026-11-23" data-action="source_clicks">Lean verification of the Riemann Hypothesis</a>
-
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-story-compiler-2026-11-23-nov23-t1-lean-riemann-verification">
-  <span class="feedback-prompt">How useful was this?</span>
-  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
-  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
-  <span class="feedback-status" aria-live="polite"></span>
-</div>
-
-<span id="reading-dab-story-2026-11-23-m02"></span>
-
-## 6. Inkling 2 Mini repeats its middle layers
-
-<!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 20 Nov 2026</p></aside>
-<!-- reader-release:end -->
-
-**Focus: Technical AI Engineering**
+**Focus: Applied Generative AI for Knowledge Workers**
 
 **Date:** November 20, 2026
 
-**Topics:** Looped transformers, Inference compute, Model evaluation
+**Topics:** Creative labor, Workflow substitution, Rights and bargaining
 
-<span class="story-data" data-story-id="dab-story-2026-11-23-m02" data-story-url="/stories/2026-11-23/nov23-t2-inkling-mini-control/" hidden></span>
+<span class="story-data" data-story-id="dab-story-2026-11-24-m11" data-story-url="/stories/2026-11-24/nov24-a2-creative-labor/" hidden></span>
 
-<a href="{{ '/stories/2026-11-23/nov23-t2-inkling-mini-control/' | relative_url }}" data-item-id="dab-story-2026-11-23-m02" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent story page</a>
+<a href="{{ '/stories/2026-11-24/nov24-a2-creative-labor/' | relative_url }}" data-item-id="dab-story-2026-11-24-m11" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent story page</a>
 
 **Evidence:** Publisher Authored  
 **Availability:** Available
 
-![Illustration pending for Inkling 2 Mini repeats its middle layers. Planned illustration: For one token, a prelude feeds three passes through the same middle 12 layers. Arrows carry the previous pass’s output into passes two and three before the final layers produce a next-token prediction.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-23/illustration-pending.svg?v=fe54b845623b)
+![Illustration pending for Creative workers describe bargaining power moving before jobs vanish. Planned illustration: A creative production workflow shifts tasks between people and generative tools while contracts, consent, credit and compensation remain visible checkpoints.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-24/illustration-pending.svg?v=fe54b845623b)
 
-**Summary:** Thinking Machines Lab reports that Inkling 2 Mini runs its middle 12 transformer layers three times for every token. The second and third passes use information from the previous pass. The released model has a fixed loop count. The researchers used a separate variable-loop model to study how repeated computation affects capability and the visibility of reasoning.
+**Summary:** DW reports generative systems changing creative work through task substitution, bargaining pressure and training-data disputes. Sara Campos describes losing a client to AI-generated work; Adrian Romero says he helped introduce AI workflows before losing his job; Matti Klemm is pursuing a case over alleged voice training. These cases reveal where practical control and compensation can move first.
 
-**Why it matters:** When comparing a looped model with a conventional transformer, measure task accuracy and elapsed time on the same inputs. Token counts alone hide differences in computation. Report the released model’s three-pass results separately from variable-loop experiments.
+**Why it matters:** Teams adopting creative AI should map each affected task, identify whose work or likeness supplies the input, define consent and remuneration, and track which responsibilities remain human. Case evidence is a prompt for governance and bargaining, not a population estimate.
+
+
+
+**Source:** <a href="https://www.dw.com/en/how-artificial-intelligence-is-reshaping-creative-jobs/a-74861834" data-item-id="dab-story-2026-11-24-m11" data-edition-date="2026-11-24" data-action="source_clicks">How artificial intelligence is reshaping creative jobs</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-story-compiler-2026-11-24-nov24-a2-creative-labor">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-24-m01"></span>
+
+## 5. Prediction loss could become a shared safety pace signal
 
 <!-- reader-release:start -->
-<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Evaluation under matched conditions — Compare accuracy, elapsed time and output length on the same task.</p><p>Repeated internal computation changes the cost of generating each token. Model comparisons need matched tasks and explicit measurements.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recency fallback</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 22 Nov 2026</p></aside>
 <!-- reader-release:end -->
 
-**Source:** <a href="https://thinkingmachines.ai/news/inkling-2-mini/" data-item-id="dab-story-2026-11-23-m02" data-edition-date="2026-11-23" data-action="source_clicks">Introducing Inkling 2 Mini</a>
+**Focus: Technical AI Engineering**
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-story-compiler-2026-11-23-nov23-t2-inkling-mini-control">
+**Date:** November 22, 2026
+
+**Topics:** Pretraining measurement, Safety limits, Cross-lab comparability
+
+<span class="story-data" data-story-id="dab-story-2026-11-24-m01" data-story-url="/stories/2026-11-24/nov24-t1-perplexity-limits/" hidden></span>
+
+<a href="{{ '/stories/2026-11-24/nov24-t1-perplexity-limits/' | relative_url }}" data-item-id="dab-story-2026-11-24-m01" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for Prediction loss could become a shared safety pace signal. Planned illustration: Separate laboratory prediction-loss curves approach a shared safety boundary while side panels flag private datasets, post-training exclusions and an unknown entropy floor.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-24/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** OpenAI’s Jakub Pachocki proposes prediction loss on a private held-out text distribution as a shared signal for pacing pretraining. The post reports falling log-perplexity across model generations and suggests coordinated limits before monitoring improves. It is not a complete intelligence score: data mixtures differ, post-training and chain-of-thought are excluded, task gains can diverge, and the irreducible prediction floor remains unknown.
+
+**Why it matters:** A common measurement can support coordination only if labs can compare procedures without leaking evaluation data or treating one curve as all capability. Track the dataset protocol, uncertainty, model-family comparability and the milestones that would justify changing any proposed limit.
+
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI</h3><p class="chapter">Measurement boundaries — Compare evaluation protocols, hidden-test governance and capability coverage.</p><p>A shared metric is useful only when its dataset, exclusions and uncertainty remain visible.</p><p><a class="book-cta" href="https://leanpub.com/reliablegenerativeai" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+
+**Source:** <a href="https://openai.com/index/perplexity-and-intelligence/" data-item-id="dab-story-2026-11-24-m01" data-edition-date="2026-11-24" data-action="source_clicks">Perplexity and Intelligence</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-story-compiler-2026-11-24-nov24-t1-perplexity-limits">
+  <span class="feedback-prompt">How useful was this?</span>
+  <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
+  <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
+  <span class="feedback-status" aria-live="polite"></span>
+</div>
+
+<span id="reading-dab-story-2026-11-24-m02"></span>
+
+## 6. GLM‑5.4 trades more repeated depth for the same parameters
+
+<!-- reader-release:start -->
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New development</span><span title="Reading time uses verified publisher metadata when available; otherwise it is estimated from the linked source’s main text at 200 words per minute. Navigation and unrelated promotional material are excluded. Unavailable means a reliable reading-time estimate has not been verified.">Source article · about 6 min read</span></div><p class="recency-disclosure"><strong>Originally published:</strong> 23 Nov 2026</p></aside>
+<!-- reader-release:end -->
+
+**Focus: Technical AI Engineering**
+
+**Date:** November 23, 2026
+
+**Topics:** Loop transformers, Inference compute, Coding models
+
+<span class="story-data" data-story-id="dab-story-2026-11-24-m02" data-story-url="/stories/2026-11-24/nov24-t2-glm54-loop/" hidden></span>
+
+<a href="{{ '/stories/2026-11-24/nov24-t2-glm54-loop/' | relative_url }}" data-item-id="dab-story-2026-11-24-m02" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent story page</a>
+
+**Evidence:** Publisher Authored  
+**Availability:** Available
+
+![Illustration pending for GLM‑5.4 trades more repeated depth for the same parameters. Planned illustration: A compact transformer block loops through repeated reasoning passes while gauges compare parameter count, inference time, coding accuracy and runaway reflection.](https://gttome.github.io/Daily-AI-Brief-Compiler/briefs/images/2026-11-24/illustration-pending.svg?v=fe54b845623b)
+
+**Summary:** Z.ai describes GLM‑5.4 as a Loop Transformer that repeatedly executes a shared block, increasing reasoning depth without adding new parameters at every step. The company reports coding performance comparable with much larger parameter counts. These are first-party claims, and the post discloses a practical failure mode: repeated reflection can become unusually long even when it improves accuracy.
+
+**Why it matters:** Repeated depth changes the operating question from model size alone to how much inference time a task is allowed to consume. Evaluate completion quality, latency, loop length, tool stability and cost on your own coding workloads before adopting the claimed effective-scale comparison.
+
+<!-- reader-release:start -->
+<aside class="book-bridge"><p class="book-kicker">READ DEEPER · GENERATIVE AI PROFESSIONAL SERIES</p><h3>Reliable Generative AI Context Engineering</h3><p class="chapter">Runtime context and repeated depth — Measure loop length, context reuse, latency, quality and task-specific stopping rules.</p><p>Repeated transformer depth moves cost, latency and stopping decisions into the runtime context strategy.</p><p><a class="book-cta" href="https://leanpub.com/reliable-context-engineering" target="_blank" rel="noopener noreferrer">Get the book and explore contents ↗</a></p><p class="small-note">The link opens the Leanpub.com book webpage; chapter access requires the book.</p></aside>
+<!-- reader-release:end -->
+
+**Source:** <a href="https://z.ai/blog/glm-5.4" data-item-id="dab-story-2026-11-24-m02" data-edition-date="2026-11-24" data-action="source_clicks">GLM-5.4: Toward Generalized Coding with Our First Loop Transformer</a>
+
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-story-compiler-2026-11-24-nov24-t2-glm54-loop">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -249,27 +249,27 @@
 
 ## 7. General
 
-### ADDIE — Fine Cut
+### NVIDIA GTC Studio | With Insights from Microsoft
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Evergreen AI video</span></div></aside>
 <!-- reader-release:end -->
 
-<a href="{{ '/videos/2026-11-23/general/' | relative_url }}" data-item-id="dab-video-2026-11-23-general" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** Fine Cut / PBS  
-**Date:** September 23, 2026  
-**Duration:** 11:36 · Longer selection today: no suitable video of 10 minutes or less was found.  
+<a href="{{ '/videos/2026-11-24/general/' | relative_url }}" data-item-id="dab-video-2026-11-24-general" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent video page</a>  
+**Channel:** NVIDIA GTC  
+**Date:** March 1, 2026  
+**Duration:** 13:27 · Longer selection today: no suitable video of 10 minutes or less was found.  
 **Format:** Video
 
-**Summary:** Reviewed the complete 11:36 narrative short and transcript in which a young woman turns to an AI assistant promising order, then confronts dependency, control and personal agency. Independent public-media narrative short with no product sale, vendor demonstration or undisclosed commercial claim.
+**Summary:** This 13:27 GTC Studio interview with Microsoft discusses AI infrastructure, manufacturing workflows and deployment tradeoffs. The program is useful as an operator account, while performance and adoption claims remain explicitly attributed to NVIDIA and Microsoft.
 
-**Why it matters:** Use the short film to identify where a helpful assistant crosses into dependency: list delegated decisions, retained agency, consent boundaries, override controls and a human support path.
+**Why it matters:** Use the interview to draft an infrastructure decision record that names workload, latency, data-boundary and operating constraints; require independent measurements before accepting vendor outcome claims.
 
 
 
-**Source:** <a href="https://www.pbs.org/video/addie/" data-item-id="dab-video-2026-11-23-general" data-edition-date="2026-11-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Fine Cut / PBS</a>
+**Source:** <a href="https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/" data-item-id="dab-video-2026-11-24-general" data-edition-date="2026-11-24" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on NVIDIA GTC</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-video-compiler-2026-11-23-general">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-video-compiler-2026-11-24-general">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -280,27 +280,27 @@
 
 ## 8. Agents for Everyone
 
-### SpecGuard: Automated Fit Audit for Factory Samples
+### Can AI show us how language works?
 
 <!-- reader-release:start -->
 <aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Evergreen AI video</span></div></aside>
 <!-- reader-release:end -->
 
-<a href="{{ '/videos/2026-11-23/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-23-agent-skills" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent video page</a>  
-**Channel:** Jillian Krebsbach / AI Tinkerers NYC  
-**Date:** November 8, 2026  
-**Duration:** 4:28  
+<a href="{{ '/videos/2026-11-24/agent-skills/' | relative_url }}" data-item-id="dab-video-2026-11-24-agent-skills" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent video page</a>  
+**Channel:** TED  
+**Date:** October 30, 2025  
+**Duration:** 13:00 · Longer selection today: no suitable video of 10 minutes or less was found.  
 **Format:** Video
 
-**Summary:** Reviewed the complete 4:28 practitioner demo showing an apparel fit auditor calculate measurement variances, separate noise from pass-or-fail gaps, cite open questions and hold the final write for human approval. Independent hackathon practitioner demonstration with disclosed synthetic factory data and no product sale; operational claims remain bounded to the shown workflow.
+**Summary:** Jennifer Hu’s 13:00 research talk describes how controlled tests on language models can probe hypotheses about language. The talk carefully separates what model behavior can reveal from stronger claims about how people think.
 
-**Why it matters:** Separate the workflow into model judgment, deterministic variance calculations, evidence citations and the human approval gate; test each boundary on a known sample before adapting it to production work.
+**Why it matters:** When using a model as a research instrument, write the hypothesis, intervention and observable result first, then state which human-cognition conclusions the experiment cannot support.
 
 
 
-**Source:** <a href="https://www.loom.com/share/5a1ae1ca622f40eb81c2c40fd4cae33b" data-item-id="dab-video-2026-11-23-agent-skills" data-edition-date="2026-11-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on Jillian Krebsbach / AI Tinkerers NYC</a>
+**Source:** <a href="https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026" data-item-id="dab-video-2026-11-24-agent-skills" data-edition-date="2026-11-24" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Watch on TED</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-video-compiler-2026-11-23-agent-skills">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-video-compiler-2026-11-24-agent-skills">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -309,70 +309,70 @@
 
 ## Worth Listening — Podcasts
 
-<span id="podcast-dab-podcast-2026-11-23-1"></span>
+<span id="podcast-dab-podcast-2026-11-24-1"></span>
 
-### 9. Gemini and the path to AGI with Koray Kavukcuoglu
+### 9. Artificial intelligence and creative professions: threats or opportunities?
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI podcast episode fallback</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New AI podcast episode</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-23-1" data-podcast-title="Gemini and the path to AGI with Koray Kavukcuoglu" data-podcast-url="/podcasts/2026-11-23/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-24-1" data-podcast-title="Artificial intelligence and creative professions: threats or opportunities?" data-podcast-url="/podcasts/2026-11-24/artificial-intelligence-and-creative-professions-threats-or-opportunities/" hidden></span>
 
-<a href="{{ '/podcasts/2026-11-23/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/' | relative_url }}" data-item-id="dab-podcast-2026-11-23-1" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-11-24/artificial-intelligence-and-creative-professions-threats-or-opportunities/' | relative_url }}" data-item-id="dab-podcast-2026-11-24-1" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** Google DeepMind: The Podcast  
+**Show:** ILO Future of Work Podcast  
 **Focus:** Agents for Everyone  
-**Date:** November 19, 2026  
-**Duration:** 46:57  
+**Date:** November 23, 2026  
+**Duration:** 21:22  
 
-**Summary:** Hannah Fry interviews Koray Kavukcuoglu about Gemini’s development, scaling, scientific applications and the uncertainty surrounding AGI timelines. The complete transcript and timecoded chapters expose both technical claims and leadership judgment. Because the guest leads Google DeepMind, claims about capability and trajectory remain first-party perspectives rather than independent forecasts.
+**Summary:** Margherita Licata and Mathilde Pavis discuss how generative systems reorganize creative tasks, affect rights and remuneration, and change collective bargaining. The episode supplies legal and labor-policy context without converting individual worker cases into an industry employment statistic.
 
-**Why it matters:** Map each major claim to its evidence type: released system behavior, internal experiment, strategic judgment or forecast. Seek independent evaluation before turning a leadership prediction into a roadmap assumption.
+**Why it matters:** Use the episode to build an adoption checklist covering task change, data and likeness rights, credit, remuneration, worker voice and a route for disputes.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://podcasts.apple.com/us/podcast/gemini-and-the-path-to-agi-with-koray-kavukcuoglu/id1476316441?i=1000802991291" data-item-id="dab-podcast-2026-11-23-1" data-edition-date="2026-11-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Google DeepMind: The Podcast</a>
+**Listen / watch:** <a href="https://podcast.ilo.org/episode/artificial-intelligence-and-creative-professions-threats-or-opportunities" data-item-id="dab-podcast-2026-11-24-1" data-edition-date="2026-11-24" data-action="source_clicks" target="_blank" rel="noopener noreferrer">ILO Future of Work Podcast</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-podcast-compiler-2026-11-23-1">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-podcast-compiler-2026-11-24-1">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
   <span class="feedback-status" aria-live="polite"></span>
 </div>
 
-<span id="podcast-dab-podcast-2026-11-23-2"></span>
+<span id="podcast-dab-podcast-2026-11-24-2"></span>
 
-### 10. Can Anthropic afford to put safety first?
+### 10. When Everyone Has the Same AI, What’s Left of Your Moat? with Bobby Steinbach
 
 <!-- reader-release:start -->
-<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">Recent AI podcast episode fallback</span></div></aside>
+<aside class="reading-context" aria-label="Reading context"><div class="reading-meta"><span class="coverage-label">New AI podcast episode</span></div></aside>
 <!-- reader-release:end -->
 
-<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-23-2" data-podcast-title="Can Anthropic afford to put safety first?" data-podcast-url="/podcasts/2026-11-23/can-anthropic-afford-to-put-safety-first/" hidden></span>
+<span class="podcast-data" data-podcast-id="dab-podcast-2026-11-24-2" data-podcast-title="When Everyone Has the Same AI, What’s Left of Your Moat? with Bobby Steinbach" data-podcast-url="/podcasts/2026-11-24/when-everyone-has-the-same-ai-what-s-left-of-your-moat-with-bobby-steinbach/" hidden></span>
 
-<a href="{{ '/podcasts/2026-11-23/can-anthropic-afford-to-put-safety-first/' | relative_url }}" data-item-id="dab-podcast-2026-11-23-2" data-edition-date="2026-11-23" data-action="permanent_page_clicks">Open the permanent podcast page</a>
+<a href="{{ '/podcasts/2026-11-24/when-everyone-has-the-same-ai-what-s-left-of-your-moat-with-bobby-steinbach/' | relative_url }}" data-item-id="dab-podcast-2026-11-24-2" data-edition-date="2026-11-24" data-action="permanent_page_clicks">Open the permanent podcast page</a>
 
-**Show:** Decoder with Nilay Patel  
+**Show:** The Artificial Intelligence Podcast  
 **Focus:** Agents for Everyone  
-**Date:** November 21, 2026  
-**Duration:** 37:00  
+**Date:** November 23, 2026  
+**Duration:** 26:00  
 
-**Summary:** Decoder examines whether Anthropic’s corporate structure, financing pressures and safety commitments can remain aligned as the company scales. The complete transcript separates governance mechanisms from public positioning and compares incentives around investors, competition and deployment. The episode is analysis, not an audit, so its structural questions should guide verification rather than settle the company’s conduct.
+**Summary:** Jonathan Green interviews MeanPug Digital’s Bobby Steinbach about what remains differentiated when firms rent the same foundation models. Steinbach argues for domain process, frontline-built tools and channel choices based on how fuzzy a customer need is, while challenging AI citation-monitoring claims that cannot be measured consistently.
 
-**Why it matters:** For one provider, list governance commitments, decision rights, investor pressures, enforcement mechanisms and public evidence of a costly safety choice. Treat mission language without observable constraints as a question, not proof.
+**Why it matters:** Audit one AI initiative by asking which advantage survives model access: proprietary process, domain judgment, workflow data, distribution or customer trust. Remove metrics that cannot be reproduced and move tooling closer to the people doing the work.
 
 
 
 **Coverage:** Selected for this edition.
 
 
-**Listen / watch:** <a href="https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure" data-item-id="dab-podcast-2026-11-23-2" data-edition-date="2026-11-23" data-action="source_clicks" target="_blank" rel="noopener noreferrer">Decoder with Nilay Patel</a>
+**Listen / watch:** <a href="https://artificialintelligencepod.com/when-everyone-has-the-same-ai-whats-left-of-your-moat-with-bobby-steinbach/" data-item-id="dab-podcast-2026-11-24-2" data-edition-date="2026-11-24" data-action="source_clicks" target="_blank" rel="noopener noreferrer">The Artificial Intelligence Podcast</a>
 
-<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-23" data-feedback-story-id="dab-podcast-compiler-2026-11-23-2">
+<div class="story-feedback story-feedback-compact star-feedback" data-feedback-scale="stars" data-feedback-brief-date="2026-11-24" data-feedback-story-id="dab-podcast-compiler-2026-11-24-2">
   <span class="feedback-prompt">How useful was this?</span>
   <div class="feedback-buttons" role="group" aria-label="Rate usefulness from 1 to 5 stars"><button type="button" data-feedback-rating="1" title="1 — Not useful" aria-label="1 star: Not useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="2" title="2 — Slightly useful" aria-label="2 stars: Slightly useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="3" title="3 — Useful" aria-label="3 stars: Useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="4" title="4 — Very useful" aria-label="4 stars: Very useful" aria-pressed="false">☆</button><button type="button" data-feedback-rating="5" title="5 — Extremely useful" aria-label="5 stars: Extremely useful" aria-pressed="false">☆</button></div>
   <span class="feedback-privacy">Anonymous feedback. No name or email collected.</span>
@@ -389,7 +389,7 @@
 
 ## Editorial takeaway
 
-Formal proof artifacts can make assumptions and dependencies inspectable, but size is not credibility. Review the isolated statement, imported axioms, build reproducibility and independent mathematical audits before treating a machine-checked library as settlement of a longstanding theorem.
+A common measurement can support coordination only if labs can compare procedures without leaking evaluation data or treating one curve as all capability. Track the dataset protocol, uncertainty, model-family comparability and the milestones that would justify changing any proposed limit.
 
 <!-- reader-release:start -->
 <aside class="series-invitation" id="explore-series"><p class="book-kicker">CONTINUE LEARNING</p><h2>Explore the Generative AI Professional Series</h2><p>Take the next step from today’s developments to deeper professional learning with books on prompting, context, and reliable AI.</p><p><a class="book-cta" href="https://leanpub.com/u/george-tome" target="_blank" rel="noopener noreferrer">Explore the books ↗</a></p><p class="small-note">Purchasing a book supports continued development of the series and the Daily Generative AI Brief.</p></aside>
