@@ -6,7 +6,12 @@ export const HEALTH_SCHEMA='daily-compiler-publication-health-v1';
 const states=new Set(['BLOCKED_PUBLICATION','READER_VERIFIED']);
 const date=/^20\d\d-\d\d-\d\d$/;
 const gate=/^[A-Z][A-Z_]{2,60}$/;
-export function nextPublicationHealth({previous=null,editionDate,status,stage,runUrl,observedAt}){
+export function semanticFailureDetail(log,sourceHead){
+  const error=log.split(/\r?\n/).find(line=>line.startsWith('Error: '));
+  if(!error||!/^[a-f0-9]{40}$/.test(sourceHead||''))return null;
+  return {error:error.slice(7,1007),source_head:sourceHead};
+}
+export function nextPublicationHealth({previous=null,editionDate,status,stage,runUrl,observedAt,semanticFailure=null}){
   if(!date.test(editionDate)||!states.has(status)||!gate.test(stage)||
      typeof runUrl!=='string'||!/^https:\/\/github\.com\/gttome\/Daily-AI-Brief-Compiler\/actions\/runs\/\d+$/.test(runUrl)||
      !Number.isFinite(Date.parse(observedAt)))throw new Error('publication_health_invalid_event');
@@ -15,7 +20,9 @@ export function nextPublicationHealth({previous=null,editionDate,status,stage,ru
   const events=[...(previous?.events||[])];
   if(events.some(e=>e.status===status&&e.stage===stage&&e.run_url===runUrl))return previous;
   if(status==='READER_VERIFIED'&&stage!=='READER_PUBLICATION')throw new Error('reader_verified_must_identify_reader_publication');
-  events.push({status,stage,run_url:runUrl,observed_at:observedAt});
+  const detail=status==='BLOCKED_PUBLICATION'&&stage==='SEMANTIC_PREFLIGHT'&&semanticFailure?
+    {validator_failure:semanticFailure}:{};
+  events.push({status,stage,run_url:runUrl,observed_at:observedAt,...detail});
   const lastBlock=[...events].reverse().find(e=>e.status==='BLOCKED_PUBLICATION');
   const blocked=status==='BLOCKED_PUBLICATION';
   const plan={
@@ -29,7 +36,7 @@ export function nextPublicationHealth({previous=null,editionDate,status,stage,ru
     PUBLICATION_PIPELINE:'Inspect first failed protected stage and retry only safe idempotent operations.'
   };
   return {schema_version:HEALTH_SCHEMA,edition_date:editionDate,status,observed_at:observedAt,
-    events,outstanding_blocker:blocked?{stage,run_url:runUrl,
+    events,outstanding_blocker:blocked?{stage,run_url:runUrl,...detail,
       first_observed_at:previous?.status==='BLOCKED_PUBLICATION'&&previous.outstanding_blocker?.stage===stage?
         previous.outstanding_blocker.first_observed_at:observedAt,
       next_action:plan[stage]||'Inspect original failed Action and preserve completed stages.'}:null,
@@ -39,10 +46,12 @@ export function nextPublicationHealth({previous=null,editionDate,status,stage,ru
     evidence_limit:'GitHub Action observation only, not a new AI executor, invocation proof or successful image release.'};
 }
 function main(){
- const [file,editionDate,status,stage,runUrl]=process.argv.slice(2);
+ const [file,editionDate,status,stage,runUrl,logPath,sourceHead]=process.argv.slice(2);
  if(!file||!editionDate||!status||!stage||!runUrl)throw new Error('usage: record-publication-health <file> <date> <BLOCKED_PUBLICATION|READER_VERIFIED> <GATE> <run_url>');
  const previous=fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')):null;
- const next=nextPublicationHealth({previous,editionDate,status,stage,runUrl,observedAt:new Date().toISOString()});
+ const semanticFailure=stage==='SEMANTIC_PREFLIGHT'&&logPath&&fs.existsSync(logPath)?
+   semanticFailureDetail(fs.readFileSync(logPath,'utf8'),sourceHead):null;
+ const next=nextPublicationHealth({previous,editionDate,status,stage,runUrl,observedAt:new Date().toISOString(),semanticFailure});
  fs.mkdirSync(path.dirname(file),{recursive:true});
  fs.writeFileSync(file,JSON.stringify(next,null,2)+'\n');
  console.log(JSON.stringify({result:'PUBLICATION_HEALTH_RECORDED',edition_date:editionDate,status,stage,blocked:!!next.outstanding_blocker}));
