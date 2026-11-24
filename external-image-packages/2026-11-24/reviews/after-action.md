@@ -1,6 +1,6 @@
 # 2026-11-24 premium image after-action report
 
-**Status: PACKAGE_READY_LIVE_VERIFICATION_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,9 +11,9 @@
 | First accepted binary commit | f45c152be07537caa653298059930d7b62c3d409 |
 | Executor observed run start | 2026-11-24T03:16:32Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-24T03:25:46Z (observed before tool call) |
-| Public release | PENDING |
-| Public verified time | Not recorded |
-| Final saved-context review | PENDING; 0 targets |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-24T03:58:37Z |
+| Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
 ## Per-story effort
@@ -85,7 +85,7 @@ Job SHA-256: b64a517e1bc388f5f0edbb2b292585941dd27edae30d5b50991689072f71534d. O
 
 The actual generation start is 2026-11-24T03:25:46Z; its provenance is executor_observed_before_first_native_call. No precise active native runtime is inferred.
 
-Visual review path: external-image-packages/2026-11-24/reviews/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
+Visual review path: external-image-packages/2026-11-24/reviews/live/semantic-pixel-review.json. Real pixel inspection is required; neither workflow success nor screenshot counts imply visual PASS.
 
 Observed first-pass result is 0/6; 13 calls exceed advisory eight. Neither efficiency goal is met. Quality gates were retained and no accepted PNG was regenerated.
 
@@ -96,5 +96,7 @@ The original November 20–22 IMG19 experiment is not restarted. Its November 22
 Final Top 10 image-impact table: https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-24/reviews/top10-impact.md . Three exact final-source article matches; issuer and Atelier URLs differ, and no mapping for the final Go story is recorded. No new search or causal benefit is claimed.
 
 Six visibly distinct material treatments were reviewed as individual illustrations: watercolor specimen, engraving, paper relief, lithographic case braid, matte ceramic section and graphite proof sheet. Full source distinctions, mobile limitations and actual margins are recorded per story.
+
+All 24 actual desktop/mobile screenshots were inspected from the exact 9,910,286-byte release evidence artifact after its digest was verified. Six live SHA-256 values, twelve dated/permanent pairings, homepage bindings and all seventeen protected October 8 objects match. Final individual image bytes and manifest remain unchanged.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
