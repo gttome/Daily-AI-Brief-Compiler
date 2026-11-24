@@ -179,6 +179,11 @@
       "phase": "Local browser capture",
       "issue": "Playwright browser absent; system Chromium launch aborted because socket() was Operation not permitted.",
       "correction": "Use the existing protected release runner for actual 24-context captures and inspect its completed artifact; no local capture PASS is asserted."
+    },
+    {
+      "phase": "Closeout reporting",
+      "issue": "Worker receipt used generation_count and object-shaped accepted_hashes; the reconciler requires actual_generation_count and six SHA strings.",
+      "correction": "Added canonical actual_generation_count=13 and six SHA strings, retaining all story-keyed rows, original observations and accepted image bytes."
     }
   ],
   "publication": {
