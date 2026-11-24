@@ -33,8 +33,8 @@
     "AI Tinkerers"
   ],
   "preferred_final_families": [
-    "World Science Festival",
-    "AI Engineer"
+    "TED",
+    "Breaking the Deadlock / PBS"
   ],
   "prior_four_news_cap_review": [
     {
@@ -220,27 +220,47 @@
   ],
   "reserve_outcomes": [
     {
-      "candidate_id": "VID-IBM-AGENT-LOOPS-R24",
-      "publisher": "IBM Technology",
-      "url": "https://www.youtube.com/watch?v=4LINhsEZEDI",
+      "candidate_id": "VID-NVIDIA-GTC-MICROSOFT",
+      "publisher": "NVIDIA GTC",
+      "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
       "status": "protected_pending",
       "replacement_order": 1
     },
     {
-      "candidate_id": "VID-NVIDIA-GTC-MICROSOFT",
-      "publisher": "NVIDIA GTC",
-      "url": "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
-      "status": "editorially_qualified_protected_pending",
+      "candidate_id": "VID-TED-LANGUAGE",
+      "publisher": "TED",
+      "url": "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026",
+      "status": "protected_pending",
       "replacement_order": 2
+    },
+    {
+      "candidate_id": "VID-PBS-AI-NEXT-DECADE",
+      "publisher": "Breaking the Deadlock / PBS",
+      "url": "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/",
+      "status": "protected_pending",
+      "replacement_order": 3
     }
   ],
   "replacement_order": [
-    "VID-IBM-AGENT-LOOPS-R24",
-    "VID-NVIDIA-GTC-MICROSOFT"
+    "VID-NVIDIA-GTC-MICROSOFT",
+    "VID-TED-LANGUAGE",
+    "VID-PBS-AI-NEXT-DECADE"
   ],
   "final_selected_urls": [
-    "https://www.worldsciencefestival.com/videos/has-ai-solved-maths-pinnacle-problem/",
-    "https://ai.engineer/code/2026/talks/armin-ronacher"
+    "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026",
+    "https://www.pbs.org/video/ai-and-the-next-decade-8ef8z8/"
   ],
-  "decision": "PROVISIONAL pending exact protected request receipt PASS; no news program is eligible this edition."
+  "decision": "Second protected request: three archive-clear non-news publisher-native programs after YouTube/embed failures; recent TED/PBS exposure is an explicit fallback cost.",
+  "failed_attempts": [
+    {
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45307461777",
+      "programs": [
+        "Has AI Solved Math’s Pinnacle Problem?",
+        "The Software Atelier",
+        "4 Types of AI Agent Loops: From Human-Led to Autonomous"
+      ],
+      "reason": "World Science Festival and AI Engineer exposed no advancing duration-matched player; IBM required YouTube sign-in and its privacy embed did not advance.",
+      "result": "BLOCKED"
+    }
+  ]
 }
