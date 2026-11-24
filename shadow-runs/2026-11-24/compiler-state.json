@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-24",
   "execution_id": "daily-ai-brief-compiler-2026-11-24",
-  "state": "RESEARCH",
-  "stage": "RESEARCH",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "41021701d379587e0d24db27622b6aca65d99af6",
   "branch": "shadow/2026-11-24",
   "initial_execution_observed_at": "2026-11-24T01:25:11.101Z",
   "started_at": "2026-11-24T01:25:11.101Z",
-  "updated_at": "2026-11-24T02:05:30.000Z",
+  "updated_at": "2026-11-24T02:15:30.000Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -24,7 +24,7 @@
     "video_receipt": "shadow-runs/2026-11-24/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -35,33 +35,30 @@
   },
   "continuation": {
     "owner": "sole existing editorial task",
-    "next_action": "Wait for exact protected preseal receipt; replace only failed program while preserving completed research.",
+    "next_action": "Protected bundle-ready signal, protected-main compile, Pages deployment and independent live-reader verification.",
     "recovery_guard": null
   },
-  "selection_locked_at": null,
-  "sealed_at": null,
+  "selection_locked_at": "2026-11-24T02:15:00.000Z",
+  "sealed_at": "2026-11-24T02:15:30.000Z",
   "retryable": true,
   "last_error": null,
   "bundle": {
-    "status": "DRAFT",
-    "digest": null
+    "status": "BUNDLE_READY",
+    "digest": "f68ffe90056e1b20cc1e32dfd41eeacc5a093c1c033d872dbe308efd33cd4aea"
   },
   "editorial_bundle": {
-    "status": "DRAFT",
-    "stories": 6,
-    "videos": 2,
-    "podcasts": 2,
-    "watchlist_refreshed": true
+    "status": "complete",
+    "digest": "f68ffe90056e1b20cc1e32dfd41eeacc5a093c1c033d872dbe308efd33cd4aea"
   },
   "bundle_path": "shadow-runs/2026-11-24/edition-bundle.json",
-  "bundle_sha256": null,
+  "bundle_sha256": "f68ffe90056e1b20cc1e32dfd41eeacc5a093c1c033d872dbe308efd33cd4aea",
   "postpublication_correction": null,
   "preview": {
     "url": null,
-    "bundle_digest": null
+    "bundle_digest": "f68ffe90056e1b20cc1e32dfd41eeacc5a093c1c033d872dbe308efd33cd4aea"
   },
   "reader_parity": {
-    "result": "PENDING",
+    "result": "PENDING_PROTECTED_WORKFLOW",
     "image_representation": "images_pending",
     "october8_public_objects_preserved": "pending_protected_verification",
     "contract": "v2026-11-03.2",
