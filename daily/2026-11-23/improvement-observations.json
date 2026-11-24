@@ -1,0 +1,965 @@
+{
+  "schema_version": "daily-aar-improvement-observations-v1",
+  "edition_date": "2026-11-24",
+  "cycle_date": "2026-11-23",
+  "evidence_hashes": {
+    "compile-receipt.json": "717aa7ca823890a890567b0cecff6ea637b6a8d43f31159fbb30d2c79c4298d0",
+    "compiler-state.json": "d170ba27288dd1044a85fc3bb7a1b06e841ec849a138c629ed1b4129cb0faafb",
+    "edition-bundle.json": "29bb7f5a5886a51364a1f67fb9f7de09ffc230b7d836f4ec427f5d908c497f33",
+    "execution-milestones.json": "0a2976214676ed96cfdf69a30c31735283ec39fff397046d353dd227438a2f14",
+    "fallback-search-evidence.json": "1328ec3d070c39b8dc593dd4eeadf2ba5d69962204a9aec2735886b5c6ac913c",
+    "image-after-action.json": "e898c45b372fe59e5304243d66dcbb7e4ec23029d1aa363305777e47727cf283",
+    "image-job.json": "b64a517e1bc388f5f0edbb2b292585941dd27edae30d5b50991689072f71534d",
+    "image-manifest.json": "f12f571cdbf0864c84cc352d048e5788364451863848cec7d338ce17e4ae3897",
+    "image-recurring-assignment.json": "bb231fcb58950fee1110ecc11f85285b719a0178ed1e8ca86529a6e1839f96d3",
+    "image-route-preflight.json": "82a476f8892e17bced25ef1fc52d47632f0a577e10e4d03350c60e8e4a861d9e",
+    "image-timing.json": "fe14f701cbf23750f469cce11a1e1b10dce1a06ce4bec0e35595cafd3635d47f",
+    "image-worker-state.json": "3197345bbe695e44f22a64bfc0aeff38eedb04b3dc4ff7eca1012ebe93e4b7a2",
+    "postpublish-integrity.json": "8476309274d7965c36c41a156f9e6898e283aa2c62d42f2a8cc5d5d547968233",
+    "postpublish-video-playback.json": "e4b34f950a1d4b47e0459fe6474dd9dfb4f1e58052c5c70ad242f891c601b3d1",
+    "preseal-video-attempts.json": "4547926aa469090bf69ce3c45294a351733407903f4c862b3b833f832c223c7a",
+    "publication-health.json": "151c92116739f4f09aefc005a650b64c59cb12277f3d8f544386f2b340a3bbca",
+    "published-watchlist.json": "be34c9d241a51377dc875ddae83b97bf7799a188d745e5d058c9cb5da7c42b71",
+    "recovery-receipt.json": "f1a6c6f443b4b342fb67a551b5773143c65dbcfb3b85b16a53ebe7cf280f2a40",
+    "scientific-paper-coverage.json": "2a89738656a141ce896ca9a3594798ab19a2c0b4d9949162515eae09825906d1",
+    "source-item-census.json": "191b5be31ea7be8662a37ead90aff1eb6e41c5d1aab7da56aeecada45880edf6",
+    "source-item-retries.json": "3aff49dfd23aa62b4d346d6fc8d90879e62ed546a4cae9ed09e1a7161b3bce1f",
+    "top10-after-action.json": "923c2d4bb2feddce4025452696db0452f6efb5147ddd3627daa0741e8e0d50fd",
+    "top10-baseline.json": "bcb0e6514cc428837f729b3590505394e8051610aa9cf8eaa8cd9544bcba2a37",
+    "top10-outcome-baseline.json": "c17bf2b7b954838b40b9a8ea71ac49ebd1c7a87a802ba5909c2d5ae4b2cdc4bc",
+    "top10-previous-aar.json": "132cf047470b349e7a6b5e02a6a900afbcaba0b1a4197b654ed6dfddcc84f8e0",
+    "top10-previous-report.json": "0448b621989d59e8a4481477f2448c97decf2c13057e20ba95e3baebacc3c193",
+    "top10-report-source.json": "d839bbf9ac1fc391ed8671353d263a3224cc3f56df002df16a9cfe7fe4e7f199",
+    "top10-report.json": "93666c31516ddf53f7ef974291cbdb0b64dbab8237b0134d37fcf9d2d68d7bf2",
+    "trend-consumed-verification.json": "e7c8b51a6ee0d153f5e9c200b74f75135a89a6c56be7007d5e6b797dbeca6494",
+    "trend-input.json": "c554ca072cbda125d5dee6995fa90714326e0460ac5104b46a9fbead9521c178",
+    "trend-search-coverage.json": "b115a0fbe45dec9ba531fa29a3b257e995e9ad6c6e4c3d007a496d8dc7422318",
+    "video-playback-failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "production_state": {
+    "compiler": "VERIFIED",
+    "premium_images": "RELEASE_NOT_VERIFIED",
+    "top10_search": "INVALID",
+    "autonomy": "UNPROVEN"
+  },
+  "registry_sha256": "4898971b63308df4a8f9a4ae3cc405fc866302a731b985ce5c14c972b7947241",
+  "source_set_sha256": "6b8bd0184d19a52675e4ed48002eead3a33b62f695bdc2e82b30e28ca68ed3f7",
+  "eligible_resource_ids": [
+    "acl-anthology",
+    "anthropic",
+    "anthropic-news",
+    "article-databricks-ai-research",
+    "article-ibm-research-ai",
+    "article-nvidia-technical-ai",
+    "arxiv-cs-ai",
+    "arxiv-cs-cl",
+    "arxiv-cs-lg",
+    "berkeley-bair",
+    "deepseek-news",
+    "github-ai-agents",
+    "github-generative-ai",
+    "github-llm",
+    "github-trending",
+    "google-deepmind-blog",
+    "hacker-news-newest",
+    "hacker-news-show",
+    "hugging-face-daily-papers",
+    "hugging-face-datasets",
+    "hugging-face-models",
+    "hugging-face-spaces",
+    "iclr",
+    "icml",
+    "meta-ai-blog",
+    "mistral-news",
+    "mit-csail",
+    "neurips",
+    "openai-news",
+    "openreview",
+    "podcast-a16z-show",
+    "podcast-agora-briefing",
+    "podcast-ai-daily-brief",
+    "podcast-ai-for-humans",
+    "podcast-ai-future-work",
+    "podcast-ai-inside",
+    "podcast-artificial-intelligence-show",
+    "podcast-cognitive-revolution",
+    "podcast-data-exchange",
+    "podcast-everyday-ai",
+    "podcast-eye-on-ai",
+    "podcast-gradient-dissent",
+    "podcast-latent-space",
+    "podcast-no-priors",
+    "podcast-nvidia-ai",
+    "podcast-practical-ai",
+    "podcast-twiml",
+    "qwen-blog",
+    "reddit-localllama",
+    "reddit-machinelearning",
+    "specialized-discords",
+    "stanford-hai",
+    "the-batch",
+    "x-research-feeds",
+    "xai-news",
+    "youtube-anthropic",
+    "youtube-google-deepmind",
+    "youtube-openai",
+    "research-20261026-a01",
+    "research-20261026-a03",
+    "research-20261026-a04",
+    "research-20261026-a05",
+    "research-20261026-a06",
+    "research-20261026-a07",
+    "research-20261026-a08",
+    "research-20261026-a09",
+    "research-20261026-a10",
+    "research-20261026-a11",
+    "research-20261026-a12",
+    "research-20261026-a13",
+    "research-20261026-a14",
+    "research-20261026-v01",
+    "research-20261026-v02",
+    "research-20261026-v03",
+    "research-20261026-v04",
+    "research-20261026-v05",
+    "research-20261026-v06",
+    "research-20261026-v07",
+    "research-20261026-p01",
+    "research-20261026-p02",
+    "research-20261026-p03",
+    "research-20261026-p04",
+    "research-20261026-p05",
+    "research-20261026-p06",
+    "research-20261026-p07",
+    "deep-20261026-a01-google-research",
+    "deep-20261026-a02-microsoft-ai",
+    "deep-20261026-a03-nvidia-news",
+    "deep-20261026-p01-lex",
+    "deep-20261026-p02-data-skeptic",
+    "deep-20261026-v01-two-minute-papers",
+    "directory-935fbe5ba89ff5f91fc8c69b",
+    "directory-411bf5f837e28f35220736eb",
+    "directory-fd36049347d409f38c9f9a67",
+    "directory-3ccc18a956cae0b1e24b5968",
+    "directory-242c2a2fc81a43d41f199129",
+    "directory-30c771704ce20d310317aee8",
+    "directory-9ad7c274f2d56274bcd5ddcc",
+    "directory-581aeefb9198185f59bfc7df",
+    "directory-6e0e32e58ba2e488ad8c4c61",
+    "directory-3c29ebc2d9cbcc9f11312e28",
+    "directory-6fc2c16051b6c5876b5c143e",
+    "directory-cc8c40e66ad241091baabb53",
+    "directory-c511698feee38a8793924c12",
+    "directory-dbb55a0c7c63ce90174a69ac",
+    "directory-bb4f514f62ba0e0a08d6af6b",
+    "directory-e645db24d69ee7a0f21d8767",
+    "directory-85ee8e554a07476bacde4af4",
+    "directory-8b0eaafedc559312fb655fc6",
+    "directory-6bb864602986d830dee61c52",
+    "directory-207b781e953be997d6f84c93",
+    "directory-22bfce3172fd5a67ebfcdde4",
+    "directory-9daf9da90f479955fe3e7700",
+    "directory-c6b8a33e7fa162cc41136fa5",
+    "directory-dbdbb37cd61bd05d3daa5975",
+    "directory-c15ce5b4a9c1e9e23b12e5c5",
+    "directory-d7d6951e0913cca8d43e64dc",
+    "directory-86ca1c8904dd91903440c2a9",
+    "directory-8ff038a44faf8336fd28b74b",
+    "directory-a74f303f4b0c39344c1314cf",
+    "directory-9c0885bdb370f69c9262b88c",
+    "directory-9d99ff8f4466a1f65bfc4917",
+    "directory-64f0886a6793aa8858a4b62d",
+    "directory-055badde01b32d19771532e7",
+    "directory-a65ed82afa514bd8b255231d",
+    "directory-88944f584a55367d3844df62",
+    "directory-76ddf221aa9a485fd35e51d6",
+    "directory-8ec4fd458a38bc0447f4cded",
+    "directory-6ea6e283349c7b62ac1ced9d",
+    "directory-3c8435418a50bbe5096c415b",
+    "directory-f333686bf009f24fa95a8068",
+    "directory-a639b4426b7c8da8a060bd66",
+    "directory-e09ae3dc4358cf271491a3ac",
+    "directory-d6cf3f9fa167b8173a35228b",
+    "directory-ffef3b45859d4601fbc60c69",
+    "directory-8df3614a9972a25fc59475ed",
+    "directory-8f73fa03dd8761b82ed67771",
+    "directory-d4bdf42a0b23db56b0e5a7b1",
+    "directory-b51c54b09007109b0ed9dd27",
+    "directory-f771d4f56ad4dbaab6f21e0e",
+    "directory-985e561bc559a1cd2b93119f",
+    "directory-64b811560a52e317d4a76b1f",
+    "directory-5e90c3904ae9e6147f058897",
+    "directory-0be5c22bd2fbf2c24835cdf8",
+    "directory-2f92b46f1e169255a4c25763",
+    "directory-1c6f5db2559c3c226a112873",
+    "directory-b93e2368e85f0f95c066463e",
+    "directory-d5428d030dfff7d4639258e3",
+    "directory-79e16cd5beb5c662c4022a9f",
+    "directory-e7b100b6b999ac748e052327",
+    "directory-4c16d138c4a736e78a68127e",
+    "directory-ecf69ec2f036e803388f40ca",
+    "directory-db682c52794328eb69ebc377",
+    "directory-8263ca4c9f560c8d9c4df0de",
+    "directory-970506fbc577e6091a33c64d",
+    "directory-4852e367f74118ff2dc1eec9",
+    "directory-3834a0112c0e3a754320b557",
+    "directory-e2f33b502b264e51983a338a",
+    "directory-9f7087ce2c030a4b9da58499",
+    "directory-5c5d3d02a420135949164552",
+    "directory-48665d874f6008894d0d9385",
+    "directory-f8085f0f6e72cfbdfde3a0f8",
+    "directory-d1527db7c06b4e83370b7546",
+    "directory-06aa5423549ae7ab03534d6d",
+    "directory-b73c74c7240ac52cda5485c4",
+    "directory-7f3807ea3e16f9a7ad5c1e52",
+    "directory-54d90ff964a74ff98851ae11",
+    "directory-d8bbfa9efb621702f6eb9672",
+    "directory-89818f9d7e6b4cd85a2537d5",
+    "directory-0dffb60aadd4ba31b5c090dc",
+    "directory-c831ea242dd43dc46401a87a",
+    "directory-d2316acd033bdfbce6d25fa2",
+    "directory-3d9b47e80ca1f30e4b17fff2",
+    "universe-20261026-every-ai-editorial",
+    "video-20261120-computerphile",
+    "video-20261120-3blue1brown",
+    "video-20261120-statquest",
+    "video-20261120-ai-coffee-break",
+    "video-20261120-mit-csail-video",
+    "video-20261120-mit-embodied-intelligence",
+    "video-20261120-pytorch-foundation",
+    "video-20261120-full-stack-deep-learning"
+  ],
+  "invalid_evidence": [],
+  "metrics": {
+    "coverage_percent": 4,
+    "coverage_numerator": 8,
+    "coverage_denominator": 182,
+    "first_pass_accepted": null,
+    "image_attempts": null,
+    "top10_linked_items": null,
+    "publication_failures": 5
+  },
+  "failures": [
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "PRESEAL_VIDEO",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45306069108",
+      "observed_at": "2026-11-24T01:35:38.802Z",
+      "root_cause": "UNCLASSIFIED",
+      "cause_evidence_ref": null,
+      "documented_delay_seconds": null
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "PRESEAL_VIDEO",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45309053986",
+      "observed_at": "2026-11-24T02:00:22.259Z",
+      "root_cause": "UNCLASSIFIED",
+      "cause_evidence_ref": null,
+      "documented_delay_seconds": null
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45311406906",
+      "observed_at": "2026-11-24T02:19:21.810Z",
+      "root_cause": "UNCLASSIFIED",
+      "cause_evidence_ref": null,
+      "documented_delay_seconds": null
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "SEMANTIC_PREFLIGHT",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45311792804",
+      "observed_at": "2026-11-24T02:22:28.886Z",
+      "root_cause": "UNCLASSIFIED",
+      "cause_evidence_ref": null,
+      "documented_delay_seconds": null
+    },
+    {
+      "status": "BLOCKED_PUBLICATION",
+      "stage": "MEDIA_HISTORY",
+      "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45313653616",
+      "observed_at": "2026-11-24T02:37:34.210Z",
+      "root_cause": "UNCLASSIFIED",
+      "cause_evidence_ref": null,
+      "documented_delay_seconds": null
+    }
+  ],
+  "recovery": {
+    "status": "NOT_RECORDED",
+    "rows": []
+  },
+  "inspections": [
+    {
+      "resource_id": "openai-news",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "directory-207b781e953be997d6f84c93",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "anthropic-news",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "anthropic",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "directory-1c6f5db2559c3c226a112873",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "research-20261026-p07",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "directory-d5428d030dfff7d4639258e3",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    },
+    {
+      "resource_id": "video-20261120-computerphile",
+      "reviewed_at": "2026-11-24T02:08:00.000Z",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "source_reviews": null,
+  "source_review_missing_resource_ids": null,
+  "image_rejections": null,
+  "resilience": {
+    "status": "RECORDED",
+    "reviewed_topics": 10,
+    "weakened_topics": 8,
+    "topics": [
+      {
+        "topic_id": "openai-perplexity-safety-limits-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 3,
+        "weakened": false,
+        "removals": [
+          {
+            "family_id": "wes-roth",
+            "remaining_evidence_urls": [
+              "https://x.com/merettm/status/2124549218995949967",
+              "https://news.ycombinator.com/item?id=50601525"
+            ],
+            "attention_band": "broader",
+            "reason": "At least two separately attributed families remain; reach, audience overlap and exact relative position remain unmeasured."
+          },
+          {
+            "family_id": "merettm",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=f5_c0O_chy4",
+              "https://news.ycombinator.com/item?id=50601525"
+            ],
+            "attention_band": "broader",
+            "reason": "At least two separately attributed families remain; reach, audience overlap and exact relative position remain unmeasured."
+          },
+          {
+            "family_id": "hacker-news-community",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=f5_c0O_chy4",
+              "https://x.com/merettm/status/2124549218995949967"
+            ],
+            "attention_band": "broader",
+            "reason": "At least two separately attributed families remain; reach, audience overlap and exact relative position remain unmeasured."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "claude-alpoge-riemann-proof-announcement-nov20",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "france-24-english",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=xjX3jESpZqs"
+            ],
+            "attention_band": "limited",
+            "reason": "Removing this family leaves only one originating attention family; the sampled evidence band weakens despite its audience size."
+          },
+          {
+            "family_id": "wes-roth",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=fvN_vCRuBec"
+            ],
+            "attention_band": "limited",
+            "reason": "Removing this family leaves only one originating attention family; the sampled evidence band weakens despite its audience size."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "anthropic-ipo-close-market-explainers-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "kyla-scanlon",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=7oa-LxS68zA"
+            ],
+            "attention_band": "limited",
+            "reason": "Removing this family leaves only one originating attention family; the sampled evidence band weakens despite its audience size."
+          },
+          {
+            "family_id": "pgurus",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=Qt5F0D6E5f0"
+            ],
+            "attention_band": "limited",
+            "reason": "Removing this family leaves only one originating attention family; the sampled evidence band weakens despite its audience size."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "armin-software-atelier-renewed-attention-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "ai-engineer",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing the sole originating family leaves no event-matched attention evidence; source documents and syndication cannot substitute for it."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "inkling2-mini-launch-nov20",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 3,
+        "weakened": false,
+        "removals": [
+          {
+            "family_id": "worldofai",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=OdMpNiByntM",
+              "https://news.ycombinator.com/item?id=50581260"
+            ],
+            "attention_band": "broader",
+            "reason": "At least two separately attributed families remain; reach, audience overlap and exact relative position remain unmeasured."
+          },
+          {
+            "family_id": "bijan-bowen",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=cUuVObUqbn0",
+              "https://news.ycombinator.com/item?id=50581260"
+            ],
+            "attention_band": "broader",
+            "reason": "At least two separately attributed families remain; reach, audience overlap and exact relative position remain unmeasured."
+          },
+          {
+            "family_id": "hacker-news-community",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=cUuVObUqbn0",
+              "https://www.youtube.com/watch?v=OdMpNiByntM"
+            ],
+            "attention_band": "broader",
+            "reason": "At least two separately attributed families remain; reach, audience overlap and exact relative position remain unmeasured."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "glm54-loop-transformer-launch-nov23",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "broader",
+        "publisher_families": 2,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "zai-org",
+            "remaining_evidence_urls": [
+              "https://www.youtube.com/watch?v=7n3cZzR0tVE"
+            ],
+            "attention_band": "limited",
+            "reason": "Removing this family leaves only one originating attention family; the sampled evidence band weakens despite its audience size."
+          },
+          {
+            "family_id": "worldofai",
+            "remaining_evidence_urls": [
+              "https://x.com/Zai_org/status/2124811995912286352"
+            ],
+            "attention_band": "limited",
+            "reason": "Removing this family leaves only one originating attention family; the sampled evidence band weakens despite its audience size."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "dw-creative-labor-program-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "dw-news",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing the sole originating family leaves no event-matched attention evidence; source documents and syndication cannot substitute for it."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "tripo-agentic-canvas-demo-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "stefan-3d-ai",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing the sole originating family leaves no event-matched attention evidence; source documents and syndication cannot substitute for it."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "claude-prompt-cache-explainer-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "nate-herk-ai-automation",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing the sole originating family leaves no event-matched attention evidence; source documents and syndication cannot substitute for it."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      },
+      {
+        "topic_id": "youart-desktop-aftereffects-demo-nov22",
+        "status": "RECORDED_EDITORIAL_ASSESSMENT",
+        "attention_band": "limited",
+        "publisher_families": 1,
+        "weakened": true,
+        "removals": [
+          {
+            "family_id": "aizen-tools",
+            "remaining_evidence_urls": [],
+            "attention_band": "insufficient",
+            "reason": "Removing the sole originating family leaves no event-matched attention evidence; source documents and syndication cannot substitute for it."
+          }
+        ],
+        "reviewed_at": "2026-11-23T23:11:58Z"
+      }
+    ],
+    "interpretation": "A documented editorial sensitivity check, not a popularity score or proof of publisher independence."
+  },
+  "change_evaluations": [
+    {
+      "change_id": "NOV15-02",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Latest earlier AAR validates exact snapshot and30searches but rejects3claimed mappings. Source/search binding observed; complete selection linkage unverified.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/combined.json"
+      ]
+    },
+    {
+      "change_id": "NOV16-P1-09",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Thirty current meaningful queries supplied, but current consumer receipt is absent. Prior mapping statusINVALID prevents selected-format or causal-quality claims.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/combined.md#daily-ai-topic-top-10-and-compiler-handoff"
+      ]
+    },
+    {
+      "change_id": "NOV20-01",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "not_met",
+      "reason": "Prior edition records30attempted canonical slots but its3selected mappings fail bundle verification. This evaluates that prior result, not futureNovember24production.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/combined.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-02",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Producer separates originalNovember12talk,November14release and freshNovember22uploads. Current final selected-source metadata and reader corrections remain other-owner outcomes.",
+      "evidence_refs": [
+        "https://ai.engineer/code/2026/talks/armin-ronacher",
+        "https://youart.ai/release_log"
+      ]
+    },
+    {
+      "change_id": "NOV20-03",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Application declares Work Mode with Codex tooling; independent host, actual billing and scheduled origin unavailable. Prior AAR likewise says autonomyUNPROVEN and usageUNKNOWN.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/combined.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-04",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "not_met",
+      "reason": "Current producer34metadata screens, zero complete programs/transcripts,3complete short original text bodies and1reading edition leave substantive full-program target unmet. Compiler fifteen-read result is separate.",
+      "evidence_refs": [
+        "https://ai.engineer/code/2026/talks/armin-ronacher",
+        "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+      ]
+    },
+    {
+      "change_id": "NOV20-05",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "Pool includes original practical talk, local tests and creative demonstrations; zero complete programs and pending selections do not demonstrate twelve reviewed candidates or two selected non-news programs.",
+      "evidence_refs": [
+        "https://ai.engineer/code/2026/talks/armin-ronacher",
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/improvement-metrics.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-09",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "inconclusive",
+      "reason": "No complete manuscript methods/results review here. Vendor articles and model cards do not satisfy paper-led cadence; actual rolling three-edition selection stays with Compiler/reporting.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/combined.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-10",
+      "reviewed_edition": "2026-11-24",
+      "decision": "keep",
+      "result": "met",
+      "reason": "Producer separates partial research, pending consumer/publication/images and unknown billing/scheduler evidence. Prior AAR also separates verified publication/images from partial overall system evidence.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/14f7d5093477b72d53dfa04eb29a61f3ca73c735/daily/2026-11-22/combined.json"
+      ]
+    },
+    {
+      "change_id": "NOV20-06",
+      "reviewed_edition": "2026-11-24",
+      "decision": "revise",
+      "result": "not_met",
+      "reason": "Actual thirteen native calls and zero first-pass accepts miss both advisory efficiency targets; three margin corrections were required. Preserve all quality gates and accepted bytes.",
+      "evidence_refs": [
+        "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-24/reviews/after-action.json"
+      ]
+    }
+  ],
+  "video_publisher_families": {
+    "status": "VERIFIED",
+    "families": [
+      "publisher-host:nvidia.com",
+      "ted"
+    ],
+    "original_programs": 2,
+    "source_urls": [
+      "https://www.nvidia.com/en-us/on-demand/session/gtc26-ep81213/",
+      "https://www.ted.com/talks/jennifer_hu_can_ai_show_us_how_language_works_nov_2026"
+    ],
+    "evidence": "validated_original_publisher_identity_in_selected_edition_bundle"
+  },
+  "video_discovery": {
+    "status": "RECORDED",
+    "registered": 37,
+    "attempted": 37,
+    "candidate_sources": 3,
+    "candidate_yield_percent": 8.1,
+    "interpretation": "Candidate-bearing discovery routes; not proof of original-program playback or editorial qualification."
+  },
+  "owner_prompt_evidence": {
+    "status": "NOT_RECORDED",
+    "required": null
+  },
+  "image_editorial_quality": {
+    "status": "RECORDED",
+    "reviewed_stories": 6,
+    "nearest_prior_comparisons": 6,
+    "reviewed_at": "2026-11-24T03:49:03Z",
+    "reviewer": "Executing image saved-pixel reviewer",
+    "reference_editions": [
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20",
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-23"
+    ],
+    "owner_feedback": "UNKNOWN",
+    "owner_feedback_evidence": null,
+    "set_observation": "All six preserve a visible concrete distinction and differentiated silhouette; several still use serif labels and folded-paper vocabulary. Internal review is not owner aesthetic acceptance. Thirteen calls and zero first-pass accepts do not demonstrate improved efficiency.",
+    "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/main/external-image-packages/2026-11-24/reviews/six-up-contact-sheet.png",
+    "stories": [
+      {
+        "story_id": "nov24-t1-perplexity-limits",
+        "sha256": "5c10b00124659fa1c7b50c3e865af6106224add6349069ed9c7ef2704dc4c42c",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "An indigo actual-token leader identifies the held-out target while a second leader identifies the predicted cell inside an enlarged comparison aperture. A visibly open coral proposal boundary is separate from the different-dataset stacks, excluded post-training layers and unknown-floor note. At 320px the prediction comparison and proposed boundary remain visible; fine secondary distinctions are clearer full-size.",
+        "text_architecture_observation": "Watercolor specimen aperture, asymmetric held-out sequence and separate open proposal frame.",
+        "mobile_observation": "An indigo actual-token leader identifies the held-out target while a second leader identifies the predicted cell inside an enlarged comparison aperture. A visibly open coral proposal boundary is separate from the different-dataset stacks, excluded post-training layers and unknown-floor note. At 320px the prediction comparison and proposed boundary remain visible; fine secondary distinctions are clearer full-size.",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3dfa7adfc05ccfe144fba96f2e4858a1334c55cb/external-image-packages/2026-11-24/images/nov24-t1-perplexity-limits.png",
+        "assessment": "inconclusive",
+        "supported_substages": [
+          {
+            "description": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+            "support_claim_id": "claim-1"
+          },
+          {
+            "description": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+            "support_claim_id": "claim-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+            "support_claim_id": "claim-2"
+          },
+          {
+            "description": "The intrinsic prediction floor remains unknown.",
+            "support_claim_id": "claim-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-23",
+          "story_id": "nov23-k1-gemini-task-cost",
+          "asset_sha256": "decf7621bed7b53e3e89794f6507c1296d3475652b5e36f153a83f4b2a5b8489",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4845c3eb4f222339ae9ebce56e7d525dc961f9d6/external-image-packages/2026-11-23/images/nov23-k1-gemini-task-cost.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "The earlier paired price folio uses two numerical receipt curls; the new watercolor specimen exposes actual versus predicted cells and an explicitly open proposed limit."
+        }
+      },
+      {
+        "story_id": "nov24-t2-glm54-loop",
+        "sha256": "a82f425ae8694d411bba151bdbc56de0e2d67650f672fa0a37ace189b14fa261",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "The engraved shared middle section carries visibly separate First pass and Second pass ribbons. Output attaches to the lower second-pass level, rather than an independent upper exit. A narrow Local window is visibly distinct from the broader Shared context slab. At 320px the shared section, two pass terms and output remain readable; fine gate hatching is full-size detail.",
+        "text_architecture_observation": "Graphite engraving exposes a broad shared-layer cutaway, dual passes and two cache strata.",
+        "mobile_observation": "The engraved shared middle section carries visibly separate First pass and Second pass ribbons. Output attaches to the lower second-pass level, rather than an independent upper exit. A narrow Local window is visibly distinct from the broader Shared context slab. At 320px the shared section, two pass terms and output remain readable; fine gate hatching is full-size detail.",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3dfa7adfc05ccfe144fba96f2e4858a1334c55cb/external-image-packages/2026-11-24/images/nov24-t2-glm54-loop.png",
+        "assessment": "inconclusive",
+        "supported_substages": [
+          {
+            "description": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+            "support_claim_id": "claim-1"
+          },
+          {
+            "description": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+            "support_claim_id": "claim-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+            "support_claim_id": "claim-2"
+          },
+          {
+            "description": "The vendor discloses excessively long reflection and does not claim all workload outcomes are guaranteed.",
+            "support_claim_id": "claim-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-23",
+          "story_id": "nov23-t2-inkling-mini-control",
+          "asset_sha256": "49c16baa4349e2621d5e15fa07131c39e0cb2979e21817a450ff71821f625375",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4845c3eb4f222339ae9ebce56e7d525dc961f9d6/external-image-packages/2026-11-23/images/nov23-t2-inkling-mini-control.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "The earlier turquoise architecture is a three-turn vertical helix; the new graphite cutaway is a broad single shared block with two traversals and distinct local/global cache layers."
+        }
+      },
+      {
+        "story_id": "nov24-a1-anthropic-ipo",
+        "sha256": "93ead262e718eeec7d185088a0af7fddef52a4afbe73cf0faad2f8b73e031620",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "The green upper IPO contribution contains distinct issuer and seller terms; the lower private-placement contribution reaches the same combined gross page. Exact $93.5B and $26.0B amounts meet the $119.5B total, with Before fees detached underneath. At 320px the two contributions and combined total are readable; issuer detail benefits from full-size viewing.",
+        "text_architecture_observation": "Green and ochre paper folds converge from two contribution channels into one large total.",
+        "mobile_observation": "The green upper IPO contribution contains distinct issuer and seller terms; the lower private-placement contribution reaches the same combined gross page. Exact $93.5B and $26.0B amounts meet the $119.5B total, with Before fees detached underneath. At 320px the two contributions and combined total are readable; issuer detail benefits from full-size viewing.",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3dfa7adfc05ccfe144fba96f2e4858a1334c55cb/external-image-packages/2026-11-24/images/nov24-a1-anthropic-ipo.png",
+        "assessment": "inconclusive",
+        "supported_substages": [
+          {
+            "description": "The IPO generated approximately $93.5 billion gross, with approximately $91.6 billion received by the issuer and a separate selling-stockholder component.",
+            "support_claim_id": "claim-1"
+          },
+          {
+            "description": "The concurrent private placement added approximately $26.0 billion; combined gross proceeds were approximately $119.5 billion before fees.",
+            "support_claim_id": "claim-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "The concurrent private placement added approximately $26.0 billion; combined gross proceeds were approximately $119.5 billion before fees.",
+            "support_claim_id": "claim-2"
+          },
+          {
+            "description": "Gross capital raised does not establish service reliability or favorable procurement terms; contract review is an editorial practice.",
+            "support_claim_id": "claim-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-22",
+          "story_id": "nov22-k1-task-price-tests",
+          "asset_sha256": "455aea781da464a7af1c313e6e70329e4d24fbe873f4938f9fdbfc03e905bb76",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4845c3eb4f222339ae9ebce56e7d525dc961f9d6/external-image-packages/2026-11-22/images/nov22-k1-task-price-tests.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "The prior amber task-cost assembly stacks recovery components in a central chamber; the new green folded account converges two exact capital contributions on one gross total."
+        }
+      },
+      {
+        "story_id": "nov24-a2-creative-labor",
+        "sha256": "5a0d46188429424a339b130c023610197d2855ed694f46c2c3a849d7138a3914",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "A translation brief routes into AI translation beside Client lost. The center design artifact and torn employment sheet have a nondirectional chronology tie beside Job lost; it does not assert a proved causal link. At right, the waveform, separated consent term and unresolved case file distinguish allegation from a judgment. The case-scope limitation remains visible at 320px.",
+        "text_architecture_observation": "Aubergine and rust lithographic evidence branches braid into one open case-scope book.",
+        "mobile_observation": "A translation brief routes into AI translation beside Client lost. The center design artifact and torn employment sheet have a nondirectional chronology tie beside Job lost; it does not assert a proved causal link. At right, the waveform, separated consent term and unresolved case file distinguish allegation from a judgment. The case-scope limitation remains visible at 320px.",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3dfa7adfc05ccfe144fba96f2e4858a1334c55cb/external-image-packages/2026-11-24/images/nov24-a2-creative-labor.png",
+        "assessment": "inconclusive",
+        "supported_substages": [
+          {
+            "description": "The reported interpreter lost a longtime client when the client switched to AI translation.",
+            "support_claim_id": "claim-1"
+          },
+          {
+            "description": "The designer introduced AI workflows then lost his job; sequence does not establish a causal finding.",
+            "support_claim_id": "claim-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "The designer introduced AI workflows then lost his job; sequence does not establish a causal finding.",
+            "support_claim_id": "claim-2"
+          },
+          {
+            "description": "The voice actor alleges unauthorized training and is pursuing litigation; allegation is not judgment.",
+            "support_claim_id": "claim-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-21",
+          "story_id": "nov21-k1-feedback-quality-bar",
+          "asset_sha256": "b7e428cbb586265257aca23feefb945477697d60f1ffe652ae54f5c6fa5e6861",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4845c3eb4f222339ae9ebce56e7d525dc961f9d6/external-image-packages/2026-11-21/images/nov21-k1-feedback-quality-bar.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "The prior feedback illustration has two opposing red/blue fans with empty annotation surfaces; the new ink braid distinguishes translation substitution, job loss and a disputed voice-training case."
+        }
+      },
+      {
+        "story_id": "nov24-g1-superhuman-go-approvals",
+        "sha256": "160210cc1aa2b8a0a987279f557d2a59d580541dbd7c6341d3a29b73e0b2cee2",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "Calendar, envelope and meeting-audio context lead into a labeled Draft reply that waits at a plain approval partition. Only the authorized side carries the changed document and its action record, whose Approver value explicitly reads User. The approval distinction and attribution remain visible at 320px; no real identity, control knob or product screenshot is asserted.",
+        "text_architecture_observation": "Cobalt and terracotta matte ceramic context trays stop at an upright approval partition.",
+        "mobile_observation": "Calendar, envelope and meeting-audio context lead into a labeled Draft reply that waits at a plain approval partition. Only the authorized side carries the changed document and its action record, whose Approver value explicitly reads User. The approval distinction and attribution remain visible at 320px; no real identity, control knob or product screenshot is asserted.",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3dfa7adfc05ccfe144fba96f2e4858a1334c55cb/external-image-packages/2026-11-24/images/nov24-g1-superhuman-go-approvals.png",
+        "assessment": "inconclusive",
+        "supported_substages": [
+          {
+            "description": "The assistant prepares drafts from connected context while users approve actions.",
+            "support_claim_id": "claim-1"
+          },
+          {
+            "description": "Document agents log actions and the authorizing person, and features have different rollout dates.",
+            "support_claim_id": "claim-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "Document agents log actions and the authorizing person, and features have different rollout dates.",
+            "support_claim_id": "claim-2"
+          },
+          {
+            "description": "Preparation, authorization and logged changes must remain visibly distinct.",
+            "support_claim_id": "claim-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-23",
+          "story_id": "nov23-a1-gemini-mac-computer-use",
+          "asset_sha256": "845169e60d9096dfcb1fc63cbb8001089c0d2c5e2ab3affe8fce80f5310f4835",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4845c3eb4f222339ae9ebce56e7d525dc961f9d6/external-image-packages/2026-11-23/images/nov23-a1-gemini-mac-computer-use.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "The prior computer-use illustration uses translucent stacked preview windows; the new matte ceramic cross-section makes an approval gap and an attributable activity record its focal relationship."
+        }
+      },
+      {
+        "story_id": "nov24-g2-software-atelier",
+        "sha256": "7be5d16015e3211f89b940ce14158cb5570cc3b6c3fd770195a6fac1be2d57ba",
+        "fullsize_pixels_inspected": true,
+        "mobile_320_pixels_inspected": true,
+        "detail_observation": "The proof sheet makes Goal, Changes, Tradeoffs, Risks and Proposed checks visible inside the summary itself. Approve alone points to Final verification. Redirect uses a rounded nondirectional return guide; Stop has a blunt end. The five fields and three choices remain readable at 320px without invented work records.",
+        "text_architecture_observation": "Graphite proof sheet with red-pencil review bracket and three diverging decision ribbons.",
+        "mobile_observation": "The proof sheet makes Goal, Changes, Tradeoffs, Risks and Proposed checks visible inside the summary itself. Approve alone points to Final verification. Redirect uses a rounded nondirectional return guide; Stop has a blunt end. The five fields and three choices remain readable at 320px without invented work records.",
+        "evidence_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/3dfa7adfc05ccfe144fba96f2e4858a1334c55cb/external-image-packages/2026-11-24/images/nov24-g2-software-atelier.png",
+        "assessment": "inconclusive",
+        "supported_substages": [
+          {
+            "description": "The speaker requests an executive summary before the final verification phase so that work can be redirected.",
+            "support_claim_id": "claim-1"
+          },
+          {
+            "description": "A manager-facing procedure can inspect goal, changes, tradeoffs, risks and proposed checks, then approve, redirect or stop.",
+            "support_claim_id": "claim-2"
+          }
+        ],
+        "secondary_relationships": [
+          {
+            "description": "A manager-facing procedure can inspect goal, changes, tradeoffs, risks and proposed checks, then approve, redirect or stop.",
+            "support_claim_id": "claim-2"
+          },
+          {
+            "description": "Human attention remains limited as agent trajectories lengthen; production speed alone is not the measure of coherent work.",
+            "support_claim_id": "claim-3"
+          }
+        ],
+        "nearest_prior": {
+          "edition_date": "2026-11-23",
+          "story_id": "nov23-a2-capcut-editable-video",
+          "asset_sha256": "3e71ace17d2b28a9ae01ae26235c9a5e332bb84bc611da4b48ba79ad408c1a33",
+          "asset_ref": "https://github.com/gttome/Daily-AI-Brief-Compiler/blob/4845c3eb4f222339ae9ebce56e7d525dc961f9d6/external-image-packages/2026-11-23/images/nov23-a2-capcut-editable-video.png",
+          "comparison_basis": "actual_saved_pixels",
+          "observed_difference": "The earlier graphite editor diagram centers film clips and tracks; the new proof sheet centers five summary fields and the approve, redirect and stop decision structures."
+        }
+      }
+    ],
+    "artistic_success_not_inferred": true,
+    "source_support_independently_verified": false
+  }
+}
