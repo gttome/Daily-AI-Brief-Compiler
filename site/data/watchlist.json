@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "edition_date": "2026-11-24",
-  "updated_at": "2026-11-24T02:08:00.000Z",
+  "updated_at": "2026-11-24T03:19:45Z",
   "baseline_note": "Current evidence references are preserved from this edition.",
   "topics": [
     {
@@ -2348,11 +2348,11 @@
     {
       "topic_id": "dab-topic-consumer-agent-task-permissions",
       "name": "Consumer agent task permissions",
-      "summary": "Consumer agent task permissions define which user context, corporate resources and consequential actions an assistant may access or perform.",
-      "why_now": "The November 23 identity review found no material evidence change, so the prior assessment and bounded practical use remain current.",
-      "practical_value": "Security teams can test one assistant workflow by separating user and agent identity, restricting resources and requiring confirmation for consequential actions.",
+      "summary": "Walmart’s invitation-only Agent Gateway beta lets shoppers give Meta’s Muse a separate profile, set a spending limit, choose which purchases need approval, and review what the agent bought.",
+      "why_now": "On November 23, Walmart confirmed that shopping with Muse was rolling out that day. Its October announcement had described the controls as forthcoming.",
+      "practical_value": "Before authorizing a shopping agent, check which orders it can place on its own and where you can review purchases made under its profile.",
       "first_detected": "2026-10-15",
-      "updated_at": "2026-11-04T12:00:00Z",
+      "updated_at": "2026-11-24T03:19:45Z",
       "status": "under_research",
       "confidence": "moderate",
       "audience": "Professionals using generative AI",
@@ -2506,34 +2506,64 @@
           "review_depth": "Preserved edition evidence reference.",
           "checked_at": "2026-11-24",
           "development_id": "compiler-carried_forward-15"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.walmart.com/cp/walmart-agent-gateway/1280482",
+          "title": "Walmart Agent Gateway",
+          "publisher": "Walmart",
+          "publication_date": null,
+          "review_depth": "Walmart describes invitation-only access, separate Agent Profiles, spending limits, purchase approvals and agent activity history. The operator page has no verified publication date.",
+          "checked_at": "2026-11-24T03:19:45Z",
+          "development_id": "nov24-walmart-gateway-beta"
+        },
+        {
+          "kind": "primary",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1039874/walmart-agent-gateway-meta-muse-black-friday",
+          "title": "Meta Muse can do your Black Friday shopping at Walmart",
+          "publisher": "The Verge",
+          "publication_date": "2026-11-23",
+          "review_depth": "Original reporting. Walmart’s final November 23 confirmation says the rollout would proceed that day. The timing and availability statements came from Walmart.",
+          "checked_at": "2026-11-24T03:19:45Z",
+          "development_id": "nov24-muse-rollout-confirmation"
+        },
+        {
+          "kind": "primary",
+          "url": "https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers",
+          "title": "Making It Possible for Agents to Shop on Behalf of Customers",
+          "publisher": "Walmart",
+          "publication_date": "2026-10-21",
+          "review_depth": "The October announcement proposed agent profiles and a gateway, establishing the earlier planned state.",
+          "checked_at": "2026-11-24T03:19:45Z",
+          "development_id": "nov24-walmart-gateway-announcement"
         }
       ],
-      "limitations": "The preserved evidence supports monitoring, not a claim of broad adoption or independent validation.",
+      "limitations": "The published controls describe a limited beta. The available sources give no comparable figures for usage, unauthorized orders, or how often the controls prevent a mistake.",
       "research_score": 60,
       "rubric": {
         "novelty": {
           "score": 4,
-          "reason": "The update adds named visibility and per-agent policy controls to the prior task-permission and confirmation baseline."
+          "reason": "A retailer now documents a separate shopper-controlled agent profile used in a limited shopping rollout."
         },
         "evidence": {
           "score": 3,
-          "reason": "Cloudflare documents specific early-access product behavior, but measured security outcomes and failure rates remain unavailable."
+          "reason": "Walmart describes the available controls and confirmed the rollout date, while measured outcomes and failure rates remain unavailable."
         },
         "independence": {
           "score": 2,
-          "reason": "Cloudflare and earlier OpenAI or ServiceNow evidence show separate implementations, though all reviewed accounts remain vendor-authored."
+          "reason": "The Verge provides original reporting, but its account of launch timing and controls draws on Walmart as the source."
         },
         "momentum": {
           "score": null,
-          "reason": "The implementations use different measures and provide no comparable numerical permission observations at two valid times."
+          "reason": "The reviewed sources provide no comparable adoption or approval measurements at two distinct times."
         },
         "relevance": {
           "score": 5,
-          "reason": "Security owners can immediately bound assistant resources, confirmations, logs and exception handling for one routine workflow."
+          "reason": "A shopper can set a spending limit and decide which purchases need review before giving the agent authority."
         },
         "durability": {
           "score": 4,
-          "reason": "Separate user authority, agent identity and least-privilege resource access remain durable across changing assistant products."
+          "reason": "Separating a person’s purchases from delegated purchases provides an enduring basis for approvals and accountability."
         }
       },
       "momentum": {
@@ -2543,7 +2573,8 @@
         "metric": null,
         "observations": []
       },
-      "next_action": "Continue monitoring primary evidence and independent developments."
+      "next_action": "Look for independently observed checkout behavior and comparable reports of agent purchases, approval requests, and exceptions over time.",
+      "verification_observed_at": "2026-11-24T03:19:45Z"
     },
     {
       "topic_id": "dab-topic-cross-language-agent-tool-contracts",
