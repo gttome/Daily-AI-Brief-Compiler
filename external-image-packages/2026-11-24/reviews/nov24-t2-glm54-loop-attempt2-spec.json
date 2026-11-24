@@ -1,0 +1,452 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-24",
+  "story_id": "nov24-t2-glm54-loop",
+  "source_url": "https://z.ai/blog/glm-5.4",
+  "visual_thesis": "The same middle-layer weights are executed twice, while first-pass state and the second-pass local window remain distinct.",
+  "mechanism_metaphor": "One broad continuous transformer assembly in precise engraved section. Entry layers at left feed a central weight-shared block, shown in one physical location with two paths passing through it. The first path builds context; the second returns through that same block and refines state. Show a broad shared-cache layer below and a smaller separate sliding-window layer directly above it. Small sparse-attention index teeth are shared between the traversals, without numbers or scale. Final layers sit at the far right. Do not repeat the block as if it had independent weights. No gauges, controls, gear teeth, robot or glowing futuristic machine. Every layer is an explanatory section, not ornamental machinery.",
+  "story_anchors": [
+    "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+    "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window."
+  ],
+  "required_labels": [
+    "Entry layers",
+    "Shared middle layers",
+    "First pass",
+    "Second pass",
+    "Shared context",
+    "Local window",
+    "Final layers",
+    "Long thinking remains possible"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+      "supporting_source_excerpt": "two iterations",
+      "source_url": "https://z.ai/blog/glm-5.4",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+      "supporting_source_excerpt": "independent sliding window",
+      "source_url": "https://z.ai/blog/glm-5.4",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-3",
+      "proposition": "The vendor discloses excessively long reflection and does not claim all workload outcomes are guaranteed.",
+      "supporting_source_excerpt": "marathon thinking",
+      "source_url": "https://z.ai/blog/glm-5.4",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Entry layers",
+      "to": "Shared middle layers",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Shared middle layers",
+      "to": "Final layers",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported capability, dataset, safety guarantee, causal attribution, invented numerical marks, unlisted text or depicted people."
+  ],
+  "composition_signature": {
+    "grammar": "Shared-depth cutaway",
+    "metaphor": "Technical cutaway engraving",
+    "layout": "One broad continuous transformer assembly in precise engraved section. Entry layers at left feed a central weight-shared block, shown in one physical location with two paths passing through it. The first path builds context; the second returns through that same block and refines state. Show a broad shared-cache layer below and a smaller separate sliding-window layer directly above it. Small sparse-attention index teeth are shared between the traversals, without numbers or scale. Final layers sit at the far right. Do not repeat the block as if it had independent weights. No gauges, controls, gear teeth, robot or glowing futuristic machine. Every layer is an explanatory section, not ornamental machinery.",
+    "palette": "Graphite and amber",
+    "hierarchy": "A shared middle block dominates two visibly distinct traversals",
+    "perspective": "Elevated sectional perspective",
+    "annotation": "Engraved section labels with open leaders"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 13,
+    "major_regions": 5,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "entry layers",
+        "visible_fact": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "input residual stream",
+        "visible_fact": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "shared layer section",
+        "visible_fact": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "first traversal",
+        "visible_fact": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "first-pass state",
+        "visible_fact": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "second traversal",
+        "visible_fact": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "second-pass state",
+        "visible_fact": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "per-token update gates",
+        "visible_fact": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "shared KV slab",
+        "visible_fact": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "separate local KV window",
+        "visible_fact": "The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "reused sparse indices",
+        "visible_fact": "The vendor discloses excessively long reflection and does not claim all workload outcomes are guaranteed.",
+        "support_claim_id": "claim-3"
+      },
+      {
+        "object": "final output layers",
+        "visible_fact": "The vendor discloses excessively long reflection and does not claim all workload outcomes are guaranteed.",
+        "support_claim_id": "claim-3"
+      },
+      {
+        "object": "detached long-thinking limitation",
+        "visible_fact": "The vendor discloses excessively long reflection and does not claim all workload outcomes are guaranteed.",
+        "support_claim_id": "claim-3"
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker source review",
+    "source_url": "https://z.ai/blog/glm-5.4",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Entry layers",
+        "region_id": "entry",
+        "region": "Input layers before the shared assembly",
+        "bounding_box_px": {
+          "x": 75,
+          "y": 130,
+          "width": 250,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Shared middle layers",
+        "region_id": "core",
+        "region": "One weight-shared central block and two traversals",
+        "bounding_box_px": {
+          "x": 390,
+          "y": 75,
+          "width": 420,
+          "height": 50
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "First pass",
+        "region_id": "core",
+        "region": "One weight-shared central block and two traversals",
+        "bounding_box_px": {
+          "x": 365,
+          "y": 230,
+          "width": 270,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Second pass",
+        "region_id": "core",
+        "region": "One weight-shared central block and two traversals",
+        "bounding_box_px": {
+          "x": 640,
+          "y": 350,
+          "width": 240,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Shared context",
+        "region_id": "cache",
+        "region": "Global cache and separate local window",
+        "bounding_box_px": {
+          "x": 300,
+          "y": 480,
+          "width": 290,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Local window",
+        "region_id": "cache",
+        "region": "Global cache and separate local window",
+        "bounding_box_px": {
+          "x": 640,
+          "y": 480,
+          "width": 270,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Final layers",
+        "region_id": "exit",
+        "region": "Output layers",
+        "bounding_box_px": {
+          "x": 900,
+          "y": 130,
+          "width": 230,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Long thinking remains possible",
+        "region_id": "timing",
+        "region": "Detached long-thinking qualification",
+        "bounding_box_px": {
+          "x": 710,
+          "y": 540,
+          "width": 400,
+          "height": 35
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Long thinking remains possible",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 73,
+    "explanatory_substage_labels": [
+      "Entry layers",
+      "Shared middle layers"
+    ],
+    "thumbnail_priority_labels": [
+      "Entry layers",
+      "Shared middle layers",
+      "Final layers"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "allowed_path": "Entry layers to Shared middle layers",
+        "blocked_path": "All other arrowheads are forbidden; preserve stopped and nondirectional paths described in the composition.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "condition": "The release loops a group of 28 GLM-5 layers for two iterations with shared weights.",
+        "allowed_path": "Shared middle layers to Final layers",
+        "blocked_path": "All other arrowheads are forbidden; preserve stopped and nondirectional paths described in the composition.",
+        "support_claim_id": "claim-1"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Entry layers",
+        "to": "Shared middle layers",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from_region_id": "entry",
+        "to_region_id": "core",
+        "origin_px": {
+          "x": 300,
+          "y": 300
+        },
+        "target_px": {
+          "x": 370,
+          "y": 300
+        },
+        "origin_region": "entry",
+        "target_region": "core",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Shared middle layers",
+        "to": "Final layers",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from_region_id": "core",
+        "to_region_id": "exit",
+        "origin_px": {
+          "x": 850,
+          "y": 300
+        },
+        "target_px": {
+          "x": 940,
+          "y": 300
+        },
+        "origin_region": "core",
+        "target_region": "exit",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Technical cutaway engraving",
+      "dominant_grammar": "Shared-depth cutaway",
+      "medium_treatment": "Steelplate engraving with amber cross-sections",
+      "perspective": "Elevated sectional perspective",
+      "information_hierarchy": "A shared middle block dominates two visibly distinct traversals",
+      "palette_family": "Graphite and amber",
+      "subject_specific_visual_thesis": "The same middle-layer weights are executed twice, while first-pass state and the second-pass local window remain distinct.",
+      "difference_from_earlier_story_images": "The earlier illustration uses a turquoise three-turn helical stack; this graphite section uses one shared block with two passes and exposes the separate global and local cache layers.",
+      "nearest_prior_story": "nov23-t2-inkling-mini-control",
+      "first_pass_risk_mitigation": "Plan large labels well inside all edges; use only the enumerated causal arrows at real object ports, keep caveats detached, and inspect complete final-size glyphs and actual 320px pixels before accepting."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "entry",
+          "description": "Input layers before the shared assembly",
+          "bounding_box_px": {
+            "x": 55,
+            "y": 55,
+            "width": 285,
+            "height": 430
+          }
+        },
+        {
+          "id": "core",
+          "description": "One weight-shared central block and two traversals",
+          "bounding_box_px": {
+            "x": 340,
+            "y": 55,
+            "width": 550,
+            "height": 405
+          }
+        },
+        {
+          "id": "cache",
+          "description": "Global cache and separate local window",
+          "bounding_box_px": {
+            "x": 270,
+            "y": 465,
+            "width": 650,
+            "height": 70
+          }
+        },
+        {
+          "id": "exit",
+          "description": "Output layers",
+          "bounding_box_px": {
+            "x": 890,
+            "y": 55,
+            "width": 255,
+            "height": 480
+          }
+        },
+        {
+          "id": "timing",
+          "description": "Detached long-thinking qualification",
+          "bounding_box_px": {
+            "x": 600,
+            "y": 535,
+            "width": 545,
+            "height": 45
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Entry layers",
+          "to": "Shared middle layers",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "entry",
+          "to_region_id": "core",
+          "origin_px": {
+            "x": 300,
+            "y": 300
+          },
+          "target_px": {
+            "x": 370,
+            "y": 300
+          }
+        },
+        {
+          "from": "Shared middle layers",
+          "to": "Final layers",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "core",
+          "to_region_id": "exit",
+          "origin_px": {
+            "x": 850,
+            "y": 300
+          },
+          "target_px": {
+            "x": 940,
+            "y": 300
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source and geometry reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "2c70b83e5a9eea2742e11223b104495ff60e88f974b67eee9921fb83a76a4d9a"
+      }
+    }
+  },
+  "native_generation_prompt": "Use case: scientific-educational. Create ONE premium static factual editorial illustration for a technical book, landscape 1200x630, white background. This is finished conceptual artwork, not an engineering source drawing. Visual thesis: The same middle-layer weights are executed twice, while first-pass state and the second-pass local window remain distinct.\nStyle: Steelplate engraving with amber cross-sections; Elevated sectional perspective; Graphite and amber. One broad continuous transformer assembly in precise engraved section. Entry layers at left feed a central weight-shared block, shown in one physical location with two paths passing through it. The first path builds context; the second returns through that same block and refines state. Show a broad shared-cache layer below and a smaller separate sliding-window layer directly above it. Small sparse-attention index teeth are shared between the traversals, without numbers or scale. Final layers sit at the far right. Do not repeat the block as if it had independent weights. No gauges, controls, gear teeth, robot or glowing futuristic machine. Every layer is an explanatory section, not ornamental machinery.\nSource-supported facts: The release loops a group of 28 GLM-5 layers for two iterations with shared weights. The later iteration reuses sparse context and attention indices while maintaining a separate local sliding window. The vendor discloses excessively long reflection and does not claim all workload outcomes are guaranteed.\nRequired exact visible text, once each, and no other characters: Entry layers | Shared middle layers | First pass | Second pass | Shared context | Local window | Final layers | Long thinking remains possible. Integrate text with the mechanism, no repeated badge/cards. Priority labels Entry layers, Shared middle layers, Final layers at least 38px; other labels at least 28px at final export. All foreground and full glyphs must stay at least 60px inside all edges, preferably 72px. No figure frame or header outside the illustration. Geometry describes the intended location of actual objects and labels; never print metadata. Only draw these causal arrowheads at physical object ports: Entry layers to Shared middle layers, tail (300,300), tip (370,300); Shared middle layers to Final layers, tail (850,300), tip (940,300). No unplanned arrows. Required informative parts: entry layers; input residual stream; shared layer section; first traversal; first-pass state; second traversal; second-pass state; per-token update gates; shared KV slab; separate local KV window; reused sparse indices; final output layers; detached long-thinking limitation. These are one cohesive composition, never a panel collage. Preserve open background and a strong readable focal relationship at 320px. No people, body parts, humanoids, brands, logos, photos, fake writing, decorative strokes, generic dashboard, invented controls, unsupported quantitative encodings or success marks.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"entry\",\"description\":\"Input layers before the shared assembly\",\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":285,\"height\":430}},{\"id\":\"core\",\"description\":\"One weight-shared central block and two traversals\",\"bounding_box_px\":{\"x\":340,\"y\":55,\"width\":550,\"height\":405}},{\"id\":\"cache\",\"description\":\"Global cache and separate local window\",\"bounding_box_px\":{\"x\":270,\"y\":465,\"width\":650,\"height\":70}},{\"id\":\"exit\",\"description\":\"Output layers\",\"bounding_box_px\":{\"x\":890,\"y\":55,\"width\":255,\"height\":480}},{\"id\":\"timing\",\"description\":\"Detached long-thinking qualification\",\"bounding_box_px\":{\"x\":600,\"y\":535,\"width\":545,\"height\":45}}],\"labels\":[{\"label\":\"Entry layers\",\"region_id\":\"entry\",\"region\":\"Input layers before the shared assembly\",\"bounding_box_px\":{\"x\":75,\"y\":130,\"width\":250,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Shared middle layers\",\"region_id\":\"core\",\"region\":\"One weight-shared central block and two traversals\",\"bounding_box_px\":{\"x\":390,\"y\":75,\"width\":420,\"height\":50},\"minimum_font_px\":38},{\"label\":\"First pass\",\"region_id\":\"core\",\"region\":\"One weight-shared central block and two traversals\",\"bounding_box_px\":{\"x\":365,\"y\":230,\"width\":270,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Second pass\",\"region_id\":\"core\",\"region\":\"One weight-shared central block and two traversals\",\"bounding_box_px\":{\"x\":640,\"y\":350,\"width\":240,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Shared context\",\"region_id\":\"cache\",\"region\":\"Global cache and separate local window\",\"bounding_box_px\":{\"x\":300,\"y\":480,\"width\":290,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Local window\",\"region_id\":\"cache\",\"region\":\"Global cache and separate local window\",\"bounding_box_px\":{\"x\":640,\"y\":480,\"width\":270,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Final layers\",\"region_id\":\"exit\",\"region\":\"Output layers\",\"bounding_box_px\":{\"x\":900,\"y\":130,\"width\":230,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Long thinking remains possible\",\"region_id\":\"timing\",\"region\":\"Detached long-thinking qualification\",\"bounding_box_px\":{\"x\":710,\"y\":540,\"width\":400,\"height\":35},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Entry layers\",\"to\":\"Shared middle layers\",\"support_claim_id\":\"claim-1\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"entry\",\"to_region_id\":\"core\",\"origin_px\":{\"x\":300,\"y\":300},\"target_px\":{\"x\":370,\"y\":300}},{\"from\":\"Shared middle layers\",\"to\":\"Final layers\",\"support_claim_id\":\"claim-1\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"core\",\"to_region_id\":\"exit\",\"origin_px\":{\"x\":850,\"y\":300},\"target_px\":{\"x\":940,\"y\":300}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nTARGETED CORRECTION: Remove the entire extra text 'per-token update gates'; it is NOT in the exact visible text allowlist. Keep only the eight allowed labels. Replace the misleading parallel loop paths with ONE continuous serpentine amber trajectory: Entry layers feeds First pass through the shared block, its path returns around the SAME block into Second pass, and ONLY the end of Second pass reaches Final layers. There must be NO first-pass exit to final layers. The trajectory uses no additional arrowheads. Preserve the shared context and independent local window as distinct cache layers with nondirectional ties. Shrink the WHOLE assembly and caveat to leave an obvious broad WHITE border: all foreground including shadows and full label glyphs must stay inside x=80..1120, y=65..560 at final 1200x630. Keep the detached caveat above y560 and large. No added labels, gears, knobs, numerical marks or decorative machine details."
+}

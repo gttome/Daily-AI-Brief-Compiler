@@ -1,0 +1,387 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-24",
+  "story_id": "nov24-t1-perplexity-limits",
+  "source_url": "https://openai.com/index/perplexity-and-intelligence/",
+  "visual_thesis": "Prediction loss compares next-token predictions against held-out text; a shared safety pace signal remains a proposal with explicit measurement limits.",
+  "mechanism_metaphor": "A single enlarged translucent specimen plate exposes a sequence of abstract square token cells. A withheld last cell sits opposite a predicted cell; an open comparison aperture between them represents the measured prediction discrepancy without a numeric scale. A folded sheet behind the sequence stands for the private evaluation distribution. At right an open, visibly uncompleted boundary frame represents a proposed shared limit, not a deployed safety control. Below it two separate cutaway swatches identify what prediction loss does not measure. The unknown floor stays detached. No plotted curves, fake data or precision ticks. Do not imply lower loss guarantees safety.",
+  "story_anchors": [
+    "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+    "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances."
+  ],
+  "required_labels": [
+    "Held-out text",
+    "Actual token",
+    "Predicted token",
+    "Prediction loss",
+    "Shared limit proposal",
+    "Different datasets",
+    "Post-training excluded",
+    "Unknown floor"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+      "supporting_source_excerpt": "predicts the next token",
+      "source_url": "https://openai.com/index/perplexity-and-intelligence/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+      "supporting_source_excerpt": "common limits",
+      "source_url": "https://openai.com/index/perplexity-and-intelligence/",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-3",
+      "proposition": "The intrinsic prediction floor remains unknown.",
+      "supporting_source_excerpt": "Unknown floor",
+      "source_url": "https://openai.com/index/perplexity-and-intelligence/",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Held-out text",
+      "to": "Prediction loss",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported capability, dataset, safety guarantee, causal attribution, invented numerical marks, unlisted text or depicted people."
+  ],
+  "composition_signature": {
+    "grammar": "Prediction comparison plate",
+    "metaphor": "Annotated scientific specimen",
+    "layout": "A single enlarged translucent specimen plate exposes a sequence of abstract square token cells. A withheld last cell sits opposite a predicted cell; an open comparison aperture between them represents the measured prediction discrepancy without a numeric scale. A folded sheet behind the sequence stands for the private evaluation distribution. At right an open, visibly uncompleted boundary frame represents a proposed shared limit, not a deployed safety control. Below it two separate cutaway swatches identify what prediction loss does not measure. The unknown floor stays detached. No plotted curves, fake data or precision ticks. Do not imply lower loss guarantees safety.",
+    "palette": "Indigo and pale coral",
+    "hierarchy": "One enlarged prediction comparison surrounded by measurement limits",
+    "perspective": "Frontal enlarged evidence plate",
+    "annotation": "Direct open-margin specimen annotations"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "held-out sequence",
+        "visible_fact": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "withheld target cell",
+        "visible_fact": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "private-distribution fold",
+        "visible_fact": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "actual-token face",
+        "visible_fact": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "predicted-token face",
+        "visible_fact": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "object": "comparison aperture",
+        "visible_fact": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "mismatch gap",
+        "visible_fact": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "loss annotation",
+        "visible_fact": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "proposed boundary frame",
+        "visible_fact": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "cross-lab dataset distinction",
+        "visible_fact": "The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances.",
+        "support_claim_id": "claim-2"
+      },
+      {
+        "object": "post-training cutaway",
+        "visible_fact": "The intrinsic prediction floor remains unknown.",
+        "support_claim_id": "claim-3"
+      },
+      {
+        "object": "detached unknown-floor note",
+        "visible_fact": "The intrinsic prediction floor remains unknown.",
+        "support_claim_id": "claim-3"
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker source review",
+    "source_url": "https://openai.com/index/perplexity-and-intelligence/",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Held-out text",
+        "region_id": "sample",
+        "region": "Held-out sequence and actual token",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 85,
+          "width": 310,
+          "height": 48
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Actual token",
+        "region_id": "sample",
+        "region": "Held-out sequence and actual token",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 205,
+          "width": 270,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Predicted token",
+        "region_id": "sample",
+        "region": "Held-out sequence and actual token",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 360,
+          "width": 300,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Prediction loss",
+        "region_id": "comparison",
+        "region": "Predicted cell and measurement aperture",
+        "bounding_box_px": {
+          "x": 430,
+          "y": 165,
+          "width": 310,
+          "height": 50
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Shared limit proposal",
+        "region_id": "proposal",
+        "region": "Proposed common boundary and excluded dimensions",
+        "bounding_box_px": {
+          "x": 780,
+          "y": 85,
+          "width": 330,
+          "height": 80
+        },
+        "minimum_font_px": 38
+      },
+      {
+        "label": "Different datasets",
+        "region_id": "proposal",
+        "region": "Proposed common boundary and excluded dimensions",
+        "bounding_box_px": {
+          "x": 780,
+          "y": 240,
+          "width": 320,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Post-training excluded",
+        "region_id": "proposal",
+        "region": "Proposed common boundary and excluded dimensions",
+        "bounding_box_px": {
+          "x": 780,
+          "y": 350,
+          "width": 330,
+          "height": 70
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Unknown floor",
+        "region_id": "limit",
+        "region": "Detached unknown floor",
+        "bounding_box_px": {
+          "x": 450,
+          "y": 520,
+          "width": 300,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Unknown floor",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 72,
+    "explanatory_substage_labels": [
+      "Held-out text",
+      "Prediction loss"
+    ],
+    "thumbnail_priority_labels": [
+      "Held-out text",
+      "Prediction loss",
+      "Shared limit proposal"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction.",
+        "allowed_path": "Held-out text to Prediction loss",
+        "blocked_path": "All other arrowheads are forbidden; preserve stopped and nondirectional paths described in the composition.",
+        "support_claim_id": "claim-1"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Held-out text",
+        "to": "Prediction loss",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "from_region_id": "sample",
+        "to_region_id": "comparison",
+        "origin_px": {
+          "x": 360,
+          "y": 300
+        },
+        "target_px": {
+          "x": 440,
+          "y": 300
+        },
+        "origin_region": "sample",
+        "target_region": "comparison",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Annotated scientific specimen",
+      "dominant_grammar": "Prediction comparison plate",
+      "medium_treatment": "Matte gouache with fine specimen linework",
+      "perspective": "Frontal enlarged evidence plate",
+      "information_hierarchy": "One enlarged prediction comparison surrounded by measurement limits",
+      "palette_family": "Indigo and pale coral",
+      "subject_specific_visual_thesis": "Prediction loss compares next-token predictions against held-out text; a shared safety pace signal remains a proposal with explicit measurement limits.",
+      "difference_from_earlier_story_images": "The prior cost comparison uses a paired price folio and numerical totals; this specimen plate exposes token comparison and an explicitly proposed boundary without measured curves.",
+      "nearest_prior_story": "nov23-k1-gemini-task-cost",
+      "first_pass_risk_mitigation": "Plan large labels well inside all edges; use only the enumerated causal arrows at real object ports, keep caveats detached, and inspect complete final-size glyphs and actual 320px pixels before accepting."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "sample",
+          "description": "Held-out sequence and actual token",
+          "bounding_box_px": {
+            "x": 55,
+            "y": 55,
+            "width": 355,
+            "height": 445
+          }
+        },
+        {
+          "id": "comparison",
+          "description": "Predicted cell and measurement aperture",
+          "bounding_box_px": {
+            "x": 410,
+            "y": 55,
+            "width": 365,
+            "height": 445
+          }
+        },
+        {
+          "id": "proposal",
+          "description": "Proposed common boundary and excluded dimensions",
+          "bounding_box_px": {
+            "x": 775,
+            "y": 55,
+            "width": 370,
+            "height": 445
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached unknown floor",
+          "bounding_box_px": {
+            "x": 410,
+            "y": 505,
+            "width": 365,
+            "height": 70
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Held-out text",
+          "to": "Prediction loss",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "sample",
+          "to_region_id": "comparison",
+          "origin_px": {
+            "x": 360,
+            "y": 300
+          },
+          "target_px": {
+            "x": 440,
+            "y": 300
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source and geometry reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "34bd8f707641394f6a5cbe91d59236db3860c3f8c1af94ee262d7409f1109646"
+      }
+    }
+  },
+  "native_generation_prompt": "Use case: scientific-educational. Create ONE premium static factual editorial illustration for a technical book, landscape 1200x630, white background. This is finished conceptual artwork, not an engineering source drawing. Visual thesis: Prediction loss compares next-token predictions against held-out text; a shared safety pace signal remains a proposal with explicit measurement limits.\nStyle: Matte gouache with fine specimen linework; Frontal enlarged evidence plate; Indigo and pale coral. A single enlarged translucent specimen plate exposes a sequence of abstract square token cells. A withheld last cell sits opposite a predicted cell; an open comparison aperture between them represents the measured prediction discrepancy without a numeric scale. A folded sheet behind the sequence stands for the private evaluation distribution. At right an open, visibly uncompleted boundary frame represents a proposed shared limit, not a deployed safety control. Below it two separate cutaway swatches identify what prediction loss does not measure. The unknown floor stays detached. No plotted curves, fake data or precision ticks. Do not imply lower loss guarantees safety.\nSource-supported facts: Prediction loss evaluates next-token prediction on a held-out dataset; lower values mean better average prediction. The author proposes shared development limits while describing cross-lab dataset differences and excluded post-training advances. The intrinsic prediction floor remains unknown.\nRequired exact visible text, once each, and no other characters: Held-out text | Actual token | Predicted token | Prediction loss | Shared limit proposal | Different datasets | Post-training excluded | Unknown floor. Integrate text with the mechanism, no repeated badge/cards. Priority labels Held-out text, Prediction loss, Shared limit proposal at least 38px; other labels at least 28px at final export. All foreground and full glyphs must stay at least 60px inside all edges, preferably 72px. No figure frame or header outside the illustration. Geometry describes the intended location of actual objects and labels; never print metadata. Only draw these causal arrowheads at physical object ports: Held-out text to Prediction loss, tail (360,300), tip (440,300). No unplanned arrows. Required informative parts: held-out sequence; withheld target cell; private-distribution fold; actual-token face; predicted-token face; comparison aperture; mismatch gap; loss annotation; proposed boundary frame; cross-lab dataset distinction; post-training cutaway; detached unknown-floor note. These are one cohesive composition, never a panel collage. Preserve open background and a strong readable focal relationship at 320px. No people, body parts, humanoids, brands, logos, photos, fake writing, decorative strokes, generic dashboard, invented controls, unsupported quantitative encodings or success marks.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"sample\",\"description\":\"Held-out sequence and actual token\",\"bounding_box_px\":{\"x\":55,\"y\":55,\"width\":355,\"height\":445}},{\"id\":\"comparison\",\"description\":\"Predicted cell and measurement aperture\",\"bounding_box_px\":{\"x\":410,\"y\":55,\"width\":365,\"height\":445}},{\"id\":\"proposal\",\"description\":\"Proposed common boundary and excluded dimensions\",\"bounding_box_px\":{\"x\":775,\"y\":55,\"width\":370,\"height\":445}},{\"id\":\"limit\",\"description\":\"Detached unknown floor\",\"bounding_box_px\":{\"x\":410,\"y\":505,\"width\":365,\"height\":70}}],\"labels\":[{\"label\":\"Held-out text\",\"region_id\":\"sample\",\"region\":\"Held-out sequence and actual token\",\"bounding_box_px\":{\"x\":80,\"y\":85,\"width\":310,\"height\":48},\"minimum_font_px\":38},{\"label\":\"Actual token\",\"region_id\":\"sample\",\"region\":\"Held-out sequence and actual token\",\"bounding_box_px\":{\"x\":80,\"y\":205,\"width\":270,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Predicted token\",\"region_id\":\"sample\",\"region\":\"Held-out sequence and actual token\",\"bounding_box_px\":{\"x\":80,\"y\":360,\"width\":300,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Prediction loss\",\"region_id\":\"comparison\",\"region\":\"Predicted cell and measurement aperture\",\"bounding_box_px\":{\"x\":430,\"y\":165,\"width\":310,\"height\":50},\"minimum_font_px\":38},{\"label\":\"Shared limit proposal\",\"region_id\":\"proposal\",\"region\":\"Proposed common boundary and excluded dimensions\",\"bounding_box_px\":{\"x\":780,\"y\":85,\"width\":330,\"height\":80},\"minimum_font_px\":38},{\"label\":\"Different datasets\",\"region_id\":\"proposal\",\"region\":\"Proposed common boundary and excluded dimensions\",\"bounding_box_px\":{\"x\":780,\"y\":240,\"width\":320,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Post-training excluded\",\"region_id\":\"proposal\",\"region\":\"Proposed common boundary and excluded dimensions\",\"bounding_box_px\":{\"x\":780,\"y\":350,\"width\":330,\"height\":70},\"minimum_font_px\":28},{\"label\":\"Unknown floor\",\"region_id\":\"limit\",\"region\":\"Detached unknown floor\",\"bounding_box_px\":{\"x\":450,\"y\":520,\"width\":300,\"height\":44},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Held-out text\",\"to\":\"Prediction loss\",\"support_claim_id\":\"claim-1\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"sample\",\"to_region_id\":\"comparison\",\"origin_px\":{\"x\":360,\"y\":300},\"target_px\":{\"x\":440,\"y\":300}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nTARGETED CORRECTION of the unlocked first draft: Preserve the correct token comparison and all eight exact labels. Remove the gear entirely; the post-training exclusion is represented by a plain detached unfilled swatch, never a gear or machine. Reduce the entire illustration footprint to leave a conspicuous broad WHITE border on every side: at final resolution no artwork, paper, shadows, lettering, frame or other foreground may extend outside x=80..1120 and y=70..560. Keep labels inside that footprint, large and readable. Increase the white breathing room, especially above the pink folded sheet and below the detached floor note. Do not add labels, decorative bolts, gears, knobs or extra arrows. Retain the single source-to-comparison arrow and noncausal token leader only."
+}
