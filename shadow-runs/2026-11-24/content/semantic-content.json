@@ -1,7 +1,7 @@
 {
   "schema_version": "daily-compiler-semantic-content-v1",
   "edition_date": "2026-11-24",
-  "bundle_sha256": "430373a321500ff02fcd4554c8a2021ea7315329a6b272489d5628b55a8d1442",
+  "bundle_sha256": "5fc2c47a70494dcee56814bf0f30ab8087f7ca5744be49434a6cb55f920796f9",
   "stories": [
     {
       "id": "nov24-t1-perplexity-limits",
@@ -30,7 +30,7 @@
         "Safety limits",
         "Cross-lab comparability"
       ],
-      "summary": "OpenAI’s Jakub Pachocki proposes using prediction loss on a private held-out text distribution as a common signal for pacing pretraining progress. The post reports falling log-perplexity across model generations and argues that labs could coordinate around shared limits before monitoring matures. The measure is not a complete intelligence score: data mixtures differ, post-training and chain-of-thought sit outside it, practical task gains can diverge, and the irreducible prediction floor remains unknown.",
+      "summary": "OpenAI’s Jakub Pachocki proposes prediction loss on a private held-out text distribution as a shared signal for pacing pretraining. The post reports falling log-perplexity across model generations and suggests coordinated limits before monitoring improves. It is not a complete intelligence score: data mixtures differ, post-training and chain-of-thought are excluded, task gains can diverge, and the irreducible prediction floor remains unknown.",
       "why_it_matters": "A common measurement can support coordination only if labs can compare procedures without leaking evaluation data or treating one curve as all capability. Track the dataset protocol, uncertainty, model-family comparability and the milestones that would justify changing any proposed limit.",
       "image_alt_intent": "Separate laboratory prediction-loss curves approach a shared safety boundary while side panels flag private datasets, post-training exclusions and an unknown entropy floor.",
       "related_coverage": "Chosen over newer discussion posts because the original proposal contains the measurement definition and its limitations.",
@@ -69,7 +69,7 @@
         "Inference compute",
         "Coding models"
       ],
-      "summary": "Z.ai describes GLM‑5.4 as its first flagship Loop Transformer, repeatedly executing a shared block so reasoning depth can rise without adding a new set of parameters at every step. The company frames coding as a general problem-solving substrate and reports performance comparable with much larger parameter counts. Those are first-party claims, and the post discloses a practical failure mode: repeated reflection can become unusually long even when it improves accuracy.",
+      "summary": "Z.ai describes GLM‑5.4 as a Loop Transformer that repeatedly executes a shared block, increasing reasoning depth without adding new parameters at every step. The company reports coding performance comparable with much larger parameter counts. These are first-party claims, and the post discloses a practical failure mode: repeated reflection can become unusually long even when it improves accuracy.",
       "why_it_matters": "Repeated depth changes the operating question from model size alone to how much inference time a task is allowed to consume. Evaluate completion quality, latency, loop length, tool stability and cost on your own coding workloads before adopting the claimed effective-scale comparison.",
       "image_alt_intent": "A compact transformer block loops through repeated reasoning passes while gauges compare parameter count, inference time, coding accuracy and runaway reflection.",
       "related_coverage": "Selected over a same-family availability post because the architecture report states the mechanism and limitation directly.",
@@ -108,7 +108,7 @@
         "Enterprise concentration",
         "Procurement risk"
       ],
-      "summary": "Anthropic says it closed an initial public offering of 1.127 billion Class A shares at $83, including the full underwriter option. Gross IPO proceeds were about $93.5 billion, with roughly $91.6 billion received by Anthropic, while a concurrent Class N private placement added about $26.0 billion. The company reports approximately $119.5 billion in combined gross proceeds before fees; the final prospectus supplies the authoritative capital structure and dilution context.",
+      "summary": "Anthropic says it closed an offering of 1.127 billion Class A shares at $83, including the full underwriter option. Gross IPO proceeds were about $93.5 billion, while a concurrent Class N private placement added about $26.0 billion. The company reports approximately $119.5 billion in combined gross proceeds before fees; the final prospectus provides the capital-structure context.",
       "why_it_matters": "A capital event of this scale can change vendor endurance, infrastructure commitments and competitive leverage, but it does not remove product, pricing or concentration risk. Procurement teams should separate balance-sheet strength from service reliability, model fit, exit costs and contractual protections.",
       "image_alt_intent": "An IPO ledger and private-placement ledger converge into one capital stack while procurement controls remain separate from the company’s new financial scale.",
       "related_coverage": "The issuer notice is paired with the SEC filing so reader-facing totals remain traceable to the legal source.",
@@ -147,7 +147,7 @@
         "Workflow substitution",
         "Rights and bargaining"
       ],
-      "summary": "DW reports how generative systems are changing creative work through task substitution, bargaining pressure and disputes over training data. Sara Campos describes losing a client to AI-generated work; Adrian Romero says he helped introduce AI workflows before losing his job; voice actor Matti Klemm is pursuing a case over alleged voice training. These cases do not measure an industry-wide employment rate, but they reveal where practical control and compensation can move first.",
+      "summary": "DW reports generative systems changing creative work through task substitution, bargaining pressure and training-data disputes. Sara Campos describes losing a client to AI-generated work; Adrian Romero says he helped introduce AI workflows before losing his job; Matti Klemm is pursuing a case over alleged voice training. These cases reveal where practical control and compensation can move first.",
       "why_it_matters": "Teams adopting creative AI should map each affected task, identify whose work or likeness supplies the input, define consent and remuneration, and track which responsibilities remain human. Case evidence is a prompt for governance and bargaining, not a population estimate.",
       "image_alt_intent": "A creative production workflow shifts tasks between people and generative tools while contracts, consent, credit and compensation remain visible checkpoints.",
       "related_coverage": "The newer ILO episode adds policy context and is used separately in the podcast lane rather than counted as a second employment measurement.",
@@ -160,43 +160,51 @@
       "permanent_route": "/stories/2026-11-24/nov24-a2-creative-labor/"
     },
     {
-      "id": "nov24-g1-prompt-cache",
-      "headline": "Prompt-cache misses are usually prefix problems before quota problems",
+      "id": "nov24-g1-inkling-monitoring",
+      "headline": "Inkling 2 Mini makes monitoring part of the local-model decision",
       "focus": "Agents for Everyone",
       "agent_skills": false,
       "source": {
-        "title": "Prompt caching",
-        "publisher": "Anthropic",
-        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
-        "published_at": null,
-        "publication_precision": "unknown",
-        "scope": "Reviewed the complete current documentation for cache creation and read counters, exact-prefix matching, the tools-system-messages hierarchy and model-specific invalidation behavior. The page exposes no reliable publication date.",
-        "freshness_reason": "Selected after a complete source read, a current lane comparison and explicit treatment of evidence limits.",
-        "retrieved_at": "2026-11-24T01:40:00.000Z",
+        "title": "Inkling 2 Mini",
+        "publisher": "Thinking Machines",
+        "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "published_at": "2026-11-20T00:00:00Z",
+        "publication_precision": "day",
+        "scope": "Reviewed the complete publisher post with focused attention to the looped architecture, local-use claims, memory tradeoffs, monitorability claims and disclosed limits; no independent benchmark replication was found.",
+        "freshness_reason": "Selected within the supported seven-day window after comparison with fresher model announcements because it supplies a distinct local-control and monitoring decision for nontechnical owners.",
+        "retrieved_at": "2026-11-24T01:53:30.000Z",
         "read_evidence": {
           "status": "verified",
           "full_source_read": true,
           "method": "publisher_main_text",
-          "read_at": "2026-11-24T01:40:00.000Z",
-          "scope": "Reviewed the complete current documentation for cache creation and read counters, exact-prefix matching, the tools-system-messages hierarchy and model-specific invalidation behavior. The page exposes no reliable publication date."
+          "read_at": "2026-11-24T01:53:30.000Z",
+          "scope": "Reviewed the complete publisher post, including architecture, local-use and memory claims, monitorability discussion and documented limitations; publisher measurements were not independently replicated."
         }
       },
       "topics": [
-        "Prompt caching",
-        "Usage diagnostics",
-        "Agent reliability"
+        "Local AI models",
+        "Monitoring evidence",
+        "Pilot governance"
       ],
-      "summary": "Anthropic’s prompt-caching documentation explains that cache creation, cache reads and uncached input are reported as separate token counters. Reuse depends on an exact matching prefix across tools, system content and messages; changing an earlier layer invalidates the layers that follow. Thinking blocks and tool changes can introduce model-specific invalidation behavior. The documentation is operationally useful but undated, so it supports a current procedure rather than a fresh product-announcement claim.",
-      "why_it_matters": "Before blaming a quota or billing system, log all three token counters and compare the serialized prefix byte for byte. Change one component at a time, preserve stable tools and system text, and verify that a second request produces cache-read tokens.",
-      "image_alt_intent": "Two nearly identical prompt prefixes enter a cache diagnostic, where token counters expose one clean hit and one miss caused by an early tool or system change.",
-      "related_coverage": "No newer dated source with equivalent first-party detail was found; the missing publication date is disclosed.",
+      "summary": "Thinking Machines presents Inkling 2 Mini as an open-weight looped model for local use and inspection. Repeated transformer blocks trade smaller parameter storage for more runtime work, while monitorability remains a publisher claim rather than an independently replicated result. Decision makers should ask whether local control, hardware fit and observable behavior justify the operating burden.",
+      "why_it_matters": "Before approving a local-model pilot, require a one-page decision record covering hardware, data boundaries, response time, monitoring evidence and a rollback owner. Treat the publisher’s benchmark and observability claims as test targets, not guarantees.",
+      "image_alt_intent": "A compact local model cycles through repeated reasoning passes while a governance checklist compares hardware fit, data boundaries, monitoring evidence and rollback ownership.",
+      "related_coverage": "The stronger fresh attention signal was retained in the Top 10, while the story uses the original dated publisher post and preserves the absence of independent replication.",
       "reading_time_minutes": 6,
       "coverage_labels": [
         "Agents for Everyone",
         "Current AI",
         "Evidence"
       ],
-      "permanent_route": "/stories/2026-11-24/nov24-g1-prompt-cache/"
+      "permanent_route": "/stories/2026-11-24/nov24-g1-inkling-monitoring/",
+      "audience_fit": {
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "A team manager deciding whether a local AI pilot is worth the hardware, monitoring and governance burden.",
+        "practical_action": "Create a one-page pilot record covering hardware, data boundaries, response time, monitoring evidence and rollback ownership.",
+        "review_action": "Ask the technical owner to demonstrate each claimed monitoring signal and document which publisher benchmarks remain unreplicated.",
+        "usable_outcome": "A reviewable go, revise or stop decision for a local-model pilot without requiring the manager to configure the model."
+      }
     },
     {
       "id": "nov24-g2-software-atelier",
@@ -205,19 +213,19 @@
       "agent_skills": true,
       "source": {
         "title": "The Software Atelier",
-        "publisher": "AI Engineer / Armin Ronacher",
-        "url": "https://ai.engineer/code/2026/talks/armin-ronacher",
-        "published_at": "2026-11-12T00:00:00Z",
-        "publication_precision": "day",
-        "scope": "Reviewed the complete 294-passage source transcript and reading edition, including Ronacher’s own session data, project-maintenance limits, executive-summary checkpoint, interoperability warning and suspendable-runtime proposal.",
-        "freshness_reason": "Selected after a complete source read, a current lane comparison and explicit treatment of evidence limits.",
-        "retrieved_at": "2026-11-24T01:41:30.000Z",
+        "publisher": "AI Engineer",
+        "url": "https://www.youtube.com/watch?v=JNexz3Tbiu8",
+        "published_at": "2026-11-22T20:00:00Z",
+        "publication_precision": "timestamp",
+        "scope": "Reviewed the complete 294-passage program transcript and reading edition, then bound them to the publisher’s November 22 standalone upload; the underlying conference event occurred November 12.",
+        "freshness_reason": "The selected URL is the fresh standalone publisher upload; the original November 12 event date is preserved in the scope rather than presented as a newly occurring event.",
+        "retrieved_at": "2026-11-24T01:40:00.000Z",
         "read_evidence": {
           "status": "verified",
           "full_source_read": true,
-          "method": "publisher_main_text",
-          "read_at": "2026-11-24T01:41:30.000Z",
-          "scope": "Reviewed the complete 294-passage source transcript and reading edition, including Ronacher’s own session data, project-maintenance limits, executive-summary checkpoint, interoperability warning and suspendable-runtime proposal."
+          "method": "publisher_verified_metadata",
+          "read_at": "2026-11-24T01:40:00.000Z",
+          "scope": "Reviewed the complete program transcript and reading edition, plus the exact title, publisher identity and November 22 timestamp of the standalone upload."
         }
       },
       "topics": [
@@ -225,10 +233,10 @@
         "Human checkpoints",
         "Long-running coding agents"
       ],
-      "summary": "Armin Ronacher argues that stronger models have changed how far coding agents can run even when the underlying harness stays similar. His own sessions show longer runs and many projects started, while sustained human attention remains scarce. He inserts a readable executive-summary checkpoint before final verification so the operator can redirect a bad tradeoff before more work accumulates. The talk reports one practitioner’s workflow, not a controlled benchmark.",
-      "why_it_matters": "For one bounded coding task, require the agent to stop before final verification and produce a short HTML summary of the goal, files changed, tradeoffs, unresolved risks and proposed checks. A named reviewer must approve, redirect or cancel before the agent resumes.",
-      "image_alt_intent": "A long-running coding agent pauses at a human review gate, presenting a concise change summary, tradeoffs and unresolved risks before final verification resumes.",
-      "related_coverage": "Selected as the edition’s only Agent Skills story after novelty comparison and complete transcript review.",
+      "summary": "Armin Ronacher argues that stronger models let coding agents run farther while human attention remains limited. His reviewed conference program shows longer sessions, more parallel projects and a readable executive-summary checkpoint before final verification. The checkpoint lets a manager inspect the goal, changed work, tradeoffs and risks before approving, redirecting or stopping the next phase.",
+      "why_it_matters": "For one bounded agent-assisted project, require a plain-language checkpoint listing the goal, completed work, tradeoffs, unresolved risks and proposed checks. Assign a named reviewer who must approve, redirect or stop the work before the agent continues.",
+      "image_alt_intent": "A long-running agent pauses at a plain-language human checkpoint, presenting the goal, completed work, tradeoffs, unresolved risks and proposed checks before continuing.",
+      "related_coverage": "Selected as the edition’s only Agent Skills story after binding the fresh standalone upload to its older event and complete transcript evidence.",
       "reading_time_minutes": 6,
       "coverage_labels": [
         "Agents for Everyone",
@@ -237,19 +245,19 @@
       ],
       "permanent_route": "/stories/2026-11-24/nov24-g2-software-atelier/",
       "audience_fit": {
-        "requires_programming": true,
-        "prerequisite_level": "basic_software_delivery",
-        "intended_user": "Developers supervising long-running coding-agent changes whose consequences may outgrow a single prompt.",
-        "practical_action": "Add a pre-verification stop that renders a readable change summary and waits for a named reviewer’s decision.",
-        "review_action": "Check the goal, changed files, tradeoffs, tests and unresolved risks; approve, redirect or cancel before execution resumes.",
-        "usable_outcome": "A reusable Agent Skill that preserves a human comprehension point inside a longer coding run."
+        "requires_programming": false,
+        "prerequisite_level": "general_office_tools",
+        "intended_user": "A project manager supervising agent-assisted work who needs a clear intervention point without inspecting source code.",
+        "practical_action": "Require a plain-language checkpoint that summarizes the goal, completed work, tradeoffs, unresolved risks and proposed checks.",
+        "review_action": "A named reviewer compares the summary with the approved goal and chooses approve, redirect or stop before work resumes.",
+        "usable_outcome": "A reusable Agent Skill that gives a nontechnical owner a documented comprehension and intervention point."
       },
-      "agent_skills_evidence": "The complete talk supplies a reusable procedure: pause a long agent trajectory, generate a readable executive summary before final verification, present goal, changes, tradeoffs and risks, and require a named human decision before resuming.",
+      "agent_skills_evidence": "The complete talk supplies a reusable procedure: pause a long agent trajectory, generate a plain-language executive summary before final verification, present the goal, completed work, tradeoffs and risks, and require a named human approve, redirect or stop decision.",
       "agent_skill_novelty_review": {
         "comparison_scope": "Compared body, source, practical action and reader outcome against recent video, accounting, workspace and request-routing Skills.",
         "body": "This Skill creates a comprehension checkpoint inside a long coding trajectory rather than editing media, reconciling records or routing office requests.",
-        "primary_source": "The procedure is grounded in Ronacher’s complete conference talk and transcript, not a renamed earlier Agent Skills source.",
-        "distinct_practical_action": "Stop before final verification, render the change summary, and wait for approve, redirect or cancel.",
+        "primary_source": "The procedure is grounded in Ronacher’s complete program transcript and reading edition, bound to the publisher’s November 22 standalone upload.",
+        "distinct_practical_action": "Stop before final verification, render a plain-language work summary, and wait for approve, redirect or stop.",
         "reader_outcome": "The reader gains a visible intervention point before an autonomous coding run becomes expensive to understand."
       }
     }
@@ -1763,24 +1771,24 @@
     },
     {
       "story_id": "nov24-t2-glm54-loop",
-      "book": "Designing Machine Learning Systems",
-      "concept_or_chapter": "Inference-time tradeoffs",
-      "connection": "Repeated depth moves cost and reliability decisions into runtime policy.",
-      "what_to_study_next": "Measure loop length, latency, quality and task-specific stopping rules."
+      "book": "Reliable Generative AI Context Engineering",
+      "concept_or_chapter": "Runtime context and repeated depth",
+      "connection": "Repeated transformer depth moves cost, latency and stopping decisions into the runtime context strategy.",
+      "what_to_study_next": "Measure loop length, context reuse, latency, quality and task-specific stopping rules."
     },
     {
-      "story_id": "nov24-g1-prompt-cache",
-      "book": "AI Engineering",
-      "concept_or_chapter": "Production observability",
-      "connection": "Separate cache creation, cache reads and uncached input before diagnosing cost or quota.",
-      "what_to_study_next": "Instrument prefix identity and model-specific invalidation behavior."
+      "story_id": "nov24-g1-inkling-monitoring",
+      "book": "Generative AI Professional Prompt Engineering Guide",
+      "concept_or_chapter": "Evidence-led pilot prompts",
+      "connection": "A nontechnical pilot owner needs explicit constraints, observable evidence and rollback criteria before accepting model claims.",
+      "what_to_study_next": "Write evaluation prompts that separate publisher claims from observed local results."
     },
     {
       "story_id": "nov24-g2-software-atelier",
-      "book": "Human-Centered AI",
-      "concept_or_chapter": "Meaningful human control",
-      "connection": "A pre-verification summary creates an explicit intervention point inside a long autonomous run.",
-      "what_to_study_next": "Design approval, redirect and cancellation paths with named ownership."
+      "book": "Generative AI Prompt Engineering Learning Ecosystem",
+      "concept_or_chapter": "Human review checkpoints",
+      "connection": "A pre-verification summary creates a reusable intervention point inside a longer agent-assisted workflow.",
+      "what_to_study_next": "Practice approve, redirect and stop decisions using the ecosystem’s workflow templates."
     }
   ],
   "images": [
@@ -1813,18 +1821,18 @@
       "alt": "A creative production workflow shifts tasks between people and generative tools while contracts, consent, credit and compensation remain visible checkpoints."
     },
     {
-      "story_id": "nov24-g1-prompt-cache",
+      "story_id": "nov24-g1-inkling-monitoring",
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "Two nearly identical prompt prefixes enter a cache diagnostic, where token counters expose one clean hit and one miss caused by an early tool or system change."
+      "alt": "A compact local model cycles through repeated reasoning passes while a governance checklist compares hardware fit, data boundaries, monitoring evidence and rollback ownership."
     },
     {
       "story_id": "nov24-g2-software-atelier",
       "status": "pending",
       "accepted": false,
       "placeholder_id": "illustration-pending-1200x630-v1",
-      "alt": "A long-running coding agent pauses at a human review gate, presenting a concise change summary, tradeoffs and unresolved risks before final verification resumes."
+      "alt": "A long-running agent pauses at a plain-language human checkpoint, presenting the goal, completed work, tradeoffs, unresolved risks and proposed checks before continuing."
     }
   ]
 }
