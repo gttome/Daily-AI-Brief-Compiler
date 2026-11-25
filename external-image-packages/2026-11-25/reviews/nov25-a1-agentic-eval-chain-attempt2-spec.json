@@ -1,0 +1,460 @@
+{
+  "schema_version": "external-image-firstpass-freeze-v1",
+  "edition_date": "2026-11-25",
+  "story_id": "nov25-a1-agentic-eval-chain",
+  "source_url": "https://huggingface.co/blog/agentic-evals",
+  "visual_thesis": "A trustworthy agent score preserves the task, harness, grader and traces; a correct ratio without a fit must be rejected.",
+  "mechanism_metaphor": "A continuous sweeping folded paper chain curves from top-left claim through task, baseline, adapted task, grader, trace and score to a right-hand comparison report. Give each prominent front fold its exact useful word; no empty card grid. Enlarge the grader fold near center: one fitted-spectrum slip and one shortcut slip share a ratio motif, but only the fit is acceptable; avoid invented curves or numbers and use the exact labels Fit required and Ratio alone fails on the surfaces. There are two allowed arrowheads: Check grader to Read traces, and Read traces to Report score. All other chain adjacency is nondirectional physical overlap, not arrows. A detached note states that development tasks do not prove production.",
+  "story_anchors": [
+    "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+    "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it."
+  ],
+  "required_labels": [
+    "Define claim",
+    "Choose task",
+    "Run baseline",
+    "Adapt task",
+    "Check grader",
+    "Fit required",
+    "Ratio alone fails",
+    "Read traces",
+    "Report score",
+    "Compare models",
+    "Development tasks ≠ production proof"
+  ],
+  "source_claim_map": [
+    {
+      "id": "claim-1",
+      "proposition": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+      "supporting_source_excerpt": "define the claim",
+      "source_url": "https://huggingface.co/blog/agentic-evals",
+      "evidence_kind": "primary_source_fact"
+    },
+    {
+      "id": "claim-2",
+      "proposition": "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.",
+      "supporting_source_excerpt": "added checks on the fit itself",
+      "source_url": "https://huggingface.co/blog/agentic-evals",
+      "evidence_kind": "primary_source_fact"
+    }
+  ],
+  "allowed_causal_edges": [
+    {
+      "from": "Check grader",
+      "to": "Read traces",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    },
+    {
+      "from": "Read traces",
+      "to": "Report score",
+      "support_claim_id": "claim-1",
+      "direction": "forward",
+      "relation_supported_by_semantic_review": true
+    }
+  ],
+  "excluded_claims": [
+    "No unsupported capability, efficacy or production guarantee. No fake data, unlisted labels, human figures, logos, controls, gears, shield icons, decorative micro-writing, empty information-bearing surfaces or extra arrowheads."
+  ],
+  "composition_signature": {
+    "grammar": "Evaluation chain with grader challenge",
+    "metaphor": "Eight-step evidence braid",
+    "layout": "A continuous sweeping folded paper chain curves from top-left claim through task, baseline, adapted task, grader, trace and score to a right-hand comparison report. Give each prominent front fold its exact useful word; no empty card grid. Enlarge the grader fold near center: one fitted-spectrum slip and one shortcut slip share a ratio motif, but only the fit is acceptable; avoid invented curves or numbers and use the exact labels Fit required and Ratio alone fails on the surfaces. There are two allowed arrowheads: Check grader to Read traces, and Read traces to Report score. All other chain adjacency is nondirectional physical overlap, not arrows. A detached note states that development tasks do not prove production.",
+    "palette": "Burnt orange and moss green",
+    "hierarchy": "Traceable claim-to-report chain with enlarged grader challenge",
+    "perspective": "Top-down asymmetric sweeping paper path",
+    "annotation": "Words printed directly on information-bearing folds"
+  },
+  "quality_review_plan": {
+    "explanatory_components": 12,
+    "major_regions": 4,
+    "dominant_internal_substages": 2,
+    "secondary_supported_links": 2,
+    "component_information_map": [
+      {
+        "object": "claim fold",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "claim fold as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "task fold",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "task fold as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "baseline fold",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "baseline fold as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "adapted task fold",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "adapted task fold as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "grader fold",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "grader fold as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "fit-required test slip",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "fit-required test slip as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "shortcut test slip",
+        "visible_fact": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "support_claim_id": "claim-1",
+        "visual_encoding": "shortcut test slip as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "ratio comparison",
+        "visible_fact": "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "ratio comparison as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "trace strip",
+        "visible_fact": "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "trace strip as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "score record",
+        "visible_fact": "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "score record as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "model comparison report",
+        "visible_fact": "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "model comparison report as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      },
+      {
+        "object": "development scope note",
+        "visible_fact": "A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.",
+        "support_claim_id": "claim-2",
+        "visual_encoding": "development scope note as specified in the source-bound composition; informative faces carry exact labels or distinctly named states."
+      }
+    ]
+  },
+  "editorial_semantic_review": {
+    "result": "PASS",
+    "method": "semantic_primary_source_review",
+    "reviewer": "Executing image worker primary-source review",
+    "source_url": "https://huggingface.co/blog/agentic-evals",
+    "labels_verified": true,
+    "causal_edges_verified": true,
+    "unsupported_claims_excluded": true,
+    "approved_before_generation": true
+  },
+  "pre_generation_checks": {
+    "label_layout": [
+      {
+        "label": "Define claim",
+        "region_id": "setup",
+        "region": "Claim task baseline and adaptation",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 80,
+          "width": 300,
+          "height": 46
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Choose task",
+        "region_id": "setup",
+        "region": "Claim task baseline and adaptation",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 175,
+          "width": 300,
+          "height": 42
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Run baseline",
+        "region_id": "setup",
+        "region": "Claim task baseline and adaptation",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 280,
+          "width": 300,
+          "height": 42
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Adapt task",
+        "region_id": "setup",
+        "region": "Claim task baseline and adaptation",
+        "bounding_box_px": {
+          "x": 80,
+          "y": 390,
+          "width": 300,
+          "height": 42
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Check grader",
+        "region_id": "grader",
+        "region": "Enlarged grader challenge",
+        "bounding_box_px": {
+          "x": 445,
+          "y": 80,
+          "width": 320,
+          "height": 50
+        },
+        "minimum_font_px": 40
+      },
+      {
+        "label": "Fit required",
+        "region_id": "grader",
+        "region": "Enlarged grader challenge",
+        "bounding_box_px": {
+          "x": 445,
+          "y": 240,
+          "width": 300,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Ratio alone fails",
+        "region_id": "grader",
+        "region": "Enlarged grader challenge",
+        "bounding_box_px": {
+          "x": 445,
+          "y": 390,
+          "width": 320,
+          "height": 44
+        },
+        "minimum_font_px": 30
+      },
+      {
+        "label": "Read traces",
+        "region_id": "report",
+        "region": "Traces and report",
+        "bounding_box_px": {
+          "x": 815,
+          "y": 80,
+          "width": 300,
+          "height": 46
+        },
+        "minimum_font_px": 36
+      },
+      {
+        "label": "Report score",
+        "region_id": "report",
+        "region": "Traces and report",
+        "bounding_box_px": {
+          "x": 815,
+          "y": 235,
+          "width": 300,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Compare models",
+        "region_id": "report",
+        "region": "Traces and report",
+        "bounding_box_px": {
+          "x": 815,
+          "y": 390,
+          "width": 300,
+          "height": 44
+        },
+        "minimum_font_px": 28
+      },
+      {
+        "label": "Development tasks ≠ production proof",
+        "region_id": "limit",
+        "region": "Detached development scope",
+        "bounding_box_px": {
+          "x": 280,
+          "y": 520,
+          "width": 700,
+          "height": 42
+        },
+        "minimum_font_px": 28
+      }
+    ],
+    "safe_margin_px": 40,
+    "no_simulated_writing": true,
+    "no_false_success_symbols": true,
+    "no_decorative_scenery": true,
+    "source_caveat": "Development tasks ≠ production proof",
+    "source_caveat_detached": true,
+    "no_simulated_document_strokes": true,
+    "no_unsupported_chart_or_score_marks": true,
+    "no_avatars_shields_gears_control_knobs": true,
+    "no_unsupported_memory_or_permission_flow": true,
+    "no_pseudotext_decorative_microstrokes": true,
+    "mechanism_canvas_percent": 74,
+    "explanatory_substage_labels": [
+      "Check grader",
+      "Read traces"
+    ],
+    "thumbnail_priority_labels": [
+      "Define claim",
+      "Check grader",
+      "Read traces"
+    ],
+    "mobile_inline_390px_review_planned": true,
+    "native_export_legibility_plan": {
+      "canvas_width": 1200,
+      "canvas_height": 630,
+      "mobile_fullsize_review_planned": true,
+      "thumbnail_readability_check_planned": true
+    },
+    "causal_state_checks": [
+      {
+        "condition": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "allowed_path": "Check grader to Read traces",
+        "blocked_path": "No additional arrowheads; stopped paths, comparison guides and detached source caveat never imply a successful causal output.",
+        "support_claim_id": "claim-1"
+      },
+      {
+        "condition": "The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.",
+        "allowed_path": "Read traces to Report score",
+        "blocked_path": "No additional arrowheads; stopped paths, comparison guides and detached source caveat never imply a successful causal output.",
+        "support_claim_id": "claim-1"
+      }
+    ],
+    "connector_origin_reviews": [
+      {
+        "from": "Check grader",
+        "to": "Read traces",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "origin_region": "Enlarged grader challenge",
+        "target_region": "Traces and report",
+        "disallowed_paths_visually_blocked": true
+      },
+      {
+        "from": "Read traces",
+        "to": "Report score",
+        "support_claim_id": "claim-1",
+        "direction": "forward",
+        "relation_supported_by_semantic_review": true,
+        "origin_region": "Traces and report",
+        "target_region": "Traces and report",
+        "disallowed_paths_visually_blocked": true
+      }
+    ],
+    "editorial_style_plan": {
+      "format_family": "Eight-step evidence braid",
+      "dominant_grammar": "Evaluation chain with grader challenge",
+      "medium_treatment": "Layered paper relief with crisp folded cutouts",
+      "perspective": "Top-down asymmetric sweeping paper path",
+      "information_hierarchy": "Traceable claim-to-report chain with enlarged grader challenge",
+      "palette_family": "Burnt orange and moss green",
+      "subject_specific_visual_thesis": "A trustworthy agent score preserves the task, harness, grader and traces; a correct ratio without a fit must be rejected. The two substages are Check grader and Read traces. Full-size reading reveals trace strip, score record, model comparison report, development scope note.",
+      "difference_from_earlier_story_images": "nov21-k1-agent-traces-eval: Unlike November 21’s three broad banners, this continuous paper-relief chain places exact test and grader findings on the front folds and exposes the shortcut failure.",
+      "first_pass_risk_mitigation": "Keep all relevant foreground preferably 72px inside edges, make every record meaningful with exact source labels, forbid pseudo-writing, unsupported controls and all arrowheads beyond the enumerated physical ports. Review the detached caveat and actual 320px pixels before any acceptance."
+    },
+    "composition_geometry": {
+      "schema_version": "image-composition-geometry-v1",
+      "regions": [
+        {
+          "id": "setup",
+          "description": "Claim task baseline and adaptation",
+          "bounding_box_px": {
+            "x": 65,
+            "y": 65,
+            "width": 340,
+            "height": 430
+          }
+        },
+        {
+          "id": "grader",
+          "description": "Enlarged grader challenge",
+          "bounding_box_px": {
+            "x": 430,
+            "y": 65,
+            "width": 350,
+            "height": 430
+          }
+        },
+        {
+          "id": "report",
+          "description": "Traces and report",
+          "bounding_box_px": {
+            "x": 800,
+            "y": 65,
+            "width": 335,
+            "height": 430
+          }
+        },
+        {
+          "id": "limit",
+          "description": "Detached development scope",
+          "bounding_box_px": {
+            "x": 250,
+            "y": 510,
+            "width": 760,
+            "height": 60
+          }
+        }
+      ],
+      "connector_anchors": [
+        {
+          "from": "Check grader",
+          "to": "Read traces",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "grader",
+          "to_region_id": "report",
+          "origin_px": {
+            "x": 765,
+            "y": 180
+          },
+          "target_px": {
+            "x": 815,
+            "y": 180
+          }
+        },
+        {
+          "from": "Read traces",
+          "to": "Report score",
+          "support_claim_id": "claim-1",
+          "direction": "forward",
+          "relation_supported_by_semantic_review": true,
+          "from_region_id": "report",
+          "to_region_id": "report",
+          "origin_px": {
+            "x": 1090,
+            "y": 190
+          },
+          "target_px": {
+            "x": 1090,
+            "y": 220
+          }
+        }
+      ],
+      "prompt_geometry_review": {
+        "result": "PASS",
+        "reviewer": "Executing source and geometry reviewer",
+        "regions_match_composition": true,
+        "labels_match_regions": true,
+        "connectors_match_source": true,
+        "geometry_sha256": "215e990f685820190c7640066ecdf481b23a06457592568ccbea5d30efd3250b"
+      }
+    }
+  },
+  "native_generation_prompt": "Create exactly one premium factual editorial illustration, landscape 1200x630, white background. Static educational artwork, not an engineering drawing. Style: Layered paper relief with crisp folded cutouts. View: Top-down asymmetric sweeping paper path. Palette: Burnt orange and moss green.\nARTICLE: Agent evaluation needs a traceable chain, not one leaderboard number\nHugging Face’s guide argues that an agent score is interpretable only when the task, harness, grader, trace corrections and comparison policy are preserved. It offers an eight-step workflow for turning a headline claim into evidence a reviewer can inspect. Platform counts illustrate evaluation sprawl but do not prove that any benchmark predicts production performance.\nSOURCE FACTS: The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison. A ratio-only shortcut skipped fitting; adding fit checks made the verifier reject it.\nVISUAL THESIS: A trustworthy agent score preserves the task, harness, grader and traces; a correct ratio without a fit must be rejected.\nCOMPOSITION: A continuous sweeping folded paper chain curves from top-left claim through task, baseline, adapted task, grader, trace and score to a right-hand comparison report. Give each prominent front fold its exact useful word; no empty card grid. Enlarge the grader fold near center: one fitted-spectrum slip and one shortcut slip share a ratio motif, but only the fit is acceptable; avoid invented curves or numbers and use the exact labels Fit required and Ratio alone fails on the surfaces. There are two allowed arrowheads: Check grader to Read traces, and Read traces to Report score. All other chain adjacency is nondirectional physical overlap, not arrows. A detached note states that development tasks do not prove production.\nEvery content-bearing object must explain: claim fold; task fold; baseline fold; adapted task fold; grader fold; fit-required test slip; shortcut test slip; ratio comparison; trace strip; score record; model comparison report; development scope note. No empty records, decorative paragraphs, pseudotext or invented symbols. No people, humanoids, logos, photorealism, dashboards, panel collages, machinery or unsupported graphs. Large clear typography; priority labels at least 36px and secondary labels at least 28px at final export. Keep every foreground shape, shadow and glyph preferably 72px inset, never less than 40px. Keep the main mechanism understandable at 320px. Render ONLY these exact labels, once each: [\"Define claim\",\"Choose task\",\"Run baseline\",\"Adapt task\",\"Check grader\",\"Fit required\",\"Ratio alone fails\",\"Read traces\",\"Report score\",\"Compare models\",\"Development tasks ≠ production proof\"]. No title beyond those labels.\nDraw ONLY these arrowheads, each on the named physical object ports, never on text: Check grader to Read traces; condition The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.; Read traces to Report score; condition The guide follows claim, task, baseline, adaptation, grader checks, traces, score and model comparison.. All other guides are explicitly nondirectional. Keep caveat detached.\n[FROZEN_COMPOSITION_GEOMETRY]\n{\"regions\":[{\"id\":\"setup\",\"description\":\"Claim task baseline and adaptation\",\"bounding_box_px\":{\"x\":65,\"y\":65,\"width\":340,\"height\":430}},{\"id\":\"grader\",\"description\":\"Enlarged grader challenge\",\"bounding_box_px\":{\"x\":430,\"y\":65,\"width\":350,\"height\":430}},{\"id\":\"report\",\"description\":\"Traces and report\",\"bounding_box_px\":{\"x\":800,\"y\":65,\"width\":335,\"height\":430}},{\"id\":\"limit\",\"description\":\"Detached development scope\",\"bounding_box_px\":{\"x\":250,\"y\":510,\"width\":760,\"height\":60}}],\"labels\":[{\"label\":\"Define claim\",\"region_id\":\"setup\",\"region\":\"Claim task baseline and adaptation\",\"bounding_box_px\":{\"x\":80,\"y\":80,\"width\":300,\"height\":46},\"minimum_font_px\":36},{\"label\":\"Choose task\",\"region_id\":\"setup\",\"region\":\"Claim task baseline and adaptation\",\"bounding_box_px\":{\"x\":80,\"y\":175,\"width\":300,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Run baseline\",\"region_id\":\"setup\",\"region\":\"Claim task baseline and adaptation\",\"bounding_box_px\":{\"x\":80,\"y\":280,\"width\":300,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Adapt task\",\"region_id\":\"setup\",\"region\":\"Claim task baseline and adaptation\",\"bounding_box_px\":{\"x\":80,\"y\":390,\"width\":300,\"height\":42},\"minimum_font_px\":28},{\"label\":\"Check grader\",\"region_id\":\"grader\",\"region\":\"Enlarged grader challenge\",\"bounding_box_px\":{\"x\":445,\"y\":80,\"width\":320,\"height\":50},\"minimum_font_px\":40},{\"label\":\"Fit required\",\"region_id\":\"grader\",\"region\":\"Enlarged grader challenge\",\"bounding_box_px\":{\"x\":445,\"y\":240,\"width\":300,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Ratio alone fails\",\"region_id\":\"grader\",\"region\":\"Enlarged grader challenge\",\"bounding_box_px\":{\"x\":445,\"y\":390,\"width\":320,\"height\":44},\"minimum_font_px\":30},{\"label\":\"Read traces\",\"region_id\":\"report\",\"region\":\"Traces and report\",\"bounding_box_px\":{\"x\":815,\"y\":80,\"width\":300,\"height\":46},\"minimum_font_px\":36},{\"label\":\"Report score\",\"region_id\":\"report\",\"region\":\"Traces and report\",\"bounding_box_px\":{\"x\":815,\"y\":235,\"width\":300,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Compare models\",\"region_id\":\"report\",\"region\":\"Traces and report\",\"bounding_box_px\":{\"x\":815,\"y\":390,\"width\":300,\"height\":44},\"minimum_font_px\":28},{\"label\":\"Development tasks ≠ production proof\",\"region_id\":\"limit\",\"region\":\"Detached development scope\",\"bounding_box_px\":{\"x\":280,\"y\":520,\"width\":700,\"height\":42},\"minimum_font_px\":28}],\"connector_anchors\":[{\"from\":\"Check grader\",\"to\":\"Read traces\",\"support_claim_id\":\"claim-1\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"grader\",\"to_region_id\":\"report\",\"origin_px\":{\"x\":765,\"y\":180},\"target_px\":{\"x\":815,\"y\":180}},{\"from\":\"Read traces\",\"to\":\"Report score\",\"support_claim_id\":\"claim-1\",\"direction\":\"forward\",\"relation_supported_by_semantic_review\":true,\"from_region_id\":\"report\",\"to_region_id\":\"report\",\"origin_px\":{\"x\":1090,\"y\":190},\"target_px\":{\"x\":1090,\"y\":220}}]}\n[/FROZEN_COMPOSITION_GEOMETRY]\nTARGETED CORRECTION: The chain foreground and lower caveat extend inside the mandatory 40px margins, and the central added word Ratio with equals signs is not allowlisted. Remove that middle disc and both equals signs. Keep the two informative test slips Fit required and Ratio alone fails; do not replace them with a blank information slot. Inset the complete folded chain and all labels approximately 12 percent while preserving both intended arrows. Keep exactly the existing factual labels and the frozen geometry relationships. Do not introduce any extra text or arrowheads. The complete relevant artwork including labels and foreground must have a generous continuous white outer border, x80..1120 and y70..555 at final 1200x630. Preserve the meaningful objects and accurate relationships; no clipping, no blank information surfaces, no decorative replacement."
+}
