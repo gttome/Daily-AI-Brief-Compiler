@@ -2,13 +2,13 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-25",
   "execution_id": "daily-ai-brief-compiler-2026-11-25",
-  "state": "RESEARCH",
-  "stage": "EDITORIAL",
+  "state": "BUNDLE_READY",
+  "stage": "BUNDLE",
   "base_commit": "1dbd534151a83a7cd0b9cf5a4b87a5101baaacca",
   "branch": "shadow/2026-11-25",
   "initial_execution_observed_at": "2026-11-25T01:35:54.905Z",
   "started_at": "2026-11-25T01:35:54.905Z",
-  "updated_at": "2026-11-25T02:11:00.000Z",
+  "updated_at": "2026-11-25T02:13:30.000Z",
   "images": {
     "required": 6,
     "accepted": [],
@@ -24,7 +24,7 @@
     "video_receipt": "shadow-runs/2026-11-25/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": false,
+    "bundle_ready": true,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -35,28 +35,23 @@
   },
   "continuation": {
     "owner": "sole existing editorial task",
-    "next_action": "Re-run protected pre-seal playback against the corrected exact Fantasy duration, then reseal the unchanged two-video selection and re-run protected publication gates.",
+    "next_action": "Run protected semantic, archive, reader and playback gates, dispatch the protected-main compiler, then verify live reader and immutable image handoff.",
     "recovery_guard": null
   },
   "retryable": true,
-  "last_error": {
-    "code": "PRESEAL_VIDEO_FINAL_SELECTION_CHANGED",
-    "failed_run": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45530479529",
-    "failed_stage": "VIDEO_PLAYBACK",
-    "cause": "Fantasy duration serialized as 6.1582203333 minutes in the bundle but 6.158220333333334 minutes in the protected request.",
-    "attempted_repair": "Correct the bundle duration to the exact request value and obtain a fresh protected receipt before resealing.",
-    "source_head": "5146fe91c665369c68d9f77ad3b7c50bd5dfd0bf"
-  },
+  "last_error": null,
   "bundle": {
-    "status": "draft",
-    "digest": "d86fe548a2f4c4be6ec8d0e727af536183de2fcd9c73bfeb65c072e749ae7bb6"
+    "status": "BUNDLE_READY",
+    "digest": "1c19ce9e731d1538adfa49e0e38bbcf4a6f4a0a9795767d46c4f16cf0ce0571f"
   },
   "editorial_bundle": {
-    "status": "draft",
-    "digest": "d86fe548a2f4c4be6ec8d0e727af536183de2fcd9c73bfeb65c072e749ae7bb6"
+    "status": "complete",
+    "digest": "1c19ce9e731d1538adfa49e0e38bbcf4a6f4a0a9795767d46c4f16cf0ce0571f"
   },
   "bundle_path": "shadow-runs/2026-11-25/edition-bundle.json",
-  "bundle_sha256": "d86fe548a2f4c4be6ec8d0e727af536183de2fcd9c73bfeb65c072e749ae7bb6",
+  "bundle_sha256": "1c19ce9e731d1538adfa49e0e38bbcf4a6f4a0a9795767d46c4f16cf0ce0571f",
   "postpublication_correction": null,
-  "semantic_sha256": "d86fe548a2f4c4be6ec8d0e727af536183de2fcd9c73bfeb65c072e749ae7bb6"
+  "semantic_sha256": "1c19ce9e731d1538adfa49e0e38bbcf4a6f4a0a9795767d46c4f16cf0ce0571f",
+  "selection_locked_at": "2026-11-25T02:13:30.000Z",
+  "sealed_at": "2026-11-25T02:13:30.000Z"
 }
