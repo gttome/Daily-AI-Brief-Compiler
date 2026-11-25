@@ -1,6 +1,6 @@
 # 2026-11-25 premium image after-action report
 
-**Status: VISUAL_COMPLETE_PUBLIC_STATUS_SYNC_PENDING**. This is image-lane status, not unattended certification of the editorial producer.
+**Status: PUBLISHED_COMPLETE**. This is image-lane status, not unattended certification of the editorial producer.
 
 | Metric | Observed result |
 |---|---|
@@ -11,8 +11,8 @@
 | First accepted binary commit | b515ccb33ac9e4a076a380eab0b401350d58f56d |
 | Executor observed run start | 2026-11-25T03:16:14Z (self-attested, not scheduler telemetry) |
 | First native generation clock | 2026-11-25T03:23:09Z (observed before tool call) |
-| Public release | LIVE_ASSETS_VERIFIED_STATUS_SYNC_PENDING |
-| Public verified time | Not recorded |
+| Public release | RELEASED_VERIFIED |
+| Public verified time | 2026-11-25T04:07:34Z |
 | Final saved-context review | PASS; 24 targets |
 | Weekly usage | UNKNOWN |
 
@@ -81,14 +81,20 @@ Visual review path: external-image-packages/2026-11-25/reviews/live/semantic-pix
 
 Six actual source-bound images generated in this invocation. All accepted bytes are immutable. Twelve calls and zero first-pass accepts miss both advisory goals; no efficiency or owner aesthetic improvement is claimed.
 
-Source/job/bundle binding verified, canonical branch atomically claimed and actual first-call clock persisted/read back before generation. The protected package and live closure are still pending.
+Source/job/bundle binding verified, canonical branch atomically claimed and actual first-call clock persisted/read back before generation. Protected package, six live assets,24 actual contexts and final public metadata are now verified.
 
 Top 10 image mapping is one exact article: nov25-t1-quantum-verified-agents; see the final impact table. No mappings invented for the other five.
 
-November 20–22 experiment remains the original three eligible editions, not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Owner acceptance and true usage unknown.
+November 20–22 experiment remains the original three eligible editions, not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Owner aesthetic feedback for that original experiment is not newly inferred; current November25 feedback is separately recorded as negative, and true usage remains unknown.
 
 Previous AAR daily corrective review and all three chart data inspected: 13 calls, zero first-pass accepts, seven rejected candidates; current source-specific fixes retain actual failures and unknowns.
 
 Supplemental final source cross-check followed the linked Cisco Isovalent and OpenAI Shirudo explanations, confirming operator approval, signed deployment and bounded controlled examples. This later inspection is not backdated into the original generation clock.
+
+Owner feedback was subsequently recorded as negative in PR422 after the accepted images were locked. Preserve original review chronology and immutable PNGs; prospective layout variety repair belongs to the separate already-active protected PR, which this image owner does not duplicate.
+
+Protected PR423 strengthens the existing release/sync waits after a real positive-probe/empty-deploy discrepancy. New code is implemented; a successful current retry and future reliability remain separate outcomes.
+
+Actual metadata-only repair run45544373093 succeeded with the stronger default/full listing agreement and bounded settling wait. Independent fresh public readback then confirmed6 hashes,12 dated/permanent pairings,6 homepage pairings and RELEASED_VERIFIED public metadata. The main image-only workflow’s prospective waits have not yet been exercised in a new edition; future reliability remains unproven.
 
 Owner personal artwork acceptance is not inferred. Preserve all accepted PNG bytes, prior receipts and existing recurrence. Unknown usage never blocks publication.
