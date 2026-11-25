@@ -81,11 +81,11 @@ Visual review path: external-image-packages/2026-11-25/reviews/live/semantic-pix
 
 Six actual source-bound images generated in this invocation. All accepted bytes are immutable. Twelve calls and zero first-pass accepts miss both advisory goals; no efficiency or owner aesthetic improvement is claimed.
 
-Source/job/bundle binding verified, canonical branch atomically claimed and actual first-call clock persisted/read back before generation. The protected package and live closure are still pending.
+Source/job/bundle binding verified, canonical branch atomically claimed and actual first-call clock persisted/read back before generation. Protected package, six live assets,24 actual contexts and final public metadata are now verified.
 
 Top 10 image mapping is one exact article: nov25-t1-quantum-verified-agents; see the final impact table. No mappings invented for the other five.
 
-November 20–22 experiment remains the original three eligible editions, not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Owner acceptance and true usage unknown.
+November 20–22 experiment remains the original three eligible editions, not restarted: 14/14/16 calls and 1/1/0 first-pass accepts. Owner aesthetic feedback for that original experiment is not newly inferred; current November25 feedback is separately recorded as negative, and true usage remains unknown.
 
 Previous AAR daily corrective review and all three chart data inspected: 13 calls, zero first-pass accepts, seven rejected candidates; current source-specific fixes retain actual failures and unknowns.
 
