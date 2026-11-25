@@ -1,6 +1,7 @@
 import {renderImageAar} from './render-image-aar.mjs';
 import {verifySixFrozenImageSpecifications} from './preflight-image-firstpass.mjs';
 import {validateImageAfterAction,IMAGE_AAR_EFFECTIVE} from './image-aar-contract.mjs';
+import {verifyImageLayoutAudit} from '../operations/image-layout-audit.mjs';
 import {verifyEditorialDiversityEvidence} from '../operations/image-set-diversity.mjs';
 // Exact-current-cycle, pre-FIRST-image-PR admission. Run on a pushed candidate
 // branch with current origin/main, origin/shadow-pages-history and source fetched.
@@ -155,7 +156,9 @@ export async function preflightRecurringImagePackage({
        fail('SIX_UP_CONTACT_SHEET_HASH_OR_PNG_INVALID');
   }
   if(date>=IMAGE_AAR_EFFECTIVE){
-    verifySixFrozenImageSpecifications({job,specifications:readJson(committedFile(root,prefix+'reviews/six-frozen-specs.json'),'FROZEN_SPECS')});
+    const specifications=readJson(committedFile(root,prefix+'reviews/six-frozen-specs.json'),'FROZEN_SPECS');
+    verifySixFrozenImageSpecifications({job,specifications});
+    verifyImageLayoutAudit(manifest,{index,specifications});
     const aarPath=prefix+'reviews/after-action.json';
     const aar=readJson(committedFile(root,aarPath),'AFTER_ACTION');
     validateImageAfterAction({aar,job,manifest});

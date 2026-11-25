@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {IMAGE_LAYOUT_REQUIREMENTS,validateCompositionGeometry} from './image-layout-contract.mjs';
+import {verifyFrozenLayoutPlan} from '../operations/image-layout-audit.mjs';
 import {readImageProcessVersions} from './image-process-versions.mjs';
 const fail=s=>{throw Error('image_firstpass_quality:'+s);};
 const forbidden=/\b(?:lorem ipsum|placeholder text|pseudo[- ]?writing|fake microtext|fill in later|draft label)\b/i;
@@ -211,6 +212,7 @@ export function verifySixFrozenImageSpecifications({job,specifications}){
  }
  if(job.edition_date>='2026-10-21'&&grammars.size!==6)fail('six_distinct_story_compositions_required');
  const stylePreflight=preflightDistinctArtDirections(specifications,job.edition_date);
+ verifyFrozenLayoutPlan(specifications,job.edition_date);
  if(done.size!==6||grammars.size<4||metaphors.size<4||annotations.size<3||
    Math.max(...grammars.values())>2)fail('six_set_visual_convergence');
  return {schema_version:'external-image-firstpass-set-v1',

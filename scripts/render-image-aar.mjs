@@ -9,6 +9,7 @@ export function renderImageAar({aar,job,manifest}){
  validateImageAfterAction({aar,job,manifest});
  const p=aar.production;
  const diversity=verifyEditorialDiversityEvidence({...manifest,edition_date:manifest?.edition_date??job.edition_date});
+ const layout=diversity.structural_layout;
  const editorial=renderImageEditorialFeedback(collectImageEditorialFeedback({edition:job.edition_date,aar,manifest}));
  return [
  '# '+aar.edition_date+' premium image after-action report','',
@@ -43,6 +44,19 @@ export function renderImageAar({aar,job,manifest}){
     cell(i.format_family)+' | '+cell(i.medium_treatment)+' | '+cell(i.perspective)+' | '+
     cell(i.observed_distinctiveness)+' |'),'',
  'Retain the full 15 pairwise observations in the immutable manifest. Repeat the complete set review on any changed image; do not use color or renamed diagram tags alone as differentiation.',''
+ ]:[]),
+ ...(layout?[
+ '## Visible layout audit','',
+ 'Observed families: '+Object.entries(layout.observed).map(([k,v])=>k+' '+v).join(', ')+
+ '. Largest repeated layout: '+layout.largest_repeated_layout+
+ '. Changed layout and treatment versus preceding edition: '+cell(layout.changed_vs_preceding)+'.','',
+ 'Prior verified editions compared: '+(layout.prior_editions.join(', ')||'Not recorded')+'.',
+ 'D = dominant mass, S = supporting mass, period = open space. Read each triplet as a row.','',
+ '| Story | Planned silhouette | Observed silhouette | Observed layout | Eye path |',
+ '|---|---|---|---|---|',
+ ...layout.stories.map(x=>'| '+[x.story_id,x.planned_silhouette,x.observed_silhouette,x.observed_layout,x.observed_eye_path].map(cell).join(' | ')+' |'),'',
+ ...layout.stories.flatMap(x=>x.prior_matches.map(m=>'- '+cell(x.story_id)+' vs '+m.edition_date+
+  ' ('+m.image_sha256.slice(0,12)+'): '+cell(m.visual_comparison))), ''
  ]:[]),
  ...(editorial?[editorial,'']:[]),
  '## Corrections','', '| Stage | Issue | Correction |','|---|---|---|',

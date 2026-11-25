@@ -1,3 +1,4 @@
+import {verifyImageLayoutAudit} from './image-layout-audit.mjs';
 // Prospective six-image saved-pixel diversity evidence, distinct from individual QA.
 // These fields are reviewer observations, not computer vision or owner sign-off.
 // Historical released image packages are immutable.
@@ -60,7 +61,9 @@ export function verifyEditorialDiversityEvidence(manifest){
   }
   for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++)
     if(!observed.has(ids[i]+'|'+ids[j]))fail('missing_visual_pair');
+  const structural_layout=verifyImageLayoutAudit(manifest);
   return {required:true,status:'DIVERSITY_EVIDENCE_RECORDED_NOT_OWNER_ART_APPROVAL',
     contact_sheet_path:r.contact_sheet_path,contact_sheet_sha256:r.contact_sheet_sha256,
-    distinct_format_families:unique(rows,'format_family'),pairwise_reviews:observed.size};
+    distinct_format_families:unique(rows,'format_family'),pairwise_reviews:observed.size,
+    ...(structural_layout?{structural_layout}:{})};
 }
