@@ -1,0 +1,66 @@
+{
+  "schema_version": "daily-compiler-watchlist-editorial-revision-v1",
+  "requested_by": "owner",
+  "scope": "watchlist_material_update",
+  "edition_date": "2026-11-25",
+  "reviewed_at": "2026-11-25T02:34:02Z",
+  "items": [
+    {
+      "topic_id": "dab-topic-adaptive-agent-safeguards",
+      "expected_topic_sha256": "6c1a4e5bf79a72d88d906e6c6c6da1959d8a70ce05f0e17ceb9c53b53b20387f",
+      "summary": "Google Workspace now documents service-level access controls and action review rules for external agents connected through its MCP tools or command line.",
+      "why_now": "The November 24 release moves Workspace MCP and its command line into general availability, with documented administrator controls and agent audit attributes.",
+      "practical_value": "Pilot one external agent in a test group and confirm that a restricted action triggers review and leaves the expected audit record.",
+      "limitations": "Google describes platform behavior, not independently measured protection or adoption. The external-agent review rules do not apply to standard app connections.",
+      "next_action": "Seek independent administrator tests that distinguish policy settings, actual prompts, audit coverage and failures across approved and blocked actions.",
+      "evidence": [
+        {
+          "kind": "primary",
+          "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+          "title": "Simplifying agent access while keeping organizations in control",
+          "publisher": "Google Workspace Updates",
+          "publication_date": "2026-11-24",
+          "review_depth": "Google's dated release announcement confirms general availability of Workspace MCP servers and the official CLI alongside expanded controls. It supplies no independent operational outcomes.",
+          "checked_at": "2026-11-25T02:34:02Z",
+          "development_id": "nov25-workspace-governed-agent-access-ga"
+        },
+        {
+          "kind": "primary",
+          "url": "https://knowledge.workspace.google.com/admin/apps/control-which-apps-access-google-workspace-data",
+          "title": "Control which apps access Google Workspace data",
+          "publisher": "Google Workspace Admin Help",
+          "publication_date": null,
+          "review_depth": "Administration documentation lists client-level service controls, four user-review categories for external agents, and audit fields for agent identity and approval. The page was updated November 24 UTC; original publication date is unverified.",
+          "checked_at": "2026-11-25T02:34:02Z",
+          "development_id": "nov25-workspace-agent-admin-audit-controls"
+        }
+      ],
+      "rubric": {
+        "novelty": {
+          "score": 4,
+          "reason": "General availability brings service-level controls and action-specific human review to common workplace tools on a named access route."
+        },
+        "evidence": {
+          "score": 4,
+          "reason": "The release and administrator guide specify access modes, review categories and audit fields, but do not quantify control effectiveness."
+        },
+        "independence": {
+          "score": 3,
+          "reason": "Google now documents a separate implementation alongside earlier AWS and Microsoft approaches, but these are platform-authored accounts, not independent product audits."
+        },
+        "momentum": {
+          "score": null,
+          "reason": "No repeated measurement of approval behavior or audit coverage uses the same denominator at two known dates."
+        },
+        "relevance": {
+          "score": 5,
+          "reason": "An administrator can test an external agent against one reviewable action and inspect the resulting access decision and log."
+        },
+        "durability": {
+          "score": 5,
+          "reason": "Separating identities, least-privilege access, action approval and audit evidence remains useful as models and connectors change."
+        }
+      }
+    }
+  ]
+}
