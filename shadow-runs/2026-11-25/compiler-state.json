@@ -2,20 +2,26 @@
   "schema_version": "daily-compiler-state-v1",
   "edition_date": "2026-11-25",
   "execution_id": "daily-ai-brief-compiler-2026-11-25",
-  "state": "BUNDLE_READY",
-  "stage": "BUNDLE",
+  "state": "RESEARCH",
+  "stage": "MEDIA_RECOVERY",
   "base_commit": "1dbd534151a83a7cd0b9cf5a4b87a5101baaacca",
   "branch": "shadow/2026-11-25",
   "initial_execution_observed_at": "2026-11-25T01:35:54.905Z",
   "started_at": "2026-11-25T01:35:54.905Z",
-  "updated_at": "2026-11-25T01:41:31.473Z",
+  "updated_at": "2026-11-25T02:02:30.000Z",
   "images": {
     "required": 6,
     "accepted": [],
     "mode": "images_pending",
     "placeholder_id": "illustration-pending-1200x630-v1"
   },
-  "blocker": null,
+  "blocker": {
+    "stage": "VIDEO_PLAYBACK",
+    "run_url": "https://github.com/gttome/Daily-AI-Brief-Compiler/actions/runs/45529683469",
+    "error": "PRESEAL_VIDEO_FINAL_SELECTION_CHANGED",
+    "attempted_repair": "Reordered the saved protected request so Fantasy and the PASS-qualified Bengio talk are the two final slots and OpenAI Academy is the first reserve.",
+    "next_action": "Run the revised exact request through protected signed-out playback, then reseal the same bundle against the new PASS receipt."
+  },
   "evidence": {
     "trend_input": "shadow-runs/2026-11-25/editorial/trend-input.json",
     "trend_search_coverage": "shadow-runs/2026-11-25/editorial/trend-search-coverage.json",
@@ -24,7 +30,7 @@
     "video_receipt": "shadow-runs/2026-11-25/editorial/preseal-video-receipt.json"
   },
   "publication": {
-    "bundle_ready": true,
+    "bundle_ready": false,
     "protected_workflow_dispatched": false,
     "public_reader_verified": false
   },
@@ -35,19 +41,19 @@
   },
   "continuation": {
     "owner": "sole existing editorial task",
-    "next_action": "Run protected semantic, archive, reader and playback gates, dispatch the protected-main compiler, then verify live reader and immutable image handoff.",
+    "next_action": "Run the revised exact final/reserve video request through the protected runner, then reseal and recheck the same editorial bundle.",
     "recovery_guard": null
   },
-  "selection_locked_at": "2026-11-25T01:41:31.473Z",
-  "sealed_at": "2026-11-25T01:41:31.473Z",
+  "selection_locked_at": null,
+  "sealed_at": null,
   "retryable": true,
-  "last_error": null,
+  "last_error": "PRESEAL_VIDEO_FINAL_SELECTION_CHANGED in protected run 45529683469",
   "bundle": {
-    "status": "BUNDLE_READY",
+    "status": "DRAFT",
     "digest": "63d8b49ce09b6265120f8eb62f452748ee18c32a331b7248040d6f341f3d7313"
   },
   "editorial_bundle": {
-    "status": "complete",
+    "status": "in_progress",
     "digest": "63d8b49ce09b6265120f8eb62f452748ee18c32a331b7248040d6f341f3d7313"
   },
   "bundle_path": "shadow-runs/2026-11-25/edition-bundle.json",
